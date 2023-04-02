@@ -28,4 +28,5 @@ export type LocationsType = {
     has_map?: boolean
     badge?: string
     badge_alt?: string
+    need_address_block?: boolean
 }

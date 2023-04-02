@@ -67,8 +67,9 @@ const AgreementLabel = ({
                             rel="noopener noreferrer"
                             size="14px"
                             color="red"
-                            target="__blank"
+                            target="_blank"
                             type="terms_and_conditions/#clients"
+                            external
                         />,
                     ]}
                 />

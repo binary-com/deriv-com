@@ -10,6 +10,7 @@ import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param
 
 type TQuestionsCategory = {
     data: TQuestionsData
+    topic_number: number
 }
 
 const Wrapper = styled.div`
@@ -53,7 +54,7 @@ const ShowMore = styled.span`
     margin-top: 1.6rem;
 `
 
-const QuestionsCategory = ({ data }: TQuestionsCategory) => {
+const QuestionsCategory = ({ data, topic_number }: TQuestionsCategory) => {
     const { category, questions } = data
     const { platform } = usePlatformQueryParam()
     const [show_more, setShowMore] = useState(false)
@@ -66,7 +67,6 @@ const QuestionsCategory = ({ data }: TQuestionsCategory) => {
         : '_t_<0>View all questions</0>_t_'
 
     const handleShowMoreClick = () => setShowMore(!show_more)
-
     return (
         <Wrapper>
             <Header type="subtitle-1" mt="4.2rem" mb="1.8rem">
@@ -85,7 +85,7 @@ const QuestionsCategory = ({ data }: TQuestionsCategory) => {
             </StyledList>
 
             {can_expand && (
-                <ShowMore onClick={handleShowMoreClick}>
+                <ShowMore onClick={handleShowMoreClick} className={`view_${topic_number}`}>
                     <Localize translate_text={show_more_text} components={[<span key={0} />]} />
                 </ShowMore>
             )}

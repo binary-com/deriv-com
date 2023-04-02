@@ -11,6 +11,7 @@ import {
 } from '../../static/style/_markets-style'
 import { useBrowserResize } from '../../../../components/hooks/use-browser-resize'
 type Contentelement = {
+    id: string
     component?: ReactElement
     mobile_title?: ReactElement
     title?: ReactElement
@@ -43,10 +44,11 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
     const [is_mobile] = useBrowserResize()
     return (
         <MarketsWrapper>
-            {market_content.content?.map((content, index) =>
+            {market_content.content?.map((content) =>
                 market_content.has_global_accordion || content.details ? (
                     <MarketsAccordion
-                        key={index}
+                        id={content.id}
+                        key={content.id}
                         renderTitle={() => (
                             <Row is_accordion_row={true}>
                                 {market_content.template == 2 ? (
@@ -79,17 +81,7 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
                                                 <Title>{content.title}</Title>
                                             )}
                                         </Col>
-                                        <DerivedMarketsList
-                                            has_right_border={true}
-                                            col={content.col}
-                                            tablet_col={content.tablet_col}
-                                            mobile_col={content.mobile_col}
-                                            padding={content.padding}
-                                            gap={content.gap}
-                                            gap_mobile={content.gap_mobile}
-                                        >
-                                            {content.component}
-                                        </DerivedMarketsList>
+                                        <DerivedMarketsList>{content.component}</DerivedMarketsList>
                                     </>
                                 ) : (
                                     <>
@@ -111,7 +103,7 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
                         {content.details}
                     </MarketsAccordion>
                 ) : (
-                    <Row key={index} mobile_template={content.mobile_template}>
+                    <Row id={content.id} key={content.id} mobile_template={content.mobile_template}>
                         <Col mobile_template={content.mobile_template}>
                             {is_mobile && content.mobile_title ? (
                                 <Title>{content.mobile_title}</Title>

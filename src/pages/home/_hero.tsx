@@ -1,6 +1,6 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
+import { StaticImage } from 'gatsby-plugin-image'
 import VerticalCarousel from './_vertical-carousel'
 import PlatformSlideshow from './_platform-slideshow'
 import { contents, contents_ppc, header_items } from './_data'
@@ -9,30 +9,22 @@ import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
-import { BackgroundImage, Header } from 'components/elements'
+import { Header } from 'components/elements'
 import useRegion from 'components/hooks/use-region'
 import { Localize } from 'components/localization'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { TString } from 'types/generics'
-
-const query = graphql`
-    query {
-        hero_background: file(relativePath: { eq: "home/hero_bg.png" }) {
-            ...homePageHeroFadeIn
-        }
-    }
-`
 
 type HeroProps = {
     is_ppc?: boolean
 }
 
 const HeroWrapper = styled.section`
+    position: relative;
     width: 100%;
     padding: calc(7rem + 80px) 0;
     min-height: 915px;
     background: linear-gradient(241.35deg, #122434 12.86%, #060c11 85.61%, #060c11 85.61%);
-    position: relative;
     @media ${device.tabletL} {
         flex-wrap: wrap;
         justify-content: flex-start;
@@ -73,67 +65,86 @@ const HeroHeader = ({ text }: { text: TString }) => {
 }
 
 const Hero = ({ is_ppc }: HeroProps) => {
-    const data = useStaticQuery(query)
     const { is_region_loading, is_eu, is_row } = useRegion()
+    const [is_logged_in, is_auth_checked] = useAuthCheck()
     const handleSignup = useHandleSignup()
-    const [is_logged_in] = useAuthCheck()
 
     return (
         <HeroWrapper>
-            <BackgroundImage is_unstyled data={data.hero_background} loading="eager">
-                <Container fd="column" ai="flex-start">
+            <Flex
+                height="100%"
+                position="absolute"
+                ai="center"
+                top="0"
+                tablet={{ ai: 'flex-end', pb: '20rem' }}
+            >
+                <Box>
+                    <StaticImage
+                        src="../../images/common/home/hero_bg.png"
+                        alt="world map"
+                        loading="eager"
+                        formats={['avif', 'webp', 'auto']}
+                        quality={26}
+                        objectFit="contain"
+                        placeholder="none"
+                    />
+                </Box>
+            </Flex>
+            <Container fd="column" ai="flex-start">
+                <Flex
+                    m="0 auto"
+                    tabletL={{
+                        fd: 'column',
+                        max_width: '100%',
+                    }}
+                >
                     <Flex
-                        m="0 auto"
+                        max_width="486px"
+                        fd="column"
+                        jc="flex-start"
+                        bp1060={{ max_height: 'unset' }}
                         tabletL={{
-                            fd: 'column',
+                            width: 'unset',
                             max_width: '100%',
+                            mr: 'unset',
+                            mb: '40px',
                         }}
+                        z_index="2"
                     >
                         <Flex
-                            max_width="486px"
-                            fd="column"
-                            jc="flex-start"
-                            bp1060={{ max_height: 'unset' }}
+                            height="unset"
+                            mb="16px"
+                            direction="column"
                             tabletL={{
-                                width: 'unset',
+                                fd: 'row',
+                                fw: 'wrap',
+                                jc: 'flex-start',
+                                mb: '8px',
                                 max_width: '100%',
-                                mr: 'unset',
-                                mb: '40px',
                             }}
                         >
-                            <Flex
-                                height="unset"
-                                mb="16px"
-                                direction="column"
-                                tabletL={{
-                                    fd: 'row',
-                                    fw: 'wrap',
-                                    jc: 'flex-start',
-                                    mb: '8px',
-                                    max_width: '100%',
-                                }}
-                            >
-                                {header_items.map((item) => (
-                                    <HeroHeader key={item.id} text={item.text} />
-                                ))}
-                            </Flex>
-                            <Header
-                                as="h2"
-                                type="sub-section-title"
-                                color="white"
-                                min_height="auto"
-                                weight="normal"
-                            >
-                                {is_eu && (
-                                    <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
-                                )}
-                                {is_row && (
-                                    <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
-                                )}
-                            </Header>
-                            <VerticalCarousel contents={is_ppc ? contents_ppc : contents} />
-                            <Box tabletL={{ mt: '-8px' }}>
-                                {is_logged_in ? (
+                            {header_items.map((item) => (
+                                <HeroHeader key={item.id} text={item.text} />
+                            ))}
+                        </Flex>
+                        <Header
+                            as="h2"
+                            type="sub-section-title"
+                            color="white"
+                            min_height="auto"
+                            weight="normal"
+                        >
+                            {is_eu && (
+                                <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
+                            )}
+                            {is_row && (
+                                <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
+                            )}
+                        </Header>
+                        <VerticalCarousel contents={is_ppc ? contents_ppc : contents} />
+                        <Box tabletL={{ mt: '-8px' }}>
+                            {is_auth_checked &&
+                                (is_logged_in ? (
                                     <HeroButton
                                         onClick={handleGetTrading}
                                         id="dm-hero-signup"
@@ -150,13 +161,12 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                     >
                                         <Localize translate_text="Create free demo account" />
                                     </HeroButton>
-                                )}
-                            </Box>
-                        </Flex>
-                        <PlatformSlideshow />
+                                ))}
+                        </Box>
                     </Flex>
-                </Container>
-            </BackgroundImage>
+                    <PlatformSlideshow />
+                </Flex>
+            </Container>
         </HeroWrapper>
     )
 }

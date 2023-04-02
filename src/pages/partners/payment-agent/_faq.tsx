@@ -54,7 +54,7 @@ const Faq = () => {
             <Header as="h2" size="3.6rem" mb="3.2rem" align="center">
                 {localize('FAQs')}
             </Header>
-            <AccordionWrapper>
+            <AccordionWrapper id="payment-agent-faq-list">
                 <Accordion has_single_state>
                     <AccordionItem
                         header={localize('General')}
@@ -62,6 +62,7 @@ const Faq = () => {
                         style={item_style}
                         header_style={header_style}
                         plus
+                        class_name="general"
                     >
                         {<General />}
                     </AccordionItem>
@@ -70,6 +71,7 @@ const Faq = () => {
                         style={item_style}
                         header_style={header_style}
                         plus
+                        class_name="account-management"
                     >
                         {<AccountManagement />}
                     </AccordionItem>

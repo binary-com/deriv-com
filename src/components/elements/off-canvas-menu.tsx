@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 import { withLangDirection } from 'themes/function'
+import { TString } from 'types/generics'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex } from 'components/containers'
@@ -30,6 +31,7 @@ import API from 'images/svg/menu/developers.svg'
 import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
+import DerivEZ from 'images/svg/deriv-ez/derivez-logo-black.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
 import DerivGo from 'images/svg/deriv-go/deriv-go-icon.svg'
 import Forex from 'images/svg/custom/forex-nav.svg'
@@ -149,6 +151,11 @@ const content_style = {
     display: 'flex',
 }
 
+const derived_text_eu: TString =
+    '_t_Enjoy trading asset prices derived from<br/> simulated markets._t_'
+const derived_text_row: TString =
+    '_t_Enjoy trading asset prices derived from real-world<br/> or simulated markets._t_'
+
 export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
     const { is_row } = useRegion()
     const canvas = useRef()
@@ -262,25 +269,46 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                             />
                         </Flex>
                         {is_row && (
-                            <Flex mb="2rem">
-                                <NavCard
-                                    aria_label="Derivx"
-                                    icon={() => (
-                                        <img
-                                            src={DerivX}
-                                            alt="Deriv X trading paltform"
-                                            width="32"
-                                            height="32"
-                                        />
-                                    )}
-                                    content={
-                                        <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
-                                    }
-                                    title={<Localize translate_text="Deriv X" />}
-                                    onClick={handleArrowClick}
-                                    to="/derivx/"
-                                />
-                            </Flex>
+                            <>
+                                <Flex mb="2rem">
+                                    <NavCard
+                                        aria_label="Derivx"
+                                        icon={() => (
+                                            <img
+                                                src={DerivX}
+                                                alt="Deriv X trading paltform"
+                                                width="32"
+                                                height="32"
+                                            />
+                                        )}
+                                        content={
+                                            <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
+                                        }
+                                        title={<Localize translate_text="Deriv X" />}
+                                        onClick={handleArrowClick}
+                                        to="/derivx/"
+                                    />
+                                </Flex>
+                                <Flex mb="2rem">
+                                    <NavCard
+                                        aria_label="Derivez"
+                                        icon={() => (
+                                            <img
+                                                src={DerivEZ}
+                                                alt="Deriv EZ trading paltform"
+                                                width="32"
+                                                height="32"
+                                            />
+                                        )}
+                                        content={
+                                            <Localize translate_text="Trade on global markets from anywhere with our mobile-first CFD trading platform." />
+                                        }
+                                        title={<Localize translate_text="Deriv EZ" />}
+                                        onClick={handleArrowClick}
+                                        to="/derivez/"
+                                    />
+                                </Flex>
+                            </>
                         )}
 
                         <Flex mb="2rem">
@@ -419,7 +447,11 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                     />
                                 )}
                                 content={
-                                    <Localize translate_text="Enjoy trading asset prices derived<br/> from real-world or simulated markets." />
+                                    is_row ? (
+                                        <Localize translate_text={derived_text_row} />
+                                    ) : (
+                                        <Localize translate_text={derived_text_eu} />
+                                    )
                                 }
                                 title={<Localize translate_text="Derived" />}
                                 onClick={handleArrowClick}
@@ -621,7 +653,13 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 />
                             </SpanSvg>
                         </StyledLink>
-                        <StyledLink to="/academy/" onClick={handleArrowClick}>
+                        <StyledLink
+                            to=""
+                            external
+                            type="academy"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <div>
                                 <img src={Blog} alt="academy" width="24" height="24" />
                             </div>

@@ -162,6 +162,7 @@ export const shared_css = css`
 
     :hover {
         text-decoration: underline;
+        color: var(--color-red);
     }
     @media ${device.tabletL} {
         font-size: 12px;

@@ -52,6 +52,7 @@ export const deriv_api_url = `https://api.${getDomainUrl()}/docs`
 export const deriv_bot_app_url = `${deriv_app_url}/bot`
 export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
 export const deriv_life_url = `https://derivlife.com/`
+export const academy_url = `https://academy.deriv.com/`
 export const deriv_mt5_app_url = `https://trade.mql5.com/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979`
 export const derivx_app_url = `${deriv_app_url}/derivx`
 export const smarttrader_url = `https://smarttrader.${getDomainUrl()}`
@@ -63,6 +64,7 @@ export const affiliate_signup_url = `https://login.${getDomainUrl()}/signup.php`
 export const affiliate_signin_url = `https://login.${getDomainUrl()}/signin.php`
 export const community_url = `https://community.${deriv_com_url}`
 export const oauth_url = `https://oauth.${getDomainUrl()}`
+export const deriv_app_login = `${oauth_url}/oauth2/authorize?app_id=${deriv_app_id}`
 export const whatsapp_url = `https://wa.me/35699578341`
 
 export const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
@@ -146,6 +148,7 @@ export const localized_link_url = Object.freeze({
     zoho: zoho_url,
     domain_full_url: domain_full_url,
     derivlife: deriv_life_url,
+    academy: academy_url,
     'terms_and_conditions/#clients': domain_full_url,
     'terms_and_conditions/#business-partners': domain_full_url,
 })

@@ -73,7 +73,7 @@ const dbot: TQuestionsData = {
                         {
                             key: 0,
                             type: 'link',
-                            to: '/academy/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/',
+                            to: 'https://academy.deriv.com/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/',
                         },
                     ],
                 },
@@ -422,7 +422,7 @@ const dbot: TQuestionsData = {
                         {
                             key: 1,
                             type: 'link',
-                            to: '/academy/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/',
+                            to: 'https://academy.deriv.com/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/',
                         },
                     ],
                 },

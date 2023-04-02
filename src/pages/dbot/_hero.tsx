@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import DerivBotLogo from 'images/svg/dbot/deriv-bot-banner-logo.svg'
 import DBotBanner from 'images/common/dbot/dbot-banner.png'
 import CommonHeaderSection from 'components/elements/common-header-section'
-import DerivTLogo from 'images/svg/dtrader/deriv-trader-banner-logo.svg'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -31,6 +31,8 @@ type DHeroProps = {
 
 const ImageStyle = styled.img`
     z-index: 1;
+    max-width: 843px;
+    width: inherit;
     src: ${({ src }) => src};
 
     @media ${device.tablet} {
@@ -41,8 +43,10 @@ const ImageStyle = styled.img`
 const ImageWrapper = styled.div`
     display: flex;
     padding: 64px 0;
-    flex: 1;
     justify-content: end;
+    width: 100%;
+    align-self: center;
+    flex: 1 1 0%;
     @media ${device.tablet} {
         padding: 64px 0 54px;
     }
@@ -122,17 +126,26 @@ const Content = styled.div`
         padding: 0 16px 64px;
     }
 `
+const StyledLogo = styled.img`
+    width: 248px;
+    height: 64px;
 
+    @media ${device.tablet} {
+        width: 119px;
+        height: 32px;
+    }
+`
 const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
+
     return (
         <BackgroundStyle>
             <ContentWrapperStyle>
                 <Content>
-                    <img width="237px" height="64px" src={DerivTLogo} />
+                    <StyledLogo src={DerivBotLogo} />
                     <CommonHeaderSection
                         title="_t_Automate your trading ideas without writing code_t_"
                         title_font_size={`${is_mobile ? 32 : 64}px`}

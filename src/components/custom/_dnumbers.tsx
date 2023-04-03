@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import device from 'themes/device'
 import { Container } from 'components/containers'
 import { Header, Text } from 'components/elements'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
 type ItemType = {
     title?: string | ReactNode
@@ -47,6 +48,8 @@ const Title = styled(Header)`
 `
 
 const DNumbers = ({ items, justify }: DNumbersProps) => {
+    const { is_mobile } = useBreakpoints()
+
     return (
         <StyledContainer justify={justify || 'space-between'}>
             {items.map((item) => (
@@ -59,6 +62,7 @@ const DNumbers = ({ items, justify }: DNumbersProps) => {
                 >
                     <Title as="p" type="page-title" align="center">
                         {item.title}
+                        {is_mobile ? console.log('true') : console.log('false')}
                     </Title>
                     <StyledText align="center">{item.subtitle}</StyledText>
                 </NumberWrapper>

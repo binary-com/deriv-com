@@ -167,7 +167,7 @@ const SignupNew = ({
                 {localize('Sign up')}
             </StyledHeader>
             <SubTitle type="paragraph-1" as="p" weight="normal">
-                {localize('Enter your email address to begin')}
+                {localize('Enter your email address to begin.')}
             </SubTitle>
 
             <InputGroup>

@@ -12,7 +12,8 @@ import { Localize } from 'components/localization'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import Shape from 'components/custom/_hero-shape'
 import Button from 'components/custom/_button'
-import { isBrowser } from 'common/utility'
+import useMediaQuery from 'components/hooks/use-media-query'
+import { breakpoints } from 'themes/theme.breakpoints'
 
 type DHeroProps = {
     background_alt?: string
@@ -139,9 +140,14 @@ const StyledLogo = styled.img`
 const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const { is_mobile } = useBreakpoints()
+    const is_mobile2 = useMediaQuery(breakpoints.xs)
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
-    const screenSize = isBrowser() && screen.width <= 767
+
+    console.log('=> ', {
+        is_mobile,
+        is_mobile2,
+    })
 
     return (
         <BackgroundStyle>
@@ -150,7 +156,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                     <StyledLogo src={DerivBotLogo} />
                     <CommonHeaderSection
                         title="_t_Automate your trading ideas without writing code_t_"
-                        title_font_size={is_mobile || screenSize ? '32px' : '64px'}
+                        title_font_size={is_mobile ? '32px' : '64px'}
                         color="var(--color-black-9)"
                     />
                     <BannerButtonWrapper>
@@ -185,7 +191,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                 </Content>
             </ContentWrapperStyle>
             <HeroImageWrapper>
-                <Shape angle={is_mobile || screenSize ? 101 : 163} width="50%">
+                <Shape angle={is_mobile ? 101 : 163} width="50%">
                     <ImageWrapper>
                         <ImageStyle src={DBotBanner} />
                     </ImageWrapper>

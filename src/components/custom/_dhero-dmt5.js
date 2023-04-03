@@ -202,7 +202,7 @@ const DHero = ({
 
 DHero.propTypes = {
     background: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    background_alt: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+    background_alt: PropTypes.string,
     background_image_name: PropTypes.string,
     content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     image_name: PropTypes.string,

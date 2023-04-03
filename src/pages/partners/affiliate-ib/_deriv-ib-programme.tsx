@@ -23,7 +23,7 @@ type TypeForType = {
     title: React.ReactElement
     headerHeight: string
     assets: AssetsType
-    class_name: string
+    class_name?: string
 }[]
 
 type NoteType = {
@@ -34,7 +34,7 @@ type NoteType = {
 type ListType = {
     details?: React.ReactElement
     icon?: string
-    iconAlt?: React.ReactElement
+    iconAlt?: string
     notes?: NoteType
     second_desc?: React.ReactElement
 }[]
@@ -342,7 +342,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                         <Localize translate_text="A deal for 1 lot of the Volatility 75 Index for a price of USD 500,000 will pay out USD 25 in commission based on the following formula:" />
                     ),
                     icon: 'dmt5_synthetic_calculator',
-                    iconAlt: <Localize translate_text="DMT5 synthetic calculated" />,
+                    iconAlt: '_t_DMT5 synthetic calculated_t_',
                 },
             ],
             notes: [
@@ -432,21 +432,21 @@ const ib_dmt5_financial: DMT5Type = {
                         <Localize translate_text="For forex, there is a fixed commission of USD 2 per lot (only applicable for standard lots). A deal for 1 lot of EUR/USD will pay out USD 2 in commission based on the following formula:" />
                     ),
                     icon: 'dmt5_financial_calculator_one',
-                    iconAlt: <Localize translate_text="DMT5 Financial calculated first" />,
+                    iconAlt: '_t_DMT5 Financial calculated first_t_',
                 },
                 {
                     details: (
                         <Localize translate_text="For metals, there is a fixed commission of USD 4 per lot. A deal for 1 lot of XAU/USD will pay out USD 4 in commission based on the following formula:" />
                     ),
                     icon: 'dmt5_financial_calculator_two',
-                    iconAlt: <Localize translate_text="DMT5 Financial calculated second" />,
+                    iconAlt: '_t_DMT5 Financial calculated second_t_',
                 },
                 {
                     details: (
                         <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 5 in commission based on the following formula:" />
                     ),
                     icon: 'dmt5_financial_calculator_three',
-                    iconAlt: <Localize translate_text="DMT5 Financial calculated thirth" />,
+                    iconAlt: '_t_DMT5 Financial calculated thirth_t_',
                 },
             ],
             notes: [
@@ -511,14 +511,14 @@ const ib_dmt5_financialSTP: DMT5Type = {
                         <Localize translate_text="For forex, a deal for 1 lot of EUR/USD will pay out EUR 2.5 in commission based on the following formula:" />
                     ),
                     icon: 'dmt5_financial_stp_calculator_one',
-                    iconAlt: <Localize translate_text="DMT5 Financial STP calculated first" />,
+                    iconAlt: '_t_DMT5 Financial STP calculated first_t_',
                 },
                 {
                     details: (
                         <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 5 in commission based on the following formula:" />
                     ),
                     icon: 'dmt5_financial_stp_calculator_two',
-                    iconAlt: <Localize translate_text="DMT5 Financial STP calculated second" />,
+                    iconAlt: '_t_DMT5 Financial STP calculated second_t_',
                 },
             ],
             notes: [
@@ -769,9 +769,7 @@ const ib_derivx: DMT5Type = {
                         />
                     ),
                     icon: 'deriv_x_one',
-                    iconAlt: (
-                        <Localize translate_text="Deriv X commission rate calculation for forex major" />
-                    ),
+                    iconAlt: '_t_Deriv X commission rate calculation for forex major_t_',
                 },
                 {
                     details: (
@@ -798,9 +796,7 @@ const ib_derivx: DMT5Type = {
                         />
                     ),
                     icon: 'deriv_x_two',
-                    iconAlt: (
-                        <Localize translate_text="Deriv X commission rate calculation for cryptocurrency" />
-                    ),
+                    iconAlt: '_t_Deriv X commission rate calculation for cryptocurrency_t_',
                 },
                 {
                     details: (
@@ -810,9 +806,7 @@ const ib_derivx: DMT5Type = {
                         />
                     ),
                     icon: 'deriv_x_three',
-                    iconAlt: (
-                        <Localize translate_text="Deriv X commission rate calculation for commodities" />
-                    ),
+                    iconAlt: '_t_Deriv X commission rate calculation for commodities_t_',
                 },
                 {
                     second_desc: (
@@ -842,9 +836,8 @@ const ib_derivx: DMT5Type = {
                         />
                     ),
                     icon: 'deriv_x_four',
-                    iconAlt: (
-                        <Localize translate_text="Deriv X commission rate calculation for volatility 50 (1s) index" />
-                    ),
+                    iconAlt:
+                        '_t_Deriv X commission rate calculation for volatility 50 (1s) index_t_',
                 },
                 {
                     details: (
@@ -854,9 +847,7 @@ const ib_derivx: DMT5Type = {
                         />
                     ),
                     icon: 'deriv_x_five',
-                    iconAlt: (
-                        <Localize translate_text="Deriv X commission rate calculation for step index" />
-                    ),
+                    iconAlt: '_t_Deriv X commission rate calculation for step index_t_',
                 },
             ],
             notes: [

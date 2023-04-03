@@ -7,7 +7,7 @@ import device from 'themes/device'
 type TItem = {
     title: JSX.Element
     image: ImageDataLike
-    alt: JSX.Element
+    alt: string
 }
 
 type TProps = {

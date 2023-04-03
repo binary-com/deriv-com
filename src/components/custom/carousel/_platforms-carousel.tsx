@@ -51,6 +51,14 @@ const StyledPara = styled(Text)`
         margin-top: 0;
     }
 `
+const StyledHeading = styled(Header)`
+    font-family: Ubuntu, sans-serif;
+    font-size: 48px;
+    color: var(--color-black-9);
+    @media ${device.tablet} {
+        font-size: 24px;
+    }
+`
 const Card = styled.article`
     position: relative;
     border-radius: 16px;
@@ -104,9 +112,9 @@ const GenericCarousel: React.FC<TProps> = ({ renderableData, mainHeading }) => {
         <>
             <SectionContainer background="white" padding="8rem 0" position="relative">
                 <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h3" type="section-title" mb="2.4rem" align="center">
-                        {localize(mainHeading)}
-                    </Header>
+                    <StyledHeading as="h3" type="section-title" mb="2.4rem" align="center">
+                        {localize(`_t_${mainHeading}_t_`)}
+                    </StyledHeading>
                 </SmallContainer>
                 <MarketsCarousel>
                     {renderableData.map((item, index) => (
@@ -117,10 +125,10 @@ const GenericCarousel: React.FC<TProps> = ({ renderableData, mainHeading }) => {
                                         <img src={item.icon} width="48" height="48" />
 
                                         <StyledText weight="bold">
-                                            {localize(item.heading)}
+                                            {localize(`_t_${item.heading}_t_`)}
                                         </StyledText>
                                     </MobileCardHeader>
-                                    <StyledPara>{localize(item.paragraph)}</StyledPara>
+                                    <StyledPara>{localize(`_t_${item.paragraph}_t_`)}</StyledPara>
                                     <LearnMore
                                         text={<Localize translate_text="Learn more" />}
                                         to={item.link}

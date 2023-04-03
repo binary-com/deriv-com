@@ -8,6 +8,7 @@ import { Container, SectionContainer } from 'components/containers'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import { LinkButton } from 'components/form'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import { QueryImage } from 'components/elements'
 
 const query = graphql`
     query {
@@ -59,29 +60,49 @@ const DBotEasySteps = () => {
     const stepsData: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: 'Select an asset',
-                image: data['step_1'],
-                alt: <Localize translate_text="Select an asset" />,
+                title: () => <Localize translate_text="Select an asset" />,
+                image: () => (
+                    <QueryImage
+                        data={data['step_1']}
+                        alt={<Localize translate_text="Select an asset" />}
+                    />
+                ),
             },
             {
-                title: 'Set the purchase conditions',
-                image: data['step_2'],
-                alt: <Localize translate_text="purchase conditions" />,
+                title: () => <Localize translate_text="Set the purchase conditions" />,
+                image: () => (
+                    <QueryImage
+                        data={data['step_2']}
+                        alt={<Localize translate_text="purchase conditions" />}
+                    />
+                ),
             },
             {
-                title: 'Set the restart conditions',
-                image: data['step_3'],
-                alt: <Localize translate_text="restart conditions" />,
+                title: () => <Localize translate_text="Set the restart conditions" />,
+                image: () => (
+                    <QueryImage
+                        data={data['step_3']}
+                        alt={<Localize translate_text="restart conditions" />}
+                    />
+                ),
             },
             {
-                title: 'Run the bot',
-                image: data['step_4'],
-                alt: <Localize translate_text="Run the bot" />,
+                title: () => <Localize translate_text="Run the bot" />,
+                image: () => (
+                    <QueryImage
+                        data={data['step_4']}
+                        alt={<Localize translate_text="Run the bot" />}
+                    />
+                ),
             },
             {
-                title: 'Check the profit',
-                image: data['step_5'],
-                alt: <Localize translate_text="Check the profit" />,
+                title: () => <Localize translate_text="Check the profit" />,
+                image: () => (
+                    <QueryImage
+                        data={data['step_5']}
+                        alt={<Localize translate_text="Check the profit" />}
+                    />
+                ),
             },
         ],
         [data],

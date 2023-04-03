@@ -71,6 +71,8 @@ const ImageWrapper = styled.div`
 
 const MainHeader = styled(Header)`
     margin: 0 0 12px;
+    color: var(--color-black-9);
+
     @media ${device.tabletL} {
         font-size: 28px;
         margin-bottom: 24px;
@@ -81,7 +83,7 @@ const MainHeader = styled(Header)`
 
 const SubHeader = styled(Header)`
     font-size: 24px;
-    color: var(--color-black-3);
+    color: var(--color-black-9);
     @media ${device.tabletL} {
         font-size: 20px;
         margin-bottom: 8px;
@@ -128,6 +130,9 @@ const StyledLinkButton = styled(LinkButton)`
     height: 40px;
     width: auto;
     min-width: 210px;
+    color: var(--color-black-9);
+    border-radius: 16px;
+
     @media ${device.tabletL} {
         padding: 10px 15px;
     }
@@ -144,7 +149,6 @@ const StyledLinkButton = styled(LinkButton)`
 const StyledFlexContainer = styled(Flex)`
     width: 100%;
     flex-wrap: nowrap;
-    border: 1px solid var(--color-grey-34);
     @media ${device.tabletL} {
         flex-wrap: wrap;
         border: none;
@@ -155,7 +159,7 @@ const StyledFlex = styled(Flex)<{ has_color?: boolean }>`
     width: 50%;
     min-height: 694px;
     margin-right: 2.4rem;
-    background-color: ${({ has_color }) => (has_color ? 'var(--color-grey-25)' : 'inherit')};
+    background-color: inherit;
     @media ${device.tabletL} {
         width: 100%;
         min-height: 340px;
@@ -256,14 +260,7 @@ const MarginCalculator = () => {
     return (
         <SectionContainer>
             <StyledFlexContainer>
-                <StyledFlex
-                    ai="center"
-                    jc="flex-start"
-                    tablet_jc="center"
-                    fd="column"
-                    wrap="wrap"
-                    has_color
-                >
+                <StyledFlex ai="center" jc="flex-start" tablet_jc="center" fd="column" wrap="wrap">
                     <StyledBox max_width="100%">
                         <MainHeader as="h2" type="page-title" lh="1.25" align="start">
                             <Localize translate_text="Take control of your trades on Deriv MT5" />

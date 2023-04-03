@@ -22,6 +22,7 @@ type IconProps = {
 }
 
 const CheckboxContainer = styled.div`
+    margin-left: 1.5rem;
     display: inline-block;
     vertical-align: text-bottom;
 

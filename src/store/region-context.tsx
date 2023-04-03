@@ -14,9 +14,10 @@ import {
     isTestlink,
     isEuDomain,
     queryParams,
-    validate_p2p_country,
+    validate_p2p_country
 } from 'common/utility'
 import { TRegion } from 'types/generics'
+import { useClientInformation } from 'components/hooks/use-client-information'
 
 type RegionProviderProps = {
     children?: ReactNode

@@ -12,8 +12,6 @@ import { Localize } from 'components/localization'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import Shape from 'components/custom/_hero-shape'
 import Button from 'components/custom/_button'
-import useMediaQuery from 'components/hooks/use-media-query'
-import { breakpoints } from 'themes/theme.breakpoints'
 
 type DHeroProps = {
     background_alt?: string
@@ -140,14 +138,8 @@ const StyledLogo = styled.img`
 const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const { is_mobile } = useBreakpoints()
-    const is_mobile2 = useMediaQuery(breakpoints.xs)
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
-
-    console.log('=> ', {
-        is_mobile,
-        is_mobile2,
-    })
 
     return (
         <BackgroundStyle>

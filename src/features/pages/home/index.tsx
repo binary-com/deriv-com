@@ -3,6 +3,7 @@ import HomeHero from './hero'
 import HomeMarkets from './markets'
 import OurPlatforms from './our-platforms'
 import TradeTypes from './trade-types'
+import P2PBanner from './p2p-banner'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
@@ -33,6 +34,7 @@ const HomePage = () => {
             <TradeTypes />
             <OurPlatforms />
             <WhatOurClientsSay />
+            <P2PBanner />
             {is_p2p_allowed_country && <P2PHomeBanner />}
             <Signup appearance={Appearances.public} />
         </Layout>

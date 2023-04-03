@@ -2,41 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Container } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, BackgroundImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-
-const BackgroundWrapper = styled(Background)`
-    background-size: cover;
-    background-position: bottom right;
-    @media ${device.desktopL} {
-        height: 73rem;
-    }
-    @media ${device.desktop} {
-        height: 65rem;
-    }
-    @media ${device.tabletL} {
-        height: 155rem;
-    }
-    @media ${device.tablet} {
-        height: 136rem;
-    }
-    @media ${device.tabletS} {
-        height: 105rem;
-    }
-    @media ${device.mobileL} {
-        height: 95rem;
-    }
-    @media ${device.mobileM} {
-        height: 90rem;
-    }
-    @media ${device.mobileS} {
-        height: 80rem;
-    }
-`
+import './_hero.css'
 
 const Wrapper = styled(Container)`
     @media ${device.tabletS} {
@@ -79,6 +50,7 @@ const HeroContent = styled(Flex)`
         }
     }
 `
+
 const StyledHeader = styled(Header)`
     color: var(--color-black-3);
     display: flex;
@@ -131,7 +103,13 @@ const Hero = () => {
     const background = is_mobile ? data['p2p_hero_background_mobile'] : data['p2p_hero_background']
 
     return (
-        <BackgroundWrapper data={background}>
+        <BackgroundImage
+            data={background}
+            alt="weekend trading"
+            objectFit="cover"
+            objectPosition="bottom right"
+            child_class="weekend-trading-hero"
+        >
             <Wrapper p="4rem 0 0" justify="space-between" height="unset">
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader type="hero">
@@ -139,9 +117,7 @@ const Hero = () => {
                     </StyledHeader>
                     <HeroContent direction="column" jc="flex-start">
                         <Header as="h2" type="subtitle-1">
-                            {
-                                <Localize translate_text="Trade even when most financial markets are closed" />
-                            }
+                            <Localize translate_text="Trade even when most financial markets are closed" />
                         </Header>
                     </HeroContent>
                     <TryButton
@@ -149,13 +125,13 @@ const Hero = () => {
                         rel="noopener noreferrer nofollow"
                         type="submit"
                         secondary
-                        to={'/signup/'}
+                        to="/signup/"
                     >
                         {localize('Get trading')}
                     </TryButton>
                 </InformationWrapper>
             </Wrapper>
-        </BackgroundWrapper>
+        </BackgroundImage>
     )
 }
 

@@ -2,9 +2,8 @@ import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Container, Desktop, Mobile } from 'components/containers'
-import { Header, QueryImage, ImageWrapper } from 'components/elements'
+import { Header, QueryImage, ImageWrapper, BackgroundImage } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import { Background } from 'components/elements/background-image'
 import { Button } from 'components/form'
 import device, { size } from 'themes/device'
 import { mobileOSDetect } from 'common/os-detect'
@@ -17,10 +16,6 @@ import {
 } from 'common/constants'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
-const BackgroundWrapper = styled(Background)`
-    height: 100%;
-    width: 100%;
-`
 const AppButton = styled(LocalizedLink)`
     margin-right: 8px;
     padding: 0;
@@ -73,7 +68,6 @@ const ImgWrapper = styled.div`
         max-height: 292px;
     }
 `
-
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 60.5rem;
@@ -90,7 +84,6 @@ const InformationWrapper = styled(Flex)`
         padding: 0;
     }
 `
-
 const HeroContent = styled(Flex)`
     flex-direction: row-reverse;
     justify-content: flex-start;
@@ -234,8 +227,9 @@ const Hero = () => {
 
         window.open(link, '_blank')
     }
+
     return (
-        <BackgroundWrapper data={background}>
+        <BackgroundImage data={background} alt="p2p">
             <Wrapper>
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader as="h1">
@@ -323,7 +317,7 @@ const Hero = () => {
                     />
                 </ImgWrapper>
             </Wrapper>
-        </BackgroundWrapper>
+        </BackgroundImage>
     )
 }
 

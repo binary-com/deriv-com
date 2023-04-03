@@ -62,7 +62,6 @@ const DNumbers = ({ items, justify }: DNumbersProps) => {
                 >
                     <Title as="p" type="page-title" align="center">
                         {item.title}
-                        {is_mobile ? console.log('true') : console.log('false')}
                     </Title>
                     <StyledText align="center">{item.subtitle}</StyledText>
                 </NumberWrapper>

@@ -97,33 +97,32 @@ const Dbot = () => {
         setLoaded(true)
     }, [])
 
-    // if (is_loaded) {
-    return (
-        <>
-            <SEO
-                title={localize('DBot | Trading robot | Deriv')}
-                description={localize(
-                    'Automate your trading with DBot, Deriv’s trading robot which you can build without writing code.',
+    if (is_loaded) {
+        return (
+            <>
+                {is_row && (
+                    <Layout>
+                        <DCommonBanner join_us_for_free is_live_demo image_name="dbot" />
+                        <DNumber items={items} justify="space-around" />
+                        <DBotEasySteps />
+                        <DTrading trading={trading} />
+                        <DBotGetApp />
+                        <OurPlatforms />
+                    </Layout>
                 )}
-                meta_attributes={meta_attributes}
-            />
-            {is_row && (
-                <Layout>
-                    <DCommonBanner join_us_for_free is_live_demo image_name="dbot" />
-                    <DNumber items={items} justify="space-around" />
-                    <DBotEasySteps />
-                    <DTrading trading={trading} />
-                    <DBotGetApp />
-                    <OurPlatforms />
-                </Layout>
+                {is_eu && <PageNotFound />}
+            </>
+        )
+    }
+    return (
+        <SEO
+            title={localize('DBot | Trading robot | Deriv')}
+            description={localize(
+                'Automate your trading with DBot, Deriv’s trading robot which you can build without writing code.',
             )}
-            {is_eu && <PageNotFound />}
-        </>
+            meta_attributes={meta_attributes}
+        />
     )
-    // }
-    // return (
-
-    // )
 }
 
 export default WithIntl()(Dbot)

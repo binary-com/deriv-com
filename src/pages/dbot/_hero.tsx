@@ -140,6 +140,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
+    const screenSize = screen.width <= 767
 
     return (
         <BackgroundStyle>
@@ -148,7 +149,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                     <StyledLogo src={DerivBotLogo} />
                     <CommonHeaderSection
                         title="_t_Automate your trading ideas without writing code_t_"
-                        title_font_size={is_mobile ? '32px' : '64px'}
+                        title_font_size={is_mobile || screenSize ? '32px' : '64px'}
                         color="var(--color-black-9)"
                     />
                     <BannerButtonWrapper>
@@ -183,7 +184,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                 </Content>
             </ContentWrapperStyle>
             <HeroImageWrapper>
-                <Shape angle={is_mobile ? 101 : 163} width="50%">
+                <Shape angle={is_mobile || screenSize ? 101 : 163} width="50%">
                     <ImageWrapper>
                         <ImageStyle src={DBotBanner} />
                     </ImageWrapper>

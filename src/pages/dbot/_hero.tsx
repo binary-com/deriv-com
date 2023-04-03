@@ -12,6 +12,7 @@ import { Localize } from 'components/localization'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import Shape from 'components/custom/_hero-shape'
 import Button from 'components/custom/_button'
+import { isBrowser } from 'common/utility'
 
 type DHeroProps = {
     background_alt?: string
@@ -140,7 +141,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
-    const screenSize = screen.width <= 767
+    const screenSize = isBrowser && screen.width <= 767
 
     return (
         <BackgroundStyle>

@@ -66,7 +66,7 @@ const derivP2PPortalData = {
 const DP2PHome = () => {
     const [is_mounted] = usePageLoaded() // needed to fix the second Hero-component during page's loadin
     const { is_p2p_allowed_country } = useRegion()
-    const { is_p2p_disabled } = Cookies.getJSON('is_p2p_disabled')
+    const { is_p2p_disabled = true } = Cookies.getJSON('is_p2p_disabled')
     if (is_p2p_allowed_country || !is_p2p_disabled) {
         return (
             <Layout>

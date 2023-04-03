@@ -5,6 +5,7 @@ export type TradeTypeItemType = {
     title: TString
     description: TString
     url: LinkUrlType
+    icon_src: string
 }
 
 type TradeTypeConfig = {

@@ -1,4 +1,7 @@
 import { SmartTradeTypeItem } from './types'
+import OptionsHomeIcon from 'images/svg/home/options_icon.svg'
+import MultipliersHomeIcon from 'images/svg/home/multipliers_icon.svg'
+import CfdHomeIcon from 'images/svg/home/cfd_icon.svg'
 
 export const tradeTypesItems: SmartTradeTypeItem[] = [
     {
@@ -11,6 +14,7 @@ export const tradeTypesItems: SmartTradeTypeItem[] = [
                 type: 'internal',
                 to: '/trade-types/cfds/',
             },
+            icon_src: CfdHomeIcon,
         },
     },
     {
@@ -23,6 +27,7 @@ export const tradeTypesItems: SmartTradeTypeItem[] = [
                 type: 'internal',
                 to: '/trade-types/multiplier/',
             },
+            icon_src: MultipliersHomeIcon,
         },
     },
     {
@@ -34,6 +39,7 @@ export const tradeTypesItems: SmartTradeTypeItem[] = [
                 type: 'internal',
                 to: '/trade-types/options/',
             },
+            icon_src: OptionsHomeIcon,
         },
         visibility: {
             is_eu: false,

@@ -5,6 +5,7 @@ import FlexBox from 'features/components/atoms/flex-box'
 import Link from 'features/components/atoms/link'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
+import Image from 'features/components/atoms/image'
 
 interface TradeTypeItemProps {
     item: TradeTypeItemType
@@ -12,11 +13,12 @@ interface TradeTypeItemProps {
 
 const TradeTypeItem = ({ item }: TradeTypeItemProps) => {
     return (
-        <FlexBox className={item_container} direction="col" align="center" gap="10x" mt={'40x'}>
-            <Typography.Heading as="h3" size="small" textcolor="inverted">
+        <FlexBox className={item_container} direction="col" align="center" gap="5x" mt={'40x'}>
+            <Image src={item.icon_src} />
+            <Typography.Heading as="h3" size="small" textcolor="inverted" mt={'15x'}>
                 <Localize translate_text={item.title} />
             </Typography.Heading>
-            <Typography.Paragraph size="large" textcolor="inverted" mb="1x" align="center">
+            <Typography.Paragraph size="large" textcolor="inverted" mb="10x" align="center">
                 <Localize translate_text={item.description} />
             </Typography.Paragraph>
             <Link textcolor="inverted" size="large" url={item.url} className={item_learn_more}>

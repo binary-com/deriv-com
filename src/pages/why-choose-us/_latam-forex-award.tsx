@@ -87,13 +87,13 @@ const LatamAward = () => {
                 <StyledFlex>
                     <BackgroundImage
                         data={data.latam_award_background}
-                        style={{
-                            backgroundRepeat: 'no-repeat',
-                            backgroundSize: 'contain',
-                            width: '100%',
+                        alt="latam forex"
+                        child_style={{
                             maxWidth: '1200px',
                             backgroundColor: 'white',
+                            width: '100%',
                         }}
+                        objectFit="contain"
                     >
                         <Flex style={{ maxHeight: '360px' }} ai="center" jc="space-evenly">
                             <StyledHeader type="heading-2" align="left" color="white">
@@ -115,15 +115,15 @@ const LatamAward = () => {
                 <Flex fd="column" ai="center">
                     <BackgroundImage
                         data={data.latam_award_background_mobile}
-                        style={{
-                            backgroundRepeat: 'no-repeat',
-                            backgroundSize: 'contain',
+                        alt="latam forex"
+                        child_style={{
                             width: '315px',
                             height: '325px',
                             maxWidth: '450px',
-                            backgroundColor: 'white',
                             margin: ' 0 1rem',
+                            backgroundColor: 'white',
                         }}
+                        objectFit="contain"
                     >
                         <StyledHeaderMobile type="heading-2" align="center" color="white">
                             {<Localize translate_text="Best Forex Broker Latin America" />}

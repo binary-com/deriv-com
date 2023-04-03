@@ -9,10 +9,11 @@ type TBackgroundImage = Omit<GatsbyImageProps, 'image'> & {
     image_opacity?: string
     child_style?: React.CSSProperties
     child_class?: string
+    dark_background?: boolean
 }
 
-const Wrapper = styled.div`
-    background-color: black;
+const Wrapper = styled.div<{ dark_background: boolean }>`
+    background-color: ${({ dark_background }) => (dark_background ? 'black' : 'transparent')};
     position: relative;
     overflow: hidden;
     z-index: 0;
@@ -24,12 +25,13 @@ const BackgroundImage = ({
     image_opacity,
     child_style,
     child_class,
+    dark_background = true,
     ...rest
 }: React.PropsWithChildren<TBackgroundImage>) => {
     const image = getImage(data)
 
     return (
-        <Wrapper>
+        <Wrapper dark_background={dark_background}>
             <Flex height="100%" position="absolute" z_index="-1">
                 <GatsbyImage
                     image={image}

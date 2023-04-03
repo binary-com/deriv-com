@@ -145,6 +145,7 @@
         "url": "https://github.com/binary-com/deriv-com/issues"
     },
     "engines": {
+        "node": "18.x",
         "npm": ">=8.19.2"
     },
     "overrides": {

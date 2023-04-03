@@ -1,4 +1,4 @@
-import React, { ReactElement, useCallback, useEffect, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import Loadable from '@loadable/component'
 import PageNotFound from '../404'
 import DCommonBanner from './_hero'
@@ -12,8 +12,6 @@ const DBotEasySteps = Loadable(() => import('./_steps_section'))
 const DBotGetApp = Loadable(() => import('./_get-app-section'))
 const OurPlatforms = Loadable(() => import('./_our-platforms'))
 import useRegion from 'components/hooks/use-region'
-import { isBrowser } from 'common/utility'
-import { size } from 'themes/device'
 
 type ItemType = {
     title: string | ReactElement
@@ -92,26 +90,12 @@ const trading: TradingType[] = [
 ]
 
 const Dbot = () => {
-    const [is_mobile, setMobile] = useState(false)
-    const handleResizeWindow = useCallback(() => {
-        setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
-    }, [setMobile])
-
     const { is_eu, is_row } = useRegion()
     const [is_loaded, setLoaded] = useState(false)
 
     useEffect(() => {
         setLoaded(true)
     }, [])
-
-    useEffect(() => {
-        handleResizeWindow()
-        window.addEventListener('resize', handleResizeWindow)
-
-        return () => {
-            window.removeEventListener('resize', handleResizeWindow)
-        }
-    }, [handleResizeWindow])
 
     if (is_loaded) {
         return (

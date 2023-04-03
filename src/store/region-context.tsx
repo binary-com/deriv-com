@@ -17,7 +17,6 @@ import {
     queryParams,
 } from 'common/utility'
 import { TRegion } from 'types/generics'
-import { useClientInformation } from 'components/hooks/use-client-information'
 
 type RegionProviderProps = {
     children?: ReactNode

@@ -171,7 +171,7 @@ const HowAccumulatorsWork = () => {
                     <SideTab.Panel
                         label={<Localize translate_text="6. Trade" />}
                         description={
-                            <Localize translate_text="Click the Buy button to open your trade." />
+                            <Localize translate_text="_t_Click the Buy button to open your trade._t_" />
                         }
                     >
                         <StaticImage

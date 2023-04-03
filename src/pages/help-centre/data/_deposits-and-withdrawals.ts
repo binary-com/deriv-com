@@ -1,5 +1,5 @@
 import { TQuestionsData } from './_data-types'
-import { deriv_com_url, deriv_app_url } from 'common/constants'
+import { deriv_app_url } from 'common/constants'
 
 const deposits_and_withdrawals: TQuestionsData = {
     section: 'General',

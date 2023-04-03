@@ -58,9 +58,7 @@ const IndicesGrid = () => {
                     )}
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        ' These indices are characterised by an average of one crash or boom in a series of 1000, 500, or 300 ticks.',
-                    )}
+                    <Localize translate_text="These indices are characterised by an average of one crash or boom in a series of 1000, 500, or 300 ticks." />
                 </MiddleText>
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
@@ -90,12 +88,12 @@ const IndicesGrid = () => {
                 </Text>
                 <MiddleText>
                     {localize(
-                        'Volatility indices correspond to markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%.',
+                        '_t_Volatility indices correspond to markets with constant volatilities of 10%, 25%, 50%, 75%, and 100%._t_',
                     )}
                 </MiddleText>
                 <MiddleText>
                     {localize(
-                        ' The frequency of tick generation differs between indices, with some generating ticks every second and others generating them every two seconds.',
+                        '_t_The frequency of tick generation differs between indices, with some generating ticks every second and others generating them every two seconds._t_',
                     )}
                 </MiddleText>
             </Flex>

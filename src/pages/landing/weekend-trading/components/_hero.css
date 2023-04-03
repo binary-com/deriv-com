@@ -1,0 +1,46 @@
+@media (min-width: 1980px) {
+    .weekend-trading-hero {
+        height: 73rem;
+    }
+}
+
+@media (max-width: 1980px) {
+    .weekend-trading-hero {
+        height: 65rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .weekend-trading-hero {
+        height: 155rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .weekend-trading-hero {
+        height: 136rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .weekend-trading-hero {
+        height: 105rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .weekend-trading-hero {
+        height: 95rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .weekend-trading-hero {
+        height: 90rem;
+    }
+}
+@media (max-width: 320px) {
+    .weekend-trading-hero {
+        height: 80rem;
+    }
+}

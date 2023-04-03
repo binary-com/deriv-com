@@ -109,7 +109,6 @@ const StyledHeader = styled(Header)`
         margin-top: 60px;
     }
 `
-
 const StyledText = styled(Text)`
     margin-bottom: 60px;
     font-size: 2.4rem;
@@ -151,6 +150,7 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
 
         window.open(link, '_blank')
     }
+
     return (
         <div>
             <StyledText>
@@ -169,8 +169,10 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
             </StyledText>
             <Desktop>
                 <BackgroundImage
-                    style={{ height: '340px', backgroundPosition: '20% 20%' }}
                     data={is_rtl ? data['p2p_banner_rtl'] : data['p2p_banner']}
+                    alt="p2p"
+                    child_style={{ height: '340px' }}
+                    objectPosition="20% 20%"
                 >
                     <Wrapper>
                         <InformationWrapper height="unset" direction="column">
@@ -192,8 +194,10 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
             </Desktop>
             <Mobile>
                 <BackgroundImage
-                    style={{ height: '402px', backgroundPosition: '40% 50%' }}
                     data={data['p2p_banner_mobile']}
+                    alt="p2p"
+                    child_style={{ height: '402px' }}
+                    objectPosition="40% 50%"
                 >
                     <Wrapper>
                         <InformationWrapper height="unset" direction="column">

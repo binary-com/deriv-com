@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import React, { ReactElement, useCallback, useEffect, useState } from 'react'
 import Loadable from '@loadable/component'
 import PageNotFound from '../404'
 import DCommonBanner from './_hero'
@@ -97,32 +97,33 @@ const Dbot = () => {
         setLoaded(true)
     }, [])
 
-    if (is_loaded) {
-        return (
-            <>
-                {is_row && (
-                    <Layout>
-                        <DCommonBanner join_us_for_free is_live_demo image_name="dbot" />
-                        <DNumber items={items} justify="space-around" />
-                        <DBotEasySteps />
-                        <DTrading trading={trading} />
-                        <DBotGetApp />
-                        <OurPlatforms />
-                    </Layout>
-                )}
-                {is_eu && <PageNotFound />}
-            </>
-        )
-    }
+    // if (is_loaded) {
     return (
-        <SEO
-            title={localize('DBot | Trading robot | Deriv')}
-            description={localize(
-                'Automate your trading with DBot, Deriv’s trading robot which you can build without writing code.',
+        <>
+            <SEO
+                title={localize('DBot | Trading robot | Deriv')}
+                description={localize(
+                    'Automate your trading with DBot, Deriv’s trading robot which you can build without writing code.',
+                )}
+                meta_attributes={meta_attributes}
+            />
+            {is_row && (
+                <Layout>
+                    <DCommonBanner join_us_for_free is_live_demo image_name="dbot" />
+                    <DNumber items={items} justify="space-around" />
+                    <DBotEasySteps />
+                    <DTrading trading={trading} />
+                    <DBotGetApp />
+                    <OurPlatforms />
+                </Layout>
             )}
-            meta_attributes={meta_attributes}
-        />
+            {is_eu && <PageNotFound />}
+        </>
     )
+    // }
+    // return (
+
+    // )
 }
 
 export default WithIntl()(Dbot)

@@ -1,5 +1,6 @@
 import React from 'react'
 import Loadable from '@loadable/component'
+import Cookies from 'js-cookie'
 import PageNotFound from '../404'
 import Hero from './components/_hero'
 import DP2P from './components/_dp2p'
@@ -65,7 +66,8 @@ const derivP2PPortalData = {
 const DP2PHome = () => {
     const [is_mounted] = usePageLoaded() // needed to fix the second Hero-component during page's loadin
     const { is_p2p_allowed_country } = useRegion()
-    if (is_p2p_allowed_country) {
+    const { is_p2p_disabled } = Cookies.getJSON('is_p2p_disabled')
+    if (is_p2p_allowed_country || !is_p2p_disabled) {
         return (
             <Layout>
                 <SEO

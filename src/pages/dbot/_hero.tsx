@@ -141,7 +141,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
-    const screenSize = isBrowser && screen.width <= 767
+    const screenSize = isBrowser() && screen.width <= 767
 
     return (
         <BackgroundStyle>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, createContext, ReactNode } from 'react'
-import Cookies from 'js-cookie'
 import {
     isEuCountry,
     eu_countries,
@@ -15,6 +14,7 @@ import {
     isTestlink,
     isEuDomain,
     queryParams,
+    validate_p2p_country,
 } from 'common/utility'
 import { TRegion } from 'types/generics'
 
@@ -63,13 +63,6 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
     }
 
     const qa_url_region = queryParams.get('region')?.toString()
-    const p2p_validity = Cookies.getJSON('is_p2p_disabled')
-
-    const validate_p2p_country = (p2p_config) => {
-        if (p2p_validity) {
-            return !p2p_validity.is_p2p_disabled
-        } else return !!p2p_config
-    }
 
     useEffect(() => {
         const is_eu_country_ip = eu_countries.includes(user_ip_country)

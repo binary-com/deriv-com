@@ -418,3 +418,8 @@ export const updateURLAsPerUserLanguage = () => {
 
     window.location.href = '/' + new_url
 }
+
+export const validate_p2p_country = (p2p_config) => {
+    const p2p_validity = Cookies.getJSON('is_p2p_disabled')
+    return p2p_validity ? !p2p_validity.is_p2p_disabled : !!p2p_config
+}

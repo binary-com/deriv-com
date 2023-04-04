@@ -4,7 +4,7 @@ import { useCookieBanner } from 'components/hooks/use-cookie-banner'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Link from 'features/components/atoms/link'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 import Button from 'features/components/atoms/button'
 import Container from 'features/components/atoms/container'
 import dclsx from 'features/utils/dclsx'
@@ -57,14 +57,14 @@ const CookieBanner = () => {
                         ]}
                     />
                 </Typography.Paragraph>
-                <FlexBox justify="between" align="center" mt="10x">
+                <Flex.Box justify="between" align="center" mt="10x">
                     <Button.Secondary onClick={cookie.decline} outlined>
                         <Localize translate_text="_t_Don't accept_t_" />
                     </Button.Secondary>
                     <Button.Primary onClick={cookie.accept}>
                         <Localize translate_text="_t_Accept_t_" />
                     </Button.Primary>
-                </FlexBox>
+                </Flex.Box>
             </Container.Fixed>
         )
     }

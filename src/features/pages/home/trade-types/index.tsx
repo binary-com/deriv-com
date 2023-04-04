@@ -6,7 +6,7 @@ import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import useVisibleContent from 'components/hooks/use-visible-content'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 
 const TradeTypes = () => {
     const { is_eu } = useRegion()
@@ -22,7 +22,7 @@ const TradeTypes = () => {
                     values={{ trade_type_number: is_eu ? '2' : '3' }}
                 />
             </Typography.Paragraph>
-            <FlexBox
+            <Flex.Box
                 container="fluid"
                 direction="col"
                 justify="around"
@@ -33,7 +33,7 @@ const TradeTypes = () => {
                 {visible_items.map((item) => (
                     <TradeTypeItem key={item.id} item={item.data} />
                 ))}
-            </FlexBox>
+            </Flex.Box>
         </Container.Fixed>
     )
 }

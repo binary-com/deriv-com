@@ -1,7 +1,7 @@
 import React from 'react'
 import * as AlertDialog from '@radix-ui/react-alert-dialog'
 import Button from '../button'
-import FlexBox from '../flex-box'
+import Flex from '../flex-box'
 import Typography from '../typography'
 import { TString } from 'types/generics'
 import { Localize } from 'components/localization'
@@ -41,7 +41,7 @@ const Alert = ({
                         </Typography.Paragraph>
                     </AlertDialog.Description>
 
-                    <FlexBox gap="12x" justify="end" pt="12x">
+                    <Flex.Box gap="12x" justify="end" pt="12x">
                         <AlertDialog.Cancel asChild>
                             {cancel_button && (
                                 <Button.Secondary onClick={cancel_button?.onClick} outlined>
@@ -54,7 +54,7 @@ const Alert = ({
                                 <Localize translate_text={action_button.text} />
                             </Button.Primary>
                         </AlertDialog.Action>
-                    </FlexBox>
+                    </Flex.Box>
                 </AlertDialog.Content>
             </AlertDialog.Portal>
         </AlertDialog.Root>

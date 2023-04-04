@@ -214,13 +214,13 @@ const career_data = {
     people_management: [
         {
             header: {
-                background: 'people_management_bg',
-                title: 'People Management',
+                background: 'human_resources_bg',
+                title: 'Human Resources',
                 subtitle:
                     'We bring in the go-getters; from the inspiring leaders to the ambitious grads. We link the best people with the right opportunities and support them in every way to help them grow in their professional careers at Deriv.',
             },
             intro_section: {
-                image: 'people_management_desc',
+                image: 'human_resources_desc',
                 img_alt: 'Group of people discussing',
                 paragraph: [
                     {
@@ -228,7 +228,7 @@ const career_data = {
                     },
                 ],
             },
-            link_url: 'https://deriv.zohorecruit.eu/jobs/People-Management',
+            link_url: 'https://deriv.zohorecruit.eu/jobs/Human-Resources',
             open_position: [
                 {
                     title: 'Talent Acquisition Specialist',
@@ -252,8 +252,8 @@ const career_data = {
                 },
             ],
             testimony_section: {
-                image: 'people_management_review',
-                image_mobile: 'people_management_review_mobile',
+                image: 'human_resources_review',
+                image_mobile: 'human_resources_review_mobile',
                 img_alt: 'Syfia Mohd  - Talent acquistion executive',
                 testimony_headline: [
                     {

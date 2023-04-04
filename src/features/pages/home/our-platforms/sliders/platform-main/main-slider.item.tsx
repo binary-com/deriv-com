@@ -2,7 +2,7 @@ import React from 'react'
 import { useSwiperSlide } from 'swiper/react'
 import { PlatformItem } from '../../types'
 import { main_item_active, main_item } from './platforms-main.module.scss'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import Link from 'features/components/atoms/link'
 import { Localize } from 'components/localization'
@@ -16,7 +16,7 @@ const MainSliderItem = ({ item }: MainSliderItemProps) => {
     const swiperSlide = useSwiperSlide()
 
     return (
-        <FlexBox
+        <Flex.Box
             direction="row"
             justify="start"
             align="stretch"
@@ -28,7 +28,7 @@ const MainSliderItem = ({ item }: MainSliderItemProps) => {
             })}
         >
             <Image src={item.icon} width={40} height={40} />
-            <FlexBox direction="col" justify="between">
+            <Flex.Box direction="col" justify="between">
                 <Typography.Heading as="h3" size="xxs">
                     <Localize translate_text={item.title} />
                 </Typography.Heading>
@@ -42,8 +42,8 @@ const MainSliderItem = ({ item }: MainSliderItemProps) => {
                         </Link>
                     </>
                 )}
-            </FlexBox>
-        </FlexBox>
+            </Flex.Box>
+        </Flex.Box>
     )
 }
 

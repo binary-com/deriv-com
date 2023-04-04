@@ -1,7 +1,7 @@
 import React from 'react'
 import HomeHeroContent from './content'
 import HomeHeroSlider from './slider'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 import ProductHeroContainer from 'features/components/templates/hero-banners/product'
 
 const HomeHero = () => {
@@ -15,7 +15,7 @@ const HomeHero = () => {
                 pt: '0x',
             }}
         >
-            <FlexBox
+            <Flex.Box
                 container="fluid"
                 align="center"
                 justify="between"
@@ -27,7 +27,7 @@ const HomeHero = () => {
             >
                 <HomeHeroContent />
                 <HomeHeroSlider />
-            </FlexBox>
+            </Flex.Box>
         </ProductHeroContainer>
     )
 }

@@ -1,16 +1,16 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import { wrapper } from './styles.module.scss'
+import { wrapper, deriv_go_container } from './styles.module.scss'
 import GoTextBox from './go-text-box'
 import QRCode from './qr-code'
 import Container from 'features/components/atoms/container'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 
 const DerivGOBanner = () => {
     return (
-        <Container.Fixed as="section" bgcolor="inverted">
+        <Container.Fixed as="section" bgcolor="inverted" className={deriv_go_container}>
             <Container.Fluid>
-                <FlexBox
+                <Flex.Box
                     direction="col-reverse"
                     justify="between"
                     align="center"
@@ -21,7 +21,7 @@ const DerivGOBanner = () => {
                         alt="deriv go banner"
                         width={368}
                     />
-                    <FlexBox
+                    <Flex.Box
                         className={wrapper}
                         padding_block="30x"
                         direction="col"
@@ -30,8 +30,8 @@ const DerivGOBanner = () => {
                     >
                         <GoTextBox />
                         <QRCode />
-                    </FlexBox>
-                </FlexBox>
+                    </Flex.Box>
+                </Flex.Box>
             </Container.Fluid>
         </Container.Fixed>
     )

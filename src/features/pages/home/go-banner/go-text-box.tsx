@@ -3,7 +3,7 @@ import { item_container } from './styles.module.scss'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Link from 'features/components/atoms/typography/link'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 import Box from 'features/components/atoms/box'
 import Image from 'features/components/atoms/image'
 import DerivGOIcon from 'images/svg/deriv-go-icon.svg'
@@ -11,9 +11,8 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const GoTextBox = () => {
     const { is_mobile } = useBreakpoints()
-    console.log({ is_mobile })
     return (
-        <FlexBox
+        <Flex.Box
             className={item_container}
             direction="col"
             align="center"
@@ -44,7 +43,7 @@ const GoTextBox = () => {
                     </Link>
                 </Typography.Paragraph>
             </Box>
-        </FlexBox>
+        </Flex.Box>
     )
 }
 

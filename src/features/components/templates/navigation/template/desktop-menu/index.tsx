@@ -6,7 +6,7 @@ import Typography from 'features/components/atoms/typography'
 import NavSectionContainer from 'features/components/organisms/navigation/nav-sections-container'
 import NavCardItems from 'features/components/organisms/navigation/nav-card-items'
 import Container from 'features/components/atoms/container'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 import dclsx from 'features/utils/dclsx'
 
 const renderNavItems = (nav_items: TSmartNavContent[] | TSmartNavSectionColumns[]) => {
@@ -28,7 +28,7 @@ const DesktopMenu = <T extends string>({
     items,
 }: IDesktopNavbarProps<T>) => {
     return (
-        <FlexBox
+        <Flex.Box
             as="ul"
             justify="end"
             align="center"
@@ -61,7 +61,7 @@ const DesktopMenu = <T extends string>({
                     </li>
                 )
             })}
-        </FlexBox>
+        </Flex.Box>
     )
 }
 

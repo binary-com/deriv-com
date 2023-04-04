@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 import Telegram from 'images/svg/footer/telegram_icon.svg'
 import Twitter from 'images/svg/footer/twitter_icon.svg'
 import Youtube from 'images/svg/footer/youtube_icon.svg'
@@ -101,7 +101,7 @@ const FooterSocialIcons = () => {
     }, [alt, fb_url, instagram_url, is_career_page, linkedin_url, twitter_url])
 
     return (
-        <FlexBox justify="center" align="center" gap="12x">
+        <Flex.Box justify="center" align="center" gap="12x">
             {icons.map((iconItem) => {
                 return (
                     <Link
@@ -117,7 +117,7 @@ const FooterSocialIcons = () => {
                     </Link>
                 )
             })}
-        </FlexBox>
+        </Flex.Box>
     )
 }
 

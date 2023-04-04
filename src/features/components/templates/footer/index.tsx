@@ -5,7 +5,7 @@ import FooterLinksColumn from './links-column'
 import Disclaimer from './disclaimer'
 import FooterIcons from './footer-icons'
 import usePpc from 'features/hooks/use-ppc'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 import useVisibleContent from 'components/hooks/use-visible-content'
 import Container from 'features/components/atoms/container'
 import useBreakpoints from 'components/hooks/use-breakpoints'
@@ -28,11 +28,11 @@ const Footer = ({ no_footer_links = false }: FooterProps) => {
                 <FooterIcons />
                 <Container.Fixed className={footer_grid} padding_block={'40x'}>
                     {show_links && (
-                        <FlexBox justify="between">
+                        <Flex.Box justify="between">
                             {content.map((contentItem) => (
                                 <FooterLinksColumn key={contentItem.id} item={contentItem} />
                             ))}
-                        </FlexBox>
+                        </Flex.Box>
                     )}
                     <Disclaimer />
                 </Container.Fixed>

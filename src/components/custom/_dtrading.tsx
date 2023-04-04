@@ -18,6 +18,8 @@ type DTradingProps = {
     reverse?: boolean
     trading?: TradingType[]
     two_title?: boolean
+    max_width?: string
+    max_height?: string
 }
 
 type ContentProps = {
@@ -26,6 +28,8 @@ type ContentProps = {
 
 type ImageWrapperProps = {
     margin_right?: string
+    max_width?: string
+    max_height?: string
 }
 
 type RowProps = {
@@ -60,9 +64,9 @@ const Content = styled.div<ContentProps>`
 `
 
 const ImageWrapper = styled.div<ImageWrapperProps>`
-    max-width: 58.8rem;
+    max-width: ${(props) => props.max_width || '58.8rem'};
     width: 100%;
-    max-height: 30rem;
+    max-height: ${(props) => props.max_height || '30rem'};
     margin-right: ${(props) => props.margin_right};
 
     @media ${device.tabletL} {
@@ -155,9 +159,18 @@ const query = graphql`
         margin: file(relativePath: { eq: "deriv-x/margin.png" }) {
             ...fadeIn
         }
+        on_go_trading: file(relativePath: { eq: "deriv-ez/on-go-trading.png" }) {
+            ...fadeIn
+        }
+        indicator: file(relativePath: { eq: "deriv-ez/indicator.png" }) {
+            ...fadeIn
+        }
+        instant_platform: file(relativePath: { eq: "deriv-ez/instant-platform.png" }) {
+            ...fadeIn
+        }
     }
 `
-const DTrading = ({ trading, reverse, two_title }: DTradingProps) => {
+const DTrading = ({ trading, reverse, two_title, max_width, max_height }: DTradingProps) => {
     const data = useStaticQuery(query)
     return (
         <StyledSection>
@@ -187,7 +200,11 @@ const DTrading = ({ trading, reverse, two_title }: DTradingProps) => {
                                     </>
                                 )}
                             </Content>
-                            <ImageWrapper margin_right={!is_even ? '0' : '2.4rem'}>
+                            <ImageWrapper
+                                margin_right={!is_even ? '0' : '2.4rem'}
+                                max_width={max_width}
+                                max_height={max_height}
+                            >
                                 <QueryImage
                                     data={data[item.image_name]}
                                     alt={item.image_alt}

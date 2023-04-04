@@ -4,7 +4,6 @@ import PageNotFound from '../404'
 import Hero from './components/_hero'
 import DP2P from './components/_dp2p'
 import Roadmap from 'components/elements/roadmap'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { localize, Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
@@ -63,7 +62,6 @@ const derivP2PPortalData = {
 }
 
 const DP2PHome = () => {
-    const [is_mounted] = usePageLoaded() // needed to fix the second Hero-component during page's loadin
     const { is_p2p_allowed_country } = useRegion()
     if (is_p2p_allowed_country) {
         return (
@@ -75,19 +73,13 @@ const DP2PHome = () => {
                     )}
                 />
 
-                {is_mounted && (
-                    <>
-                        <Hero />
-                        <DP2P reverse P2P={DP2P_CONTENT} />
-                        <Numbers />
-                        <ExchangeSteps />
-                        <Availability />
-                        <P2PBanner
-                            title={localize('Make hassle-free deposits and withdrawals today')}
-                        />
-                        <Roadmap portal={derivP2PPortalData} />
-                    </>
-                )}
+                <Hero />
+                <DP2P reverse P2P={DP2P_CONTENT} />
+                <Numbers />
+                <ExchangeSteps />
+                <Availability />
+                <P2PBanner title={localize('Make hassle-free deposits and withdrawals today')} />
+                <Roadmap portal={derivP2PPortalData} />
             </Layout>
         )
     }

@@ -5,7 +5,6 @@ import Container from './_layout-components/_career_container'
 import { Header, BackgroundImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { zoho_url } from 'common/constants'
-import { LocationContext } from 'components/layout/location-context'
 import device from 'themes/device'
 
 const StyledHeader = styled(Header)`
@@ -83,8 +82,6 @@ const query = graphql`
 const Hero = () => {
     const data = useStaticQuery(query)
 
-    const { has_mounted } = React.useContext(LocationContext)
-
     return (
         <BackgroundImage
             data={data.image}
@@ -109,17 +106,15 @@ const Hero = () => {
                 <JoinHeader as="h3" type="section-title" size="3.6rem">
                     Join and grow with us.
                 </JoinHeader>
-                {has_mounted && (
-                    <StyledLinkButton
-                        secondary
-                        to={zoho_url}
-                        external
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        See our open positions
-                    </StyledLinkButton>
-                )}
+                <StyledLinkButton
+                    secondary
+                    to={zoho_url}
+                    external
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    See our open positions
+                </StyledLinkButton>
             </StyledContainer>
         </BackgroundImage>
     )

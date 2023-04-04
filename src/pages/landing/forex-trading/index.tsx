@@ -4,7 +4,6 @@ import { Signup, WhatOurClientsSay } from '../../home/_lazy-load'
 import Hero from './components/_hero'
 import ImageTextSwitching from './components/_image-text-switching'
 import Tablebtn from './components/_table-btn'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
@@ -70,32 +69,26 @@ const DP2P_CONTENT: ContentType[] = [
 ]
 
 const ForexTrading = () => {
-    const [is_mounted] = usePageLoaded() // needed to fix the second Hero-component during page's loading
-
     return (
         <Layout type="landing-page" is_ppc_redirect={true}>
             <SEO
                 title={localize('Weekends')}
                 description={localize('Ride the trends even on weekends')}
             />
-            {is_mounted && (
-                <>
-                    <Hero
-                        title={localize('Take advantage of the best trading conditions by Deriv')}
-                        content={
-                            <Localize translate_text="Your trusted broker with intuitive forex trading platforms, convenient payment options, and a 24/7 support team." />
-                        }
-                    />
-                    <IconTextRow />
-                    <Tablebtn
-                        btnlabel={localize('Get trading on Deriv')}
-                        text={localize('*available for selected pairs:')}
-                    />
-                    <ImageTextSwitching reverse P2P={DP2P_CONTENT} />
-                    <WhatOurClientsSay />
-                    <Signup appearance={Appearances.public} />
-                </>
-            )}
+            <Hero
+                title={localize('Take advantage of the best trading conditions by Deriv')}
+                content={
+                    <Localize translate_text="Your trusted broker with intuitive forex trading platforms, convenient payment options, and a 24/7 support team." />
+                }
+            />
+            <IconTextRow />
+            <Tablebtn
+                btnlabel={localize('Get trading on Deriv')}
+                text={localize('*available for selected pairs:')}
+            />
+            <ImageTextSwitching reverse P2P={DP2P_CONTENT} />
+            <WhatOurClientsSay />
+            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

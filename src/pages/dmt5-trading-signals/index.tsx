@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Hero, SmallContainer } from './_style'
 import HowTo from './_how-to'
@@ -10,7 +10,6 @@ import { localize, Localize, WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
 import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 import device from 'themes/device'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const meta_attributes = {
     og_title: localize('Deriv MetaTrader 5 trading signals | Resources | Deriv'),
@@ -113,7 +112,6 @@ const Separator = styled.div`
 
 const DMT5TradingSignals = () => {
     const [active_tab, setActiveTab] = useTabStateQuery(['signal-subscriber', 'signal-provider'])
-    const [is_mounted] = usePageLoaded() //needs to fix bug with hightlight of the 1st loading
     const [signal_subscriber, signal_provider] = [
         active_tab === 'signal-subscriber',
         active_tab === 'signal-provider',
@@ -136,24 +134,20 @@ const DMT5TradingSignals = () => {
                 </SmallContainer>
             </Hero>
             <TabsContainer>
-                {is_mounted && (
-                    <Item
-                        onClick={() => setActiveTab('signal-subscriber')}
-                        active_tab={active_tab}
-                        name="signal-subscriber"
-                    >
-                        <Header as="h4">{localize('Signal subscriber')}</Header>
-                    </Item>
-                )}
-                {is_mounted && (
-                    <Item
-                        onClick={() => setActiveTab('signal-provider')}
-                        active_tab={active_tab}
-                        name="signal-provider"
-                    >
-                        <Header as="h4">{localize('Signal provider')}</Header>
-                    </Item>
-                )}
+                <Item
+                    onClick={() => setActiveTab('signal-subscriber')}
+                    active_tab={active_tab}
+                    name="signal-subscriber"
+                >
+                    <Header as="h4">{localize('Signal subscriber')}</Header>
+                </Item>
+                <Item
+                    onClick={() => setActiveTab('signal-provider')}
+                    active_tab={active_tab}
+                    name="signal-provider"
+                >
+                    <Header as="h4">{localize('Signal provider')}</Header>
+                </Item>
             </TabsContainer>
             <Box position="relative">
                 <Separator />

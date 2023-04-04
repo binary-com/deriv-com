@@ -17,7 +17,6 @@ import { getBaseRef } from 'common/utility'
 import LogoPartner from 'images/svg/layout/logo-partners.svg'
 import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 type NavPartnerDesktopProps = {
     hide_login_signup: boolean
@@ -25,7 +24,6 @@ type NavPartnerDesktopProps = {
 
 type StyledNavRightProps = {
     is_rtl: boolean
-    mounted: boolean
     move: boolean
 }
 
@@ -80,15 +78,15 @@ const LinkSignupButton = styled(LinkButton)`
 const StyledNavRight = styled(NavRight)<StyledNavRightProps>`
     margin-left: auto;
     transform: translateX(
-        ${({ is_rtl, mounted, move, button_ref }) => {
+        ${({ is_rtl, move, button_ref }) => {
             const ref_base = getBaseRef(button_ref)
             if (move) {
-                if (ref_base && mounted) {
+                if (ref_base) {
                     ref_base.style.opacity = 1
                 }
                 return '0'
             } else {
-                if (ref_base && mounted) {
+                if (ref_base) {
                     ref_base.style.opacity = 0
                     const calculation = ref_base.offsetWidth + 50
                     return is_rtl ? `${-calculation}px` : `${calculation}px`
@@ -139,7 +137,6 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
     const { is_row } = useRegion()
     const button_ref = useRef<HTMLButtonElement | null>(null)
     const [show_button, showButton, hideButton] = useMoveButton()
-    const [is_mounted] = usePageLoaded()
     const [has_scrolled, setHasScrolled] = useState(false)
 
     const is_rtl = useIsRtl()
@@ -194,7 +191,6 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                     <StyledNavRight
                         move={show_button}
                         button_ref={button_ref}
-                        mounted={is_mounted}
                         has_scrolled={has_scrolled}
                         is_rtl={is_rtl}
                     >

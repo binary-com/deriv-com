@@ -9,7 +9,6 @@ import useHandleLogin from 'components/hooks/use-handle-login'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 type RightSectionProps = {
     is_ppc_redirect: boolean
@@ -44,7 +43,6 @@ const RightSection = ({
     hide_signup_login,
 }: RightSectionProps) => {
     const button_ref = useRef(null)
-    const [is_mounted] = usePageLoaded()
     const [has_scrolled, setHasScrolled] = useState(false)
     const [show_button, showButton, hideButton] = useMoveButton()
     const { is_region_loading } = useRegion()
@@ -79,7 +77,6 @@ const RightSection = ({
             is_rtl={is_rtl}
             hide_signup_login={hide_signup_login}
             button_ref={button_ref}
-            mounted={is_mounted}
             has_scrolled={has_scrolled}
         >
             <Language hide_component={hide_language_switcher} />

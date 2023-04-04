@@ -32,11 +32,6 @@ const DerivX = () => {
     }, [setMobile])
 
     const { is_row } = useRegion()
-    const [is_loaded, setLoaded] = useState(false)
-
-    useEffect(() => {
-        setLoaded(true)
-    }, [])
 
     useEffect(() => {
         handleResizeWindow()
@@ -47,55 +42,40 @@ const DerivX = () => {
         }
     }, [handleResizeWindow])
 
-    if (is_loaded) {
-        if (is_row) {
-            return (
-                <Layout>
-                    <SEO
-                        title={localize(
-                            'Deriv X - a multi-asset CFD trading platform available on Deriv',
-                        )}
-                        description={localize(
-                            'Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices.',
-                        )}
-                    />
-                    <Hero />
-                    <SellingPoints />
-                    <WhatIsDeriv />
-                    <WhyTradeDerivX />
-                    <StartDerivX />
-                    <Accounts />
-                    <StaticQuery
-                        query={query}
-                        render={(data) => (
-                            <DBanner
-                                background_pattern={
-                                    is_mobile
-                                        ? BackgroundPatternDerivXMobile
-                                        : BackgroundPatternDerivX
-                                }
-                                title={<Localize translate_text="Get trading with Deriv X" />}
-                                data={data}
-                            />
-                        )}
-                    />
-                </Layout>
-            )
-        }
-
-        return <PageNotFound />
+    if (is_row) {
+        return (
+            <Layout>
+                <SEO
+                    title={localize(
+                        'Deriv X - a multi-asset CFD trading platform available on Deriv',
+                    )}
+                    description={localize(
+                        'Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices.',
+                    )}
+                />
+                <Hero />
+                <SellingPoints />
+                <WhatIsDeriv />
+                <WhyTradeDerivX />
+                <StartDerivX />
+                <Accounts />
+                <StaticQuery
+                    query={query}
+                    render={(data) => (
+                        <DBanner
+                            background_pattern={
+                                is_mobile ? BackgroundPatternDerivXMobile : BackgroundPatternDerivX
+                            }
+                            title={<Localize translate_text="Get trading with Deriv X" />}
+                            data={data}
+                        />
+                    )}
+                />
+            </Layout>
+        )
     }
 
-    return (
-        <>
-            <SEO
-                title={localize('Deriv X - a multi-asset CFD trading platform available on Deriv')}
-                description={localize(
-                    'Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices.',
-                )}
-            />
-        </>
-    )
+    return <PageNotFound />
 }
 
 export default WithIntl()(DerivX)

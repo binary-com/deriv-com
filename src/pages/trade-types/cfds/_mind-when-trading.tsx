@@ -25,6 +25,12 @@ const query = graphql`
 `
 const ImageWrapper = styled.div`
     width: 100%;
+
+    @media ${device.tablet} {
+        max-width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
 `
 
 const StyledSectionContainer = styled(SectionContainer)`

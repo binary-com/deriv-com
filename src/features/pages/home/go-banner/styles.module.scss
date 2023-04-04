@@ -1,5 +1,9 @@
+.wrapper {
+    max-inline-size: 100%;
+}
 .item_container {
     inline-size: 48.7rem;
+    max-inline-size: 100%;
 }
 .qr_container {
     inline-size: 24.8rem;

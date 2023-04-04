@@ -11,8 +11,14 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const GoTextBox = () => {
     const { is_mobile } = useBreakpoints()
+    console.log({ is_mobile })
     return (
-        <FlexBox className={item_container} md={{ direction: 'row' }}>
+        <FlexBox
+            className={item_container}
+            direction="col"
+            align="center"
+            md={{ direction: 'row', align: 'start' }}
+        >
             <Image src={DerivGOIcon} width="64px" height="64px" />
             <Box pl="8x">
                 <Typography.Heading
@@ -32,9 +38,11 @@ const GoTextBox = () => {
                 >
                     <Localize translate_text="_t_You need Deriv GO Ultimate for Android. Trade Options, in addition to CFDs and Multipliers, on your favourite markets._t_" />
                 </Typography.Paragraph>
-                <Link textcolor="inverted" size="large" align={is_mobile ? 'center' : 'left'}>
-                    <Localize translate_text="_t_Download now >_t_" />
-                </Link>
+                <Typography.Paragraph align={is_mobile ? 'center' : 'left'}>
+                    <Link textcolor="inverted" size="large">
+                        <Localize translate_text="_t_Download now >_t_" />
+                    </Link>
+                </Typography.Paragraph>
             </Box>
         </FlexBox>
     )

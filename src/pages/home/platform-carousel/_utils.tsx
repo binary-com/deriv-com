@@ -24,6 +24,7 @@ import DTraderIcon from 'images/svg/dtrader/dtrader-icon.svg'
 import DMT5Icon from 'images/svg/dmt5/dmt5-icon.svg'
 import DerivGOIcon from 'images/svg/deriv-go/deriv-go-logo.svg'
 import DerivXIcon from 'images/svg/deriv-x/derivx-logo.svg'
+import DerivEZIcon from 'images/svg/deriv-ez/derivez-logo-black.svg'
 import DBotIcon from 'images/svg/dbot/dbot-icon.svg'
 import BinaryBotIcon from 'images/svg/binarybot-icon.svg'
 import SmartTraderIcon from 'images/svg/custom/smarttrader.svg'
@@ -67,6 +68,19 @@ export const platform_details_row: TPlatformDetails[] = [
         image_key: 'platforms_deriv_go',
         description: <Localize translate_text="Our best trading experience on your mobile." />,
         learn_more_link: '/deriv-go/',
+        download_links: {
+            is_desktop: [
+                { type: 'app_store', url: deriv_go_ios_url },
+                { type: 'google_play', url: deriv_go_playstore_url },
+            ],
+        },
+    },
+    {
+        title: 'Deriv EZ',
+        icon: DerivEZIcon,
+        image_key: 'platforms_derivez',
+        description: <Localize translate_text="Our mobile-first CFD trading platform" />,
+        learn_more_link: '/derivez/',
         download_links: {
             is_desktop: [
                 { type: 'app_store', url: deriv_go_ios_url },

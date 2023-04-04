@@ -139,7 +139,7 @@ const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
     height: 63rem;
 
     @media (max-width: 580px) {
-        background-size: 136rem;
+        background-size: 147rem;
         background-position-x: -588px;
     }
 

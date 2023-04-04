@@ -11,7 +11,7 @@ import DerivX from 'images/svg/custom/deriv-x.svg'
 import DBot from 'images/svg/dbot/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
-import DerivGo from 'images/svg/deriv-go/deriv-go-icon.svg'
+import DerivGo from 'images/svg/deriv-go/deriv-go-logo.svg'
 import useRegion from 'components/hooks/use-region'
 
 type AvailablePlatformsProps = {

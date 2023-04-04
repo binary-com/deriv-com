@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Localize, localize } from 'components/localization'
 import { SectionContainer, Container } from 'components/containers'
 import StepperView from 'components/custom/_stepper_view'
-import { Header } from 'components/elements'
+import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device'
 
 const query = graphql`

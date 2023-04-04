@@ -8,6 +8,7 @@ import { Container, SectionContainer } from 'components/containers'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import { LinkButton } from 'components/form'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import { QueryImage } from 'components/elements'
 
 const query = graphql`
     query {

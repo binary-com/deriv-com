@@ -81,10 +81,11 @@ const deriv_ez: TQuestionsData = {
                             },
                             {
                                 translation_text:
-                                    '_t_Hit <0>Get</0> under <1>CFDs</1> and Deriv EZ._t_',
+                                    '_t_Hit <0>Get</0> under <1>CFDs</1> and <2>Deriv EZ</2>._t_',
                                 translation_components: [
                                     { key: 0, type: 'strong' },
                                     { key: 1, type: 'strong' },
+                                    { key: 2, type: 'strong' },
                                 ],
                                 img: {
                                     src: DerivEZGetButton,

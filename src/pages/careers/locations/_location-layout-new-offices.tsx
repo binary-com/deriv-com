@@ -10,15 +10,14 @@ import { Text, Header, LinkText, BackgroundImage, QueryImage } from 'components/
 import { LinkButton } from 'components/form'
 import { map_api_key, zoho_jobs_url } from 'common/constants'
 import MapPin from 'images/svg/careers/map.svg'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
-const StyledBackground = styled(BackgroundImage)`
-    width: 100%;
-    height: 660px;
-    object-fit: contain;
-    @media ${device.laptop} {
-        height: 521px;
-    }
-`
+type HeroProps = {
+    display_name: string
+    img_data: ImageDataLike
+    img_alt: string
+    job_location?: string
+}
 
 const StyledContainer = styled(CareerContainer)`
     flex-direction: column;
@@ -32,6 +31,7 @@ const StyledHeader = styled(Header)`
     text-align: center;
     line-height: 80px;
 `
+
 const SecondStyledHeader = styled(Header)`
     @media ${device.tablet} {
         margin-bottom: 40px;
@@ -40,16 +40,12 @@ const SecondStyledHeader = styled(Header)`
     margin-bottom: 0 24px;
 `
 
-type HeroProps = {
-    display_name: string
-    img_data: ImageDataLike
-    img_alt: string
-    job_location?: string
-}
-
 const Hero = ({ display_name, img_data, img_alt, job_location }: HeroProps) => {
+    const [is_mobile] = useBrowserResize(1024)
+    const image_height = is_mobile ? '521px' : '660px'
+
     return (
-        <StyledBackground data={img_data} alt={img_alt}>
+        <BackgroundImage data={img_data} alt={img_alt} child_style={{ height: image_height }}>
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
                 <LinkButton
@@ -63,7 +59,7 @@ const Hero = ({ display_name, img_data, img_alt, job_location }: HeroProps) => {
                     }`}
                 </LinkButton>
             </StyledContainer>
-        </StyledBackground>
+        </BackgroundImage>
     )
 }
 
@@ -197,6 +193,7 @@ const StyledDiv = styled.div`
         height: unset;
     }
 `
+
 const WorkingQueryImage = styled(QueryImage)`
     object-fit: cover;
     max-width: 552px;

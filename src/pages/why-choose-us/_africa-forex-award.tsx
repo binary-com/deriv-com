@@ -95,13 +95,13 @@ const AfricaAward = () => {
                 <StyledFlex>
                     <BackgroundImage
                         data={data.africa_award_background}
-                        style={{
-                            backgroundRepeat: 'no-repeat',
-                            backgroundSize: 'contain',
+                        alt="africa forex award"
+                        child_style={{
                             width: '100%',
                             maxWidth: '1200px',
                             backgroundColor: 'white',
                         }}
+                        objectFit="contain"
                     >
                         <Flex style={{ maxHeight: '360px' }} ai="center" jc="space-evenly">
                             <StyledHeader type="heading-2" align="left" color="white">
@@ -123,15 +123,15 @@ const AfricaAward = () => {
                 <Flex fd="column" ai="center">
                     <BackgroundImage
                         data={data.africa_award_background_mobile}
-                        style={{
-                            backgroundRepeat: 'no-repeat',
-                            backgroundSize: 'contain',
+                        alt="africa forex award"
+                        child_style={{
                             width: '315px',
                             height: '325px',
                             maxWidth: '450px',
                             backgroundColor: 'white',
                             margin: ' 0 1rem',
                         }}
+                        objectFit="contain"
                     >
                         <StyledHeaderMobile type="heading-2" align="center" color="white">
                             {<Localize translate_text="Best Forex Broker Africa" />}

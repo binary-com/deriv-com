@@ -245,7 +245,6 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                           padding: '0 16px 0',
                           position: 'relative',
                           background: 'var(--color-white)',
-                          paddingBottom: pdata.note ? '5rem' : '3.8rem',
                       }
                     : {
                           padding: '0 48px 24px',

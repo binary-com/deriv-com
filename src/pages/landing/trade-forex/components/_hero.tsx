@@ -1,18 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { Flex, Container, Desktop, Mobile } from 'components/containers'
-import { Header } from 'components/elements'
+import { Flex, Container } from 'components/containers'
+import { Header, BackgroundImage } from 'components/elements'
 import { localize } from 'components/localization'
-import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import { HeroProps } from 'pages/landing/_types'
-
-const BackgroundWrapper = styled(Background)`
-    background-size: cover;
-    background-position: bottom right;
-`
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 const Wrapper = styled(Container)`
     @media ${device.tabletS} {
@@ -85,6 +80,7 @@ const TryButton = styled(LinkButton)`
         margin-top: 10px;
     }
 `
+
 const query = graphql`
     query {
         p2p_hero_background: file(relativePath: { eq: "landing/trade-fx.jpg" }) {
@@ -96,9 +92,18 @@ const query = graphql`
     }
 `
 
-const HeroComponent = ({ title, content, background_data }: HeroProps) => {
+const Hero = ({ title, content }: HeroProps) => {
+    const data = useStaticQuery(query)
+    const [is_mobile] = useBrowserResize()
+    const background = is_mobile ? data['p2p_hero_background_mobile'] : data['p2p_hero_background']
+
     return (
-        <BackgroundWrapper data={background_data}>
+        <BackgroundImage
+            data={background}
+            alt="trade forex"
+            objectFit="cover"
+            objectPosition="bottom right"
+        >
             <Wrapper p="0" justify="space-between" height="63rem">
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader mt="4rem" type="hero" color="white">
@@ -121,30 +126,7 @@ const HeroComponent = ({ title, content, background_data }: HeroProps) => {
                     </TryButton>
                 </InformationWrapper>
             </Wrapper>
-        </BackgroundWrapper>
-    )
-}
-
-const Hero = ({ title, content }: HeroProps) => {
-    const data = useStaticQuery(query)
-
-    return (
-        <div>
-            <Desktop>
-                <HeroComponent
-                    title={title}
-                    content={content}
-                    background_data={data['p2p_hero_background']}
-                />
-            </Desktop>
-            <Mobile>
-                <HeroComponent
-                    title={title}
-                    content={content}
-                    background_data={data['p2p_hero_background_mobile']}
-                />
-            </Mobile>
-        </div>
+        </BackgroundImage>
     )
 }
 

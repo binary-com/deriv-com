@@ -39,6 +39,9 @@ const query = graphql`
         platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
             ...fadeIn
         }
+        platforms_derivez: file(relativePath: { eq: "home/platforms_derivez.png" }) {
+            ...fadeIn
+        }
         platforms_mt5: file(relativePath: { eq: "home/platforms_mt5.png" }) {
             ...fadeIn
         }

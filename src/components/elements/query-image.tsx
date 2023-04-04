@@ -4,7 +4,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import type { ImageDataLike, IGatsbyImageData, GatsbyImageProps } from 'gatsby-plugin-image'
 
 export type QueryImageProps = {
-    alt: ReactElement | string
+    alt: string
     data: ImageDataLike | IGatsbyImageData
     height?: string
     width?: string

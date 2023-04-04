@@ -7,6 +7,7 @@ import { localize } from 'components/localization'
 import { SectionContainer, CssGrid, Desktop, Mobile, Flex } from 'components/containers'
 import { Header, Text, BackgroundImage } from 'components/elements'
 import device from 'themes/device'
+import './_OurOffices.css'
 
 const query = graphql`
     query {
@@ -73,27 +74,6 @@ const NumberText = styled(Text)`
     }
 `
 
-const MapImage = styled(BackgroundImage)`
-    position: relative;
-    width: 840px;
-    overflow: auto;
-    height: 414px;
-    background-color: transparent;
-    background-size: cover;
-    direction: ltr;
-
-    @media ${device.tabletL} {
-        width: 328px;
-        height: 170px;
-        overflow: hidden;
-    }
-    @media (max-width: 359px) {
-        width: 298px;
-        height: 155px;
-        overflow: hidden;
-    }
-`
-
 const StyledFlex = styled(Flex)`
     height: unset;
 `
@@ -109,18 +89,40 @@ const OurOffices = () => {
 
             <Flex>
                 <Desktop>
-                    <MapImage data={data['earth']}>
+                    <BackgroundImage
+                        data={data['earth']}
+                        alt="Map view"
+                        child_style={{
+                            height: '414px',
+                            width: '840px',
+                            direction: 'ltr',
+                        }}
+                        dark_background={false}
+                        objectFit="cover"
+                    >
                         {desktop_pins.map((pin, idx) => (
                             <MapPin key={idx} {...pin} />
                         ))}
-                    </MapImage>
+                    </BackgroundImage>
                 </Desktop>
                 <Mobile>
-                    <MapImage data={data['earth_mobile']}>
+                    <BackgroundImage
+                        data={data['earth_mobile']}
+                        alt="Map view"
+                        child_style={{
+                            height: '170px',
+                            width: '328px',
+                            direction: 'ltr',
+                            overflow: 'hidden',
+                        }}
+                        dark_background={false}
+                        objectFit="cover"
+                        child_class="mapview"
+                    >
                         {mobile_pins.map((pin, idx) => (
                             <MapPin key={idx} {...pin} />
                         ))}
-                    </MapImage>
+                    </BackgroundImage>
                 </Mobile>
             </Flex>
 

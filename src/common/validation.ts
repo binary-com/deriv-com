@@ -31,7 +31,7 @@ const validation: TValidationType = {
     },
     required: (input, message) => {
         if (!input) {
-            return message ? message : localize('This field is required')
+            return message ? message : localize('Email is required')
         } else {
             return null
         }

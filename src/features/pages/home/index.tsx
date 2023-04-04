@@ -3,6 +3,7 @@ import HomeHero from './hero'
 import HomeMarkets from './markets'
 import OurPlatforms from './our-platforms'
 import TradeTypes from './trade-types'
+import DerivGOBanner from './go-banner'
 import P2PBanner from './p2p-banner'
 import ClientTestimonial from './client-testimonial'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
@@ -34,6 +35,7 @@ const HomePage = () => {
             <HomeMarkets />
             <TradeTypes />
             <OurPlatforms />
+            <DerivGOBanner />
             {is_p2p_allowed_country && <P2PBanner />}
             <ClientTestimonial />
             <Signup appearance={Appearances.public} />

@@ -10,7 +10,7 @@ import { SEO } from 'components/containers'
 import { localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { Appearances } from 'components/custom/signup'
-import { Signup, WhatOurClientsSay, P2PHomeBanner } from 'pages/home/_lazy-load'
+import { Signup, WhatOurClientsSay } from 'pages/home/_lazy-load'
 import MainNav from 'features/components/templates/navigation/main-nav'
 
 const HomePage = () => {
@@ -34,8 +34,7 @@ const HomePage = () => {
             <TradeTypes />
             <OurPlatforms />
             <WhatOurClientsSay />
-            <P2PBanner />
-            {is_p2p_allowed_country && <P2PHomeBanner />}
+            {is_p2p_allowed_country && <P2PBanner />}
             <Signup appearance={Appearances.public} />
         </Layout>
     )

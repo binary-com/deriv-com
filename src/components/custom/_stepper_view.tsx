@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import { QueryImage } from 'components/elements'
 import device from 'themes/device'
-import { localize } from 'components/localization'
 
 type TItem = {
-    title: string
-    image: ImageDataLike
-    alt: JSX.Element
+    title: () => JSX.Element
+    image: () => JSX.Element
 }
 
 type TProps = {
@@ -17,17 +13,20 @@ type TProps = {
     onStepChanged?: (step: number) => void
     renderFooter?: () => JSX.Element
     contentWidth?: string
+    reverse?: boolean
 }
+
 type ItemsWrapperProps = {
     width?: string
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ reverse: boolean }>`
     display: flex;
     align-items: center;
     width: 100%;
     max-width: 1120px;
     gap: 60px;
+    flex-direction: ${(props) => (props.reverse ? 'row-reverse' : 'row')};
 
     @media ${device.tabletL} {
         flex-direction: column;
@@ -78,6 +77,7 @@ const StepperView: React.FC<TProps> = ({
     onStepChanged,
     renderFooter,
     contentWidth,
+    reverse = false,
 }) => {
     const [selected, setSelected] = useState<number>(default_step)
 
@@ -88,10 +88,8 @@ const StepperView: React.FC<TProps> = ({
     useEffect(() => setSelected(default_step), [items, default_step])
 
     return (
-        <Wrapper>
-            <ImageWrapper>
-                <QueryImage data={items[selected]?.image} alt={items[selected]?.alt} />
-            </ImageWrapper>
+        <Wrapper reverse={reverse}>
+            <ImageWrapper>{items[selected]?.image()}</ImageWrapper>
             <ItemsWrapper width={contentWidth}>
                 <UlStyle>
                     {items.map((item, index) => (
@@ -100,7 +98,8 @@ const StepperView: React.FC<TProps> = ({
                             style={{ fontWeight: selected === index ? 'bold' : 'normal' }}
                             onClick={() => setSelected(index)}
                         >
-                            {localize(`_t_${index + 1}. ${item.title}_t_`)}
+                            {`${index + 1}.`}
+                            {item.title()}
                         </li>
                     ))}
                 </UlStyle>

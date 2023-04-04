@@ -26,7 +26,6 @@ const Wrapper = styled(Flex)`
     justify-content: flex-start;
     border-top: 1px solid rgba(151, 151, 151, 0.2);
     background-color: var(--color-black);
-
     @media ${device.desktopS} {
         padding-left: 18%;
     }
@@ -54,11 +53,9 @@ const ImageWrapper = styled(Flex)`
     right: 12rem;
     z-index: 1;
     height: 100%;
-
     div {
         width: 100%;
     }
-
     @media ${device.laptopM} {
         max-width: 430px;
     }
@@ -78,7 +75,6 @@ const ImageWrapper = styled(Flex)`
 
 const TextWrapper = styled.div`
     margin: auto 0;
-
     @media ${device.laptopM} {
         max-width: 37rem;
     }
@@ -97,7 +93,6 @@ const StyledLinkButton = styled(Button)`
     border: unset;
     line-height: 1.5;
     display: inline-block;
-
     @media ${device.tabletS} {
         margin: auto;
     }
@@ -119,7 +114,6 @@ const BackgroundPattern = styled.img<{ is_rtl: boolean }>`
     transform: ${({ is_rtl }) => {
         return is_rtl ? 'scaleX(-1)' : null
     }};
-
     @media ${device.laptopM} {
         width: 60rem;
         height: initial;

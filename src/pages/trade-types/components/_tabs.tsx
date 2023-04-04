@@ -44,6 +44,7 @@ const TabButton = styled.div<TabButtonType>`
     flex-direction: column;
     padding-left: 1.6rem;
     margin-bottom: 1.6rem;
+    margin-top: 1.6rem;
     cursor: pointer;
 
     &::before {

@@ -82,7 +82,7 @@ const Roadmap = ({ portal }: RoadmapProps) => {
                     <StyledHeader as="h2" type="heading-2" align="center">
                         <Localize translate_text="What’s next?" />
                     </StyledHeader>
-                    <StyledText mt="16px" align="center" weight="100">
+                    <StyledText mt="16px" align="center" weight="400" as="p">
                         {portal.paragraph}
                     </StyledText>
                 </Flex>

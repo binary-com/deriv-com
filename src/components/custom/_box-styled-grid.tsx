@@ -14,7 +14,7 @@ type TItem = {
 
 type TProps = {
     items: TItem[]
-    containerWidth: string
+    containerWidth?: string
     boxsPerRow?: string
 }
 const StyledText = styled(Header)`
@@ -64,7 +64,9 @@ const BoxStyledGrid: React.FC<TProps> = ({ items, containerWidth, boxsPerRow = '
                             </div>
                             <StyledText>{item.title}</StyledText>
                         </OptionItems>
-                        <StyledSubText weight="400">{item.subtitle}</StyledSubText>
+                        <StyledSubText weight="400" as="p">
+                            {item.subtitle}
+                        </StyledSubText>
                     </HowItWorksItem>
                 )
             })}

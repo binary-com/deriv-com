@@ -58,7 +58,6 @@ const UlStyle = styled.ul`
     flex-direction: column;
     gap: 24px;
     cursor: pointer;
-    font-family: Ubuntu, sans-serif;
 
     li {
         color: var(--color-black-9);

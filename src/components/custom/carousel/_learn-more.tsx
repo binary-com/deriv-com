@@ -24,7 +24,7 @@ const Item = styled.div`
     align-items: center;
     justify-content: center;
     border-radius: 23px;
-    background: var(--color-grey-18);
+    background: #f6f7f8;
     padding: 0.8rem 1.6rem;
     width: fit-content;
     margin: 0 auto;

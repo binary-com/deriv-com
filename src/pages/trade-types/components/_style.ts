@@ -131,6 +131,7 @@ const HowItWorksItem = styled(Flex)`
     @media ${device.mobileL} {
         justify-content: flex-start;
         min-height: 123px;
+        padding: 24px;
     }
 `
 

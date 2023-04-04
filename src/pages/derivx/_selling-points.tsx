@@ -16,7 +16,7 @@ const StyledSectionContainer = styled(SectionContainer)`
     padding-top: 40px;
 
     @media ${device.tabletL} {
-        padding-top: 0;
+        padding: 0 0 40px;
     }
 `
 const NumberStyledContainer = styled(flex)`
@@ -29,8 +29,9 @@ const NumberStyledContainer = styled(flex)`
     color: var(--color-black-9);
 
     @media ${device.tabletL} {
+        padding: 15px 0 0;
+
         flex-direction: column;
-        padding: 16px 0 40px;
     }
 `
 const NumberWrapper = styled.div`
@@ -52,7 +53,6 @@ const StyledSubTitle = styled(Header)`
     padding-top: 8px;
     font-size: 16px;
     color: var(--color-black-9);
-    font-family: Ubuntu, sans-serif;
 
     @media ${device.tabletL} {
         font-size: 18px;
@@ -66,14 +66,14 @@ const selling_points: SellingPointsType[] = [
         subtitle: <Localize translate_text="tradable assets" />,
     },
     {
-        id: 2,
-        title: '24/7',
-        subtitle: <Localize translate_text="trading" />,
-    },
-    {
         id: 3,
         title: <Localize translate_text="Zero" />,
         subtitle: <Localize translate_text="commission" />,
+    },
+    {
+        id: 2,
+        title: '24/7',
+        subtitle: <Localize translate_text="trading" />,
     },
 ]
 
@@ -86,7 +86,7 @@ const SellingPoints = () => {
                         <StyledTitle as="h3" type="heading-3" align="center">
                             {item.title}
                         </StyledTitle>
-                        <StyledSubTitle align="center" weight="100">
+                        <StyledSubTitle align="center" weight="400" as="span">
                             {item.subtitle}
                         </StyledSubTitle>
                     </NumberWrapper>

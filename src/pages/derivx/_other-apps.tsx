@@ -15,16 +15,16 @@ const OurPlatforms = () => {
             link: '/dmt5/',
         },
         {
-            icon: dGoIcon,
-            heading: 'Deriv Go',
-            paragraph: 'Our best trading experience on your mobile.',
-            link: '/deriv-go/',
-        },
-        {
             icon: dtIcon,
             heading: 'Deriv Trader',
             paragraph: 'Our flagship app for trading options and multipliers.',
             link: '/dtrader/',
+        },
+        {
+            icon: dGoIcon,
+            heading: 'Deriv Go',
+            paragraph: 'Our best trading experience on your mobile.',
+            link: '/deriv-go/',
         },
         {
             icon: ezIcon,
@@ -43,7 +43,7 @@ const OurPlatforms = () => {
         <>
             <GenericCarousel
                 renderableData={carouselData}
-                mainHeading="Check out ours other platforms"
+                mainHeading="Check out our other platforms"
             />
         </>
     )

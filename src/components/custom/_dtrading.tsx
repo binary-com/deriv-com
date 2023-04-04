@@ -79,10 +79,8 @@ const StyledHeader = styled(Header)`
     }
 `
 const StyledTitle = styled(Header)`
-    font-size: 18px;
-    font-weight: 100;
+    font-size: 16px;
     margin: 8px 0 0;
-    color: var(--color-black-9);
 `
 const Row = styled.div<RowProps>`
     flex-direction: ${(props) => props.flex_direction};
@@ -183,13 +181,17 @@ const DTrading = ({ trading, reverse, two_title }: DTradingProps) => {
                                 <StyledHeader type="page-title" as="h2">
                                     {item.title}
                                 </StyledHeader>
-                                <StyledTitle>{item.subtitle}</StyledTitle>
+                                <StyledTitle weight="400" as="p">
+                                    {item.subtitle}
+                                </StyledTitle>
                                 {two_title && (
                                     <>
                                         <StyledHeader type="page-title" mt="2.4rem">
                                             {item.second_title}
                                         </StyledHeader>
-                                        <StyledTitle>{item.second_subtitle}</StyledTitle>
+                                        <StyledTitle weight="400" as="p">
+                                            {item.second_subtitle}
+                                        </StyledTitle>
                                     </>
                                 )}
                             </Content>

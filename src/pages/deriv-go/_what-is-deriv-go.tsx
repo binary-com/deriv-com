@@ -48,7 +48,6 @@ const StyledSubTitle = styled(Header)`
     padding-top: 8px;
     font-size: 16px;
     color: var(--color-black-9);
-    font-family: Ubuntu, sans-serif;
 
     @media ${device.tabletL} {
         font-size: 18px;
@@ -68,7 +67,7 @@ const StyledText = styled(Header)`
     max-width: 792px;
 
     @media ${device.tabletL} {
-        font-size: 24px;
+        font-size: 14px;
     }
 `
 
@@ -91,7 +90,7 @@ const WhatIsDerivGo = () => {
                         <StyledTitle as="h3" type="heading-3" align="center">
                             {item.title}
                         </StyledTitle>
-                        <StyledSubTitle align="center" weight="100">
+                        <StyledSubTitle align="center" weight="400" as="span">
                             {item.subtitle}
                         </StyledSubTitle>
                     </NumberWrapper>
@@ -102,7 +101,7 @@ const WhatIsDerivGo = () => {
                     <StyledHeader as="h2" type="heading-2" align="center">
                         <Localize translate_text="What is Deriv GO" />
                     </StyledHeader>
-                    <StyledText mt="16px" align="center" weight="100">
+                    <StyledText mt="16px" align="center" weight="400" as="p">
                         <Localize translate_text="Deriv GO is our mobile app optimised for trading multipliers on the go. Trade on forex, synthetic indices, and cryptocurrencies, and maximise your potential profit without risking more than your stake." />
                     </StyledText>
                 </Flex>

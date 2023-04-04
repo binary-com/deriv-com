@@ -49,7 +49,6 @@ const TextAndButtonWrapper = styled.div`
     }
 `
 const InfoText = styled.p`
-    font-family: Ubuntu, sans-serif;
     font-size: 25px;
     margin-left: 16px;
     line-height: 34px;

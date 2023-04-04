@@ -79,7 +79,7 @@ const Content = styled.div`
     padding-left: 120px;
 
     @media ${device.tablet} {
-        padding: 0 16px 64px;
+        padding: 0 16px 40px;
     }
 `
 const StyledTradingLogin = styled.img`

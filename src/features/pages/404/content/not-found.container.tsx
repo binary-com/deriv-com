@@ -10,32 +10,44 @@ import { Localize } from 'components/localization'
 
 const NotFoundContainer = () => {
     return (
-        <FlexBox className={styles.not_found}>
+        <FlexBox
+            className={styles.not_found}
+            direction={'col'}
+            wrap={'wrap'}
+            justify={'center'}
+            align={'center'}
+        >
             <Image
                 src={not_available_image.src}
                 alt={not_available_image.alt}
                 width="96"
                 height="96"
             />
-            <FlexBox className={styles.not_found_info} margin={'8x'}>
-                <Typography.Heading
-                    as="h3"
-                    size={'small'}
-                    className={styles.not_found_description}
-                    textcolor={'black-3'}
-                >
+            <FlexBox
+                direction={'col'}
+                wrap={'wrap'}
+                justify={'center'}
+                align={'center'}
+                margin={'8x'}
+            >
+                <Typography.Heading as="h3" size={'small'} textcolor={'black'} mt={'8x'}>
                     <Localize translate_text={info_items.header} />
                 </Typography.Heading>
-                <Typography.Heading
-                    as="h4"
-                    size={'xxxs'}
-                    className={styles.not_found_description}
+                <Typography.Paragraph
+                    size={'medium'}
                     weight={'normal'}
-                    textcolor={'black-3'}
+                    textcolor={'black'}
+                    align={'center'}
+                    mt={'8x'}
+                    mb={'8x'}
                 >
                     <Localize translate_text={info_items.sub_header} />
-                </Typography.Heading>
-                <Button.Primary type={'button'} className={styles.not_found_button}>
+                </Typography.Paragraph>
+                <Button.Primary
+                    type={'button'}
+                    className={styles.not_found_button}
+                    textsize={'medium'}
+                >
                     <Link type={'internal'} url={button_link.url} textcolor={'white'}>
                         <Localize translate_text={button_link.text} />
                     </Link>

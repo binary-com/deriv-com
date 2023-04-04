@@ -3,27 +3,10 @@
 
 .not {
   &_found {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     padding: 16rem 0;
 
-    &_info {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin: 1.6rem;
-    }
-    &_description {
-      margin-top: 1.6rem;
-    }
     &_button {
       border-radius: 4px;
-      padding: 10px 16px;
-      margin-top: 3rem;
 
       & > a:hover {
         color: white;

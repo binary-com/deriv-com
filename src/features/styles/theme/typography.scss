@@ -39,12 +39,6 @@
 .typography-color-black {
     color: $color-black-9;
 }
-.typography-color-black-2 {
-    color: $color-black-2;
-}
-.typography-color-black-3 {
-    color: $color-black-3;
-}
 
 .typography-break-word {
     word-break: break-word;
@@ -112,10 +106,6 @@
 
 .heading-xxs {
     @include font-size($font-size-600);
-}
-
-.heading-xxxs {
-    @include font-size($font-size-500);
 }
 
 .text-xxxl {

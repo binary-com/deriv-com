@@ -5,13 +5,9 @@ type TInfoItem = {
     header: TString
     sub_header: TString
 }
-type TNotAvailableImage = {
-    src: string
-    alt: string
-}
 type TButtonLink = {
     text: TString
     url: LinkUrlType
 }
 
-export { TInfoItem, TNotAvailableImage, TButtonLink }
+export { TInfoItem, TButtonLink }

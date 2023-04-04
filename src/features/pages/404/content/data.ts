@@ -1,7 +1,7 @@
-import { TButtonLink, TInfoItem, TNotAvailableImage } from './types'
+import { TButtonLink, TInfoItem } from './types'
 import NotAvailableImage from 'images/svg/image-not-available.svg'
 
-export const not_available_image: TNotAvailableImage = {
+export const not_available_image = {
     src: NotAvailableImage,
     alt: 'Page not found',
 }

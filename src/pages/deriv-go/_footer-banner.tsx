@@ -71,7 +71,7 @@ const DerivGoGetApp = () => {
             </ContentWrapper>
             <DownloadColumn
                 QRImage={derivGoQR}
-                QRHeading1="_t_Scan to download_t_"
+                QRHeading1="Scan to download"
                 QRHeading2="Android & Huawei"
                 items={items}
             />

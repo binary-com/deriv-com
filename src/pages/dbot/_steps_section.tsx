@@ -60,29 +60,49 @@ const DBotEasySteps = () => {
     const stepsData: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: '_t_Select an asset_t_',
-                image: data['step_1'],
-                alt: <Localize translate_text="Select an asset" />,
+                title: () => <Localize translate_text="Select an asset" />,
+                image: () => (
+                    <QueryImage
+                        data={data['step_1']}
+                        alt={<Localize translate_text="Select an asset" />}
+                    />
+                ),
             },
             {
-                title: '_t_Set the purchase conditions_t_',
-                image: data['step_2'],
-                alt: <Localize translate_text="purchase conditions" />,
+                title: () => <Localize translate_text="Set the purchase conditions" />,
+                image: () => (
+                    <QueryImage
+                        data={data['step_2']}
+                        alt={<Localize translate_text="purchase conditions" />}
+                    />
+                ),
             },
             {
-                title: '_t_Set the restart conditions_t_',
-                image: data['step_3'],
-                alt: <Localize translate_text="restart conditions" />,
+                title: () => <Localize translate_text="Set the restart conditions" />,
+                image: () => (
+                    <QueryImage
+                        data={data['step_3']}
+                        alt={<Localize translate_text="restart conditions" />}
+                    />
+                ),
             },
             {
-                title: '_t_Run the bot_t_',
-                image: data['step_4'],
-                alt: <Localize translate_text="Run the bot" />,
+                title: () => <Localize translate_text="Run the bot" />,
+                image: () => (
+                    <QueryImage
+                        data={data['step_4']}
+                        alt={<Localize translate_text="Run the bot" />}
+                    />
+                ),
             },
             {
-                title: '_t_Check the profit_t_',
-                image: data['step_5'],
-                alt: <Localize translate_text="Check the profit" />,
+                title: () => <Localize translate_text="Check the profit" />,
+                image: () => (
+                    <QueryImage
+                        data={data['step_5']}
+                        alt={<Localize translate_text="Check the profit" />}
+                    />
+                ),
             },
         ],
         [data],

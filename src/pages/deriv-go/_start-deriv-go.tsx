@@ -45,19 +45,37 @@ const StartDerivGo = () => {
     const stepsData: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: '_t_Sign in to your Deriv account. If you don’t have one, sign up for free; then create a Deriv real account._t_',
-                image: data['sign_up'],
-                alt: <Localize translate_text="Sign in" />,
+                title: () => (
+                    <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free; then create a Deriv real account." />
+                ),
+                image: () => (
+                    <QueryImage
+                        data={data['sign_up']}
+                        alt={<Localize translate_text="Sign in" />}
+                    />
+                ),
             },
             {
-                title: '_t_Fund your Deriv real account with your preferred payment method._t_',
-                image: data['fund'],
-                alt: <Localize translate_text="Fund your Deriv" />,
+                title: () => (
+                    <Localize translate_text="Fund your Deriv real account with your preferred payment method." />
+                ),
+                image: () => (
+                    <QueryImage
+                        data={data['fund']}
+                        alt={<Localize translate_text="Fund your Deriv" />}
+                    />
+                ),
             },
             {
-                title: '_t_Download the app and trade anytime, anywhere._t_',
-                image: data['trading'],
-                alt: <Localize translate_text="Download the app" />,
+                title: () => (
+                    <Localize translate_text="Download the app and trade anytime, anywhere." />
+                ),
+                image: () => (
+                    <QueryImage
+                        data={data['trading']}
+                        alt={<Localize translate_text="Download the app" />}
+                    />
+                ),
             },
         ],
         [data],

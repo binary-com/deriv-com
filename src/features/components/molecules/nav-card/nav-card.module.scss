@@ -2,6 +2,11 @@
 @import 'features/styles/theme/variables';
 
 .nav_card {
+    &_link {
+        &:hover {
+            text-decoration: none;
+        }
+    }
     &_container {
         display: flex;
         flex-direction: row;
@@ -65,7 +70,6 @@
 
         &_description {
             text-align: start;
-            color: $color-black-3;
         }
     }
 }

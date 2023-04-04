@@ -3,7 +3,7 @@ import { TQuestionsData } from './_data-types'
 const deriv_p2p: TQuestionsData = {
     section: 'Platforms',
     category: '_t_Deriv P2P_t_',
-    hide_for_eu: true,
+    hide_non_p2p: true,
     questions: [
         {
             question: '_t_What is Deriv P2P?_t_',

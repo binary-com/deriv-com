@@ -1,12 +1,11 @@
 import React, { useMemo } from 'react'
-import FlexBox from 'features/components/atoms/flex-box'
-import Reddit from 'images/svg/layout/footer-reddit.svg'
-import Telegram from 'images/svg/layout/footer-telegram.svg'
-import Twitter from 'images/svg/layout/footer-twitter.svg'
-import Youtube from 'images/svg/layout/footer-youtube.svg'
-import Instagram from 'images/svg/layout/footer-instagram.svg'
-import Facebook from 'images/svg/layout/footer-facebook.svg'
-import Linkedin from 'images/svg/layout/footer-linkedin.svg'
+import Flex from 'features/components/atoms/flex-box'
+import Telegram from 'images/svg/footer/telegram_icon.svg'
+import Twitter from 'images/svg/footer/twitter_icon.svg'
+import Youtube from 'images/svg/footer/youtube_icon.svg'
+import Instagram from 'images/svg/footer/instagram_icon.svg'
+import Facebook from 'images/svg/footer/facebook_icon.svg'
+import Linkedin from 'images/svg/footer/linkedin_icon.svg'
 import { useSocialMediaUrl } from 'components/hooks/use-social-media-url'
 import { getLocationPathname } from 'common/utility'
 import { reddit_url, telegram_url, youtube_url } from 'common/constants'
@@ -60,11 +59,7 @@ const getFooterIcons = (
         image: Twitter,
         image_alt: `twitter ${alt}`,
     }
-    const reddit: TSocialAccount = {
-        link: reddit_url,
-        image: Reddit,
-        image_alt: `reddit ${alt}`,
-    }
+
     const telegram: TSocialAccount = {
         link: telegram_url,
         image: Telegram,
@@ -77,7 +72,7 @@ const getFooterIcons = (
     }
 
     if (!is_career_page) {
-        accounts.splice(0, 0, youtube, reddit, telegram)
+        accounts.splice(0, 0, youtube, telegram)
         accounts.splice(4, 0, twitter)
     }
     return accounts
@@ -106,7 +101,7 @@ const FooterSocialIcons = () => {
     }, [alt, fb_url, instagram_url, is_career_page, linkedin_url, twitter_url])
 
     return (
-        <FlexBox justify="center" align="center" gap="5x">
+        <Flex.Box justify="center" align="center" gap="12x">
             {icons.map((iconItem) => {
                 return (
                     <Link
@@ -116,13 +111,13 @@ const FooterSocialIcons = () => {
                         <Image
                             src={iconItem.image}
                             alt={iconItem.image_alt}
-                            width={41}
-                            height={41}
+                            width={32}
+                            height={32}
                         />
                     </Link>
                 )
             })}
-        </FlexBox>
+        </Flex.Box>
     )
 }
 

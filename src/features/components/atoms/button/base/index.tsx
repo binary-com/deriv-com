@@ -1,9 +1,16 @@
 import React, { ButtonHTMLAttributes } from 'react'
 import Box from '../../box'
-import { ClassProps, TTextSize, TTypographyColor, TTypographyWeight } from 'features/types'
+import {
+    ClassProps,
+    TBorderRadius,
+    TTextSize,
+    TTypographyColor,
+    TTypographyWeight,
+} from 'features/types'
 import './base.button.scss'
 import dclsx from 'features/utils/dclsx'
 import {
+    generateBorderRadius,
     generateTextColor,
     generateTextSize,
     generateTypographyWeight,
@@ -16,6 +23,7 @@ export interface BaseButtonProps extends ButtonHTMLAttributes<'button'>, ClassPr
     textcolor?: TTypographyColor
     textweight?: TTypographyWeight
     hero?: boolean
+    radius?: TBorderRadius
 }
 
 const BaseButton = ({
@@ -27,6 +35,7 @@ const BaseButton = ({
     textcolor,
     textweight,
     hero,
+    radius,
     ...rest
 }: BaseButtonProps) => {
     return (
@@ -42,6 +51,7 @@ const BaseButton = ({
                 generateTextSize(textsize),
                 generateTextColor(textcolor),
                 generateTypographyWeight(textweight),
+                generateBorderRadius(radius),
             )}
             {...rest}
         >

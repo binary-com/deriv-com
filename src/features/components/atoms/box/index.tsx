@@ -3,7 +3,9 @@ import { ClassProps, TBGColor } from 'features/types'
 import dclsx from 'features/utils/dclsx'
 import { generateBackgroundColor, generateSpacingClasses } from 'features/styles/utils'
 
-export interface BoxProps<T extends React.ElementType = 'p'> extends HTMLAttributes<T>, ClassProps {
+export interface BoxProps<T extends React.ElementType = 'div'>
+    extends HTMLAttributes<T>,
+        ClassProps {
     as?: T
     innerRef?: ComponentPropsWithRef<T>['ref']
     md?: ClassProps

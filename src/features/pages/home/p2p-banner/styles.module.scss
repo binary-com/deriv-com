@@ -1,0 +1,19 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.p2p_box_container {
+    
+    @include breakpoints(tablet-large){
+        inline-size: 27rem;
+    }
+    @include breakpoints(desktop){
+        inline-size: 40rem;
+    }
+}
+.p2p_qr_container {
+    inline-size: 20.8rem;
+    border-radius: 8px;
+    display: none;
+    @include breakpoints(tablet-large){
+        display: block;
+    }
+}

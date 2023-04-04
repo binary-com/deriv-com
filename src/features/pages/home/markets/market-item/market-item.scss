@@ -1,0 +1,40 @@
+@use 'features/styles/theme/theme-mixins' as *;
+.link_container {
+    min-block-size: 32rem;
+    position: relative;
+
+    display: block;
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+        & .image_container {
+            inset-block-end: -16rem;
+        }
+
+        & .market_item_description {
+            opacity: 1;
+        }
+    }
+}
+.container {
+    position: relative;
+    border-radius: 10px;
+}
+
+.market_item_description {
+    opacity: 0;
+    transition: opacity 0.2s;
+    transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.image_container {
+    position: absolute;
+    inset-block-end: -2.4rem;
+    inset-inline-start: 0;
+    transition: bottom 0.2s;
+    transition-timing-function: cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+.markets_slider_pagination {
+    bottom: -20rem;
+}

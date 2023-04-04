@@ -103,6 +103,7 @@ export type TTypographyBreakWord = InferSide<ClassNames, 'typography-break'>
 export type TTypographyWeight = InferSide<ClassNames, 'typography-weight'>
 export type THeadingSize = InferSide<ClassNames, 'heading'>
 export type TTextSize = InferSide<ClassNames, 'text'>
+export type TBorderRadius = InferSide<ClassNames, 'border-radius'>
 export type TSpacingSize = InferSide<ClassNames, 'margin-block'>
 export type TTypographyColor = InferSide<ClassNames, 'typography-color'>
 
@@ -111,6 +112,7 @@ export type TBGColor = InferSide<ClassNames, 'bg-color'>
 
 // FlexBox Classes
 export type TAlignItems = InferSide<ClassNames, 'align-items'>
+export type TAlignSelf = InferSide<ClassNames, 'align-self'>
 export type TJustifyContent = InferSide<ClassNames, 'justify'>
 export type TFlexGrow = InferSide<ClassNames, 'flex-grow'>
 export type TFlexShrink = InferSide<ClassNames, 'flex-shrink'>
@@ -134,5 +136,4 @@ export interface ClassProps {
     pb?: TSpacingSize
     padding_inline?: TSpacingSize
     padding_block?: TSpacingSize
-    // bgcolor?: TBGColor
 }

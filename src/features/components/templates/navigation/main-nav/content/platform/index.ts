@@ -8,7 +8,6 @@ import Smarttrader from 'images/svg/custom/smarttrader.svg'
 import DerivGo from 'images/svg/deriv-go/deriv-go-icon.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
-import { binary_bot_url } from 'common/constants'
 
 export const tradeTypesContent: TSmartNavContent[] = [
     {

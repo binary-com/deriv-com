@@ -10,7 +10,7 @@ import { Localize } from 'components/localization'
 
 const NotFoundContainer = () => {
     return (
-        <FlexBox
+        <FlexBox.Box
             className={styles.not_found}
             direction={'col'}
             wrap={'wrap'}
@@ -23,7 +23,7 @@ const NotFoundContainer = () => {
                 width="96"
                 height="96"
             />
-            <FlexBox
+            <FlexBox.Box
                 direction={'col'}
                 wrap={'wrap'}
                 justify={'center'}
@@ -38,22 +38,24 @@ const NotFoundContainer = () => {
                     weight={'normal'}
                     textcolor={'black'}
                     align={'center'}
-                    mt={'8x'}
-                    mb={'8x'}
+                    margin_block={'8x'}
                 >
                     <Localize translate_text={info_items.sub_header} />
                 </Typography.Paragraph>
                 <Button.Primary
                     type={'button'}
                     className={styles.not_found_button}
+                    radius={'2x'}
                     textsize={'medium'}
+                    padding_inline={'8x'}
+                    padding_block={'5x'}
                 >
                     <Link type={'internal'} url={button_link.url} textcolor={'white'}>
                         <Localize translate_text={button_link.text} />
                     </Link>
                 </Button.Primary>
-            </FlexBox>
-        </FlexBox>
+            </FlexBox.Box>
+        </FlexBox.Box>
     )
 }
 

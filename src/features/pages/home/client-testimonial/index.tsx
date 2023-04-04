@@ -1,13 +1,13 @@
 import React from 'react'
 import TestimonialSlider from './slider'
 import TrustpilotContainer from './trustpiolot-container'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 import Container from 'features/components/atoms/container'
 
 const ClientTestimonial = () => {
     return (
         <Container.Fixed bgcolor="secondary">
-            <FlexBox
+            <Flex.Box
                 container="fluid"
                 direction="col"
                 justify="between"
@@ -20,7 +20,7 @@ const ClientTestimonial = () => {
             >
                 <TrustpilotContainer />
                 <TestimonialSlider />
-            </FlexBox>
+            </Flex.Box>
         </Container.Fixed>
     )
 }

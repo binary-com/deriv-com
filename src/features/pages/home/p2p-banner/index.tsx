@@ -4,12 +4,12 @@ import P2PTextBox from './text-box'
 import QRCode from './qr-code'
 import Container from 'features/components/atoms/container'
 import Box from 'features/components/atoms/box'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 
 const P2PBanner = () => {
     return (
         <Container.Fixed as="section" bgcolor="tertiary">
-            <FlexBox
+            <Flex.Box
                 container="fixed"
                 direction="col-reverse"
                 md={{ direction: 'row', justify: 'between' }}
@@ -24,7 +24,7 @@ const P2PBanner = () => {
                         formats={['avif', 'webp', 'auto']}
                     />
                 </Box>
-                <FlexBox
+                <Flex.Box
                     align="center"
                     gap="12x"
                     padding_inline="8x"
@@ -34,8 +34,8 @@ const P2PBanner = () => {
                 >
                     <P2PTextBox />
                     <QRCode />
-                </FlexBox>
-            </FlexBox>
+                </Flex.Box>
+            </Flex.Box>
         </Container.Fixed>
     )
 }

@@ -7,7 +7,7 @@ import usePpc from 'features/hooks/use-ppc'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import { TNavConfig, TSmartNavSectionColumns } from 'features/components/templates/navigation/types'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 
 const NavSectionContainer = ({ items }: { items: TSmartNavSectionColumns[] }) => {
     const { is_ppc, is_ppc_redirect } = usePpc()
@@ -25,9 +25,9 @@ const NavSectionContainer = ({ items }: { items: TSmartNavSectionColumns[] }) =>
     const data = useVisibleContent({ config: filter_config, content: items })
 
     return (
-        <FlexBox bgcolor="primary" className={styles.section_items}>
+        <Flex.Box bgcolor="primary" className={styles.section_items}>
             {data.map((sectionItem) => (
-                <FlexBox
+                <Flex.Box
                     direction="col"
                     gap="5x"
                     padding_block="4x"
@@ -47,9 +47,9 @@ const NavSectionContainer = ({ items }: { items: TSmartNavSectionColumns[] }) =>
                         )}
                     </Typography.Paragraph>
                     <NavCardItems items={sectionItem.data.section} />
-                </FlexBox>
+                </Flex.Box>
             ))}
-        </FlexBox>
+        </Flex.Box>
     )
 }
 

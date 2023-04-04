@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { trustpiolot_container } from './styles.module.scss'
 import { Localize } from 'components/localization'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 
 const TrustpilotContainer = () => {
@@ -12,7 +12,7 @@ const TrustpilotContainer = () => {
     }, [])
 
     return (
-        <FlexBox
+        <Flex.Box
             direction="col"
             justify="center"
             align="start"
@@ -41,7 +41,7 @@ const TrustpilotContainer = () => {
                     Trustpilot
                 </a>
             </div>
-        </FlexBox>
+        </Flex.Box>
     )
 }
 

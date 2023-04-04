@@ -5,7 +5,7 @@ import PlatformsMainSlider from './platform-main'
 import PlatformImageSlider from './platform-images'
 import useRegion from 'components/hooks/use-region'
 import useVisibleContent from 'components/hooks/use-visible-content'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 
 const PlatformSliders = () => {
     const { is_eu } = useRegion()
@@ -21,7 +21,7 @@ const PlatformSliders = () => {
     })
 
     return (
-        <FlexBox
+        <Flex.Box
             container="fluid"
             justify="start"
             gap="10x"
@@ -41,7 +41,7 @@ const PlatformSliders = () => {
                 setSwiper={setSecondSwiper}
                 connectedSwiper={firstSwiper}
             />
-        </FlexBox>
+        </Flex.Box>
     )
 }
 

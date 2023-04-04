@@ -1,7 +1,7 @@
 import React from 'react'
 import { item_container, item_learn_more } from './styles.module.scss'
 import { TradeTypeItemType } from './types'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 import Link from 'features/components/atoms/link'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
@@ -13,7 +13,7 @@ interface TradeTypeItemProps {
 
 const TradeTypeItem = ({ item }: TradeTypeItemProps) => {
     return (
-        <FlexBox className={item_container} direction="col" align="center" gap="5x" mt={'40x'}>
+        <Flex.Box className={item_container} direction="col" align="center" gap="5x" mt={'40x'}>
             <Image src={item.icon_src} />
             <Typography.Heading as="h3" size="small" textcolor="inverted" mt={'15x'}>
                 <Localize translate_text={item.title} />
@@ -24,7 +24,7 @@ const TradeTypeItem = ({ item }: TradeTypeItemProps) => {
             <Link textcolor="inverted" size="large" url={item.url} className={item_learn_more}>
                 <Localize translate_text="_t_Learn more >_t_" />
             </Link>
-        </FlexBox>
+        </Flex.Box>
     )
 }
 

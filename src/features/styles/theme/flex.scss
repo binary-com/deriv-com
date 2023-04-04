@@ -5,6 +5,21 @@ $flex-medias: (md, lg);
 .flex {
     display: flex;
 }
+.align-self-start {
+    align-self: flex-start;
+}
+.align-self-end {
+    align-self: flex-end;
+}
+.align-self-center {
+    align-self: center;
+}
+.align-self-baseline {
+    align-self: baseline;
+}
+.align-self-stretch {
+    align-self: stretch;
+}
 .align-items-start {
     align-items: flex-start;
 }
@@ -154,6 +169,36 @@ $flex-medias: (md, lg);
 }
 
 @mixin flex($media-name) {
+    .#{$media-name + #{'-'}}align-start-start {
+        @include media($media-name) {
+            align-self: flex-start;
+        }
+    }
+
+    .#{$media-name + #{'-'}}align-start-end {
+        @include media($media-name) {
+            align-self: flex-end;
+        }
+    }
+
+    .#{$media-name + #{'-'}}align-start-center {
+        @include media($media-name) {
+            align-self: flex-center;
+        }
+    }
+
+    .#{$media-name + #{'-'}}align-start-baseline {
+        @include media($media-name) {
+            align-self: baseline;
+        }
+    }
+
+    .#{$media-name + #{'-'}}align-start-stretch {
+        @include media($media-name) {
+            align-self: stretch;
+        }
+    }
+
     .#{$media-name + #{'-'}}align-items-start {
         @include media($media-name) {
             align-items: flex-start;

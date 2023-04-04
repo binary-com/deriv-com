@@ -2,11 +2,11 @@ import React from 'react'
 import { header_items } from './data'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 
 const HeroHeaderItems = () => {
     return (
-        <FlexBox
+        <Flex.Box
             justify="start"
             align="start"
             gap="5x"
@@ -22,7 +22,7 @@ const HeroHeaderItems = () => {
                     <Localize translate_text={item.text} />
                 </Typography.Heading>
             ))}
-        </FlexBox>
+        </Flex.Box>
     )
 }
 

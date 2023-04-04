@@ -8,7 +8,7 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import useVisibleContent from 'components/hooks/use-visible-content'
 import MobileMenuToggle from 'features/components/molecules/mobile-menu-toggle'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 import dclsx from 'features/utils/dclsx'
 
 interface NavTemplateProps<T extends string> extends HTMLAttributes<HTMLDivElement> {
@@ -66,7 +66,7 @@ const NavTemplate = <T extends string>({
             className={dclsx(styles.header_wrapper, className)}
         >
             {renderTopNav?.()}
-            <FlexBox
+            <Flex.Box
                 as="nav"
                 container="fluid"
                 justify="between"
@@ -74,12 +74,12 @@ const NavTemplate = <T extends string>({
                 gap="5x"
                 className={styles.nav_container}
             >
-                <FlexBox justify="center" align="center">
+                <Flex.Box justify="center" align="center">
                     {is_mobile_or_tablet && (
                         <MobileMenuToggle is_open={is_menu_open} onClick={onMenuToggleClick} />
                     )}
                     {renderLogo()}
-                </FlexBox>
+                </Flex.Box>
 
                 {!is_mobile_or_tablet && (
                     <DesktopMenu
@@ -88,11 +88,11 @@ const NavTemplate = <T extends string>({
                         items={visible_items}
                     />
                 )}
-                <FlexBox justify="end" align="center" gap={'8x'}>
+                <Flex.Box justify="end" align="center" gap={'8x'}>
                     {children}
-                </FlexBox>
+                </Flex.Box>
                 {is_mobile_or_tablet && <MobileMenu is_open={is_menu_open} items={visible_items} />}
-            </FlexBox>
+            </Flex.Box>
         </Container.Fixed>
     )
 }

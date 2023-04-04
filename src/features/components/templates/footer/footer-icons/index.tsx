@@ -2,12 +2,12 @@ import React from 'react'
 import FooterSocialIcons from '../social-icons'
 import DerivFooterLogo from 'images/svg/layout/deriv_footer_logo.svg'
 import Image from 'features/components/atoms/image'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 
 const FooterIcons = () => {
     return (
-        <FlexBox direction="col">
-            <FlexBox
+        <Flex.Box direction="col">
+            <Flex.Box
                 justify="between"
                 align="center"
                 direction="col"
@@ -18,8 +18,8 @@ const FooterIcons = () => {
             >
                 <Image src={DerivFooterLogo} width={100} height={40} />
                 <FooterSocialIcons />
-            </FlexBox>
-        </FlexBox>
+            </Flex.Box>
+        </Flex.Box>
     )
 }
 

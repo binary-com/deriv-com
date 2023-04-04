@@ -8,7 +8,7 @@ import useRegion from 'components/hooks/use-region'
 import useVisibleContent from 'components/hooks/use-visible-content'
 import Typography from 'features/components/atoms/typography'
 import { get_lang_direction, Localize } from 'components/localization'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
 import Quote from 'images/svg/testimonials/quote.svg'
 import './styles.scss'
@@ -24,7 +24,7 @@ const TestimonialSlider = () => {
     })
 
     return (
-        <FlexBox className={'testimonial_slider_container'}>
+        <Flex.Box className={'testimonial_slider_container'}>
             <Swiper
                 centeredSlides
                 modules={[Navigation]}
@@ -38,7 +38,7 @@ const TestimonialSlider = () => {
             >
                 {visible_slides.map(({ id, data }) => (
                     <SwiperSlide key={id}>
-                        <FlexBox
+                        <Flex.Box
                             direction="col"
                             justify="center"
                             align="start"
@@ -51,14 +51,14 @@ const TestimonialSlider = () => {
                                 <Localize translate_text={data.quote} />
                             </Typography.Paragraph>
                             <Typography.Paragraph weight="bold">{data.name}</Typography.Paragraph>
-                        </FlexBox>
+                        </Flex.Box>
                     </SwiperSlide>
                 ))}
             </Swiper>
             <Image src={Quote} className={'quote_image'} />
             <Image src={LeftArrowIcon} has_rtl className="slider-button slider-button-previous" />
             <Image src={RightArrowIcon} has_rtl className="slider-button slider-button-next" />
-        </FlexBox>
+        </Flex.Box>
     )
 }
 

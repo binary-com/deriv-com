@@ -111,6 +111,7 @@ export type TBGColor = InferSide<ClassNames, 'bg-color'>
 
 // FlexBox Classes
 export type TAlignItems = InferSide<ClassNames, 'align-items'>
+export type TAlignSelf = InferSide<ClassNames, 'align-self'>
 export type TJustifyContent = InferSide<ClassNames, 'justify'>
 export type TFlexGrow = InferSide<ClassNames, 'flex-grow'>
 export type TFlexShrink = InferSide<ClassNames, 'flex-shrink'>

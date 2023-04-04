@@ -1,7 +1,7 @@
 import React from 'react'
 import { PlatformItem } from '../../types'
 import { platform_images_item } from './platform-images.module.scss'
-import FlexBox from 'features/components/atoms/flex-box'
+import Flex from 'features/components/atoms/flex-box'
 import useRegion from 'components/hooks/use-region'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
@@ -15,7 +15,7 @@ const PlatformImageItem = ({ item }: PlatformImageItemProps) => {
     const image = typeof item.image === 'function' ? item.image({ is_eu }) : item.image
 
     return (
-        <FlexBox
+        <Flex.Box
             direction="col"
             justify="center"
             align="center"
@@ -31,7 +31,7 @@ const PlatformImageItem = ({ item }: PlatformImageItemProps) => {
                     />
                 </Typography.Paragraph>
             )}
-        </FlexBox>
+        </Flex.Box>
     )
 }
 

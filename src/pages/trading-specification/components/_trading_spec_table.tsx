@@ -23,7 +23,7 @@ import {
 import AvailablePlatform from './_available-platform'
 import RightChevron from 'images/svg/trading-specification/right-chevron.svg'
 import LeftChevron from 'images/svg/trading-specification/left-chevron.svg'
-import SearchIcon from 'images/svg/help/search.svg'
+import SearchIcon from 'images/svg/trading-specification/search-icon.svg'
 import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Header } from 'components/elements'
@@ -37,7 +37,7 @@ export type TLiveMarketTableProps = {
 const StyledFlex = styled(Flex)`
     flex-direction: column;
     gap: 20px;
-    padding: 5rem 0;
+    padding: 3rem 0;
 
     @media ${device.tabletL} {
         width: 95%;
@@ -110,7 +110,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
     const columns = useLiveColumns(market)
 
     const table = useReactTable({
-        data: markets_data,
+        data: filtered_data,
         columns,
         state: {
             sorting,
@@ -131,17 +131,20 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
     const handleChange = (e) => {
         e.preventDefault()
         setSearchValue(sanitize(e.target.value))
+        console.log(e.target.value)
     }
     useEffect(() => {
         let updatedRowData = []
-
+        console.log(markets_data)
         if (search_value.length > 1) {
-            updatedRowData = markets_data.filter((market) =>
-                market.instrument.instrument.toLowerCase().match(new RegExp(search_value, 'i')),
-            )
-            setMarketsData(updatedRowData)
+            updatedRowData = [
+                ...markets_data.filter((market) =>
+                    market.instrument.instrument.toLowerCase().match(new RegExp(search_value, 'i')),
+                ),
+            ]
+            setFilteredData(updatedRowData)
         } else {
-            setMarketsData(filtered_data)
+            setFilteredData(filtered_data)
         }
     }, [search_value])
 
@@ -169,7 +172,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                 <TableData>
                     <thead>
                         {table.getHeaderGroups().map((headerGroup) => (
-                            <TableRow key={headerGroup.id} bg="var(--color-white-1)">
+                            <TableRow key={headerGroup.id} bg="#f9f9f9">
                                 {headerGroup.headers.map((header) => (
                                     <th key={header.id}>
                                         {header.isPlaceholder

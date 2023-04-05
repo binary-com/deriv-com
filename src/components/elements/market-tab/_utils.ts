@@ -21,7 +21,7 @@ export const market_buttons: TMarketButtons[] = [
         button_text: 'Derived',
         market_name: 'derived',
         market_description:
-            '_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetic indices, derived FX indices, and basket indices._t_',
+            '_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX, and baskets._t_',
         to: 'markets/synthetic/',
     },
     {

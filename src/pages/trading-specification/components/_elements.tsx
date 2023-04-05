@@ -48,7 +48,7 @@ export const TableRow = styled.tr<TableRowProps>`
     border-radius: 16px 16px 0 0;
     display: flex;
     align-items: center;
-    padding: 24px;
+    padding: 10px;
     gap: 43px;
     th {
         width: 7.6rem;
@@ -71,7 +71,7 @@ export const TableRow = styled.tr<TableRowProps>`
 
     @media ${device.tabletL} {
         padding: 10px;
-        height: 80px;
+        height: 64px;
         gap: 0;
         justify-content: start;
 
@@ -218,7 +218,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
         return (
             <CellIcon>
                 {symbol && <img src={icons[symbol]} width="24px" height="24px" />}
-                <StyledHeaderText type="small" weight="normal" align="start" as="p">
+                <StyledHeaderText type="small" align="start" as="p">
                     {text}
                 </StyledHeaderText>
                 {dlIcon && is_row && (

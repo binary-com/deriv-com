@@ -1,10 +1,11 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import { public_signup_banner_container, public_signup_banner } from './banner.module.scss'
+// import { public_signup_banner_container, public_signup_banner } from './banner.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Link from 'features/components/atoms/link'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
+import './banner.styles.scss'
 
 const PublicSignupBanner = () => {
     return (
@@ -13,7 +14,7 @@ const PublicSignupBanner = () => {
             align="center"
             grow="1"
             margin_inline="20x"
-            className={public_signup_banner_container}
+            className={'public_signup_banner_container'}
             md={{
                 padding_inline: '40x',
             }}
@@ -33,7 +34,7 @@ const PublicSignupBanner = () => {
                 alt="laptop dtrader"
                 formats={['avif', 'webp', 'auto']}
                 placeholder="none"
-                className={public_signup_banner}
+                className={'public_signup_banner'}
             />
         </Flex.Box>
     )

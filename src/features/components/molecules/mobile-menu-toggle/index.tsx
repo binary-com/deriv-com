@@ -1,7 +1,7 @@
 import React, { HTMLAttributes, MouseEventHandler, useMemo } from 'react'
 import * as styles from './menu-toggle.module.scss'
-import Hamburger from 'images/svg/layout/hamburger_menu.svg'
-import Close from 'images/svg/layout/close-long.svg'
+import Hamburger from 'images/svg/layout/mobile_toggle_icon.svg'
+import Close from 'images/svg/layout/mobile_toggle_close_icon.svg'
 import dclsx from 'features/utils/dclsx'
 
 interface IMobileMenuToggleProps extends HTMLAttributes<HTMLImageElement> {

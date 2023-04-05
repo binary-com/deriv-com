@@ -12,6 +12,7 @@ import CrashBoom from 'images/svg/options/crash-boom.svg'
 import JumpIndices from 'images/svg/options/jump-indices.svg'
 import VolatilityIndices from 'images/svg/options/volatility-indices.svg'
 import useRegion from 'components/hooks/use-region'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 const MiddleText = styled(Text)`
     margin-bottom: 0.8rem;
@@ -44,6 +45,8 @@ const AccumulatorsToTrade = () => {
 }
 
 const IndicesGrid = () => {
+    const [is_mobile] = useBrowserResize()
+
     return (
         <OptionGrid>
             <Flex fd="column" jc="flex-start" height="auto">
@@ -52,10 +55,10 @@ const IndicesGrid = () => {
                 </div>
                 <CommonHeaderSection
                     title="_t_Crash/Boom indices_t_"
-                    title_font_size="1.6rem"
+                    title_font_size={is_mobile ? '14px' : '16px'}
                     margin_title="1.6rem 0 0.8rem 0"
                     font_weight_title="700"
-                    line_height="2.4rem"
+                    line_height={is_mobile ? '20px' : '24px'}
                 />
                 <MiddleText>
                     {localize(
@@ -72,10 +75,10 @@ const IndicesGrid = () => {
                 </div>
                 <CommonHeaderSection
                     title="_t_Jump indices_t_"
-                    title_font_size="1.6rem"
+                    title_font_size={is_mobile ? '14px' : '16px'}
                     margin_title="1.6rem 0 0.8rem 0"
                     font_weight_title="700"
-                    line_height="2.4rem"
+                    line_height={is_mobile ? '20px' : '24px'}
                 />
                 <MiddleText>
                     {localize(
@@ -94,10 +97,10 @@ const IndicesGrid = () => {
                 </div>
                 <CommonHeaderSection
                     title="_t_Volatility indices_t_"
-                    title_font_size="1.6rem"
-                    margin_title="1.6rem 0 1rem 0"
+                    title_font_size={is_mobile ? '14px' : '16px'}
+                    margin_title="1.6rem 0 0.8rem 0"
                     font_weight_title="700"
-                    line_height="2.4rem"
+                    line_height={is_mobile ? '20px' : '24px'}
                 />
                 <MiddleText>
                     {localize(

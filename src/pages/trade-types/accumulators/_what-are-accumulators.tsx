@@ -26,7 +26,7 @@ const WhatAreAccumulators = () => {
             <FullWidthMultiColumn
                 header={<Localize translate_text="Why trade accumulators on Deriv" />}
                 button_title={<Localize translate_text="Don't have a Deriv account yet?" />}
-                button_text={<Localize translate_text="_t_Create free demo account_t_" />}
+                button_text={<Localize translate_text="Create free demo account" />}
                 multiple_row
                 gap="7rem"
             >

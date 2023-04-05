@@ -5,7 +5,7 @@ import { TString } from 'types/generics'
 import device from 'themes/device'
 
 type TProps = {
-    label: TString
+    label: TString | string
     onClick?: VoidFunction
     primary?: boolean
     secondary?: boolean

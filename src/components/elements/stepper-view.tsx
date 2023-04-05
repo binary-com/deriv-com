@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import { TString } from 'types/generics'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 const Checkmark = styled.span<{ is_rtl: boolean }>`
     display: inline-block;
@@ -110,6 +111,8 @@ const StepperView = ({
     third_step_title,
     third_step_subtitle,
 }: StepperViewProps) => {
+    const [is_mobile] = useBrowserResize()
+
     const items: Item[] = [
         {
             title: first_step_title,
@@ -134,10 +137,11 @@ const StepperView = ({
                             <CommonHeaderSection
                                 title={item.title}
                                 subtitle={item.subtitle}
-                                title_font_size="2.4rem"
+                                title_font_size={is_mobile ? '18px ' : '24px'}
+                                margin_subtitle={is_mobile ? '1rem 0 0 0 ' : '0'}
                                 subtitle_font_size="1.6rem"
                                 margin_title="-0.5rem 0 0 0"
-                                line_height="3.6rem"
+                                line_height={is_mobile ? '20px' : '3.6rem'}
                             />
                         </ContentWrapper>
                     </FlexWrapper>

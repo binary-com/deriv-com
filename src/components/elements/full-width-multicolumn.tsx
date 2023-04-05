@@ -13,7 +13,7 @@ type FullWidthMultiColumnProps = {
     header?: ReactElement
     sub_header?: ReactElement
     button_title?: ReactElement
-    button_text?: TString | ReactElement
+    button_text?: TString | string | ReactElement
     multiple_row?: boolean
     gap?: string
 }
@@ -120,7 +120,7 @@ const StyledTextContent = styled(Text)`
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    font-family: Ubuntu, sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     margin-bottom: 1.6rem;
 
     @media ${device.tabletL} {
@@ -179,7 +179,7 @@ export const FullWidthMultiColumn = ({
                             return (
                                 <Item key={idx} ai="center" direction="column">
                                     {icon}
-                                    {item_title && <StyledTitle as="p">{item_title}</StyledTitle>}
+                                    {item_title && <StyledTitle>{item_title}</StyledTitle>}
                                     {text && <StyledTextContent>{text}</StyledTextContent>}
                                     {link_text && <LearnMore to={link}>{link_text}</LearnMore>}
                                 </Item>
@@ -188,9 +188,7 @@ export const FullWidthMultiColumn = ({
                     </ItemContainer>
                 ))}
                 {button_title && <StyledButtonContent>{button_title}</StyledButtonContent>}
-                {button_text && (
-                    <Button onClick={handleSignup} label={`_t_${button_text}_t_`} primary />
-                )}
+                {button_text && <Button onClick={handleSignup} label={button_text} primary />}
             </Flex>
         </StyledSectionContainer>
     )

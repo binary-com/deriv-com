@@ -68,7 +68,7 @@ const StyledFlex = styled(Flex)`
         font-size: 14px;
     }
 `
-const deriv_go_text: TString = '_t_Deriv Go_t_'
+const deriv_go_text: TString = '_t_Deriv GO_t_'
 const AvailablePlatforms = ({
     dmt5,
     deriv_go,

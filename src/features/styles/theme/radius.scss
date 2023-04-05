@@ -1,0 +1,9 @@
+$sm-base-spacing: 0.2rem;
+
+@for $i from 0 through 10 {
+  $sm-value: $i * $sm-base-spacing;
+
+  .border-radius-#{$i}x {
+    border-radius: $sm-value
+  }
+}

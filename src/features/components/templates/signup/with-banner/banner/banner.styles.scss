@@ -20,3 +20,13 @@
         block-size: 36rem;
     }
 }
+
+.public_signup_title {
+    max-inline-size: 24rem;
+    @include breakpoints(tablet-large) {
+        max-inline-size: 32rem;
+    }
+    @include breakpoints(desktop) {
+        max-inline-size: 40rem;
+    }
+}

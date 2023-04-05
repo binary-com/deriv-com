@@ -5,7 +5,10 @@ export const usePlatformQueryParam = () => {
     type MyQuery = {
         platform: string
     }
-    const qparam = location.search && (queryString.parse(location.search) as MyQuery)
+    const qparam =
+        typeof window !== 'undefined' &&
+        location.search &&
+        (queryString.parse(location.search) as MyQuery)
     const { platform } = qparam
     const platforms = ['derivgo', 'p2p']
     const [is_deriv_go, setIsDerivGo] = useState(true)

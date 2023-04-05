@@ -9,9 +9,6 @@ $space-medias: (md, lg);
     .gap-#{$i}x {
         gap: $sm-value;
     }
-    .border-radius-#{$i}x {
-        border-radius: $sm-value
-    }
     .margin-#{$i}x {
         margin: $sm-value;
     }

@@ -306,5 +306,24 @@ module.exports = {
                 includeInDevelopment: false,
             },
         },
+        {
+            resolve: 'gatsby-plugin-datadog',
+            options: {
+                site: 'datadoghq.com',
+                sampleRate: 1,
+                replaySampleRate: 20,
+                enabled: true,
+                service: 'deriv.com-static-site',
+                env: 'qa',
+                trackUserInteractions: true,
+                trackResources: true,
+                trackLongTasks: true,
+                defaultPrivacyLevel: 'mask-user-input',
+                rum: {
+                    applicationId: process.env.DATADOG_APPLICATION_ID,
+                    clientToken: process.env.DATADOG_CLIENT_TOKEN,
+                },
+            },
+        },
     ],
 }

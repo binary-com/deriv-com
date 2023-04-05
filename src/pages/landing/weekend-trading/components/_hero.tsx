@@ -1,20 +1,43 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import { Flex, Container } from 'components/containers'
-import { Header, BackgroundImage } from 'components/elements'
+import { Header, BackgroundImageWrapper, StaticImageWrapper } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import './_hero.css'
 
 const Wrapper = styled(Container)`
+    justify-content: flex-start;
+
+    @media ${device.desktopL} {
+        height: 73rem;
+    }
+    @media ${device.desktop} {
+        height: 65rem;
+    }
+    @media ${device.tabletL} {
+        height: 155rem;
+    }
+    @media ${device.tablet} {
+        height: 136rem;
+    }
     @media ${device.tabletS} {
+        height: 105rem;
         margin-left: 0;
         padding: 2.1rem 16px 0;
         flex-direction: column-reverse;
         justify-content: center;
+    }
+    @media ${device.mobileL} {
+        height: 95rem;
+    }
+    @media ${device.mobileM} {
+        height: 90rem;
+    }
+    @media ${device.mobileS} {
+        height: 80rem;
     }
 `
 
@@ -22,6 +45,7 @@ const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 71rem;
     z-index: 1;
+    justify-content: flex-start;
 
     @media ${device.tabletL} {
         max-width: 55rem;
@@ -86,32 +110,31 @@ const TryButton = styled(LinkButton)`
     }
 `
 
-const query = graphql`
-    query {
-        p2p_hero_background: file(relativePath: { eq: "landing/weekend.png" }) {
-            ...fadeIn
-        }
-        p2p_hero_background_mobile: file(relativePath: { eq: "landing/weekend-m.png" }) {
-            ...fadeIn
-        }
-    }
-`
-
 const Hero = () => {
-    const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
-    const background = is_mobile ? data['p2p_hero_background_mobile'] : data['p2p_hero_background']
 
     return (
-        <BackgroundImage
-            data={background}
-            alt="weekend trading"
-            objectFit="cover"
-            objectPosition="bottom right"
-            child_class="weekend-trading-hero"
-        >
-            <Wrapper p="4rem 0 0" justify="space-between" height="unset">
-                <InformationWrapper height="unset" direction="column">
+        <BackgroundImageWrapper>
+            <StaticImageWrapper>
+                {is_mobile ? (
+                    <StaticImage
+                        src="../../../../images/common/landing/weekend-m.png"
+                        alt="weekend trading"
+                        objectFit="cover"
+                        objectPosition="bottom right"
+                    />
+                ) : (
+                    <StaticImage
+                        src="../../../../images/common/landing/weekend.png"
+                        alt="weekend trading"
+                        objectFit="cover"
+                        objectPosition="bottom right"
+                    />
+                )}
+            </StaticImageWrapper>
+
+            <Wrapper p="4rem 0 0">
+                <InformationWrapper direction="column">
                     <StyledHeader type="hero">
                         {localize('Ride the trends even on weekends')}
                     </StyledHeader>
@@ -131,7 +154,7 @@ const Hero = () => {
                     </TryButton>
                 </InformationWrapper>
             </Wrapper>
-        </BackgroundImage>
+        </BackgroundImageWrapper>
     )
 }
 

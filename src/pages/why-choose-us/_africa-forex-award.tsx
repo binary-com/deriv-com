@@ -1,20 +1,13 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import { BackgroundImage, Header, QueryImage } from 'components/elements'
+import { BackgroundImageWrapper, Header, QueryImage, StaticImageWrapper } from 'components/elements'
 import { Localize } from 'components/localization'
 import { Flex, Desktop, Mobile } from 'components/containers'
 
 const query = graphql`
     query {
-        africa_award_background: file(relativePath: { eq: "choose-us/africa_award_bg.png" }) {
-            ...fadeIn
-        }
-        africa_award_background_mobile: file(
-            relativePath: { eq: "choose-us/africa_award_bg_mobile.png" }
-        ) {
-            ...fadeIn
-        }
         africa_award: file(relativePath: { eq: "choose-us/africa_award.png" }) {
             ...fadeIn
         }
@@ -59,7 +52,6 @@ const AwardImageWrapperMobile = styled.div`
     border-radius: 8px;
     box-shadow: 0 25.3563px 50.7126px -9.5086px rgba(14, 14, 14, 0.14);
 `
-
 const StyledFlex = styled(Flex)`
     padding: 80px 120px 160px 120px;
 
@@ -67,7 +59,6 @@ const StyledFlex = styled(Flex)`
         padding: 0 50px 40px 50px;
     }
 `
-
 const StyledHeader = styled(Header)`
     max-width: 462px;
 
@@ -79,11 +70,17 @@ const StyledHeader = styled(Header)`
         max-width: 200px;
     }
 `
-
 const StyledHeaderMobile = styled(Header)`
     word-break: break-word;
     margin-top: 25%;
     padding: 0 7rem;
+`
+const MobileWrapper = styled.div`
+    width: 315px;
+    height: 325px;
+    max-width: 450px;
+    margin: 0 1rem;
+    background-color: white;
 `
 
 const AfricaAward = () => {
@@ -93,55 +90,60 @@ const AfricaAward = () => {
         <>
             <Desktop>
                 <StyledFlex>
-                    <BackgroundImage
-                        data={data.africa_award_background}
-                        alt="africa forex award"
-                        child_style={{
-                            width: '100%',
-                            maxWidth: '1200px',
-                            backgroundColor: 'white',
-                        }}
-                        objectFit="contain"
-                    >
-                        <Flex style={{ maxHeight: '360px' }} ai="center" jc="space-evenly">
+                    <BackgroundImageWrapper>
+                        <StaticImageWrapper>
+                            <StaticImage
+                                src="../../images/common/choose-us/africa_award_bg.png"
+                                alt="africa forex award"
+                                objectFit="contain"
+                            />
+                        </StaticImageWrapper>
+                        <Flex
+                            style={{
+                                maxHeight: '360px',
+                                width: '100%',
+                                maxWidth: '1200px',
+                                backgroundColor: 'white',
+                            }}
+                            ai="center"
+                            jc="space-evenly"
+                        >
                             <StyledHeader type="heading-2" align="left" color="white">
-                                {<Localize translate_text="Best Forex Broker Africa" />}
+                                <Localize translate_text="Best Forex Broker Africa" />
                             </StyledHeader>
                             <AwardImageWrapper>
                                 <QueryImage
                                     data={data.africa_award}
-                                    alt={'Africa Forex Award'}
+                                    alt="Africa Forex Award"
                                     width="auto"
                                     height="100%"
                                 />
                             </AwardImageWrapper>
                         </Flex>
-                    </BackgroundImage>
+                    </BackgroundImageWrapper>
                 </StyledFlex>
             </Desktop>
             <Mobile>
                 <Flex fd="column" ai="center">
-                    <BackgroundImage
-                        data={data.africa_award_background_mobile}
-                        alt="africa forex award"
-                        child_style={{
-                            width: '315px',
-                            height: '325px',
-                            maxWidth: '450px',
-                            backgroundColor: 'white',
-                            margin: ' 0 1rem',
-                        }}
-                        objectFit="contain"
-                    >
-                        <StyledHeaderMobile type="heading-2" align="center" color="white">
-                            {<Localize translate_text="Best Forex Broker Africa" />}
-                        </StyledHeaderMobile>
-                        <Header as="h2" width="50%"></Header>
-                    </BackgroundImage>
+                    <BackgroundImageWrapper>
+                        <StaticImageWrapper>
+                            <StaticImage
+                                src="../../images/common/choose-us/africa_award_bg_mobile.png"
+                                alt="africa forex award"
+                                objectFit="contain"
+                            />
+                        </StaticImageWrapper>
+                        <MobileWrapper>
+                            <StyledHeaderMobile type="heading-2" align="center" color="white">
+                                <Localize translate_text="Best Forex Broker Africa" />
+                            </StyledHeaderMobile>
+                            <Header as="h2" width="50%"></Header>
+                        </MobileWrapper>
+                    </BackgroundImageWrapper>
                     <AwardImageWrapperMobile>
                         <QueryImage
                             data={data.africa_award}
-                            alt={'Africa Forex Award'}
+                            alt="Africa Forex Award"
                             width="auto"
                             height="100%"
                         />

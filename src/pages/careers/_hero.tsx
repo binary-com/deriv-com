@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import Container from './_layout-components/_career_container'
-import { Header, BackgroundImage } from 'components/elements'
+import { Header, BackgroundImageWrapper, StaticImageWrapper } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { zoho_url } from 'common/constants'
 import { LocationContext } from 'components/layout/location-context'
@@ -57,7 +57,7 @@ const JoinHeader = styled(Header)`
 const StyledContainer = styled(Container)`
     flex-direction: column;
     align-items: center;
-    height: 100%;
+    height: 90vh;
     width: 60%;
 
     @media ${device.tablet} {
@@ -66,33 +66,26 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
+
 const StyledLinkButton = styled(LinkButton)`
     padding: 20px 24px;
     font-size: 20px;
     font-weight: bold;
 `
 
-const query = graphql`
-    query {
-        image: file(relativePath: { eq: "careers/career-landing-screen.jpg" }) {
-            childImageSharp {
-                gatsbyImageData(placeholder: BLURRED)
-            }
-        }
-    }
-`
-
 const Hero = () => {
-    const data = useStaticQuery(query)
     const { has_mounted } = React.useContext(LocationContext)
 
     return (
-        <BackgroundImage
-            data={data.image}
-            alt="Deriv careers"
-            child_style={{ height: '90vh' }}
-            image_opacity="0.3"
-        >
+        <BackgroundImageWrapper>
+            <StaticImageWrapper>
+                <StaticImage
+                    src="../../images/common/careers/career-landing-screen.jpg"
+                    alt="deriv careers"
+                    style={{ opacity: '0.3' }}
+                />
+            </StaticImageWrapper>
+
             <StyledContainer>
                 <StyledHeader as="h1" type="display-title">
                     We are Deriv
@@ -116,7 +109,7 @@ const Hero = () => {
                     </StyledLinkButton>
                 )}
             </StyledContainer>
-        </BackgroundImage>
+        </BackgroundImageWrapper>
     )
 }
 

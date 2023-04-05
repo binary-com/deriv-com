@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { Container } from 'components/containers'
 import device from 'themes/device'
-import { BackgroundImage, Header } from 'components/elements'
+import { BackgroundImageWrapper, StaticImageWrapper, Header } from 'components/elements'
 import { localize } from 'components/localization'
 
 const StyledContainer = styled(Container)`
@@ -22,30 +22,27 @@ const Subheadline = styled(Header)`
     margin-top: 16px;
 `
 
-const query = graphql`
-    query {
-        hero_background_desktop: file(
-            relativePath: { eq: "bug-bounty/security-overlay-desktop.jpg" }
-        ) {
-            ...heroImage
-        }
-        hero_background_mobile: file(
-            relativePath: { eq: "bug-bounty/security-overlay-mobile.jpg" }
-        ) {
-            childImageSharp {
-                gatsbyImageData(placeholder: BLURRED)
-            }
-        }
-    }
-`
-
 const Hero = () => {
-    const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
-    const background = is_mobile ? data['hero_background_mobile'] : data['hero_background_desktop']
 
     return (
-        <BackgroundImage data={background} alt="deriv security" image_opacity="0.3">
+        <BackgroundImageWrapper>
+            <StaticImageWrapper>
+                {is_mobile ? (
+                    <StaticImage
+                        src="../../images/common/bug-bounty/security-overlay-mobile.jpg"
+                        alt="deriv security"
+                        style={{ opacity: '0.3' }}
+                    />
+                ) : (
+                    <StaticImage
+                        src="../../images/common/bug-bounty/security-overlay-desktop.jpg"
+                        alt="deriv security"
+                        style={{ opacity: '0.3' }}
+                    />
+                )}
+            </StaticImageWrapper>
+
             <StyledContainer direction="column">
                 <Header as="h1" color="white" align="center" type="heading-1">
                     {localize('Bug bounty program')}
@@ -55,7 +52,7 @@ const Hero = () => {
                     {localize('Security is a collaboration. Report bugs and be rewarded.')}
                 </Subheadline>
             </StyledContainer>
-        </BackgroundImage>
+        </BackgroundImageWrapper>
     )
 }
 

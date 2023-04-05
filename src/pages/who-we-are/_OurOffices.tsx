@@ -1,24 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import { desktop_pins, mobile_pins, our_offices_count } from './_data'
 import MapPin from './components/map-pin'
 import { localize } from 'components/localization'
 import { SectionContainer, CssGrid, Desktop, Mobile, Flex } from 'components/containers'
-import { Header, Text, BackgroundImage } from 'components/elements'
+import { Header, Text, BackgroundImageWrapper, StaticImageWrapper } from 'components/elements'
 import device from 'themes/device'
-import './_OurOffices.css'
-
-const query = graphql`
-    query {
-        earth: file(relativePath: { eq: "who-we-are/earth.png" }) {
-            ...fadeIn
-        }
-        earth_mobile: file(relativePath: { eq: "who-we-are/earth-mobile.png" }) {
-            ...fadeIn
-        }
-    }
-`
 
 const StyledSectionContainer = styled(SectionContainer)`
     display: flex;
@@ -78,9 +66,25 @@ const StyledFlex = styled(Flex)`
     height: unset;
 `
 
-const OurOffices = () => {
-    const data = useStaticQuery(query)
+const MapWrapper = styled.div`
+    width: 840px;
+    overflow: auto;
+    height: 414px;
+    direction: ltr;
 
+    @media ${device.tabletL} {
+        width: 328px;
+        height: 170px;
+        overflow: hidden;
+    }
+    @media (max-width: 359px) {
+        width: 298px;
+        height: 155px;
+        overflow: hidden;
+    }
+`
+
+const OurOffices = () => {
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="32px" align="center" type="page-title">
@@ -89,40 +93,36 @@ const OurOffices = () => {
 
             <Flex>
                 <Desktop>
-                    <BackgroundImage
-                        data={data['earth']}
-                        alt="Map view"
-                        child_style={{
-                            height: '414px',
-                            width: '840px',
-                            direction: 'ltr',
-                        }}
-                        dark_background={false}
-                        objectFit="cover"
-                    >
-                        {desktop_pins.map((pin, idx) => (
-                            <MapPin key={idx} {...pin} />
-                        ))}
-                    </BackgroundImage>
+                    <BackgroundImageWrapper is_dark={false}>
+                        <StaticImageWrapper>
+                            <StaticImage
+                                src="../../images/common/who-we-are/earth.png"
+                                alt="Map view"
+                                objectFit="cover"
+                            />
+                        </StaticImageWrapper>
+                        <MapWrapper>
+                            {desktop_pins.map((pin, idx) => (
+                                <MapPin key={idx} {...pin} />
+                            ))}
+                        </MapWrapper>
+                    </BackgroundImageWrapper>
                 </Desktop>
                 <Mobile>
-                    <BackgroundImage
-                        data={data['earth_mobile']}
-                        alt="Map view"
-                        child_style={{
-                            height: '170px',
-                            width: '328px',
-                            direction: 'ltr',
-                            overflow: 'hidden',
-                        }}
-                        dark_background={false}
-                        objectFit="cover"
-                        child_class="mapview"
-                    >
-                        {mobile_pins.map((pin, idx) => (
-                            <MapPin key={idx} {...pin} />
-                        ))}
-                    </BackgroundImage>
+                    <BackgroundImageWrapper is_dark={false}>
+                        <StaticImageWrapper>
+                            <StaticImage
+                                src="../../images/common/who-we-are/earth-mobile.png"
+                                alt="Map view"
+                                objectFit="cover"
+                            />
+                        </StaticImageWrapper>
+                        <MapWrapper>
+                            {mobile_pins.map((pin, idx) => (
+                                <MapPin key={idx} {...pin} />
+                            ))}
+                        </MapWrapper>
+                    </BackgroundImageWrapper>
                 </Mobile>
             </Flex>
 

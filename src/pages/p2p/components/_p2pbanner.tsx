@@ -1,8 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import { Flex, Container, Desktop, Mobile } from 'components/containers'
-import { Header, Text, LocalizedLinkText, BackgroundImage } from 'components/elements'
+import {
+    Header,
+    Text,
+    LocalizedLinkText,
+    BackgroundImageWrapper,
+    StaticImageWrapper,
+} from 'components/elements'
 import { LinkButton, Button } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
@@ -14,9 +20,9 @@ type P2PBannerProps = {
     title: string
 }
 
-const Wrapper = styled(Container)`
+const Wrapper = styled(Container)<{ height?: string }>`
     padding-left: 8rem;
-    height: 34rem;
+    height: ${({ height }) => height};
     justify-content: flex-start;
     background-color: transparent;
 
@@ -38,6 +44,7 @@ const Wrapper = styled(Container)`
         padding: 0 0 40px 0;
     }
 `
+
 const TryButton = styled(LinkButton)`
     padding: 14px 16px;
     width: min-content;
@@ -54,6 +61,7 @@ const TryButton = styled(LinkButton)`
         margin-bottom: 2rem;
     }
 `
+
 const ButtonDerivP2P = styled(Button)`
     padding: 1.5rem 1.6rem;
     height: 40px;
@@ -67,6 +75,7 @@ const ButtonDerivP2P = styled(Button)`
         font-size: 14px;
     }
 `
+
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 48.6rem;
@@ -86,6 +95,7 @@ const InformationWrapper = styled(Flex)`
         padding: 0 0;
     }
 `
+
 const StyledHeader = styled(Header)`
     font-size: 3.2rem;
     font-weight: bold;
@@ -109,6 +119,7 @@ const StyledHeader = styled(Header)`
         margin-top: 60px;
     }
 `
+
 const StyledText = styled(Text)`
     margin-bottom: 60px;
     font-size: 2.4rem;
@@ -122,23 +133,9 @@ const StyledText = styled(Text)`
     }
 `
 
-const query = graphql`
-    query {
-        p2p_banner: file(relativePath: { eq: "p2p/p2p_banner.png" }) {
-            ...fadeIn
-        }
-        p2p_banner_rtl: file(relativePath: { eq: "p2p/p2p_banner_rtl.png" }) {
-            ...fadeIn
-        }
-        p2p_banner_mobile: file(relativePath: { eq: "p2p/p2p_banner_mobile.png" }) {
-            ...fadeIn
-        }
-    }
-`
-
 const P2PBanner = ({ title }: P2PBannerProps) => {
-    const data = useStaticQuery(query)
     const is_rtl = useIsRtl()
+
     const handleExternalLink = () => {
         let link = ''
         if (mobileOSDetect() === 'Android') {
@@ -168,13 +165,24 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                 />
             </StyledText>
             <Desktop>
-                <BackgroundImage
-                    data={is_rtl ? data['p2p_banner_rtl'] : data['p2p_banner']}
-                    alt="p2p"
-                    child_style={{ height: '340px' }}
-                    objectPosition="20% 20%"
-                >
-                    <Wrapper>
+                <BackgroundImageWrapper>
+                    <StaticImageWrapper>
+                        {is_rtl ? (
+                            <StaticImage
+                                src="../../../images/common/p2p/p2p_banner_rtl.png"
+                                alt="p2p"
+                                objectPosition="20% 20%"
+                            />
+                        ) : (
+                            <StaticImage
+                                src="../../../images/common/p2p/p2p_banner.png"
+                                alt="p2p"
+                                objectPosition="20% 20%"
+                            />
+                        )}
+                    </StaticImageWrapper>
+
+                    <Wrapper height="340px">
                         <InformationWrapper height="unset" direction="column">
                             <StyledHeader as="h3">{title}</StyledHeader>
 
@@ -190,16 +198,19 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                             </TryButton>
                         </InformationWrapper>
                     </Wrapper>
-                </BackgroundImage>
+                </BackgroundImageWrapper>
             </Desktop>
             <Mobile>
-                <BackgroundImage
-                    data={data['p2p_banner_mobile']}
-                    alt="p2p"
-                    child_style={{ height: '402px' }}
-                    objectPosition="40% 50%"
-                >
-                    <Wrapper>
+                <BackgroundImageWrapper>
+                    <StaticImageWrapper>
+                        <StaticImage
+                            src="../../../images/common/p2p/p2p_banner_mobile.png"
+                            alt="p2p"
+                            objectPosition="40% 50%"
+                        />
+                    </StaticImageWrapper>
+
+                    <Wrapper height="402px">
                         <InformationWrapper height="unset" direction="column">
                             <StyledHeader as="h3">{title}</StyledHeader>
                             <Mobile>
@@ -209,7 +220,7 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                             </Mobile>
                         </InformationWrapper>
                     </Wrapper>
-                </BackgroundImage>
+                </BackgroundImageWrapper>
             </Mobile>
         </div>
     )

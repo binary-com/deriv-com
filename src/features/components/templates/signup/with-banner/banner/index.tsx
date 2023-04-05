@@ -1,6 +1,5 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-// import { public_signup_banner_container, public_signup_banner } from './banner.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Link from 'features/components/atoms/link'
 import Typography from 'features/components/atoms/typography'

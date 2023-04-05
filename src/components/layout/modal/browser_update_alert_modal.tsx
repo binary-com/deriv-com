@@ -11,10 +11,9 @@ const BrowserUpdateAlertModal = () => {
     const { is_outdated } = useUserBrowser(browsers_minimum_required_version)
     const cookie = new CookieStorage(cookie_key)
 
-    useEffect(
-        () => is_outdated && !cookie.get(cookie_key) && modalRef.current.show(),
-        [is_outdated],
-    )
+    useEffect(() => {
+        is_outdated && !cookie.get(cookie_key) && modalRef.current.show()
+    }, [is_outdated])
 
     const handlePositive = () => {
         const expiration_date = Date.now() + 14 * 86400 * 1000 // 2 weeks later (1209600000 ms)

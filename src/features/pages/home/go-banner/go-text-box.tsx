@@ -1,5 +1,5 @@
 import React from 'react'
-import { item_container } from './styles.module.scss'
+import { item_container, item_go_logo } from './styles.module.scss'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Link from 'features/components/atoms/typography/link'
@@ -19,7 +19,7 @@ const GoTextBox = () => {
             gap={'10x'}
             md={{ direction: 'row', align: 'start' }}
         >
-            <Flex.Item>
+            <Flex.Item className={item_go_logo}>
                 <Image src={DerivGOIcon} width="48px" height="48px" />
             </Flex.Item>
             <Flex.Item>

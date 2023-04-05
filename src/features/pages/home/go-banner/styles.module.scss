@@ -29,13 +29,17 @@
         }
     }
 }
-.wrapper {
-    max-inline-size: 100%;
-}
+
 .item_container {
     inline-size: 48.7rem;
     max-inline-size: 100%;
+    z-index: 1;
+    order: 1;
+    @include breakpoints(tablet-large) {
+        order: unset;
+    }
 }
 .qr_container {
     inline-size: 24.8rem;
+    z-index: 1;
 }

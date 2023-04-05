@@ -25,7 +25,7 @@ const TradeTypes = () => {
             <Flex.Box
                 container="fluid"
                 direction="col"
-                justify="around"
+                justify="center"
                 align="center"
                 gap="10x"
                 md={{ direction: 'row', gap: '20x' }}

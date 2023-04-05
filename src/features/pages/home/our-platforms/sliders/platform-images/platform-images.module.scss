@@ -1,5 +1,3 @@
-@use 'features/styles/theme/theme-mixins' as *;
-
 .platform_images_swiper {
     flex: 1;
     block-size: 60rem;
@@ -7,13 +5,5 @@
 }
 
 .platform_images_item {
-    max-block-size: 30rem;
-
-    @include breakpoints(tablet-large) {
-        max-block-size: 40rem;
-    }
-
-    @include breakpoints(desktop) {
-        max-block-size: 50rem;
-    }
+    max-block-size: 60rem;
 }

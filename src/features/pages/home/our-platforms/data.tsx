@@ -1,14 +1,14 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { SmartPlatformItem } from './types'
-import DTraderIcon from 'images/svg/dtrader/dtrader-icon.svg'
-import DMT5Icon from 'images/svg/dmt5/dmt5-icon.svg'
-import DerivGOIcon from 'images/svg/deriv-go/deriv-go-logo.svg'
-import DerivXIcon from 'images/svg/deriv-x/derivx-logo.svg'
-import DBotIcon from 'images/svg/dbot/dbot-icon.svg'
-import BinaryBotIcon from 'images/svg/binarybot-icon.svg'
-import SmartTraderIcon from 'images/svg/custom/smarttrader.svg'
-import APIIcon from 'images/svg/api-logo.svg'
+import DTraderIcon from 'images/svg/custom/rebranding/dtrader-icon.svg'
+import DMT5Icon from 'images/svg/custom/rebranding/dmt5-icon.svg'
+import DerivGOIcon from 'images/svg/custom/rebranding/deriv-go-icon.svg'
+import DerivXIcon from 'images/svg/custom/rebranding/deriv-x-icon.svg'
+import DBotIcon from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
+import BinaryBotIcon from 'images/svg/custom/rebranding/binarybot-icon.svg'
+import SmartTraderIcon from 'images/svg/custom/rebranding/smarttrader-icon.svg'
+import APIIcon from 'images/svg/custom/rebranding/deriv-api-icon.svg'
 import Link from 'features/components/atoms/link'
 import {
     derivx_android_url,
@@ -35,7 +35,7 @@ const platformSliderItems: SmartPlatformItem[] = [
             image: (
                 <StaticImage
                     objectFit="contain"
-                    src="../../../../images/common/home/platforms_deriv_go.png"
+                    src="../../../../images/common/home/rebranding/platform_deriv_go.png"
                     alt="laptop dtrader"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
@@ -101,7 +101,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                 is_eu ? (
                     <StaticImage
                         objectFit="contain"
-                        src="../../../../images/common/home/platforms_mt5_eu.png"
+                        src="../../../../images/common/home/rebranding/platform_mt5_eu.png"
                         alt="laptop dtrader"
                         formats={['avif', 'webp', 'auto']}
                         placeholder="none"
@@ -109,7 +109,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                 ) : (
                     <StaticImage
                         objectFit="contain"
-                        src="../../../../images/common/home/platforms_mt5.png"
+                        src="../../../../images/common/home/rebranding/platform_mt5.png"
                         alt="laptop dtrader"
                         formats={['avif', 'webp', 'auto']}
                         placeholder="none"
@@ -137,7 +137,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                 is_eu ? (
                     <StaticImage
                         objectFit="contain"
-                        src="../../../../images/common/home/platforms_dtrader_eu.png"
+                        src="../../../../images/common/home/rebranding/platform_deriv_trader_eu.png"
                         alt="laptop dtrader"
                         formats={['avif', 'webp', 'auto']}
                         placeholder="none"
@@ -145,7 +145,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                 ) : (
                     <StaticImage
                         objectFit="contain"
-                        src="../../../../images/common/home/platforms_dtrader.png"
+                        src="../../../../images/common/home/rebranding/platform_deriv_trader.png"
                         alt="laptop dtrader"
                         formats={['avif', 'webp', 'auto']}
                         placeholder="none"
@@ -182,7 +182,7 @@ const platformSliderItems: SmartPlatformItem[] = [
             image: (
                 <StaticImage
                     objectFit="contain"
-                    src="../../../../images/common/home/platforms_derivx.png"
+                    src="../../../../images/common/home/rebranding/platform_derivx.png"
                     alt="laptop dtrader"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
@@ -212,7 +212,7 @@ const platformSliderItems: SmartPlatformItem[] = [
             image: (
                 <StaticImage
                     objectFit="contain"
-                    src="../../../../images/common/home/platforms_dbot.png"
+                    src="../../../../images/common/home/rebranding/platform_deriv_bot.png"
                     alt="laptop dtrader"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
@@ -246,7 +246,7 @@ const platformSliderItems: SmartPlatformItem[] = [
             image: (
                 <StaticImage
                     objectFit="contain"
-                    src="../../../../images/common/home/platforms_smarttrader.png"
+                    src="../../../../images/common/home/rebranding/platform_smart_trader.png"
                     alt="laptop dtrader"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
@@ -280,7 +280,7 @@ const platformSliderItems: SmartPlatformItem[] = [
             image: (
                 <StaticImage
                     objectFit="contain"
-                    src="../../../../images/common/home/platforms_binary_bot.png"
+                    src="../../../../images/common/home/rebranding/platform_binary_bot.png"
                     alt="laptop dtrader"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
@@ -310,7 +310,7 @@ const platformSliderItems: SmartPlatformItem[] = [
             image: (
                 <StaticImage
                     objectFit="contain"
-                    src="../../../../images/common/home/platforms_api.png"
+                    src="../../../../images/common/home/rebranding/platform_deriv_api.png"
                     alt="laptop dtrader"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"

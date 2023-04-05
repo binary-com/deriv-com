@@ -45,10 +45,7 @@ const WhatIsDeriv = () => {
                         <Localize translate_text="_t_Martingale, D'Alembert, and Oscar's Grind — load and customise proven strategies or create your own from scratch._t_" />
                         <Localize translate_text="_t_Use analysis tools, indicators, and smart logic such as take profit and stop loss to maximise your profits and limit losses._t_" />
                         <Localize translate_text="_t_Get into the Deriv Bot experience_t_" />
-                        <Localize translate_text="_t__t_" />
-                        <Localize translate_text="_t__t_" />
-                        <Localize translate_text="_t__t_" />
-                        <Localize translate_text="_t__t_" />
+                        <Localize translate_text="_t_Real account_t_" />
                     </StyledHeader>
                     <Text size="16px" align="center" mt="12px">
                         <Localize translate_text="Deriv X is a customisable multi-asset trading platform. Offering CFDs on forex, commodities, stocks & indices, cryptocurrencies, and derived, Deriv X gives you a versatile trading experience that lets you customise your trading environment." />

@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Signup } from '../home/_lazy-load'
+import { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { SectionContainer, SEO } from 'components/containers'
 import { Header } from 'components/elements'
@@ -31,6 +33,7 @@ const TradingSpecification = () => {
                 </StyledHeader>
                 <MarketTab />
             </SectionContainer>
+            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

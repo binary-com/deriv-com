@@ -62,6 +62,5 @@
 .trustpilot-widget {
     transform: scale(0.8);
     position: relative;
-    left: -40px;
-    top: -10px;
+    inset-inline-start: -40px;
 }

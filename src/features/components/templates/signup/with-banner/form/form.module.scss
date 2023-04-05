@@ -1,0 +1,44 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.signup_public_form_container {
+    border-radius: 16px;
+    min-block-size: 32rem;
+    box-shadow: 0px 32px 64px rgba(14, 14, 14, 0.14);
+
+    @include breakpoints(tablet-large) {
+        min-block-size: 36rem;
+        min-inline-size: 40rem;
+        position: relative;
+        inset-block-start: 3rem;
+        inset-inline-start: 3rem;
+    }
+
+    & input[type='text'] {
+        block-size: 4rem;
+        inline-size: 100%;
+        padding-inline: 1rem;
+        border: 1px solid #d6dadb;
+        border-radius: 16px;
+        outline-color: #d6dadb;
+        font-size: 1.6rem;
+        color: #999999;
+    }
+
+    & label {
+        cursor: pointer;
+        user-select: none;
+    }
+
+    & input[type='checkbox'] {
+        accent-color: $color-brand;
+        margin: 0;
+        margin-inline-end: 1rem;
+        color: currentColor;
+        inline-size: 16px;
+        block-size: 16px;
+        border: 2px solid currentColor;
+        border-radius: 10px;
+        vertical-align: -2px;
+    }
+}

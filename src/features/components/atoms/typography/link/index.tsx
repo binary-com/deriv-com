@@ -10,11 +10,20 @@ export interface TypographyLinkProps
         Omit<BoxProps<'a'>, 'as'>,
         TypographyProps {
     size?: TTextSize
+    no_hover?: boolean
 }
 
-const TypographyLink = ({ className, size, ...rest }: TypographyLinkProps) => {
+const TypographyLink = ({ className, size, no_hover = false, ...rest }: TypographyLinkProps) => {
     const classnames = dclsx(className, generateTextSize(size))
-    return <BaseTypography as="a" className={dclsx(classnames, 'typography-link')} {...rest} />
+    return (
+        <BaseTypography
+            as="a"
+            className={dclsx(classnames, 'typography-link', {
+                'typography-hover': !no_hover,
+            })}
+            {...rest}
+        />
+    )
 }
 
 export default TypographyLink

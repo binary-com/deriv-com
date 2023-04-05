@@ -1,0 +1,10 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.public_signup_container {
+    min-block-size: 68rem;
+    border-radius: 16px;
+
+    @include breakpoints(tablet-large) {
+        min-block-size: 36rem;
+    }
+}

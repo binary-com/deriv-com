@@ -11,9 +11,8 @@ import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
 import { localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
-import { Appearances } from 'components/custom/signup'
-import { Signup } from 'pages/home/_lazy-load'
 import MainNav from 'features/components/templates/navigation/main-nav'
+import SignupPublic from 'features/components/templates/signup/with-banner'
 
 const HomePage = () => {
     useOpenLiveChat(true)
@@ -38,7 +37,7 @@ const HomePage = () => {
             <DerivGOBanner />
             {is_p2p_allowed_country && <P2PBanner />}
             <ClientTestimonial />
-            <Signup appearance={Appearances.public} />
+            <SignupPublic />
         </Layout>
     )
 }

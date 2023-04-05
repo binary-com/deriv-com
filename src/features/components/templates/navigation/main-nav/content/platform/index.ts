@@ -1,13 +1,14 @@
 import { TSmartNavContent, TSmartNavSectionColumns } from '../../../types'
-import BinaryBot from 'images/svg/binarybot-icon.svg'
-import DerivX from 'images/svg/custom/deriv-x.svg'
-import CFD from 'images/svg/custom/margin-trading-nav.svg'
-import Multipliers from 'images/svg/custom/multipliers-nav.svg'
-import Options from 'images/svg/custom/options-nav.svg'
-import Smarttrader from 'images/svg/custom/smarttrader.svg'
-import DerivGo from 'images/svg/deriv-go/deriv-go-icon.svg'
-import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
-import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
+import BinaryBot from 'images/svg/custom/binarybot-nav-icon.svg'
+import DerivX from 'images/svg/custom/deriv-x-nav-icon.svg'
+import CFD from 'images/svg/custom/cfds-nav-icon.svg'
+import Multipliers from 'images/svg/custom/multipliers-nav-icon.svg'
+import Options from 'images/svg/custom/options-nav-icon.svg'
+import Smarttrader from 'images/svg/custom/smarttrader-nav-icon.svg'
+import DerivGo from 'images/svg/custom/deriv-go-nav-icon.svg'
+import DMT5 from 'images/svg/custom/dmt5-nav-icon.svg'
+import DTrader from 'images/svg/custom/dtrader-nav-icon.svg'
+import DerivEZ from 'images/svg/custom/deriv-ez-nav-icon.svg'
 
 export const tradeTypesContent: TSmartNavContent[] = [
     {
@@ -110,6 +111,23 @@ export const tradingPlatformsContent: TSmartNavContent[] = [
             content: '_t_A highly customisable and easy-to-use CFD trading platform._t_',
             title: '_t_Deriv X_t_',
             url: { type: 'internal', to: '/derivx/' },
+        },
+        visibility: {
+            is_row: true,
+        },
+    },
+    {
+        id: 1,
+        data: {
+            aria_label: 'Derivez',
+            icon: {
+                src: DerivEZ,
+                alt: 'Deriv EZ trading paltform',
+            },
+            content:
+                '_t_Trade on global markets from anywhere with our mobile-first CFD trading platform._t_',
+            title: '_t_Deriv EZ_t_',
+            url: { type: 'internal', to: '/derivez/' },
         },
         visibility: {
             is_row: true,

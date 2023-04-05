@@ -1,9 +1,9 @@
 import { TSmartNavContent } from '../../../types'
-import Commodities from 'images/svg/custom/commodities-nav.svg'
-import Cryptocurrencies from 'images/svg/custom/cryptocurrencies-nav.svg'
-import DerivedFX from 'images/svg/custom/derived-fx.svg'
-import Forex from 'images/svg/custom/forex-nav.svg'
-import StockIndices from 'images/svg/custom/stock-indices-nav.svg'
+import Commodities from 'images/svg/custom/commodities-nav-icon.svg'
+import Cryptocurrencies from 'images/svg/custom/cryptocurrencies-nav-icon.svg'
+import DerivedFX from 'images/svg/custom/derived-fx-nav-icon.svg'
+import Forex from 'images/svg/custom/forex-nav-icon.svg'
+import StockIndices from 'images/svg/custom/stock-indices-nav-icon.svg'
 
 export const marketSectionContent: TSmartNavContent[] = [
     {

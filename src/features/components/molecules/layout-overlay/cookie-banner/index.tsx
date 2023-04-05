@@ -8,6 +8,7 @@ import Flex from 'features/components/atoms/flex-box'
 import Button from 'features/components/atoms/button'
 import Container from 'features/components/atoms/container'
 import dclsx from 'features/utils/dclsx'
+import Box from 'features/components/atoms/box'
 
 const CookieBanner = () => {
     const cookie = useCookieBanner()
@@ -32,7 +33,7 @@ const CookieBanner = () => {
 
     if (is_visible) {
         return (
-            <Container.Fixed
+            <Box
                 padding="12x"
                 bgcolor="primary"
                 className={dclsx(cookie_banner_wrapper, {
@@ -65,7 +66,7 @@ const CookieBanner = () => {
                         <Localize translate_text="_t_Accept_t_" />
                     </Button.Primary>
                 </Flex.Box>
-            </Container.Fixed>
+            </Box>
         )
     }
 

@@ -30,7 +30,7 @@ const Multipliers = ({ market_content }: MultipliersProps) => {
                     {is_eu ? (
                         <AvailablePlatforms dtrader />
                     ) : (
-                        <AvailablePlatforms dtrader deriv_go />
+                        <AvailablePlatforms dtrader dbot deriv_go />
                     )}
                 </Descriptions>
                 <StyledText font_size={'16px'} weight="bold" mt="2.4rem">

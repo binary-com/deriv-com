@@ -10,6 +10,7 @@ export type TRegion = {
     is_row: boolean
     is_dev: boolean
     is_africa: boolean
+    is_non_eu_or_cpa_plan: boolean
 }
 
 export type StringObjectType = {

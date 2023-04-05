@@ -1,18 +1,18 @@
-import React, { useState, useEffect, createContext, ReactNode } from 'react'
+import React, { createContext, ReactNode, useEffect, useState } from 'react'
 import {
-    isEuCountry,
-    eu_countries,
-    latam_countries,
     african_countries,
     cpa_plan_countries,
+    eu_countries,
+    isEuCountry,
+    latam_countries,
 } from 'common/country-base'
 import useWebsiteStatus from 'components/hooks/use-website-status'
 import {
     getClientInformation,
     getDomain,
+    isEuDomain,
     isLocalhost,
     isTestlink,
-    isEuDomain,
     queryParams,
 } from 'common/utility'
 import { TRegion } from 'types/generics'
@@ -21,7 +21,7 @@ type RegionProviderProps = {
     children?: ReactNode
 }
 
-type RegionContextType = Record<
+export type TRegions =
     | 'is_eu_country'
     | 'is_p2p_allowed_country'
     | 'is_region_loading'
@@ -32,9 +32,10 @@ type RegionContextType = Record<
     | 'is_latam'
     | 'is_row'
     | 'is_dev'
-    | 'is_africa',
-    boolean
-> & { user_country: string }
+    | 'is_africa'
+    | 'is_non_eu_or_cpa_plan'
+
+type RegionContextType = Record<TRegions, boolean> & { user_country: string }
 
 export const RegionContext = createContext<RegionContextType>(null)
 
@@ -47,6 +48,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         is_eu: isEuDomain(),
         is_non_eu: !isEuDomain(),
         is_cpa_plan: false,
+        is_non_eu_or_cpa_plan: false,
         is_latam: false,
         is_row: !isEuDomain(),
         is_dev: false,
@@ -71,6 +73,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         const is_eu = isEuDomain() || eu_countries.includes(qa_url_region)
         const is_non_eu = !is_eu
         const is_cpa_plan = cpa_plan_countries.includes(user_ip_country)
+        const is_non_eu_or_cpa_plan = is_non_eu || is_cpa_plan
         const is_latam = latam_countries.includes(user_ip_country)
         const is_row = !is_eu
         const is_dev = isLocalhost() || isTestlink()
@@ -86,6 +89,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                 is_eu,
                 is_non_eu,
                 is_cpa_plan,
+                is_non_eu_or_cpa_plan,
                 is_africa,
                 is_row,
                 is_dev,
@@ -100,6 +104,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         is_eu,
         is_non_eu,
         is_cpa_plan,
+        is_non_eu_or_cpa_plan,
         is_africa,
         is_row,
         is_dev,
@@ -117,6 +122,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                 is_eu,
                 is_non_eu,
                 is_cpa_plan,
+                is_non_eu_or_cpa_plan,
                 is_africa,
                 is_row,
                 is_dev,

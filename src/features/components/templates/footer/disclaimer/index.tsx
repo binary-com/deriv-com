@@ -1,34 +1,50 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { risk_warning_container } from './disclaimer.module.scss'
 import { disclaimerContent, riskWarningContent } from './data'
-import { DisclaimerParagraphConfig } from './types'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
-import useVisibleContent from 'components/hooks/use-visible-content'
-import useRegion from 'components/hooks/use-region'
+import useNewContent from 'components/hooks/use-new-content'
 import Container from 'features/components/atoms/container'
 
 const Disclaimer = () => {
-    const { is_eu, is_non_eu, is_cpa_plan } = useRegion()
+    // // remove after approve
+    // const { is_eu, is_non_eu, is_cpa_plan } = useRegion()
+    //
+    // const visibility_config: DisclaimerParagraphConfig = useMemo(() => {
+    //     return {
+    //         is_cpa_plan,
+    //         is_eu,
+    //         is_non_eu,
+    //         is_non_eu_or_cpa_plan: is_non_eu || is_cpa_plan,
+    //     }
+    // }, [is_cpa_plan, is_eu, is_non_eu])
+    //
+    // console.log('old approach: ', visibility_config)
+    //
+    // const visible_disclaimer_content = useVisibleContent({
+    //     content: disclaimerContent,
+    //     config: visibility_config,
+    // })
+    //
+    // const visible_risk_content = useVisibleContent({
+    //     content: riskWarningContent,
+    //     config: visibility_config,
+    // })
+    // //
 
-    const visibility_config: DisclaimerParagraphConfig = useMemo(() => {
-        return {
-            is_cpa_plan,
-            is_eu,
-            is_non_eu,
-            is_non_eu_or_cpa_plan: is_non_eu || is_cpa_plan,
-        }
-    }, [is_cpa_plan, is_eu, is_non_eu])
+    const visible_disclaimer_content = useNewContent(disclaimerContent, [
+        'is_cpa_plan',
+        'is_eu',
+        'is_non_eu',
+        'is_non_eu_or_cpa_plan',
+    ])
 
-    const visible_disclaimer_content = useVisibleContent({
-        content: disclaimerContent,
-        config: visibility_config,
-    })
-
-    const visible_risk_content = useVisibleContent({
-        content: riskWarningContent,
-        config: visibility_config,
-    })
+    const visible_risk_content = useNewContent(riskWarningContent, [
+        'is_cpa_plan',
+        'is_eu',
+        'is_non_eu',
+        'is_non_eu_or_cpa_plan',
+    ])
 
     return (
         <Container.Fixed margin_block="10x">

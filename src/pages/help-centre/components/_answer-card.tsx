@@ -37,7 +37,7 @@ const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
 
     return (
         <Wrapper>
-            <Header size="2.4rem" mb="2.4rem">
+            <Header size="2.4rem" as="p" mb="2.4rem">
                 <Localize translate_text={question} />
             </Header>
             {renderProp?.()}
@@ -59,6 +59,7 @@ const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
                     return (
                         <>
                             <Header
+                                as="p"
                                 key={translation_text}
                                 size="16px"
                                 weight="normal"

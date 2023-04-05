@@ -19,6 +19,14 @@ const PublicSignupBanner = () => {
                 padding_inline: '40x',
             }}
         >
+            <div className={'public_signup_banner'}>
+                <StaticImage
+                    src="../../../../../../images/common/sign-up/banner-phone.png"
+                    alt="laptop dtrader"
+                    formats={['avif', 'webp', 'auto']}
+                    placeholder="none"
+                />
+            </div>
             <Link url={{ type: 'company', url_name: 'deriv_app' }} no_hover>
                 <Flex.Box justify="around" align="center" gap="4x">
                     <Typography.Heading size="medium" textcolor="white">
@@ -29,13 +37,6 @@ const PublicSignupBanner = () => {
                     </Typography.Heading>
                 </Flex.Box>
             </Link>
-            <StaticImage
-                src="../../../../../../images/common/sign-up/banner-phone.png"
-                alt="laptop dtrader"
-                formats={['avif', 'webp', 'auto']}
-                placeholder="none"
-                className={'public_signup_banner'}
-            />
         </Flex.Box>
     )
 }

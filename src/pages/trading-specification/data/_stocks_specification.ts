@@ -2,7 +2,7 @@ import { TSpecification } from '../_types'
 
 const stocks_specification: TSpecification = {
     market: 'indices',
-    dl_title: 'Dynamic tiers ⁠— Stock indices',
+    dl_title: '_t_Dynamic tiers ⁠— Stock indices_t_',
     dl_data: [
         {
             from: 0.1,

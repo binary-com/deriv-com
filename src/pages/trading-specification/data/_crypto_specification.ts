@@ -2,7 +2,7 @@ import { TSpecification } from '../_types'
 
 const crypto_specification: TSpecification = {
     market: 'cryptocurrency',
-    dl_title: 'Dynamic tiers ⁠— Cryptocurrencies',
+    dl_title: '_t_Dynamic tiers ⁠— Cryptocurrencies_t_',
     dl_data: [
         {
             from: 0.01,

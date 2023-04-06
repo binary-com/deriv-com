@@ -225,6 +225,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                         height="24px"
                         onClick={() => {
                             setShowPopUp(true)
+                            document.documentElement.scrollTop = 40
                             document.body.style.overflow = 'hidden'
                         }}
                     />

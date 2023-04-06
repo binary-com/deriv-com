@@ -2,7 +2,7 @@ import { TSpecification } from '../_types'
 
 const commodities_specification: TSpecification = {
     market: 'commodities',
-    dl_title: 'Dynamic tiers - Metals',
+    dl_title: '_t_Dynamic tiers - Metals_t_',
     dl_data: [
         {
             from: 0.01,

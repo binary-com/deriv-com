@@ -4,7 +4,7 @@ import { Flex } from 'components/containers'
 import device from 'themes/device'
 
 export const MarketsContainer = styled.div`
-    margin: 20px auto;
+    margin: auto;
     overflow-y: hidden;
     overflow-x: auto;
     justify-content: center;

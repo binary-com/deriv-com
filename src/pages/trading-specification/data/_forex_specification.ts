@@ -2,7 +2,7 @@ import { TSpecification } from '../_types'
 
 const forex_specification: TSpecification = {
     market: 'forex',
-    dl_title: 'Dynamic tiers ⁠— Forex majors',
+    dl_title: '_t_Dynamic tiers ⁠— Forex majors_t_',
     dl_data: [
         {
             from: 0.01,

@@ -331,6 +331,7 @@ module.exports = {
                 sampleRate: 1,
                 replaySampleRate: 20,
                 enabled: true,
+                env: "production",
                 service:'deriv.com',
                 trackUserInteractions: true,
                 trackResources: true,

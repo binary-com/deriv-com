@@ -13,32 +13,4 @@
         inset-block-start: 3rem;
         inset-inline-start: 3rem;
     }
-
-    & input[type='text'] {
-        block-size: 4rem;
-        inline-size: 100%;
-        padding-inline: 1rem;
-        border: 1px solid #d6dadb;
-        border-radius: 16px;
-        outline-color: #d6dadb;
-        font-size: 1.6rem;
-        color: #999999;
-    }
-
-    & label {
-        cursor: pointer;
-        user-select: none;
-    }
-
-    & input[type='checkbox'] {
-        accent-color: $color-brand;
-        margin: 0;
-        margin-inline-end: 1rem;
-        color: currentColor;
-        inline-size: 16px;
-        block-size: 16px;
-        border: 2px solid currentColor;
-        border-radius: 10px;
-        vertical-align: -2px;
-    }
 }

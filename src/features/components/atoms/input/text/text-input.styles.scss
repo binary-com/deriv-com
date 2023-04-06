@@ -1,0 +1,50 @@
+@import 'features/styles/theme/variables';
+
+.text_input {
+    &_container {
+        position: relative;
+
+        & > input {
+            font-size: 1.6rem;
+            display: block;
+            inline-size: 100%;
+            block-size: 4rem;
+            padding: 0 2rem;
+            background: $color-white;
+            color: $color-grey-5;
+            border: 1px solid $color-grey-7;
+            border-radius: 16px;
+            box-sizing: border-box;
+
+            &::placeholder {
+                color: transparent;
+            }
+
+            &:focus {
+                outline: none;
+                ~ .text_input_label {
+                    inset-block-start: -8px;
+                }
+            }
+            &:not(:placeholder-shown) ~ .text_input_label {
+                inset-block-start: -8px;
+            }
+        }
+    }
+
+    &_label {
+        position: absolute;
+        pointer-events: none;
+        inset-inline-start: 15px;
+        inset-block-start: 12px;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+    }
+
+    &_error {
+        position: absolute;
+        inset-block-end: -2.1rem;
+        inset-inline-start: 15px;
+    }
+}

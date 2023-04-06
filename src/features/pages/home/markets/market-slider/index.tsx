@@ -22,6 +22,7 @@ const MarketSlider = () => {
         <Container.Fluid padding_inline="10x">
             <Swiper
                 modules={[Pagination, Autoplay]}
+                speed={2000}
                 autoplay={{
                     delay: 1000,
                 }}

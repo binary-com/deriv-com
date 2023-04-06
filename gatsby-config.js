@@ -325,12 +325,13 @@ module.exports = {
             },
         },
         {
-            resolve: "gatsby-plugin-datadog",
+            resolve: 'gatsby-plugin-datadog',
             options: {
                 site: 'datadoghq.com',
-                sampleRate: 1,
+                sampleRate: 100,
                 replaySampleRate: 20,
                 enabled: true,
+                env: 'production',
                 service:'deriv.com',
                 trackUserInteractions: true,
                 trackResources: true,

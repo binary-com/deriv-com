@@ -8,9 +8,6 @@ import { localize, WithIntl } from 'components/localization'
 
 const query = graphql`
     query {
-        cyprus: file(relativePath: { eq: "careers/cyprus.jpg" }) {
-            ...backgroundImage
-        }
         living_in_cyprus: file(relativePath: { eq: "careers/living_in_cyprus.png" }) {
             ...fadeIn
         }

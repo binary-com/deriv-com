@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import CareerContainer from '../_layout-components/_career_container'
@@ -6,24 +6,26 @@ import { LocationsType } from '../_model/_locations/_locations.types'
 import { Iframe, Pin } from './_location-layout'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
-import { Text, Header, LinkText, BackgroundImage, QueryImage } from 'components/elements'
+import {
+    Text,
+    Header,
+    LinkText,
+    BackgroundImageWrapper,
+    StaticImageWrapper,
+    QueryImage,
+} from 'components/elements'
 import { LinkButton } from 'components/form'
 import { map_api_key, zoho_jobs_url } from 'common/constants'
 import MapPin from 'images/svg/careers/map.svg'
-import { useBrowserResize } from 'components/hooks/use-browser-resize'
-
-type HeroProps = {
-    display_name: string
-    img_data: ImageDataLike
-    img_alt: string
-    job_location?: string
-}
 
 const StyledContainer = styled(CareerContainer)`
     flex-direction: column;
-    height: 100%;
-`
+    height: 660px;
 
+    @media ${device.laptop} {
+        height: 521px;
+    }
+`
 const StyledHeader = styled(Header)`
     font-size: 64px;
     margin-bottom: 16px;
@@ -31,7 +33,6 @@ const StyledHeader = styled(Header)`
     text-align: center;
     line-height: 80px;
 `
-
 const SecondStyledHeader = styled(Header)`
     @media ${device.tablet} {
         margin-bottom: 40px;
@@ -40,12 +41,16 @@ const SecondStyledHeader = styled(Header)`
     margin-bottom: 0 24px;
 `
 
-const Hero = ({ display_name, img_data, img_alt, job_location }: HeroProps) => {
-    const [is_mobile] = useBrowserResize(1024)
-    const image_height = is_mobile ? '521px' : '660px'
+type HeroProps = {
+    display_name: string
+    job_location?: string
+    hero_image: ReactElement
+}
 
+const Hero = ({ display_name, hero_image, job_location }: HeroProps) => {
     return (
-        <BackgroundImage data={img_data} alt={img_alt} child_style={{ height: image_height }}>
+        <BackgroundImageWrapper>
+            <StaticImageWrapper>{hero_image}</StaticImageWrapper>
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
                 <LinkButton
@@ -59,7 +64,7 @@ const Hero = ({ display_name, img_data, img_alt, job_location }: HeroProps) => {
                     }`}
                 </LinkButton>
             </StyledContainer>
-        </BackgroundImage>
+        </BackgroundImageWrapper>
     )
 }
 
@@ -193,7 +198,6 @@ const StyledDiv = styled.div`
         height: unset;
     }
 `
-
 const WorkingQueryImage = styled(QueryImage)`
     object-fit: cover;
     max-width: 552px;
@@ -227,8 +231,7 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
         <>
             <Hero
                 display_name={display_name}
-                img_data={images[location.name]}
-                img_alt={location.img_alt}
+                hero_image={location.hero_image}
                 job_location={job_location}
             />
             <FirstSection>

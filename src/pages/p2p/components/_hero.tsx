@@ -1,8 +1,15 @@
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import { Flex, Container, Desktop, Mobile } from 'components/containers'
-import { Header, QueryImage, ImageWrapper, BackgroundImage } from 'components/elements'
+import {
+    Header,
+    QueryImage,
+    ImageWrapper,
+    BackgroundImageWrapper,
+    StaticImageWrapper,
+} from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 import { Button } from 'components/form'
 import device, { size } from 'themes/device'
@@ -172,17 +179,6 @@ const StyledHeader = styled(Header)`
 
 const query = graphql`
     query {
-        p2p_hero_background: file(relativePath: { eq: "p2p/p2p_hero_background.png" }) {
-            ...fadeIn
-        }
-        p2p_hero_background_rtl: file(relativePath: { eq: "p2p/p2p_hero_background_rtl.png" }) {
-            ...fadeIn
-        }
-        p2p_hero_background_mobile: file(
-            relativePath: { eq: "p2p/p2p_hero_background_mobile.png" }
-        ) {
-            ...fadeIn
-        }
         p2p_hero_img: file(relativePath: { eq: "p2p/p2p_hero_img.png" }) {
             ...fadeIn
         }
@@ -210,9 +206,21 @@ const Hero = () => {
     const is_rtl = useIsRtl()
     const background = useMemo(() => {
         if (is_tabletL) {
-            return data['p2p_hero_background_mobile']
+            return (
+                <StaticImage
+                    src="../../../images/common/p2p/p2p_hero_background_mobile.png"
+                    alt="p2p"
+                />
+            )
         } else {
-            return is_rtl ? data['p2p_hero_background_rtl'] : data['p2p_hero_background']
+            return is_rtl ? (
+                <StaticImage
+                    src="../../../images/common/p2p/p2p_hero_background_rtl.png"
+                    alt="p2p"
+                />
+            ) : (
+                <StaticImage src="../../../images/common/p2p/p2p_hero_background.png" alt="p2p" />
+            )
         }
     }, [data, is_rtl, is_tabletL])
 
@@ -229,7 +237,8 @@ const Hero = () => {
     }
 
     return (
-        <BackgroundImage data={background} alt="p2p">
+        <BackgroundImageWrapper>
+            <StaticImageWrapper>{background}</StaticImageWrapper>
             <Wrapper>
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader as="h1">
@@ -317,7 +326,7 @@ const Hero = () => {
                     />
                 </ImgWrapper>
             </Wrapper>
-        </BackgroundImage>
+        </BackgroundImageWrapper>
     )
 }
 

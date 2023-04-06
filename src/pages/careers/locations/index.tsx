@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
@@ -218,16 +217,6 @@ const CountryCard = ({
             </StyledDiv>
         </CountryCardWrapper>
     )
-}
-
-CountryCard.propTypes = {
-    city_name: PropTypes.string,
-    country_name: PropTypes.string,
-    Icon: PropTypes.string,
-    img_alt: PropTypes.string,
-    img_data: PropTypes.object,
-    link: PropTypes.string,
-    open_positions: PropTypes.number,
 }
 
 const query = graphql`

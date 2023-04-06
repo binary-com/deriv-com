@@ -1,3 +1,4 @@
+@use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
 
 @keyframes fadeIn {
@@ -25,14 +26,16 @@
 .cookie_banner {
     &_wrapper {
         pointer-events: all;
-        inline-size: 40rem;
+        inline-size: 100vw;
         transition: translate 0.2s ease-in-out, opacity 0.2s ease-in-out;
-        border-radius: 8px;
+
         box-shadow: 0 0 12px 0 rgba(14, 14, 14, 0.16);
         align-self: flex-start;
-        position: absolute;
-        inset-inline-start: 2rem;
-        inset-block-end: 7.5rem;
+
+        @include breakpoints(tablet-large) {
+            max-inline-size: 40rem;
+            border-radius: 8px;
+        }
 
         animation: fadeOut 0.2s;
         &.visible {

@@ -14,10 +14,15 @@ const QRCode = () => {
             justify="center"
             align="center"
             align_self="center"
-            gap="4x"
+            gap="10x"
         >
             <Image src={DerivGOQRCode} width="169px" height="169px" />
-            <Typography.Paragraph size="small" textcolor="inverted" align="center">
+            <Typography.Paragraph
+                size="small"
+                textcolor="inverted"
+                align="center"
+                padding_inline="13x"
+            >
                 <Localize translate_text="_t_Scan to download Deriv GO Ultimate Android APK (Android 5.0 and above)_t_" />
             </Typography.Paragraph>
         </Flex.Box>

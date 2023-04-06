@@ -4,16 +4,33 @@ import LiveChatButton from './live-chat-button'
 import WhatsappButton from './whats-app-button'
 import CookieBanner from './cookie-banner'
 import CfdWarningBanner from './cfd-warning-banner'
-import Container from 'features/components/atoms/container'
+import Flex from 'features/components/atoms/flex-box'
 
 const LayoutOverlay = () => {
     return (
-        <Container.Fixed className={overlay_container}>
-            <LiveChatButton />
-            <WhatsappButton />
-            <CookieBanner />
+        <Flex.Box
+            container="fixed"
+            align="stretch"
+            justify="end"
+            direction="col"
+            className={overlay_container}
+        >
+            <Flex.Box
+                direction="col-reverse"
+                md={{ direction: 'row' }}
+                justify="between"
+                align="end"
+            >
+                <Flex.Item basis="6-12" grow={'1'}>
+                    <CookieBanner />
+                </Flex.Item>
+                <Flex.Box direction="col">
+                    <LiveChatButton />
+                    <WhatsappButton />
+                </Flex.Box>
+            </Flex.Box>
             <CfdWarningBanner />
-        </Container.Fixed>
+        </Flex.Box>
     )
 }
 

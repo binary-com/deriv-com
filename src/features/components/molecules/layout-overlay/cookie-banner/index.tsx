@@ -6,7 +6,6 @@ import { Localize } from 'components/localization'
 import Link from 'features/components/atoms/link'
 import Flex from 'features/components/atoms/flex-box'
 import Button from 'features/components/atoms/button'
-import Container from 'features/components/atoms/container'
 import dclsx from 'features/utils/dclsx'
 import Box from 'features/components/atoms/box'
 
@@ -35,6 +34,10 @@ const CookieBanner = () => {
         return (
             <Box
                 padding="12x"
+                mb={'2x'}
+                md={{
+                    margin: '10x',
+                }}
                 bgcolor="primary"
                 className={dclsx(cookie_banner_wrapper, {
                     [visible]: cookie.should_show,
@@ -58,13 +61,17 @@ const CookieBanner = () => {
                         ]}
                     />
                 </Typography.Paragraph>
-                <Flex.Box justify="between" align="center" mt="10x">
-                    <Button.Secondary onClick={cookie.decline} outlined>
-                        <Localize translate_text="_t_Don't accept_t_" />
-                    </Button.Secondary>
-                    <Button.Primary onClick={cookie.accept}>
-                        <Localize translate_text="_t_Accept_t_" />
-                    </Button.Primary>
+                <Flex.Box justify="center" gap={'10x'} align="center" mt="10x">
+                    <Flex.Item>
+                        <Button.Secondary onClick={cookie.decline} outlined>
+                            <Localize translate_text="_t_Don't accept_t_" />
+                        </Button.Secondary>
+                    </Flex.Item>
+                    <Flex.Item>
+                        <Button.Primary onClick={cookie.accept}>
+                            <Localize translate_text="_t_Accept_t_" />
+                        </Button.Primary>
+                    </Flex.Item>
                 </Flex.Box>
             </Box>
         )

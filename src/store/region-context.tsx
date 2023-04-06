@@ -84,9 +84,11 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
             setEuCountry(!!isEuCountry(clients_country))
             setP2PAllowedCountry(!!p2p_config)
             //QA testing purposes
-            p2p_countries.includes(qa_url_region)
-                ? setP2PAllowedCountry(true)
-                : setP2PAllowedCountry(false)
+            if (qa_url_region) {
+                p2p_countries.includes(qa_url_region)
+                    ? setP2PAllowedCountry(true)
+                    : setP2PAllowedCountry(false)
+            }
             setUserCountry(clients_country)
             setRegion({
                 is_region_loading: false,

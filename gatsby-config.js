@@ -329,7 +329,7 @@ module.exports = {
             options: {
                 site: 'datadoghq.com',
                 sessionSampleRate: 100,
-                replaySampleRate: 20,
+                sessionReplaySampleRate: 20,
                 enabled: true,
                 env: 'production',
                 service:'deriv.com',

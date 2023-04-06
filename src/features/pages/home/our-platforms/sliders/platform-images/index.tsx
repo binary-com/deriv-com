@@ -5,6 +5,7 @@ import type { Swiper as SwiperType } from 'swiper'
 import { SmartPlatformItem } from '../../types'
 import { platform_images_swiper } from './platform-images.module.scss'
 import PlatformImageItem from './platform-image.item'
+import { get_lang_direction } from 'components/localization'
 
 interface PlatformMainSliderProps {
     items: SmartPlatformItem[]
@@ -25,6 +26,7 @@ const PlatformImageSlider = ({ items, setSwiper, connectedSwiper }: PlatformMain
             controller={{
                 control: connectedSwiper,
             }}
+            dir={get_lang_direction()}
             modules={[Controller, EffectFade, Autoplay]}
             autoplay={{
                 delay: 3000,

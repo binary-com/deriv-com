@@ -17,7 +17,6 @@
     background-color: $bg-color-primary;
     border-radius: 10rem;
     padding: 1rem;
-    z-index: 10;
 
     cursor: pointer;
 
@@ -62,6 +61,5 @@
 .trustpilot-widget {
     transform: scale(0.8);
     position: relative;
-    left: -40px;
-    top: -10px;
+    inset-inline-start: -40px;
 }

@@ -8,12 +8,15 @@
     &:active {
         color: $color-red;
     }
-    &:hover {
-        color: $color-red;
-        text-decoration: underline;
-    }
+
     &:disabled {
         pointer-events: none;
         opacity: 0.32;
+    }
+}
+.typography-hover {
+    &:hover {
+        color: $color-red;
+        text-decoration: underline;
     }
 }

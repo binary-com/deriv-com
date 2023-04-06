@@ -10,6 +10,7 @@ export type ContentSectionTagOptions =
     | 'footer'
     | 'section'
     | 'ul'
+    | 'form'
 
 export type HeadingTagOptions = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 export type TextTagOptions =
@@ -46,6 +47,7 @@ export type TextTagOptions =
     | 'rt'
     | 'span'
     | 'cite'
+    | 'label'
 
 export type TypographyTagOptions = HeadingTagOptions | TextTagOptions
 

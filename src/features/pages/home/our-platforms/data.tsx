@@ -1,14 +1,15 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { SmartPlatformItem } from './types'
-import DTraderIcon from 'images/svg/dtrader/dtrader-icon.svg'
-import DMT5Icon from 'images/svg/dmt5/dmt5-icon.svg'
-import DerivGOIcon from 'images/svg/deriv-go/deriv-go-logo.svg'
-import DerivXIcon from 'images/svg/deriv-x/derivx-logo.svg'
-import DBotIcon from 'images/svg/dbot/dbot-icon.svg'
-import BinaryBotIcon from 'images/svg/binarybot-icon.svg'
-import SmartTraderIcon from 'images/svg/custom/smarttrader.svg'
-import APIIcon from 'images/svg/api-logo.svg'
+import DTraderIcon from 'images/svg/custom/rebranding/dtrader-icon.svg'
+import DMT5Icon from 'images/svg/custom/rebranding/dmt5-icon.svg'
+import DerivGOIcon from 'images/svg/custom/rebranding/deriv-go-icon.svg'
+import DerivXIcon from 'images/svg/custom/rebranding/deriv-x-icon.svg'
+import DBotIcon from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
+import BinaryBotIcon from 'images/svg/custom/rebranding/binarybot-icon.svg'
+import SmartTraderIcon from 'images/svg/custom/rebranding/smarttrader-icon.svg'
+import APIIcon from 'images/svg/custom/rebranding/deriv-api-icon.svg'
+import DerivEzIcon from 'images/svg/custom/rebranding/deriv-ez-icon.svg'
 import Link from 'features/components/atoms/link'
 import {
     derivx_android_url,
@@ -35,8 +36,8 @@ const platformSliderItems: SmartPlatformItem[] = [
             image: (
                 <StaticImage
                     objectFit="contain"
-                    src="../../../../images/common/home/platforms_deriv_go.png"
-                    alt="laptop dtrader"
+                    src="../../../../images/common/home/rebranding/platform_deriv_go.png"
+                    alt="deriv go"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
                 />
@@ -101,16 +102,16 @@ const platformSliderItems: SmartPlatformItem[] = [
                 is_eu ? (
                     <StaticImage
                         objectFit="contain"
-                        src="../../../../images/common/home/platforms_mt5_eu.png"
-                        alt="laptop dtrader"
+                        src="../../../../images/common/home/rebranding/platform_mt5_eu.png"
+                        alt="deriv mt5 eu"
                         formats={['avif', 'webp', 'auto']}
                         placeholder="none"
                     />
                 ) : (
                     <StaticImage
                         objectFit="contain"
-                        src="../../../../images/common/home/platforms_mt5.png"
-                        alt="laptop dtrader"
+                        src="../../../../images/common/home/rebranding/platform_mt5.png"
+                        alt="deriv mt5"
                         formats={['avif', 'webp', 'auto']}
                         placeholder="none"
                     />
@@ -137,16 +138,16 @@ const platformSliderItems: SmartPlatformItem[] = [
                 is_eu ? (
                     <StaticImage
                         objectFit="contain"
-                        src="../../../../images/common/home/platforms_dtrader_eu.png"
-                        alt="laptop dtrader"
+                        src="../../../../images/common/home/rebranding/platform_deriv_trader_eu.png"
+                        alt="deriv trader eu"
                         formats={['avif', 'webp', 'auto']}
                         placeholder="none"
                     />
                 ) : (
                     <StaticImage
                         objectFit="contain"
-                        src="../../../../images/common/home/platforms_dtrader.png"
-                        alt="laptop dtrader"
+                        src="../../../../images/common/home/rebranding/platform_deriv_trader.png"
+                        alt="deriv trader"
                         formats={['avif', 'webp', 'auto']}
                         placeholder="none"
                     />
@@ -182,8 +183,47 @@ const platformSliderItems: SmartPlatformItem[] = [
             image: (
                 <StaticImage
                     objectFit="contain"
-                    src="../../../../images/common/home/platforms_derivx.png"
-                    alt="laptop dtrader"
+                    src="../../../../images/common/home/rebranding/platform_derivx.png"
+                    alt="deriv x"
+                    formats={['avif', 'webp', 'auto']}
+                    placeholder="none"
+                />
+            ),
+        },
+        visibility: {
+            is_eu: false,
+        },
+    },
+    {
+        id: 3,
+        data: {
+            title: '_t_Deriv EZ_t_',
+            description: '_t_Our mobile-first CFD trading platform_t_',
+            url: {
+                type: 'internal',
+                to: '/derivez/',
+            },
+            icon: DerivEzIcon,
+            image_caption: {
+                text: '_t_Available on <0>Android</0>, <1>iOS</1> (on Deriv GO)_t_',
+                components: [
+                    <Link
+                        key={0}
+                        url={{ type: 'non-company', href: derivx_android_url }}
+                        weight="bold"
+                    />,
+                    <Link
+                        key={1}
+                        url={{ type: 'non-company', href: derivx_ios_url }}
+                        weight="bold"
+                    />,
+                ],
+            },
+            image: (
+                <StaticImage
+                    objectFit="contain"
+                    src="../../../../images/common/home/rebranding/platform_deriv_ez.png"
+                    alt="deriv ez"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
                 />
@@ -212,8 +252,8 @@ const platformSliderItems: SmartPlatformItem[] = [
             image: (
                 <StaticImage
                     objectFit="contain"
-                    src="../../../../images/common/home/platforms_dbot.png"
-                    alt="laptop dtrader"
+                    src="../../../../images/common/home/rebranding/platform_deriv_bot.png"
+                    alt="deriv bot"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
                 />
@@ -246,8 +286,8 @@ const platformSliderItems: SmartPlatformItem[] = [
             image: (
                 <StaticImage
                     objectFit="contain"
-                    src="../../../../images/common/home/platforms_smarttrader.png"
-                    alt="laptop dtrader"
+                    src="../../../../images/common/home/rebranding/platform_smart_trader.png"
+                    alt="deriv smart trader"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
                 />
@@ -280,8 +320,8 @@ const platformSliderItems: SmartPlatformItem[] = [
             image: (
                 <StaticImage
                     objectFit="contain"
-                    src="../../../../images/common/home/platforms_binary_bot.png"
-                    alt="laptop dtrader"
+                    src="../../../../images/common/home/rebranding/platform_binary_bot.png"
+                    alt="binary bot"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
                 />
@@ -310,8 +350,8 @@ const platformSliderItems: SmartPlatformItem[] = [
             image: (
                 <StaticImage
                     objectFit="contain"
-                    src="../../../../images/common/home/platforms_api.png"
-                    alt="laptop dtrader"
+                    src="../../../../images/common/home/rebranding/platform_deriv_api.png"
+                    alt="deriv api"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
                 />

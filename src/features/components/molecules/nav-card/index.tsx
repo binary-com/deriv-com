@@ -35,9 +35,9 @@ const NavigationCard = ({
     const has_content = content ? true : false
 
     return (
-        <Link url={url} onClick={onClick}>
+        <Link url={url} onClick={onClick} className={styles.nav_card_link}>
             <div className={styles.nav_card_container}>
-                {icon_src && <Icon size="large" src={icon_src} alt={icon_alt} mr={'4x'} />}
+                {icon_src && <Icon size="large" src={icon_src} alt={icon_alt} mr={'8x'} />}
                 <div
                     className={dclsx(styles.nav_card_content, {
                         [styles.nav_card_type]: has_content,
@@ -54,6 +54,7 @@ const NavigationCard = ({
                         <Typography.Paragraph
                             size={is_mobile_or_tablet ? 'large' : 'medium'}
                             className={styles.nav_card_content_description}
+                            textcolor={'secondary'}
                         >
                             <Localize translate_text={content} />
                         </Typography.Paragraph>

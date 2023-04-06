@@ -57,21 +57,21 @@ const testimonialSlides: SmartTestimonialItem[] = [
         },
     },
     {
-        id: 5,
+        id: 6,
         data: {
             name: 'John',
             quote: '_t_I have never seen a platform that is so flexible with multiple resources that meet everyone’s needs. If that’s not enough, Deriv is second to none on customer support services!_t_',
         },
     },
     {
-        id: 6,
+        id: 7,
         data: {
             name: 'Frank',
             quote: '_t_Excellent and reliable services; tested and trusted!_t_',
         },
     },
     {
-        id: 7,
+        id: 8,
         data: {
             name: 'Aaron',
             quote: '_t_Deriv has multiple withdrawal methods, including Deriv P2P, which is fast and convenient. Their support team is available any time and responds very quickly to any queries._t_',
@@ -81,7 +81,7 @@ const testimonialSlides: SmartTestimonialItem[] = [
         },
     },
     {
-        id: 8,
+        id: 9,
         data: {
             name: 'O. Victor',
             quote: '_t_Deriv GO is a very nice app – payments have been swift and easy. I would highly recommend it._t_',
@@ -91,7 +91,7 @@ const testimonialSlides: SmartTestimonialItem[] = [
         },
     },
     {
-        id: 9,
+        id: 10,
         data: {
             name: 'Isaac',
             quote: '_t_Deriv is the most reliable broker - excellent customer support and fast payments. It’s a great platform for commodities, forex, and synthetics trading._t_',
@@ -101,14 +101,14 @@ const testimonialSlides: SmartTestimonialItem[] = [
         },
     },
     {
-        id: 10,
+        id: 11,
         data: {
             name: 'Simon',
             quote: '_t_Low spreads on Synthetics and fast withdrawals - Deriv is a good broker!_t_',
         },
     },
     {
-        id: 11,
+        id: 12,
         data: {
             name: 'Allan',
             quote: '_t_Deriv P2P is good. It’s easy to deposit and withdraw for small traders._t_',
@@ -118,14 +118,14 @@ const testimonialSlides: SmartTestimonialItem[] = [
         },
     },
     {
-        id: 12,
+        id: 13,
         data: {
             name: 'Francoise',
             quote: "_t_It's the best broker in the world. I will recommend it to anyone every day all the time. Their support agents are really helpful in all areas._t_",
         },
     },
     {
-        id: 13,
+        id: 14,
         data: {
             name: 'Katleho',
             quote: "_t_Wow! Deriv GO is so perfect, it's convenient and reliable. I highly recommend using the app._t_",
@@ -135,14 +135,14 @@ const testimonialSlides: SmartTestimonialItem[] = [
         },
     },
     {
-        id: 14,
+        id: 15,
         data: {
             name: 'Jackline',
             quote: "_t_I've been a trader for many years, and I've never encountered a good broker like Deriv before – it's the best for customer care and payment options!_t_",
         },
     },
     {
-        id: 15,
+        id: 16,
         data: {
             name: 'Freeman',
             quote: '_t_Deriv P2P is a flawless innovation._t_',
@@ -152,14 +152,14 @@ const testimonialSlides: SmartTestimonialItem[] = [
         },
     },
     {
-        id: 16,
+        id: 17,
         data: {
             name: 'Vikas',
             quote: `_t_It's been a really great experience trading forex on Deriv - it's a smooth and seamless operation!_t_`,
         },
     },
     {
-        id: 17,
+        id: 18,
         data: {
             name: 'Moyz',
             quote: `_t_Deriv GO is really good! I've been looking for an app like this which is easy to use._t_`,
@@ -169,7 +169,7 @@ const testimonialSlides: SmartTestimonialItem[] = [
         },
     },
     {
-        id: 18,
+        id: 19,
         data: {
             name: 'LS',
             quote: `_t_Deriv is the best forex broker I have ever come across!_t_`,

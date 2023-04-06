@@ -13,8 +13,8 @@ const QRCode = () => {
             direction="col"
             justify="center"
             align="center"
+            align_self="center"
             gap="4x"
-            padding="12x"
         >
             <Image src={DerivGOQRCode} width="169px" height="169px" />
             <Typography.Paragraph size="small" textcolor="inverted" align="center">

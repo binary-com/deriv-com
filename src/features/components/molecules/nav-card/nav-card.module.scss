@@ -2,6 +2,11 @@
 @import 'features/styles/theme/variables';
 
 .nav_card {
+    &_link {
+        &:hover {
+            text-decoration: none;
+        }
+    }
     &_container {
         display: flex;
         flex-direction: row;

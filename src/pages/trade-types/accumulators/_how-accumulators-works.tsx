@@ -79,7 +79,7 @@ const HowAccumulatorsWork = () => {
                 <CommonHeaderSection
                     title="_t_How to buy your first accumulators contract on Deriv Trader_t_"
                     title_font_size={is_mobile ? '24px' : '32px'}
-                    margin_title="0 0 3.2rem 0"
+                    margin_title="40px 0 0 0"
                     line_height={is_mobile ? '30px' : '40px'}
                 />
                 <CommonHeaderSection

@@ -28,13 +28,10 @@ export const TableData = styled.table`
     overflow: auto;
     table > :nth-child(1) > tr:nth-of-type(1) {
         height: 110px;
+        border-bottom: none;
     }
 
     @media ${device.tabletL} {
-        display: inline-block;
-        overflow: auto;
-    }
-    @media ${device.laptopL} {
         display: inline-block;
         overflow: auto;
     }
@@ -44,7 +41,7 @@ type TableRowProps = {
 }
 export const TableRow = styled.tr<TableRowProps>`
     border-bottom: 2px solid var(--color-grey-8);
-    background: ${(props) => (props.bg ? props.bg : 'none')};
+    background: ${({ bg }) => bg};
     border-radius: 16px 16px 0 0;
     display: flex;
     align-items: center;
@@ -252,7 +249,7 @@ export const StyledButton = styled(Button)`
 export const StyledButtonPage = styled(Button)<{ selected: boolean }>`
     border-radius: 4px;
     background: transparent;
-    color: #414652;
+    color: var(--color-blue-14);
     font-weight: 400;
     ${({ selected }) =>
         selected
@@ -265,13 +262,13 @@ export const StyledButtonPage = styled(Button)<{ selected: boolean }>`
 `
 export const StyledPaginationContainer = styled(Flex)`
     display: grid;
-    padding: 6rem 0;
+    padding: 3rem 0;
     gap: 10px;
     justify-content: end;
     @media ${device.tabletL} {
         flex-direction: column-reverse;
         justify-content: center;
-        padding: 6rem 3rem;
+        padding: 3rem;
     }
 `
 export type CardProps = {
@@ -306,9 +303,9 @@ export const ModalCard = styled.div`
     width: 450px;
     height: auto;
     gap: 12px;
-    max-height: 88vh;
+    max-height: 80vh;
     overflow: auto;
-    justify-content: center;
+
     @media ${device.mobileL} {
         width: 80%;
     }
@@ -355,7 +352,7 @@ export const Th = styled.th`
     width: 200px !important;
     padding: 8px 14px;
     text-align: start;
-    background-color: #f9f9f9;
+    background-color: var(--color-white-1);
     font-weight: 700;
     font-size: 12px;
 `

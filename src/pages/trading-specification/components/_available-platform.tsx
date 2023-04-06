@@ -8,6 +8,7 @@ import DerivEZ from 'images/svg/trading-specification/deriv-ez.svg'
 import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import { Header } from 'components/elements'
+import { TString } from 'types/generics'
 
 const PlatformsContainer = styled(Flex)`
     justify-content: space-around;
@@ -46,6 +47,11 @@ const StyledLocalizedLink = styled(LocalizedLink)`
 const StyledFlex = styled(Flex)`
     padding: 20px;
 `
+const available_on: TString = '_t_Available on_t_'
+const deriv_mt5: TString = '_t_Deriv MT5_t_'
+const deriv_x: TString = '_t_Deriv X_t_'
+const deriv_ez: TString = '_t_Deriv EZ_t_'
+
 const AvailablePlatform = () => {
     const { is_row } = useRegion()
     return (
@@ -54,7 +60,7 @@ const AvailablePlatform = () => {
                 <PlatformsContainer ai="center">
                     <FlexContainer>
                         <Header type="paragraph-1" weight="normal" width="auto" as="p">
-                            <Localize translate_text="Available on" />
+                            <Localize translate_text={available_on} />
                         </Header>
                     </FlexContainer>
 
@@ -70,7 +76,7 @@ const AvailablePlatform = () => {
                                             height="24"
                                         />
                                         <Header type="paragraph-1" weight="normal" as="p">
-                                            <Localize translate_text="Deriv MT5" />
+                                            <Localize translate_text={deriv_mt5} />
                                         </Header>
                                     </Flex>
                                 </StyledLocalizedLink>
@@ -78,7 +84,7 @@ const AvailablePlatform = () => {
                                     <Flex direction="row">
                                         <img src={DerivX} alt="Deriv X" width="24" height="24" />
                                         <Header type="paragraph-1" weight="normal" as="p">
-                                            <Localize translate_text="Deriv X" />
+                                            <Localize translate_text={deriv_x} />
                                         </Header>
                                     </Flex>
                                 </StyledLocalizedLink>
@@ -86,7 +92,7 @@ const AvailablePlatform = () => {
                                     <Flex direction="row">
                                         <img src={DerivEZ} alt="Deriv EZ" width="24" height="24" />
                                         <Header type="paragraph-1" weight="normal" as="p">
-                                            <Localize translate_text="Deriv EZ" />
+                                            <Localize translate_text={deriv_ez} />
                                         </Header>
                                     </Flex>
                                 </StyledLocalizedLink>
@@ -98,7 +104,7 @@ const AvailablePlatform = () => {
                                 <Flex direction="row">
                                     <img src={DerivMT5} alt="Deriv MT5" width="24" height="24" />
                                     <Header type="paragraph-1" weight="normal" as="p">
-                                        <Localize translate_text="Deriv MT5" />
+                                        <Localize translate_text={deriv_mt5} />
                                     </Header>
                                 </Flex>
                             </StyledLocalizedLink>

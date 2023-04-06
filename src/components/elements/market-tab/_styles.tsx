@@ -17,7 +17,7 @@ export const MarketsContainer = styled.div`
     }
     @media ${device.tablet} {
         margin: 0;
-        padding: 0;
+        padding: 2rem 0;
         justify-content: flex-start;
     }
 `

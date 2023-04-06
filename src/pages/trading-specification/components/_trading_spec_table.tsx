@@ -30,10 +30,17 @@ import { Header } from 'components/elements'
 import { sanitize } from 'common/utility'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 export type TLiveMarketTableProps = {
     market: TAvailableLiveMarkets
 }
+
+const row_disclaimer: TString =
+    '_t_The above information is updated monthly and, therefore, may not reflect current trading conditions. Certain offerings and specifications may vary depending on your country of residence, regulated jurisdiction, and individual trading circumstances._t_'
+const eu_disclaimer: TString =
+    '_t_The above information is updated monthly and, therefore, may not reflect current trading conditions._t_'
+
 const StyledFlex = styled(Flex)`
     flex-direction: column;
     gap: 20px;
@@ -49,7 +56,7 @@ const SearchForm = styled.form`
     padding: 6px 8px;
     width: 464px;
     height: 32px;
-    border: 1px solid #d6dadb;
+    border: 1px solid var(--color-grey-7);
     border-radius: 12px;
 
     @media ${device.tabletL} {
@@ -106,7 +113,6 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
     const [search_value, setSearchValue] = useState('')
     const [globalFilter, setGlobalFilter] = useState('')
     const [sorting, setSorting] = React.useState<SortingState>([])
-
     const columns = useLiveColumns(market)
 
     const table = useReactTable({
@@ -131,12 +137,10 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
     const handleChange = (e) => {
         e.preventDefault()
         setSearchValue(sanitize(e.target.value))
-        console.log(e.target.value)
     }
     useEffect(() => {
         let updatedRowData = []
-        console.log(markets_data)
-        if (search_value.length > 1) {
+        if (search_value.length >= 1) {
             updatedRowData = [
                 ...markets_data.filter((market) =>
                     market.instrument.instrument.toLowerCase().match(new RegExp(search_value, 'i')),
@@ -144,7 +148,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
             ]
             setFilteredData(updatedRowData)
         } else {
-            setFilteredData(filtered_data)
+            setFilteredData(markets_data)
         }
     }, [search_value])
 
@@ -227,9 +231,9 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
 
             <DisclaimerText as="p">
                 {is_eu ? (
-                    <Localize translate_text="The above information is updated monthly and, therefore, may not reflect current trading conditions." />
+                    <Localize translate_text={eu_disclaimer} />
                 ) : (
-                    <Localize translate_text="The above information is updated monthly and, therefore, may not reflect current trading conditions. Certain offerings and specifications may vary depending on your country of residence, regulated jurisdiction, and individual trading circumstances." />
+                    <Localize translate_text={row_disclaimer} />
                 )}
             </DisclaimerText>
         </>

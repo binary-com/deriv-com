@@ -24,11 +24,6 @@ const SmallContainer = styled(Container)`
         padding-right: 0;
     }
     @media ${device.tablet} {
-        width: 80%;
-        padding-left: 0;
-        padding-right: 0;
-    }
-    @media ${device.mobileM} {
         width: 90%;
         padding-left: 0;
         padding-right: 0;

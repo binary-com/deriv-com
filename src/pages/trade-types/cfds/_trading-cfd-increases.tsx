@@ -42,12 +42,11 @@ const ExampleImage = styled(QueryImage)<ExampleImageType>`
 
     @media ${device.laptop} {
         width: 630px;
-        height: 361px;
+        height: 192px;
     }
 
     @media ${device.tabletL} {
         width: ${(props) => (props.eu ? '350px' : '328px')};
-        height: 506px;
     }
 
     @media ${device.mobileM} {

@@ -266,12 +266,7 @@ module.exports = {
                 //   ],
             },
         },
-        {
-            resolve: 'gatsby-plugin-svgr',
-            options: {
-                include: /svg/,
-            },
-        },
+        'gatsby-plugin-svgr',
         {
             resolve: 'gatsby-plugin-eslint',
             options: {
@@ -314,7 +309,7 @@ module.exports = {
                 replaySampleRate: 20,
                 enabled: true,
                 env: 'production',
-                service:'deriv.com',
+                service: 'deriv.com',
                 trackUserInteractions: true,
                 trackResources: true,
                 trackLongTasks: true,

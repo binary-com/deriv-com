@@ -1,6 +1,5 @@
 import React from 'react'
 import { button_link, info_items, not_available_image } from './data'
-import * as styles from './not-found.module.scss'
 import Typography from 'features/components/atoms/typography'
 import Button from 'features/components/atoms/button'
 import Link from 'features/components/atoms/link'
@@ -11,11 +10,11 @@ import { Localize } from 'components/localization'
 const NotFoundContainer = () => {
     return (
         <FlexBox.Box
-            className={styles.not_found}
             direction={'col'}
             wrap={'wrap'}
             justify={'center'}
             align={'center'}
+            padding_block={'8xl'}
         >
             <Image
                 src={not_available_image.src}
@@ -44,13 +43,12 @@ const NotFoundContainer = () => {
                 </Typography.Paragraph>
                 <Button.Primary
                     type={'button'}
-                    className={styles.not_found_button}
                     radius={'2x'}
                     textsize={'medium'}
                     padding_inline={'8x'}
                     padding_block={'5x'}
                 >
-                    <Link type={'internal'} url={button_link.url} textcolor={'white'}>
+                    <Link url={button_link.url} textcolor={'white'} no_hover>
                         <Localize translate_text={button_link.text} />
                     </Link>
                 </Button.Primary>

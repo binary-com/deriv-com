@@ -32,6 +32,7 @@ import API from 'images/svg/menu/developers.svg'
 import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
+import DerivEZ from 'images/svg/deriv-ez/derivez-logo-black.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
 import DerivGo from 'images/svg/deriv-go/deriv-go-icon.svg'
 import Forex from 'images/svg/custom/forex-nav.svg'
@@ -236,6 +237,73 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                     title={<Localize translate_text="_t_Multipliers_t_" />}
                                     onClick={handleArrowClick}
                                     to="/trade-types/multiplier/"
+                                />
+                            </Flex>
+                        </>
+                    )}
+
+                    <Divider m="16px 0" width="100%" height="1px" color="grey-8" />
+
+                    <Text color="grey-5" mb="8px" size="14px">
+                        {<Localize translate_text="Trading platforms" />}
+                    </Text>
+                    <Flex mb="2rem">
+                        <NavCard
+                            aria_label="DMT5"
+                            icon={() => (
+                                <img
+                                    src={DMT5}
+                                    alt="Deriv MT5 trading platform"
+                                    width="32"
+                                    height="32"
+                                />
+                            )}
+                            content={
+                                <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />
+                            }
+                            title={<Localize translate_text="Deriv MT5" />}
+                            onClick={handleArrowClick}
+                            to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
+                        />
+                    </Flex>
+                    {is_row && (
+                        <>
+                            <Flex mb="2rem">
+                                <NavCard
+                                    aria_label="Derivx"
+                                    icon={() => (
+                                        <img
+                                            src={DerivX}
+                                            alt="Deriv X trading paltform"
+                                            width="32"
+                                            height="32"
+                                        />
+                                    )}
+                                    content={
+                                        <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
+                                    }
+                                    title={<Localize translate_text="Deriv X" />}
+                                    onClick={handleArrowClick}
+                                    to="/derivx/"
+                                />
+                            </Flex>
+                            <Flex mb="2rem">
+                                <NavCard
+                                    aria_label="Derivez"
+                                    icon={() => (
+                                        <img
+                                            src={DerivEZ}
+                                            alt="Deriv EZ trading paltform"
+                                            width="32"
+                                            height="32"
+                                        />
+                                    )}
+                                    content={
+                                        <Localize translate_text="Trade on global markets from anywhere with our mobile-first CFD trading platform." />
+                                    }
+                                    title={<Localize translate_text="Deriv EZ" />}
+                                    onClick={handleArrowClick}
+                                    to="/derivez/"
                                 />
                             </Flex>
                         </>

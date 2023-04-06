@@ -3,12 +3,7 @@ import { TSmartContent, TString } from 'types/generics'
 
 export type TActiveNav = 'trade' | 'markets' | 'about' | 'resources' | 'none'
 
-export type TNavLink = {
-    active: TActiveNav
-    title: TString
-}
-
-export type TNavContent = {
+export type TNavColumn = {
     icon?: {
         src: string
         alt: string
@@ -19,30 +14,38 @@ export type TNavContent = {
     aria_label?: string
 }
 
-export type TNavSectionColumns = {
+export type TNavMultiColumn = {
     title?: TString
     section: TSmartNavContent[]
 }
 
-export type TNavConfig = {
-    is_row: boolean
-    is_eu: boolean
-    is_ppc: boolean
-    is_ppc_redirect: boolean
-}
+export type TSmartNavContent = TSmartContent<TNavColumn, TNavConfig>
+export type TSmartNavSectionColumns = TSmartContent<TNavMultiColumn, TNavConfig>
 
-export type TSmartNavContent = TSmartContent<TNavContent, TNavConfig>
-export type TSmartNavSectionColumns = TSmartContent<TNavSectionColumns, TNavConfig>
-
-export type TNavItemsContentConfig = {
-    is_mobile: boolean
-}
-
-export type TNavItemsContent<T extends string> = {
+interface TBaseNavItem<T extends string> {
     title?: TString
     active: T
-    content: TSmartNavContent[] | TSmartNavSectionColumns[]
 }
+
+export interface TNavSingleItem<T extends string> extends TBaseNavItem<T> {
+    type: 'single-item'
+    content: LinkUrlType
+}
+
+export interface TNavSingleColumnItems<T extends string> extends TBaseNavItem<T> {
+    type: 'single-column'
+    content: TSmartNavContent[]
+}
+
+export interface TNavMultiColumnItems<T extends string> extends TBaseNavItem<T> {
+    type: 'multi-column'
+    content: TSmartNavSectionColumns[]
+}
+
+export type TNavItemsContent<T extends string> =
+    | TNavSingleItem<T>
+    | TNavSingleColumnItems<T>
+    | TNavMultiColumnItems<T>
 
 export type TSmartNavItemsContent<T extends string> = TSmartContent<
     TNavItemsContent<T>,
@@ -50,3 +53,14 @@ export type TSmartNavItemsContent<T extends string> = TSmartContent<
 >
 
 export type TNavItems<T extends string> = TSmartNavItemsContent<T>[]
+
+export type TNavItemsContentConfig = {
+    is_mobile: boolean
+    is_eu: boolean
+}
+export type TNavConfig = {
+    is_row: boolean
+    is_eu: boolean
+    is_ppc: boolean
+    is_ppc_redirect: boolean
+}

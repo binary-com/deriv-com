@@ -1,6 +1,10 @@
 @use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
 
+.footer {
+    border-block-start: 1px solid $color-grey-44;
+}
+
 .footer_grid {
     display: grid;
     inline-size: 100%;

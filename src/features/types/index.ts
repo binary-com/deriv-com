@@ -10,6 +10,7 @@ export type ContentSectionTagOptions =
     | 'footer'
     | 'section'
     | 'ul'
+    | 'li'
     | 'form'
 
 export type HeadingTagOptions = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'

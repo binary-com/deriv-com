@@ -1,5 +1,5 @@
 import React from 'react'
-import { footer_grid } from './footer.module.scss'
+import { footer_grid, footer } from './footer.module.scss'
 import { footerLinks } from './data'
 import FooterLinksColumn from './links-column'
 import Disclaimer from './disclaimer'
@@ -23,7 +23,7 @@ const Footer = ({ no_footer_links = false }: FooterProps) => {
     const show_links = !is_mobile_or_tablet && !no_footer_links
 
     return (
-        <Container.Fixed as={'footer'} bgcolor="primary">
+        <Container.Fixed as={'footer'} bgcolor="primary" className={footer}>
             <Container.Fluid pt={'20x'}>
                 <FooterIcons />
                 <Container.Fixed className={footer_grid} padding_block={'40x'}>

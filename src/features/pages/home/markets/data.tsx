@@ -16,7 +16,7 @@ export const market_items: SmartMarketItem[] = [
             img: (
                 <StaticImage
                     src="../../../../images/common/home/market_forex.png"
-                    alt="laptop dtrader"
+                    alt="forex market"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
                 />
@@ -37,7 +37,7 @@ export const market_items: SmartMarketItem[] = [
             img: (
                 <StaticImage
                     src="../../../../images/common/home/market_derived.png"
-                    alt="laptop dtrader"
+                    alt="synthetic market"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
                 />
@@ -57,7 +57,7 @@ export const market_items: SmartMarketItem[] = [
             img: (
                 <StaticImage
                     src="../../../../images/common/home/market_stocks_indices.png"
-                    alt="laptop dtrader"
+                    alt="stocks indices market"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
                 />
@@ -77,7 +77,7 @@ export const market_items: SmartMarketItem[] = [
             img: (
                 <StaticImage
                     src="../../../../images/common/home/market_crypto.png"
-                    alt="laptop dtrader"
+                    alt="cryptocurrencies market"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
                 />
@@ -97,7 +97,7 @@ export const market_items: SmartMarketItem[] = [
             img: (
                 <StaticImage
                     src="../../../../images/common/home/market_commodities.png"
-                    alt="laptop dtrader"
+                    alt="commodities market"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
                 />

@@ -1,8 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { trustpiolot_container } from './styles.module.scss'
-import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
-import Typography from 'features/components/atoms/typography'
 
 const TrustpilotContainer = () => {
     const ref = useRef()
@@ -12,16 +9,7 @@ const TrustpilotContainer = () => {
     }, [])
 
     return (
-        <Flex.Box
-            direction="col"
-            justify="center"
-            align="start"
-            gap={'20x'}
-            className={trustpiolot_container}
-        >
-            <Typography.Heading size="medium" as="h3">
-                <Localize translate_text="_t_What our clients say about Deriv_t_" />
-            </Typography.Heading>
+        <Flex.Box direction="col" justify="center" align="start" gap={'20x'} basis={'6-12'}>
             <div
                 ref={ref}
                 className="trustpilot-widget"

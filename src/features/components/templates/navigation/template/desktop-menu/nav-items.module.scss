@@ -1,13 +1,9 @@
 @use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
 
 .nav_items {
-    flex: 1;
     & > li {
-        list-style-type: none;
-        display: flex;
         position: relative;
-        align-items: center;
-        text-align: center;
         user-select: none;
         cursor: pointer;
 
@@ -16,21 +12,17 @@
         }
 
         & .item_title {
-            padding: 0.5rem 1rem;
-
             &::before {
                 content: '';
                 position: absolute;
                 transition: width 0.25s;
                 block-size: 0.2rem;
                 inline-size: 0;
-                background-color: var(--color-red);
+                background-color: $color-brand;
                 inset-block-end: 0;
             }
 
             &:hover {
-                text-shadow: 0 0 0.8px var(--color-white), 0 0 0.8px var(--color-white);
-
                 &::before {
                     inline-size: 1.6rem;
                 }
@@ -38,38 +30,25 @@
         }
 
         &.active_item {
-            &::after {
-                animation: 1s fadeIn;
-                animation-delay: 0.1s;
-                animation-fill-mode: forwards;
-                content: ' ';
-                position: absolute;
-                inset-block-start: 33px;
-                inset-inline-start: 25%;
-                border-block-start: none;
-                border-inline-end: 15px solid transparent;
-                border-inline-start: 15px solid transparent;
-                border-block-end: 15px solid white;
+            & .item_title {
+                &::before {
+                    content: '';
+                    position: absolute;
+                    transition: width 0.25s;
+                    block-size: 0.2rem;
+                    inline-size: 1.6rem;
+                    background-color: $color-brand;
+                    inset-block-end: 0;
+                }
             }
         }
 
         & .active_section {
             inline-size: fit-content;
-            @keyframes fadeIn {
-                from {
-                    visibility: hidden;
-                }
-
-                to {
-                    visibility: visible;
-                }
-            }
-
             position: absolute;
             inset-block-start: 5rem;
             inset-inline-start: 0rem;
             max-inline-size: 1200px;
-            padding: 2.2rem 0.8rem;
             z-index: 10;
             box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
             border-radius: 0.4rem;

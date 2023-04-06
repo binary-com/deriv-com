@@ -10,11 +10,13 @@ import useVisibleContent from 'components/hooks/use-visible-content'
 import MobileMenuToggle from 'features/components/molecules/mobile-menu-toggle'
 import Flex from 'features/components/atoms/flex-box'
 import dclsx from 'features/utils/dclsx'
+import useRegion from 'components/hooks/use-region'
 
 interface NavTemplateProps<T extends string> extends HTMLAttributes<HTMLDivElement> {
     renderTopNav?: () => ReactNode
     renderLogo: () => ReactNode
     items: TNavItems<T>
+    has_centered_items?: boolean
 }
 
 const NavTemplate = <T extends string>({
@@ -23,8 +25,11 @@ const NavTemplate = <T extends string>({
     items,
     children,
     className,
+    has_centered_items,
 }: NavTemplateProps<T>) => {
     const nav_wrapper_ref = useRef()
+
+    const { is_eu } = useRegion()
 
     const [activeTab, setActiveTab] = useState<T>(null)
 
@@ -55,7 +60,7 @@ const NavTemplate = <T extends string>({
 
     const visible_items = useVisibleContent({
         content: items,
-        config: { is_mobile: is_mobile_or_tablet },
+        config: { is_mobile: is_mobile_or_tablet, is_eu },
     })
 
     return (
@@ -74,7 +79,7 @@ const NavTemplate = <T extends string>({
                 gap="5x"
                 className={styles.nav_container}
             >
-                <Flex.Box justify="center" align="center">
+                <Flex.Box justify="center" align="baseline">
                     {is_mobile_or_tablet && (
                         <MobileMenuToggle is_open={is_menu_open} onClick={onMenuToggleClick} />
                     )}
@@ -86,6 +91,7 @@ const NavTemplate = <T extends string>({
                         onItemClick={onItemClick}
                         activeTab={activeTab}
                         items={visible_items}
+                        has_centered_items={has_centered_items}
                     />
                 )}
                 <Flex.Box justify="end" align="center" gap={'8x'}>

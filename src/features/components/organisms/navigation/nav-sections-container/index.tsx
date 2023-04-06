@@ -25,7 +25,7 @@ const NavSectionContainer = ({ items }: { items: TSmartNavSectionColumns[] }) =>
     const data = useVisibleContent({ config: filter_config, content: items })
 
     return (
-        <Flex.Box bgcolor="primary" className={styles.section_items}>
+        <Flex.Box bgcolor="primary" direction={'col'} md={{ direction: 'row' }}>
             {data.map((sectionItem) => (
                 <Flex.Box
                     direction="col"

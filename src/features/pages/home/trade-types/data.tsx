@@ -22,7 +22,7 @@ export const tradeTypesItems: SmartTradeTypeItem[] = [
         data: {
             title: '_t_Multipliers_t_',
             description:
-                '_t_Multiply potential profit without risking more than your initial stake._t_',
+                '_t_Multiply your potential profit without risking more than your stake._t_',
             url: {
                 type: 'internal',
                 to: '/trade-types/multiplier/',

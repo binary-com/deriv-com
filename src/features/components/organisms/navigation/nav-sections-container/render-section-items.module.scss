@@ -2,12 +2,6 @@
 @import 'features/styles/theme/variables';
 
 .section_items {
-    flex-direction: column;
-
-    @include breakpoints(tablet-large) {
-        flex-direction: row;
-    }
-
     &_container {
         border-inline-end: none;
         border-block-end: 1px solid $color-grey-8;
@@ -17,8 +11,8 @@
         }
 
         @include breakpoints(tablet-large) {
+            border-block-end: none;
             border-inline-end: 1px solid $color-grey-8;
-
             &:last-child {
                 border-inline-end: none;
             }

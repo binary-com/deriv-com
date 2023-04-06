@@ -4,11 +4,23 @@ import MainNavButtons from './main-nav-buttons'
 import { mainItems } from './content'
 import Image from 'features/components/atoms/image'
 import LogoImage from 'images/common/rebranding_logo.png'
+import useBreakpoints from 'components/hooks/use-breakpoints'
+import Link from 'features/components/atoms/link'
 
 const MainNav = () => {
+    const { is_mobile_or_tablet } = useBreakpoints()
+
     return (
         <NavTemplate
-            renderLogo={() => <Image src={LogoImage} width={100} height={32} />}
+            renderLogo={() => (
+                <Link url={{ type: 'internal', to: '/' }}>
+                    <Image
+                        src={LogoImage}
+                        width={is_mobile_or_tablet ? 48 : 96}
+                        height={is_mobile_or_tablet ? 16 : 36}
+                    />
+                </Link>
+            )}
             items={mainItems}
         >
             <MainNavButtons />

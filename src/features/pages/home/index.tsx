@@ -34,9 +34,9 @@ const HomePage = () => {
             <HomeMarkets />
             <TradeTypes />
             <OurPlatforms />
+            <ClientTestimonial />
             <DerivGOBanner />
             {is_p2p_allowed_country && <P2PBanner />}
-            <ClientTestimonial />
             <SignupPublic />
         </Layout>
     )

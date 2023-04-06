@@ -1,8 +1,9 @@
 import React from 'react'
-import TestimonialSlider from './slider'
 import TrustpilotContainer from './trustpiolot-container'
 import Flex from 'features/components/atoms/flex-box'
 import Container from 'features/components/atoms/container'
+import Typography from 'features/components/atoms/typography'
+import { Localize } from 'components/localization'
 
 const ClientTestimonial = () => {
     return (
@@ -18,8 +19,12 @@ const ClientTestimonial = () => {
                     direction: 'row',
                 }}
             >
+                <Flex.Item basis={'6-12'}>
+                    <Typography.Heading size="medium" align={'right'}>
+                        <Localize translate_text="_t_Rated excellent on_t_" />
+                    </Typography.Heading>
+                </Flex.Item>
                 <TrustpilotContainer />
-                <TestimonialSlider />
             </Flex.Box>
         </Container.Fixed>
     )

@@ -12,6 +12,9 @@ concurrency:
 env:
   GATSBY_CPU_COUNT: 2
   GATSBY_ENV: staging
+  DATADOG_APPLICATION_ID: ${{ secrets.DATADOG_APPLICATION_ID }}
+  DATADOG_CLIENT_TOKEN: ${{ secrets.DATADOG_CLIENT_TOKEN }}
+
 jobs:
   lint:
     timeout-minutes: 10

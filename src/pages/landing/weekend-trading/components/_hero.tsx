@@ -122,6 +122,7 @@ const Hero = () => {
                         alt="weekend trading"
                         objectFit="cover"
                         objectPosition="bottom right"
+                        loading="eager"
                     />
                 ) : (
                     <StaticImage
@@ -129,6 +130,7 @@ const Hero = () => {
                         alt="weekend trading"
                         objectFit="cover"
                         objectPosition="bottom right"
+                        loading="eager"
                     />
                 )}
             </StaticImageWrapper>

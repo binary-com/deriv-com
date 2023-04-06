@@ -96,6 +96,7 @@ const AfricaAward = () => {
                                 src="../../images/common/choose-us/africa_award_bg.png"
                                 alt="africa forex award"
                                 objectFit="contain"
+                                loading="eager"
                             />
                         </StaticImageWrapper>
                         <Flex
@@ -131,6 +132,7 @@ const AfricaAward = () => {
                                 src="../../images/common/choose-us/africa_award_bg_mobile.png"
                                 alt="africa forex award"
                                 objectFit="contain"
+                                loading="eager"
                             />
                         </StaticImageWrapper>
                         <MobileWrapper>

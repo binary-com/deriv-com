@@ -83,6 +83,7 @@ const Hero = () => {
                     src="../../images/common/careers/career-landing-screen.jpg"
                     alt="deriv careers"
                     style={{ opacity: '0.3' }}
+                    loading="eager"
                 />
             </StaticImageWrapper>
 

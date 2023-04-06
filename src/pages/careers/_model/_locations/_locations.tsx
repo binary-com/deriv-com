@@ -44,6 +44,7 @@ export const cyberjaya: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/cyberjaya.png"
             alt="Cyberjaya bridge and lake view"
+            loading="eager"
         />
     ),
     job_location: 'Cyberjaya',
@@ -82,7 +83,11 @@ export const cyberjaya: LocationsType = {
 export const malta: LocationsType = {
     name: 'malta',
     hero_image: (
-        <StaticImage src="../../../../images/common/careers/malta.jpg" alt="Malta Senglea Church" />
+        <StaticImage
+            src="../../../../images/common/careers/malta.jpg"
+            alt="Malta Senglea Church"
+            loading="eager"
+        />
     ),
     job_location: 'Birkirkara',
     continent: 'europe',
@@ -119,7 +124,11 @@ export const malta: LocationsType = {
 export const dubai: LocationsType = {
     name: 'dubai',
     hero_image: (
-        <StaticImage src="../../../../images/common/careers/dubai.jpg" alt="Dubai Skyscrappers" />
+        <StaticImage
+            src="../../../../images/common/careers/dubai.jpg"
+            alt="Dubai Skyscrappers"
+            loading="eager"
+        />
     ),
     job_location: 'Dubai',
     continent: 'middle_east',
@@ -156,7 +165,11 @@ export const dubai: LocationsType = {
 export const labuan: LocationsType = {
     name: 'labuan',
     hero_image: (
-        <StaticImage src="../../../../images/common/careers/labuan.jpg" alt="Labuan clock tower" />
+        <StaticImage
+            src="../../../../images/common/careers/labuan.jpg"
+            alt="Labuan clock tower"
+            loading="eager"
+        />
     ),
     job_location: 'Labuan',
     continent: 'asia',
@@ -197,6 +210,7 @@ export const asuncion: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/asuncion.png"
             alt="Palace of the Lopez - Asuncion"
+            loading="eager"
         />
     ),
     job_location: 'Asuncion',
@@ -237,6 +251,7 @@ export const melaka: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/melaka.jpg"
             alt="Dutch square of Melaka"
+            loading="eager"
         />
     ),
     job_location: 'Melaka',
@@ -278,6 +293,7 @@ export const ipoh: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/ipoh.jpg"
             alt="White architecture building in Ipoh"
+            loading="eager"
         />
     ),
     job_location: 'Ipoh',
@@ -318,6 +334,7 @@ export const cyprus: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/cyprus.jpg"
             alt="Buildings near beach side - Limassol"
+            loading="eager"
         />
     ),
     job_location: 'Limassol',
@@ -359,6 +376,7 @@ export const rwanda: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/rwanda.jpg"
             alt="Blue sky and buildings - Kigali"
+            loading="eager"
         />
     ),
     job_location: 'Kigali',
@@ -401,6 +419,7 @@ export const minsk: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/minsk.png"
             alt="Diamond shape building in Minsk"
+            loading="eager"
         />
     ),
     job_location: 'Minsk',
@@ -439,7 +458,13 @@ export const minsk: LocationsType = {
 
 export const paris: LocationsType = {
     name: 'paris',
-    hero_image: <StaticImage src="../../../../images/common/careers/paris.jpg" alt="paris" />,
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/paris.jpg"
+            alt="paris"
+            loading="eager"
+        />
+    ),
     job_location: 'Paris',
     continent: 'europe',
     display_continent: 'Europe',
@@ -468,7 +493,11 @@ export const paris: LocationsType = {
 export const guernsey: LocationsType = {
     name: 'guernsey',
     hero_image: (
-        <StaticImage src="../../../../images/common/careers/guernsey.jpg" alt="Guernsey alt img" />
+        <StaticImage
+            src="../../../../images/common/careers/guernsey.jpg"
+            alt="Guernsey alt img"
+            loading="eager"
+        />
     ),
     job_location: 'Guernsey',
     continent: 'europe',
@@ -504,6 +533,7 @@ export const berlin: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/berlin.png"
             alt="Deriv’s Germany office at Berlin"
+            loading="eager"
         />
     ),
     job_location: 'Berlin',
@@ -536,6 +566,7 @@ export const reading: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/reading.jpg"
             alt="Deriv’s Reading office at United Kingdom"
+            loading="eager"
         />
     ),
     job_location: 'Reading',
@@ -568,7 +599,11 @@ export const reading: LocationsType = {
 export const vanuatu: LocationsType = {
     name: 'vanuatu',
     hero_image: (
-        <StaticImage src="../../../../images/common/careers/vanuatu.png" alt="Vanuatu alt img" />
+        <StaticImage
+            src="../../../../images/common/careers/vanuatu.png"
+            alt="Vanuatu alt img"
+            loading="eager"
+        />
     ),
     job_location: 'Port-Vila',
     continent: 'oceania',
@@ -603,6 +638,7 @@ export const georgetown: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/georgetown.png"
             alt="Deriv’s Cayman Islands office at George Town"
+            loading="eager"
         />
     ),
     job_location: 'George-Town',
@@ -637,6 +673,7 @@ export const roadtown: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/roadtown.jpg"
             alt="Deriv’s British Virgin Islands office at Road Town"
+            loading="eager"
         />
     ),
     job_location: 'British-Virgin-Islands',
@@ -665,7 +702,11 @@ export const roadtown: LocationsType = {
 export const jordan: LocationsType = {
     name: 'jordan',
     hero_image: (
-        <StaticImage src="../../../../images/common/careers/jordan.jpg" alt="Jordan alt img" />
+        <StaticImage
+            src="../../../../images/common/careers/jordan.jpg"
+            alt="Jordan alt img"
+            loading="eager"
+        />
     ),
     job_location: 'Amman',
     continent: 'middle_east',
@@ -700,6 +741,7 @@ export const singapore: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/singapore.png"
             alt="Marina Bay Sands - Singapore"
+            loading="eager"
         />
     ),
     job_location: 'Singapore',
@@ -737,6 +779,7 @@ export const ciudad: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/ciudad.jpg"
             alt="Paraguay office at Ciudad del Este"
+            loading="eager"
         />
     ),
     job_location: 'Ciudad-del-Este',

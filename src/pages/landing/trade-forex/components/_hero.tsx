@@ -93,6 +93,7 @@ const Hero = ({ title, content }: HeroProps) => {
                         alt="forex trading"
                         objectFit="cover"
                         objectPosition="bottom right"
+                        loading="eager"
                     />
                 ) : (
                     <StaticImage
@@ -100,6 +101,7 @@ const Hero = ({ title, content }: HeroProps) => {
                         alt="forex trading"
                         objectFit="cover"
                         objectPosition="bottom right"
+                        loading="eager"
                     />
                 )}
             </StaticImageWrapper>

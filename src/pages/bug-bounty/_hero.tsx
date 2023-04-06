@@ -33,12 +33,14 @@ const Hero = () => {
                         src="../../images/common/bug-bounty/security-overlay-mobile.jpg"
                         alt="deriv security"
                         style={{ opacity: '0.3' }}
+                        loading="eager"
                     />
                 ) : (
                     <StaticImage
                         src="../../images/common/bug-bounty/security-overlay-desktop.jpg"
                         alt="deriv security"
                         style={{ opacity: '0.3' }}
+                        loading="eager"
                     />
                 )}
             </StaticImageWrapper>

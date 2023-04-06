@@ -7,6 +7,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
+                        loading="eager"
                         src="../../../images/common/careers-2/back-end-bg.png"
                         alt="backend department"
                         style={{ opacity: '0.3' }}
@@ -65,6 +66,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
+                        loading="eager"
                         src="../../../images/common/careers-2/marketing-bg.png"
                         alt="marketing department"
                         style={{ opacity: '0.3' }}
@@ -123,6 +125,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
+                        loading="eager"
                         src="../../../images/common/careers-2/security-bg.png"
                         alt="security department"
                         style={{ opacity: '0.3' }}
@@ -181,6 +184,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
+                        loading="eager"
                         src="../../../images/common/careers-2/cs-bg.png"
                         alt="customer support department"
                         style={{ opacity: '0.3' }}
@@ -239,6 +243,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
+                        loading="eager"
                         src="../../../images/common/careers-2/human-resources-bg.png"
                         alt="human resources department"
                         style={{ opacity: '0.3' }}
@@ -297,6 +302,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
+                        loading="eager"
                         src="../../../images/common/careers-2/product-bg.png"
                         alt="product department"
                         style={{ opacity: '0.3' }}
@@ -353,6 +359,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
+                        loading="eager"
                         src="../../../images/common/careers-2/compliance-bg.png"
                         alt="compliance department"
                         style={{ opacity: '0.3' }}
@@ -411,6 +418,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
+                        loading="eager"
                         src="../../../images/common/careers-2/finance-bg.png"
                         alt="finance department"
                         style={{ opacity: '0.3' }}
@@ -467,6 +475,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
+                        loading="eager"
                         src="../../../images/common/careers-2/payments-bg.png"
                         alt="payments department"
                         style={{ opacity: '0.3' }}
@@ -503,6 +512,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
+                        loading="eager"
                         src="../../../images/common/careers-2/front-end-bg.png"
                         alt="frontend department"
                         style={{ opacity: '0.3' }}
@@ -561,6 +571,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
+                        loading="eager"
                         src="../../../images/common/careers-2/trading-operations-bg.png"
                         alt="trading operations department"
                         style={{ opacity: '0.3' }}
@@ -622,6 +633,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
+                        loading="eager"
                         src="../../../images/common/careers-2/software-testing-bg.png"
                         alt="software testing department"
                         style={{ opacity: '0.3' }}
@@ -675,6 +687,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
+                        loading="eager"
                         src="../../../images/common/careers-2/business-excellence-bg.png"
                         alt="business excellence department"
                         style={{ opacity: '0.3' }}
@@ -723,6 +736,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
+                        loading="eager"
                         src="../../../images/common/careers-2/internal-audit-bg.png"
                         alt="internal audit department"
                         style={{ opacity: '0.3' }}
@@ -776,6 +790,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
+                        loading="eager"
                         src="../../../images/common/careers-2/pm-bg.png"
                         alt="project management department"
                         style={{ opacity: '0.3' }}
@@ -814,6 +829,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
+                        loading="eager"
                         src="../../../images/common/careers-2/business-intelligence-bg.png"
                         alt="business intelligence department"
                         style={{ opacity: '0.3' }}

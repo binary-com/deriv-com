@@ -88,6 +88,7 @@ const LatamAward = () => {
                                 src="../../images/common/choose-us/latam_award_bg.png"
                                 alt="latam forex"
                                 objectFit="contain"
+                                loading="eager"
                             />
                         </StaticImageWrapper>
 
@@ -125,6 +126,7 @@ const LatamAward = () => {
                                 src="../../images/common/choose-us/latam_award_bg_mobile.png"
                                 alt="latam forex"
                                 objectFit="contain"
+                                loading="eager"
                             />
                         </StaticImageWrapper>
 

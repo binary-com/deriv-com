@@ -141,7 +141,7 @@ const StyledTabs = styled(Tabs)`
         }
         .side-tab__label,
         .side-tab__description {
-            font-size: 16px;
+            font-size: 14px;
         }
         .side-tab__button {
             padding-left: 12px;

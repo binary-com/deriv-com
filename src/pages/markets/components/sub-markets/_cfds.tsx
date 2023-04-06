@@ -17,7 +17,7 @@ type CFDProps = {
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
-        padding: 24px 0 40px;
+        padding: 24px 0 24px;
     }
 `
 const StyledHeader = styled(Header)`

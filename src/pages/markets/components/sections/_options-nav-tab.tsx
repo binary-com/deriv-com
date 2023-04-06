@@ -79,7 +79,7 @@ const TabButton = styled.button<TabButtonProps>`
 `
 const TextWrapper = styled(Text)<TabButtonProps>`
     text-align: center;
-    font-size: var(--text-size-m);
+    font-size: 20px;
     color: #999999;
     ${(props) =>
         props.selected &&
@@ -88,7 +88,7 @@ const TextWrapper = styled(Text)<TabButtonProps>`
         `}
 
     @media ${device.tabletS} {
-        font-size: 18px;
+        font-size: 16px;
     }
 `
 const StyledLink = styled(LocalizedLink)`

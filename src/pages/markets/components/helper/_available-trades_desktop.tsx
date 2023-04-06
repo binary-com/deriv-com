@@ -39,14 +39,14 @@ const StyledSection = styled(SectionContainer)`
 
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
-        max-width: 320px;
+        max-width: 326px;
         font-size: 24px;
         margin: 0 auto;
     }
 `
 
 const StyledContainer = styled(Container)`
-    margin-top: 8.2rem;
+    margin-top: 4rem;
 
     @media ${device.tabletL} {
         width: 100%;

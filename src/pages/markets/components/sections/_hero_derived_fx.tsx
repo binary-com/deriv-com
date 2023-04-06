@@ -83,7 +83,7 @@ const StyledButton = styled.div<BackgroundWrapperProps>`
     @media (min-width: 1340px) and (max-width: 2080px) {
         margin-left: ${(props) => (props.is_rtl ? '57vw' : '16vw')};
     }
-    @media ${device.laptopM} {
+    @media ${device.laptopL} {
         margin-left: 0;
         margin-top: 0;
     }
@@ -105,7 +105,7 @@ const StyledContainer = styled.div<BackgroundWrapperProps>`
         margin-left: ${(props) => (props.is_rtl ? '57vw' : '16vw')};
     }
 
-    @media ${device.laptopM} {
+    @media ${device.laptopL} {
         margin-top: 1rem;
         padding: 0 2.3rem 5.5rem 2.3rem;
         display: flex;
@@ -133,33 +133,20 @@ const StyledContainer = styled.div<BackgroundWrapperProps>`
 const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
     position: relative;
     background: url(${handleBg});
-    background-size: 165rem;
+    background-size: 200vw;
     background-repeat: no-repeat;
     background-position: right;
     height: 63rem;
 
-    @media (max-width: 580px) {
-        background-size: 147rem;
+    @media (max-width: 610px) {
+        background-size: 1200px;
         background-position-x: -588px;
     }
 
-    @media (min-width: 683px) and (max-width: 883px) {
-        background-size: 202rem;
+    @media (min-width: 1440px) {
+        background-size: 165rem;
     }
-
-    @media (min-width: 884px) and (max-width: 991px) {
-        background-size: 234rem;
-    }
-
-    @media (min-width: 994px) and (max-width: 1099px) {
-        background-size: 211rem;
-    }
-
-    @media (min-width: 1100px) and (max-width: 1199px) {
-        background-size: 227rem;
-    }
-
-    @media (min-width: 1200px) and (max-width: 1350px) {
+    @media (min-width: 1440px) and (max-width: 1550px) {
         background-size: ${(props) => (props.is_rtl ? '132rem' : '165rem')};
     }
 `
@@ -170,13 +157,14 @@ const MarketSubHeader = styled.div`
     text-align: left;
     line-height: 24px;
 
-    @media ${device.laptopM} {
+    @media ${device.laptopL} {
         min-width: 40rem;
         text-align: center;
     }
     @media ${device.mobileM} {
         font-size: 14px;
         width: 83vw;
+        min-width: 0;
         text-align: center;
     }
 `
@@ -187,7 +175,7 @@ const StyledHeader = styled(Header)`
     text-align: start;
     margin-top: 16rem;
 
-    @media ${device.laptopM} {
+    @media ${device.laptopL} {
         font-size: 28px;
         width: 100%;
         align-items: center;
@@ -214,7 +202,7 @@ export const DerivedFXHero = ({
     return (
         <>
             <NavMarkets />
-            <Desktop breakpoint={'laptopM'}>
+            <Desktop breakpoint={'laptopL'}>
                 <BackgroundWrapper
                     is_forex={is_forex}
                     is_derived_row={is_derived_row}
@@ -245,7 +233,7 @@ export const DerivedFXHero = ({
                     </StyledButton>
                 </BackgroundWrapper>
             </Desktop>
-            <Mobile breakpoint={'laptopM'}>
+            <Mobile breakpoint={'laptopL'}>
                 <BackgroundWrapper
                     is_forex={is_forex}
                     is_derived_row={is_derived_row}

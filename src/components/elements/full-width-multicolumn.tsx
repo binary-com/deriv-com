@@ -45,7 +45,7 @@ const ItemContainer = styled(Box)`
     justify-content: center;
     gap: ${(props) => props.gap || '40px'};
 
-    @media ${device.tabletL} {
+    @media ${device.laptopL} {
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -62,7 +62,7 @@ const StyledHeader = styled(Header)`
 
     @media ${device.mobileL} {
         text-align: center;
-        max-width: 80vw;
+        max-width: 53vw;
         font-size: 24px;
         margin-top: -1rem;
         line-height: 30px;
@@ -136,6 +136,11 @@ const StyledSectionContainer = styled(SectionContainer)`
     margin: auto;
     background: #414652;
     color: white;
+
+    @media ${device.tablet} {
+        padding: 40px 0;
+        margin-top: 40px;
+    }
 `
 const LearnMore = styled(LocalizedLink)`
     font-size: 16px;

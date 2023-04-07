@@ -7,6 +7,8 @@ import { eu_urls } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.png'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 
+const non_localized_links = ['/blog', '/bug-bounty', '/careers']
+
 type TSiteMetadata = {
     siteMetadata?: {
         author?: string
@@ -38,7 +40,6 @@ type TQueries = {
     site?: TSiteMetadata
 }
 
-const non_localized_links = ['/academy', '/bug-bounty', '/careers']
 const languages = Object.keys(language_config)
 languages.push('x-default')
 

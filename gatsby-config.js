@@ -91,8 +91,6 @@ module.exports = {
                     '/**/endpoint',
                     '/signup-success',
                     '/**/signup-success',
-                    '/academy/blog/posts/preview',
-                    '/academy/subscription',
                 ],
                 query: `
                 {

@@ -46,6 +46,9 @@ const WhatIsDeriv = () => {
                         <Localize translate_text="_t_Use analysis tools, indicators, and smart logic such as take profit and stop loss to maximise your profits and limit losses._t_" />
                         <Localize translate_text="_t_Get into the Deriv Bot experience_t_" />
                         <Localize translate_text="_t_Real account_t_" />
+                        <Localize translate_text="_t_Use it on your_t_" />
+                        <Localize translate_text="_t_475k+_t_" />
+                        <Localize translate_text="_t_Take a look at Deriv GO’s product roadmap, give us your feedback on what we’re building and suggestions on what to build next._t_" />
                     </StyledHeader>
                     <Text size="16px" align="center" mt="12px">
                         <Localize translate_text="Deriv X is a customisable multi-asset trading platform. Offering CFDs on forex, commodities, stocks & indices, cryptocurrencies, and derived, Deriv X gives you a versatile trading experience that lets you customise your trading environment." />

@@ -33,6 +33,8 @@ type DHeroProps = {
 
 const ImageStyle = styled.img`
     z-index: 1;
+    max-width: 843px;
+    width: inherit;
     src: ${({ src }) => src};
 
     @media ${device.tablet} {
@@ -43,8 +45,10 @@ const ImageStyle = styled.img`
 const ImageWrapper = styled.div`
     display: flex;
     padding: 64px 0;
-    flex: 1;
     justify-content: end;
+    width: 100%;
+    align-self: center;
+    flex: 1 1 0%;
     @media ${device.tablet} {
         padding: 64px 0 54px;
     }

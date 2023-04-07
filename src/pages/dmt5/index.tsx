@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     WhyTrader,
     StartTrader,
@@ -26,27 +26,36 @@ const meta_attributes: MetaAttributesType = {
 
 const DMT5 = () => {
     const { is_row } = useRegion()
+    const [is_loaded, setLoaded] = useState(false)
+
+    useEffect(() => {
+        setLoaded(true)
+    }, [])
+    if (is_loaded) {
+        return (
+            <Layout>
+                <DHero join_us_for_free />
+                <Numbers />
+                <WhatIsTrader />
+                <WhyTrader />
+                <StartTrader />
+                <MarginCalculator />
+                <Flexibility />
+                <SwapFreeTrading />
+                <DownloadApp />
+                {is_row && <OtherPlatforms />}
+            </Layout>
+        )
+    }
 
     return (
-        <Layout>
-            <SEO
-                title={localize('Deriv MT5 | MetaTrader 5 trading platform | Deriv')}
-                description={localize(
-                    'Deriv MT5 is an all-in-one CFD trading platform where you can trade on the biggest financial markets and Deriv’s synthetic indices.',
-                )}
-                meta_attributes={meta_attributes}
-            />
-            <DHero join_us_for_free />
-            <Numbers />
-            <WhatIsTrader />
-            <WhyTrader />
-            <StartTrader />
-            <MarginCalculator />
-            <Flexibility />
-            <SwapFreeTrading />
-            <DownloadApp />
-            {is_row && <OtherPlatforms />}
-        </Layout>
+        <SEO
+            title={localize('Deriv MT5 | MetaTrader 5 trading platform | Deriv')}
+            description={localize(
+                'Deriv MT5 is an all-in-one CFD trading platform where you can trade on the biggest financial markets and Deriv’s synthetic indices.',
+            )}
+            meta_attributes={meta_attributes}
+        />
     )
 }
 

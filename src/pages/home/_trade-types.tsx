@@ -1,15 +1,8 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
-import {
-    Carousel,
-    Header,
-    QueryImage,
-    Text,
-    ImageWithDireciton,
-    CarouselProps,
-} from 'components/elements'
-import { localize, Localize, LocalizedLink } from 'components/localization'
+import { StaticImage } from 'gatsby-plugin-image'
+import { Carousel, Header, Text, ImageWithDireciton, CarouselProps } from 'components/elements'
+import { Localize, LocalizedLink } from 'components/localization'
 import { Flex, SectionContainer } from 'components/containers'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import device from 'themes/device'
@@ -19,51 +12,21 @@ import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 type TradeTypesProps = {
     class_name: string
-    image_url: string
-    image_alt: ReactElement
     header: ReactElement
     desc: ReactElement
     link: string
     link_text: ReactElement
     alt: string
+    imageElement: ReactElement
 }
 
 type TradeItemsProps = {
     items_details: TradeTypesProps
 }
 
-const query = graphql`
-    query {
-        trade_type_cfds: file(relativePath: { eq: "home/trade_type_cfds.png" }) {
-            ...fadeIn
-        }
-        trade_type_cfds_eu: file(relativePath: { eq: "home/trade_type_cfds_eu.png" }) {
-            ...fadeIn
-        }
-        trade_type_digitaloptions: file(
-            relativePath: { eq: "home/trade_type_digitaloptions.png" }
-        ) {
-            ...fadeIn
-        }
-        trade_type_multipliers: file(relativePath: { eq: "home/trade_type_multipliers.png" }) {
-            ...fadeIn
-        }
-        trade_type_multipliers_eu: file(
-            relativePath: { eq: "home/trade_type_multipliers_eu.png" }
-        ) {
-            ...fadeIn
-        }
-        trade_type_spreads: file(relativePath: { eq: "home/trade_type_spreads.png" }) {
-            ...fadeIn
-        }
-    }
-`
-
 const items_details_row: TradeTypesProps[] = [
     {
         class_name: 'cfds',
-        image_url: 'trade_type_cfds',
-        image_alt: <Localize translate_text="CFDs" />,
         header: <Localize translate_text="CFDs" />,
         desc: (
             <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
@@ -71,11 +34,17 @@ const items_details_row: TradeTypesProps[] = [
         link: '/trade-types/cfds/',
         link_text: <Localize translate_text="More on CFDs" />,
         alt: 'cfd',
+        imageElement: (
+            <StaticImage
+                src="../../images/common/home/trade_type_cfds.png"
+                alt="cfd"
+                loading="eager"
+                placeholder="none"
+            />
+        ),
     },
     {
         class_name: 'multipliers',
-        image_url: 'trade_type_multipliers',
-        image_alt: <Localize translate_text="Multipliers" />,
         header: <Localize translate_text="Multipliers" />,
         desc: (
             <Localize translate_text="Multiply potential profit without risking more than your initial stake." />
@@ -83,11 +52,17 @@ const items_details_row: TradeTypesProps[] = [
         link: '/trade-types/multiplier/',
         link_text: <Localize translate_text="More on multipliers" />,
         alt: 'multipliers',
+        imageElement: (
+            <StaticImage
+                src="../../images/common/home/trade_type_multipliers.png"
+                alt="multipliers"
+                loading="eager"
+                placeholder="none"
+            />
+        ),
     },
     {
         class_name: 'options',
-        image_url: 'trade_type_digitaloptions',
-        image_alt: <Localize translate_text="Options" />,
         header: <Localize translate_text="Options" />,
         desc: (
             <Localize translate_text="Earn a range of payouts by correctly predicting market movements." />
@@ -95,14 +70,20 @@ const items_details_row: TradeTypesProps[] = [
         link: '/trade-types/options/',
         link_text: <Localize translate_text="More on options" />,
         alt: 'options',
+        imageElement: (
+            <StaticImage
+                src="../../images/common/home/trade_type_digitaloptions.png"
+                alt="options"
+                loading="eager"
+                placeholder="none"
+            />
+        ),
     },
 ]
 
 const items_details_eu: TradeTypesProps[] = [
     {
         class_name: 'cfds',
-        image_url: 'trade_type_cfds_eu',
-        image_alt: <Localize translate_text="CFDs" />,
         header: <Localize translate_text="CFDs" />,
         desc: (
             <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
@@ -110,11 +91,17 @@ const items_details_eu: TradeTypesProps[] = [
         link: '/trade-types/cfds/',
         link_text: <Localize translate_text="More on CFDs" />,
         alt: 'cfd',
+        imageElement: (
+            <StaticImage
+                src="../../images/common/home/trade_type_cfds_eu.png"
+                alt="cfd"
+                loading="eager"
+                placeholder="none"
+            />
+        ),
     },
     {
         class_name: 'multipliers',
-        image_url: 'trade_type_multipliers_eu',
-        image_alt: <Localize translate_text="Multipliers" />,
         header: <Localize translate_text="Multipliers" />,
         desc: (
             <Localize translate_text="Multiply your potential profit without risking more than your stake." />
@@ -122,6 +109,14 @@ const items_details_eu: TradeTypesProps[] = [
         link: '/trade-types/multiplier/',
         link_text: <Localize translate_text="More on multipliers" />,
         alt: 'multipliers',
+        imageElement: (
+            <StaticImage
+                src="../../images/common/home/trade_type_multipliers_eu.png"
+                alt="multipliers"
+                loading="eager"
+                placeholder="none"
+            />
+        ),
     },
 ]
 
@@ -233,9 +228,7 @@ const LearnMore = styled(LocalizedLink)<{ $visibility }>`
 const DescriptionContainer = styled(Flex)`
     flex: 1;
 `
-
 const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
-    const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
     const [details_visible, setDetailsVisibility] = React.useState(false)
 
@@ -246,14 +239,12 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
             $visibility={details_visible && !is_mobile}
             className={items_details.class_name}
         >
-            <ImageWrapper mb="24px">
-                <QueryImage
-                    data={data[items_details.image_url]}
-                    alt={items_details.image_alt}
-                    width="100%"
-                    onMouseOver={() => setDetailsVisibility(true)}
-                    onMouseOut={() => setDetailsVisibility(false)}
-                />
+            <ImageWrapper
+                mb="24px"
+                onMouseOver={() => setDetailsVisibility(true)}
+                onMouseOut={() => setDetailsVisibility(false)}
+            >
+                {items_details.imageElement}
             </ImageWrapper>
 
             <DescriptionContainer ai={'center'} jc={'center'} direction={'column'}>
@@ -312,7 +303,7 @@ const TradeTypes = (): React.ReactNode => {
     return (
         <StyledSection padding="unset">
             <Header as="h2" type="heading-2" align="center">
-                {localize('Trade types')}
+                <Localize translate_text="_t_Trade types_t_" />
             </Header>
             <Header
                 type="subtitle-1"
@@ -332,7 +323,7 @@ const TradeTypes = (): React.ReactNode => {
                 <Flex id="trade-types">
                     <Carousel {...settings}>
                         {items_details_by_region.map((item) => {
-                            return <TradeItems key={item.image_url} items_details={item} />
+                            return <TradeItems key={item.alt} items_details={item} />
                         })}
                     </Carousel>
                 </Flex>

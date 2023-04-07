@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import styled, { css } from 'styled-components'
 import Autoplay from 'embla-carousel-autoplay'
 import {
@@ -19,74 +19,23 @@ import {
 } from 'common/constants'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
-import { Carousel, QueryImage, StyledLink } from 'components/elements'
+import { Carousel, StyledLink } from 'components/elements'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
-
-const query = graphql`
-    {
-        dmt5_mobile_google_play: file(relativePath: { eq: "home/dmt5_mobile_google_play.png" }) {
-            ...fadeIn
-        }
-        dmt5_mobile_app_gallery: file(relativePath: { eq: "home/dmt5_mobile_app_gallery.png" }) {
-            ...fadeIn
-        }
-        dmt5_mobile_web_browser: file(relativePath: { eq: "home/dmt5_mobile_web_browser.png" }) {
-            ...fadeIn
-        }
-        dmt5_mobile_app_store: file(relativePath: { eq: "home/dmt5_mobile_app_store.png" }) {
-            ...fadeIn
-        }
-        platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
-            ...fadeIn
-        }
-        platforms_derivez: file(relativePath: { eq: "home/platforms_derivez.png" }) {
-            ...fadeIn
-        }
-        platforms_mt5: file(relativePath: { eq: "home/platforms_mt5.png" }) {
-            ...fadeIn
-        }
-        platforms_mt5_eu: file(relativePath: { eq: "home/platforms_mt5_eu.png" }) {
-            ...homePageHeroFadeIn
-        }
-        platforms_dtrader: file(relativePath: { eq: "home/platforms_dtrader.png" }) {
-            ...homePageHeroFadeIn
-        }
-        platforms_dtrader_eu: file(relativePath: { eq: "home/platforms_dtrader_eu.png" }) {
-            ...fadeIn
-        }
-        platforms_derivx: file(relativePath: { eq: "home/platforms_derivx.png" }) {
-            ...fadeIn
-        }
-        platforms_dbot: file(relativePath: { eq: "home/platforms_dbot.png" }) {
-            ...fadeIn
-        }
-        platforms_smarttrader: file(relativePath: { eq: "home/platforms_smarttrader.png" }) {
-            ...fadeIn
-        }
-        platforms_binary_bot: file(relativePath: { eq: "home/platforms_binary_bot.png" }) {
-            ...fadeIn
-        }
-        platforms_api: file(relativePath: { eq: "home/platforms_api.png" }) {
-            ...fadeIn
-        }
-    }
-`
 
 const CarouselItemWrapper = styled.div`
     width: 100%;
     padding: 1.8rem 1.8rem 0;
 `
+const MobileImage = styled.div`
+    height: 55vw;
 
-const MobileImage = styled(QueryImage)`
-    .gatsby-image-wrapper > picture > img {
-        object-fit: contain !important;
+    .gatsby-image-wrapper {
+        height: 100%;
     }
 `
-
 const DownloadLink = styled(StyledLink)`
     margin: 0.4rem;
 `
-
 const settings = {
     container_style: {
         width: '100%',
@@ -108,19 +57,19 @@ const settings = {
         width: 100%;
         height: 8px;
         @media ${device.tabletL} {
-            bottom: 228px;
+            bottom: 220px;
         }
         @media (max-width: 660px) {
-            bottom: 268px;
+            bottom: 226px;
         }
         @media (max-width: 425px) {
-            bottom: 292px;
+            bottom: 240px;
         }
         @media (max-width: 375px) {
-            bottom: 304px;
+            bottom: 265px;
         }
         @media (max-width: 317px) {
-            bottom: 362px;
+            bottom: 310px;
         }
     `,
 } as const
@@ -172,8 +121,6 @@ type MobilePlatformCarouselProps = {
 }
 
 const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) => {
-    const data = useStaticQuery(query)
-
     const lang_direction = useLangDirection()
 
     return (
@@ -191,13 +138,9 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
             {carousel_data?.map(
                 ({ image_key, title, icon, description, learn_more_link, download_links }) => {
                     return (
-                        <CarouselItemWrapper key={image_key}>
+                        <CarouselItemWrapper key={title}>
                             <Flex tabletL={{ mb: '56px' }}>
-                                <MobileImage
-                                    data={data[image_key]}
-                                    alt={image_key}
-                                    height={'55vw'}
-                                />
+                                <MobileImage>{image_key}</MobileImage>
                             </Flex>
                             <Flex>
                                 <PlatformDetails
@@ -215,20 +158,19 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <QueryImage
-                                            data={data['dmt5_mobile_web_browser']}
+                                        <StaticImage
+                                            src="../../../images/common/home/dmt5_mobile_web_browser.png"
                                             alt="dmt5 web browser"
                                         />
                                     </AppStoreBadge>
-
                                     <AppStoreBadge
                                         external
                                         to={dmt5_android_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <QueryImage
-                                            data={data['dmt5_mobile_google_play']}
+                                        <StaticImage
+                                            src="../../../images/common/home/dmt5_mobile_google_play.png"
                                             alt="dmt5 google play"
                                         />
                                     </AppStoreBadge>
@@ -238,8 +180,8 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <QueryImage
-                                            data={data['dmt5_mobile_app_store']}
+                                        <StaticImage
+                                            src="../../../images/common/home/dmt5_mobile_app_store.png"
                                             alt="dmt5 ios"
                                         />
                                     </AppStoreBadge>
@@ -249,8 +191,8 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        <QueryImage
-                                            data={data['dmt5_mobile_app_gallery']}
+                                        <StaticImage
+                                            src="../../../images/common/home/dmt5_mobile_app_gallery.png"
                                             alt="dmt5 app gallery"
                                         />
                                     </AppStoreBadge>

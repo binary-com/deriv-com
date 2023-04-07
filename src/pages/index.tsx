@@ -14,9 +14,6 @@ import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
-import TRADE_DUMMY from 'images/common/trade-type-dummy.png'
-import PLATFORM_DUMMY from 'images/common/platforms-dummy.png'
-import WCS_DUMMY from 'images/common/wcs-dummy.png'
 import useRegion from 'components/hooks/use-region'
 
 const Home = () => {
@@ -32,44 +29,11 @@ const Home = () => {
     }
     const lazy_components: ReactNode = (
         <>
-            <TradeTypes
-                fallback={
-                    <div>
-                        <img src={TRADE_DUMMY} style={{ width: '95%' }} alt="trade-type" />
-                    </div>
-                }
-            />
-            <OurPlatforms
-                fallback={
-                    <div>
-                        <img src={PLATFORM_DUMMY} style={{ width: '95%' }} alt="platform" />
-                    </div>
-                }
-            />
-            <WhatOurClientsSay
-                fallback={
-                    <div>
-                        <img src={WCS_DUMMY} style={{ width: '95%' }} alt="wcs" />
-                    </div>
-                }
-            />
-            {is_p2p_allowed_country && (
-                <P2PHomeBanner
-                    fallback={
-                        <div>
-                            <img src={WCS_DUMMY} style={{ width: '95%' }} alt="p2p" />
-                        </div>
-                    }
-                />
-            )}
-            <Signup
-                appearance={Appearances.public}
-                fallback={
-                    <div>
-                        <img src={WCS_DUMMY} style={{ width: '95%' }} alt="signup" />
-                    </div>
-                }
-            />
+            <TradeTypes />
+            <OurPlatforms />
+            <WhatOurClientsSay />
+            {is_p2p_allowed_country && <P2PHomeBanner />}
+            <Signup appearance={Appearances.public} />
         </>
     )
     const lazyTemplate = useHandleLazyLoad(lazy_components, target, options)

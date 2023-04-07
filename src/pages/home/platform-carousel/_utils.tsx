@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react'
+import { StaticImage } from 'gatsby-plugin-image'
 import type { CSSProperties } from 'react'
 import styled from 'styled-components'
 import {
@@ -18,7 +19,7 @@ import {
 } from 'common/constants'
 import { Header, StyledLink } from 'components/elements'
 import { Flex } from 'components/containers'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 // SVG Icons
 import DTraderIcon from 'images/svg/dtrader/dtrader-icon.svg'
 import DMT5Icon from 'images/svg/dmt5/dmt5-icon.svg'
@@ -56,7 +57,7 @@ export type TPlatformDetails = {
     id?: number
     title: string
     icon: string
-    image_key: string
+    image_key: ReactElement
     description: ReactElement
     learn_more_link: string
     download_links: { is_desktop: TDownloadLinks }
@@ -65,7 +66,15 @@ export const platform_details_row: TPlatformDetails[] = [
     {
         title: 'Deriv GO',
         icon: DerivGOIcon,
-        image_key: 'platforms_deriv_go',
+        image_key: (
+            <StaticImage
+                src="../../../images/common/home/platforms_deriv_go.png"
+                alt="deriv-go"
+                objectFit="contain"
+                loading="eager"
+                placeholder="none"
+            />
+        ),
         description: <Localize translate_text="Our best trading experience on your mobile." />,
         learn_more_link: '/deriv-go/',
         download_links: {
@@ -78,7 +87,15 @@ export const platform_details_row: TPlatformDetails[] = [
     {
         title: 'Deriv EZ',
         icon: DerivEZIcon,
-        image_key: 'platforms_derivez',
+        image_key: (
+            <StaticImage
+                src="../../../images/common/home/platforms_derivez.png"
+                alt="derivez"
+                objectFit="contain"
+                loading="eager"
+                placeholder="none"
+            />
+        ),
         description: <Localize translate_text="Our mobile-first CFD trading platform" />,
         learn_more_link: '/derivez/',
         download_links: {
@@ -91,7 +108,15 @@ export const platform_details_row: TPlatformDetails[] = [
     {
         title: 'Deriv MT5',
         icon: DMT5Icon,
-        image_key: 'platforms_mt5',
+        image_key: (
+            <StaticImage
+                src="../../../images/common/home/platforms_mt5.png"
+                alt="dmt5"
+                objectFit="contain"
+                loading="eager"
+                placeholder="none"
+            />
+        ),
         description: <Localize translate_text="The all-in-one CFD trading platform." />,
         learn_more_link: '/dmt5/',
         download_links: {
@@ -109,7 +134,15 @@ export const platform_details_row: TPlatformDetails[] = [
     {
         title: 'DTrader',
         icon: DTraderIcon,
-        image_key: 'platforms_dtrader',
+        image_key: (
+            <StaticImage
+                src="../../../images/common/home/platforms_dtrader.png"
+                alt="dtrader"
+                objectFit="contain"
+                loading="eager"
+                placeholder="none"
+            />
+        ),
         description: (
             <Localize translate_text="Our flagship app for trading options and multipliers." />
         ),
@@ -121,7 +154,15 @@ export const platform_details_row: TPlatformDetails[] = [
     {
         title: 'Deriv X',
         icon: DerivXIcon,
-        image_key: 'platforms_derivx',
+        image_key: (
+            <StaticImage
+                src="../../../images/common/home/platforms_derivx.png"
+                alt="derivx"
+                objectFit="contain"
+                loading="eager"
+                placeholder="none"
+            />
+        ),
         description: <Localize translate_text="The CFD trading platform to fit your style." />,
         learn_more_link: '/derivx/',
         download_links: {
@@ -135,7 +176,15 @@ export const platform_details_row: TPlatformDetails[] = [
     {
         title: 'DBot',
         icon: DBotIcon,
-        image_key: 'platforms_dbot',
+        image_key: (
+            <StaticImage
+                src="../../../images/common/home/platforms_dbot.png"
+                alt="dbot"
+                objectFit="contain"
+                loading="eager"
+                placeholder="none"
+            />
+        ),
         description: <Localize translate_text="Automate your trading. No coding required." />,
         learn_more_link: '/dbot/',
         download_links: {
@@ -145,7 +194,15 @@ export const platform_details_row: TPlatformDetails[] = [
     {
         title: 'SmartTrader',
         icon: SmartTraderIcon,
-        image_key: 'platforms_smarttrader',
+        image_key: (
+            <StaticImage
+                src="../../../images/common/home/platforms_smarttrader.png"
+                alt="smarttrader"
+                objectFit="contain"
+                loading="eager"
+                placeholder="none"
+            />
+        ),
         description: <Localize translate_text="Our legacy options trading platform." />,
         learn_more_link: smarttrader_url,
         download_links: {
@@ -155,7 +212,15 @@ export const platform_details_row: TPlatformDetails[] = [
     {
         title: 'Binary Bot',
         icon: BinaryBotIcon,
-        image_key: 'platforms_binary_bot',
+        image_key: (
+            <StaticImage
+                src="../../../images/common/home/platforms_binary_bot.png"
+                alt="binary_bot"
+                objectFit="contain"
+                loading="eager"
+                placeholder="none"
+            />
+        ),
         description: (
             <Localize translate_text="Our classic bot builder and automated trading platform." />
         ),
@@ -167,7 +232,15 @@ export const platform_details_row: TPlatformDetails[] = [
     {
         title: 'API',
         icon: APIIcon,
-        image_key: 'platforms_api',
+        image_key: (
+            <StaticImage
+                src="../../../images/common/home/platforms_api.png"
+                alt="deriv-api"
+                objectFit="contain"
+                loading="eager"
+                placeholder="none"
+            />
+        ),
         description: <Localize translate_text="Build your own apps with our API." />,
         learn_more_link: deriv_api_url,
         download_links: {
@@ -180,7 +253,15 @@ export const platform_details_eu: TPlatformDetails[] = [
     {
         title: 'Deriv MT5',
         icon: DMT5Icon,
-        image_key: 'platforms_mt5_eu',
+        image_key: (
+            <StaticImage
+                src="../../../images/common/home/platforms_mt5_eu.png"
+                alt="dmt5"
+                objectFit="contain"
+                loading="eager"
+                placeholder="none"
+            />
+        ),
         description: <Localize translate_text="The all-in-one CFD trading platform." />,
         learn_more_link: '/dmt5/',
         download_links: {
@@ -198,7 +279,15 @@ export const platform_details_eu: TPlatformDetails[] = [
     {
         title: 'DTrader',
         icon: DTraderIcon,
-        image_key: 'platforms_dtrader_eu',
+        image_key: (
+            <StaticImage
+                src="images/common/home/platforms_dtrader_eu.png"
+                alt="dtrader"
+                objectFit="contain"
+                loading="eager"
+                placeholder="none"
+            />
+        ),
         description: <Localize translate_text="Our flagship app for trading multipliers." />,
         learn_more_link: '/dtrader/',
         download_links: {
@@ -254,7 +343,9 @@ export const PlatformContent = ({
                     external={learn_more_link.includes('https')}
                     mb="9px"
                 >
-                    <span>{`${localize('Learn more')} >`}</span>
+                    <span>
+                        <Localize translate_text="_t_Learn more_t_" /> {'>'}{' '}
+                    </span>
                 </LearnMoreLink>
             </Flex>
         </>

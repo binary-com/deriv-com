@@ -2,7 +2,7 @@ import React from 'react'
 import { Flex, SectionContainer } from 'components/containers'
 import PlatformCarousel from 'pages/home/platform-carousel/_platform-carousel'
 import { Header } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 
 const OurPlatforms = () => {
@@ -24,7 +24,7 @@ const OurPlatforms = () => {
                         type="heading-1"
                         tablet={{ mb: '8px' }}
                     >
-                        {localize('Our platforms')}
+                        <Localize translate_text="_t_Our platforms_t_" />
                     </Header>
                     <Header
                         as="p"

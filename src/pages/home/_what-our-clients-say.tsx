@@ -2,7 +2,7 @@ import React, { ReactElement, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import Carousel from './_testimonial-carousel'
 import { Header, Text } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
 import Quote from 'images/svg/testimonials/quote.svg'
@@ -302,7 +302,7 @@ const WhatOurClientsSay = () => {
                         }}
                     >
                         <Header as="h2" type="heading-2">
-                            {localize('What our clients say about Deriv')}
+                            <Localize translate_text="_t_What our clients say about Deriv_t_" />
                         </Header>
                         <TrustPilotWidget
                             m="40px 0 0"

@@ -133,6 +133,11 @@ export const IconGrid = () => (
                 }
             />
             <Localize translate_text="_t_Use it on your_t_" />,
+            <Localize translate_text="_t_Enjoy trading on a secure, intuitive platform built for new and expert traders._t_" />
+            ,
+            <Localize translate_text="_t_Choose 'Multipliers'_t_" />,
+            <Localize translate_text="_t_Speculate on the price movements of major forex pairs and increase your profit potential without losing more than your stake._t_" />
+            ,
             <Col
                 Icon={Help}
                 title={localize('Help when you need it')}

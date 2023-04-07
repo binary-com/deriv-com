@@ -3,6 +3,7 @@ import { TNavItems } from '../types'
 import DesktopMenu from './desktop-menu'
 import * as styles from './nav.template.module.scss'
 import MobileMenu from './mobile-menu'
+import TopNav from './top-nav'
 import Container from 'features/components/atoms/container'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
@@ -13,16 +14,16 @@ import dclsx from 'features/utils/dclsx'
 import useRegion from 'components/hooks/use-region'
 
 interface NavTemplateProps<T extends string> extends HTMLAttributes<HTMLDivElement> {
-    renderTopNav?: () => ReactNode
+    has_top_nav?: boolean
     renderLogo: () => ReactNode
-    items: TNavItems<T>
     has_centered_items?: boolean
+    items?: TNavItems<T>
 }
 
 const NavTemplate = <T extends string>({
     renderLogo,
-    renderTopNav,
-    items,
+    has_top_nav = false,
+    items = [],
     children,
     className,
     has_centered_items,
@@ -70,7 +71,7 @@ const NavTemplate = <T extends string>({
             bgcolor="white"
             className={dclsx(styles.header_wrapper, className)}
         >
-            {renderTopNav?.()}
+            {has_top_nav && <TopNav />}
             <Flex.Box
                 as="nav"
                 container="fluid"

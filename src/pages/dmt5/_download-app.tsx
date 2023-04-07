@@ -76,7 +76,7 @@ const DerivMT5GetApp = () => {
             text: 'Web Browser',
             icon: BrowserIcon,
             link: dmt5_web_browser_url,
-            smallText: 'Use it on your',
+            smallText: '_t_Use it on your_t_',
         },
         { text: 'Windows', icon: WinIcon, link: dmt5_windows },
         { text: 'macOS', icon: MacIcon, link: dmt5_mac_app_url },
@@ -119,7 +119,7 @@ const DerivMT5GetApp = () => {
             <DownloadColumn
                 is_rtl={is_rtl}
                 QRImage={dmt5QR}
-                QRHeading1="Scan to download"
+                QRHeading1="_t_Scan to download_t_"
                 QRHeading2="Android, Apple & Huawei"
                 items={items}
             />

@@ -54,7 +54,7 @@ const DerivXGetApp = () => {
             text: 'Web Browser',
             icon: BrowserIcon,
             link: derivx_app_url,
-            smallText: 'Use it on your',
+            smallText: '_t_Use it on your_t_',
         },
     ]
 
@@ -83,7 +83,7 @@ const DerivXGetApp = () => {
             <DownloadColumn
                 is_rtl={is_rtl}
                 QRImage={derivXQR}
-                QRHeading1="Scan to download"
+                QRHeading1="_t_Scan to download_t_"
                 QRHeading2="Android, iOS, and Huawei"
                 items={items}
             />

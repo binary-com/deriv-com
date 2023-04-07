@@ -132,6 +132,7 @@ export const IconGrid = () => (
                     />
                 }
             />
+            <Localize translate_text="_t_Use it on your_t_" />,
             <Col
                 Icon={Help}
                 title={localize('Help when you need it')}

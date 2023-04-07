@@ -439,7 +439,7 @@ const StartTrader = () => {
                     </StyledText>
                 </TabItem>
                 <TabItem
-                    mobile_padding={is_eu ? '21px 12px' : '10px'}
+                    mobile_padding={'21px 12px'}
                     active={isReal}
                     onClick={() => onTabClick('Real')}
                     className="real-account"

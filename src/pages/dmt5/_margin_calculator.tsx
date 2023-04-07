@@ -160,6 +160,8 @@ const StyledFlex = styled(Flex)<{ has_color?: boolean }>`
     min-height: 694px;
     margin-right: 2.4rem;
     background-color: inherit;
+    align-items: center;
+    justify-content: center;
     @media ${device.tabletL} {
         width: 100%;
         min-height: 340px;

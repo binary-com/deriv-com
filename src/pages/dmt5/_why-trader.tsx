@@ -66,8 +66,9 @@ const CardContainer = styled(Flex)`
 `
 const StyledHeader = styled(Header)`
     color: var(--color-black-9);
-    @media ${device.mobileL} {
-        font-size: 32px;
+    @media ${device.tablet} {
+        max-width: 250px;
+        font-size: 28px;
         margin-bottom: 24px;
     }
 `

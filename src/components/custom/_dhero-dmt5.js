@@ -10,6 +10,7 @@ import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import Shape from 'components/custom/_hero-shape'
 import Button from 'components/custom/_button'
+import { Container } from 'components/containers'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
@@ -97,40 +98,42 @@ const DCommonBanner = () => {
     const [is_logged_in] = useAuthCheck()
     return (
         <BackgroundStyle>
-            <ContentWrapperStyle>
-                <Content>
-                    <StyledTradingLogin src={DerivMT5Logo} />
-                    <CommonHeaderSection
-                        title="_t_The all-in-one CFD trading platform_t_"
-                        title_font_size={`${is_mobile ? 32 : 64}px`}
-                        color="var(--color-black-9)"
-                    />
-                    <BannerButtonWrapper>
-                        {is_logged_in ? (
-                            <CreateAccountButton
-                                onClick={handleGetTrading}
-                                label="_t_Get Trading_t_"
-                                primary
-                                mobileFullWidth
-                            />
-                        ) : (
-                            <CreateAccountButton
-                                onClick={handleSignup}
-                                label="_t_Create free demo account_t_"
-                                primary
-                                mobileFullWidth
-                            />
-                        )}
-                    </BannerButtonWrapper>
-                </Content>
-            </ContentWrapperStyle>
-            <HeroImageWrapper>
-                <Shape angle={is_mobile ? 101 : 194} width="60%" color="#0364B9">
-                    <ImageWrapper>
-                        <ImageStyle src={DerivMT5Row} />
-                    </ImageWrapper>
-                </Shape>
-            </HeroImageWrapper>
+            <Container>
+                <ContentWrapperStyle>
+                    <Content>
+                        <StyledTradingLogin src={DerivMT5Logo} />
+                        <CommonHeaderSection
+                            title="_t_The all-in-one CFD trading platform_t_"
+                            title_font_size={`${is_mobile ? 32 : 64}px`}
+                            color="var(--color-black-9)"
+                        />
+                        <BannerButtonWrapper>
+                            {is_logged_in ? (
+                                <CreateAccountButton
+                                    onClick={handleGetTrading}
+                                    label="_t_Get Trading_t_"
+                                    primary
+                                    mobileFullWidth
+                                />
+                            ) : (
+                                <CreateAccountButton
+                                    onClick={handleSignup}
+                                    label="_t_Create free demo account_t_"
+                                    primary
+                                    mobileFullWidth
+                                />
+                            )}
+                        </BannerButtonWrapper>
+                    </Content>
+                </ContentWrapperStyle>
+                <HeroImageWrapper>
+                    <Shape angle={is_mobile ? 101 : 194} width="60%" color="#0364B9">
+                        <ImageWrapper>
+                            <ImageStyle src={DerivMT5Row} />
+                        </ImageWrapper>
+                    </Shape>
+                </HeroImageWrapper>
+            </Container>
         </BackgroundStyle>
     )
 }

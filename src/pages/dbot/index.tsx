@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useCallback, useEffect, useState } from 'react'
 import Loadable from '@loadable/component'
 import PageNotFound from '../404'
 import DCommonBanner from './_hero'
@@ -91,27 +91,37 @@ const trading: TradingType[] = [
 
 const Dbot = () => {
     const { is_eu, is_row } = useRegion()
-    return (
-        <>
-            <SEO
-                title={localize('DBot | Trading robot | Deriv')}
-                description={localize(
-                    'Automate your trading with DBot, Deriv’s trading robot which you can build without writing code.',
+    const [is_loaded, setLoaded] = useState(false)
+
+    useEffect(() => {
+        setLoaded(true)
+    }, [])
+
+    if (is_loaded) {
+        return (
+            <>
+                {is_row && (
+                    <Layout>
+                        <DCommonBanner join_us_for_free is_live_demo image_name="dbot" />
+                        <DNumber items={items} justify="space-around" />
+                        <DBotEasySteps />
+                        <DTrading trading={trading} />
+                        <DBotGetApp />
+                        <OurPlatforms />
+                    </Layout>
                 )}
-                meta_attributes={meta_attributes}
-            />
-            {is_row && (
-                <Layout>
-                    <DCommonBanner join_us_for_free is_live_demo image_name="dbot" />
-                    <DNumber items={items} justify="space-around" />
-                    <DBotEasySteps />
-                    <DTrading trading={trading} />
-                    <DBotGetApp />
-                    <OurPlatforms />
-                </Layout>
+                {is_eu && <PageNotFound />}
+            </>
+        )
+    }
+    return (
+        <SEO
+            title={localize('DBot | Trading robot | Deriv')}
+            description={localize(
+                'Automate your trading with DBot, Deriv’s trading robot which you can build without writing code.',
             )}
-            {is_eu && <PageNotFound />}
-        </>
+            meta_attributes={meta_attributes}
+        />
     )
 }
 

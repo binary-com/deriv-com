@@ -16,6 +16,8 @@ import { Container } from 'components/containers'
 
 const ImageStyle = styled.img`
     z-index: 1;
+    max-width: 843px;
+    width: inherit;
     src: ${({ src }) => src};
 
     @media ${device.tablet} {
@@ -25,9 +27,11 @@ const ImageStyle = styled.img`
 
 const ImageWrapper = styled.div`
     display: flex;
-    flex: 1;
-    justify-content: right;
-    padding: 50px 0;
+    padding: 64px 0;
+    justify-content: end;
+    width: 100%;
+    align-self: center;
+    flex: 1 1 0%;
 `
 const BannerButtonWrapper = styled.div`
     display: flex;

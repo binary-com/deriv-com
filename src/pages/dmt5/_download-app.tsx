@@ -114,7 +114,7 @@ const DerivMT5GetApp = () => {
             </ContentWrapper>
             <DownloadColumn
                 QRImage={dmt5QR}
-                QRHeading1="Scan to download"
+                QRHeading1="_t_Scan to download_t_"
                 QRHeading2="Android, Apple & Huawei"
                 items={items}
             />

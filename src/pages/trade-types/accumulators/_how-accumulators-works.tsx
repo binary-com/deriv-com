@@ -12,6 +12,9 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 const StyledContainer = styled(Container)`
     width: 100% !important;
+    display: flex;
+    align-items: start;
+    justify-content: start;
 `
 
 const HowAccumulatorsWork = () => {

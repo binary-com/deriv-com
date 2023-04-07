@@ -15,6 +15,8 @@ type FullWidthMultiColumnProps = {
     button_title?: ReactElement
     button_text?: TString | string | ReactElement
     multiple_row?: boolean
+    header_width?: string
+    subtext_width?: string
     gap?: string
 }
 
@@ -52,17 +54,17 @@ const ItemContainer = styled(Box)`
         gap: 40px;
     }
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(Header)<FullWidthMultiColumnProps>`
     font-weight: 700;
     font-size: 32px;
     line-height: 40px;
     color: white;
     margin-top: 4.5rem;
-    max-width: 80vw;
+    max-width: ${(props) => (props.header_width ? props.header_width : '80vw')};
 
     @media ${device.mobileL} {
         text-align: center;
-        max-width: 53vw;
+        max-width: ${(props) => (props.header_width ? props.header_width : '80vw')};
         font-size: 24px;
         margin-top: -1rem;
         line-height: 30px;
@@ -112,11 +114,11 @@ const StyledButtonContent = styled(Text)`
     }
 `
 
-const StyledTextContent = styled(Text)`
+const StyledTextContent = styled.div<FullWidthMultiColumnProps>`
     text-align: center;
     margin-top: 1.6rem;
     color: white;
-    width: 231px;
+    width: ${(props) => (props.subtext_width ? props.subtext_width : '231px')};
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -126,7 +128,7 @@ const StyledTextContent = styled(Text)`
     @media ${device.tabletL} {
         font-size: 14px;
         margin-top: 0;
-        width: fit-content;
+        width: ${(props) => (props.subtext_width ? props.subtext_width : 'fit-content')};
         margin-bottom: 0;
     }
 `
@@ -156,6 +158,8 @@ export const FullWidthMultiColumn = ({
     button_title,
     button_text,
     gap,
+    header_width,
+    subtext_width,
 }: FullWidthMultiColumnProps) => {
     const handleSignup = useHandleSignup()
     const first_three_items = children.slice(0, 3)
@@ -164,7 +168,14 @@ export const FullWidthMultiColumn = ({
     return (
         <StyledSectionContainer>
             <Flex direction="column" max-width="99.6rem" m="0 auto" jc="space-between" ai="center">
-                <StyledHeader as="h2" type="section-title" align="center" mb="0.1rem" lh="1.25">
+                <StyledHeader
+                    header_width={header_width}
+                    as="h2"
+                    type="section-title"
+                    align="center"
+                    mb="0.1rem"
+                    lh="1.25"
+                >
                     {header}
                 </StyledHeader>
                 <StyledSubHeader
@@ -185,7 +196,11 @@ export const FullWidthMultiColumn = ({
                                 <Item key={idx} ai="center" direction="column">
                                     {icon}
                                     {item_title && <StyledTitle>{item_title}</StyledTitle>}
-                                    {text && <StyledTextContent>{text}</StyledTextContent>}
+                                    {text && (
+                                        <StyledTextContent subtext_width={subtext_width}>
+                                            {text}
+                                        </StyledTextContent>
+                                    )}
                                     {link_text && <LearnMore to={link}>{link_text}</LearnMore>}
                                 </Item>
                             )

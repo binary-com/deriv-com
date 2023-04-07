@@ -39,7 +39,7 @@ import {
 } from './_details'
 import type { MarketInstrumentsElement } from 'pages/markets/components/sections/_market_instruments'
 import { Localize } from 'components/localization'
-import { Desktop, Mobile } from 'components/containers'
+import { Desktop } from 'components/containers'
 
 export const commodities_cfds: MarketInstrumentsElement = {
     markets_list: {

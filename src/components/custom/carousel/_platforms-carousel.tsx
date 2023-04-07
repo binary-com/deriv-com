@@ -128,7 +128,7 @@ const GenericCarousel: React.FC<TProps> = ({ renderableData, mainHeading }) => {
                                             {localize(`_t_${item.heading}_t_`)}
                                         </StyledText>
                                     </MobileCardHeader>
-                                    <StyledPara>{localize(`_t_${item.paragraph}_t_`)}</StyledPara>
+                                    <StyledPara>{localize(`${item.paragraph}`)}</StyledPara>
                                     <LearnMore
                                         text={<Localize translate_text="Learn more" />}
                                         to={item.link}

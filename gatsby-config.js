@@ -92,8 +92,6 @@ module.exports = {
                     '/**/endpoint',
                     '/signup-success',
                     '/**/signup-success',
-                    '/academy/blog/posts/preview',
-                    '/academy/subscription',
                 ],
                 query: `
                 {
@@ -328,14 +326,15 @@ module.exports = {
             resolve: 'gatsby-plugin-datadog',
             options: {
                 site: 'datadoghq.com',
-                sampleRate: 100,
-                replaySampleRate: 20,
+                sessionSampleRate: 1,
+                sessionReplaySampleRate: 1,
                 enabled: true,
                 env: 'production',
                 service:'deriv.com',
                 trackUserInteractions: true,
                 trackResources: true,
                 trackLongTasks: true,
+                enableExperimentalFeatures: ['clickmap'],
                 defaultPrivacyLevel:'mask-user-input',
                 rum: {
                     applicationId: process.env.DATADOG_APPLICATION_ID,

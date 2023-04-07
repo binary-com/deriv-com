@@ -321,8 +321,27 @@ module.exports = {
             resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
             options: {
                 analyzerMode: 'disabled',
-                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
+                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
             },
         },
+        {
+            resolve: 'gatsby-plugin-datadog',
+            options: {
+                site: 'datadoghq.com',
+                sessionSampleRate: 1,
+                sessionReplaySampleRate: 1,
+                enabled: true,
+                env: 'production',
+                service:'deriv.com',
+                trackUserInteractions: true,
+                trackResources: true,
+                trackLongTasks: true,
+                defaultPrivacyLevel:'mask-user-input',
+                rum: {
+                    applicationId: process.env.DATADOG_APPLICATION_ID,
+                    clientToken: process.env.DATADOG_CLIENT_TOKEN,
+                },
+            }
+        }
     ],
 }

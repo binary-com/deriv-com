@@ -60,6 +60,15 @@ const FAQ = () => {
     const parent_style = {
         marginBottom: '2.4rem',
     }
+
+    const customStyle = (array, index) => {
+        return index !== array.length - 1
+            ? {
+                  parent_style: parent_style,
+              }
+            : {}
+    }
+
     const item_style = {
         padding: '2.4rem',
         background: 'var(--color-grey-24)',
@@ -194,16 +203,17 @@ const FAQ = () => {
                     </Question>
                     <Answer id="rebranding">
                         <Accordion has_single_state>
-                            {accordion_data_rebranding.map((item) => {
+                            {accordion_data_rebranding.map((item, index) => {
+                                const parentStyle = customStyle(accordion_data_rebranding, index)
                                 return (
                                     <AccordionItem
                                         header={<Localize translate_text={item.title} />}
-                                        parent_style={parent_style}
                                         style={item_style}
                                         header_style={header_style}
                                         plus
                                         key={item.id}
                                         class_name={item.class_name}
+                                        {...parentStyle}
                                     >
                                         {item.component}
                                     </AccordionItem>
@@ -226,17 +236,18 @@ const FAQ = () => {
                     </Question>
                     <Answer id="new-offerings">
                         <Accordion has_single_state>
-                            {accordion_data_trading.map((item) => {
+                            {accordion_data_trading.map((item, index) => {
+                                const parentStyle = customStyle(accordion_data_trading, index)
                                 return (
                                     <AccordionItem
                                         is_showed={item.is_showed}
                                         header={<Localize translate_text={item.title} />}
-                                        parent_style={parent_style}
                                         style={item_style}
                                         header_style={header_style}
                                         plus
                                         key={item.id}
                                         class_name={item.class_name}
+                                        {...parentStyle}
                                     >
                                         {item.component}
                                     </AccordionItem>
@@ -259,16 +270,17 @@ const FAQ = () => {
                     </Question>
                     <Answer id="meaning">
                         <Accordion has_single_state>
-                            {accordion_data_personal.map((item) => {
+                            {accordion_data_personal.map((item, index) => {
+                                const parentStyle = customStyle(accordion_data_personal, index)
                                 return (
                                     <AccordionItem
                                         header={<Localize translate_text={item.title} />}
-                                        parent_style={parent_style}
                                         style={item_style}
                                         header_style={header_style}
                                         plus
                                         class_name={item.class_name}
                                         key={item.id}
+                                        {...parentStyle}
                                     >
                                         {item.component}
                                     </AccordionItem>

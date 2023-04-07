@@ -10,6 +10,7 @@ import validation from 'common/validation'
 import SignupDefault from 'components/custom/_signup-default'
 import SignupFlat from 'components/custom/_signup-flat'
 import SignupNew from 'components/custom/_signup-new'
+import SignupCtrader from 'components/custom/_signup-ctrader'
 import SignupPublic from 'components/custom/_signup-public'
 import { Header, QueryImage, StyledLink } from 'components/elements'
 import { localize, Localize } from 'components/localization'
@@ -68,6 +69,7 @@ export const Appearances = {
     lightFlat: 'lightFlat',
     public: 'public',
     newSignup: 'newSignup',
+    cTrader: 'cTrader',
 }
 
 const Signup = (props: SignupProps) => {
@@ -188,6 +190,8 @@ const Signup = (props: SignupProps) => {
         switch (param) {
             case Appearances.newSignup:
                 return <SignupNew {...parameters}></SignupNew>
+            case Appearances.cTrader:
+                return <SignupCtrader {...parameters}></SignupCtrader>
             case Appearances.public:
                 return <SignupPublic {...parameters}></SignupPublic>
             case Appearances.lightFlat:

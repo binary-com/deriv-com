@@ -26,6 +26,7 @@ type InputProps = ReactInput & InputWrapperProps & StyledInputProps & StyledLabe
 
 type InputWrapperProps = {
     border?: string
+    border_radius?: string
     label_hover_color?: string
     focus_border?: string
     error?: string
@@ -60,7 +61,7 @@ const InputWrapper = styled.div<InputWrapperProps>`
     /* prettier-ignore */
     width: 100%;
     border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
-    border-radius: 4px;
+    border-radius: ${(props) => props.border_radius || '4px'};
     @media ${device.tabletL} {
         height: 5rem;
     }
@@ -216,6 +217,7 @@ const Input = ({
     label = '',
     height = '',
     border = '',
+    border_radius = '',
     focus_border = '',
     label_hover_color,
     label_color = '',
@@ -234,6 +236,7 @@ const Input = ({
         <RelativeWrapper>
             <InputWrapper
                 border={border}
+                border_radius={border_radius}
                 focus_border={focus_border}
                 label_hover_color={label_hover_color}
                 disabled={disabled}

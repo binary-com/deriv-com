@@ -1,6 +1,5 @@
 import React, { useState, useEffect, createContext, ReactNode } from 'react'
 import {
-    isEuCountry,
     eu_countries,
     latam_countries,
     african_countries,
@@ -23,7 +22,6 @@ type RegionProviderProps = {
 }
 
 type RegionContextType = Record<
-    | 'is_eu_country'
     | 'is_p2p_allowed_country'
     | 'is_region_loading'
     | 'is_eu_location'
@@ -53,7 +51,6 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         is_dev: false,
         is_africa: false,
     })
-    const [is_eu_country, setEuCountry] = useState(null)
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [user_country, setUserCountry] = useState(null)
 
@@ -77,7 +74,6 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         const is_dev = isLocalhost() || isTestlink()
         if (website_status) {
             const { clients_country, p2p_config } = website_status
-            setEuCountry(!!isEuCountry(clients_country))
             setP2PAllowedCountry(validate_p2p_country(p2p_config))
             setUserCountry(clients_country)
             setRegion({
@@ -109,7 +105,6 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
     return (
         <RegionContext.Provider
             value={{
-                is_eu_country,
                 is_p2p_allowed_country,
                 user_country,
                 is_region_loading,

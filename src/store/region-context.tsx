@@ -4,6 +4,7 @@ import {
     latam_countries,
     african_countries,
     cpa_plan_countries,
+    p2p_countries,
 } from 'common/country-base'
 import useWebsiteStatus from 'components/hooks/use-website-status'
 import {
@@ -63,18 +64,28 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
 
     useEffect(() => {
         const is_eu_country_ip = eu_countries.includes(user_ip_country)
-        const is_africa = african_countries.includes(user_ip_country)
+        const is_africa =
+            african_countries.includes(user_ip_country) || african_countries.includes(qa_url_region)
         const is_eu_residence = eu_countries.includes(residence)
         const is_eu_location = is_eu_residence || (!residence && is_eu_country_ip)
         const is_eu = isEuDomain() || eu_countries.includes(qa_url_region)
         const is_non_eu = !is_eu
-        const is_cpa_plan = cpa_plan_countries.includes(user_ip_country)
-        const is_latam = latam_countries.includes(user_ip_country)
+        const is_cpa_plan =
+            cpa_plan_countries.includes(user_ip_country) ||
+            cpa_plan_countries.includes(qa_url_region)
+        const is_latam =
+            latam_countries.includes(user_ip_country) || latam_countries.includes(qa_url_region)
         const is_row = !is_eu
         const is_dev = isLocalhost() || isTestlink()
         if (website_status) {
             const { clients_country, p2p_config } = website_status
             setP2PAllowedCountry(validate_p2p_country(p2p_config))
+            //QA testing purposes
+            if (qa_url_region) {
+                p2p_countries.includes(qa_url_region)
+                    ? setP2PAllowedCountry(true)
+                    : setP2PAllowedCountry(false)
+            }
             setUserCountry(clients_country)
             setRegion({
                 is_region_loading: false,

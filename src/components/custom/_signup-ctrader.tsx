@@ -60,16 +60,12 @@ const StyledHeader = styled(Header)`
 `
 
 const SubTitle = styled(Text)`
-    @media ${device.tabletL} {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
+    padding: 2rem 0;
 `
 
 const InputGroup = styled.div`
     position: relative;
     width: 100%;
-    margin: 2rem 0 0.6rem;
 
     @media ${device.mobileL} {
         margin: 25px 0 16px 0;
@@ -141,29 +137,6 @@ const StyledLinkText = styled(LinkText)`
     font-size: ${(props) => props.size || '14px'};
 `
 
-const Tabs = styled.div`
-    display: flex;
-    width: 100%;
-    margin: 2rem 0;
-`
-const SignupTab = styled.div`
-    border-bottom: solid 2px #ff444f;
-    padding: 10px;
-    width: 50%;
-    text-align: center;
-    font-weight: bold;
-    font-size: 14px;
-`
-
-const LoginTab = styled.div`
-    border-bottom: solid 2px #f2f3f4;
-    padding: 10px;
-    width: 50%;
-    text-align: center;
-    font-size: 14px;
-    cursor: pointer;
-`
-
 const SignupCtrader = ({
     autofocus,
     clearEmail,
@@ -189,14 +162,6 @@ const SignupCtrader = ({
                 <img src={Logo} alt="ctrader" width="43" height="43" />
                 <img src={Watermark} alt="deriv-ctrader" width="160" height="22" />
             </StyledHeader>
-            <Tabs>
-                <SignupTab>
-                    <Localize translate_text="_t_Sign up_t_" />
-                </SignupTab>
-                <LoginTab onClick={handleLogin}>
-                    <Localize translate_text="_t_Log in_t_" />
-                </LoginTab>
-            </Tabs>
             <SubTitle>
                 <Localize translate_text="_t_Enter your email address to begin_t_" />
             </SubTitle>

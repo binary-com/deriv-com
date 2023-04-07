@@ -16,12 +16,14 @@ type TProps = {
     QRImage?: string
     QRHeading1?: string
     QRHeading2?: string
+    is_rtl: boolean
 }
 
-const DownloadAppWrapper = styled.div`
+const DownloadAppWrapper = styled.div<{ is_rtl: boolean }>`
     max-width: 384px;
     width: 100%;
     margin: 0 auto;
+    direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
 `
 const QRScanBox = styled.div`
     border: 0.5px solid var(--color-white);
@@ -65,10 +67,10 @@ const StyledItemsWrapper = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 18px;
 `
-const DownloadColumn: React.FC<TProps> = ({ items, QRImage, QRHeading1, QRHeading2 }) => {
+const DownloadColumn: React.FC<TProps> = ({ items, QRImage, QRHeading1, QRHeading2, is_rtl }) => {
     return (
         <Flex ai="center">
-            <DownloadAppWrapper>
+            <DownloadAppWrapper is_rtl={is_rtl}>
                 <QRScanBox>
                     <img src={QRImage} alt="Deriv GO QR" />
                     <div>

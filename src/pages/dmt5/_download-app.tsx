@@ -15,6 +15,7 @@ import GetAppMobileBG from '../../images/common/getAppMobileBGUpdated.png'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import {
     dmt5_web_browser_url,
@@ -29,11 +30,12 @@ import DownloadColumn from 'components/custom/_multi-width-column-download'
 import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
     gap: 28px;
     flex: 1;
     z-index: 2;
+    direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
     @media ${device.tabletL} {
         flex-direction: column;
         justify-content: center;
@@ -65,7 +67,7 @@ const StyledInfoIcon = styled.img`
 `
 const DerivMT5GetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
-
+    const is_rtl = useIsRtl()
     const items = [
         { text: 'Google Play', icon: AndroidIcon, link: dmt5_android_url },
         { text: 'App Store', icon: AppleIcon, link: dmt5_ios_url },
@@ -91,13 +93,13 @@ const DerivMT5GetApp = () => {
             secondColumnMobileMargin="140px 0 0"
             mobilePadding="40px 0 10px"
         >
-            <ContentWrapper>
+            <ContentWrapper is_rtl={is_rtl}>
                 <img src={dmt5Logo} alt="Deriv Go logo" width="64px" height="64px" />
                 <TextAndButtonWrapper>
                     <CommonHeaderSection
                         title="_t_Get trading with Deriv MT5_t_"
                         title_font_size={is_mobile_or_tablet ? '32px' : '64px'}
-                        align_title={is_mobile_or_tablet ? 'center' : 'left'}
+                        align_title={is_mobile_or_tablet ? 'center' : is_rtl ? 'right' : 'left'}
                         width="100%"
                         font_family_title="Ubuntu"
                         color="#fff"
@@ -115,6 +117,7 @@ const DerivMT5GetApp = () => {
                 </TextAndButtonWrapper>
             </ContentWrapper>
             <DownloadColumn
+                is_rtl={is_rtl}
                 QRImage={dmt5QR}
                 QRHeading1="Scan to download"
                 QRHeading2="Android, Apple & Huawei"

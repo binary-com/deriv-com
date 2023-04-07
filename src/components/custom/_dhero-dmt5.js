@@ -21,7 +21,7 @@ const ImageStyle = styled.img`
     src: ${({ src }) => src};
 
     @media ${device.tablet} {
-        width: 100%;
+        width: 92%;
     }
 `
 
@@ -48,6 +48,7 @@ const BackgroundStyle = styled.div`
     height: 90vh;
     display: flex;
     justify-content: flex-end;
+    position: relative;
 
     @media ${device.tablet} {
         flex-direction: column-reverse;
@@ -61,12 +62,20 @@ const ContentWrapperStyle = styled.div`
     align-items: center;
     flex-direction: column;
     display: flex;
+    max-width: 40%;
+    @media ${device.tablet} {
+        max-width: 100%;
+    }
 `
 const HeroImageWrapper = styled.div`
     width: 60%;
+    position: absolute;
+    right: 0;
+    height: 100%;
 
     @media ${device.tablet} {
         width: 100%;
+        position: relative;
     }
 `
 const CreateAccountButton = styled(Button)`
@@ -81,7 +90,6 @@ const Content = styled.div`
     display: flex;
     gap: 30px;
     flex-direction: column;
-    padding-left: 120px;
 
     @media ${device.tablet} {
         padding: 0 16px 64px;
@@ -96,13 +104,21 @@ const StyledTradingLogin = styled.img`
         height: 32px;
     }
 `
+const StyledContainer = styled(Container)`
+    @media ${device.tablet} {
+        flex-direction: column-reverse;
+        justify-content: center;
+        margin: 0;
+        width: 100%;
+    }
+`
 const DCommonBanner = () => {
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     return (
         <BackgroundStyle>
-            <Container>
+            <StyledContainer jc="flex-start">
                 <ContentWrapperStyle>
                     <Content>
                         <StyledTradingLogin src={DerivMT5Logo} />
@@ -131,13 +147,17 @@ const DCommonBanner = () => {
                     </Content>
                 </ContentWrapperStyle>
                 <HeroImageWrapper>
-                    <Shape angle={is_mobile ? 101 : 194} width="60%" color="#0364B9">
+                    <Shape
+                        angle={is_mobile ? 101 : 194}
+                        width={is_mobile ? '55%' : '60%'}
+                        color="#0364B9"
+                    >
                         <ImageWrapper>
                             <ImageStyle src={DerivMT5Row} />
                         </ImageWrapper>
                     </Shape>
                 </HeroImageWrapper>
-            </Container>
+            </StyledContainer>
         </BackgroundStyle>
     )
 }

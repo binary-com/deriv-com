@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Container } from 'components/containers'
 import device from 'themes/device'
+//TODO: (deriv-rebranding) to make this section more reusable .
 
 interface Props {
     firstColumnBackground: string
@@ -22,6 +23,7 @@ const StyledSectionContainer = styled.section<{ mobileBG: string; mobilePadding:
     padding: 0;
     margin-top: 20px;
     flex-direction: row;
+    direction: ltr;
     @media ${device.tabletL} {
         flex-direction: column;
         padding: ${(props) => (props.mobilePadding ? props.mobilePadding : `80px 0`)};

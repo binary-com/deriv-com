@@ -12,6 +12,7 @@ import CommonHeaderSection from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import {
     derivx_android_url,
     derivx_huawei_url,
@@ -20,11 +21,12 @@ import {
 } from 'common/constants'
 import DownloadColumn from 'components/custom/_multi-width-column-download'
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
     gap: 28px;
     flex: 1;
     z-index: 2;
+    direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
     @media ${device.tabletL} {
         flex-direction: column;
         justify-content: center;
@@ -42,6 +44,7 @@ const TextAndButtonWrapper = styled.div`
 
 const DerivXGetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
+    const is_rtl = useIsRtl()
 
     const items = [
         { text: 'Google Play', icon: AndroidIcon, link: derivx_android_url },
@@ -63,13 +66,13 @@ const DerivXGetApp = () => {
             secondColumnWidth="50%"
             mobileBackgroundImage={GetAppMobileBG}
         >
-            <ContentWrapper>
+            <ContentWrapper is_rtl={is_rtl}>
                 <img src={derivXLogo} alt="Deriv Go logo" width="64px" height="64px" />
                 <TextAndButtonWrapper>
                     <CommonHeaderSection
                         title="_t_Get trading with Deriv X_t_"
                         title_font_size={is_mobile_or_tablet ? '32px' : '64px'}
-                        align_title={is_mobile_or_tablet ? 'center' : 'left'}
+                        align_title={is_mobile_or_tablet ? 'center' : is_rtl ? 'right' : 'left'}
                         width="100%"
                         font_family_title="Ubuntu"
                         color="#fff"
@@ -78,6 +81,7 @@ const DerivXGetApp = () => {
                 </TextAndButtonWrapper>
             </ContentWrapper>
             <DownloadColumn
+                is_rtl={is_rtl}
                 QRImage={derivXQR}
                 QRHeading1="Scan to download"
                 QRHeading2="Android, iOS, and Huawei"

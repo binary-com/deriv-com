@@ -39,6 +39,15 @@ const Faq = () => {
     const parent_style = {
         marginBottom: '4rem',
     }
+
+    const customStyle = (array, index) => {
+        return index !== array.length - 1
+            ? {
+                  parent_style: parent_style,
+              }
+            : {}
+    }
+
     const item_style = {
         padding: '8px 24px 24px',
         background: 'var(--color-grey-4)',
@@ -80,16 +89,17 @@ const Faq = () => {
             </Header>
             <AccordionWrapper id="payment-agent-faq-list">
                 <Accordion has_single_state>
-                    {accordion_data.map((item) => {
+                    {accordion_data.map((item, index) => {
+                        const parentStyle = customStyle(accordion_data, index)
                         return (
                             <AccordionItem
                                 header={<Localize translate_text={item.title} />}
-                                parent_style={parent_style}
                                 style={item_style}
                                 header_style={header_style}
                                 plus
                                 class_name="general"
                                 key={item.id}
+                                {...parentStyle}
                             >
                                 {item.component}
                             </AccordionItem>

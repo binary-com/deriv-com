@@ -10,7 +10,7 @@ const BugBountyNav = () => {
     return (
         <NavTemplate
             renderLogo={() => <Image src={BugBountyNavLogo} width={185} height={32} />}
-            hasTopNav
+            has_top_nav
         >
             <Button.Primary
                 id="dm-nav-submit-button"

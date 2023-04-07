@@ -14,7 +14,7 @@ import dclsx from 'features/utils/dclsx'
 import useRegion from 'components/hooks/use-region'
 
 interface NavTemplateProps<T extends string> extends HTMLAttributes<HTMLDivElement> {
-    hasTopNav?: boolean
+    has_top_nav?: boolean
     renderLogo: () => ReactNode
     has_centered_items?: boolean
     items?: TNavItems<T>
@@ -22,7 +22,7 @@ interface NavTemplateProps<T extends string> extends HTMLAttributes<HTMLDivEleme
 
 const NavTemplate = <T extends string>({
     renderLogo,
-    hasTopNav = false,
+    has_top_nav = false,
     items = [],
     children,
     className,
@@ -71,7 +71,7 @@ const NavTemplate = <T extends string>({
             bgcolor="white"
             className={dclsx(styles.header_wrapper, className)}
         >
-            {hasTopNav && <TopNav />}
+            {has_top_nav && <TopNav />}
             <Flex.Box
                 as="nav"
                 container="fluid"

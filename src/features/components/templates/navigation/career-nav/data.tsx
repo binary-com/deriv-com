@@ -2,7 +2,7 @@ import { TNavItems } from '../types'
 
 type TcareerNavNames = 'home' | 'location' | 'besquare'
 
-const careerNavItems: TNavItems<TcareerNavNames> = [
+const career_nav_items: TNavItems<TcareerNavNames> = [
     {
         id: 0,
         data: {
@@ -41,4 +41,4 @@ const careerNavItems: TNavItems<TcareerNavNames> = [
     },
 ]
 
-export default careerNavItems
+export default career_nav_items

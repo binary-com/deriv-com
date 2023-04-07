@@ -17,7 +17,7 @@ const PaymentAgentAffiliateNav = () => {
                 </Link>
             )}
             items={affiliateNavItems}
-            hasTopNav
+            has_top_nav
             has_centered_items
         >
             <Button.Primary

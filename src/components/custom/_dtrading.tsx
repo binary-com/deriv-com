@@ -79,7 +79,7 @@ const StyledHeader = styled(Header)`
     }
 `
 const StyledTitle = styled(Header)`
-    font-size: 16px;
+    font-weight: normal;
     margin: 8px 0 0;
 `
 const Row = styled.div<RowProps>`
@@ -181,7 +181,7 @@ const DTrading = ({ trading, reverse, two_title }: DTradingProps) => {
                                 <StyledHeader type="page-title" as="h2">
                                     {item.title}
                                 </StyledHeader>
-                                <StyledTitle weight="400" as="p">
+                                <StyledTitle as="p" type="paragraph-1">
                                     {item.subtitle}
                                 </StyledTitle>
                                 {two_title && (
@@ -189,7 +189,7 @@ const DTrading = ({ trading, reverse, two_title }: DTradingProps) => {
                                         <StyledHeader type="page-title" mt="2.4rem">
                                             {item.second_title}
                                         </StyledHeader>
-                                        <StyledTitle weight="400" as="p">
+                                        <StyledTitle as="p" type="paragraph-1">
                                             {item.second_subtitle}
                                         </StyledTitle>
                                     </>

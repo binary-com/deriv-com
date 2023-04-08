@@ -51,7 +51,7 @@ const StyledTitle = styled(Header)`
 `
 const StyledSubTitle = styled(Header)`
     padding-top: 8px;
-    font-size: 16px;
+    font-weight: normal;
     color: var(--color-black-9);
 
     @media ${device.tabletL} {
@@ -66,12 +66,12 @@ const selling_points: SellingPointsType[] = [
         subtitle: <Localize translate_text="tradable assets" />,
     },
     {
-        id: 3,
+        id: 2,
         title: <Localize translate_text="Zero" />,
         subtitle: <Localize translate_text="commission" />,
     },
     {
-        id: 2,
+        id: 3,
         title: '24/7',
         subtitle: <Localize translate_text="trading" />,
     },
@@ -86,7 +86,7 @@ const SellingPoints = () => {
                         <StyledTitle as="h3" type="heading-3" align="center">
                             {item.title}
                         </StyledTitle>
-                        <StyledSubTitle align="center" weight="400" as="span">
+                        <StyledSubTitle align="center" as="span" type="paragraph-1">
                             {item.subtitle}
                         </StyledSubTitle>
                     </NumberWrapper>

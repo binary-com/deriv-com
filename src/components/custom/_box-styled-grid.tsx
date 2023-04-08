@@ -45,8 +45,8 @@ const OptionItems = styled(Flex)`
     margin-bottom: 0.8rem;
 `
 const StyledSubText = styled(Header)`
-    font-size: 16px;
     color: var(--color-black-9);
+    font-weight: normal;
 
     @media ${device.tabletL} {
         font-size: 14px;
@@ -64,7 +64,7 @@ const BoxStyledGrid: React.FC<TProps> = ({ items, containerWidth, boxsPerRow = '
                             </div>
                             <StyledText>{item.title}</StyledText>
                         </OptionItems>
-                        <StyledSubText weight="400" as="p">
+                        <StyledSubText as="p" type="paragraph-1">
                             {item.subtitle}
                         </StyledSubText>
                     </HowItWorksItem>

@@ -145,7 +145,6 @@ export const DerivedMarketsList = styled.div<MarketsListProps>`
     height: fit-content;
     padding: 24px;
     gap: ${({ gap }) => (gap ? gap : '12px')};
-
     @media ${device.mobileL} {
         grid-template-columns: ${({ mobile_col }) => `repeat(${mobile_col ?? 2}, 1fr)`};
         ${({ mobile_template }) => mobile_template && 'border-left: unset;'};

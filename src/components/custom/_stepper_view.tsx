@@ -97,7 +97,7 @@ const StepperView: React.FC<TProps> = ({
                             style={{ fontWeight: selected === index ? 'bold' : 'normal' }}
                             onClick={() => setSelected(index)}
                         >
-                            {`${index + 1}.`}
+                            {`${index + 1}. `}
                             {item.title()}
                         </li>
                     ))}

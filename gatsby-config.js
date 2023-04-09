@@ -328,7 +328,7 @@ module.exports = {
                 site: 'datadoghq.com',
                 sessionSampleRate: process.env.DATADOG_SESSION_SAMPLE_RATE || 5,
                 sessionReplaySampleRate: process.env.DATADOG_SESSION_REPLAY_SAMPLE_RATE || 1,
-                enabled: process.env.DATADOG_ENABLED,
+                enabled: true,
                 env: 'production',
                 service:'deriv.com',
                 trackUserInteractions: true,

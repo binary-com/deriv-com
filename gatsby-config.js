@@ -326,9 +326,9 @@ module.exports = {
             resolve: 'gatsby-plugin-datadog',
             options: {
                 site: 'datadoghq.com',
-                sessionSampleRate: 1,
-                sessionReplaySampleRate: 1,
-                enabled: true,
+                sessionSampleRate: process.env.DATADOG_SESSION_SAMPLE_RATE || 5,
+                sessionReplaySampleRate: process.env.DATADOG_SESSION_REPLAY_SAMPLE_RATE || 1,
+                enabled: process.env.DATADOG_ENABLED || true,
                 env: 'production',
                 service:'deriv.com',
                 trackUserInteractions: true,

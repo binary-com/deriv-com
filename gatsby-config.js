@@ -311,6 +311,7 @@ module.exports = {
                 trackUserInteractions: true,
                 trackResources: true,
                 trackLongTasks: true,
+                enableExperimentalFeatures: ['clickmap'],
                 defaultPrivacyLevel: 'mask-user-input',
                 rum: {
                     applicationId: process.env.DATADOG_APPLICATION_ID,

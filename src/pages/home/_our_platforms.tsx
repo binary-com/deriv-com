@@ -10,7 +10,7 @@ const OurPlatforms = () => {
 
     return (
         <SectionContainer
-            background="white"
+            background="#f9fbff"
             height="fit-content"
             tabletL={{ height: 'fit-content', pb: 'unset' }}
             padding="8rem 0 0 0"
@@ -35,7 +35,7 @@ const OurPlatforms = () => {
                     >
                         <Localize
                             translate_text="Choose from {{platforms_no}} powerful platforms — each designed with your needs in mind."
-                            values={{ platforms_no: is_row ? '8' : '2' }}
+                            values={{ platforms_no: is_row ? '9' : '2' }}
                         />
                     </Header>
                 </Flex>

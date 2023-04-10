@@ -11,7 +11,7 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { LinkButton } from 'components/form'
-import { Localize } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useRegion from 'components/hooks/use-region'
 
@@ -51,6 +51,10 @@ const ImageWrapper = styled.div`
     flex: 1 1 0%;
     @media ${device.tablet} {
         padding: 64px 0 54px;
+    }
+
+    & > a {
+        z-index: 1;
     }
 `
 const BannerButtonWrapper = styled.div`
@@ -179,7 +183,18 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
             <HeroImageWrapper>
                 <Shape angle={is_mobile ? 101 : 193} width="60%">
                     <ImageWrapper>
-                        <ImageStyle src={is_eu ? DerivTraderEu : DerivTraderRow} />
+                        {is_mobile ? (
+                            <ImageStyle src={is_eu ? DerivTraderEu : DerivTraderRow} />
+                        ) : (
+                            <LocalizedLink
+                                external
+                                to="https://app.deriv.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <ImageStyle src={is_eu ? DerivTraderEu : DerivTraderRow} />
+                            </LocalizedLink>
+                        )}
                     </ImageWrapper>
                 </Shape>
             </HeroImageWrapper>

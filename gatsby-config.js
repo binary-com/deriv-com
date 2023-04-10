@@ -92,8 +92,6 @@ module.exports = {
                     '/**/endpoint',
                     '/signup-success',
                     '/**/signup-success',
-                    '/academy/blog/posts/preview',
-                    '/academy/subscription',
                 ],
                 query: `
                 {
@@ -336,6 +334,7 @@ module.exports = {
                 trackUserInteractions: true,
                 trackResources: true,
                 trackLongTasks: true,
+                enableExperimentalFeatures: ['clickmap'],
                 defaultPrivacyLevel:'mask-user-input',
                 rum: {
                     applicationId: process.env.DATADOG_APPLICATION_ID,

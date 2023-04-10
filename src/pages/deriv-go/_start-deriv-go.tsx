@@ -9,13 +9,13 @@ import device from 'themes/device'
 
 const query = graphql`
     query {
-        sign_up: file(relativePath: { eq: "deriv-go/create-account.png" }) {
+        sign_up: file(relativePath: { eq: "deriv-go/create-account1.png" }) {
             ...fadeIn
         }
-        fund: file(relativePath: { eq: "deriv-go/fund-account.png" }) {
+        fund: file(relativePath: { eq: "deriv-go/fund-account1.png" }) {
             ...fadeIn
         }
-        trading: file(relativePath: { eq: "deriv-go/get-trading.png" }) {
+        trading: file(relativePath: { eq: "deriv-go/get-trading1.png" }) {
             ...fadeIn
         }
     }
@@ -86,7 +86,7 @@ const StartDerivGo = () => {
                 <StyledHeader as="h2" type="heading-2" align="center" mb="4rem">
                     {localize('How to get started with Deriv GO')}
                 </StyledHeader>
-                <StepperView items={stepsData} contentWidth="385px" />
+                <StepperView items={stepsData} contentWidth="385px" imageWidth="286px" />
             </SmallContainer>
         </SectionContainer>
     )

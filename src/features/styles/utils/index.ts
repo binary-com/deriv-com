@@ -1,5 +1,6 @@
 import {
     TBGColor,
+    TBorderRadius,
     THeadingSize,
     TSpacingSize,
     TTypographyAlign,
@@ -78,6 +79,11 @@ export const generateHeadingSize = (size?: THeadingSize) => {
     })
 }
 
+export const generateBorderRadius = (radius?: TBorderRadius) => {
+    return dclsx({
+        [`border-radius-${radius}`]: radius,
+    })
+}
 export const generateTextSize = (size?: THeadingSize) => {
     return dclsx({
         [`text-${size}`]: size,

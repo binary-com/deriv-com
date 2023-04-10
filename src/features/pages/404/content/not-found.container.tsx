@@ -1,5 +1,6 @@
 import React from 'react'
 import { button_link, info_items, not_available_image } from './data'
+import * as styles from './not-found.module.scss'
 import Typography from 'features/components/atoms/typography'
 import Button from 'features/components/atoms/button'
 import Link from 'features/components/atoms/link'
@@ -10,6 +11,7 @@ import { Localize } from 'components/localization'
 const NotFoundContainer = () => {
     return (
         <FlexBox.Box
+            className={styles.not_found}
             direction={'col'}
             wrap={'wrap'}
             justify={'center'}

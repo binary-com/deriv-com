@@ -21,6 +21,7 @@ import {
     StyledPaginationContainer,
 } from './_elements'
 import AvailablePlatform from './_available-platform'
+import SearchNotFound from 'images/svg/trading-specification/search-not-found.svg'
 import RightChevron from 'images/svg/trading-specification/right-chevron.svg'
 import LeftChevron from 'images/svg/trading-specification/left-chevron.svg'
 import SearchIcon from 'images/svg/trading-specification/search-icon.svg'
@@ -41,10 +42,11 @@ const row_disclaimer: TString =
 const eu_disclaimer: TString =
     '_t_The above information is updated monthly and, therefore, may not reflect current trading conditions._t_'
 
-const StyledFlex = styled(Flex)`
+const StyledFlex = styled(Flex)<{ padding?: string }>`
     flex-direction: column;
     gap: 20px;
-    padding: 3rem 0;
+    padding: 8rem 0;
+    padding: ${(props) => (props.padding ? props.padding : '3rem 0')};
 
     @media ${device.tabletL} {
         width: 95%;
@@ -190,6 +192,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                             </TableRow>
                         ))}
                     </thead>
+
                     <tbody>
                         {table.getRowModel().rows.map((row) => (
                             <TableRow key={row.id}>
@@ -202,31 +205,44 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                         ))}
                     </tbody>
                 </TableData>
-                <StyledPaginationContainer>
-                    <Flex>
-                        <StyledButton
-                            onClick={() => table.previousPage()}
-                            disabled={!table.getCanPreviousPage()}
-                        >
-                            <StyledChevron src={LeftChevron} />
-                        </StyledButton>
-                        {table.getPageOptions().map((page) => (
-                            <StyledButtonPage
-                                selected={page === table.getState().pagination.pageIndex}
-                                key={page}
-                                onClick={() => table.setPageIndex(page)}
+                {filtered_data.length < 1 && (
+                    <StyledFlex ai="center" jc="center" direction="column" padding="8rem 0">
+                        <img src={SearchNotFound} />
+                        <Header type="paragraph-1" weight="normal" as="p" align="center">
+                            <Localize
+                                translate_text="No results for '{{search_value}}'."
+                                values={{ search_value }}
+                            />
+                        </Header>
+                    </StyledFlex>
+                )}
+                {filtered_data.length > 1 && (
+                    <StyledPaginationContainer>
+                        <Flex>
+                            <StyledButton
+                                onClick={() => table.previousPage()}
+                                disabled={!table.getCanPreviousPage()}
                             >
-                                {page + 1}
-                            </StyledButtonPage>
-                        ))}
-                        <StyledButton
-                            onClick={() => table.nextPage()}
-                            disabled={!table.getCanNextPage()}
-                        >
-                            <StyledChevron src={RightChevron} />
-                        </StyledButton>
-                    </Flex>
-                </StyledPaginationContainer>
+                                <StyledChevron src={LeftChevron} />
+                            </StyledButton>
+                            {table.getPageOptions().map((page) => (
+                                <StyledButtonPage
+                                    selected={page === table.getState().pagination.pageIndex}
+                                    key={page}
+                                    onClick={() => table.setPageIndex(page)}
+                                >
+                                    {page + 1}
+                                </StyledButtonPage>
+                            ))}
+                            <StyledButton
+                                onClick={() => table.nextPage()}
+                                disabled={!table.getCanNextPage()}
+                            >
+                                <StyledChevron src={RightChevron} />
+                            </StyledButton>
+                        </Flex>
+                    </StyledPaginationContainer>
+                )}
             </TableContainer>
 
             <DisclaimerText as="p">

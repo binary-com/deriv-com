@@ -26,8 +26,8 @@ const Derived = () => {
                         components={TranslationComponents([
                             {
                                 key: 0,
-                                type: 'link',
-                                to: 'https://academy.deriv.com/blog/posts/an-introduction-to-synthetic-indices-trading/',
+                                type: 'internal_link',
+                                to: 'https://blog.deriv.com/blog/posts/an-introduction-to-synthetic-indices-trading/',
                             },
                         ])}
                     />

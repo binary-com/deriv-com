@@ -69,12 +69,7 @@ const AvailablePlatform = () => {
                             <FlexContainer>
                                 <StyledLocalizedLink to="/dmt5/">
                                     <Flex direction="row">
-                                        <img
-                                            src={DerivMT5}
-                                            alt="Deriv MT5"
-                                            width="24"
-                                            height="24"
-                                        />
+                                        <img src={DerivMT5} alt="Deriv MT5" />
                                         <Header type="paragraph-1" weight="normal" as="p">
                                             <Localize translate_text={deriv_mt5} />
                                         </Header>

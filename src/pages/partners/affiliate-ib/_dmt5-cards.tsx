@@ -138,7 +138,7 @@ const StyledTrap = styled(TRAP)<CardProps>`
     height: ${(props) => (props.headerHeight ? props.headerHeight : '')};
     background-color: var(--color-grey-39);
     padding: 1.1rem 0.8rem;
-    min-height: 72px;
+    min-height: 92px;
     border-bottom: none;
     display: flex;
     align-items: center;

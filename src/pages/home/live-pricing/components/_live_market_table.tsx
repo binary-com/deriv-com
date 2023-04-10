@@ -76,7 +76,6 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
         onSortingChange: setSorting,
     })
     const rows = table.getRowModel().rows.slice(0, TABLE_VISIBLE_ROWS)
-
     return (
         <TableContainer>
             <Table>

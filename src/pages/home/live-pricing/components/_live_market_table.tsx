@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import {
     flexRender,
     getCoreRowModel,
@@ -6,11 +6,11 @@ import {
     useReactTable,
 } from '@tanstack/react-table'
 import type { SortingState } from '@tanstack/react-table'
-import { TAvailableLiveMarkets, TMarketData, TMarketDataResponse } from '../_types'
+import { TAvailableLiveMarkets, TMarketData } from '../_types'
 import useLiveColumns from '../_use-live-columns'
 import { TABLE_VISIBLE_ROWS } from '../_utils'
 import { Spinner, TableLoadingContainer, Table, TableContainer, TableRow } from './_elements'
-import { useDerivApi } from 'components/hooks/use-deriv-api'
+import useSubscription from 'components/hooks/useSubscription'
 import useRegion from 'components/hooks/use-region'
 
 export type TLiveMarketTableProps = {
@@ -33,41 +33,37 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
 
     const [sorting, setSorting] = React.useState<SortingState>([])
 
-    const { send } = useDerivApi()
+    const { subscribe, data } = useSubscription('trading_platform_asset_listing')
     const { is_eu } = useRegion()
     const region = is_eu ? 'eu' : 'row'
 
-    const requestMarketsData = useCallback(() => {
-        setIsLoading(true)
+    useEffect(() => {
+        subscribe({
+            trading_platform_asset_listing: 1,
+            platform: 'mt5',
+            type: 'brief',
+            region: region,
+        })
+    }, [subscribe])
 
-        send(
-            {
-                trading_platform_asset_listing: 1,
-                platform: 'mt5',
-                type: 'brief',
-                region: region,
-            },
-            (response: TMarketDataResponse) => {
-                if (!response.error) {
-                    const responseData = [...response.trading_platform_asset_listing.mt5.assets]
-                    const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
+    useEffect(() => {
+        if (data) {
+            const markets = new Map<TAvailableLiveMarkets, TMarketData[]>()
+            data.mt5.assets.forEach((item) => {
+                const market = item.market == 'stocks' ? 'indices' : item.market
 
-                    responseData.forEach((item) => {
-                        const market = item.market == 'stocks' ? 'indices' : item.market
-
-                        if (!markets.has(market)) {
-                            markets.set(market, [item])
-                        } else {
-                            markets.get(market).push(item)
-                        }
-                    })
-                    setMarketsData(markets)
-                    setIsLoading(false)
+                if (!markets.has(market)) {
+                    markets.set(market, [item])
+                } else {
+                    markets.get(market).push(item)
                 }
-            },
-        )
-    }, [region, send])
-    const columns = useLiveColumns(requestMarketsData)
+            })
+            setMarketsData(markets)
+            setIsLoading(false)
+        }
+    }, [data])
+
+    const columns = useLiveColumns(markets_data)
 
     const table = useReactTable({
         data: table_data,
@@ -79,16 +75,6 @@ const LiveMarketTable = ({ market }: TLiveMarketTableProps) => {
         getSortedRowModel: getSortedRowModel(),
         onSortingChange: setSorting,
     })
-
-    useEffect(() => {
-        requestMarketsData()
-        const intervalId = setInterval(() => {
-            requestMarketsData()
-        }, 10000) // 10 seconds
-
-        return () => clearInterval(intervalId)
-    }, [requestMarketsData])
-
     const rows = table.getRowModel().rows.slice(0, TABLE_VISIBLE_ROWS)
 
     return (

@@ -7,7 +7,7 @@ import { LocalizedLink } from 'components/localization'
 const Link = styled(LocalizedLink)`
     text-decoration: none;
     font-size: var(--text-size-s);
-    font-weight: bold;
+    font-weight: ${({ weight }) => weight};
     color: var(--color-red);
 
     :hover {
@@ -19,7 +19,11 @@ const Link = styled(LocalizedLink)`
     }
 `
 
-const getComponent = (key: number, to: string, type: 'link' | 'deriv_app_link' | 'strong') => {
+const getComponent = (
+    key: number,
+    to: string,
+    type: 'internal_link' | 'link' | 'deriv_app_link' | 'strong',
+) => {
     return {
         deriv_app_link: (
             <Link
@@ -32,16 +36,8 @@ const getComponent = (key: number, to: string, type: 'link' | 'deriv_app_link' |
                 type="deriv_app"
             />
         ),
-        link: (
-            <Link
-                key={key}
-                to={to}
-                target="_blank"
-                external
-                weight="bold"
-                rel="noopener noreferrer"
-            />
-        ),
+        link: <Link key={key} to={to} target="_blank" external rel="noopener noreferrer" />,
+        internal_link: <Link key={key} to={to} target="_blank" rel="noopener noreferrer" />,
         strong: <strong key={key} />,
     }[type]
 }

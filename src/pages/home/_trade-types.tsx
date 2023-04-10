@@ -17,7 +17,7 @@ type TradeTypesProps = {
     link: string
     link_text: ReactElement
     alt: string
-    imageElement: ReactElement
+    image_element: ReactElement
 }
 
 type TradeItemsProps = {
@@ -34,7 +34,7 @@ const items_details_row: TradeTypesProps[] = [
         link: '/trade-types/cfds/',
         link_text: <Localize translate_text="More on CFDs" />,
         alt: 'cfd',
-        imageElement: (
+        image_element: (
             <StaticImage
                 src="../../images/common/home/trade_type_cfds.png"
                 alt="cfd"
@@ -52,7 +52,7 @@ const items_details_row: TradeTypesProps[] = [
         link: '/trade-types/multiplier/',
         link_text: <Localize translate_text="More on multipliers" />,
         alt: 'multipliers',
-        imageElement: (
+        image_element: (
             <StaticImage
                 src="../../images/common/home/trade_type_multipliers.png"
                 alt="multipliers"
@@ -70,7 +70,7 @@ const items_details_row: TradeTypesProps[] = [
         link: '/trade-types/options/',
         link_text: <Localize translate_text="More on options" />,
         alt: 'options',
-        imageElement: (
+        image_element: (
             <StaticImage
                 src="../../images/common/home/trade_type_digitaloptions.png"
                 alt="options"
@@ -91,7 +91,7 @@ const items_details_eu: TradeTypesProps[] = [
         link: '/trade-types/cfds/',
         link_text: <Localize translate_text="More on CFDs" />,
         alt: 'cfd',
-        imageElement: (
+        image_element: (
             <StaticImage
                 src="../../images/common/home/trade_type_cfds_eu.png"
                 alt="cfd"
@@ -109,7 +109,7 @@ const items_details_eu: TradeTypesProps[] = [
         link: '/trade-types/multiplier/',
         link_text: <Localize translate_text="More on multipliers" />,
         alt: 'multipliers',
-        imageElement: (
+        image_element: (
             <StaticImage
                 src="../../images/common/home/trade_type_multipliers_eu.png"
                 alt="multipliers"
@@ -244,7 +244,7 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
                 onMouseOver={() => setDetailsVisibility(true)}
                 onMouseOut={() => setDetailsVisibility(false)}
             >
-                {items_details.imageElement}
+                {items_details.image_element}
             </ImageWrapper>
 
             <DescriptionContainer ai={'center'} jc={'center'} direction={'column'}>

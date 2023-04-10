@@ -1,12 +1,10 @@
 @use './theme-mixins' as *;
 
 $sm-base-spacing: 0.2rem;
-$bg-base-spacing: 2rem;
 $space-medias: (md, lg);
 
 @for $i from 0 through 40 {
     $sm-value: $i * $sm-base-spacing;
-    $bg-value: $i * $bg-base-spacing;
 
     .gap-#{$i}x {
         gap: $sm-value;
@@ -49,9 +47,6 @@ $space-medias: (md, lg);
     }
     .padding-block-#{$i}x {
         padding-block: $sm-value;
-    }
-    .padding-block-#{$i}xl {
-        padding-block: $bg-value;
     }
     .padding-inline-#{$i}x {
         padding-inline: $sm-value;

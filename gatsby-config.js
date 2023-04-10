@@ -326,14 +326,15 @@ module.exports = {
             resolve: 'gatsby-plugin-datadog',
             options: {
                 site: 'datadoghq.com',
-                sessionSampleRate: 1,
-                sessionReplaySampleRate: 1,
+                sessionSampleRate: parseInt(process.env.DATADOG_SESSION_SAMPLE_RATE) || 5,
+                sessionReplaySampleRate: parseInt(process.env.DATADOG_SESSION_REPLAY_SAMPLE_RATE) || 1,
                 enabled: true,
                 env: 'production',
                 service:'deriv.com',
                 trackUserInteractions: true,
                 trackResources: true,
                 trackLongTasks: true,
+                enableExperimentalFeatures: ['clickmap'],
                 defaultPrivacyLevel:'mask-user-input',
                 rum: {
                     applicationId: process.env.DATADOG_APPLICATION_ID,

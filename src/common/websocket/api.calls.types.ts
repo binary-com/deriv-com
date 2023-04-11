@@ -203,6 +203,8 @@ import type {
     TopUpVirtualMoneyAccountResponse,
     TradingDurationsRequest,
     TradingDurationsResponse,
+    TradingPlatformAssetListingRequest,
+    TradingPlatformAssetListingResponse,
     TradingPlatformInvestorPasswordResetRequest,
     TradingPlatformInvestorPasswordResetResponse,
     TradingPlatformPasswordResetRequest,
@@ -633,6 +635,10 @@ export type TSocketEndpoints = {
     trading_durations: {
         request: TradingDurationsRequest
         response: TradingDurationsResponse
+    }
+    trading_platform_asset_listing: {
+        request: TradingPlatformAssetListingRequest
+        response: TradingPlatformAssetListingResponse
     }
     trading_platform_investor_password_reset: {
         request: TradingPlatformInvestorPasswordResetRequest

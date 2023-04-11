@@ -78,8 +78,8 @@ const StyledMobileImage = styled.img`
 const Hero = ({ hero }: THero) => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const bg_image = is_mobile_or_tablet
-        ? hero?.bg_mobile.localFile.publicURL
-        : hero?.bg_desktop.localFile.publicURL
+        ? hero?.bg_mobile.localFile?.publicURL
+        : hero?.bg_desktop.localFile?.publicURL
 
     return (
         <ParentWrapper bg_image={bg_image}>
@@ -87,7 +87,7 @@ const Hero = ({ hero }: THero) => {
                 <Desktop>
                     <StyledFlex>
                         <StyledImage
-                            src={hero?.hero_image.localFile.publicURL}
+                            src={hero?.hero_image.localFile?.publicURL}
                             alt="hero image desktop"
                         />
                         <Flex jc="center" p="0 32px" max_width="1440px">
@@ -100,7 +100,7 @@ const Hero = ({ hero }: THero) => {
                 <Mobile>
                     <Flex fd="column" ai="center" p="0 16px">
                         <StyledMobileImage
-                            src={hero?.hero_image.localFile.publicURL}
+                            src={hero?.hero_image.localFile?.publicURL}
                             alt="hero image mobile"
                         />
                         <MobileHeader>

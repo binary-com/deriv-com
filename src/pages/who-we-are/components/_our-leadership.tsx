@@ -89,7 +89,7 @@ const LeaderCard = (leader: TLeader) => {
     return (
         <StyledImageWrapper key={name} onMouseOver={showModal} onMouseLeave={dontShowModal}>
             <img
-                src={photo?.localFile.publicURL}
+                src={photo?.localFile?.publicURL}
                 alt="leader"
                 width={is_mobile ? '98px' : '120px'}
                 height={is_mobile ? '98px' : '120px'}

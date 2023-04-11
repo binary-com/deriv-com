@@ -96,7 +96,7 @@ const ImageMarquee = ({ slider_medias }: TImageMarquee) => {
                             <StyledImageWrapper>
                                 <StyledImage
                                     is_rtl={is_rtl}
-                                    image={carousel_item.localFile.publicURL}
+                                    image={carousel_item.localFile?.publicURL}
                                 />
                             </StyledImageWrapper>
                         </CarouselSlide>

@@ -117,14 +117,14 @@ const OurOffices = ({ our_locations }: TOurOffices) => {
 
             <Flex>
                 <Desktop>
-                    <MapImage bg_image={our_locations.earth.localFile.publicURL}>
+                    <MapImage bg_image={our_locations.earth.localFile?.publicURL}>
                         {desktop?.map((pin) => (
                             <MapPin key={pin.country_city} {...pin} />
                         ))}
                     </MapImage>
                 </Desktop>
                 <Mobile>
-                    <MapImage bg_image={our_locations.earth_mobile.localFile.publicURL}>
+                    <MapImage bg_image={our_locations.earth_mobile.localFile?.publicURL}>
                         {mobile?.map((pin) => (
                             <MapPin key={pin.country_city} {...pin} />
                         ))}

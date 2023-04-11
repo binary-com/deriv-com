@@ -186,12 +186,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                         {is_mobile ? (
                             <ImageStyle src={is_eu ? DerivTraderEu : DerivTraderRow} />
                         ) : (
-                            <LocalizedLink
-                                external
-                                to="https://app.deriv.com/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
+                            <LocalizedLink external to="https://app.deriv.com/" target="_blank">
                                 <ImageStyle src={is_eu ? DerivTraderEu : DerivTraderRow} />
                             </LocalizedLink>
                         )}

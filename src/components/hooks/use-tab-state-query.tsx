@@ -1,12 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
-import {
-    checkElemInArray,
-    getLocationHash,
-    isBrowser,
-    routeBack,
-    scrollTop,
-    setLocationHash,
-} from 'common/utility'
+import { checkElemInArray, getLocationHash, isBrowser, routeBack, scrollTop } from 'common/utility'
 
 /**
  * @description this hook will handle the current active tab of your tabs container, by default it will put the active tab in location hash in the url, if you don't need it pass has_no_query as true
@@ -14,11 +7,10 @@ import {
  * @param tab_list {string[]} the array of tabs
  * @param has_no_query {boolean} to check if we should handle location hash on active tab changes
  * @returns [active_tab , setActiveTab]
- * @deprecated Need to update this because its not working properly when user click on back button
  */
 export const useTabStateQuery = (tab_list, has_no_query = false, starting_index = 0) => {
-    const locationHash = getLocationHash()
     const [active_tab, setActiveTab] = useState(null)
+    const [locationHash, setLocationHash] = useState(getLocationHash)
 
     const hashExistInTabList = useMemo(() => {
         return checkElemInArray(tab_list, locationHash)
@@ -33,6 +25,7 @@ export const useTabStateQuery = (tab_list, has_no_query = false, starting_index 
                 if (hashExistInTabList) {
                     if (isBrowserMode && active_tab && locationHash !== active_tab) {
                         setLocationHash(active_tab)
+                        location.hash = `#${active_tab}`
                     } else {
                         setActiveTab(locationHash)
                         scrollTop()

@@ -35,9 +35,6 @@ type SignupPublicProps = {
     handleValidation?: (event) => void
     is_submitting?: boolean
 }
-type SocialButtonProps = {
-    bgColor?: string
-}
 
 const query = graphql`
     query {
@@ -87,7 +84,7 @@ const MobileWrapper = styled.div`
     max-width: 600px;
 `
 const SignupFormWrapper = styled(Flex)`
-    width: 50%;
+    width: 42%;
     align-items: center;
     @media ${device.tablet} {
         padding: 0 2rem;
@@ -103,7 +100,7 @@ const SignupFormWrapper = styled(Flex)`
 const MobileSignupFormWrapper = styled(Flex)`
     width: 50%;
     align-items: center;
-    padding: 0 2rem;
+    padding: 0 2.4rem;
     @media (max-width: 991px) {
         width: 100%;
         box-shadow: 0 16px 16px 0 rgba(14, 14, 14, 0.04), 0 0 16px 0 rgba(14, 14, 14, 0.04);
@@ -112,12 +109,11 @@ const MobileSignupFormWrapper = styled(Flex)`
         border-radius: 8px;
         position: relative;
         top: -10px;
-        padding-left: 20px;
-
-        & > div {
-            width: auto;
-        }
     }
+`
+const MobileSignupContainer = styled(Flex)`
+    flex-direction: column;
+    padding: 0 6px;
 `
 const BackgroundWrapper = styled(Flex)`
     position: relative;
@@ -137,29 +133,30 @@ const BackgroundWrapper = styled(Flex)`
     }
 `
 const InputWrapper = styled.div`
-    width: 245px;
+    width: 232px;
     line-height: 10px;
     font-weight: normal;
     margin-right: 1rem;
     border-radius: 16px;
     @media ${device.mobileL} {
-        max-width: 191px;
+        width: 95%;
+        border-radius: 4px;
+        padding: 10px 0;
     }
 `
 const InputGroup = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    margin-top: 2.5rem;
-    margin-left: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 8px;
 
     @media ${device.tabletL} {
         flex-direction: column;
+        margin-bottom: 20px;
     }
 `
 const EmailButton = styled(Button)<{ isChecked?: boolean }>`
-    margin-left: 1rem;
     min-width: 81px;
     height: 40px;
     padding: 10px;
@@ -168,23 +165,23 @@ const EmailButton = styled(Button)<{ isChecked?: boolean }>`
     @media ${device.tabletL} {
         padding: 10px 16px;
         white-space: nowrap;
-        border-radius: 16px;
-        min-width: unset;
+        border-radius: 4px;
         margin-left: 0;
         height: 40px;
-        width: 273px;
+        width: 96%;
     }
 `
 const SocialWrapper = styled(Flex)`
     width: 100%;
-    margin-top: 4rem;
-    flex-wrap: wrap;
+    display: flex;
     gap: 6px;
+    flex-wrap: wrap;
     height: 40%;
 `
 const MobileSocialWrapper = styled(SocialWrapper)`
     > div {
         justify-content: flex-start;
+        gap: 6px;
     }
 
     @media ${device.tabletL} {
@@ -197,15 +194,16 @@ const SocialButton = styled(Button)`
     font-size: 12px;
     align-items: center;
     justify-content: center;
-    width: 11.6rem;
+    width: 10.6rem;
     height: 4rem;
     background-color: white;
     border: 1px solid var(--color-grey-7);
-    border-radius: 100px;
+    border-radius: 16px;
 
-    @media ${device.laptop} {
+    @media ${device.tabletL} {
         justify-content: center;
         width: 33%;
+        height: 6rem;
         margin: 0 0.6rem;
     }
 `
@@ -217,8 +215,7 @@ const StyledHeader = styled(Header)<{ position?: string }>`
         width: auto;
     }
     @media (max-width: 991px) {
-        margin-top: 3rem;
-        margin-left: 1.5rem;
+        margin-top: 4rem;
     }
     @media (max-width: 991px) {
         max-width: 290px;
@@ -226,11 +223,10 @@ const StyledHeader = styled(Header)<{ position?: string }>`
 `
 const StyledFormWrapper = styled.div`
     background: white;
-    max-width: 430px;
-    padding: 20px 20px 30px;
-    margin-left: 30px;
+    max-width: 416px;
+    padding: 40px;
     border-radius: 8px;
-    margin-top: 4.5rem;
+    margin-top: 3rem;
     top: 1rem;
     display: inline-block;
     position: absolute;
@@ -243,21 +239,14 @@ const StyledFormWrapper = styled.div`
             line-height: 3.5rem;
         }
     }
-
-    @media (min-width: 1600px) {
-        min-width: 430px;
-    }
 `
 const StyledHeaderText = styled(Text)`
     width: ${(props) => props.width || '41.4rem'};
-    @media ${device.tablet} {
-        width: auto;
-    }
-    @media (max-width: 991px) {
-        margin-top: 1rem;
+    padding: 10px 0;
+
+    @media ${device.tabletL} {
         font-size: 2rem;
-        margin-bottom: 3rem;
-        margin-left: 1.5rem;
+        padding: 10px 0 0 0;
     }
 `
 const SignInText = styled(Text)`
@@ -272,6 +261,7 @@ const SignInText = styled(Text)`
     line-height: 1.5;
     letter-spacing: normal;
     color: #333333;
+    padding: 20px 0 0 0;
     @media ${device.tabletL} {
         width: 90px;
         margin-right: 0;
@@ -280,7 +270,7 @@ const SignInText = styled(Text)`
 const MobileSignInText = styled(SignInText)`
     @media ${device.tabletL} {
         width: unset;
-        margin: 0 auto 0.8rem 1.5rem;
+        margin: 0 auto 0.8rem 0;
     }
 `
 const LinkFlex = styled(LinkText)`
@@ -292,7 +282,7 @@ const LinkFlex = styled(LinkText)`
     }
 `
 const MobileBackground = styled.div`
-    background-image: linear-gradient(73deg, #ff6444, #ff444f);
+    background: var(--color-red);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -317,7 +307,8 @@ const DerivExperience = styled(LinkText)`
         text-decoration: none;
     }
 
-    @media ${device.mobileL} {
+    @media ${device.tabletL} {
+        top: 50%;
         width: unset;
         margin: 0 auto 0.8rem 0.8rem;
         max-width: 230px;
@@ -339,6 +330,9 @@ const MobilePlatform = styled.div<{ is_rtl: boolean }>`
 
     @media screen and (max-width: 991px) {
         img {
+            width: 85%;
+            height: 85%;
+            top: 28px;
             ${({ is_rtl }) =>
                 is_rtl
                     ? css`
@@ -405,7 +399,6 @@ const SignupPublic = ({
                                 <StyledHeader type="section-title" width="100%">
                                     {localize('Join over 2.5 million traders worldwide')}
                                 </StyledHeader>
-                                <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
                                     {localize('Sign up for your demo account now.')}
                                 </StyledHeaderText>
@@ -456,8 +449,8 @@ const SignupPublic = ({
                                     isChecked={is_checked}
                                     handleChangeCheckbox={handleChange}
                                 />
+                                <SignInText>{localize('Or sign up with')}</SignInText>
                                 <SocialWrapper jc="unset" ai="center">
-                                    <SignInText>{localize('Or sign up with')}</SignInText>
                                     {social_button_content.map(({ provider, id, img, text }) => (
                                         <SocialButton
                                             key={provider}
@@ -544,18 +537,17 @@ const SignupPublic = ({
                             </DerivExperience>
                         </MobileBackground>
                         <MobileSignupFormWrapper>
-                            <div>
+                            <MobileSignupContainer>
                                 <StyledHeader type="section-title">
                                     {localize('Join over 2.5 million traders worldwide')}
                                 </StyledHeader>
-                                <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
                                     {localize('Sign up for your demo account now.')}
                                 </StyledHeaderText>
                                 <InputGroup>
                                     <InputWrapper>
                                         <Input
-                                            id="email"
+                                            id="dm-email-input"
                                             name="email"
                                             type="text"
                                             error={email_error_msg}
@@ -566,6 +558,8 @@ const SignupPublic = ({
                                             input_background="grey-8"
                                             label_focus_color="grey-5"
                                             label_color="grey-5"
+                                            labelSize="4px"
+                                            labelTop="1.2rem"
                                             label={localize('Email address')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
@@ -574,7 +568,7 @@ const SignupPublic = ({
                                             autoFocus={autofocus}
                                             autoComplete="off"
                                             required
-                                            border="unset"
+                                            height="40px"
                                             focus_border="var(--color-grey-7)"
                                         />
                                     </InputWrapper>
@@ -622,7 +616,7 @@ const SignupPublic = ({
                                         ))}
                                     </Flex>
                                 </MobileSocialWrapper>
-                            </div>
+                            </MobileSignupContainer>
                         </MobileSignupFormWrapper>
                     </MobileWrapper>
                 </Container>

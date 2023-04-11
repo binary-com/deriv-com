@@ -332,6 +332,7 @@ module.exports = {
                 env: 'production',
                 service:'deriv.com',
                 trackUserInteractions: true,
+                trackFrustrations: true,
                 trackResources: true,
                 trackLongTasks: true,
                 enableExperimentalFeatures: ['clickmap'],

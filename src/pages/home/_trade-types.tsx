@@ -39,7 +39,7 @@ const items_details_row: TradeTypesProps[] = [
                 src="../../images/common/home/trade_type_cfds.png"
                 alt="cfd"
                 loading="eager"
-                placeholder="none"
+                placeholder="blurred"
             />
         ),
     },
@@ -57,7 +57,7 @@ const items_details_row: TradeTypesProps[] = [
                 src="../../images/common/home/trade_type_multipliers.png"
                 alt="multipliers"
                 loading="eager"
-                placeholder="none"
+                placeholder="blurred"
             />
         ),
     },
@@ -75,7 +75,7 @@ const items_details_row: TradeTypesProps[] = [
                 src="../../images/common/home/trade_type_digitaloptions.png"
                 alt="options"
                 loading="eager"
-                placeholder="none"
+                placeholder="blurred"
             />
         ),
     },
@@ -96,7 +96,7 @@ const items_details_eu: TradeTypesProps[] = [
                 src="../../images/common/home/trade_type_cfds_eu.png"
                 alt="cfd"
                 loading="eager"
-                placeholder="none"
+                placeholder="blurred"
             />
         ),
     },
@@ -114,7 +114,7 @@ const items_details_eu: TradeTypesProps[] = [
                 src="../../images/common/home/trade_type_multipliers_eu.png"
                 alt="multipliers"
                 loading="eager"
-                placeholder="none"
+                placeholder="blurred"
             />
         ),
     },

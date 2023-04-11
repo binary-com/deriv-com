@@ -1,42 +1,22 @@
-import React, { ReactNode } from 'react'
-import {
-    OurPlatforms,
-    Signup,
-    WhatOurClientsSay,
-    TradeTypes,
-    P2PHomeBanner,
-} from './home/_lazy-load'
-import MarketsFold from './home/_markets_fold'
+import React from 'react'
 import Hero from './home/_hero'
-import { useHandleLazyLoad } from 'components/hooks/use-handle-lazy-load'
+import MarketsFold from './home/_markets_fold'
+import TradeTypes from './home/_trade-types'
+import OurPlatforms from './home/_our_platforms'
+import WhatOurClientsSay from './home/_what-our-clients-say'
+import P2PHomeBanner from './home/_p2p_home_banner'
+import Signup, { Appearances } from 'components/custom/signup'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { Appearances } from 'components/custom/signup'
 import useRegion from 'components/hooks/use-region'
 
 const Home = () => {
     /* redirect livechat for en to open live chat popup */
     useOpenLiveChat(true)
-    const { is_p2p_allowed_country, is_region_loading } = useRegion()
+    const { is_p2p_allowed_country } = useRegion()
 
-    const target = '#market-fold'
-    const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.7,
-    }
-    const lazy_components: ReactNode = (
-        <>
-            <TradeTypes />
-            <OurPlatforms />
-            <WhatOurClientsSay />
-            {is_p2p_allowed_country && <P2PHomeBanner />}
-            <Signup appearance={Appearances.public} />
-        </>
-    )
-    const lazyTemplate = useHandleLazyLoad(lazy_components, target, options)
     return (
         <Layout type="transparent" margin_top="0">
             <SEO
@@ -50,7 +30,11 @@ const Home = () => {
             />
             <Hero />
             <MarketsFold />
-            {!is_region_loading && lazyTemplate}
+            <TradeTypes />
+            <OurPlatforms />
+            <WhatOurClientsSay />
+            {is_p2p_allowed_country && <P2PHomeBanner />}
+            <Signup appearance={Appearances.public} />
         </Layout>
     )
 }

@@ -96,7 +96,7 @@ jobs:
           command: pages publish public --project-name=deriv-com-pages --branch=translation-beta
 
       - name: Cloudflare preview link ✨
-        run: echo "New beta website - http://beta.cf-pages-deriv-com.deriv.com"
+        run: echo "New beta website - https://beta.deriv.com"
 
       - name: Slack Notification 📣
         uses: 8398a7/action-slack@v3

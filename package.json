@@ -14,7 +14,6 @@
         "@radix-ui/react-dropdown-menu": "^2.0.2",
         "@svgr/webpack": "^6.2.1",
         "@vercel/gatsby-plugin-vercel-builder": "^0.1.2",
-        "classnames": "^2.3.2",
         "cli-select": "^1.1.2",
         "clsx": "^1.2.1",
         "commander": "^8.3.0",

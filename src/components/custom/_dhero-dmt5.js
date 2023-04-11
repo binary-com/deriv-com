@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import DerivMT5Row from 'images/common/dmt5/banner_image_row.png'
+import { StaticImage } from 'gatsby-plugin-image'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import DerivMT5Logo from 'images/svg/dmt5/dmt5-banner-logo.svg'
 import device from 'themes/device'
@@ -14,11 +14,10 @@ import { Container } from 'components/containers'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
-const ImageStyle = styled.img`
+const ImageStyle = styled.div`
     z-index: 1;
     max-width: 843px;
     width: inherit;
-    src: ${({ src }) => src};
 
     @media ${device.tablet} {
         width: 92%;
@@ -122,11 +121,19 @@ const DCommonBanner = () => {
                 <ContentWrapperStyle>
                     <Content>
                         <StyledTradingLogin src={DerivMT5Logo} />
-                        <CommonHeaderSection
-                            title="_t_The all-in-one CFD trading platform_t_"
-                            title_font_size={`${is_mobile ? 32 : 64}px`}
-                            color="var(--color-black-9)"
-                        />
+                        {is_mobile ? (
+                            <CommonHeaderSection
+                                title="_t_The all-in-one CFD trading platform_t_"
+                                title_font_size="32px"
+                                color="var(--color-black-9)"
+                            />
+                        ) : (
+                            <CommonHeaderSection
+                                title="_t_The all-in-one CFD trading platform_t_"
+                                title_font_size="64px"
+                                color="var(--color-black-9)"
+                            />
+                        )}
                         <BannerButtonWrapper>
                             {is_logged_in ? (
                                 <CreateAccountButton
@@ -147,15 +154,29 @@ const DCommonBanner = () => {
                     </Content>
                 </ContentWrapperStyle>
                 <HeroImageWrapper>
-                    <Shape
-                        angle={is_mobile ? 101 : 194}
-                        width={is_mobile ? '55%' : '60%'}
-                        color="#0364B9"
-                    >
-                        <ImageWrapper>
-                            <ImageStyle src={DerivMT5Row} />
-                        </ImageWrapper>
-                    </Shape>
+                    {is_mobile ? (
+                        <Shape angle={101} width="55%" color="#0364B9">
+                            <ImageWrapper>
+                                <ImageStyle>
+                                    <StaticImage
+                                        src="../../images/common/dmt5/banner_image_row.png"
+                                        loading="eager"
+                                    />
+                                </ImageStyle>
+                            </ImageWrapper>
+                        </Shape>
+                    ) : (
+                        <Shape angle={194} width="60%" color="#0364B9">
+                            <ImageWrapper>
+                                <ImageStyle>
+                                    <StaticImage
+                                        src="../../images/common/dmt5/banner_image_row.png"
+                                        loading="eager"
+                                    />
+                                </ImageStyle>
+                            </ImageWrapper>
+                        </Shape>
+                    )}
                 </HeroImageWrapper>
             </StyledContainer>
         </BackgroundStyle>

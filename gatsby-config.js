@@ -326,10 +326,10 @@ module.exports = {
             resolve: 'gatsby-plugin-datadog',
             options: {
               site: 'datadoghq.com',
-              sessionSampleRate: 10,
+              sessionSampleRate: 100,
               sessionReplaySampleRate: 1,
               enabled: true,
-              env: 'production',
+              env: 'staging',
               service: 'deriv.com',
               trackUserInteractions: true,
               trackFrustrations: true,

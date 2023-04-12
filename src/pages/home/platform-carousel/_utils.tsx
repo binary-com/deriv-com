@@ -281,7 +281,7 @@ export const platform_details_eu: TPlatformDetails[] = [
         icon: DTraderIcon,
         image_key: (
             <StaticImage
-                src="images/common/home/platforms_dtrader_eu.png"
+                src="../../..images/common/home/platforms_dtrader_eu.png"
                 alt="dtrader"
                 objectFit="contain"
                 loading="eager"

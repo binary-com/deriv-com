@@ -19,7 +19,7 @@ const MainSliderItem = ({ item }: MainSliderItemProps) => {
         <Flex.Box
             direction="row"
             justify="start"
-            align="stretch"
+            align={swiperSlide.isActive ? 'stretch' : 'center'}
             gap="8x"
             bgcolor={swiperSlide.isActive ? 'primary' : undefined}
             padding="8x"

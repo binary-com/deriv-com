@@ -11,7 +11,7 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        padding: 0.8rem 1rem;
+        padding: 1.8rem 0rem;
         min-inline-size: 26rem;
         cursor: pointer;
         white-space: pre-line;
@@ -60,7 +60,7 @@
 
         &_title {
             text-align: start;
-            color: $color-black;
+            color: $color-black-9;
         }
 
         .nav_card_type {
@@ -70,7 +70,7 @@
 
         &_description {
             text-align: start;
-            color: $color-black-3;
+            color: $color-grey-5;
         }
     }
 }

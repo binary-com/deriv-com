@@ -141,7 +141,7 @@ const SubtitleHeader = styled(Header)`
 `
 
 const DerivIBProgramme = () => {
-    const { is_row } = useRegion()
+    // const { is_row } = useRegion()
     return (
         <StyledSection id="deriv-ib">
             <Container direction="column">

@@ -92,7 +92,7 @@ const SubHeader = styled(Header)`
 
 const StyledBox = styled(Box)`
     max-width: 508px;
-    margin: 11.9rem 4rem 0 16rem;
+    margin: 0 4rem 0 16rem;
     @media ${device.tabletL} {
         max-width: 100%;
         margin: 0 16px 24px;
@@ -169,6 +169,7 @@ const StyledFlex = styled(Flex)<{ has_color?: boolean }>`
     }
 `
 const StyledSectionContainer = styled(SectionContainer)`
+    padding: 4rem 0;
     @media ${device.tabletL} {
         padding: 2rem 0;
     }

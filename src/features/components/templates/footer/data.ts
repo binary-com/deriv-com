@@ -12,7 +12,7 @@ const aboutUsLinks: SmartFooterLink[] = [
     {
         id: 1,
         data: {
-            text: '_t_Who choose us_t_',
+            text: '_t_Why choose us_t_',
             url: { type: 'internal', to: '/why-choose-us/' },
         },
     },

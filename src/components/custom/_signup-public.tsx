@@ -157,7 +157,7 @@ const InputGroup = styled.div`
     }
 `
 const EmailButton = styled(Button)<{ isChecked?: boolean }>`
-    min-width: 81px;
+    min-width: 125px;
     height: 40px;
     padding: 10px;
     border-radius: 16px;
@@ -209,7 +209,7 @@ const SocialButton = styled(Button)`
 `
 const StyledHeader = styled(Header)<{ position?: string }>`
     position: ${(props) => props.position || 'static'};
-    width: 408px;
+    width: auto;
 
     @media ${device.tablet} {
         width: auto;

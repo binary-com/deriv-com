@@ -92,7 +92,7 @@ const DisclaimerText = styled(Header)`
     font-weight: 400;
     text-align: center;
     font-size: 16px;
-    padding: 0 36rem;
+    padding: 2rem 36rem;
     @media ${device.tabletL} {
         padding: 0 16px;
     }
@@ -152,7 +152,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
         } else {
             setFilteredData(markets_data)
         }
-    }, [search_value])
+    }, [search_value, markets_data])
 
     useEffect(() => {
         table.setPageSize(15)

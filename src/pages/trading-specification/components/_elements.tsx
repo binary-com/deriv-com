@@ -32,6 +32,7 @@ export const TableData = styled.table`
     }
 
     @media ${device.tabletL} {
+        padding: 0 10px 0 0px;
         display: inline-block;
         overflow: auto;
     }

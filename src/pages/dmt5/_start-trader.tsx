@@ -216,7 +216,7 @@ const StartTrader = () => {
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'demo_step1_mobile' : 'demo_step1']}
-                        alt={<Localize translate_text="Deriv X demo account signup page" />}
+                        alt={<Localize translate_text="Sign up for a free" />}
                     />
                 ),
             },
@@ -328,18 +328,16 @@ const StartTrader = () => {
                 ),
                 image: () => (
                     <QueryImage
-                        data={data[is_mobile_or_tablet ? 'demo_step1_mobile' : 'demo_step1']}
+                        data={data[is_mobile_or_tablet ? 'demo_step1_mobile_eu' : 'demo_step1_eu']}
                         alt={<Localize translate_text="Deriv MT5 demo account" />}
                     />
                 ),
             },
             {
-                title: () => (
-                    <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade." />
-                ),
+                title: () => <Localize translate_text="Add a CFDs demo account." />,
                 image: () => (
                     <QueryImage
-                        data={data[is_mobile_or_tablet ? 'demo_step2_mobile' : 'demo_step2']}
+                        data={data[is_mobile_or_tablet ? 'demo_step2_mobile_eu' : 'demo_step2_eu']}
                         alt={<Localize translate_text="Deriv MT5 demo account" />}
                     />
                 ),
@@ -350,7 +348,7 @@ const StartTrader = () => {
                 ),
                 image: () => (
                     <QueryImage
-                        data={data[is_mobile_or_tablet ? 'demo_step3_mobile' : 'demo_step3']}
+                        data={data[is_mobile_or_tablet ? 'demo_step3_mobile_eu' : 'demo_step3_eu']}
                         alt={<Localize translate_text="Deriv MT5 demo account" />}
                     />
                 ),
@@ -380,27 +378,27 @@ const StartTrader = () => {
                 ),
                 image: () => (
                     <QueryImage
-                        data={data[is_mobile_or_tablet ? 'real_step1_mobile' : 'real_step1']}
+                        data={data[is_mobile_or_tablet ? 'real_step1_mobile_eu' : 'real_step1_eu']}
                         alt={<Localize translate_text="Deriv MT5 demo account" />}
                     />
                 ),
             },
             {
-                title: () => <Localize translate_text="Create a Deriv real money account." />,
+                title: () => <Localize translate_text="Create a real Deriv Multipliers account." />,
                 image: () => (
                     <QueryImage
-                        data={data[is_mobile_or_tablet ? 'real_step2_mobile' : 'real_step2']}
+                        data={data[is_mobile_or_tablet ? 'real_step2_mobile_eu' : 'real_step2_eu']}
                         alt={<Localize translate_text="Deriv MT5 demo account" />}
                     />
                 ),
             },
             {
                 title: () => (
-                    <Localize translate_text="Create a Deriv MT5 real money account based on your trade preference." />
+                    <Localize translate_text="Create a CFDs real accountn your trade preference.." />
                 ),
                 image: () => (
                     <QueryImage
-                        data={data[is_mobile_or_tablet ? 'real_step3_mobile' : 'real_step3']}
+                        data={data[is_mobile_or_tablet ? 'real_step3_mobile_eu' : 'real_step3_eu']}
                         alt={<Localize translate_text="Deriv MT5 demo account" />}
                     />
                 ),
@@ -411,7 +409,7 @@ const StartTrader = () => {
                 ),
                 image: () => (
                     <QueryImage
-                        data={data[is_mobile_or_tablet ? 'real_step4_mobile' : 'real_step4']}
+                        data={data[is_mobile_or_tablet ? 'real_step4_mobile_eu' : 'real_step4_eu']}
                         alt={<Localize translate_text="Trading" />}
                     />
                 ),

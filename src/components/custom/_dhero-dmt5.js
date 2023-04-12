@@ -9,6 +9,7 @@ import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import Shape from 'components/custom/_hero-shape'
+import useRegion from 'components/hooks/use-region'
 import Button from 'components/custom/_button'
 import { Container } from 'components/containers'
 
@@ -115,6 +116,8 @@ const DCommonBanner = () => {
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
+    const { is_eu } = useRegion()
+
     return (
         <BackgroundStyle>
             <StyledContainer jc="flex-start">
@@ -153,10 +156,19 @@ const DCommonBanner = () => {
                     >
                         <ImageWrapper>
                             <ImageStyle>
-                                <StaticImage
-                                    src="../../images/common/dmt5/banner_image_row.png"
-                                    loading="eager"
-                                />
+                                {is_eu ? (
+                                    <StaticImage
+                                        src="../../images/common/dmt5/banner_image_eu.png"
+                                        loading="eager"
+                                        alt="banner"
+                                    />
+                                ) : (
+                                    <StaticImage
+                                        src="../../images/common/dmt5/banner_image_row.png"
+                                        loading="eager"
+                                        alt="banner"
+                                    />
+                                )}
                             </ImageStyle>
                         </ImageWrapper>
                     </Shape>

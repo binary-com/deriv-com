@@ -1,6 +1,6 @@
 import React from 'react'
 import { PlatformItem } from '../../types'
-import { platform_images_item } from './platform-images.module.scss'
+import { platform_images_item, platform_image_caption } from './platform-images.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import useRegion from 'components/hooks/use-region'
 import Typography from 'features/components/atoms/typography'
@@ -24,7 +24,7 @@ const PlatformImageItem = ({ item }: PlatformImageItemProps) => {
         >
             {image}
             {item.image_caption && (
-                <Typography.Paragraph>
+                <Typography.Paragraph className={platform_image_caption}>
                     <Localize
                         translate_text={item.image_caption.text}
                         components={item.image_caption.components}

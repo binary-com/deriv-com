@@ -155,11 +155,12 @@ const DerivIBProgramme = () => {
                         )}
                     </SubtitleHeader>
                     <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
-                        {is_row
+                        {/* {is_row
                             ? localize(
                                   'Earn commission from your clients’ trades on Deriv MT5 and Deriv X.',
                               )
-                            : localize('Earn commission from your clients’ trades on Deriv MT5.')}
+                            : localize('Earn commission from your clients’ trades on Deriv MT5.')} */}
+                        {localize('Earn commission from your clients’ trades on Deriv MT5.')}
                     </SubtitleHeader>
                     <Header as="h2" mb="2rem" type="page-title" mt="4rem" align="center">
                         {localize('Deriv MT5')}
@@ -173,7 +174,7 @@ const DerivIBProgramme = () => {
                         <DERIVIBDMT5Cards data={ib_dmt5_synthetic} />
                         <DERIVIBDMT5Cards data={ib_dmt5_financial} />
                         <DERIVIBDMT5Cards data={ib_dmt5_financialSTP} />
-                        {is_row && (
+                        {/* {is_row && (
                             <>
                                 <Header
                                     as="h2"
@@ -189,7 +190,7 @@ const DerivIBProgramme = () => {
                                 </StyledHeaderDerivx>
                                 <DERIVIBDMT5Cards data={ib_derivx} />
                             </>
-                        )}
+                        )} */}
                     </StyledCardWrapper>
                     <DecideSection align="center">
                         <StyledHeader

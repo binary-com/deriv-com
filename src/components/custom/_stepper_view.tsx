@@ -52,6 +52,7 @@ const ItemsWrapper = styled.div<ItemsWrapperProps>`
 
 const ImageWrapper = styled.div`
     flex: 1;
+    margin: 0 auto;
 `
 
 const UlStyle = styled.ul`

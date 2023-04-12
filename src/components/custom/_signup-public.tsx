@@ -199,6 +199,7 @@ const SocialButton = styled(Button)`
     background-color: white;
     border: 1px solid var(--color-grey-7);
     border-radius: 16px;
+    gap: 10px;
 
     @media ${device.tabletL} {
         justify-content: center;
@@ -461,13 +462,7 @@ const SignupPublic = ({
                                             type="button"
                                             social
                                         >
-                                            <img
-                                                src={img}
-                                                alt={provider}
-                                                width="20"
-                                                height="20"
-                                                style={{ margin: '0 10px 0 0' }}
-                                            />
+                                            <img src={img} alt={provider} width="20" height="20" />
                                             {text}
                                         </SocialButton>
                                     ))}

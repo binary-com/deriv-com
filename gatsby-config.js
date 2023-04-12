@@ -352,10 +352,10 @@ module.exports = {
                 mergeStyleHashes: true, // you can disable styles sha256 hashes
                 mergeDefaultDirectives: true,
                 directives: {
-                    "script-src": "'self' https://deriv.com https://www.google-analytics.com https://www.googletagmanager.com",
+                    "script-src": "'self' https://deriv.com https://eu.deriv.com https://www.google-analytics.com https://www.googletagmanager.com",
                     "style-src": "'self' 'unsafe-inline'",
-                    "script-src-elem": "'self' https://deriv.com https://www.google-analytics.com https://www.googletagmanager.com",
-                    "connect-src": "'self' https://deriv.com https://cp.pushwoosh.com https://rum.browser-intake-datadoghq.com/api/v2/rum?ddsource=browser"
+                    "script-src-elem": "'self' https://deriv.com https://eu.deriv.com https://www.google-analytics.com https://www.googletagmanager.com",
+                    "connect-src": "'self' https://deriv.com https://eu.deriv.com https://cp.pushwoosh.com https://rum.browser-intake-datadoghq.com/api/v2/rum?ddsource=browser"
                 }
             }
         }

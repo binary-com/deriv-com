@@ -23,6 +23,9 @@ import GlobalStyle from 'themes/global-style'
 import { plugin } from 'themes/plugin'
 import { getLanguage, isBrowser } from 'common/utility'
 import apiManager from 'common/websocket'
+import RebrandingLayout from 'features/components/templates/layout'
+import RebrandingFooter from 'features/components/templates/footer'
+import MainNav from 'features/components/templates/navigation/main-nav'
 
 const LoadableFooter = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -81,11 +84,9 @@ const Layout = ({
 
     // Handle navigation types
     let Navigation
-    let FooterNav = <></>
     switch (type) {
         case 'noNav':
             Navigation = <></>
-            FooterNav = <Footer />
             break
         case 'static':
             Navigation = <NavStatic />
@@ -95,47 +96,36 @@ const Layout = ({
             break
         case 'partners':
             Navigation = <NavPartners hide_login_signup={no_login_signup} />
-            FooterNav = <LoadableFooter />
             break
         case 'markets':
             Navigation = <NavMarkets />
-            FooterNav = <Footer />
             break
         case 'security':
             Navigation = <NavSecurity />
-            FooterNav = <LoadableFooter />
             break
         case 'ebook':
             Navigation = <Nav hide_signup_login />
-            FooterNav = <LoadableFooter />
             break
         case 'landing-page':
             Navigation = <NavInterim landing_type />
-            FooterNav = <LoadableFooter no_footer_links />
             break
         case 'jump-indices':
             Navigation = <NavJumpIndice />
-            FooterNav = <LoadableFooter is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         case 'besquare':
             Navigation = <NavCareers is_besquare />
-            FooterNav = <BeSquareFooter />
             break
         case 'careers':
             Navigation = <NavCareers />
-            FooterNav = <LoadableFooter no_language={true} type={type} />
             break
         case 'transparent':
             Navigation = <NavTransparent is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
-            FooterNav = <LoadableFooter is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
         case 'payment-methods':
             Navigation = <Nav />
-            FooterNav = <Footer />
             break
         default:
             Navigation = <Nav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
-            FooterNav = <LoadableFooter is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
     }
     //Handle page layout when redirection from mobile app.
@@ -147,40 +137,43 @@ const Layout = ({
         )
     }
     return (
-        <LocationProvider
-            has_mounted={is_mounted}
-            toggleModal={toggleModal}
-            setModalPayload={setModalPayload}
-        >
-            <GlobalStyle />
-            <StyleSheetManager stylisPlugins={[plugin]}>
-                <>
-                    {Navigation}
-                    <Main margin_top={margin_top} is_static={is_static}>
-                        {children}
-                    </Main>
-                    {FooterNav}
-                    <EURedirect
-                        toggle={toggleModal}
-                        is_open={show_modal}
-                        closeModal={closeModal}
-                        to={modal_payload.to}
-                        target={modal_payload.target}
-                        rel={modal_payload.rel}
-                        ref={modal_payload.ref}
-                        aria_label={modal_payload.aria_label}
-                    />
-                    <BrowserUpdateAlertModal />
-                    {show_non_eu_popup && (
-                        <NonEuRedirectPopUp
-                            is_open={show_non_eu_popup}
-                            setShowNonEuPopup={setShowNonEuPopup}
+        <RebrandingLayout is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
+            {/* {Navigation} */}
+            <MainNav />
+            <LocationProvider
+                has_mounted={is_mounted}
+                toggleModal={toggleModal}
+                setModalPayload={setModalPayload}
+            >
+                <GlobalStyle />
+                <StyleSheetManager stylisPlugins={[plugin]}>
+                    <>
+                        <Main margin_top={margin_top} is_static={is_static}>
+                            {children}
+                        </Main>
+                        <EURedirect
+                            toggle={toggleModal}
+                            is_open={show_modal}
+                            closeModal={closeModal}
+                            to={modal_payload.to}
+                            target={modal_payload.target}
+                            rel={modal_payload.rel}
+                            ref={modal_payload.ref}
+                            aria_label={modal_payload.aria_label}
                         />
-                    )}
-                    <LayoutOverlay is_ppc={is_ppc} />
-                </>
-            </StyleSheetManager>
-        </LocationProvider>
+                        <BrowserUpdateAlertModal />
+                        {show_non_eu_popup && (
+                            <NonEuRedirectPopUp
+                                is_open={show_non_eu_popup}
+                                setShowNonEuPopup={setShowNonEuPopup}
+                            />
+                        )}
+                        <LayoutOverlay is_ppc={is_ppc} />
+                    </>
+                </StyleSheetManager>
+            </LocationProvider>
+            <RebrandingFooter />
+        </RebrandingLayout>
     )
 }
 

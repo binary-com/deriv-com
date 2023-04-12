@@ -61,39 +61,13 @@ jobs:
         # For using same tag for staging and production we need to uncomment these two below lines:
         # with:
         #   tagRegex: "staging(.*)"
-      - name: Building docker image 🐳
-        run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-beta  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
-
-      - name: Verify nginx image
-        run: |
-          set -e
-          docker run --rm ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA nginx -t
-          echo "docker image validated successfully"
-
-      - name: Pushing Image to docker hub 🐳
-        run: |
-          echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-          docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-beta
-          docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA
-
-      - name: Deploy 🚀
-        run: |
-          export NAMESPACE="deriv-com-beta"
-          export SERVICEACCOUNT_TOKEN=${{ secrets.SERVICEACCOUNT_TOKEN }}
-          export DOCKERHUB_ORGANISATION=${{ secrets.DOCKERHUB_ORGANISATION }}
-          export KUBE_SERVER=${{ secrets.KUBE_SERVER }}
-          export CA=${{ secrets.CA }}
-          git clone https://github.com/binary-com/devops-ci-scripts
-          cd devops-ci-scripts/k8s-build_tools
-          echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
-          ./release.sh deriv-com $GITHUB_SHA
 
       - name: Deploy to Cloudflare ☁️
         uses: cloudflare/wrangler-action@2.0.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages publish public --project-name=deriv-com-pages --branch=translation-beta
+          command: pages publish public --project-name=deriv-com-pages --branch=beta
 
       - name: Cloudflare preview link ✨
         run: echo "New beta website - https://beta.deriv.com"

@@ -221,11 +221,10 @@ const Signup = (props: SignupProps) => {
                     </Box>
                 )}
             />
-            <ConfirmationMessage>
+            <ConfirmationMessage data-dd-privacy="mask">
                 <Localize
-                    translate_text="We've sent a message to <0 data-dd-privacy='mask-user-input'>{{email}}<0> with a link to activate your account."
+                    translate_text="We've sent a message to {{email}} with a link to activate your account."
                     values={{ email: props.email }}
-                    key={0}
                 />
             </ConfirmationMessage>
             <EmailLink to="/check-email/" align="center">

@@ -24,7 +24,6 @@ const ImageStyle = styled.div`
         width: 92%;
     }
 `
-
 const ImageWrapper = styled.div`
     display: flex;
     padding: 64px 0;
@@ -36,6 +35,7 @@ const ImageWrapper = styled.div`
 const BannerButtonWrapper = styled.div`
     display: flex;
     align-items: center;
+
     @media ${device.tablet} {
         flex-direction: column;
         justify-content: center;

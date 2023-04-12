@@ -13,7 +13,7 @@ import useRegion from 'components/hooks/use-region'
 import Logo from 'images/svg/ctrader/logo.svg'
 import Watermark from 'images/svg/ctrader/watermark.svg'
 
-type SignupNewProps = {
+type SignupCtraderProps = {
     autofocus?: boolean
     clearEmail?: () => void
     email?: string
@@ -148,7 +148,7 @@ const SignupCtrader = ({
     handleValidation,
     is_ppc,
     is_submitting,
-}: SignupNewProps) => {
+}: SignupCtraderProps) => {
     const [is_checked, setChecked] = useState(false)
     const { is_eu } = useRegion()
 

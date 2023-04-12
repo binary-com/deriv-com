@@ -97,25 +97,35 @@ const Dtrader = () => {
     useEffect(() => {
         setLoaded(true)
     }, [])
+
     if (is_loaded) {
         return (
-            <Layout>
-                <DHero
-                    join_us_for_free
-                    is_live_demo
-                    image_name={is_eu ? 'dtrader_eu' : 'dtrader'}
-                    background_alt={localize('Trade volatility indices with DTrader at Deriv')}
+            <>
+                <SEO
+                    title={localize('DTrader | Online trading platform | Deriv')}
+                    description={localize(
+                        'DTrader keeps online trading simple. Trade forex, commodities, stock indices, cryptocurrencies, and Deriv’s synthetic indices.',
+                    )}
+                    meta_attributes={meta_attributes}
                 />
-                {is_row && <DNumber items={items} justify="space-around" />}
-                {is_eu && <DNumber items={itemsEU} justify="space-around" />}
+                <Layout>
+                    <DHero
+                        join_us_for_free
+                        is_live_demo
+                        image_name={is_eu ? 'dtrader_eu' : 'dtrader'}
+                        background_alt={localize('Trade volatility indices with DTrader at Deriv')}
+                    />
+                    {is_row && <DNumber items={items} justify="space-around" />}
+                    {is_eu && <DNumber items={itemsEU} justify="space-around" />}
 
-                <DtraderEasySteps />
-                {is_row && <DTrading trading={trading} />}
-                {is_eu && <DTrading trading={trading_eu} />}
+                    <DtraderEasySteps />
+                    {is_row && <DTrading trading={trading} />}
+                    {is_eu && <DTrading trading={trading_eu} />}
 
-                <DtraderGetApps />
-                {is_row && <OurPlatforms />}
-            </Layout>
+                    <DtraderGetApps />
+                    {is_row && <OurPlatforms />}
+                </Layout>
+            </>
         )
     }
 

@@ -121,19 +121,11 @@ const DCommonBanner = () => {
                 <ContentWrapperStyle>
                     <Content>
                         <StyledTradingLogin src={DerivMT5Logo} />
-                        {is_mobile ? (
-                            <CommonHeaderSection
-                                title="_t_The all-in-one CFD trading platform_t_"
-                                title_font_size="32px"
-                                color="var(--color-black-9)"
-                            />
-                        ) : (
-                            <CommonHeaderSection
-                                title="_t_The all-in-one CFD trading platform_t_"
-                                title_font_size="64px"
-                                color="var(--color-black-9)"
-                            />
-                        )}
+                        <CommonHeaderSection
+                            title="_t_The all-in-one CFD trading platform_t_"
+                            title_font_size={is_mobile ? '32px' : '64px'}
+                            color="var(--color-black-9)"
+                        />
                         <BannerButtonWrapper>
                             {is_logged_in ? (
                                 <CreateAccountButton
@@ -154,29 +146,20 @@ const DCommonBanner = () => {
                     </Content>
                 </ContentWrapperStyle>
                 <HeroImageWrapper>
-                    {is_mobile ? (
-                        <Shape angle={101} width="55%" color="#0364B9">
-                            <ImageWrapper>
-                                <ImageStyle>
-                                    <StaticImage
-                                        src="../../images/common/dmt5/banner_image_row.png"
-                                        loading="eager"
-                                    />
-                                </ImageStyle>
-                            </ImageWrapper>
-                        </Shape>
-                    ) : (
-                        <Shape angle={194} width="60%" color="#0364B9">
-                            <ImageWrapper>
-                                <ImageStyle>
-                                    <StaticImage
-                                        src="../../images/common/dmt5/banner_image_row.png"
-                                        loading="eager"
-                                    />
-                                </ImageStyle>
-                            </ImageWrapper>
-                        </Shape>
-                    )}
+                    <Shape
+                        angle={is_mobile ? 101 : 194}
+                        width={is_mobile ? '55%' : '60%'}
+                        color="#0364B9"
+                    >
+                        <ImageWrapper>
+                            <ImageStyle>
+                                <StaticImage
+                                    src="../../images/common/dmt5/banner_image_row.png"
+                                    loading="eager"
+                                />
+                            </ImageStyle>
+                        </ImageWrapper>
+                    </Shape>
                 </HeroImageWrapper>
             </StyledContainer>
         </BackgroundStyle>

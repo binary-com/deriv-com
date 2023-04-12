@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import DerivXRow from 'images/common/deriv-x/banner_image_derivx.png'
+import { StaticImage } from 'gatsby-plugin-image'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import DerivXLogo from 'images/svg/deriv-x/deriv-x-banner-logo.svg'
 import device from 'themes/device'
@@ -14,11 +14,10 @@ import { Container } from 'components/containers'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
-const ImageStyle = styled.img`
+const ImageStyle = styled.div`
     z-index: 1;
     max-width: 843px;
     width: inherit;
-    src: ${({ src }) => src};
 
     @media ${device.tablet} {
         width: 100%;
@@ -149,7 +148,13 @@ const DCommonBanner = () => {
                 <HeroImageWrapper>
                     <Shape angle={is_mobile ? 101 : 163} width="60%">
                         <ImageWrapper>
-                            <ImageStyle src={DerivXRow} />
+                            <ImageStyle>
+                                <StaticImage
+                                    src="../../images/common/deriv-x/banner_image_derivx.png"
+                                    loading="eager"
+                                    alt="Banner"
+                                />
+                            </ImageStyle>
                         </ImageWrapper>
                     </Shape>
                 </HeroImageWrapper>

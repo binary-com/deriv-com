@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { StaticImage } from 'gatsby-plugin-image'
 import DerivBotLogo from 'images/svg/dbot/deriv-bot-banner-logo.svg'
-import DBotBanner from 'images/common/dbot/dbot-banner.png'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
@@ -30,11 +30,10 @@ type DHeroProps = {
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
-const ImageStyle = styled.img`
+const ImageStyle = styled.div`
     z-index: 1;
     max-width: 843px;
     width: inherit;
-    src: ${({ src }) => src};
 
     @media ${device.tablet} {
         width: 80%;
@@ -203,7 +202,13 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                 <HeroImageWrapper>
                     <Shape angle={is_mobile ? 101 : 163} width="50%">
                         <ImageWrapper>
-                            <ImageStyle src={DBotBanner} />
+                            <ImageStyle>
+                                <StaticImage
+                                    src="../../images/common/dbot/dbot-banner.png"
+                                    loading="eager"
+                                    alt="banner"
+                                />
+                            </ImageStyle>
                         </ImageWrapper>
                     </Shape>
                 </HeroImageWrapper>

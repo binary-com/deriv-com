@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { StaticImage } from 'gatsby-plugin-image'
 import Shape from './_hero-shape'
 import Button from './_button'
 import DerivTraderRow from 'images/common/dtrader/hero-image.png'
@@ -32,11 +33,10 @@ type DHeroProps = {
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
-const ImageStyle = styled.img`
+const ImageStyle = styled.div`
     z-index: 1;
     max-width: 843px;
     width: inherit;
-    src: ${({ src }) => src};
 
     @media ${device.tablet} {
         width: 100%;
@@ -196,7 +196,21 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                 <HeroImageWrapper>
                     <Shape angle={is_mobile ? 101 : 193} width="60%">
                         <ImageWrapper>
-                            <ImageStyle src={is_eu ? DerivTraderEu : DerivTraderRow} />
+                            <ImageStyle>
+                                {is_eu ? (
+                                    <StaticImage
+                                        src="../../images/common/dtrader/hero-image-eu.png"
+                                        loading="eager"
+                                        alt="banner"
+                                    />
+                                ) : (
+                                    <StaticImage
+                                        src="../../images/common/dtrader/hero-image.png"
+                                        loading="eager"
+                                        alt="banner"
+                                    />
+                                )}
+                            </ImageStyle>
                         </ImageWrapper>
                     </Shape>
                 </HeroImageWrapper>

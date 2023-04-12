@@ -131,21 +131,45 @@ const Signup = (props: SignupProps) => {
         }
 
         const verify_email_req = getVerifyEmailRequest(formatted_email)
-        apiManager
-            .augmentedSend('verify_email', { ...verify_email_req, type: 'account_opening' })
-            .then((response) => {
-                setSubmitting(false)
-                if (response.error) {
-                    setSubmitStatus('error')
-                    setSubmitErrorMsg(response.error.message)
-                    handleValidation(formatted_email)
-                } else {
-                    setSubmitStatus('success')
-                    if (props.onSubmit) {
-                        props.onSubmit(submit_status || 'success', email)
+
+        if (props.appearance === 'cTrader') {
+            apiManager
+                .augmentedSend('trading_platform_new_account', {
+                    trading_platform_new_account: 1,
+                    account_type: 'real',
+                    market_type: 'all',
+                    platform: 'ctrader',
+                })
+                .then((response) => {
+                    setSubmitting(false)
+                    if (response.error) {
+                        setSubmitStatus('error')
+                        setSubmitErrorMsg(response.error.message)
+                        handleValidation(formatted_email)
+                    } else {
+                        setSubmitStatus('success')
+                        if (props.onSubmit) {
+                            props.onSubmit(submit_status || 'success', email)
+                        }
                     }
-                }
-            })
+                })
+        } else {
+            apiManager
+                .augmentedSend('verify_email', { ...verify_email_req, type: 'account_opening' })
+                .then((response) => {
+                    setSubmitting(false)
+                    if (response.error) {
+                        setSubmitStatus('error')
+                        setSubmitErrorMsg(response.error.message)
+                        handleValidation(formatted_email)
+                    } else {
+                        setSubmitStatus('success')
+                        if (props.onSubmit) {
+                            props.onSubmit(submit_status || 'success', email)
+                        }
+                    }
+                })
+        }
 
         if (props.appearance === 'public') {
             const success_default_link = `signup-success?email=${email}`

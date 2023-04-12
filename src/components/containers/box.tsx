@@ -22,7 +22,7 @@ export const generateResponsiveStyles = (stylesGenerator) => (props) => {
         ${stylesGenerator(props[mq])}
         `
         return [...rules, styles]
-    }, [])
+    }, mediaqueries['desktop']`${stylesGenerator(props)}`)
 }
 
 export type BaseStyleType = {

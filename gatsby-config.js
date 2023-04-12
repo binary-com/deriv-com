@@ -326,7 +326,7 @@ module.exports = {
             resolve: 'gatsby-plugin-datadog',
             options: {
                 site: 'datadoghq.com',
-                sessionSampleRate: parseInt(process.env.DATADOG_SESSION_SAMPLE_RATE) || 5,
+                sessionSampleRate: parseInt(process.env.DATADOG_SESSION_SAMPLE_RATE) || 10,
                 sessionReplaySampleRate: parseInt(process.env.DATADOG_SESSION_REPLAY_SAMPLE_RATE) || 1,
                 enabled: true,
                 env: 'production',

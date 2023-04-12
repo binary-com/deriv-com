@@ -355,7 +355,7 @@ module.exports = {
                     "script-src": "'self' https://deriv.com https://www.google-analytics.com https://www.googletagmanager.com",
                     "style-src": "'self' 'unsafe-inline'",
                     "script-src-elem": "'self' https://deriv.com https://www.google-analytics.com https://www.googletagmanager.com",
-                    "connect-src": "'self' https://deriv.com https://cp.pushwoosh.com"
+                    "connect-src": "'self' https://deriv.com https://cp.pushwoosh.com https://rum.browser-intake-datadoghq.com/api/v2/rum?ddsource=browser"
                 }
             }
         }

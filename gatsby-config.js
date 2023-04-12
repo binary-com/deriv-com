@@ -326,10 +326,10 @@ module.exports = {
             resolve: 'gatsby-plugin-datadog',
             options: {
                 site: 'datadoghq.com',
-                sessionSampleRate: parseInt(process.env.DATADOG_SESSION_SAMPLE_RATE) || 10,
-                sessionReplaySampleRate: parseInt(process.env.DATADOG_SESSION_REPLAY_SAMPLE_RATE) || 1,
+                sessionSampleRate: 100,
+                sessionReplaySampleRate: 1,
                 enabled: true,
-                env: 'production',
+                env: 'staging',
                 service:'deriv.com',
                 trackUserInteractions: true,
                 trackFrustrations: true,
@@ -341,6 +341,11 @@ module.exports = {
                     applicationId: process.env.DATADOG_APPLICATION_ID,
                     clientToken: process.env.DATADOG_CLIENT_TOKEN,
                 },
+                heatmap: {
+                    name: 'My Heatmap',
+                    query: 'pageviews.count()',
+                    timeWindow: '10m'
+                }
             }
         }
     ],

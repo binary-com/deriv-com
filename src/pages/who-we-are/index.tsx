@@ -38,7 +38,7 @@ const EndSeparator = styled.div`
 
 const AboutUs = () => {
     return (
-        <Layout type="transparent" margin_top="0">
+        <Layout type="static" margin_top="0">
             <SEO
                 title={localize('Who we are | An Online Trading Platform | Deriv.com')}
                 description={localize(

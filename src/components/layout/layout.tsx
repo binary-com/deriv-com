@@ -1,17 +1,7 @@
 import React, { ReactNode, Ref } from 'react'
-import Loadable from '@loadable/component'
 import styled, { StyleSheetManager } from 'styled-components'
 import { LocationProvider } from './location-context'
-import NavStatic from './nav/nav-static'
-import Nav from './nav/nav'
-import NavTransparent from './nav/nav-transparent'
-import NavCareers from './nav/nav-careers'
-import NavPartners from './nav/nav-partner'
 import NavMarkets from './nav/nav-markets'
-import NavInterim from './nav/nav-interim'
-import NavSecurity from './nav/nav-security'
-import NavJumpIndice from './nav/nav-jump-indices'
-import Footer from './footer'
 import LayoutOverlay from './layout-overlay'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
@@ -26,9 +16,10 @@ import apiManager from 'common/websocket'
 import RebrandingLayout from 'features/components/templates/layout'
 import RebrandingFooter from 'features/components/templates/footer'
 import MainNav from 'features/components/templates/navigation/main-nav'
-
-const LoadableFooter = Loadable(() => import('./footer'))
-const BeSquareFooter = Loadable(() => import('./besquare/footer'))
+import StaticNav from 'features/components/templates/navigation/static-nav'
+import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
+import BugBountyNav from 'features/components/templates/navigation/bug-bounty-nav'
+import CareerNav from 'features/components/templates/navigation/career-nav'
 
 type LayoutProps = {
     children: ReactNode
@@ -36,8 +27,8 @@ type LayoutProps = {
     is_ppc?: boolean
     is_ppc_redirect?: boolean
     margin_top?: number | string
-    no_login_signup?: boolean
     type?: string
+    no_login_signup?: boolean
 }
 
 type MainType = {
@@ -89,43 +80,40 @@ const Layout = ({
             Navigation = <></>
             break
         case 'static':
-            Navigation = <NavStatic />
+            Navigation = <StaticNav /> // logo for static should be in center
             break
         case 'interim':
-            Navigation = <NavInterim interim_type={interim_type} />
+            Navigation = <StaticNav interim_type={interim_type} />
             break
         case 'partners':
-            Navigation = <NavPartners hide_login_signup={no_login_signup} />
+            Navigation = <PaymentAgentAffiliateNav />
             break
         case 'markets':
-            Navigation = <NavMarkets />
+            Navigation = <NavMarkets /> //to be implemented
             break
         case 'security':
-            Navigation = <NavSecurity />
+            Navigation = <BugBountyNav />
             break
         case 'ebook':
-            Navigation = <Nav hide_signup_login />
+            Navigation = <StaticNav />
             break
         case 'landing-page':
-            Navigation = <NavInterim landing_type />
+            Navigation = <StaticNav landing_type />
             break
         case 'jump-indices':
-            Navigation = <NavJumpIndice />
+            Navigation = <StaticNav />
             break
         case 'besquare':
-            Navigation = <NavCareers is_besquare />
+            Navigation = <CareerNav is_besquare /> // besquare in career page has error
             break
         case 'careers':
-            Navigation = <NavCareers />
-            break
-        case 'transparent':
-            Navigation = <NavTransparent is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
+            Navigation = <CareerNav />
             break
         case 'payment-methods':
-            Navigation = <Nav />
+            Navigation = <MainNav />
             break
         default:
-            Navigation = <Nav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
+            Navigation = <MainNav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
             break
     }
     //Handle page layout when redirection from mobile app.
@@ -138,8 +126,7 @@ const Layout = ({
     }
     return (
         <RebrandingLayout is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
-            {/* {Navigation} */}
-            <MainNav />
+            {Navigation}
             <LocationProvider
                 has_mounted={is_mounted}
                 toggleModal={toggleModal}

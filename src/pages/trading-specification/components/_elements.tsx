@@ -67,8 +67,6 @@ export const TableRow = styled.tr<TableRowProps>`
     }
 
     @media ${device.tabletL} {
-        padding: 10px;
-        height: 64px;
         gap: 0;
         justify-content: start;
 
@@ -282,9 +280,8 @@ export type CardProps = {
 }
 export const Card = styled.div`
     position: fixed;
-    top: 53%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -390,7 +387,7 @@ export const BackButton = styled(Button)`
     justify-content: center;
     align-items: center;
     padding: 10px 16px;
-    width: 65px;
+    width: auto;
 `
 export const StyledHeading = styled(Flex)``
 

@@ -92,9 +92,9 @@ const DisclaimerText = styled(Header)`
     font-weight: 400;
     text-align: center;
     font-size: 16px;
-    padding: 2rem 36rem;
+    padding: 3.5rem 36rem 0;
     @media ${device.tabletL} {
-        padding: 0 16px;
+        padding: 5rem 16px 0;
     }
 `
 const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {

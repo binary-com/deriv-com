@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { Signup } from '../home/_lazy-load'
 import { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
@@ -8,6 +9,9 @@ import MarketTab from 'components/elements/market-tab'
 import { Localize, localize, WithIntl } from 'components/localization'
 import { TString } from 'types/generics'
 
+const StyledHeader = styled(Header)`
+    padding: 0 10px;
+`
 const main_title: TString = '_t_Trading specifications for CFDs on Deriv_t_'
 
 const TradingSpecification = () => {
@@ -20,9 +24,9 @@ const TradingSpecification = () => {
                 )}
             />
             <SectionContainer>
-                <Header type="heading-2" as="p" align="center">
+                <StyledHeader type="heading-2" as="p" align="center">
                     <Localize translate_text={main_title} />
-                </Header>
+                </StyledHeader>
                 <MarketTab />
             </SectionContainer>
             <Signup appearance={Appearances.public} />

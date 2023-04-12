@@ -138,7 +138,7 @@ const InputWrapper = styled.div`
     font-weight: normal;
     margin-right: 1rem;
     border-radius: 16px;
-    @media ${device.mobileL} {
+    @media ${device.tabletL} {
         width: 95%;
         border-radius: 4px;
         padding: 10px 0;
@@ -162,10 +162,10 @@ const EmailButton = styled(Button)<{ isChecked?: boolean }>`
     padding: 10px;
     border-radius: 16px;
     font-weight: normal;
+
     @media ${device.tabletL} {
         padding: 10px 16px;
         white-space: nowrap;
-        border-radius: 4px;
         margin-left: 0;
         height: 40px;
         width: 96%;
@@ -332,7 +332,6 @@ const MobilePlatform = styled.div<{ is_rtl: boolean }>`
     @media screen and (max-width: 991px) {
         img {
             width: 85%;
-            height: 85%;
             top: 28px;
             ${({ is_rtl }) =>
                 is_rtl
@@ -347,10 +346,10 @@ const MobilePlatform = styled.div<{ is_rtl: boolean }>`
 `
 const social_button_content: SocialButtonContent[] = [
     {
-        provider: 'apple',
-        id: 'dm-signup-apple',
-        img: Apple,
-        text: 'Apple',
+        provider: 'google',
+        id: 'dm-signup-google',
+        img: Google,
+        text: 'Google',
     },
     {
         provider: 'facebook',
@@ -359,10 +358,10 @@ const social_button_content: SocialButtonContent[] = [
         text: 'Facebook',
     },
     {
-        provider: 'google',
-        id: 'dm-signup-google',
-        img: Google,
-        text: 'Google',
+        provider: 'apple',
+        id: 'dm-signup-apple',
+        img: Apple,
+        text: 'Apple',
     },
 ]
 const SignupPublic = ({
@@ -409,26 +408,20 @@ const SignupPublic = ({
                                             id="dm-email-input"
                                             name="email"
                                             type="text"
+                                            border="solid 1px var(--color-grey-7)"
+                                            label_color="grey-5"
+                                            label_hover_color="grey-5"
+                                            background="white"
                                             error={email_error_msg}
                                             value={email}
-                                            background="white"
-                                            tablet_background="green-1"
-                                            inputColor="black-3"
-                                            input_background="grey-8"
-                                            label_focus_color="grey-5"
-                                            label_color="grey-5"
-                                            labelSize="16px"
-                                            labelTop="1.2rem"
-                                            label={localize('Email address')}
-                                            placeholder={'example@mail.com'}
+                                            label={localize('Email')}
+                                            placeholder={'Email'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
                                             onBlur={handleValidation}
                                             autoFocus={autofocus}
                                             autoComplete="off"
                                             required
-                                            height="40px"
-                                            focus_border="var(--color-grey-7)"
                                         />
                                     </InputWrapper>
                                     <EmailButton
@@ -462,7 +455,7 @@ const SignupPublic = ({
                                             type="button"
                                             social
                                         >
-                                            <img src={img} alt={provider} width="20" height="20" />
+                                            <img src={img} alt={provider} width="24" height="24" />
                                             {text}
                                         </SocialButton>
                                     ))}
@@ -555,7 +548,7 @@ const SignupPublic = ({
                                             label_color="grey-5"
                                             labelSize="4px"
                                             labelTop="1.2rem"
-                                            label={localize('Email address')}
+                                            label={localize('Email')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
@@ -604,8 +597,8 @@ const SignupPublic = ({
                                                 <img
                                                     src={img}
                                                     alt={provider}
-                                                    width="20"
-                                                    height="20"
+                                                    width="24"
+                                                    height="24"
                                                 />
                                             </SocialButton>
                                         ))}

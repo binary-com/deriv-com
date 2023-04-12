@@ -1,5 +1,6 @@
 import React from 'react'
 import MarketSlider from './market-slider'
+import BottomText from './bottom-text'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Container from 'features/components/atoms/container'
@@ -11,6 +12,7 @@ const HomeMarkets = () => {
                 <Localize translate_text="_t_Markets_t_" />
             </Typography.Heading>
             <MarketSlider />
+            <BottomText />
         </Container.Fixed>
     )
 }

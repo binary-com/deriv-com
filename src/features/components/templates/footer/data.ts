@@ -200,7 +200,7 @@ const legalLinks: SmartFooterLink[] = [
         id: 1,
         data: {
             text: '_t_Terms & conditions_t_',
-            url: { type: 'company', url_name: 'tnd_clients' },
+            url: { type: 'internal', to: '/terms-and-conditions/#clients' },
         },
     },
     {

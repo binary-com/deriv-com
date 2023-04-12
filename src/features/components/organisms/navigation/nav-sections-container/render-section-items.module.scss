@@ -12,9 +12,9 @@
 
         @include breakpoints(tablet-large) {
             border-block-end: none;
-            border-inline-end: 1px solid $color-grey-8;
-            &:last-child {
-                border-inline-end: none;
+            border-inline-end: none;
+            &:first-child {
+                border-inline-end: 1px solid $color-grey-8;
             }
         }
     }

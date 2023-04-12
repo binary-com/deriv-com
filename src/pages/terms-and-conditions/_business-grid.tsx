@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyledGrid, StyledContainer, IconWrapper, GridCol, Cta } from './_terms-conditions-style'
+import { Cta, GridCol, IconWrapper, StyledContainer, StyledGrid } from './_terms-conditions-style'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { getLanguage } from 'common/utility'
@@ -60,7 +60,7 @@ const PartnersGuidePdf = () => {
 }
 
 const BusinessGrid = () => {
-    const { is_row } = useRegion()
+    const { is_row, is_eu } = useRegion()
     return (
         <StyledContainer>
             <StyledGrid
@@ -77,7 +77,11 @@ const BusinessGrid = () => {
                     content={localize(
                         'Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents',
                     )}
-                    url="/tnc/business-partners-general-terms.pdf"
+                    url={
+                        is_eu
+                            ? '/tnc/eu/business-partners-general-terms.pdf'
+                            : '/tnc/business-partners-general-terms.pdf'
+                    }
                     link_title={localize('General terms of use')}
                 />
                 <Col

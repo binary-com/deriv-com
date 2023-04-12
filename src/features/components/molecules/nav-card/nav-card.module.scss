@@ -2,16 +2,7 @@
 @import 'features/styles/theme/variables';
 
 .nav_card {
-    &_link {
-        &:hover {
-            text-decoration: none;
-        }
-    }
     &_container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 1.8rem 0rem;
         min-inline-size: 26rem;
         cursor: pointer;
         white-space: pre-line;
@@ -35,42 +26,17 @@
         }
     }
 
-    &_icon {
-        & > svg,
-        img {
-            inline-size: 32px;
-            block-size: 32px;
-            margin-inline-end: 1.6rem;
-
-            @include breakpoints(tablet-large) {
-                inline-size: 24px;
-                block-size: 24px;
-            }
-        }
-    }
-
     &_content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 0.8rem;
-        min-inline-size: 15rem;
-        white-space: pre-line;
-        flex: 1;
-
-        &_title {
-            text-align: start;
-            color: $color-black-9;
-        }
-
-        .nav_card_type {
-            justify-content: flex-start;
-            min-inline-size: 25rem;
-        }
+        min-inline-size: 10rem;
+        min-block-size: 5rem;
 
         &_description {
-            text-align: start;
+            // TODO: we have to add this color to typography
             color: $color-grey-5;
         }
+    }
+    &_type {
+        min-block-size: 10rem;
+        min-inline-size: 20rem;
     }
 }

@@ -2,7 +2,7 @@
 @import './variables';
 
 .typography {
-    line-height: calc(2px + 2ex + 2px);
+    line-height: calc(2px + 2.5ex + 2px);
 }
 
 .typography-align-center {
@@ -57,7 +57,9 @@
 .typography-weight-bolder {
     font-weight: 700;
 }
-
+.heading {
+    font-family: Ubuntu, sans-serif;
+}
 .heading-xxxl {
     @include font-size($font-size-1300);
 }

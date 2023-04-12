@@ -17,6 +17,7 @@ const HeroFeaturesCarousel = () => {
                 autoStart: true,
                 loop: true,
                 wrapperClassName: dclsx(
+                    'heading',
                     'heading-large',
                     'typography-weight-bold',
                     'typography-color-primary',

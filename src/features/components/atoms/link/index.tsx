@@ -13,6 +13,12 @@ interface LinkProps extends TypographyLinkProps {
 const Link = (props: LinkProps) => {
     const { url, target, rel, ...rest } = props
 
+    const is_active_page = useMemo(() => {
+        const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
+
+        return url.type === 'internal' && pathname === url.to
+    }, [url])
+
     const { getLinkUrl } = useLinkUrl()
     const { is_eu } = useRegion()
 
@@ -62,6 +68,7 @@ const Link = (props: LinkProps) => {
                 onClick={show_modal ? handleClick : null}
                 target={linkTarget}
                 rel={linkRel}
+                textcolor={is_active_page ? 'brand' : 'primary'}
                 {...rest}
             />
 

@@ -83,7 +83,7 @@ const Layout = ({
             Navigation = <StaticNav /> // logo for static should be in center
             break
         case 'interim':
-            Navigation = <StaticNav interim_type={interim_type} />
+            Navigation = <StaticNav />
             break
         case 'partners':
             Navigation = <PaymentAgentAffiliateNav />
@@ -98,13 +98,13 @@ const Layout = ({
             Navigation = <StaticNav />
             break
         case 'landing-page':
-            Navigation = <StaticNav landing_type />
+            Navigation = <StaticNav />
             break
         case 'jump-indices':
             Navigation = <StaticNav />
             break
         case 'besquare':
-            Navigation = <CareerNav is_besquare /> // besquare in career page has error
+            Navigation = <CareerNav />
             break
         case 'careers':
             Navigation = <CareerNav />
@@ -113,7 +113,7 @@ const Layout = ({
             Navigation = <MainNav />
             break
         default:
-            Navigation = <MainNav is_ppc_redirect={is_ppc_redirect} is_ppc={is_ppc} />
+            Navigation = <MainNav />
             break
     }
     //Handle page layout when redirection from mobile app.

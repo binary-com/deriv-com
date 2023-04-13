@@ -1,17 +1,11 @@
-import { TString } from 'types/generics'
-import { LinkUrlType } from 'features/types'
-
-type TMarketNavItem = {
-    title: TString
-    link: LinkUrlType
-}
+import { TMarketNavItem } from './types'
 
 export const marketItems: TMarketNavItem[] = [
     {
         title: '_t_Forex_t_',
         link: {
             type: 'internal',
-            to: '/markets/forex',
+            to: '/markets/forex/',
         },
     },
     {

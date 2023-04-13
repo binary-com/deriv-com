@@ -42,7 +42,7 @@ const languages: TLanguageObject[] = supported_languages.map((langItem) => {
 const useLangSwitcher = () => {
     const { i18n } = useTranslation()
 
-    const { language } = i18n
+    const language = i18n.language ?? 'en'
 
     const currentLang: i18nLangConfigObject = useMemo(() => {
         return language_config[language]

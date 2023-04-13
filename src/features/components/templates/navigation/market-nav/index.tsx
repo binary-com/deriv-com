@@ -2,6 +2,7 @@ import React from 'react'
 import NavTemplate from '../template'
 import { mainItems } from '../main-nav/content'
 import MainNavButtons from '../main-nav/main-nav-buttons'
+import MarketBottomNav from '../template/market-bottom-nav'
 import Image from 'features/components/atoms/image'
 import LogoImage from 'images/common/rebranding_logo.png'
 import useBreakpoints from 'components/hooks/use-breakpoints'
@@ -12,7 +13,7 @@ const MarketNav = () => {
 
     return (
         <NavTemplate
-            has_bottom_nav
+            render_bottom_nav={() => <MarketBottomNav />}
             renderLogo={() => (
                 <Link url={{ type: 'internal', to: '/' }}>
                     <Image

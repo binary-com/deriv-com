@@ -1,19 +1,16 @@
 import React from 'react'
 import { marketItems } from './data'
+import BottomNavItem from './bottom-nav.item'
 import Flex from 'features/components/atoms/flex-box'
-import { Localize } from 'components/localization'
-import Link from 'features/components/atoms/link'
 
-const BottomNav = () => {
+const MarketBottomNav = () => {
     return (
         <Flex.Box bgcolor="secondary" padding_block="8x" gap="10x" justify="center" align="center">
             {marketItems.map((item) => (
-                <Link key={item.title} size="medium" url={item.link}>
-                    <Localize translate_text={item.title} />
-                </Link>
+                <BottomNavItem key={item.title} item={item} />
             ))}
         </Flex.Box>
     )
 }
 
-export default BottomNav
+export default MarketBottomNav

@@ -10,6 +10,7 @@ const StaticNav = () => {
     return (
         <NavTemplate
             has_centered_items
+            has_centered_logo
             renderLogo={() => (
                 <Link url={{ type: 'internal', to: '/' }}>
                     <Image

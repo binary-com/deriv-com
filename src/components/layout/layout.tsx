@@ -77,10 +77,10 @@ const Layout = ({
     let Navigation
     switch (type) {
         case 'noNav':
-            Navigation = <></>
+            Navigation = null
             break
         case 'static':
-            Navigation = <StaticNav /> // logo for static should be in center
+            Navigation = <StaticNav />
             break
         case 'interim':
             Navigation = <StaticNav />

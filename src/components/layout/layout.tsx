@@ -20,7 +20,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import usePopup from 'components/hooks/use-popup'
 import { getLanguage, isBrowser } from 'common/utility'
 import apiManager from 'common/websocket'
-import BrowserUpdateBanner from 'components/custom/browser_update_alert_banner'
+import BrowserUpdateBanner from 'components/custom/browser_update_banner'
 
 const LoadableFooter = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))

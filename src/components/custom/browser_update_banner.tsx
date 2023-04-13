@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { browsers_minimum_required_version, cookie_key } from 'common/constants'
+import { CookieStorage } from 'common/storage'
 import { Flex } from 'components/containers'
-import { LocalizedLinkText, Text } from 'components/elements'
+import { Header } from 'components/elements'
 import { Button } from 'components/form'
+import { useIsRtl } from 'components/hooks/use-isrtl'
+import { useUserBrowser } from 'components/hooks/use-user-browser'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
-import { useUserBrowser } from 'components/hooks/use-user-browser'
-import { cookie_key, browsers_minimum_required_version } from 'common/constants'
-import { CookieStorage } from 'common/storage'
-import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const Wrapper = styled.div<{ visible: boolean }>`
     pointer-events: all;
@@ -66,9 +66,10 @@ const StyledButton = styled(Button)`
     }
 `
 
-const StyledText = styled(Text)`
+const StyledText = styled(Header)`
     font-size: 14px;
     margin-bottom: 16px;
+    font-weight: normal;
 
     @media ${device.tablet} {
         font-size: 12px;
@@ -80,16 +81,6 @@ const StyledText = styled(Text)`
     }
 `
 
-const LinkText = styled(LocalizedLinkText)`
-    font-size: 14px;
-
-    @media ${device.tablet} {
-        font-size: 12px;
-    }
-    @media ${device.mobileL} {
-        font-size: 10px;
-    }
-`
 const OverlayContainer = styled.div<{ is_rtl: boolean }>`
     pointer-events: none;
     position: fixed;

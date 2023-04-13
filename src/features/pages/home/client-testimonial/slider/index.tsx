@@ -10,7 +10,6 @@ import Typography from 'features/components/atoms/typography'
 import { get_lang_direction, Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
-import Quote from 'images/svg/testimonials/quote.svg'
 import './styles.scss'
 
 const TestimonialSlider = () => {
@@ -55,9 +54,8 @@ const TestimonialSlider = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <Image src={Quote} className={'quote_image'} />
-            <Image src={LeftArrowIcon} has_rtl className="slider-button slider-button-previous" />
-            <Image src={RightArrowIcon} has_rtl className="slider-button slider-button-next" />
+            {/* <Image src={LeftArrowIcon} has_rtl className="slider-button slider-button-previous" />
+            <Image src={RightArrowIcon} has_rtl className="slider-button slider-button-next" /> */}
         </Flex.Box>
     )
 }

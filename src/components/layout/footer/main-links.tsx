@@ -129,6 +129,11 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                                     </Link>
                                 </LinkWrapper>
                                 <LinkWrapper>
+                                    <Link to="/derivez/">
+                                        {<Localize translate_text="Deriv EZ" />}
+                                    </Link>
+                                </LinkWrapper>
+                                <LinkWrapper>
                                     <Link to="/deriv-go/">
                                         {<Localize translate_text="Deriv GO" />}
                                     </Link>
@@ -258,12 +263,12 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                         <LinkWrapper>
                             <Link
                                 to=""
-                                type="academy"
+                                type="blog"
                                 external
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {<Localize translate_text="Academy" />}
+                                {<Localize translate_text="Blog" />}
                             </Link>
                         </LinkWrapper>
                     </LinksCol>

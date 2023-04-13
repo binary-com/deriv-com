@@ -7,14 +7,29 @@ const dtrader: TQuestionsData = {
         {
             question: '_t_What is DTrader?_t_',
             category: 'DTrader',
+            hide_for_non_eu: true,
             sub_category: '_t_Platforms_t_',
             label: 'what-is-dtrader',
             answer: [
                 {
                     translation_text:
-                        '_t_<0>DTrader</0> is one of our trading platforms. It offers digital options and multipliers on a variety of assets in financial and synthetic markets._t_',
+                        '_t_<0>DTrader</0> is an advanced trading platform where you can trade digital and lookback options and multipliers on more than 50 assets._t_',
                     eu_translation_text:
                         '_t_<0>DTrader</0> is one of our trading platforms. It offers multipliers on a variety of assets in financial and synthetic markets._t_',
+                    translation_components: [{ key: 0, type: 'link', to: '/dtrader/' }],
+                },
+            ],
+        },
+        {
+            question: '_t_What is DTrader?_t_',
+            category: 'DTrader',
+            sub_category: '_t_Platforms_t_',
+            hide_for_eu: true,
+            label: 'what-is-dtrader',
+            answer: [
+                {
+                    translation_text:
+                        '_t_<0>DTrader</0> is an advanced trading platform where you can trade digital and lookback options and multipliers on more than 50 assets._t_',
                     translation_components: [{ key: 0, type: 'link', to: '/dtrader/' }],
                 },
             ],
@@ -29,7 +44,7 @@ const dtrader: TQuestionsData = {
                     eu_translation_text:
                         '_t_You can trade forex, cryptocurrencies, and derived on DTrader. Some markets may not be available in certain countries._t_',
                     translation_text:
-                        '_t_You can trade forex, stocks, stock indices, commodities, cryptocurrencies, and derived indices on DTrader. Some markets may not be available in certain countries._t_',
+                        '_t_You can trade forex, stock indices, commodities, cryptocurrencies, and derived on DTrader. Some markets may not be available in certain countries._t_',
                 },
             ],
         },

@@ -19,12 +19,12 @@ const ClientTestimonial = () => {
                     direction: 'row',
                 }}
             >
-                <Flex.Item basis={'6-12'}>
-                    <Typography.Heading size="medium" align={'right'}>
-                        <Localize translate_text="_t_Rated excellent on_t_" />
+                <Flex.Item basis={'4-12'}>
+                    <Typography.Heading as="h2" size="medium" mb="20x">
+                        <Localize translate_text="_t_What our clients say about Deriv_t_" />
                     </Typography.Heading>
+                    <TrustpilotContainer />
                 </Flex.Item>
-                <TrustpilotContainer />
             </Flex.Box>
         </Container.Fixed>
     )

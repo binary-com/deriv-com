@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
-import Flex from 'features/components/atoms/flex-box'
+import { trustpilot_container } from './styles.module.scss'
+import Box from 'features/components/atoms/box'
 
 const TrustpilotContainer = () => {
     const ref = useRef()
@@ -9,7 +10,7 @@ const TrustpilotContainer = () => {
     }, [])
 
     return (
-        <Flex.Box direction="col" justify="center" align="start" gap={'20x'} basis={'6-12'}>
+        <Box className={trustpilot_container}>
             <div
                 ref={ref}
                 className="trustpilot-widget"
@@ -29,7 +30,7 @@ const TrustpilotContainer = () => {
                     Trustpilot
                 </a>
             </div>
-        </Flex.Box>
+        </Box>
     )
 }
 

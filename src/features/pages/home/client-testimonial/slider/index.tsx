@@ -28,7 +28,6 @@ const TestimonialSlider = () => {
                 centeredSlides
                 modules={[Navigation]}
                 navigation={{
-                    enabled: true,
                     prevEl: '.slider-button-previous',
                     nextEl: '.slider-button-next',
                 }}
@@ -41,21 +40,24 @@ const TestimonialSlider = () => {
                             direction="col"
                             justify="center"
                             align="start"
-                            gap="20x"
-                            padding_inline="20x"
                             className="testimonial_slide"
-                            padding_block={'20x'}
                         >
-                            <Typography.Paragraph size="large">
+                            <Typography.Paragraph size="xlarge" textcolor="tertiary" mb="20x">
                                 <Localize translate_text={data.quote} />
                             </Typography.Paragraph>
-                            <Typography.Paragraph weight="bold">{data.name}</Typography.Paragraph>
+                            <Typography.Paragraph weight="bold" textcolor="tertiary">
+                                {data.name}
+                            </Typography.Paragraph>
                         </Flex.Box>
                     </SwiperSlide>
                 ))}
             </Swiper>
-            {/* <Image src={LeftArrowIcon} has_rtl className="slider-button slider-button-previous" />
-            <Image src={RightArrowIcon} has_rtl className="slider-button slider-button-next" /> */}
+            <button className="slider-button slider-button-previous">
+                <Image src={LeftArrowIcon} has_rtl />
+            </button>
+            <button className="slider-button slider-button-next">
+                <Image src={RightArrowIcon} has_rtl />
+            </button>
         </Flex.Box>
     )
 }

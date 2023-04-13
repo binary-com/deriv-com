@@ -13,9 +13,13 @@
 
     inline-size: 36px;
     block-size: 36px;
+    min-block-size: 36px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 
     background-color: $bg-color-primary;
-    border-radius: 10rem;
+    border-radius: 50%;
     padding: 1rem;
 
     cursor: pointer;
@@ -50,8 +54,3 @@
     cursor: unset;
 }
 
-.trustpilot-widget {
-    transform: scale(0.8);
-    position: relative;
-    inset-inline-start: -40px;
-}

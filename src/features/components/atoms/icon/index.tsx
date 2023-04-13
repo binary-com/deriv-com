@@ -1,7 +1,6 @@
 import React, { ImgHTMLAttributes } from 'react'
 import Box from '../box'
 import { ClassProps } from 'features/types'
-import './icon.scss'
 import dclsx from 'features/utils/dclsx'
 
 interface IconProps extends ImgHTMLAttributes<'img'>, ClassProps {

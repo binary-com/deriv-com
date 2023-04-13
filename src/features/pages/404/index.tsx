@@ -4,6 +4,7 @@ import { SEO } from 'components/containers'
 import Layout from 'features/components/templates/layout'
 import MainNav from 'features/components/templates/navigation/main-nav'
 import { localize } from 'components/localization'
+import Footer from 'features/components/templates/footer'
 
 const PageNotFound = () => {
     return (
@@ -14,6 +15,7 @@ const PageNotFound = () => {
             />
             <MainNav />
             <NotFoundContainer />
+            <Footer />
         </Layout>
     )
 }

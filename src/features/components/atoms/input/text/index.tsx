@@ -3,7 +3,6 @@ import Typography from '../../typography'
 import { localize, Localize } from 'components/localization'
 import { TString } from 'types/generics'
 import dclsx from 'features/utils/dclsx'
-import './text-input.styles.scss'
 
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
     error?: string

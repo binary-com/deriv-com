@@ -65,7 +65,7 @@ const NavigationCard = ({
                         <Typography.Paragraph
                             size={is_mobile_or_tablet ? 'large' : 'medium'}
                             align="left"
-                            className={styles.nav_card_content_description}
+                            textcolor="light"
                         >
                             <Localize translate_text={content} />
                         </Typography.Paragraph>

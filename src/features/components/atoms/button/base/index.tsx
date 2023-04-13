@@ -1,7 +1,6 @@
 import React, { ButtonHTMLAttributes } from 'react'
 import Box from '../../box'
 import { ClassProps, TTextSize, TTypographyColor, TTypographyWeight } from 'features/types'
-import './base.button.scss'
 import dclsx from 'features/utils/dclsx'
 import {
     generateTextColor,
@@ -33,6 +32,7 @@ const BaseButton = ({
         <Box
             as="button"
             className={dclsx(
+                'button',
                 className,
                 {
                     loading: is_loading,

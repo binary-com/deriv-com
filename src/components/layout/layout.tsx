@@ -1,4 +1,5 @@
 import React, { ReactNode, Ref } from 'react'
+// import 'features/styles/app.scss'
 import styled, { StyleSheetManager } from 'styled-components'
 import { LocationProvider } from './location-context'
 import LayoutOverlay from './layout-overlay'
@@ -12,14 +13,13 @@ import GlobalStyle from 'themes/global-style'
 import { plugin } from 'themes/plugin'
 import { getLanguage, isBrowser } from 'common/utility'
 import apiManager from 'common/websocket'
-import RebrandingLayout from 'features/components/templates/layout'
-import RebrandingFooter from 'features/components/templates/footer'
 import MainNav from 'features/components/templates/navigation/main-nav'
 import StaticNav from 'features/components/templates/navigation/static-nav'
 import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
 import BugBountyNav from 'features/components/templates/navigation/bug-bounty-nav'
 import CareerNav from 'features/components/templates/navigation/career-nav'
 import MarketNav from 'features/components/templates/navigation/market-nav'
+import RebrandingFooter from 'features/components/templates/footer'
 
 type LayoutProps = {
     children: ReactNode
@@ -125,7 +125,7 @@ const Layout = ({
         )
     }
     return (
-        <RebrandingLayout is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
+        <>
             {Navigation}
             <LocationProvider
                 has_mounted={is_mounted}
@@ -160,7 +160,7 @@ const Layout = ({
                 </StyleSheetManager>
             </LocationProvider>
             <RebrandingFooter />
-        </RebrandingLayout>
+        </>
     )
 }
 

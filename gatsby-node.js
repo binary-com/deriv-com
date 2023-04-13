@@ -308,7 +308,7 @@ const style_lint_options = {
     lintDirtyModulesOnly: true,
 }
 
-exports.onCreateWebpackConfig = ({ stage, actions, getConfig }, { ...options }) => {
+exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
     const config = getConfig()
     if (config.optimization) {
         config.optimization.minimizer = [new TerserPlugin()]
@@ -319,17 +319,4 @@ exports.onCreateWebpackConfig = ({ stage, actions, getConfig }, { ...options }) 
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },
     })
-    if (stage === 'build-javascript') {
-        const config = getConfig()
-        // Get the mini-css-extract-plugin
-        const miniCssExtractPlugin = config.plugins.find(
-            (plugin) => plugin.constructor.name === 'MiniCssExtractPlugin',
-        )
-        // Set the option here to true.
-        if (miniCssExtractPlugin) {
-            miniCssExtractPlugin.options.ignoreOrder = true
-        }
-        // Update the config.
-        actions.replaceWebpackConfig(config)
-    }
 }

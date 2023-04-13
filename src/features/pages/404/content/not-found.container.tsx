@@ -16,7 +16,6 @@ const NotFoundContainer = () => {
             wrap={'wrap'}
             justify={'center'}
             align={'center'}
-            padding_block={'8xl'}
         >
             <Image
                 src={not_available_image.src}
@@ -43,13 +42,7 @@ const NotFoundContainer = () => {
                 >
                     <Localize translate_text={info_items.sub_header} />
                 </Typography.Paragraph>
-                <Button.Primary
-                    type={'button'}
-                    radius={'2x'}
-                    textsize={'medium'}
-                    padding_inline={'8x'}
-                    padding_block={'5x'}
-                >
+                <Button.Primary type={'button'}>
                     <Link url={button_link.url} textcolor={'white'} no_hover>
                         <Localize translate_text={button_link.text} />
                     </Link>

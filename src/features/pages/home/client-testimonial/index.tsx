@@ -1,13 +1,16 @@
 import React from 'react'
 import TrustpilotContainer from './trustpiolot-container'
+import { testimonial_section, quote_image } from './styles.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Container from 'features/components/atoms/container'
 import Typography from 'features/components/atoms/typography'
+import Image from 'features/components/atoms/image'
 import { Localize } from 'components/localization'
+import Quote from 'images/svg/testimonials/quote.svg'
 
 const ClientTestimonial = () => {
     return (
-        <Container.Fixed bgcolor="secondary">
+        <Container.Fixed as="section" className={testimonial_section}>
             <Flex.Box
                 container="fluid"
                 direction="col"
@@ -19,12 +22,16 @@ const ClientTestimonial = () => {
                     direction: 'row',
                 }}
             >
-                <Flex.Item basis={'4-12'}>
+                <Flex.Item basis="4-12">
                     <Typography.Heading as="h2" size="medium" mb="20x">
                         <Localize translate_text="_t_What our clients say about Deriv_t_" />
                     </Typography.Heading>
                     <TrustpilotContainer />
                 </Flex.Item>
+                <Flex.Box basis="2-12" align_self="start" justify="center">
+                    <Image src={Quote} className={quote_image} />
+                </Flex.Box>
+                <Flex.Item basis="6-12">Slider</Flex.Item>
             </Flex.Box>
         </Container.Fixed>
     )

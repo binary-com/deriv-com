@@ -15,24 +15,25 @@ const ClientTestimonial = () => {
             <Flex.Box
                 container="fluid"
                 direction="col"
-                justify="between"
-                align="center"
+                align="start"
                 padding_block="40x"
                 gap="10x"
                 md={{
                     direction: 'row',
+                    justify: 'between',
+                    align: 'center',
                 }}
             >
-                <Flex.Item basis="4-12">
-                    <Typography.Heading as="h2" size="medium" mb="20x">
+                <Flex.Item md={{ basis: '4-12' }}>
+                    <Typography.Heading as="h2" size="medium" mb="12x" md={{ mb: '20x' }}>
                         <Localize translate_text="_t_What our clients say about Deriv_t_" />
                     </Typography.Heading>
                     <TrustpilotContainer />
                 </Flex.Item>
-                <Flex.Box basis="2-12" align_self="start" justify="center">
+                <Flex.Box md={{ basis: '2-12', align_self: 'start', justify: 'center' }}>
                     <Image src={Quote} className={quote_image} />
                 </Flex.Box>
-                <Flex.Item basis="6-12" className={slider_wrapper}>
+                <Flex.Item className={slider_wrapper} md={{ basis: '6-12' }}>
                     <TestimonialSlider />
                 </Flex.Item>
             </Flex.Box>

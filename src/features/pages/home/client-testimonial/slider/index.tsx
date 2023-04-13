@@ -10,6 +10,7 @@ import Typography from 'features/components/atoms/typography'
 import { get_lang_direction, Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
+import Box from 'features/components/atoms/box'
 import './styles.scss'
 
 const TestimonialSlider = () => {
@@ -23,7 +24,7 @@ const TestimonialSlider = () => {
     })
 
     return (
-        <Flex.Box className={'testimonial_slider_container'}>
+        <Box className={'testimonial_slider_container'}>
             <Swiper
                 centeredSlides
                 modules={[Navigation]}
@@ -32,6 +33,7 @@ const TestimonialSlider = () => {
                     nextEl: '.slider-button-next',
                 }}
                 grabCursor
+                autoHeight
                 dir={get_lang_direction()}
             >
                 {visible_slides.map(({ id, data }) => (
@@ -42,7 +44,12 @@ const TestimonialSlider = () => {
                             align="start"
                             className="testimonial_slide"
                         >
-                            <Typography.Paragraph size="xlarge" textcolor="tertiary" mb="20x">
+                            <Typography.Paragraph
+                                size="xlarge"
+                                textcolor="tertiary"
+                                mb="12x"
+                                md={{ mb: '20x' }}
+                            >
                                 <Localize translate_text={data.quote} />
                             </Typography.Paragraph>
                             <Typography.Paragraph weight="bold" textcolor="tertiary">
@@ -58,7 +65,7 @@ const TestimonialSlider = () => {
             <button className="slider-button slider-button-next">
                 <Image src={RightArrowIcon} has_rtl />
             </button>
-        </Flex.Box>
+        </Box>
     )
 }
 

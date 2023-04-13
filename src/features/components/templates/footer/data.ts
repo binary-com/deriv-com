@@ -12,7 +12,7 @@ const aboutUsLinks: SmartFooterLink[] = [
     {
         id: 1,
         data: {
-            text: '_t_Who choose us_t_',
+            text: '_t_Why choose us_t_',
             url: { type: 'internal', to: '/why-choose-us/' },
         },
     },
@@ -200,7 +200,7 @@ const legalLinks: SmartFooterLink[] = [
         id: 1,
         data: {
             text: '_t_Terms & conditions_t_',
-            url: { type: 'company', url_name: 'tnd_clients' },
+            url: { type: 'internal', to: '/terms-and-conditions/#clients' },
         },
     },
     {

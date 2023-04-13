@@ -26,12 +26,13 @@ import RightChevron from 'images/svg/trading-specification/right-chevron.svg'
 import LeftChevron from 'images/svg/trading-specification/left-chevron.svg'
 import SearchIcon from 'images/svg/trading-specification/search-icon.svg'
 import { Flex } from 'components/containers'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Header } from 'components/elements'
 import { sanitize } from 'common/utility'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 import { TString } from 'types/generics'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 export type TLiveMarketTableProps = {
     market: TAvailableLiveMarkets
@@ -102,6 +103,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
     const specification_data = is_eu ? forex_specification.eu_data : forex_specification.data
     const [markets_data, setMarketsData] = useState(specification_data)
     const [filtered_data, setFilteredData] = useState(specification_data)
+    const is_rtl = useIsRtl()
 
     useEffect(() => {
         market_specification.map((specification) => {
@@ -168,7 +170,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                         <StyledSearchIcon src={SearchIcon} alt="search-icon" />
                         <SearchInput
                             autoFocus
-                            placeholder="Find Instrument"
+                            placeholder={localize('_t_Find Instrument_t_')}
                             autoComplete="off"
                             onChange={handleChange}
                             value={search_value}
@@ -224,7 +226,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                                 onClick={() => table.previousPage()}
                                 disabled={!table.getCanPreviousPage()}
                             >
-                                <StyledChevron src={LeftChevron} />
+                                <StyledChevron src={is_rtl ? RightChevron : LeftChevron} />
                             </StyledButton>
                             {table.getPageOptions().map((page) => (
                                 <StyledButtonPage
@@ -239,7 +241,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                                 onClick={() => table.nextPage()}
                                 disabled={!table.getCanNextPage()}
                             >
-                                <StyledChevron src={RightChevron} />
+                                <StyledChevron src={is_rtl ? LeftChevron : RightChevron} />
                             </StyledButton>
                         </Flex>
                     </StyledPaginationContainer>

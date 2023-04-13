@@ -32,8 +32,9 @@ export const TableData = styled.table`
     }
 
     @media ${device.tabletL} {
-        display: inline-block;
-        overflow: auto;
+        padding: 0 10px 0 0px;
+        overflow-x: auto;
+        width: 100%;
     }
 `
 type TableRowProps = {
@@ -189,7 +190,7 @@ const StyledHeaderText = styled(HeaderText)`
 export const TableCell = ({ text }: TTableCell) => {
     return (
         <>
-            <Cell>
+            <Cell dir="ltr">
                 <StyledHeaderText type="small" weight="normal" align="start" as="p">
                     {text}
                 </StyledHeaderText>

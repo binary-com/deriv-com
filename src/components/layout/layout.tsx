@@ -1,7 +1,6 @@
 import React, { ReactNode, Ref } from 'react'
 import styled, { StyleSheetManager } from 'styled-components'
 import { LocationProvider } from './location-context'
-import NavMarkets from './nav/nav-markets'
 import LayoutOverlay from './layout-overlay'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
@@ -20,6 +19,7 @@ import StaticNav from 'features/components/templates/navigation/static-nav'
 import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
 import BugBountyNav from 'features/components/templates/navigation/bug-bounty-nav'
 import CareerNav from 'features/components/templates/navigation/career-nav'
+import MarketNav from 'features/components/templates/navigation/market-nav'
 
 type LayoutProps = {
     children: ReactNode
@@ -89,7 +89,7 @@ const Layout = ({
             Navigation = <PaymentAgentAffiliateNav />
             break
         case 'markets':
-            Navigation = <NavMarkets /> //to be implemented
+            Navigation = <MarketNav />
             break
         case 'security':
             Navigation = <BugBountyNav />

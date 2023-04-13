@@ -4,6 +4,7 @@ import DesktopMenu from './desktop-menu'
 import * as styles from './nav.template.module.scss'
 import MobileMenu from './mobile-menu'
 import TopNav from './top-nav'
+import BottomNav from './bottom-nav'
 import Container from 'features/components/atoms/container'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
@@ -15,6 +16,7 @@ import useRegion from 'components/hooks/use-region'
 
 interface NavTemplateProps<T extends string> extends HTMLAttributes<HTMLDivElement> {
     has_top_nav?: boolean
+    has_bottom_nav?: boolean
     renderLogo: () => ReactNode
     has_centered_items?: boolean
     items?: TNavItems<T>
@@ -22,6 +24,7 @@ interface NavTemplateProps<T extends string> extends HTMLAttributes<HTMLDivEleme
 
 const NavTemplate = <T extends string>({
     renderLogo,
+    has_bottom_nav = false,
     has_top_nav = false,
     items = [],
     children,
@@ -100,6 +103,8 @@ const NavTemplate = <T extends string>({
                 </Flex.Box>
                 {is_mobile_or_tablet && <MobileMenu is_open={is_menu_open} items={visible_items} />}
             </Flex.Box>
+
+            {has_bottom_nav && <BottomNav />}
         </Container.Fixed>
     )
 }

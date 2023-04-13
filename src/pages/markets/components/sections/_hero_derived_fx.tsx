@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import NavMarkets from 'components/layout/nav/nav-markets'
 import { Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Button } from 'components/form'
@@ -11,6 +10,7 @@ import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import MarketNav from 'features/components/templates/navigation/market-nav'
 
 const BackgroundWrapper = styled.div`
     background: url(${BannerBg});
@@ -117,7 +117,7 @@ export const DerivedFXHero = ({ title, description }: MarketProps) => {
 
     return (
         <BackgroundWrapper>
-            <NavMarkets />
+            <MarketNav />
             <StyledContainer>
                 <StyledHeader as="h1" align="center">
                     <Localize translate_text={title} />

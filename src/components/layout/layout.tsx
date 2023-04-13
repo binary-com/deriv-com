@@ -16,11 +16,11 @@ import LayoutOverlay from './layout-overlay'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
-import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_alert_modal'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import usePopup from 'components/hooks/use-popup'
 import { getLanguage, isBrowser } from 'common/utility'
 import apiManager from 'common/websocket'
+import BrowserUpdateBanner from 'components/custom/browser_update_alert_banner'
 
 const LoadableFooter = Loadable(() => import('./footer'))
 const BeSquareFooter = Loadable(() => import('./besquare/footer'))
@@ -165,7 +165,7 @@ const Layout = ({
                 ref={modal_payload.ref}
                 aria_label={modal_payload.aria_label}
             />
-            <BrowserUpdateAlertModal />
+            <BrowserUpdateBanner />
             {show_non_eu_popup && (
                 <NonEuRedirectPopUp
                     is_open={show_non_eu_popup}

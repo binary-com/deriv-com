@@ -9,7 +9,6 @@ import Minus from 'images/svg/elements/minus.svg'
 import Plus from 'images/svg/elements/plus.svg'
 import { Localize } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
-import './accordion-item.scss'
 
 type AccordionIconType = 'chevron' | 'minus' | 'plus'
 

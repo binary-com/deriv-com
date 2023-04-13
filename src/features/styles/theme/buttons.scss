@@ -1,6 +1,6 @@
 @import 'features/styles/theme/variables';
 
-button {
+.button {
     border-radius: 1.6rem;
     border-color: transparent;
     padding: 10px 24px;
@@ -20,25 +20,56 @@ button {
         cursor: pointer;
     }
 }
-button.hero {
+.button.hero {
     min-block-size: 6.4rem;
     border-radius: 2.4rem;
     background-color: black;
     font-size: 2rem;
 }
-button.fluid {
+.button.fluid {
     inline-size: 100%;
 }
 
-button:disabled {
+.button:disabled {
     pointer-events: none;
     opacity: 0.32;
 }
 
-button.loading {
+.button.loading {
     inline-size: 8rem;
     block-size: 8rem;
     border: 10px solid $color-black;
     border-radius: 50%;
     animation: sweep 1s linear alternate infinite, rotates 0.8s linear infinite;
+}
+
+.button.primary {
+    color: $color-white;
+    background-color: $color-brand;
+
+    &:hover {
+        background-color: $color-red-6;
+    }
+}
+
+.button.primary.outlined {
+    border: 2px solid $color-red;
+    background-color: $color-white;
+    color: $color-brand;
+    &:hover {
+        background-color: rgba(255, 68, 79, 0.08);
+    }
+}
+
+.button.secondary {
+    color: $color-black-9;
+    background: $color-white;
+
+    &:hover {
+        background-color: $color-grey-40;
+        color: $color-black-9;
+    }
+}
+.button.secondary.outlined {
+    border: 2px solid $color-grey-5;
 }

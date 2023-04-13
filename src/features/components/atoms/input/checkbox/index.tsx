@@ -1,7 +1,6 @@
 import React, { forwardRef, InputHTMLAttributes } from 'react'
 import Typography from '../../typography'
 import dclsx from 'features/utils/dclsx'
-import './checkbox-input.styles.scss'
 
 const CheckboxInput = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement>>(
     ({ children, className, ...rest }, ref) => {

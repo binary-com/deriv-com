@@ -1,6 +1,5 @@
 import React, { ImgHTMLAttributes } from 'react'
 import Box from '../box'
-import './image.scss'
 import dclsx from 'features/utils/dclsx'
 
 interface ImageProps extends ImgHTMLAttributes<'img'> {

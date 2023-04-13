@@ -5,7 +5,6 @@ import Flex from '../flex-box'
 import Typography from '../typography'
 import { TString } from 'types/generics'
 import { Localize } from 'components/localization'
-import './alert.scss'
 
 type AlertButtonProps = {
     text: TString

@@ -3,6 +3,29 @@
 
 .typography {
     line-height: calc(2px + 2.5ex + 2px);
+    color: $color-black-9;
+    word-break: break-word;
+}
+
+.typography-link {
+    cursor: pointer;
+    text-decoration: none;
+    transition: text-shadow 0.25s;
+
+    &:active {
+        color: $color-red;
+    }
+
+    &:disabled {
+        pointer-events: none;
+        opacity: 0.32;
+    }
+}
+.typography-hover {
+    &:hover {
+        color: $color-red;
+        text-decoration: underline;
+    }
 }
 
 .typography-align-center {
@@ -38,6 +61,9 @@
 }
 .typography-color-black {
     color: $color-black-9;
+}
+.typography-color-light {
+    color: $color-grey-5;
 }
 
 .typography-break-word {

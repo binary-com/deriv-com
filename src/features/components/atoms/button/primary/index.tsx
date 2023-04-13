@@ -1,7 +1,6 @@
 import React from 'react'
 import BaseButton, { BaseButtonProps } from '../base'
 import dclsx from 'features/utils/dclsx'
-import './primary.button.scss'
 
 export interface PrimaryButtonProps extends Omit<BaseButtonProps, 'bgcolor' | 'textcolor'> {
     outlined?: boolean

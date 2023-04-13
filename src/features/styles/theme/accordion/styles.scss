@@ -1,3 +1,7 @@
+.accordion_root {
+    inline-size: 100%;
+}
+
 .accordion {
     @keyframes slideDown {
         from {

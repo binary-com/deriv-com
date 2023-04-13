@@ -49,6 +49,7 @@ const NavigationCard = ({
                     justify={has_content ? 'start' : 'center'}
                     gap={'4x'}
                     grow="1"
+                    pt="3x"
                     className={dclsx(styles.nav_card_content, {
                         [styles.nav_card_type]: has_content,
                     })}

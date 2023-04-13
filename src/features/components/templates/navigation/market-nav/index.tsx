@@ -1,16 +1,19 @@
 import React from 'react'
 import NavTemplate from '../template'
-import Link from 'features/components/atoms/link'
+import { mainItems } from '../main-nav/content'
+import MainNavButtons from '../main-nav/main-nav-buttons'
+import MarketBottomNav from '../template/market-bottom-nav'
 import Image from 'features/components/atoms/image'
 import LogoImage from 'images/common/rebranding_logo.png'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import Link from 'features/components/atoms/link'
 
-const StaticNav = () => {
+const MarketNav = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
+
     return (
         <NavTemplate
-            has_centered_items
-            has_centered_logo
+            render_bottom_nav={() => <MarketBottomNav />}
             renderLogo={() => (
                 <Link url={{ type: 'internal', to: '/' }}>
                     <Image
@@ -20,8 +23,11 @@ const StaticNav = () => {
                     />
                 </Link>
             )}
-        />
+            items={mainItems}
+        >
+            <MainNavButtons />
+        </NavTemplate>
     )
 }
 
-export default StaticNav
+export default MarketNav

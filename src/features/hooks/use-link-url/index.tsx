@@ -55,7 +55,7 @@ const useLinkUrl = () => {
 
     const getInternalLink = useCallback(
         (url: string) => {
-            const locale = i18n.language
+            const locale = i18n.language ?? 'en'
             const { is_default, path } = language_config[locale]
             const is_non_localized = non_localized_internal_links.includes(url?.replace(/\/$/, ''))
             if (is_non_localized || is_default) {
@@ -68,7 +68,8 @@ const useLinkUrl = () => {
     const getExternalLink = useCallback(
         (url: ExternalLinkType) => {
             if (url.type === 'company') {
-                const { affiliate_lang } = language_config[language]
+                const locale = i18n.language ?? 'en'
+                const { affiliate_lang } = language_config[locale]
                 const { url_name, path } = url
                 const foo = product_links[url_name]({
                     language: language,
@@ -80,7 +81,7 @@ const useLinkUrl = () => {
             }
             return url.href
         },
-        [language],
+        [i18n.language, language],
     )
 
     const getLinkUrl = (url: LinkUrlType) => {

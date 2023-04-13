@@ -1,8 +1,8 @@
 import { TNavItems } from '../types'
 
-type TcareerNavNames = 'home' | 'location' | 'besquare'
+type TCareerNavNames = 'home' | 'location' | 'besquare'
 
-const career_nav_items: TNavItems<TcareerNavNames> = [
+const career_nav_items: TNavItems<TCareerNavNames> = [
     {
         id: 0,
         data: {
@@ -23,7 +23,7 @@ const career_nav_items: TNavItems<TcareerNavNames> = [
             title: '_t_Location_t_',
             content: {
                 type: 'internal',
-                to: '/careers/locations/#europe',
+                to: '/careers/locations/',
             },
         },
     },

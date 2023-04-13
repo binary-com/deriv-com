@@ -17,16 +17,20 @@ interface NavTemplateProps<T extends string> extends HTMLAttributes<HTMLDivEleme
     has_top_nav?: boolean
     renderLogo: () => ReactNode
     has_centered_items?: boolean
+    has_centered_logo?: boolean
+    render_bottom_nav?: () => ReactNode
     items?: TNavItems<T>
 }
 
 const NavTemplate = <T extends string>({
     renderLogo,
+    render_bottom_nav,
     has_top_nav = false,
     items = [],
     children,
     className,
     has_centered_items,
+    has_centered_logo,
 }: NavTemplateProps<T>) => {
     const nav_wrapper_ref = useRef()
 
@@ -80,7 +84,11 @@ const NavTemplate = <T extends string>({
                 gap="5x"
                 className={styles.nav_container}
             >
-                <Flex.Box justify="center" align="baseline">
+                <Flex.Box
+                    justify="center"
+                    align="baseline"
+                    grow={has_centered_logo && items.length === 0 ? '1' : undefined}
+                >
                     {is_mobile_or_tablet && (
                         <MobileMenuToggle is_open={is_menu_open} onClick={onMenuToggleClick} />
                     )}
@@ -100,6 +108,7 @@ const NavTemplate = <T extends string>({
                 </Flex.Box>
                 {is_mobile_or_tablet && <MobileMenu is_open={is_menu_open} items={visible_items} />}
             </Flex.Box>
+            {render_bottom_nav?.()}
         </Container.Fixed>
     )
 }

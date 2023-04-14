@@ -4,18 +4,29 @@ import { Flex } from 'components/containers'
 import { Button } from 'components/form'
 import { LocalizedLinkText, Header } from 'components/elements'
 import { Localize, localize } from 'components/localization'
-import device from 'themes/device'
+import device, { size } from 'themes/device'
 import { useCookieBanner } from 'components/hooks/use-cookie-banner'
-import { bannerTypes } from 'common/constants'
+import { browsers_minimum_required_version, cookie_key, bannerTypes } from 'common/constants'
+import { CookieStorage } from 'common/storage'
+import { useUserBrowser } from 'components/hooks/use-user-browser'
+import { useIsRtl } from 'components/hooks/use-isrtl'
+import useRegion from 'components/hooks/use-region'
 
 type TProps = {
     bannerType: string
 }
+type TBannerDimensionProps = {
+    width: string
+    minHeight: string
+}
 
-const Wrapper = styled.div<{ visible: boolean }>`
+const cookieBannerProps: TBannerDimensionProps = { width: '384', minHeight: '188' }
+const outdatedBrowserBannerProps: TBannerDimensionProps = { width: '400', minHeight: '132' }
+
+const Wrapper = styled.div<{ visible: boolean; width: string; minHeight: string }>`
     pointer-events: all;
-    width: 384px;
-    min-height: 188px;
+    width: ${({ width = 400 }) => width}px;
+    min-height: ${({ minHeight = 130 }) => minHeight}px;
     padding: 24px;
     transition: translate 0.2s ease-in-out, opacity 0.2s ease-in-out;
     border-radius: 8px;
@@ -95,10 +106,27 @@ const LinkText = styled(LocalizedLinkText)`
     }
 `
 
+const OverlayContainer = styled.div<{ is_rtl: boolean }>`
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: ${({ is_rtl }) => (is_rtl ? 'flex-start' : 'flex-end')};
+`
+
 const BannerAlert: FC<TProps> = ({ bannerType }) => {
     const cookie = useCookieBanner()
+    const cookie_browser_update = new CookieStorage(cookie_key)
     const [is_visible, setIsVisible] = useState(false)
+    const { is_outdated } = useUserBrowser(browsers_minimum_required_version)
+    const is_rtl = useIsRtl()
+    const { is_eu, is_cpa_plan } = useRegion()
+    const [is_tablet, setIsTablet] = useState(window.screen.width <= size.tablet)
 
+    //cookie banner
     // Todo: Should simplify this useEffect and get rid of the duplicated state and find another solution
     // for removing the element from the DOM after the animation completes.
     useEffect(() => {
@@ -113,11 +141,33 @@ const BannerAlert: FC<TProps> = ({ bannerType }) => {
         }
     }, [cookie.should_show, is_visible])
 
+    //outdated browser banner
+    useEffect(
+        () =>
+            bannerTypes.outdatedBrowserBanner === bannerType &&
+            is_outdated &&
+            !cookie_browser_update.get(cookie_key) &&
+            setIsVisible(true),
+        [is_outdated],
+    )
+
+    const handlePositive = () => {
+        const expiration_date = Date.now() + 14 * 86400 * 1000 // 2 weeks later (1209600000 ms)
+        cookie_browser_update.set(cookie_key, true, {
+            expires: new Date(expiration_date),
+        })
+        setIsVisible(false)
+    }
+
     const generateBanner = useMemo(() => {
         switch (bannerType) {
             case bannerTypes.cookieBanner:
                 return (
-                    <Wrapper visible={cookie.should_show}>
+                    <Wrapper
+                        visible={cookie.should_show}
+                        width={cookieBannerProps.width}
+                        minHeight={cookieBannerProps.minHeight}
+                    >
                         <StyledText>
                             <Localize translate_text="_t_Cookies help us to give you a better experience and personalised content on our site._t_" />
                             <Localize
@@ -143,12 +193,37 @@ const BannerAlert: FC<TProps> = ({ bannerType }) => {
                 )
 
             case bannerTypes.outdatedBrowserBanner:
-                return <></>
+                return (
+                    <OverlayContainer is_rtl={is_rtl}>
+                        <Wrapper
+                            visible={is_visible}
+                            width={outdatedBrowserBannerProps.width}
+                            minHeight={outdatedBrowserBannerProps.minHeight}
+                        >
+                            <StyledText>
+                                <Localize translate_text="_t_Update your browser to get the best Deriv experience_t_" />
+                            </StyledText>
+                            <Flex>
+                                <StyledButton secondary onClick={handlePositive}>
+                                    <Localize translate_text="_t_Close_t_" />
+                                </StyledButton>
+                            </Flex>
+                        </Wrapper>
+                        {/* TODO:not sure about this bug fix have to confirm  (bug:when CFD banner is alraedy there this banner should show in top of that) */}
+                        {(is_eu || is_cpa_plan) && is_tablet ? (
+                            <Wrapper
+                                visible={is_visible}
+                                width={outdatedBrowserBannerProps.width}
+                                minHeight={outdatedBrowserBannerProps.minHeight}
+                            ></Wrapper>
+                        ) : null}
+                    </OverlayContainer>
+                )
 
             default:
                 return <></>
         }
-    }, [bannerType])
+    }, [bannerType, is_eu, is_cpa_plan, is_tablet])
 
     return is_visible ? generateBanner : <></>
 }

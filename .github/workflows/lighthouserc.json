@@ -1,0 +1,11 @@
+{
+  "ci": {
+    "assert": {
+      "assertions": {
+        "largest-contentful-paint": ["warning", { "minScore": 7.77 }],
+        "time-to-interactive": ["warning", { "minScore": 13.02 }],
+        "cumulative-layout-shift": ["warning", { "minScore": 0.00735 }]
+      }
+    }
+  }
+}

@@ -39,6 +39,7 @@ jobs:
                   urls: |
                       ${{ steps.vercel_preview_url.outputs.vercel_preview_url }}
                   uploadArtifacts: true
+                  configPath: './lighthouserc.json'
                   temporaryPublicStorage: true
                   runs: 5
             - name: Format lighthouse score

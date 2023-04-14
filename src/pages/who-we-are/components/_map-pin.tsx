@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { MapPinType } from '../_data'
-import { LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements'
 import { ReactComponent as Pin } from 'images/svg/who-we-are/pin.svg'
 import device from 'themes/device'
@@ -14,8 +13,8 @@ type PinWrapperProps = {
 
 const PinWrapper = styled.div<PinWrapperProps>`
     position: absolute;
-    top: ${(props) => props.top};
-    left: ${(props) => props.left};
+    top: ${({ top }) => top};
+    left: ${({ left }) => left};
     -webkit-tap-highlight-color: transparent;
     /* stylelint-disable */
     -webkit-appearance: none;
@@ -56,7 +55,15 @@ const PinContent = styled(LocalizedLink)<{ anchor?: boolean }>`
     }
 `
 
-const MapPin = ({ top, left, title, link }: MapPinType) => {
+// country_city and link_url should be optional due we can't pass left and top properties to strapi
+export type MapPinType = {
+    left: string
+    top: string
+    country_city?: string
+    link_url?: string
+}
+
+const MapPin = ({ top, left, country_city, link_url }: MapPinType) => {
     const [is_pin_show, setPinShow] = useState(false)
 
     const onMouseEnter = () => setPinShow(true)
@@ -68,13 +75,13 @@ const MapPin = ({ top, left, title, link }: MapPinType) => {
             onMouseLeave={onMouseLeave}
             top={top}
             left={left}
-            to={link}
+            to={link_url}
         >
             <Pin />
             {is_pin_show && (
-                <PinContent locale="en" to={link} anchor>
+                <PinContent locale="en" to={link_url} anchor>
                     <Header color="black" mr="8px" weight="normal" type="small">
-                        {title}
+                        <Localize translate_text={country_city} />
                     </Header>
                 </PinContent>
             )}

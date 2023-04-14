@@ -10,6 +10,20 @@ const href = isBrowser && window.location.href
 const site_url =
     origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
 
+const strapi_preview_param = {
+    publicationState: process.env.STRAPI_PREVIEW === 'true' ? 'preview' : 'live',
+}
+const strapi_config = process.env.STRAPI_BUILD == 'true' && [
+    {
+        singularName: 'who-we-are-page',
+        queryParams: strapi_preview_param,
+    },
+    {
+        singularName: 'cfd-warning-banner',
+        queryParams: strapi_preview_param,
+    },
+]
+
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     flags: {
@@ -327,21 +341,30 @@ module.exports = {
             options: {
                 site: 'datadoghq.com',
                 sessionSampleRate: parseInt(process.env.DATADOG_SESSION_SAMPLE_RATE) || 10,
-                sessionReplaySampleRate: parseInt(process.env.DATADOG_SESSION_REPLAY_SAMPLE_RATE) || 1,
+                sessionReplaySampleRate:
+                    parseInt(process.env.DATADOG_SESSION_REPLAY_SAMPLE_RATE) || 1,
                 enabled: true,
                 env: 'production',
-                service:'deriv.com',
+                service: 'deriv.com',
                 trackUserInteractions: true,
                 trackFrustrations: true,
                 trackResources: true,
                 trackLongTasks: true,
                 enableExperimentalFeatures: ['clickmap'],
-                defaultPrivacyLevel:'mask-user-input',
+                defaultPrivacyLevel: 'mask-user-input',
                 rum: {
                     applicationId: process.env.DATADOG_APPLICATION_ID,
                     clientToken: process.env.DATADOG_CLIENT_TOKEN,
                 },
-            }
-        }
+            },
+        },
+        {
+            resolve: 'gatsby-source-strapi',
+            options: {
+                apiURL: process.env.STRAPI_URL,
+                accessToken: process.env.STRAPI_TOKEN,
+                collectionTypes: strapi_config,
+            },
+        },
     ],
 }

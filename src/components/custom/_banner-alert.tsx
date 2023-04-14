@@ -209,7 +209,7 @@ const BannerAlert: FC<TProps> = ({ bannerType }) => {
                                 </StyledButton>
                             </Flex>
                         </Wrapper>
-                        {/* TODO:not sure about this bug fix have to confirm  (bug:when CFD banner is alraedy there this banner should show in top of that) */}
+                        {/* TODO:not sure about this bug fix have to confirm  (bug:when CFD banner is alraedy there this banner should show in top of that) ,have to deploy and check this */}
                         {(is_eu || is_cpa_plan) && is_tablet ? (
                             <Wrapper
                                 visible={is_visible}

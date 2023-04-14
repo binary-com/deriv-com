@@ -76,12 +76,10 @@ const DisclaimerSection = () => {
                             />
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
-                            {localize(
-                                'Deriv (SVG) LLC has a registered office at Hinds Buildings, Kingstown, St. Vincent and the Grenadines.',
-                            )}
+                            <Localize translate_text="Deriv (SVG) LLC has a registered office at Hinds Buildings, Kingstown, St. Vincent and the Grenadines." />
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
-                            <Localize translate_text="Deriv Holdings (Guernsey) Limited — 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ — is the holding company for the above subsidiaries." />
+                            <Localize translate_text="Deriv Holdings (Guernsey) Limited is the holding company for the above subsidiaries with the registration number 71479 and the registered address of 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ." />
                         </DisclaimerParagraph>
                     </>
                 )}
@@ -101,9 +99,7 @@ const DisclaimerSection = () => {
                             />
                         </DisclaimerParagraph>
                         <DisclaimerParagraph>
-                            {localize(
-                                'Deriv Holdings (Guernsey) Limited — 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ — is the holding company for the above subsidiary.',
-                            )}
+                            <Localize translate_text="Deriv Holdings (Guernsey) Limited is the holding company for the above subsidiary with the registration number 71479 and the registered address of 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ." />
                         </DisclaimerParagraph>
                     </>
                 )}

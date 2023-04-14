@@ -2,7 +2,7 @@ import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, EffectFade } from 'swiper'
-import { wrapper } from './slider.module.scss'
+import SliderWrapper from './slider-wrapper'
 
 const slide_images = [
     {
@@ -59,7 +59,7 @@ const slide_images = [
 
 const HomeHeroSlider = () => {
     return (
-        <div className={wrapper}>
+        <SliderWrapper>
             <Swiper
                 speed={1000}
                 effect={'fade'}
@@ -77,7 +77,7 @@ const HomeHeroSlider = () => {
                     <SwiperSlide key={slide.key}>{slide.image}</SwiperSlide>
                 ))}
             </Swiper>
-        </div>
+        </SliderWrapper>
     )
 }
 

@@ -1,10 +1,18 @@
 import React from 'react'
+import loadable from '@loadable/component'
 import HeroCtaButton from './hero-cta.button'
-import HeroFeaturesCarousel from './hero-features.carousel'
 import HeroHeaderItems from './hero-header.items'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
+
+const HeroFeaturesCarousel = loadable(() => import('./hero-features.carousel'), {
+    fallback: (
+        <Typography.Heading size="large" weight="bold" color="primary">
+            <Localize translate_text="_t_Forex_t_" />
+        </Typography.Heading>
+    ),
+})
 
 const HomeHeroContent = () => {
     return (

@@ -10,7 +10,7 @@
             border-block-end: none;
         }
 
-        @include breakpoints(tablet-large) {
+        @include breakpoints(tablet) {
             border-block-end: none;
             border-inline-end: none;
             &:first-child {

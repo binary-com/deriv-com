@@ -24,6 +24,7 @@ const PlatformSliders = () => {
         <Flex.Box
             container="fluid"
             justify="start"
+            align="center"
             gap="10x"
             mt="40x"
             direction="col-reverse"

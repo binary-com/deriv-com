@@ -1,11 +1,10 @@
 @use 'features/styles/theme/theme-mixins' as *;
 
 .p2p_box_container {
-    
-    @include breakpoints(tablet-large){
+    @include breakpoints(tablet) {
         inline-size: 27rem;
     }
-    @include breakpoints(desktop){
+    @include breakpoints(desktop) {
         inline-size: 40rem;
     }
 }
@@ -13,7 +12,7 @@
     inline-size: 20.8rem;
     border-radius: 8px;
     display: none;
-    @include breakpoints(tablet-large){
+    @include breakpoints(tablet) {
         display: block;
     }
 }

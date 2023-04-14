@@ -1,5 +1,9 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
 .platform_swiper {
-    block-size: 100%;
+    @include breakpoints(tablet) {
+        min-block-size: 60rem;
+    }
     inline-size: 30rem;
     margin: 0;
 }

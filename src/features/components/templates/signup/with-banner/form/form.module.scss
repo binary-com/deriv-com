@@ -6,7 +6,7 @@
     min-block-size: 32rem;
     box-shadow: 0px 32px 64px rgba(14, 14, 14, 0.14);
 
-    @include breakpoints(tablet-large) {
+    @include breakpoints(tablet) {
         min-block-size: 36rem;
         min-inline-size: 40rem;
         position: relative;

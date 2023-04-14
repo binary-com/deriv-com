@@ -195,7 +195,7 @@ const platformSliderItems: SmartPlatformItem[] = [
         },
     },
     {
-        id: 3,
+        id: 4,
         data: {
             title: '_t_Deriv EZ_t_',
             description: '_t_Our mobile-first CFD trading platform_t_',
@@ -234,7 +234,7 @@ const platformSliderItems: SmartPlatformItem[] = [
         },
     },
     {
-        id: 4,
+        id: 5,
         data: {
             title: '_t_DBot_t_',
             description: '_t_Automate your trading. No coding required._t_',
@@ -264,7 +264,7 @@ const platformSliderItems: SmartPlatformItem[] = [
         },
     },
     {
-        id: 5,
+        id: 6,
         data: {
             title: '_t_SmartTrader_t_',
             description: '_t_Our legacy options trading platform._t_',
@@ -298,7 +298,7 @@ const platformSliderItems: SmartPlatformItem[] = [
         },
     },
     {
-        id: 6,
+        id: 7,
         data: {
             title: '_t_Binary Bot_t_',
             description: '_t_Our classic bot builder and automated trading platform._t_',
@@ -332,7 +332,7 @@ const platformSliderItems: SmartPlatformItem[] = [
         },
     },
     {
-        id: 7,
+        id: 8,
         data: {
             title: '_t_API_t_',
             description: '_t_Build your own apps with our API._t_',

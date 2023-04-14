@@ -117,7 +117,7 @@ export const tradingPlatformsContent: TSmartNavContent[] = [
         },
     },
     {
-        id: 1,
+        id: 2,
         data: {
             aria_label: 'Derivez',
             icon: {
@@ -134,7 +134,7 @@ export const tradingPlatformsContent: TSmartNavContent[] = [
         },
     },
     {
-        id: 1,
+        id: 3,
         data: {
             aria_label: 'SmartTrader',
             icon: {
@@ -150,7 +150,7 @@ export const tradingPlatformsContent: TSmartNavContent[] = [
         },
     },
     {
-        id: 2,
+        id: 4,
         data: {
             aria_label: 'Dtrader',
             icon: {

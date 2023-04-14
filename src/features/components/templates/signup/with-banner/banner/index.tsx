@@ -18,7 +18,7 @@ const PublicSignupBanner = () => {
             <div className={'public_signup_banner'}>
                 <StaticImage
                     src="../../../../../../images/common/sign-up/banner-phone.png"
-                    alt="laptop dtrader"
+                    alt="signup banner logo"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
                 />

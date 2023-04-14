@@ -1,10 +1,11 @@
 import React, { ComponentPropsWithRef, HTMLAttributes } from 'react'
-import { ClassProps, TBGColor } from 'features/types'
+import { ClassProps, TBGColor, TVisible } from 'features/types'
 import dclsx from 'features/utils/dclsx'
 import {
     generateBackgroundColor,
     generateBorderRadius,
     generateSpacingClasses,
+    generateVisibleClasses,
 } from 'features/styles/utils'
 
 export interface BoxProps<T extends React.ElementType = 'div'>
@@ -12,6 +13,7 @@ export interface BoxProps<T extends React.ElementType = 'div'>
         ClassProps {
     as?: T
     innerRef?: ComponentPropsWithRef<T>['ref']
+    visible?: TVisible
     md?: ClassProps
     lg?: ClassProps
     bgcolor?: TBGColor
@@ -39,6 +41,7 @@ const Box = <T extends React.ElementType>({
     innerRef,
     bgcolor,
     radius,
+    visible,
     ...rest
 }: BoxProps<T> & Omit<React.ComponentPropsWithoutRef<T>, keyof BoxProps<T>>) => {
     const Component = as || 'div'
@@ -61,6 +64,7 @@ const Box = <T extends React.ElementType>({
             padding_block,
             padding_inline,
         }),
+        generateVisibleClasses(visible),
         generateSpacingClasses(md ?? {}, 'md'),
         generateSpacingClasses(lg ?? {}, 'lg'),
         generateBackgroundColor(bgcolor),

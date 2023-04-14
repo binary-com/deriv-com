@@ -8,11 +8,18 @@ import {
     TypographyTagOptions,
 } from 'features/types'
 import dclsx from 'features/utils/dclsx'
-import { generateTypographyClasses } from 'features/styles/utils'
+import {
+    generateTypographyAlignClasses,
+    generateTypographyClasses,
+    generateTypographyWeightClasses,
+} from 'features/styles/utils'
 
-export interface TypographyProps {
+export interface TypographyAlignWeight {
     align?: TTypographyAlign
     weight?: TTypographyWeight
+}
+
+export interface TypographyProps extends TypographyAlignWeight {
     break_word?: TTypographyBreakWord
     textcolor?: TTypographyColor
 }
@@ -20,6 +27,8 @@ export interface BaseTypographyProps<T extends TypographyTagOptions>
     extends BoxProps<TypographyTagOptions>,
         TypographyProps {
     as?: T
+    md?: TypographyAlignWeight & BoxProps<TypographyTagOptions>
+    lg?: TypographyAlignWeight & BoxProps<TypographyTagOptions>
 }
 
 const BaseTypography = <T extends TypographyTagOptions>({
@@ -27,6 +36,8 @@ const BaseTypography = <T extends TypographyTagOptions>({
     className,
     align,
     weight,
+    md,
+    lg,
     break_word = 'word',
     textcolor = 'primary',
     ...rest
@@ -34,15 +45,19 @@ const BaseTypography = <T extends TypographyTagOptions>({
     const classnames = dclsx(
         className,
         'typography',
+        generateTypographyAlignClasses(align),
+        generateTypographyAlignClasses(md?.align, 'md'),
+        generateTypographyAlignClasses(lg?.align, 'lg'),
+        generateTypographyWeightClasses(weight),
+        generateTypographyWeightClasses(md?.weight, 'md'),
+        generateTypographyWeightClasses(lg?.weight, 'lg'),
         generateTypographyClasses({
-            align,
             break_word,
             textcolor,
-            weight,
         }),
     )
 
-    return <Box as={as} className={classnames} {...rest} />
+    return <Box as={as} className={classnames} md={md} lg={lg} {...rest} />
 }
 
 export default BaseTypography

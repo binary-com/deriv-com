@@ -7,7 +7,7 @@ import StockIndices from 'images/svg/custom/rebranding/stock-indices-icon.svg'
 
 export const marketSectionContent: TSmartNavContent[] = [
     {
-        id: 1,
+        id: 0,
         data: {
             aria_label: 'Derived',
             icon: {
@@ -24,7 +24,7 @@ export const marketSectionContent: TSmartNavContent[] = [
         },
     },
     {
-        id: 0,
+        id: 1,
         data: {
             aria_label: 'Forex',
             icon: {

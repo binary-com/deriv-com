@@ -9,7 +9,7 @@ const HeroHeaderItems = () => {
         <Flex.Box
             justify="start"
             align="start"
-            gap="5x"
+            gap="1x"
             direction="row"
             wrap="wrap"
             md={{

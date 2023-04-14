@@ -4,20 +4,15 @@
     margin-inline: auto;
     inline-size: 95%;
 
-    @include breakpoints(tablet-wide) {
+    @include breakpoints(tablet) {
         inline-size: 90%;
     }
 
-    @include breakpoints(tablet) {
+    @include breakpoints(laptop) {
         inline-size: 85%;
     }
 
     @include breakpoints(desktop) {
-        inline-size: 80%;
-        max-inline-size: 120rem;
-    }
-
-    @include breakpoints(desktop-wide) {
         inline-size: 80%;
         max-inline-size: 160rem;
     }

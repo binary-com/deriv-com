@@ -2,22 +2,9 @@ import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, EffectFade } from 'swiper'
-import { wrapper } from './slider.module.scss'
+import SliderWrapper from './slider-wrapper'
 
 const slide_images = [
-    {
-        key: 'hero1',
-        image: (
-            <StaticImage
-                objectFit="fill"
-                src="../../../../../images/common/home/hero_1.png"
-                alt="person-hero-1"
-                formats={['avif', 'webp', 'auto']}
-                loading="eager"
-                placeholder="none"
-            />
-        ),
-    },
     {
         key: 'hero2',
         image: (
@@ -26,6 +13,7 @@ const slide_images = [
                 src="../../../../../images/common/home/hero_2.png"
                 alt="person-hero-2"
                 formats={['avif', 'webp', 'auto']}
+                loading="eager"
                 placeholder="none"
             />
         ),
@@ -55,11 +43,24 @@ const slide_images = [
             />
         ),
     },
+    {
+        key: 'hero1',
+        image: (
+            <StaticImage
+                objectFit="fill"
+                src="../../../../../images/common/home/hero_1.png"
+                alt="person-hero-1"
+                formats={['avif', 'webp', 'auto']}
+                quality={50}
+                placeholder="none"
+            />
+        ),
+    },
 ]
 
 const HomeHeroSlider = () => {
     return (
-        <div className={wrapper}>
+        <SliderWrapper>
             <Swiper
                 speed={1000}
                 effect={'fade'}
@@ -70,14 +71,14 @@ const HomeHeroSlider = () => {
                 direction="horizontal"
                 modules={[EffectFade, Autoplay]}
                 autoplay={{
-                    delay: 3000,
+                    delay: 1000,
                 }}
             >
                 {slide_images.map((slide) => (
                     <SwiperSlide key={slide.key}>{slide.image}</SwiperSlide>
                 ))}
             </Swiper>
-        </div>
+        </SliderWrapper>
     )
 }
 

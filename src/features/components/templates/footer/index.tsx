@@ -8,7 +8,6 @@ import usePpc from 'features/hooks/use-ppc'
 import Flex from 'features/components/atoms/flex-box'
 import useVisibleContent from 'components/hooks/use-visible-content'
 import Container from 'features/components/atoms/container'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 
 interface FooterProps {
     no_footer_links?: boolean
@@ -16,19 +15,16 @@ interface FooterProps {
 
 const Footer = ({ no_footer_links = false }: FooterProps) => {
     const { is_ppc } = usePpc()
-    const { is_mobile_or_tablet } = useBreakpoints()
 
     const content = useVisibleContent({ content: footerLinks, config: { is_ppc } })
-
-    const show_links = !is_mobile_or_tablet && !no_footer_links
 
     return (
         <Container.Fixed as={'footer'} bgcolor="primary" className={footer}>
             <Container.Fluid pt={'20x'}>
                 <FooterIcons />
                 <Container.Fixed className={footer_grid} padding_block={'40x'}>
-                    {show_links && (
-                        <Flex.Box justify="between">
+                    {!no_footer_links && (
+                        <Flex.Box justify="between" visible="larger-than-tablet">
                             {content.map((contentItem) => (
                                 <FooterLinksColumn key={contentItem.id} item={contentItem} />
                             ))}

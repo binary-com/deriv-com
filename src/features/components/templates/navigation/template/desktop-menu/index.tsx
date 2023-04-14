@@ -23,6 +23,7 @@ const DesktopMenu = <T extends string>({
             as="ul"
             justify="end"
             align="center"
+            visible="larger-than-tablet"
             gap="2x"
             className={styles.nav_items}
             grow={has_centered_items ? '0' : '1'}

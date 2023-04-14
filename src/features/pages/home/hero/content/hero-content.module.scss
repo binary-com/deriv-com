@@ -1,0 +1,8 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.hero_cta {
+    inline-size: 100%;
+    @include breakpoints(tablet) {
+        inline-size: auto;
+    }
+}

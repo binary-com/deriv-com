@@ -123,6 +123,7 @@ export type TFlexWrap = InferSide<ClassNames, 'flex-wrap'>
 export type TFlexDirection = InferSide<ClassNames, 'flex-dir'>
 export type TFlexBasis = InferSide<ClassNames, 'flex-basis'>
 export type TContainerType = InferSide<ClassNames, 'container'>
+export type TVisible = InferSide<ClassNames, 'visible'>
 
 export interface ClassProps {
     margin?: TSpacingSize

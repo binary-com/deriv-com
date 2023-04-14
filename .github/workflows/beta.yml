@@ -47,6 +47,8 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v3
+        env:
+          NODE_OPTIONS: "--max_old_space_size=8192"
         with:
           node-version: "18.x"
           cache: "npm"
@@ -54,9 +56,7 @@ jobs:
       - run: npm ci
       - run: npm run format
       - run: npm run test
-      - run: |
-        export NODE_OPTIONS="--max_old_space_size=8192"
-        npm run build
+      - run: npm run build
       - uses: olegtarasov/get-tag@v2.1
         id: tagName
         # For using same tag for staging and production we need to uncomment these two below lines:

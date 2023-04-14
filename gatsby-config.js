@@ -352,6 +352,9 @@ module.exports = {
                 mergeStyleHashes: true, // you can disable styles sha256 hashes
                 mergeDefaultDirectives: true,
                 directives: {
+                    "style-src": "'self' 'unsafe-inline'",
+                    "style-src-attr": "'self' 'unsafe-inline'",
+                    "style-src-elem": "'self' 'unsafe-inline'",
                     "script-src": "'self' 'unsafe-inline' 'unsafe-eval' https://deriv.com https://eu.deriv.com https://widget.trustpilot.com https://www.google-analytics.com https://www.googletagmanager.com",
                     "script-src-elem": "'self' 'unsafe-inline' https://deriv.com https://eu.deriv.com https://widget.trustpilot.com https://www.google-analytics.com https://www.googletagmanager.com",
                     "connect-src": "'self' 'unsafe-inline' https://deriv.com https://eu.deriv.com https://cp.pushwoosh.com https://rum.browser-intake-datadoghq.com"

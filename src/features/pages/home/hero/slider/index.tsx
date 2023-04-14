@@ -15,7 +15,6 @@ const slide_images = [
                 formats={['avif', 'webp', 'auto']}
                 loading="eager"
                 placeholder="none"
-                quality={75}
             />
         ),
     },
@@ -28,7 +27,6 @@ const slide_images = [
                 alt="person-hero-2"
                 formats={['avif', 'webp', 'auto']}
                 placeholder="none"
-                quality={75}
             />
         ),
     },
@@ -54,7 +52,6 @@ const slide_images = [
                 alt="person-hero-4"
                 formats={['avif', 'webp', 'auto']}
                 placeholder="none"
-                quality={75}
             />
         ),
     },

@@ -23,7 +23,7 @@ const BackgroundWrapper = styled.div`
     }
 `
 const StyledContainer = styled(Container)`
-    margin-top: 175px;
+    margin-top: 130px;
     margin-bottom: 120px;
     display: flex;
     flex-direction: column;

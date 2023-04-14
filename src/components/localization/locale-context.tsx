@@ -1,4 +1,7 @@
 import React from 'react'
+import { StyleSheetManager } from 'styled-components'
+import GlobalStyle from 'themes/global-style'
+import { plugin } from 'themes/plugin'
 
 type LocalseContextWrapperProps = {
     children: React.ReactNode
@@ -18,7 +21,8 @@ export const LocaleContextWrapper = ({
 }: LocalseContextWrapperProps) => {
     return (
         <LocaleContext.Provider value={{ locale, pathname }}>
-            <>{children}</>
+            <GlobalStyle />
+            <StyleSheetManager stylisPlugins={[plugin]}>{children}</StyleSheetManager>
         </LocaleContext.Provider>
     )
 }

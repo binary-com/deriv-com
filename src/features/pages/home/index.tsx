@@ -1,6 +1,7 @@
 import React from 'react'
 import loadable from '@loadable/component'
 import HomeHero from './hero'
+import HomeMarkets from './markets'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
@@ -8,7 +9,6 @@ import { localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import MainNav from 'features/components/templates/navigation/main-nav'
 
-const HomeMarkets = loadable(() => import('./markets'))
 const OurPlatforms = loadable(() => import('./our-platforms'))
 const TradeTypes = loadable(() => import('./trade-types'))
 const P2PBanner = loadable(() => import('./p2p-banner'))

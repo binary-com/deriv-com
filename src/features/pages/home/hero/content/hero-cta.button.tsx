@@ -17,6 +17,7 @@ const HeroCtaButton = () => {
                 type={'button'}
                 onClick={handleGetTrading}
                 id="dm-hero-signup"
+                aria-label="Get trading"
                 hero
             >
                 <Localize translate_text={'_t_Get Trading_t_'} />
@@ -27,6 +28,7 @@ const HeroCtaButton = () => {
         <Button.Primary
             className={hero_cta}
             type={'button'}
+            aria-label="create free demo account"
             onClick={handleSignup}
             id="dm-hero-signup"
             hero

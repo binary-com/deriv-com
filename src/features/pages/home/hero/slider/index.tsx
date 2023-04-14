@@ -6,19 +6,6 @@ import SliderWrapper from './slider-wrapper'
 
 const slide_images = [
     {
-        key: 'hero1',
-        image: (
-            <StaticImage
-                objectFit="fill"
-                src="../../../../../images/common/home/hero_1.png"
-                alt="person-hero-1"
-                formats={['avif', 'webp', 'auto']}
-                loading="eager"
-                placeholder="none"
-            />
-        ),
-    },
-    {
         key: 'hero2',
         image: (
             <StaticImage
@@ -26,6 +13,7 @@ const slide_images = [
                 src="../../../../../images/common/home/hero_2.png"
                 alt="person-hero-2"
                 formats={['avif', 'webp', 'auto']}
+                loading="eager"
                 placeholder="none"
             />
         ),
@@ -55,6 +43,19 @@ const slide_images = [
             />
         ),
     },
+    {
+        key: 'hero1',
+        image: (
+            <StaticImage
+                objectFit="fill"
+                src="../../../../../images/common/home/hero_1.png"
+                alt="person-hero-1"
+                formats={['avif', 'webp', 'auto']}
+                quality={50}
+                placeholder="none"
+            />
+        ),
+    },
 ]
 
 const HomeHeroSlider = () => {
@@ -70,7 +71,7 @@ const HomeHeroSlider = () => {
                 direction="horizontal"
                 modules={[EffectFade, Autoplay]}
                 autoplay={{
-                    delay: 3000,
+                    delay: 1000,
                 }}
             >
                 {slide_images.map((slide) => (

@@ -346,16 +346,16 @@ module.exports = {
         {
             resolve: `gatsby-plugin-csp`,
             options: {
-                disableOnDev: true,
+                disableOnDev: false,
                 reportOnly: false, // Changes header to Content-Security-Policy-Report-Only for csp testing purposes
                 mergeScriptHashes: true, // you can disable scripts sha256 hashes
                 mergeStyleHashes: true, // you can disable styles sha256 hashes
                 mergeDefaultDirectives: true,
                 directives: {
-                    "script-src": "'self' https://deriv.com https://eu.deriv.com https://www.google-analytics.com https://www.googletagmanager.com",
+                    "script-src": "'self' 'unsafe-inline' 'unsafe-eval' https://deriv.com https://eu.deriv.com https://widget.trustpilot.com https://www.google-analytics.com https://www.googletagmanager.com",
                     "style-src": "'self' 'unsafe-inline'",
-                    "script-src-elem": "'self' https://deriv.com https://eu.deriv.com https://www.google-analytics.com https://www.googletagmanager.com",
-                    "connect-src": "'self' https://deriv.com https://eu.deriv.com https://cp.pushwoosh.com https://rum.browser-intake-datadoghq.com/api/v2/rum?ddsource=browser"
+                    "script-src-elem": "'self' 'unsafe-inline' https://deriv.com https://eu.deriv.com https://widget.trustpilot.com https://www.google-analytics.com https://www.googletagmanager.com",
+                    "connect-src": "'self' 'unsafe-inline' https://deriv.com https://eu.deriv.com https://cp.pushwoosh.com https://rum.browser-intake-datadoghq.com"
                 }
             }
         }

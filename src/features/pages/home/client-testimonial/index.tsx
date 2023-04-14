@@ -1,6 +1,5 @@
 import React from 'react'
 import TrustpilotContainer from './trustpiolot-container'
-import { title_wrapper } from './styles.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Container from 'features/components/atoms/container'
 import Typography from 'features/components/atoms/typography'
@@ -20,7 +19,7 @@ const ClientTestimonial = () => {
                     direction: 'row',
                 }}
             >
-                <Flex.Item className={title_wrapper} md={{ basis: '6-12' }}>
+                <Flex.Item md={{ basis: '6-12' }}>
                     <Typography.Heading size="medium" align="right">
                         <Localize translate_text="_t_Rated excellent on_t_" />
                     </Typography.Heading>

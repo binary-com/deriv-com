@@ -1,7 +1,0 @@
-@use 'features/styles/theme/theme-mixins' as *;
-
-.title_wrapper {
-    @include breakpoints(tablet-large){
-        margin-block-start: -4.7rem;
-    }
-}

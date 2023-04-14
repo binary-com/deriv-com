@@ -20,6 +20,7 @@ export const TableContainer = styled.div`
 
     @media ${device.tabletL} {
         padding: 0 0 0 3rem;
+        overflow: scroll;
     }
 `
 export const TableData = styled.table`
@@ -190,8 +191,8 @@ const StyledHeaderText = styled(HeaderText)`
 export const TableCell = ({ text }: TTableCell) => {
     return (
         <>
-            <Cell dir="ltr">
-                <StyledHeaderText type="small" weight="normal" align="start" as="p">
+            <Cell>
+                <StyledHeaderText dir="ltr" type="small" weight="normal" align="start" as="p">
                     {text}
                 </StyledHeaderText>
             </Cell>

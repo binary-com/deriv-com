@@ -13,7 +13,7 @@ const site_url =
 const strapi_preview_param = {
     publicationState: process.env.STRAPI_PREVIEW === 'true' ? 'preview' : 'live',
 }
-const strapi_config = [
+const strapi_config = process.env.STRAPI_BUILD == 'true' && [
     {
         singularName: 'who-we-are-page',
         queryParams: strapi_preview_param,

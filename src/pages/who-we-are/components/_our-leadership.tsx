@@ -81,8 +81,6 @@ const LeaderCard = (leader: TLeader) => {
     const { name, role, photo, link_url } = leader
     const [is_popup_shown, setIsPopupShown] = useState(false)
     const [is_mobile] = useBrowserResize()
-    console.log(is_mobile)
-
     const showModal: MouseEvent = () => setIsPopupShown(true)
     const dontShowModal: MouseEvent = () => setIsPopupShown(false)
 

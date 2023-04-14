@@ -67,7 +67,6 @@ const CFDText = styled(Text)`
         font-size: 10px;
     }
 `
-
 const CFDWarningBanner = ({ is_ppc }: TProps) => {
     const { is_eu, is_cpa_plan } = useRegion()
     const data = useStaticQuery(graphql`

@@ -1,36 +1,28 @@
 @use './theme-mixins.scss' as *;
 .visible-phone-only {
     // 0 - 600px
-    @media only screen and (min-width: 600px) {
+    @include breakpoints(phone) {
         display: none;
     }
-    // @include breakpoints(phone) {
-    //     display: none;
-    // }
 }
 
 .visible-phone-and-tablet {
     // 0px - 992px
-
-    @media only screen and (min-width: 992px) {
+    @include breakpoints(tablet) {
         display: none;
     }
-
-    // @include breakpoints(tablet) {
-    //     display: none;
-    // }
 }
 
 .visible-larger-than-tablet {
     // 992px - ....
-    @media only screen and (max-width: 992px) {
+    @include breakpoints(tablet, max) {
         display: none;
     }
 }
 
 .visible-larger-than-laptop {
     // 1280px - ....
-    @media only screen and (max-width: 1536px) {
+    @include breakpoints(laptop, max) {
         display: none;
     }
 }

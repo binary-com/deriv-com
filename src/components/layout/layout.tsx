@@ -1,6 +1,5 @@
 import React, { ReactNode, Ref } from 'react'
-// import 'features/styles/app.scss'
-import styled, { StyleSheetManager } from 'styled-components'
+import styled from 'styled-components'
 import { LocationProvider } from './location-context'
 import LayoutOverlay from './layout-overlay'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
@@ -9,8 +8,6 @@ import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_alert_modal'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import usePopup from 'components/hooks/use-popup'
-import GlobalStyle from 'themes/global-style'
-import { plugin } from 'themes/plugin'
 import { getLanguage, isBrowser } from 'common/utility'
 import apiManager from 'common/websocket'
 import MainNav from 'features/components/templates/navigation/main-nav'
@@ -56,6 +53,31 @@ if (isBrowser()) {
     apiManager.init(currentLanguage)
 }
 
+const Navs = {
+    noNav: null,
+    default: <MainNav />,
+    static: <StaticNav />,
+    interim: <StaticNav />,
+
+    partners: <PaymentAgentAffiliateNav />,
+
+    markets: <MarketNav />,
+
+    security: <BugBountyNav />,
+
+    ebook: <StaticNav />,
+
+    'landing-page': <StaticNav />,
+
+    'jump-indices': <StaticNav />,
+
+    besquare: <CareerNav />,
+
+    careers: <CareerNav />,
+
+    'payment-methods': <MainNav />,
+}
+
 const Layout = ({
     children,
     interim_type,
@@ -63,7 +85,7 @@ const Layout = ({
     is_ppc_redirect = false,
     margin_top = '',
     no_login_signup = false,
-    type = '',
+    type = 'default',
 }: LayoutProps) => {
     const [is_mounted] = usePageLoaded()
     const { show_non_eu_popup, setShowNonEuPopup } = usePopup()
@@ -73,49 +95,6 @@ const Layout = ({
 
     const is_static = type === 'static'
 
-    // Handle navigation types
-    let Navigation
-    switch (type) {
-        case 'noNav':
-            Navigation = null
-            break
-        case 'static':
-            Navigation = <StaticNav />
-            break
-        case 'interim':
-            Navigation = <StaticNav />
-            break
-        case 'partners':
-            Navigation = <PaymentAgentAffiliateNav />
-            break
-        case 'markets':
-            Navigation = <MarketNav />
-            break
-        case 'security':
-            Navigation = <BugBountyNav />
-            break
-        case 'ebook':
-            Navigation = <StaticNav />
-            break
-        case 'landing-page':
-            Navigation = <StaticNav />
-            break
-        case 'jump-indices':
-            Navigation = <StaticNav />
-            break
-        case 'besquare':
-            Navigation = <CareerNav />
-            break
-        case 'careers':
-            Navigation = <CareerNav />
-            break
-        case 'payment-methods':
-            Navigation = <MainNav />
-            break
-        default:
-            Navigation = <MainNav />
-            break
-    }
     //Handle page layout when redirection from mobile app.
     if (has_platform) {
         return (
@@ -126,38 +105,35 @@ const Layout = ({
     }
     return (
         <>
-            {Navigation}
+            {Navs[type]}
             <LocationProvider
                 has_mounted={is_mounted}
                 toggleModal={toggleModal}
                 setModalPayload={setModalPayload}
             >
-                <GlobalStyle />
-                <StyleSheetManager stylisPlugins={[plugin]}>
-                    <>
-                        <Main margin_top={margin_top} is_static={is_static}>
-                            {children}
-                        </Main>
-                        <EURedirect
-                            toggle={toggleModal}
-                            is_open={show_modal}
-                            closeModal={closeModal}
-                            to={modal_payload.to}
-                            target={modal_payload.target}
-                            rel={modal_payload.rel}
-                            ref={modal_payload.ref}
-                            aria_label={modal_payload.aria_label}
+                <div className="styled-layout">
+                    <Main margin_top={margin_top} is_static={is_static}>
+                        {children}
+                    </Main>
+                    <EURedirect
+                        toggle={toggleModal}
+                        is_open={show_modal}
+                        closeModal={closeModal}
+                        to={modal_payload.to}
+                        target={modal_payload.target}
+                        rel={modal_payload.rel}
+                        ref={modal_payload.ref}
+                        aria_label={modal_payload.aria_label}
+                    />
+                    <BrowserUpdateAlertModal />
+                    {show_non_eu_popup && (
+                        <NonEuRedirectPopUp
+                            is_open={show_non_eu_popup}
+                            setShowNonEuPopup={setShowNonEuPopup}
                         />
-                        <BrowserUpdateAlertModal />
-                        {show_non_eu_popup && (
-                            <NonEuRedirectPopUp
-                                is_open={show_non_eu_popup}
-                                setShowNonEuPopup={setShowNonEuPopup}
-                            />
-                        )}
-                        <LayoutOverlay is_ppc={is_ppc} />
-                    </>
-                </StyleSheetManager>
+                    )}
+                    <LayoutOverlay is_ppc={is_ppc} />
+                </div>
             </LocationProvider>
             <RebrandingFooter />
         </>

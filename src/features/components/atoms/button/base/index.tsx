@@ -33,11 +33,13 @@ const BaseButton = ({
     textcolor,
     textweight,
     hero,
+    role = 'button',
     ...rest
 }: BaseButtonProps) => {
     return (
         <Box
             as="button"
+            role={role}
             className={dclsx(
                 'button',
                 className,

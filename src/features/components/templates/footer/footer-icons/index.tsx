@@ -16,7 +16,7 @@ const FooterIcons = () => {
                 }}
                 gap={'10x'}
             >
-                <Image src={DerivFooterLogo} width={100} height={40} />
+                <Image src={DerivFooterLogo} alt="deriv logo image" width={100} height={40} />
                 <FooterSocialIcons />
             </Flex.Box>
         </Flex.Box>

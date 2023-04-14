@@ -21,20 +21,20 @@
     cursor: pointer;
 
     inset-block-end: 0;
-    @include breakpoints(tablet-large) {
+    @include breakpoints(tablet) {
         inset-block-end: 50%;
     }
 
     &-previous {
         inset-inline-start: calc(50% - 50px);
-        @include breakpoints(tablet-large) {
+        @include breakpoints(tablet) {
             inset-inline-start: -50px;
         }
     }
 
     &-next {
         inset-inline-end: calc(50% - 50px);
-        @include breakpoints(tablet-large) {
+        @include breakpoints(tablet) {
             inset-inline-end: -50px;
         }
     }

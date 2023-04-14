@@ -9,7 +9,7 @@
     align-items: flex-end;
     align-self: center;
 
-    @include breakpoints(tablet-large) {
+    @include breakpoints(tablet) {
         position: absolute;
         max-inline-size: 80vh; // we're connecting width of the container to height of the view port to control the image size
         inset-inline-end: 0;

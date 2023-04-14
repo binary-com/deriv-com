@@ -32,7 +32,7 @@
         box-shadow: 0 0 12px 0 rgba(14, 14, 14, 0.16);
         align-self: flex-start;
 
-        @include breakpoints(tablet-large) {
+        @include breakpoints(tablet) {
             max-inline-size: 40rem;
             border-radius: 8px;
         }

@@ -12,7 +12,7 @@
             inline-size: 16px;
             block-size: 16px;
 
-            @include breakpoints(tablet-large) {
+            @include breakpoints(tablet) {
                 opacity: 0;
             }
         }

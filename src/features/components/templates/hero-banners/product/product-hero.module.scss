@@ -17,7 +17,7 @@
             clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
         }
 
-        @include breakpoints(tablet-large) {
+        @include breakpoints(tablet) {
             inset-block-end: unset;
             inset-inline-end: 0;
             block-size: 100%;

@@ -8,7 +8,6 @@ import { Localize } from 'components/localization'
 import AppleLogo from 'images/svg/apple_logo.svg'
 import FacebookLogo from 'images/svg/facebook_logo.svg'
 import GoogleLogo from 'images/svg/google_logo.svg'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import { TString } from 'types/generics'
 import Login, { TSocialProvider } from 'common/login'
 
@@ -41,8 +40,6 @@ const social_button_content: SocialButtonContent[] = [
 ]
 
 const PublicSignupSocial = () => {
-    const { is_mobile_or_tablet } = useBreakpoints()
-
     const handleSocialSignup = (data_provider: TSocialProvider) => {
         Login.initOneAll(data_provider)
     }
@@ -67,11 +64,13 @@ const PublicSignupSocial = () => {
                 >
                     <Flex.Box justify="center" align="end" gap={'2x'}>
                         <Image src={buttonItem.img} />
-                        {!is_mobile_or_tablet && (
-                            <Typography.Paragraph size="small" weight="bold">
-                                <Localize translate_text={buttonItem.title} />
-                            </Typography.Paragraph>
-                        )}
+                        <Typography.Paragraph
+                            size="small"
+                            weight="bold"
+                            visible="larger-than-tablet"
+                        >
+                            <Localize translate_text={buttonItem.title} />
+                        </Typography.Paragraph>
                     </Flex.Box>
                 </Button.Secondary>
             ))}

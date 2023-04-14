@@ -149,3 +149,53 @@
 .text-xxs {
     @include font-size($font-size-200);
 }
+
+@mixin typography-align($media-name) {
+    .#{$media-name + #{'-'}}typography-align-center {
+        @include media($media-name) {
+            text-align: center;
+        }
+    }
+    .#{$media-name + #{'-'}}typography-align-left {
+        @include media($media-name) {
+            text-align: start;
+        }
+    }
+    .#{$media-name + #{'-'}}typography-align-right {
+        @include media($media-name) {
+            text-align: end;
+        }
+    }
+    .#{$media-name + #{'-'}}typography-align-justify {
+        @include media($media-name) {
+            text-align: justify;
+        }
+    }
+}
+
+@mixin typography-weight($media-name) {
+    .#{$media-name + #{'-'}}typography-weight-normal {
+        @include media($media-name) {
+            font-weight: normal;
+        }
+    }
+    .#{$media-name + #{'-'}}typography-weight-bold {
+        @include media($media-name) {
+            font-weight: bold;
+        }
+    }
+    .#{$media-name + #{'-'}}typography-weight-bolder {
+        @include media($media-name) {
+            font-weight: 700;
+        }
+    }
+}
+
+$typography-medias: (md, lg);
+
+@each $name in $typography-medias {
+    @include typography-align($name);
+}
+@each $name in $typography-medias {
+    @include typography-weight($name);
+}

@@ -6,7 +6,7 @@
     display: block;
     margin-inline-end: 1rem;
 
-    @include breakpoints(tablet-large) {
+    @include breakpoints(tablet) {
         display: none;
     }
 }

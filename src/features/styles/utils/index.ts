@@ -7,6 +7,7 @@ import {
     TTypographyBreakWord,
     TTypographyColor,
     TTypographyWeight,
+    TVisible,
 } from 'features/types'
 import dclsx from 'features/utils/dclsx'
 
@@ -25,6 +26,12 @@ type SpacingClasses = {
     pb?: TSpacingSize
     padding_inline?: TSpacingSize
     padding_block?: TSpacingSize
+}
+
+export const generateVisibleClasses = (visible: TVisible) => {
+    return dclsx({
+        [`visible-${visible}`]: visible,
+    })
 }
 
 export const generateSpacingClasses = (options: SpacingClasses, prefix = '') => {
@@ -96,29 +103,32 @@ export const generateTextColor = (color?: TTypographyColor) => {
     })
 }
 
-export const generateTypographyWeight = (weight?: TTypographyWeight) => {
+export const generateTypographyWeightClasses = (weight?: TTypographyWeight, prefix = '') => {
+    const classPrefix = prefix !== '' ? `${prefix}-` : ''
     return dclsx({
-        [`typography-weight-${weight}`]: weight,
+        [`${classPrefix}typography-weight-${weight}`]: weight,
+    })
+}
+
+export const generateTypographyAlignClasses = (align?: TTypographyAlign, prefix = '') => {
+    const classPrefix = prefix !== '' ? `${prefix}-` : ''
+
+    return dclsx({
+        [`${classPrefix}typography-align-${align}`]: align,
     })
 }
 
 export const generateTypographyClasses = ({
-    align,
-    weight,
     break_word,
     textcolor,
 }: {
-    align?: TTypographyAlign
     break_word?: TTypographyBreakWord
-    weight?: TTypographyWeight
     textcolor?: TTypographyColor
 }) => {
     return dclsx(
         {
-            [`typography-align-${align}`]: align,
             [`typography-break-${break_word}`]: break_word,
         },
         generateTextColor(textcolor),
-        generateTypographyWeight(weight),
     )
 }

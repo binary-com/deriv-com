@@ -4,7 +4,7 @@
     min-block-size: 68rem;
     border-radius: 16px;
 
-    @include breakpoints(tablet-large) {
+    @include breakpoints(tablet) {
         min-block-size: 36rem;
     }
 }

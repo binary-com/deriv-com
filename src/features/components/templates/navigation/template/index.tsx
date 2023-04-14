@@ -89,24 +89,22 @@ const NavTemplate = <T extends string>({
                     align="baseline"
                     grow={has_centered_logo && items.length === 0 ? '1' : undefined}
                 >
-                    {is_mobile_or_tablet && (
+                    <Flex.Item visible="phone-and-tablet">
                         <MobileMenuToggle is_open={is_menu_open} onClick={onMenuToggleClick} />
-                    )}
+                    </Flex.Item>
                     {renderLogo()}
                 </Flex.Box>
 
-                {!is_mobile_or_tablet && (
-                    <DesktopMenu
-                        onItemClick={onItemClick}
-                        activeTab={activeTab}
-                        items={visible_items}
-                        has_centered_items={has_centered_items}
-                    />
-                )}
+                <DesktopMenu
+                    onItemClick={onItemClick}
+                    activeTab={activeTab}
+                    items={visible_items}
+                    has_centered_items={has_centered_items}
+                />
                 <Flex.Box justify="end" align="center" gap={'8x'}>
                     {children}
                 </Flex.Box>
-                {is_mobile_or_tablet && <MobileMenu is_open={is_menu_open} items={visible_items} />}
+                <MobileMenu is_open={is_menu_open} items={visible_items} />
             </Flex.Box>
             {render_bottom_nav?.()}
         </Container.Fixed>

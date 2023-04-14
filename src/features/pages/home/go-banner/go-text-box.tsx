@@ -40,7 +40,12 @@ const GoTextBox = () => {
                 >
                     <Localize translate_text="_t_You need Deriv GO Ultimate for Android. Trade Options, in addition to CFDs and Multipliers, on your favourite markets._t_" />
                 </Typography.Paragraph>
-                <Typography.Paragraph align={is_mobile_or_tablet ? 'center' : 'left'}>
+                <Typography.Paragraph
+                    align="center"
+                    md={{
+                        align: 'left',
+                    }}
+                >
                     <Link textcolor="inverted" size="large">
                         <Localize translate_text="_t_Download now >_t_" />
                     </Link>

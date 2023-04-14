@@ -1,18 +1,38 @@
 import React from 'react'
+import loadable from '@loadable/component'
 import HomeHero from './hero'
-import HomeMarkets from './markets'
-import OurPlatforms from './our-platforms'
-import TradeTypes from './trade-types'
-import P2PBanner from './p2p-banner'
-import ClientTestimonial from './client-testimonial'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
 import { localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
-import MainNav from 'features/components/templates/navigation/main-nav'
-import SignupPublic from 'features/components/templates/signup/with-banner'
-import Footer from 'features/components/templates/footer'
+
+const HomeMarkets = loadable(() => import(/* webpackChunkName: "home-markets" */ './markets'))
+const OurPlatforms = loadable(
+    () => import(/* webpackChunkName: "home-our-platforms" */ './our-platforms'),
+)
+const TradeTypes = loadable(
+    () => import(/* webpackChunkName: "home-trade-types" */ './trade-types'),
+)
+const P2PBanner = loadable(() => import(/* webpackChunkName: "home-p2p-banner" */ './p2p-banner'))
+const ClientTestimonial = loadable(
+    () => import(/* webpackChunkName: "client-testimonial" */ './client-testimonial'),
+)
+const MainNav = loadable(
+    () =>
+        import(
+            /* webpackChunkName: "main-nav" */ 'features/components/templates/navigation/main-nav'
+        ),
+)
+const SignupPublic = loadable(
+    () =>
+        import(
+            /* webpackChunkName: "signup-public" */ 'features/components/templates/signup/with-banner'
+        ),
+)
+const Footer = loadable(
+    () => import(/* webpackChunkName: "Footer" */ 'features/components/templates/footer'),
+)
 
 const HomePage = () => {
     useOpenLiveChat(true)

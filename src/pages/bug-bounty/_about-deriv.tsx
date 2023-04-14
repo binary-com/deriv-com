@@ -67,7 +67,7 @@ const AboutDeriv = () => {
             <WrapContainer p="8rem 0" tablet={{ p: '40px 0' }}>
                 <WrapText direction="column" max_width="38.4rem" tablet={{ max_width: '100%' }}>
                     <StyledHeader mb="0.8rem" as="h2" type="heading-2">
-                        {localize('About Deriv')}
+                        {localize('_t_About Deriv_t_')}
                     </StyledHeader>
                     <Header
                         type="paragraph-1"

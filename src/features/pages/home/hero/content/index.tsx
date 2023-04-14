@@ -8,7 +8,7 @@ import { Localize } from 'components/localization'
 
 const HomeHeroContent = () => {
     return (
-        <Flex.Box justify="start" direction="col" align="start" gap="10x">
+        <Flex.Box justify="start" direction="col" align="start" gap="5x">
             <HeroHeaderItems />
             <Typography.Heading as="h5" size={'xs'} weight="normal">
                 <Localize translate_text="_t_Get the widest range of markets, trades and platforms_t_" />

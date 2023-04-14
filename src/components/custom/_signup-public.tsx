@@ -246,6 +246,7 @@ const StyledHeaderText = styled(Text)`
     padding: 10px 0;
 
     @media ${device.tabletL} {
+        width: auto;
         font-size: 2rem;
         padding: 10px 0 0 0;
     }

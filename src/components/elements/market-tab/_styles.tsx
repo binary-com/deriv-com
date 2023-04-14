@@ -15,7 +15,8 @@ export const MarketsContainer = styled.div`
     ::-webkit-scrollbar {
         display: none;
     }
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
+        overflow: scroll;
         margin: 0;
         padding: 2rem 0;
         justify-content: flex-start;
@@ -30,7 +31,7 @@ export const ContainerWrapper = styled(Flex)`
     margin: 0 auto;
     padding: 2rem;
     width: 60%;
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         width: 100vw;
         padding: 3rem 4.3rem 0;
     }

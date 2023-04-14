@@ -353,8 +353,6 @@ module.exports = {
                 mergeDefaultDirectives: true,
                 directives: {
                     "script-src": "'self' 'unsafe-inline' 'unsafe-eval' https://deriv.com https://eu.deriv.com https://widget.trustpilot.com https://www.google-analytics.com https://www.googletagmanager.com",
-                    "style-src": "'self' 'unsafe-inline'",
-                    "style-src-attr": "'self' 'unsafe-inline'",
                     "script-src-elem": "'self' 'unsafe-inline' https://deriv.com https://eu.deriv.com https://widget.trustpilot.com https://www.google-analytics.com https://www.googletagmanager.com",
                     "connect-src": "'self' 'unsafe-inline' https://deriv.com https://eu.deriv.com https://cp.pushwoosh.com https://rum.browser-intake-datadoghq.com"
                 }

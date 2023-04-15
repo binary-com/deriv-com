@@ -46,8 +46,8 @@ const DtraderGetApp = () => {
         <MultiWidthColumn
             firstColumnBackground="#4C515C"
             secondColumnBackground={GrayAngle30}
-            firstColumnWidth="70%"
-            secondColumnWidth="30%"
+            firstColumnWidth="88%"
+            secondColumnWidth="22%"
             mobileBackgroundImage={GetAppMobileBG}
         >
             <ContentWrapper>

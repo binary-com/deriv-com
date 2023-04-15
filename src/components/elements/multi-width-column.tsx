@@ -20,11 +20,22 @@ const StyledSectionContainer = styled.section<{ mobileBG: string }>`
     padding: 0;
     margin-top: 20px;
     flex-direction: row;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        background-color: #4c515c;
+    }
     @media ${device.tabletL} {
         flex-direction: column;
         padding: 80px 0;
         background: url(${(props) => props.mobileBG});
         background-size: cover;
+        &::before {
+            content: none;
+        }
     }
 `
 
@@ -49,6 +60,10 @@ const FirstColumn = styled(Column)`
     @media ${device.tabletL} {
         padding-right: 0;
     }
+`
+const StyledContainer = styled(Container)`
+    margin: 0;
+    width: 100%;
 `
 
 const SecondColumn = styled(Column)`
@@ -78,15 +93,17 @@ const MultiWidthColumn: React.FC<Props> = ({
 }) => {
     return (
         <StyledSectionContainer mobileBG={mobileBackgroundImage}>
-            <FirstColumn background={firstColumnBackground} width={firstColumnWidth}>
-                <Container justify="center" ai="flex-start">
-                    {children[0]}
-                </Container>
-            </FirstColumn>
+            <Container ai="stretch" justify="flex-start" tablet_direction="column">
+                <FirstColumn background={firstColumnBackground} width={firstColumnWidth}>
+                    <StyledContainer justify="center" ai="flex-start">
+                        {children[0]}
+                    </StyledContainer>
+                </FirstColumn>
 
-            <SecondColumn background={secondColumnBackground} width={secondColumnWidth}>
-                {children[1]}
-            </SecondColumn>
+                <SecondColumn background={secondColumnBackground} width={secondColumnWidth}>
+                    {children[1]}
+                </SecondColumn>
+            </Container>
         </StyledSectionContainer>
     )
 }

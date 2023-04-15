@@ -85,8 +85,8 @@ const DerivMT5GetApp = () => {
         <MultiWidthColumn
             firstColumnBackground="#4C515C"
             secondColumnBackground={GrayAngle30}
-            firstColumnWidth="50%"
-            secondColumnWidth="50%"
+            firstColumnWidth="59%"
+            secondColumnWidth="45%"
             mobileBackgroundImage={GetAppMobileBG}
         >
             <ContentWrapper>

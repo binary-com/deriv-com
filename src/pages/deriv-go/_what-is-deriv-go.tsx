@@ -68,7 +68,7 @@ const StyledText = styled(Header)`
     max-width: 792px;
 
     @media ${device.tabletL} {
-        font-size: 24px;
+        font-size: 14px;
     }
 `
 

@@ -9,13 +9,13 @@ import device from 'themes/device'
 
 const query = graphql`
     query {
-        sign_up: file(relativePath: { eq: "deriv-go/create-account1.png" }) {
+        sign_up: file(relativePath: { eq: "deriv-go/create-account.png" }) {
             ...fadeIn
         }
-        fund: file(relativePath: { eq: "deriv-go/fund-account1.png" }) {
+        fund: file(relativePath: { eq: "deriv-go/fund-account.png" }) {
             ...fadeIn
         }
-        trading: file(relativePath: { eq: "deriv-go/get-trading1.png" }) {
+        trading: file(relativePath: { eq: "deriv-go/get-trading.png" }) {
             ...fadeIn
         }
     }
@@ -23,6 +23,7 @@ const query = graphql`
 
 const SmallContainer = styled(Container)`
     width: 100%;
+    margin: 0 auto;
     @media ${device.tabletL} {
         width: 90%;
         padding: 0;
@@ -33,10 +34,10 @@ const StyledHeader = styled(Header)`
 
     @media ${device.mobileL} {
         font-size: 32px;
-        padding: 0 35px;
+        padding: 0;
     }
     @media ${device.mobileM} {
-        padding: 0 20px;
+        padding: 0;
     }
 `
 const StartDerivGo = () => {

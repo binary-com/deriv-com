@@ -20,7 +20,7 @@ import DownloadColumn from 'components/custom/_multi-width-column-download'
 
 const ContentWrapper = styled.div`
     display: flex;
-    gap: 28px;
+    gap: 16px;
     flex: 1;
     z-index: 2;
     @media ${device.tabletL} {
@@ -51,8 +51,8 @@ const DerivGoGetApp = () => {
         <MultiWidthColumn
             firstColumnBackground="#4C515C"
             secondColumnBackground={GrayAngle30}
-            firstColumnWidth="50%"
-            secondColumnWidth="50%"
+            firstColumnWidth="55%"
+            secondColumnWidth="45%"
             mobileBackgroundImage={GetAppMobileBG}
         >
             <ContentWrapper>

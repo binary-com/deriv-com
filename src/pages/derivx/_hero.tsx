@@ -81,6 +81,7 @@ const Content = styled.div`
     gap: 30px;
     flex-direction: column;
     padding-left: 120px;
+    overflow-wrap: break-word;
 
     @media ${device.tablet} {
         padding: 0 16px 40px;

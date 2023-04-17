@@ -8,9 +8,9 @@
 .footer_grid {
     display: grid;
     inline-size: 100%;
-    grid-template-columns: 2fr;
+    grid-template-columns: 1fr;
 
-    @include breakpoints(tablet-wide) {
-        grid-template-columns: 1fr;
+    @include breakpoints(tablet) {
+        grid-template-columns: 2fr;
     }
 }

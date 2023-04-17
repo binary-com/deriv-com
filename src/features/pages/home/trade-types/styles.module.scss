@@ -9,7 +9,7 @@
 }
 
 .item_description {
-    @include breakpoints(tablet-large) {
+    @include breakpoints(tablet) {
         min-block-size: 10rem;
     }
 }

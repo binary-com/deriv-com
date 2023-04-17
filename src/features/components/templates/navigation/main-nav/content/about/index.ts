@@ -83,9 +83,6 @@ export const aboutUsNavSectionContent: TSmartNavContent[] = [
             },
             url: { type: 'company', url_name: 'derivlife', target: '_blank' },
             title: '_t_Deriv life_t_',
-            // external: true,
-            // target: '_blank',
-            // to: 'https://derivlife.com/',
         },
     },
 ]

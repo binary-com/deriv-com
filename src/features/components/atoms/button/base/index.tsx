@@ -1,11 +1,17 @@
 import React, { ButtonHTMLAttributes } from 'react'
 import Box from '../../box'
-import { ClassProps, TTextSize, TTypographyColor, TTypographyWeight } from 'features/types'
+import {
+    ClassProps,
+    TTextSize,
+    TTypographyColor,
+    TTypographyWeight,
+    TVisible,
+} from 'features/types'
 import dclsx from 'features/utils/dclsx'
 import {
     generateTextColor,
     generateTextSize,
-    generateTypographyWeight,
+    generateTypographyWeightClasses,
 } from 'features/styles/utils'
 
 export interface BaseButtonProps extends ButtonHTMLAttributes<'button'>, ClassProps {
@@ -14,6 +20,7 @@ export interface BaseButtonProps extends ButtonHTMLAttributes<'button'>, ClassPr
     textsize?: TTextSize
     textcolor?: TTypographyColor
     textweight?: TTypographyWeight
+    visible?: TVisible
     hero?: boolean
 }
 
@@ -26,11 +33,13 @@ const BaseButton = ({
     textcolor,
     textweight,
     hero,
+    role = 'button',
     ...rest
 }: BaseButtonProps) => {
     return (
         <Box
             as="button"
+            role={role}
             className={dclsx(
                 'button',
                 className,
@@ -41,7 +50,7 @@ const BaseButton = ({
                 },
                 generateTextSize(textsize),
                 generateTextColor(textcolor),
-                generateTypographyWeight(textweight),
+                generateTypographyWeightClasses(textweight),
             )}
             {...rest}
         >

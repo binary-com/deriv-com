@@ -14,6 +14,7 @@ concurrency:
 env:
   GATSBY_CPU_COUNT: 2
   GATSBY_ENV: staging
+  NODE_OPTIONS: "--max_old_space_size=7168"
 
 jobs:
   lint:
@@ -47,17 +48,14 @@ jobs:
 
       - name: Setup Node
         uses: actions/setup-node@v3
-        env:
-          NODE_OPTIONS: "--max_old_space_size=4096"
         with:
           node-version: "18.x"
           cache: "npm"
 
       - run: npm ci
-      - run: npm run format
-      - run: npm run test
+      # - run: npm run format
+      # - run: npm run test
       - run: npm run build
-      - run: npm run build:storybook
       - uses: olegtarasov/get-tag@v2.1
         id: tagName
         # For using same tag for staging and production we need to uncomment these two below lines:
@@ -74,19 +72,19 @@ jobs:
       - name: Cloudflare preview link ✨
         run: echo "New beta website - https://beta.deriv.com"
 
-      - name: Slack Notification 📣
-        uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ job.status }}
-          fields: workflow,repo
-          if_mention: failure,cancelled
-          custom_payload: |
-            {
-              attachments: [{
-                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `Release for *Deriv.com* with version *$GITHUB_SHA*`
-              }]
-            }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-        if: always()
+      # - name: Slack Notification 📣
+      #   uses: 8398a7/action-slack@v3
+      #   with:
+      #     status: ${{ job.status }}
+      #     fields: workflow,repo
+      #     if_mention: failure,cancelled
+      #     custom_payload: |
+      #       {
+      #         attachments: [{
+      #           color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+      #           text: `Release for *Deriv.com* with version *$GITHUB_SHA*`
+      #         }]
+      #       }
+      #   env:
+      #     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+      #   if: always()

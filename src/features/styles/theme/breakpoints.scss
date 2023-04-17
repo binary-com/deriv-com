@@ -1,13 +1,8 @@
 $breakpoints: (
-    'phone': 400px,
-    'phone-wide': 480px,
-    'phone-large': 576px,
-    'tablet': 768px,
-    'tablet-large': 992px,
-    'tablet-wide': 1024px,
-    'desktop': 1248px,
-    'desktop-wide': 1440px,
-    'desktop-large': 1920px,
+    'phone': 600px,
+    'tablet': 992px,
+    'laptop': 1280px,
+    'desktop': 1536px,
 );
 
 $sizes: (

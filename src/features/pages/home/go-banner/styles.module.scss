@@ -18,7 +18,7 @@
         @include rtl() {
             clip-path: polygon(0 25%, 100% 0, 100% 100%, 0% 100%);
         }
-        @include breakpoints(tablet-large) {
+        @include breakpoints(tablet) {
             block-size: 100%;
             inline-size: 25%;
             clip-path: circle(75.8% at 0 51%);
@@ -35,7 +35,7 @@
     max-inline-size: 100%;
     z-index: 1;
     order: 1;
-    @include breakpoints(tablet-large) {
+    @include breakpoints(tablet) {
         order: unset;
     }
 }

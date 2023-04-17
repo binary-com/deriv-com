@@ -15,7 +15,7 @@
     inset-inline-start: 0;
     inline-size: 25rem;
     block-size: 32rem;
-    @include breakpoints(tablet-large) {
+    @include breakpoints(tablet) {
         inline-size: 25rem;
         block-size: 36rem;
     }
@@ -23,7 +23,7 @@
 
 .public_signup_title {
     max-inline-size: 24rem;
-    @include breakpoints(tablet-large) {
+    @include breakpoints(tablet) {
         max-inline-size: 32rem;
     }
     @include breakpoints(desktop) {

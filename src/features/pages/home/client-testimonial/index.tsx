@@ -19,8 +19,8 @@ const ClientTestimonial = () => {
                     direction: 'row',
                 }}
             >
-                <Flex.Item basis={'6-12'}>
-                    <Typography.Heading size="medium" align={'right'}>
+                <Flex.Item md={{ basis: '6-12' }}>
+                    <Typography.Heading size="medium" align="right">
                         <Localize translate_text="_t_Rated excellent on_t_" />
                     </Typography.Heading>
                 </Flex.Item>

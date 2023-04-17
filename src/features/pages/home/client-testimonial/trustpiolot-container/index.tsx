@@ -9,14 +9,14 @@ const TrustpilotContainer = () => {
     }, [])
 
     return (
-        <Flex.Box direction="col" justify="center" align="start" gap={'20x'} basis={'6-12'}>
+        <Flex.Box direction="col" justify="center" align="start" gap={'20x'} md={{ basis: '6-12' }}>
             <div
                 ref={ref}
                 className="trustpilot-widget"
                 data-locale="en-US"
                 data-template-id="53aa8807dec7e10d38f59f32"
                 data-businessunit-id="5ed4c8a9f74f310001f51bf7"
-                data-style-height="150px"
+                data-style-height="115px"
                 data-style-width="100%"
                 data-style-padding="0"
                 data-theme="light"

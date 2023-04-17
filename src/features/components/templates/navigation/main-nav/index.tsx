@@ -13,9 +13,10 @@ const MainNav = () => {
     return (
         <NavTemplate
             renderLogo={() => (
-                <Link url={{ type: 'internal', to: '/' }}>
+                <Link url={{ type: 'internal', to: '/' }} aria-label="deriv logo link">
                     <Image
                         src={LogoImage}
+                        alt="deriv-logo"
                         width={is_mobile_or_tablet ? 48 : 96}
                         height={is_mobile_or_tablet ? 16 : 36}
                     />

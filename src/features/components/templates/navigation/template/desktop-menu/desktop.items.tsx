@@ -20,12 +20,7 @@ const NavDesktopItem = <T extends string>({ item, activeTab }: DesktopItemsProps
                 <NavSingleItem item={item.data} />
             ) : (
                 <>
-                    <Typography.Paragraph
-                        size="medium"
-                        padding_block="2x"
-                        padding_inline="5x"
-                        className={styles.item_title}
-                    >
+                    <Typography.Paragraph size="medium" className={styles.item_title}>
                         <Localize translate_text={item.data.title} />
                     </Typography.Paragraph>
                     {item.data.active === activeTab && (

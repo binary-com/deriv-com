@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Typography from '../typography'
 import { TypographyLinkProps } from '../typography/link'
 import Alert from '../alert'
@@ -12,11 +12,11 @@ interface LinkProps extends TypographyLinkProps {
 
 const Link = (props: LinkProps) => {
     const { url, target, rel, ...rest } = props
+    const [is_active_page, setIs_active_page] = useState(false)
 
-    const is_active_page = useMemo(() => {
+    useEffect(() => {
         const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
-
-        return url.type === 'internal' && pathname === url.to
+        setIs_active_page(url.type === 'internal' && pathname === url.to)
     }, [url])
 
     const { getLinkUrl } = useLinkUrl()

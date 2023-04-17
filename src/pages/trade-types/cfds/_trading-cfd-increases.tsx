@@ -55,11 +55,13 @@ const ExampleImage = styled(QueryImage)<ExampleImageType>`
     }
 `
 const StyledButton = styled(LinkButton)`
-    margin-top: 2.4rem;
-    margin-bottom: 2rem;
+    margin-bottom: 90px;
+    margin-left: -2.2rem;
+
     @media ${device.tabletL} {
         margin-top: 0.8rem;
         margin-bottom: 1.6rem;
+        margin-left: -2.8rem;
     }
 `
 
@@ -210,7 +212,7 @@ const TradingCFDIncreases = () => {
                         'If you keep any position open overnight, an adjustment (swap rate) will be applied to your trading account to compensate for the cost of keeping that position open. Instruments traded on our platforms are subject to different swap rates. These rates are based on conditions such as time and number of days, including public holidays, that you hold your positions open.',
                     )}
                 </Text>
-                <Text mb="1.6rem">
+                <Text mb="0.3rem">
                     {localize(
                         'You can use our swap calculator to estimate the swap charges required to keep your positions open overnight on Deriv’s CFD trading platforms.',
                     )}

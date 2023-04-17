@@ -26,7 +26,9 @@ type AvailablePlatformsProps = {
     m_top?: string
 }
 
-const PlatformsContainer = styled(Flex)`
+const PlatformsContainer = styled.div<AvailablePlatformsProps>`
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     width: unset;
 
@@ -43,8 +45,29 @@ const PlatformsContainer = styled(Flex)`
         margin-right: 0;
         min-width: 95px;
     }
-    @media ${device.tablet} {
-        width: ${(props) => props.width};
+    @media ${device.mobileL} {
+        display: ${(props) => (props.tablet_direction ? 'grid' : 'flex')};
+        grid-template-columns: ${(props) => (props.tablet_direction ? 'repeat(2, 1fr)' : 'auto')};
+        grid-template-rows: ${(props) => (props.tablet_direction ? 'auto auto' : 'auto')};
+        grid-gap: ${(props) => (props.tablet_direction ? '1rem' : 'unset')};
+
+        ${(props) =>
+            props.tablet_direction &&
+            `
+          a:nth-child(1) {
+            grid-column: 1 / span 1;
+            grid-row: 1 / span 1;
+          }
+          a:nth-child(2) {
+            grid-column: 2 / span 1;
+            grid-row: 1 / span 1;
+          }
+          a:nth-child(3) {
+            grid-column: 1 / span 2;
+            grid-row: 2 / span 1;
+            text-align: center;
+          }
+        `}
     }
 `
 const StyledText = styled(Header)`
@@ -95,6 +118,8 @@ const AvailablePlatforms = ({
                 {localize('Available on')}
             </StyledText>
             <PlatformsContainer
+                flex_direction={flex_direction}
+                tablet_direction={tablet_direction}
                 width={tablet_direction === 'column' ? '100%' : 'unset'}
                 ai="center"
             >

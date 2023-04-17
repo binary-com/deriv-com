@@ -40,11 +40,13 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 
 const StyledButton = styled(LinkButton)`
-    margin-top: 2.4rem;
-    margin-bottom: 2rem;
+    margin-left: -2.2rem;
+    margin-top: 1rem;
+
     @media ${device.tabletL} {
-        margin-top: 0.8rem;
+        margin-top: -1rem;
         margin-bottom: 1.6rem;
+        margin-left: -2.8rem;
     }
 `
 const MindWhenTrading = () => {

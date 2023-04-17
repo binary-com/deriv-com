@@ -53,7 +53,6 @@ const StyledHeader = styled(Header)`
 `
 const StyledText = styled(Text)`
     color: var(--color-black-9);
-    font-family: Ubuntu, sans-serif;
 
     @media ${device.tabletL} {
         text-align: center;

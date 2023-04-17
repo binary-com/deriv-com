@@ -358,7 +358,8 @@ module.exports = {
                     "script-src": "'self' 'unsafe-inline' 'unsafe-eval' https://deriv.com https://*.deriv.com https://static.deriv.com https://widget.trustpilot.com https://www.google-analytics.com https://www.googletagmanager.com",
                     "script-src-elem": "'self' 'unsafe-inline' https://deriv.com https://eu.deriv.com https://static.deriv.com https://widget.trustpilot.com https://www.google-analytics.com https://www.googletagmanager.com https://cdn.livechatinc.com https://api.livechatinc.com",
                     "connect-src": "'self' 'unsafe-inline' https://deriv.com https://eu.deriv.com https://static.deriv.com https://cp.pushwoosh.com https://rum.browser-intake-datadoghq.com wss://green.binaryws.com",
-                    "frame-src": "'self' https://widget.trustpilot.com https://secure.livechatinc.com"
+                    "frame-src": "'self' https://widget.trustpilot.com https://secure.livechatinc.com",
+                    "font-src": "'self' data: https://cdn.livechatinc.com"
                 }
             }
         }

@@ -22,6 +22,7 @@ type TBannerDimensionProps = {
 }
 
 const cookieBannerProps: TBannerDimensionProps = { width: '384', minHeight: '188' }
+const BrowserBannerProps: TBannerDimensionProps = { width: '384', minHeight: '132' }
 
 const Wrapper = styled.div<{ visible: boolean; width: string; minHeight: string }>`
     pointer-events: all;
@@ -197,8 +198,8 @@ const BannerAlert: FC<TProps> = ({ bannerType }) => {
                     <OverlayContainer is_rtl={is_rtl}>
                         <Wrapper
                             visible={is_visible}
-                            width={cookieBannerProps.width}
-                            minHeight={cookieBannerProps.minHeight}
+                            width={BrowserBannerProps.width}
+                            minHeight={BrowserBannerProps.minHeight}
                         >
                             <StyledText>
                                 <Localize translate_text="_t_Update your browser to get the best Deriv experience_t_" />
@@ -223,7 +224,7 @@ const BannerAlert: FC<TProps> = ({ bannerType }) => {
             default:
                 return <></>
         }
-    }, [bannerType])
+    }, [bannerType, is_cpa_plan, is_eu, is_mobile_or_tablet])
 
     return is_visible ? generateBanner : <></>
 }

@@ -6,7 +6,7 @@ import Layout from 'components/layout/layout'
 import { Desktop, Mobile, SEO } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import { size } from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 import { isBrowser } from 'common/utility'
 import ExtendedTimeSVG from 'images/svg/stock-indices/stocks-extended-time.svg'
 import NoCommisionSVG from 'images/svg/stock-indices/stocks-no-commission.svg'
@@ -45,26 +45,32 @@ const WhyTradeWithUsArr: ContentType[] = [
     {
         title: <Localize translate_text="Extended market hours" />,
         icon: ExtendedTimeSVG,
+        image_alt: 'Market time',
     },
     {
         title: <Localize translate_text="No commissions" />,
         icon: NoCommisionSVG,
+        image_alt: 'No money',
     },
     {
         title: <Localize translate_text="High leverage" />,
         icon: HighLeverageSVG,
+        image_alt: 'High percentage',
     },
     {
         title: <Localize translate_text="11 world indices" />,
         icon: ElevenIndicesSVG,
+        image_alt: 'World indices',
     },
     {
         title: <Localize translate_text="40+ stocks" />,
         icon: FourtyStocksSVG,
+        image_alt: 'Stocks',
     },
     {
         title: <Localize translate_text="Low capital requirement" />,
         icon: LowCapitalSVG,
+        image_alt: 'Capital need',
     },
 ]
 
@@ -72,22 +78,27 @@ const WhyTradeWithUsArr_eu = [
     {
         title: <Localize translate_text="Extended market hours" />,
         icon: ExtendedTimeSVG,
+        image_alt: 'Market time',
     },
     {
         title: <Localize translate_text="No commissions" />,
         icon: NoCommisionSVG,
+        image_alt: 'No money',
     },
     {
         title: <Localize translate_text="10 world indices" />,
         icon: TenIndicesSVG,
+        image_alt: 'World indices',
     },
     {
         title: <Localize translate_text="40+ stocks" />,
         icon: FourtyStocksSVG,
+        image_alt: 'Stocks',
     },
     {
         title: <Localize translate_text="Low capital requirement" />,
         icon: LowCapitalSVG,
+        image_alt: 'Capital need',
     },
 ]
 
@@ -129,12 +140,12 @@ const Stocks = () => {
     const handleResizeWindow = () => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
     }
-    const { is_row } = useCountryRule()
+    const { is_row } = useRegion()
 
     useEffect(() => {
         setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
         window.addEventListener('resize', handleResizeWindow)
-    })
+    }, [])
 
     const data = useStaticQuery(query)
 

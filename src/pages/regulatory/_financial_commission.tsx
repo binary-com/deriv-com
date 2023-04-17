@@ -4,12 +4,12 @@ import { Text, LinkText } from 'components/elements'
 import { deriv_app_url } from 'common/constants'
 import { useLivechat } from 'components/hooks/use-livechat'
 import { Localize } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const TextLink = styled(LinkText).attrs({ as: 'span' })``
 
 const FinancialCommission = () => {
-    const { is_eu, is_non_eu } = useCountryRule()
+    const { is_eu, is_non_eu } = useRegion()
     const [is_livechat_interactive, LC_API] = useLivechat()
 
     return (

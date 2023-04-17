@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import Shield from 'images/svg/who-we-are/shield.svg'
 import Star from 'images/svg/who-we-are/star.svg'
 import People from 'images/svg/who-we-are/people.svg'
@@ -195,6 +195,12 @@ export const desktop_pins: MapPinType[] = [
         link: '/careers/locations/paris',
     },
     {
+        left: '28.3%',
+        top: '50.8%',
+        title: <Localize translate_text="Road Town, British Virgin Islands" />,
+        link: '/careers/locations/roadtown',
+    },
+    {
         left: '49.4%',
         top: '27.9%',
         title: <Localize translate_text="Berlin, Germany" />,
@@ -218,6 +224,12 @@ export const desktop_pins: MapPinType[] = [
         title: <Localize translate_text="Singapore, Singapore" />,
         link: '/careers/locations/singapore',
     },
+    {
+        left: '45.9%',
+        top: '28%',
+        title: <Localize translate_text="Reading, United kingdom" />,
+        link: '/careers/locations/reading',
+    },
 ]
 
 export const mobile_pins: MapPinType[] = [
@@ -235,9 +247,15 @@ export const mobile_pins: MapPinType[] = [
     },
     {
         left: '22%',
-        top: '48%',
+        top: '47.7%',
         title: <Localize translate_text="George Town, Cayman Islands" />,
         link: '/careers/locations/georgetown',
+    },
+    {
+        left: '26%',
+        top: '48%',
+        title: <Localize translate_text="Road Town, British Virgin Islands" />,
+        link: '/careers/locations/roadtown',
     },
     {
         left: '48.5%',
@@ -329,6 +347,12 @@ export const mobile_pins: MapPinType[] = [
         title: <Localize translate_text="Port Vila, Vanuatu" />,
         link: '/careers/locations/vanuatu',
     },
+    {
+        left: '45.9%',
+        top: '20%',
+        title: <Localize translate_text="Reading, United kingdom" />,
+        link: '/careers/locations/reading',
+    },
 ]
 
 type DerivNumbersType = {
@@ -337,7 +361,7 @@ type DerivNumbersType = {
 }
 
 export const our_offices_count: DerivNumbersType[] = [
-    { count: <Localize translate_text="950+" />, title: <Localize translate_text="employees" /> },
+    { count: <Localize translate_text="1000+" />, title: <Localize translate_text="employees" /> },
     {
         count: <Localize translate_text="50+" />,
         title: <Localize translate_text="nationalities" />,

@@ -12,8 +12,8 @@ const JoinUs = () => {
             grid_row_gap: ['0', '8px'],
         },
         icon_wrapper: {
-            width: ['64px', '48px'],
-            height: ['64px', '48px'],
+            img_width: ['64px', '48px'],
+            img_height: ['64px', '48px'],
         },
         text_wrapper: {
             max_width: ['296px', '272px'],
@@ -21,6 +21,7 @@ const JoinUs = () => {
             width: 'auto',
         },
     }
+
     return (
         <ContentContainer>
             <Title

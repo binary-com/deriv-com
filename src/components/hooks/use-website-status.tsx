@@ -1,38 +1,14 @@
-import { useState, useEffect } from 'react'
-import { CookieStorage } from 'common/storage'
-import { isNullUndefined, parseJSONString } from 'common/utility'
+import { useContext } from 'react'
+import { WebsiteStatusContext } from 'store/website-status-context'
 
-export const useCookieState = (key: string, options: { expires: Date }) => {
-    const cookie_state = new CookieStorage(key)
-    const [value, setValue] = useState(() => {
-        const sticky_value = cookie_state.get(key)
-        return sticky_value ? parseJSONString(sticky_value) : null
-    })
+const useWebsiteStatus = () => {
+    const website_status = useContext(WebsiteStatusContext)
 
-    useEffect(() => {
-        if (isNullUndefined(value)) {
-            cookie_state.remove()
-        } else {
-            cookie_state.set(key, JSON.stringify(value), options)
-        }
-    }, [key, value])
+    if (!website_status) {
+        throw new Error('useWebsiteStatus must be used within WebsiteStatusContext')
+    }
 
-    return [value, setValue]
+    return website_status
 }
 
-const getDateFromToday = (num_of_days: number) => {
-    const today = new Date()
-
-    return new Date(today.getFullYear(), today.getMonth(), today.getDate() + num_of_days)
-}
-
-const WEBSITE_STATUS_COUNTRY_KEY = 'website_status'
-const COOKIE_EXPIRY_DAYS = 7
-
-export const useWebsiteStatus = () => {
-    const [website_status, setWebsiteStatus] = useCookieState(WEBSITE_STATUS_COUNTRY_KEY, {
-        expires: getDateFromToday(COOKIE_EXPIRY_DAYS),
-    })
-
-    return [website_status, setWebsiteStatus]
-}
+export default useWebsiteStatus

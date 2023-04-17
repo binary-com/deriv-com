@@ -21,6 +21,9 @@ type WhyUsProps = {
     items: WhyUsType
 }
 
+type RowProps = {
+    flex_direction?: string
+}
 const query = graphql`
     query {
         multiple_income_opportunities: file(
@@ -65,7 +68,7 @@ const WhyUsHeader = styled(Header)`
     }
 `
 
-const Row = styled(SectionContainer)`
+const Row = styled(SectionContainer)<RowProps>`
     display: flex;
     flex-direction: ${(props) => props.flex_direction};
     justify-content: space-between;

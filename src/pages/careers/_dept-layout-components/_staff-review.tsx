@@ -17,13 +17,11 @@ const query = graphql`
         ) {
             ...fadeIn
         }
-        people_management_review: file(
-            relativePath: { eq: "careers-2/people-management-review.png" }
-        ) {
+        human_resources_review: file(relativePath: { eq: "careers-2/human-resources-review.png" }) {
             ...fadeIn
         }
-        people_management_review_mobile: file(
-            relativePath: { eq: "careers-2/people-management-review-mobile.png" }
+        human_resources_review_mobile: file(
+            relativePath: { eq: "careers-2/human-resources-review-mobile.png" }
         ) {
             ...fadeIn
         }
@@ -119,6 +117,16 @@ const query = graphql`
             ...fadeIn
         }
         pm_review_mobile: file(relativePath: { eq: "careers-2/pm-review-mobile.png" }) {
+            ...fadeIn
+        }
+        business_intelligence_review: file(
+            relativePath: { eq: "careers-2/business-intelligence-review.png" }
+        ) {
+            ...fadeIn
+        }
+        business_intelligence_review_mobile: file(
+            relativePath: { eq: "careers-2/business-intelligence-review-mobile.png" }
+        ) {
             ...fadeIn
         }
     }

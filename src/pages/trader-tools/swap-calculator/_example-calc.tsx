@@ -254,7 +254,7 @@ export const SwapFinancialExample = () => {
 
                         <FormulaValueSwapSynthetic>
                             <Localize translate_text="100,000" />
-                            <PointerContainer ml="-25px" width="100px">
+                            <PointerContainer ml="-25px" width="100px" top>
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText top>
@@ -286,7 +286,7 @@ export const SwapFinancialExample = () => {
 
                         <FormulaValueSwapSynthetic>
                             <Localize translate_text="-0.12 " />
-                            <PointerContainer ml="-24px" width="100px">
+                            <PointerContainer ml="-24px" width="100px" top>
                                 <PointerDot />
                                 <PointerStick />
                                 <PointerText top>

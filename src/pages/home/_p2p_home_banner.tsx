@@ -411,7 +411,7 @@ const P2PHomeBanner = () => {
                                 <QueryImage data={data['deriv_p2p_mobile_logo']} alt="p2p logo" />
                             </Mobile>
                         </P2pLogoContainer>
-                        <StyledHeaders as="h1" weight={500}>
+                        <StyledHeaders as="h1" weight="500">
                             <Localize translate_text="Hassle-free deposits and withdrawals" />
                         </StyledHeaders>
                         <HeroContent>

@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
+import { ReactElement } from 'react'
+import { Header, Text } from 'components/elements'
 import { Box, CssGrid, Flex } from 'components/containers'
-import { Text } from 'components/elements'
 import device from 'themes/device'
 
 type DescriptionsProps = {
@@ -8,31 +9,47 @@ type DescriptionsProps = {
 }
 
 type MarketsListProps = {
-    has_right_border: string
-    col: number
-    tablet_col: number
-    mobile_col: number
-    gap: string
+    has_right_border?: boolean
+    col?: number
+    tablet_col?: number
+    mobile_col?: number
+    gap?: string
+    flex?: string
+    gap_mobile?: string
+    mobile_template?: boolean
 }
 type OptionsRowProps = {
     is_first_child: boolean
 }
 
 type LatestMarketsListProps = {
-    flex: string
-    has_right_border: boolean
-    col: number
-    tablet_col: number
-    padding: string
-    gap: string
+    has_right_border?: boolean
+    col?: number
+    tablet_col?: number
+    padding?: string
+    gap?: string
+    mobile_col?: number
+    flex?: number
+    mobile_template?: boolean
+    gap_mobile?: string
 }
 
 type StyledTextProps = {
-    font_size: string
-    align: string
+    font_size?: string
+    align?: string
 }
 
-export const Col = styled(Flex)`
+type RowProps = {
+    is_accordion_row?: boolean
+    mobile_template?: boolean
+}
+
+type ColProps = {
+    full_width?: boolean
+    mobile_template?: boolean
+}
+
+export const Col = styled(Flex)<ColProps>`
     max-width: 130px;
     padding: 0 4px;
 
@@ -80,7 +97,7 @@ export const DetailsContainer = styled(Flex)`
     }
 `
 
-export const Row = styled(Flex)`
+export const Row = styled(Flex)<RowProps>`
     ${({ is_accordion_row }) => {
         if (!is_accordion_row) {
             return css`
@@ -125,7 +142,7 @@ export const DerivedMarketsList = styled(CssGrid)<MarketsListProps>`
     width: 100%;
     height: fit-content;
     padding: ${({ padding }) => (padding ? padding : '24px')};
-    gap: ${({ gap }) => (gap ? gap : '10px')};
+    gap: ${({ gap }) => (gap ? gap : '12px')};
 
     @media ${device.tabletL} {
         grid-template-columns: ${({ tablet_col }) => `repeat(${tablet_col ?? 2}, 1fr)`};
@@ -136,8 +153,7 @@ export const DerivedMarketsList = styled(CssGrid)<MarketsListProps>`
     @media ${device.mobileL} {
         grid-template-columns: ${({ mobile_col }) => `repeat(${mobile_col ?? 2}, 1fr)`};
         ${({ mobile_template }) => mobile_template && 'border-left: unset;'};
-        padding: 16px 8px;
-        gap: ${({ gap_mobile }) => (gap_mobile ? gap_mobile : '8px 0')};
+        gap: ${({ gap_mobile }) => (gap_mobile ? gap_mobile : '')};
     }
 `
 
@@ -200,6 +216,13 @@ export const StyledText = styled(Text)<StyledTextProps>`
         font-size: 14px;
     }
 `
+export const SymbolText = styled(Header)`
+    font-weight: normal;
+    @media ${device.tabletL} {
+        max-width: 100px;
+        max-height: 28px;
+    }
+`
 
 export const SymbolContainer = styled(Flex)`
     width: fit-content;
@@ -241,8 +264,9 @@ export const Title = styled(Text)`
     }
 `
 type StyledBoxProps = {
-    text: string
+    text: React.ReactNode
+    icon: ReactElement
 }
 export const StyledBox = styled(Box)<StyledBoxProps>`
-    content: ${(props) => (props.text ? props.text : '')};
+    content: ${({ text }) => (text ? text : '')};
 `

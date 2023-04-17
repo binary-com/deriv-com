@@ -75,7 +75,7 @@ const query = graphql`
         payments_bg: file(relativePath: { eq: "careers-2/payments-bg.png" }) {
             ...fadeIn
         }
-        people_management_bg: file(relativePath: { eq: "careers-2/people-management-bg.png" }) {
+        human_resources_bg: file(relativePath: { eq: "careers-2/human-resources-bg.png" }) {
             ...fadeIn
         }
         product_bg: file(relativePath: { eq: "careers-2/product-bg.png" }) {
@@ -88,6 +88,11 @@ const query = graphql`
             ...fadeIn
         }
         trading_operations_bg: file(relativePath: { eq: "careers-2/trading-operations-bg.png" }) {
+            ...fadeIn
+        }
+        business_intelligence_bg: file(
+            relativePath: { eq: "careers-2/business-intelligence-bg.png" }
+        ) {
             ...fadeIn
         }
     }

@@ -5,12 +5,11 @@ import { Input, Button } from 'components/form'
 import { Header, LinkText, LocalizedLinkText, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { DerivStore } from 'store'
 // SVG
 import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
-import BinaryLogo from 'images/svg/custom/binary-logo.svg'
 import Google from 'images/svg/custom/google.svg'
+import useRegion from 'components/hooks/use-region'
 
 type SignupNewProps = {
     autofocus?: boolean
@@ -27,6 +26,10 @@ type SignupNewProps = {
 
 type SocialButtonProps = {
     bgColor?: string
+}
+
+type StyledTextProps = {
+    tabletFontSize?: string
 }
 
 const SignupContent = styled.div`
@@ -65,10 +68,7 @@ const Line = styled.div`
     height: 1px;
     background-color: var(--color-grey-7);
 `
-const StyledText = styled(Text)`
-    @media ${(props) => device.tabletL && props.notedBox} {
-        width: 13rem;
-    }
+const StyledText = styled(Text)<StyledTextProps>`
     @media (max-width: 340px) {
         width: 17rem;
     }
@@ -76,21 +76,7 @@ const StyledText = styled(Text)`
         font-size: ${(props) => props.tabletFontSize || 'var(--text-size-xxs)'};
     }
 `
-const NoteBox = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    min-height: 7.7rem;
-    padding: 8px 8px;
-    margin-top: 1.6rem;
-    border-radius: 0.4rem;
-    background-color: rgba(242, 243, 244, 0.56);
 
-    @media ${device.mobileL} {
-        min-height: 80px;
-        padding: 13px 16px;
-    }
-`
 const InputGroup = styled.div`
     position: relative;
     width: 100%;
@@ -226,7 +212,7 @@ const SignupNew = ({
     is_submitting,
 }: SignupNewProps) => {
     const [is_checked, setChecked] = useState(false)
-    const { is_eu_country } = React.useContext(DerivStore)
+    const { is_eu } = useRegion()
 
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
@@ -238,38 +224,6 @@ const SignupNew = ({
                 {localize('Sign up')}
             </StyledHeader>
             <SubTitle>{localize('Enter your email address to begin')}</SubTitle>
-
-            {!is_ppc && (
-                <NoteBox>
-                    <StyledBinaryLogo src={BinaryLogo} alt="binarylogo" />
-                    <div>
-                        <StyledText
-                            mb="0.4rem"
-                            notedBox
-                            color="grey-16"
-                            size="var(--text-size-xs)"
-                            tabletFontSize="12px"
-                        >
-                            <Localize
-                                translate_text="Got a <0>Binary.com</0> account?"
-                                components={[<strong key={0} />]}
-                            />
-                        </StyledText>
-                        <StyledText
-                            notedBox
-                            size="var(--text-size-xxs)"
-                            tabletFontSize="12px"
-                            color="grey-16"
-                            lh="18px"
-                        >
-                            <Localize
-                                translate_text="Log in to <0>Deriv.com</0> with your <0>Binary.com</0> username and password."
-                                components={[<strong key={0} />]}
-                            />
-                        </StyledText>
-                    </div>
-                </NoteBox>
-            )}
 
             <InputGroup>
                 <Input
@@ -303,20 +257,7 @@ const SignupNew = ({
                 {localize('Create demo account')}
             </EmailButton>
             <Header as="p" type="small" weight="400" color="grey-5" mt="0.8rem">
-                <Localize
-                    translate_text="By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>."
-                    components={[
-                        <StyledLocalizedLink
-                            external
-                            key={0}
-                            to={`/tnc${is_eu_country ? '/eu' : ''}/security-and-privacy.pdf`}
-                            size="1.2rem"
-                            color="red"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                        />,
-                    ]}
-                />
+                <Localize translate_text="By signing up for a Deriv account, you agree to receive occasional updates about our products, services, and events. You can unsubscribe at any time in your account settings." />
             </Header>
             <SignupWithContainer>
                 <Line />
@@ -361,7 +302,7 @@ const SignupNew = ({
                     <SocialText>Apple</SocialText>
                 </SocialButton>
             </SocialWrapper>
-            <LoginText mt="3.75rem" mb={is_eu_country ? '100px' : '0'}>
+            <LoginText mt="3.75rem" mb={is_eu ? '100px' : '0'}>
                 {localize('Already have an account?')}
                 <StyledLinkText
                     id="dm-new-login-button"

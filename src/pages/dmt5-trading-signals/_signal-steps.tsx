@@ -7,7 +7,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Localize } from 'components/localization'
 import { QueryImage, LocalizedLinkText } from 'components/elements'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const Container = styled.section`
     width: 100%;
@@ -221,12 +221,12 @@ type SignalStepsProps = {
 
 const SignalSteps = ({ active_tab }: SignalStepsProps) => {
     const data = useStaticQuery(query)
-    const [is_mounted] = usePageLoaded(false) // needed to fix tab highlighting not being rerendered during first load
+    const [is_mounted] = usePageLoaded() // needed to fix tab highlighting not being rerendered during first load
     const [signal_subscriber, signal_provider] = [
         active_tab === 'signal-subscriber',
         active_tab === 'signal-provider',
     ]
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
 
     return (
         <>
@@ -236,7 +236,7 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                         <>
                             <StyledTabs
                                 is_reverse
-                                max_width={'tabletL'}
+                                max_width="tabletL"
                                 has_notice
                                 notice_content={content.subscriber.notice}
                             >
@@ -306,7 +306,7 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                         <>
                             <StyledTabs
                                 is_reverse
-                                max_width={'tabletL'}
+                                max_width="tabletL"
                                 has_notice
                                 notice_content={content.provider.notice}
                             >

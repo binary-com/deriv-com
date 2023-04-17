@@ -10,8 +10,8 @@ on:
 env:
     GATSBY_CPU_COUNT: 2
     GATSBY_ENV: production
-    DIRECTUS_AUTH_TOKEN: ${{ secrets.DIRECTUS_AUTH_TOKEN }}
-    GATSBY_ENV_CIO_SITE_ID: ${{ secrets.GATSBY_ENV_CIO_SITE_ID }}
+    DATADOG_APPLICATION_ID: ${{ secrets.DATADOG_APPLICATION_ID }}
+    DATADOG_CLIENT_TOKEN: ${{ secrets.DATADOG_CLIENT_TOKEN }}
 
 jobs:
     lint:
@@ -51,17 +51,6 @@ jobs:
 
             - name: Set version env variable
               run: echo "GATSBY_DERIV_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-
-            - name: Cache Gatsby
-              id: gatsby-cache-build
-              uses: actions/cache@v2
-              with:
-                  path: |
-                      public
-                      .cache
-                  key: ${{ runner.os }}-gatsby-build-${{ secrets.CACHE_VERSION }}-${{ github.run_id }}
-                  restore-keys: |
-                      ${{ runner.os }}-gatsby-build-${{ secrets.CACHE_VERSION }}
 
             - run: npm ci
             - run: npm run format

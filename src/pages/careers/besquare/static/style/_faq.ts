@@ -24,7 +24,7 @@ type ImageWrapperProps = {
     left?: string
 }
 
-const leftCalc = `calc(${getWindowWidth()}px - ${getWindowWidth() - 1440}px)`
+const leftCalc = `calc(${getWindowWidth()}px - ${+getWindowWidth() - 1440}px)`
 
 export const ImageWrapper = styled.img<ImageWrapperProps>`
     position: absolute;
@@ -59,6 +59,6 @@ export const TextContainer = styled.div`
     grid-row-gap: 16px;
 `
 
-export const Link = styled(TextWrapper).attrs({ as: 'a' })`
+export const Link = styled(TextWrapper).attrs({ as: 'a' })<{ href: string }>`
     color: var(--color-red);
 `

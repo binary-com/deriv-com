@@ -10,7 +10,7 @@ type NormalCardProps = {
     height?: string
 }
 
-export const StyledCard = styled(LocalizedLink)`
+export const StyledCard = styled(LocalizedLink)<{ height?: string }>`
     text-decoration: none;
     position: relative;
     height: ${(props) => (props.height ? props.height : 'auto')};

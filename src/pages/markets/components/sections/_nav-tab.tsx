@@ -3,8 +3,9 @@ import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 type NavTabProps = {
     route_from: string
@@ -12,7 +13,7 @@ type NavTabProps = {
 }
 
 type TabButtonProps = {
-    selected: boolean
+    selected?: boolean
 }
 
 const TabsContainer = styled(Flex)`
@@ -25,6 +26,7 @@ const TabsContainer = styled(Flex)`
 `
 const TabList = styled.div`
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     justify-content: center;
     overflow: hidden;
@@ -78,7 +80,7 @@ const TabButton = styled.button<TabButtonProps>`
         padding: 24px 12px;
     }
 `
-const TextWrapper = styled(Text)`
+const TextWrapper = styled(Text)<TabButtonProps>`
     text-align: center;
     font-size: var(--text-size-m);
     color: #999999;
@@ -131,31 +133,26 @@ const tab_list_eu: TabList[] = [
     },
 ]
 
-const tab_list_uk = [
-    {
-        title: <Localize translate_text="Derived FX" />,
-        tab_name: 'derived-fx',
-        route_to: '/markets/derived-fx/#synthetic',
-    },
-]
-
 const NavTab = ({ route_from }: NavTabProps) => {
-    const { is_eu, is_uk } = useCountryRule()
+    const { is_eu } = useRegion()
     const ref = useRef(null)
+    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <TabsContainer>
-            <TabList ref={ref}>
-                {(is_eu ? tab_list_eu : is_uk ? tab_list_uk : tab_list).map((item) => {
-                    return (
-                        <StyledLink to={item.route_to} key={item.tab_name}>
-                            <TabButton selected={route_from == item.tab_name}>
-                                <TextWrapper>{item.title}</TextWrapper>
-                            </TabButton>
-                        </StyledLink>
-                    )
-                })}
-            </TabList>
+            {!is_deriv_go && (
+                <TabList ref={ref}>
+                    {(is_eu ? tab_list_eu : tab_list).map((item) => {
+                        return (
+                            <StyledLink to={item.route_to} key={item.tab_name}>
+                                <TabButton selected={route_from == item.tab_name}>
+                                    <TextWrapper>{item.title}</TextWrapper>
+                                </TabButton>
+                            </StyledLink>
+                        )
+                    })}
+                </TabList>
+            )}
         </TabsContainer>
     )
 }

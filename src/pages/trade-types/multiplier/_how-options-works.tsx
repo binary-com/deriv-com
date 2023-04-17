@@ -10,7 +10,7 @@ import device from 'themes/device'
 import DefinePosition from 'images/svg/trade-types/define-your-position.svg'
 import SetOptionalParameters from 'images/svg/trade-types/set-optional-parameters.svg'
 import PurchaseContract from 'images/svg/trade-types/purchase-your-contract.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const query = graphql`
     query {
@@ -117,7 +117,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 
 const HowOptionsWorks = () => {
     const data = useStaticQuery(query)
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     return (
         <StyledSectionContainer padding="8rem 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
@@ -128,7 +128,7 @@ const HowOptionsWorks = () => {
                     <HowItWorksItem>
                         <OptionItems>
                             <div>
-                                <img src={DefinePosition} alt="Define Position" />
+                                <img src={DefinePosition} alt="Define your target" />
                             </div>
                             <StyledText>{localize('Define your position')}</StyledText>
                         </OptionItems>
@@ -142,7 +142,7 @@ const HowOptionsWorks = () => {
                     <HowItWorksItem>
                         <OptionItems>
                             <div>
-                                <img src={SetOptionalParameters} alt="Set optional parameters" />
+                                <img src={SetOptionalParameters} alt="Set parameters" />
                             </div>
                             <StyledText>{localize('Set optional parameters')}</StyledText>
                         </OptionItems>
@@ -155,7 +155,7 @@ const HowOptionsWorks = () => {
                     <HowItWorksItem>
                         <OptionItems>
                             <div>
-                                <img src={PurchaseContract} alt="Purchase your contract" />
+                                <img src={PurchaseContract} alt="Buy your contract" />
                             </div>
                             <StyledText>{localize('Purchase your contract')}</StyledText>
                         </OptionItems>

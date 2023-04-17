@@ -5,7 +5,7 @@ import Cookies from 'js-cookie'
 import { getLanguage } from '../../common/utility'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { Box } from 'components/containers'
-import Login from 'common/login'
+import Login, { TSocialProvider } from 'common/login'
 import validation from 'common/validation'
 import SignupDefault from 'components/custom/_signup-default'
 import SignupFlat from 'components/custom/_signup-flat'
@@ -14,10 +14,10 @@ import SignupPublic from 'components/custom/_signup-public'
 import { Header, QueryImage, StyledLink } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { useDerivWS } from 'store'
+import apiManager from 'common/websocket'
 
 type SignupProps = {
-    appearance?: keyof typeof Appearances
+    appearance?: keyof typeof Appearances | string
     autofocus?: boolean
     bgColor?: string
     email?: string
@@ -29,6 +29,15 @@ type SignupProps = {
 type FormProps = {
     bgColor?: string
 }
+
+const EmailLink = styled(StyledLink)`
+    display: table;
+    font-size: 1.4rem;
+    margin-top: 1.8rem;
+    text-decoration: underline;
+    width: 100%;
+    text-align: center;
+`
 
 const Form = styled.form<FormProps>`
     height: 100%;
@@ -44,15 +53,6 @@ const ResponseWrapper = styled.div`
     margin: 0 auto;
     flex-direction: column;
     padding: 2rem 1rem;
-`
-
-const EmailLink = styled(StyledLink)`
-    display: table;
-    font-size: 1.4rem;
-    margin-top: 1.8rem;
-    text-decoration: underline;
-    width: 100%;
-    text-align: center;
 `
 
 const ConfirmationMessage = styled.div`
@@ -71,7 +71,6 @@ export const Appearances = {
 }
 
 const Signup = (props: SignupProps) => {
-    const { send } = useDerivWS()
     const [email, setEmail] = useState('')
     const [is_submitting, setSubmitting] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
@@ -112,7 +111,6 @@ const Signup = (props: SignupProps) => {
 
         return {
             verify_email: formatted_email,
-            type: 'account_opening',
             url_parameters: {
                 ...(affiliate_token && { affiliate_token: affiliate_token }),
                 ...(cookies_value && { ...cookies_value }),
@@ -131,20 +129,21 @@ const Signup = (props: SignupProps) => {
         }
 
         const verify_email_req = getVerifyEmailRequest(formatted_email)
-
-        send(verify_email_req, (response) => {
-            setSubmitting(false)
-            if (response.error) {
-                setSubmitStatus('error')
-                setSubmitErrorMsg(response.error.message)
-                handleValidation(formatted_email)
-            } else {
-                setSubmitStatus('success')
-                if (props.onSubmit) {
-                    props.onSubmit(submit_status || 'success', email)
+        apiManager
+            .augmentedSend('verify_email', { ...verify_email_req, type: 'account_opening' })
+            .then((response) => {
+                setSubmitting(false)
+                if (response.error) {
+                    setSubmitStatus('error')
+                    setSubmitErrorMsg(response.error.message)
+                    handleValidation(formatted_email)
+                } else {
+                    setSubmitStatus('success')
+                    if (props.onSubmit) {
+                        props.onSubmit(submit_status || 'success', email)
+                    }
                 }
-            }
-        })
+            })
 
         if (props.appearance === 'public') {
             const success_default_link = `signup-success?email=${email}`
@@ -163,7 +162,7 @@ const Signup = (props: SignupProps) => {
     const handleSocialSignup = (e) => {
         e.preventDefault()
 
-        const data_provider = e.currentTarget.getAttribute('data-provider')
+        const data_provider: TSocialProvider = e.currentTarget.getAttribute('data-provider')
         Login.initOneAll(data_provider)
     }
 

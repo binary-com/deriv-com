@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactElement, ReactNode } from 'react'
 import styled from 'styled-components'
 import { localize } from 'components/localization'
 import { Button } from 'components/form'
@@ -9,9 +9,10 @@ import Pattern from 'images/svg/custom/pattern.svg'
 import PatternMobile from 'images/svg/custom/pattern-mobile.svg'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 type SimpleStepsProps = {
-    content?: { header?: ReactNode; icon?: HTMLImageElement; text?: ReactNode }[]
+    content?: { header?: ReactNode; icon?: HTMLImageElement; text?: ReactElement }[]
     header?: string
     sign_up?: boolean
 }
@@ -134,6 +135,7 @@ const StyledLinkButton = styled(Button)`
 const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
+    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <StyledSection>
@@ -144,7 +146,7 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
                 <MobileBackgroundPattern src={PatternMobile} alt="pattern mobile" />
             </Mobile>
             <Container direction="column">
-                <TitleHeader align="center" as="h3" type="section-title">
+                <TitleHeader align="center" as="h2" type="section-title">
                     {header}
                 </TitleHeader>
             </Container>
@@ -159,7 +161,7 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
                             }
                         >
                             <Flex ai="center" height="fit-content">
-                                <StyledHeader as="h4" type="sub-section-title">
+                                <StyledHeader as="h3" type="sub-section-title">
                                     {item.header}
                                 </StyledHeader>
                                 {item.icon}
@@ -169,7 +171,7 @@ const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
                     )
                 })}
             </StyledFlex>
-            {sign_up && !is_logged_in && (
+            {sign_up && !is_logged_in && !is_deriv_go && (
                 <LinkButtonWrapper>
                     <StyledLinkButton id="dm-steps-signup" secondary onClick={handleSignup}>
                         {localize('Sign up now')}

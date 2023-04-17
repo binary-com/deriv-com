@@ -8,6 +8,9 @@ import { useLivechat } from 'components/hooks/use-livechat'
 import { localize, Localize } from 'components/localization'
 import { affiliate_signup_url } from 'common/constants'
 
+type RedButtonProps = {
+    id?: string
+}
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-black-3);
 
@@ -27,7 +30,7 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 
-const RedButton = styled(LinkButton)`
+const RedButton = styled(LinkButton)<RedButtonProps>`
     border-radius: 4px;
     padding-top: 0.5rem;
     height: 32px;

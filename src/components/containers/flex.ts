@@ -23,6 +23,8 @@ type FlexType = {
     tablet_ai?: string
     tablet_jc?: string
     tablet_fw?: string
+    scroll?: boolean | string
+    margin?: string
 } & ResponseDeviceProps &
     BaseStyleType
 

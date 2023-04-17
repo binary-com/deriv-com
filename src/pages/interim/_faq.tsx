@@ -54,7 +54,7 @@ const Faq = () => {
                 </Header>
             </Container>
 
-            <AccordionWrapper>
+            <AccordionWrapper id="dmt5-faq-list">
                 <Accordion has_single_state>
                     <AccordionItem
                         header={localize('Do I need to sign up for a Deriv.com account?')}
@@ -62,6 +62,7 @@ const Faq = () => {
                         style={item_style}
                         header_style={header_style}
                         plus
+                        class_name="sign-up"
                     >
                         <NeedSignUp />
                     </AccordionItem>
@@ -71,6 +72,7 @@ const Faq = () => {
                         style={item_style}
                         header_style={header_style}
                         plus
+                        class_name="binary-remove"
                     >
                         <BinaryRemoved />
                     </AccordionItem>
@@ -80,6 +82,7 @@ const Faq = () => {
                         style={item_style}
                         header_style={header_style}
                         plus
+                        class_name="deriv-secure"
                     >
                         <DerivSecure />
                     </AccordionItem>
@@ -89,6 +92,7 @@ const Faq = () => {
                         style={item_style}
                         header_style={header_style}
                         plus
+                        class_name="visible-changes"
                     >
                         <OtherChanges />
                     </AccordionItem>

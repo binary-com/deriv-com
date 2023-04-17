@@ -8,7 +8,7 @@ import { isBrowser } from 'common/utility'
 import { LinkButton } from 'components/form'
 
 type StepCommonType = {
-    no_margin: boolean
+    no_margin?: boolean
 }
 
 const Container = styled.section`

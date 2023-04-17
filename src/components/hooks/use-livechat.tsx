@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react'
 import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/utility'
 
-export const useLivechat = () => {
+type TLC_API = {
+    open_chat_window?: () => void
+}
+
+export const useLivechat = (): [boolean, TLC_API] => {
     const [is_livechat_interactive, setLiveChatInteractive] = useState(false)
     const LC_API = (isBrowser() && window.LC_API) || {}
     const [is_logged_in, setLoggedIn] = useState(false)

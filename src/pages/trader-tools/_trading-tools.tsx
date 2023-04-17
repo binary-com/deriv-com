@@ -30,7 +30,7 @@ const StyledSection = styled(SectionContainer)`
         padding: 40px 0;
     }
 `
-const ToolWrapper = styled(Flex)`
+const ToolWrapper = styled(Flex)<{ flex_direction?: string }>`
     flex-direction: ${(props) => props.flex_direction};
     align-items: space-between;
 
@@ -56,7 +56,7 @@ const Column = styled.div<ColumnProps>`
         flex-direction: column;
     }
 `
-const Content = styled(Flex)`
+const Content = styled(Flex)<{ margin_left: string; margin_right: string }>`
     max-width: 39rem;
     margin-right: ${(props) => props.margin_right};
     margin-left: ${(props) => props.margin_left};
@@ -139,6 +139,7 @@ const TradingTools = ({ tools }: TradingToolsProps) => {
             <Container fd="column">
                 {tools.map((item, index) => {
                     const is_even = isIndexEven(index)
+
                     return (
                         <React.Fragment key={item.image_alt}>
                             <ToolWrapper flex_direction={is_even ? 'row-reverse' : 'row'}>

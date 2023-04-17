@@ -3,7 +3,14 @@ import { populateStyle, responsiveFallback } from 'common/utility'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
-export const TextWrapper = styled(Text)<{ grid_area?: string }>`
+type TextWrapperProps = Partial<
+    Record<
+        'grid_area' | 'margin' | 'font_size' | 'line_height' | 'margin_top' | 'text_align',
+        string | string[]
+    >
+>
+
+export const TextWrapper = styled(Text)<TextWrapperProps>`
     ${(props) => {
         const default_props_object = { font_size: '16px', line_height: '24px' }
         return populateStyle(props, default_props_object, 0)
@@ -23,7 +30,7 @@ export const TextWrapper = styled(Text)<{ grid_area?: string }>`
     }
 `
 
-export const Title = styled(Header)<{ text_align?: string }>`
+export const Title = styled(Header)<TextWrapperProps>`
     text-align: ${({ text_align }) => text_align ?? 'center'};
     ${(props) => {
         const default_props_object = { font_size: '48px', line_height: '60px' }

@@ -6,7 +6,7 @@ import { localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/partners/dot-pattern.svg'
 import device from 'themes/device'
-import { DerivStore } from 'store'
+import useRegion from 'components/hooks/use-region'
 
 const AccordionWrapper = styled.div`
     max-width: 99.6rem;
@@ -48,13 +48,13 @@ const Faq = () => {
         borderRadius: '8px',
         border: 'none',
     }
-    const { is_p2p_allowed_country } = React.useContext(DerivStore)
+    const { is_p2p_allowed_country } = useRegion()
     return (
         <RelativeContainer padding={is_p2p_allowed_country ? '5rem 0' : '0 0 5rem'}>
             <Header as="h2" size="3.6rem" mb="3.2rem" align="center">
                 {localize('FAQs')}
             </Header>
-            <AccordionWrapper>
+            <AccordionWrapper id="payment-agent-faq-list">
                 <Accordion has_single_state>
                     <AccordionItem
                         header={localize('General')}
@@ -62,6 +62,7 @@ const Faq = () => {
                         style={item_style}
                         header_style={header_style}
                         plus
+                        class_name="general"
                     >
                         {<General />}
                     </AccordionItem>
@@ -70,6 +71,7 @@ const Faq = () => {
                         style={item_style}
                         header_style={header_style}
                         plus
+                        class_name="account-management"
                     >
                         {<AccountManagement />}
                     </AccordionItem>

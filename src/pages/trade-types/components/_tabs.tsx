@@ -1,19 +1,41 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { ReactNode, ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { Flex, Desktop, Mobile } from 'components/containers'
 import { Text } from 'components/elements'
-import device from 'themes/device'
+import device, { SizeType } from 'themes/device'
 import { ReactComponent as Info } from 'images/svg/trade-types/info2.svg'
+
+type ChildProps = {
+    label?: JSX.Element
+    description?: JSX.Element
+}
+
+type TabButtonType = {
+    selected: boolean
+}
+
+type TabListType = {
+    is_reverse: boolean
+}
+
+type TabPanelProps = ChildProps & {
+    className?: string
+    children?: ReactNode[] | ReactNode
+}
+
+type TabsProps = {
+    className?: string
+    has_notice?: boolean
+    is_reverse?: boolean
+    max_width?: SizeType
+    tab_break?: string
+    children?: ReactElement | ReactElement[]
+}
 
 const TabContent = styled.div`
     flex: 1;
     width: 100%;
 `
-
-type TabButtonType = {
-    selected: boolean
-}
 
 const TabButton = styled.div<TabButtonType>`
     position: relative;
@@ -38,9 +60,6 @@ const TabButton = styled.div<TabButtonType>`
         margin-bottom: 0;
     }
 `
-type TabListType = {
-    is_reverse: boolean
-}
 
 const right = css`
     margin-right: 2.4rem;
@@ -124,20 +143,20 @@ const StyledText = styled(Text)`
     }
 `
 
-const TabPanel = ({ children, className }) => (
+const TabPanel = ({ children, className }: TabPanelProps) => (
     <TabContent className={className} role="tabpanel" tabIndex={0}>
         {children}
     </TabContent>
 )
 
-TabPanel.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    description: PropTypes.node,
-    label: PropTypes.node,
-}
-
-const Tabs = ({ children, is_reverse, className, max_width, has_notice, notice_content }) => {
+const Tabs = <T extends object>({
+    children,
+    is_reverse,
+    className,
+    max_width,
+    has_notice,
+    notice_content,
+}: TabsProps & { notice_content?: T }) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
     const selectTab = (tabIndex) => {
         setSelectedTab(tabIndex)
@@ -196,15 +215,5 @@ const Tabs = ({ children, is_reverse, className, max_width, has_notice, notice_c
 }
 
 Tabs.Panel = TabPanel
-
-Tabs.propTypes = {
-    children: PropTypes.node,
-    className: PropTypes.string,
-    has_notice: PropTypes.bool,
-    is_reverse: PropTypes.bool,
-    max_width: PropTypes.string,
-    notice_content: PropTypes.object,
-    tab_break: PropTypes.string,
-}
 
 export default Tabs

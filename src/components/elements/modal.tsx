@@ -18,7 +18,7 @@ const Container = styled.div`
     z-index: 200;
 `
 
-const Card = styled.div`
+const Card = styled.div<Pick<ModalPropType, 'maxWidth'>>`
     position: relative;
     z-index: 210;
     display: flex;
@@ -26,7 +26,7 @@ const Card = styled.div`
     border-radius: 8px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
     width: 100%;
-    max-width: 60rem;
+    max-width: ${({ maxWidth }) => maxWidth ?? '60rem'};
     max-height: 80rem;
     background: var(--color-white);
     padding: 2.4rem;
@@ -43,7 +43,8 @@ const HeaderContainer = styled(Flex)`
 `
 
 const ContentContainer = styled.div`
-    overflow: scroll;
+    overflow: auto;
+    max-height: 70vh;
     @media ${device.mobileL} {
         padding-right: 1.9rem;
     }
@@ -113,6 +114,7 @@ type ModalPropType = {
     negative?: React.ReactNode
     onNegative?: () => void
     is_dismissible?: boolean
+    maxWidth?: string
 }
 
 const Modal = (
@@ -125,6 +127,7 @@ const Modal = (
         onNegative,
         is_dismissible = true,
         children,
+        maxWidth,
     }: React.PropsWithChildren<ModalPropType>,
     ref: React.Ref<ModalRefType>,
 ) => {
@@ -189,7 +192,7 @@ const Modal = (
     return (
         is_open && (
             <Container>
-                <Card>
+                <Card maxWidth={maxWidth}>
                     <HeaderContainer>
                         {title && <Title />}
                         {is_dismissible && <Close />}

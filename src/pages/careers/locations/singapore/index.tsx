@@ -10,7 +10,7 @@ import { localize, WithIntl } from 'components/localization'
 const query = graphql`
     query {
         singapore: file(relativePath: { eq: "careers/singapore.png" }) {
-            ...heroImage
+            ...backgroundImage
         }
         living_in_singapore: file(relativePath: { eq: "careers/living_in_singapore.png" }) {
             ...fadeIn

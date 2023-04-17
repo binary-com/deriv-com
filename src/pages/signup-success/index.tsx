@@ -8,6 +8,15 @@ import { SEO, Box } from 'components/containers'
 import device from 'themes/device'
 import { Header, QueryImage, StyledLink, Text } from 'components/elements'
 
+const EmailLink = styled(StyledLink)`
+    display: table;
+    font-size: 1.4rem;
+    margin-top: 1.8rem;
+    text-decoration: underline;
+    width: 100%;
+    text-align: center;
+`
+
 const Wrapper = styled.section`
     padding: 8rem 0;
     width: 100%;
@@ -36,15 +45,6 @@ const ResponseWrapper = styled.div`
     margin: 0 auto;
     flex-direction: column;
     padding: 2rem 1rem;
-`
-
-const EmailLink = styled(StyledLink)`
-    display: table;
-    font-size: 1.4rem;
-    margin-top: 1.8rem;
-    text-decoration: underline;
-    width: 100%;
-    text-align: center;
 `
 
 const SignupSuccess = () => {

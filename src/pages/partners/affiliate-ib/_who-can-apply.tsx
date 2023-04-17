@@ -19,6 +19,9 @@ type ContentProps = {
     max_width?: string
     mt_mobile?: string
 }
+type StyledLinkButtonProps = {
+    id?: string
+}
 
 const StyledSection = styled(Container)`
     align-items: flex-start;
@@ -190,7 +193,7 @@ const HowToApplyContent = styled.div`
     }
 `
 
-const StyledLinkButton = styled(LinkButton)`
+const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
     @media ${device.mobileL} {
         display: block;
         margin: auto;
@@ -210,7 +213,7 @@ const WhoCanApply = () => {
                             {localize('Who can apply')}
                         </StyledHeader>
                         <ContentWrapper>
-                            <ImageWrapper src={TradingExperts} alt="" />
+                            <ImageWrapper src={TradingExperts} alt="Trading" />
                             <Content max_width="36.4rem" mt_mobile="15px">
                                 <Header as="h4" type="sub-section-title" mb="8px">
                                     {localize('Trading experts')}
@@ -223,7 +226,7 @@ const WhoCanApply = () => {
                             </Content>
                         </ContentWrapper>
                         <ContentWrapper>
-                            <ImageWrapper src={SoftwareDeveloper} alt="" />
+                            <ImageWrapper src={SoftwareDeveloper} alt="Developers" />
                             <Content max_width="36.4rem" mt_mobile="15px">
                                 <Header as="h4" type="sub-section-title" mb="8px">
                                     {localize('Software developers')}
@@ -236,7 +239,7 @@ const WhoCanApply = () => {
                             </Content>
                         </ContentWrapper>
                         <ContentWrapper>
-                            <ImageWrapper src={CommunityManagers} alt="" />
+                            <ImageWrapper src={CommunityManagers} alt="Community" />
                             <Content max_width="36.4rem" mt_mobile="15px">
                                 <Header as="h4" type="sub-section-title" mb="8px">
                                     {localize('Community managers')}

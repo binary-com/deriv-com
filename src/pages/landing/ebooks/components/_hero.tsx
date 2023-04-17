@@ -12,21 +12,21 @@ type HeroProps = HeaderAndHeroProps & {
     color: string
 }
 
-const MainWrapper = styled(Box)`
+const MainWrapper = styled(Box)<{ bgMobile: string }>`
     background-image: ${(props) => props.bg};
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         background-image: ${(props) => props.bgMobile};
     }
 `
 const HeaderBody = styled(Flex)`
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         flex-direction: column;
     }
 `
 
 const TopHeaderImgWrapper = styled(Flex)`
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         order: 2;
     }
 `
@@ -56,7 +56,7 @@ const Hero = ({
 }: HeroProps) => {
     const [is_mobile] = useBrowserResize()
     return (
-        <MainWrapper width="100%" p="4%" bg={bg} tablet={{ bg: { bgMobile } }}>
+        <MainWrapper width="100%" p="4%" bg={bg} bgMobile={bgMobile}>
             <HeaderBody max_width="1440px" m="0 auto" tablet={{ height: 'auto' }}>
                 <Flex width="100%" direction="column">
                     <Box
@@ -84,7 +84,7 @@ const Hero = ({
                             type="page-title"
                             size="48px"
                             mb="10px"
-                            lh={1.1}
+                            lh="1.1"
                             weight="600"
                             max_width="800px"
                             color={color}
@@ -96,7 +96,7 @@ const Hero = ({
                             as="h3"
                             type="main-paragraph"
                             size="16px"
-                            weight={300}
+                            weight="300"
                             color={color}
                         >
                             {localize('Claim a FREE e-book now!')}
@@ -105,20 +105,19 @@ const Hero = ({
                             as="h4"
                             type="main-paragraph"
                             size="16px"
-                            weight={300}
+                            weight="300"
                             color={color}
                         >
                             {localize('Plus a free demo account to practice.')}
                         </Header>
                         <AuthorText
-                            m={0}
+                            m="0"
                             mt="10px"
                             size="14px"
                             color={color}
                             lh="16px"
-                            weight={200}
+                            weight="200"
                             max_width="586px"
-                            styled="italic"
                         >
                             {authorDesc}
                             <AuthorNameText size="14px" color={color} weight="bold">

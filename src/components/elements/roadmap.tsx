@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import { Localize, localize } from 'components/localization'
 import { SectionContainer, Container, Flex } from 'components/containers'
@@ -65,7 +65,7 @@ const StyledButton = styled(LinkButton)`
 
 type RoadmapProps = {
     portal?: {
-        paragraph?: string
+        paragraph?: string | ReactElement
         frame?: string
         link?: string
     }

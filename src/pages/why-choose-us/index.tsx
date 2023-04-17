@@ -10,7 +10,7 @@ import { localize, WithIntl } from 'components/localization'
 import { Button } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const ResponsiveLinkButton = styled(Button)`
     @media ${device.mobileL} {
@@ -19,10 +19,10 @@ const ResponsiveLinkButton = styled(Button)`
 `
 
 const Section = styled(SectionContainer)`
-    background-color: ${(props) => props.bgcolor || 'transparent'};
+    background-color: 'transparent';
 `
 const StyledHeader = styled(Header)`
-    max-width: ${(props) => props.maxwidth || '100%'};
+    max-width: 100%;
     margin: 0 auto;
 `
 const Column = styled.article`
@@ -59,9 +59,8 @@ const ResponsiveHeader = styled(StyledHeader)`
 `
 
 const WhyChooseUs = () => {
-    const { is_latam } = useCountryRule()
+    const { is_latam, is_africa } = useRegion()
     const handleSignup = useHandleSignup()
-    const { is_africa } = useCountryRule()
 
     return (
         <Layout>

@@ -5,9 +5,8 @@ import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
 type WhyTradeProps = {
-    children: ReactElement[]
-    header: ReactElement
-    text: ReactElement
+    children?: ReactElement[]
+    header?: ReactElement
     description?: ReactElement
 }
 
@@ -43,7 +42,7 @@ const ItemContainer = styled(Box)`
         gap: 22px;
         max-width: 40.6rem;
     }
-    @media (max-width: 336px) {
+    @media (max-width: 341px) {
         justify-content: center;
     }
 `
@@ -95,7 +94,7 @@ export const WhyTrade = ({ children, header, description }: WhyTradeProps) => {
             <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
                 <StyledText>{description}</StyledText>
                 <div>
-                    <StyledHeader as="h3" type="section-title" align="center" mb="1.2rem" lh="1.25">
+                    <StyledHeader as="h2" type="section-title" align="center" mb="1.2rem" lh="1.25">
                         {header}
                     </StyledHeader>
                 </div>

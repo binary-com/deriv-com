@@ -4,16 +4,17 @@ import PageNotFound from '../../../404'
 import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
 import { basket_indices_content, basket_indices_content_eu } from '../../static/content/_basket'
-import type { BasketIndicesContent, SimpleStepContentElement } from '../../static/content/_basket'
+import type { BasketIndicesContent } from '../../static/content/_basket'
+import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
+import { StyledBox } from '../../static/style/_markets-style'
 import { basket_cfds } from '../../static/content/_cfds'
 import { basket_multiplier } from '../../static/content/_multipliers'
 import { basket_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
-import { StyledBox } from '../../static/style/_markets-style'
 import { Localize, localize } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -22,10 +23,8 @@ const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 type BasketIndicesProps = {
     simple_step_content: SimpleStepContentElement[]
 }
-
 const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
-    const { is_eu } = useCountryRule()
-    const { is_uk_eu, is_row } = useCountryRule()
+    const { is_eu, is_row } = useRegion()
     return (
         <>
             {is_row && (
@@ -72,7 +71,7 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                     <OtherMarkets except="derived" />
                 </>
             )}
-            {is_uk_eu && <PageNotFound />}
+            {is_eu && <PageNotFound />}
         </>
     )
 }

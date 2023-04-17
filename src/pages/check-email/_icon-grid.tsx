@@ -49,28 +49,28 @@ const GridContent = [
     {
         Icon: Spam,
         content: localize('The email is in your spam folder (Sometimes things get lost there).'),
-        alt: 'spam',
+        alt: 'Check email in your spam',
     },
     {
         Icon: Typo,
         content: localize(
             'The email address you entered had a mistake or typo (happens to the best of us).',
         ),
-        alt: 'typo',
+        alt: 'Email ID had a typo error',
     },
     {
         Icon: WorkEmail,
         content: localize(
             'You accidentally gave us another email address (Usually a work or a personal one instead of the one you meant).',
         ),
-        alt: 'work email',
+        alt: 'Gave incorrect email ID',
     },
     {
         Icon: Firewalls,
         content: localize(
             'We can’t deliver the email to this address (Usually because of firewalls or filtering).',
         ),
-        alt: 'fire walls',
+        alt: 'Firewall filter',
     },
 ]
 

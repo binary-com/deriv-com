@@ -47,6 +47,7 @@ export const PrevButton = ({
             left
             style={style}
             is_reviews={is_reviews}
+            className="previous-arrow"
         >
             {is_rtl ? <ChevronRight color={color} /> : <ChevronLeft color={color} />}
         </StyledButtonWrapper>
@@ -74,6 +75,7 @@ export const NextButton = ({
             disabled={!enabled}
             style={style}
             is_reviews={is_reviews}
+            className="next-arrow"
         >
             {is_rtl ? <ChevronLeft color={color} /> : <ChevronRight color={color} />}
         </StyledButtonWrapper>
@@ -90,10 +92,10 @@ type NavigationStyleType = {
     nav_color?: string
     bottom_offset?: number | string
     chevron_right?: CSSProperties
-    height?: number
+    height?: string
 }
 
-type CarouselProps = {
+export type CarouselProps = {
     autoplay_delay?: number
     autoplay_interval?: number
     chevron_style?: ChevronStyleType

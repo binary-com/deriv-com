@@ -95,7 +95,7 @@ const HeroComponent = ({ title, content, background_data }: HeroProps) => {
                     <StyledHeader mt="6.2rem" type="hero" color="white">
                         {title}
                     </StyledHeader>
-                    <HeroContent m="2rem 0 0" direction="column" justify="flex-start">
+                    <HeroContent m="2rem 0 0" direction="column" jc="flex-start">
                         <Header color="white" type="subtitle-1" weight="normal">
                             {content}
                         </Header>

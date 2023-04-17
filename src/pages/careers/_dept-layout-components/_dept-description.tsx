@@ -40,7 +40,7 @@ const query = graphql`
         payments_desc: file(relativePath: { eq: "careers-2/payments-desc.png" }) {
             ...fadeIn
         }
-        people_management_desc: file(relativePath: { eq: "careers-2/people-management-desc.png" }) {
+        human_resources_desc: file(relativePath: { eq: "careers-2/human-resources-desc.png" }) {
             ...fadeIn
         }
         product_desc: file(relativePath: { eq: "careers-2/product-desc.png" }) {
@@ -54,6 +54,11 @@ const query = graphql`
         }
         trading_operations_desc: file(
             relativePath: { eq: "careers-2/trading-operations-desc.png" }
+        ) {
+            ...fadeIn
+        }
+        business_intelligence_desc: file(
+            relativePath: { eq: "careers-2/business-intelligence-desc.png" }
         ) {
             ...fadeIn
         }

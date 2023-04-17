@@ -3,10 +3,10 @@ import { Flex, SectionContainer } from 'components/containers'
 import PlatformCarousel from 'pages/home/platform-carousel/_platform-carousel'
 import { Header } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const OurPlatforms = () => {
-    const { is_row } = useCountryRule()
+    const { is_row } = useRegion()
 
     return (
         <SectionContainer
@@ -35,7 +35,7 @@ const OurPlatforms = () => {
                     >
                         <Localize
                             translate_text="Choose from {{platforms_no}} powerful platforms — each designed with your needs in mind."
-                            values={{ platforms_no: is_row ? '8' : '2' }}
+                            values={{ platforms_no: is_row ? '9' : '2' }}
                         />
                     </Header>
                 </Flex>

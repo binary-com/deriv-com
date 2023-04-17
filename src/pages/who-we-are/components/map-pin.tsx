@@ -23,7 +23,7 @@ const PinWrapper = styled.div<PinWrapperProps>`
     cursor: pointer;
 `
 
-const PinContent = styled(LocalizedLink)`
+const PinContent = styled(LocalizedLink)<{ anchor?: boolean }>`
     width: max-content;
     display: flex;
     justify-content: space-around;

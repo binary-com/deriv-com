@@ -44,7 +44,7 @@ const NavPartnerMobile = ({ hide_login_signup }: NavPartnerMobileProps) => {
 
     return (
         <Mobile>
-            <Wrapper width="90%">
+            <Wrapper width="92%">
                 {is_canvas_menu_open ? (
                     <CloseIcon src={Close} alt="close icon" onClick={closeOffCanvasMenu} />
                 ) : (
@@ -60,7 +60,7 @@ const NavPartnerMobile = ({ hide_login_signup }: NavPartnerMobileProps) => {
                 </LogoLink>
 
                 <Flex ml="auto" ai="center" width="auto">
-                    <LanguageSwitcher has_short_name is_high_nav />
+                    <LanguageSwitcher is_high_nav />
                 </Flex>
 
                 {!hide_login_signup && (

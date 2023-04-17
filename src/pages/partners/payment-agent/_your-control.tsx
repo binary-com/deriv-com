@@ -77,26 +77,26 @@ const cardItems: CardItemType[] = [
         card_text: (
             <Localize translate_text="Determine your commission per transaction, subject to our established thresholds." />
         ),
-        alt: 'commission',
+        alt: 'Commission per transaction',
     },
     {
         img_src: LoudSpeaker,
         card_text: (
             <Localize translate_text="Promote your services to Deriv clients in your country." />
         ),
-        alt: 'loud speaker',
+        alt: 'Spread the word',
     },
     {
         img_src: WithdrawDeposit,
         card_text: (
             <Localize translate_text="Help Deriv clients to make multiple deposits and withdrawals daily." />
         ),
-        alt: 'multiple deposits and withdrawals daily',
+        alt: 'Multiple deposits and withdrawals',
     },
     {
         img_src: CloseAccount,
         card_text: <Localize translate_text="Close your account at any time you want." />,
-        alt: 'close account',
+        alt: 'Close your account',
     },
 ]
 const YourControl = () => {

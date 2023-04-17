@@ -51,6 +51,7 @@ type WhyTradeWithUsProps = {
 type ItemsArrType = {
     title: ReactElement
     icon: string
+    image_alt: string
 }
 
 const WhyTradeWithUs = ({ itemsArr, mainTitle, columnPerRow }: WhyTradeWithUsProps) => {
@@ -103,7 +104,7 @@ const WhyTradeWithUs = ({ itemsArr, mainTitle, columnPerRow }: WhyTradeWithUsPro
                     {itemsArr.map((item, index) => {
                         return (
                             <Card direction="column" key={index} width={CardWidth}>
-                                <StyledImage src={item.icon} alt="" />
+                                <StyledImage src={item.icon} alt={item.image_alt} />
                                 <StyledIconTitle
                                     as="h4"
                                     weight="normal"

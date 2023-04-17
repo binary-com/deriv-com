@@ -7,10 +7,10 @@ import { Button } from 'components/form'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { useCountryRule } from 'components/hooks/use-country-rule'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
+import useRegion from 'components/hooks/use-region'
 
 type DBannerProps = {
     background_pattern?: string
@@ -129,7 +129,7 @@ const StyledHeader = styled(Header)`
 `
 const DBanner = ({ title, data, background_pattern, image_alt }: DBannerProps) => {
     const handleSignup = useHandleSignup()
-    const { is_eu, is_row } = useCountryRule()
+    const { is_eu, is_row } = useRegion()
     const is_rtl = useIsRtl()
     const [is_logged_in] = useAuthCheck()
 

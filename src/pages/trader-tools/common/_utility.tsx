@@ -3,18 +3,18 @@ import validation from './_validation'
 type ErrorsType = {
     errors?: null
     symbol?: string
-    volume?: string
-    assetPrice?: string
+    volume?: string | JSX.Element
+    assetPrice?: string | JSX.Element
     leverage?: string
-    pointValue?: string
-    takeProfitAmount?: string
-    stopLossAmount?: string
-    commission?: string
-    stake?: string
-    multiplier?: string
-    takeProfitLevel?: string
-    stopLossLevel?: string
-    swapRate?: string
+    pointValue?: string | JSX.Element
+    takeProfitAmount?: string | JSX.Element
+    stopLossAmount?: string | JSX.Element
+    commission?: string | JSX.Element
+    stake?: string | JSX.Element
+    multiplier?: string | JSX.Element
+    takeProfitLevel?: string | JSX.Element
+    stopLossLevel?: string | JSX.Element
+    swapRate?: string | JSX.Element
 }
 
 const STEPINDEX_VALUE = 100
@@ -89,7 +89,7 @@ export const getPnlMarginCommon = (values, action) => {
             return toFixed(take_profit_level_formula)
         }
         case 'getStopLossLevelBuy': {
-            const stop_loss_level_formula = assetPrice + [-stopLossAmount / (volume * contractSize)]
+            const stop_loss_level_formula = assetPrice + -[stopLossAmount / (volume * contractSize)]
             return toFixed(stop_loss_level_formula)
         }
         case 'getTakeProfitLevelBuy': {

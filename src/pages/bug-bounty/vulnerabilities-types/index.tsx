@@ -110,11 +110,7 @@ const VulnerabilitiesTypes = () => {
                                                         key={profit_table_idx}
                                                     >
                                                         <Header type="small" weight="normal">
-                                                            <Localize
-                                                                translate_text={
-                                                                    profit_table_item.title
-                                                                }
-                                                            />
+                                                            {profit_table_item.title}
                                                         </Header>
 
                                                         <Header type="paragraph-2" mt="4px">

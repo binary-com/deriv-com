@@ -7,7 +7,7 @@ import { Container, SectionContainer, Flex } from 'components/containers'
 import { ReactComponent as PartnerAffiliate } from 'images/svg/partners/partner-affiliate.svg'
 import { ReactComponent as PartnerPaymentAgent } from 'images/svg/partners/partner-payment-agent.svg'
 import { ReactComponent as DeveloperProgramme } from 'images/svg/partners/developer-programme.svg'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 type ClientCardProps = { first?: boolean; second?: boolean; third?: boolean }
 
@@ -70,7 +70,7 @@ const ClientCard = styled(LocalizedLink)<ClientCardProps>`
     }
 `
 const PartnershipOpportunities = () => {
-    const { is_row } = useCountryRule()
+    const { is_row } = useRegion()
     return (
         <SectionContainer>
             <Container direction="column">

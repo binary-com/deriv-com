@@ -8,8 +8,9 @@ import device from 'themes/device'
 type StepProps = {
     image_name?: string
     current_step?: string
-    no_margin?: string
+    no_margin?: boolean
 }
+
 const query = graphql`
     query {
         step_1: file(relativePath: { eq: "dmt5-video/dmt-5-step-1.png" }) {

@@ -1,6 +1,5 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { Localize } from 'components/localization'
-import type { SimpleStepsContent } from 'components/custom/_simple-steps'
 import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
 import Deposit from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 import FriendlySupport from 'images/svg/markets/friendly-support-new.svg'
@@ -12,10 +11,10 @@ import TradeIcon from 'images/svg/markets/trade-new.svg'
 export type ForexContentElement = {
     src: string
     alt: string
-    text: ReactElement
+    text: React.ReactNode
 }
 
-export const simple_step_content_forex: SimpleStepsContent[] = [
+export const simple_step_content_forex = [
     {
         header: <Localize translate_text="Practise" />,
         text: (
@@ -42,27 +41,27 @@ export const simple_step_content_forex: SimpleStepsContent[] = [
 export const forex_content: ForexContentElement[] = [
     {
         src: Leverage,
-        alt: 'leverage',
+        alt: 'High and low',
         text: <Localize translate_text="High leverage, tight forex spreads" />,
     },
     {
         src: ResponsiveWebsite,
-        alt: 'responsive website',
+        alt: 'Responsive platforms',
         text: <Localize translate_text="Responsive, easy-to-use online trading platforms" />,
     },
     {
         src: AdvancedCharting,
-        alt: 'advanced charting widgets',
+        alt: 'Charts',
         text: <Localize translate_text="Advanced charting widgets" />,
     },
     {
         src: Deposit,
-        alt: 'deposit and withdrawal',
+        alt: 'Deposits and withdrawals method',
         text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
     },
     {
         src: FriendlySupport,
-        alt: 'friendly support',
+        alt: 'Friendly support team',
         text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
     },
 ]
@@ -70,27 +69,27 @@ export const forex_content: ForexContentElement[] = [
 export const forex_content_eu: ForexContentElement[] = [
     {
         src: Leverage,
-        alt: 'leverage',
+        alt: 'High and low',
         text: <Localize translate_text="Tight spreads" />,
     },
     {
         src: ResponsiveWebsite,
-        alt: 'responsive website',
+        alt: 'Responsive platforms',
         text: <Localize translate_text="Responsive, easy-to-use platforms" />,
     },
     {
         src: AdvancedCharting,
-        alt: 'advanced charting widgets',
+        alt: 'Charts',
         text: <Localize translate_text="Advanced charting widgets" />,
     },
     {
         src: Deposit,
-        alt: 'deposit and withdrawal',
+        alt: 'Deposits and withdrawals method',
         text: <Localize translate_text="Convenient deposit and withdrawal methods" />,
     },
     {
         src: FriendlySupport,
-        alt: 'friendly support',
+        alt: 'Friendly support team',
         text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
     },
 ]

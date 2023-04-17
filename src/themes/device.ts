@@ -36,4 +36,6 @@ const device = Object.freeze({
     desktopL: `(min-width: ${size.desktop}px)`,
 })
 
+export type TDevices = keyof typeof device
+
 export default device

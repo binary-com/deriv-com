@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Carousel, Header, Text } from 'components/elements'
+import { Carousel, CarouselProps, Header, Text } from 'components/elements'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
 import QuoteMark from 'images/svg/careers/quotemark.svg'
@@ -147,7 +147,7 @@ const employee_testimonials = [ahmad, aditya, mei_theng, gary]
 
 const EmployeeTestimonialCarousel = () => {
     const lang_direction = useLangDirection()
-    const settings = {
+    const settings: CarouselProps = {
         options: {
             loop: true,
             direction: lang_direction,

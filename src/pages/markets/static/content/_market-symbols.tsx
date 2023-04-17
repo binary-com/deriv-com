@@ -3,8 +3,8 @@ import * as icons from 'components/elements/symbols'
 import { Localize } from 'components/localization'
 
 export type MarketSymbol = {
-    src: string
-    text: ReactElement
+    src?: string
+    text?: ReactElement
     eu?: boolean
 }
 export const americas: MarketSymbol[] = [
@@ -38,6 +38,57 @@ export const asia_oceania: MarketSymbol[] = [
 ]
 
 export const continuous_indices: MarketSymbol[] = [
+    {
+        src: icons.INDEX10S1NEW,
+        text: <Localize translate_text="Volatility 10 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX25S1NEW,
+        text: <Localize translate_text="Volatility 25 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX50S1NEW,
+        text: <Localize translate_text="Volatility 50 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX75S1NEW,
+        text: <Localize translate_text="Volatility 75 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX100S1NEW,
+        text: <Localize translate_text="Volatility 100 (1s) Index" />,
+    },
+    {
+        src: icons.VINDEX2001S,
+        text: <Localize translate_text="Volatility 200 (1s) Index" />,
+    },
+    {
+        src: icons.VINDEX3001S,
+        text: <Localize translate_text="Volatility 300 (1s) Index" />,
+    },
+    {
+        src: icons.INDEX10NEW,
+        text: <Localize translate_text="Volatility 10 Index" />,
+    },
+    {
+        src: icons.INDEX25NEW,
+        text: <Localize translate_text="Volatility 25 Index" />,
+    },
+    {
+        src: icons.INDEX50NEW,
+        text: <Localize translate_text="Volatility 50 Index" />,
+    },
+    {
+        src: icons.INDEX75NEW,
+        text: <Localize translate_text="Volatility 75 Index" />,
+    },
+    {
+        src: icons.INDEX100NEW,
+        text: <Localize translate_text="Volatility 100 Index" />,
+    },
+]
+
+export const continuous_indices_options: MarketSymbol[] = [
     {
         src: icons.INDEX10S1NEW,
         text: <Localize translate_text="Volatility 10 (1s) Index" />,
@@ -104,8 +155,16 @@ export const volatility_indices: MarketSymbol[] = [
         text: <Localize translate_text="Volatility 100 (1s) Index" />,
     },
     {
+        src: icons.VINDEX1501S,
+        text: <Localize translate_text="Volatility 150 (1s) Index" />,
+    },
+    {
         src: icons.VINDEX2001S,
         text: <Localize translate_text="Volatility 200 (1s) Index" />,
+    },
+    {
+        src: icons.VINDEX2501S,
+        text: <Localize translate_text="Volatility 250 (1s) Index" />,
     },
     {
         src: icons.VINDEX3001S,
@@ -135,8 +194,16 @@ export const volatility_indices: MarketSymbol[] = [
 
 export const volatility_indices_eu: MarketSymbol[] = [
     {
+        src: icons.VINDEX1501S,
+        text: <Localize translate_text="Volatility 150 (1s) Index" />,
+    },
+    {
         src: icons.VINDEX2001S,
         text: <Localize translate_text="Volatility 200 (1s) Index" />,
+    },
+    {
+        src: icons.VINDEX2501S,
+        text: <Localize translate_text="Volatility 250 (1s) Index" />,
     },
     {
         src: icons.VINDEX3001S,
@@ -213,8 +280,8 @@ export const daily_reset_indices: MarketSymbol[] = [
 
 export const europe: MarketSymbol[] = [
     {
-        src: icons.STOCKSNETHERLAND25,
-        text: <Localize translate_text="Netherland 25" />,
+        src: icons.STOCKSNETHERLANDS25,
+        text: <Localize translate_text="Netherlands 25" />,
     },
     {
         src: icons.STOCKSEUROPE50,
@@ -739,8 +806,8 @@ export const stocks_european_indices: MarketSymbol[] = [
         eu: true,
     },
     {
-        src: icons.STOCKSNETHERLAND25,
-        text: <Localize translate_text="Netherland 25" />,
+        src: icons.STOCKSNETHERLANDS25,
+        text: <Localize translate_text="Netherlands 25" />,
         eu: false,
     },
     {
@@ -966,11 +1033,6 @@ export const american_stocks: MarketSymbol[] = [
         src: icons.STOCKSTEVAPHARMACEUTICAL,
         text: <Localize translate_text="Teva Pharmaceutical Inds" />,
     },
-    {
-        src: icons.STOCKSTWITTER,
-        text: <Localize translate_text="Twitter" />,
-    },
-
     {
         src: icons.STOCKSUBER,
         text: <Localize translate_text="Uber Technologies Inc" />,
@@ -1336,5 +1398,25 @@ export const derived_fx: MarketSymbol[] = [
     {
         src: icons.USDCHF10,
         text: <Localize translate_text="USD/CHF DFX10 Index" />,
+    },
+    {
+        src: icons.GBPUSD20,
+        text: <Localize translate_text="GBP/USD DFX20 Index" />,
+    },
+    {
+        src: icons.EURUSD20,
+        text: <Localize translate_text="EUR/USD DFX20 Index" />,
+    },
+    {
+        src: icons.AUDUSD20,
+        text: <Localize translate_text="AUD/USD DFX20 Index" />,
+    },
+    {
+        src: icons.USDJPY20,
+        text: <Localize translate_text="USD/JPY DFX20 Index" />,
+    },
+    {
+        src: icons.USDCHF20,
+        text: <Localize translate_text="USD/CHF DFX20 Index" />,
     },
 ]

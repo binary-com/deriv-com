@@ -23,8 +23,12 @@ const kid_data = [
         ref: 'kid_deriv_multipliers_cryptocurrencies.pdf',
     },
     {
-        title: <Localize translate_text="Multipliers - synthetic indices" />,
-        ref: 'kid_deriv_multipliers_synthetic_indices.pdf',
+        title: <Localize translate_text="Multipliers - synthetics: Volatility 250 (1s) Index" />,
+        ref: 'kid_deriv_multipliers_synthetics_vol_250.pdf',
+    },
+    {
+        title: <Localize translate_text="Multipliers - synthetics: Crash 300 Index" />,
+        ref: 'kid_deriv_multipliers_synthetics_crash_300.pdf',
     },
     {
         title: <Localize translate_text="Stocks" />,
@@ -35,8 +39,12 @@ const kid_data = [
         ref: 'kid_deriv_Stock Indices.pdf',
     },
     {
-        title: <Localize translate_text="CFD - synthetic indices" />,
-        ref: 'kid_deriv_CFD_synthetic_indices.pdf',
+        title: <Localize translate_text="CFDs - synthetics: Volatility 250 (1s) Index" />,
+        ref: 'kid_deriv_CFD_synthetic_vol_250.pdf',
+    },
+    {
+        title: <Localize translate_text="CFDs - synthetics: Crash 300 Index" />,
+        ref: 'kid_deriv_CFD_synthetic_crash_300.pdf',
     },
 ]
 

@@ -96,7 +96,7 @@ const Topics = ({ title, topicsImage, topicsList }: TopicsProps) => {
                         mt="25px"
                         size="24px"
                         weight="bold"
-                        lh={1.5}
+                        lh="1.5"
                         color="var(--color-black-3)"
                         mb="20px"
                     >

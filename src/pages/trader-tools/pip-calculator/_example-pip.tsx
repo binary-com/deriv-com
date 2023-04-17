@@ -24,14 +24,14 @@ export const PipSyntheticExample = () => {
     return (
         <>
             <Desktop>
-                <FormulaContainer pt="8px">
+                <FormulaContainer height="180px" pt="50px">
                     <FormulaHighlight jc="space-evenly" pl="100px" pr="100px">
                         <FormulaValue>
                             <Localize translate_text="0.01" />
-                            <PointerContainer width="100px" ml="-25px">
+                            <PointerContainer top width="100px" ml="-25px">
                                 <PointerDot />
                                 <PointerStick height="28px" />
-                                <PointerText>
+                                <PointerText top>
                                     <Localize translate_text="Point value" />
                                     <StyledSpan> 1</StyledSpan>
                                 </PointerText>
@@ -59,10 +59,10 @@ export const PipSyntheticExample = () => {
 
                         <FormulaValue>
                             <Localize translate_text="1" />
-                            <PointerContainer ml="-28px" width="100px">
+                            <PointerContainer top ml="-28px" width="100px">
                                 <PointerDot />
                                 <PointerStick height="28px" />
-                                <PointerText>
+                                <PointerText top>
                                     <Localize translate_text="Contract size" />
                                     <StyledSpan> 2</StyledSpan>
                                 </PointerText>
@@ -163,14 +163,14 @@ export const PipForexExample = () => {
     return (
         <>
             <Desktop>
-                <FormulaContainer pt="8px">
+                <FormulaContainer height="180px" pt="50px">
                     <FormulaHighlight jc="space-evenly" pl="71px" pr="71px">
                         <FormulaValue>
                             <Localize translate_text="0.00001" />
-                            <PointerContainer ml="-15px" width="100px">
+                            <PointerContainer top ml="-15px" width="100px">
                                 <PointerDot />
                                 <PointerStick height="28px" />
-                                <PointerText>
+                                <PointerText top>
                                     <Localize translate_text="Point value" />
                                     <StyledSpan> 1</StyledSpan>
                                 </PointerText>
@@ -198,10 +198,10 @@ export const PipForexExample = () => {
 
                         <FormulaValue>
                             <Localize translate_text="100,000" />
-                            <PointerContainer ml="-20px" width="100px">
+                            <PointerContainer top ml="-20px" width="100px">
                                 <PointerDot />
                                 <PointerStick height="28px" />
-                                <PointerText>
+                                <PointerText top>
                                     <Localize translate_text="Contract size" />
                                     <StyledSpan> 2</StyledSpan>
                                 </PointerText>

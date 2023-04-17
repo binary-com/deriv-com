@@ -92,8 +92,6 @@ module.exports = {
                     '/**/endpoint',
                     '/signup-success',
                     '/**/signup-success',
-                    '/academy/blog/posts/preview',
-                    '/academy/subscription',
                 ],
                 query: `
                 {
@@ -302,7 +300,6 @@ module.exports = {
                 ],
             },
         },
-        'gatsby-plugin-anchor-links',
         {
             resolve: 'gatsby-plugin-google-tagmanager',
             options: {
@@ -314,18 +311,7 @@ module.exports = {
             resolve: 'gatsby-plugin-anchor-links',
             options: {
                 offset: -100,
-            },
-        },
-        {
-            resolve: '@directus/gatsby-source-directus',
-            options: {
-                url: 'https://deriv-academy.directus.app',
-                auth: {
-                    token: process.env.DIRECTUS_AUTH_TOKEN,
-                },
-                dev: {
-                    refresh: '5s',
-                },
+                duration: 0,
             },
         },
         'gatsby-plugin-use-query-params',
@@ -333,8 +319,29 @@ module.exports = {
             resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
             options: {
                 analyzerMode: 'disabled',
-                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
+                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
             },
         },
+        {
+            resolve: 'gatsby-plugin-datadog',
+            options: {
+                site: 'datadoghq.com',
+                sessionSampleRate: parseInt(process.env.DATADOG_SESSION_SAMPLE_RATE) || 10,
+                sessionReplaySampleRate: parseInt(process.env.DATADOG_SESSION_REPLAY_SAMPLE_RATE) || 1,
+                enabled: true,
+                env: 'production',
+                service:'deriv.com',
+                trackUserInteractions: true,
+                trackFrustrations: true,
+                trackResources: true,
+                trackLongTasks: true,
+                enableExperimentalFeatures: ['clickmap'],
+                defaultPrivacyLevel:'mask-user-input',
+                rum: {
+                    applicationId: process.env.DATADOG_APPLICATION_ID,
+                    clientToken: process.env.DATADOG_CLIENT_TOKEN,
+                },
+            }
+        }
     ],
 }

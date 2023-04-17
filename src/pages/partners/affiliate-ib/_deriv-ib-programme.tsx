@@ -22,6 +22,7 @@ type TypeForType = {
     title: React.ReactElement
     headerHeight: string
     assets: AssetsType
+    class_name: string
 }[]
 
 type NoteType = {
@@ -33,6 +34,8 @@ type ListType = {
     details?: React.ReactElement
     icon?: string
     iconAlt?: React.ReactElement
+    notes?: NoteType
+    second_desc?: React.ReactElement
 }[]
 
 type CountDetailsType = {
@@ -48,6 +51,10 @@ type DMT5Type = {
     countDetails: CountDetailsType
 }
 
+type StyledSectionProps = {
+    align?: string
+}
+
 export type DMT5Props = { data: DMT5Type }
 
 const TitleWrapper = styled.div`
@@ -56,13 +63,14 @@ const TitleWrapper = styled.div`
 `
 
 const StyledCardWrapper = styled(CardWrapper)`
-    flex-wrap: nowrap;
-    @media ${device.laptopL} {
-        flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    @media ${device.tabletL} {
+        align-items: center;
     }
 `
 
-const StyledSection = styled(SectionContainer)`
+const StyledSection = styled(SectionContainer)<StyledSectionProps>`
     padding-bottom: 0;
     text-align: ${(props) => props.align || 'left'};
 
@@ -98,18 +106,17 @@ const StyledHeaderCommission = styled(StyledHeader)`
     @media ${device.laptopM} {
         text-align: center;
     }
-    @media ${device.mobileM} {
+    @media ${device.tabletL} {
         text-align: center;
-        width: 38rem;
     }
-    @media (min-width: 1200px) and (max-width: 1680px) {
-        padding-left: 12vw;
-    }
-    @media (min-width: 1680px) and (max-width: 2560px) {
-        padding-left: 11vw;
-    }
-    @media (min-width: 2560px) {
-        padding-left: 10vw;
+`
+const StyledHeaderDerivx = styled(Header)`
+    text-align: start;
+    margin-left: 40.8rem;
+
+    @media ${device.tabletL} {
+        margin-left: 0;
+        text-align: center;
     }
 `
 
@@ -134,7 +141,7 @@ const SubtitleHeader = styled(Header)`
 
 const DerivIBProgramme = () => {
     return (
-        <StyledSection shadow id="deriv-ib">
+        <StyledSection id="deriv-ib">
             <Container direction="column">
                 <TitleWrapper>
                     <StyledTitleHeader as="h2" mb="1.2rem" type="page-title" align="center">
@@ -159,6 +166,7 @@ const DerivIBProgramme = () => {
                     <StyledCardWrapper>
                         <DERIVIBDMT5Cards data={ib_dmt5_synthetic} />
                         <DERIVIBDMT5Cards data={ib_dmt5_financial} />
+                        <DERIVIBDMT5Cards data={ib_dmt5_financialSTP} />
                     </StyledCardWrapper>
                     <DecideSection align="center">
                         <StyledHeader
@@ -212,6 +220,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     ],
                 },
             ],
+            class_name: 'crash-boom',
         },
         {
             title: <Localize translate_text="Volatility indices" />,
@@ -230,8 +239,10 @@ const ib_dmt5_synthetic: DMT5Type = {
                         <Localize key={8} translate_text="Volatility 75 (1s) Index" />,
                         <Localize key={9} translate_text="Volatility 100 Index" />,
                         <Localize key={10} translate_text="Volatility 100 (1s) Index" />,
-                        <Localize key={11} translate_text="Volatility 200 (1s) Index" />,
-                        <Localize key={12} translate_text="Volatility 300 (1s) Index" />,
+                        <Localize key={11} translate_text="Volatility 150 (1s) Index" />,
+                        <Localize key={12} translate_text="Volatility 200 (1s) Index" />,
+                        <Localize key={13} translate_text="Volatility 250 (1s) Index" />,
+                        <Localize key={14} translate_text="Volatility 300 (1s) Index" />,
                     ],
                 },
                 {
@@ -247,11 +258,14 @@ const ib_dmt5_synthetic: DMT5Type = {
                         <Localize key={8} translate_text="5" />,
                         <Localize key={9} translate_text="7.5" />,
                         <Localize key={10} translate_text="7.5" />,
-                        <Localize key={11} translate_text="10" />,
-                        <Localize key={12} translate_text="15" />,
+                        <Localize key={11} translate_text="7.5" />,
+                        <Localize key={12} translate_text="10" />,
+                        <Localize key={12} translate_text="12.5" />,
+                        <Localize key={14} translate_text="15" />,
                     ],
                 },
             ],
+            class_name: 'volatility-indices',
         },
         {
             title: <Localize translate_text="Step index" />,
@@ -266,6 +280,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     list: [<Localize key={1} translate_text="0.10" />],
                 },
             ],
+            class_name: 'step-index',
         },
         {
             title: <Localize translate_text="Jump indices" />,
@@ -292,6 +307,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                     ],
                 },
             ],
+            class_name: 'jump-index',
         },
     ],
     countDetails: [
@@ -345,6 +361,7 @@ const ib_dmt5_financial: DMT5Type = {
                     ],
                 },
             ],
+            class_name: 'forex-and-metals',
         },
         {
             title: <Localize translate_text="Stock indices" />,
@@ -365,6 +382,7 @@ const ib_dmt5_financial: DMT5Type = {
                     ],
                 },
             ],
+            class_name: 'stock-indices',
         },
         {
             title: <Localize translate_text="Cryptocurrencies" />,
@@ -379,6 +397,7 @@ const ib_dmt5_financial: DMT5Type = {
                     list: [<Localize key={1} translate_text="10" />],
                 },
             ],
+            class_name: 'cryptocurrencies-financial',
         },
     ],
     countDetails: [
@@ -412,6 +431,81 @@ const ib_dmt5_financial: DMT5Type = {
                     title: <Localize translate_text="Please note:" />,
                     desc: {
                         firstText: (
+                            <Localize translate_text="Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate." />
+                        ),
+                    },
+                },
+            ],
+        },
+    ],
+}
+const ib_dmt5_financialSTP: DMT5Type = {
+    name: <Localize translate_text="Deriv MT5 Financial STP" />,
+    description: (
+        <Localize translate_text="Earn when your clients trade on an MT5 Financial STP account." />
+    ),
+    type: [
+        {
+            title: <Localize translate_text="Forex" />,
+            headerHeight: '8.0rem',
+            assets: [
+                {
+                    title: <Localize key={0} translate_text="Asset" />,
+                    list: [<Localize key={1} translate_text="Forex" />],
+                },
+                {
+                    title: (
+                        <Localize
+                            key={0}
+                            translate_text="Commission per lot (1 standard lot is 100k units)"
+                        />
+                    ),
+                    list: [<Localize key={1} translate_text="2.5" />],
+                },
+            ],
+        },
+        {
+            title: <Localize translate_text="Cryptocurrencies" />,
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: <Localize key={0} translate_text="Asset" />,
+                    list: [<Localize key={1} translate_text="Cryptocurrencies" />],
+                },
+                {
+                    title: <Localize key={0} translate_text="Commission per USD 100k turnover" />,
+                    list: [<Localize key={1} translate_text="10" />],
+                },
+            ],
+        },
+    ],
+    countDetails: [
+        {
+            title: <Localize translate_text="How it’s calculated" />,
+            list: [
+                {
+                    details: (
+                        <Localize translate_text="For forex, a deal for 1 lot of EUR/USD will pay out EUR 2.5 in commission based on the following formula:" />
+                    ),
+                    icon: 'dmt5_financial_stp_calculator_one',
+                    iconAlt: <Localize translate_text="DMT5 Financial STP calculated first" />,
+                },
+                {
+                    details: (
+                        <Localize translate_text="For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 5 in commission based on the following formula:" />
+                    ),
+                    icon: 'dmt5_financial_stp_calculator_two',
+                    iconAlt: <Localize translate_text="DMT5 Financial STP calculated second" />,
+                },
+            ],
+            notes: [
+                {
+                    title: <Localize translate_text="Please note:" />,
+                    desc: {
+                        firstText: (
+                            <Localize translate_text="For forex, your commission is represented in the base currency (EUR in the above example)." />
+                        ),
+                        secondText: (
                             <Localize translate_text="Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate." />
                         ),
                     },

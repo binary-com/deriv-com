@@ -1,10 +1,10 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
 import { crash_boom, crash_boom_trade_type_eu } from '../static/content/_market-symbols'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const CrashBoom = () => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     return (
         <>
             {is_eu ? (

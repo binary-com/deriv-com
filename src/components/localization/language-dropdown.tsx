@@ -72,6 +72,10 @@ const Absolute = styled.div<AbsoluteProps>`
     will-change: opacity;
     display: ${({ is_open }) => !is_open && 'none'};
 
+    @media ${device.tabletL} {
+        max-height: 70vh;
+    }
+
     @media ${device.mobileL} {
         top: ${({ is_high_nav }) => (is_high_nav ? '7rem' : '9rem')};
         left: 15rem;

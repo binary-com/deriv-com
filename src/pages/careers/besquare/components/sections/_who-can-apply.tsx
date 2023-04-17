@@ -17,8 +17,8 @@ const WhoCanApply = () => {
             grid_column_gap: ['16px', '8px'],
         },
         icon_wrapper: {
-            width: ['24px', '16px'],
-            height: ['24px', '16px'],
+            img_width: ['24px', '16px'],
+            img_height: ['24px', '16px'],
         },
         text_wrapper: {
             max_width: ['446px', '304px'],

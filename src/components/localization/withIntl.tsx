@@ -8,7 +8,7 @@ type PageContextType = {
 }
 
 type WrapWithIntl = {
-    pageContext: PageContextType
+    pageContext?: PageContextType
 }
 
 type WithIntlProps = React.FC<{
@@ -18,7 +18,7 @@ type WithIntlProps = React.FC<{
 
 // HOC that pre renders a page with the translated language (during build)
 // Without this HOC the page will be translated on the client side dynamically
-export const WithIntl = () => (WrappedComponent: WithIntlProps) => {
+export const WithIntl = () => (WrappedComponent: any) => {
     const WrapWithIntl = ({ pageContext, ...props }: WrapWithIntl) => {
         const addResources = (pc, language) => {
             if (pc && pc.localeResources) {

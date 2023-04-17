@@ -9,7 +9,7 @@ import type { TPlatformDetails } from './_utils'
 import { Box, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
-import { useCountryRule } from 'components/hooks/use-country-rule'
+import useRegion from 'components/hooks/use-region'
 
 const SelectedZone = styled(Flex)`
     left: 0;
@@ -118,7 +118,7 @@ const carouselOptions: EmblaOptionsType = {
 }
 
 const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: PlatformSliderProps) => {
-    const { is_eu } = useCountryRule()
+    const { is_eu } = useRegion()
     const auto_play = useMemo(() => {
         return Autoplay({
             delay: PLATFORMS_CAROUSEL_DELAY,
@@ -136,7 +136,7 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
         }
     }, [embla, onSelectSlide])
 
-    // Since the platform_details is changing based on useCountryRule hook, we have to reInit the carousel
+    // Since the platform_details is changing based on useRegion hook data, we have to reInit the carousel
     // to make it aware of the change.
     useEffect(() => {
         if (embla) {

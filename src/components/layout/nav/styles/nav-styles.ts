@@ -7,11 +7,11 @@ import { LocalizedLink } from 'components/localization'
 import { SharedLinkStyle, SharedLinkStyleMarket } from 'components/localization/localized-link'
 
 type NavRightProps = {
-    button_ref: HTMLButtonElement
+    button_ref: React.MutableRefObject<HTMLButtonElement>
     mounted: boolean
     move?: boolean
     has_scrolled: boolean
-    hide_signup_login: boolean
+    hide_signup_login?: boolean
     is_rtl?: boolean
 }
 
@@ -160,7 +160,7 @@ export const LogoLink = styled(LocalizedLink)<LogoLinkProps>`
 `
 
 type NavLinkProps = {
-    isOpen: boolean
+    isOpen?: boolean
     margin?: boolean
 }
 

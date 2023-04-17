@@ -12,11 +12,11 @@ type AvailableOptionsProps = {
     title?: ReactElement
 }
 
-const StyledFlex = styled(Flex)`
+const StyledFlex = styled(Flex)<{ mobile_pt: string }>`
     flex-direction: column;
 
     @media ${device.tabletL} {
-        padding-top: ${(props) => (props.mobile_pt ? props.mobile_pt : '')};
+        padding-top: ${({ mobile_pt }) => (mobile_pt ? mobile_pt : '')};
     }
 `
 
@@ -44,7 +44,7 @@ const AvailableOptions = ({
     mobile_pt,
 }: AvailableOptionsProps) => {
     return (
-        <StyledFlex mt={remove_title ? '1.6rem' : 0} mobile_pt={mobile_pt}>
+        <StyledFlex mobile_pt={mobile_pt}>
             {!remove_title && (
                 <Box mb="0.8rem" height="2.4rem">
                     <StyledText weight="bold">{title ? title : null}</StyledText>

@@ -4,13 +4,12 @@ import { Flex } from 'components/containers'
 import { Button } from 'components/form'
 import { LocalizedLinkText, Header } from 'components/elements'
 import { Localize, localize } from 'components/localization'
-import device, { size } from 'themes/device'
+import device from 'themes/device'
 import { useCookieBanner } from 'components/hooks/use-cookie-banner'
 import { browsers_minimum_required_version, cookie_key, bannerTypes } from 'common/constants'
 import { CookieStorage } from 'common/storage'
 import { useUserBrowser } from 'components/hooks/use-user-browser'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import useRegion from 'components/hooks/use-region'
 
 type TProps = {
     bannerType: string
@@ -123,8 +122,6 @@ const BannerAlert: FC<TProps> = ({ bannerType }) => {
     const [is_visible, setIsVisible] = useState(false)
     const { is_outdated } = useUserBrowser(browsers_minimum_required_version)
     const is_rtl = useIsRtl()
-    const { is_eu, is_cpa_plan } = useRegion()
-    const [is_tablet, setIsTablet] = useState(window.screen.width <= size.tablet)
 
     //cookie banner
     // Todo: Should simplify this useEffect and get rid of the duplicated state and find another solution
@@ -209,21 +206,13 @@ const BannerAlert: FC<TProps> = ({ bannerType }) => {
                                 </StyledButton>
                             </Flex>
                         </Wrapper>
-                        {/* TODO:not sure about this bug fix have to confirm  (bug:when CFD banner is alraedy there this banner should show in top of that) ,have to deploy and check this */}
-                        {(is_eu || is_cpa_plan) && is_tablet ? (
-                            <Wrapper
-                                visible={is_visible}
-                                width={outdatedBrowserBannerProps.width}
-                                minHeight={outdatedBrowserBannerProps.minHeight}
-                            ></Wrapper>
-                        ) : null}
                     </OverlayContainer>
                 )
 
             default:
                 return <></>
         }
-    }, [bannerType, is_eu, is_cpa_plan, is_tablet])
+    }, [bannerType])
 
     return is_visible ? generateBanner : <></>
 }

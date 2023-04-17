@@ -161,9 +161,9 @@ const AffiliateIb = () => {
     return (
         <Layout type="partners" margin_top={10}>
             <SEO
-                title={localize('Affiliate partnership and IB programme | Deriv')}
+                title={localize('Affiliate and IB programmes | Partnership programmes | Deriv')}
                 description={localize(
-                    'Deriv’s affiliate and IB programmes offer exciting income opportunities. Earn commission from your referred clients’ trades on our platforms.',
+                    'Join the Deriv affiliate partnership programme and introducing broker (IB) programme to earn commissions from various income opportunities.',
                 )}
                 meta_attributes={meta_attributes}
             />
@@ -187,7 +187,7 @@ const AffiliateIb = () => {
             </Hero>
             <StyledSectionContainer padding="8rem 0 4rem">
                 <Container direction="column">
-                    <SubtitleHeader as="h4" type="sub-section-title" weight="normal" align="center">
+                    <SubtitleHeader as="p" type="sub-section-title" weight="normal" align="center">
                         {localize(
                             'Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on popular financial markets with the utmost convenience. Deriv Group Ltd — the owner of Binary.com and Deriv.com — has a proven track record of running successful referral programmes with prompt payouts.',
                         )}

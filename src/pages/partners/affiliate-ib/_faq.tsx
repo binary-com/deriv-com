@@ -152,7 +152,7 @@ const Faq = () => {
                 {localize('Browse our FAQ')}
             </FaqHeader>
             <FaqSubHeader
-                as="h4"
+                as="h3"
                 type="sub-section-title"
                 align="center"
                 m="4rem 0"
@@ -180,7 +180,7 @@ const Faq = () => {
                 </Accordion>
             </StyledAccordionWrapper>
             <FaqSubHeader
-                as="h4"
+                as="h3"
                 type="sub-section-title"
                 align="center"
                 m="8rem 0 4rem 0 "

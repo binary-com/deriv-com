@@ -149,12 +149,12 @@ const DerivIBProgramme = () => {
                     <StyledTitleHeader as="h2" mb="1.2rem" type="page-title" align="center">
                         {localize('Deriv IB Programme')}
                     </StyledTitleHeader>
-                    <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
+                    <SubtitleHeader as="p" type="sub-section-title" align="center" weight="normal">
                         {localize(
                             'Our introducing broker programme is available to all Deriv affiliates.',
                         )}
                     </SubtitleHeader>
-                    <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
+                    <SubtitleHeader as="p" type="sub-section-title" align="center" weight="normal">
                         {is_row
                             ? localize(
                                   'Earn commission from your clients’ trades on Deriv MT5 and Deriv X.',
@@ -166,7 +166,7 @@ const DerivIBProgramme = () => {
                     </Header>
                 </TitleWrapper>
                 <IBSectionContainer padding="4rem 0 9.6rem 0">
-                    <StyledHeaderCommission as="h4" type="main-paragraph" mb="1.6rem">
+                    <StyledHeaderCommission as="h3" type="main-paragraph" mb="1.6rem">
                         {localize('Choose a commission plan:')}
                     </StyledHeaderCommission>
                     <StyledCardWrapper>

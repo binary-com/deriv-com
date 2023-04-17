@@ -209,7 +209,7 @@ const WhoCanApply = () => {
             <StyledSection>
                 <Flex>
                     <WhoCanApplyWrapper>
-                        <StyledHeader as="h2" size="3.2rem">
+                        <StyledHeader as="h3" size="3.2rem">
                             {localize('Who can apply')}
                         </StyledHeader>
                         <ContentWrapper>
@@ -256,7 +256,7 @@ const WhoCanApply = () => {
                 <Separator />
                 <Flex>
                     <HowToApply>
-                        <SecondaryHeader as="h2" mb="24px" size="3.2rem">
+                        <SecondaryHeader as="h3" mb="24px" size="3.2rem">
                             {localize('Get started easily')}
                         </SecondaryHeader>
                         <Timeline>

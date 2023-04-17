@@ -8,14 +8,48 @@ const ib_programme: TQuestionsData = {
             question: '_t_How do I sign up as an introducing broker (IB)?_t_',
             category: 'IB programme',
             sub_category: '_t_Partners_t_',
+            hide_for_non_eu: true,
             label: 'ib-sign-up',
             answer: [
                 {
                     translation_text:
                         "_t_To become an IB, you'll need to be an existing affiliate with a Deriv account and an MT5 Synthetic real account. If you do, you can apply to become an IB by writing to us at <0>affiliates@deriv.com</0>. <1>Get more info about our IB programme</1>._t_",
                     translation_components: [
-                        { key: 0, type: 'link', to: 'mailto:affiliates@deriv.com' },
-                        { key: 1, type: 'link', to: 'https://deriv.com/partners/affiliate-ib/' },
+                        { key: 0, type: 'strong' },
+                        {
+                            key: 1,
+                            type: 'link',
+                            to: '/contact_us/?is_livechat_open=true',
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            question: '_t_How do I sign up as an introducing broker (IB)?_t_',
+            category: 'IB programme',
+            sub_category: '_t_Partners_t_',
+            hide_for_eu: true,
+            label: 'ib-sign-up',
+            answer: [
+                {
+                    translation_text:
+                        "_t_To become an IB, you'll need to be an existing affiliate with a Deriv <0>currency</0> account and an MT5 Derived real account. If you do, you can apply to become an IB by contacting us via <1>LiveChat</1>._t_",
+                    translation_components: [
+                        { key: 0, type: 'strong' },
+                        {
+                            key: 1,
+                            type: 'link',
+                            to: '/contact_us/?is_livechat_open=true',
+                        },
+                    ],
+                },
+                {
+                    translation_text:
+                        '_t_Get more info about our IB programme by clicking <0>here</0>._t_',
+                    has_margin_top: true,
+                    translation_components: [
+                        { key: 0, type: 'link', to: 'https://deriv.com/partners/affiliate-ib/' },
                     ],
                 },
             ],
@@ -89,8 +123,10 @@ const ib_programme: TQuestionsData = {
             label: 'receive-commission',
             answer: [
                 {
-                    translation_text:
+                    eu_translation_text:
                         "_t_We'll pay your IB commission into your MT5 Synthetic account daily._t_",
+                    translation_text:
+                        "_t_We'll pay your IB commission into your MT5 (Derived account daily)._t_",
                 },
             ],
         },

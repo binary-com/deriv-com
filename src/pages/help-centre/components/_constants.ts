@@ -8,8 +8,10 @@ import derivx from '../data/_deriv-x'
 import dmt5 from '../data/_dmt5'
 import dtrader from '../data/_dtrader'
 import ib_programme from '../data/_ib-programme'
+import payment_agent from '../data/_payment-agent'
 import security from '../data/_security'
 import trading from '../data/_trading'
+import deriv_ez from '../data/_deriv-ez'
 
 export const GENERAL = 'General'
 export const PLATFORMS = 'Platforms'
@@ -21,9 +23,11 @@ export const all_questions = [
     affiliate_programme,
     ib_programme,
     about_deriv,
+    payment_agent,
     dmt5,
     derivx,
     dtrader,
     dbot,
     deriv_p2p,
+    deriv_ez,
 ]

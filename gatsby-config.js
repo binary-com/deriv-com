@@ -92,8 +92,6 @@ module.exports = {
                     '/**/endpoint',
                     '/signup-success',
                     '/**/signup-success',
-                    '/academy/blog/posts/preview',
-                    '/academy/subscription',
                 ],
                 query: `
                 {
@@ -316,27 +314,34 @@ module.exports = {
                 duration: 0,
             },
         },
-        {
-            resolve: `gatsby-plugin-create-client-paths`,
-            options: {
-                prefixes: [
-                    `/markets/forex/*`,
-                    `/markets/synthetic/*`,
-                    `/markets/basket-indices/*`,
-                    `/markets/derived-fx/*`,
-                    `/markets/stock/*`,
-                    `/markets/cryptocurrencies/*`,
-                    `/markets/commodities/*`,
-                ],
-            },
-        },
         'gatsby-plugin-use-query-params',
         {
             resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
             options: {
                 analyzerMode: 'disabled',
-                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
+                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
             },
         },
+        {
+            resolve: 'gatsby-plugin-datadog',
+            options: {
+                site: 'datadoghq.com',
+                sessionSampleRate: parseInt(process.env.DATADOG_SESSION_SAMPLE_RATE) || 10,
+                sessionReplaySampleRate: parseInt(process.env.DATADOG_SESSION_REPLAY_SAMPLE_RATE) || 1,
+                enabled: true,
+                env: 'production',
+                service:'deriv.com',
+                trackUserInteractions: true,
+                trackFrustrations: true,
+                trackResources: true,
+                trackLongTasks: true,
+                enableExperimentalFeatures: ['clickmap'],
+                defaultPrivacyLevel:'mask-user-input',
+                rum: {
+                    applicationId: process.env.DATADOG_APPLICATION_ID,
+                    clientToken: process.env.DATADOG_CLIENT_TOKEN,
+                },
+            }
+        }
     ],
 }

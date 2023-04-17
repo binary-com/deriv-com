@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { ReactElement } from 'react'
-import { Header , Text } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { Box, CssGrid, Flex } from 'components/containers'
 import device from 'themes/device'
 

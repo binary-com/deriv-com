@@ -64,6 +64,7 @@ export const affiliate_signup_url = `https://login.${getDomainUrl()}/signup.php`
 export const affiliate_signin_url = `https://login.${getDomainUrl()}/signin.php`
 export const community_url = `https://community.${deriv_com_url}`
 export const oauth_url = `https://oauth.${getDomainUrl()}`
+export const deriv_app_login = `${oauth_url}/oauth2/authorize?app_id=${deriv_app_id}`
 export const whatsapp_url = `https://wa.me/35699578341`
 
 export const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
@@ -158,7 +159,7 @@ export const live_chat_key = 'live_chat_redirection'
 export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const youtube_url = 'https://www.youtube.com/@deriv'
-export const loss_percent = 71
+export const loss_percent = 73
 
 export const cookie_key = 'browser_update_alert_modal_shown'
 export const browsers_minimum_required_version = {

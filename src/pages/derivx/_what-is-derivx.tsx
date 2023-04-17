@@ -9,12 +9,12 @@ const StyledHeader = styled(Header)`
     color: var(--color-black-9);
 
     @media ${device.tabletL} {
-        font-size: 32px;
+        font-size: 28px;
     }
 `
 const StyledText = styled(Header)`
     padding-top: 8px;
-    font-size: 16px;
+    font-weight: normal;
     color: var(--color-black-9);
     max-width: 792px;
     text-align @media ${device.tabletL} {
@@ -27,6 +27,7 @@ const StyledSectionContainer = styled(SectionContainer)`
 
     @media ${device.tablet} {
         border-bottom: unset;
+        padding: 40px 0;
     }
 `
 
@@ -38,8 +39,8 @@ const WhatIsDeriv = () => {
                     <StyledHeader type="page-title" align="center" as="h2">
                         <Localize translate_text="What is Deriv X" />
                     </StyledHeader>
-                    <StyledText weight="100" mt="16px" align="center">
-                        <Localize translate_text="Deriv X is a customisable multi-asset trading platform. Offering CFDs on forex, commodities, stocks & indices, cryptocurrencies, and derived, Deriv X gives you a versatile trading experience that lets you customise your trading environment." />
+                    <StyledText mt="16px" align="center" as="p" type="paragraph-1">
+                        <Localize translate_text="Deriv X is a customisable multi-asset trading platform. Offering CFDs on forex, commodities, stocks & indices, cryptocurrencies, and derived indices, Deriv X gives you a versatile trading experience that lets you customise your trading environment." />
                     </StyledText>
                 </Flex>
             </Container>

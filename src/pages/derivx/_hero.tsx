@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import DerivXRow from 'images/common/deriv-x/banner_image_derivx.png'
+import { StaticImage } from 'gatsby-plugin-image'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import DerivXLogo from 'images/svg/deriv-x/deriv-x-banner-logo.svg'
 import device from 'themes/device'
@@ -10,14 +10,14 @@ import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import Shape from 'components/custom/_hero-shape'
 import Button from 'components/custom/_button'
+import { Container } from 'components/containers'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
-const ImageStyle = styled.img`
+const ImageStyle = styled.div`
     z-index: 1;
     max-width: 843px;
     width: inherit;
-    src: ${({ src }) => src};
 
     @media ${device.tablet} {
         width: 100%;
@@ -47,6 +47,7 @@ const BackgroundStyle = styled.div`
     height: 90vh;
     display: flex;
     justify-content: flex-end;
+    position: relative;
 
     @media ${device.tablet} {
         flex-direction: column-reverse;
@@ -60,12 +61,20 @@ const ContentWrapperStyle = styled.div`
     align-items: center;
     flex-direction: column;
     display: flex;
+    max-width: 40%;
+    @media ${device.tablet} {
+        max-width: 100%;
+    }
 `
 const HeroImageWrapper = styled.div`
     width: 60%;
+    position: absolute;
+    right: 0;
+    height: 100%;
 
     @media ${device.tablet} {
         width: 100%;
+        position: relative;
     }
 `
 const CreateAccountButton = styled(Button)`
@@ -80,7 +89,6 @@ const Content = styled.div`
     display: flex;
     gap: 30px;
     flex-direction: column;
-    padding-left: 120px;
     overflow-wrap: break-word;
 
     @media ${device.tablet} {
@@ -96,46 +104,62 @@ const StyledTradingLogin = styled.img`
         height: 32px;
     }
 `
+const StyledContainer = styled(Container)`
+    @media ${device.tablet} {
+        flex-direction: column-reverse;
+        justify-content: center;
+        margin: 0;
+        width: 100%;
+    }
+`
 const DCommonBanner = () => {
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     return (
         <BackgroundStyle>
-            <ContentWrapperStyle>
-                <Content>
-                    <StyledTradingLogin src={DerivXLogo} />
-                    <CommonHeaderSection
-                        title="_t_The trading platform to fit your style_t_"
-                        title_font_size={`${is_mobile ? 32 : 64}px`}
-                        color="var(--color-black-9)"
-                    />
-                    <BannerButtonWrapper>
-                        {is_logged_in ? (
-                            <CreateAccountButton
-                                onClick={handleGetTrading}
-                                label="_t_Get Trading_t_"
-                                primary
-                                mobileFullWidth
-                            />
-                        ) : (
-                            <CreateAccountButton
-                                onClick={handleSignup}
-                                label="_t_Create free demo account_t_"
-                                primary
-                                mobileFullWidth
-                            />
-                        )}
-                    </BannerButtonWrapper>
-                </Content>
-            </ContentWrapperStyle>
-            <HeroImageWrapper>
-                <Shape angle={is_mobile ? 101 : 163} width="60%">
-                    <ImageWrapper>
-                        <ImageStyle src={DerivXRow} />
-                    </ImageWrapper>
-                </Shape>
-            </HeroImageWrapper>
+            <StyledContainer jc="flex-start">
+                <ContentWrapperStyle>
+                    <Content>
+                        <StyledTradingLogin src={DerivXLogo} />
+                        <CommonHeaderSection
+                            title="_t_The trading platform to fit your style_t_"
+                            title_font_size={`${is_mobile ? 32 : 64}px`}
+                            color="var(--color-black-9)"
+                        />
+                        <BannerButtonWrapper>
+                            {is_logged_in ? (
+                                <CreateAccountButton
+                                    onClick={handleGetTrading}
+                                    label="_t_Get Trading_t_"
+                                    primary
+                                    mobileFullWidth
+                                />
+                            ) : (
+                                <CreateAccountButton
+                                    onClick={handleSignup}
+                                    label="_t_Create free demo account_t_"
+                                    primary
+                                    mobileFullWidth
+                                />
+                            )}
+                        </BannerButtonWrapper>
+                    </Content>
+                </ContentWrapperStyle>
+                <HeroImageWrapper>
+                    <Shape angle={is_mobile ? 101 : 163} width="60%">
+                        <ImageWrapper>
+                            <ImageStyle>
+                                <StaticImage
+                                    src="../../images/common/deriv-x/banner_image_derivx.png"
+                                    loading="eager"
+                                    alt="Banner"
+                                />
+                            </ImageStyle>
+                        </ImageWrapper>
+                    </Shape>
+                </HeroImageWrapper>
+            </StyledContainer>
         </BackgroundStyle>
     )
 }

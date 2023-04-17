@@ -100,6 +100,13 @@ const Dbot = () => {
     if (is_loaded) {
         return (
             <>
+                <SEO
+                    title={localize('DBot | Trading robot | Deriv')}
+                    description={localize(
+                        'Automate your trading with DBot, Deriv’s trading robot which you can build without writing code.',
+                    )}
+                    meta_attributes={meta_attributes}
+                />
                 {is_row && (
                     <Layout>
                         <DCommonBanner join_us_for_free is_live_demo image_name="dbot" />

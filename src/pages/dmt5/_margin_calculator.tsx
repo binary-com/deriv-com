@@ -92,10 +92,10 @@ const SubHeader = styled(Header)`
 
 const StyledBox = styled(Box)`
     max-width: 508px;
-    margin: 11.9rem 4rem 0 16rem;
+    margin: 0 4rem 0 16rem;
     @media ${device.tabletL} {
         max-width: 100%;
-        margin: 40px 16px 24px;
+        margin: 0 16px 24px;
     }
 `
 
@@ -160,10 +160,18 @@ const StyledFlex = styled(Flex)<{ has_color?: boolean }>`
     min-height: 694px;
     margin-right: 2.4rem;
     background-color: inherit;
+    align-items: center;
+    justify-content: center;
     @media ${device.tabletL} {
         width: 100%;
         min-height: 340px;
         margin-right: 0;
+    }
+`
+const StyledSectionContainer = styled(SectionContainer)`
+    padding: 4rem 0;
+    @media ${device.tabletL} {
+        padding: 2rem 0;
     }
 `
 
@@ -258,7 +266,7 @@ const MarginCalculator = () => {
 
     const { is_eu } = useRegion()
     return (
-        <SectionContainer>
+        <StyledSectionContainer>
             <StyledFlexContainer>
                 <StyledFlex ai="center" jc="flex-start" tablet_jc="center" fd="column" wrap="wrap">
                     <StyledBox max_width="100%">
@@ -329,7 +337,7 @@ const MarginCalculator = () => {
                     </CardContainer>
                 </StyledFlex>
             </StyledFlexContainer>
-        </SectionContainer>
+        </StyledSectionContainer>
     )
 }
 

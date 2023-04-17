@@ -11,6 +11,7 @@ import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import Shape from 'components/custom/_hero-shape'
 import Button from 'components/custom/_button'
+import { Container } from 'components/containers'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
@@ -43,6 +44,7 @@ const BackgroundStyle = styled.div`
     height: 90vh;
     display: flex;
     justify-content: flex-end;
+    position: relative;
 
     @media ${device.tablet} {
         flex-direction: column-reverse;
@@ -56,12 +58,20 @@ const ContentWrapperStyle = styled.div`
     align-items: center;
     flex-direction: column;
     display: flex;
+    max-width: 50%;
+    @media ${device.tablet} {
+        max-width: 100%;
+    }
 `
 const HeroImageWrapper = styled.div`
-    width: 60%;
+    width: 50%;
+    position: absolute;
+    right: 0;
+    height: 100%;
 
     @media ${device.tablet} {
         width: 100%;
+        position: relative;
     }
 `
 const CreateAccountButton = styled(Button)`
@@ -76,7 +86,6 @@ const Content = styled.div`
     display: flex;
     gap: 30px;
     flex-direction: column;
-    padding-left: 120px;
 
     @media ${device.tablet} {
         padding: 0 16px 64px;
@@ -91,46 +100,56 @@ const StyledTradingLogin = styled.img`
         height: 32px;
     }
 `
+const StyledContainer = styled(Container)`
+    @media ${device.tablet} {
+        flex-direction: column-reverse;
+        justify-content: center;
+        margin: 0;
+        width: 100%;
+    }
+`
 const DHero = () => {
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     return (
         <BackgroundStyle>
-            <ContentWrapperStyle>
-                <Content>
-                    <StyledTradingLogin src={DerivGOLogo} />
-                    <CommonHeaderSection
-                        title="_t_A trading platform for on-the-go traders_t_"
-                        title_font_size={`${is_mobile ? 32 : 64}px`}
-                        color="var(--color-black-9)"
-                    />
-                    <BannerButtonWrapper>
-                        {is_logged_in ? (
-                            <CreateAccountButton
-                                onClick={handleGetTrading}
-                                label="_t_Get Trading_t_"
-                                primary
-                                mobileFullWidth
-                            />
-                        ) : (
-                            <CreateAccountButton
-                                onClick={handleSignup}
-                                label="_t_Create free demo account_t_"
-                                primary
-                                mobileFullWidth
-                            />
-                        )}
-                    </BannerButtonWrapper>
-                </Content>
-            </ContentWrapperStyle>
-            <HeroImageWrapper>
-                <Shape angle={is_mobile ? 101 : 163} width="60%">
-                    <ImageWrapper>
-                        <ImageStyle src={is_mobile ? DerivGoRowMobile : DerivGoRow} />
-                    </ImageWrapper>
-                </Shape>
-            </HeroImageWrapper>
+            <StyledContainer jc="flex-start">
+                <ContentWrapperStyle>
+                    <Content>
+                        <StyledTradingLogin src={DerivGOLogo} />
+                        <CommonHeaderSection
+                            title="_t_A trading platform for on-the-go traders_t_"
+                            title_font_size={`${is_mobile ? 32 : 64}px`}
+                            color="var(--color-black-9)"
+                        />
+                        <BannerButtonWrapper>
+                            {is_logged_in ? (
+                                <CreateAccountButton
+                                    onClick={handleGetTrading}
+                                    label="_t_Get Trading_t_"
+                                    primary
+                                    mobileFullWidth
+                                />
+                            ) : (
+                                <CreateAccountButton
+                                    onClick={handleSignup}
+                                    label="_t_Create free demo account_t_"
+                                    primary
+                                    mobileFullWidth
+                                />
+                            )}
+                        </BannerButtonWrapper>
+                    </Content>
+                </ContentWrapperStyle>
+                <HeroImageWrapper>
+                    <Shape angle={is_mobile ? 101 : 163} width="60%">
+                        <ImageWrapper>
+                            <ImageStyle src={is_mobile ? DerivGoRowMobile : DerivGoRow} />
+                        </ImageWrapper>
+                    </Shape>
+                </HeroImageWrapper>
+            </StyledContainer>
         </BackgroundStyle>
     )
 }

@@ -21,7 +21,7 @@ const Section = styled(SectionContainer)`
 const StyledHeader = styled(Header)`
     color: var(--color-black-9);
     @media ${device.tablet} {
-        font-size: 24px;
+        font-size: 28px;
         line-height: 30px;
     }
 `

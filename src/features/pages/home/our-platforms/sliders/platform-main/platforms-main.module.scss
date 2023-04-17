@@ -1,5 +1,10 @@
 @use 'features/styles/theme/theme-mixins' as *;
 
+.description_grid_item {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
 .platform_swiper {
     @include breakpoints(tablet) {
         min-block-size: 60rem;
@@ -9,6 +14,13 @@
 }
 
 .main_item {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    grid-template-rows: 50px 1fr;
+    padding: 1rem;
+    grid-column-gap: 1rem;
+    justify-content: center;
+    align-items: center;
     block-size: 5rem;
     opacity: 0.4;
     transition: opacity 0.5s ease-in-out;
@@ -18,6 +30,6 @@
     border-block-end: 6px solid red;
     border-radius: 8px;
     box-shadow: 0px 16px 20px rgba(131, 131, 131, 0.15), 0px 0px 20px rgba(131, 131, 131, 0.15);
-    block-size: 15rem;
+    block-size: 18rem;
     opacity: 1;
 }

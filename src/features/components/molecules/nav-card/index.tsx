@@ -54,13 +54,14 @@ const NavigationCard = ({
                         [styles.nav_card_type]: has_content,
                     })}
                 >
-                    <Typography.Paragraph
-                        size={'medium'}
+                    <Typography.Heading
+                        size={'xxs'}
+                        as="h2"
                         align="left"
                         weight={has_content ? 'bold' : 'normal'}
                     >
                         <Localize translate_text={title} />
-                    </Typography.Paragraph>
+                    </Typography.Heading>
                     {content && (
                         <Typography.Paragraph
                             size={is_mobile_or_tablet ? 'large' : 'medium'}

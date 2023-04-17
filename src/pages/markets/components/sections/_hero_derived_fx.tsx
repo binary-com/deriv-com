@@ -34,7 +34,7 @@ const StyledContainer = styled(Container)`
 
     h4,
     h1 {
-        z-index: 10;
+        z-index: 3;
     }
     h1 {
         line-height: 1.25;

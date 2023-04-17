@@ -81,7 +81,7 @@ const NavTemplate = <T extends string>({
                 container="fluid"
                 justify="between"
                 align="center"
-                gap="5x"
+                gap="8x"
                 className={styles.nav_container}
             >
                 <Flex.Box

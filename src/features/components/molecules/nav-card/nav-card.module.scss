@@ -29,6 +29,10 @@
     &_content {
         min-inline-size: 10rem;
         min-block-size: 5rem;
+        & > h2 {
+            font-size: 1.6rem;
+            line-height: 1;
+        }
     }
     &_type {
         min-block-size: 10rem;

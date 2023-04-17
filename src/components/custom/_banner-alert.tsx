@@ -10,6 +10,8 @@ import { browsers_minimum_required_version, cookie_key, bannerTypes } from 'comm
 import { CookieStorage } from 'common/storage'
 import { useUserBrowser } from 'components/hooks/use-user-browser'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import useRegion from 'components/hooks/use-region'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
 type TProps = {
     bannerType: string
@@ -121,6 +123,8 @@ const BannerAlert: FC<TProps> = ({ bannerType }) => {
     const [is_visible, setIsVisible] = useState(false)
     const { is_outdated } = useUserBrowser(browsers_minimum_required_version)
     const is_rtl = useIsRtl()
+    const { is_eu, is_cpa_plan } = useRegion()
+    const { is_mobile_or_tablet } = useBreakpoints()
 
     //cookie banner
     // Todo: Should simplify this useEffect and get rid of the duplicated state and find another solution
@@ -205,6 +209,14 @@ const BannerAlert: FC<TProps> = ({ bannerType }) => {
                                 </StyledButton>
                             </Flex>
                         </Wrapper>
+                        {/* //tablet && cfd conditions we need to add broweser banner in top of CFD banner     */}
+                        {(is_eu || is_cpa_plan) && is_mobile_or_tablet ? (
+                            <Wrapper
+                                visible={is_visible}
+                                width={cookieBannerProps.width}
+                                minHeight={cookieBannerProps.minHeight}
+                            ></Wrapper>
+                        ) : null}
                     </OverlayContainer>
                 )
 

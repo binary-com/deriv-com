@@ -51,7 +51,6 @@ const Section = styled(SectionContainer)`
     padding: 8rem 12rem;
     align-items: center;
     justify-content: center;
-    box-shadow: inset 0 1px 0 0 #f2f3f4;
 
     @media ${device.tablet} {
         padding: 40px 16px;

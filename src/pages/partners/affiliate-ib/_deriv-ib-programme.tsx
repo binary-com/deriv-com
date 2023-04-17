@@ -470,7 +470,7 @@ const ib_dmt5_financialSTP: DMT5Type = {
     type: [
         {
             title: <Localize translate_text="Forex" />,
-            headerHeight: '8.0rem',
+            headerHeight: '12rem',
             assets: [
                 {
                     title: <Localize key={0} translate_text="Asset" />,

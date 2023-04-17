@@ -1,4 +1,4 @@
-import React, { CSSProperties, ReactElement } from 'react'
+import React, { CSSProperties } from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import type { ImageDataLike, IGatsbyImageData, GatsbyImageProps } from 'gatsby-plugin-image'

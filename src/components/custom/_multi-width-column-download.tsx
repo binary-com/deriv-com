@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Header } from 'components/elements/typography'
 import { LocalizedLink, localize } from 'components/localization'
 import Flex from 'components/containers/flex'
+import device from 'themes/device'
 
 type TItem = {
     text: string
@@ -39,6 +40,10 @@ const StyledHeading = styled(Header)`
 `
 const DownloadAppOsLinks = styled.div`
     padding: 24px;
+
+    @media ${device.tabletL} {
+        padding: 24px 5px;
+    }
 `
 const StyledOsIcon = styled.img`
     width: 24px;

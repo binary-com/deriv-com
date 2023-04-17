@@ -51,7 +51,6 @@ const TextAndButtonWrapper = styled.div`
     }
 `
 const InfoText = styled.p`
-    font-family: Ubuntu, sans-serif;
     font-size: 25px;
     margin-left: 16px;
     line-height: 34px;
@@ -87,8 +86,8 @@ const DerivMT5GetApp = () => {
         <MultiWidthColumn
             firstColumnBackground="#4C515C"
             secondColumnBackground={GrayAngle30}
-            firstColumnWidth="50%"
-            secondColumnWidth="50%"
+            firstColumnWidth="59%"
+            secondColumnWidth="45%"
             mobileBackgroundImage={GetAppMobileBG}
             secondColumnMobileMargin="140px 0 0"
             mobilePadding="40px 0 10px"

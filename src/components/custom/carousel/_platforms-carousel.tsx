@@ -43,7 +43,6 @@ const StyledText = styled(Text)`
 `
 const StyledPara = styled(Text)`
     margin-top: 1.6rem;
-    font-family: Ubuntu, sans-serif;
     font-size: 16px;
 
     @media (max-width: 680px) {
@@ -57,6 +56,8 @@ const StyledHeading = styled(Header)`
     color: var(--color-black-9);
     @media ${device.tablet} {
         font-size: 24px;
+        max-width: 213px;
+        margin: 0 auto;
     }
 `
 const Card = styled.article`
@@ -67,7 +68,6 @@ const Card = styled.article`
     height: 100%;
     padding: 24px 24px 0;
     max-width: 315px;
-    font-family: Ubuntu, sans-serif;
 
     @media (max-width: 680px) {
         padding: 16px 16px 36px;

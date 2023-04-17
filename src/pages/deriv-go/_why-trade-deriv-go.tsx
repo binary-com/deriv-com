@@ -1,14 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ContentType } from './index'
 import IconEasyAccess from 'images/svg/deriv-go/easy-access.svg'
-import { SectionContainer, Container, Flex } from 'components/containers'
+import { SectionContainer, Container } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import { Header } from 'components/elements/typography'
 import device from 'themes/device'
 import Icon24_7 from 'images/svg/deriv-go/24-7.svg'
 import IconUserFriendly from 'images/svg/deriv-go/user-friendly.svg'
-import { Grid, HowItWorksItem } from 'pages/trade-types/components/_style'
+import BoxStyledGrid from 'components/custom/_box-styled-grid'
 
 const StyledHeader = styled(Header)`
     color: var(--color-black-9);
@@ -24,37 +23,7 @@ const StyledHeader = styled(Header)`
         margin: 0 0 40px;
     }
 `
-const StyledText = styled(Header)`
-    font-size: 24px;
-    color: var(--color-black-9);
-
-    @media ${device.tabletL} {
-        font-size: 18px;
-    }
-`
-const StyledSubText = styled(Header)`
-    font-size: 1.6rem;
-    color: var(--color-black-9);
-
-    @media ${device.tabletL} {
-        font-size: 14px;
-    }
-    @media ${device.mobileL} {
-        margin-top: 0;
-    }
-`
-const OptionGrid = styled(Grid)`
-    grid-gap: 2.4rem;
-    max-width: 890px;
-`
-
-const OptionItems = styled(Flex)`
-    flex-direction: column;
-    height: auto;
-    align-items: flex-start;
-    margin-bottom: 0.8rem;
-`
-const trade_data: ContentType[] = [
+const trade_data = [
     {
         icon: Icon24_7,
         title: <Localize translate_text="24/7 trading" />,
@@ -89,21 +58,7 @@ const WhyTradeDerivGo = () => {
                     <StyledHeader as="h2" type="heading-2" align="center">
                         {localize('Why trade with Deriv GO')}
                     </StyledHeader>
-                    <OptionGrid>
-                        {trade_data.map((item, index) => {
-                            return (
-                                <HowItWorksItem key={index}>
-                                    <OptionItems>
-                                        <div>
-                                            <img src={item.icon} alt={item.image_alt} />
-                                        </div>
-                                        <StyledText>{item.title}</StyledText>
-                                    </OptionItems>
-                                    <StyledSubText weight="100">{item.subtitle}</StyledSubText>
-                                </HowItWorksItem>
-                            )
-                        })}
-                    </OptionGrid>
+                    <BoxStyledGrid items={trade_data} />
                 </Container>
             </SectionContainer>
         </div>

@@ -14,12 +14,15 @@ type TProps = {
     renderFooter?: () => JSX.Element
     contentWidth?: string
     reverse?: boolean
+    imageWidth?: string
 }
 
 type ItemsWrapperProps = {
     width?: string
 }
-
+type ImageWrapperProps = {
+    width?: string
+}
 const Wrapper = styled.div<{ reverse: boolean }>`
     display: flex;
     align-items: center;
@@ -49,6 +52,7 @@ const ItemsWrapper = styled.div<ItemsWrapperProps>`
 
 const ImageWrapper = styled.div`
     flex: 1;
+    margin: 0 auto;
 `
 
 const UlStyle = styled.ul`
@@ -58,7 +62,6 @@ const UlStyle = styled.ul`
     flex-direction: column;
     gap: 24px;
     cursor: pointer;
-    font-family: Ubuntu, sans-serif;
 
     li {
         color: var(--color-black-9);
@@ -70,6 +73,11 @@ const UlStyle = styled.ul`
         align-items: left;
     }
 `
+const ImageInnerBox = styled.div<ImageWrapperProps>`
+    max-width: ${(props) => (props.width ? props.width : 'inherit')};
+    width: 100%;
+    margin: 0 auto;
+`
 
 const StepperView: React.FC<TProps> = ({
     items,
@@ -78,6 +86,7 @@ const StepperView: React.FC<TProps> = ({
     renderFooter,
     contentWidth,
     reverse = false,
+    imageWidth,
 }) => {
     const [selected, setSelected] = useState<number>(default_step)
 
@@ -89,7 +98,9 @@ const StepperView: React.FC<TProps> = ({
 
     return (
         <Wrapper reverse={reverse}>
-            <ImageWrapper>{items[selected]?.image()}</ImageWrapper>
+            <ImageWrapper>
+                <ImageInnerBox width={imageWidth}>{items[selected]?.image()}</ImageInnerBox>
+            </ImageWrapper>
             <ItemsWrapper width={contentWidth}>
                 <UlStyle>
                     {items.map((item, index) => (

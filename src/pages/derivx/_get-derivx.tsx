@@ -62,8 +62,8 @@ const DerivXGetApp = () => {
         <MultiWidthColumn
             firstColumnBackground="#4C515C"
             secondColumnBackground={GrayAngle30}
-            firstColumnWidth="50%"
-            secondColumnWidth="50%"
+            firstColumnWidth="58%"
+            secondColumnWidth="42%"
             mobileBackgroundImage={GetAppMobileBG}
         >
             <ContentWrapper is_rtl={is_rtl}>

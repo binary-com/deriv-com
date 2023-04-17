@@ -89,9 +89,10 @@ const Content = styled.div`
     display: flex;
     gap: 30px;
     flex-direction: column;
+    overflow-wrap: break-word;
 
     @media ${device.tablet} {
-        padding: 0 16px 64px;
+        padding: 0 16px 40px;
     }
 `
 const StyledTradingLogin = styled.img`

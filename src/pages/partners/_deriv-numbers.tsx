@@ -16,6 +16,7 @@ const Card = styled(Flex)`
     min-height: 15.8rem;
     margin: 2rem 1.2rem 0;
     justify-content: flex-start;
+    block-size: auto;
 
     &:first-child {
         margin-left: 0;

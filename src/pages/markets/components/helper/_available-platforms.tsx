@@ -12,6 +12,7 @@ import DBot from 'images/svg/dbot/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
 import DerivGo from 'images/svg/deriv-go/deriv-go-logo.svg'
+import DerivEZ from 'images/svg/trading-specification/deriv-ez.svg'
 import useRegion from 'components/hooks/use-region'
 
 type AvailablePlatformsProps = {
@@ -21,6 +22,7 @@ type AvailablePlatformsProps = {
     dbot?: boolean
     smarttrader?: boolean
     derivx?: boolean
+    deriv_ez?: boolean
     flex_direction?: string
     tablet_direction?: string
     m_top?: string
@@ -97,6 +99,7 @@ const AvailablePlatforms = ({
     deriv_go,
     dtrader,
     dbot,
+    deriv_ez,
     smarttrader,
     derivx,
     flex_direction,
@@ -168,6 +171,14 @@ const AvailablePlatforms = ({
                         <StyledFlex direction="row" ai="center">
                             <img src={DerivGo} alt="Deriv go" width="32" height="32" />
                             <Text ml="0.4rem">{localize(deriv_go_text)}</Text>
+                        </StyledFlex>
+                    </LocalizedLink>
+                )}
+                {deriv_ez && (
+                    <LocalizedLink to="/derivez/">
+                        <StyledFlex direction="row" ai="center">
+                            <img src={DerivEZ} alt="Deriv EZ" width="32" height="32" />
+                            <Text ml="0.4rem">{localize('Deriv EZ')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}

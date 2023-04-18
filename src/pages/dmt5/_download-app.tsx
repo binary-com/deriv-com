@@ -11,10 +11,11 @@ import BrowserIcon from '../../images/svg/browser-icon.svg'
 import LinuxIcon from '../../images/svg/linux-icon.svg'
 import MacIcon from '../../images/svg/mac-icon.svg'
 import WinIcon from '../../images/svg/windows-icon.svg'
-import GetAppMobileBG from '../../images/common/dtrader/getAppMobileBG.jpg'
+import GetAppMobileBG from '../../images/common/getAppMobileBGUpdated.png'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import {
     dmt5_web_browser_url,
@@ -29,11 +30,12 @@ import DownloadColumn from 'components/custom/_multi-width-column-download'
 import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
     gap: 28px;
     flex: 1;
     z-index: 2;
+    direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
     @media ${device.tabletL} {
         flex-direction: column;
         justify-content: center;
@@ -49,7 +51,6 @@ const TextAndButtonWrapper = styled.div`
     }
 `
 const InfoText = styled.p`
-    font-family: Ubuntu, sans-serif;
     font-size: 25px;
     margin-left: 16px;
     line-height: 34px;
@@ -65,7 +66,7 @@ const StyledInfoIcon = styled.img`
 `
 const DerivMT5GetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
-
+    const is_rtl = useIsRtl()
     const items = [
         { text: 'Google Play', icon: AndroidIcon, link: dmt5_android_url },
         { text: 'App Store', icon: AppleIcon, link: dmt5_ios_url },
@@ -74,7 +75,7 @@ const DerivMT5GetApp = () => {
             text: 'Web Browser',
             icon: BrowserIcon,
             link: dmt5_web_browser_url,
-            smallText: 'Use it on your',
+            smallText: '_t_Use it on your_t_',
         },
         { text: 'Windows', icon: WinIcon, link: dmt5_windows },
         { text: 'macOS', icon: MacIcon, link: dmt5_mac_app_url },
@@ -85,17 +86,19 @@ const DerivMT5GetApp = () => {
         <MultiWidthColumn
             firstColumnBackground="#4C515C"
             secondColumnBackground={GrayAngle30}
-            firstColumnWidth="50%"
-            secondColumnWidth="50%"
+            firstColumnWidth="59%"
+            secondColumnWidth="45%"
             mobileBackgroundImage={GetAppMobileBG}
+            secondColumnMobileMargin="140px 0 0"
+            mobilePadding="40px 0 10px"
         >
-            <ContentWrapper>
+            <ContentWrapper is_rtl={is_rtl}>
                 <img src={dmt5Logo} alt="Deriv Go logo" width="64px" height="64px" />
                 <TextAndButtonWrapper>
                     <CommonHeaderSection
                         title="_t_Get trading with Deriv MT5_t_"
                         title_font_size={is_mobile_or_tablet ? '32px' : '64px'}
-                        align_title={is_mobile_or_tablet ? 'center' : 'left'}
+                        align_title={is_mobile_or_tablet ? 'center' : is_rtl ? 'right' : 'left'}
                         width="100%"
                         font_family_title="Ubuntu"
                         color="#fff"
@@ -113,8 +116,9 @@ const DerivMT5GetApp = () => {
                 </TextAndButtonWrapper>
             </ContentWrapper>
             <DownloadColumn
+                is_rtl={is_rtl}
                 QRImage={dmt5QR}
-                QRHeading1="Scan to download"
+                QRHeading1="_t_Scan to download_t_"
                 QRHeading2="Android, Apple & Huawei"
                 items={items}
             />

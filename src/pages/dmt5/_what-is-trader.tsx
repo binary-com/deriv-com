@@ -21,13 +21,14 @@ const Section = styled(SectionContainer)`
 const StyledHeader = styled(Header)`
     color: var(--color-black-9);
     @media ${device.tablet} {
-        font-size: 24px;
+        font-size: 28px;
         line-height: 30px;
     }
 `
 const StyledText = styled(Header)`
     font-size: 16px;
     color: var(--color-black-9);
+    font-weight: normal;
 
     @media ${device.tablet} {
         font-size: 16px;
@@ -40,7 +41,7 @@ const WhatIsTrader = () => {
             <StyledHeader align="center" mb="1.2rem" as="h2" type="page-title">
                 {localize('What is Deriv MT5')}
             </StyledHeader>
-            <StyledText max_width="80.2rem" align="center" weight="400">
+            <StyledText max_width="80.2rem" align="center" as="p" type="paragraph-1">
                 {localize(
                     'Deriv MT5 gives you access to multiple asset classes — forex, stocks & indices, cryptocurrencies, commodities, and derived indices — on a single platform. With exclusive access to innovative assets, Deriv brings the MT5 experience to a superior level for both new and experienced traders.',
                 )}

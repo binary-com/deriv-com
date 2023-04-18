@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Container } from 'components/containers'
 import device from 'themes/device'
+//TODO: (deriv-rebranding) to make this section more reusable .
 
 interface Props {
     firstColumnBackground: string
@@ -9,9 +10,11 @@ interface Props {
     firstColumnWidth: string
     secondColumnWidth: string
     mobileBackgroundImage: string
+    secondColumnMobileMargin?: string
+    mobilePadding?: string
 }
 
-const StyledSectionContainer = styled.section<{ mobileBG: string }>`
+const StyledSectionContainer = styled.section<{ mobileBG: string; mobilePadding: string }>`
     color: white;
     display: flex;
     width: 100%;
@@ -20,14 +23,26 @@ const StyledSectionContainer = styled.section<{ mobileBG: string }>`
     padding: 0;
     margin-top: 20px;
     flex-direction: row;
+    direction: ltr;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        background-color: #4c515c;
+    }
     @media ${device.tabletL} {
         flex-direction: column;
-        padding: 80px 0;
+        padding: ${(props) => (props.mobilePadding ? props.mobilePadding : `80px 0`)};
         background: url(${(props) => props.mobileBG});
         background-size: cover;
+        background-position: center;
+        &::before {
+            content: none;
+        }
     }
 `
-
 const Column = styled.div<{ background: string; width: string }>`
     background: ${(props) => props.background};
     width: ${(props) => props.width};
@@ -50,8 +65,12 @@ const FirstColumn = styled(Column)`
         padding-right: 0;
     }
 `
+const StyledContainer = styled(Container)`
+    margin: 0;
+    width: 100%;
+`
 
-const SecondColumn = styled(Column)`
+const SecondColumn = styled(Column)<{ secondColumnMobileMargin: string }>`
     background-image: url(${(props) => props.background});
     background-size: cover;
     width: ${(props) => props.width};
@@ -65,6 +84,7 @@ const SecondColumn = styled(Column)`
         width: 100%;
         left: 0;
         padding-left: 0;
+        margin: ${(props) => props.secondColumnMobileMargin};
     }
 `
 
@@ -75,18 +95,26 @@ const MultiWidthColumn: React.FC<Props> = ({
     secondColumnWidth,
     mobileBackgroundImage,
     children,
+    secondColumnMobileMargin,
+    mobilePadding,
 }) => {
     return (
-        <StyledSectionContainer mobileBG={mobileBackgroundImage}>
-            <FirstColumn background={firstColumnBackground} width={firstColumnWidth}>
-                <Container justify="center" ai="flex-start">
-                    {children[0]}
-                </Container>
-            </FirstColumn>
+        <StyledSectionContainer mobileBG={mobileBackgroundImage} mobilePadding={mobilePadding}>
+            <Container ai="stretch" justify="flex-start" tablet_direction="column">
+                <FirstColumn background={firstColumnBackground} width={firstColumnWidth}>
+                    <StyledContainer justify="center" ai="flex-start">
+                        {children[0]}
+                    </StyledContainer>
+                </FirstColumn>
 
-            <SecondColumn background={secondColumnBackground} width={secondColumnWidth}>
-                {children[1]}
-            </SecondColumn>
+                <SecondColumn
+                    background={secondColumnBackground}
+                    width={secondColumnWidth}
+                    secondColumnMobileMargin={secondColumnMobileMargin}
+                >
+                    {children[1]}
+                </SecondColumn>
+            </Container>
         </StyledSectionContainer>
     )
 }

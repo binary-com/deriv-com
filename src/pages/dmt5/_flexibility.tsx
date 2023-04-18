@@ -2,7 +2,6 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import FinancialIcon from 'images/svg/dmt5/financial.svg'
 import DerivedIcon from 'images/svg/dmt5/derived.svg'
@@ -98,15 +97,6 @@ const ClientCard = styled.article`
         }
     }
 `
-const StyledLinkButton = styled(LinkButton)`
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 16px;
-    height: 40px;
-    border: unset;
-    width: auto;
-    margin: auto;
-`
 
 const StyledHeader = styled(Header)<StyledHeaderType>`
     margin: 24px 0 40px;
@@ -170,15 +160,6 @@ const Flexibility = () => {
                     )
                 })}
             </Flex>
-            <StyledLinkButton
-                external
-                secondary
-                type="mt5"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                {localize('Go to Deriv MT5 dashboard')}
-            </StyledLinkButton>
         </Section>
     )
 }

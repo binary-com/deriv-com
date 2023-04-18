@@ -16,13 +16,19 @@ type TradingType = {
     image_name?: string
     image_alt?: string
 }
-
+const StyledSectionContainer = styled(SectionContainer)`
+    @media ${device.tablet} {
+        font-size: 28px;
+        padding: 40px 0;
+    }
+`
 const StyledHeader = styled(Header)`
     margin: 0 0 80px;
     color: var(--color-black-9);
     @media ${device.mobileL} {
         font-size: 24px;
         padding: 0 35px;
+        margin: 0 0 24px;
     }
     @media ${device.mobileM} {
         padding: 0 20px;
@@ -85,7 +91,7 @@ const card_data = [
         icon: Icon24_7,
         title: <Localize translate_text="24/7 trading" />,
         subtitle: (
-            <Localize translate_text="Trade cryptocurrencies and synthetic indices anytime, even on weekends and holidays." />
+            <Localize translate_text="Trade cryptocurrencies and synthetics anytime, even on weekends and holidays." />
         ),
         image_alt: 'Trade any time of the day and week',
     },
@@ -94,14 +100,14 @@ const card_data = [
 const WhyTradeDerivX = () => {
     return (
         <div>
-            <SectionContainer>
+            <StyledSectionContainer>
                 <Container fd="column">
                     <StyledHeader type="page-title" align="center" as="h2">
                         {localize('Why trade with Deriv X')}
                     </StyledHeader>
                     <BoxStyledGrid items={card_data} />
                 </Container>
-            </SectionContainer>
+            </StyledSectionContainer>
             <DTrading trading={trading} />
         </div>
     )

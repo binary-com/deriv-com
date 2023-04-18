@@ -28,6 +28,11 @@ const SmallContainer = styled(Container)`
         padding-left: 0;
         padding-right: 0;
     }
+    @media ${device.mobileM} {
+        width: 90%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 `
 
 const Hero = styled(Flex)`
@@ -131,6 +136,7 @@ const HowItWorksItem = styled(Flex)`
     @media ${device.mobileL} {
         justify-content: flex-start;
         min-height: 123px;
+        padding: 24px;
     }
 `
 

@@ -22,7 +22,6 @@ const NumberWrapper = styled.div`
 `
 const StyledText = styled(Text)`
     padding-top: 8px;
-    font-family: Ubuntu, sans-serif;
     color: var(--color-black-9);
 
     @media ${device.tabletL} {

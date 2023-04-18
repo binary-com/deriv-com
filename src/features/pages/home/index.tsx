@@ -2,18 +2,18 @@ import React from 'react'
 import loadable from '@loadable/component'
 import HomeHero from './hero'
 import HomeMarkets from './markets'
+import P2PBanner from './p2p-banner'
+import ClientTestimonial from './client-testimonial'
+import TradeTypes from './trade-types'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
 import { localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import MainNav from 'features/components/templates/navigation/main-nav'
+import SignupPublic from 'features/components/templates/signup/with-banner'
 
 const OurPlatforms = loadable(() => import('./our-platforms'))
-const TradeTypes = loadable(() => import('./trade-types'))
-const P2PBanner = loadable(() => import('./p2p-banner'))
-const ClientTestimonial = loadable(() => import('./client-testimonial'))
-const SignupPublic = loadable(() => import('features/components/templates/signup/with-banner'))
 const Footer = loadable(() => import('features/components/templates/footer'))
 
 const HomePage = () => {

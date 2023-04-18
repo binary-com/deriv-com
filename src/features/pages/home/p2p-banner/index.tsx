@@ -1,42 +1,53 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import P2PTextBox from './text-box'
-import QRCode from './qr-code'
-import Container from 'features/components/atoms/container'
-import Box from 'features/components/atoms/box'
+import { p2p_banner, p2p_content_wrapper } from './styles.module.scss'
+import P2PBannerDescription from './p2p-description'
+import P2PBannerImage from './p2p-image'
 import Flex from 'features/components/atoms/flex-box'
 
 const P2PBanner = () => {
     return (
-        <Container.Fixed as="section" bgcolor="tertiary">
+        <Flex.Box
+            container="fixed"
+            justify="center"
+            align="center"
+            as="section"
+            direction="col"
+            md={{
+                direction: 'row',
+            }}
+            className={p2p_banner}
+        >
             <Flex.Box
-                container="fixed"
+                container="fluid"
                 direction="col-reverse"
                 md={{ direction: 'row', justify: 'between' }}
+                className={p2p_content_wrapper}
             >
-                <Box mt="9x" md={{ mt: '0x' }}>
-                    <StaticImage
-                        src="../../../../images/common/home/p2p_home_banner.png"
-                        alt="p2p banner"
-                        height={400}
-                        objectFit="cover"
-                        placeholder="none"
-                        formats={['avif', 'webp', 'auto']}
-                    />
-                </Box>
-                <Flex.Box
+                <P2PBannerImage />
+                <P2PBannerDescription />
+                {/* <Flex.Box
+                    justify="between"
                     align="center"
-                    gap="12x"
-                    padding_inline="8x"
+                    grow="1"
                     padding_block="40x"
-                    md={{ mr: '10x', padding: '0x' }}
-                    lg={{ mr: '40x' }}
+                    md={{ padding_block: '0x' }}
                 >
                     <P2PTextBox />
                     <QRCode />
-                </Flex.Box>
+                </Flex.Box> */}
             </Flex.Box>
-        </Container.Fixed>
+            <Flex.Box justify="center" align="center" visible="phone-and-tablet">
+                <StaticImage
+                    src="../../../../images/common/home/rebranding/p2p_mobile_banner.png"
+                    alt="p2p banner"
+                    height={700}
+                    objectFit="cover"
+                    placeholder="none"
+                    formats={['avif', 'webp', 'auto']}
+                />
+            </Flex.Box>
+        </Flex.Box>
     )
 }
 

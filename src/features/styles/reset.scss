@@ -34,17 +34,14 @@ body {
 /* when the language direction is "ltr" for example "English" we use this font family  */
 *[dir='ltr'] {
     font-family: 'IBM Plex Sans', sans-serif;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: Ubuntu, sans-serif;
-    font-style: normal;
-    font-weight: 700;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: Ubuntu, sans-serif;
+    }
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/

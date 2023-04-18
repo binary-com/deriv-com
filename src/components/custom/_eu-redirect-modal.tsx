@@ -123,7 +123,8 @@ const EURedirect = ({
                 <ModalCard>
                     <Action>
                         <Text weight="bold">
-                            <Localize translate_text="Redirect notice" />
+                            <Localize translate_text="_t_Deriv X is a customisable multi-asset trading platform. Offering CFDs on forex, commodities, stocks & indices, cryptocurrencies, and derived indices, Deriv X gives you a versatile trading experience that lets you customise your trading environment._t_" />
+                            <Localize translate_text="_t_Trade cryptocurrencies and synthetics anytime, even on weekends and holidays. _t_" />
                         </Text>
                         <CloseButton src={Close} alt="close-2" onClick={toggle} />
                     </Action>

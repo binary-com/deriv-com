@@ -7,6 +7,7 @@ import { localize } from 'components/localization'
 const Wrapper = styled(Flex)`
     direction: ltr;
     flex-wrap: wrap;
+    gap: 2.4rem;
 `
 
 const Card = styled(Flex)`
@@ -14,7 +15,7 @@ const Card = styled(Flex)`
     padding: 2.4rem;
     max-width: 20.8rem;
     min-height: 15.8rem;
-    margin: 2rem 1.2rem 0;
+    margin: 2rem 0 0;
     justify-content: flex-start;
     block-size: auto;
 

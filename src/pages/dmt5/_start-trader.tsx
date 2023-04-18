@@ -430,7 +430,7 @@ const StartTrader = () => {
                             </SideTab.Panel>
                         </SideTab>
                     )}
-                    <QRImage src={DMT5QR} width="124px" height="124px" />
+                    <QRImage src={DMT5QR} width="124px" height="124px" alt="Deriv MT5 QR code" />
                 </Flex>
             </Flex>
         </Section>

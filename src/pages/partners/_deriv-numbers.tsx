@@ -8,6 +8,7 @@ const Wrapper = styled(Flex)`
     direction: ltr;
     flex-wrap: wrap;
     gap: 2.4rem;
+    margin-block-start: 2rem;
 `
 
 const Card = styled(Flex)`
@@ -15,16 +16,8 @@ const Card = styled(Flex)`
     padding: 2.4rem;
     max-width: 20.8rem;
     min-height: 15.8rem;
-    margin: 2rem 0 0;
     justify-content: flex-start;
     block-size: auto;
-
-    &:first-child {
-        margin-left: 0;
-    }
-    &:last-child {
-        margin-right: 0;
-    }
 `
 
 const CardHeader = styled(Header)`

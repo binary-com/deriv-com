@@ -14,7 +14,7 @@ const WhatAreAccumulators = () => {
 
     return (
         <>
-            <SectionContainer background="white" padding="8rem 0 4rem">
+            <SectionContainer background="white" padding={is_mobile ? '48px 0 0 0' : '8rem 0 4rem'}>
                 <SmallContainer direction="column" ai="flex-start">
                     <CommonHeaderSection
                         title="_t_What are accumulators?_t_"
@@ -22,13 +22,13 @@ const WhatAreAccumulators = () => {
                         margin_title="0 0 1.2rem 0"
                         subtitle="_t_Accumulators (or accumulator options) allow you to heighten your potential profit exponentially without risking more than your stake. Your potential profit will increase regardless of market movement, as long as the price moves within the trade barriers._t_"
                         subtitle_font_size={is_mobile ? '14px' : '16px'}
-                        margin_subtitle="0 0 4rem 0"
                         line_height_title={is_mobile ? '34px' : '60px'}
                         line_height={is_mobile ? '20px' : '24px'}
                     />
                 </SmallContainer>
             </SectionContainer>
             <FullWidthMultiColumn
+                header_width={is_mobile ? '308px' : '1200px'}
                 header={<Localize translate_text="Why trade accumulators on Deriv" />}
                 button_title={
                     <CommonHeaderSection
@@ -46,7 +46,7 @@ const WhatAreAccumulators = () => {
                         key={index}
                         item_title={content.item_title}
                         text={content.text}
-                        icon={<img src={content.src} alt="" />}
+                        icon={<img width="48px" height="48px" src={content.src} alt="" />}
                     ></StyledBox>
                 ))}
             </FullWidthMultiColumn>

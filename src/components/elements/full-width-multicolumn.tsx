@@ -25,7 +25,7 @@ const Item = styled(Flex)`
     width: 100%;
 
     img {
-        width: 34px;
+        width: 48px;
         margin-bottom: 1rem;
     }
 

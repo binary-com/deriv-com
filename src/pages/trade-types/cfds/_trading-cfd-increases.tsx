@@ -170,7 +170,7 @@ const TradingCFDIncreases = () => {
                         />
                     ) : (
                         <ExampleImage
-                            data={data['example_mobile']}
+                            data={data['example']}
                             alt="Example for stop loss with crash/boom indices"
                         />
                     )}

@@ -14,7 +14,7 @@ type TQuestionsCategory = {
 }
 
 const Wrapper = styled.div`
-    width: 35rem;
+    width: 35.3rem;
     margin-right: 2.4rem;
     line-height: 1.5;
 

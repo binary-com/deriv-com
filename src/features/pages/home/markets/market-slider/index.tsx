@@ -32,6 +32,7 @@ const MarketSlider = () => {
                     horizontalClass: 'markets_slider_pagination',
                     clickable: true,
                 }}
+                rewind
                 spaceBetween={18}
                 className={'markets_swiper'}
                 slidesPerView={'auto'}

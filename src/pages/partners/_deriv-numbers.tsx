@@ -7,8 +7,8 @@ import { localize } from 'components/localization'
 const Wrapper = styled(Flex)`
     direction: ltr;
     flex-wrap: wrap;
-    gap: 2.4rem;
     margin-block-start: 2rem;
+    gap: 2.4rem;
 `
 
 const Card = styled(Flex)`

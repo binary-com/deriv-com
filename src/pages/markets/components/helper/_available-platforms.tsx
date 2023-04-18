@@ -89,9 +89,6 @@ const StyledText = styled(Header)`
 const StyledFlex = styled(Flex)`
     padding: 0.8rem;
 
-    img {
-        -webkit-transform: translate3d(0, 0, 0);
-    }
     ${Text} {
         font-size: 14px;
     }
@@ -164,7 +161,7 @@ const AvailablePlatforms = ({
                 {derivx && !is_eu && (
                     <LocalizedLink to="/derivx/">
                         <StyledFlex direction="row" ai="center">
-                            <embed src={DerivX} width="24" height="24" />
+                            <embed src={DerivX} width="25" height="25" />
                             <Text ml="0.4rem">{localize('Deriv X')}</Text>
                         </StyledFlex>
                     </LocalizedLink>

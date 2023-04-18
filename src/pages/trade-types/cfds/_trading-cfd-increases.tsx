@@ -9,6 +9,7 @@ import { LinkButton } from 'components/form'
 import useRegion from 'components/hooks/use-region'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 const query = graphql`
     query {
@@ -51,7 +52,6 @@ const ExampleImage = styled(QueryImage)<ExampleImageType>`
 
     @media ${device.mobileM} {
         width: 289px;
-        height: 454px;
     }
 `
 const StyledButton = styled(LinkButton)`
@@ -79,7 +79,6 @@ const ExampleImageEu = styled(QueryImage)<ExampleImageType>`
     }
     @media ${device.mobileM} {
         width: 289px;
-        height: 200px;
     }
 `
 export const StyledLinkButton = styled(LinkButton)`
@@ -97,6 +96,8 @@ const StyledSectionContainer = styled(SectionContainer)`
 const TradingCFDIncreases = () => {
     const data = useStaticQuery(query)
     const { is_eu } = useRegion()
+    const [is_mobile] = useBrowserResize()
+
     return (
         <StyledSectionContainer background="white" padding="4rem 0 0">
             <SmallContainer direction="column" ai="flex-start">
@@ -176,7 +177,12 @@ const TradingCFDIncreases = () => {
                     )}
                 </Mobile>
 
-                <Header mt="3.2rem" as="h5" type="main-paragraph" mb="0.8rem">
+                <Header
+                    mt={is_mobile ? '0.2rem' : '3.2rem'}
+                    as="h5"
+                    type="main-paragraph"
+                    mb="0.8rem"
+                >
                     {localize('Stop out')}
                 </Header>
                 <Text mb="1.6rem">

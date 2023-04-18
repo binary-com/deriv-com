@@ -62,7 +62,7 @@ const HomeHeroSlider = () => {
     return (
         <SliderWrapper>
             <Swiper
-                speed={1000}
+                speed={1500}
                 effect={'fade'}
                 slidesPerView={1}
                 fadeEffect={{
@@ -71,7 +71,7 @@ const HomeHeroSlider = () => {
                 direction="horizontal"
                 modules={[EffectFade, Autoplay]}
                 autoplay={{
-                    delay: 1000,
+                    delay: 2000,
                 }}
             >
                 {slide_images.map((slide) => (

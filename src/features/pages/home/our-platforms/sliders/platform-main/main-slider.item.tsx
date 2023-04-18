@@ -36,7 +36,7 @@ const MainSliderItem = ({ item }: MainSliderItemProps) => {
                     <Typography.Paragraph>
                         <Localize translate_text={item.description} />
                     </Typography.Paragraph>
-                    <Link url={item.url} size="medium" textcolor="brand">
+                    <Link url={item.url} size="large" textcolor="brand">
                         <Localize translate_text="_t_Learn more >_t_" />
                     </Link>
                 </Flex.Box>

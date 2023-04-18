@@ -1,12 +1,13 @@
 import React from 'react'
 import loadable from '@loadable/component'
+import pMinDelay from 'p-min-delay'
 import HeroCtaButton from './hero-cta.button'
 import HeroHeaderItems from './hero-header.items'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 
-const HeroFeaturesCarousel = loadable(() => import('./hero-features.carousel'), {
+const HeroFeaturesCarousel = loadable(() => pMinDelay(import('./hero-features.carousel'), 3000), {
     fallback: (
         <Typography.Heading as="h3" size="large" weight="bold" color="primary">
             <Localize translate_text="_t_Forex_t_" />

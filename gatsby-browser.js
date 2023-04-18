@@ -5,7 +5,13 @@ import { isProduction, isLive } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
-import { getClientInformation, getDomain, getLanguage, addScript, updateURLAsPerUserLanguage } from 'common/utility'
+import {
+    getClientInformation,
+    getDomain,
+    getLanguage,
+    addScript,
+    updateURLAsPerUserLanguage,
+} from 'common/utility'
 import { pushwoosh_app_code } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
@@ -18,6 +24,10 @@ const checkDomain = () => {
             'var%20curhost%20%3D%20window.location.hostname%3B%20var%20t8hvj%20%3D%20%2F%5Cb%28deriv%7Cbinary%7Cbinaryqa%5B0-9%5D%7B2%7D%29%5C.%28com%7Cbot%7Cme%7Cbe%7Capp%7Csx%29%24%7C%5Cb%28localhost%29%2Fgm%3B%20if%20%28t8hvj.test%28curhost%29%20%3D%3D%20false%29%7Balert%28%22Not%20our%20domain%22%29%7D',
         ),
     )
+}
+
+export const shouldUpdateScroll = ({ pathname }) => {
+    return pathname !== '/'
 }
 
 const sendTags = (api) => {
@@ -136,7 +146,6 @@ export const onClientEntry = () => {
     checkLiveChatRedirection()
 
     updateURLAsPerUserLanguage()
-
 }
 
 export const onRouteUpdate = () => {

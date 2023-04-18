@@ -83,9 +83,13 @@
 .typography-weight-bolder {
     font-weight: 700;
 }
-.heading {
-    font-family: Ubuntu, sans-serif;
+
+*[dir='ltr'] {
+    .heading {
+        font-family: Ubuntu, sans-serif;
+    }
 }
+
 .heading-xxxl {
     @include font-size($font-size-1300);
 }

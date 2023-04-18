@@ -92,6 +92,7 @@ const Hero = ({ title, content }: HeroProps) => {
                     <StaticImage
                         src="../../../../images/common/landing/trade-fx-m.jpg"
                         alt="forex trading"
+                        formats={['avif']}
                         objectFit="cover"
                         objectPosition="bottom right"
                         loading="eager"
@@ -100,6 +101,7 @@ const Hero = ({ title, content }: HeroProps) => {
                     <StaticImage
                         src="../../../../images/common/landing/trade-fx.jpg"
                         alt="forex trading"
+                        formats={['avif']}
                         objectFit="cover"
                         objectPosition="bottom right"
                         loading="eager"

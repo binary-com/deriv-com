@@ -210,6 +210,7 @@ const Hero = () => {
                 <StaticImage
                     src="../../../images/common/p2p/p2p_hero_background_mobile.png"
                     alt="p2p"
+                    formats={['avif']}
                 />
             )
         } else {
@@ -217,9 +218,14 @@ const Hero = () => {
                 <StaticImage
                     src="../../../images/common/p2p/p2p_hero_background_rtl.png"
                     alt="p2p"
+                    formats={['avif']}
                 />
             ) : (
-                <StaticImage src="../../../images/common/p2p/p2p_hero_background.png" alt="p2p" />
+                <StaticImage
+                    src="../../../images/common/p2p/p2p_hero_background.png"
+                    alt="p2p"
+                    formats={['avif']}
+                />
             )
         }
     }, [data, is_rtl, is_tabletL])

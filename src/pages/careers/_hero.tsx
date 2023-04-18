@@ -82,6 +82,7 @@ const Hero = () => {
                 <StaticImage
                     src="../../images/common/careers/career-landing-screen.jpg"
                     alt="deriv careers"
+                    formats={['avif']}
                     style={{ opacity: '0.3' }}
                     loading="eager"
                 />

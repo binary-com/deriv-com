@@ -99,6 +99,7 @@ const OurOffices = () => {
                                 src="../../images/common/who-we-are/earth.png"
                                 alt="Map view"
                                 objectFit="cover"
+                                formats={['avif']}
                             />
                         </StaticImageWrapper>
                         <MapWrapper>
@@ -115,6 +116,7 @@ const OurOffices = () => {
                                 src="../../images/common/who-we-are/earth-mobile.png"
                                 alt="Map view"
                                 objectFit="cover"
+                                formats={['avif']}
                             />
                         </StaticImageWrapper>
                         <MapWrapper>

@@ -20,6 +20,7 @@ const Hero = ({ children }: HeroProps) => {
                     src="../../../images/common/affiliate/partners-banner.png"
                     alt="affiliate"
                     loading="eager"
+                    formats={['avif']}
                 />
             </StaticImageWrapper>
 

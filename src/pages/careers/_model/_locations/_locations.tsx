@@ -44,6 +44,7 @@ export const cyberjaya: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/cyberjaya.png"
             alt="Cyberjaya bridge and lake view"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -86,6 +87,7 @@ export const malta: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/malta.jpg"
             alt="Malta Senglea Church"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -127,6 +129,7 @@ export const dubai: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/dubai.jpg"
             alt="Dubai Skyscrappers"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -168,6 +171,7 @@ export const labuan: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/labuan.jpg"
             alt="Labuan clock tower"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -210,6 +214,7 @@ export const asuncion: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/asuncion.png"
             alt="Palace of the Lopez - Asuncion"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -251,6 +256,7 @@ export const melaka: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/melaka.jpg"
             alt="Dutch square of Melaka"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -293,6 +299,7 @@ export const ipoh: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/ipoh.jpg"
             alt="White architecture building in Ipoh"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -334,6 +341,7 @@ export const cyprus: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/cyprus.jpg"
             alt="Buildings near beach side - Limassol"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -376,6 +384,7 @@ export const rwanda: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/rwanda.jpg"
             alt="Blue sky and buildings - Kigali"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -419,6 +428,7 @@ export const minsk: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/minsk.png"
             alt="Diamond shape building in Minsk"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -462,6 +472,7 @@ export const paris: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/paris.jpg"
             alt="paris"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -496,6 +507,7 @@ export const guernsey: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/guernsey.jpg"
             alt="Guernsey alt img"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -533,6 +545,7 @@ export const berlin: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/berlin.png"
             alt="Deriv’s Germany office at Berlin"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -566,6 +579,7 @@ export const reading: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/reading.jpg"
             alt="Deriv’s Reading office at United Kingdom"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -602,6 +616,7 @@ export const vanuatu: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/vanuatu.png"
             alt="Vanuatu alt img"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -638,6 +653,7 @@ export const georgetown: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/georgetown.png"
             alt="Deriv’s Cayman Islands office at George Town"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -673,6 +689,7 @@ export const roadtown: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/roadtown.jpg"
             alt="Deriv’s British Virgin Islands office at Road Town"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -705,6 +722,7 @@ export const jordan: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/jordan.jpg"
             alt="Jordan alt img"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -741,6 +759,7 @@ export const singapore: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/singapore.png"
             alt="Marina Bay Sands - Singapore"
+            formats={['avif']}
             loading="eager"
         />
     ),
@@ -779,6 +798,7 @@ export const ciudad: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/ciudad.jpg"
             alt="Paraguay office at Ciudad del Este"
+            formats={['avif']}
             loading="eager"
         />
     ),

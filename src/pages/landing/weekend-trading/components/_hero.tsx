@@ -121,6 +121,7 @@ const Hero = () => {
                         src="../../../../images/common/landing/weekend-m.png"
                         alt="weekend trading"
                         objectFit="cover"
+                        formats={['avif']}
                         objectPosition="bottom right"
                         loading="eager"
                     />
@@ -129,6 +130,7 @@ const Hero = () => {
                         src="../../../../images/common/landing/weekend.png"
                         alt="weekend trading"
                         objectFit="cover"
+                        formats={['avif']}
                         objectPosition="bottom right"
                         loading="eager"
                     />

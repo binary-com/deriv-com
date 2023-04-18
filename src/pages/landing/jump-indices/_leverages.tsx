@@ -4,7 +4,6 @@ import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import device from 'themes/device'
 import TradingIcon from 'images/svg/jump-indices/jump-indices-24-7-trading.svg'
 import LeverageIcon from 'images/svg/jump-indices/jump-indices-high-leverage.svg'
@@ -101,7 +100,6 @@ const content: ContentType[] = [
 const Leverages = () => {
     // the is mounted check is used for making sure the localized link text
     // properly renders the correct domain url
-    const [is_mounted] = usePageLoaded()
 
     return (
         <MainWrapper>
@@ -117,18 +115,16 @@ const Leverages = () => {
                 ))}
             </ParentWrapper>
             <BtnWrapper>
-                {is_mounted && (
-                    <StyledLinkButton
-                        secondary
-                        external
-                        type="deriv_app"
-                        to="/mt5"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {localize('Start trading')}
-                    </StyledLinkButton>
-                )}
+                <StyledLinkButton
+                    secondary
+                    external
+                    type="deriv_app"
+                    to="/mt5"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    {localize('Start trading')}
+                </StyledLinkButton>
             </BtnWrapper>
         </MainWrapper>
     )

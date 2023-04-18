@@ -14,7 +14,6 @@ import {
     getThaiExcludedLocale,
     replaceLocale,
 } from 'common/utility'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import useRegion from 'components/hooks/use-region'
 
 type InternalLinkProps = {
@@ -126,14 +125,6 @@ const ShareDisabledStyle = css<{ disabled?: boolean }>`
         opacity: 0.32;`}
 `
 
-const StyledAnchor = styled.a`
-    ${ShareDisabledStyle}
-`
-
-const StyledAnchorLink = styled(AnchorLink)`
-    ${ShareDisabledStyle}
-`
-
 const StyledGatsbyLink = styled(GatsbyLink)`
     ${ShareDisabledStyle}
 `
@@ -141,12 +132,10 @@ const StyledGatsbyLink = styled(GatsbyLink)`
 export const LocalizedLink = React.forwardRef(
     ({ external, ...props }: LocalizedLinkProps, ref: Ref<GatsbyLink<string>>) => {
         const { locale } = useContext(LocaleContext)
-        const [is_mounted] = usePageLoaded()
 
         if (external) {
             return (
                 <ExternalLink
-                    mounted={is_mounted}
                     // HINT: In our project we don't have Arabic translations yet, so we have to use the default locale (en) instead
                     locale={locale === 'ar' ? 'en' : locale}
                     ref={ref}
@@ -155,7 +144,7 @@ export const LocalizedLink = React.forwardRef(
             )
         }
 
-        return <InternalLink mounted={is_mounted} locale={locale} ref={ref} {...props} />
+        return <InternalLink locale={locale} ref={ref} {...props} />
     },
 )
 
@@ -166,7 +155,6 @@ const non_localized_links = ['/careers', '/academy']
 const InternalLink = ({
     aria_label,
     children,
-    mounted,
     has_no_end_slash,
     is_anchor,
     locale,
@@ -233,7 +221,6 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
 const ExternalLink = ({
     aria_label,
     children,
-    mounted,
     is_mail_link,
     locale,
     onClick,

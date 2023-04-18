@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import Tabs from '../trade-types/components/_tabs'
 import { Mobile, Desktop } from '../../components/containers'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Localize } from 'components/localization'
 import { QueryImage, LocalizedLinkText } from 'components/elements'
 import device from 'themes/device'
@@ -221,7 +220,6 @@ type SignalStepsProps = {
 
 const SignalSteps = ({ active_tab }: SignalStepsProps) => {
     const data = useStaticQuery(query)
-    const [is_mounted] = usePageLoaded() // needed to fix tab highlighting not being rerendered during first load
     const [signal_subscriber, signal_provider] = [
         active_tab === 'signal-subscriber',
         active_tab === 'signal-provider',
@@ -232,138 +230,130 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
         <>
             {signal_subscriber && (
                 <Container>
-                    {is_mounted && (
-                        <>
-                            <StyledTabs
-                                is_reverse
-                                max_width="tabletL"
-                                has_notice
-                                notice_content={content.subscriber.notice}
-                            >
-                                <Tabs.Panel
-                                    label={content.subscriber.step_one_header}
-                                    description={
-                                        is_eu
-                                            ? content.subscriber.step_one_text_eu
-                                            : content.subscriber.step_one_text
-                                    }
-                                >
-                                    <Desktop>
-                                        <StyledQueryImage
-                                            data={data['subscriber_step_1']}
-                                            alt="Trade types option market"
-                                        />
-                                    </Desktop>
-                                    <Mobile>
-                                        <StyledQueryImage
-                                            data={data['subscriber_step_1_mobile']}
-                                            alt="Trade types option market"
-                                        />
-                                    </Mobile>
-                                </Tabs.Panel>
-                                <Tabs.Panel
-                                    label={content.subscriber.step_two_header}
-                                    description={content.subscriber.step_two_text}
-                                >
-                                    <Desktop>
-                                        <StyledQueryImage
-                                            data={data['subscriber_step_2']}
-                                            alt="Trade types option trade type open"
-                                        />
-                                    </Desktop>
-                                    <Mobile>
-                                        <StyledQueryImage
-                                            data={data['subscriber_step_2_mobile']}
-                                            alt="Trade types option trade type open"
-                                        />
-                                    </Mobile>
-                                </Tabs.Panel>
-                                <Tabs.Panel
-                                    label={content.subscriber.step_three_header}
-                                    description={content.subscriber.step_three_text}
-                                >
-                                    <Desktop>
-                                        <StyledQueryImage
-                                            data={data['subscriber_step_3']}
-                                            alt="Trade types option duration"
-                                        />
-                                    </Desktop>
-                                    <Mobile>
-                                        <StyledQueryImage
-                                            data={data['subscriber_step_3_mobile']}
-                                            alt="Trade types option duration"
-                                        />
-                                    </Mobile>
-                                </Tabs.Panel>
-                            </StyledTabs>
-                        </>
-                    )}
+                    <StyledTabs
+                        is_reverse
+                        max_width="tabletL"
+                        has_notice
+                        notice_content={content.subscriber.notice}
+                    >
+                        <Tabs.Panel
+                            label={content.subscriber.step_one_header}
+                            description={
+                                is_eu
+                                    ? content.subscriber.step_one_text_eu
+                                    : content.subscriber.step_one_text
+                            }
+                        >
+                            <Desktop>
+                                <StyledQueryImage
+                                    data={data['subscriber_step_1']}
+                                    alt="Trade types option market"
+                                />
+                            </Desktop>
+                            <Mobile>
+                                <StyledQueryImage
+                                    data={data['subscriber_step_1_mobile']}
+                                    alt="Trade types option market"
+                                />
+                            </Mobile>
+                        </Tabs.Panel>
+                        <Tabs.Panel
+                            label={content.subscriber.step_two_header}
+                            description={content.subscriber.step_two_text}
+                        >
+                            <Desktop>
+                                <StyledQueryImage
+                                    data={data['subscriber_step_2']}
+                                    alt="Trade types option trade type open"
+                                />
+                            </Desktop>
+                            <Mobile>
+                                <StyledQueryImage
+                                    data={data['subscriber_step_2_mobile']}
+                                    alt="Trade types option trade type open"
+                                />
+                            </Mobile>
+                        </Tabs.Panel>
+                        <Tabs.Panel
+                            label={content.subscriber.step_three_header}
+                            description={content.subscriber.step_three_text}
+                        >
+                            <Desktop>
+                                <StyledQueryImage
+                                    data={data['subscriber_step_3']}
+                                    alt="Trade types option duration"
+                                />
+                            </Desktop>
+                            <Mobile>
+                                <StyledQueryImage
+                                    data={data['subscriber_step_3_mobile']}
+                                    alt="Trade types option duration"
+                                />
+                            </Mobile>
+                        </Tabs.Panel>
+                    </StyledTabs>
                 </Container>
             )}
             {signal_provider && (
                 <Container>
-                    {is_mounted && (
-                        <>
-                            <StyledTabs
-                                is_reverse
-                                max_width="tabletL"
-                                has_notice
-                                notice_content={content.provider.notice}
-                            >
-                                <Tabs.Panel
-                                    label={content.provider.step_one_header}
-                                    description={content.provider.step_one_text}
-                                >
-                                    <Desktop>
-                                        <StyledQueryImage
-                                            data={data['provider_step_1']}
-                                            alt="Trade types option market"
-                                        />
-                                    </Desktop>
-                                    <Mobile>
-                                        <StyledQueryImage
-                                            data={data['provider_step_1_mobile']}
-                                            alt="Trade types option market"
-                                        />
-                                    </Mobile>
-                                </Tabs.Panel>
-                                <Tabs.Panel
-                                    label={content.provider.step_two_header}
-                                    description={content.provider.step_two_text}
-                                >
-                                    <Desktop>
-                                        <StyledQueryImage
-                                            data={data['provider_step_2']}
-                                            alt="Trade types option trade type open"
-                                        />
-                                    </Desktop>
-                                    <Mobile>
-                                        <StyledQueryImage
-                                            data={data['provider_step_2_mobile']}
-                                            alt="Trade types option trade type open"
-                                        />
-                                    </Mobile>
-                                </Tabs.Panel>
-                                <Tabs.Panel
-                                    label={content.provider.step_three_header}
-                                    description={content.provider.step_three_text}
-                                >
-                                    <Desktop>
-                                        <StyledQueryImage
-                                            data={data['provider_step_3']}
-                                            alt="Trade types option duration"
-                                        />
-                                    </Desktop>
-                                    <Mobile>
-                                        <StyledQueryImage
-                                            data={data['provider_step_3_mobile']}
-                                            alt="Trade types option duration"
-                                        />
-                                    </Mobile>
-                                </Tabs.Panel>
-                            </StyledTabs>
-                        </>
-                    )}
+                    <StyledTabs
+                        is_reverse
+                        max_width="tabletL"
+                        has_notice
+                        notice_content={content.provider.notice}
+                    >
+                        <Tabs.Panel
+                            label={content.provider.step_one_header}
+                            description={content.provider.step_one_text}
+                        >
+                            <Desktop>
+                                <StyledQueryImage
+                                    data={data['provider_step_1']}
+                                    alt="Trade types option market"
+                                />
+                            </Desktop>
+                            <Mobile>
+                                <StyledQueryImage
+                                    data={data['provider_step_1_mobile']}
+                                    alt="Trade types option market"
+                                />
+                            </Mobile>
+                        </Tabs.Panel>
+                        <Tabs.Panel
+                            label={content.provider.step_two_header}
+                            description={content.provider.step_two_text}
+                        >
+                            <Desktop>
+                                <StyledQueryImage
+                                    data={data['provider_step_2']}
+                                    alt="Trade types option trade type open"
+                                />
+                            </Desktop>
+                            <Mobile>
+                                <StyledQueryImage
+                                    data={data['provider_step_2_mobile']}
+                                    alt="Trade types option trade type open"
+                                />
+                            </Mobile>
+                        </Tabs.Panel>
+                        <Tabs.Panel
+                            label={content.provider.step_three_header}
+                            description={content.provider.step_three_text}
+                        >
+                            <Desktop>
+                                <StyledQueryImage
+                                    data={data['provider_step_3']}
+                                    alt="Trade types option duration"
+                                />
+                            </Desktop>
+                            <Mobile>
+                                <StyledQueryImage
+                                    data={data['provider_step_3_mobile']}
+                                    alt="Trade types option duration"
+                                />
+                            </Mobile>
+                        </Tabs.Panel>
+                    </StyledTabs>
                 </Container>
             )}
         </>

@@ -8,7 +8,6 @@ import { QueryImage, OffCanvasMenuWrapperCareer, useMoveOffCanvasMenu } from 'co
 import Hamburger from 'images/svg/layout/hamburger_menu.svg'
 import Close from 'images/svg/layout/close-long.svg'
 import { LinkButton } from 'components/form'
-import { LocationContext } from 'components/layout/location-context'
 import { useActiveLinkState } from 'components/hooks/use-active-link-state'
 import device from 'themes/device'
 import { besquare_signup_url, zoho_career_url } from 'common/constants'
@@ -126,7 +125,6 @@ const links = [
 
 const NavCareers = ({ is_besquare }: NavCareersProps) => {
     const data = useStaticQuery(query)
-    const { has_mounted } = React.useContext(LocationContext)
     const current_page = useActiveLinkState('careers')
     const [is_canvas_menu_open, openOffCanvasMenu, closeOffCanvasMenu] = useMoveOffCanvasMenu()
 
@@ -174,16 +172,14 @@ const NavCareers = ({ is_besquare }: NavCareersProps) => {
                     </Desktop>
 
                     <RightSection jc="flex-end" ai="center">
-                        {has_mounted && (
-                            <StyledLinkButton
-                                secondary
-                                rel="noopener noreferrer"
-                                ml="2.4rem"
-                                to={is_besquare ? besquare_signup_url : zoho_career_url}
-                            >
-                                {is_besquare ? 'Apply now' : 'Explore jobs'}
-                            </StyledLinkButton>
-                        )}
+                        <StyledLinkButton
+                            secondary
+                            rel="noopener noreferrer"
+                            ml="2.4rem"
+                            to={is_besquare ? besquare_signup_url : zoho_career_url}
+                        >
+                            {is_besquare ? 'Apply now' : 'Explore jobs'}
+                        </StyledLinkButton>
                     </RightSection>
                     <OffCanvasMenuWrapperCareer
                         is_canvas_menu_open={is_canvas_menu_open}

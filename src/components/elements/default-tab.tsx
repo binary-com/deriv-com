@@ -4,7 +4,6 @@ import { Header } from './typography'
 import { Flex } from 'components/containers'
 import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { slugify } from 'common/utility'
 import device from 'themes/device'
 
@@ -148,7 +147,6 @@ const Tabs = ({
     starting_index = 0,
 }: TabsProps) => {
     const [is_mobile] = useBrowserResize(768)
-    const [is_mounted] = usePageLoaded()
     const [selected_tab, setSelectedTab] = useState(0)
 
     const [active_tab, setActiveTab] = useTabStateQuery(tab_list, has_no_query, starting_index)
@@ -164,7 +162,7 @@ const Tabs = ({
         if (selected_el) {
             setOffset(selected_el.offsetLeft - 24)
         }
-    }, [is_mounted])
+    }, [])
 
     useEffect(() => {
         ref.current.scrollLeft = offset

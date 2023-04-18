@@ -8,7 +8,6 @@ import { SharedLinkStyle, SharedLinkStyleMarket } from 'components/localization/
 
 type NavRightProps = {
     button_ref: React.MutableRefObject<HTMLButtonElement>
-    mounted: boolean
     move?: boolean
     has_scrolled: boolean
     hide_signup_login?: boolean
@@ -85,22 +84,22 @@ export const NavRight = styled.div<NavRightProps>`
     text-align: end;
     justify-content: center;
     padding: 0;
-    opacity: ${({ mounted }) => (mounted ? '1' : '0')};
+    opacity: 1;
     transition: ${({ move, has_scrolled }) =>
         move ? 'all 0.25s' : has_scrolled ? 'all 0.25s' : 'none'};
     transform: translateX(
-        ${({ button_ref, hide_signup_login, move, mounted, is_rtl }) => {
+        ${({ button_ref, hide_signup_login, move, is_rtl }) => {
             const ref_base = getBaseRef(button_ref)
 
             if (hide_signup_login) {
                 return 0
             } else if (move && !hide_signup_login) {
-                if (ref_base && mounted) {
+                if (ref_base) {
                     ref_base.style.opacity = 1
                 }
                 return 0
             } else {
-                if (ref_base && mounted) {
+                if (ref_base) {
                     ref_base.style.opacity = 0
                     const calculation = ref_base.offsetWidth + 2
                     return is_rtl ? `${-calculation}px` : `${calculation}px`

@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
@@ -279,6 +279,7 @@ const CarouselItem = ({
 }
 
 const MarketsFold = () => {
+    const [max_width, setMaxWidht] = useState('')
     const data = useStaticQuery(query)
     const { is_region_loading, is_eu, is_row } = useRegion()
     const size = useWindowSize()
@@ -287,11 +288,11 @@ const MarketsFold = () => {
 
     const lang_direction = useLangDirection()
 
-    const getMaxWidth = () => {
-        if (is_mobile) return '100%'
-        if (is_not_big_screen) return '1210px'
-        else return '1600px'
-    }
+    useEffect(() => {
+        if (is_mobile) setMaxWidht('100%')
+        if (is_not_big_screen) setMaxWidht('1210px')
+        else setMaxWidht('1600px')
+    }, [is_mobile, is_not_big_screen])
 
     const settings: CarouselProps = {
         options: {
@@ -310,7 +311,7 @@ const MarketsFold = () => {
         },
         embla_style: {
             minBlockSize: is_mobile ? '364px' : 'auto',
-            maxInlineSize: getMaxWidth(),
+            maxInlineSize: max_width,
         },
         slide_style: {
             inlineSize: is_not_big_screen ? '282px' : '400px',

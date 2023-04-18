@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { Checkbox, LocalizedLinkText } from 'components/elements'
 import { Localize, localize } from 'components/localization'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import device from 'themes/device'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
@@ -28,14 +27,13 @@ const AgreementLabel = ({
 }: AgreementLabelProps) => {
     // the is mounted check is used for making sure the localized link text
     // properly renders the correct domain url
-    const [is_mounted] = usePageLoaded()
     const handleChange = (event) => {
         handleChangeCheckbox(event)
     }
 
     const is_rtl = useIsRtl()
 
-    return is_mounted ? (
+    return (
         <label
             style={{
                 fontWeight: 'normal',
@@ -75,8 +73,6 @@ const AgreementLabel = ({
                 />
             </CheckboxSpan>
         </label>
-    ) : (
-        <></>
     )
 }
 

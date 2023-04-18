@@ -72,8 +72,8 @@ const dbot: TQuestionsData = {
                     translation_components: [
                         {
                             key: 0,
-                            type: 'link',
-                            to: 'https://academy.deriv.com/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/',
+                            type: 'internal_link',
+                            to: 'https://blog.deriv.com/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/',
                         },
                     ],
                 },
@@ -421,8 +421,8 @@ const dbot: TQuestionsData = {
                         },
                         {
                             key: 1,
-                            type: 'link',
-                            to: 'https://academy.deriv.com/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/',
+                            type: 'internal_link',
+                            to: 'https://blog.deriv.com/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/',
                         },
                     ],
                 },

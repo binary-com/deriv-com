@@ -19,7 +19,11 @@ const Link = styled(LocalizedLink)`
     }
 `
 
-const getComponent = (key: number, to: string, type: 'link' | 'deriv_app_link' | 'strong') => {
+const getComponent = (
+    key: number,
+    to: string,
+    type: 'internal_link' | 'link' | 'deriv_app_link' | 'strong',
+) => {
     return {
         deriv_app_link: (
             <Link
@@ -33,6 +37,7 @@ const getComponent = (key: number, to: string, type: 'link' | 'deriv_app_link' |
             />
         ),
         link: <Link key={key} to={to} target="_blank" external rel="noopener noreferrer" />,
+        internal_link: <Link key={key} to={to} target="_blank" rel="noopener noreferrer" />,
         strong: <strong key={key} />,
     }[type]
 }

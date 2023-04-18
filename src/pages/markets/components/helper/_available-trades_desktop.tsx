@@ -164,6 +164,9 @@ const CardHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 1.75rem;
     }
+    @media ${device.mobileL} {
+        font-size: 1.5rem;
+    }
 `
 
 const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {

@@ -89,6 +89,9 @@ const StyledText = styled(Header)`
 const StyledFlex = styled(Flex)`
     padding: 0.8rem;
 
+    img {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
     ${Text} {
         font-size: 14px;
     }
@@ -129,7 +132,7 @@ const AvailablePlatforms = ({
                 {dmt5 && (
                     <LocalizedLink to="/dmt5/">
                         <StyledFlex direction="row" ai="center">
-                            <img src={DMT5} alt="Deriv MT5 (DMT5)" width="32" height="32" />
+                            <embed src={DMT5} width="24" height="24" />
                             <Text ml="0.4rem">{localize('Deriv MT5')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
@@ -137,7 +140,7 @@ const AvailablePlatforms = ({
                 {dtrader && (
                     <LocalizedLink to="/dtrader/">
                         <StyledFlex direction="row" ai="center">
-                            <img src={DTrader} alt="DTrader" width="32" height="32" />
+                            <embed src={DTrader} width="24" height="24" />
                             <Text ml="0.4rem">{localize('Deriv Trader')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
@@ -145,7 +148,7 @@ const AvailablePlatforms = ({
                 {dbot && (
                     <LocalizedLink to="/dbot/">
                         <StyledFlex direction="row" ai="center">
-                            <img src={DBot} alt="DBot" width="32" height="32" />
+                            <embed src={DBot} width="24" height="24" />
                             <Text ml="0.4rem">{localize('Deriv Bot')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
@@ -153,7 +156,7 @@ const AvailablePlatforms = ({
                 {smarttrader && (
                     <a href={smarttrader_url} target="_blank" rel="noopener noreferrer">
                         <StyledFlex direction="row" ai="center">
-                            <img src={SmartTrader} alt="SmartTrader" width="32" height="32" />
+                            <embed src={SmartTrader} width="24" height="24" />
                             <Text ml="0.4rem">{localize('SmartTrader')}</Text>
                         </StyledFlex>
                     </a>
@@ -161,7 +164,7 @@ const AvailablePlatforms = ({
                 {derivx && !is_eu && (
                     <LocalizedLink to="/derivx/">
                         <StyledFlex direction="row" ai="center">
-                            <img src={DerivX} alt="Deriv X" width="32" height="32" />
+                            <embed src={DerivX} width="24" height="24" />
                             <Text ml="0.4rem">{localize('Deriv X')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
@@ -169,7 +172,7 @@ const AvailablePlatforms = ({
                 {deriv_go && (
                     <LocalizedLink to="/deriv-go/">
                         <StyledFlex direction="row" ai="center">
-                            <img src={DerivGo} alt="Deriv go" width="32" height="32" />
+                            <embed src={DerivGo} width="24" height="24" />
                             <Text ml="0.4rem">{localize(deriv_go_text)}</Text>
                         </StyledFlex>
                     </LocalizedLink>
@@ -177,7 +180,7 @@ const AvailablePlatforms = ({
                 {deriv_ez && (
                     <LocalizedLink to="/derivez/">
                         <StyledFlex direction="row" ai="center">
-                            <img src={DerivEZ} alt="Deriv EZ" width="32" height="32" />
+                            <embed src={DerivEZ} width="24" height="24" />
                             <Text ml="0.4rem">{localize('Deriv EZ')}</Text>
                         </StyledFlex>
                     </LocalizedLink>

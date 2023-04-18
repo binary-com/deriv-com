@@ -178,7 +178,7 @@ const TradingCFDIncreases = () => {
                 </Mobile>
 
                 <Header
-                    mt={is_mobile ? '0.2rem' : '3.2rem'}
+                    mt={is_mobile ? '1rem' : '3.2rem'}
                     as="h5"
                     type="main-paragraph"
                     mb="0.8rem"

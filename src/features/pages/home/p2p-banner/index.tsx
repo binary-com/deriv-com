@@ -26,16 +26,6 @@ const P2PBanner = () => {
             >
                 <P2PBannerImage />
                 <P2PBannerDescription />
-                {/* <Flex.Box
-                    justify="between"
-                    align="center"
-                    grow="1"
-                    padding_block="40x"
-                    md={{ padding_block: '0x' }}
-                >
-                    <P2PTextBox />
-                    <QRCode />
-                </Flex.Box> */}
             </Flex.Box>
             <Flex.Box justify="center" align="center" visible="phone-and-tablet">
                 <StaticImage

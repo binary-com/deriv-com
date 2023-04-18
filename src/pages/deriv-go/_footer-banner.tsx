@@ -45,8 +45,8 @@ const DerivGoGetApp = () => {
     const is_rtl = useIsRtl()
 
     const items = [
-        { text: 'App Store', icon: AndroidIcon, link: deriv_go_playstore_url },
-        { text: 'Google Play', icon: AppleIcon, link: deriv_go_ios_url },
+        { text: 'Google Play', icon: AndroidIcon, link: deriv_go_playstore_url },
+        { text: 'App Store', icon: AppleIcon, link: deriv_go_ios_url },
         { text: 'AppGallery', icon: AppGalleryIcon, link: deriv_go_huaweiappgallery_url },
     ]
 

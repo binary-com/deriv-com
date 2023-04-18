@@ -208,7 +208,7 @@ const AvailableTradesDesktop = ({
     Multipliers,
     display_title,
 }: AvailableTradesProps) => {
-    const { is_non_eu, is_region_loading } = useRegion()
+    const { is_row, is_region_loading } = useRegion()
     const [tab, setTab] = useQueryParam('tab', StringParam)
 
     useEffect(() => {
@@ -247,7 +247,7 @@ const AvailableTradesDesktop = ({
                             active_tab={tab || 'cfds'}
                         />
                     )}
-                    {is_non_eu && DigitalOptions && (
+                    {is_row && DigitalOptions && (
                         <Card
                             name="Options"
                             display_name={<Localize translate_text="Options" />}

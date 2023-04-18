@@ -12,11 +12,11 @@ import { loss_percent } from 'common/constants'
 import useRegion from 'components/hooks/use-region'
 
 const DisclaimerSection = () => {
-    const { is_eu, is_non_eu, is_cpa_plan } = useRegion()
+    const { is_eu, is_row, is_cpa_plan } = useRegion()
     return (
         <>
             <DisclaimerWrapper>
-                {(is_non_eu || is_cpa_plan) && (
+                {(is_row || is_cpa_plan) && (
                     <>
                         <DisclaimerParagraph>
                             <Localize
@@ -110,7 +110,7 @@ const DisclaimerSection = () => {
                 )}
                 <RiskWarning>
                     <Desktop>
-                        {is_non_eu && !is_cpa_plan && (
+                        {is_row && !is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
                                     <Localize translate_text="Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly." />
@@ -187,7 +187,7 @@ const DisclaimerSection = () => {
                         )}
                     </Desktop>
                     <Mobile>
-                        {is_non_eu && !is_cpa_plan && (
+                        {is_row && !is_cpa_plan && (
                             <>
                                 <DisclaimerParagraph no_margin>
                                     <Localize translate_text="Please remember that CFDs and other products offered on this website are complex derivatives and may not be suitable for all clients. Trading in these products carries a substantial risk of losing money rapidly." />

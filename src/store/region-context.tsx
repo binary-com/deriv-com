@@ -1,3 +1,4 @@
+import { log } from 'console'
 import React, { useState, useEffect, createContext, ReactNode } from 'react'
 import {
     isEuCountry,
@@ -27,10 +28,9 @@ type RegionContextType = Record<
     | 'is_region_loading'
     | 'is_eu_location'
     | 'is_eu'
-    | 'is_non_eu'
+    | 'is_row'
     | 'is_cpa_plan'
     | 'is_latam'
-    | 'is_row'
     | 'is_dev'
     | 'is_africa',
     boolean
@@ -45,10 +45,9 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         is_region_loading: true,
         is_eu_location: isEuDomain(),
         is_eu: isEuDomain(),
-        is_non_eu: !isEuDomain(),
+        is_row: !isEuDomain(),
         is_cpa_plan: false,
         is_latam: false,
-        is_row: !isEuDomain(),
         is_dev: false,
         is_africa: false,
     })
@@ -69,7 +68,6 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         const is_eu_residence = eu_countries.includes(residence)
         const is_eu_location = is_eu_residence || (!residence && is_eu_country_ip)
         const is_eu = isEuDomain() || eu_countries.includes(qa_url_region)
-        const is_non_eu = !is_eu
         const is_cpa_plan = cpa_plan_countries.includes(user_ip_country)
         const is_latam = latam_countries.includes(user_ip_country)
         const is_row = !is_eu
@@ -84,24 +82,22 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                 is_eu_location,
                 is_latam,
                 is_eu,
-                is_non_eu,
+                is_row,
                 is_cpa_plan,
                 is_africa,
-                is_row,
                 is_dev,
             })
         }
-    }, [residence, user_ip_country, website_status])
+    }, [residence, user_ip_country, website_status, qa_url_region])
 
     const {
         is_region_loading,
         is_eu_location,
         is_latam,
         is_eu,
-        is_non_eu,
+        is_row,
         is_cpa_plan,
         is_africa,
-        is_row,
         is_dev,
     } = region
 
@@ -115,10 +111,9 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                 is_eu_location,
                 is_latam,
                 is_eu,
-                is_non_eu,
+                is_row,
                 is_cpa_plan,
                 is_africa,
-                is_row,
                 is_dev,
             }}
         >

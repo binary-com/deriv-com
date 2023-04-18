@@ -9,7 +9,7 @@ import useRegion from 'components/hooks/use-region'
 const TextLink = styled(LinkText).attrs({ as: 'span' })``
 
 const FinancialCommission = () => {
-    const { is_eu, is_non_eu } = useRegion()
+    const { is_eu, is_row } = useRegion()
     const [is_livechat_interactive, LC_API] = useLivechat()
 
     return (
@@ -40,7 +40,7 @@ const FinancialCommission = () => {
                             />
                         </Text>
                     )}
-                    {is_non_eu && (
+                    {is_row && (
                         <Text mt="2rem" max_width="58.8rem">
                             <Localize
                                 translate_text="For fair resolution of any complaints, please <0>chat</0> with us."

@@ -112,7 +112,7 @@ const StyledHeader = styled(Header)`
 `
 
 const TradingResponsibly = () => {
-    const { is_eu, is_non_eu } = useRegion()
+    const { is_eu, is_row } = useRegion()
     return (
         <SectionContainer>
             <Flex jc="center" wrap="true">
@@ -154,7 +154,7 @@ const TradingResponsibly = () => {
                                 {is_eu && (
                                     <Localize translate_text="Trade wisely, and don’t let your emotions influence your decisions. Do not trade when you are tired or are under the influence of alcohol." />
                                 )}
-                                {is_non_eu && (
+                                {is_row && (
                                     <Localize translate_text="Trade wisely, and don’t let your emotions influence your decisions. Don’t trade when you’re prone to bad judgement." />
                                 )}
                             </StyledText>

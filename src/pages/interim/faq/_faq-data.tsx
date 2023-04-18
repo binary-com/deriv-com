@@ -95,7 +95,7 @@ const WhatToExpect = () => (
 )
 
 const IsDerivRegulated = () => {
-    const { is_eu, is_non_eu } = useRegion()
+    const { is_eu, is_row } = useRegion()
     return (
         <MaxWidth>
             <Text>
@@ -112,7 +112,7 @@ const IsDerivRegulated = () => {
                         ]}
                     />
                 )}
-                {is_non_eu && (
+                {is_row && (
                     <Localize
                         translate_text="Yes. Deriv.com and Binary.com are owned by the same group, which is <0>licensed and regulated</0> in many jurisdictions around the world."
                         components={[

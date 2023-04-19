@@ -8,7 +8,7 @@ import Facebook from 'images/svg/footer/facebook_icon.svg'
 import Linkedin from 'images/svg/footer/linkedin_icon.svg'
 import { useSocialMediaUrl } from 'components/hooks/use-social-media-url'
 import { getLocationPathname } from 'common/utility'
-import { reddit_url, telegram_url, youtube_url } from 'common/constants'
+import { telegram_url, youtube_url } from 'common/constants'
 import Image from 'features/components/atoms/image'
 import Link from 'features/components/atoms/link'
 
@@ -29,51 +29,65 @@ const getFooterIcons = (
         instagram_url: string
         linkedin_url: string
         twitter_url: string
-        reddit_url: string
         telegram_url: string
         youtube_url: string
         alt: string
     },
     is_career_page: boolean,
 ) => {
-    const accounts: TSocialAccount[] = [
-        {
-            link: fb_url,
-            image: Facebook,
-            image_alt: `facebook ${alt}`,
-        },
-        {
-            link: instagram_url,
-            image: Instagram,
-            image_alt: `instagram ${alt}`,
-        },
-        {
-            link: linkedin_url,
-            image: Linkedin,
-            image_alt: `linkedin ${alt}`,
-        },
-    ]
-
-    const twitter: TSocialAccount = {
-        link: twitter_url,
-        image: Twitter,
-        image_alt: `twitter ${alt}`,
-    }
-
-    const telegram: TSocialAccount = {
-        link: telegram_url,
-        image: Telegram,
-        image_alt: `telegram ${alt}`,
-    }
-    const youtube: TSocialAccount = {
-        link: youtube_url,
-        image: Youtube,
-        image_alt: `youtube ${alt}`,
-    }
-
-    if (!is_career_page) {
-        accounts.splice(0, 0, youtube, telegram)
-        accounts.splice(4, 0, twitter)
+    let accounts: TSocialAccount[] = []
+    //Todo(Mitra): move below list to another seperate configuration file.
+    if (is_career_page) {
+        accounts = [
+            {
+                link: fb_url,
+                image: Facebook,
+                image_alt: `facebook ${alt}`,
+            },
+            {
+                link: instagram_url,
+                image: Instagram,
+                image_alt: `instagram ${alt}`,
+            },
+            {
+                link: linkedin_url,
+                image: Linkedin,
+                image_alt: `linkedin ${alt}`,
+            },
+        ]
+    } else {
+        accounts = [
+            {
+                link: fb_url,
+                image: Facebook,
+                image_alt: `facebook ${alt}`,
+            },
+            {
+                link: instagram_url,
+                image: Instagram,
+                image_alt: `instagram ${alt}`,
+            },
+            {
+                link: twitter_url,
+                image: Twitter,
+                image_alt: `twitter ${alt}`,
+            },
+            {
+                link: youtube_url,
+                image: Youtube,
+                image_alt: `youtube ${alt}`,
+            },
+            {
+                link: linkedin_url,
+                image: Linkedin,
+                image_alt: `linkedin ${alt}`,
+            },
+            {
+                link: telegram_url,
+                image: Telegram,
+                image_alt: `telegram ${alt}`,
+            },
+        ]
     }
     return accounts
 }
@@ -92,7 +106,6 @@ const FooterSocialIcons = () => {
                 instagram_url,
                 linkedin_url,
                 twitter_url,
-                reddit_url,
                 telegram_url,
                 youtube_url,
             },

@@ -27,7 +27,7 @@ const NavDesktopItem = <T extends string>({ item, activeTab }: DesktopItemsProps
                         <Container.Fixed
                             bgcolor="primary"
                             padding_block="10x"
-                            padding_inline="5x"
+                            padding_inline="10x"
                             className={dclsx(styles.active_section, {
                                 [styles.active_trade_section]: activeTab === 'trade',
                             })}

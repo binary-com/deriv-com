@@ -14,7 +14,7 @@ const NavSingleItem = <T extends string>({
         <Link
             size={is_mobile ? 'large' : 'medium'}
             padding_block="2x"
-            padding_inline="5x"
+            padding_inline="10x"
             url={item.content}
             weight={is_mobile ? 'bold' : 'normal'}
         >

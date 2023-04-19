@@ -119,8 +119,8 @@ const Dtrader = () => {
                     {is_eu && <DNumber items={itemsEU} justify="space-around" />}
 
                     <DtraderEasySteps />
-                    {is_row && <DTrading trading={trading} />}
-                    {is_eu && <DTrading trading={trading_eu} />}
+                    {is_row && <DTrading trading={trading} spacing={1} />}
+                    {is_eu && <DTrading trading={trading_eu} spacing={1} />}
 
                     <DtraderGetApps />
                     {is_row && <OurPlatforms />}

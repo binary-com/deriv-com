@@ -7,8 +7,6 @@ import { Localize } from 'components/localization'
 import useVisibleContent from 'components/hooks/use-visible-content'
 import usePpc from 'features/hooks/use-ppc'
 import useRegion from 'components/hooks/use-region'
-import InvestInPeople from 'images/common/invest_in_people.png'
-import Image from 'features/components/atoms/image'
 
 interface FooterLinksColumnProps {
     item: SmartFooterLinkColumn
@@ -31,9 +29,6 @@ const FooterLinksColumn = ({ item: { data } }: FooterLinksColumnProps) => {
             {links.map((linkItem) => (
                 <FooterLink key={linkItem.id} item={linkItem} />
             ))}
-            {data.title === '_t_ABOUT US_t_' && (
-                <Image src={InvestInPeople} width={117} height={22} />
-            )}
         </Flex.Box>
     )
 }

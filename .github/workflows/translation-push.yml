@@ -1,5 +1,5 @@
----
 name: Push Translation
+
 permissions:
   actions: write
   checks: write
@@ -7,84 +7,80 @@ permissions:
   deployments: write
   pull-requests: write
   statuses: write
+  
 on:
   workflow_run:
-    workflows:
-      - Pre-push Translation
+    workflows: ["Pre-push Translation"]
     types:
       - completed
-env:
-  BRANCH: ${{ github.event.workflow_run.head_branch }}
+      
+env: 
+ BRANCH: ${{ github.event.workflow_run.head_branch }}
 jobs:
-  push-translation:
-    if: >
-      (startsWith(github.event.workflow_run.head_branch, 'translation') ||
-      startsWith(github.event.workflow_run.head_branch, 'stp')) &&
-       !contains(github.event.workflow_run.head_branch, '!') &&
-       !contains(github.event.workflow_run.head_branch, '@') &&   
-       !contains(github.event.workflow_run.head_branch, '#') &&   
-       !contains(github.event.workflow_run.head_branch, '$') &&   
-       !contains(github.event.workflow_run.head_branch, '%') &&   
-       !contains(github.event.workflow_run.head_branch, '^') &&   
-       !contains(github.event.workflow_run.head_branch, '&') &&   
-       !contains(github.event.workflow_run.head_branch, '*') &&   
-       !contains(github.event.workflow_run.head_branch, '(') &&   
-       !contains(github.event.workflow_run.head_branch, ')')
-    runs-on: ubuntu-latest
-    steps:
-      - name: "Source: [${{github.event.workflow_run.head_repository.full_name}}/${{
-          github.event.workflow_run.head_branch }}]"
-        run: >
-          CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
+    push-translation:
+        if: |
+              (startsWith(github.event.workflow_run.head_branch, 'translation') || startsWith(github.event.workflow_run.head_branch, 'stp')) &&
+               !contains(github.event.workflow_run.head_branch, '!') &&
+               !contains(github.event.workflow_run.head_branch, '@') &&   
+               !contains(github.event.workflow_run.head_branch, '#') &&   
+               !contains(github.event.workflow_run.head_branch, '$') &&   
+               !contains(github.event.workflow_run.head_branch, '%') &&   
+               !contains(github.event.workflow_run.head_branch, '^') &&   
+               !contains(github.event.workflow_run.head_branch, '&') &&   
+               !contains(github.event.workflow_run.head_branch, '*') &&   
+               !contains(github.event.workflow_run.head_branch, '(') &&   
+               !contains(github.event.workflow_run.head_branch, ')') 
+        runs-on: ubuntu-latest
+        steps:
+            - name: 'Source: [${{github.event.workflow_run.head_repository.full_name}}/${{ github.event.workflow_run.head_branch }}]'
+              run: |
+               CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
 
+               echo "Pushing strings and translations from ${{github.event.workflow_run.head_repository.full_name}}/$CLEAN_BRANCH"
+            - name: Checkout 🛎️
+              uses: actions/checkout@v2.3.1
+              with:
+                fetch-depth: 0
+                ref: ${{ github.event.workflow_run.head_branch }}
+                repository: ${{github.event.workflow_run.head_repository.full_name}}
+            - name: Setup Node
+              uses: actions/setup-node@v2.1.2
+              with:
+                  node-version: '16.x'
+            - name: Installing Crowdin     
+              run: npm i -g @crowdin/cli@3.7.8
+            - name: Download New Translations ⬇️
+              if: github.event.workflow_run.head_commit.message == 'auto-pull-translation'
+              run: |
+                  CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
+                  crowdin download -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b  $CLEAN_BRANCH -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
+                  if git diff --exit-code; then
+                    echo "No new translation data to commit"
+                  else
+                    echo "Committing new translation data 📝"
+                    echo "Setting up Git identity"
+                    git config --global user.name "DerivFE"
+                    git config --global user.email "80095553+DerivFE@users.noreply.github.com"
+                    git add -u
+                    git commit -m "translation: 📚 sync translations from crowdin feature branch"
+                    git push origin $CLEAN_BRANCH
+                  fi
+            - name: Pushing Strings & Translations ⬆️
+              run: |
+                   CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
+                   crowdin upload sources -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }}
+            - name: Slack Notification 📣
+              uses: 8398a7/action-slack@v3
+              with:
+                  status: custom
+                  fields: workflow,job,commit,repo
+                  custom_payload: |
+                      {
+                        attachments: [{
+                          color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                          text: `*[Deriv.com]*  New strings are ready for translation and uploaded on crowdin branch: *${{ github.event.workflow_run.head_branch }} (https://crowdin.com/project/deriv-com/content/files) *`
+                        }]
+                      }
+              env:
+                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_TRANSLATION }}
 
-          echo "Pushing strings and translations from ${{github.event.workflow_run.head_repository.full_name}}/$CLEAN_BRANCH"
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
-        with:
-          fetch-depth: 0
-          ref: ${{ github.event.workflow_run.head_branch }}
-          repository: ${{github.event.workflow_run.head_repository.full_name}}
-      - name: Setup Node
-        uses: actions/setup-node@v2.1.2
-        with:
-          node-version: 18.x
-      - name: Installing Crowdin
-        run: npm i -g @crowdin/cli@3.7.8
-      - name: Download New Translations ⬇️
-        if: github.event.workflow_run.head_commit.message == 'auto-pull-translation'
-        run: >
-          CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
-
-          crowdin download -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b  $CLEAN_BRANCH -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
-
-          if git diff --exit-code; then
-            echo "No new translation data to commit"
-          else
-            echo "Committing new translation data 📝"
-            echo "Setting up Git identity"
-            git config --global user.name "DerivFE"
-            git config --global user.email "80095553+DerivFE@users.noreply.github.com"
-            git add -u
-            git commit -m "translation: 📚 sync translations from crowdin feature branch"
-            git push origin $CLEAN_BRANCH
-          fi
-      - name: Pushing Strings & Translations ⬆️
-        run: >
-          CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"
-
-          crowdin upload sources -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }}
-      - name: Slack Notification 📣
-        uses: 8398a7/action-slack@v3
-        with:
-          status: custom
-          fields: workflow,job,commit,repo
-          custom_payload: >
-            {
-              attachments: [{
-                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                text: `*[Deriv.com]*  New strings are ready for translation and uploaded on crowdin branch: *${{ github.event.workflow_run.head_branch }} (https://crowdin.com/project/deriv-com/content/files) *`
-              }]
-            }
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_TRANSLATION }}

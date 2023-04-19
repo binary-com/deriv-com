@@ -1,5 +1,5 @@
----
 name: Sync Master Translation
+
 permissions:
   actions: write
   checks: write
@@ -7,24 +7,28 @@ permissions:
   deployments: write
   pull-requests: write
   statuses: write
+  
 on:
   push:
     branches:
-      - master*
+        - 'master*'
+        
 jobs:
-  sync-translation:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
-      - name: Setup Node
-        uses: actions/setup-node@v2.1.2
-        with:
-          node-version: 18.x
-      - run: npm i -g @crowdin/cli@3.7.8
-      - name: Fetch Crowdin Master Translation ⬇️
-        run: crowdin download -b  master -T ${{ secrets.CROWDIN_API_KEY }} && crowdin
-          download -b master -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
-      - name: Push New Strings & Translations ⬆️
-        run: crowdin upload sources -b master -T ${{ secrets.CROWDIN_API_KEY }}; crowdin
-          upload translations -b master -T ${{ secrets.CROWDIN_API_KEY }}
+    sync-translation:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v2.3.1
+            - name: Setup Node
+              uses: actions/setup-node@v2.1.2
+              with:
+                  node-version: '16.x'
+            - run: npm i -g @crowdin/cli@3.7.8
+            - name: Fetch Crowdin Master Translation ⬇️ 
+              run: 
+                  crowdin download -b  master -T ${{ secrets.CROWDIN_API_KEY }} && crowdin download -b master -l zh-CN -T ${{ secrets.CROWDIN_API_KEY }}
+            - name: Push New Strings & Translations ⬆️
+              run:  
+                  crowdin upload sources -b master -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b master -T ${{ secrets.CROWDIN_API_KEY }}
+                
+

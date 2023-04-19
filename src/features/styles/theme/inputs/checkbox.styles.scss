@@ -10,8 +10,13 @@
         color: currentColor;
         inline-size: 16px;
         block-size: 16px;
-        border: 2px solid currentColor;
-        border-radius: 10px;
+        border: 2px solid #999999;
+        border-radius: 2px;
         vertical-align: -2px;
+        appearance: none;
+
+        &:checked {
+            appearance: auto;
+        }
     }
 }

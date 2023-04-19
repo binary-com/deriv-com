@@ -87,12 +87,14 @@ const SignupPublicForm = () => {
     return (
         <Flex.Box
             direction="col"
-            justify="between"
             align="stretch"
-            gap={'10x'}
+            gap={'12x'}
             className={signup_public_form_container}
             bgcolor="primary"
-            padding={'10x'}
+            padding={'8x'}
+            md={{
+                padding: '14x',
+            }}
         >
             <Flex.Box
                 direction={'col'}
@@ -102,16 +104,16 @@ const SignupPublicForm = () => {
                 as="form"
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <Typography.Heading size="xs" textcolor="black">
+                <Typography.Heading size="small" textcolor="black">
                     <Localize translate_text="_t_Join over 2.5 million traders worldwide_t_" />
                 </Typography.Heading>
                 <Typography.Paragraph textcolor="black">
                     <Localize translate_text="_t_Sign up for your demo account now._t_" />
                 </Typography.Paragraph>
-                <Flex.Box justify="between" align="center" gap={'10x'}>
+                <Flex.Box justify="between" align="center" gap={'4x'}>
                     <Flex.Item grow={'1'}>
                         <Input.Text
-                            label={'_t_Email_t_'}
+                            label={'_t_Email address_t_'}
                             error={
                                 errors?.email?.message
                                     ? localize(errors?.email?.message as TString)
@@ -124,10 +126,10 @@ const SignupPublicForm = () => {
                         <Button.Primary disabled={isButtonDisabled}>Sign up</Button.Primary>
                     </Flex.Item>
                 </Flex.Box>
-                <Flex.Box justify="start" align="baseline" gap={'5x'}>
+                <Flex.Box justify="start" align="baseline" gap={'5x'} mt="5x">
                     <Input.Checkbox {...register('terms')}>
                         <Localize
-                            translate_text="_t_I agree to the <0>terms and conditions.</0>_t_"
+                            translate_text="_t_I agree to the <0>terms and conditions</0>._t_"
                             components={[
                                 <Link
                                     textcolor="brand"

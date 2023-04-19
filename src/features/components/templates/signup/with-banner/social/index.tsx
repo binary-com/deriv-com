@@ -45,14 +45,7 @@ const PublicSignupSocial = () => {
     }
 
     return (
-        <Flex.Box
-            justify="between"
-            className={public_signup_social_links}
-            gap={'2x'}
-            md={{
-                gap: '10x',
-            }}
-        >
+        <Flex.Box justify="between" className={public_signup_social_links} gap={'4x'}>
             {social_button_content.map((buttonItem) => (
                 <Button.Secondary
                     key={buttonItem.id}

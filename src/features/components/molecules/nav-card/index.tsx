@@ -33,36 +33,20 @@ const NavigationCard = ({
     const is_arrow_visible =
         url.type === 'company' || (url.type === 'non-company' && url.target === '_blank')
 
-    const has_content = content ? true : false
-
     return (
         <Link url={url} onClick={onClick} no_hover>
-            <Flex.Box
-                className={styles.nav_card_container}
-                justify="between"
-                align={has_content ? 'start' : 'center'}
-                padding_block={'4x'}
-            >
-                {icon_src && <Icon size="large" src={icon_src} alt={icon_alt} mr={'8x'} />}
-                <Flex.Box
-                    direction="col"
-                    justify={has_content ? 'start' : 'center'}
-                    gap={'4x'}
-                    grow="1"
-                    pt="3x"
-                    className={dclsx(styles.nav_card_content, {
-                        [styles.nav_card_type]: has_content,
-                    })}
+            <div className={styles.nav_card_container}>
+                {icon_src && <Icon size="large" src={icon_src} alt={icon_alt} />}
+                <Typography.Heading
+                    size={'xxs'}
+                    as="h2"
+                    align="left"
+                    weight={content ? 'bold' : 'normal'}
                 >
-                    <Typography.Heading
-                        size={'xxs'}
-                        as="h2"
-                        align="left"
-                        weight={has_content ? 'bold' : 'normal'}
-                    >
-                        <Localize translate_text={title} />
-                    </Typography.Heading>
-                    {content && (
+                    <Localize translate_text={title} />
+                </Typography.Heading>
+                {content && (
+                    <div className={dclsx(styles.nav_card_content)}>
                         <Typography.Paragraph
                             size={is_mobile_or_tablet ? 'large' : 'medium'}
                             align="left"
@@ -70,8 +54,8 @@ const NavigationCard = ({
                         >
                             <Localize translate_text={content} />
                         </Typography.Paragraph>
-                    )}
-                </Flex.Box>
+                    </div>
+                )}
                 {is_arrow_visible && (
                     <Icon
                         src={Diagonal}
@@ -80,7 +64,7 @@ const NavigationCard = ({
                         className={dclsx(styles.nav_right_diagonal)}
                     />
                 )}
-            </Flex.Box>
+            </div>
         </Link>
     )
 }

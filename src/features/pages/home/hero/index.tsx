@@ -16,7 +16,7 @@ const HomeHeroSlider = loadable(() => pMinDelay(import('./slider'), 3000), {
                 alt="person-hero-1"
                 formats={['avif', 'webp', 'auto']}
                 loading="eager"
-                quality={50}
+                quality={30}
                 placeholder="none"
             />
         </SliderWrapper>

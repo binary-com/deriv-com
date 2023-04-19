@@ -138,10 +138,9 @@ const StepperView = ({
                                 title={item.title}
                                 subtitle={item.subtitle}
                                 title_font_size={is_mobile ? '18px ' : '24px'}
-                                margin_subtitle={is_mobile ? '1rem 0 0 0 ' : '0'}
+                                margin_subtitle="1.3rem 0 0 0"
                                 subtitle_font_size="1.6rem"
-                                margin_title="-0.5rem 0 0 0"
-                                line_height={is_mobile ? '20px' : '3.6rem'}
+                                line_height={is_mobile ? '20px' : '24px'}
                             />
                         </ContentWrapper>
                     </FlexWrapper>

@@ -27,7 +27,7 @@ const ImageWrapper = styled.div`
     width: 100%;
 
     @media ${device.tablet} {
-        max-width: 80%;
+        max-width: 90%;
         margin: 0 auto;
         text-align: center;
     }

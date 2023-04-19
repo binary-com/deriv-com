@@ -132,7 +132,7 @@ const MinimumVolume = () => {
                     </Text>
                 </TitleWrapper>
                 <ExampleWrapper>
-                    <StyledHeader as="h3" type="main-paragraph" mb="2.4rem">
+                    <StyledHeader as="p" type="main-paragraph" mb="2.4rem">
                         {localize('Example:')}
                     </StyledHeader>
                     <CalculationWrapper ai="center" mb="24px">

@@ -141,7 +141,15 @@ const HowOptionsWorks = () => {
                     </SideTab.Panel>
                     <SideTab.Panel
                         label={<Localize translate_text="2. Trade type" />}
-                        description={<Localize translate_text="_t_Choose 'Multipliers'_t_" />}
+                        description={
+                            <Localize
+                                translate_text={
+                                    is_eu
+                                        ? "_t_Choose 'Multipliers'_t_"
+                                        : 'Choose ‘Multipliers’ from the list of trade types.'
+                                }
+                            />
+                        }
                     >
                         {is_eu ? (
                             <StaticImage

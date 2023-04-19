@@ -3,12 +3,26 @@
 
 .nav_card {
     &_container {
+        position: relative;
+        display: grid;
+        grid-template-columns: 3.2rem 1fr;
+        grid-column-gap: 1.6rem;
+        grid-row-gap: 0.8rem;
+        justify-content: center;
+        align-items: center;
+        margin-block: 0.5rem;
+
+        min-block-size: 6rem;
+
         min-inline-size: 26rem;
         cursor: pointer;
         white-space: pre-line;
 
         .nav_right_diagonal {
             opacity: 1;
+            position: absolute;
+            inset-block-start: 0;
+            inset-inline-end: 0;
             inline-size: 16px;
             block-size: 16px;
 
@@ -24,18 +38,17 @@
                 opacity: 1;
             }
         }
-    }
 
-    &_content {
-        min-inline-size: 10rem;
-        min-block-size: 5rem;
         & > h2 {
             font-size: 1.6rem;
             line-height: 1;
         }
     }
-    &_type {
-        min-block-size: 10rem;
-        min-inline-size: 20rem;
+
+    &_content {
+        min-block-size: 9rem;
+
+        grid-column-start: 2;
+        grid-column-end: 3;
     }
 }

@@ -11,7 +11,7 @@
             block-size: 4rem;
             padding: 0 2rem;
             background: $color-white;
-            color: $color-grey-5;
+            color: $text-color-primary;
             border: 1px solid $color-grey-7;
             border-radius: 16px;
             box-sizing: border-box;
@@ -27,7 +27,7 @@
                 }
             }
             &:not(:placeholder-shown) ~ .text_input_label {
-                inset-block-start: -8px;
+                inset-block-start: -12px;
             }
         }
     }
@@ -36,7 +36,8 @@
         position: absolute;
         pointer-events: none;
         inset-inline-start: 15px;
-        inset-block-start: 12px;
+        inset-block-start: 10px;
+        color: $color-grey-7;
         transition: 0.2s ease all;
         -moz-transition: 0.2s ease all;
         -webkit-transition: 0.2s ease all;

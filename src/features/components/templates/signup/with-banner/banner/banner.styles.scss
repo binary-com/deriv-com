@@ -9,24 +9,13 @@
     }
 }
 
-.public_signup_banner {
+.public_signup_link {
     position: absolute;
-    inset-block-end: 0px;
-    inset-inline-start: 0;
-    inline-size: 25rem;
-    block-size: 32rem;
-    @include breakpoints(tablet) {
-        inline-size: 25rem;
-        block-size: 36rem;
-    }
-}
+    inset-block-start: 150px;
+    inset-inline-end: 15%;
+    inline-size: 24rem;
 
-.public_signup_title {
-    max-inline-size: 24rem;
-    @include breakpoints(tablet) {
-        max-inline-size: 32rem;
-    }
-    @include breakpoints(desktop) {
-        max-inline-size: 40rem;
+    @include breakpoints(laptop) {
+        inline-size: 50rem;
     }
 }

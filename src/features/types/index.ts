@@ -92,6 +92,7 @@ export interface NonCompanyExternalLink {
 export interface InternalLinkType {
     type: 'internal'
     to: `/${string}`
+    target?: LinkTarget
 }
 
 export type ExternalLinkType = CompanyExternalLink | NonCompanyExternalLink

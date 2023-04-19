@@ -11,35 +11,9 @@
             margin-inline-end: 0;
         }
 
-        & .item_title {
-            &::before {
-                content: '';
-                position: absolute;
-                transition: width 0.25s;
-                block-size: 0.2rem;
-                inline-size: 0;
-                background-color: $color-brand;
-                inset-block-end: 0;
-            }
-
-            &:hover {
-                &::before {
-                    inline-size: 1.6rem;
-                }
-            }
-        }
-
         &.active_item {
             & .item_title {
-                &::before {
-                    content: '';
-                    position: absolute;
-                    transition: width 0.25s;
-                    block-size: 0.2rem;
-                    inline-size: 1.6rem;
-                    background-color: $color-brand;
-                    inset-block-end: 0;
-                }
+                color: $text-color-brand;
             }
         }
 
@@ -55,7 +29,13 @@
         }
 
         & .active_trade_section {
-            inset-inline-start: -25rem;
+            inset-inline-start: -45rem;
+            @include breakpoints(laptop) {
+                inset-inline-start: -35rem;
+            }
+            @include breakpoints(desktop) {
+                inset-inline-start: -30rem;
+            }
         }
     }
 }

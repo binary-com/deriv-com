@@ -17,7 +17,6 @@ const CareerNav = () => {
                 </Link>
             )}
             items={career_nav_items}
-            has_top_nav
             has_centered_items
         >
             <Button.Primary

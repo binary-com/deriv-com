@@ -22,7 +22,7 @@ const Footer = ({ no_footer_links = false }: FooterProps) => {
         <Container.Fixed as={'footer'} bgcolor="primary" className={footer}>
             <Container.Fluid pt={'20x'}>
                 <FooterIcons />
-                <Container.Fixed className={footer_grid} padding_block={'40x'}>
+                <Container.Fixed className={footer_grid} padding_block={'20x'}>
                     {!no_footer_links && (
                         <Flex.Box justify="between" visible="larger-than-tablet">
                             {content.map((contentItem) => (

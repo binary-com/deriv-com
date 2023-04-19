@@ -53,7 +53,7 @@ const aboutUsLinks: SmartFooterLink[] = [
     },
 ]
 
-const productsLinks: SmartFooterLink[] = [
+const tradesLinks: SmartFooterLink[] = [
     {
         id: 0,
         data: {
@@ -64,7 +64,7 @@ const productsLinks: SmartFooterLink[] = [
     {
         id: 1,
         data: {
-            text: '_t_Digital options_t_',
+            text: '_t_Options_t_',
             url: { type: 'internal', to: '/trade-types/options/' },
         },
         visibility: {
@@ -118,7 +118,7 @@ const marketsLinks: SmartFooterLink[] = [
     },
 ]
 
-const tradeLinks: SmartFooterLink[] = [
+const platformsLinks: SmartFooterLink[] = [
     {
         id: 0,
         data: {
@@ -142,8 +142,8 @@ const tradeLinks: SmartFooterLink[] = [
     {
         id: 2,
         data: {
-            text: '_t_Deriv GO_t_',
-            url: { type: 'internal', to: '/deriv-go/' },
+            text: '_t_Deriv EZ_t_',
+            url: { type: 'internal', to: '/derivez/' },
         },
         visibility: {
             is_row: true,
@@ -152,12 +152,22 @@ const tradeLinks: SmartFooterLink[] = [
     {
         id: 3,
         data: {
-            text: '_t_DTrader_t_',
-            url: { type: 'internal', to: '/dtrader/' },
+            text: '_t_Deriv GO_t_',
+            url: { type: 'internal', to: '/deriv-go/' },
+        },
+        visibility: {
+            is_row: true,
         },
     },
     {
         id: 4,
+        data: {
+            text: '_t_Deriv Trader_t_',
+            url: { type: 'internal', to: '/dtrader/' },
+        },
+    },
+    {
+        id: 5,
         data: {
             text: '_t_SmartTrader_t_',
             url: { type: 'company', url_name: 'smart_trader' },
@@ -167,7 +177,7 @@ const tradeLinks: SmartFooterLink[] = [
         },
     },
     {
-        id: 5,
+        id: 6,
         data: {
             text: '_t_DBot_t_',
             url: { type: 'internal', to: '/dbot/' },
@@ -177,7 +187,7 @@ const tradeLinks: SmartFooterLink[] = [
         },
     },
     {
-        id: 6,
+        id: 7,
         data: {
             text: '_t_Binary Bot_t_',
             url: { type: 'non-company', href: binary_bot_url },
@@ -278,7 +288,7 @@ const supportLinks: SmartFooterLink[] = [
     {
         id: 4,
         data: {
-            text: '_t_Academy_t_',
+            text: '_t_Blog_t_',
             url: { type: 'company', url_name: 'academy' },
         },
     },
@@ -295,11 +305,8 @@ export const footerLinks: SmartFooterLinkColumn[] = [
     {
         id: 1,
         data: {
-            title: '_t_PRODUCTS_t_',
-            links: productsLinks,
-        },
-        visibility: {
-            is_ppc: true,
+            title: '_t_TRADE TYPES_t_',
+            links: tradesLinks,
         },
     },
     {
@@ -312,8 +319,8 @@ export const footerLinks: SmartFooterLinkColumn[] = [
     {
         id: 3,
         data: {
-            title: '_t_TRADE_t_',
-            links: tradeLinks,
+            title: '_t_PLATFORMS_t_',
+            links: platformsLinks,
         },
     },
     {

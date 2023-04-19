@@ -14,13 +14,13 @@ export const tradeTypesContent: TSmartNavContent[] = [
     {
         id: 0,
         data: {
-            aria_label: 'Dtrader',
+            aria_label: 'Deriv Trader',
             icon: {
                 src: DTrader,
                 alt: 'Dtrader trading platform',
             },
             content: '_t_A whole new trading experience on a powerful yet easy to use platform._t_',
-            title: '_t_Dtrader_t_',
+            title: '_t_Deriv Trader_t_',
             url: { type: 'internal', to: '/dtrader/' },
         },
         visibility: {
@@ -152,13 +152,13 @@ export const tradingPlatformsContent: TSmartNavContent[] = [
     {
         id: 4,
         data: {
-            aria_label: 'Dtrader',
+            aria_label: 'Deriv Trader',
             icon: {
                 src: DTrader,
                 alt: 'Dtrader trading platform',
             },
             content: '_t_A whole new trading experience on a powerful yet easy to use platform._t_',
-            title: '_t_Dtrader_t_',
+            title: '_t_Deriv Trader_t_',
             url: { type: 'internal', to: '/dtrader/' },
         },
         visibility: {
@@ -177,7 +177,7 @@ export const noTitleSection: TSmartNavContent[] = [
                 alt: 'Dtrader trading platform',
             },
             content: '_t_A whole new trading experience on a powerful yet easy to use platform._t_',
-            title: '_t_Dtrader_t_',
+            title: '_t_Deriv Trader_t_',
             url: { type: 'internal', to: '/dtrader/' },
         },
         visibility: {

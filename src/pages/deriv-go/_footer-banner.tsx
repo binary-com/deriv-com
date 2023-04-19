@@ -154,7 +154,7 @@ const FooterBanner = () => {
                         <Desktop>
                             <QueryImage
                                 data={data['qr_code']}
-                                alt="play store"
+                                alt={'play store'}
                                 width="108px"
                                 height="108px"
                             />

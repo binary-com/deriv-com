@@ -146,7 +146,7 @@ const WhoWeLookFor = (): React.ReactNode => {
                     <ImageWrapper>
                         <QueryImage
                             data={data.teamfocus}
-                            alt="Team discussing ideas"
+                            alt={'Team discussing ideas'}
                             width="100%"
                         />
                     </ImageWrapper>
@@ -175,7 +175,7 @@ const WhoWeLookFor = (): React.ReactNode => {
                     <ImageWrapper>
                         <QueryImage
                             data={data.peopleeating}
-                            alt="Fun chat during lunch"
+                            alt={'Fun chat during lunch'}
                             width="100%"
                         />
                     </ImageWrapper>

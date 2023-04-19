@@ -20,7 +20,7 @@ import { useLangDirection } from 'components/hooks/use-lang-direction'
 type TradeTypesProps = {
     class_name: string
     image_url: string
-    image_alt: string
+    image_alt: ReactElement
     header: ReactElement
     desc: ReactElement
     link: string
@@ -63,7 +63,7 @@ const items_details_row: TradeTypesProps[] = [
     {
         class_name: 'cfds',
         image_url: 'trade_type_cfds',
-        image_alt: 'CFDs',
+        image_alt: <Localize translate_text="CFDs" />,
         header: <Localize translate_text="CFDs" />,
         desc: (
             <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
@@ -75,7 +75,7 @@ const items_details_row: TradeTypesProps[] = [
     {
         class_name: 'multipliers',
         image_url: 'trade_type_multipliers',
-        image_alt: 'Multipliers',
+        image_alt: <Localize translate_text="Multipliers" />,
         header: <Localize translate_text="Multipliers" />,
         desc: (
             <Localize translate_text="Multiply potential profit without risking more than your initial stake." />
@@ -87,7 +87,7 @@ const items_details_row: TradeTypesProps[] = [
     {
         class_name: 'options',
         image_url: 'trade_type_digitaloptions',
-        image_alt: 'Options',
+        image_alt: <Localize translate_text="Options" />,
         header: <Localize translate_text="Options" />,
         desc: (
             <Localize translate_text="Earn a range of payouts by correctly predicting market movements." />
@@ -102,7 +102,7 @@ const items_details_eu: TradeTypesProps[] = [
     {
         class_name: 'cfds',
         image_url: 'trade_type_cfds_eu',
-        image_alt: 'CFDs',
+        image_alt: <Localize translate_text="CFDs" />,
         header: <Localize translate_text="CFDs" />,
         desc: (
             <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
@@ -114,7 +114,7 @@ const items_details_eu: TradeTypesProps[] = [
     {
         class_name: 'multipliers',
         image_url: 'trade_type_multipliers_eu',
-        image_alt: 'Multipliers',
+        image_alt: <Localize translate_text="Multipliers" />,
         header: <Localize translate_text="Multipliers" />,
         desc: (
             <Localize translate_text="Multiply your potential profit without risking more than your stake." />

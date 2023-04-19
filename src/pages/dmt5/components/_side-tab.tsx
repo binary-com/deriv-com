@@ -218,7 +218,7 @@ const SideTab = ({
                             <Flex jc="flex-start">
                                 <QueryImage
                                     data={data['qr_code']}
-                                    alt="qr_code"
+                                    alt={'qr_code'}
                                     width="108px"
                                     height="108px"
                                 />

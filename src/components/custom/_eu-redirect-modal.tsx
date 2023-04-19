@@ -125,6 +125,9 @@ const EURedirect = ({
                         <Text weight="bold">
                             <Localize translate_text="_t_Deriv X is a customisable multi-asset trading platform. Offering CFDs on forex, commodities, stocks & indices, cryptocurrencies, and derived indices, Deriv X gives you a versatile trading experience that lets you customise your trading environment._t_" />
                             <Localize translate_text="_t_Trade cryptocurrencies and synthetics anytime, even on weekends and holidays. _t_" />
+                            <Localize translate_text="_t_Deriv MT5 gives you access to multiple asset classes – forex, stocks & indices, cryptocurrencies, commodities, and derived indices – on a single platform. With exclusive access to innovative assets, Deriv brings the MT5 experience to a superior level for both new and experienced traders._t_" />
+                            <Localize translate_text="_t_Enjoy zero commission trading on all assets._t_" />
+                            <Localize translate_text="_t_Deriv GO is our mobile app optimised for trading multipliers on the go. Trade on forex, derived indices, and cryptocurrencies, and maximise your potential profit without risking more than your stake._t_" />
                         </Text>
                         <CloseButton src={Close} alt="close-2" onClick={toggle} />
                     </Action>

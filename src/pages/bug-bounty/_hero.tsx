@@ -31,7 +31,7 @@ const Hero = () => {
                 {is_mobile ? (
                     <StaticImage
                         src="../../images/common/bug-bounty/security-overlay-mobile.jpg"
-                        alt="deriv security"
+                        alt={localize('_t_deriv security_t_')}
                         formats={['avif']}
                         style={{ opacity: '0.3' }}
                         loading="eager"
@@ -39,7 +39,7 @@ const Hero = () => {
                 ) : (
                     <StaticImage
                         src="../../images/common/bug-bounty/security-overlay-desktop.jpg"
-                        alt="deriv security"
+                        alt={localize('_t_deriv security_t_')}
                         style={{ opacity: '0.3' }}
                         formats={['avif']}
                         loading="eager"

@@ -1,5 +1,6 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
+import { localize } from 'components/localization'
 
 const career_data = {
     back_end: [
@@ -10,7 +11,7 @@ const career_data = {
                         formats={['avif']}
                         loading="eager"
                         src="../../../images/common/careers-2/back-end-bg.png"
-                        alt="backend department"
+                        alt={localize('_t_backend department_t_')}
                         style={{ opacity: '0.3' }}
                     />
                 ),
@@ -70,7 +71,7 @@ const career_data = {
                         formats={['avif']}
                         loading="eager"
                         src="../../../images/common/careers-2/marketing-bg.png"
-                        alt="marketing department"
+                        alt={localize('_t_marketing department_t_')}
                         style={{ opacity: '0.3' }}
                     />
                 ),
@@ -130,7 +131,7 @@ const career_data = {
                         formats={['avif']}
                         loading="eager"
                         src="../../../images/common/careers-2/security-bg.png"
-                        alt="security department"
+                        alt={localize('_t_security department_t_')}
                         style={{ opacity: '0.3' }}
                     />
                 ),
@@ -190,7 +191,7 @@ const career_data = {
                         formats={['avif']}
                         loading="eager"
                         src="../../../images/common/careers-2/cs-bg.png"
-                        alt="customer support department"
+                        alt={localize('_t_customer support department_t_')}
                         style={{ opacity: '0.3' }}
                     />
                 ),
@@ -250,7 +251,7 @@ const career_data = {
                         formats={['avif']}
                         loading="eager"
                         src="../../../images/common/careers-2/human-resources-bg.png"
-                        alt="human resources department"
+                        alt={localize('_t_human resources department_t_')}
                         style={{ opacity: '0.3' }}
                     />
                 ),
@@ -310,7 +311,7 @@ const career_data = {
                         formats={['avif']}
                         loading="eager"
                         src="../../../images/common/careers-2/product-bg.png"
-                        alt="product department"
+                        alt={localize('_t_product department_t_')}
                         style={{ opacity: '0.3' }}
                     />
                 ),
@@ -368,7 +369,7 @@ const career_data = {
                         formats={['avif']}
                         loading="eager"
                         src="../../../images/common/careers-2/compliance-bg.png"
-                        alt="compliance department"
+                        alt={localize('_t_compliance department_t_')}
                         style={{ opacity: '0.3' }}
                     />
                 ),
@@ -428,7 +429,7 @@ const career_data = {
                         formats={['avif']}
                         loading="eager"
                         src="../../../images/common/careers-2/finance-bg.png"
-                        alt="finance department"
+                        alt={localize('_t_finance department_t_')}
                         style={{ opacity: '0.3' }}
                     />
                 ),
@@ -486,7 +487,7 @@ const career_data = {
                         formats={['avif']}
                         loading="eager"
                         src="../../../images/common/careers-2/payments-bg.png"
-                        alt="payments department"
+                        alt={localize('_t_payments department_t_')}
                         style={{ opacity: '0.3' }}
                     />
                 ),
@@ -524,7 +525,7 @@ const career_data = {
                         formats={['avif']}
                         loading="eager"
                         src="../../../images/common/careers-2/front-end-bg.png"
-                        alt="frontend department"
+                        alt={localize('_t_frontend department_t_')}
                         style={{ opacity: '0.3' }}
                     />
                 ),
@@ -584,7 +585,7 @@ const career_data = {
                         formats={['avif']}
                         loading="eager"
                         src="../../../images/common/careers-2/trading-operations-bg.png"
-                        alt="trading operations department"
+                        alt={localize('_t_trading operations department_t_')}
                         style={{ opacity: '0.3' }}
                     />
                 ),
@@ -647,7 +648,7 @@ const career_data = {
                         formats={['avif']}
                         loading="eager"
                         src="../../../images/common/careers-2/software-testing-bg.png"
-                        alt="software testing department"
+                        alt={localize('_t_software testing department_t_')}
                         style={{ opacity: '0.3' }}
                     />
                 ),
@@ -702,7 +703,7 @@ const career_data = {
                         formats={['avif']}
                         loading="eager"
                         src="../../../images/common/careers-2/business-excellence-bg.png"
-                        alt="business excellence department"
+                        alt={localize('_t_business excellence department_t_')}
                         style={{ opacity: '0.3' }}
                     />
                 ),
@@ -752,7 +753,7 @@ const career_data = {
                         formats={['avif']}
                         loading="eager"
                         src="../../../images/common/careers-2/internal-audit-bg.png"
-                        alt="internal audit department"
+                        alt={localize('_t_internal audit department_t_')}
                         style={{ opacity: '0.3' }}
                     />
                 ),
@@ -807,7 +808,7 @@ const career_data = {
                         formats={['avif']}
                         loading="eager"
                         src="../../../images/common/careers-2/pm-bg.png"
-                        alt="project management department"
+                        alt={localize('_t_project management department_t_')}
                         style={{ opacity: '0.3' }}
                     />
                 ),
@@ -847,7 +848,7 @@ const career_data = {
                         formats={['avif']}
                         loading="eager"
                         src="../../../images/common/careers-2/business-intelligence-bg.png"
-                        alt="business intelligence department"
+                        alt={localize('_t_business intelligence department_t_')}
                         style={{ opacity: '0.3' }}
                     />
                 ),

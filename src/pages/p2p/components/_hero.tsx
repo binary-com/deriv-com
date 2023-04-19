@@ -209,7 +209,7 @@ const Hero = () => {
             return (
                 <StaticImage
                     src="../../../images/common/p2p/p2p_hero_background_mobile.png"
-                    alt="p2p"
+                    alt={localize('_t_p2p_t_')}
                     formats={['avif']}
                 />
             )
@@ -217,13 +217,13 @@ const Hero = () => {
             return is_rtl ? (
                 <StaticImage
                     src="../../../images/common/p2p/p2p_hero_background_rtl.png"
-                    alt="p2p"
+                    alt={localize('_t_p2p_t_')}
                     formats={['avif']}
                 />
             ) : (
                 <StaticImage
                     src="../../../images/common/p2p/p2p_hero_background.png"
-                    alt="p2p"
+                    alt={localize('_t_p2p_t_')}
                     formats={['avif']}
                 />
             )

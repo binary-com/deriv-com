@@ -97,7 +97,7 @@ const OurOffices = () => {
                         <StaticImageWrapper>
                             <StaticImage
                                 src="../../images/common/who-we-are/earth.png"
-                                alt="Map view"
+                                alt={localize('_t_Map view_t_')}
                                 objectFit="cover"
                                 formats={['avif']}
                             />
@@ -114,7 +114,7 @@ const OurOffices = () => {
                         <StaticImageWrapper>
                             <StaticImage
                                 src="../../images/common/who-we-are/earth-mobile.png"
-                                alt="Map view"
+                                alt={localize('_t_Map view_t_')}
                                 objectFit="cover"
                                 formats={['avif']}
                             />

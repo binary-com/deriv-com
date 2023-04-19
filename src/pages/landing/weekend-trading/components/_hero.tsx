@@ -119,7 +119,7 @@ const Hero = () => {
                 {is_mobile ? (
                     <StaticImage
                         src="../../../../images/common/landing/weekend-m.png"
-                        alt="weekend trading"
+                        alt={localize('_t_weekend trading_t_')}
                         objectFit="cover"
                         formats={['avif']}
                         objectPosition="bottom right"
@@ -128,7 +128,7 @@ const Hero = () => {
                 ) : (
                     <StaticImage
                         src="../../../../images/common/landing/weekend.png"
-                        alt="weekend trading"
+                        alt={localize('_t_weekend trading_t_')}
                         objectFit="cover"
                         formats={['avif']}
                         objectPosition="bottom right"

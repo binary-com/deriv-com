@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Container } from 'components/containers'
 import { BackgroundImageWrapper, StaticImageWrapper } from 'components/elements'
+import { localize } from 'components/localization'
 
 type HeroProps = {
     children: React.ReactNode
@@ -18,7 +19,7 @@ const Hero = ({ children }: HeroProps) => {
             <StaticImageWrapper>
                 <StaticImage
                     src="../../../images/common/affiliate/partners-banner.png"
-                    alt="affiliate"
+                    alt={localize('_t_affiliate_t_')}
                     loading="eager"
                     formats={['avif']}
                 />

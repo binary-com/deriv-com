@@ -170,14 +170,14 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                         {is_rtl ? (
                             <StaticImage
                                 src="../../../images/common/p2p/p2p_banner_rtl.png"
-                                alt="p2p"
+                                alt={localize('_t_p2p_t_')}
                                 objectPosition="20% 20%"
                                 formats={['avif']}
                             />
                         ) : (
                             <StaticImage
                                 src="../../../images/common/p2p/p2p_banner.png"
-                                alt="p2p"
+                                alt={localize('_t_p2p_t_')}
                                 objectPosition="20% 20%"
                                 formats={['avif']}
                             />
@@ -207,7 +207,7 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                     <StaticImageWrapper>
                         <StaticImage
                             src="../../../images/common/p2p/p2p_banner_mobile.png"
-                            alt="p2p"
+                            alt={localize('_t_p2p_t_')}
                             objectPosition="40% 50%"
                             formats={['avif']}
                         />

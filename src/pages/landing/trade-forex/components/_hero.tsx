@@ -90,7 +90,7 @@ const Hero = ({ title, content }: HeroProps) => {
                 {is_mobile ? (
                     <StaticImage
                         src="../../../../images/common/landing/trade-fx-m.jpg"
-                        alt="forex trading"
+                        alt={localize('_t_forex trading_t_')}
                         formats={['avif']}
                         objectFit="cover"
                         objectPosition="bottom right"
@@ -99,7 +99,7 @@ const Hero = ({ title, content }: HeroProps) => {
                 ) : (
                     <StaticImage
                         src="../../../../images/common/landing/trade-fx.jpg"
-                        alt="forex trading"
+                        alt={localize('_t_forex trading_t_')}
                         formats={['avif']}
                         objectFit="cover"
                         objectPosition="bottom right"

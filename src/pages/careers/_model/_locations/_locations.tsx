@@ -37,13 +37,14 @@ import GermanyFlagIcon from 'images/svg/careers/flag_germany.svg'
 import VanuatuFlagIcon from 'images/svg/careers/flag_vanuatu.svg'
 import JordanFlagIcon from 'images/svg/careers/flag_jordan.svg'
 import SingaporeFlagIcon from 'images/svg/careers/flag_singapore.svg'
+import { localize } from 'components/localization'
 
 export const cyberjaya: LocationsType = {
     name: 'cyberjaya',
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/cyberjaya.png"
-            alt="Cyberjaya bridge and lake view"
+            alt={localize('_t_Cyberjaya bridge and lake view_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -86,7 +87,7 @@ export const malta: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/malta.jpg"
-            alt="Malta Senglea Church"
+            alt={localize('_t_Malta Senglea Church_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -128,7 +129,7 @@ export const dubai: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/dubai.jpg"
-            alt="Dubai Skyscrappers"
+            alt={localize('_t_Dubai Skyscrappers_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -170,7 +171,7 @@ export const labuan: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/labuan.jpg"
-            alt="Labuan clock tower"
+            alt={localize('_t_Labuan clock tower_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -213,7 +214,7 @@ export const asuncion: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/asuncion.png"
-            alt="Palace of the Lopez - Asuncion"
+            alt={localize('_t_Palace of the Lopez - Asuncion_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -255,7 +256,7 @@ export const melaka: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/melaka.jpg"
-            alt="Dutch square of Melaka"
+            alt={localize('_t_Dutch square of Melaka_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -298,7 +299,7 @@ export const ipoh: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/ipoh.jpg"
-            alt="White architecture building in Ipoh"
+            alt={localize('_t_White architecture building in Ipoh_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -340,7 +341,7 @@ export const cyprus: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/cyprus.jpg"
-            alt="Buildings near beach side - Limassol"
+            alt={localize('_t_Buildings near beach side - Limassol_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -383,7 +384,7 @@ export const rwanda: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/rwanda.jpg"
-            alt="Blue sky and buildings - Kigali"
+            alt={localize('_t_Blue sky and buildings - Kigali_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -427,7 +428,7 @@ export const minsk: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/minsk.png"
-            alt="Diamond shape building in Minsk"
+            alt={localize('_t_Diamond shape building in Minsk_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -471,7 +472,7 @@ export const paris: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/paris.jpg"
-            alt="paris"
+            alt={localize('_t_paris_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -506,7 +507,7 @@ export const guernsey: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/guernsey.jpg"
-            alt="Guernsey alt img"
+            alt={localize('_t_Guernsey alt img_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -544,7 +545,7 @@ export const berlin: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/berlin.png"
-            alt="Deriv’s Germany office at Berlin"
+            alt={localize('_t_Deriv’s Germany office at Berlin_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -578,7 +579,7 @@ export const reading: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/reading.jpg"
-            alt="Deriv’s Reading office at United Kingdom"
+            alt={localize('_t_Deriv’s Reading office at United Kingdom_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -615,7 +616,7 @@ export const vanuatu: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/vanuatu.png"
-            alt="Vanuatu alt img"
+            alt={localize('_t_Vanuatu alt img_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -652,7 +653,7 @@ export const georgetown: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/georgetown.png"
-            alt="Deriv’s Cayman Islands office at George Town"
+            alt={localize('_t_Deriv’s Cayman Islands office at George Town_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -688,7 +689,7 @@ export const roadtown: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/roadtown.jpg"
-            alt="Deriv’s British Virgin Islands office at Road Town"
+            alt={localize('_t_Deriv’s British Virgin Islands office at Road Town_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -721,7 +722,7 @@ export const jordan: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/jordan.jpg"
-            alt="Jordan alt img"
+            alt={localize('_t_Jordan alt img_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -758,7 +759,7 @@ export const singapore: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/singapore.png"
-            alt="Marina Bay Sands - Singapore"
+            alt={localize('_t_Marina Bay Sands - Singapore_t_')}
             formats={['avif']}
             loading="eager"
         />
@@ -797,7 +798,7 @@ export const ciudad: LocationsType = {
     hero_image: (
         <StaticImage
             src="../../../../images/common/careers/ciudad.jpg"
-            alt="Paraguay office at Ciudad del Este"
+            alt={localize('_t_Paraguay office at Ciudad del Este_t_')}
             formats={['avif']}
             loading="eager"
         />

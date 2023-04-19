@@ -7,6 +7,7 @@ import { LinkButton } from 'components/form'
 import { zoho_url } from 'common/constants'
 import { LocationContext } from 'components/layout/location-context'
 import device from 'themes/device'
+import { localize } from 'components/localization'
 
 const StyledHeader = styled(Header)`
     margin-bottom: 2.4rem;
@@ -81,7 +82,7 @@ const Hero = () => {
             <StaticImageWrapper>
                 <StaticImage
                     src="../../images/common/careers/career-landing-screen.jpg"
-                    alt="deriv careers"
+                    alt={localize('_t_deriv careers_t_')}
                     formats={['avif']}
                     style={{ opacity: '0.3' }}
                     loading="eager"

@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { BackgroundImageWrapper, Header, QueryImage, StaticImageWrapper } from 'components/elements'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Flex, Desktop, Mobile } from 'components/containers'
 
 const query = graphql`
@@ -94,7 +94,7 @@ const AfricaAward = () => {
                         <StaticImageWrapper>
                             <StaticImage
                                 src="../../images/common/choose-us/africa_award_bg.png"
-                                alt="africa forex award"
+                                alt={localize('_t_africa forex award_t_')}
                                 formats={['avif']}
                                 objectFit="contain"
                                 loading="eager"
@@ -131,7 +131,7 @@ const AfricaAward = () => {
                         <StaticImageWrapper>
                             <StaticImage
                                 src="../../images/common/choose-us/africa_award_bg_mobile.png"
-                                alt="africa forex award"
+                                alt={localize('_t_africa forex award_t_')}
                                 formats={['avif']}
                                 objectFit="contain"
                                 loading="eager"

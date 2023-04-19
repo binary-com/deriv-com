@@ -9,6 +9,7 @@ import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import Shape from 'components/custom/_hero-shape'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import Button from 'components/custom/_button'
 import { Container } from 'components/containers'
 
@@ -48,6 +49,7 @@ const BackgroundStyle = styled.div`
     display: flex;
     justify-content: flex-end;
     position: relative;
+    direction: ltr;
 
     @media ${device.tablet} {
         flex-direction: column-reverse;
@@ -55,13 +57,14 @@ const BackgroundStyle = styled.div`
         height: 100%;
     }
 `
-const ContentWrapperStyle = styled.div`
+const ContentWrapperStyle = styled.div<{ is_rtl: boolean }>`
     flex: 1;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     display: flex;
     max-width: 40%;
+    direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
     @media ${device.tablet} {
         max-width: 100%;
     }
@@ -116,10 +119,12 @@ const DCommonBanner = () => {
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
+    const is_rtl = useIsRtl()
+
     return (
         <BackgroundStyle>
             <StyledContainer jc="flex-start">
-                <ContentWrapperStyle>
+                <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
                         <StyledTradingLogin src={DerivXLogo} />
                         <CommonHeaderSection

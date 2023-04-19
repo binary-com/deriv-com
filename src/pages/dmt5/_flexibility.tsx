@@ -26,7 +26,6 @@ const BaseIconStyle = css`
     @media ${device.mobileL} {
         width: 32px;
         height: 32px;
-        margin: 0 0 16px;
     }
 `
 const StyledIcon = styled.img`
@@ -99,9 +98,17 @@ const ClientCard = styled.article`
 `
 
 const StyledHeader = styled(Header)<StyledHeaderType>`
-    margin: 24px 0 40px;
+    margin: 24px 0 8px;
     color: var(--color-black-9);
     @media ${device.mobileL} {
+        font-size: ${({ mobile_font_size }) => mobile_font_size};
+        margin: ${({ mobile_margin }) => mobile_margin};
+    }
+`
+const StyledMainHeader = styled(Header)<StyledHeaderType>`
+    margin: 0 0 40px;
+    color: var(--color-black-9);
+    @media ${device.tablet} {
         font-size: ${({ mobile_font_size }) => mobile_font_size};
         margin: ${({ mobile_margin }) => mobile_margin};
     }
@@ -128,7 +135,7 @@ const Flexibility = () => {
 
     return (
         <Section>
-            <StyledHeader
+            <StyledMainHeader
                 mobile_font_size="32px"
                 mobile_margin="0 0 24px"
                 align="center"
@@ -137,7 +144,7 @@ const Flexibility = () => {
                 mb="4rem"
             >
                 {title}
-            </StyledHeader>
+            </StyledMainHeader>
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
                 {chosen_content.map((item, idx) => {
                     return (
@@ -147,7 +154,7 @@ const Flexibility = () => {
                             <ClientCard key={idx}>
                                 {item.icon}
                                 <StyledHeader
-                                    mobile_margin="unset"
+                                    mobile_margin="24px 0 8px"
                                     mobile_font_size="20px"
                                     as="h4"
                                     type="sub-section-title"

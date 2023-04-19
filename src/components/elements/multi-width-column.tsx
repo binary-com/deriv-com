@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container } from 'components/containers'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import device from 'themes/device'
 //TODO: (deriv-rebranding) to make this section more reusable .
 
@@ -58,8 +59,8 @@ const Column = styled.div<{ background: string; width: string }>`
     }
 `
 
-const FirstColumn = styled(Column)`
-    padding-right: 50px;
+const FirstColumn = styled(Column)<{ is_rtl: boolean }>`
+    padding-right: ${(props) => (props.is_rtl ? '80px' : '50px')};
 
     @media ${device.tabletL} {
         padding-right: 0;
@@ -98,10 +99,16 @@ const MultiWidthColumn: React.FC<Props> = ({
     secondColumnMobileMargin,
     mobilePadding,
 }) => {
+    const is_rtl = useIsRtl()
+
     return (
         <StyledSectionContainer mobileBG={mobileBackgroundImage} mobilePadding={mobilePadding}>
             <Container ai="stretch" justify="flex-start" tablet_direction="column">
-                <FirstColumn background={firstColumnBackground} width={firstColumnWidth}>
+                <FirstColumn
+                    background={firstColumnBackground}
+                    width={firstColumnWidth}
+                    is_rtl={is_rtl}
+                >
                     <StyledContainer justify="center" ai="flex-start">
                         {children[0]}
                     </StyledContainer>

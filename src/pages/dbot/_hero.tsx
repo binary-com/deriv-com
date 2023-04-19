@@ -12,6 +12,7 @@ import { Localize } from 'components/localization'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import Shape from 'components/custom/_hero-shape'
 import Button from 'components/custom/_button'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import { Container } from 'components/containers'
 
 type DHeroProps = {
@@ -67,6 +68,7 @@ const BackgroundStyle = styled.div`
     display: flex;
     justify-content: flex-end;
     position: relative;
+    direction: ltr;
 
     @media ${device.tablet} {
         flex-direction: column-reverse;
@@ -74,12 +76,13 @@ const BackgroundStyle = styled.div`
         height: 100%;
     }
 `
-const ContentWrapperStyle = styled.div`
+const ContentWrapperStyle = styled.div<{ is_rtl: boolean }>`
     flex: 1;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     display: flex;
+    direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
     max-width: 55%;
     @media ${device.tablet} {
         max-width: 100%;
@@ -156,11 +159,12 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
+    const is_rtl = useIsRtl()
 
     return (
         <BackgroundStyle>
             <StyledContainer jc="flex-start">
-                <ContentWrapperStyle>
+                <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
                         <StyledLogo src={DerivBotLogo} />
                         <CommonHeaderSection

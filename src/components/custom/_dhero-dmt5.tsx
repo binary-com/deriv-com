@@ -11,6 +11,7 @@ import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import Shape from 'components/custom/_hero-shape'
 import useRegion from 'components/hooks/use-region'
 import Button from 'components/custom/_button'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import { Container } from 'components/containers'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
@@ -31,6 +32,9 @@ const ImageWrapper = styled.div`
     width: 100%;
     align-self: center;
     flex: 1 1 0%;
+    @media ${device.tablet} {
+        padding: 32px 0 5px;
+    }
 `
 const BannerButtonWrapper = styled.div`
     display: flex;
@@ -49,6 +53,7 @@ const BackgroundStyle = styled.div`
     display: flex;
     justify-content: flex-end;
     position: relative;
+    direction: ltr;
 
     @media ${device.tablet} {
         flex-direction: column-reverse;
@@ -56,13 +61,14 @@ const BackgroundStyle = styled.div`
         height: 100%;
     }
 `
-const ContentWrapperStyle = styled.div`
+const ContentWrapperStyle = styled.div<{ is_rtl: boolean }>`
     flex: 1;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     display: flex;
     max-width: 40%;
+    direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
     @media ${device.tablet} {
         max-width: 100%;
     }
@@ -92,7 +98,7 @@ const Content = styled.div`
     flex-direction: column;
 
     @media ${device.tablet} {
-        padding: 0 16px 64px;
+        padding: 0 16px 40px;
     }
 `
 const StyledTradingLogin = styled.img`
@@ -117,11 +123,12 @@ const DCommonBanner = () => {
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     const { is_eu } = useRegion()
+    const is_rtl = useIsRtl()
 
     return (
         <BackgroundStyle>
             <StyledContainer jc="flex-start">
-                <ContentWrapperStyle>
+                <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
                         <StyledTradingLogin src={DerivMT5Logo} />
                         <CommonHeaderSection

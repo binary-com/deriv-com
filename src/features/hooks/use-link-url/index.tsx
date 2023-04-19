@@ -7,7 +7,7 @@ import {
     getSmartTraderLocalizedURL,
     getThaiExcludedLocale,
 } from 'common/utility'
-import { ExternalLinkType, ExternalURLNames, LinkUrlType } from 'features/types'
+import { ExternalLinkType, ExternalURLNames, LinkTarget, LinkUrlType } from 'features/types'
 
 type ProductLinksType = {
     [Key in ExternalURLNames]?: (config: {
@@ -71,13 +71,12 @@ const useLinkUrl = () => {
                 const locale = i18n.language ?? 'en'
                 const { affiliate_lang } = language_config[locale]
                 const { url_name, path } = url
-                const foo = product_links[url_name]({
+                const company_link = product_links[url_name]({
                     language: language,
                     url: path ?? '',
                     affiliate_lang,
                 })
-
-                return foo
+                return company_link
             }
             return url.href
         },
@@ -86,10 +85,12 @@ const useLinkUrl = () => {
 
     const getLinkUrl = (url: LinkUrlType) => {
         let href = ''
+        let target: LinkTarget = url.target
         switch (url.type) {
             case 'company':
             case 'non-company':
                 href = getExternalLink(url)
+                target = '_blank'
                 break
             case 'internal':
                 href = getInternalLink(url.to)
@@ -98,7 +99,7 @@ const useLinkUrl = () => {
                 href = ''
                 break
         }
-        return { ...url, href }
+        return { ...url, href, target }
     }
 
     return { getLinkUrl }

@@ -20,7 +20,7 @@ type SpaceProps = {
     $spacing: Spacing
 }
 
-type DTradingProps = Spacing & {
+type DTradingProps = {
     reverse?: boolean
     trading?: TradingType[]
     two_title?: boolean

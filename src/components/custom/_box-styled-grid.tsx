@@ -29,6 +29,10 @@ const OptionGrid = styled(Grid)<{ boxsPerRow: string; containerWidth: string }>`
     grid-gap: 2.4rem;
     grid-template-columns: ${(props) => `repeat(${props.boxsPerRow}, 1fr)`};
     max-width: ${(props) => props.containerWidth || '890px'};
+    @media ${device.tabletL} {
+        grid-gap: 3rem;
+        grid-template-columns: 1fr 1fr;
+    }
     @media ${device.tablet} {
         grid-gap: 3rem;
         grid-template-columns: 1fr 1fr;
@@ -44,6 +48,10 @@ const OptionItems = styled(Flex)`
     align-items: flex-start;
     margin-bottom: 0.8rem;
 `
+const StyledHowItWorksItem = styled(HowItWorksItem)`
+    box-shadow: 0px 12px 16px -4px rgba(14, 14, 14, 0.08), 0px 4px 6px -2px rgba(14, 14, 14, 0.03);
+    border-radius: 16px;
+`
 const StyledSubText = styled(Header)`
     color: var(--color-black-9);
     font-weight: normal;
@@ -57,7 +65,7 @@ const BoxStyledGrid: React.FC<TProps> = ({ items, containerWidth, boxsPerRow = '
         <OptionGrid containerWidth={containerWidth} boxsPerRow={boxsPerRow}>
             {items.map((item, index) => {
                 return (
-                    <HowItWorksItem key={index}>
+                    <StyledHowItWorksItem key={index}>
                         <OptionItems>
                             <div>
                                 <img src={item.icon} alt={item.image_alt} />
@@ -67,7 +75,7 @@ const BoxStyledGrid: React.FC<TProps> = ({ items, containerWidth, boxsPerRow = '
                         <StyledSubText as="p" type="paragraph-1">
                             {item.subtitle}
                         </StyledSubText>
-                    </HowItWorksItem>
+                    </StyledHowItWorksItem>
                 )
             })}
         </OptionGrid>

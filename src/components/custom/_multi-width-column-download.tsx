@@ -49,6 +49,7 @@ const DownloadAppOsLinks = styled.div`
 `
 const StyledOsIcon = styled.img`
     width: 24px;
+    height: 24px;
     margin-right: 8px;
 `
 const StyledItemText = styled(Header)`

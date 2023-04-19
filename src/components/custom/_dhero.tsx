@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
 import Shape from './_hero-shape'
 import Button from './_button'
-import DerivTraderRow from 'images/common/dtrader/hero-image.png'
-import DerivTraderEu from 'images/common/dtrader/hero-image-eu.png'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import DerivTLogo from 'images/svg/dtrader/deriv-trader-banner-logo.svg'
 import device from 'themes/device'
@@ -16,6 +14,7 @@ import { Localize } from 'components/localization'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useRegion from 'components/hooks/use-region'
 import { Container } from 'components/containers'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type DHeroProps = {
     background_alt?: string
@@ -70,6 +69,7 @@ const BackgroundStyle = styled.div`
     display: flex;
     justify-content: flex-end;
     position: relative;
+    direction: ltr;
 
     @media ${device.tablet} {
         flex-direction: column-reverse;
@@ -77,13 +77,14 @@ const BackgroundStyle = styled.div`
         height: 100%;
     }
 `
-const ContentWrapperStyle = styled.div`
+const ContentWrapperStyle = styled.div<{ is_rtl: boolean }>`
     flex: 1;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     display: flex;
     max-width: 40%;
+    direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
     @media ${device.tablet} {
         max-width: 100%;
     }
@@ -151,10 +152,12 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const { is_eu, is_row } = useRegion()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
+    const is_rtl = useIsRtl()
+
     return (
         <BackgroundStyle>
             <StyledContainer jc="flex-start">
-                <ContentWrapperStyle>
+                <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
                         <img width="237px" height="64px" src={DerivTLogo} />
                         <CommonHeaderSection

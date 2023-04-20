@@ -37,6 +37,7 @@ const QueryImage = ({
     ...props
 }: QueryImageProps) => {
     const image = getImage(data)
+    alert(image)
     if (data) {
         return (
             <ImageWrapper width={width} height={height} className={className} onClick={onClick}>

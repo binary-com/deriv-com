@@ -19,9 +19,6 @@ const checkDomain = () => {
         ),
     )
 }
-require('dotenv').config({
-    path: `.env.${process.env.NODE_ENV}`,
-})
 
 const dd_clientToken = process.env.DATADOG_CLIENT_TOKEN
 const dd_applicationId = process.env.DATADOG_APPLICATION_ID

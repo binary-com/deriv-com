@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { Header } from 'components/elements'
 import { SectionContainer } from 'components/containers'
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 
 const Section = styled(SectionContainer)`
@@ -36,14 +37,18 @@ const StyledText = styled(Header)`
 `
 
 const WhatIsTrader = () => {
+    const { is_eu } = useRegion()
+
     return (
         <Section>
             <StyledHeader align="center" mb="1.2rem" as="h2" type="page-title">
                 {localize('What is Deriv MT5')}
             </StyledHeader>
             <StyledText max_width="80.2rem" align="center" as="p" type="paragraph-1">
-                {localize(
-                    'Deriv MT5 gives you access to multiple asset classes — forex, stocks & indices, cryptocurrencies, commodities, and derived indices — on a single platform. With exclusive access to innovative assets, Deriv brings the MT5 experience to a superior level for both new and experienced traders.',
+                {is_eu ? (
+                    <Localize translate_text="Deriv MT5 gives you access to multiple asset classes – forex, stocks & indices, cryptocurrencies, commodities, and derived indices – on a single platform. With exclusive access to innovative assets, Deriv brings the MT5 experience to a superior level for both new and experienced traders." />
+                ) : (
+                    <Localize translate_text="Deriv MT5 gives you access to multiple asset classes – forex, stocks & indices, cryptocurrencies, commodities, and derived indices — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders." />
                 )}
             </StyledText>
         </Section>

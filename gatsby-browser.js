@@ -20,8 +20,8 @@ const checkDomain = () => {
     )
 }
 
-const dd_clientToken = process.env.DATADOG_CLIENT_TOKEN
-const dd_applicationId = process.env.DATADOG_APPLICATION_ID
+const dd_applicationId = '5c8975a3-ec86-4a64-8a3a-e6888fdde082'
+const dd_clientToken = 'pub08554ab30284600af157441bfb0fa923'
 
 const sendTags = (api) => {
     const language = LocalStore.get('i18n') || ''
@@ -87,30 +87,10 @@ export const wrapRootElement = ({ element }) => {
 
 export const onInitialClientRender = () => {
     if (is_browser) {
+        //datadog
         const dd_script = document.createElement('script')
         dd_script.type = 'text/javascript'
-        dd_script.text = `(function(h,o,u,n,d) {
-            h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
-            d=o.createElement(u);d.async=1;d.src=n
-            n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
-        })(window,document,'script','https://www.datadoghq-browser-agent.com/us1/v4/datadog-rum.js','DD_RUM')
-        window.DD_RUM.onReady(function() {
-            window.DD_RUM.init({
-                clientToken: ${dd_clientToken},
-                applicationId: ${dd_applicationId},
-                site: 'datadoghq.com',
-                service: 'deriv.com',
-                env: 'production',
-                version: '1.0.2',
-                sessionSampleRate: 10,
-                sessionReplaySampleRate: 1, // if not included, the default is 100
-                trackResources: true,
-                trackLongTasks: true,
-                trackUserInteractions: true,
-                enableExperimentalFeatures: ['clickmap'],
-                defaultPrivacyLevel:'mask-user-input'
-            })
-          })`
+        dd_script.text = `!function(e,a,t,n,s){e=e[s]=e[s]||{q:[],onReady:function(a){e.q.push(a)}},(s=a.createElement(t)).async=1,s.src=n,(n=a.getElementsByTagName(t)[0]).parentNode.insertBefore(s,n)}(window,document,"script","https://www.datadoghq-browser-agent.com/us1/v4/datadog-rum.js","DD_RUM"),window.DD_RUM.onReady(function(){window.DD_RUM.init({clientToken: "${dd_clientToken}",applicationId: "${dd_applicationId}",site:"datadoghq.com",service:"deriv.com",env:"production",version:"1.0.2",sessionSampleRate:10,sessionReplaySampleRate:1,trackResources:!0,trackLongTasks:!0,trackUserInteractions:!0,enableExperimentalFeatures:["clickmap"],defaultPrivacyLevel:"mask-user-input"})});`
         document.head.appendChild(dd_script)
 
         // Check for PerformanceLongTaskTiming compatibility before collecting measurement

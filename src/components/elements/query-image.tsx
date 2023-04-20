@@ -2,7 +2,6 @@ import React, { CSSProperties, ReactElement } from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import type { ImageDataLike, IGatsbyImageData, GatsbyImageProps } from 'gatsby-plugin-image'
-import { isBrowser } from 'common/utility'
 
 export type QueryImageProps = {
     alt: ReactElement | string
@@ -38,7 +37,6 @@ const QueryImage = ({
     ...props
 }: QueryImageProps) => {
     const image = getImage(data)
-    isBrowser && alert(image)
     if (data) {
         return (
             <ImageWrapper width={width} height={height} className={className} onClick={onClick}>

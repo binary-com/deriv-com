@@ -39,7 +39,7 @@ const NavSectionContainer = ({ items }: { items: TSmartNavSectionColumns[] }) =>
                         className={styles.section_items_title}
                         textcolor="secondary"
                         align="left"
-                        mb="8x"
+                        mb="2x"
                     >
                         {sectionItem.data.title ? (
                             <Localize translate_text={sectionItem.data.title} />

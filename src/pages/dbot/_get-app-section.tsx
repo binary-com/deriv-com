@@ -8,15 +8,17 @@ import MultiWidthColumn from 'components/elements/multi-width-column'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import Button from 'components/custom/_button'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import device from 'themes/device'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
     gap: 28px;
     flex: 1;
     z-index: 2;
+    direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
     @media ${device.tabletL} {
         flex-direction: column;
         justify-content: center;
@@ -41,22 +43,23 @@ const DBotGetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
+    const is_rtl = useIsRtl()
 
     return (
         <MultiWidthColumn
             firstColumnBackground="#4C515C"
             secondColumnBackground={GrayAngle30}
-            firstColumnWidth="70%"
-            secondColumnWidth="30%"
+            firstColumnWidth="88%"
+            secondColumnWidth="22%"
             mobileBackgroundImage={GetAppMobileBG}
         >
-            <ContentWrapper>
+            <ContentWrapper is_rtl={is_rtl}>
                 <img src={derivBotLogo} alt="dtrader logo" width="64px" height="64px" />
                 <TextAndButtonWrapper>
                     <CommonHeaderSection
                         title="_t_Get into the Deriv Bot experience_t_"
                         title_font_size={is_mobile_or_tablet ? '32px' : '64px'}
-                        align_title={is_mobile_or_tablet ? 'center' : 'left'}
+                        align_title={is_mobile_or_tablet ? 'center' : is_rtl ? 'right' : 'left'}
                         width="100%"
                         font_family_title="Ubuntu"
                         color="#fff"

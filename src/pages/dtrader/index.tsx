@@ -5,8 +5,6 @@ import DtraderGetApps from './_get-app-section'
 import OurPlatforms from './_our-platforms'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { size } from 'themes/device'
-import { isBrowser } from 'common/utility'
 import { localize, WithIntl, Localize } from 'components/localization'
 import DHero from 'components/custom/_dhero'
 import DNumber from 'components/custom/_dnumbers'
@@ -93,43 +91,52 @@ const trading_eu = [
     },
 ]
 const Dtrader = () => {
-    const [is_mobile, setMobile] = useState(false)
     const { is_eu, is_row } = useRegion()
-
-    const handleResizeWindow = () => {
-        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
-    }
+    const [is_loaded, setLoaded] = useState(false)
 
     useEffect(() => {
-        setMobile(isBrowser() ? window.screen.width <= size.mobileL : false)
-        window.addEventListener('resize', handleResizeWindow)
-    })
+        setLoaded(true)
+    }, [])
+
+    if (is_loaded) {
+        return (
+            <>
+                <SEO
+                    title={localize('DTrader | Online trading platform | Deriv')}
+                    description={localize(
+                        'DTrader keeps online trading simple. Trade forex, commodities, stock indices, cryptocurrencies, and Deriv’s synthetic indices.',
+                    )}
+                    meta_attributes={meta_attributes}
+                />
+                <Layout>
+                    <DHero
+                        join_us_for_free
+                        is_live_demo
+                        image_name={is_eu ? 'dtrader_eu' : 'dtrader'}
+                        background_alt={localize('Trade volatility indices with DTrader at Deriv')}
+                    />
+                    {is_row && <DNumber items={items} justify="space-around" />}
+                    {is_eu && <DNumber items={itemsEU} justify="space-around" />}
+
+                    <DtraderEasySteps />
+                    {is_row && <DTrading trading={trading} />}
+                    {is_eu && <DTrading trading={trading_eu} />}
+
+                    <DtraderGetApps />
+                    {is_row && <OurPlatforms />}
+                </Layout>
+            </>
+        )
+    }
 
     return (
-        <Layout>
-            <SEO
-                title={localize('DTrader | Online trading platform | Deriv')}
-                description={localize(
-                    'DTrader keeps online trading simple. Trade forex, commodities, stock indices, cryptocurrencies, and Deriv’s synthetic indices.',
-                )}
-                meta_attributes={meta_attributes}
-            />
-            <DHero
-                join_us_for_free
-                is_live_demo
-                image_name={is_eu ? 'dtrader_eu' : 'dtrader'}
-                background_alt={localize('Trade volatility indices with DTrader at Deriv')}
-            />
-            {is_row && <DNumber items={items} justify="space-around" />}
-            {is_eu && <DNumber items={itemsEU} justify="space-around" />}
-
-            <DtraderEasySteps />
-            {is_row && <DTrading trading={trading} />}
-            {is_eu && <DTrading trading={trading_eu} />}
-
-            <DtraderGetApps />
-            {is_row && <OurPlatforms />}
-        </Layout>
+        <SEO
+            title={localize('DTrader | Online trading platform | Deriv')}
+            description={localize(
+                'DTrader keeps online trading simple. Trade forex, commodities, stock indices, cryptocurrencies, and Deriv’s synthetic indices.',
+            )}
+            meta_attributes={meta_attributes}
+        />
     )
 }
 

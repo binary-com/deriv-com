@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Header } from 'components/elements/typography'
 import { LocalizedLink, localize } from 'components/localization'
 import Flex from 'components/containers/flex'
+import device from 'themes/device'
 
 type TItem = {
     text: string
@@ -16,12 +17,14 @@ type TProps = {
     QRImage?: string
     QRHeading1?: string
     QRHeading2?: string
+    is_rtl: boolean
 }
 
-const DownloadAppWrapper = styled.div`
+const DownloadAppWrapper = styled.div<{ is_rtl: boolean }>`
     max-width: 384px;
     width: 100%;
     margin: 0 auto;
+    direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
 `
 const QRScanBox = styled.div`
     border: 0.5px solid var(--color-white);
@@ -39,9 +42,14 @@ const StyledHeading = styled(Header)`
 `
 const DownloadAppOsLinks = styled.div`
     padding: 24px;
+
+    @media ${device.tabletL} {
+        padding: 24px 5px;
+    }
 `
 const StyledOsIcon = styled.img`
     width: 24px;
+    height: 24px;
     margin-right: 8px;
 `
 const StyledItemText = styled(Header)`
@@ -65,18 +73,18 @@ const StyledItemsWrapper = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 18px;
 `
-const DownloadColumn: React.FC<TProps> = ({ items, QRImage, QRHeading1, QRHeading2 }) => {
+const DownloadColumn: React.FC<TProps> = ({ items, QRImage, QRHeading1, QRHeading2, is_rtl }) => {
     return (
         <Flex ai="center">
-            <DownloadAppWrapper>
+            <DownloadAppWrapper is_rtl={is_rtl}>
                 <QRScanBox>
                     <img src={QRImage} alt="Deriv GO QR" />
                     <div>
                         <StyledHeading as="p" weight="100">
-                            {localize(`_t_${QRHeading1}_t_`)}
+                            {localize(`${QRHeading1}`)}
                         </StyledHeading>
                         <StyledHeading as="h5" weight="700">
-                            {localize(`_t_${QRHeading2}_t_`)}
+                            {localize(`${QRHeading2}`)}
                         </StyledHeading>
                     </div>
                 </QRScanBox>
@@ -93,7 +101,7 @@ const DownloadColumn: React.FC<TProps> = ({ items, QRImage, QRHeading1, QRHeadin
                                 >
                                     {item?.smallText && (
                                         <StyledItemSmallText as="p" weight="400">
-                                            {item?.smallText}
+                                            {localize(item?.smallText)}
                                         </StyledItemSmallText>
                                     )}
                                     <StyledItemText as="p" weight="700">

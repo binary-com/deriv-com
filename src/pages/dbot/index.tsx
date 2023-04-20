@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useCallback, useEffect, useState } from 'react'
 import Loadable from '@loadable/component'
 import PageNotFound from '../404'
 import DCommonBanner from './_hero'
@@ -42,7 +42,7 @@ const trading: TradingType[] = [
     {
         title: <Localize translate_text="Start with a popular strategy" />,
         subtitle: (
-            <Localize translate_text="Martingale, D'Alembert, and Oscar's Grind — load and customise proven strategies or create your own from scratch." />
+            <Localize translate_text="_t_Martingale, D'Alembert, and Oscar's Grind — load and customise proven strategies or create your own from scratch._t_" />
         ),
         image_name: 'dbot_strategy',
         image_alt: localize('Customise your DBot strategy'),
@@ -58,7 +58,7 @@ const trading: TradingType[] = [
     {
         title: <Localize translate_text="Maximise profits, limit losses" />,
         subtitle: (
-            <Localize translate_text="Use analysis tools, indicators, and smart logic such as take profit and stop loss to maximise your profits and limit losses." />
+            <Localize translate_text="_t_Use analysis tools, indicators, and smart logic such as take profit and stop loss to maximise your profits and limit losses._t_" />
         ),
         image_name: 'dbot_maximise_profits',
         image_alt: localize('Increase your profits'),
@@ -91,27 +91,44 @@ const trading: TradingType[] = [
 
 const Dbot = () => {
     const { is_eu, is_row } = useRegion()
-    return (
-        <>
-            <SEO
-                title={localize('DBot | Trading robot | Deriv')}
-                description={localize(
-                    'Automate your trading with DBot, Deriv’s trading robot which you can build without writing code.',
+    const [is_loaded, setLoaded] = useState(false)
+
+    useEffect(() => {
+        setLoaded(true)
+    }, [])
+
+    if (is_loaded) {
+        return (
+            <>
+                <SEO
+                    title={localize('DBot | Trading robot | Deriv')}
+                    description={localize(
+                        'Automate your trading with DBot, Deriv’s trading robot which you can build without writing code.',
+                    )}
+                    meta_attributes={meta_attributes}
+                />
+                {is_row && (
+                    <Layout>
+                        <DCommonBanner join_us_for_free is_live_demo image_name="dbot" />
+                        <DNumber items={items} justify="space-around" />
+                        <DBotEasySteps />
+                        <DTrading trading={trading} />
+                        <DBotGetApp />
+                        <OurPlatforms />
+                    </Layout>
                 )}
-                meta_attributes={meta_attributes}
-            />
-            {is_row && (
-                <Layout>
-                    <DCommonBanner join_us_for_free is_live_demo image_name="dbot" />
-                    <DNumber items={items} justify="space-around" />
-                    <DBotEasySteps />
-                    <DTrading trading={trading} />
-                    <DBotGetApp />
-                    <OurPlatforms />
-                </Layout>
+                {is_eu && <PageNotFound />}
+            </>
+        )
+    }
+    return (
+        <SEO
+            title={localize('DBot | Trading robot | Deriv')}
+            description={localize(
+                'Automate your trading with DBot, Deriv’s trading robot which you can build without writing code.',
             )}
-            {is_eu && <PageNotFound />}
-        </>
+            meta_attributes={meta_attributes}
+        />
     )
 }
 

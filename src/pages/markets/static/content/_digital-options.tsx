@@ -342,7 +342,7 @@ export const stock_options: Options = {
                 ),
                 component: <Europe />,
                 details: <EuropeDetails custom_index={-1} />,
-                col: 4,
+                col: 3,
                 tablet_col: 2,
                 mobile_col: 2,
                 padding: '32px 16px',

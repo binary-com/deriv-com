@@ -2,7 +2,6 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import FinancialIcon from 'images/svg/dmt5/financial.svg'
 import DerivedIcon from 'images/svg/dmt5/derived.svg'
@@ -27,7 +26,6 @@ const BaseIconStyle = css`
     @media ${device.mobileL} {
         width: 32px;
         height: 32px;
-        margin: 0 0 16px;
     }
 `
 const StyledIcon = styled.img`
@@ -55,7 +53,7 @@ const eucontent: ContentType[] = [
     {
         header: <Localize translate_text="CFDs" />,
         text: (
-            <Localize translate_text="Trade CFDs on forex, stocks, stock indices, synthetic indices, cryptocurrencies, and commodities with leverage." />
+            <Localize translate_text="Trade CFDs on forex, stocks, stock indices, synthetics, cryptocurrencies, and commodities with leverage." />
         ),
         icon: <StyledIcon src={CFDsIcon} alt="cfds-icon" />,
         show_eu: true,
@@ -98,20 +96,19 @@ const ClientCard = styled.article`
         }
     }
 `
-const StyledLinkButton = styled(LinkButton)`
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 16px;
-    height: 40px;
-    border: unset;
-    width: auto;
-    margin: auto;
-`
 
 const StyledHeader = styled(Header)<StyledHeaderType>`
-    margin: 24px 0 40px;
+    margin: 24px 0 8px;
     color: var(--color-black-9);
     @media ${device.mobileL} {
+        font-size: ${({ mobile_font_size }) => mobile_font_size};
+        margin: ${({ mobile_margin }) => mobile_margin};
+    }
+`
+const StyledMainHeader = styled(Header)<StyledHeaderType>`
+    margin: 0 0 40px;
+    color: var(--color-black-9);
+    @media ${device.tablet} {
         font-size: ${({ mobile_font_size }) => mobile_font_size};
         margin: ${({ mobile_margin }) => mobile_margin};
     }
@@ -138,7 +135,7 @@ const Flexibility = () => {
 
     return (
         <Section>
-            <StyledHeader
+            <StyledMainHeader
                 mobile_font_size="32px"
                 mobile_margin="0 0 24px"
                 align="center"
@@ -147,7 +144,7 @@ const Flexibility = () => {
                 mb="4rem"
             >
                 {title}
-            </StyledHeader>
+            </StyledMainHeader>
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
                 {chosen_content.map((item, idx) => {
                     return (
@@ -157,7 +154,7 @@ const Flexibility = () => {
                             <ClientCard key={idx}>
                                 {item.icon}
                                 <StyledHeader
-                                    mobile_margin="unset"
+                                    mobile_margin="24px 0 8px"
                                     mobile_font_size="20px"
                                     as="h4"
                                     type="sub-section-title"
@@ -170,15 +167,6 @@ const Flexibility = () => {
                     )
                 })}
             </Flex>
-            <StyledLinkButton
-                external
-                secondary
-                type="mt5"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                {localize('Go to Deriv MT5 dashboard')}
-            </StyledLinkButton>
         </Section>
     )
 }

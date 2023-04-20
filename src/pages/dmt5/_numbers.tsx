@@ -11,7 +11,7 @@ type NumbersContentType = {
 
 const numbers_content: NumbersContentType[] = [
     {
-        title: <Localize translate_text="475K+" />,
+        title: <Localize translate_text="475k+" />,
         subtitle: <Localize translate_text="clients on Deriv MT5" />,
     },
     {
@@ -25,7 +25,7 @@ const numbers_content: NumbersContentType[] = [
 ]
 const numbers_content_eu: NumbersContentType[] = [
     {
-        title: <Localize translate_text="475K+" />,
+        title: <Localize translate_text="475k+" />,
         subtitle: <Localize translate_text="active traders on Deriv MT5" />,
     },
     {

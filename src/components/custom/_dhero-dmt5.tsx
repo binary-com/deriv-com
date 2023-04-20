@@ -1,33 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
-import DerivBotLogo from 'images/svg/dbot/deriv-bot-banner-logo.svg'
 import CommonHeaderSection from 'components/elements/common-header-section'
+import DerivMT5Logo from 'images/svg/dmt5/dmt5-banner-logo.svg'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
-import { LinkButton } from 'components/form'
-import { Localize } from 'components/localization'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import Shape from 'components/custom/_hero-shape'
+import useRegion from 'components/hooks/use-region'
 import Button from 'components/custom/_button'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { Container } from 'components/containers'
-
-type DHeroProps = {
-    background_alt?: string
-    background_image_name?: string
-    background_svg?: string
-    content?: string | JSX.Element
-    is_live_demo?: boolean
-    image_name?: string
-    is_mobile?: boolean | string
-    hide_signup_login?: boolean
-    join_us_for_free?: boolean
-    Logo?: string
-    title?: string | JSX.Element
-}
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
@@ -37,10 +22,9 @@ const ImageStyle = styled.div`
     width: inherit;
 
     @media ${device.tablet} {
-        width: 80%;
+        width: 92%;
     }
 `
-
 const ImageWrapper = styled.div`
     display: flex;
     padding: 64px 0;
@@ -49,12 +33,13 @@ const ImageWrapper = styled.div`
     align-self: center;
     flex: 1 1 0%;
     @media ${device.tablet} {
-        padding: 64px 0 54px;
+        padding: 32px 0 5px;
     }
 `
 const BannerButtonWrapper = styled.div`
     display: flex;
     align-items: center;
+
     @media ${device.tablet} {
         flex-direction: column;
         justify-content: center;
@@ -82,14 +67,14 @@ const ContentWrapperStyle = styled.div<{ is_rtl: boolean }>`
     align-items: center;
     flex-direction: column;
     display: flex;
+    max-width: 40%;
     direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
-    max-width: 55%;
     @media ${device.tablet} {
         max-width: 100%;
     }
 `
 const HeroImageWrapper = styled.div`
-    width: 45%;
+    width: 60%;
     position: absolute;
     right: 0;
     height: 100%;
@@ -99,27 +84,6 @@ const HeroImageWrapper = styled.div`
         position: relative;
     }
 `
-const GoToLiveDemo = styled(LinkButton)`
-    color: var(--color-red);
-    border-color: var(--color-red);
-    padding: 11px 16px;
-    width: auto;
-    border-radius: 16px;
-
-    &:hover {
-        color: var(--color-white);
-        background-color: var(--color-red);
-    }
-    @media ${device.tablet} {
-        max-width: 100%;
-        white-space: nowrap;
-        margin-left: 0;
-        width: 100%;
-    }
-    @media (max-width: 360px) {
-        white-space: nowrap;
-    }
-`
 const CreateAccountButton = styled(Button)`
     @media ${device.tablet} {
         max-width: 100%;
@@ -127,18 +91,18 @@ const CreateAccountButton = styled(Button)`
     }
 `
 const Content = styled.div`
-    max-width: 775px;
+    max-width: 632px;
     width: 100%;
     display: flex;
     gap: 30px;
     flex-direction: column;
 
     @media ${device.tablet} {
-        padding: 0 16px 64px;
+        padding: 0 16px 40px;
     }
 `
-const StyledLogo = styled.img`
-    width: 248px;
+const StyledTradingLogin = styled.img`
+    width: 205px;
     height: 64px;
 
     @media ${device.tablet} {
@@ -154,11 +118,11 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
-const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
-    const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
+const DCommonBanner = () => {
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
+    const { is_eu } = useRegion()
     const is_rtl = useIsRtl()
 
     return (
@@ -166,52 +130,52 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
             <StyledContainer jc="flex-start">
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
-                        <StyledLogo src={DerivBotLogo} />
+                        <StyledTradingLogin src={DerivMT5Logo} />
                         <CommonHeaderSection
-                            title="_t_Automate your trading ideas without writing code_t_"
+                            title="_t_The all-in-one CFD trading platform_t_"
                             title_font_size={is_mobile ? '32px' : '64px'}
                             color="var(--color-black-9)"
                         />
                         <BannerButtonWrapper>
-                            {join_us_for_free &&
-                                (is_logged_in ? (
-                                    <CreateAccountButton
-                                        onClick={handleGetTrading}
-                                        label="_t_Get Trading_t_"
-                                        primary
-                                        mobileFullWidth
-                                    />
-                                ) : (
-                                    <CreateAccountButton
-                                        onClick={handleSignup}
-                                        label="_t_Create free demo account_t_"
-                                        primary
-                                        mobileFullWidth
-                                    />
-                                ))}
-                            {is_live_demo && (
-                                <GoToLiveDemo
-                                    tertiary
-                                    external
-                                    type={getLinkType()}
-                                    target="_blank"
-                                    rel="noopener noreferrer nofollow"
-                                >
-                                    <Localize translate_text="Go to live demo" />
-                                </GoToLiveDemo>
+                            {is_logged_in ? (
+                                <CreateAccountButton
+                                    onClick={handleGetTrading}
+                                    label="_t_Get Trading_t_"
+                                    primary
+                                    mobileFullWidth
+                                />
+                            ) : (
+                                <CreateAccountButton
+                                    onClick={handleSignup}
+                                    label="_t_Create free demo account_t_"
+                                    primary
+                                    mobileFullWidth
+                                />
                             )}
                         </BannerButtonWrapper>
                     </Content>
                 </ContentWrapperStyle>
                 <HeroImageWrapper>
-                    <Shape angle={is_mobile ? 101 : 163} width="50%">
+                    <Shape
+                        angle={is_mobile ? 101 : 194}
+                        width={is_mobile ? '55%' : '60%'}
+                        color="#0364B9"
+                    >
                         <ImageWrapper>
                             <ImageStyle>
-                                <StaticImage
-                                    src="../../images/common/dbot/dbot-banner.png"
-                                    loading="eager"
-                                    alt="banner"
-                                />
+                                {is_eu ? (
+                                    <StaticImage
+                                        src="../../images/common/dmt5/banner_image_eu.png"
+                                        loading="eager"
+                                        alt="banner"
+                                    />
+                                ) : (
+                                    <StaticImage
+                                        src="../../images/common/dmt5/banner_image_row.png"
+                                        loading="eager"
+                                        alt="banner"
+                                    />
+                                )}
                             </ImageStyle>
                         </ImageWrapper>
                     </Shape>
@@ -221,4 +185,4 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     )
 }
 
-export default DHero
+export default DCommonBanner

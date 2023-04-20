@@ -72,9 +72,9 @@ const derivGoPortalData: DerivGoPortalType = {
 }
 
 const DerivGo = () => {
-    const { is_region_loading, is_row } = useRegion()
+    const { is_row } = useRegion()
 
-    if (!is_region_loading && is_row) {
+    if (is_row) {
         return (
             <Layout>
                 <SEO

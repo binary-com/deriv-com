@@ -19,6 +19,12 @@ const checkDomain = () => {
         ),
     )
 }
+require('dotenv').config({
+    path: `.env.${process.env.NODE_ENV}`,
+})
+
+const dd_clientToken = process.env.DATADOG_CLIENT_TOKEN
+const dd_applicationId = process.env.DATADOG_APPLICATION_ID
 
 const sendTags = (api) => {
     const language = LocalStore.get('i18n') || ''
@@ -71,7 +77,7 @@ const pushwooshInit = (push_woosh) => {
                     }
                 })
                 // eslint-disable-next-line no-empty
-            } catch {}
+            } catch { }
 
             sendTags(api)
         },
@@ -84,6 +90,32 @@ export const wrapRootElement = ({ element }) => {
 
 export const onInitialClientRender = () => {
     if (is_browser) {
+        const dd_script = document.createElement('script')
+        dd_script.type = 'text/javascript'
+        dd_script.text = `(function(h,o,u,n,d) {
+            h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
+            d=o.createElement(u);d.async=1;d.src=n
+            n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
+        })(window,document,'script','https://www.datadoghq-browser-agent.com/us1/v4/datadog-rum.js','DD_RUM')
+        window.DD_RUM.onReady(function() {
+            window.DD_RUM.init({
+                clientToken: ${dd_clientToken},
+                applicationId: ${dd_applicationId},
+                site: 'datadoghq.com',
+                service: 'deriv.com',
+                env: 'production',
+                version: '1.0.2',
+                sessionSampleRate: 10,
+                sessionReplaySampleRate: 1, // if not included, the default is 100
+                trackResources: true,
+                trackLongTasks: true,
+                trackUserInteractions: true,
+                enableExperimentalFeatures: ['clickmap'],
+                defaultPrivacyLevel:'mask-user-input'
+            })
+          })`
+        document.head.appendChild(dd_script)
+
         // Check for PerformanceLongTaskTiming compatibility before collecting measurement
         const tti_script = document.createElement('script')
         tti_script.type = 'text/javascript'

@@ -393,9 +393,7 @@ const StartTrader = () => {
                 ),
             },
             {
-                title: () => (
-                    <Localize translate_text="Create a CFDs real accountn your trade preference.." />
-                ),
+                title: () => <Localize translate_text="Create a CFDs real account." />,
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step3_mobile_eu' : 'real_step3_eu']}

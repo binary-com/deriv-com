@@ -34,7 +34,7 @@ const PublicSignupBanner = () => {
                             />
                         </Typography.Heading>
                     </Flex.Item>
-                    <Image src={Arrow} width={32} height={32} />
+                    <Image has_rtl src={Arrow} width={32} height={32} />
                 </Flex.Box>
             </Link>
         </Flex.Item>

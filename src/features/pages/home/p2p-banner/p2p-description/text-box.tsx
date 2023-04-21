@@ -3,7 +3,7 @@ import Typography from 'features/components/atoms/typography'
 import Link from 'features/components/atoms/link'
 import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
-import DerivP2PIcon from 'images/common/home/deriv_p2p.png'
+import DerivP2PIcon from 'images/common/home/deriv_p2p.svg'
 import Image from 'features/components/atoms/image'
 
 const P2PTextBox = () => {

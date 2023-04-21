@@ -8,6 +8,7 @@ import useHandleSignup from 'components/hooks/use-handle-signup'
 import usePpc from 'features/hooks/use-ppc'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import LanguageSwitcher from 'features/components/molecules/language-switcher'
+import Box from 'features/components/atoms/box'
 
 const MainNavButtons = () => {
     const [is_logged_in] = useAuthCheck()
@@ -20,15 +21,21 @@ const MainNavButtons = () => {
     return (
         <>
             {is_logged_in ? (
-                <Button.Primary
-                    disabled={is_region_loading}
-                    onClick={handleGetTrading}
-                    aria-label="Get Trading"
-                >
-                    <Localize translate_text="_t_Get Trading_t_" />
-                </Button.Primary>
+                <>
+                    <LanguageSwitcher />
+                    <Button.Primary
+                        disabled={is_region_loading}
+                        onClick={handleGetTrading}
+                        aria-label="Get Trading"
+                    >
+                        <Localize translate_text="_t_Get Trading_t_" />
+                    </Button.Primary>
+                </>
             ) : (
                 <>
+                    <Box visible="phone-and-tablet">
+                        <LanguageSwitcher />
+                    </Box>
                     <Button.Primary
                         disabled={is_region_loading}
                         id="dm-nav-login-button"
@@ -38,7 +45,6 @@ const MainNavButtons = () => {
                     >
                         <Localize translate_text="_t_Log in_t_" />
                     </Button.Primary>
-
                     <Button.Primary
                         visible="larger-than-tablet"
                         disabled={is_region_loading}
@@ -48,9 +54,11 @@ const MainNavButtons = () => {
                     >
                         <Localize translate_text="_t_Create free demo account_t_" />
                     </Button.Primary>
+                    <Box visible="larger-than-tablet">
+                        <LanguageSwitcher />
+                    </Box>
                 </>
             )}
-            <LanguageSwitcher />
         </>
     )
 }

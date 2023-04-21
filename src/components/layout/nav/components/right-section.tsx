@@ -7,7 +7,7 @@ import { Button } from 'components/form'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 

@@ -10,7 +10,7 @@ import InstantAccess from 'images/svg/trade-types/instant-access.svg'
 import FavoriteMarket from 'images/svg/trade-types/favoritemarket.svg'
 import { Button } from 'components/form'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 const WhyTradeCFD = () => {
     const { is_eu } = useRegion()

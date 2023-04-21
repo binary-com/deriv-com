@@ -6,7 +6,7 @@ import { localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/partners/dot-pattern.svg'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 const AccordionWrapper = styled.div`
     max-width: 99.6rem;

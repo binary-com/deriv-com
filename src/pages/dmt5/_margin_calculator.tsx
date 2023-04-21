@@ -7,7 +7,7 @@ import { Carousel, CarouselProps, Header, LinkText, QueryImage, Text } from 'com
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 import { TString } from 'types/generics'
 

@@ -7,7 +7,7 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { Localize } from 'components/localization'
 import { QueryImage, LocalizedLinkText } from 'components/elements'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 const Container = styled.section`
     width: 100%;

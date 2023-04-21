@@ -10,7 +10,7 @@ import type {
 import { SectionContainer } from 'components/containers'
 import { Text } from 'components/elements'
 import { localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 type MultipliersProps = {
     market_content: ForexAndBasketMultiplier | CryptoMultiplier | SyntheticMultiplier

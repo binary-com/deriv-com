@@ -10,7 +10,7 @@ import device from 'themes/device'
 import DefinePosition from 'images/svg/trade-types/define-your-position.svg'
 import SetOptionalParameters from 'images/svg/trade-types/set-optional-parameters.svg'
 import PurchaseContract from 'images/svg/trade-types/purchase-your-contract.svg'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 const query = graphql`
     query {

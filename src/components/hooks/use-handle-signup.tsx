@@ -1,7 +1,7 @@
 import { navigate, withPrefix } from 'gatsby'
 import usePopup from './use-popup'
 import { isEuDomain, getLanguage } from 'common/utility'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 const useHandleSignup = (_is_ppc = false) => {
     const { is_region_loading, is_eu_location } = useRegion()

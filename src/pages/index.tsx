@@ -17,7 +17,7 @@ import { Appearances } from 'components/custom/signup'
 import TRADE_DUMMY from 'images/common/trade-type-dummy.png'
 import PLATFORM_DUMMY from 'images/common/platforms-dummy.png'
 import WCS_DUMMY from 'images/common/wcs-dummy.png'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 const Home = () => {
     /* redirect livechat for en to open live chat popup */

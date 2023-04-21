@@ -30,7 +30,7 @@ import {
     volatility_indices,
     volatility_indices_trade_type_eu,
 } from './_market-symbols'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 export const AmericanIndices = () => <Symbol instruments_type={stocks_american_indices} />
 

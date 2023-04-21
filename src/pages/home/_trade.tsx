@@ -5,7 +5,7 @@ import { TraderCard, BotCard, DMT5Card } from 'components/custom/other-platforms
 import { localize } from 'components/localization'
 import { SectionContainer, Container, Flex, CssGrid } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 const platforms = Object.freeze({
     trader: 'dtrader',

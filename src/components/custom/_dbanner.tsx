@@ -10,7 +10,7 @@ import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 type DBannerProps = {
     background_pattern?: string

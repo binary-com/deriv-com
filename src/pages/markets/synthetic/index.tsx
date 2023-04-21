@@ -6,7 +6,7 @@ import { simple_step_content_synthetic } from '../static/content/_synthetic'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 import { SEO } from 'components/containers'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 

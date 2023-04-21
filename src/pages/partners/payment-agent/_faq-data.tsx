@@ -3,7 +3,7 @@ import { LocalizedLinkText } from '../affiliate-ib/_faq-data'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import { useLivechat } from 'components/hooks/use-livechat'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 const General = () => {
     const { is_p2p_allowed_country } = useRegion()

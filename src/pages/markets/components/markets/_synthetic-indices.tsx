@@ -14,7 +14,7 @@ import { SimpleStepContentElement } from '../../static/content/_simple_step_cont
 import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 type StockIndicesProps = {

@@ -4,7 +4,7 @@ import { ContentType } from './index'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, ImageWithDireciton, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 // svg
 import Arrow from 'images/svg/deriv-go/arrow.svg'
 import DMT5 from 'images/svg/deriv-go/dmt5.svg'

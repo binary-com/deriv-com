@@ -5,7 +5,7 @@ import { SmallContainer } from '../components/_style'
 import { SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 import { localize } from 'components/localization'
 import device from 'themes/device'
 

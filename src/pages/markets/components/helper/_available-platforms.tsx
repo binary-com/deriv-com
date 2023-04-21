@@ -13,7 +13,7 @@ import SmartTrader from 'images/svg/custom/smarttrader.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
 import DerivEZ from 'images/svg/deriv-ez/derivez-logo-black.svg'
 import DerivGo from 'images/svg/custom/deriv-go.svg'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 type AvailablePlatformsProps = {
     dmt5?: boolean

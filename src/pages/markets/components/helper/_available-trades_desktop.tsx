@@ -6,7 +6,7 @@ import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type CardProps = {

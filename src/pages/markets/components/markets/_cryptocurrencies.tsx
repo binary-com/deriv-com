@@ -13,7 +13,7 @@ import TightSpread from 'images/svg/markets/tight-spread-new.svg'
 import CryptoPairs from 'images/svg/markets/crypto-pairs-new.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission-new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 //Lazy-load

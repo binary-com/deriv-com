@@ -4,7 +4,7 @@ import LogoSection from './footer/logo'
 import MainLinksSection from './footer/main-links'
 import DisclaimerSection from './footer/disclaimer'
 import { Container } from 'components/containers'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 
 type FooterProps = {

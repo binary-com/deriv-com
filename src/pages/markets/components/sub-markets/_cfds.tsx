@@ -7,7 +7,7 @@ import type { MarketInstrumentsElement } from 'pages/markets/components/sections
 import { SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 import { Header } from 'components/elements'
 
 type CFDProps = {

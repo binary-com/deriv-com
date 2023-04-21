@@ -1,6 +1,6 @@
 import React from 'react'
 import { TTranslatedQuestions, TTranslatedQuestionsData } from './_data-types'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 export const useFilteredQuestions = (data: TTranslatedQuestions[]) => {
     const { is_eu } = useRegion()

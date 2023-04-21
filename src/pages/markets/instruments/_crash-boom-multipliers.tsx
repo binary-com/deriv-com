@@ -1,7 +1,7 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
 import { crash_boom_multipliers, crash_boom_trade_type_eu } from '../static/content/_market-symbols'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 const CrashBoomMultipliers = () => {
     const { is_eu } = useRegion()

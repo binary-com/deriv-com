@@ -10,7 +10,7 @@ import { Text, Header, Divider, Accordion, AccordionItem, DotLoader } from 'comp
 import { SEO, SectionContainer, Container } from 'components/containers'
 import { localize, WithIntl, Localize } from 'components/localization'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 import useWS from 'components/hooks/useWS'
 import { isBrowser } from 'common/utility'
 

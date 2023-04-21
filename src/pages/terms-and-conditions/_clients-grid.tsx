@@ -10,7 +10,7 @@ import Security from 'images/svg/terms/security-privacy-tc.svg'
 import Risk from 'images/svg/terms/risk-tc.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import BFX from 'images/svg/terms/bfx-tc.svg'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 type ColProps = {
     Icon: string

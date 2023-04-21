@@ -8,7 +8,7 @@ import {
 } from './common/style'
 import { Mobile, Desktop } from 'components/containers'
 import { Localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 const DisclaimerSection = () => {
     const { is_eu, is_non_eu, is_cpa_plan } = useRegion()

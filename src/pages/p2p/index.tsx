@@ -12,7 +12,7 @@ const ExchangeSteps = Loadable(() => import('./components/_exchange-steps'))
 const P2PBanner = Loadable(() => import('./components/_p2pbanner'))
 const Numbers = Loadable(() => import('./components/_numbers'))
 const Availability = Loadable(() => import('./components/_availability'))
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 const DP2P_CONTENT = [
     {

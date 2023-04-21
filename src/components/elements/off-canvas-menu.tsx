@@ -53,7 +53,7 @@ import Story from 'images/svg/menu/story.svg'
 import Terms from 'images/svg/menu/terms.svg'
 import Trade from 'images/svg/custom/trader-tool-nav.svg'
 import Signals from 'images/svg/menu/signals.svg'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 type OffCanvasMenuWrapperProps = {
     closeOffCanvasMenu?: () => void

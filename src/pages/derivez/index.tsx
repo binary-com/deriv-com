@@ -8,7 +8,7 @@ import StartDerivEZ from 'pages/derivez/_how-to-start-deriv-ez'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl, localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 import { TString } from 'types/generics'
 
 const seo_title: TString = '_t_Deriv EZ – a CFD trading platform | Deriv_t_'

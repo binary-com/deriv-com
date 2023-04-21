@@ -4,7 +4,7 @@ import { Text, LinkText } from 'components/elements'
 import { deriv_app_url } from 'common/constants'
 import { useLivechat } from 'components/hooks/use-livechat'
 import { Localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 const TextLink = styled(LinkText).attrs({ as: 'span' })``
 

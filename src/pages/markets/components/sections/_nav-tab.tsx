@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 import device from 'themes/device'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 

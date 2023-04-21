@@ -1,6 +1,6 @@
 import React from 'react'
 import { isBrowser } from 'common/utility'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 import { CookieStorage } from 'common/storage'
 import useGTMData from 'components/hooks/use-gtm-data'
 

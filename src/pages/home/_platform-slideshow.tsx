@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 const ImagePlaceHolder = styled.div`
     width: 690px;

@@ -9,7 +9,7 @@ import device from 'themes/device'
 import Apple from 'images/svg/custom/apple.svg'
 import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 type SignupNewProps = {
     autofocus?: boolean

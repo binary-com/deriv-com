@@ -9,7 +9,7 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text, Divider, CardStyle, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 const IcInfo = styled.img`
     margin-left: 1.5rem;

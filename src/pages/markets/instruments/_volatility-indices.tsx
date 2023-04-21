@@ -4,7 +4,7 @@ import {
     volatility_indices,
     volatility_indices_trade_type_eu,
 } from '../static/content/_market-symbols'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 const VolatilityIndices = () => {
     const { is_eu } = useRegion()

@@ -2,7 +2,7 @@ import React from 'react'
 import TranslationComponents from './_translation-components'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 const Derived = () => {
     const { is_row, is_eu } = useRegion()

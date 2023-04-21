@@ -4,7 +4,7 @@ import { SmallContainer, StartTradingBg } from '../components/_style'
 import { localize, Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { Header } from 'components/elements'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 import useScreenSize from 'components/hooks/use-screen-size'
 
 const StartTrading = () => {

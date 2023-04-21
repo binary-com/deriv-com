@@ -16,7 +16,7 @@ import { Container, SectionContainer, Flex } from 'components/containers'
 import { Header, Text, Accordion, AccordionItem, Divider } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 const Question = styled.div`
     max-width: 38.4rem;

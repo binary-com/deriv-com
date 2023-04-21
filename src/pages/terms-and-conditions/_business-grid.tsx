@@ -13,7 +13,7 @@ import BugBounty from 'images/svg/terms/bug-bounty.svg'
 import BugBountyRow from 'images/svg/terms/bug-bounty-row.svg'
 import IG from 'images/svg/terms/important-guidelines.svg'
 import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'store/use-region'
 
 type ColProps = {
     Icon: string

@@ -6,7 +6,7 @@ import { LinkUrlType } from 'features/types'
 import useLinkUrl from 'features/hooks/use-link-url'
 import useRegion from 'components/hooks/use-region'
 
-interface LinkProps extends TypographyLinkProps {
+export interface LinkProps extends TypographyLinkProps {
     url: LinkUrlType
 }
 

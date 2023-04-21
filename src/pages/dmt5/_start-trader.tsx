@@ -393,9 +393,7 @@ const StartTrader = () => {
                 ),
             },
             {
-                title: () => (
-                    <Localize translate_text="Create a CFDs real accountn your trade preference.." />
-                ),
+                title: () => <Localize translate_text="Create a CFDs real account." />,
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step3_mobile_eu' : 'real_step3_eu']}
@@ -425,7 +423,12 @@ const StartTrader = () => {
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
                 {localize('How to get started with a Deriv MT5 account')}
             </StyledHeader>
-            <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }} id="account-pick">
+            <Flex
+                mb={is_mobile_or_tablet ? '0' : '8rem'}
+                p="0 16px"
+                tablet={{ height: 'unset' }}
+                id="account-pick"
+            >
                 <TabItem
                     mobile_padding="21px 12px"
                     active={isDemo}

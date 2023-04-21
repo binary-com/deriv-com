@@ -17,6 +17,7 @@ import {
     deriv_go_ios_url,
     deriv_go_playstore_url,
     dmt5_android_url,
+    dmt5_ios_url,
     dmt5_linux_url,
     dmt5_mac_app_url,
     dmt5_windows_download_url,
@@ -73,7 +74,7 @@ const platformSliderItems: SmartPlatformItem[] = [
             },
             icon: DMT5Icon,
             image_caption: {
-                text: '_t_Available on <0>Android</0>, <1>Mac OS</1>, <2>Windows</2>, <3>Linux</3> and <4>web browser</4>_t_',
+                text: '_t_Available on <0>Android</0>, <1>iOS</1>, <2>Mac OS</2>, <3>Windows</3>, <4>Linux</3> and <5>web browser</5>_t_',
                 components: [
                     <Link
                         key={0}
@@ -82,20 +83,25 @@ const platformSliderItems: SmartPlatformItem[] = [
                     />,
                     <Link
                         key={1}
-                        url={{ type: 'non-company', href: dmt5_mac_app_url }}
+                        url={{ type: 'non-company', href: dmt5_ios_url }}
                         weight="bold"
                     />,
                     <Link
                         key={2}
-                        url={{ type: 'non-company', href: dmt5_windows_download_url }}
+                        url={{ type: 'non-company', href: dmt5_mac_app_url }}
                         weight="bold"
                     />,
                     <Link
                         key={3}
+                        url={{ type: 'non-company', href: dmt5_windows_download_url }}
+                        weight="bold"
+                    />,
+                    <Link
+                        key={4}
                         url={{ type: 'non-company', href: dmt5_linux_url }}
                         weight="bold"
                     />,
-                    <Link key={4} url={{ type: 'company', url_name: 'mt5' }} weight="bold" />,
+                    <Link key={5} url={{ type: 'company', url_name: 'mt5' }} weight="bold" />,
                 ],
             },
             image: ({ is_eu }) =>
@@ -236,7 +242,7 @@ const platformSliderItems: SmartPlatformItem[] = [
     {
         id: 5,
         data: {
-            title: '_t_DBot_t_',
+            title: '_t_Deriv Bot_t_',
             description: '_t_Automate your trading. No coding required._t_',
             url: {
                 type: 'internal',

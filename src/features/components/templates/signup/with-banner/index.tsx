@@ -7,7 +7,7 @@ import Container from 'features/components/atoms/container'
 
 const SignupPublic = () => {
     return (
-        <Container.Fixed padding_block="40x">
+        <Container.Fixed padding_block="10x" md={{ padding_block: '40x' }}>
             <Flex.Box
                 direction={'col-reverse'}
                 container="fluid"

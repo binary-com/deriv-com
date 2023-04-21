@@ -9,18 +9,19 @@ const ClientTestimonial = () => {
     return (
         <Container.Fixed bgcolor="secondary">
             <Flex.Box
+                md={{
+                    direction: 'row',
+                    padding_block: '40x',
+                }}
                 container="fluid"
                 direction="col"
                 justify="between"
                 align="center"
-                padding_block="40x"
+                padding_block="0x"
                 gap="20x"
-                md={{
-                    direction: 'row',
-                }}
             >
                 <Flex.Item md={{ basis: '6-12' }}>
-                    <Typography.Heading size="medium" align="right">
+                    <Typography.Heading size="medium" align="center" md={{ align: 'right' }}>
                         <Localize translate_text="_t_Rated excellent on_t_" />
                     </Typography.Heading>
                 </Flex.Item>

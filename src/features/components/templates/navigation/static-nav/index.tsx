@@ -2,7 +2,7 @@ import React from 'react'
 import NavTemplate from '../template'
 import Link from 'features/components/atoms/link'
 import Image from 'features/components/atoms/image'
-import LogoImage from 'images/common/rebranding_logo.png'
+import LogoImage from 'images/common/rebranding_logo.svg'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const StaticNav = () => {

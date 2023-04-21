@@ -13,7 +13,7 @@ interface IMarketSliderProps {
 const MarketSliderItem = ({ item }: IMarketSliderProps) => {
     return (
         <Link url={item.url} className={'link_container'} padding={'10x'} no_hover>
-            <Flex.Box direction="col" gap="10x" className={'container'}>
+            <Flex.Box direction="col" gap="5x" className={'container'}>
                 <Typography.Heading size="xs">
                     <Localize translate_text={item.header} />
                 </Typography.Heading>

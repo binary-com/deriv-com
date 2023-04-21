@@ -3,7 +3,7 @@ import NavTemplate from '../template'
 import MainNavButtons from './main-nav-buttons'
 import { mainItems } from './content'
 import Image from 'features/components/atoms/image'
-import LogoImage from 'images/common/rebranding_logo.png'
+import LogoImage from 'images/common/rebranding_logo.svg'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import Link from 'features/components/atoms/link'
 

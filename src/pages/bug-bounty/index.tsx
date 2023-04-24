@@ -6,21 +6,25 @@ import Scope from './_scope'
 import OutOfScope from './_out_of_scope'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl, localize } from 'components/localization'
+import { MetaAttributesType } from 'types/page.types'
 
-const meta_attributes = {
-    og_title: 'Bug bounty program | Trading platform and apps security | Deriv',
-    og_description:
-        'Report bugs on Deriv or our third-party trading platforms and apps and get rewarded based on the impact and severity of the error you have reported.',
+const meta_attributes: MetaAttributesType = {
+    og_title: localize('_t_Bug bounty program | Trading platform and apps security | Deriv_t_'),
+    og_description: localize(
+        '_t_Report bugs on Deriv or our third-party trading platforms and apps and get rewarded based on the impact and severity of the error you have reported._t_',
+    ),
 }
 
 const Security = () => {
     return (
         <Layout type="security">
             <SEO
-                title={localize('Bug bounty program | Trading platform and apps security | Deriv')}
+                title={localize(
+                    '_t_Bug bounty program | Trading platform and apps security | Deriv_t_',
+                )}
                 description={localize(
-                    'Report bugs on Deriv or our third-party trading platforms and apps and get rewarded based on the impact and severity of the error you have reported.',
+                    '_t_Report bugs on Deriv or our third-party trading platforms and apps and get rewarded based on the impact and severity of the error you have reported._t_',
                 )}
                 meta_attributes={meta_attributes}
             />

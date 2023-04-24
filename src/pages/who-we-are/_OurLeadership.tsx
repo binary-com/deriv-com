@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Leaders from './components/leaders'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { SectionContainer, CssGrid } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
@@ -44,7 +44,7 @@ const OurLeadership = () => {
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
-                {localize('Our leadership')}
+                <Localize translate_text="_t_Our leadership_t_" />
             </StyledHeader>
             <StyledCssGrid
                 height="unset"
@@ -64,4 +64,5 @@ const OurLeadership = () => {
         </StyledSectionContainer>
     )
 }
+
 export default OurLeadership

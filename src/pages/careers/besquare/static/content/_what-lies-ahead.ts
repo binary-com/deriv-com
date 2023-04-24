@@ -3,12 +3,7 @@ import {
     ProductDesign,
     MobileDev,
     BackEnd,
-    PlatformArchitecture,
     QualityAssurance,
-    DevAndOperations,
-    Cybersecurity,
-    BusinessIntelligence,
-    QuantAnalysis,
 } from '../images/_what-lies-ahead'
 
 export default {

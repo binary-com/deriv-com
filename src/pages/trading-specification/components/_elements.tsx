@@ -68,7 +68,7 @@ export const TableRow = styled.tr<TableRowProps>`
         width: 168px;
     }
 
-    @media (max-width: 1370px) {
+    @media (max-width: 1700px) {
         gap: 27px;
         th,
         td {
@@ -87,7 +87,7 @@ export const TableRow = styled.tr<TableRowProps>`
             width: 168px;
         }
     }
-    @media ${device.tabletL} {
+    @media ${device.tablet} {
         gap: 0;
         justify-content: start;
 

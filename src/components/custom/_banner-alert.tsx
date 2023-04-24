@@ -170,7 +170,7 @@ const BannerAlert: FC<TProps> = ({ bannerType }) => {
                         minHeight={cookieBannerProps.minHeight}
                     >
                         <StyledText>
-                            <Localize translate_text="_t_Cookies help us to give you a better experience and personalised content on our site._t_" />
+                            <Localize translate_text="_t_Cookies help us to give you a better experience and personalised content on our site. _t_" />
                             <Localize
                                 translate_text="_t_If you agree to our use of cookies, click on Accept. For more information, <0>see our policy</0>._t_"
                                 components={[

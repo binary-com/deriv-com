@@ -65,7 +65,7 @@ export const TableRow = styled.tr<TableRowProps>`
         width: 205px;
     }
     td: nth-child(11) {
-        width: 134px;
+        width: 168px;
     }
 
     @media ${device.tabletL} {

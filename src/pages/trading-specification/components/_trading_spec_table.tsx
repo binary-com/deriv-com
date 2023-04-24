@@ -70,7 +70,7 @@ const SearchForm = styled.form`
 `
 const StyledHeader = styled(Header)`
     text-align: start;
-
+    padding: 16px 0 0 16px;
     @media ${device.tabletL} {
         padding: 0 30px;
         text-align: center;
@@ -103,7 +103,7 @@ const DisclaimerText = styled(Header)`
     font-weight: 400;
     text-align: center;
     font-size: 16px;
-    padding: 3.5rem 36rem 0;
+    padding: 1.5rem 36rem 0;
     @media ${device.tabletL} {
         padding: 5rem 16px 0;
     }

@@ -38,6 +38,8 @@ export type TLiveMarketTableProps = {
     market: TAvailableLiveMarkets
 }
 
+const forex_note: TString =
+    '_t_<0>Note:</0> There is a daily break during weekdays between 22:00-22:05 (GMT)_t_'
 const row_disclaimer: TString =
     '_t_The above information is updated monthly and, therefore, may not reflect current trading conditions. Certain offerings and specifications may vary depending on your country of residence, regulated jurisdiction, and individual trading circumstances._t_'
 const eu_disclaimer: TString =
@@ -65,6 +67,13 @@ const SearchForm = styled.form`
     @media ${device.tabletL} {
         width: auto;
     }
+`
+const StyledHeader = styled(Header)`
+    text-align: start;
+    @media ${device.tabletL} {
+        padding: 0 30px;
+        text-align: center;
+
 `
 const StyledSearchIcon = styled.img`
     width: 16px;
@@ -221,7 +230,13 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                 )}
                 {filtered_data.length > 1 && (
                     <StyledPaginationContainer>
-                        <Flex>
+                        <StyledHeader as="p" type="paragraph-2" weight="normal">
+                            <Localize
+                                translate_text={forex_note}
+                                components={[<strong key={0} />]}
+                            />
+                        </StyledHeader>
+                        <Flex jc="end" tablet_jc="center">
                             <StyledButton
                                 onClick={() => table.previousPage()}
                                 disabled={!table.getCanPreviousPage()}

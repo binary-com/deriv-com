@@ -13,12 +13,10 @@ const SignupPublic = () => {
                 container="fluid"
                 className={public_signup_container}
                 bgcolor="brand"
-                justify="between"
                 align="stretch"
                 margin_block={'40x'}
                 md={{
                     direction: 'row',
-                    gap: '40x',
                 }}
             >
                 <SignupPublicForm />

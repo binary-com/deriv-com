@@ -12,10 +12,19 @@
 .public_signup_link {
     position: absolute;
     inset-block-start: 150px;
-    inset-inline-end: 15%;
-    inline-size: 24rem;
+    inset-inline-start: 35%;
+    inline-size: 20rem;
+
+    @include breakpoints(phone) {
+        inset-inline-start: 45%;
+        inline-size: 30rem;
+    }
+
+    @include breakpoints(tablet) {
+        inset-inline-start: 15%;
+    }
 
     @include breakpoints(laptop) {
-        inline-size: 50rem;
+        inline-size: 45rem;
     }
 }

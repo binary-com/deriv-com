@@ -5,7 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import Cookies from 'js-cookie'
 import { navigate } from 'gatsby'
 import PublicSignupSocial from '../social'
-import { signup_public_form_container } from './form.module.scss'
+import { signup_public_form_container, signup_public_form } from './form.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { localize, Localize } from 'components/localization'
@@ -90,18 +90,19 @@ const SignupPublicForm = () => {
             align="stretch"
             gap={'12x'}
             className={signup_public_form_container}
-            bgcolor="primary"
-            padding={'8x'}
-            md={{
-                padding: '14x',
-            }}
         >
             <Flex.Box
                 direction={'col'}
                 grow={'1'}
                 justify="around"
                 align={'stretch'}
+                className={signup_public_form}
+                padding={'8x'}
+                md={{
+                    padding: '14x',
+                }}
                 as="form"
+                bgcolor="primary"
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <Typography.Heading size="small" textcolor="black">

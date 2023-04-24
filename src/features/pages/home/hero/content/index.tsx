@@ -5,7 +5,7 @@ import HeroCtaButton from './hero-cta.button'
 import HeroHeaderItems from './hero-header.items'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
-import { Localize } from 'components/localization'
+import { get_lang_direction, Localize } from 'components/localization'
 
 const HeroFeaturesCarousel = loadable(() => pMinDelay(import('./hero-features.carousel'), 3000), {
     fallback: (
@@ -17,7 +17,7 @@ const HeroFeaturesCarousel = loadable(() => pMinDelay(import('./hero-features.ca
 
 const HomeHeroContent = () => {
     return (
-        <Flex.Box justify="start" direction="col" align="start" gap="5x">
+        <Flex.Box justify="start" direction="col" align="start" gap="5x" dir={get_lang_direction()}>
             <HeroHeaderItems />
             <Typography.Heading as="h2" size={'xs'} weight="normal">
                 <Localize translate_text="_t_Get the widest range of markets, trades and platforms_t_" />

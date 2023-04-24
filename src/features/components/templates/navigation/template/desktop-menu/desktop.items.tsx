@@ -1,43 +1,35 @@
 import React from 'react'
+import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { TSmartNavItemsContent } from '../../types'
 import NavSingleItem from '../nav-single-item'
 import NavDropItems from '../nav-drop-items'
-import * as styles from './nav-items.module.scss'
 import { Localize } from 'components/localization'
-import Container from 'features/components/atoms/container'
 import Typography from 'features/components/atoms/typography'
-import dclsx from 'features/utils/dclsx'
 
-interface DesktopItemsProps<T extends string> {
-    activeTab: T
-    item: TSmartNavItemsContent<T>
+interface DesktopItemsProps {
+    item: TSmartNavItemsContent
 }
 
-const NavDesktopItem = <T extends string>({ item, activeTab }: DesktopItemsProps<T>) => {
+const NavDesktopItem = ({ item }: DesktopItemsProps) => {
     return (
-        <>
+        <NavigationMenu.Item value={item.data.title}>
             {item.data.type === 'single-item' ? (
-                <NavSingleItem item={item.data} />
+                <NavigationMenu.Link asChild>
+                    <NavSingleItem item={item.data} />
+                </NavigationMenu.Link>
             ) : (
                 <>
-                    <Typography.Paragraph size="medium" className={styles.item_title}>
-                        <Localize translate_text={item.data.title} />
-                    </Typography.Paragraph>
-                    {item.data.active === activeTab && (
-                        <Container.Fixed
-                            bgcolor="primary"
-                            padding_block="10x"
-                            padding_inline="10x"
-                            className={dclsx(styles.active_section, {
-                                [styles.active_trade_section]: activeTab === 'trade',
-                            })}
-                        >
-                            <NavDropItems items={item.data} />
-                        </Container.Fixed>
-                    )}
+                    <NavigationMenu.Trigger className="navigation_trigger">
+                        <Typography.Paragraph size="medium">
+                            <Localize translate_text={item.data.title} />
+                        </Typography.Paragraph>
+                    </NavigationMenu.Trigger>
+                    <NavigationMenu.Content className="navigation_content">
+                        <NavDropItems items={item.data} />
+                    </NavigationMenu.Content>
                 </>
             )}
-        </>
+        </NavigationMenu.Item>
     )
 }
 

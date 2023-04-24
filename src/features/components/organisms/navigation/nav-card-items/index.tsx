@@ -25,7 +25,7 @@ const NavCardItems = ({ items }: NavCardItemsProps) => {
     const content = useVisibleContent({ config: filter_config, content: items })
 
     return (
-        <div>
+        <>
             {content.map(({ id, data }) => {
                 const { url, title, content, icon } = data
                 const nav_card_link = typeof url === 'function' ? url(filter_config) : url
@@ -37,12 +37,12 @@ const NavCardItems = ({ items }: NavCardItemsProps) => {
                         url={nav_card_link}
                         title={title}
                         content={nav_card_content}
-                        icon_src={icon.src}
-                        icon_alt={icon.alt}
+                        icon_src={icon?.src}
+                        icon_alt={icon?.alt}
                     />
                 )
             })}
-        </div>
+        </>
     )
 }
 export default NavCardItems

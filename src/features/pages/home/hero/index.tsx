@@ -6,6 +6,7 @@ import HomeHeroContent from './content'
 import SliderWrapper from './slider/slider-wrapper'
 import Flex from 'features/components/atoms/flex-box'
 import ProductHeroContainer from 'features/components/templates/hero-banners/product'
+import { get_lang_direction } from 'components/localization'
 
 const HomeHeroSlider = loadable(() => pMinDelay(import('./slider'), 3000), {
     fallback: (
@@ -32,6 +33,7 @@ const HomeHero = () => {
                 align: 'center',
                 pt: '0x',
             }}
+            dir="ltr"
         >
             <Flex.Box
                 container="fluid"

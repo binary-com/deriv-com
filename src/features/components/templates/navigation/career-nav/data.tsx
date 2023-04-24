@@ -1,13 +1,10 @@
 import { TNavItems } from '../types'
 
-type TCareerNavNames = 'home' | 'location' | 'besquare'
-
-const career_nav_items: TNavItems<TCareerNavNames> = [
+const career_nav_items: TNavItems = [
     {
         id: 0,
         data: {
             type: 'single-item',
-            active: 'home',
             title: '_t_Home_t_',
             content: {
                 type: 'internal',
@@ -19,7 +16,6 @@ const career_nav_items: TNavItems<TCareerNavNames> = [
         id: 1,
         data: {
             type: 'single-item',
-            active: 'location',
             title: '_t_Location_t_',
             content: {
                 type: 'internal',
@@ -31,7 +27,6 @@ const career_nav_items: TNavItems<TCareerNavNames> = [
         id: 2,
         data: {
             type: 'single-item',
-            active: 'besquare',
             title: '_t_Besquare_t_',
             content: {
                 type: 'internal',

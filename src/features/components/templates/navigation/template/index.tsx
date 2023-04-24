@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, ReactNode, useCallback, useRef, useState } from 'react'
+import React, { HTMLAttributes, ReactNode, useRef, useState } from 'react'
 import { TNavItems } from '../types'
 import DesktopMenu from './desktop-menu'
 import * as styles from './nav.template.module.scss'
@@ -6,23 +6,22 @@ import MobileMenu from './mobile-menu'
 import TopNav from './top-nav'
 import Container from 'features/components/atoms/container'
 import useBreakpoints from 'components/hooks/use-breakpoints'
-import { useOutsideClick } from 'components/hooks/use-outside-click'
 import useVisibleContent from 'components/hooks/use-visible-content'
 import MobileMenuToggle from 'features/components/molecules/mobile-menu-toggle'
 import Flex from 'features/components/atoms/flex-box'
 import dclsx from 'features/utils/dclsx'
 import useRegion from 'components/hooks/use-region'
 
-interface NavTemplateProps<T extends string> extends HTMLAttributes<HTMLDivElement> {
+interface NavTemplateProps extends HTMLAttributes<HTMLDivElement> {
     has_top_nav?: boolean
     renderLogo: () => ReactNode
     has_centered_items?: boolean
     has_centered_logo?: boolean
     render_bottom_nav?: () => ReactNode
-    items?: TNavItems<T>
+    items?: TNavItems
 }
 
-const NavTemplate = <T extends string>({
+const NavTemplate = ({
     renderLogo,
     render_bottom_nav,
     has_top_nav = false,
@@ -31,12 +30,10 @@ const NavTemplate = <T extends string>({
     className,
     has_centered_items,
     has_centered_logo,
-}: NavTemplateProps<T>) => {
+}: NavTemplateProps) => {
     const nav_wrapper_ref = useRef()
 
     const { is_eu } = useRegion()
-
-    const [activeTab, setActiveTab] = useState<T>(null)
 
     const [is_menu_open, setIsMenuOpen] = useState(false)
 
@@ -44,23 +41,6 @@ const NavTemplate = <T extends string>({
 
     const onMenuToggleClick = () => {
         setIsMenuOpen((prevState) => !prevState)
-    }
-
-    const onOutsideClick = useCallback(() => {
-        setActiveTab(null)
-        if (is_menu_open) {
-            setIsMenuOpen(false)
-        }
-    }, [is_menu_open])
-
-    useOutsideClick(nav_wrapper_ref, onOutsideClick)
-
-    const onItemClick = (item: T) => {
-        if (item === activeTab) {
-            setActiveTab(null)
-        } else {
-            setActiveTab(item)
-        }
     }
 
     const visible_items = useVisibleContent({
@@ -77,7 +57,6 @@ const NavTemplate = <T extends string>({
         >
             {has_top_nav && <TopNav />}
             <Flex.Box
-                as="nav"
                 container="fluid"
                 justify="between"
                 align="center"
@@ -95,15 +74,10 @@ const NavTemplate = <T extends string>({
                     {renderLogo()}
                 </Flex.Box>
 
-                <DesktopMenu
-                    onItemClick={onItemClick}
-                    activeTab={activeTab}
-                    items={visible_items}
-                    has_centered_items={has_centered_items}
-                />
-                <Flex.Box justify="end" align="center" gap={'8x'}>
-                    {children}
-                </Flex.Box>
+                {items.length && (
+                    <DesktopMenu items={visible_items} has_centered_items={has_centered_items} />
+                )}
+                {children}
                 <MobileMenu is_open={is_menu_open} items={visible_items} />
             </Flex.Box>
             {render_bottom_nav?.()}

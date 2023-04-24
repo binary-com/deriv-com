@@ -70,10 +70,11 @@ const SearchForm = styled.form`
 `
 const StyledHeader = styled(Header)`
     text-align: start;
+
     @media ${device.tabletL} {
         padding: 0 30px;
         text-align: center;
-
+    }
 `
 const StyledSearchIcon = styled.img`
     width: 16px;
@@ -230,12 +231,15 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                 )}
                 {filtered_data.length > 1 && (
                     <StyledPaginationContainer>
-                        <StyledHeader as="p" type="paragraph-2" weight="normal">
-                            <Localize
-                                translate_text={forex_note}
-                                components={[<strong key={0} />]}
-                            />
-                        </StyledHeader>
+                        {market === 'forex' && (
+                            <StyledHeader as="p" type="paragraph-2" weight="normal">
+                                <Localize
+                                    translate_text={forex_note}
+                                    components={[<strong key={0} />]}
+                                />
+                            </StyledHeader>
+                        )}
+
                         <Flex jc="end" tablet_jc="center">
                             <StyledButton
                                 onClick={() => table.previousPage()}

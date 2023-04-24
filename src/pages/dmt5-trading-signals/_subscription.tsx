@@ -145,31 +145,31 @@ const DMT5Button = styled(LinkButton)`
 const Subscription = () => {
     const data = useStaticQuery(query)
     return (
-        <StyledSectionContainer padding="0" background="white">
+        <StyledSectionContainer padding='0' background='white'>
             <StyledContainer>
-                <StyledHeader as="h2">
+                <StyledHeader as='h2'>
                     {localize('How to renew or cancel your subscription')}
                 </StyledHeader>
                 <StyledText>
                     {localize(
-                        'MT5 trading signals subscriptions expire automatically after one month. To renew or cancel a subscription, follow these steps.',
+                        'MT5 trading signals subscriptions expire automatically after one month. To renew or cancel a subscription, follow these steps.'
                     )}
                 </StyledText>
                 <CardContainer>
                     <Card>
                         <Row>
-                            <QueryImage data={data['signals']} alt="signals" width="100%" />
+                            <QueryImage data={data.signals} alt='signals' width='100%' />
                         </Row>
                         <Row>
                             <Column>
-                                <StyledCardText as="h4" weight="bold">
+                                <StyledCardText as='h4' weight='bold'>
                                     {'1.'}
                                 </StyledCardText>
                             </Column>
                             <Column>
                                 <StyledCardText>
                                     <Localize
-                                        translate_text="From your Deriv MT5 trading terminal, click on the <0>Signals</0> tab."
+                                        translate_text='From your Deriv MT5 trading terminal, click on the <0>Signals</0> tab.'
                                         components={[<strong key={0} />]}
                                     />
                                 </StyledCardText>
@@ -178,18 +178,18 @@ const Subscription = () => {
                     </Card>
                     <Card>
                         <Row>
-                            <QueryImage data={data['statistics']} alt="statistics" width="100%" />
+                            <QueryImage data={data.statistics} alt='statistics' width='100%' />
                         </Row>
                         <Row>
                             <Column>
-                                <StyledCardText as="h4" weight="bold">
+                                <StyledCardText as='h4' weight='bold'>
                                     {'2.'}
                                 </StyledCardText>
                             </Column>
                             <Column>
                                 <StyledCardText>
                                     <Localize
-                                        translate_text="Click on the <0>My Statistics</0> tab and select your signal provider."
+                                        translate_text='Click on the <0>My Statistics</0> tab and select your signal provider.'
                                         components={[<strong key={0} />]}
                                     />
                                 </StyledCardText>
@@ -198,18 +198,18 @@ const Subscription = () => {
                     </Card>
                     <Card>
                         <Row>
-                            <QueryImage data={data['renew']} alt="renew" width="100%" />
+                            <QueryImage data={data.renew} alt='renew' width='100%' />
                         </Row>
                         <Row>
                             <Column>
-                                <StyledCardText as="h4" weight="bold">
+                                <StyledCardText as='h4' weight='bold'>
                                     {'3.'}
                                 </StyledCardText>
                             </Column>
                             <Column>
                                 <StyledCardText>
                                     <Localize
-                                        translate_text="Click the <0>Renew</0> button to renew the service or the <0>Unsubscribe</0> button to cancel the subscription."
+                                        translate_text='Click the <0>Renew</0> button to renew the service or the <0>Unsubscribe</0> button to cancel the subscription.'
                                         components={[<strong key={0} />]}
                                     />
                                 </StyledCardText>
@@ -219,57 +219,57 @@ const Subscription = () => {
                 </CardContainer>
                 <NoteContainer>
                     <StyledCardText>
-                        <Localize translate_text="<0>Note:</0>" components={[<strong key={0} />]} />
+                        <Localize translate_text='<0>Note:</0>' components={[<strong key={0} />]} />
                     </StyledCardText>
-                    <StyledCardText mt="8px">
+                    <StyledCardText mt='8px'>
                         <Localize
                             translate_text="1. You must have an MQL5 community account to subscribe to trading signals. If you don't have an account yet, please go to <0>MQL5.com</0> to register."
                             components={[
                                 <LocalizedLinkText
                                     external
-                                    target="_blank"
-                                    to="https://www.mql5.com/en/auth_register"
-                                    color="red"
+                                    target='_blank'
+                                    to='https://www.mql5.com/en/auth_register'
+                                    color='red'
                                     size={16}
                                     key={0}
                                 />,
                             ]}
                         />
                     </StyledCardText>
-                    <StyledCardText mt="16px">
+                    <StyledCardText mt='16px'>
                         <Localize
                             translate_text="2. You'll need to <0>fund your MQL5 account</0> to subscribe to paid signals."
                             components={[
                                 <LocalizedLinkText
                                     external
-                                    to="https://www.mql5.com/en/articles/302#deposit"
-                                    target="_blank"
-                                    color="red"
+                                    to='https://www.mql5.com/en/articles/302#deposit'
+                                    target='_blank'
+                                    color='red'
                                     size={16}
                                     key={0}
                                 />,
                             ]}
                         />
                     </StyledCardText>
-                    <StyledCardText mt="16px">
+                    <StyledCardText mt='16px'>
                         {localize(
-                            '3. You can only subscribe to one signal provider with one Deriv MT5 account at any given time. You can use your signal on up to 3 computers.',
+                            '3. You can only subscribe to one signal provider with one Deriv MT5 account at any given time. You can use your signal on up to 3 computers.'
                         )}
                     </StyledCardText>
-                    <StyledCardText mt="16px">
+                    <StyledCardText mt='16px'>
                         {localize(
-                            "4. You won't be able to trade manually with the same Deriv MT5 account once you've subscribed to a signal.",
+                            "4. You won't be able to trade manually with the same Deriv MT5 account once you've subscribed to a signal."
                         )}
                     </StyledCardText>
-                    <StyledCardText mt="16px">
+                    <StyledCardText mt='16px'>
                         <Localize
-                            translate_text="Have more questions? Check out the <0>FAQ section</0> on the MQL5 website."
+                            translate_text='Have more questions? Check out the <0>FAQ section</0> on the MQL5 website.'
                             components={[
                                 <LocalizedLinkText
                                     external
-                                    to="https://www.mql5.com/en/forum/10773"
-                                    target="_blank"
-                                    color="red"
+                                    to='https://www.mql5.com/en/forum/10773'
+                                    target='_blank'
+                                    color='red'
                                     size={16}
                                     key={0}
                                 />,
@@ -280,10 +280,10 @@ const Subscription = () => {
                 <DMT5Button
                     secondary
                     external
-                    type="mt5"
-                    to=""
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    type='mt5'
+                    to=''
+                    target='_blank'
+                    rel='noopener noreferrer'
                 >
                     {localize('Go to your Deriv MT5 dashboard')}
                 </DMT5Button>

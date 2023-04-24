@@ -46,8 +46,8 @@ const DownloadLinkWrapper = styled.div<LinkType>`
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-gap: 8px;
-    margin-top: ${(props) => (props.mt ? props.mt : '0')};
-    margin-bottom: ${(props) => (props.mb ? props.mb : '0')};
+    margin-top: ${props => (props.mt ? props.mt : '0')};
+    margin-bottom: ${props => (props.mb ? props.mb : '0')};
 
     @media ${device.tabletL} {
         grid-template-columns: 1fr 1fr;
@@ -59,9 +59,9 @@ const DownloadLinkMobileWrapper = styled.div<LinkType>`
     align-items: center;
     justify-content: center;
     grid-gap: 8px;
-    margin-top: ${(props) => (props.mt ? props.mt : '0')};
-    margin-bottom: ${(props) => (props.mb ? props.mb : '0')};
-    margin-right: ${(props) => (props.mr ? props.mr : '0')};
+    margin-top: ${props => (props.mt ? props.mt : '0')};
+    margin-bottom: ${props => (props.mb ? props.mb : '0')};
+    margin-right: ${props => (props.mr ? props.mr : '0')};
 `
 const Section = styled.section`
     display: flex;
@@ -209,150 +209,150 @@ const DownloadApp = () => {
         <Section>
             <StyledFlex>
                 <Desktop>
-                    <StyledHeader as="h4" type="subtitle-1" mt="8px">
+                    <StyledHeader as='h4' type='subtitle-1' mt='8px'>
                         {localize('Desktop')}
                     </StyledHeader>
-                    <Flex mt="0.8rem" jc="flex-start" height="auto">
+                    <Flex mt='0.8rem' jc='flex-start' height='auto'>
                         <DownloadLinkWrapper>
                             <LocalizedLink
                                 external
                                 to={dmt5_linux_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
-                                <img src={LinuxOs} alt="linux" />
+                                <img src={LinuxOs} alt='linux' />
                             </LocalizedLink>
                             <LocalizedLink
                                 external
                                 to={dmt5_web_browser_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
-                                <img src={WebBrowser} alt="web browser" />
+                                <img src={WebBrowser} alt='web browser' />
                             </LocalizedLink>
                             <LocalizedLink
                                 external
                                 to={dmt5_windows}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
-                                <img src={Windows} alt="windows" />
+                                <img src={Windows} alt='windows' />
                             </LocalizedLink>
                             <LocalizedLink
                                 external
                                 to={dmt5_mac_app_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
-                                <img src={MacOs} alt="macos" />
+                                <img src={MacOs} alt='macos' />
                             </LocalizedLink>
                         </DownloadLinkWrapper>
                     </Flex>
 
-                    <StyledHeader mt="2.4rem" as="h4" type="subtitle-1">
+                    <StyledHeader mt='2.4rem' as='h4' type='subtitle-1'>
                         {localize('Mobile')}
                     </StyledHeader>
-                    <Flex mt="0.8rem" jc="flex-start" wrap="wrap">
+                    <Flex mt='0.8rem' jc='flex-start' wrap='wrap'>
                         <DownloadLinkWrapper>
                             <LocalizedLink
                                 external
                                 to={dmt5_android_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
-                                <img src={GooglePlay} alt="google play" width="132" height="40" />
+                                <img src={GooglePlay} alt='google play' width='132' height='40' />
                             </LocalizedLink>
                             <LocalizedLink
                                 external
                                 to={dmt5_app_gallery_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
-                                <img src={AppGallery} alt="app gallery" width="132" height="40" />
+                                <img src={AppGallery} alt='app gallery' width='132' height='40' />
                             </LocalizedLink>
                             <LocalizedLink
                                 external
                                 to={dmt5_ios_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
-                                <img src={Mac} alt="app gallery" width="132" height="40" />
+                                <img src={Mac} alt='app gallery' width='132' height='40' />
                             </LocalizedLink>
                         </DownloadLinkWrapper>
                     </Flex>
                 </Desktop>
 
                 <Mobile>
-                    <StyledHeader mt="2.4rem" as="h4">
+                    <StyledHeader mt='2.4rem' as='h4'>
                         {localize('Desktop')}
                     </StyledHeader>
-                    <StyledFlexMobile mt="1rem">
-                        <DownloadLinkMobileWrapper mr="16px">
+                    <StyledFlexMobile mt='1rem'>
+                        <DownloadLinkMobileWrapper mr='16px'>
                             <LocalizedLink
                                 external
                                 to={dmt5_windows}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
-                                <img src={Windows} alt="windows" />
+                                <img src={Windows} alt='windows' />
                             </LocalizedLink>
                             <LocalizedLink
                                 external
                                 to={dmt5_mac_app_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
-                                <img src={MacOs} alt="macos" />
+                                <img src={MacOs} alt='macos' />
                             </LocalizedLink>
                             <LocalizedLink
                                 external
                                 to={dmt5_linux_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
-                                <img src={LinuxOs} alt="linux" />
+                                <img src={LinuxOs} alt='linux' />
                             </LocalizedLink>
                         </DownloadLinkMobileWrapper>
                     </StyledFlexMobile>
 
-                    <StyledHeader as="h4">{localize('Mobile')}</StyledHeader>
-                    <StyledFlexMobile mt="0.8rem">
-                        <DownloadLinkMobileWrapper mr="8px">
+                    <StyledHeader as='h4'>{localize('Mobile')}</StyledHeader>
+                    <StyledFlexMobile mt='0.8rem'>
+                        <DownloadLinkMobileWrapper mr='8px'>
                             <LocalizedLink
                                 external
                                 to={dmt5_android_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
                                 <img
                                     src={GooglePlayMobile}
-                                    alt="google play"
-                                    width="150"
-                                    height="40"
+                                    alt='google play'
+                                    width='150'
+                                    height='40'
                                 />
                             </LocalizedLink>
 
                             <LocalizedLink
                                 external
                                 to={dmt5_app_gallery_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
                                 <img
                                     src={AppGalleryMobile}
-                                    alt="app gallery"
-                                    width="150"
-                                    height="40"
+                                    alt='app gallery'
+                                    width='150'
+                                    height='40'
                                 />
                             </LocalizedLink>
 
                             <LocalizedLink
                                 external
                                 to={dmt5_ios_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
-                                <img src={Mac} alt="app gallery" width="150" height="40" />
+                                <img src={Mac} alt='app gallery' width='150' height='40' />
                             </LocalizedLink>
                         </DownloadLinkMobileWrapper>
                     </StyledFlexMobile>
@@ -363,10 +363,10 @@ const DownloadApp = () => {
                 <StyledInfoContainer>
                     <Separator />
 
-                    <StyledInfo src={MoreInfo} alt="more info" />
+                    <StyledInfo src={MoreInfo} alt='more info' />
                     <StyledHeaderContent>
                         <Localize
-                            translate_text="For mobile app sign-ups, set the broker code to <br/><0>Deriv Limited</0>."
+                            translate_text='For mobile app sign-ups, set the broker code to <br/><0>Deriv Limited</0>.'
                             components={[<strong key={0} />]}
                         />
                     </StyledHeaderContent>
@@ -375,26 +375,26 @@ const DownloadApp = () => {
             <StyledFlexBottom>
                 <Mobile>
                     <Flex
-                        height="auto"
-                        max_width="310px"
-                        mt="10.8rem"
-                        ai="flex-start"
+                        height='auto'
+                        max_width='310px'
+                        mt='10.8rem'
+                        ai='flex-start'
                         tabletL={{ max_width: '320px', mt: '40px' }}
                         laptopM={{ mr: '2px', ml: '2px' }}
-                        ml="-60px"
+                        ml='-60px'
                     >
-                        <StyledInfo src={MoreInfo} alt="more info" />
+                        <StyledInfo src={MoreInfo} alt='more info' />
 
                         <StyledHeaderContent>
                             <Localize
-                                translate_text="For mobile app sign-ups, set the broker code to <br/><0>Deriv Limited</0>."
+                                translate_text='For mobile app sign-ups, set the broker code to <br/><0>Deriv Limited</0>.'
                                 components={[<strong key={0} />]}
                             />
                         </StyledHeaderContent>
                     </Flex>
                 </Mobile>
-                <ImageWrapper mt="4rem">
-                    <QueryImage data={data['mobile_phone']} alt="DMT5 mobile app" />
+                <ImageWrapper mt='4rem'>
+                    <QueryImage data={data.mobile_phone} alt='DMT5 mobile app' />
                 </ImageWrapper>
             </StyledFlexBottom>
         </Section>

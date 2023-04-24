@@ -25,12 +25,12 @@ const WhyDeriv = () => {
         <Section>
             <ContentContainer>
                 <ImageWrapper
-                    data={data['participant_img1']}
-                    alt="BeSquare programme participants working on code"
-                    grid_area="employee-image"
+                    data={data.participant_img1}
+                    alt='BeSquare programme participants working on code'
+                    grid_area='employee-image'
                 />
                 <div>
-                    <Title as="h2" margin={['0', '0 auto']}>
+                    <Title as='h2' margin={['0', '0 auto']}>
                         Why Deriv?
                     </Title>
                     <TextWrapper
@@ -58,9 +58,9 @@ const WhyDeriv = () => {
                     environment.
                 </TextWrapper>
                 <ImageWrapper
-                    data={data['participant_img2']}
-                    alt="BeSquare participant guided by experienced developer"
-                    grid_area="bpo-image"
+                    data={data.participant_img2}
+                    alt='BeSquare participant guided by experienced developer'
+                    grid_area='bpo-image'
                 />
             </ContentContainer>
         </Section>

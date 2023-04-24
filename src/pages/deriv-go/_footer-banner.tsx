@@ -116,49 +116,49 @@ const FooterBanner = () => {
 
     return (
         <Container
-            pt="60px"
-            pb="80px"
-            tablet_direction="column"
+            pt='60px'
+            pb='80px'
+            tablet_direction='column'
             tabletL={{ height: 'auto', pb: '30px' }}
         >
-            <BackgroundWrapper ai="center">
-                <BannerWrapper jc="start">
+            <BackgroundWrapper ai='center'>
+                <BannerWrapper jc='start'>
                     <QueryImage
                         data={data[is_mobile ? 'footer_banner_m' : 'footer_banner']}
-                        alt="Trading forex and synthetic indices on Deriv GO"
-                        className="footerimg-wrapper"
+                        alt='Trading forex and synthetic indices on Deriv GO'
+                        className='footerimg-wrapper'
                     />
                 </BannerWrapper>
                 <Flex
-                    fd="column"
-                    ai="center"
-                    jc="center"
-                    width="424px"
+                    fd='column'
+                    ai='center'
+                    jc='center'
+                    width='424px'
                     tabletL={{ max_width: '100%', mt: '40px' }}
                 >
-                    <StyledHeader as="h3" color="white" type="heading-3">
+                    <StyledHeader as='h3' color='white' type='heading-3'>
                         {localize('Start trading on the go')}
                     </StyledHeader>
-                    <StyledSubTitle color="white" type="subtitle-2" weight="lighter">
+                    <StyledSubTitle color='white' type='subtitle-2' weight='lighter'>
                         {localize(
-                            'Download the app today and trade multipliers anytime, anywhere you want.',
+                            'Download the app today and trade multipliers anytime, anywhere you want.'
                         )}
                     </StyledSubTitle>
                     <Flex
-                        mt="40px"
-                        jc="start"
-                        tablet_fw="wrap"
-                        tablet_jc="center"
+                        mt='40px'
+                        jc='start'
+                        tablet_fw='wrap'
+                        tablet_jc='center'
                         tabletL={{ m: '24px 8px 0 32px' }}
                     >
                         <Desktop>
                             <QueryImage
-                                data={data['qr_code']}
+                                data={data.qr_code}
                                 alt={'play store'}
-                                width="108px"
-                                height="108px"
+                                width='108px'
+                                height='108px'
                             />
-                            <StyledSubTitle color="white" type="subtitle-2" weight="lighter">
+                            <StyledSubTitle color='white' type='subtitle-2' weight='lighter'>
                                 {localize('Scan the QR code to download Deriv GO')}
                             </StyledSubTitle>
                         </Desktop>

@@ -1,12 +1,6 @@
 {
     "parser": "babel-eslint",
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:import/errors",
-        "plugin:import/warnings",
-        "plugin:react-hooks/recommended"
-    ],
+    "extends": ["deriv"],
     "overrides": [
         {
             "files": ["*.ts", "*.tsx"], // Your TypeScript files extension
@@ -21,7 +15,8 @@
             "plugins": ["deprecation", "@typescript-eslint", "jest"],
             "rules": {
                 "@typescript-eslint/explicit-module-boundary-types": "off",
-                "deprecation/deprecation": "warn"
+                "deprecation/deprecation": "warn",
+                "@typescript-eslint/no-explicit-any": "off"
             },
             "parserOptions": {
                 "project": "./tsconfig.json",
@@ -30,86 +25,12 @@
             }
         }
     ],
-    "plugins": ["@typescript-eslint", "jest"],
-    "rules": {
-        "strict": 0,
-        "camelcase": 0,
-        "no-console": "warn",
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn",
-        "no-trailing-spaces": [
-            "error",
-            {
-                "skipBlankLines": true
-            }
-        ],
-        "no-unused-vars": "error",
-        "no-multiple-empty-lines": [
-            "error",
-            {
-                "max": 1,
-                "maxEOF": 1
-            }
-        ],
-        "no-param-reassign": [
-            "error",
-            {
-                "props": false
-            }
-        ],
-        "one-var": [
-            "error",
-            {
-                "initialized": "never",
-                "uninitialized": "always"
-            }
-        ],
-        "space-unary-ops": "error",
-        "import/no-extraneous-dependencies": [
-            0,
-            {
-                "extensions": [".jsx"]
-            }
-        ],
-        "import/no-useless-path-segments": "error",
-        "import/prefer-default-export": 0,
-        "import/order": [
-            "error",
-            {
-                "groups": ["builtin", "external", "parent", "sibling", "index"],
-                "newlines-between": "never"
-            }
-        ],
-        "react/sort-prop-types": [
-            "error",
-            {
-                "ignoreCase": true,
-                "sortShapeProp": true
-            }
-        ],
-        "jest/no-disabled-tests": "warn",
-        "jest/no-focused-tests": "error",
-        "jest/no-identical-title": "error",
-        "jest/prefer-to-have-length": "warn",
-        "jest/valid-expect": "error",
-        "react/react-in-jsx-scope": "off"
-    },
-    "env": {
-        "es6": true,
-        "browser": true,
-        "amd": true,
-        "node": true,
-        "jest": true
-    },
     "settings": {
         "import/resolver": {
             "node": {
                 "paths": ["src"],
                 "extensions": [".js", ".jsx", ".ts", ".tsx"]
             }
-        },
-        "react": {
-            "version": "17"
         }
     }
 }

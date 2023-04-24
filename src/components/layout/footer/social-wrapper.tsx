@@ -27,7 +27,7 @@ type SocialMediaComponentProps = {
 
 const SocialWrapperComponent = ({ is_career_page = false }: SocialWrapperComponentProps) => {
     const { fb_url, instagram_url, twitter_url, linkedin_url } = useSocialMediaUrl()
-    const alt_string = (is_career_page ? 'career' : '') + ' icon link'
+    const alt_string = `${is_career_page ? 'career' : ''} icon link`
 
     const accounts = [
         {
@@ -78,16 +78,16 @@ const SocialWrapperComponent = ({ is_career_page = false }: SocialWrapperCompone
 
 const SocialMediaComponent = ({ social_accounts = [] }: SocialMediaComponentProps) => (
     <SocialWrapper>
-        {social_accounts.map((account) => {
+        {social_accounts.map(account => {
             return (
                 <LocalizedLink
                     key={account.image_alt}
                     external
                     to={account.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target='_blank'
+                    rel='noopener noreferrer'
                 >
-                    <img src={account.image} alt={account.image_alt} width="41" height="41" />
+                    <img src={account.image} alt={account.image_alt} width='41' height='41' />
                 </LocalizedLink>
             )
         })}

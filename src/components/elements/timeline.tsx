@@ -21,7 +21,7 @@ const Checkmark = styled.span<{ is_rtl: boolean }>`
         position: absolute;
         width: 2px;
         height: 9px;
-        background-color: ${(props) => (props.color ? props.color : 'var(--color-white)')};
+        background-color: ${props => (props.color ? props.color : 'var(--color-white)')};
         left: 11px;
         top: 6px;
     }
@@ -30,7 +30,7 @@ const Checkmark = styled.span<{ is_rtl: boolean }>`
         position: absolute;
         width: 4px;
         height: 2px;
-        background-color: ${(props) => (props.color ? props.color : 'var(--color-white)')};
+        background-color: ${props => (props.color ? props.color : 'var(--color-white)')};
         left: 8px;
         top: 13px;
     }
@@ -44,7 +44,7 @@ const OvalWrapper = styled.div`
     width: 24px;
     height: 24px;
     line-height: 2.75rem;
-    background-color: ${(props) => (props.color ? props.color : 'var(--color-red)')};
+    background-color: ${props => (props.color ? props.color : 'var(--color-red)')};
     border-radius: 50%;
     text-align: center;
     margin-right: 0.8rem;
@@ -55,9 +55,9 @@ const OvalWrapper = styled.div`
 
 const FlexWrapper = styled.div<TimelineTickProps>`
     display: flex;
-    border-left: ${(props) => (props.is_border ? 'var(--color-red) dashed 1px' : 'unset')};
+    border-left: ${props => (props.is_border ? 'var(--color-red) dashed 1px' : 'unset')};
     position: relative;
-    padding-bottom: ${(props) => (props.pb ? props.pb : '4rem')};
+    padding-bottom: ${props => (props.pb ? props.pb : '4rem')};
 `
 const Oval = () => {
     const is_rtl = useIsRtl()
@@ -93,7 +93,7 @@ const Timeline = ({ pb, pl, children, ...props }: TimelineProps) => {
 
                 return (
                     <FlexWrapper is_border={children.length !== index + 1} pb={pb}>
-                        <Oval></Oval>
+                        <Oval />
                         <ContentWrapper>
                             <div>{child}</div>
                         </ContentWrapper>
@@ -109,7 +109,7 @@ export const TimelineTick = ({ pb, color, children, ...props }: TimelineTickProp
 
     return (
         <div {...props}>
-            {React.Children.map(children, (child) => {
+            {React.Children.map(children, child => {
                 if (!React.isValidElement(child)) {
                     return <></>
                 }
@@ -117,8 +117,8 @@ export const TimelineTick = ({ pb, color, children, ...props }: TimelineTickProp
                     <React.Fragment>
                         {child && (
                             <FlexWrapper is_border={false} pb={pb}>
-                                <OvalWrapper color="transparent">
-                                    <Checkmark color={color} is_rtl={is_rtl}></Checkmark>
+                                <OvalWrapper color='transparent'>
+                                    <Checkmark color={color} is_rtl={is_rtl} />
                                 </OvalWrapper>
                                 <ContentWrapper>{child}</ContentWrapper>
                             </FlexWrapper>

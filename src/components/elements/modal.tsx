@@ -129,17 +129,17 @@ const Modal = (
         children,
         maxWidth,
     }: React.PropsWithChildren<ModalPropType>,
-    ref: React.Ref<ModalRefType>,
+    ref: React.Ref<ModalRefType>
 ) => {
     const [is_open, setIsOpen] = useState(false)
 
     useImperativeHandle(ref, () => ({
-        is_open: is_open,
+        is_open,
         show: () => setIsOpen(true),
         hide: () => setIsOpen(false),
     }))
 
-    const handleEscape = (e) => {
+    const handleEscape = e => {
         if (e.keyCode === 27 && is_dismissible) {
             setIsOpen(false)
         }
@@ -158,24 +158,24 @@ const Modal = (
     }, [])
 
     const Title = () => (
-        <Header type="paragraph-1" mb="2.4rem">
+        <Header type='paragraph-1' mb='2.4rem'>
             {title}
         </Header>
     )
 
     const Message = () => (
-        <Header type="paragraph-2" weight="regular">
+        <Header type='paragraph-2' weight='regular'>
             {message}
         </Header>
     )
 
     const Close = () => (
-        <CloseButton src={CloseSVG} alt="close-2" onClick={() => setIsOpen(false)} />
+        <CloseButton src={CloseSVG} alt='close-2' onClick={() => setIsOpen(false)} />
     )
 
     const Negative = () => (
         <NegativeButton onClick={() => (onNegative ? onNegative?.() : setIsOpen(false))}>
-            <Header type="paragraph-2" weight="bold">
+            <Header type='paragraph-2' weight='bold'>
                 {negative}
             </Header>
         </NegativeButton>
@@ -183,7 +183,7 @@ const Modal = (
 
     const Positive = () => (
         <PositiveButton onClick={() => onPositive?.()}>
-            <Header type="paragraph-2" weight="bold" color="white">
+            <Header type='paragraph-2' weight='bold' color='white'>
                 {positive}
             </Header>
         </PositiveButton>
@@ -202,7 +202,7 @@ const Modal = (
                         {children}
                     </ContentContainer>
                     {(positive || negative) && (
-                        <FooterContainer jc="flex-end" mt="2.4rem">
+                        <FooterContainer jc='flex-end' mt='2.4rem'>
                             {negative && <Negative />}
                             {positive && <Positive />}
                         </FooterContainer>

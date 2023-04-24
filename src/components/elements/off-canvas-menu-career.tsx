@@ -48,10 +48,10 @@ export const OffCanvasMenuWrapperCareer = (props: OffCanvasMenuWrapperCareerProp
         props.closeOffCanvasMenu()
     }
 
-    const outerClick = (e) => {
+    const outerClick = e => {
         if (!canvas.current.contains(e.target)) {
             props.closeOffCanvasMenu()
-        } else return
+        }
     }
 
     useEffect(() => {
@@ -68,14 +68,14 @@ export const OffCanvasMenuWrapperCareer = (props: OffCanvasMenuWrapperCareerProp
             is_eu={is_eu}
         >
             <OffCanvasMenuContainer>
-                <LocalizedLinkText to="/careers/" onClick={handleArrowClick} p="10px">
-                    <Header type="main-paragraph">Home</Header>
+                <LocalizedLinkText to='/careers/' onClick={handleArrowClick} p='10px'>
+                    <Header type='main-paragraph'>Home</Header>
                 </LocalizedLinkText>
-                <LocalizedLinkText to="/careers/locations/" onClick={handleArrowClick} p="10px">
-                    <Header type="main-paragraph">Location</Header>
+                <LocalizedLinkText to='/careers/locations/' onClick={handleArrowClick} p='10px'>
+                    <Header type='main-paragraph'>Location</Header>
                 </LocalizedLinkText>
-                <LocalizedLinkText to="/careers/besquare/" onClick={handleArrowClick} p="10px">
-                    <Header type="main-paragraph">BeSquare</Header>
+                <LocalizedLinkText to='/careers/besquare/' onClick={handleArrowClick} p='10px'>
+                    <Header type='main-paragraph'>BeSquare</Header>
                 </LocalizedLinkText>
             </OffCanvasMenuContainer>
         </OffCanvasMenuCareer>

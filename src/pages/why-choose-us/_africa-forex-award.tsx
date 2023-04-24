@@ -103,16 +103,16 @@ const AfricaAward = () => {
                             backgroundColor: 'white',
                         }}
                     >
-                        <Flex style={{ maxHeight: '360px' }} ai="center" jc="space-evenly">
-                            <StyledHeader type="heading-2" align="left" color="white">
-                                {<Localize translate_text="Best Forex Broker Africa" />}
+                        <Flex style={{ maxHeight: '360px' }} ai='center' jc='space-evenly'>
+                            <StyledHeader type='heading-2' align='left' color='white'>
+                                {<Localize translate_text='Best Forex Broker Africa' />}
                             </StyledHeader>
                             <AwardImageWrapper>
                                 <QueryImage
                                     data={data.africa_award}
                                     alt={'Africa Forex Award'}
-                                    width="auto"
-                                    height="100%"
+                                    width='auto'
+                                    height='100%'
                                 />
                             </AwardImageWrapper>
                         </Flex>
@@ -120,7 +120,7 @@ const AfricaAward = () => {
                 </StyledFlex>
             </Desktop>
             <Mobile>
-                <Flex fd="column" ai="center">
+                <Flex fd='column' ai='center'>
                     <BackgroundImage
                         data={data.africa_award_background_mobile}
                         style={{
@@ -133,17 +133,17 @@ const AfricaAward = () => {
                             margin: ' 0 1rem',
                         }}
                     >
-                        <StyledHeaderMobile type="heading-2" align="center" color="white">
-                            {<Localize translate_text="Best Forex Broker Africa" />}
+                        <StyledHeaderMobile type='heading-2' align='center' color='white'>
+                            {<Localize translate_text='Best Forex Broker Africa' />}
                         </StyledHeaderMobile>
-                        <Header as="h2" width="50%"></Header>
+                        <Header as='h2' width='50%' />
                     </BackgroundImage>
                     <AwardImageWrapperMobile>
                         <QueryImage
                             data={data.africa_award}
                             alt={'Africa Forex Award'}
-                            width="auto"
-                            height="100%"
+                            width='auto'
+                            height='100%'
                         />
                     </AwardImageWrapperMobile>
                 </Flex>

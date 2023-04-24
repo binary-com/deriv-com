@@ -128,26 +128,26 @@ const query = graphql`
 const Hero = () => {
     const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
-    const background = is_mobile ? data['p2p_hero_background_mobile'] : data['p2p_hero_background']
+    const background = is_mobile ? data.p2p_hero_background_mobile : data.p2p_hero_background
 
     return (
         <BackgroundWrapper data={background}>
-            <Wrapper p="4rem 0 0" justify="space-between" height="unset">
-                <InformationWrapper height="unset" direction="column">
-                    <StyledHeader type="hero">
+            <Wrapper p='4rem 0 0' justify='space-between' height='unset'>
+                <InformationWrapper height='unset' direction='column'>
+                    <StyledHeader type='hero'>
                         {localize('Ride the trends even on weekends')}
                     </StyledHeader>
-                    <HeroContent direction="column" jc="flex-start">
-                        <Header as="h2" type="subtitle-1">
+                    <HeroContent direction='column' jc='flex-start'>
+                        <Header as='h2' type='subtitle-1'>
                             {
-                                <Localize translate_text="Trade even when most financial markets are closed" />
+                                <Localize translate_text='Trade even when most financial markets are closed' />
                             }
                         </Header>
                     </HeroContent>
                     <TryButton
-                        target="_blank"
-                        rel="noopener noreferrer nofollow"
-                        type="submit"
+                        target='_blank'
+                        rel='noopener noreferrer nofollow'
+                        type='submit'
                         secondary
                         to={'/signup/'}
                     >

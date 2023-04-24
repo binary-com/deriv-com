@@ -36,26 +36,26 @@ const MindWhenTrading = () => {
     const data = useStaticQuery(query)
 
     return (
-        <StyledSectionContainer background="white" padding="0 0 4rem">
-            <SmallContainer direction="column" ai="flex-start">
-                <Header as="h3" type="section-title" mb="2rem">
+        <StyledSectionContainer background='white' padding='0 0 4rem'>
+            <SmallContainer direction='column' ai='flex-start'>
+                <Header as='h3' type='section-title' mb='2rem'>
                     {localize('Things to keep in mind when trading CFDs')}
                 </Header>
-                <Text as="h4" size="var(--text-size-m)" weight="bold" mb="0.8rem">
+                <Text as='h4' size='var(--text-size-m)' weight='bold' mb='0.8rem'>
                     {localize('CFDs are traded on margin')}
                 </Text>
-                <Text mb="3.2rem">
+                <Text mb='3.2rem'>
                     {localize(
-                        'The term ‘margin’ refers to the deposit needed to open a leveraged position, which is a position larger than your capital investment and leads to increased market exposure.',
+                        'The term ‘margin’ refers to the deposit needed to open a leveraged position, which is a position larger than your capital investment and leads to increased market exposure.'
                     )}
                 </Text>
             </SmallContainer>
             <Desktop breakpoint={'bp680'}>
-                <SmallContainer direction="column" ai="flex-start">
+                <SmallContainer direction='column' ai='flex-start'>
                     <ImageWrapper>
                         <QueryImage
-                            data={data['margin_relationship_piechart']}
-                            alt="Pie chart explaining relation between margin and leverage"
+                            data={data.margin_relationship_piechart}
+                            alt='Pie chart explaining relation between margin and leverage'
                         />
                     </ImageWrapper>
                 </SmallContainer>
@@ -63,19 +63,19 @@ const MindWhenTrading = () => {
             <Mobile breakpoint={'bp680'}>
                 <ImageWrapper>
                     <QueryImage
-                        data={data['margin_mobile_relationship_piechart']}
-                        alt="Trade types margin market"
+                        data={data.margin_mobile_relationship_piechart}
+                        alt='Trade types margin market'
                     />
                 </ImageWrapper>
             </Mobile>
-            <SmallContainer direction="column" ai="flex-start">
-                <Text mt="3.2rem">
+            <SmallContainer direction='column' ai='flex-start'>
+                <Text mt='3.2rem'>
                     {localize(
-                        'Use our margin calculator to calculate the margin required to increase your market exposure (the market value of your position) on Deriv’s CFD trading platforms.',
+                        'Use our margin calculator to calculate the margin required to increase your market exposure (the market value of your position) on Deriv’s CFD trading platforms.'
                     )}
                 </Text>
 
-                <StyledLinkButton mt="4rem" secondary to="/trader-tools/margin-calculator/">
+                <StyledLinkButton mt='4rem' secondary to='/trader-tools/margin-calculator/'>
                     {localize('Margin calculator')}
                 </StyledLinkButton>
             </SmallContainer>

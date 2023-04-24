@@ -44,6 +44,8 @@ const getNavigationMap = (type: string) => {
                 cryptocurrencies: ['cryptocurrencies'],
                 commodities: ['commodities'],
             }
+        default:
+            return {}
     }
 }
 
@@ -66,13 +68,13 @@ export const useActiveLinkState = (type: string) => {
                 level = current_root_page.length === 1 ? 0 : type === 'markets' ? 2 : 1
             }
 
-            Object.keys(navigation_map).forEach((key) => {
+            Object.keys(navigation_map).forEach(key => {
                 if (navigation_map[key].includes(current_root_page[level]?.replace('/', ''))) {
                     setCurrentPage(key)
                 }
             })
         },
-        [navigation_map],
+        [navigation_map]
     )
 
     useEffect(() => updateCurrentPage(type), [type, updateCurrentPage])

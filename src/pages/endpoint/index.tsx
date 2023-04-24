@@ -140,26 +140,26 @@ const Endpoint = () => {
     }
 
     return (
-        <Layout type="static" margin_top={'0'}>
-            <SEO title="Endpoint" description="Change deriv API endpoint." no_index />
-            <StyledContainer justify="center" align="center" direction="column">
-                <Header as="h2" type="page-title" align="center" mt="80px">
+        <Layout type='static' margin_top={'0'}>
+            <SEO title='Endpoint' description='Change deriv API endpoint.' no_index />
+            <StyledContainer justify='center' align='center' direction='column'>
+                <Header as='h2' type='page-title' align='center' mt='80px'>
                     Change API endpoint
                 </Header>
                 <Header
-                    as="h4"
-                    type="sub-section-title"
-                    align="center"
-                    weight="500"
-                    mt="0.5rem"
-                    mb="3.8rem"
+                    as='h4'
+                    type='sub-section-title'
+                    align='center'
+                    weight='500'
+                    mt='0.5rem'
+                    mb='3.8rem'
                 >
                     Update configuration for API endpoint or other settings
                 </Header>
                 <Formik
                     initialValues={{
-                        server_url: server_url ? server_url : '',
-                        app_id: app_id ? app_id : '',
+                        server_url: server_url || '',
+                        app_id: app_id || '',
                         // this implicit check is required by formik for `enableReinitialize` to work
                         clients_country: website_status?.clients_country
                             ? website_status?.clients_country
@@ -185,60 +185,60 @@ const Endpoint = () => {
                         <Form noValidate>
                             <InputGroup>
                                 <StyledInput
-                                    name="server_url"
+                                    name='server_url'
                                     error={errors.server_url}
                                     value={values.server_url}
                                     disabled={reset_loading}
                                     handleError={() => setFieldValue('server_url', '')}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
-                                    type="text"
-                                    label="Server URL"
-                                    background="white"
+                                    type='text'
+                                    label='Server URL'
+                                    background='white'
                                     placeholder={'e.g. green.binaryws.com'}
                                 />
                                 <StyledInput
-                                    name="app_id"
+                                    name='app_id'
                                     error={errors.app_id}
                                     value={values.app_id}
                                     disabled={reset_loading}
                                     handleError={() => setFieldValue('app_id', '')}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
-                                    type="text"
-                                    label="App ID"
-                                    background="white"
+                                    type='text'
+                                    label='App ID'
+                                    background='white'
                                     placeholder={'e.g. 9999'}
                                 />
                                 <StyledInput
                                     readOnly
-                                    name="clients_country"
+                                    name='clients_country'
                                     error={errors.clients_country}
                                     value={values.clients_country}
                                     handleError={() => setFieldValue('clients_country', '')}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
-                                    type="text"
-                                    label="Clients country"
-                                    background="white"
+                                    type='text'
+                                    label='Clients country'
+                                    background='white'
                                     placeholder={'e.g. mt (for EU) or gb (for UK) or za (for P2P)'}
                                 />
                             </InputGroup>
-                            <Text align="center" color="green">
+                            <Text align='center' color='green'>
                                 {status?.message && status.message}
                             </Text>
                             <ButtonContainer>
                                 <StyledButton
                                     tertiary
                                     onClick={() => resetEndpointSettings(setStatus)}
-                                    type="button"
+                                    type='button'
                                 >
                                     Reset to original settings
                                 </StyledButton>
                                 <StyledButton
                                     secondary
                                     disabled={isSubmitting || !dirty || !touched || !isValid}
-                                    type="submit"
+                                    type='submit'
                                 >
                                     Submit changes
                                 </StyledButton>

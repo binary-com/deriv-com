@@ -35,14 +35,14 @@ const MobileAccordianItem = ({ locale, pd }: MobileAccordianItemProps) => {
             <ParentWrapper>
                 {pd.data.map((items, idx) => {
                     return (
-                        <StyledAccordianItem key={idx} fd="column" ai="center">
+                        <StyledAccordianItem key={idx} fd='column' ai='center'>
                             <MobileExpandedList
                                 payment_data={items}
                                 locale={locale}
                                 is_crypto={pd.is_crypto}
                                 is_fiat_onramp={pd.is_fiat_onramp}
                                 is_dp2p={pd.is_dp2p}
-                            ></MobileExpandedList>
+                            />
                         </StyledAccordianItem>
                     )
                 })}
@@ -50,7 +50,7 @@ const MobileAccordianItem = ({ locale, pd }: MobileAccordianItemProps) => {
 
             {pd.note && (
                 <Notes>
-                    <Header type="paragraph-1" weight="normal">
+                    <Header type='paragraph-1' weight='normal'>
                         {localize('Note:')} {pd.note}
                     </Header>
                 </Notes>

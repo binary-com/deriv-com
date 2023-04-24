@@ -156,7 +156,7 @@ export const LocalizedLink = React.forwardRef(
         }
 
         return <InternalLink mounted={is_mounted} locale={locale} ref={ref} {...props} />
-    },
+    }
 )
 
 LocalizedLink.displayName = 'LocalizedLink'
@@ -212,7 +212,7 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
     } else if (affiliate_links.includes(type)) {
         return `${localized_link_url[type]}?lang=${affiliate_lang}`
     } else if (deriv_other_products.includes(type)) {
-        if (type === 'binary_bot') return `${localized_link_url[type]}/${to ? to : ''}?l=${locale}`
+        if (type === 'binary_bot') return `${localized_link_url[type]}/${to || ''}?l=${locale}`
         else if (type === 'smart_trader')
             return getSmartTraderLocalizedURL(localized_link_url[type], locale)
 
@@ -220,14 +220,13 @@ const getURLFormat = (type, locale, to, affiliate_lang) => {
     } else if (deriv_social_platforms.includes(type)) {
         return `${localized_link_url[type]}${to}`
     } else if (new_tab_no_modal.includes(type)) {
-        return `${localized_link_url.domain_full_url}${locale === 'en' ? '' : '/' + locale}/${
-            type.replace(/_/g, '-') + '/'
-        }`
+        return `${localized_link_url.domain_full_url}${
+            locale === 'en' ? '' : `/${locale}`
+        }/${`${type.replace(/_/g, '-')}/`}`
     } else if (only_en_new_tab_no_modal.includes(type)) {
         return `${localized_link_url.domain_full_url}/${type.replace(/_/g, '-')}`
-    } else {
-        return to
     }
+    return to
 }
 
 const ExternalLink = ({
@@ -264,7 +263,7 @@ const ExternalLink = ({
         final_target = '__blank'
     }
 
-    const handleClick = (e) => {
+    const handleClick = e => {
         if (show_modal) {
             e.preventDefault()
             setModalPayload({
@@ -272,7 +271,7 @@ const ExternalLink = ({
                 target,
                 rel,
                 ref,
-                aria_label: aria_label,
+                aria_label,
             })
             toggleModal(e)
         }
@@ -283,7 +282,7 @@ const ExternalLink = ({
 
     return (
         <a
-            style={style ? style : default_style}
+            style={style || default_style}
             aria-label={aria_label}
             href={!show_modal ? url : ''}
             onClick={show_modal ? handleClick : null}

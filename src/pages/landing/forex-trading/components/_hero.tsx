@@ -90,21 +90,21 @@ const TryButton = styled(LinkButton)`
 const HeroComponent = ({ title, content, background_data }: HeroProps) => {
     return (
         <BackgroundWrapper data={background_data}>
-            <Wrapper p="0" justify="space-between" height="63rem">
-                <InformationWrapper height="unset" direction="column">
-                    <StyledHeader mt="6.2rem" type="hero" color="white">
+            <Wrapper p='0' justify='space-between' height='63rem'>
+                <InformationWrapper height='unset' direction='column'>
+                    <StyledHeader mt='6.2rem' type='hero' color='white'>
                         {title}
                     </StyledHeader>
-                    <HeroContent m="2rem 0 0" direction="column" jc="flex-start">
-                        <Header color="white" type="subtitle-1" weight="normal">
+                    <HeroContent m='2rem 0 0' direction='column' jc='flex-start'>
+                        <Header color='white' type='subtitle-1' weight='normal'>
                             {content}
                         </Header>
                     </HeroContent>
                     <TryButton
-                        m="3rem 0 80px"
-                        target="_blank"
-                        rel="noopener noreferrer nofollow"
-                        type="submit"
+                        m='3rem 0 80px'
+                        target='_blank'
+                        rel='noopener noreferrer nofollow'
+                        type='submit'
                         secondary
                         to={'/signup/'}
                     >
@@ -136,14 +136,14 @@ const Hero = ({ title, content }: HeroProps) => {
                 <HeroComponent
                     title={title}
                     content={content}
-                    background_data={data['p2p_hero_background']}
+                    background_data={data.p2p_hero_background}
                 />
             </Desktop>
             <Mobile>
                 <HeroComponent
                     title={title}
                     content={content}
-                    background_data={data['p2p_hero_background_mobile']}
+                    background_data={data.p2p_hero_background_mobile}
                 />
             </Mobile>
         </div>

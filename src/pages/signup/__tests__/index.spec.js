@@ -47,7 +47,7 @@ describe('NewSignUp', () => {
                         <NewSignup />,
                     </QueryParamProvider>
                 </LocaleContextWrapper>
-            </RegionProvider>,
+            </RegionProvider>
         )
         const singup_button = screen.getByRole('button', {
             name: /Create demo account/i,

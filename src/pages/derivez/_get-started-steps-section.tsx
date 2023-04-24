@@ -80,34 +80,34 @@ const GetStartedStepsSection: React.FC<TProps> = ({ is_demo = false, chosen_tab 
                         components={[
                             <LocalizedLinkText
                                 key={0}
-                                to="/deriv-go"
-                                color="red"
-                                weight="bold"
+                                to='/deriv-go'
+                                color='red'
+                                weight='bold'
                                 size={is_mobile ? '18px' : '24px'}
                             />,
                         ]}
                     />
                 ),
-                image: data['demo_step1'],
+                image: data.demo_step1,
                 alt: <Localize translate_text={demo_step1_alt} />,
             },
             {
                 title: <Localize translate_text={demo_step2_title} />,
-                image: data['demo_step2'],
+                image: data.demo_step2,
                 alt: <Localize translate_text={demo_step2_alt} />,
             },
             {
                 title: <Localize translate_text={demo_step3_title} />,
-                image: data['demo_step3'],
+                image: data.demo_step3,
                 alt: <Localize translate_text={demo_step3_alt} />,
             },
             {
                 title: <Localize translate_text={demo_step4_title} />,
-                image: data['demo_step4'],
+                image: data.demo_step4,
                 alt: <Localize translate_text={real_demo_step4_alt} />,
             },
         ],
-        [data, is_mobile],
+        [data, is_mobile]
     )
 
     const real: React.ComponentProps<typeof StepperView>['items'] = useMemo(
@@ -119,44 +119,44 @@ const GetStartedStepsSection: React.FC<TProps> = ({ is_demo = false, chosen_tab 
                         components={[
                             <LocalizedLinkText
                                 key={0}
-                                to="/deriv-go"
-                                color="red"
-                                weight="bold"
+                                to='/deriv-go'
+                                color='red'
+                                weight='bold'
                                 size={is_mobile ? '18px' : '24px'}
                             />,
                         ]}
                     />
                 ),
-                image: data['real_step1'],
+                image: data.real_step1,
                 alt: <Localize translate_text={real_step1_alt} />,
             },
             {
                 title: <Localize translate_text={real_step2_title} />,
-                image: data['real_step2'],
+                image: data.real_step2,
                 alt: <Localize translate_text={real_step2_alt} />,
             },
             {
                 title: <Localize translate_text={real_step3_title} />,
-                image: data['real_step3'],
+                image: data.real_step3,
                 alt: <Localize translate_text={real_step3_alt} />,
             },
             {
                 title: <Localize translate_text={real_step4_title} />,
-                image: data['real_step4'],
+                image: data.real_step4,
                 alt: <Localize translate_text={real_step4_alt} />,
             },
             {
                 title: <Localize translate_text={real_step5_title} />,
-                image: data['real_step5'],
+                image: data.real_step5,
                 alt: <Localize translate_text={real_step5_alt} />,
             },
             {
                 title: <Localize translate_text={real_step6_title} />,
-                image: data['real_step6'],
+                image: data.real_step6,
                 alt: <Localize translate_text={real_demo_step4_alt} />,
             },
         ],
-        [data, is_mobile],
+        [data, is_mobile]
     )
     return <StepperView chosen_tab={chosen_tab} items={is_demo ? demo : real} />
 }

@@ -30,21 +30,21 @@ const query = graphql`
 const TradeTheWayYouLike = ({ is_ppc_redirect }: TradeTheWayYouLikeProps) => {
     const data = useStaticQuery(query)
     return (
-        <StyledSection padding="5rem 2rem">
-            <Header as="h3" type="section-title" align="center">
+        <StyledSection padding='5rem 2rem'>
+            <Header as='h3' type='section-title' align='center'>
                 {localize('Trade the way you like')}
             </Header>
-            <Text size="var(--text-size-sm)" mt="2rem" align="center">
+            <Text size='var(--text-size-sm)' mt='2rem' align='center'>
                 {localize('Choose from three powerful platforms — designed with you in mind')}
             </Text>
             <ImageWrapper>
                 <QueryImage
-                    data={data['dtrader_artboard']}
+                    data={data.dtrader_artboard}
                     alt={localize('Dtrader artboard')}
-                    loading="eager"
+                    loading='eager'
                 />
             </ImageWrapper>
-            <OtherPlatform exclude="" is_nav is_ppc_redirect={is_ppc_redirect} />
+            <OtherPlatform exclude='' is_nav is_ppc_redirect={is_ppc_redirect} />
         </StyledSection>
     )
 }

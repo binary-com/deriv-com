@@ -38,7 +38,7 @@ const LanguageSwitch = ({ i18n, is_high_nav, is_security }: LanguageSwitchProps)
         }
     }, [])
 
-    const renderLanguageChoice = (lang) => {
+    const renderLanguageChoice = lang => {
         if (disabled_lang.includes(lang) && isProduction()) return
         const { display_name, path, short_name } = language_config[lang]
         const current_short_name = language_config[language].short_name
@@ -48,7 +48,7 @@ const LanguageSwitch = ({ i18n, is_high_nav, is_security }: LanguageSwitchProps)
 
         return {
             value: to,
-            text: text,
+            text,
             is_selected,
             path,
         }
@@ -58,7 +58,7 @@ const LanguageSwitch = ({ i18n, is_high_nav, is_security }: LanguageSwitchProps)
         return { short_name, path }
     }
 
-    const handleSelect = (e) => {
+    const handleSelect = e => {
         const { id } = e.target
         const current_lang = language || 'en'
         const path = id === '/en/' ? '/' : id

@@ -27,9 +27,9 @@ const SelectedSlide = ({ selected_slide }: SelectedSlideProps) => {
     if (selected_slide) {
         const { title, icon, description, learn_more_link } = selected_slide
         return (
-            <SelectedZone position="absolute" height="152px" background="white" p="16px">
+            <SelectedZone position='absolute' height='152px' background='white' p='16px'>
                 <ImageTag src={icon} alt={title} />
-                <Flex fd="column" jc="start" ml="8px">
+                <Flex fd='column' jc='start' ml='8px'>
                     <PlatformContent
                         title={title}
                         description={description}
@@ -61,12 +61,11 @@ const Shadow = styled.div<{ location: 'start' | 'end' }>`
                     rgba(249, 251, 255, 1) 100%
                 );
             `
-        } else {
-            return css`
-                bottom: -0.5px;
-                background: linear-gradient(rgba(249, 251, 255, 0) 0%, rgba(249, 251, 255, 1) 100%);
-            `
         }
+        return css`
+            bottom: -0.5px;
+            background: linear-gradient(rgba(249, 251, 255, 0) 0%, rgba(249, 251, 255, 1) 100%);
+        `
     }}
 `
 
@@ -145,15 +144,15 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
     }, [embla, platform_details, auto_play])
 
     const scrollHandler = useCallback(
-        (index) => {
+        index => {
             if (embla) {
                 embla.scrollTo(index)
             }
         },
-        [embla],
+        [embla]
     )
 
-    const clickHandler = (index) => {
+    const clickHandler = index => {
         scrollHandler(index)
         onSelectSlide(index)
     }
@@ -161,21 +160,21 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
     if (platform_details) {
         return (
             <Box
-                width="fit-content"
-                height="640px"
-                background="rgba(249, 251, 255, 1)"
-                p="0 20px 8px"
-                m="0 auto"
+                width='fit-content'
+                height='640px'
+                background='rgba(249, 251, 255, 1)'
+                p='0 20px 8px'
+                m='0 auto'
             >
-                <StyledFlex position="relative" m="0 auto" jc="unset">
-                    <Shadow location="start" />
-                    <Shadow location="end" />
+                <StyledFlex position='relative' m='0 auto' jc='unset'>
+                    <Shadow location='start' />
+                    <Shadow location='end' />
                     <SelectedSlide
                         selected_slide={platform_details[slide_index] || platform_details[0]}
                     />
-                    <Flex ai="center" jc="unset">
+                    <Flex ai='center' jc='unset'>
                         <Scene>
-                            <Viewport position="relative" ai="center" ref={viewportRef}>
+                            <Viewport position='relative' ai='center' ref={viewportRef}>
                                 <WheelContainer>
                                     {platform_details.map(
                                         ({ title, icon, learn_more_link }, index) => {
@@ -186,10 +185,10 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
                                                     onClick={() => clickHandler(index)}
                                                 >
                                                     <ImageTag src={icon} />
-                                                    <Header type="subtitle-1">{title}</Header>
+                                                    <Header type='subtitle-1'>{title}</Header>
                                                 </Slide>
                                             )
-                                        },
+                                        }
                                     )}
                                 </WheelContainer>
                             </Viewport>

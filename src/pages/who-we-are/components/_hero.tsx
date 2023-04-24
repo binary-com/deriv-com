@@ -23,12 +23,12 @@ type ParentWrapperProps = {
 
 const ParentWrapper = styled(Flex)<ParentWrapperProps>`
     width: 100%;
-    background-image: url(${(props) => props.bg_image_desktop});
+    background-image: url(${props => props.bg_image_desktop});
     background-position: center;
     background-size: cover;
 
     @media ${device.tabletL} {
-        background-image: url(${(props) => props.bg_image_mobile});
+        background-image: url(${props => props.bg_image_mobile});
     }
 `
 const ContentWrapper = styled(Flex)`
@@ -93,26 +93,26 @@ const Hero = () => {
 
     return (
         <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>
-            <ContentWrapper jc="center">
+            <ContentWrapper jc='center'>
                 <Desktop>
                     <StyledFlex>
                         <StyledQueryImage
-                            data={data['about_us_logo']}
-                            alt="example"
-                            width="unset"
-                            loading="eager"
+                            data={data.about_us_logo}
+                            alt='example'
+                            width='unset'
+                            loading='eager'
                         />
-                        <Flex jc="center" p="0 32px" max_width="1440px">
+                        <Flex jc='center' p='0 32px' max_width='1440px'>
                             <DesktopHeader>{title}</DesktopHeader>
                         </Flex>
                     </StyledFlex>
                 </Desktop>
                 <Mobile>
-                    <Flex fd="column" ai="center" p="0 16px">
+                    <Flex fd='column' ai='center' p='0 16px'>
                         <StyledMobileQueryImage
-                            data={data['about_us_logo']}
-                            alt="example"
-                            width="unset"
+                            data={data.about_us_logo}
+                            alt='example'
+                            width='unset'
                         />
                         <MobileHeader>{title}</MobileHeader>
                     </Flex>

@@ -23,7 +23,7 @@ type StyledTableType = {
 const meta_attributes = {
     og_title: localize('Payment Methods | Deposits and withdrawals | Deriv'),
     og_description: localize(
-        'We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!',
+        'We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!'
     ),
 }
 
@@ -78,7 +78,7 @@ const StyledTable = styled.table<StyledTableType>`
     table-layout: fixed;
     border-collapse: collapse;
     width: 110.4rem;
-    margin: ${(props) => (props.has_note ? '0 auto 2.4rem' : '0 auto')};
+    margin: ${props => (props.has_note ? '0 auto 2.4rem' : '0 auto')};
 `
 
 const Thead = styled.thead`
@@ -184,31 +184,27 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
         // First we check if the `data` exists or not, Then we manipulate the local data with the response from the server.
 
         if (is_eu) {
-            setPaymentMethodData(
-                payment_method_data.filter((payment_method) => payment_method.is_eu),
+            setPaymentMethodData(payment_method_data.filter(payment_method => payment_method.is_eu))
+        } else if (data) {
+            const filtered_payment_methods = payment_method_data.filter(
+                payment_method => !payment_method.is_eu
             )
-        } else {
-            if (data) {
-                const filtered_payment_methods = payment_method_data.filter(
-                    (payment_method) => !payment_method.is_eu,
-                )
 
-                const updated_payment_data = filtered_payment_methods.map((payment_method) => {
-                    if (!payment_method.is_crypto) return payment_method
+            const updated_payment_data = filtered_payment_methods.map(payment_method => {
+                if (!payment_method.is_crypto) return payment_method
 
-                    const updated_data = payment_method.data.map((value) => ({
-                        ...value,
-                        ...data.currencies_config[value.name],
-                    }))
+                const updated_data = payment_method.data.map(value => ({
+                    ...value,
+                    ...data.currencies_config[value.name],
+                }))
 
-                    return {
-                        ...payment_method,
-                        data: updated_data,
-                    }
-                })
+                return {
+                    ...payment_method,
+                    data: updated_data,
+                }
+            })
 
-                setPaymentMethodData(updated_payment_data)
-            }
+            setPaymentMethodData(updated_payment_data)
         }
     }, [data, is_eu])
 
@@ -239,7 +235,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
     }
     return (
         <>
-            {payment_method_data.map((pdata) => {
+            {payment_method_data.map(pdata => {
                 const styles = is_mobile
                     ? {
                           padding: '0 16px 0',
@@ -266,27 +262,26 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                     return []
                 } else if (pdata.is_dp2p && !is_p2p_allowed_country) {
                     return null
-                } else
-                    return (
-                        <Accordion has_single_state>
-                            <AccordionItem
-                                key={pdata.class_name}
-                                content_style={content_style}
-                                header_style={header_style}
-                                style={styles}
-                                parent_style={parent_style}
-                                header={pdata.name}
-                                class_name={pdata.class_name}
-                            >
-                                <DesktopWrapper>
-                                    <DisplayAccordianItem pd={pdata} locale={locale} />
-                                </DesktopWrapper>
-                                <MobileWrapper>
-                                    <MobileAccordianItem pd={pdata} locale={locale} />
-                                </MobileWrapper>
-                            </AccordionItem>
-                        </Accordion>
-                    )
+                }
+                return (
+                    <Accordion key={pdata.class_name} has_single_state>
+                        <AccordionItem
+                            content_style={content_style}
+                            header_style={header_style}
+                            style={styles}
+                            parent_style={parent_style}
+                            header={pdata.name}
+                            class_name={pdata.class_name}
+                        >
+                            <DesktopWrapper>
+                                <DisplayAccordianItem pd={pdata} locale={locale} />
+                            </DesktopWrapper>
+                            <MobileWrapper>
+                                <MobileAccordianItem pd={pdata} locale={locale} />
+                            </MobileWrapper>
+                        </AccordionItem>
+                    </Accordion>
+                )
             })}
         </>
     )
@@ -388,7 +383,7 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
             </OuterDiv>
             {pd.note && (
                 <Notes>
-                    <Text weight="500" size="var(--text-size-xs)">
+                    <Text weight='500' size='var(--text-size-xs)'>
                         {localize('Note:')} {pd.note}
                     </Text>
                 </Notes>
@@ -400,13 +395,13 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
 const PaymentMethodSection = ({ locale }: PaymentMethodsProps) => {
     return (
         <SectionContentContainer>
-            <Container direction="column">
-                <AccordionContainer id="payment-list">
+            <Container direction='column'>
+                <AccordionContainer id='payment-list'>
                     <DisplayAccordion locale={locale} />
                 </AccordionContainer>
-                <Header mt="1.6rem" type="paragraph-2" align="start" weight="normal">
+                <Header mt='1.6rem' type='paragraph-2' align='start' weight='normal'>
                     <Localize
-                        translate_text="<0>Disclaimer</0>: We process all your deposits and withdrawals within 1 day. However, the processing times and limits in this page are indicative, depending on the queue or for reasons outside of our control."
+                        translate_text='<0>Disclaimer</0>: We process all your deposits and withdrawals within 1 day. However, the processing times and limits in this page are indicative, depending on the queue or for reasons outside of our control.'
                         components={[<strong key={0} />]}
                     />
                 </Header>
@@ -418,46 +413,46 @@ const PaymentMethodSection = ({ locale }: PaymentMethodsProps) => {
 const PaymentMethods = () => {
     const { is_p2p_allowed_country } = useRegion()
     return (
-        <Layout type="payment-methods">
+        <Layout type='payment-methods'>
             <SEO
                 title={localize('Payment Methods | Deposits and withdrawals | Deriv')}
                 description={localize(
-                    'We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!',
+                    'We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!'
                 )}
                 meta_attributes={meta_attributes}
             />
             <SectionTopContainer>
-                <TopContainer direction="column" width="100%">
-                    <Header as="h1" type="hero" align="center" mb="1.6rem">
+                <TopContainer direction='column' width='100%'>
+                    <Header as='h1' type='hero' align='center' mb='1.6rem'>
                         {localize('Payment methods')}
                     </Header>
                     <Header
-                        align="center"
-                        as="h3"
-                        type="subtitle-1"
-                        weight="normal"
-                        mobile_max_width="326px"
+                        align='center'
+                        as='h3'
+                        type='subtitle-1'
+                        weight='normal'
+                        mobile_max_width='326px'
                     >
                         {localize('We support a variety of deposit and withdrawal options.')}
                     </Header>
                     <Header
-                        align="center"
-                        as="h3"
-                        type="subtitle-1"
-                        weight="normal"
-                        mobile_max_width="326px"
+                        align='center'
+                        as='h3'
+                        type='subtitle-1'
+                        weight='normal'
+                        mobile_max_width='326px'
                     >
                         {localize('Learn more about our payment methods and how to use them.')}
                     </Header>
                 </TopContainer>
             </SectionTopContainer>
-            <Divider height="2px" />
+            <Divider height='2px' />
             <PaymentMethodSection />
             {is_p2p_allowed_country && (
                 <>
-                    <Divider height="2px" />
+                    <Divider height='2px' />
                     <SectionContainer>
-                        <Container direction="column">
+                        <Container direction='column'>
                             <Dp2p />
                         </Container>
                     </SectionContainer>

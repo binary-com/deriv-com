@@ -160,13 +160,13 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
         <div>
             <StyledText>
                 <Localize
-                    translate_text="Want to learn more about Deriv P2P? Head to our <0>Help Centre</0>"
+                    translate_text='Want to learn more about Deriv P2P? Head to our <0>Help Centre</0>'
                     components={[
                         <LocalizedLinkText
                             to={'/help-centre/deriv-p2p/#what-is-deriv-p2p'}
                             size={24}
-                            target="_blank"
-                            color="blue"
+                            target='_blank'
+                            color='blue'
                             key={0}
                         />,
                     ]}
@@ -175,19 +175,19 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
             <Desktop>
                 <Background
                     style={{ height: '340px', backgroundPosition: '20% 20%' }}
-                    data={is_rtl ? data['p2p_banner_rtl'] : data['p2p_banner']}
+                    data={is_rtl ? data.p2p_banner_rtl : data.p2p_banner}
                 >
                     <Wrapper>
-                        <InformationWrapper height="unset" direction="column">
-                            <StyledHeader as="h3">{title}</StyledHeader>
+                        <InformationWrapper height='unset' direction='column'>
+                            <StyledHeader as='h3'>{title}</StyledHeader>
 
                             <TryButton
                                 secondary
                                 external
-                                to="/cashier/p2p"
-                                type="deriv_app"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                to='/cashier/p2p'
+                                type='deriv_app'
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
                                 {localize('Try Deriv P2P now')}
                             </TryButton>
@@ -198,11 +198,11 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
             <Mobile>
                 <Background
                     style={{ height: '402px', backgroundPosition: '40% 50%' }}
-                    data={data['p2p_banner_mobile']}
+                    data={data.p2p_banner_mobile}
                 >
                     <Wrapper>
-                        <InformationWrapper height="unset" direction="column">
-                            <StyledHeader as="h3">{title}</StyledHeader>
+                        <InformationWrapper height='unset' direction='column'>
+                            <StyledHeader as='h3'>{title}</StyledHeader>
                             <Mobile>
                                 <ButtonDerivP2P secondary onClick={handleExternalLink}>
                                     {localize('Try Deriv P2P now')}

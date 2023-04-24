@@ -40,14 +40,14 @@ const rawCalculation = (values, specialFormula) => {
     return formula
 }
 
-export const getMargin = (values) => {
+export const getMargin = values => {
     const { volume, assetPrice, leverage, contractSize } = values
     const specialFormula = (volume * contractSize * assetPrice) / leverage.name
     const margin_formula = rawCalculation(values, specialFormula)
     return toFixed(margin_formula)
 }
 
-export const getPipValue = (values) => {
+export const getPipValue = values => {
     const { volume, pointValue, contractSize } = values
     const specialFormula = volume * contractSize * pointValue
     const pip_formula = rawCalculation(values, specialFormula)
@@ -55,7 +55,7 @@ export const getPipValue = (values) => {
     return toFixed(pip_formula)
 }
 
-export const getSwapChargeSynthetic = (values) => {
+export const getSwapChargeSynthetic = values => {
     const { volume, assetPrice, swapRate, contractSize } = values
     const specialFormula = (volume * contractSize * assetPrice * (swapRate / 100)) / 360
     const swap_formula_synthetic = rawCalculation(values, specialFormula)
@@ -63,7 +63,7 @@ export const getSwapChargeSynthetic = (values) => {
     return toFixed(swap_formula_synthetic)
 }
 
-export const getSwapChargeForex = (values) => {
+export const getSwapChargeForex = values => {
     const { volume, pointValue, swapRate, contractSize } = values
     const swap_formula_forex = volume * contractSize * pointValue * swapRate
     return toFixed(swap_formula_forex)
@@ -105,6 +105,8 @@ export const getPnlMarginCommon = (values, action) => {
             const take_profit_pip_formula = Math.abs(stopLossLevel - assetPrice) / pointValue
             return toFixed(take_profit_pip_formula)
         }
+        default:
+            break
     }
 }
 
@@ -178,19 +180,21 @@ export const getPnlMultiplierCommon = (values, action) => {
             const stop_loss_amount_down_formula = Math.max(calculation, toNegative(stake))
             return toFixed(stop_loss_amount_down_formula)
         }
+        default:
+            break
     }
 }
 
 // Utilities
-export const toFixed = (val) => {
+export const toFixed = val => {
     return parseFloat(val.toFixed(3)).toLocaleString()
 }
 
-const toNegative = (val) => {
+const toNegative = val => {
     return Math.abs(val) * -1
 }
 
-export const getCurrency = (symbol) => {
+export const getCurrency = symbol => {
     let currency = 'USD'
 
     if (symbol.name === 'DAX_30') {
@@ -202,7 +206,7 @@ export const getCurrency = (symbol) => {
     return currency
 }
 
-export const getContractSize = (symbol) => {
+export const getContractSize = symbol => {
     let contractSize = 1 //crypto falls into this contract size
     if (symbol.market === 'forex') {
         contractSize = 100000
@@ -217,6 +221,8 @@ export const getContractSize = (symbol) => {
             case 'XPTUSD':
                 contractSize = 100
                 break
+            default:
+                break
         }
     }
     if (symbol.name === 'Step Index') {
@@ -229,7 +235,7 @@ export const getContractSize = (symbol) => {
 }
 
 // Reset Validations
-export const resetValidationMargin = (values) => {
+export const resetValidationMargin = values => {
     const errors: ErrorsType = {}
     const assetPrice_error = validation.assetPrice(values.assetPrice)
     const leverage_error = validation.leverage(values.leverage)
@@ -251,7 +257,7 @@ export const resetValidationMargin = (values) => {
     return errors
 }
 
-export const resetValidationPip = (values) => {
+export const resetValidationPip = values => {
     const errors: ErrorsType = {}
     const pointValue_error = validation.pointValue(values.pointValue)
     const symbol_error = validation.symbol(values.symbol)
@@ -269,7 +275,7 @@ export const resetValidationPip = (values) => {
     return errors
 }
 
-export const resetValidationPnlMargin = (values) => {
+export const resetValidationPnlMargin = values => {
     const errors: ErrorsType = {}
     const pointValue_error = validation.pointValue(values.pointValue)
     const assetPrice_error = validation.assetPrice(values.assetPrice)
@@ -299,7 +305,7 @@ export const resetValidationPnlMargin = (values) => {
     return errors
 }
 
-export const resetValidationPnlMultipliersLevel = (values) => {
+export const resetValidationPnlMultipliersLevel = values => {
     const errors: ErrorsType = {}
     const assetPrice_error = validation.assetPrice(values.assetPrice)
     const takeProfitAmount_error = validation.takeProfitAmount(values.takeProfitAmount)
@@ -329,7 +335,7 @@ export const resetValidationPnlMultipliersLevel = (values) => {
     return errors
 }
 
-export const resetValidationPnlMultipliersAmount = (values) => {
+export const resetValidationPnlMultipliersAmount = values => {
     const errors: ErrorsType = {}
     const assetPrice_error = validation.assetPrice(values.assetPrice)
     const takeProfitLevel_error = validation.takeProfitLevel(values.takeProfitLevel)
@@ -359,7 +365,7 @@ export const resetValidationPnlMultipliersAmount = (values) => {
     return errors
 }
 
-export const resetValidationSynthetic = (values) => {
+export const resetValidationSynthetic = values => {
     const errors: ErrorsType = {}
     const assetPrice_error = validation.assetPrice(values.assetPrice)
     const swapRate_error = validation.swapRate(values.swapRate)
@@ -381,7 +387,7 @@ export const resetValidationSynthetic = (values) => {
     return errors
 }
 
-export const resetValidationForex = (values) => {
+export const resetValidationForex = values => {
     const errors: ErrorsType = {}
     const pointValue_error = validation.pointValue(values.pointValue)
     const swapRate_error = validation.swapRate(values.swapRate)
@@ -403,21 +409,21 @@ export const resetValidationForex = (values) => {
     return errors
 }
 
-export const numberWithoutCommas = (input) => {
+export const numberWithoutCommas = input => {
     return input.toString().replace(/,/g, '')
 }
 
-export const numberSubmitFormat = (input) => {
+export const numberSubmitFormat = input => {
     return input.replace(/^0+(?!\.|$)/, '')
 }
 
-export const numberSubmitFormatNegative = (input) => {
+export const numberSubmitFormatNegative = input => {
     let result = input.replace(/^(-?)0+/, '$1')
 
     if (result.charAt(0) == '-' && result.charAt(1) == '.') {
-        result = result.slice(0, 1) + '0' + result.slice(1)
+        result = `${result.slice(0, 1)}0${result.slice(1)}`
     } else if (result.charAt(0) == '.') {
-        result = '0' + result
+        result = `0${result}`
     }
     return result
 }

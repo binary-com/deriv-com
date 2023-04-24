@@ -26,21 +26,21 @@ const Container = styled.section`
 `
 const content = {
     subscriber: {
-        header: <Localize translate_text="How to subscribe to an MT5 signal" />,
-        step_one_header: <Localize translate_text="1. Click on the Signals tab" />,
+        header: <Localize translate_text='How to subscribe to an MT5 signal' />,
+        step_one_header: <Localize translate_text='1. Click on the Signals tab' />,
         step_one_text: (
-            <Localize translate_text="From your Deriv MT5 trading terminal, click on the Signals tab to view the list of signal providers." />
+            <Localize translate_text='From your Deriv MT5 trading terminal, click on the Signals tab to view the list of signal providers.' />
         ),
         step_one_text_eu: (
-            <Localize translate_text="Go to your MT5 desktop app terminal and click on the Signals tab to view the list of signal providers. Not available on the web version." />
+            <Localize translate_text='Go to your MT5 desktop app terminal and click on the Signals tab to view the list of signal providers. Not available on the web version.' />
         ),
-        step_two_header: <Localize translate_text="2. Subscribe to a signal provider" />,
+        step_two_header: <Localize translate_text='2. Subscribe to a signal provider' />,
         step_two_text: (
-            <Localize translate_text="Select the signal provider you prefer and click the Subscribe button." />
+            <Localize translate_text='Select the signal provider you prefer and click the Subscribe button.' />
         ),
-        step_three_header: <Localize translate_text="3. Configure the parameters" />,
+        step_three_header: <Localize translate_text='3. Configure the parameters' />,
         step_three_text: (
-            <Localize translate_text="Configure your trading and risk management parameters. Then click OK to complete the process." />
+            <Localize translate_text='Configure your trading and risk management parameters. Then click OK to complete the process.' />
         ),
         notice: (
             <Localize
@@ -48,69 +48,69 @@ const content = {
                     <strong key={0} />,
                     <LocalizedLinkText
                         external
-                        to="https://www.mql5.com/en/signals"
-                        color="red"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        to='https://www.mql5.com/en/signals'
+                        color='red'
+                        target='_blank'
+                        rel='noopener noreferrer'
                         size={16}
                         key={1}
                     />,
                 ]}
-                translate_text="<0>Note:</0> For a wider selection of signal providers for Deriv, go to <1>MQL5 showcase page</1> and search for <0>Deriv</0> under the <0>Broker</0> server field."
+                translate_text='<0>Note:</0> For a wider selection of signal providers for Deriv, go to <1>MQL5 showcase page</1> and search for <0>Deriv</0> under the <0>Broker</0> server field.'
             />
         ),
     },
     provider: {
-        header: <Localize translate_text="How to register as a signals provider" />,
-        step_one_header: <Localize translate_text="1.  Head to MQL5.com" />,
+        header: <Localize translate_text='How to register as a signals provider' />,
+        step_one_header: <Localize translate_text='1.  Head to MQL5.com' />,
         step_one_text: (
             <Localize
-                translate_text="In the <0>MQL5 signals showcase page</0>, click the Create signal button."
+                translate_text='In the <0>MQL5 signals showcase page</0>, click the Create signal button.'
                 components={[
                     <LocalizedLinkText
                         external
-                        to="https://www.mql5.com/en/signals"
-                        color="red"
-                        target="_blank"
+                        to='https://www.mql5.com/en/signals'
+                        color='red'
+                        target='_blank'
                         size={16}
                         key={0}
                     />,
                 ]}
             />
         ),
-        step_two_header: <Localize translate_text="2. Fill the broker field" />,
+        step_two_header: <Localize translate_text='2. Fill the broker field' />,
         step_two_text: (
             <Localize
-                translate_text="Complete the form with your Deriv MT5 account credentials. In the <0>Broker</0> field, enter your account server name: <1/> <0>- Deriv-Demo</0> if your signal is for demo accounts only <1/> <0>- Deriv-Server</0> or <0>Deriv-Server-02</0> if your signal is for real accounts only <1/>(You can find the account server name on your <2>Deriv MT5 dashboard</2>.)"
+                translate_text='Complete the form with your Deriv MT5 account credentials. In the <0>Broker</0> field, enter your account server name: <1/> <0>- Deriv-Demo</0> if your signal is for demo accounts only <1/> <0>- Deriv-Server</0> or <0>Deriv-Server-02</0> if your signal is for real accounts only <1/>(You can find the account server name on your <2>Deriv MT5 dashboard</2>.)'
                 components={[
                     <strong key={0} />,
                     <br key={1} />,
                     <LocalizedLinkText
                         external
-                        to="https://app.deriv.com/mt5"
-                        color="red"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        to='https://app.deriv.com/mt5'
+                        color='red'
+                        target='_blank'
+                        rel='noopener noreferrer'
                         size={16}
                         key={2}
                     />,
                 ]}
             />
         ),
-        step_three_header: <Localize translate_text="3. Fill in your details" />,
+        step_three_header: <Localize translate_text='3. Fill in your details' />,
         step_three_text: (
-            <Localize translate_text="Add a description and click Save to complete your registration." />
+            <Localize translate_text='Add a description and click Save to complete your registration.' />
         ),
         notice: (
             <Localize
-                translate_text="<1>Note:</1> You need to upgrade your MQL5 account to seller status to be able to add a signal. If you’ve not upgraded yet, <0>follow the steps on this page</0> to register as a seller."
+                translate_text='<1>Note:</1> You need to upgrade your MQL5 account to seller status to be able to add a signal. If you’ve not upgraded yet, <0>follow the steps on this page</0> to register as a seller.'
                 components={[
                     <LocalizedLinkText
                         external
-                        to="https://www.metatrader5.com/en/terminal/help/signals/signal_provider"
-                        color="red"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        to='https://www.metatrader5.com/en/terminal/help/signals/signal_provider'
+                        color='red'
+                        target='_blank'
+                        rel='noopener noreferrer'
                         size={16}
                         key={0}
                     />,
@@ -236,7 +236,7 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                         <>
                             <StyledTabs
                                 is_reverse
-                                max_width="tabletL"
+                                max_width='tabletL'
                                 has_notice
                                 notice_content={content.subscriber.notice}
                             >
@@ -250,14 +250,14 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                 >
                                     <Desktop>
                                         <StyledQueryImage
-                                            data={data['subscriber_step_1']}
-                                            alt="Trade types option market"
+                                            data={data.subscriber_step_1}
+                                            alt='Trade types option market'
                                         />
                                     </Desktop>
                                     <Mobile>
                                         <StyledQueryImage
-                                            data={data['subscriber_step_1_mobile']}
-                                            alt="Trade types option market"
+                                            data={data.subscriber_step_1_mobile}
+                                            alt='Trade types option market'
                                         />
                                     </Mobile>
                                 </Tabs.Panel>
@@ -267,14 +267,14 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                 >
                                     <Desktop>
                                         <StyledQueryImage
-                                            data={data['subscriber_step_2']}
-                                            alt="Trade types option trade type open"
+                                            data={data.subscriber_step_2}
+                                            alt='Trade types option trade type open'
                                         />
                                     </Desktop>
                                     <Mobile>
                                         <StyledQueryImage
-                                            data={data['subscriber_step_2_mobile']}
-                                            alt="Trade types option trade type open"
+                                            data={data.subscriber_step_2_mobile}
+                                            alt='Trade types option trade type open'
                                         />
                                     </Mobile>
                                 </Tabs.Panel>
@@ -284,14 +284,14 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                 >
                                     <Desktop>
                                         <StyledQueryImage
-                                            data={data['subscriber_step_3']}
-                                            alt="Trade types option duration"
+                                            data={data.subscriber_step_3}
+                                            alt='Trade types option duration'
                                         />
                                     </Desktop>
                                     <Mobile>
                                         <StyledQueryImage
-                                            data={data['subscriber_step_3_mobile']}
-                                            alt="Trade types option duration"
+                                            data={data.subscriber_step_3_mobile}
+                                            alt='Trade types option duration'
                                         />
                                     </Mobile>
                                 </Tabs.Panel>
@@ -306,7 +306,7 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                         <>
                             <StyledTabs
                                 is_reverse
-                                max_width="tabletL"
+                                max_width='tabletL'
                                 has_notice
                                 notice_content={content.provider.notice}
                             >
@@ -316,14 +316,14 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                 >
                                     <Desktop>
                                         <StyledQueryImage
-                                            data={data['provider_step_1']}
-                                            alt="Trade types option market"
+                                            data={data.provider_step_1}
+                                            alt='Trade types option market'
                                         />
                                     </Desktop>
                                     <Mobile>
                                         <StyledQueryImage
-                                            data={data['provider_step_1_mobile']}
-                                            alt="Trade types option market"
+                                            data={data.provider_step_1_mobile}
+                                            alt='Trade types option market'
                                         />
                                     </Mobile>
                                 </Tabs.Panel>
@@ -333,14 +333,14 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                 >
                                     <Desktop>
                                         <StyledQueryImage
-                                            data={data['provider_step_2']}
-                                            alt="Trade types option trade type open"
+                                            data={data.provider_step_2}
+                                            alt='Trade types option trade type open'
                                         />
                                     </Desktop>
                                     <Mobile>
                                         <StyledQueryImage
-                                            data={data['provider_step_2_mobile']}
-                                            alt="Trade types option trade type open"
+                                            data={data.provider_step_2_mobile}
+                                            alt='Trade types option trade type open'
                                         />
                                     </Mobile>
                                 </Tabs.Panel>
@@ -350,14 +350,14 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                 >
                                     <Desktop>
                                         <StyledQueryImage
-                                            data={data['provider_step_3']}
-                                            alt="Trade types option duration"
+                                            data={data.provider_step_3}
+                                            alt='Trade types option duration'
                                         />
                                     </Desktop>
                                     <Mobile>
                                         <StyledQueryImage
-                                            data={data['provider_step_3_mobile']}
-                                            alt="Trade types option duration"
+                                            data={data.provider_step_3_mobile}
+                                            alt='Trade types option duration'
                                         />
                                     </Mobile>
                                 </Tabs.Panel>

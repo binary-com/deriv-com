@@ -45,12 +45,12 @@ const PlatformSlideshow = () => {
                     key: 'hero1',
                     image: (
                         <StaticImage
-                            src="../../images/common/home/hero_platform1.png"
-                            alt="mobile app deriv go"
+                            src='../../images/common/home/hero_platform1.png'
+                            alt='mobile app deriv go'
                             formats={['avif', 'webp', 'auto']}
                             quality={36}
-                            loading="eager"
-                            placeholder="none"
+                            loading='eager'
+                            placeholder='none'
                         />
                     ),
                 },
@@ -58,11 +58,11 @@ const PlatformSlideshow = () => {
                     key: 'hero2',
                     image: (
                         <StaticImage
-                            src="../../images/common/home/hero_platform2.png"
-                            alt="laptop dtrader"
+                            src='../../images/common/home/hero_platform2.png'
+                            alt='laptop dtrader'
                             formats={['avif', 'webp', 'auto']}
                             quality={44}
-                            placeholder="none"
+                            placeholder='none'
                         />
                     ),
                 },
@@ -70,11 +70,11 @@ const PlatformSlideshow = () => {
                     key: 'hero3',
                     image: (
                         <StaticImage
-                            src="../../images/common/home/hero_platform3.png"
-                            alt="laptop mt5"
+                            src='../../images/common/home/hero_platform3.png'
+                            alt='laptop mt5'
                             formats={['avif', 'webp', 'auto']}
                             quality={38}
-                            placeholder="none"
+                            placeholder='none'
                         />
                     ),
                 },
@@ -82,11 +82,11 @@ const PlatformSlideshow = () => {
                     key: 'hero4',
                     image: (
                         <StaticImage
-                            src="../../images/common/home/hero_platform4.png"
-                            alt="laptop deriv x"
+                            src='../../images/common/home/hero_platform4.png'
+                            alt='laptop deriv x'
                             formats={['avif', 'webp', 'auto']}
                             quality={44}
-                            placeholder="none"
+                            placeholder='none'
                         />
                     ),
                 },
@@ -98,12 +98,12 @@ const PlatformSlideshow = () => {
                     key: 'hero1_eu',
                     image: (
                         <StaticImage
-                            src="../../images/common/home/hero_platform1_eu.png"
-                            alt="laptop dtrader eu"
+                            src='../../images/common/home/hero_platform1_eu.png'
+                            alt='laptop dtrader eu'
                             formats={['avif', 'webp', 'auto']}
                             quality={44}
-                            loading="eager"
-                            placeholder="none"
+                            loading='eager'
+                            placeholder='none'
                         />
                     ),
                 },
@@ -111,11 +111,11 @@ const PlatformSlideshow = () => {
                     key: 'hero2_eu',
                     image: (
                         <StaticImage
-                            src="../../images/common/home/hero_platform2_eu.png"
-                            alt="laptop dmt5 eu"
+                            src='../../images/common/home/hero_platform2_eu.png'
+                            alt='laptop dmt5 eu'
                             formats={['avif', 'webp', 'auto']}
                             quality={38}
-                            placeholder="none"
+                            placeholder='none'
                         />
                     ),
                 },
@@ -126,8 +126,8 @@ const PlatformSlideshow = () => {
 
     useEffect(() => {
         const setNextImage = () => {
-            setActiveIndex((prevIndex) =>
-                prevIndex >= slide_images?.length - 1 ? 0 : prevIndex + 1,
+            setActiveIndex(prevIndex =>
+                prevIndex >= Number(slide_images?.length) - 1 ? 0 : prevIndex + 1
             )
         }
 
@@ -146,10 +146,10 @@ const PlatformSlideshow = () => {
 
     return (
         <SlideContainer
-            max_width="690px"
-            max_height="626px"
+            max_width='690px'
+            max_height='626px'
             tablet={{ height: '360px', ai: 'center' }}
-            z_index="2"
+            z_index='2'
         >
             <Slides images={slide_images} active_index={active_index} />
         </SlideContainer>

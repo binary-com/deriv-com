@@ -99,14 +99,13 @@ export const NavRight = styled.div<NavRightProps>`
                     ref_base.style.opacity = 1
                 }
                 return 0
-            } else {
-                if (ref_base && mounted) {
-                    ref_base.style.opacity = 0
-                    const calculation = ref_base.offsetWidth + 2
-                    return is_rtl ? `${-calculation}px` : `${calculation}px`
-                }
-                return '300px'
             }
+            if (ref_base && mounted) {
+                ref_base.style.opacity = 0
+                const calculation = ref_base.offsetWidth + 2
+                return is_rtl ? `${-calculation}px` : `${calculation}px`
+            }
+            return '300px'
         }}
     );
 

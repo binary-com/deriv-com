@@ -22,10 +22,10 @@ const StyledButton = styled(Button)<{ active?: boolean; grey?: boolean }>`
     padding: 7px 13px;
     font-size: 14px;
     margin: 0 4px;
-    color: ${(props) => (props.grey ? 'var(--color-grey-2)' : 'var(--color-black-3)')};
+    color: ${props => (props.grey ? 'var(--color-grey-2)' : 'var(--color-black-3)')};
     font-weight: normal;
-    background: ${(props) => props.disabled && 'var(--color-grey-2)'};
-    ${(props) => {
+    background: ${props => props.disabled && 'var(--color-grey-2)'};
+    ${props => {
         if (props.active)
             return css`
                 pointer-events: none;
@@ -66,7 +66,7 @@ const Pagination = ({ items_per_page, total_items, paginate, current_page }: Pag
             <StyledButton
                 disabled={current_page === 1}
                 tertiary
-                m="4px"
+                m='4px'
                 onClick={() => paginate(current_page - 1)}
             >
                 {'<'}
@@ -74,23 +74,23 @@ const Pagination = ({ items_per_page, total_items, paginate, current_page }: Pag
             {current_page > 2 && last_page > 5 && (
                 <>
                     <StyledButton
-                        active={1 === current_page}
+                        active={current_page === 1}
                         tertiary
-                        m="4px"
+                        m='4px'
                         onClick={() => paginate(1)}
                     >
                         {1}
                     </StyledButton>
-                    <StyledButton tertiary grey m="4px">
+                    <StyledButton tertiary grey m='4px'>
                         ...
                     </StyledButton>
                 </>
             )}
-            {sliced_page_numbers.map((number) => (
+            {sliced_page_numbers.map(number => (
                 <StyledButton
                     active={number === current_page}
                     tertiary
-                    m="4px"
+                    m='4px'
                     key={number}
                     onClick={() => paginate(number)}
                 >
@@ -99,13 +99,13 @@ const Pagination = ({ items_per_page, total_items, paginate, current_page }: Pag
             ))}
             {current_page + 2 < last_page && last_page > 5 && (
                 <>
-                    <StyledButton tertiary grey m="4px">
+                    <StyledButton tertiary grey m='4px'>
                         ...
                     </StyledButton>
                     <StyledButton
                         active={last_page === current_page}
                         tertiary
-                        m="4px"
+                        m='4px'
                         onClick={() => paginate(last_page)}
                     >
                         {last_page}
@@ -115,7 +115,7 @@ const Pagination = ({ items_per_page, total_items, paginate, current_page }: Pag
             <StyledButton
                 disabled={current_page === last_page}
                 tertiary
-                m="4px"
+                m='4px'
                 onClick={() => paginate(current_page + 1)}
             >
                 {'>'}

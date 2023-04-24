@@ -10,7 +10,7 @@ const StyledBackground = styled(BackgroundImage)<{ dark: string }>`
 
     &::before,
     &::after {
-        filter: brightness(${({ dark }) => (dark ? dark : '1')});
+        filter: brightness(${({ dark }) => dark || '1'});
     }
 `
 
@@ -36,14 +36,14 @@ export const Background = ({
 
     if (is_unstyled) {
         return (
-            <BackgroundImage Tag="div" {...bg_image} {...props}>
+            <BackgroundImage Tag='div' {...bg_image} {...props}>
                 {children}
             </BackgroundImage>
         )
     }
 
     return (
-        <StyledBackground Tag="div" style={style} dark={dark} {...bg_image} {...props}>
+        <StyledBackground Tag='div' style={style} dark={dark} {...bg_image} {...props}>
             {children}
         </StyledBackground>
     )

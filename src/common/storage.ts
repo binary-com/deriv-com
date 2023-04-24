@@ -17,7 +17,7 @@ if (typeof Storage !== 'undefined') {
     Storage.prototype.setObject = setObject
 }
 
-const isStorageSupported = (storage) => {
+const isStorageSupported = storage => {
     if (typeof storage === 'undefined') {
         return false
     }
@@ -93,7 +93,7 @@ InScriptStore.prototype = {
         this.set(key, JSON.stringify(value))
     },
     remove(...keys) {
-        keys.forEach((key) => {
+        keys.forEach(key => {
             delete this.store[key]
         })
     },
@@ -196,22 +196,25 @@ CookieStorage.prototype = {
     },
 }
 
-let SessionStore, LocalStore
+let SessionStore_, LocalStore_
 
 if (isBrowser()) {
     if (isStorageSupported(window.localStorage)) {
-        LocalStore = new Store(window.localStorage)
+        LocalStore_ = new Store(window.localStorage)
     }
     if (isStorageSupported(window.sessionStorage)) {
-        SessionStore = new Store(window.sessionStorage)
+        SessionStore_ = new Store(window.sessionStorage)
     }
 
-    if (!LocalStore) {
-        LocalStore = new InScriptStore({})
+    if (!LocalStore_) {
+        LocalStore_ = new InScriptStore({})
     }
-    if (!SessionStore) {
-        SessionStore = new InScriptStore({})
+    if (!SessionStore_) {
+        SessionStore_ = new InScriptStore({})
     }
 }
+
+const LocalStore = LocalStore_
+const SessionStore = SessionStore_
 
 export { CookieStorage, isStorageSupported, LocalStore, SessionStore, State }

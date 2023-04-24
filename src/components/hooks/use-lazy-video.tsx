@@ -12,9 +12,10 @@ type VideoSourceType = {
 }
 
 const createObserver = (lazyVideos: HTMLVideoElement[]) => {
-    const lazyVideoObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (video: VideoType & IntersectionObserverEntry) {
+    const lazyVideoObserver = new IntersectionObserver(entries => {
+        entries.forEach((video: VideoType & IntersectionObserverEntry) => {
             if (video.isIntersecting) {
+                // eslint-disable-next-line guard-for-in, no-restricted-syntax
                 for (const source in video.target.children) {
                     const videoSource: VideoSourceType = video.target.children[source]
                     if (
@@ -30,7 +31,7 @@ const createObserver = (lazyVideos: HTMLVideoElement[]) => {
             }
         })
     })
-    lazyVideos.forEach(function (lazyVideo) {
+    lazyVideos.forEach(lazyVideo => {
         lazyVideoObserver.observe(lazyVideo)
     })
 }

@@ -3,7 +3,7 @@ import { Margins, MarginsType, Paddings, PaddingsType } from '../../themes/funct
 import device, { size } from 'themes/device'
 
 export const mediaqueries = Object.keys(size)
-    .sort(function (a, b) {
+    .sort((a, b) => {
         return size[b] - size[a]
     })
     .reduce((accumulator, label) => {
@@ -15,7 +15,7 @@ export const mediaqueries = Object.keys(size)
         return accumulator
     }, {})
 
-export const generateResponsiveStyles = (stylesGenerator) => (props) => {
+export const generateResponsiveStyles = stylesGenerator => props => {
     return Object.keys(mediaqueries).reduce((rules, mq) => {
         if (!props[mq]) return rules
         const styles = mediaqueries[mq]`        
@@ -106,13 +106,13 @@ export type BoxType = {
     BaseStyleType
 
 const Box = styled.div<BoxType & BaseStyleType>`
-    width: ${(props) => (props.width ? props.width : '')};
-    height: ${(props) => (props.height ? props.height : '')};
-    min-height: ${(props) => (props.min_height ? props.min_height : '')};
-    max-width: ${(props) => (props.max_width ? props.max_width : '')};
-    position: ${(props) => (props.position ? props.position : '')};
-    background: ${(props) => (props.background || props.bg ? props.background || props.bg : '')};
-    ${(props) => {
+    width: ${props => (props.width ? props.width : '')};
+    height: ${props => (props.height ? props.height : '')};
+    min-height: ${props => (props.min_height ? props.min_height : '')};
+    max-width: ${props => (props.max_width ? props.max_width : '')};
+    position: ${props => (props.position ? props.position : '')};
+    background: ${props => (props.background || props.bg ? props.background || props.bg : '')};
+    ${props => {
         if (props.z_index) {
             return css`
                 z-index: ${props.z_index};

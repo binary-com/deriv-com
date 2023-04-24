@@ -12,7 +12,7 @@ export const wrapPageElement = WrapPagesWithLocaleContext
 export const onRenderBody = ({ setHeadComponents }) => {
     setHeadComponents([
         <script
-            key="partytown-vanilla-config"
+            key='partytown-vanilla-config'
             dangerouslySetInnerHTML={{
                 __html: `partytown = {
            resolveUrl(url, location) {
@@ -29,9 +29,9 @@ export const onRenderBody = ({ setHeadComponents }) => {
             }}
         />,
         <script
-            key="trustpilot-widget"
-            type="text/javascript"
-            src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+            key='trustpilot-widget'
+            type='text/javascript'
+            src='//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js'
             async={true}
         />,
     ])

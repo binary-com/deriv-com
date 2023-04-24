@@ -40,36 +40,36 @@ const Community = () => {
 
     return (
         <SectionContainer
-            padding="4rem"
-            background="var(--color-white)"
+            padding='4rem'
+            background='var(--color-white)'
             style={{ borderTop: '1px solid var(--color-grey-8)' }}
         >
             <Container>
-                <Flex tablet_direction="column" tablet_ai="center" max_width="92rem">
-                    <QueryImage alt="community" data={data['community']} width="41rem" />
-                    <StyledFlex tablet_ai="center" ml="5rem" direction="column">
-                        <StyledHeader mt="1rem" as="h3" type="section-title">
-                            <Localize translate_text="Have a question?" />
+                <Flex tablet_direction='column' tablet_ai='center' max_width='92rem'>
+                    <QueryImage alt='community' data={data.community} width='41rem' />
+                    <StyledFlex tablet_ai='center' ml='5rem' direction='column'>
+                        <StyledHeader mt='1rem' as='h3' type='section-title'>
+                            <Localize translate_text='Have a question?' />
                         </StyledHeader>
 
                         <StyledHeader
-                            size="var(--text-size-m)"
-                            pt="0.8rem"
-                            pb="3.4rem"
-                            weight="normal"
+                            size='var(--text-size-m)'
+                            pt='0.8rem'
+                            pb='3.4rem'
+                            weight='normal'
                         >
-                            <Localize translate_text="Our Deriv support community can help you find answers." />
+                            <Localize translate_text='Our Deriv support community can help you find answers.' />
                         </StyledHeader>
 
                         <StyledLinkButton
                             secondary
-                            to=""
-                            type="community"
+                            to=''
+                            type='community'
                             external
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            target='_blank'
+                            rel='noopener noreferrer'
                         >
-                            <Localize translate_text="Ask the community" />
+                            <Localize translate_text='Ask the community' />
                         </StyledLinkButton>
                     </StyledFlex>
                 </Flex>

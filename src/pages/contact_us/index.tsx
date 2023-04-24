@@ -8,6 +8,7 @@ import { Header, Text } from 'components/elements'
 import { localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, SectionContainer, Container } from 'components/containers'
+
 const Offices = Loadable(() => import('./_offices'))
 const Affiliates = Loadable(() => import('./_affiliates'))
 
@@ -41,16 +42,16 @@ const ContactUs = () => {
             <SEO
                 title={localize('Contact Us | Online Trading | Deriv.com')}
                 description={localize(
-                    'Have any query or need assistance, check out the details to call our international help desk and our email ID. Feel free to contact us anytime!',
+                    'Have any query or need assistance, check out the details to call our international help desk and our email ID. Feel free to contact us anytime!'
                 )}
                 has_organization_schema
             />
             <SectionContainer tablet={{ p: '40px 0' }}>
-                <HeroWrapper fd="column">
-                    <Header align="center" as="h1" type="display-title">
+                <HeroWrapper fd='column'>
+                    <Header align='center' as='h1' type='display-title'>
                         {localize('Contact us')}
                     </Header>
-                    <StyledText align="center" size="var(--text-size-sm)">
+                    <StyledText align='center' size='var(--text-size-sm)'>
                         {localize("Got questions? Here's how to get answers.")}
                     </StyledText>
                 </HeroWrapper>

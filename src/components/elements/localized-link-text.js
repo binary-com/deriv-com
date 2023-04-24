@@ -4,10 +4,10 @@ import { BaseElement } from './typography'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
-const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`
+const LocalizedLinkText = styled(props => <LocalizedLink {...props} />)`
     ${BaseElement}
-    font-weight: ${(props) => props.weight || 'normal'};
-    font-size: ${(props) => props.size || '1.6rem'};
+    font-weight: ${props => props.weight || 'normal'};
+    font-size: ${props => props.size || '1.6rem'};
     text-decoration: none;
     cursor: pointer;
 
@@ -17,7 +17,7 @@ const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`
     }
 
     @media ${device.tabletL} {
-        font-size: ${(props) => props.size || '16px'};
+        font-size: ${props => props.size || '16px'};
     }
 `
 

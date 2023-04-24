@@ -58,9 +58,9 @@ const Card = ({ card_content, custom_icon, has_list, style, title_component }: C
             <DropdownWrapper
                 onClick={toggleIsListOpen}
                 src={is_list_open ? Minimize : Maximize}
-                alt=""
-                width="32"
-                height="32"
+                alt=''
+                width='32'
+                height='32'
                 className={class_name}
             />
         )
@@ -78,9 +78,8 @@ const Card = ({ card_content, custom_icon, has_list, style, title_component }: C
                     </ListContainer>
                 </React.Fragment>
             )
-        } else {
-            return <React.Fragment>{DropdownComponent}</React.Fragment>
         }
+        return <React.Fragment>{DropdownComponent}</React.Fragment>
     }
 
     const toggleIsListOpen = () => {
@@ -90,7 +89,7 @@ const Card = ({ card_content, custom_icon, has_list, style, title_component }: C
     const { card_wrapper, icon_wrapper, text_wrapper } = style
     return (
         <CardWrapper {...card_wrapper}>
-            <IconWrapper {...icon_wrapper} src={custom_icon?.src || card_content.src} alt="" />
+            <IconWrapper {...icon_wrapper} src={custom_icon?.src || card_content.src} alt='' />
             {title_component}
             <TextWrapper {...text_wrapper}>{card_content.text}</TextWrapper>
             {has_list && getCurrentDropdownComponent(slugify(card_content.text))}

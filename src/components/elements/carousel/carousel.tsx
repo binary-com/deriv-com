@@ -47,7 +47,7 @@ export const PrevButton = ({
             left
             style={style}
             is_reviews={is_reviews}
-            className="previous-arrow"
+            className='previous-arrow'
         >
             {is_rtl ? <ChevronRight color={color} /> : <ChevronLeft color={color} />}
         </StyledButtonWrapper>
@@ -75,7 +75,7 @@ export const NextButton = ({
             disabled={!enabled}
             style={style}
             is_reviews={is_reviews}
-            className="next-arrow"
+            className='next-arrow'
         >
             {is_rtl ? <ChevronLeft color={color} /> : <ChevronRight color={color} />}
         </StyledButtonWrapper>
@@ -173,12 +173,12 @@ export const Carousel = ({
     }, [embla, stop])
 
     const scrollTo = useCallback(
-        (index) => {
+        index => {
             if (!embla) return
             embla.scrollTo(index)
             play()
         },
-        [embla, play],
+        [embla, play]
     )
 
     const onSelect = useCallback(() => {
@@ -208,7 +208,7 @@ export const Carousel = ({
             <div style={container_style}>
                 <Embla style={embla_style}>
                     <ViewPort style={view_port} ref={emblaRef}>
-                        <EmblaContainer style={vertical_container ? vertical_container : null}>
+                        <EmblaContainer style={vertical_container || null}>
                             {React.Children.map(children, (child, idx) => {
                                 if (!React.isValidElement(child)) {
                                     return <></>

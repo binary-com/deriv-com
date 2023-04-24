@@ -31,7 +31,7 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 const ToolWrapper = styled(Flex)<{ flex_direction?: string }>`
-    flex-direction: ${(props) => props.flex_direction};
+    flex-direction: ${props => props.flex_direction};
     align-items: space-between;
 
     .margin-calculator-btn {
@@ -46,8 +46,8 @@ const ToolWrapper = styled(Flex)<{ flex_direction?: string }>`
 const Column = styled.div<ColumnProps>`
     width: 100%;
     height: 100%;
-    margin-right: ${(props) => props.margin_right};
-    margin-left: ${(props) => props.margin_left};
+    margin-right: ${props => props.margin_right};
+    margin-left: ${props => props.margin_left};
     @media ${device.tabletL} {
         margin: 24px 0 0;
     }
@@ -58,8 +58,8 @@ const Column = styled.div<ColumnProps>`
 `
 const Content = styled(Flex)<{ margin_left: string; margin_right: string }>`
     max-width: 39rem;
-    margin-right: ${(props) => props.margin_right};
-    margin-left: ${(props) => props.margin_left};
+    margin-right: ${props => props.margin_right};
+    margin-left: ${props => props.margin_left};
     @media ${device.tabletL} {
         max-width: 100%;
         margin: 0;
@@ -135,8 +135,8 @@ const TradingTools = ({ tools }: TradingToolsProps) => {
     const outer_margin = '102px'
     const data = useStaticQuery(query)
     return (
-        <StyledSection background="white">
-            <Container fd="column">
+        <StyledSection background='white'>
+            <Container fd='column'>
                 {tools.map((item, index) => {
                     const is_even = isIndexEven(index)
 
@@ -148,15 +148,15 @@ const TradingTools = ({ tools }: TradingToolsProps) => {
                                         <QueryImage
                                             data={data[item.image_name]}
                                             alt={item.image_alt}
-                                            height="100%"
+                                            height='100%'
                                             loading={index === 0 ? 'eager' : 'lazy'}
                                         />
                                     </Desktop>
-                                    <Mobile className="margin-calculator-btn">
+                                    <Mobile className='margin-calculator-btn'>
                                         <QueryImage
-                                            data={data[item.image_name + '_mobile']}
+                                            data={data[`${item.image_name}_mobile`]}
                                             alt={item.image_alt}
-                                            height="100%"
+                                            height='100%'
                                             loading={index === 0 ? 'eager' : 'lazy'}
                                         />
                                         <StyledLinkButton tertiary to={item.link.route}>
@@ -165,16 +165,16 @@ const TradingTools = ({ tools }: TradingToolsProps) => {
                                     </Mobile>
                                 </Column>
                                 <Content
-                                    height="auto"
-                                    fd="column"
+                                    height='auto'
+                                    fd='column'
                                     margin_right={is_even ? inner_margin : outer_margin}
                                     margin_left={is_even ? outer_margin : inner_margin}
                                 >
-                                    <Header as="h3" type="section-title" mb="8px">
+                                    <Header as='h3' type='section-title' mb='8px'>
                                         {item.title}
                                     </Header>
                                     <Text>{item.subtitle}</Text>
-                                    <Desktop className="margin-calculator-btn">
+                                    <Desktop className='margin-calculator-btn'>
                                         <StyledLinkButton tertiary to={item.link.route}>
                                             {item.link.text}
                                         </StyledLinkButton>

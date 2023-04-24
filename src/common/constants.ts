@@ -33,15 +33,11 @@ const getDomainUrl = (): string =>
 const getDomainAppID = () => {
     if (getDomainUrl() === deriv_me_url) return deriv_me_app_id
     else if (getDomainUrl() === deriv_be_url) return deriv_be_app_id
-    else return deriv_com_app_id
+    return deriv_com_app_id
 }
 // '-eutestlink-' regex is meant to create test link for eu countries.
 // To make them work on your test links you need to include '-eutestlink-' in your branch name.
-export const eu_domains = [
-    new RegExp(/^eu$/),
-    new RegExp(/^staging-eu$/),
-    new RegExp(/-eutestlink-/),
-]
+export const eu_domains = [/^eu$/, /^staging-eu$/, /-eutestlink-/]
 export const eu_urls = ['eu.deriv.com', 'staging-eu.deriv.com']
 
 // URL
@@ -146,7 +142,7 @@ export const localized_link_url = Object.freeze({
     mt5: deriv_mt5_app_url,
     smart_trader: smarttrader_url,
     zoho: zoho_url,
-    domain_full_url: domain_full_url,
+    domain_full_url,
     derivlife: deriv_life_url,
     academy: academy_url,
     'terms_and_conditions/#clients': domain_full_url,

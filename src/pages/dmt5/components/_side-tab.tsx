@@ -52,7 +52,7 @@ const StyledFlex = styled(Flex)`
 `
 
 const StyledText = styled(Text)`
-    max-width: ${(props) => props.max_width};
+    max-width: ${props => props.max_width};
 
     @media ${device.tablet} {
         font-size: 16px;
@@ -65,7 +65,7 @@ const TabContent = styled.div<TabProps>`
 `
 const Content = styled.div<ContentProps>`
     flex: 1;
-    opacity: ${(props) => (props.selected ? '1' : '0')};
+    opacity: ${props => (props.selected ? '1' : '0')};
     transition: opacity 1s ease-in;
 `
 const TabButton = styled.div<ContentProps>`
@@ -78,7 +78,7 @@ const TabButton = styled.div<ContentProps>`
     cursor: pointer;
 
     ${Text} {
-        font-weight: ${(props) => (props.selected ? 'bold' : 'unset')};
+        font-weight: ${props => (props.selected ? 'bold' : 'unset')};
     }
     &::before {
         content: '';
@@ -87,7 +87,7 @@ const TabButton = styled.div<ContentProps>`
         height: 100%;
         left: 0;
         top: 0;
-        background: ${(props) => (props.selected ? 'var(--color-red)' : 'var(--color-grey-29)')};
+        background: ${props => (props.selected ? 'var(--color-red)' : 'var(--color-grey-29)')};
         transition: background 0.25s;
     }
 
@@ -107,7 +107,7 @@ const TabList = styled.div<ContentProps>`
     max-width: 38rem;
     display: flex;
     flex-direction: column;
-    ${(props) => (props.is_reverse ? left : right)}
+    ${props => (props.is_reverse ? left : right)}
     @media ${device.tablet} {
         max-width: 50rem;
         margin-right: unset;
@@ -137,7 +137,7 @@ const MobileWrapper = styled(Mobile)`
     }
 `
 
-const TabPanel = ({ children }: TabProps) => <TabContent role="tabpanel">{children}</TabContent>
+const TabPanel = ({ children }: TabProps) => <TabContent role='tabpanel'>{children}</TabContent>
 
 const SideTab = ({
     children = '',
@@ -155,7 +155,7 @@ const SideTab = ({
         if (old_parent_tab !== parent_tab) setSelectedTab(0)
     })
 
-    const selectTab = (tabIndex) => {
+    const selectTab = tabIndex => {
         setSelectedTab(tabIndex)
         setOldParentTab(parent_tab)
     }
@@ -163,7 +163,7 @@ const SideTab = ({
     const data = useStaticQuery(query)
 
     return (
-        <StyledFlex ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
+        <StyledFlex ai='flex-start' direction={is_reverse ? 'row-reverse' : 'row'}>
             <DesktopWrapper breakpoint={size.bp769}>
                 {React.Children.map(children, (el, index) => {
                     return (
@@ -174,7 +174,7 @@ const SideTab = ({
                 })}
             </DesktopWrapper>
             <div>
-                <TabList role="tablist" is_reverse={is_reverse} id="tablist">
+                <TabList role='tablist' is_reverse={is_reverse} id='tablist'>
                     {React.Children.map(children, (child: TabProps, index) => {
                         const {
                             props: {
@@ -189,18 +189,18 @@ const SideTab = ({
                         return (
                             <>
                                 <TabButton
-                                    role="tab"
+                                    role='tab'
                                     selected={selected_tab === index}
                                     aria-selected={selected_tab === index ? 'true' : 'false'}
                                     onClick={() => selectTab(index)}
                                     className={class_name}
                                 >
-                                    <Text weight="bold">{label}</Text>
+                                    <Text weight='bold'>{label}</Text>
                                     <StyledText
                                         max_width={item_width || '36.4rem'}
                                         mobile_max_width={mobile_item_width || item_width}
-                                        size="var(--text-size-m)"
-                                        mt="0.8rem"
+                                        size='var(--text-size-m)'
+                                        mt='0.8rem'
                                     >
                                         {description}
                                     </StyledText>
@@ -215,37 +215,37 @@ const SideTab = ({
                     })}
                     {has_qr_code && (
                         <Desktop>
-                            <Flex jc="flex-start">
+                            <Flex jc='flex-start'>
                                 <QueryImage
-                                    data={data['qr_code']}
+                                    data={data.qr_code}
                                     alt={'qr_code'}
-                                    width="108px"
-                                    height="108px"
+                                    width='108px'
+                                    height='108px'
                                 />
                             </Flex>
                         </Desktop>
                     )}
                 </TabList>
                 {has_download_button && (
-                    <DownloadFlex mt="1rem" jc="flex-start">
-                        <Box mr="1.2rem">
+                    <DownloadFlex mt='1rem' jc='flex-start'>
+                        <Box mr='1.2rem'>
                             <LocalizedLink
                                 external
                                 to={download_links.ios}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
-                                <img src={AppStore} alt="app store" />
+                                <img src={AppStore} alt='app store' />
                             </LocalizedLink>
                         </Box>
 
                         <LocalizedLink
                             external
                             to={download_links.android}
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            target='_blank'
+                            rel='noopener noreferrer'
                         >
-                            <img src={GooglePlay} alt="google play" width="138" height="40" />
+                            <img src={GooglePlay} alt='google play' width='138' height='40' />
                         </LocalizedLink>
                     </DownloadFlex>
                 )}

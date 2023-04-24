@@ -44,40 +44,40 @@ const PartnerCTA = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
 
     return (
-        <StyledSection padding="4rem 0">
+        <StyledSection padding='4rem 0'>
             <Container>
-                <Flex direction="column" ai="center" jc="space-between">
-                    <Header as="h4" type="sub-section-title" align="center" color="white">
+                <Flex direction='column' ai='center' jc='space-between'>
+                    <Header as='h4' type='sub-section-title' align='center' color='white'>
                         {localize('Got more questions?')}
                     </Header>
-                    <Text align="center" color="white" mt="0.8rem">
+                    <Text align='center' color='white' mt='0.8rem'>
                         {localize('The Deriv affiliate management team is here to help.')}
                     </Text>
                     <LinkText
-                        color="red"
-                        weight="bold"
-                        mt="1rem"
-                        size="var(--text-size-s)"
+                        color='red'
+                        weight='bold'
+                        mt='1rem'
+                        size='var(--text-size-s)'
                         onClick={() => {
-                            is_livechat_interactive && LC_API.open_chat_window()
+                            if (is_livechat_interactive) LC_API.open_chat_window()
                         }}
                     >
-                        <Localize translate_text="Contact us via live chat" />
+                        <Localize translate_text='Contact us via live chat' />
                     </LinkText>
                 </Flex>
-                <Flex direction="column" ai="center">
-                    <Header as="h4" type="sub-section-title" align="center" color="white">
+                <Flex direction='column' ai='center'>
+                    <Header as='h4' type='sub-section-title' align='center' color='white'>
                         {localize(
-                            'Enjoy generous commissions and all the other benefits of being a Deriv partner',
+                            'Enjoy generous commissions and all the other benefits of being a Deriv partner'
                         )}
                     </Header>
                     <RedButton
-                        id="dm-cta-affiliate-signup"
-                        mt="2rem"
+                        id='dm-cta-affiliate-signup'
+                        mt='2rem'
                         to={affiliate_signup_url}
                         external
-                        target="_blank"
-                        type="affiliate_sign_up"
+                        target='_blank'
+                        type='affiliate_sign_up'
                         secondary
                     >
                         {localize('Sign up')}

@@ -33,9 +33,8 @@ const MobileLayer = styled.div<LayerProps>`
 const getBreakPoint = (breakpoint: BreakPointType) => {
     if (typeof breakpoint === 'number') {
         return breakpoint
-    } else {
-        return size[breakpoint] ?? DEFAULT_BREAKPOINT
     }
+    return size[breakpoint] ?? DEFAULT_BREAKPOINT
 }
 
 export const Desktop = ({
@@ -89,7 +88,7 @@ export const Visibility = ({ children, config }: TVisiblityProps) => {
     const visiblity = useScreenSize()
 
     const filterKeys = Object.keys(config)
-    const is_visible = filterKeys.some((key) => {
+    const is_visible = filterKeys.some(key => {
         return visiblity[key]
     })
 

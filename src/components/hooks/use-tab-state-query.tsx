@@ -40,16 +40,12 @@ export const useTabStateQuery = (tab_list, has_no_query = false, starting_index 
                 } else {
                     routeBack()
                 }
-            } else {
-                if (isBrowserMode) {
-                    setActiveTab(tab_list[starting_index])
-                    setLocationHash(tab_list[starting_index])
-                }
-            }
-        } else {
-            if (!active_tab) {
+            } else if (isBrowserMode) {
                 setActiveTab(tab_list[starting_index])
+                setLocationHash(tab_list[starting_index])
             }
+        } else if (!active_tab) {
+            setActiveTab(tab_list[starting_index])
         }
     }, [active_tab, locationHash, has_no_query, tab_list, hashExistInTabList, starting_index])
 

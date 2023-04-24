@@ -10,6 +10,7 @@ import {
     Title,
 } from '../../static/style/_markets-style'
 import { useBrowserResize } from '../../../../components/hooks/use-browser-resize'
+
 type Contentelement = {
     id: string
     component?: ReactElement
@@ -44,7 +45,7 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
     const [is_mobile] = useBrowserResize()
     return (
         <MarketsWrapper>
-            {market_content.content?.map((content) =>
+            {market_content.content?.map(content =>
                 market_content.has_global_accordion || content.details ? (
                     <MarketsAccordion
                         id={content.id}
@@ -125,12 +126,12 @@ const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
                                 {content.component}
                             </LatestMarketsList>
                         ) : (
-                            <MarketsList {...market_content.markets_list} gap="16px">
+                            <MarketsList {...market_content.markets_list} gap='16px'>
                                 {content.component}
                             </MarketsList>
                         )}
                     </Row>
-                ),
+                )
             )}
         </MarketsWrapper>
     )

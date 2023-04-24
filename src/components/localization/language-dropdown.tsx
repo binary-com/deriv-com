@@ -41,7 +41,7 @@ const Display = styled.div`
     }
 `
 
-const Arrow = styled((props) => <Chevron {...props} />)<{ expanded: boolean }>`
+const Arrow = styled(props => <Chevron {...props} />)<{ expanded: boolean }>`
     ${({ expanded }) => (expanded ? 'transform: rotate(-180deg);' : '')}
     transition: transform 0.25s;
 
@@ -53,14 +53,13 @@ const Arrow = styled((props) => <Chevron {...props} />)<{ expanded: boolean }>`
 const Absolute = styled.div<AbsoluteProps>`
     position: absolute;
     z-index: 1;
-    top: ${(props) => {
+    top: ${props => {
         if (props.is_high_nav) {
             return '4.8rem'
         } else if (props.is_security) {
             return '10.5rem'
-        } else {
-            return '5.5rem'
         }
+        return '5.5rem'
     }};
     left: -7rem;
     max-height: 90vh;
@@ -163,7 +162,7 @@ const Dropdown = ({
         setOpen(false)
     }
 
-    const handleSelect = (value) => {
+    const handleSelect = value => {
         onChange({ target: { id: value } })
         closeList()
     }
@@ -172,15 +171,15 @@ const Dropdown = ({
         <>
             <Container ref={dropdown_ref}>
                 <Display onClick={toggleVisibility}>
-                    <ResponsiveText color="white" ml="0.8rem" weight="bold" mr="0.4rem">
+                    <ResponsiveText color='white' ml='0.8rem' weight='bold' mr='0.4rem'>
                         {default_option.short_name}
                     </ResponsiveText>
-                    <Arrow expanded={is_open ? true : false} />
+                    <Arrow expanded={!!is_open} />
                 </Display>
 
                 <Absolute is_high_nav={is_high_nav} is_security={is_security} is_open={is_open}>
                     <ItemContainer is_open={is_open}>
-                        {option_list.map((option) => {
+                        {option_list.map(option => {
                             if (!option) return null
                             const current_option = default_option.path === option.path
                             return (
@@ -193,7 +192,7 @@ const Dropdown = ({
                                     }}
                                     key={option.path}
                                 >
-                                    <Text ml="0.8rem" color={current_option ? 'red' : 'black'}>
+                                    <Text ml='0.8rem' color={current_option ? 'red' : 'black'}>
                                         {option.text}
                                     </Text>
                                 </Item>

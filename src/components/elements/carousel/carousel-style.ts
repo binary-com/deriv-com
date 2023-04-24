@@ -49,7 +49,7 @@ export const EmblaSlideInner = styled.div<{ width?: string }>`
     padding-left: 0;
     margin: 0 auto;
     height: 100%;
-    ${(props) => {
+    ${props => {
         if (props.width)
             return css`
                 width: ${props.width};
@@ -60,14 +60,14 @@ export const EmblaSlideInner = styled.div<{ width?: string }>`
 export const StyledButtonWrapper = styled.div<StyledButtonWrapperProps>`
     position: absolute;
     bottom: 50%;
-    opacity: ${(props) => (props.disabled ? '0.32' : '1')};
-    ${(props) => {
+    opacity: ${props => (props.disabled ? '0.32' : '1')};
+    ${props => {
         if (props.left)
             return css<StyledButtonWrapperProps>`
                 left: 0;
 
                 @media ${device.tabletL} {
-                    ${(props) => {
+                    ${props => {
                         if (props.is_reviews) {
                             return css`
                                 @media ${device.tabletL} {
@@ -88,7 +88,7 @@ export const StyledButtonWrapper = styled.div<StyledButtonWrapperProps>`
             right: 0;
 
             @media ${device.tabletL} {
-                ${(props) => {
+                ${props => {
                     if (props.is_reviews) {
                         return css`
                             @media ${device.tabletL} {
@@ -137,13 +137,12 @@ export const StyledChevron = styled(Chevron)<StyledChevronType>`
 export const NavigationContainer = styled(Flex)<NavigationContainerType>`
     ${({ navigation_css, bottom_offset, height }) => {
         if (navigation_css) return navigation_css
-        else
-            return css`
-                position: relative;
-                width: 100%;
-                height: ${height ?? '8px'};
-                bottom: ${bottom_offset ?? '40px'};
-            `
+        return css`
+            position: relative;
+            width: 100%;
+            height: ${height ?? '8px'};
+            bottom: ${bottom_offset ?? '40px'};
+        `
     }}
 `
 

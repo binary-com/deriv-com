@@ -136,23 +136,23 @@ const NavCareers = ({ is_besquare }: NavCareersProps) => {
                 <MainWrapper>
                     <Mobile>
                         {is_canvas_menu_open ? (
-                            <CloseIcon src={Close} alt="close icon" onClick={closeOffCanvasMenu} />
+                            <CloseIcon src={Close} alt='close icon' onClick={closeOffCanvasMenu} />
                         ) : (
                             <HamburgerMenu
                                 src={Hamburger}
-                                alt="hamburger menu"
+                                alt='hamburger menu'
                                 onClick={openOffCanvasMenu}
                             />
                         )}
                     </Mobile>
 
                     <LogoSection>
-                        <StyledLogoLink to="/" aria-label="Home">
+                        <StyledLogoLink to='/' aria-label='Home'>
                             <QueryImage
-                                data={data['deriv']}
-                                alt="Deriv"
-                                height="auto"
-                                loading="eager"
+                                data={data.deriv}
+                                alt='Deriv'
+                                height='auto'
+                                loading='eager'
                             />
                         </StyledLogoLink>
                     </LogoSection>
@@ -162,7 +162,7 @@ const NavCareers = ({ is_besquare }: NavCareersProps) => {
                                 <NavLink
                                     key={to}
                                     active={current_page === active}
-                                    activeClassName="active"
+                                    activeClassName='active'
                                     to={to}
                                     partiallyActive
                                     aria-label={aria_label}
@@ -173,12 +173,12 @@ const NavCareers = ({ is_besquare }: NavCareersProps) => {
                         </HeaderSection>
                     </Desktop>
 
-                    <RightSection jc="flex-end" ai="center">
+                    <RightSection jc='flex-end' ai='center'>
                         {has_mounted && (
                             <StyledLinkButton
                                 secondary
-                                rel="noopener noreferrer"
-                                ml="2.4rem"
+                                rel='noopener noreferrer'
+                                ml='2.4rem'
                                 to={is_besquare ? besquare_signup_url : zoho_career_url}
                             >
                                 {is_besquare ? 'Apply now' : 'Explore jobs'}

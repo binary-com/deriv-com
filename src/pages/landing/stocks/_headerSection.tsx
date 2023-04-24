@@ -261,20 +261,20 @@ const HeaderSection = () => {
                 <TopHeaderWrapper>
                     <TopHeaderTextDiv>
                         <TopTextWrapper>
-                            <StyledHeader color="white" type="main-landing-title">
+                            <StyledHeader color='white' type='main-landing-title'>
                                 {localize('Stocks, unlocked')}
                             </StyledHeader>
                             <StyledHeaderSmall
-                                color="white"
-                                type="sub-section-title"
-                                weight="normal"
+                                color='white'
+                                type='sub-section-title'
+                                weight='normal'
                             >
                                 {localize(
-                                    'Trade global stocks and stock indices now on our Deriv MT5 platform',
+                                    'Trade global stocks and stock indices now on our Deriv MT5 platform'
                                 )}
                             </StyledHeaderSmall>
                             <BtnDiv>
-                                <StyledLinkButton type="submit" secondary to={'/landing/signup/'}>
+                                <StyledLinkButton type='submit' secondary to={'/landing/signup/'}>
                                     {localize('Create a demo account')}
                                 </StyledLinkButton>
                             </BtnDiv>
@@ -284,29 +284,29 @@ const HeaderSection = () => {
                         <TopHeaderImgWrapper>
                             <DesktopImageWrapper>
                                 <QueryImage
-                                    data={data['mainHeaderImage']}
-                                    alt="deriv platform"
-                                    width="100%"
-                                    loading="eager"
+                                    data={data.mainHeaderImage}
+                                    alt='deriv platform'
+                                    width='100%'
+                                    loading='eager'
                                 />
                             </DesktopImageWrapper>
                             <MobileImageWrapper>
                                 <QueryImage
-                                    data={data['mainHeaderImageMobile']}
-                                    alt="deriv platform mobile"
-                                    width="100%"
+                                    data={data.mainHeaderImageMobile}
+                                    alt='deriv platform mobile'
+                                    width='100%'
                                 />
                             </MobileImageWrapper>
                         </TopHeaderImgWrapper>
                     </TopHeaderBgDiv>
                 </TopHeaderWrapper>
                 <Desktop>
-                    <BackgroundPattern src={StocksHeaderOverlayBg} alt="background pattern" />
+                    <BackgroundPattern src={StocksHeaderOverlayBg} alt='background pattern' />
                 </Desktop>
                 <Mobile>
                     <BackgroundPattern
                         src={StocksHeaderOverlayBgMobile}
-                        alt="background pattern mobile"
+                        alt='background pattern mobile'
                     />
                 </Mobile>
             </HeaderWrapper>
@@ -316,30 +316,30 @@ const HeaderSection = () => {
                         <Desktop>
                             <SectionBannerImg
                                 src={StocksHeaderBelowSection}
-                                alt="stocks favorite brand"
+                                alt='stocks favorite brand'
                             />
                         </Desktop>
                         <Mobile>
                             <SectionBannerImg
                                 src={stocksHeaderBelowSectionM}
-                                alt="stocks favorite brand"
+                                alt='stocks favorite brand'
                             />
                         </Mobile>
                     </SectionImgDiv>
                 </SectionImgWrapper>
                 <SectionTextWrapper>
-                    <SectionStyledHeader type="display-title" mb="24px">
+                    <SectionStyledHeader type='display-title' mb='24px'>
                         {localize('Spot your favourite brand?')}
                     </SectionStyledHeader>
-                    <SectionStyledHeaderSmall type="sub-section-title" weight="normal">
+                    <SectionStyledHeaderSmall type='sub-section-title' weight='normal'>
                         {localize(
-                            'Facebook. Tesla. Zoom. McDonald’s. Trade on the global household names you see every day on our Deriv MT5 platform. We’ve got all your favourite brands in tech, finance, retail, plus more.',
+                            'Facebook. Tesla. Zoom. McDonald’s. Trade on the global household names you see every day on our Deriv MT5 platform. We’ve got all your favourite brands in tech, finance, retail, plus more.'
                         )}
                     </SectionStyledHeaderSmall>
 
                     <BackgroundPatternSection
                         src={StocksHeaderOverlayBelowSectionBg}
-                        alt="background pattern section"
+                        alt='background pattern section'
                     />
                 </SectionTextWrapper>
             </SectionWrapper>

@@ -102,21 +102,21 @@ const OurOffices = () => {
     const data = useStaticQuery(query)
 
     return (
-        <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
-            <StyledHeader as="h2" size="32px" align="center" type="page-title">
+        <StyledSectionContainer padding='0 16px 120px' background='var(--color-white)'>
+            <StyledHeader as='h2' size='32px' align='center' type='page-title'>
                 {localize('Our locations')}
             </StyledHeader>
 
             <Flex>
                 <Desktop>
-                    <MapImage data={data['earth']}>
+                    <MapImage data={data.earth}>
                         {desktop_pins.map((pin, idx) => (
                             <MapPin key={idx} {...pin} />
                         ))}
                     </MapImage>
                 </Desktop>
                 <Mobile>
-                    <MapImage data={data['earth_mobile']}>
+                    <MapImage data={data.earth_mobile}>
                         {mobile_pins.map((pin, idx) => (
                             <MapPin key={idx} {...pin} />
                         ))}
@@ -124,11 +124,11 @@ const OurOffices = () => {
                 </Mobile>
             </Flex>
 
-            <NumberSection columns="1fr 1fr 1fr 1fr" column_gap="120px" row_gap="4rem">
+            <NumberSection columns='1fr 1fr 1fr 1fr' column_gap='120px' row_gap='4rem'>
                 {our_offices_count.map(({ count, title }) => (
-                    <StyledFlex fd="column" key={title.props.translate_text}>
-                        <NumberHeader size="32px">{count}</NumberHeader>
-                        <NumberText size="16px" align="center">
+                    <StyledFlex fd='column' key={title.props.translate_text}>
+                        <NumberHeader size='32px'>{count}</NumberHeader>
+                        <NumberText size='16px' align='center'>
                             {title}
                         </NumberText>
                     </StyledFlex>

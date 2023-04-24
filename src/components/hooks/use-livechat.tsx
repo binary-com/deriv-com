@@ -12,7 +12,7 @@ export const useLivechat = (): [boolean, TLC_API] => {
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const is_livechat_query = url_params.get('is_livechat_open')
 
-    const loadLiveChatScript = (callback) => {
+    const loadLiveChatScript = callback => {
         const livechat_script = document.createElement('script')
         livechat_script.innerHTML = `
             window.__lc = window.__lc || {};
@@ -84,7 +84,7 @@ export const useLivechat = (): [boolean, TLC_API] => {
                     /* the session variables are sent to CS team dashboard to notify user has logged in
                     and also acts as custom variables to trigger targeted engagement */
                     const session_variables = {
-                        is_logged_in: is_logged_in,
+                        is_logged_in,
                         loginid: loginid ?? '',
                         landing_company_shortcode: landing_company_shortcode ?? '',
                         currency: currency ?? '',
@@ -105,7 +105,7 @@ export const useLivechat = (): [boolean, TLC_API] => {
                         if (first_name && last_name) {
                             window.LiveChatWidget.call(
                                 'set_customer_name',
-                                `${first_name} ${last_name}`,
+                                `${first_name} ${last_name}`
                             )
                         }
                     } else {
@@ -122,7 +122,7 @@ export const useLivechat = (): [boolean, TLC_API] => {
                     }
 
                     // open chat widget when there is an incoming greeting/announcement
-                    window.LiveChatWidget.on('new_event', (event) => {
+                    window.LiveChatWidget.on('new_event', event => {
                         if (event.greeting) {
                             window.LC_API.open_chat_window()
                         }

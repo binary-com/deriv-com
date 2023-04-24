@@ -126,7 +126,7 @@ export const MarketsList = styled(CssGrid)<MarketsListProps>`
     width: 100%;
     height: fit-content;
     padding: 24px;
-    gap: ${({ gap }) => (gap ? gap : '10px')};
+    gap: ${({ gap }) => gap || '10px'};
 
     @media ${device.tabletL} {
         gap: 10px;
@@ -141,8 +141,8 @@ export const DerivedMarketsList = styled(CssGrid)<MarketsListProps>`
     grid-template-columns: ${({ col }) => `repeat(${col ?? 2}, 1fr)`};
     width: 100%;
     height: fit-content;
-    padding: ${({ padding }) => (padding ? padding : '24px')};
-    gap: ${({ gap }) => (gap ? gap : '12px')};
+    padding: ${({ padding }) => padding || '24px'};
+    gap: ${({ gap }) => gap || '12px'};
 
     @media ${device.tabletL} {
         grid-template-columns: ${({ tablet_col }) => `repeat(${tablet_col ?? 2}, 1fr)`};
@@ -153,7 +153,7 @@ export const DerivedMarketsList = styled(CssGrid)<MarketsListProps>`
     @media ${device.mobileL} {
         grid-template-columns: ${({ mobile_col }) => `repeat(${mobile_col ?? 2}, 1fr)`};
         ${({ mobile_template }) => mobile_template && 'border-left: unset;'};
-        gap: ${({ gap_mobile }) => (gap_mobile ? gap_mobile : '')};
+        gap: ${({ gap_mobile }) => gap_mobile || ''};
     }
 `
 
@@ -165,8 +165,8 @@ export const LatestMarketsList = styled(CssGrid)<LatestMarketsListProps>`
     grid-template-columns: ${({ col }) => `repeat(${col ?? 4}, 1fr)`};
     width: 100%;
     height: fit-content;
-    padding: ${({ padding }) => (padding ? padding : '24px')};
-    gap: ${({ gap }) => (gap ? gap : '10px')};
+    padding: ${({ padding }) => padding || '24px'};
+    gap: ${({ gap }) => gap || '10px'};
 
     @media ${device.tabletL} {
         grid-template-columns: ${({ tablet_col }) => `repeat(${tablet_col ?? 2}, 1fr)`};
@@ -178,7 +178,7 @@ export const LatestMarketsList = styled(CssGrid)<LatestMarketsListProps>`
         grid-template-columns: ${({ mobile_col }) => `repeat(${mobile_col ?? 2}, 1fr)`};
         ${({ mobile_template }) => mobile_template && 'border-left: unset;'};
         padding: 16px 8px;
-        gap: ${({ gap_mobile }) => (gap_mobile ? gap_mobile : '8px 0')};
+        gap: ${({ gap_mobile }) => gap_mobile || '8px 0'};
         align-items: center;
     }
 `
@@ -268,5 +268,5 @@ type StyledBoxProps = {
     icon: ReactElement
 }
 export const StyledBox = styled(Box)<StyledBoxProps>`
-    content: ${({ text }) => (text ? text : '')};
+    content: ${({ text }) => text || ''};
 `

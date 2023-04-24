@@ -106,7 +106,7 @@ module.exports = {
                 `,
                 resolveSiteUrl: () => (isBrowser && window.location.hostname) || site_url,
                 resolvePages: ({ allSitePage: { nodes: allPages } }) => {
-                    return allPages.map((page) => {
+                    return allPages.map(page => {
                         return { ...page }
                     })
                 },
@@ -127,7 +127,7 @@ module.exports = {
                     languages.push('x-default')
                     languages.splice(languages.indexOf('ach'), 1)
                     const ignore_localized = current_page.match(ignore_localized_regex)
-                    const links = languages.map((locale) => {
+                    const links = languages.map(locale => {
                         if (locale !== 'ach' && locale) {
                             const replaced_locale = locale.replace('_', '-')
                             const is_default = ['en', 'x-default'].includes(locale)

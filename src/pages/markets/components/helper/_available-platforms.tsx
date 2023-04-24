@@ -46,7 +46,7 @@ const PlatformsContainer = styled(Flex)`
         min-width: 95px;
     }
     @media ${device.tablet} {
-        width: ${(props) => props.width};
+        width: ${props => props.width};
     }
 `
 const StyledText = styled(Header)`
@@ -88,73 +88,73 @@ const AvailablePlatforms = ({
 
     return (
         <Flex
-            wrap="nowrap"
+            wrap='nowrap'
             fd={flex_direction}
             mobileL={{ mt: '16px' }}
-            mt={m_top ? m_top : '2.4rem'}
-            tablet_direction="column"
-            ai="center"
+            mt={m_top || '2.4rem'}
+            tablet_direction='column'
+            ai='center'
         >
-            <StyledText type="paragraph-1" weight="normal" width="auto">
+            <StyledText type='paragraph-1' weight='normal' width='auto'>
                 {localize('Available on')}
             </StyledText>
             <PlatformsContainer
                 width={tablet_direction === 'column' ? '100%' : 'unset'}
-                ai="center"
+                ai='center'
             >
                 {dmt5 && (
-                    <LocalizedLink to="/dmt5/">
-                        <StyledFlex direction="row" ai="center">
-                            <img src={DMT5} alt="Deriv MT5 (DMT5)" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('Deriv MT5')}</Text>
+                    <LocalizedLink to='/dmt5/'>
+                        <StyledFlex direction='row' ai='center'>
+                            <img src={DMT5} alt='Deriv MT5 (DMT5)' width='32' height='32' />
+                            <Text ml='0.4rem'>{localize('Deriv MT5')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
                 {dtrader && (
-                    <LocalizedLink to="/dtrader/">
-                        <StyledFlex direction="row" ai="center">
-                            <img src={DTrader} alt="DTrader" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('DTrader')}</Text>
+                    <LocalizedLink to='/dtrader/'>
+                        <StyledFlex direction='row' ai='center'>
+                            <img src={DTrader} alt='DTrader' width='32' height='32' />
+                            <Text ml='0.4rem'>{localize('DTrader')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
                 {dbot && (
-                    <LocalizedLink to="/dbot/">
-                        <StyledFlex direction="row" ai="center">
-                            <img src={DBot} alt="DBot" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('DBot')}</Text>
+                    <LocalizedLink to='/dbot/'>
+                        <StyledFlex direction='row' ai='center'>
+                            <img src={DBot} alt='DBot' width='32' height='32' />
+                            <Text ml='0.4rem'>{localize('DBot')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
                 {smarttrader && (
-                    <a href={smarttrader_url} target="_blank" rel="noopener noreferrer">
-                        <StyledFlex direction="row" ai="center">
-                            <img src={SmartTrader} alt="SmartTrader" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('SmartTrader')}</Text>
+                    <a href={smarttrader_url} target='_blank' rel='noopener noreferrer'>
+                        <StyledFlex direction='row' ai='center'>
+                            <img src={SmartTrader} alt='SmartTrader' width='32' height='32' />
+                            <Text ml='0.4rem'>{localize('SmartTrader')}</Text>
                         </StyledFlex>
                     </a>
                 )}
                 {derivx && !is_eu && (
-                    <LocalizedLink to="/derivx/">
-                        <StyledFlex direction="row" ai="center">
-                            <img src={DerivX} alt="Deriv X" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('Deriv X')}</Text>
+                    <LocalizedLink to='/derivx/'>
+                        <StyledFlex direction='row' ai='center'>
+                            <img src={DerivX} alt='Deriv X' width='32' height='32' />
+                            <Text ml='0.4rem'>{localize('Deriv X')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
                 {derivez && !is_eu && (
-                    <LocalizedLink to="/derivez/">
-                        <StyledFlex direction="row" ai="center">
-                            <img src={DerivEZ} alt="Deriv ez" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('Deriv EZ')}</Text>
+                    <LocalizedLink to='/derivez/'>
+                        <StyledFlex direction='row' ai='center'>
+                            <img src={DerivEZ} alt='Deriv ez' width='32' height='32' />
+                            <Text ml='0.4rem'>{localize('Deriv EZ')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
                 {deriv_go && (
-                    <LocalizedLink to="/deriv-go/">
-                        <StyledFlex direction="row" ai="center">
-                            <img src={DerivGo} alt="Deriv go" width="32" height="32" />
-                            <Text ml="0.4rem">{localize(deriv_go_text)}</Text>
+                    <LocalizedLink to='/deriv-go/'>
+                        <StyledFlex direction='row' ai='center'>
+                            <img src={DerivGo} alt='Deriv go' width='32' height='32' />
+                            <Text ml='0.4rem'>{localize(deriv_go_text)}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}

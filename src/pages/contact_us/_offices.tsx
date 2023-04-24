@@ -94,9 +94,9 @@ const GridLayout = styled.div<GridLayoutProps>`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 2.4rem;
-    grid-row-gap: ${(props) => props.row_gap || '2.4rem'};
+    grid-row-gap: ${props => props.row_gap || '2.4rem'};
     width: 100%;
-    margin-top: ${(props) => props.mt || 0};
+    margin-top: ${props => props.mt || 0};
 
     @media ${device.tablet} {
         grid-template-columns: 1fr;
@@ -251,17 +251,17 @@ export const Offices = () => {
         <StyledSectionContainer>
             <Container>
                 <Content>
-                    <ResHeader as="h2" type="page-title">
+                    <ResHeader as='h2' type='page-title'>
                         {localize('Our offices')}
                     </ResHeader>
                     <ContinentHeader>{localize('Europe')}</ContinentHeader>
                     <GridLayout>
-                        <Flex mt="30px" fd="column" max_width="48.6rem" id="france">
+                        <Flex mt='30px' fd='column' max_width='48.6rem' id='france'>
                             <OfficeHeader>
                                 <div>
-                                    <img src={UK} alt="UK" />
+                                    <img src={UK} alt='UK' />
                                 </div>
-                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                                <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
                                     {localize('United Kingdom')}
                                 </Header>
                             </OfficeHeader>
@@ -269,25 +269,25 @@ export const Offices = () => {
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://goo.gl/maps/hYvX7SUgPaTcf1uj6"
+                                        to='https://goo.gl/maps/hYvX7SUgPaTcf1uj6'
                                         external
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        target='_blank'
+                                        rel='noopener noreferrer'
                                     >
                                         <QueryImage
                                             alt="Deriv's office location map in UK"
-                                            data={data['map_uk']}
-                                            height="100%"
+                                            data={data.map_uk}
+                                            height='100%'
                                         />
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://goo.gl/maps/hYvX7SUgPaTcf1uj6"
+                                    to='https://goo.gl/maps/hYvX7SUgPaTcf1uj6'
                                     external
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    mt="0.8rem"
-                                    ml="1.6rem"
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    mt='0.8rem'
+                                    ml='1.6rem'
                                 >
                                     <Desktop>
                                         <p>Deriv Technologies Limited </p>
@@ -304,12 +304,12 @@ export const Offices = () => {
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
-                        <Flex mt="30px" fd="column" max_width="48.6rem" id="france">
+                        <Flex mt='30px' fd='column' max_width='48.6rem' id='france'>
                             <OfficeHeader>
                                 <div>
-                                    <img src={France} alt="France - Eiffel Tower" />
+                                    <img src={France} alt='France - Eiffel Tower' />
                                 </div>
-                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                                <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
                                     {localize('France')}
                                 </Header>
                             </OfficeHeader>
@@ -317,25 +317,25 @@ export const Offices = () => {
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://goo.gl/maps/9gWxUqM3goau5eRCA"
+                                        to='https://goo.gl/maps/9gWxUqM3goau5eRCA'
                                         external
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        target='_blank'
+                                        rel='noopener noreferrer'
                                     >
                                         <QueryImage
                                             alt="Deriv's office location map in France"
-                                            data={data['map_france']}
-                                            height="100%"
+                                            data={data.map_france}
+                                            height='100%'
                                         />
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://goo.gl/maps/9gWxUqM3goau5eRCA"
+                                    to='https://goo.gl/maps/9gWxUqM3goau5eRCA'
                                     external
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    mt="0.8rem"
-                                    ml="1.6rem"
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    mt='0.8rem'
+                                    ml='1.6rem'
                                 >
                                     <Desktop>
                                         <p>17 Rue d&apos;Antin, 75002 Paris</p>
@@ -348,37 +348,37 @@ export const Offices = () => {
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
-                        <Flex mt="30px" fd="column" max_width="48.6rem" id="malta">
+                        <Flex mt='30px' fd='column' max_width='48.6rem' id='malta'>
                             <OfficeHeader>
                                 <div>
-                                    <img src={Malta} alt="Malta - Valleta" />
+                                    <img src={Malta} alt='Malta - Valleta' />
                                 </div>
-                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                                <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
                                     {localize('Malta')}
                                 </Header>
                             </OfficeHeader>
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://goo.gl/maps/kAwRSaSsk1ZNCtoy9"
+                                        to='https://goo.gl/maps/kAwRSaSsk1ZNCtoy9'
                                         external
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        target='_blank'
+                                        rel='noopener noreferrer'
                                     >
                                         <QueryImage
                                             alt="Deriv's office location map in Malta"
-                                            data={data['map_malta']}
-                                            height="100%"
+                                            data={data.map_malta}
+                                            height='100%'
                                         />
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://goo.gl/maps/kAwRSaSsk1ZNCtoy9"
+                                    to='https://goo.gl/maps/kAwRSaSsk1ZNCtoy9'
                                     external
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    mt="0.8rem"
-                                    ml="1.6rem"
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    mt='0.8rem'
+                                    ml='1.6rem'
                                 >
                                     <Desktop>
                                         <p>Level 3, W Business Centre,</p>
@@ -394,37 +394,37 @@ export const Offices = () => {
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
-                        <Flex mt="30px" fd="column" max_width="48.6rem" id="cyprus">
+                        <Flex mt='30px' fd='column' max_width='48.6rem' id='cyprus'>
                             <OfficeHeader>
                                 <div>
-                                    <img src={Cyprus} alt="Cyprus - Limassol" />
+                                    <img src={Cyprus} alt='Cyprus - Limassol' />
                                 </div>
-                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                                <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
                                     {localize('Cyprus')}
                                 </Header>
                             </OfficeHeader>
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://goo.gl/maps/BdBfWNVhyLGZ2KfG7"
+                                        to='https://goo.gl/maps/BdBfWNVhyLGZ2KfG7'
                                         external
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        target='_blank'
+                                        rel='noopener noreferrer'
                                     >
                                         <QueryImage
                                             alt="Deriv's office location map in Cyprus"
-                                            data={data['map_cyprus']}
-                                            height="100%"
+                                            data={data.map_cyprus}
+                                            height='100%'
                                         />
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://goo.gl/maps/BdBfWNVhyLGZ2KfG7"
+                                    to='https://goo.gl/maps/BdBfWNVhyLGZ2KfG7'
                                     external
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    mt="0.8rem"
-                                    ml="1.6rem"
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    mt='0.8rem'
+                                    ml='1.6rem'
                                 >
                                     <Desktop>
                                         <p>
@@ -441,37 +441,37 @@ export const Offices = () => {
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
-                        <Flex mt="30px" fd="column" max_width="48.6rem" id="guernsey">
+                        <Flex mt='30px' fd='column' max_width='48.6rem' id='guernsey'>
                             <OfficeHeader>
                                 <div>
-                                    <img src={Guernsey} alt="Guernsey - Sark Lighthouse" />
+                                    <img src={Guernsey} alt='Guernsey - Sark Lighthouse' />
                                 </div>
-                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                                <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
                                     {localize('Guernsey')}
                                 </Header>
                             </OfficeHeader>
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://goo.gl/maps/jX1D5CmysqtbMJeh6"
+                                        to='https://goo.gl/maps/jX1D5CmysqtbMJeh6'
                                         external
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        target='_blank'
+                                        rel='noopener noreferrer'
                                     >
                                         <QueryImage
                                             alt="Deriv's office location map in Guernsey"
-                                            data={data['map_guernsey']}
-                                            height="100%"
+                                            data={data.map_guernsey}
+                                            height='100%'
                                         />
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://goo.gl/maps/jX1D5CmysqtbMJeh6"
+                                    to='https://goo.gl/maps/jX1D5CmysqtbMJeh6'
                                     external
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    mt="0.8rem"
-                                    ml="1.6rem"
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    mt='0.8rem'
+                                    ml='1.6rem'
                                 >
                                     <Desktop>
                                         <p>Suite 5, One Cornet Street, St </p>
@@ -487,40 +487,40 @@ export const Offices = () => {
                             </BorderBox>
                         </Flex>
                     </GridLayout>
-                    <Flex fd="column" mt="30px" id="malaysia">
+                    <Flex fd='column' mt='30px' id='malaysia'>
                         <ContinentHeader>{localize('Asia')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
-                                <img src={Malaysia} alt="Malaysia - Petronas Twin Towers" />
+                                <img src={Malaysia} alt='Malaysia - Petronas Twin Towers' />
                             </div>
-                            <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                            <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
                                 {localize('Malaysia')}
                             </Header>
                         </OfficeHeader>
                         <FullBorder>
                             <GridLayout>
-                                <FullBox id="cyberjaya">
+                                <FullBox id='cyberjaya'>
                                     <MapContainer>
                                         <LocalizedLink
-                                            to="https://goo.gl/maps/taw811vL1Wht9z4YA"
+                                            to='https://goo.gl/maps/taw811vL1Wht9z4YA'
                                             external
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            target='_blank'
+                                            rel='noopener noreferrer'
                                         >
                                             <QueryImage
                                                 alt="Deriv's office location map in Cyberjaya"
-                                                data={data['map_cyberjaya']}
-                                                height="100%"
+                                                data={data.map_cyberjaya}
+                                                height='100%'
                                             />
                                         </LocalizedLink>
                                     </MapContainer>
-                                    <Box mt="0.8rem" ml="1.6rem">
+                                    <Box mt='0.8rem' ml='1.6rem'>
                                         <CountryText>Cyberjaya</CountryText>
                                         <LocalizedLinkText
-                                            to="https://goo.gl/maps/taw811vL1Wht9z4YA"
+                                            to='https://goo.gl/maps/taw811vL1Wht9z4YA'
                                             external
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            target='_blank'
+                                            rel='noopener noreferrer'
                                         >
                                             <Desktop>
                                                 <p>Deriv HQ, 3500, Jalan Teknokrat </p>
@@ -535,28 +535,28 @@ export const Offices = () => {
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
-                                <FullBox id="labuan">
+                                <FullBox id='labuan'>
                                     <MapContainer>
                                         <LocalizedLink
-                                            to="https://goo.gl/maps/HGEKsJfUXHrTAj299"
+                                            to='https://goo.gl/maps/HGEKsJfUXHrTAj299'
                                             external
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            target='_blank'
+                                            rel='noopener noreferrer'
                                         >
                                             <QueryImage
                                                 alt="Deriv's office location map in Labuan"
-                                                data={data['map_labuan']}
-                                                height="100%"
+                                                data={data.map_labuan}
+                                                height='100%'
                                             />
                                         </LocalizedLink>
                                     </MapContainer>
-                                    <Box mt="0.8rem" ml="1.6rem">
+                                    <Box mt='0.8rem' ml='1.6rem'>
                                         <CountryText>Labuan</CountryText>
                                         <LocalizedLinkText
-                                            to="https://goo.gl/maps/HGEKsJfUXHrTAj299"
+                                            to='https://goo.gl/maps/HGEKsJfUXHrTAj299'
                                             external
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            target='_blank'
+                                            rel='noopener noreferrer'
                                         >
                                             <Desktop>
                                                 <p>F16, Level 1, Paragon Labuan,</p>
@@ -572,28 +572,28 @@ export const Offices = () => {
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
-                                <FullBox id="ipoh">
+                                <FullBox id='ipoh'>
                                     <MapContainer>
                                         <LocalizedLink
-                                            to="https://goo.gl/maps/mFhCyN4gPksudC156"
+                                            to='https://goo.gl/maps/mFhCyN4gPksudC156'
                                             external
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            target='_blank'
+                                            rel='noopener noreferrer'
                                         >
                                             <QueryImage
                                                 alt="Deriv's office location map in Ipoh"
-                                                data={data['map_ipoh']}
-                                                height="100%"
+                                                data={data.map_ipoh}
+                                                height='100%'
                                             />
                                         </LocalizedLink>
                                     </MapContainer>
-                                    <Box mt="0.8rem" ml="1.6rem">
+                                    <Box mt='0.8rem' ml='1.6rem'>
                                         <CountryText>Ipoh</CountryText>
                                         <LocalizedLinkText
-                                            to="https://goo.gl/maps/mFhCyN4gPksudC156"
+                                            to='https://goo.gl/maps/mFhCyN4gPksudC156'
                                             external
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            target='_blank'
+                                            rel='noopener noreferrer'
                                         >
                                             <Desktop>
                                                 <p>E-5-6, Soho Ipoh 2,</p>
@@ -609,28 +609,28 @@ export const Offices = () => {
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
-                                <FullBox id="melaka">
+                                <FullBox id='melaka'>
                                     <MapContainer>
                                         <LocalizedLink
-                                            to="https://goo.gl/maps/n2bm52JrWy9M2ARV9"
+                                            to='https://goo.gl/maps/n2bm52JrWy9M2ARV9'
                                             external
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            target='_blank'
+                                            rel='noopener noreferrer'
                                         >
                                             <QueryImage
                                                 alt="Deriv's office location map in Melaka"
-                                                data={data['map_melaka']}
-                                                height="100%"
+                                                data={data.map_melaka}
+                                                height='100%'
                                             />
                                         </LocalizedLink>
                                     </MapContainer>
-                                    <Box mt="0.8rem" ml="1.6rem">
+                                    <Box mt='0.8rem' ml='1.6rem'>
                                         <CountryText>Melaka</CountryText>
                                         <LocalizedLinkText
-                                            to="https://goo.gl/maps/n2bm52JrWy9M2ARV9"
+                                            to='https://goo.gl/maps/n2bm52JrWy9M2ARV9'
                                             external
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            target='_blank'
+                                            rel='noopener noreferrer'
                                         >
                                             <Desktop>
                                                 <p>67-1 &amp; 69-1, Jalan KLJ 6,</p>
@@ -649,39 +649,39 @@ export const Offices = () => {
                             </GridLayout>
                         </FullBorder>
                     </Flex>
-                    <Flex mt="30px" fd="column" id="singapore">
+                    <Flex mt='30px' fd='column' id='singapore'>
                         <OfficeHeader>
                             <div>
-                                <img src={Singapore} alt="Singapore - Merlion Park" />
+                                <img src={Singapore} alt='Singapore - Merlion Park' />
                             </div>
-                            <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                            <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
                                 {localize('Singapore')}
                             </Header>
                         </OfficeHeader>
                     </Flex>
-                    <Flex max_width="48.6rem">
+                    <Flex max_width='48.6rem'>
                         <BorderBox>
                             <MapContainer>
                                 <LocalizedLink
-                                    to="https://goo.gl/maps/kWBStW3LrCR5HuoP6"
+                                    to='https://goo.gl/maps/kWBStW3LrCR5HuoP6'
                                     external
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    target='_blank'
+                                    rel='noopener noreferrer'
                                 >
                                     <QueryImage
                                         alt="Deriv's office location map in Singapore"
-                                        data={data['map_singapore']}
-                                        height="100%"
+                                        data={data.map_singapore}
+                                        height='100%'
                                     />
                                 </LocalizedLink>
                             </MapContainer>
                             <LocalizedLinkText
-                                to="https://goo.gl/maps/kWBStW3LrCR5HuoP6"
+                                to='https://goo.gl/maps/kWBStW3LrCR5HuoP6'
                                 external
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                mt="0.8rem"
-                                ml="1.6rem"
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                mt='0.8rem'
+                                ml='1.6rem'
                             >
                                 <Desktop>80 Robinson Road, #11-03, Singapore 068898</Desktop>
                                 <Mobile>
@@ -694,37 +694,37 @@ export const Offices = () => {
                     </Flex>
                     <ContinentHeader>{localize('Middle East')}</ContinentHeader>
                     <GridLayout>
-                        <Flex mt="30px" fd="column" max_width="48.6rem" id="dubai">
+                        <Flex mt='30px' fd='column' max_width='48.6rem' id='dubai'>
                             <OfficeHeader>
                                 <div>
-                                    <img src={Dubai} alt="Dubai - Burj Al Arab" />
+                                    <img src={Dubai} alt='Dubai - Burj Al Arab' />
                                 </div>
-                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                                <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
                                     {localize('Dubai')}
                                 </Header>
                             </OfficeHeader>
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://goo.gl/maps/fz9kjz1MLiCekhRy5"
+                                        to='https://goo.gl/maps/fz9kjz1MLiCekhRy5'
                                         external
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        target='_blank'
+                                        rel='noopener noreferrer'
                                     >
                                         <QueryImage
                                             alt="Deriv's office location map in Dubai"
-                                            data={data['map_dubai']}
-                                            height="100%"
+                                            data={data.map_dubai}
+                                            height='100%'
                                         />
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://goo.gl/maps/fz9kjz1MLiCekhRy5"
+                                    to='https://goo.gl/maps/fz9kjz1MLiCekhRy5'
                                     external
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    mt="0.8rem"
-                                    ml="1.6rem"
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    mt='0.8rem'
+                                    ml='1.6rem'
                                 >
                                     <Desktop>
                                         <p>Office 1902, Jumeirah Business</p>
@@ -738,37 +738,37 @@ export const Offices = () => {
                                 </LocalizedLinkText>
                             </BorderBox>
                         </Flex>
-                        <Flex mt="30px" fd="column" max_width="48.6rem" id="jordan">
+                        <Flex mt='30px' fd='column' max_width='48.6rem' id='jordan'>
                             <OfficeHeader>
                                 <div>
-                                    <img src={Jordan} alt="Jordan - Petra Gate" />
+                                    <img src={Jordan} alt='Jordan - Petra Gate' />
                                 </div>
-                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                                <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
                                     {localize('Jordan')}
                                 </Header>
                             </OfficeHeader>
                             <BorderBox>
                                 <MapContainer>
                                     <LocalizedLink
-                                        to="https://goo.gl/maps/JuQYXXJpw37mu9ii7"
+                                        to='https://goo.gl/maps/JuQYXXJpw37mu9ii7'
                                         external
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        target='_blank'
+                                        rel='noopener noreferrer'
                                     >
                                         <QueryImage
                                             alt="Deriv's office location map in Jordan"
-                                            data={data['map_jordan']}
-                                            height="100%"
+                                            data={data.map_jordan}
+                                            height='100%'
                                         />
                                     </LocalizedLink>
                                 </MapContainer>
                                 <LocalizedLinkText
-                                    to="https://goo.gl/maps/JuQYXXJpw37mu9ii7"
+                                    to='https://goo.gl/maps/JuQYXXJpw37mu9ii7'
                                     external
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    mt="0.8rem"
-                                    ml="1.6rem"
+                                    target='_blank'
+                                    rel='noopener noreferrer'
+                                    mt='0.8rem'
+                                    ml='1.6rem'
                                 >
                                     <Desktop>
                                         <p>
@@ -786,40 +786,40 @@ export const Offices = () => {
                             </BorderBox>
                         </Flex>
                     </GridLayout>
-                    <Flex mt="30px" fd="column" id="belarus">
+                    <Flex mt='30px' fd='column' id='belarus'>
                         <ContinentHeader>{localize('Eastern Europe')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
-                                <img src={Belarus} alt="Belarus - National Library" />
+                                <img src={Belarus} alt='Belarus - National Library' />
                             </div>
-                            <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                            <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
                                 {localize('Belarus')}
                             </Header>
                         </OfficeHeader>
                     </Flex>
-                    <Flex mt="30px" fd="column" max_width="48.6rem">
+                    <Flex mt='30px' fd='column' max_width='48.6rem'>
                         <BorderBox>
                             <MapContainer>
                                 <LocalizedLink
-                                    to="https://goo.gl/maps/7wUCJ6zy7P8CsmkD7"
+                                    to='https://goo.gl/maps/7wUCJ6zy7P8CsmkD7'
                                     external
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    target='_blank'
+                                    rel='noopener noreferrer'
                                 >
                                     <QueryImage
                                         alt="Deriv's office location map in Belarus"
-                                        data={data['map_belarus_contact']}
-                                        height="100%"
+                                        data={data.map_belarus_contact}
+                                        height='100%'
                                     />
                                 </LocalizedLink>
                             </MapContainer>
                             <LocalizedLinkText
-                                to="https://goo.gl/maps/7wUCJ6zy7P8CsmkD7"
+                                to='https://goo.gl/maps/7wUCJ6zy7P8CsmkD7'
                                 external
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                mt="0.8rem"
-                                ml="1.6rem"
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                mt='0.8rem'
+                                ml='1.6rem'
                             >
                                 <Desktop>
                                     <p>Level 2, 25/1-3 Vera Khoruzhey</p>
@@ -833,40 +833,40 @@ export const Offices = () => {
                             </LocalizedLinkText>
                         </BorderBox>
                     </Flex>
-                    <Flex mt="30px" fd="column" id="rwanda">
+                    <Flex mt='30px' fd='column' id='rwanda'>
                         <ContinentHeader>{localize('Africa')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
-                                <img src={Rwanda} alt="Rwanda - Kigali Convention Center" />
+                                <img src={Rwanda} alt='Rwanda - Kigali Convention Center' />
                             </div>
-                            <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                            <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
                                 {localize('Rwanda')}
                             </Header>
                         </OfficeHeader>
                     </Flex>
-                    <Flex mt="30px" fd="column" max_width="48.6rem">
+                    <Flex mt='30px' fd='column' max_width='48.6rem'>
                         <BorderBox>
                             <MapContainer>
                                 <LocalizedLink
-                                    to="https://goo.gl/maps/wJgnX1W846t5FAbK7"
+                                    to='https://goo.gl/maps/wJgnX1W846t5FAbK7'
                                     external
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    target='_blank'
+                                    rel='noopener noreferrer'
                                 >
                                     <QueryImage
                                         alt="Deriv's office location map in Rwanda"
-                                        data={data['map_rwanda']}
-                                        height="100%"
+                                        data={data.map_rwanda}
+                                        height='100%'
                                     />
                                 </LocalizedLink>
                             </MapContainer>
                             <LocalizedLinkText
-                                to="https://goo.gl/maps/wJgnX1W846t5FAbK7"
+                                to='https://goo.gl/maps/wJgnX1W846t5FAbK7'
                                 external
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                mt="0.8rem"
-                                ml="1.6rem"
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                mt='0.8rem'
+                                ml='1.6rem'
                             >
                                 <Desktop>
                                     <p>Level 2 East Wing, Kigali Heights,</p>
@@ -881,40 +881,40 @@ export const Offices = () => {
                         </BorderBox>
                     </Flex>
 
-                    <Flex fd="column" mt="30px" id="latam">
+                    <Flex fd='column' mt='30px' id='latam'>
                         <ContinentHeader>{localize('Latin America')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
-                                <img src={Paraguay} alt="Paraguay - National Pantheon of Heroes" />
+                                <img src={Paraguay} alt='Paraguay - National Pantheon of Heroes' />
                             </div>
-                            <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                            <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
                                 {localize('Paraguay')}
                             </Header>
                         </OfficeHeader>
                         <FullBorder>
                             <GridLayout>
-                                <FullBox id="paraguay">
+                                <FullBox id='paraguay'>
                                     <MapContainer>
                                         <LocalizedLink
-                                            to="https://goo.gl/maps/ci85LgJcyNj97uDa7"
+                                            to='https://goo.gl/maps/ci85LgJcyNj97uDa7'
                                             external
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            target='_blank'
+                                            rel='noopener noreferrer'
                                         >
                                             <QueryImage
                                                 alt="Deriv's office location map in Cyberjaya"
-                                                data={data['map_paraguay']}
-                                                height="100%"
+                                                data={data.map_paraguay}
+                                                height='100%'
                                             />
                                         </LocalizedLink>
                                     </MapContainer>
-                                    <Box mt="0.8rem" ml="1.6rem">
+                                    <Box mt='0.8rem' ml='1.6rem'>
                                         <CountryText>Asunción</CountryText>
                                         <LocalizedLinkText
-                                            to="https://goo.gl/maps/ci85LgJcyNj97uDa7"
+                                            to='https://goo.gl/maps/ci85LgJcyNj97uDa7'
                                             external
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            target='_blank'
+                                            rel='noopener noreferrer'
                                         >
                                             <Desktop>
                                                 <p>Edificio Atrium, Piso 2,</p>
@@ -930,28 +930,28 @@ export const Offices = () => {
                                         </LocalizedLinkText>
                                     </Box>
                                 </FullBox>
-                                <FullBox id="ciudad">
+                                <FullBox id='ciudad'>
                                     <MapContainer>
                                         <LocalizedLink
-                                            to="https://goo.gl/maps/5d1aeBeeJDEWG1SW7"
+                                            to='https://goo.gl/maps/5d1aeBeeJDEWG1SW7'
                                             external
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            target='_blank'
+                                            rel='noopener noreferrer'
                                         >
                                             <QueryImage
                                                 alt="Deriv's office location map in Ciudad del Este"
-                                                data={data['map_ciudad']}
-                                                height="100%"
+                                                data={data.map_ciudad}
+                                                height='100%'
                                             />
                                         </LocalizedLink>
                                     </MapContainer>
-                                    <Box mt="0.8rem" ml="1.6rem">
+                                    <Box mt='0.8rem' ml='1.6rem'>
                                         <CountryText>Ciudad del Este</CountryText>
                                         <LocalizedLinkText
-                                            to="https://goo.gl/maps/5d1aeBeeJDEWG1SW7"
+                                            to='https://goo.gl/maps/5d1aeBeeJDEWG1SW7'
                                             external
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            target='_blank'
+                                            rel='noopener noreferrer'
                                         >
                                             <Desktop>
                                                 <p>World Trade Center Ciudad del Este</p>
@@ -967,40 +967,40 @@ export const Offices = () => {
                             </GridLayout>
                         </FullBorder>
                     </Flex>
-                    <Flex mt="30px" fd="column" id="paraguay">
+                    <Flex mt='30px' fd='column' id='paraguay'>
                         <ContinentHeader>{localize('Caribbean')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
-                                <img src={Cayman} alt="Cayman Islands - George Town" />
+                                <img src={Cayman} alt='Cayman Islands - George Town' />
                             </div>
-                            <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                            <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
                                 {localize('Cayman Islands')}
                             </Header>
                         </OfficeHeader>
                     </Flex>
-                    <Flex max_width="48.6rem">
+                    <Flex max_width='48.6rem'>
                         <BorderBox>
                             <MapContainer>
                                 <LocalizedLink
-                                    to="https://goo.gl/maps/4bg5B7dkvUv5Pa11A"
+                                    to='https://goo.gl/maps/4bg5B7dkvUv5Pa11A'
                                     external
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    target='_blank'
+                                    rel='noopener noreferrer'
                                 >
                                     <QueryImage
                                         alt="Deriv's office location map in Cayman"
-                                        data={data['map_cayman']}
-                                        height="100%"
+                                        data={data.map_cayman}
+                                        height='100%'
                                     />
                                 </LocalizedLink>
                             </MapContainer>
                             <LocalizedLinkText
-                                to="https://goo.gl/maps/4bg5B7dkvUv5Pa11A"
+                                to='https://goo.gl/maps/4bg5B7dkvUv5Pa11A'
                                 external
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                mt="0.8rem"
-                                ml="1.6rem"
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                mt='0.8rem'
+                                ml='1.6rem'
                             >
                                 <Desktop>
                                     <p>Cayman Enterprise City,</p>
@@ -1017,40 +1017,40 @@ export const Offices = () => {
                             </LocalizedLinkText>
                         </BorderBox>
                     </Flex>
-                    <Flex mt="30px" fd="column" id="vanuatu">
+                    <Flex mt='30px' fd='column' id='vanuatu'>
                         <ContinentHeader>{localize('Oceania')}</ContinentHeader>
                         <OfficeHeader>
                             <div>
-                                <img src={Vanuatu} alt="Vanuatu - Port Vila" />
+                                <img src={Vanuatu} alt='Vanuatu - Port Vila' />
                             </div>
-                            <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                            <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
                                 {localize('Vanuatu')}
                             </Header>
                         </OfficeHeader>
                     </Flex>
-                    <Flex max_width="48.6rem">
+                    <Flex max_width='48.6rem'>
                         <BorderBox>
                             <MapContainer>
                                 <LocalizedLink
-                                    to="https://goo.gl/maps/hvpgvBDJeED5YKDG6"
+                                    to='https://goo.gl/maps/hvpgvBDJeED5YKDG6'
                                     external
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    target='_blank'
+                                    rel='noopener noreferrer'
                                 >
                                     <QueryImage
                                         alt="Deriv's office location map in Vanuatu"
-                                        data={data['map_vanuatu']}
-                                        height="100%"
+                                        data={data.map_vanuatu}
+                                        height='100%'
                                     />
                                 </LocalizedLink>
                             </MapContainer>
                             <LocalizedLinkText
-                                to="https://goo.gl/maps/hvpgvBDJeED5YKDG6"
+                                to='https://goo.gl/maps/hvpgvBDJeED5YKDG6'
                                 external
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                mt="0.8rem"
-                                ml="1.6rem"
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                mt='0.8rem'
+                                ml='1.6rem'
                             >
                                 <Desktop>
                                     Yumiwork, Lolam building, Kumul Highway, Land # 11/OD22/021,

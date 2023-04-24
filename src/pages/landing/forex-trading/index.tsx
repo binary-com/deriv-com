@@ -10,20 +10,21 @@ import { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { ContentType } from 'pages/landing/_types'
+
 const IconTextRow = Loadable(() => import('./components/_icon-text-row'))
 
 const DP2P_CONTENT: ContentType[] = [
     {
-        title: <Localize translate_text="Step 1" />,
+        title: <Localize translate_text='Step 1' />,
         subtitle1: (
             <Localize
-                translate_text="Log in or sign up for a Deriv account.<0 />"
+                translate_text='Log in or sign up for a Deriv account.<0 />'
                 components={[<br key={0} />]}
             />
         ),
         subtitle_mobile1: (
             <Localize
-                translate_text="Log in or sign up for a Deriv account.<0 />"
+                translate_text='Log in or sign up for a Deriv account.<0 />'
                 components={[<br key={0} />]}
             />
         ),
@@ -32,16 +33,16 @@ const DP2P_CONTENT: ContentType[] = [
         image_alt: localize('Login'),
     },
     {
-        title: <Localize translate_text="Step 2" />,
+        title: <Localize translate_text='Step 2' />,
         subtitle1: (
             <Localize
-                translate_text="Add a Deriv MT5 Financial real account.<0 />"
+                translate_text='Add a Deriv MT5 Financial real account.<0 />'
                 components={[<br key={0} />]}
             />
         ),
         subtitle_mobile1: (
             <Localize
-                translate_text="Add a Deriv MT5 Financial real account.<0 />"
+                translate_text='Add a Deriv MT5 Financial real account.<0 />'
                 components={[<br key={0} />]}
             />
         ),
@@ -50,16 +51,16 @@ const DP2P_CONTENT: ContentType[] = [
         image_alt: localize('DMT5 account'),
     },
     {
-        title: <Localize translate_text="Step 3" />,
+        title: <Localize translate_text='Step 3' />,
         subtitle1: (
             <Localize
-                translate_text="Log in to Deriv MT5, select an asset, and start trading.<0 />"
+                translate_text='Log in to Deriv MT5, select an asset, and start trading.<0 />'
                 components={[<br key={0} />]}
             />
         ),
         subtitle_mobile1: (
             <Localize
-                translate_text="Log in to Deriv MT5, select an asset, and start trading.<0 />"
+                translate_text='Log in to Deriv MT5, select an asset, and start trading.<0 />'
                 components={[<br key={0} />]}
             />
         ),
@@ -73,7 +74,7 @@ const ForexTrading = () => {
     const [is_mounted] = usePageLoaded() // needed to fix the second Hero-component during page's loading
 
     return (
-        <Layout type="landing-page" is_ppc_redirect={true}>
+        <Layout type='landing-page' is_ppc_redirect={true}>
             <SEO
                 title={localize('Weekends')}
                 description={localize('Ride the trends even on weekends')}
@@ -83,7 +84,7 @@ const ForexTrading = () => {
                     <Hero
                         title={localize('Take advantage of the best trading conditions by Deriv')}
                         content={
-                            <Localize translate_text="Your trusted broker with intuitive forex trading platforms, convenient payment options, and a 24/7 support team." />
+                            <Localize translate_text='Your trusted broker with intuitive forex trading platforms, convenient payment options, and a 24/7 support team.' />
                         }
                     />
                     <IconTextRow />

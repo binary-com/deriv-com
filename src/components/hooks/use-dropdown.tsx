@@ -42,14 +42,14 @@ export type FormikErrorsType =
     | FormikErrors<string | ErrorsType | TouchedType>[]
 
 export const useDropdown = (
-    onChange: (value: string) => void,
+    onChange: (value: string) => void
 ): [
     boolean,
     MutableRefObject<null>,
     NodesType,
     (option: HandleChangeType, error: HandleChangeType) => void,
     ToggleListVisibilityType,
-    Dispatch<React.SetStateAction<boolean>>,
+    Dispatch<React.SetStateAction<boolean>>
 ] => {
     const [is_open, setOpen] = useState(false)
     const dropdown_ref = useRef(null)
@@ -57,14 +57,14 @@ export const useDropdown = (
 
     useOutsideClick(dropdown_ref, () => setOpen(false))
 
-    const toggleListVisibility = (e) => {
+    const toggleListVisibility = e => {
         const open_dropdown = e.key === 'Space' || e.key === 'Enter' || e.key === 'Tab'
 
         // adding each item nodes a listener (click and keys)
         // and filter if there is null nodes in the array
         Array.from(nodes.values())
-            .filter((node) => node !== null)
-            .forEach((node) => addItemListener(node))
+            .filter(node => node !== null)
+            .forEach(node => addItemListener(node))
 
         if (e.key === 'Escape') {
             closeList()
@@ -79,7 +79,7 @@ export const useDropdown = (
 
     const closeList = () => setOpen(false)
 
-    const focusNextListItem = (event) => {
+    const focusNextListItem = event => {
         const active_element = document.activeElement
 
         if (active_element.id === 'selected_dropdown') {
@@ -88,16 +88,16 @@ export const useDropdown = (
             const active_nodes = event.target
             if (active_nodes) {
                 if (event.key === 'ArrowDown') {
-                    active_nodes.nextSibling && active_nodes.nextSibling.focus()
+                    if (active_nodes.nextSibling) active_nodes.nextSibling.focus()
                 } else if (event.key === 'ArrowUp') {
-                    active_nodes.previousSibling && active_nodes.previousSibling.focus()
+                    if (active_nodes.previousSibling) active_nodes.previousSibling.focus()
                 }
             }
         }
     }
 
-    const addItemListener = (node) => {
-        node.addEventListener('keydown', (e) => {
+    const addItemListener = node => {
+        node.addEventListener('keydown', e => {
             e.preventDefault()
             if (e.key === 'Escape') {
                 closeList()
@@ -107,7 +107,7 @@ export const useDropdown = (
         })
     }
 
-    const handleChange = (option) => {
+    const handleChange = option => {
         onChange(option)
         closeList()
     }

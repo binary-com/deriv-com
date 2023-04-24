@@ -137,83 +137,83 @@ const NavFlex = styled(Flex)`
 `
 
 export const TraderCard = ({ is_selected, word_break_cover }: CardProps) => (
-    <StyledLink aria_label="DTrader" to="/dtrader/">
+    <StyledLink aria_label='DTrader' to='/dtrader/'>
         <Card
-            cover_background="var(--color-red)"
-            cover_content={<Localize translate_text="Discover DTrader now" />}
-            title={<Localize translate_text="DTrader" />}
+            cover_background='var(--color-red)'
+            cover_content={<Localize translate_text='Discover DTrader now' />}
+            title={<Localize translate_text='DTrader' />}
             Icon={() => (
                 <StyledDTrader
                     src={DTrader}
-                    width="72"
-                    height="72"
-                    alt="Dtrader trading platform"
+                    width='72'
+                    height='72'
+                    alt='Dtrader trading platform'
                 />
             )}
             content={[localize('The platform to start with. It’s powerful yet easy to use.')]}
             is_inline_icon
-            min_height="12.4rem"
+            min_height='12.4rem'
             is_selected={is_selected}
-            width="100%"
+            width='100%'
             word_break_cover={word_break_cover}
         />
     </StyledLink>
 )
 
 export const BotCard = ({ is_selected, word_break_cover }: CardProps) => (
-    <StyledLink aria_label="DBot" to="/dbot/">
+    <StyledLink aria_label='DBot' to='/dbot/'>
         <Card
-            cover_background="var(--color-orange)"
-            cover_content={<Localize translate_text="Discover DBot now" />}
-            title={<Localize translate_text="DBot" />}
+            cover_background='var(--color-orange)'
+            cover_content={<Localize translate_text='Discover DBot now' />}
+            title={<Localize translate_text='DBot' />}
             Icon={() => (
-                <StyledDbot src={DBot} width="72" height="72" alt="Dbot for auto trading" />
+                <StyledDbot src={DBot} width='72' height='72' alt='Dbot for auto trading' />
             )}
             content={[localize('Automated trading at your fingertips. No coding needed.')]}
             is_inline_icon
-            min_height="12.4rem"
+            min_height='12.4rem'
             is_selected={is_selected}
-            width="100%"
+            width='100%'
             word_break_cover={word_break_cover}
         />
     </StyledLink>
 )
 
 export const DMT5Card = ({ is_selected, is_ppc_redirect, word_break_cover }: DMT5CardProps) => (
-    <StyledLink aria_label="DMT5" to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
+    <StyledLink aria_label='DMT5' to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
         <Card
-            cover_background="var(--color-green)"
-            cover_content={<Localize translate_text="Discover Deriv MT5 now" />}
-            title={<Localize translate_text="Deriv MT5" />}
+            cover_background='var(--color-green)'
+            cover_content={<Localize translate_text='Discover Deriv MT5 now' />}
+            title={<Localize translate_text='Deriv MT5' />}
             Icon={() => (
-                <StyledDmt5 src={DMT5} alt="Deriv MT5 trading platform" width="72" height="72" />
+                <StyledDmt5 src={DMT5} alt='Deriv MT5 trading platform' width='72' height='72' />
             )}
             content={[localize('Trade on the Deriv MT5 platform, the choice of professionals.')]}
             is_inline_icon
-            min_height="12.4rem"
+            min_height='12.4rem'
             is_selected={is_selected}
-            width="100%"
+            width='100%'
             word_break_cover={word_break_cover}
         />
     </StyledLink>
 )
 
 export const DerivXCard = ({ is_selected, word_break_cover }: CardProps) => (
-    <StyledLink ariaLabel="Deriv X" to="/derivx/">
+    <StyledLink ariaLabel='Deriv X' to='/derivx/'>
         <Card
             Icon={() => (
-                <StyledDerivX src={DerivX} alt="Deriv X trading paltform" width="72" height="72" />
+                <StyledDerivX src={DerivX} alt='Deriv X trading paltform' width='72' height='72' />
             )}
             content={[
                 localize('Trade FX and CFDs on a customisable, easy-to-use trading platform.'),
             ]}
-            cover_background="var(--color-black)"
-            cover_content={<Localize translate_text="Discover Deriv X now" />}
-            title={<Localize translate_text="Deriv X" />}
+            cover_background='var(--color-black)'
+            cover_content={<Localize translate_text='Discover Deriv X now' />}
+            title={<Localize translate_text='Deriv X' />}
             is_inline_icon
-            min_height="12.4rem"
+            min_height='12.4rem'
             is_selected={is_selected}
-            width="100%"
+            width='100%'
             word_break_cover={word_break_cover}
         />
     </StyledLink>
@@ -221,36 +221,36 @@ export const DerivXCard = ({ is_selected, word_break_cover }: CardProps) => (
 
 export const SmarttraderCard = ({ is_selected, word_break_cover }: CardProps) => (
     <StyledLink
-        aria_label="SmartTrader"
-        to="trading"
-        type="smart_trader"
+        aria_label='SmartTrader'
+        to='trading'
+        type='smart_trader'
         external
-        target="_blank"
-        rel="noopener noreferrer"
+        target='_blank'
+        rel='noopener noreferrer'
     >
         <Card
-            cover_background="var(--color-blue-3)"
-            cover_content={<Localize translate_text="Discover SmartTrader now" />}
-            title={<Localize translate_text="SmartTrader" />}
+            cover_background='var(--color-blue-3)'
+            cover_content={<Localize translate_text='Discover SmartTrader now' />}
+            title={<Localize translate_text='SmartTrader' />}
             Icon={() => (
                 <StyledSmarttrader
                     src={Smarttrader}
-                    alt="SmartTrader trading platform"
-                    height="72"
-                    width="72"
+                    alt='SmartTrader trading platform'
+                    height='72'
+                    width='72'
                 />
             )}
             content={[
                 <Localize
                     key={0}
-                    translate_text="Trade the world’s markets on <0>Binary.com</0>’s classic platform."
-                    components={[<LocalizedLinkText key={0} to="home" external type="binary" />]}
+                    translate_text='Trade the world’s markets on <0>Binary.com</0>’s classic platform.'
+                    components={[<LocalizedLinkText key={0} to='home' external type='binary' />]}
                 />,
             ]}
             is_inline_icon
-            min_height="11.6rem"
+            min_height='11.6rem'
             is_selected={is_selected}
-            width="100%"
+            width='100%'
             word_break_cover={word_break_cover}
         />
     </StyledLink>
@@ -267,34 +267,34 @@ export const OtherPlatform = ({
     const { is_row, is_eu } = useRegion()
     const getHeaderText = () => (
         <>
-            {is_eu && <Localize translate_text="Check out our other platform" />}
-            {is_row && <Localize translate_text="Check out our other platforms" />}
+            {is_eu && <Localize translate_text='Check out our other platform' />}
+            {is_row && <Localize translate_text='Check out our other platforms' />}
         </>
     )
     return (
-        <SectionContainer padding="0">
+        <SectionContainer padding='0'>
             {is_nav ? null : (
                 <HeaderWrapper>
-                    <Header as="h3" type="section-title" align="center">
-                        {header ? header : getHeaderText()}
+                    <Header as='h3' type='section-title' align='center'>
+                        {header || getHeaderText()}
                     </Header>
                     {subHeader && (
                         <Header
-                            as="h4"
-                            type="sub-section-title"
-                            align="center"
-                            weight="500"
-                            max_width="67.6rem"
-                            m="0.8rem auto"
+                            as='h4'
+                            type='sub-section-title'
+                            align='center'
+                            weight='500'
+                            max_width='67.6rem'
+                            m='0.8rem auto'
                         >
                             {localize(
-                                'Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love.',
+                                'Whether you’re a beginner or a seasoned trader, our trading experience is something you’ll love.'
                             )}
                         </Header>
                     )}
                 </HeaderWrapper>
             )}
-            <StyledFlexGridContainer content_width="38.4rem" gap="1rem" grid="3" justify="center">
+            <StyledFlexGridContainer content_width='38.4rem' gap='1rem' grid='3' justify='center'>
                 {excludetoLowerCase !== 'dtrader' && <TraderCard />}
                 {is_row && <>{excludetoLowerCase !== 'dbot' && <BotCard />}</>}
                 {excludetoLowerCase !== 'dmt5' && <DMT5Card is_ppc_redirect={is_ppc_redirect} />}
@@ -309,141 +309,141 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
 
     const getDtraderText = () => (
         <NavCard
-            aria_label="Dtrader"
-            icon={() => <img src={DTrader} alt="Dtrader trading platform" width="32" height="32" />}
+            aria_label='Dtrader'
+            icon={() => <img src={DTrader} alt='Dtrader trading platform' width='32' height='32' />}
             content={
-                <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
+                <Localize translate_text='A whole new trading experience on a powerful yet easy to use platform.' />
             }
-            title={<Localize translate_text="DTrader" />}
+            title={<Localize translate_text='DTrader' />}
             onClick={onClick}
-            to="/dtrader/"
+            to='/dtrader/'
         />
     )
     return (
         <Flex>
             {!is_ppc && (
                 <>
-                    <NavFlex direction="column" wrap="wrap" jc="flex-start">
-                        <StyledText>{<Localize translate_text="Trade types" />}</StyledText>
+                    <NavFlex direction='column' wrap='wrap' jc='flex-start'>
+                        <StyledText>{<Localize translate_text='Trade types' />}</StyledText>
                         <NavCard
-                            aria_label="CFDs"
+                            aria_label='CFDs'
                             icon={() => (
-                                <img src={CFD} alt="CFDs trade type" width="32" height="32" />
+                                <img src={CFD} alt='CFDs trade type' width='32' height='32' />
                             )}
                             content={
-                                <Localize translate_text="Trade with leverage and tight spreads for better returns on successful trades." />
+                                <Localize translate_text='Trade with leverage and tight spreads for better returns on successful trades.' />
                             }
-                            title={<Localize translate_text="CFDs" />}
+                            title={<Localize translate_text='CFDs' />}
                             onClick={onClick}
-                            to="/trade-types/cfds/"
+                            to='/trade-types/cfds/'
                         />
                         {is_row && (
                             <NavCard
-                                aria_label="Options"
+                                aria_label='Options'
                                 icon={() => (
                                     <img
                                         src={Options}
-                                        alt="Options trade type"
-                                        width="32"
-                                        height="32"
+                                        alt='Options trade type'
+                                        width='32'
+                                        height='32'
                                     />
                                 )}
                                 content={
-                                    <Localize translate_text="Earn a range of payouts without risking more than your initial stake." />
+                                    <Localize translate_text='Earn a range of payouts without risking more than your initial stake.' />
                                 }
-                                title={<Localize translate_text="Options" />}
+                                title={<Localize translate_text='Options' />}
                                 onClick={onClick}
-                                to="/trade-types/options/"
+                                to='/trade-types/options/'
                             />
                         )}
                         <NavCard
-                            aria_label="Multipliers"
+                            aria_label='Multipliers'
                             icon={() => (
                                 <img
                                     src={Multipliers}
-                                    alt="Multipliers trade type"
-                                    width="32"
-                                    height="32"
+                                    alt='Multipliers trade type'
+                                    width='32'
+                                    height='32'
                                 />
                             )}
                             content={
-                                <Localize translate_text="Get the upside of CFDs without the downside of losing more than your stake." />
+                                <Localize translate_text='Get the upside of CFDs without the downside of losing more than your stake.' />
                             }
-                            title={<Localize translate_text="Multipliers" />}
+                            title={<Localize translate_text='Multipliers' />}
                             onClick={onClick}
-                            to="/trade-types/multiplier/"
+                            to='/trade-types/multiplier/'
                         />
                     </NavFlex>
                 </>
             )}
-            <Flex direction="column" wrap="wrap" jc="flex-start">
-                <StyledText>{<Localize translate_text="Trading platforms" />}</StyledText>
+            <Flex direction='column' wrap='wrap' jc='flex-start'>
+                <StyledText>{<Localize translate_text='Trading platforms' />}</StyledText>
                 <NavCard
-                    aria_label="Deriv MT5"
+                    aria_label='Deriv MT5'
                     icon={() => (
-                        <img src={DMT5} alt="Deriv MT5 trading platform" width="32" height="32" />
+                        <img src={DMT5} alt='Deriv MT5 trading platform' width='32' height='32' />
                     )}
                     content={
-                        <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />
+                        <Localize translate_text='Trade on Deriv MT5, the all-in-one CFD trading platform.' />
                     }
-                    title={<Localize translate_text="Deriv MT5" />}
+                    title={<Localize translate_text='Deriv MT5' />}
                     onClick={onClick}
                     to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                 />
                 {is_row && (
                     <>
                         <NavCard
-                            aria_label="Derivx"
+                            aria_label='Derivx'
                             icon={() => (
                                 <img
                                     src={DerivX}
-                                    alt="Deriv X trading paltform"
-                                    width="32"
-                                    height="32"
+                                    alt='Deriv X trading paltform'
+                                    width='32'
+                                    height='32'
                                 />
                             )}
                             content={
-                                <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
+                                <Localize translate_text='A highly customisable and easy-to-use CFD trading platform.' />
                             }
-                            title={<Localize translate_text="Deriv X" />}
+                            title={<Localize translate_text='Deriv X' />}
                             onClick={onClick}
-                            to="/derivx/"
+                            to='/derivx/'
                         />
                         <NavCard
-                            aria_label="Derivez"
+                            aria_label='Derivez'
                             icon={() => (
                                 <img
                                     src={DerivEZ}
-                                    alt="Deriv EZ trading paltform"
-                                    width="32"
-                                    height="32"
+                                    alt='Deriv EZ trading paltform'
+                                    width='32'
+                                    height='32'
                                 />
                             )}
                             content={
-                                <Localize translate_text="Trade on global markets from anywhere with our mobile-first CFD trading platform." />
+                                <Localize translate_text='Trade on global markets from anywhere with our mobile-first CFD trading platform.' />
                             }
-                            title={<Localize translate_text="Deriv EZ" />}
+                            title={<Localize translate_text='Deriv EZ' />}
                             onClick={onClick}
-                            to="/derivez/"
+                            to='/derivez/'
                         />
                         <NavCard
-                            aria_label="SmartTrader"
+                            aria_label='SmartTrader'
                             icon={() => (
                                 <img
                                     src={Smarttrader}
-                                    alt="SmartTrader trading platform"
-                                    width="32"
-                                    height="32"
+                                    alt='SmartTrader trading platform'
+                                    width='32'
+                                    height='32'
                                 />
                             )}
                             content={
-                                <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
+                                <Localize translate_text='Trade the world’s markets with our popular user-friendly platform.' />
                             }
-                            title={<Localize translate_text="SmartTrader" />}
-                            to="trading"
-                            type="smart_trader"
+                            title={<Localize translate_text='SmartTrader' />}
+                            to='trading'
+                            type='smart_trader'
                             external
-                            target="_blank"
+                            target='_blank'
                             onClick={onClick}
                             otherLinkProps={{ rel: 'noopener noreferrer' }}
                         />
@@ -453,60 +453,60 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
             </Flex>
             {is_row && (
                 <>
-                    <Flex direction="column" wrap="wrap" jc="flex-start">
+                    <Flex direction='column' wrap='wrap' jc='flex-start'>
                         <EmptySpace />
                         {getDtraderText()}
                         <NavCard
-                            aria_label="Deriv GO"
+                            aria_label='Deriv GO'
                             icon={() => (
                                 <img
                                     src={DerivGo}
-                                    alt="Deriv GO mobile trading app"
-                                    width="32"
-                                    height="32"
+                                    alt='Deriv GO mobile trading app'
+                                    width='32'
+                                    height='32'
                                 />
                             )}
                             content={
-                                <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
+                                <Localize translate_text='Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app.' />
                             }
-                            title={<Localize translate_text="Deriv GO" />}
+                            title={<Localize translate_text='Deriv GO' />}
                             onClick={onClick}
-                            to="/deriv-go/"
+                            to='/deriv-go/'
                         />
                         <NavCard
-                            aria_label="DBot"
+                            aria_label='DBot'
                             icon={() => (
                                 <img
                                     src={DBot}
-                                    alt="Dbot for auto trading"
-                                    width="32"
-                                    height="32"
+                                    alt='Dbot for auto trading'
+                                    width='32'
+                                    height='32'
                                 />
                             )}
                             content={
-                                <Localize translate_text="Automated trading at your fingertips. No coding needed." />
+                                <Localize translate_text='Automated trading at your fingertips. No coding needed.' />
                             }
-                            title={<Localize translate_text="DBot" />}
+                            title={<Localize translate_text='DBot' />}
                             onClick={onClick}
-                            to="/dbot/"
+                            to='/dbot/'
                         />
                         <NavCard
-                            aria_label="Binary Bot"
+                            aria_label='Binary Bot'
                             icon={() => (
                                 <img
                                     src={BinaryBot}
-                                    alt="Binary bot for creating trading bot"
-                                    width="32"
-                                    height="32"
+                                    alt='Binary bot for creating trading bot'
+                                    width='32'
+                                    height='32'
                                 />
                             )}
                             content={
                                 <Localize translate_text='Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.' />
                             }
-                            title={<Localize translate_text="Binary Bot" />}
+                            title={<Localize translate_text='Binary Bot' />}
                             to={binary_bot_url}
                             external
-                            target="_blank"
+                            target='_blank'
                             onClick={onClick}
                             otherLinkProps={{ rel: 'noopener noreferrer' }}
                         />
@@ -524,20 +524,20 @@ const derived_text_row: TString =
 export const NavMarket = ({ onClick }: NavMarketProps) => {
     const { is_eu } = useRegion()
     return (
-        <Flex direction="column" wrap="wrap" jc="flex-start">
+        <Flex direction='column' wrap='wrap' jc='flex-start'>
             <NavCard
-                aria_label="Forex"
-                icon={() => <img src={Forex} alt="Forex" width="32" height="32" />}
+                aria_label='Forex'
+                icon={() => <img src={Forex} alt='Forex' width='32' height='32' />}
                 content={
-                    <Localize translate_text="Trade the world’s largest financial market with popular forex pairs." />
+                    <Localize translate_text='Trade the world’s largest financial market with popular forex pairs.' />
                 }
-                title={<Localize translate_text="Forex" />}
+                title={<Localize translate_text='Forex' />}
                 onClick={onClick}
-                to="/markets/forex/"
+                to='/markets/forex/'
             />
             <NavCard
-                aria_label="Derived"
-                icon={() => <img src={DerivedFX} alt="Synthetic indices" width="32" height="32" />}
+                aria_label='Derived'
+                icon={() => <img src={DerivedFX} alt='Synthetic indices' width='32' height='32' />}
                 content={
                     is_eu ? (
                         <Localize translate_text={derived_text_eu} />
@@ -545,145 +545,145 @@ export const NavMarket = ({ onClick }: NavMarketProps) => {
                         <Localize translate_text={derived_text_row} />
                     )
                 }
-                title={<Localize translate_text="Derived" />}
+                title={<Localize translate_text='Derived' />}
                 onClick={onClick}
-                to="/markets/synthetic/"
+                to='/markets/synthetic/'
             />
             <NavCard
-                aria_label="Stocks & indices"
+                aria_label='Stocks & indices'
                 icon={() => (
-                    <img src={StockIndices} alt="Stocks & indices" width="32" height="32" />
+                    <img src={StockIndices} alt='Stocks & indices' width='32' height='32' />
                 )}
                 content={
-                    <Localize translate_text="Predict broader market trends and diversify your risk with stocks & indices." />
+                    <Localize translate_text='Predict broader market trends and diversify your risk with stocks & indices.' />
                 }
-                title={<Localize translate_text="Stocks & indices" />}
+                title={<Localize translate_text='Stocks & indices' />}
                 onClick={onClick}
-                to="/markets/stock/"
+                to='/markets/stock/'
             />
             <NavCard
-                aria_label="Cryptocurrencies"
+                aria_label='Cryptocurrencies'
                 icon={() => (
-                    <img src={Cryptocurrencies} alt="Cryptocurrencies" width="32" height="32" />
+                    <img src={Cryptocurrencies} alt='Cryptocurrencies' width='32' height='32' />
                 )}
                 content={
-                    <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
+                    <Localize translate_text='Trade with leverage on the price movement of popular crypto-fiat pairs.' />
                 }
-                title={<Localize translate_text="Cryptocurrencies" />}
+                title={<Localize translate_text='Cryptocurrencies' />}
                 onClick={onClick}
-                to="/markets/cryptocurrencies/"
+                to='/markets/cryptocurrencies/'
             />
             <NavCard
-                aria_label="Commodities"
-                icon={() => <img src={Commodities} alt="Commodities" width="32" height="32" />}
+                aria_label='Commodities'
+                icon={() => <img src={Commodities} alt='Commodities' width='32' height='32' />}
                 content={
                     <Localize translate_text="Trade natural resources that are central to the world's economy." />
                 }
-                title={<Localize translate_text="Commodities" />}
+                title={<Localize translate_text='Commodities' />}
                 onClick={onClick}
-                to="/markets/commodities/"
+                to='/markets/commodities/'
             />
         </Flex>
     )
 }
 
 export const NavCompany = ({ onClick }: NavCompanyProps) => (
-    <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
+    <Flex direction='column' wrap='wrap' jc='flex-start' max_width='42rem'>
         <CardLink
-            icon={() => <img src={Story} alt="who we are" width="24" height="24" />}
-            title={<Localize translate_text="Who we are" />}
+            icon={() => <img src={Story} alt='who we are' width='24' height='24' />}
+            title={<Localize translate_text='Who we are' />}
             onClick={onClick}
-            to="/who-we-are/"
+            to='/who-we-are/'
         />
         <CardLink
             icon={() => (
-                <img src={RegulatoryInfo} alt="regulatory information" width="24" height="24" />
+                <img src={RegulatoryInfo} alt='regulatory information' width='24' height='24' />
             )}
-            title={<Localize translate_text="Regulatory information" />}
+            title={<Localize translate_text='Regulatory information' />}
             onClick={onClick}
-            to="/regulatory/"
+            to='/regulatory/'
         />
         <CardLink
-            icon={() => <img src={Choose} alt="why choose us" width="24" height="24" />}
-            title={<Localize translate_text="Why choose us" />}
+            icon={() => <img src={Choose} alt='why choose us' width='24' height='24' />}
+            title={<Localize translate_text='Why choose us' />}
             onClick={onClick}
-            to="/why-choose-us/"
+            to='/why-choose-us/'
         />
         <CardLink
-            icon={() => <img src={Partner} alt="partnership programmes" width="24" height="24" />}
-            title={<Localize translate_text="Partnership programmes" />}
+            icon={() => <img src={Partner} alt='partnership programmes' width='24' height='24' />}
+            title={<Localize translate_text='Partnership programmes' />}
             onClick={onClick}
-            to="/partners/"
+            to='/partners/'
         />
 
         <CardLink
-            icon={() => <img src={Contact} alt="contact us" width="24" height="24" />}
-            title={<Localize translate_text="Contact us" />}
+            icon={() => <img src={Contact} alt='contact us' width='24' height='24' />}
+            title={<Localize translate_text='Contact us' />}
             onClick={onClick}
-            to="/contact_us/"
+            to='/contact_us/'
         />
         <CardLink
-            icon={() => <img src={Career} alt="careers" width="24" height="24" />}
-            title={<Localize translate_text="Careers" />}
+            icon={() => <img src={Career} alt='careers' width='24' height='24' />}
+            title={<Localize translate_text='Careers' />}
             onClick={onClick}
-            to="/careers/"
+            to='/careers/'
         />
         <CardLink
-            icon={() => <img src={DerivLife} alt="Deriv life" width="24" height="24" />}
-            title={<Localize translate_text="Deriv life" />}
-            to=""
-            type="derivlife"
+            icon={() => <img src={DerivLife} alt='Deriv life' width='24' height='24' />}
+            title={<Localize translate_text='Deriv life' />}
+            to=''
+            type='derivlife'
             external={true}
-            target="_blank"
-            rel="noopener noreferrer"
+            target='_blank'
+            rel='noopener noreferrer'
         />
     </Flex>
 )
 
 export const NavResources = ({ onClick }: NavResourcesProps) => (
-    <Flex direction="column" wrap="wrap" jc="flex-start" max_width="42rem">
+    <Flex direction='column' wrap='wrap' jc='flex-start' max_width='42rem'>
         <CardLink
-            icon={() => <img src={Help} alt="help centre" width="24" height="24" />}
-            title={<Localize translate_text="Help centre" />}
+            icon={() => <img src={Help} alt='help centre' width='24' height='24' />}
+            title={<Localize translate_text='Help centre' />}
             onClick={onClick}
-            to="/help-centre/"
+            to='/help-centre/'
         />
         <CardLink
-            icon={() => <img src={Community} alt="community" width="24" height="24" />}
-            title={<Localize translate_text="Community" />}
+            icon={() => <img src={Community} alt='community' width='24' height='24' />}
+            title={<Localize translate_text='Community' />}
             onClick={onClick}
-            to=""
-            type="community"
+            to=''
+            type='community'
             external
-            target="_blank"
-            rel="noopener noreferrer"
+            target='_blank'
+            rel='noopener noreferrer'
         />
         <CardLink
-            icon={() => <img src={TraderTool} alt="traders’ tools" width="24" height="24" />}
-            title={<Localize translate_text="Traders’ tools" />}
+            icon={() => <img src={TraderTool} alt='traders’ tools' width='24' height='24' />}
+            title={<Localize translate_text='Traders’ tools' />}
             onClick={onClick}
-            to="/trader-tools/"
+            to='/trader-tools/'
         />
         <CardLink
-            icon={() => <img src={Payment} alt="payment methods" width="24" height="24" />}
-            title={<Localize translate_text="Payment methods" />}
+            icon={() => <img src={Payment} alt='payment methods' width='24' height='24' />}
+            title={<Localize translate_text='Payment methods' />}
             onClick={onClick}
-            to="/payment-methods/"
+            to='/payment-methods/'
         />
         <CardLink
-            icon={() => <img src={Signals} alt="Deriv MT5 signals" width="24" height="24" />}
-            title={<Localize translate_text="Deriv MT5 Signals" />}
+            icon={() => <img src={Signals} alt='Deriv MT5 signals' width='24' height='24' />}
+            title={<Localize translate_text='Deriv MT5 Signals' />}
             onClick={onClick}
-            to="/dmt5-trading-signals/#signal-subscriber/"
+            to='/dmt5-trading-signals/#signal-subscriber/'
         />
         <CardLink
-            icon={() => <img src={Blog} alt="academy" width="24" height="24" />}
-            title={<Localize translate_text="Academy" />}
-            to=""
-            type="academy"
+            icon={() => <img src={Blog} alt='academy' width='24' height='24' />}
+            title={<Localize translate_text='Academy' />}
+            to=''
+            type='academy'
             external={true}
-            target="_blank"
-            rel="noopener noreferrer"
+            target='_blank'
+            rel='noopener noreferrer'
         />
     </Flex>
 )

@@ -3,7 +3,7 @@
  * It is used in jest.config.js
  */
 
- const babelOptions = {
+const babelOptions = {
     presets: [
         'babel-preset-gatsby',
         '@babel/preset-typescript',

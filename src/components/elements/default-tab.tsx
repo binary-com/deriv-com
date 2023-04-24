@@ -44,13 +44,13 @@ const TabButton = styled.button<TabsStyledProps>`
     margin-bottom: 0;
 
     @media ${device.laptopM} {
-        width: ${(props) =>
+        width: ${props =>
             props.mobile_tab_button_underline_length
                 ? props.mobile_tab_button_underline_length
                 : 'unset'};
     }
 
-    ${(props) =>
+    ${props =>
         props.selected &&
         css`
             border-color: var(--color-red);
@@ -60,14 +60,14 @@ const TabButton = styled.button<TabsStyledProps>`
     &:focus,
     &:active {
         border-bottom: 2px solid
-            ${(props) => (props.selected ? 'var(--color-red)' : 'var(--color-red-2)')};
+            ${props => (props.selected ? 'var(--color-red)' : 'var(--color-red-2)')};
     }
 `
 
 const TabList = styled.div<TabsStyledProps>`
     display: flex;
     width: 100%;
-    justify-content: ${(props) => (props.jc ? props.jc : 'center')};
+    justify-content: ${props => (props.jc ? props.jc : 'center')};
     position: relative;
     overflow-x: auto;
     white-space: nowrap;
@@ -80,11 +80,11 @@ const TabList = styled.div<TabsStyledProps>`
     }
 
     @media ${device.laptopM} {
-        justify-content: ${(props) => (props.jc_laptopM ? props.jc_laptopM : 'center')};
+        justify-content: ${props => (props.jc_laptopM ? props.jc_laptopM : 'center')};
     }
 
     @media ${device.mobileL} {
-        justify-content: ${(props) => (props.jc_mobileL ? props.jc_mobileL : 'space-between')};
+        justify-content: ${props => (props.jc_mobileL ? props.jc_mobileL : 'space-between')};
     }
 
     @media (max-width: 330px) {
@@ -96,7 +96,7 @@ const LineDivider = styled.div<TabsStyledProps>`
     bottom: 0;
     position: absolute;
     height: 2px;
-    width: ${(props) => (props.line_divider_length ? props.line_divider_length : '100%')};
+    width: ${props => (props.line_divider_length ? props.line_divider_length : '100%')};
     background: var(--color-grey-2);
     z-index: 1;
 `
@@ -120,7 +120,7 @@ type TabPanelProps = {
     label: string
 }
 const TabPanel = ({ children }: TabPanelProps) => (
-    <TabContent role="tabpanel">{children}</TabContent>
+    <TabContent role='tabpanel'>{children}</TabContent>
 )
 type TabsProps = {
     children?: ReactElement | ReactElement[]
@@ -172,14 +172,15 @@ const Tabs = ({
 
     const setOffsetPositioning = (e, index) => {
         const left = e.target.offsetLeft - 24
-        is_mobile && index > 0 ? setOffset(left) : setOffset(0)
+        if (is_mobile && index > 0) setOffset(left)
+        else setOffset(0)
     }
 
     return (
-        <Flex direction="column">
+        <Flex direction='column'>
             <TabList
-                role="tablist"
-                id="tablist"
+                role='tablist'
+                id='tablist'
                 jc={jc}
                 jc_mobileL={jc_mobileL}
                 jc_laptopM={jc_laptopM}
@@ -188,10 +189,10 @@ const Tabs = ({
             >
                 {React.Children.map(children, ({ props: { label } }, index) => (
                     <TabButton
-                        role="tab"
+                        role='tab'
                         selected={selected_tab === index}
                         aria-selected={selected_tab === index ? 'true' : 'false'}
-                        onClick={(e) => {
+                        onClick={e => {
                             setOffsetPositioning(e, index)
                             setActiveTab(tab_list[index])
                         }}
@@ -199,8 +200,8 @@ const Tabs = ({
                         className={slugify(label)}
                     >
                         <TextWrapper
-                            as="p"
-                            type="subtitle-1"
+                            as='p'
+                            type='subtitle-1'
                             selected={selected_tab === index}
                             mobile_font_size={mobile_font_size}
                         >
@@ -212,7 +213,7 @@ const Tabs = ({
             </TabList>
             <Content>
                 {React.Children.map(children, (el, index) =>
-                    selected_tab === index ? el : undefined,
+                    selected_tab === index ? el : undefined
                 )}
             </Content>
         </Flex>

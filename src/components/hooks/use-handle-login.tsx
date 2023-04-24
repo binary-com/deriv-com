@@ -8,9 +8,7 @@ const useHandleLogin = () => {
     // const { setShowNonEuPopup } = usePopup()
 
     return () => {
-        if (is_region_loading) {
-            return
-        } else {
+        if (!is_region_loading) {
             redirectToTradingPlatform()
             Login.redirectToLogin()
         }

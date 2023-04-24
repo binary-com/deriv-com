@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 const { defaults } = require('jest-config')
+
 module.exports = {
     // A set of global variables that need to be available in all test environments
     globals: {},
@@ -11,7 +12,12 @@ module.exports = {
     collectCoverage: false,
 
     // An array of glob patterns indicating a set of files for which coverage information should be collected
-    collectCoverageFrom: ['**/*.{js,jsx,ts,tsx}', '!**/node_modules/**', '!**/public/**', '!**/static/**'],
+    collectCoverageFrom: [
+        '**/*.{js,jsx,ts,tsx}',
+        '!**/node_modules/**',
+        '!**/public/**',
+        '!**/static/**',
+    ],
 
     // A list of reporter names that Jest uses when writing coverage reports
     coverageReporters: ['lcov'],

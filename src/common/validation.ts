@@ -17,45 +17,39 @@ const validation: TValidationType = {
     // Validation will return a string for error message
     email: (input, message) => {
         if (!validation_regex.email.test(input)) {
-            return message ? message : localize('Email is required')
-        } else {
-            return null
+            return message || localize('Email is required')
         }
+        return null
     },
     name: (input, message) => {
         if (!input) {
-            return message ? message : localize('Name is required')
-        } else {
-            return null
+            return message || localize('Name is required')
         }
+        return null
     },
     required: (input, message) => {
         if (!input) {
-            return message ? message : localize('This field is required')
-        } else {
-            return null
+            return message || localize('This field is required')
         }
+        return null
     },
     url: (input, message) => {
         if (!validation_regex.url.test(input)) {
-            return message ? message : localize('Please enter a valid URL format')
-        } else {
-            return null
+            return message || localize('Please enter a valid URL format')
         }
+        return null
     },
     number: (input, message) => {
         if (!validation_regex.number.test(input)) {
-            return message ? message : localize('Please enter a valid number')
-        } else {
-            return null
+            return message || localize('Please enter a valid number')
         }
+        return null
     },
     alphabetic: (input, message) => {
         if (!validation_regex.alphabetic.test(input)) {
-            return message ? message : localize('Please enter only alphabetic characters')
-        } else {
-            return null
+            return message || localize('Please enter only alphabetic characters')
         }
+        return null
     },
 }
 

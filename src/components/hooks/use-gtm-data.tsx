@@ -10,7 +10,7 @@ const useGTMData = () => {
 
     useEffect(() => {
         if (gtm_data) {
-            has_dataLayer &&
+            if (has_dataLayer)
                 window.dataLayer.push({
                     ...gtm_data,
                     loggedIn: is_logged_in,

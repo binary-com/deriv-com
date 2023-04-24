@@ -43,8 +43,8 @@ const CarouselItemContainer = styled(Flex)<CarouselItemContainerProps>`
     padding: 32px 32px 0;
     background: linear-gradient(
         233.94deg,
-        ${(props) => props.gradient_start} 2.4%,
-        ${(props) => props.gradient_end} 81.78%
+        ${props => props.gradient_start} 2.4%,
+        ${props => props.gradient_end} 81.78%
     );
     z-index: 1;
 
@@ -56,7 +56,7 @@ const CarouselItemContainer = styled(Flex)<CarouselItemContainerProps>`
 const CarouselItemImageDesktop = styled(QueryImage)<{ $hovered: boolean }>`
     position: absolute;
     width: 220px;
-    top: ${(props) => (props.$hovered ? '220px' : '91px')};
+    top: ${props => (props.$hovered ? '220px' : '91px')};
     right: 31px;
     transition: ease-in 0.3s;
     z-index: 3;
@@ -71,7 +71,7 @@ const CarouselItemImageMobile = styled(QueryImage)`
 `
 
 const StyledDescription = styled(Text)<{ $hovered: boolean }>`
-    visibility: ${(props) => (props.$hovered ? 'visible' : 'hidden')};
+    visibility: ${props => (props.$hovered ? 'visible' : 'hidden')};
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.01);
     z-index: 2;
     color: white;
@@ -84,9 +84,9 @@ const StyledLink = styled(LocalizedLink)`
 
 const market_data = [
     {
-        header: <Localize translate_text="Forex" />,
+        header: <Localize translate_text='Forex' />,
         description: (
-            <Localize translate_text="Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day." />
+            <Localize translate_text='Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day.' />
         ),
         img_name: 'market_forex',
         to: '/markets/forex/',
@@ -94,9 +94,9 @@ const market_data = [
         gradient_end: '#190708',
     },
     {
-        header: <Localize translate_text="Derived" />,
+        header: <Localize translate_text='Derived' />,
         description: (
-            <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
+            <Localize translate_text='Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events.' />
         ),
         img_name: 'market_derived',
         to: '/markets/synthetic/',
@@ -104,9 +104,9 @@ const market_data = [
         gradient_end: '#08100E',
     },
     {
-        header: <Localize translate_text="Stocks & indices" />,
+        header: <Localize translate_text='Stocks & indices' />,
         description: (
-            <Localize translate_text="Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market." />
+            <Localize translate_text='Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market.' />
         ),
         img_name: 'market_stocks_indices',
         to: '/markets/stock/',
@@ -114,9 +114,9 @@ const market_data = [
         gradient_end: '#0A0810',
     },
     {
-        header: <Localize translate_text="Cryptocurrencies" />,
+        header: <Localize translate_text='Cryptocurrencies' />,
         description: (
-            <Localize translate_text="Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet." />
+            <Localize translate_text='Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet.' />
         ),
         img_name: 'market_crypto',
         to: '/markets/cryptocurrencies/',
@@ -124,9 +124,9 @@ const market_data = [
         gradient_end: '#191102',
     },
     {
-        header: <Localize translate_text="Commodities" />,
+        header: <Localize translate_text='Commodities' />,
         description: (
-            <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
+            <Localize translate_text='Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action.' />
         ),
         img_name: 'market_commodities',
         to: '/markets/commodities/',
@@ -136,9 +136,9 @@ const market_data = [
 ]
 const market_data_eu = [
     {
-        header: <Localize translate_text="Forex" />,
+        header: <Localize translate_text='Forex' />,
         description: (
-            <Localize translate_text="Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day." />
+            <Localize translate_text='Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day.' />
         ),
         img_name: 'market_forex',
         to: '/markets/forex/',
@@ -146,9 +146,9 @@ const market_data_eu = [
         gradient_end: '#190708',
     },
     {
-        header: <Localize translate_text="Derived" />,
+        header: <Localize translate_text='Derived' />,
         description: (
-            <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
+            <Localize translate_text='Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events.' />
         ),
         img_name: 'market_derived',
         to: '/markets/synthetic/',
@@ -156,9 +156,9 @@ const market_data_eu = [
         gradient_end: '#08100E',
     },
     {
-        header: <Localize translate_text="Stocks & indices" />,
+        header: <Localize translate_text='Stocks & indices' />,
         description: (
-            <Localize translate_text="Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market." />
+            <Localize translate_text='Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market.' />
         ),
         img_name: 'market_stocks_indices',
         to: '/markets/stock/',
@@ -166,9 +166,9 @@ const market_data_eu = [
         gradient_end: '#0A0810',
     },
     {
-        header: <Localize translate_text="Cryptocurrencies" />,
+        header: <Localize translate_text='Cryptocurrencies' />,
         description: (
-            <Localize translate_text="Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet." />
+            <Localize translate_text='Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet.' />
         ),
         img_name: 'market_crypto',
         to: '/markets/cryptocurrencies/',
@@ -176,9 +176,9 @@ const market_data_eu = [
         gradient_end: '#191102',
     },
     {
-        header: <Localize translate_text="Commodities" />,
+        header: <Localize translate_text='Commodities' />,
         description: (
-            <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
+            <Localize translate_text='Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action.' />
         ),
         img_name: 'market_commodities',
         to: '/markets/commodities/',
@@ -242,21 +242,21 @@ const CarouselItem = ({
         <ItemWrapper onMouseEnter={() => handleHover(true)} onMouseLeave={() => handleHover(false)}>
             <StyledLink to={url}>
                 <CarouselItemContainer
-                    direction="column"
-                    jc="flex-start"
+                    direction='column'
+                    jc='flex-start'
                     width={is_not_big_screen ? '282px' : '400px'}
                     gradient_start={gradient_start}
                     gradient_end={gradient_end}
                 >
-                    <Header color="white" type="subtitle-1" mb="8px">
+                    <Header color='white' type='subtitle-1' mb='8px'>
                         {header}
                     </Header>
                     <Desktop>
                         <>
                             <StyledDescription
-                                lh="24px"
-                                color="white"
-                                type="paragraph-1"
+                                lh='24px'
+                                color='white'
+                                type='paragraph-1'
                                 $hovered={is_hovered}
                             >
                                 {description}
@@ -264,7 +264,7 @@ const CarouselItem = ({
                             <CarouselItemImageDesktop
                                 data={image}
                                 alt={header}
-                                loading="eager"
+                                loading='eager'
                                 $hovered={is_hovered}
                             />
                         </>
@@ -290,7 +290,7 @@ const MarketsFold = () => {
     const getMaxWidth = () => {
         if (is_mobile) return '100%'
         if (is_not_big_screen) return '1210px'
-        else return '1600px'
+        return '1600px'
     }
 
     const settings: CarouselProps = {
@@ -325,11 +325,11 @@ const MarketsFold = () => {
     }
 
     return (
-        <FoldWrapper id="market-fold">
-            <FoldContainer direction="column">
-                <Flex width="100%" jc="center">
-                    <Header type="heading-1" align="center" mb="40px" tablet={{ mb: '24px' }}>
-                        <Localize translate_text="Markets" />
+        <FoldWrapper id='market-fold'>
+            <FoldContainer direction='column'>
+                <Flex width='100%' jc='center'>
+                    <Header type='heading-1' align='center' mb='40px' tablet={{ mb: '24px' }}>
+                        <Localize translate_text='Markets' />
                     </Header>
                 </Flex>
                 <Carousel has_autoplay autoplay_interval={is_mobile ? 3200 : 4000} {...settings}>
@@ -357,7 +357,7 @@ const MarketsFold = () => {
                                         url={to}
                                     />
                                 )
-                            },
+                            }
                         )}
                 </Carousel>
             </FoldContainer>

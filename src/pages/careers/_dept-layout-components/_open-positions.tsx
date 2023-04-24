@@ -7,7 +7,7 @@ import { LocalizedLink } from 'components/localization'
 import RightArrow from 'images/svg/career-right-arrow.svg'
 import device from 'themes/device'
 
-const getLink = (id) => {
+const getLink = id => {
     return `https://deriv.zohorecruit.eu/jobs/Careers/${id}?source=CareerSite`
 }
 
@@ -47,35 +47,35 @@ type DataProps = {
 const OpenPositions = (data: DataProps) => {
     const hidden = data.data == undefined
     return (
-        <SectionContainer padding="0">
-            <Container fd="column">
-                <Header mb="40px" align="center" type="heading-3" as="h3">
+        <SectionContainer padding='0'>
+            <Container fd='column'>
+                <Header mb='40px' align='center' type='heading-3' as='h3'>
                     Open positions
                 </Header>
                 {!hidden &&
                     data.data?.map((item, idx) => {
                         return (
-                            <PositionLink key={idx} external to={getLink(item.id)} target="_blank">
+                            <PositionLink key={idx} external to={getLink(item.id)} target='_blank'>
                                 <JobWrapper>
-                                    <StyledVacancies ai="center">
-                                        <StyledHeader type="subtitle-1" as="h1">
+                                    <StyledVacancies ai='center'>
+                                        <StyledHeader type='subtitle-1' as='h1'>
                                             {item.title}
                                         </StyledHeader>
                                     </StyledVacancies>
-                                    <Flex ai="center">
+                                    <Flex ai='center'>
                                         <Header
-                                            p="15px"
-                                            max_width="274px"
-                                            align="start"
-                                            type="paragraph-1"
-                                            as="p"
-                                            weight="400"
+                                            p='15px'
+                                            max_width='274px'
+                                            align='start'
+                                            type='paragraph-1'
+                                            as='p'
+                                            weight='400'
                                         >
                                             {item.location}
                                         </Header>
                                     </Flex>
-                                    <Flex ai="center">
-                                        <img src={RightArrow} alt="right arrow"></img>
+                                    <Flex ai='center'>
+                                        <img src={RightArrow} alt='right arrow' />
                                     </Flex>
                                 </JobWrapper>
                             </PositionLink>

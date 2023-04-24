@@ -59,44 +59,44 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
 
     return (
         <StyledSection>
-            <Container direction="column">
-                <Header as="h3" type="section-title" align="center">
+            <Container direction='column'>
+                <Header as='h3' type='section-title' align='center'>
                     {localize('Trade the way you like')}
                 </Header>
                 <Header
-                    weight="normal"
-                    as="h4"
-                    type="sub-section-title"
-                    align="center"
-                    m="1.6rem 0 6rem"
+                    weight='normal'
+                    as='h4'
+                    type='sub-section-title'
+                    align='center'
+                    m='1.6rem 0 6rem'
                 >
                     {localize('Choose from three powerful platforms — designed with you in mind')}
                 </Header>
-                <Flex width="100%" direction="flex-start">
+                <Flex width='100%' direction='flex-start'>
                     <div style={{ width: '100%', maxWidth: '65.7rem', marginRight: '6rem' }}>
                         <ImageContainer>
                             <ImageWrapper is_selected={!selected || selected === platforms.trader}>
                                 <QueryImage
-                                    data={data['dtrader_trade']}
+                                    data={data.dtrader_trade}
                                     alt={localize('Dtrader trading platform at Deriv')}
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.bot}>
                                 <QueryImage
-                                    data={data['dbot_trade']}
+                                    data={data.dbot_trade}
                                     alt={localize('Dbot trading platform at Deriv')}
                                 />
                             </ImageWrapper>
                             <ImageWrapper is_selected={selected === platforms.mt5}>
                                 <QueryImage
-                                    data={data['dmt5_trade']}
+                                    data={data.dmt5_trade}
                                     alt={localize('DMT5 trading platform at Deriv')}
                                 />
                             </ImageWrapper>
                         </ImageContainer>
                     </div>
                     <div style={{ width: '100%', maxWidth: '38.4rem' }}>
-                        <CssGrid row_gap="1.6rem" height="0%">
+                        <CssGrid row_gap='1.6rem' height='0%'>
                             <div
                                 onMouseEnter={() => setSelected(platforms.trader)}
                                 onMouseLeave={() => setSelected('')}

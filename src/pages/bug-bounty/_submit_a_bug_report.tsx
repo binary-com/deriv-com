@@ -90,21 +90,21 @@ const query = graphql`
 const SubmitABugReport = () => {
     const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
-    const bug_report_image = is_mobile ? data['bug_report_mobile'] : data['bug_report_desktop']
+    const bug_report_image = is_mobile ? data.bug_report_mobile : data.bug_report_desktop
 
     return (
         <SectionContainer>
-            <Container direction="column">
+            <Container direction='column'>
                 <Wrapper>
                     <TextWrap>
-                        <Header type="heading-2" color="white" as="p" weight="700">
+                        <Header type='heading-2' color='white' as='p' weight='700'>
                             <Localize
-                                translate_text="Send your reports to our <0>Bug Bounty Platform</0>"
+                                translate_text='Send your reports to our <0>Bug Bounty Platform</0>'
                                 components={[
                                     <LinkText
                                         key={0}
-                                        href="https://hackerone.com/binary"
-                                        target="_blank"
+                                        href='https://hackerone.com/binary'
+                                        target='_blank'
                                     />,
                                 ]}
                             />
@@ -114,27 +114,27 @@ const SubmitABugReport = () => {
                     <ImageWrap>
                         <QueryImage
                             data={bug_report_image}
-                            alt="Try Deriv’s trading platforms and trading apps on your laptop or mobile phones."
-                            width="100%"
+                            alt='Try Deriv’s trading platforms and trading apps on your laptop or mobile phones.'
+                            width='100%'
                         />
                     </ImageWrap>
                 </Wrapper>
 
                 <Header
-                    p="0 18px"
-                    align="center"
-                    type="paragraph-2"
-                    mt="16px"
-                    as="p"
-                    weight="normal"
+                    p='0 18px'
+                    align='center'
+                    type='paragraph-2'
+                    mt='16px'
+                    as='p'
+                    weight='normal'
                 >
                     <Localize
-                        translate_text="Please read and understand the Deriv Bug Bounty Program’s <0>terms and conditions</0> before you participate in the program."
+                        translate_text='Please read and understand the Deriv Bug Bounty Program’s <0>terms and conditions</0> before you participate in the program.'
                         components={[
                             <StyledLocalizedLinkText
                                 key={0}
-                                to="/terms-and-conditions/#business-partners"
-                                color="red"
+                                to='/terms-and-conditions/#business-partners'
+                                color='red'
                                 sm
                             />,
                         ]}

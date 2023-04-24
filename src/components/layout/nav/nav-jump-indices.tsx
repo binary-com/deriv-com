@@ -57,20 +57,20 @@ const NavJumpIndice = () => {
     const data = useStaticQuery(query)
 
     return (
-        <NavTemplate nav_height_mobile="48px">
+        <NavTemplate nav_height_mobile='48px'>
             <ContentContainer>
                 <LogoWrapper>
-                    <LogoLink to="/" aria-label="Home">
+                    <LogoLink to='/' aria-label='Home'>
                         <QueryImage
-                            data={data['deriv']}
-                            alt="deriv logo"
-                            max_width="16.4rem"
-                            width="100%"
-                            height="auto"
+                            data={data.deriv}
+                            alt='deriv logo'
+                            max_width='16.4rem'
+                            width='100%'
+                            height='auto'
                         />
                     </LogoLink>
                     <Line />
-                    <ImgWrapper src={GetTrading} alt="get trading" />
+                    <ImgWrapper src={GetTrading} alt='get trading' />
                 </LogoWrapper>
             </ContentContainer>
         </NavTemplate>

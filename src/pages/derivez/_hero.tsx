@@ -107,8 +107,8 @@ const DerivEZHero = () => {
         <Wrapper>
             <ContentWrapper>
                 <LogoWrapper>
-                    <DLogo src={DerivEZLogo} alt="logo" width="32" height="32" />
-                    <StyledHeader as="h4" type="sub-section-title" weight="500">
+                    <DLogo src={DerivEZLogo} alt='logo' width='32' height='32' />
+                    <StyledHeader as='h4' type='sub-section-title' weight='500'>
                         <Localize translate_text={hero_logo_title} />
                     </StyledHeader>
                 </LogoWrapper>
@@ -117,7 +117,7 @@ const DerivEZHero = () => {
                 </StyledHeaderTitle>
             </ContentWrapper>
             <ImageWrapper>
-                <QueryImage data={data['deriv_ez']} alt={localize(hero_background_alt)} />
+                <QueryImage data={data.deriv_ez} alt={localize(hero_background_alt)} />
             </ImageWrapper>
         </Wrapper>
     )

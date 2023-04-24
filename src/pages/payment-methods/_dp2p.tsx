@@ -143,55 +143,55 @@ const Dp2p = () => {
     const data = useStaticQuery(query)
     const dp2p_checklist = [
         {
-            title: <Localize translate_text="Make speedy deposits and withdrawals" />,
+            title: <Localize translate_text='Make speedy deposits and withdrawals' />,
             subtitle: (
-                <Localize translate_text="On DP2P, all exchanges are completed within 2 hours." />
+                <Localize translate_text='On DP2P, all exchanges are completed within 2 hours.' />
             ),
         },
         {
-            title: <Localize translate_text="Choose the best rates" />,
+            title: <Localize translate_text='Choose the best rates' />,
             subtitle: (
-                <Localize translate_text="Exchange your local currency at your preferred rate." />
+                <Localize translate_text='Exchange your local currency at your preferred rate.' />
             ),
         },
         {
-            title: <Localize translate_text="Exchange with trusted traders" />,
+            title: <Localize translate_text='Exchange with trusted traders' />,
             subtitle: (
-                <Localize translate_text="Traders are rated based on their completion rate and speed of exchanges." />
+                <Localize translate_text='Traders are rated based on their completion rate and speed of exchanges.' />
             ),
         },
         {
-            title: <Localize translate_text="Communicate in real-time" />,
+            title: <Localize translate_text='Communicate in real-time' />,
             subtitle: (
-                <Localize translate_text="Chat in-app with your chosen trader for faster exchanges." />
+                <Localize translate_text='Chat in-app with your chosen trader for faster exchanges.' />
             ),
         },
         {
-            title: <Localize translate_text="Get our help" />,
+            title: <Localize translate_text='Get our help' />,
             subtitle: (
-                <Localize translate_text="Our support team is always ready to help resolve any disputes." />
+                <Localize translate_text='Our support team is always ready to help resolve any disputes.' />
             ),
         },
     ]
     return (
         <Fragment>
-            <Header as="h2" size="var(--text-size-xl)" align="center" mb="1.2rem" lh="1.25">
+            <Header as='h2' size='var(--text-size-xl)' align='center' mb='1.2rem' lh='1.25'>
                 {localize('Deriv peer-to-peer (DP2P)')}
             </Header>
             <Mobile>
-                <Text align="center" size="var(--text-size-sm)">
+                <Text align='center' size='var(--text-size-sm)'>
                     {localize(
-                        'A fast and secure peer-to-peer deposit and withdrawal service. Easily exchange with fellow traders to move funds in and out of your Deriv account.',
+                        'A fast and secure peer-to-peer deposit and withdrawal service. Easily exchange with fellow traders to move funds in and out of your Deriv account.'
                     )}
                 </Text>
             </Mobile>
             <Desktop>
-                <Text align="center" size="var(--text-size-m)">
+                <Text align='center' size='var(--text-size-m)'>
                     {localize('A fast and secure peer-to-peer deposit and withdrawal service.')}
                 </Text>
-                <Text align="center" size="var(--text-size-m)">
+                <Text align='center' size='var(--text-size-m)'>
                     {localize(
-                        'Easily exchange with fellow traders to move funds in and out of your Deriv account.',
+                        'Easily exchange with fellow traders to move funds in and out of your Deriv account.'
                     )}
                 </Text>
             </Desktop>
@@ -200,18 +200,18 @@ const Dp2p = () => {
                     {dp2p_checklist.map((item, index) => (
                         <div style={{ marginBottom: '1.6rem' }} key={index}>
                             <ItemTitle>
-                                <img src={Checkmark} alt="check mark" />
+                                <img src={Checkmark} alt='check mark' />
                                 <Text
                                     size={is_mobile ? 'var(--text-size-sm)' : 'var(--text-size-m)'}
-                                    weight="bold"
+                                    weight='bold'
                                 >
                                     {item.title}
                                 </Text>
                             </ItemTitle>
                             <Text
                                 size={is_mobile ? 'var(--text-size-sm)' : 'var(--text-size-s)'}
-                                mt="0.8rem"
-                                ml="3.2rem"
+                                mt='0.8rem'
+                                ml='3.2rem'
                             >
                                 {item.subtitle}
                             </Text>
@@ -219,15 +219,15 @@ const Dp2p = () => {
                     ))}
                 </ContentLeft>
                 <ContentRight>
-                    <ImageWrapper ai="center">
+                    <ImageWrapper ai='center'>
                         <QueryImage
-                            data={data['dp2p_platform']}
+                            data={data.dp2p_platform}
                             alt={localize('DP2P Platform')}
-                            width="100%"
+                            width='100%'
                         />
                     </ImageWrapper>
                     <ButtonWrapper>
-                        <ButtonLearnMore tertiary to="/p2p/">
+                        <ButtonLearnMore tertiary to='/p2p/'>
                             {localize('Learn more')}
                         </ButtonLearnMore>
                         <ButtonDp2p secondary onClick={handleExternalLink}>

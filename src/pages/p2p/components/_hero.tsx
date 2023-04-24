@@ -217,10 +217,9 @@ const Hero = () => {
     const is_rtl = useIsRtl()
     const background = useMemo(() => {
         if (is_tabletL) {
-            return data['p2p_hero_background_mobile']
-        } else {
-            return is_rtl ? data['p2p_hero_background_rtl'] : data['p2p_hero_background']
+            return data.p2p_hero_background_mobile
         }
+        return is_rtl ? data.p2p_hero_background_rtl : data.p2p_hero_background
     }, [data, is_rtl, is_tabletL])
 
     const handleExternalLink = () => {
@@ -237,28 +236,28 @@ const Hero = () => {
     return (
         <BackgroundWrapper data={background}>
             <Wrapper>
-                <InformationWrapper height="unset" direction="column">
-                    <StyledHeader as="h1">
+                <InformationWrapper height='unset' direction='column'>
+                    <StyledHeader as='h1'>
                         {localize('Hassle-free deposits and withdrawals')}
                     </StyledHeader>
-                    <Header size="18px" color="white" weight="200" pr="100px">
+                    <Header size='18px' color='white' weight='200' pr='100px'>
                         {localize(
-                            'Use your local currency to make deposits into and withdrawals from your Deriv account.',
+                            'Use your local currency to make deposits into and withdrawals from your Deriv account.'
                         )}
                     </Header>
                     <Desktop>
-                        <HeroContent mt="15px">
-                            <Header as="h2">
+                        <HeroContent mt='15px'>
+                            <Header as='h2'>
                                 {
-                                    <Localize translate_text="Scan the QR code to download Deriv P2P" />
+                                    <Localize translate_text='Scan the QR code to download Deriv P2P' />
                                 }
                             </Header>
 
                             <QueryImage
-                                data={data['qr_code']}
+                                data={data.qr_code}
                                 alt={'play store'}
-                                width="108px"
-                                height="108px"
+                                width='108px'
+                                height='108px'
                             />
                         </HeroContent>
                     </Desktop>
@@ -270,45 +269,45 @@ const Hero = () => {
                     </Mobile>
                     <Desktop>
                         <Flex
-                            fd="row"
-                            mt="20px"
-                            jc="start"
-                            width="100%"
-                            tablet_fw="wrap"
+                            fd='row'
+                            mt='20px'
+                            jc='start'
+                            width='100%'
+                            tablet_fw='wrap'
                             laptopM={{ m: '7px 8px 48px' }}
                         >
                             <AppButton
                                 external
                                 to={p2p_applestore_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
-                                <QueryImage data={data['app_store']} alt="app store logo" />
+                                <QueryImage data={data.app_store} alt='app store logo' />
                             </AppButton>
                             <AppButton
                                 external
                                 to={p2p_playstore_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
-                                <QueryImage data={data['google_play']} alt="google play logo" />
+                                <QueryImage data={data.google_play} alt='google play logo' />
                             </AppButton>
 
                             <AppButton
                                 external
                                 to={p2p_huawei_appgallery_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
-                                <QueryImage data={data['huawei_app']} alt="huawei app gallery" />
+                                <QueryImage data={data.huawei_app} alt='huawei app gallery' />
                             </AppButton>
                             <AppButton
                                 external
                                 to={deriv_dp2p_app_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
-                                <QueryImage data={data['web_browser']} alt="web browser logo" />
+                                <QueryImage data={data.web_browser} alt='web browser logo' />
                             </AppButton>
                         </Flex>
                     </Desktop>
@@ -316,7 +315,7 @@ const Hero = () => {
 
                 <ImgWrapper>
                     <QueryImage
-                        data={data['p2p_hero_img']}
+                        data={data.p2p_hero_img}
                         alt={'Deriv’s P2P mobile app'}
                         height={'700px'}
                         width={'576px'}

@@ -16,7 +16,7 @@ type HeaderSectionProps = HeaderAndHeroProps & HeaderImageProps
 
 const MainWrapper = styled(Flex)<{ bgMobile: string }>`
     width: 100%;
-    background-image: ${(props) =>
+    background-image: ${props =>
         props.bg ? props.bg : 'linear-gradient(281deg, #0e0e0e, #1b1b1b)'};
 
     @media screen and (min-width: 1600px) {
@@ -24,7 +24,7 @@ const MainWrapper = styled(Flex)<{ bgMobile: string }>`
     }
     @media ${device.tablet} {
         background-image: ${({ bgMobile }) =>
-            bgMobile ? bgMobile : 'linear-gradient(281deg, #1b1b1b, #0e0e0e)'};
+            bgMobile || 'linear-gradient(281deg, #1b1b1b, #0e0e0e)'};
     }
 `
 const HeaderBody = styled(Flex)`
@@ -56,8 +56,8 @@ const TopHeaderImgWrapper = styled(Flex)`
     }
 `
 
-const widthProps = (props) => (props.imgWidth ? `${props.imgWidth}px` : '557px')
-const heightProps = (props) => (props.imgHeight ? `${props.imgHeight}px` : '703px')
+const widthProps = props => (props.imgWidth ? `${props.imgWidth}px` : '557px')
+const heightProps = props => (props.imgHeight ? `${props.imgHeight}px` : '703px')
 
 const HeaderImage = styled(QueryImage)<HeaderImageProps>`
     width: ${widthProps};
@@ -77,16 +77,16 @@ const HeaderImage = styled(QueryImage)<HeaderImageProps>`
         height: auto;
         margin: initial;
         width: 80%;
-        margin-left: ${(props) => (props.imgWidth < 600 ? '-50px' : '-15px')};
+        margin-left: ${props => (props.imgWidth < 600 ? '-50px' : '-15px')};
     }
 
     @media ${device.tabletS} {
-        width: ${(props) => (props.imgWidth < 600 ? '115%' : '105%')};
-        height: ${(props) => props.imgWidth < 600 && '105%'};
-        margin-left: ${(props) => (props.imgWidth < 600 ? '-110px' : '-50px')};
+        width: ${props => (props.imgWidth < 600 ? '115%' : '105%')};
+        height: ${props => props.imgWidth < 600 && '105%'};
+        margin-left: ${props => (props.imgWidth < 600 ? '-110px' : '-50px')};
     }
     @media ${device.mobileS} {
-        margin-left: ${(props) => (props.imgWidth < 600 ? '-85px' : '-50px')};
+        margin-left: ${props => (props.imgWidth < 600 ? '-85px' : '-50px')};
     }
 `
 
@@ -167,65 +167,65 @@ const HeaderSection = ({
                 <TopHeaderImgWrapper>
                     <HeaderImage
                         data={mainHeaderImage}
-                        alt="ebook"
+                        alt='ebook'
                         imgWidth={imgWidth}
                         imgHeight={imgHeight}
-                        height="100%"
+                        height='100%'
                     />
                 </TopHeaderImgWrapper>
                 <ContentWrapper>
                     <Content>
                         <SubTitle
-                            as="h2"
-                            type="sub-section-title"
-                            size="36px"
-                            weight="400"
-                            color="white"
-                            mb="7px"
+                            as='h2'
+                            type='sub-section-title'
+                            size='36px'
+                            weight='400'
+                            color='white'
+                            mb='7px'
                         >
                             {introSub}
                         </SubTitle>
                         <Header
-                            as="h1"
-                            type="page-title"
-                            size="48px"
-                            mb="10px"
-                            lh="1.1"
-                            weight="600"
-                            max_width="800px"
-                            color="white"
+                            as='h1'
+                            type='page-title'
+                            size='48px'
+                            mb='10px'
+                            lh='1.1'
+                            weight='600'
+                            max_width='800px'
+                            color='white'
                         >
                             {introMain}
                         </Header>
                         <Header
-                            as="h3"
-                            type="main-paragraph"
-                            size="16px"
-                            weight="300"
-                            color="white"
+                            as='h3'
+                            type='main-paragraph'
+                            size='16px'
+                            weight='300'
+                            color='white'
                         >
                             {localize('Claim a FREE e-book now!')}
                         </Header>
                         <Header
-                            as="h4"
-                            type="main-paragraph"
-                            size="16px"
-                            weight="300"
-                            color="white"
+                            as='h4'
+                            type='main-paragraph'
+                            size='16px'
+                            weight='300'
+                            color='white'
                         >
                             {localize('Plus a free demo account to practice.')}
                         </Header>
                         <AuthorText
-                            m="0"
-                            mt="10px"
-                            size="14px"
-                            color="white"
-                            lh="16px"
-                            weight="200"
-                            max_width="586px"
+                            m='0'
+                            mt='10px'
+                            size='14px'
+                            color='white'
+                            lh='16px'
+                            weight='200'
+                            max_width='586px'
                         >
                             {authorDesc}
-                            <AuthorNameText size="14px" color="white" weight="bold">
+                            <AuthorNameText size='14px' color='white' weight='bold'>
                                 {authorName}
                             </AuthorNameText>
                         </AuthorText>

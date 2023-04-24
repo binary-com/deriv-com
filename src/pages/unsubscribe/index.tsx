@@ -117,8 +117,8 @@ const StyledSpinner = styled.svg`
     }
 `
 const Spinner = () => (
-    <StyledSpinner viewBox="0 0 50 50">
-        <circle className="path" cx="25" cy="25" r="20" fill="none" strokeWidth="2" />
+    <StyledSpinner viewBox='0 0 50 50'>
+        <circle className='path' cx='25' cy='25' r='20' fill='none' strokeWidth='2' />
     </StyledSpinner>
 )
 
@@ -142,10 +142,10 @@ const UnsubscribePage = () => {
         setLoading(true)
         try {
             const response = await apiManager.augmentedSend('unsubscribe_email', {
-                binary_user_id: binary_user_id,
-                checksum: checksum,
+                binary_user_id,
+                checksum,
             })
-            setData(response['unsubscribe_email'] as TSocketResponseData<T>)
+            setData(response.unsubscribe_email as TSocketResponseData<T>)
         } catch (error) {
             setError(error)
         } finally {
@@ -168,24 +168,24 @@ const UnsubscribePage = () => {
                     <UnsubscribeWrapper>
                         {data && !error ? (
                             <SuccessCard>
-                                <img src={CheckIcon} alt="success" width={48} height={48} />
-                                <Localize translate_text="_t_Unsubscribed successfully_t_" />
+                                <img src={CheckIcon} alt='success' width={48} height={48} />
+                                <Localize translate_text='_t_Unsubscribed successfully_t_' />
                             </SuccessCard>
                         ) : (
                             <UnsubscribeForm>
-                                <Title type="subtitle-2">
-                                    <Localize translate_text="_t_Are you sure you want to stop receiving Deriv emails?_t_" />
+                                <Title type='subtitle-2'>
+                                    <Localize translate_text='_t_Are you sure you want to stop receiving Deriv emails?_t_' />
                                 </Title>
                                 <ConfirmWrapper>
                                     <ConfirmButton
                                         onClick={UnsubscribeAPICall}
-                                        type="submit"
+                                        type='submit'
                                         secondary
                                     >
-                                        <Localize translate_text="_t_Yes_t_" />
+                                        <Localize translate_text='_t_Yes_t_' />
                                     </ConfirmButton>
-                                    <ConfirmButton onClick={onClose} type="submit" tertiary>
-                                        <Localize translate_text="_t_No_t_" />
+                                    <ConfirmButton onClick={onClose} type='submit' tertiary>
+                                        <Localize translate_text='_t_No_t_' />
                                     </ConfirmButton>
                                 </ConfirmWrapper>
                             </UnsubscribeForm>

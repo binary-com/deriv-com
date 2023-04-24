@@ -128,15 +128,15 @@ const settings = {
 const PlatformDetails = ({ title, icon, description, learn_more_link }: PlatformDetailsProps) => {
     return (
         <>
-            <ImageTag width="40px" height="40px" src={icon} alt="platform" />
+            <ImageTag width='40px' height='40px' src={icon} alt='platform' />
             <Flex
-                fd="column"
-                ai="flex-start"
-                jc="center"
-                width="unset"
-                height="unset"
-                pt="10px"
-                mr="20px"
+                fd='column'
+                ai='flex-start'
+                jc='center'
+                width='unset'
+                height='unset'
+                pt='10px'
+                mr='20px'
                 laptopM={{ pt: '9px' }}
                 tabletL={{ width: '230px', pt: '0.5rem' }}
             >
@@ -212,66 +212,66 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                     <AppStoreBadge
                                         external
                                         to={deriv_mt5_app_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        target='_blank'
+                                        rel='noopener noreferrer'
                                     >
                                         <QueryImage
-                                            data={data['dmt5_mobile_web_browser']}
-                                            alt="dmt5 web browser"
+                                            data={data.dmt5_mobile_web_browser}
+                                            alt='dmt5 web browser'
                                         />
                                     </AppStoreBadge>
 
                                     <AppStoreBadge
                                         external
                                         to={dmt5_android_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        target='_blank'
+                                        rel='noopener noreferrer'
                                     >
                                         <QueryImage
-                                            data={data['dmt5_mobile_google_play']}
-                                            alt="dmt5 google play"
+                                            data={data.dmt5_mobile_google_play}
+                                            alt='dmt5 google play'
                                         />
                                     </AppStoreBadge>
                                     <AppStoreBadge
                                         external
                                         to={dmt5_ios_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        target='_blank'
+                                        rel='noopener noreferrer'
                                     >
                                         <QueryImage
-                                            data={data['dmt5_mobile_app_store']}
-                                            alt="dmt5 ios"
+                                            data={data.dmt5_mobile_app_store}
+                                            alt='dmt5 ios'
                                         />
                                     </AppStoreBadge>
                                     <AppStoreBadge
                                         external
                                         to={dmt5_app_gallery}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                        target='_blank'
+                                        rel='noopener noreferrer'
                                     >
                                         <QueryImage
-                                            data={data['dmt5_mobile_app_gallery']}
-                                            alt="dmt5 app gallery"
+                                            data={data.dmt5_mobile_app_gallery}
+                                            alt='dmt5 app gallery'
                                         />
                                     </AppStoreBadge>
                                 </OsBadges>
                             ) : (
                                 <Flex
-                                    ai="flex-start"
-                                    jc="center"
-                                    fw="wrap"
-                                    width="unset"
+                                    ai='flex-start'
+                                    jc='center'
+                                    fw='wrap'
+                                    width='unset'
                                     tabletL={{ m: '3.2rem 3.8rem' }}
                                     mobileL={{ m: '32px 0 40px' }}
                                 >
-                                    {download_links.is_desktop.map((link) => (
+                                    {download_links.is_desktop.map(link => (
                                         <DownloadLink
                                             key={link.type}
                                             external
                                             type={link?.link_type}
                                             to={link?.url}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                            target='_blank'
+                                            rel='noopener noreferrer'
                                         >
                                             <img src={getOSIcon(link.type)} alt={link.type} />
                                         </DownloadLink>
@@ -280,7 +280,7 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                             )}
                         </CarouselItemWrapper>
                     )
-                },
+                }
             )}
         </Carousel>
     )

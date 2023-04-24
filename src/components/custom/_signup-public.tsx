@@ -188,8 +188,8 @@ const SocialButton = styled(Button)`
     }
 `
 const StyledHeader = styled(Header)<{ position?: string }>`
-    width: ${(props) => props.width || '41.4rem'};
-    position: ${(props) => props.position || 'static'};
+    width: ${props => props.width || '41.4rem'};
+    position: ${props => props.position || 'static'};
     @media ${device.tablet} {
         width: auto;
     }
@@ -224,7 +224,7 @@ const StyledFormWrapper = styled.div`
     }
 `
 const StyledHeaderText = styled(Text)`
-    width: ${(props) => props.width || '41.4rem'};
+    width: ${props => props.width || '41.4rem'};
     @media ${device.tablet} {
         width: auto;
     }
@@ -359,7 +359,7 @@ const SignupPublic = ({
     const [is_checked, setChecked] = useState(false)
     const is_rtl = useIsRtl()
 
-    const handleChange = (event) => {
+    const handleChange = event => {
         setChecked(event.currentTarget.checked)
     }
     return (
@@ -369,45 +369,45 @@ const SignupPublic = ({
                     <Wrapper>
                         <SignupFormWrapper>
                             <StyledFormWrapper>
-                                <StyledHeader type="section-title" width="100%">
+                                <StyledHeader type='section-title' width='100%'>
                                     {localize('Join over 1 million traders worldwide')}
                                 </StyledHeader>
                                 <br />
-                                <StyledHeaderText weight="normal" size="1.6rem">
+                                <StyledHeaderText weight='normal' size='1.6rem'>
                                     {localize('Sign up for your demo account now.')}
                                 </StyledHeaderText>
                                 <InputGroup>
                                     <InputWrapper>
                                         <Input
-                                            id="dm-email-input"
-                                            name="email"
-                                            type="text"
+                                            id='dm-email-input'
+                                            name='email'
+                                            type='text'
                                             error={email_error_msg}
                                             value={email}
-                                            background="white"
-                                            tablet_background="green-1"
-                                            inputColor="grey-5"
-                                            input_background="grey-8"
-                                            label_focus_color="grey-7"
-                                            label_color="black-3"
-                                            labelSize="16px"
-                                            labelTop="1.2rem"
+                                            background='white'
+                                            tablet_background='green-1'
+                                            inputColor='grey-5'
+                                            input_background='grey-8'
+                                            label_focus_color='grey-7'
+                                            label_color='black-3'
+                                            labelSize='16px'
+                                            labelTop='1.2rem'
                                             label={localize('Email')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
                                             onBlur={handleValidation}
                                             autoFocus={autofocus}
-                                            autoComplete="off"
+                                            autoComplete='off'
                                             required
-                                            height="40px"
-                                            focus_border="var(--color-grey-7)"
+                                            height='40px'
+                                            focus_border='var(--color-grey-7)'
                                         />
                                     </InputWrapper>
                                     <EmailButton
                                         isChecked={is_checked}
-                                        id="dm-public-signup"
-                                        type="submit"
+                                        id='dm-public-signup'
+                                        type='submit'
                                         secondary
                                         disabled={
                                             is_submitting ||
@@ -423,7 +423,7 @@ const SignupPublic = ({
                                     isChecked={is_checked}
                                     handleChangeCheckbox={handleChange}
                                 />
-                                <SocialWrapper jc="unset" ai="center">
+                                <SocialWrapper jc='unset' ai='center'>
                                     <SignInText>{localize('Or sign up with')}</SignInText>
                                     {social_button_content.map(({ provider, id, img }) => (
                                         <SocialButton
@@ -432,42 +432,42 @@ const SignupPublic = ({
                                             provider={provider}
                                             data-provider={provider}
                                             id={id}
-                                            type="button"
+                                            type='button'
                                             social
                                         >
-                                            <img src={img} alt={provider} width="40" height="40" />
+                                            <img src={img} alt={provider} width='40' height='40' />
                                         </SocialButton>
                                     ))}
                                 </SocialWrapper>
                             </StyledFormWrapper>
                         </SignupFormWrapper>
-                        <BackgroundWrapper direction="row" ai="center">
+                        <BackgroundWrapper direction='row' ai='center'>
                             <QueryImage
                                 data={
-                                    (is_row && data['deriv_platform']) ||
-                                    (is_eu && data['deriv_platform_eu'])
+                                    (is_row && data.deriv_platform) ||
+                                    (is_eu && data.deriv_platform_eu)
                                 }
-                                alt="forex trading on mobile"
-                                width="225px"
+                                alt='forex trading on mobile'
+                                width='225px'
                             />
                             <LinkFlex
                                 external
                                 href={deriv_app_url}
-                                target="_blank"
-                                rel="noopener noreferrer nofollow"
+                                target='_blank'
+                                rel='noopener noreferrer nofollow'
                             >
                                 <StyledHeader
-                                    size="4rem"
-                                    width="330px"
-                                    align="start"
-                                    color="grey-8"
-                                    mr="1.2rem"
-                                    ml="-4rem"
-                                    position="relative"
+                                    size='4rem'
+                                    width='330px'
+                                    align='start'
+                                    color='grey-8'
+                                    mr='1.2rem'
+                                    ml='-4rem'
+                                    position='relative'
                                 >
                                     {localize('Get a taste of the Deriv experience')}
                                 </StyledHeader>
-                                <ImageWithDireciton src={Arrow} alt="arrow desktop" />
+                                <ImageWithDireciton src={Arrow} alt='arrow desktop' />
                             </LinkFlex>
                         </BackgroundWrapper>
                     </Wrapper>
@@ -480,69 +480,69 @@ const SignupPublic = ({
                             <MobilePlatform is_rtl={is_rtl}>
                                 <QueryImage
                                     data={
-                                        (is_row && data['deriv_platform']) ||
-                                        (is_eu && data['deriv_platform_eu'])
+                                        (is_row && data.deriv_platform) ||
+                                        (is_eu && data.deriv_platform_eu)
                                     }
-                                    alt="forex trading on mobile"
-                                    width="100%"
+                                    alt='forex trading on mobile'
+                                    width='100%'
                                 />
                             </MobilePlatform>
                             <DerivExperience
                                 external
                                 href={deriv_app_url}
-                                target="_blank"
-                                rel="noopener noreferrer nofollow"
+                                target='_blank'
+                                rel='noopener noreferrer nofollow'
                             >
-                                <Header size="4rem">
+                                <Header size='4rem'>
                                     {localize('Get a taste of the Deriv experience')}
                                 </Header>
                                 <ImageWithDireciton
                                     src={Arrow}
-                                    alt="arrow mobile"
-                                    width="32"
-                                    height="33"
+                                    alt='arrow mobile'
+                                    width='32'
+                                    height='33'
                                 />
                             </DerivExperience>
                         </MobileBackground>
                         <MobileSignupFormWrapper>
                             <div>
-                                <StyledHeader type="section-title">
+                                <StyledHeader type='section-title'>
                                     {localize('Join over 1 million traders worldwide')}
                                 </StyledHeader>
                                 <br />
-                                <StyledHeaderText weight="normal" size="1.6rem">
+                                <StyledHeaderText weight='normal' size='1.6rem'>
                                     {localize('Sign up for your demo account now.')}
                                 </StyledHeaderText>
                                 <InputGroup>
                                     <InputWrapper>
                                         <Input
-                                            id="email"
-                                            name="email"
-                                            type="text"
+                                            id='email'
+                                            name='email'
+                                            type='text'
                                             error={email_error_msg}
                                             value={email}
-                                            background="white"
-                                            tablet_background="green-1"
-                                            inputColor="grey-5"
-                                            input_background="grey-8"
-                                            label_focus_color="grey-7"
-                                            label_color="black-3"
+                                            background='white'
+                                            tablet_background='green-1'
+                                            inputColor='grey-5'
+                                            input_background='grey-8'
+                                            label_focus_color='grey-7'
+                                            label_color='black-3'
                                             label={localize('Email')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
                                             onBlur={handleValidation}
                                             autoFocus={autofocus}
-                                            autoComplete="off"
+                                            autoComplete='off'
                                             required
-                                            border="unset"
-                                            focus_border="var(--color-grey-7)"
+                                            border='unset'
+                                            focus_border='var(--color-grey-7)'
                                         />
                                     </InputWrapper>
                                     <EmailButton
                                         isChecked={is_checked}
-                                        id="dm-mobile-public-signup"
-                                        type="submit"
+                                        id='dm-mobile-public-signup'
+                                        type='submit'
                                         secondary
                                         disabled={
                                             is_submitting ||
@@ -558,7 +558,7 @@ const SignupPublic = ({
                                     isChecked={is_checked}
                                     handleChangeCheckbox={handleChange}
                                 />
-                                <MobileSocialWrapper jc="unset" ai="center">
+                                <MobileSocialWrapper jc='unset' ai='center'>
                                     <MobileSignInText>
                                         {localize('Or sign in with')}
                                     </MobileSignInText>
@@ -570,14 +570,14 @@ const SignupPublic = ({
                                                 provider={provider}
                                                 data-provider={provider}
                                                 id={id}
-                                                type="button"
+                                                type='button'
                                                 social
                                             >
                                                 <img
                                                     src={img}
                                                     alt={provider}
-                                                    width="40"
-                                                    height="40"
+                                                    width='40'
+                                                    height='40'
                                                 />
                                             </SocialButton>
                                         ))}

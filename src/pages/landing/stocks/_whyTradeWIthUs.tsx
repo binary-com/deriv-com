@@ -55,7 +55,7 @@ type ItemsArrType = {
 }
 
 const WhyTradeWithUs = ({ itemsArr, mainTitle, columnPerRow }: WhyTradeWithUsProps) => {
-    const CardWidth = 100 / columnPerRow + '%'
+    const CardWidth = `${100 / columnPerRow}%`
     const Card = styled(Flex)`
         max-width: 38.4rem;
         justify-content: flex-start;
@@ -96,20 +96,20 @@ const WhyTradeWithUs = ({ itemsArr, mainTitle, columnPerRow }: WhyTradeWithUsPro
 
     return (
         <SectionWrapper>
-            <MainContainer direction="column">
-                <StyledHeader as="h2" type="page-title" align="center">
+            <MainContainer direction='column'>
+                <StyledHeader as='h2' type='page-title' align='center'>
                     {mainTitle}
                 </StyledHeader>
                 <Wrapper>
                     {itemsArr.map((item, index) => {
                         return (
-                            <Card direction="column" key={index} width={CardWidth}>
+                            <Card direction='column' key={index} width={CardWidth}>
                                 <StyledImage src={item.icon} alt={item.image_alt} />
                                 <StyledIconTitle
-                                    as="h4"
-                                    weight="normal"
-                                    type="sub-section-title"
-                                    align="center"
+                                    as='h4'
+                                    weight='normal'
+                                    type='sub-section-title'
+                                    align='center'
                                 >
                                     {item.title}
                                 </StyledIconTitle>

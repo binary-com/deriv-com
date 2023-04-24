@@ -21,8 +21,8 @@ const Content = styled.div<StyledProps>`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-right: ${(props) => props.margin_right};
-    margin-left: ${(props) => props.margin_left};
+    margin-right: ${props => props.margin_right};
+    margin-left: ${props => props.margin_left};
 
     ${Text} {
         margin-top: 16px;
@@ -55,8 +55,8 @@ const MobileImageWrapper = styled(Container)`
 `
 
 const ImageWrapper = styled(Flex)<StyledProps>`
-    width: ${(props) => props.width};
-    margin-right: ${(props) => props.margin_right};
+    width: ${props => props.width};
+    margin-right: ${props => props.margin_right};
 
     @media ${device.tabletL} {
         margin: 2rem auto 0;
@@ -79,7 +79,7 @@ const StyledHeader = styled(Header)`
 `
 
 const Row = styled.div<StyledProps>`
-    flex-direction: ${(props) => props.flex_direction};
+    flex-direction: ${props => props.flex_direction};
     width: 100%;
     display: flex;
     margin-top: 4rem;
@@ -91,7 +91,7 @@ const Row = styled.div<StyledProps>`
         justify-content: center;
     }
     @media ${device.tabletL} {
-        flex-direction: ${(props) => props.flex_direction_mobile};
+        flex-direction: ${props => props.flex_direction_mobile};
     }
 `
 const query = graphql`
@@ -173,7 +173,7 @@ const DTrading = ({ contentMargin, trading, reverse, setWidth }: DTradingProps) 
 
     return (
         <StyledSection>
-            <Wrapper fd="column" ai="center">
+            <Wrapper fd='column' ai='center'>
                 {trading.map((item, index) => {
                     const is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
@@ -186,33 +186,33 @@ const DTrading = ({ contentMargin, trading, reverse, setWidth }: DTradingProps) 
                                 margin_right={!is_even ? contentMargin : '0'}
                                 margin_left={!is_even ? '0' : contentMargin}
                             >
-                                <StyledHeader type="display-title">{item.title}</StyledHeader>
+                                <StyledHeader type='display-title'>{item.title}</StyledHeader>
                                 <Text>{item.subtitle}</Text>
                             </Content>
                             {item.image_name_mobile && (
-                                <ImageWrapper width={setWidth ? setWidth : '448px;'} ai="center">
+                                <ImageWrapper width={setWidth || '448px;'} ai='center'>
                                     <DesktopImageWrapper>
                                         <QueryImage
                                             data={data[item.image_name]}
                                             alt={item.image_alt}
-                                            width="100%"
+                                            width='100%'
                                         />
                                     </DesktopImageWrapper>
                                     <MobileImageWrapper>
                                         <QueryImage
                                             data={data[item.image_name_mobile]}
                                             alt={item.image_alt}
-                                            width="100%"
+                                            width='100%'
                                         />
                                     </MobileImageWrapper>
                                 </ImageWrapper>
                             )}
                             {!item.image_name_mobile && (
-                                <ImageWrapper width={setWidth ? setWidth : '448px;'} ai="center">
+                                <ImageWrapper width={setWidth || '448px;'} ai='center'>
                                     <QueryImage
                                         data={data[item.image_name]}
                                         alt={item.image_alt}
-                                        width="100%"
+                                        width='100%'
                                     />
                                 </ImageWrapper>
                             )}

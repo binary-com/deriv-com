@@ -78,12 +78,12 @@ const Hero = ({ display_name, img_data, badge_data, badge_alt, job_location }: H
         <StyledBackground data={img_data} alt={display_name}>
             {badge_data && <HeroBadge data={badge_data} alt={badge_alt} />}
             <StyledContainer>
-                <StyledHeader as="h1">{display_name}</StyledHeader>
+                <StyledHeader as='h1'>{display_name}</StyledHeader>
                 <LinkButton
                     hero
                     has_no_end_slash
                     to={zoho_jobs_url + job_location}
-                    rel="noopener noreferrer"
+                    rel='noopener noreferrer'
                 >
                     {`View open positions in ${display_name}`}
                 </LinkButton>
@@ -374,53 +374,53 @@ export const LocationLayout = ({ location, images }: LocationLayoutProps) => {
             />
             <FirstSection>
                 <SecondStyledHeader
-                    color="black-6"
-                    type="unset"
-                    align="center"
-                    as="h2"
-                    size="var(--text-size-header-5)"
+                    color='black-6'
+                    type='unset'
+                    align='center'
+                    as='h2'
+                    size='var(--text-size-header-5)'
                 >
                     Deriv in {display_name}
                 </SecondStyledHeader>
-                <Flex tablet_direction="column">
-                    <Text color="black-6">{location.first_p}</Text>
+                <Flex tablet_direction='column'>
+                    <Text color='black-6'>{location.first_p}</Text>
                     <StyledImageWrapper>
                         <QueryImage
                             data={images[location.first_img]}
                             alt={location.first_img_alt}
-                            width="100%"
-                            height="100%"
+                            width='100%'
+                            height='100%'
                         />
                     </StyledImageWrapper>
                 </Flex>
             </FirstSection>
-            <SecondSection padding="0px 16px">
-                <SectionContainer padding="0">
+            <SecondSection padding='0px 16px'>
+                <SectionContainer padding='0'>
                     <Header
-                        color="black-6"
-                        type="unset"
-                        align="center"
-                        as="h2"
-                        size="var(--text-size-header-5)"
-                        mb="4rem"
+                        color='black-6'
+                        type='unset'
+                        align='center'
+                        as='h2'
+                        size='var(--text-size-header-5)'
+                        mb='4rem'
                     >
                         Our office
                     </Header>
                     <StyledFlex>
-                        <LeftFlex direction="column" mr="0.8rem" ai="flex-end">
-                            <InnerLeftFlex mb="0.8rem">
+                        <LeftFlex direction='column' mr='0.8rem' ai='flex-end'>
+                            <InnerLeftFlex mb='0.8rem'>
                                 <First>
                                     <QueryImage
                                         data={images[location.grid_images[0]]}
                                         alt={location.grid_img_alt[0]}
-                                        width="100%"
+                                        width='100%'
                                     />
                                 </First>
                                 <Second>
                                     <QueryImage
                                         data={images[location.grid_images[1]]}
                                         alt={location.grid_img_alt[1]}
-                                        width="100%"
+                                        width='100%'
                                     />
                                 </Second>
                             </InnerLeftFlex>
@@ -428,7 +428,7 @@ export const LocationLayout = ({ location, images }: LocationLayoutProps) => {
                                 <QueryImage
                                     data={images[location.grid_images[2]]}
                                     alt={location.grid_img_alt[2]}
-                                    width="100%"
+                                    width='100%'
                                 />
                             </Third>
                         </LeftFlex>
@@ -437,7 +437,7 @@ export const LocationLayout = ({ location, images }: LocationLayoutProps) => {
                                 <QueryImage
                                     data={images[location.grid_images[3]]}
                                     alt={location.grid_img_alt[3]}
-                                    width="100%"
+                                    width='100%'
                                 />
                             </Fourth>
                         </RightFlex>
@@ -446,7 +446,7 @@ export const LocationLayout = ({ location, images }: LocationLayoutProps) => {
             </SecondSection>
             <MapSection>
                 <LocationCard>
-                    <LocationFlex min_height="38rem" jc="cover" tablet_direction="column">
+                    <LocationFlex min_height='38rem' jc='cover' tablet_direction='column'>
                         {location.has_iframe ? (
                             <Iframe
                                 src={`https://www.google.com/maps/embed/v1/place?q=place_id:${location.map}&key=${map_api_key}`}
@@ -456,35 +456,35 @@ export const LocationLayout = ({ location, images }: LocationLayoutProps) => {
                                 <LocalizedLink
                                     to={location.google_map_link}
                                     external
-                                    rel="noopener noreferrer"
-                                    target="_blank"
+                                    rel='noopener noreferrer'
+                                    target='_blank'
                                 >
                                     <MapQueryImage
                                         data={images[location.map_img]}
-                                        alt={location.display_name + 'map'}
-                                        width="100%"
-                                        height="100%"
+                                        alt={`${location.display_name}map`}
+                                        width='100%'
+                                        height='100%'
                                     />
                                 </LocalizedLink>
                             </ImageWrapper>
                         )}
 
                         <LocationInformationFlex
-                            p="3.2rem 6rem"
-                            direction="column"
-                            max_width="44.4rem"
+                            p='3.2rem 6rem'
+                            direction='column'
+                            max_width='44.4rem'
                         >
                             <StyledDiv>
-                                <Header as="h3" type="subtitle-1" color="black-6">
+                                <Header as='h3' type='subtitle-1' color='black-6'>
                                     {`Working at Deriv ${map_office_name}`}
                                 </Header>
-                                <CardText color="black-6">{location.map_text}</CardText>
-                                <Flex jc="unset">
-                                    <Pin src={MapPin} alt="map pin" />
+                                <CardText color='black-6'>{location.map_text}</CardText>
+                                <Flex jc='unset'>
+                                    <Pin src={MapPin} alt='map pin' />
                                     {location.google_map_link ? (
                                         <LinkText
-                                            rel="noopener noreferrer"
-                                            target="_blank"
+                                            rel='noopener noreferrer'
+                                            target='_blank'
                                             href={location.google_map_link}
                                         >
                                             {location.address.map((address, index) => (

@@ -191,72 +191,69 @@ const Banner = () => {
     }
     return (
         <MainWrapper is_rtl={is_rtl}>
-            <Container laptop_direction="column">
+            <Container laptop_direction='column'>
                 <Flex
-                    jc="center"
-                    ai="center"
-                    max_width="53%"
-                    height="100%"
+                    jc='center'
+                    ai='center'
+                    max_width='53%'
+                    height='100%'
                     laptopM={{ max_width: '100%', pt: '40px' }}
                 >
                     <div>
-                        <StyledHeader as="h1" color="white" width="64rem" type="heading-1">
+                        <StyledHeader as='h1' color='white' width='64rem' type='heading-1'>
                             {localize('Trade forex, synthetics, and cryptocurrencies on the go')}
                         </StyledHeader>
                         <Mobile>
-                            <Header size="18px" color="white" weight="200" mt="10px">
+                            <Header size='18px' color='white' weight='200' mt='10px'>
                                 {localize(
-                                    'Download the app now and start trading whenever, wherever you want. ',
+                                    'Download the app now and start trading whenever, wherever you want. '
                                 )}
                             </Header>
                         </Mobile>
                         <Desktop>
                             <HeroContent>
-                                <Header as="h2">
+                                <Header as='h2'>
                                     {
-                                        <Localize translate_text="Scan the QR code to download Deriv GO" />
+                                        <Localize translate_text='Scan the QR code to download Deriv GO' />
                                     }
                                 </Header>
                                 <QueryImage
-                                    data={data['qr_code']}
+                                    data={data.qr_code}
                                     alt={'play store'}
-                                    width="108px"
-                                    height="108px"
+                                    width='108px'
+                                    height='108px'
                                 />
                             </HeroContent>
                             <Flex
-                                fd="row"
-                                mt="40px"
-                                jc="start"
-                                tablet_fw="wrap"
+                                fd='row'
+                                mt='40px'
+                                jc='start'
+                                tablet_fw='wrap'
                                 laptopM={{ m: '7px 8px 48px' }}
                             >
                                 <AppButton
                                     external
                                     to={deriv_go_ios_url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    target='_blank'
+                                    rel='noopener noreferrer'
                                 >
-                                    <QueryImage data={data['app_store']} alt="app store logo" />
+                                    <QueryImage data={data.app_store} alt='app store logo' />
                                 </AppButton>
                                 <AppButton
                                     external
                                     to={deriv_go_playstore_url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    target='_blank'
+                                    rel='noopener noreferrer'
                                 >
-                                    <QueryImage data={data['google_play']} alt="google play logo" />
+                                    <QueryImage data={data.google_play} alt='google play logo' />
                                 </AppButton>
                                 <AppButton
                                     external
                                     to={deriv_go_huaweiappgallery_url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    target='_blank'
+                                    rel='noopener noreferrer'
                                 >
-                                    <QueryImage
-                                        data={data['huawei_app']}
-                                        alt="huawei app gallery"
-                                    />
+                                    <QueryImage data={data.huawei_app} alt='huawei app gallery' />
                                 </AppButton>
                             </Flex>
                         </Desktop>
@@ -270,9 +267,9 @@ const Banner = () => {
                 <BannerWrapper>
                     <QueryImage
                         data={data[is_mobile ? 'hero_mobile' : 'hero']}
-                        alt="Deriv GO trading app on mobile"
-                        className="bannerimg-wrapper"
-                        loading="eager"
+                        alt='Deriv GO trading app on mobile'
+                        className='bannerimg-wrapper'
+                        loading='eager'
                     />
                 </BannerWrapper>
             </Container>

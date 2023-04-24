@@ -95,16 +95,16 @@ const LatamAward = () => {
                             backgroundColor: 'white',
                         }}
                     >
-                        <Flex style={{ maxHeight: '360px' }} ai="center" jc="space-evenly">
-                            <StyledHeader type="heading-2" align="left" color="white">
-                                {<Localize translate_text="Best Forex Broker Latin America" />}
+                        <Flex style={{ maxHeight: '360px' }} ai='center' jc='space-evenly'>
+                            <StyledHeader type='heading-2' align='left' color='white'>
+                                {<Localize translate_text='Best Forex Broker Latin America' />}
                             </StyledHeader>
                             <AwardImageWrapper>
                                 <QueryImage
                                     data={data.latam_award}
                                     alt={'Latin America Forex Award'}
-                                    width="auto"
-                                    height="100%"
+                                    width='auto'
+                                    height='100%'
                                 />
                             </AwardImageWrapper>
                         </Flex>
@@ -112,7 +112,7 @@ const LatamAward = () => {
                 </StyledFlex>
             </Desktop>
             <Mobile>
-                <Flex fd="column" ai="center">
+                <Flex fd='column' ai='center'>
                     <BackgroundImage
                         data={data.latam_award_background_mobile}
                         style={{
@@ -125,17 +125,17 @@ const LatamAward = () => {
                             margin: ' 0 1rem',
                         }}
                     >
-                        <StyledHeaderMobile type="heading-2" align="center" color="white">
-                            {<Localize translate_text="Best Forex Broker Latin America" />}
+                        <StyledHeaderMobile type='heading-2' align='center' color='white'>
+                            {<Localize translate_text='Best Forex Broker Latin America' />}
                         </StyledHeaderMobile>
-                        <Header as="h2" width="50%"></Header>
+                        <Header as='h2' width='50%' />
                     </BackgroundImage>
                     <AwardImageWrapperMobile>
                         <QueryImage
                             data={data.latam_award}
                             alt={'Latin America Forex Award'}
-                            width="auto"
-                            height="100%"
+                            width='auto'
+                            height='100%'
                         />
                     </AwardImageWrapperMobile>
                 </Flex>

@@ -87,14 +87,13 @@ const StyledNavRight = styled(NavRight)<StyledNavRightProps>`
                     ref_base.style.opacity = 1
                 }
                 return '0'
-            } else {
-                if (ref_base && mounted) {
-                    ref_base.style.opacity = 0
-                    const calculation = ref_base.offsetWidth + 50
-                    return is_rtl ? `${-calculation}px` : `${calculation}px`
-                }
-                return is_rtl ? '-225px' : '225px'
             }
+            if (ref_base && mounted) {
+                ref_base.style.opacity = 0
+                const calculation = ref_base.offsetWidth + 50
+                return is_rtl ? `${-calculation}px` : `${calculation}px`
+            }
+            return is_rtl ? '-225px' : '225px'
         }}
     );
 
@@ -125,7 +124,7 @@ const NavLinkCard = ({ title, active, ...rest }: NavLinkCardTypes) => {
         <NavLink>
             <StyledLink
                 active={current_page === active}
-                activeClassName="active"
+                activeClassName='active'
                 aria-label={title}
                 {...rest}
             >
@@ -159,35 +158,35 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
         <DesktopWrapper>
             <StyledWrapper hide_login_signup={hide_login_signup}>
                 <LeftSide>
-                    <StyledLogoLink to="/partners/" aria-label="Partners">
-                        <img src={LogoPartner} alt="deriv logo" />
+                    <StyledLogoLink to='/partners/' aria-label='Partners'>
+                        <img src={LogoPartner} alt='deriv logo' />
                     </StyledLogoLink>
                 </LeftSide>
 
                 <NavigationBar>
                     <NavLinkCard
-                        active="affiliate"
-                        to="/partners/affiliate-ib/"
+                        active='affiliate'
+                        to='/partners/affiliate-ib/'
                         title={localize('Affiliates and IBs')}
                     />
                     {is_row && (
                         <NavLinkCard
-                            active="payment"
-                            to="/partners/payment-agent/"
+                            active='payment'
+                            to='/partners/payment-agent/'
                             title={localize('Payment agents')}
                         />
                     )}
 
                     <NavLinkCard
-                        active="api"
-                        to=""
+                        active='api'
+                        to=''
                         title={localize('API')}
-                        type="api"
-                        target="_blank"
+                        type='api'
+                        target='_blank'
                         external
-                        rel="noopener noreferrer"
+                        rel='noopener noreferrer'
                     />
-                    <NavLinkCard to="/bug-bounty/" title={localize('Bug bounty')} />
+                    <NavLinkCard to='/bug-bounty/' title={localize('Bug bounty')} />
                 </NavigationBar>
 
                 {!hide_login_signup && (
@@ -201,19 +200,19 @@ const NavPartnerDesktop = ({ hide_login_signup }: NavPartnerDesktopProps) => {
                         <LinkButton
                             to={affiliate_signin_url}
                             external
-                            type="affiliate_sign_in"
-                            target="_blank"
+                            type='affiliate_sign_in'
+                            target='_blank'
                             primary
                             style={{ width: '16rem' }}
                         >
                             {localize('Affiliate & IB log in')}
                         </LinkButton>
                         <LinkSignupButton
-                            id="dm-nav-affiliate-signup"
+                            id='dm-nav-affiliate-signup'
                             to={affiliate_signup_url}
                             external
-                            type="affiliate_sign_up"
-                            target="_blank"
+                            type='affiliate_sign_up'
+                            target='_blank'
                             ref={button_ref}
                             secondary
                             style={{ width: '18rem' }}

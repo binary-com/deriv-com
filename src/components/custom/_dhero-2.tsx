@@ -44,22 +44,22 @@ const Wrapper = styled(Flex)<DHeroProps>`
     justify-content: flex-start;
     background-color: var(--color-black);
     height: unset;
-    min-height: ${(props) => props.d_height};
+    min-height: ${props => props.d_height};
     padding: 2rem 12rem;
 
     @media ${device.desktopS} {
         padding-left: 18%;
     }
     @media ${device.laptopM} {
-        height: ${(props) => props.laptopM_height};
+        height: ${props => props.laptopM_height};
         min-height: unset;
     }
     @media ${device.laptop} {
-        height: ${(props) => props.laptop_height};
+        height: ${props => props.laptop_height};
         padding: 2rem 8rem;
     }
     @media ${device.tabletL} {
-        height: ${(props) => props.tabletL_height};
+        height: ${props => props.tabletL_height};
         align-items: center;
     }
     @media ${device.tablet} {
@@ -346,18 +346,18 @@ const DHero = ({
         >
             {!is_mobile && (
                 <>
-                    <BackgroundSVG src={background_svg} alt="background svg" />
-                    <BackgroundSVG2 src={background_svg2} alt="background svg 2" />
+                    <BackgroundSVG src={background_svg} alt='background svg' />
+                    <BackgroundSVG2 src={background_svg2} alt='background svg 2' />
                 </>
             )}
 
-            <InformationWrapper height="unset" direction="column">
-                <StyledHeader as="h4" type="sub-section-title" weight="500">
-                    <DLogo src={Logo} alt="logo" width="32" height="32" />
+            <InformationWrapper height='unset' direction='column'>
+                <StyledHeader as='h4' type='sub-section-title' weight='500'>
+                    <DLogo src={Logo} alt='logo' width='32' height='32' />
                     {title}
                 </StyledHeader>
                 <HeroContent is_ppc={is_ppc}>
-                    <HeroHeader as="h1" type="display-title">
+                    <HeroHeader as='h1' type='display-title'>
                         {content}
                     </HeroHeader>
                 </HeroContent>
@@ -365,23 +365,23 @@ const DHero = ({
                     <HeroContent>
                         <HeroHeader>
                             <QueryImage
-                                data={data['qr_code']}
+                                data={data.qr_code}
                                 alt={'play store'}
-                                width="108px"
-                                height="108px"
+                                width='108px'
+                                height='108px'
                             />
-                            <Header as="h2" width="50%">
-                                {<Localize translate_text="Scan the QR code to download Deriv X" />}
+                            <Header as='h2' width='50%'>
+                                {<Localize translate_text='Scan the QR code to download Deriv X' />}
                             </Header>
                         </HeroHeader>
                     </HeroContent>
 
                     <Flex
-                        fd="row"
-                        mt="40px"
-                        jc="start"
-                        height="unset"
-                        tablet_fw="wrap"
+                        fd='row'
+                        mt='40px'
+                        jc='start'
+                        height='unset'
+                        tablet_fw='wrap'
                         laptopM={{ m: '7px 8px 48px' }}
                     >
                         {HeroItems.map(({ url, image, alt }) => (
@@ -389,8 +389,8 @@ const DHero = ({
                                 key={alt}
                                 external
                                 to={url}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
                                 <QueryImage data={data[image]} alt={alt} />
                             </AppButton>
@@ -406,7 +406,7 @@ const DHero = ({
 
             <LottieWrapper>
                 <QueryImage
-                    data={data[is_mobile ? image_name + '_mobile' : image_name]}
+                    data={data[is_mobile ? `${image_name}_mobile` : image_name]}
                     alt={background_alt}
                 />
             </LottieWrapper>

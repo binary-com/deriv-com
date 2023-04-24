@@ -71,23 +71,23 @@ const RTS27_28 = () => (
     <>
         <EdgeFlex>
             <FlexText
-                color="red"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/regulatory/RTS28-2021.pdf"
-                m="1.6rem 2.4rem"
+                color='red'
+                target='_blank'
+                rel='noopener noreferrer'
+                href='/regulatory/RTS28-2021.pdf'
+                m='1.6rem 2.4rem'
             >
-                <img src={PDFIcon} alt="pdf icon black" />
+                <img src={PDFIcon} alt='pdf icon black' />
                 <span>{localize('RTS28 2021')}</span>
             </FlexText>
             <FlexText
-                color="red"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/regulatory/RTS28-2020.pdf"
-                m="1.6rem 2.4rem"
+                color='red'
+                target='_blank'
+                rel='noopener noreferrer'
+                href='/regulatory/RTS28-2020.pdf'
+                m='1.6rem 2.4rem'
             >
-                <img src={PDFIcon} alt="pdf icon black" />
+                <img src={PDFIcon} alt='pdf icon black' />
                 <span>{localize('RTS28 2020')}</span>
             </FlexText>
         </EdgeFlex>
@@ -118,28 +118,28 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
     const is_supported_language = (language: string) => supported_languages.includes(language)
 
     return (
-        <Accordion has_single_state id="kid">
+        <Accordion has_single_state id='kid'>
             <AccordionItem
                 header={localize('Financial disclosure report')}
                 content_style={content_style}
                 header_style={header_style}
                 style={item_style}
                 parent_style={parent_style}
-                class_name="disclosure-report"
+                class_name='disclosure-report'
             >
                 <Text>
                     {localize(
-                        'Deriv Investments (Europe) Limited has prepared the Financial disclosure report in accordance with the Investment Firms Regulation and Directive. Read our report to understand how we comply with market discipline as a market participant.',
+                        'Deriv Investments (Europe) Limited has prepared the Financial disclosure report in accordance with the Investment Firms Regulation and Directive. Read our report to understand how we comply with market discipline as a market participant.'
                     )}
                 </Text>
-                <Flex mt="1.8rem">
+                <Flex mt='1.8rem'>
                     <FlexText_Pillar
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="/regulatory/Financial_Disclosures_Annual_Report_2021.pdf"
-                        color="red"
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        href='/regulatory/Financial_Disclosures_Annual_Report_2021.pdf'
+                        color='red'
                     >
-                        <img src={PDFIcon} alt="pdf icon black" />
+                        <img src={PDFIcon} alt='pdf icon black' />
                         <span>{localize('Financial Disclosures Annual Report 2021')}</span>
                     </FlexText_Pillar>
                 </Flex>
@@ -150,29 +150,29 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 header_style={header_style}
                 style={item_style}
                 parent_style={parent_style}
-                class_name="key-information"
+                class_name='key-information'
             >
                 <Text>
                     {localize(
-                        'These documents provide you with key information about our investment products. This information is required by law to help you understand the nature, risks, costs, potential gains, and losses of these products and to help you compare them with other products.',
+                        'These documents provide you with key information about our investment products. This information is required by law to help you understand the nature, risks, costs, potential gains, and losses of these products and to help you compare them with other products.'
                     )}
                 </Text>
                 <Flex>
-                    <EdgeFlex mt="1.8rem">
+                    <EdgeFlex mt='1.8rem'>
                         {kid_data.map((data, idx) => (
                             <FlexText
                                 key={idx}
-                                color="red"
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                color='red'
+                                target='_blank'
+                                rel='noopener noreferrer'
                                 href={`/regulatory/kid/${
                                     is_supported_language(selected_language)
-                                        ? selected_language + '/'
+                                        ? `${selected_language}/`
                                         : ''
                                 }${data.ref}`}
-                                m="1.6rem 2.4rem"
+                                m='1.6rem 2.4rem'
                             >
-                                <img src={PDFIcon} alt="pdf icon black" />
+                                <img src={PDFIcon} alt='pdf icon black' />
                                 <span>{data.title}</span>
                             </FlexText>
                         ))}
@@ -185,7 +185,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 header_style={header_style}
                 style={item_style}
                 parent_style={parent_style}
-                class_name="rts"
+                class_name='rts'
             >
                 <Flex>
                     <RTS27_28 />

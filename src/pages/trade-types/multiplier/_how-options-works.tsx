@@ -119,173 +119,167 @@ const HowOptionsWorks = () => {
     const data = useStaticQuery(query)
     const { is_eu } = useRegion()
     return (
-        <StyledSectionContainer padding="8rem 0 4rem">
-            <SmallContainer direction="column" ai="flex-start">
-                <StyledHeader as="h2" size="4.8rem" mb="3.2rem">
+        <StyledSectionContainer padding='8rem 0 4rem'>
+            <SmallContainer direction='column' ai='flex-start'>
+                <StyledHeader as='h2' size='4.8rem' mb='3.2rem'>
                     {localize('How multipliers contracts work')}
                 </StyledHeader>
                 <OptionGrid>
                     <HowItWorksItem>
                         <OptionItems>
                             <div>
-                                <img src={DefinePosition} alt="Define your target" />
+                                <img src={DefinePosition} alt='Define your target' />
                             </div>
                             <StyledText>{localize('Define your position')}</StyledText>
                         </OptionItems>
 
                         <Text>
                             {localize(
-                                'Select the market you want to trade and set other essential parameters including trade type, stake amount, and multiplier value.',
+                                'Select the market you want to trade and set other essential parameters including trade type, stake amount, and multiplier value.'
                             )}
                         </Text>
                     </HowItWorksItem>
                     <HowItWorksItem>
                         <OptionItems>
                             <div>
-                                <img src={SetOptionalParameters} alt="Set parameters" />
+                                <img src={SetOptionalParameters} alt='Set parameters' />
                             </div>
                             <StyledText>{localize('Set optional parameters')}</StyledText>
                         </OptionItems>
                         <Text>
                             {localize(
-                                'Define optional parameters that give you more control over your trading, including stop loss, take profit, and deal cancellation.',
+                                'Define optional parameters that give you more control over your trading, including stop loss, take profit, and deal cancellation.'
                             )}
                         </Text>
                     </HowItWorksItem>
                     <HowItWorksItem>
                         <OptionItems>
                             <div>
-                                <img src={PurchaseContract} alt="Buy your contract" />
+                                <img src={PurchaseContract} alt='Buy your contract' />
                             </div>
                             <StyledText>{localize('Purchase your contract')}</StyledText>
                         </OptionItems>
                         <Text>
                             {localize(
-                                'Purchase the contract if you are satisfied with the position you have defined.',
+                                'Purchase the contract if you are satisfied with the position you have defined.'
                             )}
                         </Text>
                     </HowItWorksItem>
                 </OptionGrid>
-                <StyledFirstMultiplierHeader as="h3" size="3.2rem" mt="4rem">
+                <StyledFirstMultiplierHeader as='h3' size='3.2rem' mt='4rem'>
                     {localize('How to buy your first multipliers contract on DTrader')}
                 </StyledFirstMultiplierHeader>
-                <Header as="h4" size="2.4rem" mb="2.4rem" mt="3.2rem">
+                <Header as='h4' size='2.4rem' mb='2.4rem' mt='3.2rem'>
                     {localize('Define your position')}
                 </Header>
                 <SideTab>
                     <SideTab.Panel
-                        label={<Localize translate_text="1. Market" />}
+                        label={<Localize translate_text='1. Market' />}
                         description={
-                            <Localize translate_text="Choose an asset from the list of markets offered on Deriv." />
+                            <Localize translate_text='Choose an asset from the list of markets offered on Deriv.' />
                         }
                     >
                         {is_eu ? (
                             <QueryImage
-                                data={data['multiplier_market_eu']}
-                                alt="Select market to trade"
+                                data={data.multiplier_market_eu}
+                                alt='Select market to trade'
                             />
                         ) : (
                             <QueryImage
-                                data={data['multiplier_market']}
-                                alt="Select market to trade"
+                                data={data.multiplier_market}
+                                alt='Select market to trade'
                             />
                         )}
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="2. Trade type" />}
+                        label={<Localize translate_text='2. Trade type' />}
                         description={
-                            <Localize translate_text="Choose ‘Multipliers’ from the list of trade types." />
+                            <Localize translate_text='Choose ‘Multipliers’ from the list of trade types.' />
                         }
                     >
                         {is_eu ? (
                             <QueryImage
-                                data={data['multiplier_trade_type_eu']}
-                                alt="Selecting multiplier"
+                                data={data.multiplier_trade_type_eu}
+                                alt='Selecting multiplier'
                             />
                         ) : (
                             <QueryImage
-                                data={data['multiplier_trade_type']}
-                                alt="Selecting multiplier"
+                                data={data.multiplier_trade_type}
+                                alt='Selecting multiplier'
                             />
                         )}
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="3. Stake" />}
+                        label={<Localize translate_text='3. Stake' />}
                         description={
-                            <Localize translate_text="Enter the amount you wish to trade with." />
+                            <Localize translate_text='Enter the amount you wish to trade with.' />
                         }
                     >
-                        <QueryImage data={data['multiplier_stake']} alt="Enter stake amount" />
+                        <QueryImage data={data.multiplier_stake} alt='Enter stake amount' />
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="4. Multiplier value" />}
+                        label={<Localize translate_text='4. Multiplier value' />}
                         description={
                             is_eu ? (
-                                <Localize translate_text="Your profit or loss is multiplied by the multiplier value, which depending on the asset you trade, can be from 1 to 5. Your loss will never be more than your stake." />
+                                <Localize translate_text='Your profit or loss is multiplied by the multiplier value, which depending on the asset you trade, can be from 1 to 5. Your loss will never be more than your stake.' />
                             ) : (
-                                <Localize translate_text="Enter the multiplier value of your choice. Your profit or loss will be multiplied by this amount." />
+                                <Localize translate_text='Enter the multiplier value of your choice. Your profit or loss will be multiplied by this amount.' />
                             )
                         }
                     >
                         {is_eu ? (
                             <QueryImage
-                                data={data['multiplier_value_eu']}
-                                alt="Enter multiplier value"
+                                data={data.multiplier_value_eu}
+                                alt='Enter multiplier value'
                             />
                         ) : (
-                            <QueryImage
-                                data={data['multiplier_value']}
-                                alt="Enter multiplier value"
-                            />
+                            <QueryImage data={data.multiplier_value} alt='Enter multiplier value' />
                         )}
                     </SideTab.Panel>
                 </SideTab>
-                <StyledDtraderHeader as="h4" size="2.4rem" mb="2.4rem" mt="3.2rem">
+                <StyledDtraderHeader as='h4' size='2.4rem' mb='2.4rem' mt='3.2rem'>
                     {localize('Set optional parameters for your trade')}
                 </StyledDtraderHeader>
                 <SideTab is_reverse>
                     <SideTab.Panel
-                        label={<Localize translate_text="5. Take profit" />}
+                        label={<Localize translate_text='5. Take profit' />}
                         description={
-                            <Localize translate_text="This feature allows you to set the level of profit that you are comfortable with when the market moves in your favour. Once the amount is reached, your position will be closed automatically and your earnings will be deposited into your Deriv account." />
+                            <Localize translate_text='This feature allows you to set the level of profit that you are comfortable with when the market moves in your favour. Once the amount is reached, your position will be closed automatically and your earnings will be deposited into your Deriv account.' />
                         }
                     >
-                        <QueryImage data={data['multiplier_take_profit']} alt="Set profit level" />
+                        <QueryImage data={data.multiplier_take_profit} alt='Set profit level' />
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="6. Stop loss" />}
+                        label={<Localize translate_text='6. Stop loss' />}
                         description={
-                            <Localize translate_text="This feature allows you to set the amount of loss you are willing to take in case the market moves against your position. Once the amount is reached, your contract will be closed automatically." />
+                            <Localize translate_text='This feature allows you to set the amount of loss you are willing to take in case the market moves against your position. Once the amount is reached, your contract will be closed automatically.' />
                         }
                     >
-                        <QueryImage data={data['multiplier_stop_loss']} alt="Set stop loss" />
+                        <QueryImage data={data.multiplier_stop_loss} alt='Set stop loss' />
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="7. Deal cancellation" />}
+                        label={<Localize translate_text='7. Deal cancellation' />}
                         description={
-                            <Localize translate_text="This feature allows you to cancel your contract within one hour of buying it, without losing your stake amount. We charge a small non-refundable fee for this service." />
+                            <Localize translate_text='This feature allows you to cancel your contract within one hour of buying it, without losing your stake amount. We charge a small non-refundable fee for this service.' />
                         }
                     >
                         <QueryImage
-                            data={data['multiplier_deal_cancellation']}
-                            alt="Set deal cancellation time"
+                            data={data.multiplier_deal_cancellation}
+                            alt='Set deal cancellation time'
                         />
                     </SideTab.Panel>
                 </SideTab>
-                <StyledDtraderHeader as="h4" size="2.4rem" mb="2.4rem">
+                <StyledDtraderHeader as='h4' size='2.4rem' mb='2.4rem'>
                     {localize('Purchase your contract')}
                 </StyledDtraderHeader>
                 <SideTab>
                     <SideTab.Panel
-                        label={<Localize translate_text="8. Purchase your contract" />}
+                        label={<Localize translate_text='8. Purchase your contract' />}
                         description={
-                            <Localize translate_text="Once you are satisfied with the parameters that you have set, select either ‘Up’ or ‘Down’ to purchase your contract. Otherwise, continue to customise the parameters and place your order when you are satisfied with the conditions." />
+                            <Localize translate_text='Once you are satisfied with the parameters that you have set, select either ‘Up’ or ‘Down’ to purchase your contract. Otherwise, continue to customise the parameters and place your order when you are satisfied with the conditions.' />
                         }
                     >
-                        <QueryImage
-                            data={data['multiplier_purchase']}
-                            alt="Purchase the contract"
-                        />
+                        <QueryImage data={data.multiplier_purchase} alt='Purchase the contract' />
                     </SideTab.Panel>
                 </SideTab>
             </SmallContainer>

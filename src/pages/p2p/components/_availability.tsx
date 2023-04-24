@@ -160,42 +160,42 @@ const Availability = () => {
                 <Mobile>{localize('How to get Deriv P2P')}</Mobile>
             </StyledHeader>
             <Flex
-                tablet_direction="column"
-                tablet_ai="center"
+                tablet_direction='column'
+                tablet_ai='center'
                 tablet={{ m: '0' }}
-                jc="space-between"
+                jc='space-between'
             >
                 <PlatformCard>
                     <Row>
-                        <img src={DesktopImage} alt="desktop image" />
+                        <img src={DesktopImage} alt='desktop image' />
                     </Row>
                     <Row>
-                        <StyledCardHeader as="h4">
-                            <Localize translate_text="On your computer" />
+                        <StyledCardHeader as='h4'>
+                            <Localize translate_text='On your computer' />
                         </StyledCardHeader>
                     </Row>
                     <Row>
                         <Column>
-                            <StyledText mb="0.8rem" as="h4">
+                            <StyledText mb='0.8rem' as='h4'>
                                 {'1.'}
                             </StyledText>
                         </Column>
                         <Column>
                             <StyledText>
                                 <Localize
-                                    translate_text="<0>Log in</0> to your Deriv account. Don’t have one? <1>Sign up</1> for free."
+                                    translate_text='<0>Log in</0> to your Deriv account. Don’t have one? <1>Sign up</1> for free.'
                                     components={[
                                         <StyledLinkText
-                                            id="dm-p2p-login-link"
+                                            id='dm-p2p-login-link'
                                             onClick={handleLogin}
-                                            color="red"
+                                            color='red'
                                             key={0}
                                         />,
                                         <LocalizedLinkText
-                                            id="dm-p2p-signup-link"
-                                            to="/signup/"
+                                            id='dm-p2p-signup-link'
+                                            to='/signup/'
                                             size={24}
-                                            color="red"
+                                            color='red'
                                             key={1}
                                         />,
                                     ]}
@@ -205,25 +205,25 @@ const Availability = () => {
                     </Row>
                     <Row>
                         <Column>
-                            <StyledText mb="0.8rem" as="h4">
+                            <StyledText mb='0.8rem' as='h4'>
                                 {'2.'}
                             </StyledText>
                         </Column>
                         <Column>
                             <StyledText>
-                                <Localize translate_text="Go to Cashier > Deriv P2P and register." />
+                                <Localize translate_text='Go to Cashier > Deriv P2P and register.' />
                             </StyledText>
                         </Column>
                     </Row>
                     <Row>
                         <Column>
-                            <StyledText mb="0.8rem" as="h4">
+                            <StyledText mb='0.8rem' as='h4'>
                                 {'3.'}
                             </StyledText>
                         </Column>
                         <Column>
                             <StyledText>
-                                <Localize translate_text="Start connecting with fellow traders to make deposits and withdrawals." />
+                                <Localize translate_text='Start connecting with fellow traders to make deposits and withdrawals.' />
                             </StyledText>
                         </Column>
                     </Row>
@@ -233,16 +233,16 @@ const Availability = () => {
                 </Desktop>
                 <PlatformCard>
                     <Row>
-                        <img src={MobileImage} alt="mobile image" />
+                        <img src={MobileImage} alt='mobile image' />
                     </Row>
                     <Row>
-                        <StyledCardHeader as="h4">
-                            <Localize translate_text="On your mobile" />
+                        <StyledCardHeader as='h4'>
+                            <Localize translate_text='On your mobile' />
                         </StyledCardHeader>
                     </Row>
                     <Row>
                         <Column>
-                            <StyledText mb="0.8rem" as="h4">
+                            <StyledText mb='0.8rem' as='h4'>
                                 {'1.'}
                             </StyledText>
                         </Column>
@@ -250,25 +250,25 @@ const Availability = () => {
                             <StyledText>
                                 <Desktop>
                                     <>
-                                        <Localize translate_text="Download Deriv P2P." />
+                                        <Localize translate_text='Download Deriv P2P.' />
 
                                         <QueryImage
-                                            data={data['qr_code']}
+                                            data={data.qr_code}
                                             alt={'play store'}
-                                            width="108px"
-                                            height="108px"
+                                            width='108px'
+                                            height='108px'
                                         />
                                     </>
                                 </Desktop>
                                 <Mobile>
                                     <Localize
-                                        translate_text="<0>Download Deriv P2P.</0>"
+                                        translate_text='<0>Download Deriv P2P.</0>'
                                         components={[
                                             <LinkText
                                                 onClick={handleExternalLink}
-                                                color="red"
+                                                color='red'
                                                 key={0}
-                                                size="18px"
+                                                size='18px'
                                             />,
                                         ]}
                                     />
@@ -278,25 +278,25 @@ const Availability = () => {
                     </Row>
                     <Row>
                         <Column>
-                            <StyledText mb="0.8rem" as="h4">
+                            <StyledText mb='0.8rem' as='h4'>
                                 {'2.'}
                             </StyledText>
                         </Column>
                         <Column>
                             <StyledText>
-                                <Localize translate_text="Register for Deriv P2P by logging into your Deriv account in the app." />
+                                <Localize translate_text='Register for Deriv P2P by logging into your Deriv account in the app.' />
                             </StyledText>
                         </Column>
                     </Row>
                     <Row>
                         <Column>
-                            <StyledText mb="0.8rem" as="h4">
+                            <StyledText mb='0.8rem' as='h4'>
                                 {'3.'}
                             </StyledText>
                         </Column>
                         <Column>
                             <StyledText>
-                                <Localize translate_text="Start connecting with fellow traders to make deposits and withdrawals." />
+                                <Localize translate_text='Start connecting with fellow traders to make deposits and withdrawals.' />
                             </StyledText>
                         </Column>
                     </Row>

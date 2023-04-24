@@ -49,49 +49,49 @@ const StyledLocalizedLink = styled(LocalizedLink)`
 const StartDerivGo = () => {
     const data = useStaticQuery(query)
     return (
-        <SectionContainer height="887px" tabletL={{ height: 'fit-content', p: '40px 0 0' }}>
-            <SmallContainer direction="column">
-                <StyledHeader as="h2" type="heading-2" align="center" mb="4rem">
+        <SectionContainer height='887px' tabletL={{ height: 'fit-content', p: '40px 0 0' }}>
+            <SmallContainer direction='column'>
+                <StyledHeader as='h2' type='heading-2' align='center' mb='4rem'>
                     {localize('How to get started with Deriv GO')}
                 </StyledHeader>
                 <SideTab>
                     <SideTab.Panel
-                        label={<Localize translate_text="1. Create your Deriv account" />}
+                        label={<Localize translate_text='1. Create your Deriv account' />}
                         description={
                             <Localize
-                                translate_text="<0>Sign up</0> with your email, Facebook, or Google account."
-                                components={[<StyledLocalizedLink to="/signup/" key={0} />]}
+                                translate_text='<0>Sign up</0> with your email, Facebook, or Google account.'
+                                components={[<StyledLocalizedLink to='/signup/' key={0} />]}
                             />
                         }
                     >
                         <QueryImage
-                            data={data['sign_up']}
-                            alt="Create account on Deriv GO"
-                            className="content-wrapper"
+                            data={data.sign_up}
+                            alt='Create account on Deriv GO'
+                            className='content-wrapper'
                         />
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="2. Fund your account" />}
+                        label={<Localize translate_text='2. Fund your account' />}
                         description={
-                            <Localize translate_text="Fund your account with your preferred payment method." />
+                            <Localize translate_text='Fund your account with your preferred payment method.' />
                         }
                     >
                         <QueryImage
-                            data={data['fund']}
-                            alt="Fund your account and start trading on Deriv GO"
-                            className="content-wrapper"
+                            data={data.fund}
+                            alt='Fund your account and start trading on Deriv GO'
+                            className='content-wrapper'
                         />
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="3. Get Trading" />}
+                        label={<Localize translate_text='3. Get Trading' />}
                         description={
-                            <Localize translate_text="Download the app and trade anytime, anywhere." />
+                            <Localize translate_text='Download the app and trade anytime, anywhere.' />
                         }
                     >
                         <QueryImage
-                            data={data['trading']}
-                            alt="Start trading on Deriv GO"
-                            className="content-wrapper"
+                            data={data.trading}
+                            alt='Start trading on Deriv GO'
+                            className='content-wrapper'
                         />
                     </SideTab.Panel>
                 </SideTab>

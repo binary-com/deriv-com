@@ -30,7 +30,7 @@ const Wrapper = styled.div<DarkType>`
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    background-color: ${(props) => (props.dark ? 'var(--color-black)' : 'var(--color-white)')};
+    background-color: ${props => (props.dark ? 'var(--color-black)' : 'var(--color-white)')};
     height: 26.9rem;
     width: 100%;
 
@@ -88,7 +88,7 @@ const SocialWrapper = styled.div`
     align-items: center;
 `
 const SocialButton = styled(Button)<DarkType>`
-    background-color: ${(props) => (props.dark ? 'var(--color-black)' : 'var(--color-white)')};
+    background-color: ${props => (props.dark ? 'var(--color-black)' : 'var(--color-white)')};
     border: none;
 `
 
@@ -105,7 +105,7 @@ const DemoButton = styled(LinkButton)`
     width: auto;
 `
 const Splitter = styled.div<DarkType>`
-    background-color: ${(props) => (props.dark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)')};
+    background-color: ${props => (props.dark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.2)')};
     height: 20rem;
     width: 0.2rem;
     margin-top: 1rem;
@@ -130,9 +130,9 @@ const SignupFlat = ({
             <FormWrapper>
                 <Container>
                     <StyledHeader
-                        as="h3"
-                        type="section-title"
-                        weight="bold"
+                        as='h3'
+                        type='section-title'
+                        weight='bold'
                         color={dark ? 'white' : 'black'}
                     >
                         {localize('Join over 1 million traders worldwide')}
@@ -144,11 +144,11 @@ const SignupFlat = ({
                     <InputGroup>
                         <InputWrapper>
                             <Input
-                                id="dm-email-input"
-                                name="email"
+                                id='dm-email-input'
+                                name='email'
                                 background={dark ? 'black' : 'white'}
                                 inputColor={dark ? 'grey-7' : 'black'}
-                                type="text"
+                                type='text'
                                 error={email_error_msg}
                                 value={email}
                                 label={localize('Email address')}
@@ -157,13 +157,13 @@ const SignupFlat = ({
                                 onChange={handleInputChange}
                                 onBlur={handleValidation}
                                 autoFocus={autofocus}
-                                autoComplete="off"
+                                autoComplete='off'
                                 required
                             />
                         </InputWrapper>
                         <EmailButton
-                            id="dm-flat-signup"
-                            type="submit"
+                            id='dm-flat-signup'
+                            type='submit'
                             secondary
                             disabled={is_submitting}
                         >
@@ -177,47 +177,47 @@ const SignupFlat = ({
                         <SocialButton
                             dark={dark}
                             onClick={handleSocialSignup}
-                            provider="google"
-                            data-provider="google"
-                            id="dm-signup-google"
-                            type="button"
+                            provider='google'
+                            data-provider='google'
+                            id='dm-signup-google'
+                            type='button'
                             social
                         >
                             <span>
-                                <img src={Google} alt="google" width="22" height="23" />
+                                <img src={Google} alt='google' width='22' height='23' />
                             </span>
                         </SocialButton>
                         <SocialButton
                             dark={dark}
                             onClick={handleSocialSignup}
-                            provider="facebook"
-                            data-provider="facebook"
-                            id="dm-signup-facebook"
-                            type="button"
+                            provider='facebook'
+                            data-provider='facebook'
+                            id='dm-signup-facebook'
+                            type='button'
                             social
                         >
                             <span>
-                                <img src={Facebook} alt="facebook" width="12" height="22" />
+                                <img src={Facebook} alt='facebook' width='12' height='22' />
                             </span>
                         </SocialButton>
                     </SocialWrapper>
                 </Container>
-                <Splitter dark={dark}></Splitter>
+                <Splitter dark={dark} />
                 <RightWrapper>
                     <Text
-                        align="center"
-                        size="var(--text-size-sm)"
+                        align='center'
+                        size='var(--text-size-sm)'
                         color={dark ? 'white' : 'black'}
-                        weight="bold"
+                        weight='bold'
                     >
                         {localize('Get a taste of the Deriv experience')}
                     </Text>
                     <DemoButton
                         secondary
                         external
-                        type="deriv_app"
-                        target="_blank"
-                        rel="noopener noreferrer nofollow"
+                        type='deriv_app'
+                        target='_blank'
+                        rel='noopener noreferrer nofollow'
                     >
                         {localize('See live demo')}
                     </DemoButton>

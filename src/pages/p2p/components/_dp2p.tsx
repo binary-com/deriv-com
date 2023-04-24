@@ -45,7 +45,7 @@ const Content = styled.div<StyledProps>`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-right: ${(props) => props.margin_right};
+    margin-right: ${props => props.margin_right};
 
     ${Text} {
         font-size: 2.4rem;
@@ -66,7 +66,7 @@ const ImageWrapper = styled.div<StyledProps>`
     max-width: 47.1rem;
     width: 100%;
     max-height: 30rem;
-    margin-right: ${(props) => props.margin_right};
+    margin-right: ${props => props.margin_right};
 
     @media ${device.tabletL} {
         margin: 2rem auto;
@@ -110,7 +110,7 @@ const VideoText = styled(Text)`
     }
 `
 const Row = styled.div<StyledProps>`
-    flex-direction: ${(props) => props.flex_direction};
+    flex-direction: ${props => props.flex_direction};
     width: 100%;
     display: flex;
     margin-top: 8rem;
@@ -157,25 +157,25 @@ const DP2P = ({ P2P, reverse }: DP2PProps) => {
             <StyledContainer>
                 <StyledText>
                     {localize(
-                        'Deriv P2P is Deriv’s peer-to-peer deposit and withdrawal service that offers an easy way to get money in and out of your Deriv account. Connect with fellow traders and transfer money in minutes.',
+                        'Deriv P2P is Deriv’s peer-to-peer deposit and withdrawal service that offers an easy way to get money in and out of your Deriv account. Connect with fellow traders and transfer money in minutes.'
                     )}
                 </StyledText>
 
                 <VideoText>{localize('Find out how Deriv P2P works')}</VideoText>
                 <StyledIFrame
-                    src="https://www.youtube.com/embed/x8v4Hb-Uw2I"
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    src='https://www.youtube.com/embed/x8v4Hb-Uw2I'
+                    title='YouTube video player'
+                    frameBorder='0'
+                    allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
                     allowFullScreen
-                ></StyledIFrame>
+                />
 
                 {P2P.map((item, index) => {
                     const is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
                         <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
                             <Content margin_right={!is_even ? '12.6rem' : '0'}>
-                                <StyledHeader as="h2">{item.title}</StyledHeader>
+                                <StyledHeader as='h2'>{item.title}</StyledHeader>
                                 <Desktop>
                                     <Text>{item.subtitle}</Text>
                                 </Desktop>
@@ -187,7 +187,7 @@ const DP2P = ({ P2P, reverse }: DP2PProps) => {
                                 <QueryImage
                                     data={data[item.image_name]}
                                     alt={item.image_alt}
-                                    width="100%"
+                                    width='100%'
                                 />
                             </ImageWrapper>
                         </Row>

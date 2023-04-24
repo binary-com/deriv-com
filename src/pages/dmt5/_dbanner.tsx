@@ -152,32 +152,32 @@ const DBanner = ({
     const platform_name = is_mt5 ? 'Deriv MT5' : 'Deriv X'
 
     return (
-        <Flex position="relative">
-            <ImageWrapper ai="center">
-                <QueryImage data={data['deriv_platform']} alt={image_alt} width="100%" />
+        <Flex position='relative'>
+            <ImageWrapper ai='center'>
+                <QueryImage data={data.deriv_platform} alt={image_alt} width='100%' />
             </ImageWrapper>
             <Wrapper>
                 <TextWrapper>
-                    <StyledHeader as="h2" color="white" size="5.6rem" mb="4rem" max_width="53rem">
+                    <StyledHeader as='h2' color='white' size='5.6rem' mb='4rem' max_width='53rem'>
                         {title}
                     </StyledHeader>
                     {is_logged_in ? (
                         <StyledLinkButton
                             onClick={handleGetTrading}
-                            id="dm-dbanner-signup-1"
-                            type="submit"
+                            id='dm-dbanner-signup-1'
+                            type='submit'
                             secondary
                         >
                             <Localize
-                                translate_text="Go to {{platform_name}} dashboard"
+                                translate_text='Go to {{platform_name}} dashboard'
                                 values={{ platform_name }}
                             />
                         </StyledLinkButton>
                     ) : (
                         <StyledLinkButton
                             onClick={handleSignup}
-                            id="dm-dbanner-signup-1"
-                            type="submit"
+                            id='dm-dbanner-signup-1'
+                            type='submit'
                             secondary
                         >
                             {localize('Create free demo account')}
@@ -187,7 +187,7 @@ const DBanner = ({
                 <BackgroundPattern
                     is_rtl={is_rtl}
                     src={background_pattern}
-                    alt="background pattern"
+                    alt='background pattern'
                 />
             </Wrapper>
         </Flex>

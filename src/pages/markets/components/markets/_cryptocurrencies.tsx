@@ -59,30 +59,30 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
 
     return (
         <>
-            <WhyTrade header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}>
+            <WhyTrade header={<Localize translate_text='Why trade cryptocurrencies on Deriv' />}>
                 {crypto_content.map((content, index) => (
                     <StyledBox
                         key={index}
                         text={content.text}
-                        icon={<img src={content.src} alt="" />}
-                    ></StyledBox>
+                        icon={<img src={content.src} alt='' />}
+                    />
                 ))}
             </WhyTrade>
             <AvailableTrades
                 CFDs={<CFDs market_content={crypto_cfds} />}
                 Multipliers={<Multipliers market_content={crypto_multiplier} is_crypto={true} />}
                 display_title={
-                    <Localize translate_text="Cryptocurrency trades available on Deriv" />
+                    <Localize translate_text='Cryptocurrency trades available on Deriv' />
                 }
             />
             <SimpleSteps
                 header={
-                    <Localize translate_text="Start trading cryptocurrencies on Deriv in 3 simple steps" />
+                    <Localize translate_text='Start trading cryptocurrencies on Deriv in 3 simple steps' />
                 }
                 content={simple_step_content}
                 sign_up
             />
-            {!is_deriv_go && <OtherMarkets except="cryptocurrencies" />}
+            {!is_deriv_go && <OtherMarkets except='cryptocurrencies' />}
         </>
     )
 }

@@ -17,7 +17,7 @@ const introPoints = [
     localize('How to manage risk when trading forex'),
     localize('How to use digital options to profit from up, down, and even sideways moves'),
     localize(
-        'How to plan your trading activities without spending hours each day analysing the world market',
+        'How to plan your trading activities without spending hours each day analysing the world market'
     ),
 ]
 
@@ -57,7 +57,7 @@ const ForexEbook = (props: StocksEbookProps) => {
     }
     const data = useStaticQuery(query)
     return (
-        <Layout type="landing-page" is_ppc_redirect={true}>
+        <Layout type='landing-page' is_ppc_redirect={true}>
             <SEO
                 title={localize('Forex Ebook')}
                 description={localize('Trade Forex CFDs on our Deriv platform.')}
@@ -67,23 +67,21 @@ const ForexEbook = (props: StocksEbookProps) => {
                 mainHeaderImage={data[`forex_ebook_img_${lng}`]}
                 imgWidth={601}
                 imgHeight={682}
-                bg="linear-gradient(to left, #661b20 39%, #cc363f);"
-                ebook_utm_code="forex-ebook"
-                bgMobile="linear-gradient(0deg, #cc363f, #661b20);"
+                bg='linear-gradient(to left, #661b20 39%, #cc363f);'
+                ebook_utm_code='forex-ebook'
+                bgMobile='linear-gradient(0deg, #cc363f, #661b20);'
                 introSub={localize('Your free guide on')}
                 introMain={localize('How to trade the forex market')}
-                authorDesc={
-                    localize(
-                        'This e-book has been brought to you by a veteran online trader and New York Times bestselling author,',
-                    ) + ' '
-                }
+                authorDesc={`${localize(
+                    'This e-book has been brought to you by a veteran online trader and New York Times bestselling author,'
+                )} `}
                 authorName={localize('Vince Stanzione.')}
             />
             <Introduction
                 introImage={introForexEbook}
                 imageWidth={142}
                 introPara={localize(
-                    'Foreign exchange – forex or the FX market, as it is commonly known – is one of the biggest marketplaces in the world, offering endless trading opportunities. In this 75-page book, expert trader Vince Stanzione will teach you how to spot and take advantage of trading opportunities in the forex markets, using Deriv’s DTrader and MetaTrader5 platforms.',
+                    'Foreign exchange – forex or the FX market, as it is commonly known – is one of the biggest marketplaces in the world, offering endless trading opportunities. In this 75-page book, expert trader Vince Stanzione will teach you how to spot and take advantage of trading opportunities in the forex markets, using Deriv’s DTrader and MetaTrader5 platforms.'
                 )}
                 introList={introPoints}
             />

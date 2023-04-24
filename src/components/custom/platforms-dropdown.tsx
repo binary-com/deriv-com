@@ -94,7 +94,7 @@ const PlatformsDropdown = ({
 
     const [offset, setOffset] = useState(() => {
         if (is_trade) {
-            return (current_ref as HTMLElement)?.getBoundingClientRect()?.x / 2
+            return Number((current_ref as HTMLElement)?.getBoundingClientRect()?.x) / 2
         }
         return (current_ref as HTMLElement)?.getBoundingClientRect()?.x
     })

@@ -55,24 +55,22 @@ const StocksEbook = ({ language }: StocksEbookProps) => {
 
     const data = useStaticQuery(query)
     return (
-        <Layout type="landing-page" is_ppc_redirect={true}>
+        <Layout type='landing-page' is_ppc_redirect={true}>
             <SEO
                 title={localize('Cryptocurrencies Ebook')}
                 description={localize('Trade Cryptocurrencies on our Deriv platform.')}
                 no_index
             />
             <Hero
-                authorDesc={
-                    localize(
-                        'This e-book has been brought to you by a veteran online trader and New York Times bestselling author,',
-                    ) + ' '
-                }
+                authorDesc={`${localize(
+                    'This e-book has been brought to you by a veteran online trader and New York Times bestselling author,'
+                )} `}
                 authorName={localize('Vince Stanzione.')}
-                bg="linear-gradient(180deg, #1f1f1f, #0E0E0E)"
-                bgMobile="linear-gradient(180deg, #333333, #0E0E0E)"
-                color="white"
-                ebook_utm_code="cryptocurrencies-ebook"
-                introSub=""
+                bg='linear-gradient(180deg, #1f1f1f, #0E0E0E)'
+                bgMobile='linear-gradient(180deg, #333333, #0E0E0E)'
+                color='white'
+                ebook_utm_code='cryptocurrencies-ebook'
+                introSub=''
                 introMain={localize('Learn how to trade cryptocurrencies with Deriv')}
                 mainHeaderImage={data[`crypto_hero${ebook_image}`]}
             />
@@ -80,10 +78,10 @@ const StocksEbook = ({ language }: StocksEbookProps) => {
                 imageWidth={282}
                 introImage={StocksIntroImage}
                 introPara={localize(
-                    'Trading cryptocurrencies gives you the chance to earn profits from price movements without owning the underlying digital coins. In other words, you can earn by correctly predicting whether the price of a cryptocurrency will go up or down.',
+                    'Trading cryptocurrencies gives you the chance to earn profits from price movements without owning the underlying digital coins. In other words, you can earn by correctly predicting whether the price of a cryptocurrency will go up or down.'
                 )}
                 subPara={localize(
-                    'In this guide, you’ll learn valuable tips and strategies for trading cryptocurrencies on Deriv. You will also get a free demo account to practice completely risk-free on Deriv MT5 and DTrader platforms, as well as the DerivGo app. And when you are ready to start trading for real, you can start with as little as a $5 deposit.',
+                    'In this guide, you’ll learn valuable tips and strategies for trading cryptocurrencies on Deriv. You will also get a free demo account to practice completely risk-free on Deriv MT5 and DTrader platforms, as well as the DerivGo app. And when you are ready to start trading for real, you can start with as little as a $5 deposit.'
                 )}
             />
             <Topics

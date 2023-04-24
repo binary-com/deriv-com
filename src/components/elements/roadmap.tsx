@@ -74,24 +74,24 @@ const Roadmap = ({ portal }: RoadmapProps) => {
     return (
         <StyledSectionContainer>
             <Container>
-                <Flex width="1202px" fd="column" ai="center" jc="center">
-                    <StyledHeader as="h2" type="heading-2" align="center">
-                        <Localize translate_text="What’s next?" />
+                <Flex width='1202px' fd='column' ai='center' jc='center'>
+                    <StyledHeader as='h2' type='heading-2' align='center'>
+                        <Localize translate_text='What’s next?' />
                     </StyledHeader>
-                    <StyledText mt="16px" align="center">
+                    <StyledText mt='16px' align='center'>
                         {portal.paragraph}
                     </StyledText>
                 </Flex>
             </Container>
             <>
                 <StyledFrame>
-                    <iframe src={portal.frame} frameBorder="0" height="100%" width="100%"></iframe>
+                    <iframe src={portal.frame} frameBorder='0' height='100%' width='100%' />
                     <StyledButton
                         tertiary
                         external
                         to={portal.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        target='_blank'
+                        rel='noopener noreferrer'
                     >
                         {localize('Go to portal')}
                     </StyledButton>

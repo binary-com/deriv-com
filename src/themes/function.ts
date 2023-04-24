@@ -18,18 +18,18 @@ export type PaddingsType = {
 }
 
 export const Margins = ({ m, mt, ml, mr, mb }: MarginsType) => css`
-    margin: ${m ? m : null};
-    margin-top: ${mt ? mt : null};
-    margin-right: ${mr ? mr : null};
-    margin-bottom: ${mb ? mb : null};
-    margin-left: ${ml ? ml : null};
+    margin: ${m || null};
+    margin-top: ${mt || null};
+    margin-right: ${mr || null};
+    margin-bottom: ${mb || null};
+    margin-left: ${ml || null};
 `
 export const Paddings = ({ p, pt, pl, pr, pb }: PaddingsType) => css`
-    padding: ${p ? p : null};
-    padding-top: ${pt ? pt : null};
-    padding-bottom: ${pb ? pb : null};
-    padding-right: ${pr ? pr : null};
-    padding-left: ${pl ? pl : null};
+    padding: ${p || null};
+    padding-top: ${pt || null};
+    padding-bottom: ${pb || null};
+    padding-right: ${pr || null};
+    padding-left: ${pl || null};
 `
 
 const default_styels = {

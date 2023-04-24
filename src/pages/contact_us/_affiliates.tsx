@@ -63,24 +63,24 @@ export const Affiliates = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
 
     return (
-        <Wrapper padding="40px 0">
+        <Wrapper padding='40px 0'>
             <CardContainer>
                 <Item>
-                    <Header as="h3" type="section-title">
-                        <Localize translate_text="Business Partnership" />
+                    <Header as='h3' type='section-title'>
+                        <Localize translate_text='Business Partnership' />
                     </Header>
                     <TextWrapper>
-                        <Text m="0.8rem 0">
-                            <Localize translate_text="Questions about becoming our affiliates or other business collaboration opportunities? " />
+                        <Text m='0.8rem 0'>
+                            <Localize translate_text='Questions about becoming our affiliates or other business collaboration opportunities? ' />
                         </Text>
                         <LinkText
-                            color="red"
-                            size="var(--text-size-s)"
+                            color='red'
+                            size='var(--text-size-s)'
                             onClick={() => {
-                                is_livechat_interactive && LC_API.open_chat_window()
+                                if (is_livechat_interactive) LC_API.open_chat_window()
                             }}
                         >
-                            <Localize translate_text="Contact us via live chat" />
+                            <Localize translate_text='Contact us via live chat' />
                         </LinkText>
                     </TextWrapper>
                 </Item>

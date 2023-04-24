@@ -5,7 +5,8 @@ import { deriv_app_url } from 'common/constants'
 
 export const handleScroll = (show, hide) => {
     const show_height = 400
-    window.scrollY > show_height ? show() : hide()
+    if (window.scrollY > show_height) show()
+    else hide()
 }
 
 export const useMoveButton = () => {
@@ -19,7 +20,7 @@ export const handleGetTrading = () => {
     const sub_url = redirectToTradingPlatform()
     const trading_url_localized = getDerivAppLocalizedURL(
         `${deriv_app_url}/${sub_url}`,
-        getLanguage(),
+        getLanguage()
     )
     window.location.href = trading_url_localized
 }

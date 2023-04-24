@@ -143,11 +143,11 @@ const SignupWithContainer = styled.div`
 const Line = styled.div`
     width: 130px;
     height: 1px;
-    background-color: ${(props) => (props.color ? props.color : 'var(--color-grey-6)')};
+    background-color: ${props => (props.color ? props.color : 'var(--color-grey-6)')};
 `
 
 const StyledText = styled(Text)<{ tabletFontSize?: string }>`
-    color: ${(props) => (props.color ? props.color : 'var(--color-grey-6)')};
+    color: ${props => (props.color ? props.color : 'var(--color-grey-6)')};
 
     @media (max-width: 340px) {
         width: 17rem;
@@ -194,24 +194,24 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
     const [email_error_msg, setEmailErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
 
-    const handleChange = (event) => {
+    const handleChange = event => {
         setChecked(event.currentTarget.checked)
     }
 
-    const handleInputChange = (e) => {
+    const handleInputChange = e => {
         const { value } = e.target
 
         setEmail(value)
         handleValidation(value)
     }
 
-    const handleValidation = (param) => {
+    const handleValidation = param => {
         const message = typeof param === 'object' ? param.target.value : param
 
         setEmailErrorMsg(validateEmail(message.replace(/\s/g, '')))
     }
 
-    const validateEmail = (enteredEmail) => {
+    const validateEmail = enteredEmail => {
         const error_message = validation.email(enteredEmail) || submit_error_msg
 
         if (submit_error_msg) {
@@ -227,7 +227,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
         setEmailErrorMsg('')
     }
 
-    const getVerifyEmailRequest = (enteredEmail) => {
+    const getVerifyEmailRequest = enteredEmail => {
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
 
         const cookies = getCookiesFields()
@@ -238,21 +238,21 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
             verify_email: enteredEmail,
             type: 'account_opening',
             url_parameters: {
-                ...(affiliate_token && { affiliate_token: affiliate_token }),
+                ...(affiliate_token && { affiliate_token }),
                 ...(cookies_value && { ...cookies_value }),
                 ...(ebook_utm_code && { utm_content: ebook_utm_code }),
             },
         }
     }
 
-    const handleSocialSignup = (e) => {
+    const handleSocialSignup = e => {
         e.preventDefault()
 
         const data_provider: TSocialProvider = e.currentTarget.getAttribute('data-provider')
         Login.initOneAll(data_provider, ebook_utm_code)
     }
 
-    const handleEmailSignup = (e) => {
+    const handleEmailSignup = e => {
         e.preventDefault()
         setIsSubmitting(true)
         const formattedEmail = email.replace(/\s/g, '')
@@ -267,7 +267,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
 
         apiManager
             .augmentedSend('verify_email', { ...verify_email_req, type: 'account_opening' })
-            .then((response) => {
+            .then(response => {
                 if (response.error) {
                     setIsSubmitting(false)
                     setSubmitStatus('error')
@@ -283,14 +283,14 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
 
     return submit_status === 'success' ? (
         <ResponseWrapper>
-            <EmailImage src={ViewEmailImage} alt="Email" />
-            <Header as="h3" type="section-title" align="center" weight="normal">
+            <EmailImage src={ViewEmailImage} alt='Email' />
+            <Header as='h3' type='section-title' align='center' weight='normal'>
                 {localize('Check your email')}
             </Header>
-            <Text align="center">
+            <Text align='center'>
                 <Localize
                     translate_text="We've sent a message to {{email}} with a link to activate your account."
-                    values={{ email: email }}
+                    values={{ email }}
                 />
             </Text>
         </ResponseWrapper>
@@ -300,26 +300,26 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                 <InputGroupForm onSubmit={handleEmailSignup} noValidate>
                     <InputWrapper>
                         <Input
-                            id="email"
-                            name="email"
-                            type="text"
+                            id='email'
+                            name='email'
+                            type='text'
                             error={email_error_msg}
                             value={email}
-                            background="white"
-                            tablet_background="green-1"
-                            input_background="grey-8"
-                            label_focus_color="grey-7"
-                            label_color="black-3"
+                            background='white'
+                            tablet_background='green-1'
+                            input_background='grey-8'
+                            label_focus_color='grey-7'
+                            label_color='black-3'
                             placeholder={localize('email address')}
                             handleError={clearEmail}
                             onChange={handleInputChange}
                             onBlur={handleValidation}
                             autoFocus={true}
-                            autoComplete="off"
+                            autoComplete='off'
                             required
-                            border="unset"
-                            height="40px"
-                            focus_border="var(--color-grey-7)"
+                            border='unset'
+                            height='40px'
+                            focus_border='var(--color-grey-7)'
                         />
                     </InputWrapper>
                     <AgreementLabel
@@ -328,8 +328,8 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                         color={color}
                     />
                     <EmailButton
-                        id="dm-ebook-download-signup"
-                        type="submit"
+                        id='dm-ebook-download-signup'
+                        type='submit'
                         secondary
                         disabled={
                             is_submitting || !is_checked || Boolean(email_error_msg) || !email
@@ -337,17 +337,17 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                     >
                         {localize('Get your free ebook now!')}
                     </EmailButton>
-                    <Header as="p" type="small" weight="regular" color="grey-5" mt="0.8rem">
+                    <Header as='p' type='small' weight='regular' color='grey-5' mt='0.8rem'>
                         <Localize
-                            translate_text="By pressing “Get your free ebook now!”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>."
+                            translate_text='By pressing “Get your free ebook now!”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>.'
                             components={[
                                 <StyledLocalizedLink
                                     key={0}
-                                    to="/tnc/security-and-privacy.pdf"
-                                    size="1.2rem"
-                                    color="red"
-                                    rel="noopener noreferrer"
-                                    target="_blank"
+                                    to='/tnc/security-and-privacy.pdf'
+                                    size='1.2rem'
+                                    color='red'
+                                    rel='noopener noreferrer'
+                                    target='_blank'
                                 />,
                             ]}
                         />
@@ -355,52 +355,52 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                 </InputGroupForm>
                 <SignupWithContainer>
                     <Line color={color} />
-                    <StyledText color={color} align="center" tabletFontSize="12px">
+                    <StyledText color={color} align='center' tabletFontSize='12px'>
                         {localize('Or sign up with')}
                     </StyledText>
                     <Line color={color} />
                 </SignupWithContainer>
                 <Flex
-                    width="100%"
-                    mt="1.6rem"
-                    wrap="wrap"
-                    jc="space-between"
-                    ai="center"
+                    width='100%'
+                    mt='1.6rem'
+                    wrap='wrap'
+                    jc='space-between'
+                    ai='center'
                     tabletS={{ fd: 'column' }}
                 >
                     <SocialButton
                         onClick={handleSocialSignup}
-                        provider="google"
-                        data-provider="google"
-                        id="dm-signup-google"
-                        type="button"
+                        provider='google'
+                        data-provider='google'
+                        id='dm-signup-google'
+                        type='button'
                     >
                         <SocialButtonText>
-                            <img src={Google} alt="google" width="24" height="24" />
+                            <img src={Google} alt='google' width='24' height='24' />
                             <span>Google</span>
                         </SocialButtonText>
                     </SocialButton>
                     <SocialButton
                         onClick={handleSocialSignup}
-                        provider="facebook"
-                        data-provider="facebook"
-                        id="dm-signup-facebook"
-                        type="button"
+                        provider='facebook'
+                        data-provider='facebook'
+                        id='dm-signup-facebook'
+                        type='button'
                     >
                         <SocialButtonText>
-                            <img src={Facebook} alt="facebook" width="24" height="24" />
+                            <img src={Facebook} alt='facebook' width='24' height='24' />
                             <span>Facebook</span>
                         </SocialButtonText>
                     </SocialButton>
                     <SocialButton
                         onClick={handleSocialSignup}
-                        provider="apple"
-                        data-provider="apple"
-                        id="dm-signup-apple"
-                        type="button"
+                        provider='apple'
+                        data-provider='apple'
+                        id='dm-signup-apple'
+                        type='button'
                     >
                         <SocialButtonText>
-                            <img src={Apple} alt="apple" width="24" height="24" />
+                            <img src={Apple} alt='apple' width='24' height='24' />
                             <span>Apple</span>
                         </SocialButtonText>
                     </SocialButton>

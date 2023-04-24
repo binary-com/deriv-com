@@ -90,7 +90,7 @@ const StyledCard = styled(Card)`
     @media ${device.tabletL} {
         min-width: 328px;
         padding: 16px 16px 0;
-        ${(props) => props.tabletHeight && 'height:' + props.tabletHeight};
+        ${props => props.tabletHeight && `height:${props.tabletHeight}`};
 
         :first-child {
             margin: 24px 0 0;
@@ -100,7 +100,7 @@ const StyledCard = styled(Card)`
     @media ${device.mobileM} {
         min-width: unset;
         width: 100%;
-        ${(props) => props.mobileHeight && 'height:' + props.mobileHeight};
+        ${props => props.mobileHeight && `height:${props.mobileHeight}`};
     }
 `
 const CardWrappers = styled(Flex)`
@@ -135,7 +135,7 @@ const TableWrapper = styled(Table)`
     grid-template-columns: 60% 40%;
 `
 const StyledTrap = styled(TRAP)<CardProps>`
-    height: ${(props) => (props.headerHeight ? props.headerHeight : '')};
+    height: ${props => (props.headerHeight ? props.headerHeight : '')};
     background-color: var(--color-grey-39);
     padding: 1.1rem 0.8rem;
     min-height: 72px;
@@ -233,17 +233,17 @@ const DMT5Cards = ({ data }: DMT5Props) => {
     }
 
     return (
-        <StyledCard padding="2.4rem 2.4rem 0" id="affiliate-card">
+        <StyledCard padding='2.4rem 2.4rem 0' id='affiliate-card'>
             {!is_calculated ? (
                 <>
                     <CardWrappers>
-                        <Header as="h4" type="sub-section-title" mb="0.8rem">
+                        <Header as='h4' type='sub-section-title' mb='0.8rem'>
                             {data.name}
                         </Header>
                         <CardText>{data.description}</CardText>
                         <AccordionWrapper>
                             <Accordion has_single_state>
-                                {data.type.map((value) => (
+                                {data.type.map(value => (
                                     <AccordionItem
                                         key={value.class_name}
                                         header={value.title}
@@ -256,14 +256,14 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                         <TableWrapper grid_col_number={2} is_balance={true}>
                                             {value.assets.map((listedValue, indexValue) => (
                                                 <TC
-                                                    grid_area={'area' + indexValue}
+                                                    grid_area={`area${indexValue}`}
                                                     key={indexValue}
                                                 >
                                                     <StyledTrap
-                                                        isTitle="true"
+                                                        isTitle='true'
                                                         headerHeight={value.headerHeight}
                                                     >
-                                                        <StyledText size="14px" weight="bold">
+                                                        <StyledText size='14px' weight='bold'>
                                                             {listedValue.title}
                                                         </StyledText>
                                                     </StyledTrap>
@@ -272,7 +272,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                                             even={indexData % 2 ? 'true' : ''}
                                                             key={indexData}
                                                         >
-                                                            <StyledText size="14px">
+                                                            <StyledText size='14px'>
                                                                 {info}
                                                             </StyledText>
                                                         </TRAPREVERSE>
@@ -286,7 +286,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                         </AccordionWrapper>
                     </CardWrappers>
                     <HowItsCalculate>
-                        <StyledButton flat onClick={toggleCalculated} className="calculated">
+                        <StyledButton flat onClick={toggleCalculated} className='calculated'>
                             {localize("How it's calculated")}
                         </StyledButton>
                     </HowItsCalculate>
@@ -294,73 +294,73 @@ const DMT5Cards = ({ data }: DMT5Props) => {
             ) : (
                 <>
                     {data.countDetails.map((valueCalc, indexCalc) => (
-                        <Flex key={indexCalc} direction="column" ai="flex-start" height="auto">
-                            <Header as="h4" type="sub-section-title" mb="0.8rem">
+                        <Flex key={indexCalc} direction='column' ai='flex-start' height='auto'>
+                            <Header as='h4' type='sub-section-title' mb='0.8rem'>
                                 {valueCalc.title}
                             </Header>
-                            {valueCalc.list.map((valueDetails) => (
+                            {valueCalc.list.map(valueDetails => (
                                 <>
-                                    <Text mb="0.8rem" size="1.4rem">
+                                    <Text mb='0.8rem' size='1.4rem'>
                                         {valueDetails.details}
                                     </Text>
-                                    <Flex mb="1.6rem">
+                                    <Flex mb='1.6rem'>
                                         <QueryImage
                                             data={dataImages[valueDetails.icon]}
                                             alt={valueDetails.iconAlt}
-                                            width="100%"
+                                            width='100%'
                                         />
                                     </Flex>
                                     {valueDetails.second_desc && (
-                                        <Header type="paragraph-2" weight="normal">
+                                        <Header type='paragraph-2' weight='normal'>
                                             {valueDetails.second_desc}
                                         </Header>
                                     )}
                                     {valueDetails.notes &&
-                                        valueDetails.notes.map((valueNotes) => (
+                                        valueDetails.notes.map(valueNotes => (
                                             <>
-                                                <Header type="sub-paragraph" mb="0.8rem">
+                                                <Header type='sub-paragraph' mb='0.8rem'>
                                                     {valueNotes.title}
                                                 </Header>
 
-                                                <Text mb="1.6rem" size="1.4rem">
+                                                <Text mb='1.6rem' size='1.4rem'>
                                                     {valueNotes.desc.firstText}
                                                 </Text>
                                             </>
                                         ))}
                                 </>
                             ))}
-                            {valueCalc.notes.map((valueNotes) => (
+                            {valueCalc.notes.map(valueNotes => (
                                 <>
-                                    <Header type="sub-paragraph" mb="0.8rem">
+                                    <Header type='sub-paragraph' mb='0.8rem'>
                                         {valueNotes.title}
                                     </Header>
                                     {valueNotes.desc.secondText ? (
                                         <>
-                                            <Text mb="16px" size="1.4rem">
+                                            <Text mb='16px' size='1.4rem'>
                                                 {valueNotes.desc.firstText}
                                             </Text>
-                                            <Text mb="0" size="1.4rem">
+                                            <Text mb='0' size='1.4rem'>
                                                 {valueNotes.desc.secondText}
                                             </Text>
                                         </>
                                     ) : (
-                                        <Text mb="0" size="1.4rem">
+                                        <Text mb='0' size='1.4rem'>
                                             {valueNotes.desc.firstText}
                                         </Text>
                                     )}
                                 </>
                             ))}
                             <ButtonWrapper>
-                                <BackButton tertiary onClick={toggleCalculated} className="back">
+                                <BackButton tertiary onClick={toggleCalculated} className='back'>
                                     {localize('Back')}
                                 </BackButton>
                                 <StyledLinkButton
-                                    id="dm-become-affiliate-signup"
+                                    id='dm-become-affiliate-signup'
                                     secondary
                                     to={affiliate_signup_url}
                                     external
-                                    target="_blank"
-                                    type="affiliate_sign_up"
+                                    target='_blank'
+                                    type='affiliate_sign_up'
                                 >
                                     {localize('Become an affiliate')}
                                 </StyledLinkButton>

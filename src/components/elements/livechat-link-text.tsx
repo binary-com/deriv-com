@@ -14,11 +14,11 @@ const LiveChatLinkText = ({ text, weight }: LiveChatLinkTextProps) => {
 
     return (
         <LinkText
-            color="red"
-            mt="1rem"
+            color='red'
+            mt='1rem'
             weight={weight}
             onClick={() => {
-                is_livechat_interactive && LC_API.open_chat_window()
+                if (is_livechat_interactive) LC_API.open_chat_window()
             }}
         >
             <Localize translate_text={text} />

@@ -16,7 +16,7 @@ const StyledFlex = styled(Flex)<{ mobile_pt: string }>`
     flex-direction: column;
 
     @media ${device.tabletL} {
-        padding-top: ${({ mobile_pt }) => (mobile_pt ? mobile_pt : '')};
+        padding-top: ${({ mobile_pt }) => mobile_pt || ''};
     }
 `
 
@@ -46,13 +46,13 @@ const AvailableOptions = ({
     return (
         <StyledFlex mobile_pt={mobile_pt}>
             {!remove_title && (
-                <Box mb="0.8rem" height="2.4rem">
-                    <StyledText weight="bold">{title ? title : null}</StyledText>
+                <Box mb='0.8rem' height='2.4rem'>
+                    <StyledText weight='bold'>{title || null}</StyledText>
                 </Box>
             )}
-            <Flex jc="flex-start">
+            <Flex jc='flex-start'>
                 <Icon src={svg} />
-                <Box max_width="28.8rem">
+                <Box max_width='28.8rem'>
                     <StyledText>{content}</StyledText>
                 </Box>
             </Flex>

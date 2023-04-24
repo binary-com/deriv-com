@@ -52,26 +52,26 @@ const BeSquareFooter = () => {
     const { is_eu } = useRegion()
     return (
         <React.Fragment>
-            <FooterSection color="black" is_eu={is_eu}>
+            <FooterSection color='black' is_eu={is_eu}>
                 <ContentContainer>
                     <ImageWrapper
-                        data={data['footer_image']}
-                        alt="Fresh graduates discussing with their laptops"
+                        data={data.footer_image}
+                        alt='Fresh graduates discussing with their laptops'
                     />
                     <TextContainer>
-                        <Title as="h3">Next intake: 6 March 2023</Title>
+                        <Title as='h3'>Next intake: 6 March 2023</Title>
                         <TextWrapper
                             max_width_array={['510px', '328px']}
                             font_size={['20px', '16px']}
                             line_height={['30px', '24px']}
-                            margin="-24px 49px 0 0"
+                            margin='-24px 49px 0 0'
                         >
-                            <Header weight="normal" color="white" size="2rem">
+                            <Header weight='normal' color='white' size='2rem'>
                                 Submit your application before 24 February 2023
                             </Header>
 
                             <Localize
-                                translate_text="<1>If you have any questions, email us at </1><2>info@besquare.my</2>"
+                                translate_text='<1>If you have any questions, email us at </1><2>info@besquare.my</2>'
                                 components={[
                                     <br key={0} />,
                                     <TextWrapper
@@ -84,7 +84,7 @@ const BeSquareFooter = () => {
                                     <Link
                                         font_size={['16px', '12px']}
                                         line_height={['24px', '18px']}
-                                        href="mailto:info@besquare.my"
+                                        href='mailto:info@besquare.my'
                                         key={2}
                                     />,
                                 ]}
@@ -95,8 +95,8 @@ const BeSquareFooter = () => {
                                 secondary
                                 to={besquare_signup_url}
                                 external
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
                                 {localize('Apply now')}
                             </ButtonWrapper>
@@ -106,8 +106,8 @@ const BeSquareFooter = () => {
                                 max_width_array={['68px']}
                                 font_size={['16px']}
                                 line_height={['24px']}
-                                grid_area="follow-us"
-                                padding="15px 0 0"
+                                grid_area='follow-us'
+                                padding='15px 0 0'
                             >
                                 {localize('Follow us')}
                             </TextWrapper>
@@ -116,14 +116,14 @@ const BeSquareFooter = () => {
                                     key={alt}
                                     external
                                     to={link_to}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
+                                    target='_blank'
+                                    rel='noopener noreferrer'
                                 >
                                     <IconWrapper
                                         src={src}
                                         alt={`${alt} icon`}
-                                        width="26.67"
-                                        height="26.67"
+                                        width='26.67'
+                                        height='26.67'
                                     />
                                 </LocalizedLink>
                             ))}

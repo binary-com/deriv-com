@@ -159,25 +159,25 @@ const DHero = ({
 
     return (
         <Wrapper>
-            <InformationWrapper height="unset" direction="column">
-                <StyledHeader as="h4" weight="normal">
-                    <DLogo src={Logo} alt="logo" width="32" height="32" />
+            <InformationWrapper height='unset' direction='column'>
+                <StyledHeader as='h4' weight='normal'>
+                    <DLogo src={Logo} alt='logo' width='32' height='32' />
                     {title}
                 </StyledHeader>
                 <HeroContent>
-                    <StyledHeaderTitle type="display-title" color="white" mt="1.5rem">
+                    <StyledHeaderTitle type='display-title' color='white' mt='1.5rem'>
                         {content}
                     </StyledHeaderTitle>
                 </HeroContent>
                 <LinkWrapper>
                     {join_us_for_free &&
                         (is_logged_in ? (
-                            <DemoButton onClick={handleGetTrading} secondary type="mt5">
-                                <Localize translate_text="Go to Deriv MT5 dashboard" />
+                            <DemoButton onClick={handleGetTrading} secondary type='mt5'>
+                                <Localize translate_text='Go to Deriv MT5 dashboard' />
                             </DemoButton>
                         ) : (
-                            <DemoButton onClick={handleSignup} id="dm-hero-signup" secondary>
-                                <Localize translate_text="Create free demo account" />
+                            <DemoButton onClick={handleSignup} id='dm-hero-signup' secondary>
+                                <Localize translate_text='Create free demo account' />
                             </DemoButton>
                         ))}
                     {is_live_demo && (
@@ -185,8 +185,8 @@ const DHero = ({
                             tertiary
                             external
                             type={getLinkType()}
-                            target="_blank"
-                            rel="noopener noreferrer nofollow"
+                            target='_blank'
+                            rel='noopener noreferrer nofollow'
                         >
                             {localize('Go to live demo')}
                         </GoToLiveDemo>

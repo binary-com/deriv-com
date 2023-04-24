@@ -41,7 +41,7 @@ const EmailLink = styled(StyledLink)`
 
 const Form = styled.form<FormProps>`
     height: 100%;
-    background-color: ${(props) => props.bgColor || 'var(--color-white)'};
+    background-color: ${props => props.bgColor || 'var(--color-white)'};
 
     @media ${device.mobileL} {
         width: 100%;
@@ -77,7 +77,7 @@ const Signup = (props: SignupProps) => {
     const [submit_status, setSubmitStatus] = useState('')
     const [submit_error_msg, setSubmitErrorMsg] = useState('')
 
-    const validateEmail = (email_address) => {
+    const validateEmail = email_address => {
         const error_message =
             validation.required(email_address) ||
             validation.email(email_address) ||
@@ -91,18 +91,18 @@ const Signup = (props: SignupProps) => {
         return error_message
     }
 
-    const handleValidation = (param) => {
+    const handleValidation = param => {
         const message = typeof param === 'object' ? param.target.value : param
         setEmailErrorMsg(validateEmail(message.replace(/\s/g, '')))
     }
 
-    const handleInputChange = (e) => {
+    const handleInputChange = e => {
         const { value } = e.target
         setEmail(value)
         handleValidation(value)
     }
 
-    const getVerifyEmailRequest = (formatted_email) => {
+    const getVerifyEmailRequest = formatted_email => {
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
 
         const cookies = getCookiesFields()
@@ -112,13 +112,13 @@ const Signup = (props: SignupProps) => {
         return {
             verify_email: formatted_email,
             url_parameters: {
-                ...(affiliate_token && { affiliate_token: affiliate_token }),
+                ...(affiliate_token && { affiliate_token }),
                 ...(cookies_value && { ...cookies_value }),
             },
         }
     }
 
-    const handleEmailSignup = (e) => {
+    const handleEmailSignup = e => {
         e.preventDefault()
         setSubmitting(true)
         const formatted_email = email.replace(/\s/g, '')
@@ -131,7 +131,7 @@ const Signup = (props: SignupProps) => {
         const verify_email_req = getVerifyEmailRequest(formatted_email)
         apiManager
             .augmentedSend('verify_email', { ...verify_email_req, type: 'account_opening' })
-            .then((response) => {
+            .then(response => {
                 setSubmitting(false)
                 if (response.error) {
                     setSubmitStatus('error')
@@ -159,52 +159,52 @@ const Signup = (props: SignupProps) => {
         setEmail('')
         setEmailErrorMsg('')
     }
-    const handleSocialSignup = (e) => {
+    const handleSocialSignup = e => {
         e.preventDefault()
 
         const data_provider: TSocialProvider = e.currentTarget.getAttribute('data-provider')
         Login.initOneAll(data_provider)
     }
 
-    const handleLogin = (e) => {
+    const handleLogin = e => {
         e.preventDefault()
         Login.redirectToLogin()
     }
 
-    const renderSwitch = (param) => {
+    const renderSwitch = param => {
         const parameters = {
             autofocus: props.autofocus,
-            clearEmail: clearEmail,
-            email: email,
-            email_error_msg: email_error_msg,
-            handleInputChange: handleInputChange,
-            handleLogin: handleLogin,
-            handleSocialSignup: handleSocialSignup,
-            handleValidation: handleValidation,
+            clearEmail,
+            email,
+            email_error_msg,
+            handleInputChange,
+            handleLogin,
+            handleSocialSignup,
+            handleValidation,
             is_ppc: props.is_ppc,
-            is_submitting: is_submitting,
+            is_submitting,
         }
 
         switch (param) {
             case Appearances.newSignup:
-                return <SignupNew {...parameters}></SignupNew>
+                return <SignupNew {...parameters} />
             case Appearances.public:
-                return <SignupPublic {...parameters}></SignupPublic>
+                return <SignupPublic {...parameters} />
             case Appearances.lightFlat:
             case Appearances.darkFlat:
                 return param == Appearances.darkFlat ? (
-                    <SignupFlat dark {...parameters}></SignupFlat>
+                    <SignupFlat dark {...parameters} />
                 ) : (
-                    <SignupFlat {...parameters}></SignupFlat>
+                    <SignupFlat {...parameters} />
                 )
             case Appearances.default:
             default:
-                return <SignupDefault {...parameters}></SignupDefault>
+                return <SignupDefault {...parameters} />
         }
     }
     return props.submit_state === 'success' ? (
         <ResponseWrapper>
-            <Header as="h3" type="section-title" align="center" weight="normal">
+            <Header as='h3' type='section-title' align='center' weight='normal'>
                 {localize('Check your email')}
             </Header>
             <StaticQuery
@@ -215,9 +215,9 @@ const Signup = (props: SignupProps) => {
                         }
                     }
                 `}
-                render={(data) => (
-                    <Box m="3.2rem 0">
-                        <QueryImage data={data.view_email} alt="Email image" />
+                render={data => (
+                    <Box m='3.2rem 0'>
+                        <QueryImage data={data.view_email} alt='Email image' />
                     </Box>
                 )}
             />
@@ -227,7 +227,7 @@ const Signup = (props: SignupProps) => {
                     values={{ email: props.email }}
                 />
             </ConfirmationMessage>
-            <EmailLink to="/check-email/" align="center">
+            <EmailLink to='/check-email/' align='center'>
                 {localize("Didn't receive your email?")}
             </EmailLink>
         </ResponseWrapper>

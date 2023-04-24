@@ -37,7 +37,7 @@ const Wrapper = styled.div`
 
 const BackgroundWrapper = styled(Flex)<DBannerProps>`
     width: 25%;
-    background-image: url(${(props) => props.background_pattern});
+    background-image: url(${props => props.background_pattern});
     clip-path: polygon(0 0, 100% 0%, 80% 100%, 0% 100%);
     transform: ${({ is_rtl }) => {
         return is_rtl ? 'scaleX(-1)' : null
@@ -136,33 +136,33 @@ const DBanner = ({ title, data, background_pattern, image_alt }: DBannerProps) =
     return (
         <Wrapper>
             <ImageContainer>
-                <ImageWrapper ai="center">
+                <ImageWrapper ai='center'>
                     {is_row && (
-                        <QueryImage data={data['deriv_platform']} alt={image_alt} width="100%" />
+                        <QueryImage data={data.deriv_platform} alt={image_alt} width='100%' />
                     )}
                     {is_eu && (
-                        <QueryImage data={data['deriv_platform_eu']} alt={image_alt} width="100%" />
+                        <QueryImage data={data.deriv_platform_eu} alt={image_alt} width='100%' />
                     )}
                 </ImageWrapper>
             </ImageContainer>
             <BackgroundWrapper
                 is_rtl={is_rtl}
                 background_pattern={background_pattern}
-                direction="column"
-                ai="center"
-            ></BackgroundWrapper>
+                direction='column'
+                ai='center'
+            />
             <TextWrapper>
-                <StyledHeader as="h4" align="center" color="white" size="5.6rem" mb="3.2rem">
+                <StyledHeader as='h4' align='center' color='white' size='5.6rem' mb='3.2rem'>
                     {title}
                 </StyledHeader>
 
                 {is_logged_in ? (
                     <DemoButton onClick={handleGetTrading} secondary>
-                        <Localize translate_text="Get Trading" />
+                        <Localize translate_text='Get Trading' />
                     </DemoButton>
                 ) : (
-                    <DemoButton onClick={handleSignup} id="dm-hero-signup" secondary>
-                        <Localize translate_text="Create free demo account" />
+                    <DemoButton onClick={handleSignup} id='dm-hero-signup' secondary>
+                        <Localize translate_text='Create free demo account' />
                     </DemoButton>
                 )}
             </TextWrapper>

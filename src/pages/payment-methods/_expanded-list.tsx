@@ -21,7 +21,7 @@ const StyledChevron = styled.img<ExpandListType>`
     height: 16px;
     width: 16px;
     margin: 26px 0 32px;
-    transform: ${(props) => (props.is_expanded ? 'inherit' : 'rotate(-180deg)')};
+    transform: ${props => (props.is_expanded ? 'inherit' : 'rotate(-180deg)')};
     transition: transform 0.25s ease-out;
 `
 const StyledPDF = styled.img`
@@ -32,7 +32,7 @@ const ExpandedContent = styled.td`
     text-align: start;
 `
 const Tr = styled.tr<ExpandListType>`
-    border-bottom: ${(props) => (props.is_expanded ? 'none' : '1px solid var(--color-grey-8)')};
+    border-bottom: ${props => (props.is_expanded ? 'none' : '1px solid var(--color-grey-8)')};
 `
 const Td = styled.td`
     vertical-align: middle;
@@ -75,7 +75,7 @@ const Description = styled.div<ExpandListType>`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    ${(props) =>
+    ${props =>
         props.is_expanded &&
         css`
             max-height: 40rem;
@@ -85,14 +85,14 @@ const Description = styled.div<ExpandListType>`
 `
 
 const StyledText = styled(Text)<ExpandListType>`
-    font-size: ${(props) => (props.is_expanded ? 'var(--text-size-s)' : '0')};
+    font-size: ${props => (props.is_expanded ? 'var(--text-size-s)' : '0')};
 `
 const StyleCurrencyText = styled(Text)`
     white-space: pre-line;
 `
 const Deposit = styled(Td)<ExpandListType>`
     & > p {
-        max-width: ${(props) => (props.is_fiat_onramp ? '21rem' : '12rem')};
+        max-width: ${props => (props.is_fiat_onramp ? '21rem' : '12rem')};
     }
 `
 
@@ -184,24 +184,24 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                             <CenterIcon
                                 href={`/payment-methods/${
                                     payment_data.locales?.includes(locale?.locale?.language)
-                                        ? locale?.locale?.language + '/' + payment_data.reference
+                                        ? `${locale?.locale?.language}/${payment_data.reference}`
                                         : payment_data.reference
                                 }`}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                target='_blank'
+                                rel='noopener noreferrer'
                             >
-                                <StyledPDF src={PDF} alt="PDF" />
+                                <StyledPDF src={PDF} alt='PDF' />
                             </CenterIcon>
                         ) : payment_data.reference_link ? (
                             payment_data.reference_link
                         ) : (
-                            <Text align="center">-</Text>
+                            <Text align='center'>-</Text>
                         )}
                     </>
                 </Td>
                 {payment_data.description && (
                     <HoverTd onClick={toggleExpand}>
-                        <StyledChevron src={Chevron} alt="chevron" is_expanded={is_expanded} />
+                        <StyledChevron src={Chevron} alt='chevron' is_expanded={is_expanded} />
                     </HoverTd>
                 )}
             </Tr>

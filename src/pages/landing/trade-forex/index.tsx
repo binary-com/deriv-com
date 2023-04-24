@@ -9,13 +9,14 @@ import { localize, WithIntl, Localize } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
+
 const IconTextRow = Loadable(() => import('./components/_icon-text-row'))
 
 const TradeForex = () => {
     const [is_mounted] = usePageLoaded() // needed to fix the second Hero-component during page's loading
 
     return (
-        <Layout type="landing-page" is_ppc_redirect={true}>
+        <Layout type='landing-page' is_ppc_redirect={true}>
             <SEO
                 title={localize('Weekends')}
                 description={localize('Ride the trends even on weekends')}
@@ -25,7 +26,7 @@ const TradeForex = () => {
                     <Hero
                         title={localize('Our forex spreads are lower than ever')}
                         content={
-                            <Localize translate_text="Open forex trades at a lower cost and capitalise on the market more effectively." />
+                            <Localize translate_text='Open forex trades at a lower cost and capitalise on the market more effectively.' />
                         }
                     />
                     <IconTextRow />

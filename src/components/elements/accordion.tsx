@@ -15,12 +15,12 @@ const ThickArrow = styled.img<ArrowProps>`
     width: 24px;
     transform: rotate(-180deg);
     transition: transform 0.25s linear;
-    ${(props) => (props.expanded ? 'transform: inherit;' : '')}
+    ${props => (props.expanded ? 'transform: inherit;' : '')}
 `
 
 const Arrow = styled.img<ArrowProps>`
     transition: transform 0.25s linear;
-    ${(props) => (props.expanded ? 'transform: rotate(-180deg);' : '')}
+    ${props => (props.expanded ? 'transform: rotate(-180deg);' : '')}
 `
 
 const AccordionHeader = styled.div`
@@ -134,16 +134,16 @@ const ItemExpanded = ({ child, child_idx, nodes, id }: ItemExpandedProps) => {
         else setHeight(0)
     }, [height])
 
-    const deployer = <img src={is_expanded ? Minus : Plus} alt="Minus" height="16" width="16" />
+    const deployer = <img src={is_expanded ? Minus : Plus} alt='Minus' height='16' width='16' />
 
     const current_arrow = child?.props.arrow_thin ? (
-        <Arrow src={Chevron} alt="Chevron" width="32" height="32" expanded={is_expanded} />
+        <Arrow src={Chevron} alt='Chevron' width='32' height='32' expanded={is_expanded} />
     ) : (
         <ThickArrow
             src={ChevronThick}
-            alt="Chevron thick"
-            width="32"
-            height="32"
+            alt='Chevron thick'
+            width='32'
+            height='32'
             expanded={is_expanded}
         />
     )
@@ -155,19 +155,19 @@ const ItemExpanded = ({ child, child_idx, nodes, id }: ItemExpandedProps) => {
                     key={child_idx}
                     style={child?.props.parent_style}
                     id={id}
-                    ref={(div) => {
+                    ref={div => {
                         nodes[child_idx] = { ref: div }
                     }}
                 >
                     <AccordionWrapper>
                         <AccordionHeader
                             onClick={() => setExpanded(!is_expanded)}
-                            role="button"
+                            role='button'
                             aria-expanded={is_expanded}
                             style={child?.props.header_style}
                             className={child?.props.class_name}
                         >
-                            <Text weight="bold">{child?.props.header}</Text>
+                            <Text weight='bold'>{child?.props.header}</Text>
                             <div>{child?.props.plus ? deployer : current_arrow}</div>
                         </AccordionHeader>
                         <div
@@ -246,21 +246,21 @@ const AccordionContent = ({ children, nodes }: AccordionContentProps) => {
         const is_expanded = child_idx === active_idx
 
         const deployer = is_expanded ? (
-            <img src={Minus} alt="Minus" height="16" width="16" />
+            <img src={Minus} alt='Minus' height='16' width='16' />
         ) : (
-            <img src={Plus} alt="Plus" height="16" width="16" />
+            <img src={Plus} alt='Plus' height='16' width='16' />
         )
 
-        const expanded_state = is_expanded ? true : false
+        const expanded_state = !!is_expanded
 
         const current_arrow = child?.props.arrow_thin ? (
-            <Arrow src={Chevron} alt="Chevron" width="32" height="32" expanded={expanded_state} />
+            <Arrow src={Chevron} alt='Chevron' width='32' height='32' expanded={expanded_state} />
         ) : (
             <ThickArrow
                 src={ChevronThick}
-                alt="Chevron thick"
-                width="32"
-                height="32"
+                alt='Chevron thick'
+                width='32'
+                height='32'
                 expanded={expanded_state}
             />
         )
@@ -268,18 +268,18 @@ const AccordionContent = ({ children, nodes }: AccordionContentProps) => {
         return (
             <div
                 style={child.props.parent_style}
-                ref={(div) => {
+                ref={div => {
                     nodes[child_idx] = { ref: div }
                 }}
             >
                 <AccordionWrapper key={child_idx}>
                     <AccordionHeader
                         onClick={() => toggle(child_idx)}
-                        role="button"
+                        role='button'
                         aria-expanded={is_expanded}
                         style={child.props.header_style}
                     >
-                        <Text weight="bold">{child?.props.header}</Text>
+                        <Text weight='bold'>{child?.props.header}</Text>
                         {child?.props.plus ? deployer : current_arrow}
                     </AccordionHeader>
                     <div

@@ -25,6 +25,10 @@ const DownloadAppWrapper = styled.div<{ is_rtl: boolean }>`
     width: 100%;
     margin: 0 auto;
     direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
+
+    @media ${device.tablet} {
+        margin-top: 8rem;
+    }
 `
 const QRScanBox = styled.div`
     border: 0.5px solid var(--color-white);
@@ -78,7 +82,7 @@ const DownloadColumn: React.FC<TProps> = ({ items, QRImage, QRHeading1, QRHeadin
         <Flex ai="center">
             <DownloadAppWrapper is_rtl={is_rtl}>
                 <QRScanBox>
-                    <img src={QRImage} alt="Deriv GO QR" />
+                    <img width="64px" height="64px" src={QRImage} alt="Deriv GO QR" />
                     <div>
                         <StyledHeading as="p" weight="100">
                             {localize(`${QRHeading1}`)}

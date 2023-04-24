@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import derivXLogo from '../../images/svg/deriv-x/derivX.svg'
-import derivXQR from '../../images/svg/deriv-x/derivxQR.svg'
+import derivXQR from '../../images/svg/deriv-x/derivxQR.png'
 import GrayAngle30 from '../../images/common/gray-angle.png'
 import AppleIcon from '../../images/svg/apple-icon.svg'
 import AppGalleryIcon from '../../images/svg/appGallery-icon.svg'
@@ -65,9 +65,10 @@ const DerivXGetApp = () => {
             firstColumnWidth="58%"
             secondColumnWidth="42%"
             mobileBackgroundImage={GetAppMobileBG}
+            mobilePadding="25px 0 120px 0"
         >
             <ContentWrapper is_rtl={is_rtl}>
-                <img src={derivXLogo} alt="Deriv Go logo" width="64px" height="64px" />
+                <img src={derivXLogo} alt="Deriv X logo" width="64px" height="64px" />
                 <TextAndButtonWrapper>
                     <CommonHeaderSection
                         title="_t_Get trading with Deriv X_t_"

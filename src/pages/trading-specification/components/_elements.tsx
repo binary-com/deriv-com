@@ -53,7 +53,7 @@ export const TableRow = styled.tr<TableRowProps>`
         width: 7.6rem;
     }
     th: nth-child(1) {
-        width: 200px;
+        width: 180px;
     }
     th: nth-child(11) {
         width: 160px;
@@ -62,12 +62,31 @@ export const TableRow = styled.tr<TableRowProps>`
         width: 7.6rem;
     }
     td: nth-child(1) {
-        width: 205px;
+        width: 180px;
     }
     td: nth-child(11) {
         width: 168px;
     }
 
+    @media (max-width: 1370px) {
+        gap: 27px;
+        th,
+        td {
+            width: 53px;
+        }
+        th: nth-child(1) {
+            width: 168px;
+        }
+        th: nth-child(11) {
+            width: 168px;
+        }
+        td: nth-child(1) {
+            width: 168px;
+        }
+        td: nth-child(11) {
+            width: 168px;
+        }
+    }
     @media ${device.tabletL} {
         gap: 0;
         justify-content: start;

@@ -74,29 +74,29 @@ const derivGoPortalData: DerivGoPortalType = {
 const DerivGo = () => {
     const { is_region_loading, is_row } = useRegion()
 
-    if (!is_region_loading && is_row) {
-        return (
-            <Layout>
-                <SEO
-                    title={localize(
-                        'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO.',
-                    )}
-                    description={localize(
-                        'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',
-                    )}
-                />
-                <Banner />
-                <WhatIsDerivGo />
-                <WhyTradeDerivGo />
-                <DerivGoContent reverse P2P={items} />
-                <StartDerivGo />
-                <Roadmap portal={derivGoPortalData} />
-                <FooterBanner />
-                <OtherApps />
-            </Layout>
-        )
+    if (is_region_loading && !is_row) {
+        return <PageNotFound />
     }
-    return <PageNotFound />
+    return (
+        <Layout>
+            <SEO
+                title={localize(
+                    'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO.',
+                )}
+                description={localize(
+                    'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',
+                )}
+            />
+            <Banner />
+            <WhatIsDerivGo />
+            <WhyTradeDerivGo />
+            <DerivGoContent reverse P2P={items} />
+            <StartDerivGo />
+            <Roadmap portal={derivGoPortalData} />
+            <FooterBanner />
+            <OtherApps />
+        </Layout>
+    )
 }
 
 export default WithIntl()(DerivGo)

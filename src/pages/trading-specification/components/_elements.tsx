@@ -19,7 +19,7 @@ export const TableContainer = styled.div`
     padding: 0 12rem;
 
     @media ${device.tabletL} {
-        padding: 0 0 0 3rem;
+        padding: 0 0 0 16px;
         overflow: scroll;
     }
 `
@@ -262,14 +262,13 @@ export const StyledButtonPage = styled(Button)<{ selected: boolean }>`
               `}
 `
 export const StyledPaginationContainer = styled(Flex)`
-    display: grid;
     padding: 3rem 0;
     gap: 10px;
-    justify-content: end;
     @media ${device.tabletL} {
-        flex-direction: column-reverse;
+        flex-direction: column;
         justify-content: center;
         padding: 3rem;
+        gap: 20px;
     }
 `
 export type CardProps = {

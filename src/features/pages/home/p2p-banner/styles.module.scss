@@ -2,7 +2,7 @@
 @import 'features/styles/theme/variables';
 
 .p2p_banner {
-    background-color: $color-grey-23;
+    background-color: $color-grey-8;
     @include breakpoints(laptop) {
         block-size: 40rem;
     }

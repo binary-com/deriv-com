@@ -3,13 +3,7 @@ import { TNavSingleItem } from '../../types'
 import { Localize } from 'components/localization'
 import Link from 'features/components/atoms/link'
 
-const NavSingleItem = <T extends string>({
-    item,
-    is_mobile,
-}: {
-    is_mobile?: boolean
-    item: TNavSingleItem<T>
-}) => {
+const NavSingleItem = ({ item, is_mobile }: { is_mobile?: boolean; item: TNavSingleItem }) => {
     return (
         <Link
             size={is_mobile ? 'large' : 'medium'}

@@ -1,9 +1,9 @@
 import React from 'react'
-import { Autoplay, Controller, EffectFade } from 'swiper'
+import { Autoplay, Controller, EffectFade, Pagination } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import type { Swiper as SwiperType } from 'swiper'
 import { SmartPlatformItem } from '../../types'
-import { platform_images_swiper } from './platform-images.module.scss'
+import { platform_images_swiper, platform_slider_pagination } from './platform-images.module.scss'
 import PlatformImageItem from './platform-image.item'
 import { get_lang_direction } from 'components/localization'
 
@@ -27,11 +27,27 @@ const PlatformImageSlider = ({ items, setSwiper, connectedSwiper }: PlatformMain
                 control: connectedSwiper,
             }}
             dir={get_lang_direction()}
-            modules={[Controller, EffectFade, Autoplay]}
+            modules={[Controller, EffectFade, Autoplay, Pagination]}
             autoplay={{
                 delay: 3000,
             }}
             className={platform_images_swiper}
+            pagination={{
+                enabled: true,
+                type: 'bullets',
+                horizontalClass: platform_slider_pagination,
+                clickable: true,
+            }}
+            breakpoints={{
+                992: {
+                    pagination: {
+                        enabled: false,
+                        type: 'bullets',
+                        horizontalClass: platform_slider_pagination,
+                        clickable: true,
+                    },
+                },
+            }}
         >
             {items.map(({ id, data }) => (
                 <SwiperSlide key={id}>

@@ -1,11 +1,8 @@
 import React, { useMemo } from 'react'
-import NavCardItems from '../nav-card-items'
-import * as styles from './render-section-items.module.scss'
+import NavSectionColumn from './section-column'
 import useRegion from 'components/hooks/use-region'
 import useVisibleContent from 'components/hooks/use-visible-content'
 import usePpc from 'features/hooks/use-ppc'
-import Typography from 'features/components/atoms/typography'
-import { Localize } from 'components/localization'
 import { TNavConfig, TSmartNavSectionColumns } from 'features/components/templates/navigation/types'
 import Flex from 'features/components/atoms/flex-box'
 
@@ -27,28 +24,7 @@ const NavSectionContainer = ({ items }: { items: TSmartNavSectionColumns[] }) =>
     return (
         <Flex.Box bgcolor="primary" direction={'col'} md={{ direction: 'row' }}>
             {data.map((sectionItem) => (
-                <Flex.Box
-                    direction="col"
-                    gap="5x"
-                    padding_block="4x"
-                    padding_inline="5x"
-                    key={sectionItem.id}
-                    className={styles.section_items_container}
-                >
-                    <Typography.Paragraph
-                        className={styles.section_items_title}
-                        textcolor="secondary"
-                        align="left"
-                        mb="2x"
-                    >
-                        {sectionItem.data.title ? (
-                            <Localize translate_text={sectionItem.data.title} />
-                        ) : (
-                            ''
-                        )}
-                    </Typography.Paragraph>
-                    <NavCardItems items={sectionItem.data.section} />
-                </Flex.Box>
+                <NavSectionColumn item={sectionItem} key={sectionItem.id} />
             ))}
         </Flex.Box>
     )

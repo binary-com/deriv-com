@@ -6,12 +6,12 @@ import Accordion from 'features/components/atoms/accordion'
 import dclsx from 'features/utils/dclsx'
 import Flex from 'features/components/atoms/flex-box'
 
-interface INavMenuProps<T extends string> extends HTMLAttributes<HTMLDivElement> {
+interface INavMenuProps extends HTMLAttributes<HTMLDivElement> {
     is_open: boolean
-    items: TSmartNavItemsContent<T>[]
+    items: TSmartNavItemsContent[]
 }
 
-const MobileMenu = <T extends string>({ is_open, className, items }: INavMenuProps<T>) => {
+const MobileMenu = ({ is_open, className, items }: INavMenuProps) => {
     return (
         <Flex.Item
             visible="phone-and-tablet"

@@ -7,18 +7,19 @@ import Container from 'features/components/atoms/container'
 
 const SignupPublic = () => {
     return (
-        <Container.Fixed padding_block="10x" md={{ padding_block: '40x' }}>
+        <Container.Fixed
+            padding_block="15x"
+            bgcolor="primary"
+            md={{ padding_block: '40x', margin_block: '30x' }}
+        >
             <Flex.Box
                 direction={'col-reverse'}
                 container="fluid"
                 className={public_signup_container}
                 bgcolor="brand"
-                justify="between"
                 align="stretch"
-                margin_block={'40x'}
                 md={{
                     direction: 'row',
-                    gap: '40x',
                 }}
             >
                 <SignupPublicForm />

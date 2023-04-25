@@ -36,7 +36,6 @@ const PlatformsMainSlider = ({ items, setSwiper, connectedSwiper }: PlatformMain
             grabCursor
             centeredSlides
             slideToClickedSlide
-            spaceBetween={16}
             className={platform_swiper}
         >
             {items.map(({ id, data }) => (

@@ -1,3 +1,5 @@
+@import 'features/styles/theme/variables';
+
 .platform_images_swiper {
     flex: 1;
     block-size: 60rem;
@@ -10,4 +12,8 @@
 
 .platform_image_caption {
     opacity: 0.6;
+}
+.platform_slider_pagination {
+    --swiper-pagination-bottom: 6.5rem !important;
+    --swiper-pagination-color: #ff444f;
 }

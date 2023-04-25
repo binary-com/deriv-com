@@ -4,7 +4,7 @@ import { ClassProps } from 'features/types'
 import dclsx from 'features/utils/dclsx'
 
 interface IconProps extends ImgHTMLAttributes<'img'>, ClassProps {
-    size?: 'small' | 'medium' | 'large'
+    size?: 'small' | 'medium' | 'large' | 'xlarge'
     has_rtl?: boolean
 }
 

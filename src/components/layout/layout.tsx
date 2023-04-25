@@ -17,6 +17,7 @@ import BugBountyNav from 'features/components/templates/navigation/bug-bounty-na
 import CareerNav from 'features/components/templates/navigation/career-nav'
 import MarketNav from 'features/components/templates/navigation/market-nav'
 import RebrandingFooter from 'features/components/templates/footer'
+import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
 
 type LayoutProps = {
     children: ReactNode
@@ -104,7 +105,7 @@ const Layout = ({
         )
     }
     return (
-        <>
+        <PpcProvider is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
             {Navs[type]}
             <LocationProvider
                 has_mounted={is_mounted}
@@ -136,7 +137,7 @@ const Layout = ({
                 </div>
             </LocationProvider>
             <RebrandingFooter />
-        </>
+        </PpcProvider>
     )
 }
 

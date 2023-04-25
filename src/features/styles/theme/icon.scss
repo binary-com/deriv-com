@@ -35,3 +35,13 @@
         block-size: 32px;
     }
 }
+
+.icon-xlarge {
+    inline-size: 32px;
+    block-size: 32px;
+
+    @include breakpoints(tablet) {
+        inline-size: 64px;
+        block-size: 64px;
+    }
+}

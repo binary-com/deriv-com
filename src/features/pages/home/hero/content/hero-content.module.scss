@@ -6,3 +6,12 @@
         inline-size: auto;
     }
 }
+
+.hero_typewriter {
+    margin-block: 0.8rem;
+    min-block-size: 4.8rem;
+
+    @include breakpoints(tablet) {
+        min-block-size: 6.4rem;
+    }
+}

@@ -2,8 +2,11 @@
 @import 'features/styles/theme/variables';
 
 .footer {
-    border-block-start: 1px solid $color-grey-44;
     opacity: 0.8;
+
+    @include breakpoints(tablet) {
+        border-block-start: 1px solid $color-grey-44;
+    }
 }
 
 .footer_grid {

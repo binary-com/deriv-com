@@ -22,37 +22,30 @@ export type TNavMultiColumn = {
 export type TSmartNavContent = TSmartContent<TNavColumn, TNavConfig>
 export type TSmartNavSectionColumns = TSmartContent<TNavMultiColumn, TNavConfig>
 
-interface TBaseNavItem<T extends string> {
+interface TBaseNavItem {
     title?: TString
-    active: T
 }
 
-export interface TNavSingleItem<T extends string> extends TBaseNavItem<T> {
+export interface TNavSingleItem extends TBaseNavItem {
     type: 'single-item'
     content: LinkUrlType
 }
 
-export interface TNavSingleColumnItems<T extends string> extends TBaseNavItem<T> {
+export interface TNavSingleColumnItems extends TBaseNavItem {
     type: 'single-column'
     content: TSmartNavContent[]
 }
 
-export interface TNavMultiColumnItems<T extends string> extends TBaseNavItem<T> {
+export interface TNavMultiColumnItems extends TBaseNavItem {
     type: 'multi-column'
     content: TSmartNavSectionColumns[]
 }
 
-export type TNavItemsContent<T extends string> =
-    | TNavSingleItem<T>
-    | TNavSingleColumnItems<T>
-    | TNavMultiColumnItems<T>
+export type TNavItemsContent = TNavSingleItem | TNavSingleColumnItems | TNavMultiColumnItems
 
-export type TSmartNavItemsContent<T extends string> = TSmartContent<
-    TNavItemsContent<T>,
-    TNavItemsContentConfig
->
+export type TSmartNavItemsContent = TSmartContent<TNavItemsContent, TNavItemsContentConfig>
 
-export type TNavItems<T extends string> = TSmartNavItemsContent<T>[]
+export type TNavItems = TSmartNavItemsContent[]
 
 export type TNavItemsContentConfig = {
     is_mobile: boolean

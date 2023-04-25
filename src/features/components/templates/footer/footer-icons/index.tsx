@@ -11,10 +11,10 @@ const FooterIcons = () => {
                 justify="between"
                 align="center"
                 direction="col"
+                gap={'30x'}
                 md={{
                     direction: 'row',
                 }}
-                gap={'10x'}
             >
                 <Image src={DerivFooterLogo} alt="deriv logo image" width={110} height={40} />
                 <FooterSocialIcons />

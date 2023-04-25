@@ -1,49 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
+import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { TSmartNavItemsContent } from '../../types'
-import * as styles from './nav-items.module.scss'
 import NavDesktopItem from './desktop.items'
-import Flex from 'features/components/atoms/flex-box'
+import { get_lang_direction } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
+import './styles.scss'
 
-interface IDesktopNavbarProps<T extends string> {
-    onItemClick: (item: T) => void
-    activeTab: T
-    items: TSmartNavItemsContent<T>[]
+interface IDesktopNavbarProps {
+    items: TSmartNavItemsContent[]
     has_centered_items?: boolean
 }
 
-const DesktopMenu = <T extends string>({
-    onItemClick,
-    activeTab,
-    items,
-    has_centered_items,
-}: IDesktopNavbarProps<T>) => {
+const DesktopMenu = ({ items, has_centered_items }: IDesktopNavbarProps) => {
+    const [active, setActive] = useState('')
+
     return (
-        <Flex.Box
-            as="ul"
-            justify="end"
-            align="center"
-            visible="larger-than-tablet"
-            gap="12x"
-            className={styles.nav_items}
-            grow={has_centered_items ? '0' : '1'}
+        <NavigationMenu.Root
+            dir={get_lang_direction()}
+            value={active}
+            onValueChange={setActive}
+            className={dclsx(
+                'navigation_root',
+                has_centered_items ? 'justify-center' : 'justify-end',
+            )}
         >
-            {items.map((contentItem) => {
-                return (
-                    <Flex.Box
-                        key={contentItem.data.active}
-                        className={dclsx({
-                            [styles.active_item]: contentItem.data.active === activeTab,
-                        })}
-                        align="center"
-                        as="li"
-                        onClick={() => onItemClick(contentItem.data.active)}
-                    >
-                        <NavDesktopItem item={contentItem} activeTab={activeTab} />
-                    </Flex.Box>
-                )
-            })}
-        </Flex.Box>
+            <NavigationMenu.List className="navigation_list">
+                {items.map((item) => (
+                    <NavDesktopItem key={item.id} item={item} />
+                ))}
+            </NavigationMenu.List>
+            <div
+                className={dclsx('navigation_position', {
+                    trade_active: active === '_t_Trade_t_',
+                })}
+            >
+                <NavigationMenu.Viewport className="navigation_viewport" />
+            </div>
+        </NavigationMenu.Root>
     )
 }
 

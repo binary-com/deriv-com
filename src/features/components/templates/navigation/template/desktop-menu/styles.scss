@@ -1,0 +1,131 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.navigation {
+    &_root {
+        display: none;
+
+        @include breakpoints(tablet) {
+            position: relative;
+            display: flex;
+            z-index: 1;
+            flex: 1;
+        }
+    }
+    &_list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &_trigger {
+        all: unset;
+        padding: 8px 12px;
+        outline: none;
+        user-select: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &[data-state='open'] > p {
+            color: $bg-color-brand;
+        }
+    }
+
+    &_content {
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        inline-size: auto;
+        padding: 2.4rem 0.8rem;
+        animation-duration: 250ms;
+        animation-timing-function: ease;
+    }
+
+    &_position {
+        display: flex;
+        justify-content: end;
+        perspective: 2000px;
+        position: absolute;
+        inset-inline-end: -2rem;
+        inset-block-start: 6rem;
+        inline-size: 100vw;
+    }
+
+    &_viewport {
+        position: relative;
+        transform-origin: top center;
+        background-color: white;
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+            hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+        block-size: var(--radix-navigation-menu-viewport-height);
+        inline-size: var(--radix-navigation-menu-viewport-width);
+        transition: width, height, 300ms ease;
+        &[data-state='open'] {
+            animation: scaleIn 200ms ease;
+        }
+        &[data-state='closed'] {
+            animation: scaleOut 200ms ease;
+        }
+    }
+}
+
+.trade_active {
+    position: fixed;
+    inset-block-start: 7rem;
+    justify-content: center;
+    inset-inline-end: 0;
+
+    @include breakpoints(laptop) {
+        position: absolute;
+        inset-inline-end: -20rem;
+        inset-block-start: 5rem;
+        justify-content: end;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-30deg) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: rotateX(0deg) scale(1);
+    }
+}
+
+@keyframes scaleOut {
+    from {
+        opacity: 1;
+        transform: rotateX(0deg) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: rotateX(-10deg) scale(0.95);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

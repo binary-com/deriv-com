@@ -18,31 +18,21 @@
         cursor: pointer;
         white-space: pre-line;
 
-        .nav_right_diagonal {
-            opacity: 1;
-            position: absolute;
-            inset-block-start: 0;
-            inset-inline-end: 0;
-            inline-size: 16px;
-            block-size: 16px;
-
-            @include breakpoints(tablet) {
-                opacity: 0;
-            }
+        @include breakpoints(tablet) {
+            inline-size: 28rem;
         }
 
         &:hover {
             background-color: $color-grey-30;
-
-            .nav_right_diagonal {
-                opacity: 1;
-            }
         }
 
         & > h2 {
             font-size: 1.6rem;
             line-height: 1;
         }
+    }
+    &_no_icon {
+        grid-template-columns: 1fr;
     }
 
     &_content {

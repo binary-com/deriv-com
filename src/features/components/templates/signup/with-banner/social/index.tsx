@@ -61,6 +61,7 @@ const PublicSignupSocial = () => {
                             size="small"
                             weight="bold"
                             visible="larger-than-tablet"
+                            font_family="UBUNTU"
                         >
                             <Localize translate_text={buttonItem.title} />
                         </Typography.Paragraph>

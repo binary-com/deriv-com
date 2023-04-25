@@ -11,6 +11,7 @@
         justify-content: center;
         align-items: center;
         margin-block: 0.5rem;
+        padding-inline-start: 1.8rem;
 
         min-block-size: 6rem;
 
@@ -33,6 +34,7 @@
     }
     &_no_icon {
         grid-template-columns: 1fr;
+        padding-inline-start: 0;
     }
 
     &_content {

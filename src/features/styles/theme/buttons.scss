@@ -20,6 +20,12 @@
         cursor: pointer;
     }
 }
+[dir='ltr'] .button {
+    font-family: Ubuntu, sans-serif;
+}
+[dir='rtl'] .button {
+    font-family: 'Noto Sans', sans-serif;
+}
 .button.hero {
     min-block-size: 6.4rem;
     border-radius: 2.4rem;

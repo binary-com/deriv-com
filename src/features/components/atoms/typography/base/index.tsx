@@ -4,6 +4,7 @@ import {
     TTypographyAlign,
     TTypographyBreakWord,
     TTypographyColor,
+    TTypographyFont,
     TTypographyWeight,
     TypographyTagOptions,
 } from 'features/types'
@@ -11,6 +12,7 @@ import dclsx from 'features/utils/dclsx'
 import {
     generateTypographyAlignClasses,
     generateTypographyClasses,
+    generateTypographyFontClasses,
     generateTypographyWeightClasses,
 } from 'features/styles/utils'
 
@@ -22,6 +24,7 @@ export interface TypographyAlignWeight {
 export interface TypographyProps extends TypographyAlignWeight {
     break_word?: TTypographyBreakWord
     textcolor?: TTypographyColor
+    font_family?: TTypographyFont
 }
 export interface BaseTypographyProps<T extends TypographyTagOptions>
     extends BoxProps<TypographyTagOptions>,
@@ -40,6 +43,7 @@ const BaseTypography = <T extends TypographyTagOptions>({
     lg,
     break_word = 'word',
     textcolor = 'primary',
+    font_family,
     ...rest
 }: BaseTypographyProps<T>) => {
     const classnames = dclsx(
@@ -51,6 +55,7 @@ const BaseTypography = <T extends TypographyTagOptions>({
         generateTypographyWeightClasses(weight),
         generateTypographyWeightClasses(md?.weight, 'md'),
         generateTypographyWeightClasses(lg?.weight, 'lg'),
+        generateTypographyFontClasses(font_family),
         generateTypographyClasses({
             break_word,
             textcolor,

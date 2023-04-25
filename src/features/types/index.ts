@@ -110,6 +110,7 @@ export type TTextSize = InferSide<ClassNames, 'text'>
 export type TBorderRadius = InferSide<ClassNames, 'border-radius'>
 export type TSpacingSize = InferSide<ClassNames, 'margin-block'>
 export type TTypographyColor = InferSide<ClassNames, 'typography-color'>
+export type TTypographyFont = InferSide<ClassNames, 'typography-font'>
 
 // Background Classes
 export type TBGColor = InferSide<ClassNames, 'bg-color'>

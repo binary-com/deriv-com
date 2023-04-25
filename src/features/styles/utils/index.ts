@@ -6,6 +6,7 @@ import {
     TTypographyAlign,
     TTypographyBreakWord,
     TTypographyColor,
+    TTypographyFont,
     TTypographyWeight,
     TVisible,
 } from 'features/types'
@@ -107,6 +108,12 @@ export const generateTypographyWeightClasses = (weight?: TTypographyWeight, pref
     const classPrefix = prefix !== '' ? `${prefix}-` : ''
     return dclsx({
         [`${classPrefix}typography-weight-${weight}`]: weight,
+    })
+}
+
+export const generateTypographyFontClasses = (font_family?: TTypographyFont) => {
+    return dclsx({
+        [`typography-font-${font_family}`]: font_family,
     })
 }
 

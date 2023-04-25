@@ -7,6 +7,14 @@
     word-break: break-word;
 }
 
+[dir='ltr'] .typography-font-IBM {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+[dir='ltr'] .typography-font-UBUNTU {
+    font-family: Ubuntu, sans-serif;
+}
+
 .typography-link {
     cursor: pointer;
     text-decoration: none;

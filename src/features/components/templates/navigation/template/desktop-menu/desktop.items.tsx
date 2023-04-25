@@ -20,7 +20,7 @@ const NavDesktopItem = ({ item }: DesktopItemsProps) => {
             ) : (
                 <>
                     <NavigationMenu.Trigger className="navigation_trigger">
-                        <Typography.Paragraph size="medium">
+                        <Typography.Paragraph size="medium" font_family="UBUNTU">
                             <Localize translate_text={item.data.title} />
                         </Typography.Paragraph>
                     </NavigationMenu.Trigger>

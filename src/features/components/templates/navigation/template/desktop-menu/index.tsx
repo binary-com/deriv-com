@@ -22,6 +22,7 @@ const DesktopMenu = ({ items, has_centered_items }: IDesktopNavbarProps) => {
             className={dclsx(
                 'navigation_root',
                 has_centered_items ? 'justify-center' : 'justify-end',
+                has_centered_items ? undefined : 'margin-right-40x',
             )}
         >
             <NavigationMenu.List className="navigation_list">
@@ -32,6 +33,10 @@ const DesktopMenu = ({ items, has_centered_items }: IDesktopNavbarProps) => {
             <div
                 className={dclsx('navigation_position', {
                     trade_active: active === '_t_Trade_t_',
+                    trade_landing_active:
+                        typeof window !== 'undefined' &&
+                        window.location.pathname.includes('landing') &&
+                        active === '_t_Trade_t_',
                 })}
             >
                 <NavigationMenu.Viewport className="navigation_viewport" />

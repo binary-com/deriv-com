@@ -11,6 +11,7 @@ const NavSingleItem = ({ item, is_mobile }: { is_mobile?: boolean; item: TNavSin
             padding_inline="10x"
             url={item.content}
             weight={is_mobile ? 'bold' : 'normal'}
+            font_family="UBUNTU"
         >
             <Localize translate_text={item.title} />
         </Link>

@@ -20,11 +20,24 @@ type TBannerDimensionProps = {
     width: string
     minHeight: string
 }
+const mainTabHeight = '14.6'
+const subTabHeight = '10.6'
 
-const cookieBannerProps: TBannerDimensionProps = { width: '384', minHeight: '188' }
-const BrowserBannerProps: TBannerDimensionProps = { width: '384', minHeight: '132' }
+const cookieBannerProps: TBannerDimensionProps = {
+    width: '384',
+    minHeight: '188',
+}
+const BrowserBannerProps: TBannerDimensionProps = {
+    width: '384',
+    minHeight: '132',
+}
 
-const Wrapper = styled.div<{ visible: boolean; width: string; minHeight: string }>`
+const Wrapper = styled.div<{
+    visible: boolean
+    width: string
+    minHeight: string
+    tabHeight: string
+}>`
     pointer-events: all;
     width: ${({ width = 400 }) => width}px;
     min-height: ${({ minHeight = 130 }) => minHeight}px;
@@ -63,7 +76,7 @@ const Wrapper = styled.div<{ visible: boolean; width: string; minHeight: string 
 
     @media ${device.tablet} {
         width: 100%;
-        height: 14.6rem;
+        height: ${({ tabHeight = 14.6 }) => tabHeight}rem;
         padding: 16px;
         border-radius: unset;
         min-height: unset;
@@ -125,7 +138,7 @@ const BannerAlert: FC<TProps> = ({ bannerType }) => {
     const { is_outdated } = useUserBrowser(browsers_minimum_required_version)
     const is_rtl = useIsRtl()
     const { is_eu, is_cpa_plan } = useRegion()
-    const { is_mobile_or_tablet } = useBreakpoints()
+    const { is_mobile } = useBreakpoints()
 
     //cookie banner
     // Todo: Should simplify this useEffect and get rid of the duplicated state and find another solution
@@ -160,73 +173,65 @@ const BannerAlert: FC<TProps> = ({ bannerType }) => {
         setIsVisible(false)
     }
 
-    const generateBanner = useMemo(() => {
-        switch (bannerType) {
-            case bannerTypes.cookieBanner:
-                return (
+    return is_visible ? (
+        bannerType === bannerTypes.cookieBanner ? (
+            <Wrapper
+                visible={cookie.should_show}
+                width={cookieBannerProps.width}
+                minHeight={cookieBannerProps.minHeight}
+                tabHeight={mainTabHeight}
+            >
+                <StyledText>
+                    <Localize translate_text="_t_Cookies help us to give you a better experience and personalised content on our site. _t_" />
+                    <Localize
+                        translate_text="_t_If you agree to our use of cookies, click on Accept. For more information, <0>see our policy</0>._t_"
+                        components={[
+                            <LinkText key={0} to="/terms-and-conditions/#clients" color="red" />,
+                        ]}
+                    />
+                </StyledText>
+                <Flex>
+                    <StyledButton tertiary onClick={cookie.decline} mr="0.8rem">
+                        {localize("_t_Don't accept_t_")}
+                    </StyledButton>
+                    <StyledButton secondary onClick={cookie.accept}>
+                        {localize('_t_Accept_t_')}
+                    </StyledButton>
+                </Flex>
+            </Wrapper>
+        ) : bannerType === bannerTypes.outdatedBrowserBanner ? (
+            <OverlayContainer is_rtl={is_rtl}>
+                <Wrapper
+                    visible={is_visible}
+                    width={BrowserBannerProps.width}
+                    minHeight={BrowserBannerProps.minHeight}
+                    tabHeight={mainTabHeight}
+                >
+                    <StyledText>
+                        <Localize translate_text="_t_Update your browser to get the best Deriv experience_t_" />
+                    </StyledText>
+                    <Flex>
+                        <StyledButton secondary onClick={handlePositive}>
+                            <Localize translate_text="_t_Close_t_" />
+                        </StyledButton>
+                    </Flex>
+                </Wrapper>
+                {/* //tablet && cfd conditions we need to add broweser banner in top of CFD banner     */}
+                {(is_eu || is_cpa_plan) && is_mobile ? (
                     <Wrapper
-                        visible={cookie.should_show}
+                        visible={is_visible}
                         width={cookieBannerProps.width}
                         minHeight={cookieBannerProps.minHeight}
-                    >
-                        <StyledText>
-                            <Localize translate_text="_t_Cookies help us to give you a better experience and personalised content on our site. _t_" />
-                            <Localize
-                                translate_text="_t_If you agree to our use of cookies, click on Accept. For more information, <0>see our policy</0>._t_"
-                                components={[
-                                    <LinkText
-                                        key={0}
-                                        to="/terms-and-conditions/#clients"
-                                        color="red"
-                                    />,
-                                ]}
-                            />
-                        </StyledText>
-                        <Flex>
-                            <StyledButton tertiary onClick={cookie.decline} mr="0.8rem">
-                                {localize("_t_Don't accept_t_")}
-                            </StyledButton>
-                            <StyledButton secondary onClick={cookie.accept}>
-                                {localize('_t_Accept_t_')}
-                            </StyledButton>
-                        </Flex>
-                    </Wrapper>
-                )
-
-            case bannerTypes.outdatedBrowserBanner:
-                return (
-                    <OverlayContainer is_rtl={is_rtl}>
-                        <Wrapper
-                            visible={is_visible}
-                            width={BrowserBannerProps.width}
-                            minHeight={BrowserBannerProps.minHeight}
-                        >
-                            <StyledText>
-                                <Localize translate_text="_t_Update your browser to get the best Deriv experience_t_" />
-                            </StyledText>
-                            <Flex>
-                                <StyledButton secondary onClick={handlePositive}>
-                                    <Localize translate_text="_t_Close_t_" />
-                                </StyledButton>
-                            </Flex>
-                        </Wrapper>
-                        {/* //tablet && cfd conditions we need to add broweser banner in top of CFD banner     */}
-                        {(is_eu || is_cpa_plan) && is_mobile_or_tablet ? (
-                            <Wrapper
-                                visible={is_visible}
-                                width={cookieBannerProps.width}
-                                minHeight={cookieBannerProps.minHeight}
-                            ></Wrapper>
-                        ) : null}
-                    </OverlayContainer>
-                )
-
-            default:
-                return <></>
-        }
-    }, [bannerType, is_cpa_plan, is_eu, is_mobile_or_tablet])
-
-    return is_visible ? generateBanner : <></>
+                        tabHeight={subTabHeight}
+                    ></Wrapper>
+                ) : null}
+            </OverlayContainer>
+        ) : (
+            <></>
+        )
+    ) : (
+        <></>
+    )
 }
 
 export default BannerAlert

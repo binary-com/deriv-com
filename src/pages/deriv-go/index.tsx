@@ -79,7 +79,7 @@ const DerivGo = () => {
             <Layout>
                 <SEO
                     title={localize(
-                        'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO. ',
+                        'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO.',
                     )}
                     description={localize(
                         'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',

@@ -99,7 +99,7 @@ const OurOffices = () => {
                                 src="../../images/common/who-we-are/earth.png"
                                 alt={localize('_t_Map view_t_')}
                                 objectFit="cover"
-                                formats={['avif']}
+                                formats={['avif', 'webp', 'auto']}
                             />
                         </StaticImageWrapper>
                         <MapWrapper>
@@ -116,7 +116,7 @@ const OurOffices = () => {
                                 src="../../images/common/who-we-are/earth-mobile.png"
                                 alt={localize('_t_Map view_t_')}
                                 objectFit="cover"
-                                formats={['avif']}
+                                formats={['avif', 'webp', 'auto']}
                             />
                         </StaticImageWrapper>
                         <MapWrapper>

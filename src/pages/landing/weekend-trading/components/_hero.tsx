@@ -121,7 +121,7 @@ const Hero = () => {
                         src="../../../../images/common/landing/weekend-m.png"
                         alt={localize('_t_weekend trading_t_')}
                         objectFit="cover"
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         objectPosition="bottom right"
                         loading="eager"
                     />
@@ -130,7 +130,7 @@ const Hero = () => {
                         src="../../../../images/common/landing/weekend.png"
                         alt={localize('_t_weekend trading_t_')}
                         objectFit="cover"
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         objectPosition="bottom right"
                         loading="eager"
                     />

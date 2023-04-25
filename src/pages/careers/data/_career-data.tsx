@@ -8,7 +8,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         loading="eager"
                         src="../../../images/common/careers-2/back-end-bg.png"
                         alt={localize('_t_backend department_t_')}
@@ -68,7 +68,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         loading="eager"
                         src="../../../images/common/careers-2/marketing-bg.png"
                         alt={localize('_t_marketing department_t_')}
@@ -128,7 +128,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         loading="eager"
                         src="../../../images/common/careers-2/security-bg.png"
                         alt={localize('_t_security department_t_')}
@@ -188,7 +188,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         loading="eager"
                         src="../../../images/common/careers-2/cs-bg.png"
                         alt={localize('_t_customer support department_t_')}
@@ -248,7 +248,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         loading="eager"
                         src="../../../images/common/careers-2/human-resources-bg.png"
                         alt={localize('_t_human resources department_t_')}
@@ -308,7 +308,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         loading="eager"
                         src="../../../images/common/careers-2/product-bg.png"
                         alt={localize('_t_product department_t_')}
@@ -366,7 +366,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         loading="eager"
                         src="../../../images/common/careers-2/compliance-bg.png"
                         alt={localize('_t_compliance department_t_')}
@@ -426,7 +426,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         loading="eager"
                         src="../../../images/common/careers-2/finance-bg.png"
                         alt={localize('_t_finance department_t_')}
@@ -484,7 +484,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         loading="eager"
                         src="../../../images/common/careers-2/payments-bg.png"
                         alt={localize('_t_payments department_t_')}
@@ -522,7 +522,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         loading="eager"
                         src="../../../images/common/careers-2/front-end-bg.png"
                         alt={localize('_t_frontend department_t_')}
@@ -582,7 +582,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         loading="eager"
                         src="../../../images/common/careers-2/trading-operations-bg.png"
                         alt={localize('_t_trading operations department_t_')}
@@ -645,7 +645,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         loading="eager"
                         src="../../../images/common/careers-2/software-testing-bg.png"
                         alt={localize('_t_software testing department_t_')}
@@ -700,7 +700,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         loading="eager"
                         src="../../../images/common/careers-2/business-excellence-bg.png"
                         alt={localize('_t_business excellence department_t_')}
@@ -750,7 +750,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         loading="eager"
                         src="../../../images/common/careers-2/internal-audit-bg.png"
                         alt={localize('_t_internal audit department_t_')}
@@ -805,7 +805,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         loading="eager"
                         src="../../../images/common/careers-2/pm-bg.png"
                         alt={localize('_t_project management department_t_')}
@@ -845,7 +845,7 @@ const career_data = {
             header: {
                 background: (
                     <StaticImage
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         loading="eager"
                         src="../../../images/common/careers-2/business-intelligence-bg.png"
                         alt={localize('_t_business intelligence department_t_')}

@@ -87,7 +87,7 @@ const LatamAward = () => {
                             <StaticImage
                                 src="../../images/common/choose-us/latam_award_bg.png"
                                 alt={localize('_t_latam forex_t_')}
-                                formats={['avif']}
+                                formats={['avif', 'webp', 'auto']}
                                 objectFit="contain"
                                 loading="eager"
                             />
@@ -126,7 +126,7 @@ const LatamAward = () => {
                             <StaticImage
                                 src="../../images/common/choose-us/latam_award_bg_mobile.png"
                                 alt={localize('_t_latam forex_t_')}
-                                formats={['avif']}
+                                formats={['avif', 'webp', 'auto']}
                                 objectFit="contain"
                                 loading="eager"
                             />

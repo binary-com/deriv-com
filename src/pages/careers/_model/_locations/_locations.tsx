@@ -45,7 +45,7 @@ export const cyberjaya: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/cyberjaya.png"
             alt={localize('_t_Cyberjaya bridge and lake view_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -88,7 +88,7 @@ export const malta: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/malta.jpg"
             alt={localize('_t_Malta Senglea Church_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -130,7 +130,7 @@ export const dubai: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/dubai.jpg"
             alt={localize('_t_Dubai Skyscrappers_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -172,7 +172,7 @@ export const labuan: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/labuan.jpg"
             alt={localize('_t_Labuan clock tower_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -215,7 +215,7 @@ export const asuncion: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/asuncion.png"
             alt={localize('_t_Palace of the Lopez - Asuncion_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -257,7 +257,7 @@ export const melaka: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/melaka.jpg"
             alt={localize('_t_Dutch square of Melaka_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -300,7 +300,7 @@ export const ipoh: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/ipoh.jpg"
             alt={localize('_t_White architecture building in Ipoh_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -342,7 +342,7 @@ export const cyprus: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/cyprus.jpg"
             alt={localize('_t_Buildings near beach side - Limassol_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -385,7 +385,7 @@ export const rwanda: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/rwanda.jpg"
             alt={localize('_t_Blue sky and buildings - Kigali_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -429,7 +429,7 @@ export const minsk: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/minsk.png"
             alt={localize('_t_Diamond shape building in Minsk_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -473,7 +473,7 @@ export const paris: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/paris.jpg"
             alt={localize('_t_paris_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -508,7 +508,7 @@ export const guernsey: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/guernsey.jpg"
             alt={localize('_t_Guernsey alt img_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -546,7 +546,7 @@ export const berlin: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/berlin.png"
             alt={localize('_t_Deriv’s Germany office at Berlin_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -580,7 +580,7 @@ export const reading: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/reading.jpg"
             alt={localize('_t_Deriv’s Reading office at United Kingdom_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -617,7 +617,7 @@ export const vanuatu: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/vanuatu.png"
             alt={localize('_t_Vanuatu alt img_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -654,7 +654,7 @@ export const georgetown: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/georgetown.png"
             alt={localize('_t_Deriv’s Cayman Islands office at George Town_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -690,7 +690,7 @@ export const roadtown: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/roadtown.jpg"
             alt={localize('_t_Deriv’s British Virgin Islands office at Road Town_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -723,7 +723,7 @@ export const jordan: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/jordan.jpg"
             alt={localize('_t_Jordan alt img_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -760,7 +760,7 @@ export const singapore: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/singapore.png"
             alt={localize('_t_Marina Bay Sands - Singapore_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),
@@ -799,7 +799,7 @@ export const ciudad: LocationsType = {
         <StaticImage
             src="../../../../images/common/careers/ciudad.jpg"
             alt={localize('_t_Paraguay office at Ciudad del Este_t_')}
-            formats={['avif']}
+            formats={['avif', 'webp', 'auto']}
             loading="eager"
         />
     ),

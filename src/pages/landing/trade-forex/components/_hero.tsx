@@ -91,7 +91,7 @@ const Hero = ({ title, content }: HeroProps) => {
                     <StaticImage
                         src="../../../../images/common/landing/trade-fx-m.jpg"
                         alt={localize('_t_forex trading_t_')}
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         objectFit="cover"
                         objectPosition="bottom right"
                         loading="eager"
@@ -100,7 +100,7 @@ const Hero = ({ title, content }: HeroProps) => {
                     <StaticImage
                         src="../../../../images/common/landing/trade-fx.jpg"
                         alt={localize('_t_forex trading_t_')}
-                        formats={['avif']}
+                        formats={['avif', 'webp', 'auto']}
                         objectFit="cover"
                         objectPosition="bottom right"
                         loading="eager"

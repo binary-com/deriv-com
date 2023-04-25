@@ -21,7 +21,7 @@ const Hero = ({ children }: HeroProps) => {
                     src="../../../images/common/affiliate/partners-banner.png"
                     alt={localize('_t_affiliate_t_')}
                     loading="eager"
-                    formats={['avif']}
+                    formats={['avif', 'webp', 'auto']}
                 />
             </StaticImageWrapper>
 

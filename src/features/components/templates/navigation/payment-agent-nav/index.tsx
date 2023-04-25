@@ -41,6 +41,7 @@ const PaymentAgentAffiliateNav = () => {
                 <Button.Primary
                     id="dm-nav-affiliate-signup-button"
                     onClick={() => window.open('https://login.deriv.com/signup.php', '_blank')}
+                    visible={'larger-than-tablet'}
                 >
                     <Localize translate_text="_t_Affiliate & IB sign up_t_" />
                 </Button.Primary>

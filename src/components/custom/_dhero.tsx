@@ -57,9 +57,6 @@ const BannerButtonWrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 6px;
-    span {
-        line-height: 1.2;
-    }
     @media ${device.tablet} {
         flex-direction: column;
         justify-content: center;
@@ -130,9 +127,14 @@ const CreateAccountButton = styled(Button)`
     text-align: center;
     height: fit-content;
     margin: 0;
+    line-height: 1.23;
+    max-block-size: 54px;
     @media ${device.tablet} {
         max-width: 100%;
         width: 100%;
+    }
+    span {
+        line-height: 1.23;
     }
 `
 const Content = styled.div`

@@ -1,0 +1,10 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.careers_nav_logo {
+    inline-size: 10.5rem;
+    block-size: 1.6rem;
+    @include breakpoints(tablet) {
+        inline-size: 21rem;
+        block-size: 3.2rem;
+    }
+}

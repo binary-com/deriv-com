@@ -16,6 +16,10 @@ $menu_size: 30rem;
     z-index: 5;
 }
 
+.mobile_menu_top_nav {
+    inset-block-start: 10rem;
+}
+
 .visible_nav_menu {
     inset-inline-start: 0;
 }

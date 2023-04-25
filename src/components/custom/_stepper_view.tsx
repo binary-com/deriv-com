@@ -38,6 +38,9 @@ const Wrapper = styled.div<{ reverse: boolean }>`
         width: 100%;
         align-items: flex-start;
     }
+    @media ${device.tablet} {
+        padding-inline: 0;
+    }
 `
 const ItemsWrapper = styled.div<ItemsWrapperProps>`
     max-width: ${(props) => (props.width ? props.width : '230px')};
@@ -47,6 +50,9 @@ const ItemsWrapper = styled.div<ItemsWrapperProps>`
         width: 100%;
         max-width: 100%;
         padding-left: 16px;
+    }
+    @media ${device.tablet} {
+        padding-inline-start: 0;
     }
 `
 

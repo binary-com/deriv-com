@@ -37,6 +37,7 @@ const query = graphql`
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tablet} {
+        padding-block-start: 5rem;
         padding-block-end: 1.7rem;
     }
 `
@@ -124,7 +125,6 @@ const DtraderEasySteps = () => {
                     align_title="center"
                     align_subtitle="center"
                     width="100%"
-                    font_weight_title="300"
                     font_weight_subtitle="bold"
                     font_family_title="Ubuntu"
                     font_family_subtitle="Ubuntu"

@@ -74,7 +74,7 @@ const platformSliderItems: SmartPlatformItem[] = [
             },
             icon: DMT5Icon,
             image_caption: {
-                text: '_t_Available on <0>Android</0>, <1>iOS</1>, <2>Mac OS</2>, <3>Windows</3>, <4>Linux</3> and <5>web browser</5>_t_',
+                text: '_t_Available on <0>Android</0>, <1>iOS</1>, <2>Mac OS</2>, <3>Windows</3>, <4>Linux</4> and <5>web browser</5>_t_',
                 components: [
                     <Link
                         key={0}
@@ -211,7 +211,7 @@ const platformSliderItems: SmartPlatformItem[] = [
             },
             icon: DerivEzIcon,
             image_caption: {
-                text: '_t_Available on <0>Android</0>, <1>iOS</1> (on Deriv GO)_t_',
+                text: '_t_Available on <0>Android</0> and <1>iOS</1> (on Deriv GO)_t_',
                 components: [
                     <Link
                         key={0}

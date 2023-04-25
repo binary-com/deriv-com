@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { Script } from 'gatsby'
 import Flex from 'features/components/atoms/flex-box'
 
 const TrustpilotContainer = () => {
@@ -10,6 +11,14 @@ const TrustpilotContainer = () => {
 
     return (
         <Flex.Box direction="col" justify="center" align="start" gap={'20x'} md={{ basis: '6-12' }}>
+            <Script
+                key="trustpilot-widget"
+                type="text/javascript"
+                src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+                strategy="idle"
+                async={true}
+                onLoad={() => console.log('widget loaded')}
+            />
             <div
                 ref={ref}
                 className="trustpilot-widget"

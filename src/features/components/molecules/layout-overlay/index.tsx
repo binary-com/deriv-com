@@ -5,25 +5,27 @@ import WhatsappButton from './whats-app-button'
 import CookieBanner from './cookie-banner'
 import CfdWarningBanner from './cfd-warning-banner'
 import Flex from 'features/components/atoms/flex-box'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const LayoutOverlay = () => {
+    const is_rtl = useIsRtl()
     return (
         <Flex.Box
             container="fixed"
             align="stretch"
-            justify="end"
+            justify={'end'}
             direction="col"
             className={overlay_container}
         >
             <Flex.Box
                 direction="col-reverse"
-                md={{ direction: 'row' }}
+                md={{ direction: is_rtl ? 'row-reverse' : 'row' }}
                 justify="between"
                 align="end"
             >
-                <Flex.Item basis="6-12" grow={'1'}>
+                <Flex.Box justify={is_rtl ? 'end' : 'start'} basis="6-12" grow={'1'}>
                     <CookieBanner />
-                </Flex.Item>
+                </Flex.Box>
                 <Flex.Box direction="col">
                     <LiveChatButton />
                     <WhatsappButton />

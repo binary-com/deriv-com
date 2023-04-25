@@ -65,7 +65,7 @@ const NavTemplate = ({
             >
                 <Flex.Box
                     justify="center"
-                    align="baseline"
+                    align="center"
                     grow={has_centered_logo && items.length === 0 ? '1' : undefined}
                 >
                     <Flex.Item visible="phone-and-tablet">

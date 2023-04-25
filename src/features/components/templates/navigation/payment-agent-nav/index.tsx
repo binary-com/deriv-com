@@ -1,6 +1,7 @@
 import React from 'react'
 import NavTemplate from '../template'
 import affiliateNavItems from './data'
+import { partners_nav_logo } from './payment-agent-nav.module.scss'
 import PartnerNavLogo from 'images/svg/partner-nav-logo.svg'
 import Image from 'features/components/atoms/image'
 import Button from 'features/components/atoms/button'
@@ -14,7 +15,7 @@ const PaymentAgentAffiliateNav = () => {
         <NavTemplate
             renderLogo={() => (
                 <Link url={{ type: 'internal', to: '/partners/' }}>
-                    <Image src={PartnerNavLogo} width={185} height={32} />
+                    <Image src={PartnerNavLogo} className={partners_nav_logo} />
                 </Link>
             )}
             items={affiliateNavItems}

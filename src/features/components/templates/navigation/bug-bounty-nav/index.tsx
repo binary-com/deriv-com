@@ -1,5 +1,6 @@
 import React from 'react'
 import NavTemplate from '../template'
+import { bug_bounty_logo } from './bug-bounty-nav.module.scss'
 import Image from 'features/components/atoms/image'
 import BugBountyNavLogo from 'images/svg/bug-bounty-nav-logo.svg'
 import Button from 'features/components/atoms/button'
@@ -10,7 +11,7 @@ import Flex from 'features/components/atoms/flex-box'
 const BugBountyNav = () => {
     return (
         <NavTemplate
-            renderLogo={() => <Image src={BugBountyNavLogo} width={185} height={32} />}
+            renderLogo={() => <Image src={BugBountyNavLogo} className={bug_bounty_logo} />}
             has_top_nav
         >
             <Flex.Box

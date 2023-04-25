@@ -1,6 +1,7 @@
 import React from 'react'
 import NavTemplate from '../template'
 import career_nav_items from './data'
+import { careers_nav_logo } from './career-nav.module.scss'
 import Image from 'features/components/atoms/image'
 import CareerNavLogo from 'images/svg/career-nav-icon.svg'
 import Button from 'features/components/atoms/button'
@@ -14,7 +15,7 @@ const CareerNav = () => {
         <NavTemplate
             renderLogo={() => (
                 <Link url={{ type: 'internal', to: '/' }}>
-                    <Image src={CareerNavLogo} width={185} height={32} />
+                    <Image src={CareerNavLogo} className={careers_nav_logo} />
                 </Link>
             )}
             items={career_nav_items}

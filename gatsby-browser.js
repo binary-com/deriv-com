@@ -92,7 +92,7 @@ export const onInitialClientRender = () => {
             service: "deriv.com",
             env: "production",
             version: "1.0.3",
-            sessionSampleRate: 10,
+            sessionSampleRate: 100,
             sessionReplaySampleRate: 1,
             trackResources: true,
             trackLongTasks: true,

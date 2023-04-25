@@ -1,6 +1,5 @@
 import React from 'react'
 import loadable from '@loadable/component'
-import pMinDelay from 'p-min-delay'
 import HeroCtaButton from './hero-cta.button'
 import { hero_typewriter } from './hero-content.module.scss'
 import HeroHeaderItems from './hero-header.items'
@@ -8,7 +7,7 @@ import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { get_lang_direction, Localize } from 'components/localization'
 
-const HeroFeaturesCarousel = loadable(() => pMinDelay(import('./hero-features.carousel'), 3000), {
+const HeroFeaturesCarousel = loadable(() => import('./hero-features.carousel'), {
     fallback: (
         <div className={hero_typewriter}>
             <Typography.Heading as="h3" size="large" weight="bold" color="primary">

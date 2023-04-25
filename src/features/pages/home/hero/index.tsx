@@ -1,13 +1,12 @@
 import React from 'react'
 import loadable from '@loadable/component'
 import { StaticImage } from 'gatsby-plugin-image'
-import pMinDelay from 'p-min-delay'
 import HomeHeroContent from './content'
 import SliderWrapper from './slider/slider-wrapper'
 import Flex from 'features/components/atoms/flex-box'
 import ProductHeroContainer from 'features/components/templates/hero-banners/product'
 
-const HomeHeroSlider = loadable(() => pMinDelay(import('./slider'), 3000), {
+const HomeHeroSlider = loadable(() => import('./slider'), {
     fallback: (
         <SliderWrapper>
             <StaticImage

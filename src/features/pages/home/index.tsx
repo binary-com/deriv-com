@@ -12,9 +12,9 @@ import { localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import MainNav from 'features/components/templates/navigation/main-nav'
 import SignupPublic from 'features/components/templates/signup/with-banner'
+import Footer from 'features/components/templates/footer'
 
 const OurPlatforms = loadable(() => import('./our-platforms'))
-const Footer = loadable(() => import('features/components/templates/footer'))
 
 const HomePage = () => {
     useOpenLiveChat(true)

@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react'
-import loadable from '@loadable/component'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
 import { getLanguage, isBrowser } from 'common/utility'
@@ -8,8 +7,8 @@ import BrowserUpdateAlert from 'features/components/molecules/browser-update-ale
 import apiManager from 'common/websocket'
 import 'swiper/swiper-bundle.min.css'
 import 'features/styles/app.scss'
+import LayoutOverlay from 'features/components/molecules/layout-overlay'
 
-const LayoutOverlay = loadable(() => import('features/components/molecules/layout-overlay'))
 interface LayoutProps {
     is_ppc?: boolean
     is_ppc_redirect?: boolean

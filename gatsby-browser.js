@@ -93,7 +93,7 @@ export const onInitialClientRender = () => {
             env: "production",
             version: "1.0.3",
             sessionSampleRate: 100,
-            sessionReplaySampleRate: 1,
+            sessionReplaySampleRate: 100,
             trackResources: true,
             trackLongTasks: true,
             trackUserInteractions: true,

@@ -12,11 +12,22 @@ const TradeTypes = () => {
     const { is_eu } = useRegion()
     const visible_items = useVisibleContent({ content: tradeTypesItems, config: { is_eu } })
     return (
-        <Container.Fixed as="section" bgcolor="inverted" padding_block="40x">
-            <Typography.Heading as="h1" size="xlarge" align="center" mb="10x" textcolor="inverted">
+        <Container.Fixed
+            as="section"
+            bgcolor="inverted"
+            padding_block="16x"
+            md={{ padding_block: '40x' }}
+        >
+            <Typography.Heading as="h1" size="large" align="center" mb="10x" textcolor="inverted">
                 <Localize translate_text="_t_Trade types_t_" />
             </Typography.Heading>
-            <Typography.Paragraph size="large" align="center" textcolor="inverted">
+            <Typography.Paragraph
+                size="large"
+                align="center"
+                textcolor="inverted"
+                padding_inline="20x"
+                mb="30x"
+            >
                 <Localize
                     translate_text="_t_Trade the way you want with {{trade_type_number}} exciting trade types._t_"
                     values={{ trade_type_number: is_eu ? '2' : '3' }}
@@ -28,7 +39,7 @@ const TradeTypes = () => {
                 justify="center"
                 align="center"
                 gap="10x"
-                md={{ direction: 'row', gap: '20x' }}
+                md={{ direction: 'row', gap: '20x', justify: 'around' }}
             >
                 {visible_items.map((item) => (
                     <TradeTypeItem key={item.id} item={item.data} />

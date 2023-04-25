@@ -20,10 +20,10 @@ type SocialButtonContent = {
 
 const social_button_content: SocialButtonContent[] = [
     {
-        provider: 'apple',
-        id: 'gtm-signup-apple',
-        img: AppleLogo,
-        title: '_t_Apple_t_',
+        provider: 'google',
+        id: 'gtm-signup-google',
+        img: GoogleLogo,
+        title: '_t_Google_t_',
     },
     {
         provider: 'facebook',
@@ -32,10 +32,10 @@ const social_button_content: SocialButtonContent[] = [
         title: '_t_Facebook_t_',
     },
     {
-        provider: 'google',
-        id: 'gtm-signup-google',
-        img: GoogleLogo,
-        title: '_t_Google_t_',
+        provider: 'apple',
+        id: 'gtm-signup-apple',
+        img: AppleLogo,
+        title: '_t_Apple_t_',
     },
 ]
 

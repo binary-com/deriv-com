@@ -7,18 +7,18 @@ import { Localize } from 'components/localization'
 
 const ClientTestimonial = () => {
     return (
-        <Container.Fixed bgcolor="secondary">
+        <Container.Fixed bgcolor="secondary" padding_block="10x">
             <Flex.Box
-                md={{
-                    direction: 'row',
-                    padding_block: '40x',
-                }}
                 container="fluid"
                 direction="col"
                 justify="between"
                 align="center"
-                padding_block="0x"
+                padding_block="30x"
                 gap="20x"
+                md={{
+                    direction: 'row',
+                    padding_block: '40x',
+                }}
             >
                 <Flex.Item md={{ basis: '6-12' }}>
                     <Typography.Heading size="medium" align="center" md={{ align: 'right' }}>

@@ -18,7 +18,7 @@ const PlatformSliders = ({ items }: PlatformSlidersProps) => {
             justify="start"
             align="center"
             gap="10x"
-            mt="40x"
+            mt="20x"
             direction="col-reverse"
             md={{
                 direction: 'row',

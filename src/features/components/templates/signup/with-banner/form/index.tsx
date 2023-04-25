@@ -98,12 +98,13 @@ const SignupPublicForm = () => {
                 align={'stretch'}
                 className={signup_public_form}
                 padding={'8x'}
-                md={{
-                    padding: '14x',
-                }}
+                gap="8x"
                 as="form"
                 bgcolor="primary"
                 onSubmit={handleSubmit(onSubmit)}
+                md={{
+                    padding: '14x',
+                }}
             >
                 <Typography.Heading size="small" textcolor="black">
                     <Localize translate_text="_t_Join over 2.5 million traders worldwide_t_" />
@@ -111,7 +112,16 @@ const SignupPublicForm = () => {
                 <Typography.Paragraph textcolor="black">
                     <Localize translate_text="_t_Sign up for your demo account now._t_" />
                 </Typography.Paragraph>
-                <Flex.Box justify="between" align="center" gap={'4x'}>
+                <Flex.Box
+                    direction="col"
+                    gap={'8x'}
+                    md={{
+                        direction: 'row',
+                        justify: 'between',
+                        align: 'center',
+                        gap: '4x',
+                    }}
+                >
                     <Flex.Item grow={'1'}>
                         <Input.Text
                             label={'_t_Email address_t_'}
@@ -123,8 +133,10 @@ const SignupPublicForm = () => {
                             {...register('email')}
                         />
                     </Flex.Item>
-                    <Flex.Item shrink="0">
-                        <Button.Primary disabled={isButtonDisabled}>Sign up</Button.Primary>
+                    <Flex.Item shrink="0" grow="1">
+                        <Button.Primary fluid disabled={isButtonDisabled}>
+                            Sign up
+                        </Button.Primary>
                     </Flex.Item>
                 </Flex.Box>
                 <Flex.Box justify="start" align="baseline" gap={'5x'} mt="5x">

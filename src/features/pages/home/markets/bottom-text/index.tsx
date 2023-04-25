@@ -12,12 +12,12 @@ const BottomText = () => {
             justify="center"
             align="center"
             pt="10x"
-            md={{ pt: '19x' }}
+            md={{ pt: '20x' }}
         >
-            <Typography.Paragraph size="large" mb="10x" textcolor="black">
+            <Typography.Paragraph size="medium" mb="10x" textcolor="black" align="center">
                 <Localize translate_text="_t_Want to know more about CFD trading conditions for the instruments we offer?_t_" />
             </Typography.Paragraph>
-            <Button.Primary aria-label="check trading specs">
+            <Button.Primary textsize="medium" aria-label="check trading specs">
                 <Localize translate_text="_t_Check trading specs_t_" />
             </Button.Primary>
         </Flex.Box>

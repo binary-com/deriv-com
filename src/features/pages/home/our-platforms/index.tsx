@@ -24,11 +24,11 @@ const OurPlatforms = () => {
     }, [is_eu])
 
     return (
-        <Container.Fixed as="section" bgcolor="secondary" padding_block="40x">
+        <Container.Fixed as="section" padding_block="16x" md={{ padding_block: '40x' }}>
             <Typography.Heading as="h1" size="medium" align="center">
                 <Localize translate_text="_t_Our platforms_t_" />
             </Typography.Heading>
-            <Typography.Paragraph size="xlarge" align="center">
+            <Typography.Paragraph size="xlarge" align="center" padding_inline="20x">
                 <Localize translate_text={title_text} values={{ platform_count: items.length }} />
             </Typography.Paragraph>
             <PlatformSliders items={items} />

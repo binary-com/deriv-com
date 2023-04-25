@@ -89,7 +89,7 @@ const DerivMT5GetApp = () => {
             firstColumnWidth="59%"
             secondColumnWidth="45%"
             mobileBackgroundImage={GetAppMobileBG}
-            secondColumnMobileMargin="140px 0 0"
+            secondColumnMobileMargin="115px 0 0"
             mobilePadding="40px 0 10px"
         >
             <ContentWrapper is_rtl={is_rtl}>

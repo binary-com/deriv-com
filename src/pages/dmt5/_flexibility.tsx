@@ -154,7 +154,7 @@ const Flexibility = () => {
                             <ClientCard key={idx}>
                                 {item.icon}
                                 <StyledHeader
-                                    mobile_margin="24px 0 8px"
+                                    mobile_margin="16px 0 8px"
                                     mobile_font_size="20px"
                                     as="h4"
                                     type="sub-section-title"

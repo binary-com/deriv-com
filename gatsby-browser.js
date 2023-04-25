@@ -97,6 +97,7 @@ export const onInitialClientRender = () => {
             trackResources: true,
             trackLongTasks: true,
             trackUserInteractions: true,
+            trackFrustrations: true,
             enableExperimentalFeatures: ["clickmap"],
             defaultPrivacyLevel: "mask-user-input"
         };

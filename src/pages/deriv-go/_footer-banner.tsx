@@ -33,6 +33,7 @@ const ContentWrapper = styled.div<{ is_rtl: boolean }>`
 `
 const TextAndButtonWrapper = styled.div`
     @media ${device.tabletL} {
+        width: 328px;
         display: flex;
         flex-direction: column;
         justify-content: center;

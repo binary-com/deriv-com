@@ -74,9 +74,9 @@ const NavTemplate = ({
                     {renderLogo()}
                 </Flex.Box>
 
-                {items.length && (
+                {items.length !== 0 ? (
                     <DesktopMenu items={visible_items} has_centered_items={has_centered_items} />
-                )}
+                ) : null}
                 {children}
                 <MobileMenu is_open={is_menu_open} items={visible_items} />
             </Flex.Box>

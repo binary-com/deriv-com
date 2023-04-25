@@ -20,7 +20,7 @@
 
     &_trigger {
         all: unset;
-        padding: 8px 12px;
+        padding: 8px 16px;
         outline: none;
         user-select: none;
         display: flex;
@@ -52,7 +52,7 @@
         perspective: 2000px;
         position: absolute;
         inset-inline-end: -2rem;
-        inset-block-start: 6rem;
+        inset-block-start: 5rem;
         inline-size: 100vw;
     }
 

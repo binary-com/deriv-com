@@ -1,10 +1,11 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import Cookies from 'js-cookie'
 import { navigate } from 'gatsby'
 import language_config from '../../../../../i18n-config'
-import { nonENLangUrlReplace } from 'common/utility'
+import { nonENLangUrlReplace, setCookiesWithDomain } from 'common/utility'
 import { isProduction } from 'common/websocket/config'
+import { useClientInformation } from 'components/hooks/use-client-information'
 
 type TLanguageObject = {
     key: string
@@ -41,12 +42,25 @@ const languages: TLanguageObject[] = supported_languages.map((langItem) => {
 
 const useLangSwitcher = () => {
     const { i18n } = useTranslation()
+    const client_information = useClientInformation()
 
     const language = i18n.language ?? 'en'
 
     const currentLang: i18nLangConfigObject = useMemo(() => {
         return language_config[language]
     }, [language])
+
+    useEffect(() => {
+        if (!Cookies.get('lang_is_fixed')) {
+            if (client_information?.preferred_language) {
+                const lang = client_information.preferred_language.toLowerCase()
+                if (lang !== language) {
+                    const replaced_lang = lang.replace('_', '-')
+                    i18n.changeLanguage(replaced_lang)
+                }
+            }
+        }
+    }, [client_information, i18n, language])
 
     const isSelected = (key: string) => {
         const { short_name } = language_config[key]
@@ -67,7 +81,7 @@ const useLangSwitcher = () => {
                     ? current_path.replace(/\//u, '')
                     : nonENLangUrlReplace(current_path)
             }${current_hash}`
-            Cookies.set('user_language', url.replace(/\//g, ''))
+            setCookiesWithDomain('user_language', url.replace(/\//g, ''))
 
             if (path === '/ach/') {
                 localStorage.setItem('i18n', 'ach')
@@ -78,7 +92,7 @@ const useLangSwitcher = () => {
                 or just /about/
                 or just /
             */
-                navigate(destination_path, { state: { hrefLang: path } })
+                navigate(destination_path, { state: { hrerfLang: path } })
             }
         }
     }

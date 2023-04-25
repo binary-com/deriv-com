@@ -26,7 +26,7 @@ export const mainItems: TNavItems = [
     {
         id: 2,
         data: {
-            title: '_t_About_t_',
+            title: '_t_About us_t_',
             type: 'single-column',
             content: aboutUsNavSectionContent,
         },

@@ -13,7 +13,6 @@ const HomeMarkets = () => {
             padding_block="20x"
             md={{
                 padding_block: '40x',
-                margin_block: '20x',
             }}
         >
             <Typography.Heading as="h1" size="xlarge" align="center" mb="10x">

@@ -11,7 +11,7 @@ interface IBottomNavItemProps {
 const BottomNavItem = ({ item }: IBottomNavItemProps) => {
     return (
         <Flex.Item>
-            <Link size="medium" url={item.link}>
+            <Link size="medium" url={item.link} font_family="UBUNTU">
                 <Localize translate_text={item.title} />
             </Link>
         </Flex.Item>

@@ -78,13 +78,13 @@ export const TableRow = styled.tr<TableRowProps>`
             width: 168px;
         }
         th: nth-child(11) {
-            width: 168px;
+            width: 200px;
         }
         td: nth-child(1) {
             width: 168px;
         }
         td: nth-child(11) {
-            width: 168px;
+            width: 200px;
         }
     }
     @media ${device.tablet} {
@@ -95,7 +95,7 @@ export const TableRow = styled.tr<TableRowProps>`
             width: 150px;
         }
         td: nth-child(1) {
-            width: 200px;
+            width: 170px;
         }
 
         td {

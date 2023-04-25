@@ -11,6 +11,7 @@ import MobileMenuToggle from 'features/components/molecules/mobile-menu-toggle'
 import Flex from 'features/components/atoms/flex-box'
 import dclsx from 'features/utils/dclsx'
 import useRegion from 'components/hooks/use-region'
+import { useOutsideClick } from 'components/hooks/use-outside-click'
 
 interface NavTemplateProps extends HTMLAttributes<HTMLDivElement> {
     has_top_nav?: boolean
@@ -48,6 +49,10 @@ const NavTemplate = ({
         config: { is_mobile: is_mobile_or_tablet, is_eu },
     })
 
+    useOutsideClick(nav_wrapper_ref, () => {
+        setIsMenuOpen(false)
+    })
+
     return (
         <Container.Fixed
             innerRef={nav_wrapper_ref}
@@ -68,17 +73,28 @@ const NavTemplate = ({
                     align="center"
                     grow={has_centered_logo && items.length === 0 ? '1' : undefined}
                 >
-                    <Flex.Item visible="phone-and-tablet">
-                        <MobileMenuToggle is_open={is_menu_open} onClick={onMenuToggleClick} />
-                    </Flex.Item>
+                    {items.length !== 0 ? (
+                        <Flex.Item visible="phone-and-tablet">
+                            <MobileMenuToggle is_open={is_menu_open} onClick={onMenuToggleClick} />
+                        </Flex.Item>
+                    ) : null}
                     {renderLogo()}
                 </Flex.Box>
 
                 {items.length !== 0 ? (
-                    <DesktopMenu items={visible_items} has_centered_items={has_centered_items} />
+                    <>
+                        <DesktopMenu
+                            items={visible_items}
+                            has_centered_items={has_centered_items}
+                        />
+                        <MobileMenu
+                            is_open={is_menu_open}
+                            items={visible_items}
+                            has_top_nav={has_top_nav}
+                        />
+                    </>
                 ) : null}
                 {children}
-                <MobileMenu is_open={is_menu_open} items={visible_items} />
             </Flex.Box>
             {render_bottom_nav?.()}
         </Container.Fixed>

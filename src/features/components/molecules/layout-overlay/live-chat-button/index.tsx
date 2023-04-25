@@ -1,14 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Script } from 'gatsby'
 import FloatingButton from '../floating-button'
-// import { useLivechat } from 'components/hooks/use-livechat'
 import LiveChatIC from 'images/svg/layout/livechat.svg'
 import LiveChatHover from 'images/svg/layout/livechat-hover.svg'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/utility'
 
 const LiveChatButton = () => {
-    // const [is_livechat_interactive, LC_API] = useLivechat()
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const is_livechat_query = url_params.get('is_livechat_open')
 

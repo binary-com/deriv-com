@@ -143,6 +143,10 @@ const StyledTrap = styled(TRAP)<CardProps>`
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media ${device.laptop} {
+        height: ${(props) => (props.headerHeight == '12rem' ? '16rem' : props.headerHeight)};
+    }
 `
 const StyledText = styled(Text)`
     text-align: center;

@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useMemo, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Button } from 'components/form'

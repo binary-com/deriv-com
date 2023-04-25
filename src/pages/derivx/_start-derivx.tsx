@@ -287,11 +287,6 @@ const StartDerivX = () => {
             <Flex max_width="1200px">
                 <StepperView items={tab === 'demo' ? demo : real} contentWidth="385px" />
             </Flex>
-            <StyledButtonWrapper>
-                <ButtonDp2p secondary onClick={handleExternalLink}>
-                    {localize('Download Deriv X app')}
-                </ButtonDp2p>
-            </StyledButtonWrapper>
         </Section>
     )
 }

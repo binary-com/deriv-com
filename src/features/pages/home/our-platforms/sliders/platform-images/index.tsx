@@ -39,7 +39,7 @@ const PlatformImageSlider = ({ items, setSwiper, connectedSwiper }: PlatformMain
                 clickable: true,
             }}
             breakpoints={{
-                680: {
+                992: {
                     pagination: {
                         enabled: false,
                         type: 'bullets',

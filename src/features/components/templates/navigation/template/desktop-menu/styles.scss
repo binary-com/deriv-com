@@ -90,6 +90,10 @@
     }
 }
 
+.trade_landing_active {
+    inset-inline-end: 5rem;
+}
+
 @keyframes scaleIn {
     from {
         opacity: 0;

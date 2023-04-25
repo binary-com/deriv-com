@@ -7,11 +7,11 @@
     word-break: break-word;
 }
 
-.typography-font-IBM {
+[dir='ltr'] .typography-font-IBM {
     font-family: 'IBM Plex Sans', sans-serif;
 }
 
-.typography-font-UBUNTU {
+[dir='ltr'] .typography-font-UBUNTU {
     font-family: Ubuntu, sans-serif;
 }
 

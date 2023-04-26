@@ -32,6 +32,12 @@ module.exports = {
     ],
     plugins: [
         {
+            resolve: `gatsby-plugin-offline`,
+            options: {
+                precachePages: [`/`],
+            },
+        },
+        {
             resolve: 'gatsby-plugin-sass',
             options: {
                 postCssPlugins: [

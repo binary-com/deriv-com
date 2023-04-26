@@ -27,7 +27,7 @@ const career_nav_items: TNavItems = [
         id: 2,
         data: {
             type: 'single-item',
-            title: '_t_Besquare_t_',
+            title: '_t_BeSquare_t_',
             content: {
                 type: 'internal',
                 to: '/careers/besquare/',

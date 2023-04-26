@@ -37,10 +37,19 @@ const PaymentAgentAffiliateNav = () => {
                         window.open('https://login.deriv.com/signin.php?lang=0', '_blank')
                     }
                     outlined
+                    visible={'larger-than-tablet'}
                 >
-                    <Localize
-                        translate_text={is_mobile ? '_t_Log in_t_' : '_t_Affiliate & IB Log in_t_'}
-                    />
+                    <Localize translate_text="_t_Affiliate & IB Log in_t_" />
+                </Button.Primary>
+                <Button.Primary
+                    id="dm-nav-affiliate-login-button"
+                    onClick={() =>
+                        window.open('https://login.deriv.com/signin.php?lang=0', '_blank')
+                    }
+                    outlined
+                    visible={'phone-and-tablet'}
+                >
+                    <Localize translate_text="_t_Log in_t_" />
                 </Button.Primary>
                 <Button.Primary
                     id="dm-nav-affiliate-signup-button"

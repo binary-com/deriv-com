@@ -1,8 +1,8 @@
 @use 'features/styles/theme/theme-mixins' as *;
 
 .main_nav_logo {
-    inline-size: 4.8rem;
-    block-size: 1.6rem;
+    inline-size: 7rem;
+    block-size: 2.4rem;
 
     @include breakpoints(tablet) {
         inline-size: 9.6rem;

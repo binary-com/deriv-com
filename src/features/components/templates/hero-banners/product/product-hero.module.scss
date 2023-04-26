@@ -3,7 +3,14 @@
 
 .product_hero {
     position: relative;
-    min-block-size: 100svh;
+
+    @include breakpoints(tablet) {
+        min-block-size: 70rem;
+    }
+
+    @include breakpoints(desktop) {
+        min-block-size: 100svh;
+    }
 
     &::before {
         content: ' ';

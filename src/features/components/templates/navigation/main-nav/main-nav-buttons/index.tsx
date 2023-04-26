@@ -30,9 +30,9 @@ const MainNavButtons = () => {
                 <Button.Primary
                     disabled={is_region_loading}
                     onClick={handleGetTrading}
-                    aria-label="Get Trading"
+                    aria-label="Get trading"
                 >
-                    <Localize translate_text="_t_Get Trading_t_" />
+                    <Localize translate_text="_t_Get trading_t_" />
                 </Button.Primary>
             ) : (
                 <>

@@ -9,8 +9,10 @@ import { Localize } from 'components/localization/localize'
 import LanguageSwitcher from 'features/components/molecules/language-switcher'
 import Link from 'features/components/atoms/link'
 import Flex from 'features/components/atoms/flex-box'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const PaymentAgentAffiliateNav = () => {
+    const { is_mobile } = useBreakpoints()
     return (
         <NavTemplate
             renderLogo={() => (
@@ -36,7 +38,9 @@ const PaymentAgentAffiliateNav = () => {
                     }
                     outlined
                 >
-                    <Localize translate_text="_t_Affiliate & IB Log in_t_" />
+                    <Localize
+                        translate_text={is_mobile ? '_t_Log in_t_' : '_t_Affiliate & IB Log in_t_'}
+                    />
                 </Button.Primary>
                 <Button.Primary
                     id="dm-nav-affiliate-signup-button"

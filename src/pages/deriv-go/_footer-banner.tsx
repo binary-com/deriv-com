@@ -57,6 +57,7 @@ const DerivGoGetApp = () => {
             secondColumnBackground={GrayAngle30}
             firstColumnWidth="55%"
             secondColumnWidth="45%"
+            mobilePadding="50px 0"
             mobileBackgroundImage={GetAppMobileBG}
             secondColumnMobileMargin="8rem 0 0 0"
         >

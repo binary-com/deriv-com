@@ -75,6 +75,7 @@ const DerivXGetApp = () => {
                 secondColumnWidth="42%"
                 mobileBackgroundImage={GetAppMobileBG}
                 mobilePadding="25px 0 120px 0"
+                secondColumnMobileMargin="8rem 0 0 0"
             >
                 <ContentWrapper is_rtl={is_rtl}>
                     <img src={derivXLogo} alt="Deriv X logo" width="64px" height="64px" />

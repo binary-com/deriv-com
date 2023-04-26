@@ -25,10 +25,6 @@ const DownloadAppWrapper = styled.div<{ is_rtl: boolean }>`
     width: 100%;
     margin: 0 auto;
     direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
-
-    @media ${device.tablet} {
-        margin-top: 8rem;
-    }
 `
 const QRScanBox = styled.div`
     border: 0.5px solid var(--color-white);

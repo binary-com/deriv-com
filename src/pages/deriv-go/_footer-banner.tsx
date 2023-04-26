@@ -58,6 +58,7 @@ const DerivGoGetApp = () => {
             firstColumnWidth="55%"
             secondColumnWidth="45%"
             mobileBackgroundImage={GetAppMobileBG}
+            secondColumnMobileMargin="8rem 0 0 0"
         >
             <ContentWrapper is_rtl={is_rtl}>
                 <img src={derivGoLogo} alt="Deriv Go logo" width="64px" height="64px" />

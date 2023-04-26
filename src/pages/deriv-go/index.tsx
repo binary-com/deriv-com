@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { useState, useEffect, ReactElement } from 'react'
 import PageNotFound from '../404'
 import { DerivGoContent, FooterBanner, StartDerivGo } from './_lazy-load'
 import Banner from './_banner'
@@ -73,12 +73,41 @@ const derivGoPortalData: DerivGoPortalType = {
 
 const DerivGo = () => {
     const { is_region_loading, is_row } = useRegion()
+    const [is_loaded, setLoaded] = useState(false)
 
-    if (is_region_loading && !is_row) {
+    useEffect(() => {
+        setLoaded(true)
+    }, [])
+
+    if (is_loaded) {
+        if (is_row) {
+            return (
+                <Layout>
+                    <SEO
+                        title={localize(
+                            'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO.',
+                        )}
+                        description={localize(
+                            'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',
+                        )}
+                    />
+                    <Banner />
+                    <WhatIsDerivGo />
+                    <WhyTradeDerivGo />
+                    <DerivGoContent reverse P2P={items} />
+                    <StartDerivGo />
+                    <Roadmap portal={derivGoPortalData} />
+                    <FooterBanner />
+                    <OtherApps />
+                </Layout>
+            )
+        }
+
         return <PageNotFound />
     }
+
     return (
-        <Layout>
+        <>
             <SEO
                 title={localize(
                     'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO.',
@@ -87,15 +116,7 @@ const DerivGo = () => {
                     'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',
                 )}
             />
-            <Banner />
-            <WhatIsDerivGo />
-            <WhyTradeDerivGo />
-            <DerivGoContent reverse P2P={items} />
-            <StartDerivGo />
-            <Roadmap portal={derivGoPortalData} />
-            <FooterBanner />
-            <OtherApps />
-        </Layout>
+        </>
     )
 }
 

@@ -37,7 +37,7 @@ const HomeHero = () => {
             <Flex.Box
                 container="fluid"
                 align="center"
-                justify="between"
+                gap={'20x'}
                 direction="col"
                 md={{
                     direction: 'row',

@@ -4,6 +4,7 @@
     flex: 1;
     block-size: 600px;
     inline-size: 100%;
+    position: relative;
 }
 
 .platform_images_item {
@@ -14,6 +15,7 @@
     opacity: 0.6;
 }
 .platform_slider_pagination {
-    --swiper-pagination-bottom: 6.5rem !important;
+    position: absolute;
+    --swiper-pagination-bottom: 6rem;
     --swiper-pagination-color: #ff444f;
 }

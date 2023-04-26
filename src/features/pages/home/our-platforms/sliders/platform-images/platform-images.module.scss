@@ -6,12 +6,12 @@
     inline-size: 100%;
     position: relative;
     @include breakpoints(tablet) {
-        block-size: 600px;
+        block-size: 60rem;
     }
 }
 
 .platform_images_item {
-    max-block-size: 600px;
+    max-block-size: 60rem;
 }
 
 .platform_image_caption {

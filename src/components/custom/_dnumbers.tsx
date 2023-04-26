@@ -34,10 +34,12 @@ const StyledContainer = styled(Container)`
     direction: ltr;
     width: 100%;
     margin-top: 3rem;
+    align-items: flex-start;
     @media ${device.tabletL} {
         flex-direction: column;
         margin-top: 0;
         padding: 3rem 0;
+        align-items: center;
     }
 `
 const Title = styled(Header)`

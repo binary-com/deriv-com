@@ -56,6 +56,7 @@ const ImageWrapper = styled.div`
 const BannerButtonWrapper = styled.div`
     display: flex;
     align-items: center;
+    gap: 6px;
     @media ${device.tablet} {
         flex-direction: column;
         justify-content: center;
@@ -122,9 +123,18 @@ const GoToLiveDemo = styled(LinkButton)`
     }
 `
 const CreateAccountButton = styled(Button)`
+    min-block-size: 40px;
+    text-align: center;
+    height: fit-content;
+    margin: 0;
+    line-height: 1.23;
+    max-block-size: 54px;
     @media ${device.tablet} {
         max-width: 100%;
         width: 100%;
+    }
+    span {
+        line-height: 1.23;
     }
 `
 const Content = styled.div`

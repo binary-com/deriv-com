@@ -24,7 +24,7 @@ const OurPlatforms = () => {
     }, [is_eu])
 
     return (
-        <Container.Fixed as="section" padding_block="16x" md={{ padding_block: '40x' }}>
+        <Container.Fixed as="section" pt="16x" md={{ padding_block: '40x' }}>
             <Typography.Heading as="h1" size="medium" align="center">
                 <Localize translate_text="_t_Our platforms_t_" />
             </Typography.Heading>

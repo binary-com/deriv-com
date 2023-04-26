@@ -3,6 +3,9 @@ import Loadable from '@loadable/component'
 import PageNotFound from '../404'
 import Hero from './components/_hero'
 import DP2P from './components/_dp2p'
+import { p2p_countries } from 'common/country-base'
+import useWebsiteStatus from 'components/hooks/use-website-status'
+import InitialLoader from 'components/elements/dot-loader'
 import Roadmap from 'components/elements/roadmap'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { localize, Localize, WithIntl } from 'components/localization'
@@ -12,7 +15,6 @@ const ExchangeSteps = Loadable(() => import('./components/_exchange-steps'))
 const P2PBanner = Loadable(() => import('./components/_p2pbanner'))
 const Numbers = Loadable(() => import('./components/_numbers'))
 const Availability = Loadable(() => import('./components/_availability'))
-import useRegion from 'components/hooks/use-region'
 
 const DP2P_CONTENT = [
     {
@@ -64,34 +66,42 @@ const derivP2PPortalData = {
 
 const DP2PHome = () => {
     const [is_mounted] = usePageLoaded() // needed to fix the second Hero-component during page's loadin
-    const { is_p2p_allowed_country } = useRegion()
-    if (is_p2p_allowed_country) {
-        return (
-            <Layout>
-                <SEO
-                    title={localize('Deriv P2P – peer-to-peer deposit and withdrawal service')}
-                    description={localize(
-                        'With Deriv P2P your deposits and withdrawals are easy, fast, and efficient. Access now via the desktop or mobile app.',
+    const {website_status} = useWebsiteStatus()
+    const clients_country = website_status?.clients_country
+    if (clients_country !== undefined) {
+        if (p2p_countries.includes(clients_country)) {
+            return (
+                <Layout>
+                    <SEO
+                        title={localize('Deriv P2P – peer-to-peer deposit and withdrawal service')}
+                        description={localize(
+                            'With Deriv P2P your deposits and withdrawals are easy, fast, and efficient. Access now via the desktop or mobile app.',
+                        )}
+                    />
+
+                    {is_mounted && (
+                        <>
+                            <Hero />
+                            <DP2P reverse P2P={DP2P_CONTENT} />
+                            <Numbers />
+                            <ExchangeSteps />
+                            <Availability />
+                            <P2PBanner
+                                title={localize('Make hassle-free deposits and withdrawals today')}
+                            />
+                            <Roadmap portal={derivP2PPortalData} />
+                        </>
                     )}
-                />
-
-                {is_mounted && (
-                    <>
-                        <Hero />
-                        <DP2P reverse P2P={DP2P_CONTENT} />
-                        <Numbers />
-                        <ExchangeSteps />
-                        <Availability />
-                        <P2PBanner
-                            title={localize('Make hassle-free deposits and withdrawals today')}
-                        />
-                        <Roadmap portal={derivP2PPortalData} />
-                    </>
-                )}
-            </Layout>
-        )
+                </Layout>
+            )
+        }
+        return <PageNotFound/>
     }
-    return <PageNotFound />
-}
+    return (
+        <Layout>
+            <InitialLoader />
+        </Layout>
+    )
 
+}
 export default WithIntl()(DP2PHome)

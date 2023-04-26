@@ -22,7 +22,7 @@ const SmallContainer = styled(Container)`
         max-width: 1000px;
     }
     @media ${device.tabletL} {
-        width: 90%;
+        width: 100%;
         padding-left: 0;
         padding-right: 0;
     }
@@ -32,7 +32,7 @@ const Wrapper = styled(SmallContainer)`
     position: relative;
 
     @media (max-width: 770px) {
-        width: 81%;
+        width: 100%;
     }
 `
 const Item = ({ children, ...props }) => (
@@ -64,7 +64,7 @@ const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
             margin: '0 auto',
         },
         container_style: {
-            width: '90%',
+            width: is_mobile_or_tablet ? '100%' : '90%',
             position: 'relative',
             margin: '0 auto',
         },

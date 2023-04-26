@@ -58,7 +58,6 @@ const Section = styled(SectionContainer)`
 `
 const CardContainer = styled(Flex)`
     @media ${device.laptopM} {
-        max-width: 58rem;
         flex-wrap: wrap;
         justify-content: space-between;
     }

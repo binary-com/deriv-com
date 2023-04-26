@@ -31,6 +31,7 @@ const MainNavButtons = () => {
                     disabled={is_region_loading}
                     onClick={handleGetTrading}
                     aria-label="Get Trading"
+                    outlined
                 >
                     <Localize translate_text="_t_Get Trading_t_" />
                 </Button.Primary>

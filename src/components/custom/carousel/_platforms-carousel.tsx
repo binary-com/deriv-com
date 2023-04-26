@@ -18,6 +18,12 @@ type TProps = {
     mainHeading: string
 }
 
+const StyledSection = styled(SectionContainer)`
+    @media ${device.tablet} {
+        padding-block-end: 4.5rem;
+    }
+`
+
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
     flex-direction: column;
@@ -110,7 +116,7 @@ const SmallContainer = styled(Container)`
 const GenericCarousel: React.FC<TProps> = ({ renderableData, mainHeading }) => {
     return (
         <>
-            <SectionContainer background="white" padding="8rem 0" position="relative">
+            <StyledSection background="white" position="relative">
                 <SmallContainer direction="column" ai="flex-start">
                     <StyledHeading as="h3" type="section-title" mb="2.4rem" align="center">
                         {localize(`_t_${mainHeading}_t_`)}
@@ -138,7 +144,7 @@ const GenericCarousel: React.FC<TProps> = ({ renderableData, mainHeading }) => {
                         </MarketsCarousel.Item>
                     ))}
                 </MarketsCarousel>
-            </SectionContainer>
+            </StyledSection>
         </>
     )
 }

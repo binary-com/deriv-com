@@ -34,6 +34,13 @@ const query = graphql`
         }
     }
 `
+
+const StyledSection = styled(SectionContainer)`
+    @media ${device.tablet} {
+        padding-block-start: 5rem;
+        padding-block-end: 1.7rem;
+    }
+`
 const GoToLiveDemo = styled(LinkButton)`
     border: 2px solid var(--color-red);
     font-weight: bold;
@@ -106,7 +113,7 @@ const DtraderEasySteps = () => {
         [data, is_mobile],
     )
     return (
-        <SectionContainer>
+        <StyledSection>
             <Container justify="center" direction="column" ai="flex-start">
                 <CommonHeaderSection
                     title="_t_How it works_t_"
@@ -118,7 +125,6 @@ const DtraderEasySteps = () => {
                     align_title="center"
                     align_subtitle="center"
                     width="100%"
-                    font_weight_title="300"
                     font_weight_subtitle="bold"
                     font_family_title="Ubuntu"
                     font_family_subtitle="Ubuntu"
@@ -140,7 +146,7 @@ const DtraderEasySteps = () => {
                     )}
                 />
             </Container>
-        </SectionContainer>
+        </StyledSection>
     )
 }
 

@@ -93,7 +93,7 @@ const CardContainer = styled(Flex)<CardContainerProps>`
             opacity: ${(props) =>
                 props.active_tab === props.name.toLocaleLowerCase() ? '1' : '0.48'};
         }
-        h4 {
+        h3 {
             color: ${(props) =>
                 props.active_tab === props.name.toLocaleLowerCase()
                     ? 'var(--color-black)'
@@ -194,7 +194,7 @@ const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
                 {name === 'CFDs'}
                 {name === 'Options'}
                 {name === 'Multipliers'}
-                <CardHeader as="h4" width="auto">
+                <CardHeader as="h3" width="auto">
                     {display_name}
                 </CardHeader>
             </Flex>

@@ -47,6 +47,7 @@ const GoToLiveDemo = styled(LinkButton)`
     line-height: 1.43;
     width: fit-content;
     border-radius: 16px;
+    display: inline-block;
 
     @media ${device.tabletL} {
         max-width: 100%;

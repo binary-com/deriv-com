@@ -130,6 +130,7 @@ const EURedirect = ({
                             <Localize translate_text="_t_Deriv GO is our mobile app optimised for trading multipliers on the go. Trade on forex, derived indices, and cryptocurrencies, and maximise your potential profit without risking more than your stake._t_" />
                             <Localize translate_text="_t_Trade CFDs on forex, stocks, stock indices, synthetics, cryptocurrencies, and commodities with leverage._t_" />
                             <Localize translate_text="_t_Trade global stocks of your favourite household brands and international stock market indices on Deriv. Expand your trading opportunities with access to a wide range of stocks and indices at competitive prices, and the convenience to trade indices beyond standard market hours._t_" />
+                            <Localize translate_text="_t_Why trade CFDs on Deriv_t_" />
                         </Text>
                         <CloseButton src={Close} alt="close-2" onClick={toggle} />
                     </Action>

@@ -47,12 +47,8 @@ const ExampleImage = styled(QueryImage)<ExampleImageType>`
     }
 
     @media ${device.tabletL} {
-        width: 95%;
+        width: 100%;
         height: auto;
-    }
-
-    @media ${device.mobileM} {
-        width: 95%;
     }
 `
 const StyledButton = styled(LinkButton)`
@@ -75,11 +71,8 @@ const ExampleImageEu = styled(QueryImage)<ExampleImageType>`
         height: 200px;
     }
     @media ${device.tabletL} {
-        width: 95%;
+        width: 100%;
         height: auto;
-    }
-    @media ${device.mobileM} {
-        width: 95%;
     }
 `
 export const StyledLinkButton = styled(LinkButton)`

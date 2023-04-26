@@ -95,10 +95,14 @@ const Card = styled.article`
     padding: 24px 24px;
     max-width: 28.2rem;
 
-    @media (max-width: 994px) {
+    @media (max-width: 680px) {
         padding: 16px 16px 36px;
-        max-width: 282px;
-        height: 42rem;
+        max-width: 80vw;
+        height: 35rem;
+    }
+
+    @media (max-width: 375px) {
+        height: 40rem;
     }
 
     &:hover .learn-more {

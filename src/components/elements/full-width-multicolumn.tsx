@@ -29,8 +29,8 @@ const Item = styled(Flex)`
         margin-bottom: 1rem;
     }
 
-    @media ${device.mobileL} {
-        max-width: 90%;
+    @media ${device.tablet} {
+        max-width: 80%;
         gap: 6px;
 
         ${Text} {
@@ -94,7 +94,6 @@ const StyledTitle = styled(Header)`
 
     @media ${device.tablet} {
         max-width: 90vw;
-        margin-bottom: 8px;
         font-weight: 700;
         font-size: 14px;
         line-height: 30px;

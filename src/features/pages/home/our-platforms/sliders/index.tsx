@@ -17,11 +17,12 @@ const PlatformSliders = ({ items }: PlatformSlidersProps) => {
             container="fluid"
             justify="start"
             align="center"
-            gap="10x"
+            gap="5x"
             mt="20x"
             direction="col-reverse"
             md={{
                 direction: 'row',
+                gap: '10x',
             }}
         >
             <PlatformsMainSlider

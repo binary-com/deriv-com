@@ -13,7 +13,7 @@ const ClientTestimonial = () => {
                 direction="col"
                 justify="between"
                 align="center"
-                padding_block="30x"
+                padding_block="15x"
                 gap="20x"
                 md={{
                     direction: 'row',

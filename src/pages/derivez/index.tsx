@@ -5,9 +5,11 @@ import Numbers from './_numbers'
 import WhatIsDerivEZ from './what-derivez-have'
 import WhyTradeEZ from 'pages/derivez/_why-trade-derivez'
 import StartDerivEZ from 'pages/derivez/_how-to-start-deriv-ez'
+import MainNav from 'features/components/templates/navigation/main-nav'
+import Footer from 'features/components/templates/footer/'
+import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
-import Layout from 'components/layout/layout'
-import { WithIntl, localize } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
 
@@ -20,12 +22,14 @@ const DerivEZ = () => {
     if (is_row) {
         return (
             <Layout>
+                <MainNav />
                 <SEO title={localize(seo_title)} description={localize(seo_description)} />
                 <Hero />
                 <Numbers />
                 <WhyTradeEZ />
                 <WhatIsDerivEZ />
                 <StartDerivEZ />
+                <Footer />
             </Layout>
         )
     }

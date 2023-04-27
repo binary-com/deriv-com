@@ -217,6 +217,7 @@ export const asuncion: LocationsType = {
             alt={localize('_t_Palace of the Lopez - Asuncion_t_')}
             formats={['avif', 'webp', 'auto']}
             loading="eager"
+            style={{ width: '100%' }}
         />
     ),
     job_location: 'Asuncion',
@@ -431,6 +432,7 @@ export const minsk: LocationsType = {
             alt={localize('_t_Diamond shape building in Minsk_t_')}
             formats={['avif', 'webp', 'auto']}
             loading="eager"
+            style={{ width: '100%' }}
         />
     ),
     job_location: 'Minsk',
@@ -510,6 +512,7 @@ export const guernsey: LocationsType = {
             alt={localize('_t_Guernsey alt img_t_')}
             formats={['avif', 'webp', 'auto']}
             loading="eager"
+            style={{ width: '100%' }}
         />
     ),
     job_location: 'Guernsey',
@@ -548,6 +551,7 @@ export const berlin: LocationsType = {
             alt={localize('_t_Deriv’s Germany office at Berlin_t_')}
             formats={['avif', 'webp', 'auto']}
             loading="eager"
+            style={{ width: '100%' }}
         />
     ),
     job_location: 'Berlin',
@@ -762,6 +766,7 @@ export const singapore: LocationsType = {
             alt={localize('_t_Marina Bay Sands - Singapore_t_')}
             formats={['avif', 'webp', 'auto']}
             loading="eager"
+            style={{ width: '100%' }}
         />
     ),
     job_location: 'Singapore',

@@ -57,6 +57,7 @@ const BannerButtonWrapper = styled.div`
     display: flex;
     align-items: center;
     gap: 6px;
+    margin-block-start: 6px;
     @media ${device.tablet} {
         flex-direction: column;
         justify-content: center;

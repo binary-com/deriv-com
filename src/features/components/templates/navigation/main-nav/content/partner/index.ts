@@ -46,9 +46,9 @@ export const partnerNavSectionContent: TSmartNavContent[] = [
         data: {
             icon: {
                 src: BugBounty,
-                alt: 'bug bounty',
+                alt: 'Bug bounty',
             },
-            title: '_t_bug bounty_t_',
+            title: '_t_Bug bounty_t_',
             url: { type: 'internal', to: '/bug-bounty/' },
         },
     },

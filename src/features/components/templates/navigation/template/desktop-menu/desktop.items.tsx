@@ -19,7 +19,10 @@ const NavDesktopItem = ({ item }: DesktopItemsProps) => {
                 </NavigationMenu.Link>
             ) : (
                 <>
-                    <NavigationMenu.Trigger className="navigation_trigger">
+                    <NavigationMenu.Trigger
+                        className="navigation_trigger"
+                        onClick={(event) => event.preventDefault()}
+                    >
                         <Typography.Paragraph size="medium" font_family="UBUNTU">
                             <Localize translate_text={item.data.title} />
                         </Typography.Paragraph>

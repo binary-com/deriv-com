@@ -8,6 +8,7 @@ import usePpc from 'features/hooks/use-ppc'
 import Flex from 'features/components/atoms/flex-box'
 import useVisibleContent from 'components/hooks/use-visible-content'
 import Container from 'features/components/atoms/container'
+import useRegion from 'components/hooks/use-region'
 
 interface FooterProps {
     no_footer_links?: boolean
@@ -15,11 +16,17 @@ interface FooterProps {
 
 const Footer = ({ no_footer_links = false }: FooterProps) => {
     const { is_ppc } = usePpc()
+    const { is_eu } = useRegion()
 
     const content = useVisibleContent({ content: footerLinks, config: { is_ppc } })
 
     return (
-        <Container.Fixed as={'footer'} bgcolor="primary" className={footer}>
+        <Container.Fixed
+            as={'footer'}
+            bgcolor="primary"
+            className={footer}
+            pb={is_eu ? '15x' : undefined}
+        >
             <Container.Fluid pt={'20x'}>
                 <FooterIcons />
                 <Container.Fixed

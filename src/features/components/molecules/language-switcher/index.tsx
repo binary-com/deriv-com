@@ -19,7 +19,7 @@ const LanguageSwitcher = () => {
         >
             <DropdownMenu.Trigger asChild>
                 <div className={styles.trigger}>
-                    <Typography.Paragraph size="medium" weight="bold">
+                    <Typography.Paragraph size="medium" font_family={'UBUNTU'} weight="bold">
                         {currentLang.short_name}
                     </Typography.Paragraph>
                 </div>
@@ -28,7 +28,10 @@ const LanguageSwitcher = () => {
             <DropdownMenu.Content
                 className={styles.menu_content}
                 sideOffset={20}
-                alignOffset={-50}
+                collisionPadding={{
+                    right: 20,
+                }}
+                align="center"
                 onMouseLeave={() => {
                     setOpen(false)
                 }}
@@ -43,6 +46,7 @@ const LanguageSwitcher = () => {
                             align="left"
                             padding_block="3x"
                             padding_inline="6x"
+                            font_family="UBUNTU"
                             textcolor={isSelected(langItem.key) ? 'brand' : 'primary'}
                         >
                             {langItem.display_name}

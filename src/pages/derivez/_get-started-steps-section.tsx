@@ -99,17 +99,7 @@ const GetStartedStepsSection: React.FC<TProps> = ({ is_demo = false, chosen_tab 
                         ]}
                     />
                 ),
-                image: (
-                    <StaticImage
-                        src="../../images/common/deriv-ez/real-step-1.png"
-                        alt="Deriv GO trading app"
-                        loading="eager"
-                        formats={['avif', 'webp', 'auto']}
-                        quality={30}
-                        objectFit="contain"
-                        placeholder="none"
-                    />
-                ),
+                image: deriv_ez_images['step1'],
             },
             {
                 title: '_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_',

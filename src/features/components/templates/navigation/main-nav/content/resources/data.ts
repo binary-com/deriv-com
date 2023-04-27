@@ -32,7 +32,7 @@ export const resourcesNavSectionContent: TSmartNavContent[] = [
     {
         id: 4,
         data: {
-            title: '_t_Academy_t_',
+            title: '_t_Blog_t_',
             url: { type: 'company', url_name: 'academy', target: '_blank' },
         },
     },

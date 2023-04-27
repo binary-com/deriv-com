@@ -7,11 +7,16 @@ import Button from 'features/components/atoms/button'
 import { Localize } from 'components/localization/localize'
 import LanguageSwitcher from 'features/components/molecules/language-switcher'
 import Flex from 'features/components/atoms/flex-box'
+import Link from 'features/components/atoms/link'
 
 const BugBountyNav = () => {
     return (
         <NavTemplate
-            renderLogo={() => <Image src={BugBountyNavLogo} className={bug_bounty_logo} />}
+            renderLogo={() => (
+                <Link url={{ type: 'internal', to: '/' }} aria-label="deriv logo link">
+                    <Image src={BugBountyNavLogo} className={bug_bounty_logo} />
+                </Link>
+            )}
             has_top_nav
         >
             <Flex.Box

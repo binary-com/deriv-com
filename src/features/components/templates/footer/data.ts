@@ -179,7 +179,7 @@ const platformsLinks: SmartFooterLink[] = [
     {
         id: 6,
         data: {
-            text: '_t_DBot_t_',
+            text: '_t_Deriv Bot_t_',
             url: { type: 'internal', to: '/dbot/' },
         },
         visibility: {

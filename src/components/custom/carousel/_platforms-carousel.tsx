@@ -73,6 +73,7 @@ const Card = styled.article`
         padding: 16px 16px 36px;
         max-width: 328px;
         min-height: unset;
+        margin: 0 15px;
     }
 
     &:hover .learn-more {

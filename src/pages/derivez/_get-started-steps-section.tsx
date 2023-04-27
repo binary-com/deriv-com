@@ -1,74 +1,85 @@
 import React, { useMemo } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import { Localize } from 'components/localization'
-import StepperView from 'components/custom/_stepper_view'
+import StepperView from 'features/components/molecules/stepper-view'
 import { LocalizedLinkText } from 'components/elements'
-import { TString } from 'types/generics'
 import useBreakpoints from 'components/hooks/use-breakpoints'
-
-const query = graphql`
-    query {
-        demo_step1: file(relativePath: { eq: "deriv-ez/real-step-1.png" }) {
-            ...fadeIn
-        }
-        demo_step2: file(relativePath: { eq: "deriv-ez/real-step-2.png" }) {
-            ...fadeIn
-        }
-        demo_step3: file(relativePath: { eq: "deriv-ez/demo-step-3.png" }) {
-            ...fadeIn
-        }
-        demo_step4: file(relativePath: { eq: "deriv-ez/real-step-6.png" }) {
-            ...fadeIn
-        }
-        real_step1: file(relativePath: { eq: "deriv-ez/real-step-1.png" }) {
-            ...fadeIn
-        }
-        real_step2: file(relativePath: { eq: "deriv-ez/real-step-2.png" }) {
-            ...fadeIn
-        }
-        real_step3: file(relativePath: { eq: "deriv-ez/real-step-3.png" }) {
-            ...fadeIn
-        }
-        real_step4: file(relativePath: { eq: "deriv-ez/real-step-4.png" }) {
-            ...fadeIn
-        }
-        real_step5: file(relativePath: { eq: "deriv-ez/real-step-5.png" }) {
-            ...fadeIn
-        }
-        real_step6: file(relativePath: { eq: "deriv-ez/real-step-6.png" }) {
-            ...fadeIn
-        }
-    }
-`
 
 type TProps = {
     is_demo?: boolean
     chosen_tab: string
 }
 
-const demo_step1_title: TString = '_t_Get the <0>Deriv GO</0> app._t_'
-const real_step1_title: TString = '_t_Get the <0>Deriv GO</0> app._t_'
-const demo_step1_alt: TString = '_t_Deriv GO trading app_t_'
-const real_step1_alt: TString = '_t_Deriv GO trading app_t_'
-const demo_step2_title: TString =
-    '_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_'
-const demo_step2_alt: TString = '_t_Deriv GO app create free demo account_t_'
-const real_step2_alt: TString = '_t_Deriv GO app create free demo account_t_'
-const demo_step3_title: TString = '_t_Add a Deriv EZ demo account._t_'
-const demo_step3_alt: TString = '_t_Deriv EZ demo account for trading_t_'
-const demo_step4_title: TString = '_t_Start trading on the Deriv GO mobile app._t_'
-const real_demo_step4_alt: TString = '_t_Candle chart trading_t_'
-const real_step2_title: TString = '_t_Create or sign in to your demo Deriv account._t_'
-const real_step3_title: TString = '_t_Create a Deriv real account._t_'
-const real_step3_alt: TString = '_t_Currencies to trade in Deriv GO_t_'
-const real_step4_title: TString = '_t_Create a Deriv EZ real account._t_'
-const real_step4_alt: TString = '_t_CFD trading with Deriv EZ_t_'
-const real_step5_title: TString = '_t_Fund your account._t_'
-const real_step5_alt: TString = '_t_Transfer between your accounts’_t_'
-const real_step6_title: TString = '_t_Start trading on the Deriv GO mobile app._t_'
+const deriv_ez_images = {
+    step1: (
+        <StaticImage
+            src="../../images/common/deriv-ez/step-1.png"
+            alt="Deriv GO trading app"
+            loading="eager"
+            formats={['avif', 'webp', 'auto']}
+            quality={30}
+            objectFit="contain"
+            placeholder="none"
+        />
+    ),
+    step2: (
+        <StaticImage
+            src="../../images/common/deriv-ez/step-2.png"
+            alt="Deriv GO app create free demo account"
+            loading="eager"
+            formats={['avif', 'webp', 'auto']}
+            quality={30}
+            objectFit="contain"
+            placeholder="none"
+        />
+    ),
+    step3: (
+        <StaticImage
+            src="../../images/common/deriv-ez/step-3.png"
+            alt="Deriv EZ demo account for trading"
+            loading="eager"
+            formats={['avif', 'webp', 'auto']}
+            quality={30}
+            objectFit="contain"
+            placeholder="none"
+        />
+    ),
+    step4: (
+        <StaticImage
+            src="../../images/common/deriv-ez/step-4.png"
+            alt="Candle chart trading"
+            loading="eager"
+            formats={['avif', 'webp', 'auto']}
+            quality={30}
+            objectFit="contain"
+            placeholder="none"
+        />
+    ),
+    step5: (
+        <StaticImage
+            src="../../images/common/deriv-ez/step-5.png"
+            alt="Transfer between your accounts"
+            loading="eager"
+            formats={['avif', 'webp', 'auto']}
+            quality={30}
+            objectFit="contain"
+            placeholder="none"
+        />
+    ),
+    step6: (
+        <StaticImage
+            src="../../images/common/deriv-ez/step-6.png"
+            alt="Candle chart trading"
+            loading="eager"
+            formats={['avif', 'webp', 'auto']}
+            quality={30}
+            objectFit="contain"
+            placeholder="none"
+        />
+    ),
+}
 
 const GetStartedStepsSection: React.FC<TProps> = ({ is_demo = false, chosen_tab }) => {
-    const data = useStaticQuery(query)
     const { is_mobile } = useBreakpoints()
 
     const demo: React.ComponentProps<typeof StepperView>['items'] = useMemo(
@@ -76,7 +87,7 @@ const GetStartedStepsSection: React.FC<TProps> = ({ is_demo = false, chosen_tab 
             {
                 title: (
                     <Localize
-                        translate_text={demo_step1_title}
+                        translate_text={'_t_Get the <0>Deriv GO</0> app._t_'}
                         components={[
                             <LocalizedLinkText
                                 key={0}
@@ -88,26 +99,32 @@ const GetStartedStepsSection: React.FC<TProps> = ({ is_demo = false, chosen_tab 
                         ]}
                     />
                 ),
-                image: data['demo_step1'],
-                alt: <Localize translate_text={demo_step1_alt} />,
+                image: (
+                    <StaticImage
+                        src="../../images/common/deriv-ez/real-step-1.png"
+                        alt="Deriv GO trading app"
+                        loading="eager"
+                        formats={['avif', 'webp', 'auto']}
+                        quality={30}
+                        objectFit="contain"
+                        placeholder="none"
+                    />
+                ),
             },
             {
-                title: <Localize translate_text={demo_step2_title} />,
-                image: data['demo_step2'],
-                alt: <Localize translate_text={demo_step2_alt} />,
+                title: '_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_',
+                image: deriv_ez_images['step2'],
             },
             {
-                title: <Localize translate_text={demo_step3_title} />,
-                image: data['demo_step3'],
-                alt: <Localize translate_text={demo_step3_alt} />,
+                title: '_t_Add a Deriv EZ demo account._t_',
+                image: deriv_ez_images['step3'],
             },
             {
-                title: <Localize translate_text={demo_step4_title} />,
-                image: data['demo_step4'],
-                alt: <Localize translate_text={real_demo_step4_alt} />,
+                title: '_t_Start trading on the Deriv GO mobile app._t_',
+                image: deriv_ez_images['step4'],
             },
         ],
-        [data, is_mobile],
+        [is_mobile],
     )
 
     const real: React.ComponentProps<typeof StepperView>['items'] = useMemo(
@@ -115,7 +132,7 @@ const GetStartedStepsSection: React.FC<TProps> = ({ is_demo = false, chosen_tab 
             {
                 title: (
                     <Localize
-                        translate_text={real_step1_title}
+                        translate_text={'_t_Get the <0>Deriv GO</0> app._t_'}
                         components={[
                             <LocalizedLinkText
                                 key={0}
@@ -127,36 +144,30 @@ const GetStartedStepsSection: React.FC<TProps> = ({ is_demo = false, chosen_tab 
                         ]}
                     />
                 ),
-                image: data['real_step1'],
-                alt: <Localize translate_text={real_step1_alt} />,
+                image: deriv_ez_images['step1'],
             },
             {
-                title: <Localize translate_text={real_step2_title} />,
-                image: data['real_step2'],
-                alt: <Localize translate_text={real_step2_alt} />,
+                title: '_t_Create or sign in to your demo Deriv account._t_',
+                image: deriv_ez_images['step2'],
             },
             {
-                title: <Localize translate_text={real_step3_title} />,
-                image: data['real_step3'],
-                alt: <Localize translate_text={real_step3_alt} />,
+                title: '_t_Create a Deriv real account._t_',
+                image: deriv_ez_images['step3'],
             },
             {
-                title: <Localize translate_text={real_step4_title} />,
-                image: data['real_step4'],
-                alt: <Localize translate_text={real_step4_alt} />,
+                title: '_t_Create a Deriv EZ real account._t_',
+                image: deriv_ez_images['step4'],
             },
             {
-                title: <Localize translate_text={real_step5_title} />,
-                image: data['real_step5'],
-                alt: <Localize translate_text={real_step5_alt} />,
+                title: '_t_Fund your account._t_',
+                image: deriv_ez_images['step5'],
             },
             {
-                title: <Localize translate_text={real_step6_title} />,
-                image: data['real_step6'],
-                alt: <Localize translate_text={real_demo_step4_alt} />,
+                title: '_t_Start trading on the Deriv GO mobile app._t_',
+                image: deriv_ez_images['step6'],
             },
         ],
-        [data, is_mobile],
+        [is_mobile],
     )
     return <StepperView chosen_tab={chosen_tab} items={is_demo ? demo : real} />
 }

@@ -1,0 +1,22 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.hero_spacing {
+    @include breakpoints(tablet) {
+      margin-inline: 120px 34px;
+      max-inline-size: 632px;
+    }
+}
+.number_box {
+  border-bottom: 1px solid $color-grey-1;
+  @include breakpoints(tablet) {
+    margin-inline: 120px;
+  }
+}
+.styled_card {
+  border: 1px solid $color-grey-1;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

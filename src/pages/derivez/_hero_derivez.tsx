@@ -1,10 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
-import * as style from './hero-content.module.scss'
+import * as style from './deriv-ez.module.scss'
 import HeroPhone from 'images/common/deriv-ez/hero-phone.png'
 import HeroPhoneMobile from 'images/common/deriv-ez/hero-phone-mobile.png'
-import HeroImageMobile from 'images/common/deriv-ez/background-image-mobile.png'
-import HeroImage from 'images/common/deriv-ez/background-derivez.png'
 import DerivEZLogo from 'images/svg/deriv-ez/derivez-logo.svg'
 import FlexBox from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
@@ -12,34 +9,6 @@ import Typography from 'features/components/atoms/typography'
 import TradeHeroContainer from 'features/components/templates/hero-banners/trade'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import { Localize } from 'components/localization'
-import device from 'themes/device'
-
-const Wrapper = styled.div`
-    display: flex;
-    background-image: url(${HeroImage});
-    background-position: right;
-    background-repeat: no-repeat;
-    background-color: var(--color-black);
-    justify-content: center;
-    align-items: center;
-    padding: 3rem 24rem;
-
-    @media ${device.tablet} {
-        background-image: url(${HeroImageMobile});
-        background-position: top;
-        background-size: 100% 60%;
-        flex-direction: column-reverse;
-        padding: 1.2rem;
-        align-items: center;
-    }
-`
-const ContentWrapper = styled.div`
-    flex: 2;
-
-    @media ${device.tablet} {
-        margin-top: 68px;
-    }
-`
 
 const DerivEZHero = () => {
     const { is_mobile } = useBreakpoints()

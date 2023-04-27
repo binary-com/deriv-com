@@ -1,6 +1,6 @@
 import React from 'react'
 import PageNotFound from '../404'
-import Hero from './_hero'
+import Hero from './_hero_derivez'
 import Numbers from './_numbers'
 import WhatIsDerivEZ from './what-derivez-have'
 import WhyTradeEZ from 'pages/derivez/_why-trade-derivez'

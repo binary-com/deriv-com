@@ -5,7 +5,6 @@ import Flex from 'features/components/atoms/flex-box'
 import Link from 'features/components/atoms/link'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
-import Image from 'features/components/atoms/image'
 import Icon from 'features/components/atoms/icon'
 
 interface TradeTypeItemProps {
@@ -19,14 +18,21 @@ const TradeTypeItem = ({ item }: TradeTypeItemProps) => {
             direction="col"
             align="center"
             gap="5x"
-            padding_block={'20x'}
+            md={{
+                padding_block: '20x',
+            }}
         >
             <Icon src={item.icon_src} size="xlarge" />
-            <Typography.Heading as="h3" size="small" textcolor="inverted" mt={'15x'}>
+            <Typography.Heading as="h3" size="small" textcolor="inverted" mt={'5x'}>
                 <Localize translate_text={item.title} />
             </Typography.Heading>
             <Flex.Item className={item_description} padding_inline={'5x'}>
-                <Typography.Paragraph size="large" textcolor="inverted" mb="10x" align="center">
+                <Typography.Paragraph
+                    size="large"
+                    textcolor="inverted"
+                    md={{ mb: '10x' }}
+                    align="center"
+                >
                     <Localize translate_text={item.description} />
                 </Typography.Paragraph>
             </Flex.Item>

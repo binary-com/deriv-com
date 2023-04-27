@@ -32,7 +32,8 @@
 }
 
 .menu_item[data-highlighted] {
-    background-color: $bg-color-secondary;
+    background-color: rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
 }
 
 .menu_item {

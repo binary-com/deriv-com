@@ -42,8 +42,11 @@ const TradeTypes = () => {
                 direction="col"
                 justify="center"
                 align="center"
-                gap="10x"
-                md={{ direction: 'row', gap: '20x', justify: 'around' }}
+                gap="20x"
+                md={{ direction: 'row', gap: '12x', justify: 'center' }}
+                lg={{
+                    gap: '40x',
+                }}
             >
                 {visible_items.map((item) => (
                     <TradeTypeItem key={item.id} item={item.data} />

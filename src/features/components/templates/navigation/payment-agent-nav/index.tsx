@@ -9,10 +9,8 @@ import { Localize } from 'components/localization/localize'
 import LanguageSwitcher from 'features/components/molecules/language-switcher'
 import Link from 'features/components/atoms/link'
 import Flex from 'features/components/atoms/flex-box'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const PaymentAgentAffiliateNav = () => {
-    const { is_mobile } = useBreakpoints()
     return (
         <NavTemplate
             renderLogo={() => (

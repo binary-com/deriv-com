@@ -1,5 +1,5 @@
 import { TNavItems } from '../../types'
-import { aboutUsNavSectionContent } from './about'
+import { aboutUsNavSectionContent, aboutUsNavSectionContentMobile } from './about'
 import { legalNavSectionContent } from './legal'
 import { marketSectionContent } from './market'
 import { partnerNavSectionContent } from './partner'
@@ -30,7 +30,22 @@ export const mainItems: TNavItems = [
             type: 'single-column',
             content: aboutUsNavSectionContent,
         },
+        visibility: {
+            is_mobile: false,
+        },
     },
+    {
+        id: 22,
+        data: {
+            title: '_t_About us_t_',
+            type: 'single-column',
+            content: aboutUsNavSectionContentMobile,
+        },
+        visibility: {
+            is_mobile: true,
+        },
+    },
+
     {
         id: 3,
         data: {

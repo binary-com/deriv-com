@@ -17,7 +17,6 @@ const TrustpilotContainer = () => {
                 src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
                 strategy="idle"
                 async={true}
-                onLoad={() => console.log('widget loaded')}
             />
             <div
                 ref={ref}

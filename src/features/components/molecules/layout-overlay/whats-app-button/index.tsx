@@ -1,8 +1,8 @@
 import React from 'react'
 import FloatingButton from '../floating-button'
 import { whatsapp_url } from 'common/constants'
-import WhatsAppIcon from 'images/svg/layout/whatsapp.svg'
-import WhatsAppHover from 'images/svg/layout/whatsapp-hover.svg'
+import WhatsAppIcon from 'images/svg/layout/normal.svg'
+import WhatsAppHover from 'images/svg/layout/hover.svg'
 
 const WhatsappButton = () => {
     return (

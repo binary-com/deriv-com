@@ -16,7 +16,7 @@ const P2PTextBox = () => {
             <Typography.Paragraph size="large">
                 <Localize translate_text="_t_Connect with fellow traders and transfer money in minutes._t_" />
             </Typography.Paragraph>
-            <Link url={{ type: 'internal', to: '/' }} size="large" textcolor="brand">
+            <Link url={{ type: 'internal', to: '/p2p' }} size="large" textcolor="brand">
                 <Localize translate_text="_t_Learn more >_t_" />
             </Link>
         </Flex.Box>

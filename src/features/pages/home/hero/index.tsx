@@ -6,8 +6,9 @@ import HomeHeroContent from './content'
 import SliderWrapper from './slider/slider-wrapper'
 import Flex from 'features/components/atoms/flex-box'
 import ProductHeroContainer from 'features/components/templates/hero-banners/product'
+import useRegion from 'components/hooks/use-region'
 
-const HomeHeroSlider = loadable(() => pMinDelay(import('./slider'), 3000), {
+const HomeHeroSlider = loadable(() => pMinDelay(import('./slider'), 4000), {
     fallback: (
         <SliderWrapper>
             <StaticImage
@@ -16,13 +17,31 @@ const HomeHeroSlider = loadable(() => pMinDelay(import('./slider'), 3000), {
                 alt="person-hero-1"
                 formats={['avif', 'webp', 'auto']}
                 loading="eager"
-                quality={30}
-                placeholder="none"
+                quality={50}
+                placeholder="blurred"
             />
         </SliderWrapper>
     ),
 })
+
+const HomeHeroSliderEu = loadable(() => pMinDelay(import('./slider'), 4000), {
+    fallback: (
+        <SliderWrapper>
+            <StaticImage
+                objectFit="fill"
+                src="../../../../images/common/home/eu_hero_person_5.png"
+                alt="person-hero-1"
+                formats={['avif', 'webp', 'auto']}
+                loading="eager"
+                quality={50}
+                placeholder="blurred"
+            />
+        </SliderWrapper>
+    ),
+})
+
 const HomeHero = () => {
+    const { is_eu } = useRegion()
     return (
         <ProductHeroContainer
             container="fixed"
@@ -45,7 +64,7 @@ const HomeHero = () => {
                 }}
             >
                 <HomeHeroContent />
-                <HomeHeroSlider />
+                {is_eu ? <HomeHeroSliderEu /> : <HomeHeroSlider />}
             </Flex.Box>
         </ProductHeroContainer>
     )

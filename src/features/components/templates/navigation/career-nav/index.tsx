@@ -36,7 +36,6 @@ const CareerNav = () => {
                 >
                     <Localize translate_text="_t_Explore jobs_t_" />
                 </Button.Primary>
-                <LanguageSwitcher />
             </Flex.Box>
         </NavTemplate>
     )

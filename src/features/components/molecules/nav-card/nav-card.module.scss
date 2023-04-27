@@ -12,6 +12,7 @@
         align-items: center;
         margin-block: 0.5rem;
         padding-inline-start: 1.8rem;
+        padding-block: 0.8rem;
 
         min-block-size: 5rem;
 
@@ -24,7 +25,7 @@
         }
 
         &:hover {
-            background-color: $color-grey-30;
+            background-color: rgba(0, 0, 0, 0.08);
         }
 
         & > h2 {
@@ -38,8 +39,7 @@
     }
 
     &_content {
-        min-block-size: 9rem;
-
+        min-block-size: 6rem;
         grid-column-start: 2;
         grid-column-end: 3;
     }

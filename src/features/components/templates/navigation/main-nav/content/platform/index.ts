@@ -9,6 +9,7 @@ import DerivGo from 'images/svg/custom/rebranding/deriv-go-icon.svg'
 import DMT5 from 'images/svg/custom/rebranding/dmt5-icon.svg'
 import DTrader from 'images/svg/custom/rebranding/dtrader-icon.svg'
 import DerivEZ from 'images/svg/custom/rebranding/deriv-ez-icon.svg'
+import DerivBot from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
 
 export const tradeTypesContent: TSmartNavContent[] = [
     {
@@ -155,7 +156,7 @@ export const tradingPlatformsContent: TSmartNavContent[] = [
             aria_label: 'Deriv Trader',
             icon: {
                 src: DTrader,
-                alt: 'Dtrader trading platform',
+                alt: 'Deriv trader trading platform',
             },
             content: '_t_A whole new trading experience on a powerful yet easy to use platform._t_',
             title: '_t_Deriv Trader_t_',
@@ -204,6 +205,23 @@ export const noTitleSection: TSmartNavContent[] = [
     },
     {
         id: 2,
+        data: {
+            aria_label: 'Deriv Bot',
+            icon: {
+                src: DerivBot,
+                alt: 'Deriv Bot Automated trading',
+            },
+            content: '_t_Automated trading at your fingertips. No coding needed._t_',
+            title: '_t_Deriv Bot_t_',
+
+            url: { type: 'internal', to: '/dbot/' },
+        },
+        visibility: {
+            is_row: true,
+        },
+    },
+    {
+        id: 3,
         data: {
             aria_label: 'Binary Bot',
             icon: {

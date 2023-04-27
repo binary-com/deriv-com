@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { tradeTypesItems } from './data'
 import TradeTypeItem from './trade-type.item'
 import Container from 'features/components/atoms/container'
@@ -7,10 +7,17 @@ import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import useVisibleContent from 'components/hooks/use-visible-content'
 import Flex from 'features/components/atoms/flex-box'
+import { TString } from 'types/generics'
 
 const TradeTypes = () => {
     const { is_eu } = useRegion()
     const visible_items = useVisibleContent({ content: tradeTypesItems, config: { is_eu } })
+    const title_text: TString = useMemo(() => {
+        return is_eu
+            ? '_t_Trade the way you want with 2 flexible trade types._t_'
+            : '_t_Trade the way you want with 3 exciting trade types._t_'
+    }, [is_eu])
+
     return (
         <Container.Fixed
             as="section"
@@ -28,10 +35,7 @@ const TradeTypes = () => {
                 padding_inline="20x"
                 mb="30x"
             >
-                <Localize
-                    translate_text="_t_Trade the way you want with {{trade_type_number}} exciting trade types._t_"
-                    values={{ trade_type_number: is_eu ? '2' : '3' }}
-                />
+                <Localize translate_text={title_text} />
             </Typography.Paragraph>
             <Flex.Box
                 container="fluid"

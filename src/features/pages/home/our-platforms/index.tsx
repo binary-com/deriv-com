@@ -19,7 +19,7 @@ const OurPlatforms = () => {
 
     const title_text: TString = useMemo(() => {
         return is_eu
-            ? '_t_Trade the way you want with {{platform_count}} flexible trade types._t_'
+            ? '_t_Choose from {{platform_count}} powerful platforms — each designed with your needs in mind._t_'
             : '_t_Choose from {{platform_count}} powerful platforms — designed with you in mind_t_'
     }, [is_eu])
 

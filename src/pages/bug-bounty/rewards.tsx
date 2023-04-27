@@ -109,7 +109,7 @@ const card_content: TCardContent = [
         alt: 'Low impact',
         header: '_t_Low_t_',
         title_1: {
-            text: '_t_We’ll reward reports on low-level vulnerabilities <0>only</0> if they help us fix severe security issues, and we’ll decide the reward amount on a case-to-case basis._t_',
+            text: '_t_We’ll reward reports on low-level vulnerabilities <0>only</0> if they help us fix severe security issues, and we’ll decide the reward amount on a case-to-case basis. _t_',
             components: [<strong key={0} />],
         },
         type: 'short',

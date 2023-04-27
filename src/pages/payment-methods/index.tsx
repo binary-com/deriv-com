@@ -240,7 +240,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                                 header_style={header_style}
                                 style={styles}
                                 parent_style={parent_style}
-                                header={pdata.name}
+                                header={localize(pdata.name)}
                                 class_name={pdata.class_name}
                             >
                                 <DesktopWrapper>

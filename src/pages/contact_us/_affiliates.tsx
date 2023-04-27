@@ -71,7 +71,7 @@ export const Affiliates = () => {
                     </Header>
                     <TextWrapper>
                         <Text m="0.8rem 0">
-                            <Localize translate_text="_t_Questions about becoming our affiliates or other business collaboration opportunities?_t_" />
+                            <Localize translate_text="_t_Questions about becoming our affiliates or other business collaboration opportunities? _t_" />
                         </Text>
                         <LinkText
                             color="red"

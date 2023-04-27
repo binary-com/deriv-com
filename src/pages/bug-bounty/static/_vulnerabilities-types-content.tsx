@@ -183,7 +183,7 @@ export const vulnerability_types_content: TVulnerabilityTypesContent = [
         icon: LowIcon,
         title: '_t_Low_t_',
         profit: {
-            text: '_t_We’ll reward reports on low-level vulnerabilities <0>only</0> if they help us fix severe security issues, and we’ll decide the reward amount on a case-to-case basis._t_',
+            text: '_t_We’ll reward reports on low-level vulnerabilities <0>only</0> if they help us fix severe security issues, and we’ll decide the reward amount on a case-to-case basis. _t_',
             components: [<strong key={0} />],
         },
         description:

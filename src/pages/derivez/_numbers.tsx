@@ -1,112 +1,80 @@
-import React, { ReactElement } from 'react'
-import styled from 'styled-components'
+import React from 'react'
+import * as style from './deriv-ez.module.scss'
 import { Localize } from 'components/localization'
-import { Header, Text } from 'components/elements/typography'
-import { SectionContainer, Container, Flex } from 'components/containers'
-import device from 'themes/device'
+import FlexBox from 'features/components/atoms/flex-box'
+import Typography from 'features/components/atoms/typography'
 import { TString } from 'types/generics'
 
 type SellingPointsType = {
-    title: string | ReactElement
-    subtitle: ReactElement
+    title: TString
+    subtitle: TString
 }
-
-const NumberWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 32.8rem;
-`
-
-const NumberStyledContainer = styled(Container)`
-    direction: ltr;
-    width: 100%;
-    padding: 40px 0 104px;
-    justify-content: space-around;
-
-    @media ${device.tabletL} {
-        flex-direction: column;
-        padding: 16px 0 40px;
-    }
-`
-
-const StyledTitle = styled(Header)`
-    @media ${device.tabletL} {
-        padding-top: 24px;
-    }
-`
-const StyledSubTitle = styled(Text)`
-    padding-top: 8px;
-    font-size: 24px;
-
-    @media ${device.tabletL} {
-        font-size: 18px;
-    }
-`
-
-const StyledSectionContainer = styled(SectionContainer)`
-    border-bottom: solid 1px var(--color-grey-2);
-    padding-top: 40px;
-
-    @media ${device.tabletL} {
-        padding-top: 0;
-    }
-`
-const StyledHeader = styled(Header)`
-    @media ${device.tablet} {
-        font-size: 28px;
-    }
-`
-
-const tradable_assets_subtitle: TString = '_t_tradable assets_t_'
-const financial_derived_assets_subtitle: TString = '_t_Financial and derived assets_t_'
-const trading_subtitle: TString = '_t_trading_t_'
-const tradable_assets_title: TString = '_t_100+_t_'
-const financial_derived_assets_title: TString = '_t_All-in-one_t_'
-const trading_title: TString = '_t_24/7_t_'
 
 const selling_points: SellingPointsType[] = [
     {
-        title: <Localize translate_text={tradable_assets_title} />,
-        subtitle: <Localize translate_text={tradable_assets_subtitle} />,
+        title: '_t_150+_t_',
+        subtitle: '_t_tradable assets_t_',
     },
     {
-        title: <Localize translate_text={financial_derived_assets_title} />,
-        subtitle: <Localize translate_text={financial_derived_assets_subtitle} />,
+        title: '_t_All-in-one_t_',
+        subtitle: '_t_Financial and derived assets_t_',
     },
     {
-        title: <Localize translate_text={trading_title} />,
-        subtitle: <Localize translate_text={trading_subtitle} />,
+        title: '_t_24/7_t_',
+        subtitle: '_t_trading_t_',
     },
 ]
 
-const what_is_derivez_title: TString = '_t_What is Deriv EZ_t_'
-const what_is_derivez_subtitle: TString =
-    '_t_Deriv EZ is a user-friendly CFDs trading platform that offers instant access to all your favourite assets. There is no additional account ID or password to remember, so you can fully focus on your trading. Trade on Deriv EZ and access a wide variety of assets in forex, stocks and indices, commodities, cryptocurrencies, and derived indices._t_'
 const Numbers = () => {
     return (
-        <StyledSectionContainer>
-            <NumberStyledContainer>
+        <FlexBox.Box direction={'col'} pt={'0x'} className={style.number_box} md={{ pt: '20x' }}>
+            <FlexBox.Box
+                direction={'col'}
+                align={'center'}
+                pt={'8x'}
+                pb={'20x'}
+                md={{ direction: 'row', justify: 'around' }}
+            >
                 {selling_points.map((item, index) => (
-                    <NumberWrapper key={`${item.title}-${index}`}>
-                        <StyledTitle as="h3" type="heading-3" align="center">
-                            {item.title}
-                        </StyledTitle>
-                        <StyledSubTitle align="center">{item.subtitle}</StyledSubTitle>
-                    </NumberWrapper>
+                    <FlexBox.Item basis={'1-3'} key={`${item.title}-${index}`}>
+                        <Typography.Heading align={'center'}>
+                            <Localize translate_text={item.title} />
+                        </Typography.Heading>
+                        <Typography.Paragraph align={'center'}>
+                            <Localize translate_text={item.subtitle} />
+                        </Typography.Paragraph>
+                    </FlexBox.Item>
                 ))}
-            </NumberStyledContainer>
-            <Container>
-                <Flex width="1200px" fd="column" ai="center" jc="center">
-                    <StyledHeader type="page-title" align="center" as="h2">
-                        <Localize translate_text={what_is_derivez_title} />
-                    </StyledHeader>
-                    <Header size="16px" align="center" mt="16px" weight="normal">
-                        <Localize translate_text={what_is_derivez_subtitle} />
-                    </Header>
-                </Flex>
-            </Container>
-        </StyledSectionContainer>
+            </FlexBox.Box>
+            <FlexBox.Box justify={'center'} padding_block={'40x'} padding_inline={'8x'}>
+                <FlexBox.Box direction={'col'} md={{ basis: '2-3' }}>
+                    <Typography.Heading align={'center'}>
+                        <Localize translate_text={'_t_What is Deriv EZ_t_'} />
+                    </Typography.Heading>
+                    <Typography.Paragraph align={'center'} mt={'8x'} weight={'normal'}>
+                        <Localize
+                            translate_text={
+                                '_t_Deriv EZ is a user-friendly CFDs trading platform that offers instant access to all your favourite assets._t_'
+                            }
+                        />
+                    </Typography.Paragraph>
+                    <Typography.Paragraph align={'center'} weight={'normal'}>
+                        <Localize
+                            translate_text={
+                                '_t_There is no additional account ID or password to remember, so you can fully focus on your trading._t_'
+                            }
+                        />
+                    </Typography.Paragraph>
+                    <Typography.Paragraph align={'center'} weight={'normal'}>
+                        <Localize
+                            translate_text={
+                                '_t_Trade on Deriv EZ and access a wide variety of assets in forex, stocks and indices, commodities, cryptocurrencies, and derived indices._t_'
+                            }
+                        />
+                    </Typography.Paragraph>
+                </FlexBox.Box>
+            </FlexBox.Box>
+        </FlexBox.Box>
     )
 }
 

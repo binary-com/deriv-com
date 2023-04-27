@@ -147,7 +147,7 @@ const SignupPublicForm = () => {
                                 <Link
                                     textcolor="brand"
                                     key={0}
-                                    url={{ type: 'company', url_name: 'tnd_clients' }}
+                                    url={{ type: 'internal', to: '/terms-and-conditions/#clients' }}
                                 />,
                             ]}
                         />

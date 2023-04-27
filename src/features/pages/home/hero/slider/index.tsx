@@ -11,19 +11,6 @@ const HomeHeroSlider = () => {
     const items = useMemo(() => {
         const slide_images = [
             {
-                key: 'hero2',
-                image: (
-                    <StaticImage
-                        objectFit="fill"
-                        src="../../../../../images/common/home/hero_2.png"
-                        alt="person-hero-2"
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        placeholder="none"
-                    />
-                ),
-            },
-            {
                 key: 'hero3',
                 image: (
                     <StaticImage
@@ -50,19 +37,34 @@ const HomeHeroSlider = () => {
             },
         ]
         if (!is_eu) {
-            slide_images.push({
-                key: 'hero1',
-                image: (
-                    <StaticImage
-                        objectFit="fill"
-                        src="../../../../../images/common/home/hero_1.png"
-                        alt="person-hero-1"
-                        formats={['avif', 'webp', 'auto']}
-                        quality={50}
-                        placeholder="none"
-                    />
-                ),
-            })
+            slide_images.push(
+                {
+                    key: 'hero2',
+                    image: (
+                        <StaticImage
+                            objectFit="fill"
+                            src="../../../../../images/common/home/hero_2.png"
+                            alt="person-hero-2"
+                            formats={['avif', 'webp', 'auto']}
+                            loading="eager"
+                            placeholder="none"
+                        />
+                    ),
+                },
+                {
+                    key: 'hero1',
+                    image: (
+                        <StaticImage
+                            objectFit="fill"
+                            src="../../../../../images/common/home/hero_1.png"
+                            alt="person-hero-1"
+                            formats={['avif', 'webp', 'auto']}
+                            quality={50}
+                            placeholder="none"
+                        />
+                    ),
+                },
+            )
         } else {
             slide_images.push({
                 key: 'hero_eu_1',

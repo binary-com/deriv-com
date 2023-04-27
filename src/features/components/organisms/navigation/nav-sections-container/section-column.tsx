@@ -41,6 +41,7 @@ const NavSectionColumn = ({ item }: NavSectionColumnProps) => {
                     className={styles.section_items_title}
                     textcolor="secondary"
                     align="left"
+                    font_family="UBUNTU"
                     mb="2x"
                 >
                     {item.data.title ? <Localize translate_text={item.data.title} /> : ''}

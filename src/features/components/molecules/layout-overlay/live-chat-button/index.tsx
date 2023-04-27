@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Script } from 'gatsby'
 import FloatingButton from '../floating-button'
-import LiveChatIC from 'images/svg/layout/livechat.svg'
-import LiveChatHover from 'images/svg/layout/livechat-hover.svg'
+import LiveChatIC from 'images/svg/layout/chat-normal.svg'
+import LiveChatHover from 'images/svg/layout/chat-hover.svg'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/utility'
 

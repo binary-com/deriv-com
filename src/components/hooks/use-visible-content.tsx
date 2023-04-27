@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+// import { useMemo } from 'react'
 import { TSmartContent } from 'types/generics'
 
 export interface IUseVisibleContent<T extends TSmartContent<unknown, object>> {
@@ -23,11 +23,12 @@ function useVisibleContent<T extends TSmartContent<unknown, object>>({
     config,
     content,
 }: IUseVisibleContent<T>): T[] {
-    const visible_items = useMemo(() => {
-        return filterVisibleContent(content, config)
-    }, [content, config])
+    // const visible_items = useMemo(() => {
+    //     return filterVisibleContent(content, config)
+    // }, [content, config])
 
-    return visible_items
+    // return visible_items
+    return filterVisibleContent(content, config)
 }
 
 export default useVisibleContent

@@ -16,7 +16,7 @@ interface PlatformMainSliderProps {
 const PlatformImageSlider = ({ items, setSwiper, connectedSwiper }: PlatformMainSliderProps) => {
     return (
         <Swiper
-            speed={600}
+            speed={800}
             effect={'fade'}
             slidesPerView={1}
             fadeEffect={{

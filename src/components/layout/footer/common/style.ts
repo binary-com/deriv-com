@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { Container, CssGrid, Flex } from 'components/containers'
-import { StyledLink, Header, Text } from 'components/elements'
+import { StyledLink, Text } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 
@@ -14,7 +14,7 @@ type DisclaimerParagraphProps = {
 }
 
 export const DefaultFooter = styled.footer<DefaultFooterProps>`
-    background-color: var(--color-white);
+    background-color: var(--color-grey-25);
     width: 100%;
     margin: 0 auto;
     -webkit-tap-highlight-color: transparent;
@@ -78,18 +78,19 @@ export const DerivLogoWrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     grid-area: logo;
-    background: var(--color-white);
-    padding: 4rem 4rem 2rem 0;
+    background: var(--color-grey-25);
+    padding: 4rem 0 2rem 0;
 
     @media ${device.tabletL} {
         margin-left: 2rem;
-        justify-content: center;
     }
 `
 export const LinksWrapper = styled.div`
     grid-area: links;
-    background: var(--color-white);
+    background: var(--color-grey-25);
     padding: 0.8rem 0 2.4rem 0;
+    border-bottom: 1px solid var(--color-grey-26);
+    border-top: 2px solid var(--color-grey-26);
 
     @media ${device.tabletL} {
         padding: 0;
@@ -112,13 +113,12 @@ export const LinksCol = styled(Flex)`
     }
 `
 
-export const Title = styled(Header)`
-    color: var(--color-black-9);
-    font-weight: 700;
-    font-size: 16px;
+export const Title = styled(Text)`
+    color: var(--color-black-6);
+    font-weight: bold;
 `
 export const Link = styled(StyledLink)`
-    color: var(--color-black-9);
+    color: var(--color-black-3);
     font-size: var(--text-size-xs);
     line-height: 1.5;
 `
@@ -141,7 +141,7 @@ export const LinkWrapper = styled.div`
 `
 export const DisclaimerWrapper = styled.div`
     grid-area: disclaimer;
-    background: var(--color-white);
+    background: var(--color-grey-25);
 `
 export const DisclaimerParagraph = styled(Text)<DisclaimerParagraphProps>`
     font-size: var(--text-size-xs);
@@ -154,19 +154,6 @@ export const DisclaimerParagraph = styled(Text)<DisclaimerParagraphProps>`
         line-height: ${({ has_line_height }) => (has_line_height ? '21px' : '18px')};
     }
 `
-export const RiskWarningParagraph = styled(Text)<DisclaimerParagraphProps>`
-    font-size: var(--text-size-xs);
-    margin-bottom: 16px;
-
-    &:last-child {
-        margin-bottom: 0;
-    }
-    @media ${device.tabletL} {
-        font-size: 12px;
-        line-height: ${({ has_line_height }) => (has_line_height ? '21px' : '18px')};
-    }
-`
-
 export const shared_css = css`
     font-weight: bold;
     color: var(--color-black-3);
@@ -188,16 +175,17 @@ export const StaticAssetLink = styled(LocalizedLink)`
     ${shared_css}
 `
 export const RiskWarning = styled.div`
-    background-color: var(--color-grey-44);
+    background-color: var(--color-grey-28);
+    border-left: 4px solid var(--color-grey-27);
     padding: 1.6rem;
     margin-top: 2rem;
-    border-radius: 15px;
 
     @media ${device.tabletL} {
+        border-top: 2px solid var(--color-grey-27);
         border-left: none;
         width: 90%;
-        margin: 24px 16px;
-        padding: 16px;
+        margin: 24px 16px 0;
+        padding: 0 8px 16px;
 
         p {
             padding: 0;
@@ -216,7 +204,7 @@ export const BoldLink = styled(StyledLink)`
 `
 export const CopyrightWrapper = styled(Flex)`
     grid-area: copyright;
-    background: var(--color-white);
+    background: var(--color-grey-25);
     justify-content: flex-start;
     align-items: center;
 
@@ -243,12 +231,12 @@ export const EuLogoWrapper = styled(Flex)`
 `
 export const SocialWrapper = styled.div`
     grid-area: social;
-    background: var(--color-white);
+    background: var(--color-grey-25);
     margin: 1.6rem 0;
     flex-wrap: wrap;
 
     img {
-        margin-left: 2.4rem;
+        margin-left: 1.6rem;
     }
 
     @media ${device.mobileL} {

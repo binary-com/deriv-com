@@ -28,7 +28,8 @@ const Wrapper = styled.div<Wrapper>`
 `
 
 const Nav = styled.nav<NavProps>`
-    background-color: var(--color-white);
+    background-color: ${({ transparent_background }) =>
+        transparent_background ? 'transparent' : 'var(--color-black)'};
     height: ${({ nav_height }) => nav_height || '7.2rem'};
     width: 100%;
     position: relative;

@@ -15,7 +15,7 @@ const LogoSection = ({ type = '' }: LogoSectionProps) => {
     return (
         <>
             <DerivLogoWrapper>
-                <img src={DerivLogo} alt="logo" width="108" height="40" />
+                <StyledLogo src={DerivLogo} alt="logo" width="147" height="25" />
                 <Desktop>
                     <SocialWrapperComponent is_career_page={is_career_page} />
                 </Desktop>

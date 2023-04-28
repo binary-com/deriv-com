@@ -1,7 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
 import { LinksWrapper, LinkWrapper, LinksCol, Title, Link } from './common/style'
-import InvestInPeople from 'images/svg/layout/invest-in-people-logo.svg'
 import { Localize } from 'components/localization'
 import { Flex, Desktop } from 'components/containers'
 import { deriv_status_page_url, binary_bot_url } from 'common/constants'
@@ -12,23 +10,6 @@ type MainLinksSectionProps = {
     is_ppc_redirect?: boolean
 }
 
-const LogoWrapper = styled.div`
-    margin-top: 16px;
-    height: 28px;
-
-    img {
-        height: 100%;
-        width: auto;
-        object-fit: contain;
-    }
-`
-const StyledTitle = styled(Title)`
-    font-family: Ubuntu, sans-serif;
-`
-const StyledLink = styled(Link)`
-    font-family: Ubuntu, sans-serif;
-`
-
 const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinksSectionProps) => {
     const { is_row } = useRegion()
     return (
@@ -37,40 +18,38 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                 <Flex jc="space-between">
                     <LinksCol>
                         <LinkWrapper>
-                            <StyledTitle>{<Localize translate_text="ABOUT US" />}</StyledTitle>
+                            <Title>{<Localize translate_text="ABOUT US" />}</Title>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/who-we-are/">
+                            <Link to="/who-we-are/">
                                 {<Localize translate_text="Who we are" />}
-                            </StyledLink>
+                            </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/why-choose-us/">
+                            <Link to="/why-choose-us/">
                                 {<Localize translate_text="Why choose us" />}
-                            </StyledLink>
+                            </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/our-principles/">
+                            <Link to="/our-principles/">
                                 {<Localize translate_text="Principles" />}
-                            </StyledLink>
+                            </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/partners/">
+                            <Link to="/partners/">
                                 {<Localize translate_text="Partnership programmes" />}
-                            </StyledLink>
+                            </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/contact_us/">
+                            <Link to="/contact_us/">
                                 {<Localize translate_text="Contact us" />}
-                            </StyledLink>
+                            </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/careers/">
-                                {<Localize translate_text="Careers" />}
-                            </StyledLink>
+                            <Link to="/careers/">{<Localize translate_text="Careers" />}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink
+                            <Link
                                 to=""
                                 type="derivlife"
                                 external={true}
@@ -78,95 +57,91 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                                 rel="noopener noreferrer"
                             >
                                 {<Localize translate_text="Deriv life" />}
-                            </StyledLink>
-                            <LogoWrapper>
-                                <img src={InvestInPeople} />
-                            </LogoWrapper>
+                            </Link>
                         </LinkWrapper>
                     </LinksCol>
                     {!is_ppc && (
                         <LinksCol>
                             <LinkWrapper>
-                                <StyledTitle>
-                                    {<Localize translate_text="TRADE TYPES" />}
-                                </StyledTitle>
+                                <Title>{<Localize translate_text="PRODUCTS" />}</Title>
                             </LinkWrapper>
                             <LinkWrapper>
-                                <StyledLink to="/trade-types/cfds/">
+                                <Link to="/trade-types/cfds/">
                                     {<Localize translate_text="CFDs" />}
-                                </StyledLink>
+                                </Link>
                             </LinkWrapper>
                             {is_row && (
                                 <LinkWrapper>
-                                    <StyledLink to="/trade-types/options/">
+                                    <Link to="/trade-types/options/">
                                         {<Localize translate_text="Digital options" />}
-                                    </StyledLink>
+                                    </Link>
                                 </LinkWrapper>
                             )}
                             <LinkWrapper>
-                                <StyledLink to="/trade-types/multiplier/">
+                                <Link to="/trade-types/multiplier/">
                                     {<Localize translate_text="Multipliers" />}
-                                </StyledLink>
+                                </Link>
                             </LinkWrapper>
                         </LinksCol>
                     )}
                     <LinksCol>
                         <LinkWrapper>
-                            <StyledTitle>{<Localize translate_text="MARKETS" />}</StyledTitle>
+                            <Title>{<Localize translate_text="MARKETS" />}</Title>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/markets/forex/">
-                                {<Localize translate_text="Forex" />}
-                            </StyledLink>
+                            <Link to="/markets/forex/">{<Localize translate_text="Forex" />}</Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/markets/synthetic/">
+                            <Link to="/markets/synthetic/">
                                 {<Localize translate_text="Derived" />}
-                            </StyledLink>
+                            </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/markets/stock/">
+                            <Link to="/markets/stock/">
                                 {<Localize translate_text="Stocks & indices" />}
-                            </StyledLink>
+                            </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/markets/cryptocurrencies/">
+                            <Link to="/markets/cryptocurrencies/">
                                 {<Localize translate_text="Cryptocurrencies" />}
-                            </StyledLink>
+                            </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/markets/commodities/">
+                            <Link to="/markets/commodities/">
                                 {<Localize translate_text="Commodities" />}
-                            </StyledLink>
+                            </Link>
                         </LinkWrapper>
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>
-                            <StyledTitle>{<Localize translate_text="PLATFORMS" />}</StyledTitle>
+                            <Title>{<Localize translate_text="TRADE" />}</Title>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
+                            <Link to={is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}>
                                 {<Localize translate_text="Deriv MT5" />}
-                            </StyledLink>
+                            </Link>
                         </LinkWrapper>
                         {is_row && (
                             <>
                                 <LinkWrapper>
-                                    <StyledLink to="/derivx/">
+                                    <Link to="/derivx/">
                                         {<Localize translate_text="Deriv X" />}
-                                    </StyledLink>
+                                    </Link>
                                 </LinkWrapper>
                                 <LinkWrapper>
-                                    <StyledLink to="/deriv-go/">
+                                    <Link to="/derivez/">
+                                        {<Localize translate_text="Deriv EZ" />}
+                                    </Link>
+                                </LinkWrapper>
+                                <LinkWrapper>
+                                    <Link to="/deriv-go/">
                                         {<Localize translate_text="Deriv GO" />}
-                                    </StyledLink>
+                                    </Link>
                                 </LinkWrapper>
                             </>
                         )}
                         <LinkWrapper>
-                            <StyledLink to="/dtrader/">
-                                {<Localize translate_text="DTrader" />}
-                            </StyledLink>
+                            <Link to="/dtrader/">{<Localize translate_text="DTrader" />}</Link>
                         </LinkWrapper>
                         {is_row && (
                             <>
@@ -182,9 +157,7 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                                     </Link>
                                 </LinkWrapper>
                                 <LinkWrapper>
-                                    <StyledLink to="/dbot/">
-                                        {<Localize translate_text="DBot" />}
-                                    </StyledLink>
+                                    <Link to="/dbot/">{<Localize translate_text="DBot" />}</Link>
                                 </LinkWrapper>
                                 <LinkWrapper>
                                     <Link
@@ -201,38 +174,38 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>
-                            <StyledTitle>{<Localize translate_text="LEGAL" />}</StyledTitle>
+                            <Title>{<Localize translate_text="LEGAL" />}</Title>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/regulatory/">
+                            <Link to="/regulatory/">
                                 {<Localize translate_text="Regulatory information" />}
-                            </StyledLink>
+                            </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/terms-and-conditions/#clients">
+                            <Link to="/terms-and-conditions/#clients">
                                 {<Localize translate_text="Terms & conditions" />}
-                            </StyledLink>
+                            </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/responsible/">
+                            <Link to="/responsible/">
                                 {<Localize translate_text="Secure & responsible trading" />}
-                            </StyledLink>
+                            </Link>
                         </LinkWrapper>
                     </LinksCol>
                     <LinksCol>
                         <LinkWrapper>
-                            <StyledTitle>{<Localize translate_text="PARTNER" />}</StyledTitle>
+                            <Title>{<Localize translate_text="PARTNER" />}</Title>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/partners/affiliate-ib/">
+                            <Link to="/partners/affiliate-ib/">
                                 {<Localize translate_text="Affiliates and IBs" />}
-                            </StyledLink>
+                            </Link>
                         </LinkWrapper>
                         {is_row && (
                             <LinkWrapper>
-                                <StyledLink to="/partners/payment-agent/">
+                                <Link to="/partners/payment-agent/">
                                     {<Localize translate_text="Payment agents" />}
-                                </StyledLink>
+                                </Link>
                             </LinkWrapper>
                         )}
                         <LinkWrapper>
@@ -247,9 +220,9 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/bug-bounty/">
+                            <Link to="/bug-bounty/">
                                 {<Localize translate_text="Bug bounty" />}
-                            </StyledLink>
+                            </Link>
                         </LinkWrapper>
                     </LinksCol>
                     <LinksCol>
@@ -257,9 +230,9 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                             <Title>{<Localize translate_text="SUPPORT" />}</Title>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/help-centre/">
+                            <Link to="/help-centre/">
                                 {<Localize translate_text="Help centre" />}
-                            </StyledLink>
+                            </Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link
@@ -273,9 +246,9 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink to="/payment-methods/">
+                            <Link to="/payment-methods/">
                                 {<Localize translate_text="Payment methods" />}
-                            </StyledLink>
+                            </Link>
                         </LinkWrapper>
                         <LinkWrapper>
                             <Link
@@ -288,15 +261,15 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                             </Link>
                         </LinkWrapper>
                         <LinkWrapper>
-                            <StyledLink
+                            <Link
                                 to=""
-                                type="academy"
+                                type="blog"
                                 external
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {<Localize translate_text="Academy" />}
-                            </StyledLink>
+                                {<Localize translate_text="Blog" />}
+                            </Link>
                         </LinkWrapper>
                     </LinksCol>
                 </Flex>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { LocalizedLink, Localize } from 'components/localization'
+import { LocalizedLink, LanguageSwitcher, Localize } from 'components/localization'
 import { Container } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
@@ -32,6 +32,9 @@ const Navigation = styled(Container)`
     @media ${device.tabletL} {
         width: 100%;
     }
+`
+const LanguageWrapper = styled(Container)<MainNavProps>`
+    margin-left: ${({ is_security }) => !is_security && '200px'};
 `
 
 const MainNav = ({ is_security }: MainNavProps) => {
@@ -68,7 +71,11 @@ const MainNav = ({ is_security }: MainNavProps) => {
                     ))}
                 </Navigation>
 
-                <Desktop is_security={is_security}></Desktop>
+                <Desktop is_security={is_security}>
+                    <LanguageWrapper is_security={is_security}>
+                        <LanguageSwitcher is_security={is_security} />
+                    </LanguageWrapper>
+                </Desktop>
             </StyledContainer>
         </Wrapper>
     )

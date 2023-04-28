@@ -50,7 +50,7 @@ type SharedLinkStyleProps = {
 }
 
 export const SharedLinkStyle = css<SharedLinkStyleProps>`
-    color: var(--color-black);
+    color: var(--color-white);
     text-decoration: none;
     padding: 0.5rem 1rem;
     transition: text-shadow 0.25s;
@@ -87,9 +87,8 @@ export const SharedLinkStyle = css<SharedLinkStyleProps>`
         `}
 `
 export const SharedLinkStyleMarket = css<SharedLinkStyleProps>`
-    color: var(--color-black-9);
+    color: var(--color-white);
     text-decoration: none;
-    font-family: Ubuntu, sans-serif;
     padding: 0.5rem 1rem;
     transition: text-shadow 0.25s;
     position: relative;
@@ -104,16 +103,16 @@ export const SharedLinkStyleMarket = css<SharedLinkStyleProps>`
         bottom: 0;
     }
     &:hover {
-        color: var(--color-red);
+        color: gray;
     }
     &.active {
-        color: var(--color-red);
+        color: gray;
     }
 
     ${({ active }) =>
         active &&
         css`
-            color: var(--color-red);
+            color: gray;
         `}
     @media ${device.laptopL} {
         font-size: 14px;
@@ -125,6 +124,14 @@ const ShareDisabledStyle = css<{ disabled?: boolean }>`
         `
         pointer-events: none;
         opacity: 0.32;`}
+`
+
+const StyledAnchor = styled.a`
+    ${ShareDisabledStyle}
+`
+
+const StyledAnchorLink = styled(AnchorLink)`
+    ${ShareDisabledStyle}
 `
 
 const StyledGatsbyLink = styled(GatsbyLink)`

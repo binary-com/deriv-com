@@ -48,7 +48,7 @@ export const TableRow = styled.tr<TableRowProps>`
     display: flex;
     align-items: center;
     padding: 10px;
-    gap: 43px;
+    gap: 40px;
     th {
         width: 7.6rem;
     }
@@ -65,7 +65,7 @@ export const TableRow = styled.tr<TableRowProps>`
         width: 180px;
     }
     td: nth-child(11) {
-        width: 200px;
+        width: 190px;
     }
 
     @media (max-width: 1700px) {
@@ -84,7 +84,7 @@ export const TableRow = styled.tr<TableRowProps>`
             width: 168px;
         }
         td: nth-child(11) {
-            width: 200px;
+            width: 190px;
         }
     }
     @media ${device.tablet} {

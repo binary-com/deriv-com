@@ -1,15 +1,15 @@
 import React from 'react'
 import { marketItems } from './data'
 import BottomNavItem from './bottom-nav.item'
-import Flex from 'features/components/atoms/flex-box'
+import { container } from './styles.module.scss'
 
 const MarketBottomNav = () => {
     return (
-        <Flex.Box bgcolor="secondary" padding_block="8x" gap="16x" justify="center" align="center">
+        <div className={container}>
             {marketItems.map((item) => (
                 <BottomNavItem key={item.title} item={item} />
             ))}
-        </Flex.Box>
+        </div>
     )
 }
 

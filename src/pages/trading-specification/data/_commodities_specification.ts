@@ -40,11 +40,12 @@ const commodities_specification: TSpecification = {
             margin_requirement: 0.2,
             swap_long: -1.09,
             swap_short: 0.56,
-            trading_hours: 'Sun 22:05 - Fri 20:45\nDaily Break: 21:00 - 22:00 GMT',
+            trading_hours: 'Sun 22:05 - Friday 20:45 GMT Daily Break: 21:00 - 22:00',
         },
         {
             instrument: {
                 symbol: 'SILVERUSD',
+                dl_icon: true,
                 instrument: 'Silver/USD',
             },
             contract_size: '5,000 oz',
@@ -56,7 +57,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 0.2,
             swap_long: -1.68,
             swap_short: 0.99,
-            trading_hours: 'Sun 22:05 - Fri 20:45\nDaily Break: 21:00 - 22:00 GMT',
+            trading_hours: 'Sun 22:05 - Friday 20:45 GMT Daily Break: 21:00 - 22:00',
         },
         {
             instrument: {
@@ -72,7 +73,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 0.2,
             swap_long: -66.143,
             swap_short: 49.563,
-            trading_hours: 'Mon - Fri 00:05 - 18:00 GMT',
+            trading_hours: 'Mon - Friday 00:05 - 18:00 GMT',
         },
         {
             instrument: {
@@ -88,7 +89,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 0.2,
             swap_long: -14.53,
             swap_short: 7.63,
-            trading_hours: 'Sun 22:05 - Fri 20:45\nDaily Break: 21:00 - 22:00 GMT',
+            trading_hours: 'Sun 22:05 - Friday 20:45 GMT Daily Break: 21:00 - 22:00',
         },
         {
             instrument: {
@@ -105,12 +106,11 @@ const commodities_specification: TSpecification = {
             margin_requirement: 0.2,
             swap_long: -19.97,
             swap_short: 10.71,
-            trading_hours: 'Sun 22:05 - Fri 20:45\nDaily Break: 21:00 - 22:00 GMT',
+            trading_hours: 'Sun 22:05 - Friday 20:45 GMT Daily Break: 21:00 - 22:00',
         },
         {
             instrument: {
                 symbol: 'COPPERUSD',
-                dl_icon: true,
                 instrument: 'Copper/USD',
             },
             contract_size: '100 ton',
@@ -122,7 +122,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 0.2,
             swap_long: -12.771,
             swap_short: -0.814,
-            trading_hours: 'Mon - Fri 00:05 - 18:00 GMT',
+            trading_hours: 'Mon - Friday 00:05 - 18:00 GMT',
         },
         {
             instrument: {
@@ -138,7 +138,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 0.2,
             swap_long: -426.778,
             swap_short: 315.819,
-            trading_hours: 'Mon - Fri 00:05 - 18:00 GMT',
+            trading_hours: 'Mon - Friday 00:05 - 18:00 GMT',
         },
         {
             instrument: {
@@ -154,7 +154,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 0.2,
             swap_long: -12.155,
             swap_short: 5.706,
-            trading_hours: 'Mon - Fri 00:05 - 18:00 GMT',
+            trading_hours: 'Mon - Friday 00:05 - 18:00 GMT',
         },
         {
             instrument: {
@@ -170,7 +170,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 0.2,
             swap_long: -24.2,
             swap_short: 7.25,
-            trading_hours: 'Sun 22:05 - Fri 20:45\nDaily Break: 21:00 - 22:00 GMT',
+            trading_hours: 'Sun 22:05 - Friday 20:45 GMT Daily Break: 21:00 - 22:00',
         },
         {
             instrument: {
@@ -186,7 +186,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 0.2,
             swap_long: -12.57,
             swap_short: 2.24,
-            trading_hours: 'Sun 22:05 - Fri 20:45\nDaily Break: 21:00 - 22:00 GMT',
+            trading_hours: 'Sun 22:05 - Friday 20:45 GMT Daily Break: 21:00 - 22:00',
         },
         {
             instrument: {
@@ -202,7 +202,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 0.2,
             swap_long: 15.093,
             swap_short: -24.596,
-            trading_hours: 'Mon - Fri 00:05 - 18:00 GMT',
+            trading_hours: 'Mon - Friday 00:05 - 18:00 GMT',
         },
         {
             instrument: {
@@ -218,7 +218,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 2.0,
             swap_long: -24.737,
             swap_short: -29.797,
-            trading_hours: 'Sun 22:00 - 24:00\nMon Friday 00:00 - 21:00 GMT',
+            "trading_hours": "Sun 22:00 - 24:00\nMon - Fri 00:00 - 21:00 GMT",
         },
         {
             instrument: {
@@ -234,7 +234,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 2.0,
             swap_long: -1.346,
             swap_short: 2.61,
-            trading_hours: 'Sun 22:00 - Fri 21:00\nDaily Break: 21:00 - 22:00 GMT',
+            trading_hours: 'Sun 22:00 - Friday 21:00 GMT Daily Break: 21:00 - 22:00',
         },
     ],
     eu_data: [
@@ -252,7 +252,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 10.0,
             swap_long: -66.143,
             swap_short: 49.563,
-            trading_hours: 'Mon - Fri 00:05 - 18:00 GMT',
+            trading_hours: 'Mon - Friday 00:05 - 18:00 GMT',
         },
         {
             instrument: {
@@ -284,7 +284,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 10.0,
             swap_long: -12.771,
             swap_short: -0.814,
-            trading_hours: 'Mon - Fri 00:05 - 18:00 GMT',
+            trading_hours: 'Mon - Friday 00:05 - 18:00 GMT',
         },
         {
             instrument: {
@@ -300,7 +300,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 5.0,
             swap_long: -14.53,
             swap_short: 7.63,
-            trading_hours: 'Mon - Fri 00:05 - 18:00 GMT',
+            trading_hours: 'Mon - Friday 00:05 - 18:00 GMT',
         },
         {
             instrument: {
@@ -316,7 +316,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 5.0,
             swap_long: -19.97,
             swap_short: 10.71,
-            trading_hours: 'Sun 22:05 - Fri 20:45\nDaily Break: 21:00 - 22:00 GMT',
+            trading_hours: 'Sun 22:05 - Friday 20:45 GMT Daily Break: 21:00 - 22:00',
         },
         {
             instrument: {
@@ -332,7 +332,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 10.0,
             swap_long: -12.155,
             swap_short: 5.706,
-            trading_hours: 'Sun 22:05 - Fri 20:45\nDaily Break: 21:00 - 22:00 GMT',
+            trading_hours: 'Sun 22:05 - Friday 20:45 GMT Daily Break: 21:00 - 22:00',
         },
         {
             instrument: {
@@ -348,7 +348,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 10.0,
             swap_long: -426.778,
             swap_short: 315.819,
-            trading_hours: 'Sun 22:05 - Fri 20:45\nDaily Break: 21:00 - 22:00 GMT',
+            trading_hours: 'Sun 22:05 - Friday 20:45 GMT Daily Break: 21:00 - 22:00',
         },
         {
             instrument: {
@@ -364,7 +364,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 10.0,
             swap_long: -24.2,
             swap_short: 7.25,
-            trading_hours: 'Mon - Fri 00:05 - 18:00 GMT',
+            trading_hours: 'Mon - Friday 00:05 - 18:00 GMT',
         },
         {
             instrument: {
@@ -380,7 +380,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 10.0,
             swap_long: -12.57,
             swap_short: 2.24,
-            trading_hours: 'Sun 22:05 - Fri 20:45\nDaily Break: 21:00 - 22:00 GMT',
+            trading_hours: 'Sun 22:05 - Friday 20:45 GMT Daily Break: 21:00 - 22:00',
         },
         {
             instrument: {
@@ -396,7 +396,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 10.0,
             swap_long: -1.09,
             swap_short: 0.56,
-            trading_hours: 'Sun 22:05 - Fri 20:45\nDaily Break: 21:00 - 22:00 GMT',
+            trading_hours: 'Sun 22:05 - Friday 20:45 GMT Daily Break: 21:00 - 22:00',
         },
         {
             instrument: {
@@ -412,7 +412,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 10.0,
             swap_long: -1.68,
             swap_short: 0.99,
-            trading_hours: 'Sun 22:05 - Fri 20:45\nDaily Break: 21:00 - 22:00 GMT',
+            trading_hours: 'Sun 22:05 - Friday 20:45 GMT Daily Break: 21:00 - 22:00',
         },
         {
             instrument: {
@@ -428,7 +428,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 10.0,
             swap_long: -1.346,
             swap_short: 2.61,
-            trading_hours: 'Sun 22:05 - Fri 20:45\nDaily Break: 21:00 - 22:00 GMT',
+            trading_hours: 'Sun 22:05 - Friday 20:45 GMT Daily Break: 21:00 - 22:00',
         },
         {
             instrument: {
@@ -444,8 +444,9 @@ const commodities_specification: TSpecification = {
             margin_requirement: 10.0,
             swap_long: 15.093,
             swap_short: -24.596,
-            trading_hours: 'Mon - Fri 00:05 - 18:00 GMT',
+            trading_hours: 'Mon - Friday 00:05 - 18:00 GMT',
         },
     ],
 }
+
 export default commodities_specification

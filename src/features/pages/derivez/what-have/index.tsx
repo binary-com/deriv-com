@@ -68,13 +68,15 @@ const features: TFeatures[] = [
 const WhatIsDerivEZ = () => {
     return (
         <FlexBox.Box justify={'center'}>
-            <FlexBox.Box direction={'col'}>
+            <FlexBox.Box direction={'col'} mt={'20x'} md={{ mt: '40x' }}>
                 {features.map((feature) => {
                     return (
                         <FlexBox.Box
                             key={feature.title}
                             direction={'col'}
+                            margin_inline={'8x'}
                             md={{
+                                margin_block: '10x',
                                 direction: feature?.direction || 'row',
                                 justify: 'evenly',
                                 align: 'center',
@@ -88,7 +90,13 @@ const WhatIsDerivEZ = () => {
                                     <Localize translate_text={feature.subtitle} />
                                 </Typography.Paragraph>
                             </FlexBox.Box>
-                            <FlexBox.Box md={{ basis: '4-12' }}>{feature.image}</FlexBox.Box>
+                            <FlexBox.Box
+                                margin_inline={'24x'}
+                                margin_block={'14x'}
+                                md={{ basis: '4-12' }}
+                            >
+                                {feature.image}
+                            </FlexBox.Box>
                         </FlexBox.Box>
                     )
                 })}

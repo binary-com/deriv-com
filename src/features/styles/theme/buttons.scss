@@ -1,3 +1,4 @@
+@use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
 
 .link-button {
@@ -99,4 +100,15 @@
 .button.secondary.outlined,
 .link-button.secondary.outlined {
     border: 1px solid $color-grey-7;
+}
+
+.button.tab {
+    background: $color-white;
+    border: 1px solid rgba(51, 51, 51, 0.1);
+    block-size: 8.4rem;
+    inline-size: 16.4rem;
+
+    @include breakpoints(tablet) {
+        inline-size: 29.4rem;
+    }
 }

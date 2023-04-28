@@ -12,10 +12,10 @@ import APIIcon from 'images/svg/custom/rebranding/deriv-api-icon.svg'
 import DerivEzIcon from 'images/svg/custom/rebranding/deriv-ez-icon.svg'
 import Link from 'features/components/atoms/link'
 import {
-    derivx_android_url,
-    derivx_ios_url,
     deriv_go_ios_url,
     deriv_go_playstore_url,
+    derivx_android_url,
+    derivx_ios_url,
     dmt5_android_url,
     dmt5_ios_url,
     dmt5_linux_url,
@@ -231,7 +231,7 @@ const platformSliderItems: SmartPlatformItem[] = [
             description: '_t_Our mobile-first CFD trading platform_t_',
             url: {
                 type: 'internal',
-                to: '/derivez/',
+                to: '/deriv-ez/',
             },
             icon: DerivEzIcon,
             image_caption: {

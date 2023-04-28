@@ -3,6 +3,7 @@
 .public_signup_container {
     min-block-size: 68rem;
     border-radius: 16px;
+    max-width: 1280px;
 
     @include breakpoints(tablet) {
         min-block-size: 36rem;

@@ -28,7 +28,6 @@ const Wrapper = styled.div<{ reverse: boolean }>`
     align-items: center;
     width: 100%;
     max-width: 1120px;
-    gap: 60px;
     flex-direction: ${(props) => (props.reverse ? 'row-reverse' : 'row')};
 
     @media ${device.tabletL} {

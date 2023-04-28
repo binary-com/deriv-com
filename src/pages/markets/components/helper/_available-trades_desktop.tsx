@@ -39,14 +39,14 @@ const StyledSection = styled(SectionContainer)`
 
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
-        max-width: 320px;
+        max-width: 326px;
         font-size: 24px;
         margin: 0 auto;
     }
 `
 
 const StyledContainer = styled(Container)`
-    margin-top: 8.2rem;
+    margin-top: 4rem;
 
     @media ${device.tabletL} {
         width: 100%;
@@ -89,7 +89,7 @@ const CardContainer = styled(Flex)<CardContainerProps>`
             opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.48')};
         }
         h4 {
-            width: 13vw;
+            width: 17vw;
             text-align: center;
             padding-bottom: 1rem;
             color: ${(props) =>
@@ -103,6 +103,7 @@ const CardContainer = styled(Flex)<CardContainerProps>`
 
             @media (min-width: 320px) and (max-width: 992px) {
                 width: 30vw;
+                height: 6rem;
             }
         }
         @media ${device.tabletL} {
@@ -163,6 +164,9 @@ const ContentWrapper = styled.div`
 const CardHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 1.75rem;
+    }
+    @media ${device.mobileL} {
+        font-size: 1.5rem;
     }
 `
 

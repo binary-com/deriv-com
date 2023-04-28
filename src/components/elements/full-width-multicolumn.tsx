@@ -13,8 +13,10 @@ type FullWidthMultiColumnProps = {
     header?: ReactElement
     sub_header?: ReactElement
     button_title?: ReactElement
-    button_text?: TString | ReactElement
+    button_text?: TString | string | ReactElement
     multiple_row?: boolean
+    header_width?: string
+    subtext_width?: string
     gap?: string
 }
 
@@ -23,12 +25,12 @@ const Item = styled(Flex)`
     width: 100%;
 
     img {
-        width: 34px;
+        width: 48px;
         margin-bottom: 1rem;
     }
 
-    @media ${device.mobileL} {
-        max-width: 90%;
+    @media ${device.tablet} {
+        max-width: 80%;
         gap: 6px;
 
         ${Text} {
@@ -45,24 +47,24 @@ const ItemContainer = styled(Box)`
     justify-content: center;
     gap: ${(props) => props.gap || '40px'};
 
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 40px;
     }
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(Header)<FullWidthMultiColumnProps>`
     font-weight: 700;
     font-size: 32px;
     line-height: 40px;
     color: white;
     margin-top: 4.5rem;
-    max-width: 80vw;
+    max-width: ${(props) => (props.header_width ? props.header_width : '80vw')};
 
     @media ${device.mobileL} {
         text-align: center;
-        max-width: 80vw;
+        max-width: ${(props) => (props.header_width ? props.header_width : '80vw')};
         font-size: 24px;
         margin-top: -1rem;
         line-height: 30px;
@@ -92,7 +94,6 @@ const StyledTitle = styled(Header)`
 
     @media ${device.tablet} {
         max-width: 90vw;
-        margin-bottom: 8px;
         font-weight: 700;
         font-size: 14px;
         line-height: 30px;
@@ -112,21 +113,21 @@ const StyledButtonContent = styled(Text)`
     }
 `
 
-const StyledTextContent = styled(Text)`
+const StyledTextContent = styled.div<FullWidthMultiColumnProps>`
     text-align: center;
     margin-top: 1.6rem;
     color: white;
-    width: 231px;
+    width: ${(props) => (props.subtext_width ? props.subtext_width : '231px')};
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
-    font-family: Ubuntu, sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     margin-bottom: 1.6rem;
 
     @media ${device.tabletL} {
         font-size: 14px;
         margin-top: 0;
-        width: fit-content;
+        width: ${(props) => (props.subtext_width ? props.subtext_width : 'fit-content')};
         margin-bottom: 0;
     }
 `
@@ -136,6 +137,11 @@ const StyledSectionContainer = styled(SectionContainer)`
     margin: auto;
     background: #414652;
     color: white;
+
+    @media ${device.tablet} {
+        padding: 40px 0;
+        margin-top: 40px;
+    }
 `
 const LearnMore = styled(LocalizedLink)`
     font-size: 16px;
@@ -151,6 +157,8 @@ export const FullWidthMultiColumn = ({
     button_title,
     button_text,
     gap,
+    header_width,
+    subtext_width,
 }: FullWidthMultiColumnProps) => {
     const handleSignup = useHandleSignup()
     const first_three_items = children.slice(0, 3)
@@ -159,7 +167,14 @@ export const FullWidthMultiColumn = ({
     return (
         <StyledSectionContainer>
             <Flex direction="column" max-width="99.6rem" m="0 auto" jc="space-between" ai="center">
-                <StyledHeader as="h2" type="section-title" align="center" mb="0.1rem" lh="1.25">
+                <StyledHeader
+                    header_width={header_width}
+                    as="h2"
+                    type="section-title"
+                    align="center"
+                    mb="0.1rem"
+                    lh="1.25"
+                >
                     {header}
                 </StyledHeader>
                 <StyledSubHeader
@@ -179,8 +194,12 @@ export const FullWidthMultiColumn = ({
                             return (
                                 <Item key={idx} ai="center" direction="column">
                                     {icon}
-                                    {item_title && <StyledTitle as="p">{item_title}</StyledTitle>}
-                                    {text && <StyledTextContent>{text}</StyledTextContent>}
+                                    {item_title && <StyledTitle>{item_title}</StyledTitle>}
+                                    {text && (
+                                        <StyledTextContent subtext_width={subtext_width}>
+                                            {text}
+                                        </StyledTextContent>
+                                    )}
                                     {link_text && <LearnMore to={link}>{link_text}</LearnMore>}
                                 </Item>
                             )
@@ -188,9 +207,7 @@ export const FullWidthMultiColumn = ({
                     </ItemContainer>
                 ))}
                 {button_title && <StyledButtonContent>{button_title}</StyledButtonContent>}
-                {button_text && (
-                    <Button onClick={handleSignup} label={`_t_${button_text}_t_`} primary />
-                )}
+                {button_text && <Button onClick={handleSignup} label={button_text} primary />}
             </Flex>
         </StyledSectionContainer>
     )

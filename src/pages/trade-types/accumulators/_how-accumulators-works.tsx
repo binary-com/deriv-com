@@ -8,78 +8,89 @@ import CommonHeaderSection from 'components/elements/common-header-section'
 import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize, Localize } from 'components/localization'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 const StyledContainer = styled(Container)`
     width: 100% !important;
+    display: flex;
+    align-items: start;
+    justify-content: start;
 `
 
 const HowAccumulatorsWork = () => {
+    const [is_mobile] = useBrowserResize()
+
     return (
         <SectionContainer>
             <SmallContainer direction="column" ai="flex-start">
+                <CommonHeaderSection
+                    title="_t_How accumulators contracts work_t_"
+                    title_font_size={is_mobile ? '28px' : '48px'}
+                    margin_title="0 0 3.2rem 0"
+                    font_weight_title="700"
+                    line_height={is_mobile ? '34px' : '60px'}
+                />
                 <StyledContainer direction="column">
-                    <Header as="h2" type="page-title" mb="3.2rem">
-                        {localize('How accumulators contracts work')}
-                    </Header>
                     <CommonHeaderSection
-                        subtitle_font_size="1.6rem"
+                        subtitle_font_size={is_mobile ? '14px' : '16px'}
+                        line_height={is_mobile ? '20px' : '24px'}
                         font_weight_subtitle="350"
-                        line_height="2.4rem"
                         subtitle="_t_When you open a position, barriers are created around the asset’s price. The upper and lower barriers are automatically calculated for every tick based on your chosen asset and accumulator value. If you close your position before either of the barriers is reached, you will make a profit._t_"
                     />
                     <CommonHeaderSection
-                        subtitle_font_size="1.6rem"
+                        subtitle_font_size={is_mobile ? '14px' : '16px'}
+                        line_height={is_mobile ? '20px' : '24px'}
                         margin_subtitle="2rem 0 4rem 0"
                         font_weight_subtitle="350"
-                        line_height="2.4rem"
                         subtitle="_t_With each tick, your payout will increase based on the accumulator value you select, as long as the price change is within the barrier._t_"
                     />
                     <CommonHeaderSection
                         title="_t_Take profit_t_"
-                        font_family_title="'IBM Plex Sans', sans-serif"
-                        title_font_size="2.4rem"
-                        subtitle_font_size="1.6rem"
-                        line_height="2.4rem"
+                        title_font_size={is_mobile ? '18px' : '24px'}
+                        subtitle_font_size={is_mobile ? '14px' : '16px'}
+                        line_height={is_mobile ? '20px' : '24px'}
                         margin_subtitle="2rem 0 0 0"
                         font_weight_subtitle="350"
                         subtitle="_t_You can set a take profit or payout level. Your position will automatically close when your profit exceeds or reaches this amount._t_"
                     />
                     <CommonHeaderSection
-                        subtitle_font_size="1.6rem"
+                        subtitle_font_size={is_mobile ? '14px' : '16px'}
                         margin_subtitle="2rem 0 4rem 0"
-                        line_height="2.4rem"
+                        line_height={is_mobile ? '20px' : '24px'}
                         font_weight_subtitle="350"
                         subtitle="_t_ Based on the number of ticks and the accumulator value, your potential profit may exceed your set amount multiple times._t_"
                     />
                     <CommonHeaderSection
                         title="_t_Maximum payout_t_"
-                        font_family_title="'IBM Plex Sans', sans-serif"
-                        title_font_size="2.4rem"
-                        subtitle_font_size="1.6rem"
+                        title_font_size={is_mobile ? '18px' : '24px'}
+                        subtitle_font_size={is_mobile ? '14px' : '16px'}
                         margin_subtitle="2rem 0 4rem 0"
                         font_weight_subtitle="350"
-                        line_height="2.4rem"
+                        line_height={is_mobile ? '20px' : '24px'}
                         subtitle="_t_The maximum payout for every contract is limited and differs per asset. When the maximum payout is reached, the contract will be automatically closed._t_"
                     />
                     <CommonHeaderSection
                         title="_t_Maximum duration_t_"
-                        font_family_title="'IBM Plex Sans', sans-serif"
-                        title_font_size="2.4rem"
-                        subtitle_font_size="1.6rem"
+                        title_font_size={is_mobile ? '18px' : '24px'}
+                        subtitle_font_size={is_mobile ? '14px' : '16px'}
                         margin_subtitle="2rem 0 4rem 0"
-                        line_height="2.4rem"
+                        line_height={is_mobile ? '20px' : '24px'}
                         font_weight_subtitle="350"
                         subtitle="_t_The maximum duration for every contract is limited and differs according to the chosen accumulator value. When the maximum duration is reached, the contract will be automatically closed._t_"
                     />
                 </StyledContainer>
                 <CommonHeaderSection
                     title="_t_How to buy your first accumulators contract on Deriv Trader_t_"
-                    title_font_size="3.2rem"
-                    margin_title="0 0 3.2rem 0"
+                    title_font_size={is_mobile ? '24px' : '32px'}
+                    margin_title="40px 0 0 0"
+                    line_height={is_mobile ? '30px' : '40px'}
                 />
-                <Header as="h4" type="sub-section-title" mb="2.4rem" mt="3.2rem">
-                    {localize('Define your position')}
-                </Header>
+                <CommonHeaderSection
+                    title="_t_Define your position_t_"
+                    title_font_size={is_mobile ? '18px' : '24px'}
+                    margin_title="3.2rem 0 2.4rem 0"
+                    line_height={is_mobile ? '26px' : '36px'}
+                />
                 <SideTab>
                     <SideTab.Panel
                         label={<Localize translate_text="1. Market" />}
@@ -147,12 +158,11 @@ const HowAccumulatorsWork = () => {
                     </SideTab.Panel>
                 </SideTab>
                 <CommonHeaderSection
-                    subtitle_font_size="2.4rem"
-                    font_weight_subtitle="700"
-                    font_family_subtitle="'IBM Plex Sans', sans-serif"
+                    title_font_size={is_mobile ? '18px' : '24px'}
+                    font_weight_title="700"
                     line_height="3.6rem"
-                    margin_subtitle="3.2rem 0 2.4rem 0"
-                    subtitle="_t_Set optional parameters for your trade_t_"
+                    margin_title="3.2rem 0 2.4rem 0"
+                    title="_t_Set optional parameters for your trade_t_"
                 />
                 <SideTab is_reverse>
                     <SideTab.Panel
@@ -173,11 +183,11 @@ const HowAccumulatorsWork = () => {
                     </SideTab.Panel>
                 </SideTab>
                 <CommonHeaderSection
-                    subtitle_font_size="2.4rem"
-                    font_weight_subtitle="700"
-                    line_height="3.6rem"
-                    margin_subtitle="3.2rem 0 2.4rem 0"
-                    subtitle="_t_Open your trade_t_"
+                    title_font_size={is_mobile ? '18px' : '24px'}
+                    font_weight_title="700"
+                    line_height={is_mobile ? '26px' : '36px'}
+                    margin_title="3.2rem 0 2.4rem 0"
+                    title="_t_Open your trade_t_"
                 />
                 <SideTab>
                     <SideTab.Panel

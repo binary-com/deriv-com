@@ -11,6 +11,7 @@ import { SimpleStepContentElement } from '../../static/content/_simple_step_cont
 import { localize, Localize } from 'components/localization'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import useRegion from 'components/hooks/use-region'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -22,6 +23,7 @@ type StockIndicesProps = {
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     const { is_eu } = useRegion()
+    const [is_mobile] = useBrowserResize()
 
     simple_step_content[1].text = is_eu ? (
         <Localize translate_text="Open a real account, make a deposit, and start trading stocks, stock indices, and other markets." />
@@ -45,12 +47,16 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
             />
             <FullWidthMultiColumn
                 header={<Localize translate_text="Why trade stocks & indices on Deriv" />}
+                subtext_width="180px"
+                header_width={is_mobile ? '186px' : '996px'}
             >
                 {stock_content.map((content, index) => (
                     <StyledBox
                         key={index}
                         text={content.text}
-                        icon={<img src={content.src} alt={content.alt} />}
+                        icon={
+                            <img width="48px" height="48px" src={content.src} alt={content.alt} />
+                        }
                     />
                 ))}
             </FullWidthMultiColumn>

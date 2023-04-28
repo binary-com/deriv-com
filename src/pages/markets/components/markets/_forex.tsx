@@ -51,7 +51,9 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                     <StyledBox
                         key={index}
                         text={content.text}
-                        icon={<img src={content.src} alt={content.alt} />}
+                        icon={
+                            <img width="48px" height="48px" src={content.src} alt={content.alt} />
+                        }
                     />
                 ))}
             </FullWidthMultiColumn>

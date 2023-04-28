@@ -90,7 +90,7 @@ const Content = styled.div`
     max-width: 632px;
     width: 100%;
     display: flex;
-    gap: 30px;
+    gap: 16px;
     flex-direction: column;
     overflow-wrap: break-word;
 
@@ -131,6 +131,7 @@ const DCommonBanner = () => {
                             title="_t_The trading platform to fit your style_t_"
                             title_font_size={`${is_mobile ? 32 : 64}px`}
                             color="var(--color-black-9)"
+                            margin_title={is_mobile ? '0 0 5px 0' : '0'}
                         />
                         <BannerButtonWrapper>
                             {is_logged_in ? (

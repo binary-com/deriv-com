@@ -5,7 +5,6 @@ import WhatIsDeriv from './_what-is-derivx'
 import SellingPoints from './_selling-points'
 import WhyTradeDerivX from './_why-trade-derivx'
 import StartDerivX from './_start-derivx'
-import Accounts from './_accounts'
 import DerivXGetApp from './_get-derivx'
 import OurPlatforms from './_other-apps'
 import { SEO } from 'components/containers'
@@ -38,7 +37,6 @@ const DerivX = () => {
                     <WhatIsDeriv />
                     <WhyTradeDerivX />
                     <StartDerivX />
-                    <Accounts />
                     <DerivXGetApp />
                     <OurPlatforms />
                 </Layout>

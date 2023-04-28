@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import derivXLogo from '../../images/svg/deriv-x/derivX.svg'
-import derivXQR from '../../images/svg/deriv-x/derivxQR.svg'
+import derivXQR from '../../images/svg/deriv-x/derivxQR.png'
 import GrayAngle30 from '../../images/common/gray-angle.png'
 import AppleIcon from '../../images/svg/apple-icon.svg'
 import AppGalleryIcon from '../../images/svg/appGallery-icon.svg'
@@ -42,6 +42,14 @@ const TextAndButtonWrapper = styled.div`
     }
 `
 
+const Wrapper = styled.div`
+    margin-top: 5rem;
+
+    @media ${device.tabletL} {
+        margin-top: -3rem;
+    }
+`
+
 const DerivXGetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
@@ -59,35 +67,39 @@ const DerivXGetApp = () => {
     ]
 
     return (
-        <MultiWidthColumn
-            firstColumnBackground="#4C515C"
-            secondColumnBackground={GrayAngle30}
-            firstColumnWidth="58%"
-            secondColumnWidth="42%"
-            mobileBackgroundImage={GetAppMobileBG}
-        >
-            <ContentWrapper is_rtl={is_rtl}>
-                <img src={derivXLogo} alt="Deriv Go logo" width="64px" height="64px" />
-                <TextAndButtonWrapper>
-                    <CommonHeaderSection
-                        title="_t_Get trading with Deriv X_t_"
-                        title_font_size={is_mobile_or_tablet ? '32px' : '64px'}
-                        align_title={is_mobile_or_tablet ? 'center' : is_rtl ? 'right' : 'left'}
-                        width="100%"
-                        font_family_title="Ubuntu"
-                        color="#fff"
-                        margin_title="0 0 18px"
-                    />
-                </TextAndButtonWrapper>
-            </ContentWrapper>
-            <DownloadColumn
-                is_rtl={is_rtl}
-                QRImage={derivXQR}
-                QRHeading1="_t_Scan to download_t_"
-                QRHeading2="Android, iOS, and Huawei"
-                items={items}
-            />
-        </MultiWidthColumn>
+        <Wrapper>
+            <MultiWidthColumn
+                firstColumnBackground="#4C515C"
+                secondColumnBackground={GrayAngle30}
+                firstColumnWidth="58%"
+                secondColumnWidth="42%"
+                mobileBackgroundImage={GetAppMobileBG}
+                mobilePadding="25px 0 120px 0"
+                secondColumnMobileMargin="8rem 0 0 0"
+            >
+                <ContentWrapper is_rtl={is_rtl}>
+                    <img src={derivXLogo} alt="Deriv X logo" width="64px" height="64px" />
+                    <TextAndButtonWrapper>
+                        <CommonHeaderSection
+                            title="_t_Get trading with Deriv X_t_"
+                            title_font_size={is_mobile_or_tablet ? '32px' : '64px'}
+                            align_title={is_mobile_or_tablet ? 'center' : is_rtl ? 'right' : 'left'}
+                            width="100%"
+                            font_family_title="Ubuntu"
+                            color="#fff"
+                            margin_title="0 0 18px"
+                        />
+                    </TextAndButtonWrapper>
+                </ContentWrapper>
+                <DownloadColumn
+                    is_rtl={is_rtl}
+                    QRImage={derivXQR}
+                    QRHeading1="_t_Scan to download_t_"
+                    QRHeading2="Android, iOS, and Huawei"
+                    items={items}
+                />
+            </MultiWidthColumn>
+        </Wrapper>
     )
 }
 

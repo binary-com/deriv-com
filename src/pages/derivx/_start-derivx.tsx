@@ -273,7 +273,7 @@ const StartDerivX = () => {
                     </StyledText>
                 </TabItem>
                 <TabItem
-                    mobile_padding="12px 24px"
+                    mobile_padding="21px 12px"
                     active={tab === 'real'}
                     onClick={() => onTabClick('real')}
                     className="real-account"
@@ -287,11 +287,6 @@ const StartDerivX = () => {
             <Flex max_width="1200px">
                 <StepperView items={tab === 'demo' ? demo : real} contentWidth="385px" />
             </Flex>
-            <StyledButtonWrapper>
-                <ButtonDp2p secondary onClick={handleExternalLink}>
-                    {localize('Download Deriv X app')}
-                </ButtonDp2p>
-            </StyledButtonWrapper>
         </Section>
     )
 }

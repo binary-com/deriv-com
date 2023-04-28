@@ -127,7 +127,7 @@ const SignupPublicForm = () => {
                 <Flex.Box justify="start" align="baseline" gap={'5x'}>
                     <Input.Checkbox {...register('terms')}>
                         <Localize
-                            translate_text="_t_I agree to the <0>terms and conditions.</0>_t_"
+                            translate_text="_t_I agree to the <0>terms and conditions</0>._t_"
                             components={[
                                 <Link
                                     textcolor="brand"

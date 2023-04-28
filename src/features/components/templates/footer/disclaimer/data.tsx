@@ -109,7 +109,7 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
     {
         id: 5,
         data: {
-            text: '_t_Deriv Holdings (Guernsey) Limited is the holding company for the above subsidiaries with the registration number 71479 and the registered address of 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ._t_',
+            text: '_t_Deriv Holdings (Guernsey) Limited is the holding company for the above subsidiary with the registration number 71479 and the registered address of 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ._t_',
         },
         visibility: {
             is_non_eu_or_cpa_plan: true,
@@ -139,7 +139,7 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
     {
         id: 7,
         data: {
-            text: '_t_Deriv Holdings (Guernsey) Limited is the holding company for the above subsidiaries with the registration number 71479 and the registered address of 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ._t_',
+            text: '_t_Deriv Holdings (Guernsey) Limited is the holding company for the above subsidiary with the registration number 71479 and the registered address of 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ._t_',
         },
         visibility: {
             is_eu: true,

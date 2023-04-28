@@ -43,6 +43,7 @@ const NavSectionColumn = ({ item }: NavSectionColumnProps) => {
                     align="left"
                     font_family="UBUNTU"
                     mb="2x"
+                    visible={!item.data.title ? 'larger-than-tablet' : undefined}
                 >
                     {item.data.title ? <Localize translate_text={item.data.title} /> : ''}
                 </Typography.Paragraph>

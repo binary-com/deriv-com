@@ -16,7 +16,7 @@ interface FooterProps {
 
 const Footer = ({ no_footer_links = false }: FooterProps) => {
     const { is_ppc } = usePpc()
-    const { is_eu } = useRegion()
+    const { is_eu, is_cpa_plan } = useRegion()
 
     const content = useVisibleContent({ content: footerLinks, config: { is_ppc } })
 
@@ -25,7 +25,12 @@ const Footer = ({ no_footer_links = false }: FooterProps) => {
             as={'footer'}
             bgcolor="primary"
             className={footer}
-            pb={is_eu ? '15x' : undefined}
+            mb={is_eu || is_cpa_plan ? '40x' : undefined}
+            pb={is_eu || is_cpa_plan ? '20x' : undefined}
+            md={{
+                mb: is_eu || is_cpa_plan ? '15x' : undefined,
+                pb: is_eu || is_cpa_plan ? '5x' : undefined,
+            }}
         >
             <Container.Fluid pt={'20x'}>
                 <FooterIcons />

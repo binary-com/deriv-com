@@ -6,8 +6,9 @@
         position: relative;
         display: grid;
         grid-template-columns: 3.2rem 1fr;
-        grid-column-gap: 1.6rem;
-        grid-row-gap: 0.8rem;
+
+        grid-column-gap: 0.8rem;
+        grid-row-gap: 0.4rem;
         justify-content: center;
         align-items: center;
 
@@ -21,6 +22,8 @@
 
         @include breakpoints(tablet) {
             inline-size: 28rem;
+            grid-column-gap: 1.6rem;
+            grid-row-gap: 0.8rem;
         }
 
         &:hover {

@@ -92,7 +92,7 @@ const MindWhenTrading = () => {
                     )}
                 </Text>
                 <StyledButton to="/trader-tools/margin-calculator/">
-                    <Button label="Margin Calculator" primary />
+                    <Button label="Margin calculator" primary />
                 </StyledButton>
             </SmallContainer>
         </StyledSectionContainer>

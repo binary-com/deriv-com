@@ -47,7 +47,7 @@ const ItemContainer = styled(Box)`
     justify-content: center;
     gap: ${(props) => props.gap || '40px'};
 
-    @media ${device.laptopL} {
+    @media ${device.laptop} {
         flex-direction: column;
         justify-content: center;
         align-items: center;

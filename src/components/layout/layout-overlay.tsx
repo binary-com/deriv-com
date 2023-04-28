@@ -3,7 +3,8 @@ import Loadable from '@loadable/component'
 import styled from 'styled-components'
 import CFDWarningBanner from './cfd-warning-banner'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import CookieBanner from 'components/custom/cookie-banner'
+import BannerAlert from 'components/custom/_banner-alert'
+import { bannerTypes } from 'common/constants'
 
 const LiveChat = Loadable(() => import('./livechat'))
 const WhatsApp = Loadable(() => import('./whatsapp'))
@@ -30,7 +31,7 @@ const LayoutOverlay = ({ is_ppc = false }: TProps) => {
         <OverlayContainer is_rtl={is_rtl}>
             <LiveChat />
             <WhatsApp />
-            <CookieBanner />
+            <BannerAlert bannerType={bannerTypes.cookieBanner} />
             <CFDWarningBanner is_ppc={is_ppc} />
         </OverlayContainer>
     )

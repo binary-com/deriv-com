@@ -8,15 +8,15 @@
     }
 }
 .number_box {
-  border-bottom: 1px solid $color-grey-1;
+
   @include breakpoints(tablet) {
     margin-inline: 120px;
+    border-bottom: 1px solid $color-grey-1;
   }
 }
 .styled_card {
-  border: 1px solid $color-grey-1;
-
-  &:last-child {
-    margin-right: 0;
+  @include breakpoints(tablet) {
+    inline-size: 28.2rem;
+    block-size: 30.8rem;
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import * as style from './deriv-ez.module.scss'
+import * as style from '../deriv-ez.module.scss'
 import { Localize } from 'components/localization'
 import FlexBox from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
@@ -27,16 +27,15 @@ const selling_points: SellingPointsType[] = [
 
 const Numbers = () => {
     return (
-        <FlexBox.Box direction={'col'} pt={'0x'} className={style.number_box} md={{ pt: '20x' }}>
+        <FlexBox.Box direction={'col'} className={style.number_box} md={{ mt: '20x' }}>
             <FlexBox.Box
                 direction={'col'}
                 align={'center'}
-                pt={'8x'}
-                pb={'20x'}
+                mb={'20x'}
                 md={{ direction: 'row', justify: 'around' }}
             >
-                {selling_points.map((item, index) => (
-                    <FlexBox.Item basis={'1-3'} key={`${item.title}-${index}`}>
+                {selling_points.map((item) => (
+                    <FlexBox.Item basis={'1-3'} key={item.title}>
                         <Typography.Heading align={'center'}>
                             <Localize translate_text={item.title} />
                         </Typography.Heading>
@@ -46,7 +45,12 @@ const Numbers = () => {
                     </FlexBox.Item>
                 ))}
             </FlexBox.Box>
-            <FlexBox.Box justify={'center'} padding_block={'40x'} padding_inline={'8x'}>
+            <FlexBox.Box
+                justify={'center'}
+                margin_block={'20x'}
+                margin_inline={'8x'}
+                md={{ margin_block: '40x' }}
+            >
                 <FlexBox.Box direction={'col'} md={{ basis: '2-3' }}>
                     <Typography.Heading align={'center'}>
                         <Localize translate_text={'_t_What is Deriv EZ_t_'} />

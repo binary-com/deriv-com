@@ -3,7 +3,7 @@
 
 .trade_hero {
     position: relative;
-    min-block-size: 85svh;
+    min-block-size: 70svh;
 
     @include breakpoints(tablet) {
         min-block-size: 100svh;

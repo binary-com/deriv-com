@@ -4,10 +4,9 @@
 .section_items {
     &_container {
         border-inline-end: none;
-        border-block-end: 1px solid $color-grey-8;
 
-        &:last-child {
-            border-block-end: none;
+        &:first-child {
+            border-block-end: 1px solid $color-grey-8;
         }
 
         @include breakpoints(tablet) {

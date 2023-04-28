@@ -33,6 +33,7 @@ const NavTemplate = ({
     has_centered_logo,
 }: NavTemplateProps) => {
     const nav_wrapper_ref = useRef()
+    const nav_toggle_ref = useRef()
 
     const { is_eu } = useRegion()
 
@@ -49,13 +50,16 @@ const NavTemplate = ({
         config: { is_mobile: is_mobile_or_tablet, is_eu },
     })
 
-    useOutsideClick(nav_wrapper_ref, () => {
-        setIsMenuOpen(false)
-    })
+    useOutsideClick(
+        nav_wrapper_ref,
+        () => {
+            setIsMenuOpen(false)
+        },
+        nav_toggle_ref,
+    )
 
     return (
         <Container.Fixed
-            innerRef={nav_wrapper_ref}
             as="header"
             bgcolor="white"
             className={dclsx(styles.header_wrapper, className)}
@@ -74,7 +78,7 @@ const NavTemplate = ({
                     grow={has_centered_logo && items.length === 0 ? '1' : undefined}
                 >
                     {items.length !== 0 ? (
-                        <Flex.Item visible="phone-and-tablet">
+                        <Flex.Item visible="phone-and-tablet" innerRef={nav_toggle_ref}>
                             <MobileMenuToggle is_open={is_menu_open} onClick={onMenuToggleClick} />
                         </Flex.Item>
                     ) : null}
@@ -87,11 +91,13 @@ const NavTemplate = ({
                             items={visible_items}
                             has_centered_items={has_centered_items}
                         />
-                        <MobileMenu
-                            is_open={is_menu_open}
-                            items={visible_items}
-                            has_top_nav={has_top_nav}
-                        />
+                        <span ref={nav_wrapper_ref}>
+                            <MobileMenu
+                                is_open={is_menu_open}
+                                items={visible_items}
+                                has_top_nav={has_top_nav}
+                            />
+                        </span>
                     </>
                 ) : null}
                 {children}

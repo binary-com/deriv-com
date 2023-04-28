@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useMemo } from 'react'
+import React, { HTMLAttributes, useMemo, useRef, useState } from 'react'
 import { TSmartNavItemsContent } from '../../types'
 import * as styles from './mobile-menu.module.scss'
 import MobileNavItem from './mobile.items'
@@ -13,6 +13,9 @@ interface INavMenuProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const MobileMenu = ({ is_open, className, items, has_top_nav }: INavMenuProps) => {
+    const accordion_ref = useRef<HTMLDivElement>()
+    const [current_tab, setCurrentTab] = useState('')
+
     const { other_items, single_items } = useMemo(() => {
         const single_items: TSmartNavItemsContent[] = []
         const other_items: TSmartNavItemsContent[] = []
@@ -27,6 +30,16 @@ const MobileMenu = ({ is_open, className, items, has_top_nav }: INavMenuProps) =
         return { single_items, other_items }
     }, [items])
 
+    const onTabChange = (tab: string) => {
+        setCurrentTab(tab)
+        if (accordion_ref.current) {
+            accordion_ref.current.scroll({
+                top: 0,
+                behavior: 'smooth',
+            })
+        }
+    }
+
     return (
         <Flex.Box
             visible="phone-and-tablet"
@@ -38,7 +51,13 @@ const MobileMenu = ({ is_open, className, items, has_top_nav }: INavMenuProps) =
             gap={'8x'}
         >
             {other_items.length ? (
-                <Accordion.Root type="single" collapsible>
+                <Accordion.Root
+                    ref={accordion_ref}
+                    type="single"
+                    value={current_tab}
+                    onValueChange={onTabChange}
+                    collapsible
+                >
                     {other_items.map((contentItem) => (
                         <MobileNavItem key={contentItem.id} item={contentItem} />
                     ))}

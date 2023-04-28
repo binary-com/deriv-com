@@ -98,7 +98,7 @@ const OurPrinciples = () => {
             <SEO
                 title={localize('_t_Our principles | Online trading | Deriv_t_')}
                 description={localize(
-                    '_t_Deriv offers reliable, fair, transparent, and responsible online trading with Deriv. Our commitment to these principles drives everything we do._t_',
+                    '_t_Experience reliable, fair, transparent, and responsible online trading with Deriv. Our commitment to these principles drives everything we do._t_',
                 )}
             />
             <TitleSection padding="120px 0 24px 10rem">

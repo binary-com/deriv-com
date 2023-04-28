@@ -22,7 +22,7 @@ const OurPlatforms = () => {
         },
         {
             icon: dGoIcon,
-            heading: 'Deriv Go',
+            heading: 'Deriv GO',
             paragraph: 'Our best trading experience on your mobile.',
             link: '/deriv-go/',
         },

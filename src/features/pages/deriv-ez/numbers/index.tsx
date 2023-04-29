@@ -1,29 +1,9 @@
 import React from 'react'
 import * as style from '../deriv-ez.module.scss'
+import { selling_points } from './data'
 import { Localize } from 'components/localization'
 import FlexBox from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
-import { TString } from 'types/generics'
-
-type SellingPointsType = {
-    title: TString
-    subtitle: TString
-}
-
-const selling_points: SellingPointsType[] = [
-    {
-        title: '_t_150+_t_',
-        subtitle: '_t_tradable assets_t_',
-    },
-    {
-        title: '_t_All-in-one_t_',
-        subtitle: '_t_Financial and derived assets_t_',
-    },
-    {
-        title: '_t_24/7_t_',
-        subtitle: '_t_trading_t_',
-    },
-]
 
 const Numbers = () => {
     return (

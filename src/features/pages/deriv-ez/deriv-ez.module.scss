@@ -8,7 +8,6 @@
     }
 }
 .number_box {
-
   @include breakpoints(tablet) {
     margin-inline: 120px;
     border-bottom: 1px solid $color-grey-1;

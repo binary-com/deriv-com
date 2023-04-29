@@ -3,10 +3,10 @@ import { StaticImage } from 'gatsby-plugin-image'
 import StepperView from 'features/components/atoms/tab/tab-content'
 import { LocalizedLinkText } from 'components/elements'
 
-const deriv_ez_images = {
+export const deriv_ez_images = {
     step1: (
         <StaticImage
-            src="../../images/common/deriv-ez/step-1.png"
+            src="../../../../images/common/deriv-ez/step-1.png"
             alt="Deriv GO trading app"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
@@ -17,7 +17,7 @@ const deriv_ez_images = {
     ),
     step2: (
         <StaticImage
-            src="../../images/common/deriv-ez/step-2.png"
+            src="../../../../images/common/deriv-ez/step-2.png"
             alt="Deriv GO app create free demo account"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
@@ -28,7 +28,18 @@ const deriv_ez_images = {
     ),
     step3: (
         <StaticImage
-            src="../../images/common/deriv-ez/step-3.png"
+            src="../../../../images/common/deriv-ez/step-3.png"
+            alt="Deriv EZ demo account for trading"
+            loading="eager"
+            formats={['avif', 'webp', 'auto']}
+            quality={30}
+            objectFit="contain"
+            placeholder="none"
+        />
+    ),
+    'step3-demo': (
+        <StaticImage
+            src="../../../../images/common/deriv-ez/step-3.png"
             alt="Deriv EZ demo account for trading"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
@@ -39,7 +50,7 @@ const deriv_ez_images = {
     ),
     step4: (
         <StaticImage
-            src="../../images/common/deriv-ez/step-4.png"
+            src="../../../../images/common/deriv-ez/step-4.png"
             alt="Candle chart trading"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
@@ -50,7 +61,7 @@ const deriv_ez_images = {
     ),
     step5: (
         <StaticImage
-            src="../../images/common/deriv-ez/step-5.png"
+            src="../../../../images/common/deriv-ez/step-5.png"
             alt="Transfer between your accounts"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
@@ -61,7 +72,7 @@ const deriv_ez_images = {
     ),
     step6: (
         <StaticImage
-            src="../../images/common/deriv-ez/step-6.png"
+            src="../../../../images/common/deriv-ez/step-6.png"
             alt="Candle chart trading"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
@@ -86,11 +97,11 @@ export const demo: React.ComponentProps<typeof StepperView>['items'] = [
     },
     {
         title: '_t_Add a Deriv EZ demo account._t_',
-        image: deriv_ez_images['step3'],
+        image: deriv_ez_images['step3-demo'],
     },
     {
         title: '_t_Start trading on the Deriv GO mobile app._t_',
-        image: deriv_ez_images['step4'],
+        image: deriv_ez_images['step6'],
     },
 ]
 

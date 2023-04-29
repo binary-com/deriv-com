@@ -1,67 +1,9 @@
 import React from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
 import * as style from '../deriv-ez.module.scss'
+import { card_data } from './data'
 import Typography from 'features/components/atoms/typography'
 import FlexBox from 'features/components/atoms/flex-box'
 import { Localize } from 'components/localization'
-import { TString } from 'types/generics'
-
-type CardType = {
-    icon?: React.ReactElement
-    title?: TString
-    subtitle?: TString
-}
-
-const card_data: CardType[] = [
-    {
-        title: '_t_Easy to start_t_',
-        subtitle:
-            '_t_Start trading CFDs in two easy steps — click to get an account, start trading. No need to remember another login ID and password._t_',
-        icon: (
-            <StaticImage
-                src="../../images/svg/deriv-ez/easy-to-start.svg"
-                alt="easy to start deriv ez"
-                loading="eager"
-                formats={['avif', 'webp', 'auto']}
-                quality={30}
-                objectFit="contain"
-                placeholder="none"
-            />
-        ),
-    },
-    {
-        title: '_t_24/7 trading_t_',
-        subtitle:
-            '_t_Trade anytime you want, including weekends and holidays, on cryptocurrencies and our proprietary derived indices._t_',
-        icon: (
-            <StaticImage
-                src="../../images/svg/dmt5/twenty-four-seven.svg"
-                alt="24/7 trading"
-                loading="eager"
-                formats={['avif', 'webp', 'auto']}
-                quality={30}
-                objectFit="contain"
-                placeholder="none"
-            />
-        ),
-    },
-    {
-        title: '_t_All your favourite assets, one platform_t_',
-        subtitle:
-            '_t_Access over 150 assets in multiple markets simultaneously on one platform._t_',
-        icon: (
-            <StaticImage
-                src="../../images/svg/deriv-ez/favourite-assets.svg"
-                alt="favourite assets"
-                loading="eager"
-                formats={['avif', 'webp', 'auto']}
-                quality={30}
-                objectFit="contain"
-                placeholder="none"
-            />
-        ),
-    },
-]
 
 const WhyTradeDerivEZ = () => {
     return (

@@ -1,6 +1,6 @@
-import Derived from '../components/_derived'
-import { TQuestionsData } from './_data-types'
-import { binary_bot_url, deriv_app_url, oauth_url } from 'common/constants'
+import Derived from '../components/_derived';
+import { TQuestionsData } from './_data-types';
+import { binary_bot_url, deriv_app_url, oauth_url } from 'common/constants';
 
 const trading: TQuestionsData = {
     section: 'General',
@@ -17,13 +17,12 @@ const trading: TQuestionsData = {
                         '_t_Foreign exchange, or forex, is the global market of the world’s currencies, where the values of different currencies are pitted against each other in the form of forex pairs, such as EUR/USD, AUD/JPY, etc. The forex market determines the exchange rates of each currency._t_',
                 },
                 {
-                    translation_text:
-                        '_t_Read <0>this article</0> to learn more about trading forex on Deriv._t_',
+                    translation_text: '_t_Read <0>this article</0> to learn more about trading forex on Deriv._t_',
                     translation_components: [
                         {
                             key: 0,
-                            type: 'link',
-                            to: 'https://academy.deriv.com/blog/posts/what-is-forex-live-trading/',
+                            type: 'internal_link',
+                            to: 'https://blog.deriv.com/blog/posts/what-is-forex-live-trading/',
                         },
                     ],
                     has_margin_top: true,
@@ -46,8 +45,8 @@ const trading: TQuestionsData = {
                     translation_components: [
                         {
                             key: 0,
-                            type: 'link',
-                            to: 'https://academy.deriv.com/blog/posts/what-are-commodities/',
+                            type: 'internal_link',
+                            to: 'https://blog.deriv.com/blog/posts/what-are-commodities/',
                         },
                     ],
                     has_margin_top: true,
@@ -65,13 +64,12 @@ const trading: TQuestionsData = {
                         '_t_Stock indices measure the value of a group of companies in the stock market. This allows investors to see how a particular set of assets is performing._t_',
                 },
                 {
-                    translation_text:
-                        '_t_Read <0>this article</0> to learn more about trading stocks on Deriv._t_',
+                    translation_text: '_t_Read <0>this article</0> to learn more about trading stocks on Deriv._t_',
                     translation_components: [
                         {
                             key: 0,
-                            type: 'link',
-                            to: 'https://academy.deriv.com/blog/posts/what-are-stocks-how-and-where-to-trade-them/',
+                            type: 'internal_link',
+                            to: 'https://blog.deriv.com/blog/posts/what-are-stocks-how-and-where-to-trade-them/',
                         },
                     ],
                     has_margin_top: true,
@@ -96,13 +94,12 @@ const trading: TQuestionsData = {
                         "_t_CFDs let you predict the price movement of underlying assets without actually owning them. With CFDs, you open a position based on your prediction, and you'll earn a profit if you close your position when the price moves in your favour._t_",
                 },
                 {
-                    translation_text:
-                        '_t_Read <0>this article</0> to learn more about trading CFDs on Deriv._t_',
+                    translation_text: '_t_Read <0>this article</0> to learn more about trading CFDs on Deriv._t_',
                     translation_components: [
                         {
                             key: 0,
-                            type: 'link',
-                            to: 'https://academy.deriv.com/blog/posts/what-is-cfd-trading/',
+                            type: 'internal_link',
+                            to: 'https://blog.deriv.com/blog/posts/what-is-cfd-trading/',
                         },
                     ],
                     has_margin_top: true,
@@ -176,13 +173,12 @@ const trading: TQuestionsData = {
                     has_margin_top: true,
                 },
                 {
-                    translation_text:
-                        '_t_Read <0>this article</0> to learn more about automated trading on Deriv._t_',
+                    translation_text: '_t_Read <0>this article</0> to learn more about automated trading on Deriv._t_',
                     translation_components: [
                         {
                             key: 0,
-                            type: 'link',
-                            to: 'https://academy.deriv.com/blog/posts/automated-trading-what-you-need-to-know/',
+                            type: 'internal_link',
+                            to: 'https://blog.deriv.com/blog/posts/automated-trading-what-you-need-to-know/',
                         },
                     ],
                     has_margin_top: true,
@@ -233,9 +229,7 @@ const trading: TQuestionsData = {
                 {
                     translation_text:
                         '_t_To see your account’s trading limits, go to Settings > Security and safety > <0>Account limits</0>._t_',
-                    translation_components: [
-                        { key: 0, type: 'link', to: `${deriv_app_url}/account/account-limits` },
-                    ],
+                    translation_components: [{ key: 0, type: 'link', to: `${deriv_app_url}/account/account-limits` }],
                 },
             ],
         },
@@ -246,8 +240,7 @@ const trading: TQuestionsData = {
             label: 'contracts-available-on-weekends',
             answer: [
                 {
-                    translation_text:
-                        '_t_Synthetic indices and cryptocurrencies are available for trading 24/7._t_',
+                    translation_text: '_t_Synthetic indices and cryptocurrencies are available for trading 24/7._t_',
                 },
             ],
         },
@@ -261,9 +254,7 @@ const trading: TQuestionsData = {
                 {
                     translation_text:
                         '_t_Multipliers (also known as multiplier options) is a trade type that gives you an opportunity to amplify your profit without risking more than your stake. To find out more, visit <0>the Multipliers page</0>._t_',
-                    translation_components: [
-                        { key: 0, type: 'link', to: '/trade-types/multiplier' },
-                    ],
+                    translation_components: [{ key: 0, type: 'link', to: '/trade-types/multiplier' }],
                 },
             ],
         },
@@ -277,9 +268,7 @@ const trading: TQuestionsData = {
                 {
                     translation_text:
                         "_t_Deriv <0>multipliers</0> combines the upside of leverage trading without the downside of losing more than your stake. This means that when the market moves in your favour, you'll multiply your potential profits. If the market moves against your prediction, your losses are limited only to your stake. To find out more, visit the <0>Multipliers</0> page._t_",
-                    translation_components: [
-                        { key: 0, type: 'link', to: '/trade-types/multiplier' },
-                    ],
+                    translation_components: [{ key: 0, type: 'link', to: '/trade-types/multiplier' }],
                 },
             ],
         },
@@ -290,8 +279,7 @@ const trading: TQuestionsData = {
             label: 'how-trade-multipliers',
             answer: [
                 {
-                    translation_text:
-                        '_t_Watch <0>this video</0> to know more about trading multipliers._t_',
+                    translation_text: '_t_Watch <0>this video</0> to know more about trading multipliers._t_',
                     translation_components: [
                         {
                             key: 0,
@@ -303,6 +291,6 @@ const trading: TQuestionsData = {
             ],
         },
     ],
-}
+};
 
-export default trading
+export default trading;

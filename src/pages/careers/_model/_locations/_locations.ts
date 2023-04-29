@@ -17,24 +17,24 @@ import {
     address_singapore,
     address_vanuatu,
     address_reading,
-} from './_contact-details'
-import { LocationsType } from './_locations.types'
-import MalaysiaFlagIcon from 'images/svg/careers/flag_malaysia.svg'
-import ParaguayFlagIcon from 'images/svg/careers/flag_paraguay.svg'
-import UAEFlagIcon from 'images/svg/careers/flag_uae.svg'
-import MaltaFlagIcon from 'images/svg/careers/flag_malta.svg'
-import CyprusFlagIcon from 'images/svg/careers/flag_cyprus.svg'
-import CaymanFlagIcon from 'images/svg/careers/flag_cayman.svg'
-import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
-import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
-import BVIFlagIcon from 'images/svg/careers/flag_bvi.svg'
-import UKFlagIcon from 'images/svg/careers/flag_uk.svg'
-import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
-import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg'
-import GermanyFlagIcon from 'images/svg/careers/flag_germany.svg'
-import VanuatuFlagIcon from 'images/svg/careers/flag_vanuatu.svg'
-import JordanFlagIcon from 'images/svg/careers/flag_jordan.svg'
-import SingaporeFlagIcon from 'images/svg/careers/flag_singapore.svg'
+} from './_contact-details';
+import { LocationsType } from './_locations.types';
+import MalaysiaFlagIcon from 'images/svg/careers/flag_malaysia.svg';
+import ParaguayFlagIcon from 'images/svg/careers/flag_paraguay.svg';
+import UAEFlagIcon from 'images/svg/careers/flag_uae.svg';
+import MaltaFlagIcon from 'images/svg/careers/flag_malta.svg';
+import CyprusFlagIcon from 'images/svg/careers/flag_cyprus.svg';
+import CaymanFlagIcon from 'images/svg/careers/flag_cayman.svg';
+import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg';
+import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg';
+import BVIFlagIcon from 'images/svg/careers/flag_bvi.svg';
+import UKFlagIcon from 'images/svg/careers/flag_uk.svg';
+import FranceFlagIcon from 'images/svg/careers/flag_france.svg';
+import ChannelIslandsFlagIcon from 'images/svg/careers/flag._channel_islands.svg';
+import GermanyFlagIcon from 'images/svg/careers/flag_germany.svg';
+import VanuatuFlagIcon from 'images/svg/careers/flag_vanuatu.svg';
+import JordanFlagIcon from 'images/svg/careers/flag_jordan.svg';
+import SingaporeFlagIcon from 'images/svg/careers/flag_singapore.svg';
 
 export const cyberjaya: LocationsType = {
     name: 'cyberjaya',
@@ -55,12 +55,7 @@ export const cyberjaya: LocationsType = {
     first_img: 'living_in_cyberjaya',
     first_img_alt: 'Group of ladies at shopping outlets',
     grid_images: ['cyberjaya_grid_1', 'cyberjaya_grid_2', 'cyberjaya_grid_3', 'cyberjaya_grid_4'],
-    grid_img_alt: [
-        'Man working on desktop ',
-        'People working at office',
-        'Welcome entrance ',
-        'Boys playing foosball',
-    ],
+    grid_img_alt: ['Man working on desktop ', 'People working at office', 'Welcome entrance ', 'Boys playing foosball'],
     map: 'ChIJQyOushS3zTER-d3unGdC7P0',
     badge: 'malaysia_great_place_to_work_badge',
     badge_alt: 'Malaysia Great Place to Work 2022 Certification Badge',
@@ -69,7 +64,7 @@ export const cyberjaya: LocationsType = {
     address: address_cyberjaya,
     google_map_link: 'https://goo.gl/maps/taw811vL1Wht9z4YA',
     has_iframe: true,
-}
+};
 
 export const malta: LocationsType = {
     name: 'malta',
@@ -103,7 +98,7 @@ export const malta: LocationsType = {
     address: address_malta,
     google_map_link: 'https://g.page/r/CRyKELlnWQ3iEAE',
     has_iframe: true,
-}
+};
 
 export const dubai: LocationsType = {
     name: 'dubai',
@@ -123,12 +118,7 @@ export const dubai: LocationsType = {
     first_img: 'living_in_dubai',
     first_img_alt: 'Crowd gathering',
     grid_images: ['dubai_grid_1', 'dubai_grid_2', 'dubai_grid_3', 'dubai_grid_4'],
-    grid_img_alt: [
-        'People having lunch in tables',
-        'Group meetings',
-        'Team picture',
-        'Group discussions',
-    ],
+    grid_img_alt: ['People having lunch in tables', 'Group meetings', 'Team picture', 'Group discussions'],
     map: 'ChIJoXO3yRZtXz4RPzg6AXRz1iU',
     map_text:
         'Deriv DMCC provides limitless opportunities to grow. Here, you can work on remarkable projects that showcase your mettle on a global scale. You will have the scope to expand your career horizontally and vertically. If you are keen on learning and enjoy a fulfilling career journey, join our team in Dubai.',
@@ -137,7 +127,7 @@ export const dubai: LocationsType = {
     has_iframe: true,
     badge: 'dubai_great_place_to_work_badge',
     badge_alt: 'Dubai Great Place to Work 2022 Certification Badge',
-}
+};
 
 export const labuan: LocationsType = {
     name: 'labuan',
@@ -172,7 +162,7 @@ export const labuan: LocationsType = {
     address: address_labuan,
     google_map_link: 'https://goo.gl/maps/HGEKsJfUXHrTAj299',
     has_iframe: true,
-}
+};
 
 export const asuncion: LocationsType = {
     name: 'asuncion',
@@ -206,7 +196,7 @@ export const asuncion: LocationsType = {
     address: address_asuncion,
     google_map_link: 'https://goo.gl/maps/uq2GzB97tLumihfN6',
     has_iframe: true,
-}
+};
 
 export const melaka: LocationsType = {
     name: 'melaka',
@@ -241,7 +231,7 @@ export const melaka: LocationsType = {
     address: address_melaka,
     google_map_link: 'https://goo.gl/maps/n2bm52JrWy9M2ARV9',
     has_iframe: true,
-}
+};
 
 export const ipoh: LocationsType = {
     name: 'ipoh',
@@ -275,7 +265,7 @@ export const ipoh: LocationsType = {
     address: address_ipoh,
     google_map_link: 'https://goo.gl/maps/mFhCyN4gPksudC156',
     has_iframe: true,
-}
+};
 
 export const cyprus: LocationsType = {
     name: 'cyprus',
@@ -310,7 +300,7 @@ export const cyprus: LocationsType = {
     address: address_cyprus,
     google_map_link: 'https://goo.gl/maps/qrHm4Bz5A84kUAzb8',
     has_iframe: true,
-}
+};
 
 export const rwanda: LocationsType = {
     name: 'rwanda',
@@ -346,7 +336,7 @@ export const rwanda: LocationsType = {
     map_img: 'rwanda_map',
     google_map_link: 'https://goo.gl/maps/wJgnX1W846t5FAbK7',
     has_iframe: true,
-}
+};
 
 export const minsk: LocationsType = {
     name: 'minsk',
@@ -382,7 +372,7 @@ export const minsk: LocationsType = {
     map_img: 'minsk_map',
     google_map_link: 'https://goo.gl/maps/7wUCJ6zy7P8CsmkD7',
     has_iframe: true,
-}
+};
 
 export const paris: LocationsType = {
     name: 'paris',
@@ -393,6 +383,7 @@ export const paris: LocationsType = {
     display_name: 'Paris',
     display_thumbnail_name: 'Paris',
     display_title_name: 'Paris',
+    img_alt: 'Eiffel Tower - Paris',
     map_office_name: '(France) SAS',
     country: 'France',
     flagIcon: FranceFlagIcon,
@@ -400,6 +391,7 @@ export const paris: LocationsType = {
     first_p:
         "Deriv (France) SAS is a wholly-owned subsidiary of the Deriv Group dedicated to research and development. It brings together a diverse range of expertise, from blockchain professionals to mathematicians and quantitative analysts. The goal of this team is to develop Deriv's future-proof products and services.",
     first_img: 'living_in_paris',
+    first_img_alt: 'Deriv staff having a discussion with their laptops',
     grid_images: ['paris_grid_1', 'paris_grid_2', 'paris_grid_3', 'paris_grid_4'],
     map: 'ChIJHzsdKOdv5kcRCRcM_lUIW14',
     map_text:
@@ -409,7 +401,7 @@ export const paris: LocationsType = {
     google_map_link: 'https://goo.gl/maps/gXhpCta6AsV7bT7y8',
     has_iframe: true,
     has_map: true,
-}
+};
 
 export const guernsey: LocationsType = {
     name: 'guernsey',
@@ -439,7 +431,7 @@ export const guernsey: LocationsType = {
     google_map_link: 'https://goo.gl/maps/jX1D5CmysqtbMJeh6',
     has_map: true,
     has_iframe: true,
-}
+};
 
 export const berlin: LocationsType = {
     name: 'berlin',
@@ -465,7 +457,7 @@ export const berlin: LocationsType = {
     map: '',
     map_text:
         'Our Berlin office is another strong base for Deriv fintech talent in Europe. The experts at this office tackle exciting projects to create Deriv’s next-gen products. Join our Germany team if you’re in search of a worthy challenge in your career.',
-}
+};
 
 export const reading: LocationsType = {
     name: 'reading',
@@ -494,7 +486,7 @@ export const reading: LocationsType = {
     google_map_link: 'https://goo.gl/maps/hYvX7SUgPaTcf1uj6',
     has_iframe: true,
     has_map: true,
-}
+};
 
 export const vanuatu: LocationsType = {
     name: 'vanuatu',
@@ -523,7 +515,7 @@ export const vanuatu: LocationsType = {
     google_map_link: 'https://goo.gl/maps/3A4mFkHzTfWQc9Kz9',
     has_iframe: true,
     has_map: true,
-}
+};
 
 export const georgetown: LocationsType = {
     name: 'georgetown',
@@ -551,7 +543,7 @@ export const georgetown: LocationsType = {
     address: address_georgetown,
     google_map_link: 'https://goo.gl/maps/7ZjSzDqSEteSANqD8',
     has_map: true,
-}
+};
 
 export const roadtown: LocationsType = {
     name: 'roadtown',
@@ -572,11 +564,11 @@ export const roadtown: LocationsType = {
     first_img: 'living_in_roadtown',
     first_img_alt: 'Road Town, British Virgin Islands',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'bvi_grid_3', 'guernsey_grid_4'],
-    grid_img_alt: ['Deriv’s British Virgin Islands team'],
+    grid_img_alt: ['Deriv’s British Virgin Islands team', '', 'Boss explaining to team members'],
     map: 'ChIJs5fO51eGJY8RKFew8LoGSxU',
     map_text:
         'Being part of our British Virgin Islands team gives you the chance to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to make sure our BVI compliance strategies are effective. If you have a passion for law and look for worthy challenges in your career, join us at Deriv (BVI).',
-}
+};
 
 export const jordan: LocationsType = {
     name: 'jordan',
@@ -605,7 +597,7 @@ export const jordan: LocationsType = {
     google_map_link: 'https://goo.gl/maps/Bc8aa4XsXfH6PdVH9',
     has_iframe: true,
     has_map: true,
-}
+};
 
 export const singapore: LocationsType = {
     name: 'singapore',
@@ -636,7 +628,7 @@ export const singapore: LocationsType = {
     google_map_link: 'https://goo.gl/maps/mZv5nwRBA2a2p56LA',
     has_iframe: true,
     has_map: true,
-}
+};
 
 export const ciudad: LocationsType = {
     name: 'ciudad',
@@ -658,12 +650,7 @@ export const ciudad: LocationsType = {
     first_img: 'living_in_ciudad',
     first_img_alt: 'Deriv’s Ciudad del Este office in Paraguay',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'cayman_map', 'guernsey_grid_4'],
-    grid_img_alt: [
-        'guernsey grid 1',
-        'guernsey grid 2',
-        'Deriv’s Ciudad del Este office location',
-        'guernsey grid 4',
-    ],
+    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'Deriv’s Ciudad del Este office location', 'guernsey grid 4'],
     map: 'ChIJ8wOKkS-F9pQRIdgDbSjs_6A',
     map_text:
         'As Deriv’s popularity grows rapidly with LATAM traders, the Customer Support and Marketing teams based at our office in Ciudad del Este have increasing opportunities to showcase their talent. Join this office if you have a passion for assisting customers and affiliates, planning and executing marketing campaigns, and creating an engaging brand image.',
@@ -671,7 +658,7 @@ export const ciudad: LocationsType = {
     google_map_link: 'https://goo.gl/maps/pmQU7QwfoY6YSR5LA',
     has_map: true,
     has_iframe: true,
-}
+};
 
 export const all_offices: LocationsType[] = [
     paris,
@@ -694,7 +681,7 @@ export const all_offices: LocationsType[] = [
     ciudad,
     georgetown,
     roadtown,
-]
+];
 export const locations = {
     berlin: `${berlin.display_name}, ${berlin.country}`,
     reading: `${reading.display_name}, ${reading.country}`,
@@ -716,7 +703,7 @@ export const locations = {
     singapore: `${singapore.display_name}, ${singapore.country}`,
     georgetown: `${georgetown.display_name}, ${georgetown.country}`,
     roadtown: `${roadtown.display_name}, ${roadtown.country}`,
-}
+};
 
 export const allContinents = {
     all: all_offices,
@@ -728,15 +715,15 @@ export const allContinents = {
     africa: [],
     latam: [],
     caribbean: [],
-}
+};
 
-all_offices.forEach((office) => {
-    const continentList = allContinents[office.continent]
+all_offices.forEach(office => {
+    const continentList = allContinents[office.continent];
     if (continentList == undefined) {
-        allContinents[office.continent] = [office]
+        allContinents[office.continent] = [office];
     } else {
-        allContinents[office.continent].push(office)
+        allContinents[office.continent].push(office);
     }
-})
+});
 
-export const all_countries: string[] = [...new Set(all_offices.map((office) => office.country))]
+export const all_countries: string[] = [...new Set(all_offices.map(office => office.country))];

@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from 'react'
-import styled, { css } from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
-import SideTab from './components/_side-tab'
-import DMT5QR from 'images/svg/dmt5/dmt5-qr.svg'
-import { Flex, SectionContainer } from 'components/containers'
-import { Header, QueryImage, Text } from 'components/elements'
-import { localize, Localize, LocalizedLink } from 'components/localization'
-import device, { size } from 'themes/device'
-import { isBrowser } from 'common/utility'
-import useHandleSignup from 'components/hooks/use-handle-signup'
-import useHandleLogin from 'components/hooks/use-handle-login'
-import useRegion from 'components/hooks/use-region'
+import React, { useState, useEffect } from 'react';
+import styled, { css } from 'styled-components';
+import { graphql, useStaticQuery } from 'gatsby';
+import SideTab from './components/_side-tab';
+import DMT5QR from 'images/svg/dmt5/dmt5-qr.svg';
+import { Flex, SectionContainer } from 'components/containers';
+import { Header, QueryImage, Text } from 'components/elements';
+import { localize, Localize, LocalizedLink } from 'components/localization';
+import device, { size } from 'themes/device';
+import { isBrowser } from 'common/utility';
+import useHandleSignup from 'components/hooks/use-handle-signup';
+import useHandleLogin from 'components/hooks/use-handle-login';
+import useRegion from 'components/hooks/use-region';
 
 type TabProps = {
-    active?: boolean
-    mobile_padding?: string
-}
+    active?: boolean;
+    mobile_padding?: string;
+};
 
 const query = graphql`
     query {
@@ -104,7 +104,7 @@ const query = graphql`
             ...fadeIn
         }
     }
-`
+`;
 const Section = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
@@ -119,7 +119,7 @@ const Section = styled(SectionContainer)`
         padding: 40px 0;
         height: auto;
     }
-`
+`;
 const ImageWrapper = styled.div`
     max-width: 79.2rem;
     width: 100%;
@@ -141,7 +141,7 @@ const ImageWrapper = styled.div`
             width: 100%;
         }
     }
-`
+`;
 
 const QRImage = styled.img`
     margin-right: 280px;
@@ -151,7 +151,7 @@ const QRImage = styled.img`
     @media ${device.tablet} {
         display: none;
     }
-`
+`;
 
 const demoActive = css`
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.05), 0 0 20px 0 rgba(0, 0, 0, 0.05);
@@ -160,7 +160,7 @@ const demoActive = css`
     ${Text} {
         font-weight: bold;
     }
-`
+`;
 
 const realActive = css`
     box-shadow: unset;
@@ -168,7 +168,7 @@ const realActive = css`
     ${Text} {
         font-weight: unset;
     }
-`
+`;
 
 const TabItem = styled.div<TabProps>`
     padding: 2.4rem 4rem;
@@ -177,7 +177,7 @@ const TabItem = styled.div<TabProps>`
     border-radius: 4px;
     border: solid 1px rgba(51, 51, 51, 0.1);
     cursor: pointer;
-    ${(props) => (props.active ? demoActive : realActive)}
+    ${props => (props.active ? demoActive : realActive)}
 
     @media ${device.tabletS} {
         padding: 17px 20px;
@@ -185,21 +185,21 @@ const TabItem = styled.div<TabProps>`
     @media ${device.mobileL} {
         max-width: 164px;
         width: 100%;
-        padding: ${(props) => props.mobile_padding};
+        padding: ${props => props.mobile_padding};
     }
-`
+`;
 const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
         font-size: 28px;
         margin-bottom: 24px;
         padding: 0 16px;
     }
-`
+`;
 const StyledText = styled(Text)`
     @media ${device.mobileL} {
         font-size: 16px;
     }
-`
+`;
 const StyledLocalizedLink = styled(LocalizedLink)<{ id?: string }>`
     text-decoration: none;
     color: var(--color-red);
@@ -207,143 +207,122 @@ const StyledLocalizedLink = styled(LocalizedLink)<{ id?: string }>`
     &:hover {
         text-decoration: underline;
     }
-`
+`;
 const StartTrader = () => {
-    const [is_mobile, setMobile] = useState(false)
+    const [is_mobile, setMobile] = useState(false);
     const handleResizeWindow = () => {
-        setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
-    }
+        setMobile(isBrowser() ? window.screen.width <= size.tablet : false);
+    };
     useEffect(() => {
-        handleResizeWindow()
-        window.addEventListener('resize', handleResizeWindow)
-    })
+        handleResizeWindow();
+        window.addEventListener('resize', handleResizeWindow);
+    });
 
-    const data = useStaticQuery(query)
-    const [tab, setTab] = useState('Demo')
+    const data = useStaticQuery(query);
+    const [tab, setTab] = useState('Demo');
 
     const onTabClick = (chosenTab: string) => {
-        setTab(chosenTab)
-    }
+        setTab(chosenTab);
+    };
 
-    const handleLogin = useHandleLogin()
+    const handleLogin = useHandleLogin();
 
-    const handleSignup = useHandleSignup()
+    const handleSignup = useHandleSignup();
 
-    const { is_eu } = useRegion()
+    const { is_eu } = useRegion();
 
     const getImage = (is_mob: boolean, options: string[]) => {
-        return is_mob ? data[options[0]] : data[options[1]]
-    }
-    const isDemo = tab === 'Demo'
-    const isReal = tab === 'Real'
+        return is_mob ? data[options[0]] : data[options[1]];
+    };
+    const isDemo = tab === 'Demo';
+    const isReal = tab === 'Real';
 
     const text_1 = is_eu ? (
-        <Localize translate_text="Add a CFDs demo account." />
+        <Localize translate_text='Add a CFDs demo account.' />
     ) : (
-        <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade." />
-    )
+        <Localize translate_text='Add a Deriv MT5 demo account and choose what you want to trade.' />
+    );
     const text_2 = is_eu ? (
-        <Localize translate_text="Create a real Deriv Multipliers account" />
+        <Localize translate_text='Create a real Deriv Multipliers account' />
     ) : (
-        <Localize translate_text="Create a Deriv real money account." />
-    )
+        <Localize translate_text='Create a Deriv real money account.' />
+    );
     const text_3 = is_eu ? (
-        <Localize translate_text="Create a CFDs real account." />
+        <Localize translate_text='Create a CFDs real account.' />
     ) : (
-        <Localize translate_text="Create a Deriv MT5 real money account based on your trade preference." />
-    )
+        <Localize translate_text='Create a Deriv MT5 real money account based on your trade preference.' />
+    );
 
     const demo_step1_image = is_eu ? (
         <QueryImage
             data={getImage(is_mobile, ['demo_step1_mobile_eu', 'demo_step1_eu'])}
-            alt="Demo DMT5 account- step 1"
+            alt='Demo DMT5 account- step 1'
         />
     ) : (
-        <QueryImage
-            data={getImage(is_mobile, ['demo_step1_mobile', 'demo_step1'])}
-            alt="Demo DMT5 account- step 1"
-        />
-    )
+        <QueryImage data={getImage(is_mobile, ['demo_step1_mobile', 'demo_step1'])} alt='Demo DMT5 account- step 1' />
+    );
     const demo_step2_image = is_eu ? (
         <QueryImage
             data={getImage(is_mobile, ['demo_step2_mobile_eu', 'demo_step2_eu'])}
-            alt="Demo DMT5 account- step 2"
+            alt='Demo DMT5 account- step 2'
         />
     ) : (
-        <QueryImage
-            data={getImage(is_mobile, ['demo_step2_mobile', 'demo_step2'])}
-            alt="Demo DMT5 account- step 2"
-        />
-    )
+        <QueryImage data={getImage(is_mobile, ['demo_step2_mobile', 'demo_step2'])} alt='Demo DMT5 account- step 2' />
+    );
     const demo_step3_image = is_eu ? (
         <QueryImage
             data={getImage(is_mobile, ['demo_step3_mobile_eu', 'demo_step3_eu'])}
-            alt="Demo DMT5 account- step 3"
+            alt='Demo DMT5 account- step 3'
         />
     ) : (
-        <QueryImage
-            data={getImage(is_mobile, ['demo_step3_mobile', 'demo_step3'])}
-            alt="Demo DMT5 account- step 3"
-        />
-    )
+        <QueryImage data={getImage(is_mobile, ['demo_step3_mobile', 'demo_step3'])} alt='Demo DMT5 account- step 3' />
+    );
     const real_step1_image = is_eu ? (
         <QueryImage
             data={getImage(is_mobile, ['real_step1_mobile_eu', 'real_step1_eu'])}
-            alt="Real DMT5 account- step 1"
+            alt='Real DMT5 account- step 1'
         />
     ) : (
-        <QueryImage
-            data={getImage(is_mobile, ['real_step1_mobile', 'real_step1'])}
-            alt="Real DMT5 account- step 1"
-        />
-    )
+        <QueryImage data={getImage(is_mobile, ['real_step1_mobile', 'real_step1'])} alt='Real DMT5 account- step 1' />
+    );
     const real_step2_image = is_eu ? (
         <QueryImage
             data={getImage(is_mobile, ['real_step2_mobile_eu', 'real_step2_eu'])}
-            alt="Real DMT5 account- step 2"
+            alt='Real DMT5 account- step 2'
         />
     ) : (
-        <QueryImage
-            data={getImage(is_mobile, ['real_step2_mobile', 'real_step2'])}
-            alt="Real DMT5 account- step 2"
-        />
-    )
+        <QueryImage data={getImage(is_mobile, ['real_step2_mobile', 'real_step2'])} alt='Real DMT5 account- step 2' />
+    );
     const real_step3_image = is_eu ? (
         <QueryImage
             data={getImage(is_mobile, ['real_step3_mobile_eu', 'real_step3_eu'])}
-            alt="Real DMT5 account- step 3"
+            alt='Real DMT5 account- step 3'
         />
     ) : (
-        <QueryImage
-            data={getImage(is_mobile, ['real_step3_mobile', 'real_step3'])}
-            alt="Real DMT5 account- step 3"
-        />
-    )
+        <QueryImage data={getImage(is_mobile, ['real_step3_mobile', 'real_step3'])} alt='Real DMT5 account- step 3' />
+    );
     const real_step4_image = is_eu ? (
         <QueryImage
             data={getImage(is_mobile, ['real_step4_mobile_eu', 'real_step4_eu'])}
-            alt="Real DMT5 account- step 4"
+            alt='Real DMT5 account- step 4'
         />
     ) : (
-        <QueryImage
-            data={getImage(is_mobile, ['real_step4_mobile', 'real_step4'])}
-            alt="Real DMT5 account- step 4"
-        />
-    )
+        <QueryImage data={getImage(is_mobile, ['real_step4_mobile', 'real_step4'])} alt='Real DMT5 account- step 4' />
+    );
 
     return (
         <Section>
-            <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
+            <StyledHeader align='center' mb='4rem' as='h2' type='page-title'>
                 {localize('How to get started with a Deriv MT5 account')}
             </StyledHeader>
-            <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }} id="account-pick">
+            <Flex mb='8rem' p='0 16px' tablet={{ mb: '32px', height: 'unset' }} id='account-pick'>
                 <TabItem
-                    mobile_padding="21px 12px"
+                    mobile_padding='21px 12px'
                     active={isDemo}
                     onClick={() => onTabClick('Demo')}
-                    className="demo-account"
+                    className='demo-account'
                 >
-                    <StyledText size="var(--text-size-m)" align="center">
+                    <StyledText size='var(--text-size-m)' align='center'>
                         {localize('Demo account')}
                     </StyledText>
                 </TabItem>
@@ -351,47 +330,47 @@ const StartTrader = () => {
                     mobile_padding={is_eu ? '21px 12px' : '10px'}
                     active={isReal}
                     onClick={() => onTabClick('Real')}
-                    className="real-account"
+                    className='real-account'
                 >
-                    <StyledText size="var(--text-size-m)" align="center">
+                    <StyledText size='var(--text-size-m)' align='center'>
                         {localize('Real money account')}
                     </StyledText>
                 </TabItem>
             </Flex>
 
-            <Flex max_width="1200px">
-                <Flex direction="column" ai="end">
+            <Flex max_width='1200px'>
+                <Flex direction='column' ai='end'>
                     {isDemo ? (
                         <SideTab parent_tab={tab}>
                             <SideTab.Panel
                                 description={
                                     <Localize
-                                        translate_text="Sign up for a free <0>Deriv demo account</0>"
+                                        translate_text='Sign up for a free <0>Deriv demo account</0>'
                                         components={[
                                             <StyledLocalizedLink
-                                                id="dm-dmt5-signup-link"
+                                                id='dm-dmt5-signup-link'
                                                 onClick={handleSignup}
-                                                to=""
+                                                to=''
                                                 key={0}
                                             />,
                                         ]}
                                     />
                                 }
-                                item_width="24rem"
-                                mobile_item_width="36rem"
-                                class_name="sign-in"
+                                item_width='24rem'
+                                mobile_item_width='36rem'
+                                class_name='sign-in'
                             >
                                 <ImageWrapper>{demo_step1_image}</ImageWrapper>
                             </SideTab.Panel>
-                            <SideTab.Panel description={text_1} class_name="add-account">
+                            <SideTab.Panel description={text_1} class_name='add-account'>
                                 <ImageWrapper>{demo_step2_image}</ImageWrapper>
                             </SideTab.Panel>
                             <SideTab.Panel
                                 description={
-                                    <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser." />
+                                    <Localize translate_text='Practise trading from the mobile app, desktop app, or through your web browser.' />
                                 }
-                                item_width="36rem"
-                                class_name="practise-trading"
+                                item_width='36rem'
+                                class_name='practise-trading'
                             >
                                 <ImageWrapper>{demo_step3_image}</ImageWrapper>
                             </SideTab.Panel>
@@ -401,17 +380,11 @@ const StartTrader = () => {
                             <SideTab.Panel
                                 description={
                                     <Localize
-                                        translate_text="Create or <0>sign in</0> to your demo Deriv account"
-                                        components={[
-                                            <StyledLocalizedLink
-                                                key={0}
-                                                onClick={handleLogin}
-                                                to=""
-                                            />,
-                                        ]}
+                                        translate_text='Create or <0>sign in</0> to your demo Deriv account'
+                                        components={[<StyledLocalizedLink key={0} onClick={handleLogin} to='' />]}
                                     />
                                 }
-                                item_width="27rem"
+                                item_width='27rem'
                             >
                                 <ImageWrapper>{real_step1_image}</ImageWrapper>
                             </SideTab.Panel>
@@ -423,18 +396,18 @@ const StartTrader = () => {
                             </SideTab.Panel>
                             <SideTab.Panel
                                 description={
-                                    <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser." />
+                                    <Localize translate_text='Fund your account. Start trading on the mobile app, desktop app, or web browser.' />
                                 }
                             >
                                 <ImageWrapper>{real_step4_image}</ImageWrapper>
                             </SideTab.Panel>
                         </SideTab>
                     )}
-                    <QRImage src={DMT5QR} width="124px" height="124px" />
+                    <QRImage src={DMT5QR} width='124px' height='124px' alt='Deriv MT5 QR code' />
                 </Flex>
             </Flex>
         </Section>
-    )
-}
+    );
+};
 
-export default StartTrader
+export default StartTrader;

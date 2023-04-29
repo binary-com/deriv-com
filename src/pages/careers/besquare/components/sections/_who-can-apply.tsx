@@ -1,14 +1,9 @@
-import React from 'react'
-import {
-    CardContainer,
-    ContentContainer,
-    HeaderWrapper,
-    Section,
-} from '../../static/style/_who-can-apply'
-import { TextWrapper, Title } from '../../static/style/_common'
-import who_can_apply from '../../static/content/_who-can-apply'
-import { RedMarkIcon } from '../../static/images/_common'
-import Card from '../helper/_card'
+import React from 'react';
+import { CardContainer, ContentContainer, HeaderWrapper, Section } from '../../static/style/_who-can-apply';
+import { TextWrapper, Title } from '../../static/style/_common';
+import who_can_apply from '../../static/content/_who-can-apply';
+import { RedMarkIcon } from '../../static/images/_common';
+import Card from '../helper/_card';
 
 const WhoCanApply = () => {
     const style = {
@@ -23,17 +18,17 @@ const WhoCanApply = () => {
         text_wrapper: {
             max_width: ['446px', '304px'],
         },
-    }
+    };
     const custom_icon = {
         src: RedMarkIcon,
         alt: 'Red mark icon',
-    }
+    };
 
     return (
         <Section>
             <ContentContainer>
                 <HeaderWrapper>
-                    <Title as="h2">{who_can_apply.title}</Title>
+                    <Title as='h2'>{who_can_apply.title}</Title>
                     <TextWrapper
                         font_size={['24px', '18px']}
                         line_height={['36px', '22px']}
@@ -48,14 +43,14 @@ const WhoCanApply = () => {
                         <Card
                             key={index}
                             style={style}
-                            card_content={{ text }}
+                            card_content={{ text, alt: `Checkmark ${  (index + 1).toString()}` }}
                             custom_icon={custom_icon}
                         />
                     ))}
                 </CardContainer>
             </ContentContainer>
         </Section>
-    )
-}
+    );
+};
 
-export default WhoCanApply
+export default WhoCanApply;

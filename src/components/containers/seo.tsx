@@ -1,54 +1,47 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import { useStaticQuery, graphql } from 'gatsby'
-import { LocaleContext, localize } from '../localization'
-import language_config from '../../../i18n-config'
-import { isBrowser } from 'common/utility'
-import { eu_urls } from 'common/constants'
-import TradingImage from 'images/common/og_deriv.png'
-import { useLangDirection } from 'components/hooks/use-lang-direction'
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import { useStaticQuery, graphql } from 'gatsby';
+import { LocaleContext, localize } from '../localization';
+import language_config from '../../../i18n-config';
+import { isBrowser } from 'common/utility';
+import { eu_urls } from 'common/constants';
+import TradingImage from 'images/common/og_deriv.png';
+import { useLangDirection } from 'components/hooks/use-lang-direction';
 
-const non_localized_links = ['/academy', '/bug-bounty', '/careers']
+const non_localized_links = ['/blog', '/bug-bounty', '/careers'];
 
 type SiteMetadataType = {
     siteMetadata?: {
-        author?: string
-        description?: string
-        siteUrl?: string
-        title?: string
-    }
-}
+        author?: string;
+        description?: string;
+        siteUrl?: string;
+        title?: string;
+    };
+};
 type MetaAttributesType = {
-    og_title?: string
-    og_description?: string
-    og_type?: string
-    og_img?: string
-    og_img_width?: string
-    og_img_height?: string
-}
+    og_title?: string;
+    og_description?: string;
+    og_type?: string;
+    og_img?: string;
+    og_img_width?: string;
+    og_img_height?: string;
+};
 
 type SeoProps = {
-    description?: string
-    has_organization_schema?: boolean
-    meta?: { name: string; content: string | keyof MetaAttributesType }
-    meta_attributes?: MetaAttributesType
-    no_index?: boolean
-    title?: string
-}
+    description?: string;
+    has_organization_schema?: boolean;
+    meta?: { name: string; content: string | keyof MetaAttributesType };
+    meta_attributes?: MetaAttributesType;
+    no_index?: boolean;
+    title?: string;
+};
 type QueriesType = {
-    site?: SiteMetadataType
-}
+    site?: SiteMetadataType;
+};
 
-const languages = Object.keys(language_config)
-languages.push('x-default')
-const SEO = ({
-    description,
-    meta,
-    title,
-    no_index,
-    has_organization_schema,
-    meta_attributes,
-}: SeoProps) => {
+const languages = Object.keys(language_config);
+languages.push('x-default');
+const SEO = ({ description, meta, title, no_index, has_organization_schema, meta_attributes }: SeoProps) => {
     const queries: QueriesType = useStaticQuery(
         graphql`
             query {
@@ -61,36 +54,36 @@ const SEO = ({
                     }
                 }
             }
-        `,
-    )
+        `
+    );
 
-    const no_index_staging = process.env.GATSBY_ENV === 'staging'
-    const metaDescription = description || queries.site.siteMetadata.description
-    const site_url = queries.site.siteMetadata.siteUrl
-    const { locale: lang, pathname } = React.useContext(LocaleContext)
-    const formatted_lang = lang.replace('_', '-')
-    const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`
-    const default_og_title = localize('Online trading with Deriv | Simple. Flexible. Reliable.')
-    const default_og_description = localize('Trading platforms designed with you in mind.')
+    const no_index_staging = process.env.GATSBY_ENV === 'staging';
+    const metaDescription = description || queries.site.siteMetadata.description;
+    const site_url = queries.site.siteMetadata.siteUrl;
+    const { locale: lang, pathname } = React.useContext(LocaleContext);
+    const formatted_lang = lang.replace('_', '-');
+    const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`;
+    const default_og_title = localize('Online trading with Deriv | Simple. Flexible. Reliable.');
+    const default_og_description = localize('Trading platforms designed with you in mind.');
 
     // To block eu.deriv.com domain for search engines
-    const block_eu = isBrowser() && eu_urls.includes(window.location.hostname)
+    const block_eu = isBrowser() && eu_urls.includes(window.location.hostname);
 
-    let is_ach_page = false
-    let current_page = ''
-    let organization_schema = {}
+    let is_ach_page = false;
+    let current_page = '';
+    let organization_schema = {};
 
     if (locale_pathname) {
-        const path_array = locale_pathname.split('/')
-        const current_lang = path_array[1]
-        const check_lang = current_lang.replace('-', '_')
-        current_page = locale_pathname
+        const path_array = locale_pathname.split('/');
+        const current_lang = path_array[1];
+        const check_lang = current_lang.replace('-', '_');
+        current_page = locale_pathname;
 
         if (languages.includes(check_lang)) {
-            path_array.splice(1, 1)
-            current_page = path_array.join('/')
+            path_array.splice(1, 1);
+            current_page = path_array.join('/');
         }
-        if (current_lang === 'ach') is_ach_page = true
+        if (current_lang === 'ach') is_ach_page = true;
     }
 
     if (has_organization_schema) {
@@ -109,12 +102,12 @@ const SEO = ({
                 'https://www.linkedin.com/company/derivdotcom/',
                 'https://deriv.com',
             ],
-        }
+        };
     }
 
-    const lang_direction = useLangDirection()
+    const lang_direction = useLangDirection();
 
-    const is_non_localized = non_localized_links.some((link) => current_page.includes(link))
+    const is_non_localized = non_localized_links.some(link => current_page.includes(link));
 
     return (
         <Helmet
@@ -216,33 +209,26 @@ const SEO = ({
             ].concat(meta)}
         >
             {has_organization_schema && (
-                <script type="application/ld+json">{JSON.stringify(organization_schema)}</script>
+                <script type='application/ld+json'>{JSON.stringify(organization_schema)}</script>
             )}
 
             {!is_non_localized &&
-                languages.map((locale) => {
+                languages.map(locale => {
                     if (!(locale === 'ach')) {
-                        const replaced_local = locale.replace('_', '-')
-                        const is_default = locale === 'en' || locale === 'x-default'
-                        const href_lang = is_default ? '' : `/${replaced_local}`
-                        const href = `${site_url}${href_lang}${current_page}`
+                        const replaced_local = locale.replace('_', '-');
+                        const is_default = locale === 'en' || locale === 'x-default';
+                        const href_lang = is_default ? '' : `/${replaced_local}`;
+                        const href = `${site_url}${href_lang}${current_page}`;
 
-                        return (
-                            <link
-                                rel="alternate"
-                                hrefLang={replaced_local}
-                                href={href}
-                                key={replaced_local}
-                            />
-                        )
+                        return <link rel='alternate' hrefLang={replaced_local} href={href} key={replaced_local} />;
                     }
                 })}
         </Helmet>
-    )
-}
+    );
+};
 
 SEO.defaultProps = {
     meta: [],
-}
+};
 
-export default SEO
+export default SEO;

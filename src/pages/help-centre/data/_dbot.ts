@@ -1,10 +1,10 @@
-import ControlLosses from '../components/_control-losses'
-import { TQuestionsData } from './_data-types'
+import ControlLosses from '../components/_control-losses';
+import { TQuestionsData } from './_data-types';
 // images
-import BlockMenuImage from 'images/common/help-centre/dbot-block-menu.png'
-import BlockMenuSearchBarImage from 'images/common/help-centre/dbot-block-menu-search-bar.png'
-import ClearStatImage from 'images/common/help-centre/dbot-clear-stat.png'
-import AreYouSureImage from 'images/common/help-centre/dbot-are-you-sure.png'
+import BlockMenuImage from 'images/common/help-centre/dbot-block-menu.png';
+import BlockMenuSearchBarImage from 'images/common/help-centre/dbot-block-menu-search-bar.png';
+import ClearStatImage from 'images/common/help-centre/dbot-clear-stat.png';
+import AreYouSureImage from 'images/common/help-centre/dbot-are-you-sure.png';
 
 const dbot: TQuestionsData = {
     section: 'Platforms',
@@ -72,8 +72,8 @@ const dbot: TQuestionsData = {
                     translation_components: [
                         {
                             key: 0,
-                            type: 'link',
-                            to: 'https://academy.deriv.com/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/',
+                            type: 'internal_link',
+                            to: 'https://blog.deriv.com/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/',
                         },
                     ],
                 },
@@ -115,8 +115,7 @@ const dbot: TQuestionsData = {
                                 translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {
-                                translation_text:
-                                    '_t_Choose the block you want and drag it to the workspace._t_',
+                                translation_text: '_t_Choose the block you want and drag it to the workspace._t_',
                             },
                         ],
                     },
@@ -157,16 +156,14 @@ const dbot: TQuestionsData = {
                         padding_left: '2.2rem',
                         items: [
                             {
-                                translation_text:
-                                    '_t_Go to <0>Quick strategy</0> and select the strategy you want._t_',
+                                translation_text: '_t_Go to <0>Quick strategy</0> and select the strategy you want._t_',
                                 translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {
                                 translation_text: '_t_Select the asset and trade type._t_',
                             },
                             {
-                                translation_text:
-                                    '_t_Set your trade parameters and hit <0>Create</0>._t_',
+                                translation_text: '_t_Set your trade parameters and hit <0>Create</0>._t_',
                                 translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {
@@ -249,8 +246,7 @@ const dbot: TQuestionsData = {
                                 translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {
-                                translation_text:
-                                    '_t_Select your XML file and hit <0>Select</0>._t_',
+                                translation_text: '_t_Select your XML file and hit <0>Select</0>._t_',
                                 translation_components: [{ key: 0, type: 'strong' }],
                             },
                             {
@@ -287,8 +283,7 @@ const dbot: TQuestionsData = {
                         padding_left: '2rem',
                         items: [
                             {
-                                translation_text:
-                                    '_t_Hit <0>Reset</0> at the bottom of stats panel._t_',
+                                translation_text: '_t_Hit <0>Reset</0> at the bottom of stats panel._t_',
                                 translation_components: [{ key: 0, type: 'strong' }],
                                 img: {
                                     src: ClearStatImage,
@@ -387,8 +382,7 @@ const dbot: TQuestionsData = {
             label: 'close-browser',
             answer: [
                 {
-                    translation_text:
-                        '_t_No, DBot will stop running when your web browser is closed._t_',
+                    translation_text: '_t_No, DBot will stop running when your web browser is closed._t_',
                 },
             ],
         },
@@ -421,14 +415,14 @@ const dbot: TQuestionsData = {
                         },
                         {
                             key: 1,
-                            type: 'link',
-                            to: 'https://academy.deriv.com/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/',
+                            type: 'internal_link',
+                            to: 'https://blog.deriv.com/blog/posts/how-to-build-a-basic-trading-bot-with-dbot/',
                         },
                     ],
                 },
             ],
         },
     ],
-}
+};
 
-export default dbot
+export default dbot;

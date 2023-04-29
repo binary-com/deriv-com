@@ -1,13 +1,13 @@
-import React from 'react'
-import styled from 'styled-components'
-import kid_data from './data/_kid_data'
-import { Text, Accordion, AccordionItem, LinkText } from 'components/elements'
-import { Flex } from 'components/containers'
-import { localize } from 'components/localization'
-import device from 'themes/device'
-import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg'
+import React from 'react';
+import styled from 'styled-components';
+import kid_data from './data/_kid_data';
+import { Text, Accordion, AccordionItem, LinkText } from 'components/elements';
+import { Flex } from 'components/containers';
+import { localize } from 'components/localization';
+import device from 'themes/device';
+import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg';
 
-type DocumentAccordionProps = { locale: { language: string } }
+type DocumentAccordionProps = { locale: { language: string } };
 
 const FlexText = styled(LinkText)`
     width: 26%;
@@ -35,7 +35,7 @@ const FlexText = styled(LinkText)`
     @media ${device.mobileS} {
         padding-left: 4.5rem;
     }
-`
+`;
 
 const FlexText_Pillar = styled(LinkText)`
     display: flex;
@@ -45,7 +45,7 @@ const FlexText_Pillar = styled(LinkText)`
     & > img {
         margin-right: 0.8rem;
     }
-`
+`;
 const EdgeFlex = styled(Flex)`
     flex-wrap: wrap;
     justify-content: flex-start;
@@ -65,11 +65,21 @@ const EdgeFlex = styled(Flex)`
         flex-direction: column;
         margin-left: 10%;
     }
-`
+`;
 
 const RTS27_28 = () => (
     <>
         <EdgeFlex>
+            <FlexText
+                color='red'
+                target='_blank'
+                rel='noopener noreferrer'
+                href='/regulatory/RTS28-2022.pdf'
+                m='1.6rem 2.4rem'
+            >
+                <img src={PDFIcon} alt='pdf icon black' />
+                <span>{localize('RTS28 2022')}</span>
+            </FlexText>
             <FlexText
                 color='red'
                 target='_blank'
@@ -80,42 +90,32 @@ const RTS27_28 = () => (
                 <img src={PDFIcon} alt='pdf icon black' />
                 <span>{localize('RTS28 2021')}</span>
             </FlexText>
-            <FlexText
-                color='red'
-                target='_blank'
-                rel='noopener noreferrer'
-                href='/regulatory/RTS28-2020.pdf'
-                m='1.6rem 2.4rem'
-            >
-                <img src={PDFIcon} alt='pdf icon black' />
-                <span>{localize('RTS28 2020')}</span>
-            </FlexText>
         </EdgeFlex>
     </>
-)
+);
 
 const DocumentAccordion = (locale: DocumentAccordionProps) => {
     const content_style = {
         background: 'var(--color-white)',
         boxShadow: '-2px 6px 15px 0 rgba(195, 195, 195, 0.31)',
-    }
+    };
     const header_style = {
         borderRadius: '6px',
-    }
+    };
     const item_style = {
         padding: '1.6rem',
         position: 'relative',
         background: 'var(--color-white)',
-    }
+    };
     const parent_style = {
         marginBottom: '2.4rem',
         width: '100%',
-    }
+    };
 
-    const selected_language = locale.locale.language || 'en'
-    const supported_languages = ['es', 'it', 'pl', 'pt']
+    const selected_language = locale.locale.language || 'en';
+    const supported_languages = ['es', 'it', 'pl', 'pt'];
 
-    const is_supported_language = (language: string) => supported_languages.includes(language)
+    const is_supported_language = (language: string) => supported_languages.includes(language);
 
     return (
         <Accordion has_single_state id='kid'>
@@ -136,11 +136,11 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                     <FlexText_Pillar
                         target='_blank'
                         rel='noopener noreferrer'
-                        href='/regulatory/Financial_Disclosures_Annual_Report_2021.pdf'
+                        href='/regulatory/Financial_Disclosures_Annual_Report_2022.pdf'
                         color='red'
                     >
                         <img src={PDFIcon} alt='pdf icon black' />
-                        <span>{localize('Financial Disclosures Annual Report 2021')}</span>
+                        <span>{localize('Financial Disclosures Annual Report 2022')}</span>
                     </FlexText_Pillar>
                 </Flex>
             </AccordionItem>
@@ -166,9 +166,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                                 target='_blank'
                                 rel='noopener noreferrer'
                                 href={`/regulatory/kid/${
-                                    is_supported_language(selected_language)
-                                        ? `${selected_language}/`
-                                        : ''
+                                    is_supported_language(selected_language) ? `${selected_language}/` : ''
                                 }${data.ref}`}
                                 m='1.6rem 2.4rem'
                             >
@@ -192,7 +190,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 </Flex>
             </AccordionItem>
         </Accordion>
-    )
-}
+    );
+};
 
-export default DocumentAccordion
+export default DocumentAccordion;

@@ -1,12 +1,6 @@
 @use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
 
-.hero_spacing {
-    @include breakpoints(tablet) {
-      margin-inline: 120px 34px;
-      max-inline-size: 632px;
-    }
-}
 .number_box {
   @include breakpoints(tablet) {
     margin-inline: 120px;

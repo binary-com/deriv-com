@@ -17,8 +17,3 @@ export type TSellingPoints = {
     title: string | TString
     subtitle: TString
 }
-export type TDerivEzHero = {
-    hero: ReactElement
-    hero_mobile: ReactElement
-    logo: ReactElement
-}

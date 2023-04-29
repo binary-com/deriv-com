@@ -6,7 +6,7 @@
     min-block-size: 70svh;
 
     @include breakpoints(tablet) {
-        min-block-size: 100svh;
+        min-block-size: 85svh;
     }
 
     &::before {
@@ -16,7 +16,7 @@
         inline-size: 100%;
         background-color: $color-brand;
         inset-block-end: 0;
-        clip-path: polygon(0 35%, 100% 45%, 100% 0, 0 0);
+        clip-path: polygon(0 28%, 100% 38%, 100% 0, 0 0);
         @include rtl() {
             clip-path: polygon(0 40%, 100% 60%, 100% 100%, 0% 100%);
         }
@@ -25,7 +25,7 @@
             min-block-size: 85svh;
             inset-block-end: unset;
             inset-inline-end: 0;
-            inline-size: 50%;
+            inline-size: 40%;
             clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
             @include rtl() {
                 clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%);

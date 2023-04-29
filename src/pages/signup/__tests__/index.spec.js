@@ -1,10 +1,10 @@
-import { render, screen } from '@testing-library/react'
-import '@testing-library/jest-dom'
-import { useStaticQuery } from 'gatsby'
-import { QueryParamProvider } from 'use-query-params'
-import { LocaleContextWrapper } from '../../../components/localization/locale-context'
-import { RegionProvider } from '../../../store/region-context'
-import NewSignup from '../index.tsx'
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import { useStaticQuery } from 'gatsby';
+import { QueryParamProvider } from 'use-query-params';
+import { LocaleContextWrapper } from '../../../components/localization/locale-context';
+import { RegionProvider } from '../../../store/region-context';
+import NewSignup from '../index.tsx';
 
 // mock all functions that are required in signup page.
 jest.mock('common/utility', () => ({
@@ -13,7 +13,7 @@ jest.mock('common/utility', () => ({
     getDateFromToday: jest.fn(() => '2020-01-01'),
     getDomain: jest.fn(() => 'binary.sx'),
     getClientInformation: jest.fn(() => {
-        return {}
+        return {};
     }),
     queryParamData: jest.fn(() => ''),
     getWindowWidth: jest.fn(() => '1920'),
@@ -23,7 +23,7 @@ jest.mock('common/utility', () => ({
     isNullUndefined: jest.fn(() => true),
     isLocalhost: jest.fn(() => true),
     isEuDomain: jest.fn(() => true),
-}))
+}));
 
 // mock the qraphql query used in seo.js
 useStaticQuery.mockReturnValue({
@@ -36,7 +36,7 @@ useStaticQuery.mockReturnValue({
             },
         },
     },
-})
+});
 
 describe('NewSignUp', () => {
     it('must contain create demo account Button', () => {
@@ -48,10 +48,10 @@ describe('NewSignUp', () => {
                     </QueryParamProvider>
                 </LocaleContextWrapper>
             </RegionProvider>
-        )
+        );
         const singup_button = screen.getByRole('button', {
             name: /Create demo account/i,
-        })
-        expect(singup_button).toBeInTheDocument()
-    })
-})
+        });
+        expect(singup_button).toBeInTheDocument();
+    });
+});

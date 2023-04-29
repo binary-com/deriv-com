@@ -1,14 +1,13 @@
-const language_config = require(`./i18n-config.js`)
-const isBrowser = typeof window !== 'undefined'
+const language_config = require(`./i18n-config.js`);
+const isBrowser = typeof window !== 'undefined';
 
 require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
-const origin = isBrowser && window.location.origin
-const href = isBrowser && window.location.href
-const site_url =
-    origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
+const origin = isBrowser && window.location.origin;
+const href = isBrowser && window.location.href;
+const site_url = origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com';
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
@@ -107,40 +106,40 @@ module.exports = {
                 resolveSiteUrl: () => (isBrowser && window.location.hostname) || site_url,
                 resolvePages: ({ allSitePage: { nodes: allPages } }) => {
                     return allPages.map(page => {
-                        return { ...page }
-                    })
+                        return { ...page };
+                    });
                 },
                 serialize: ({ path }) => {
-                    const ignore_localized_regex = /careers|besquare|livechat|academy/
-                    const languages = Object.keys(language_config)
+                    const ignore_localized_regex = /careers|besquare|livechat|academy/;
+                    const languages = Object.keys(language_config);
 
-                    const path_array = path.split('/')
-                    const current_lang = path_array[1]
-                    const check_lang = current_lang.replace('-', '_')
-                    let current_page = path
+                    const path_array = path.split('/');
+                    const current_lang = path_array[1];
+                    const check_lang = current_lang.replace('-', '_');
+                    let current_page = path;
 
                     if (languages.includes(check_lang)) {
-                        path_array.splice(1, 1)
-                        current_page = path_array.join('/')
+                        path_array.splice(1, 1);
+                        current_page = path_array.join('/');
                     }
 
-                    languages.push('x-default')
-                    languages.splice(languages.indexOf('ach'), 1)
-                    const ignore_localized = current_page.match(ignore_localized_regex)
+                    languages.push('x-default');
+                    languages.splice(languages.indexOf('ach'), 1);
+                    const ignore_localized = current_page.match(ignore_localized_regex);
                     const links = languages.map(locale => {
                         if (locale !== 'ach' && locale) {
-                            const replaced_locale = locale.replace('_', '-')
-                            const is_default = ['en', 'x-default'].includes(locale)
-                            const href_locale = is_default ? '' : `/${replaced_locale}`
-                            const href = `${site_url}${href_locale}${current_page}`
-                            return { lang: replaced_locale, url: href }
+                            const replaced_locale = locale.replace('_', '-');
+                            const is_default = ['en', 'x-default'].includes(locale);
+                            const href_locale = is_default ? '' : `/${replaced_locale}`;
+                            const href = `${site_url}${href_locale}${current_page}`;
+                            return { lang: replaced_locale, url: href };
                         }
-                    })
+                    });
 
                     return {
                         url: path,
                         links: !ignore_localized ? links : null,
-                    }
+                    };
                 },
             },
         },
@@ -290,14 +289,7 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: [
-                            '/404/',
-                            '/homepage/',
-                            '/landing/',
-                            '/endpoint/',
-                            '/livechat/',
-                            '/storybook/',
-                        ],
+                        disallow: ['/404/', '/homepage/', '/landing/', '/endpoint/', '/livechat/', '/storybook/'],
                     },
                 ],
             },
@@ -325,4 +317,4 @@ module.exports = {
             },
         },
     ],
-}
+};

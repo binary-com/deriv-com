@@ -1,12 +1,8 @@
-import React from 'react'
-import { CrashText, DetailsContainer } from '../style/_markets-style'
-import { Text } from 'components/elements'
-import { localize, Localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
-
-type TEuropeDetailsProps = {
-    custom_index: number
-}
+import React from 'react';
+import { CrashText, DetailsContainer } from '../style/_markets-style';
+import { Text } from 'components/elements';
+import { localize, Localize } from 'components/localization';
+import useRegion from 'components/hooks/use-region';
 
 export const AmericasDetails = () => (
     <DetailsContainer>
@@ -32,7 +28,7 @@ export const AmericasDetails = () => (
             />
         </Text>
     </DetailsContainer>
-)
+);
 
 export const AsiaOceaniaDetails = () => (
     <DetailsContainer>
@@ -58,7 +54,7 @@ export const AsiaOceaniaDetails = () => (
             />
         </Text>
     </DetailsContainer>
-)
+);
 
 export const ContinuousIndicesDetails = () => (
     <DetailsContainer>
@@ -80,7 +76,7 @@ export const ContinuousIndicesDetails = () => (
             />
         </Text>
     </DetailsContainer>
-)
+);
 
 export const ContinuousIndicesOptionsDetails = () => (
     <DetailsContainer>
@@ -100,7 +96,7 @@ export const ContinuousIndicesOptionsDetails = () => (
             />
         </Text>
     </DetailsContainer>
-)
+);
 
 export const CrashBoomDetails = () => (
     <DetailsContainer>
@@ -111,7 +107,7 @@ export const CrashBoomDetails = () => (
             />
         </CrashText>
     </DetailsContainer>
-)
+);
 
 export const CrashBoomMultipliersDetails = () => (
     <DetailsContainer>
@@ -122,7 +118,7 @@ export const CrashBoomMultipliersDetails = () => (
             />
         </CrashText>
     </DetailsContainer>
-)
+);
 
 export const CrashBoomDetailsEU = () => (
     <DetailsContainer>
@@ -133,7 +129,7 @@ export const CrashBoomDetailsEU = () => (
             />
         </CrashText>
     </DetailsContainer>
-)
+);
 
 export const DailyResetIndicesDetails = () => (
     <DetailsContainer>
@@ -144,10 +140,9 @@ export const DailyResetIndicesDetails = () => (
             />
         </Text>
     </DetailsContainer>
-)
+);
 
-export const EuropeDetails = (props: TEuropeDetailsProps) => {
-    const { custom_index: index } = props
+export const EuropeDetails = () => {
     const children = [
         <Text key={0}>
             <Localize translate_text='Each of these indices replicates the performance of top publicly traded companies in financial markets in Europe.' />
@@ -188,19 +183,10 @@ export const EuropeDetails = (props: TEuropeDetailsProps) => {
                 components={[<strong key={0} />]}
             />
         </Text>,
-    ]
+    ];
 
-    return (
-        <DetailsContainer>
-            {children.map((child, idx) => {
-                // eslint-disable-next-line no-bitwise
-                if (!~index || index === idx) {
-                    return child
-                }
-            })}
-        </DetailsContainer>
-    )
-}
+    return <DetailsContainer>{children.map(child => child)}</DetailsContainer>;
+};
 
 export const RangeBreakIndicesDetails = () => (
     <DetailsContainer>
@@ -208,7 +194,7 @@ export const RangeBreakIndicesDetails = () => (
             <Localize translate_text='These indices fluctuate between two price points (borders), occasionally breaking through the borders to create a new range on average once every 100 or 200 times that they hit the borders.' />
         </Text>
     </DetailsContainer>
-)
+);
 
 export const BasketFXDetails = () => (
     <DetailsContainer>
@@ -237,7 +223,7 @@ export const BasketFXDetails = () => (
             />
         </Text>
     </DetailsContainer>
-)
+);
 export const BasketCommoditiesDetails = () => (
     <DetailsContainer>
         <Text>
@@ -247,14 +233,14 @@ export const BasketCommoditiesDetails = () => (
             />
         </Text>
     </DetailsContainer>
-)
+);
 export const SmartGoldIndexDetails = () => (
     <DetailsContainer>
         <Text>
             <Localize translate_text='Measures the value of gold against a basket of five global currencies (EUR, GBP, JPY, AUD, USD), each weighted by 20%.' />
         </Text>
     </DetailsContainer>
-)
+);
 
 export const StepIndicesDetails = () => (
     <DetailsContainer>
@@ -265,7 +251,7 @@ export const StepIndicesDetails = () => (
             />
         </Text>
     </DetailsContainer>
-)
+);
 
 export const VolatilityIndicesDetails = () => (
     <DetailsContainer>
@@ -287,7 +273,7 @@ export const VolatilityIndicesDetails = () => (
             />
         </Text>
     </DetailsContainer>
-)
+);
 
 export const VolatilityIndicesDetailsEU = () => (
     <DetailsContainer>
@@ -304,7 +290,7 @@ export const VolatilityIndicesDetailsEU = () => (
             />
         </Text>
     </DetailsContainer>
-)
+);
 
 export const AsianIndicesDetails = () => (
     <DetailsContainer>
@@ -324,10 +310,10 @@ export const AsianIndicesDetails = () => (
             />
         </Text>
     </DetailsContainer>
-)
+);
 
 export const EuropeanIndicesDetails = () => {
-    const { is_row } = useRegion()
+    const { is_row } = useRegion();
     return (
         <DetailsContainer>
             <Text>
@@ -372,15 +358,15 @@ export const EuropeanIndicesDetails = () => {
                 />
             </Text>
         </DetailsContainer>
-    )
-}
+    );
+};
 export const CryptocurrenciesDetails = () => (
     <DetailsContainer>
         <Text>
             <Localize translate_text='Cryptocurrency contracts traded with multipliers have a time limit. It depends on the asset you are trading and appears on the DTrader dashboard before you place a trade.' />
         </Text>
     </DetailsContainer>
-)
+);
 
 export const JumpIndicesDetails = () => (
     <DetailsContainer>
@@ -391,7 +377,7 @@ export const JumpIndicesDetails = () => (
             />
         </Text>
     </DetailsContainer>
-)
+);
 
 export const DerivedCFDsDetails = () => (
     <DetailsContainer>
@@ -402,4 +388,4 @@ export const DerivedCFDsDetails = () => (
             />
         </Text>
     </DetailsContainer>
-)
+);

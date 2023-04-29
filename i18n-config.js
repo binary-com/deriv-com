@@ -102,4 +102,4 @@ module.exports = {
         short_name: 'DE',
         affiliate_lang: 16,
     },
-}
+};

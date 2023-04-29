@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import { BaseElement } from './typography'
-import { LocalizedLink } from 'components/localization'
-import device from 'themes/device'
+import React from 'react';
+import styled from 'styled-components';
+import { BaseElement } from './typography';
+import { LocalizedLink } from 'components/localization';
+import device from 'themes/device';
 
 const LocalizedLinkText = styled(props => <LocalizedLink {...props} />)`
     ${BaseElement}
@@ -19,6 +19,6 @@ const LocalizedLinkText = styled(props => <LocalizedLink {...props} />)`
     @media ${device.tabletL} {
         font-size: ${props => props.size || '16px'};
     }
-`
+`;
 
-export default LocalizedLinkText
+export default LocalizedLinkText;

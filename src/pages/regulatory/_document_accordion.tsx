@@ -74,24 +74,24 @@ const RTS27_28 = () => (
                 color="red"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="/regulatory/RTS28-2021.pdf"
+                href="/regulatory/RTS28-2022.pdf"
                 m="1.6rem 2.4rem"
             >
                 <img src={PDFIcon} alt="pdf icon black" />
                 <span>
-                    <Localize translate_text="_t_RTS28 2021_t_" />
+                    <Localize translate_text="_t_RTS28 2022_t_" />
                 </span>
             </FlexText>
             <FlexText
                 color="red"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="/regulatory/RTS28-2020.pdf"
+                href="/regulatory/RTS28-2021.pdf"
                 m="1.6rem 2.4rem"
             >
                 <img src={PDFIcon} alt="pdf icon black" />
                 <span>
-                    <Localize translate_text="_t_RTS28 2020_t_" />
+                    <Localize translate_text="_t_RTS28 2021_t_" />
                 </span>
             </FlexText>
         </EdgeFlex>

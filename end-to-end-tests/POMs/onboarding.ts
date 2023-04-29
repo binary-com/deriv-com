@@ -98,6 +98,7 @@ export default class OnboardingFlow {
         await this.page.locator('button[type="submit"]', { hasText: 'Next' }).click()
         await this.page.locator('button[type="submit"]', { hasText: 'Next' }).click()
     }
+    // TODO: check and update this function since the cookie dialog compponent is removed
     async cookieDialogHandler() {
         const dialog = this.page.getByTestId('cookie-dialog')
         if (dialog) {

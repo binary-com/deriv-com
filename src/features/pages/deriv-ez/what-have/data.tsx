@@ -13,7 +13,7 @@ export const features: TFeatures[] = [
                 alt="Deriv GO trading app"
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
-                quality={30}
+                quality={100}
                 objectFit="contain"
                 placeholder="none"
             />
@@ -29,7 +29,7 @@ export const features: TFeatures[] = [
                 alt="Trading indicators and tools"
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
-                quality={30}
+                quality={100}
                 objectFit="contain"
                 placeholder="none"
             />
@@ -46,7 +46,7 @@ export const features: TFeatures[] = [
                 alt="Deriv EZ account creation"
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
-                quality={30}
+                quality={100}
                 objectFit="contain"
                 placeholder="none"
             />

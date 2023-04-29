@@ -13,7 +13,7 @@ export const card_data: TCard[] = [
                 alt="easy to start deriv ez"
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
-                quality={30}
+                quality={50}
                 objectFit="contain"
                 placeholder="none"
             />
@@ -29,7 +29,7 @@ export const card_data: TCard[] = [
                 alt="24/7 trading"
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
-                quality={30}
+                quality={50}
                 objectFit="contain"
                 placeholder="none"
             />
@@ -45,7 +45,7 @@ export const card_data: TCard[] = [
                 alt="favourite assets"
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
-                quality={30}
+                quality={50}
                 objectFit="contain"
                 placeholder="none"
             />

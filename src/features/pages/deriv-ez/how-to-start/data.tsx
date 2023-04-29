@@ -10,7 +10,7 @@ export const deriv_ez_images = {
             alt="Deriv GO trading app"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={30}
+            quality={50}
             objectFit="contain"
             placeholder="none"
         />
@@ -21,7 +21,7 @@ export const deriv_ez_images = {
             alt="Deriv GO app create free demo account"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={30}
+            quality={50}
             objectFit="contain"
             placeholder="none"
         />
@@ -32,7 +32,7 @@ export const deriv_ez_images = {
             alt="Deriv EZ demo account for trading"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={30}
+            quality={50}
             objectFit="contain"
             placeholder="none"
         />
@@ -43,7 +43,7 @@ export const deriv_ez_images = {
             alt="Deriv EZ demo account for trading"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={30}
+            quality={50}
             objectFit="contain"
             placeholder="none"
         />
@@ -54,7 +54,7 @@ export const deriv_ez_images = {
             alt="Candle chart trading"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={30}
+            quality={50}
             objectFit="contain"
             placeholder="none"
         />
@@ -65,7 +65,7 @@ export const deriv_ez_images = {
             alt="Transfer between your accounts"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={30}
+            quality={50}
             objectFit="contain"
             placeholder="none"
         />
@@ -76,7 +76,7 @@ export const deriv_ez_images = {
             alt="Candle chart trading"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={30}
+            quality={50}
             objectFit="contain"
             placeholder="none"
         />

@@ -1,5 +1,4 @@
 import React from 'react'
-import * as style from '../deriv-ez.module.scss'
 import { hero_images } from './data'
 import FlexBox from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
@@ -8,7 +7,7 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 import { Localize } from 'components/localization'
 
 const DerivEZHero = () => {
-    const { is_mobile } = useBreakpoints()
+    const { is_mobile, is_mobile_or_tablet } = useBreakpoints()
 
     return (
         <TradeHeroContainer
@@ -18,29 +17,38 @@ const DerivEZHero = () => {
             md={{ direction: 'row' }}
         >
             <FlexBox.Box
-                className={style.hero_spacing}
                 direction={'col'}
                 justify={'center'}
+                align={'center'}
                 gap={'8x'}
                 ml={'8x'}
+                mb={'40x'}
+                pt={'20x'}
+                md={{ align: 'start' }}
+                style={{ maxInlineSize: !is_mobile_or_tablet && '58rem' }}
             >
-                <FlexBox.Box direction={'row'} justify={'start'} align={'center'}>
-                    {hero_images['logo']}
-                    <Typography.Paragraph
-                        size={'xlarge'}
-                        color={'secondary'}
-                        ml={'8x'}
-                        md={{ weight: 'normal' }}
-                        lg={{ weight: 'bold' }}
-                    >
-                        <Localize translate_text="_t_Deriv EZ_t_" />
-                    </Typography.Paragraph>
-                </FlexBox.Box>
-                <Typography.Heading size={'xlarge'} color={'secondary'} weight={'bold'}>
-                    <Localize translate_text="_t_An intuitive, easy-to-get-started CFDs trading platform_t_" />
+                <FlexBox.Item align_self={'center'} md={{ align_self: 'start' }}>
+                    {is_mobile ? hero_images['mobile_logo'] : hero_images['logo']}
+                </FlexBox.Item>
+                <Typography.Heading
+                    size={'xlarge'}
+                    color={'secondary'}
+                    weight={'bold'}
+                    align={is_mobile_or_tablet ? 'center' : 'left'}
+                >
+                    <Localize translate_text="_t_An intuitive,_t_" />
+                    <br />
+                    <Localize translate_text="_t_easy-to-get-started_t_" />
+                    <br />
+                    <Localize translate_text="_t_CFDs trading platform_t_" />
                 </Typography.Heading>
             </FlexBox.Box>
-            <FlexBox.Item align_self={'center'} pt={'40x'} style={{ zIndex: '1' }}>
+            <FlexBox.Item
+                align_self={'center'}
+                pt={'40x'}
+                md={{ pt: '0x', ml: '17x' }}
+                style={{ zIndex: '1' }}
+            >
                 {is_mobile ? hero_images['hero_mobile'] : hero_images['hero']}
             </FlexBox.Item>
         </TradeHeroContainer>

@@ -9,17 +9,17 @@ import MainNav from 'features/components/templates/navigation/main-nav'
 import Footer from 'features/components/templates/footer/'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
-import { WithIntl } from 'components/localization'
+import { localize, WithIntl } from 'components/localization'
 
 const DerivEZ = () => {
     return (
         <Layout>
             <MainNav />
             <SEO
-                title={
-                    '_t_Deriv EZ is our intuitive CFD trading platform where you can trade forex, commodities, stocks & indices, cryptocurrencies, and derived indices._t_'
-                }
-                description={'_t_Deriv EZ – a CFD trading platform | Deriv_t_'}
+                title={localize(
+                    '_t_Deriv EZ is our intuitive CFD trading platform where you can trade forex, commodities, stocks & indices, cryptocurrencies, and derived indices._t_',
+                )}
+                description={localize('_t_Deriv EZ – a CFD trading platform | Deriv_t_')}
             />
             <Hero />
             <Numbers />

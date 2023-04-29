@@ -1,15 +1,14 @@
 import { StaticImage } from 'gatsby-plugin-image'
 import React from 'react'
-import { TDerivEzHero } from '../types'
 
-export const hero_images: TDerivEzHero = {
+export const hero_images = {
     hero: (
         <StaticImage
             src="../../../../images/common/deriv-ez/hero-phone.png"
             alt="Deriv EZ online trading platform"
             loading="eager"
+            quality={100}
             formats={['avif', 'webp', 'auto']}
-            quality={30}
             objectFit="contain"
             placeholder="none"
         />
@@ -19,22 +18,33 @@ export const hero_images: TDerivEzHero = {
             src="../../../../images/common/deriv-ez/hero-phone-mobile.png"
             alt="Deriv EZ online trading platform"
             loading="eager"
+            quality={100}
             formats={['avif', 'webp', 'auto']}
-            quality={30}
             objectFit="contain"
             placeholder="none"
         />
     ),
     logo: (
         <StaticImage
-            src="../../../../images/svg/deriv-ez/derivez-logo.svg"
+            src="../../../../images/common/deriv-ez/deriv-ez-logo.png"
             alt="Deriv EZ logo"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={30}
+            quality={80}
             objectFit="contain"
             placeholder="none"
-            width={32}
+            height={64}
+        />
+    ),
+    mobile_logo: (
+        <StaticImage
+            src="../../../../images/common/deriv-ez/deriv-ez-logo.png"
+            alt="Deriv EZ logo"
+            loading="eager"
+            formats={['avif', 'webp', 'auto']}
+            quality={80}
+            objectFit="contain"
+            placeholder="none"
             height={32}
         />
     ),

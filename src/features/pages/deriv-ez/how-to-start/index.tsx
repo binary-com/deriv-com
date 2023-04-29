@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { demo, real } from '../data'
+import { demo, real } from './data'
 import TabStepper from 'features/components/molecules/tab-stepper'
 
 const StartDerivEZ = () => {

@@ -1,5 +1,6 @@
 import React, { HTMLAttributes, useMemo, useRef, useState } from 'react'
 import { TSmartNavItemsContent } from '../../types'
+import { useNavContext } from '../nav-context'
 import * as styles from './mobile-menu.module.scss'
 import MobileNavItem from './mobile.items'
 import Accordion from 'features/components/atoms/accordion'
@@ -7,14 +8,14 @@ import dclsx from 'features/utils/dclsx'
 import Flex from 'features/components/atoms/flex-box'
 
 interface INavMenuProps extends HTMLAttributes<HTMLDivElement> {
-    is_open: boolean
     items: TSmartNavItemsContent[]
     has_top_nav?: boolean
 }
 
-const MobileMenu = ({ is_open, className, items, has_top_nav }: INavMenuProps) => {
+const MobileMenu = ({ className, items, has_top_nav }: INavMenuProps) => {
     const accordion_ref = useRef<HTMLDivElement>()
     const [current_tab, setCurrentTab] = useState('')
+    const { is_menu_open } = useNavContext()
 
     const { other_items, single_items } = useMemo(() => {
         const single_items: TSmartNavItemsContent[] = []
@@ -44,22 +45,22 @@ const MobileMenu = ({ is_open, className, items, has_top_nav }: INavMenuProps) =
         <Flex.Box
             visible="phone-and-tablet"
             className={dclsx(className, styles.mobile_menu, {
-                [styles.visible_nav_menu]: is_open,
+                [styles.visible_nav_menu]: is_menu_open,
                 [styles.mobile_menu_top_nav]: has_top_nav,
             })}
             direction="col"
             gap={'8x'}
+            innerRef={accordion_ref}
         >
             {other_items.length ? (
                 <Accordion.Root
-                    ref={accordion_ref}
                     type="single"
                     value={current_tab}
                     onValueChange={onTabChange}
                     collapsible
                 >
                     {other_items.map((contentItem) => (
-                        <MobileNavItem key={contentItem.id} item={contentItem} />
+                        <MobileNavItem item={contentItem} key={contentItem.id} />
                     ))}
                 </Accordion.Root>
             ) : null}

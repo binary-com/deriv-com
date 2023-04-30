@@ -4,6 +4,7 @@ import DesktopMenu from './desktop-menu'
 import * as styles from './nav.template.module.scss'
 import MobileMenu from './mobile-menu'
 import TopNav from './top-nav'
+import { NavProvider } from './nav-context'
 import Container from 'features/components/atoms/container'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import useVisibleContent from 'components/hooks/use-visible-content'
@@ -72,35 +73,36 @@ const NavTemplate = ({
                 gap="8x"
                 className={styles.nav_container}
             >
-                <Flex.Box
-                    justify="center"
-                    align="center"
-                    grow={has_centered_logo && items.length === 0 ? '1' : undefined}
-                >
-                    {items.length !== 0 ? (
-                        <Flex.Item visible="phone-and-tablet" innerRef={nav_toggle_ref}>
-                            <MobileMenuToggle is_open={is_menu_open} onClick={onMenuToggleClick} />
-                        </Flex.Item>
-                    ) : null}
-                    {renderLogo()}
-                </Flex.Box>
+                <NavProvider is_menu_open={is_menu_open} onCloseMenu={onMenuToggleClick}>
+                    <Flex.Box
+                        justify="center"
+                        align="center"
+                        grow={has_centered_logo && items.length === 0 ? '1' : undefined}
+                    >
+                        {items.length !== 0 ? (
+                            <Flex.Item visible="phone-and-tablet" innerRef={nav_toggle_ref}>
+                                <MobileMenuToggle
+                                    is_open={is_menu_open}
+                                    onClick={onMenuToggleClick}
+                                />
+                            </Flex.Item>
+                        ) : null}
+                        {renderLogo()}
+                    </Flex.Box>
 
-                {items.length !== 0 ? (
-                    <>
-                        <DesktopMenu
-                            items={visible_items}
-                            has_centered_items={has_centered_items}
-                        />
-                        <span ref={nav_wrapper_ref}>
-                            <MobileMenu
-                                is_open={is_menu_open}
+                    {items.length !== 0 ? (
+                        <>
+                            <DesktopMenu
                                 items={visible_items}
-                                has_top_nav={has_top_nav}
+                                has_centered_items={has_centered_items}
                             />
-                        </span>
-                    </>
-                ) : null}
-                {children}
+                            <span ref={nav_wrapper_ref}>
+                                <MobileMenu items={visible_items} has_top_nav={has_top_nav} />
+                            </span>
+                        </>
+                    ) : null}
+                    {children}
+                </NavProvider>
             </Flex.Box>
             {render_bottom_nav?.()}
         </Container.Fixed>

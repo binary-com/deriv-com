@@ -4,6 +4,7 @@ import useRegion from 'components/hooks/use-region'
 import useVisibleContent from 'components/hooks/use-visible-content'
 import usePpc from 'features/hooks/use-ppc'
 import { TNavConfig, TSmartNavContent } from 'features/components/templates/navigation/types'
+import { useNavContext } from 'features/components/templates/navigation/template/nav-context'
 
 interface NavCardItemsProps {
     items: TSmartNavContent[]
@@ -12,6 +13,7 @@ interface NavCardItemsProps {
 const NavCardItems = ({ items }: NavCardItemsProps) => {
     const { is_ppc, is_ppc_redirect } = usePpc()
     const { is_row, is_eu } = useRegion()
+    const { onCloseMenu } = useNavContext()
 
     const filter_config: TNavConfig = useMemo(() => {
         return {
@@ -39,6 +41,7 @@ const NavCardItems = ({ items }: NavCardItemsProps) => {
                         content={nav_card_content}
                         icon_src={icon?.src}
                         icon_alt={icon?.alt}
+                        onClick={onCloseMenu}
                     />
                 )
             })}

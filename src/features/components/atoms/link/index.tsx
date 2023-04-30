@@ -11,7 +11,7 @@ interface LinkProps extends TypographyLinkProps {
 }
 
 const Link = (props: LinkProps) => {
-    const { url, target, rel, ...rest } = props
+    const { url, target, rel, onClick, ...rest } = props
     const [is_active_page, setIs_active_page] = useState(false)
 
     useEffect(() => {
@@ -31,14 +31,21 @@ const Link = (props: LinkProps) => {
     const [is_redirect_modal_visible, setIsRedirectModalVisible] = useState(false)
 
     const handleClick: React.MouseEventHandler<'a'> = (event) => {
-        event.preventDefault()
-        setIsRedirectModalVisible(true)
+        onClick?.(event)
+
+        if (show_modal) {
+            setIsRedirectModalVisible(true)
+        }
     }
     const handleCancel = () => {
         setIsRedirectModalVisible(false)
     }
     const handleProceed = () => {
-        window.location.href = hrefObject.href
+        if (hrefObject.target === '_blank') {
+            window.open(hrefObject.href)
+        } else {
+            window.location.href = hrefObject.href
+        }
     }
 
     const linkTarget = useMemo(() => {
@@ -64,9 +71,8 @@ const Link = (props: LinkProps) => {
     return (
         <>
             <Typography.Link
-                // href={!show_modal ? hrefObject.href : ''}
-                href={hrefObject.href}
-                onClick={show_modal ? handleClick : null}
+                href={!show_modal ? hrefObject.href : undefined}
+                onClick={handleClick}
                 target={linkTarget}
                 rel={linkRel}
                 textcolor={is_active_page ? 'brand' : 'primary'}

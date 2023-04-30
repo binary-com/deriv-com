@@ -5,6 +5,8 @@ function useMediaQuery(query: string): boolean {
     const getMatches = (query: string): boolean => {
         // Prevents SSR issues
         if (typeof window !== 'undefined') {
+            console.log('running match media')
+
             return window.matchMedia(query).matches
         }
         return false

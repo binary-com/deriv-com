@@ -59,6 +59,10 @@ const NavTemplate = ({
         nav_toggle_ref,
     )
 
+    if (is_mobile_or_tablet && typeof window !== undefined) {
+        alert('is mobile')
+    }
+
     return (
         <Container.Fixed
             as="header"

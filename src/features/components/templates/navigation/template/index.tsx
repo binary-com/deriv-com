@@ -36,6 +36,8 @@ const NavTemplate = ({
     const nav_wrapper_ref = useRef()
     const nav_toggle_ref = useRef()
 
+    const has_items = items.length !== 0
+
     const { is_eu } = useRegion()
 
     const [is_menu_open, setIsMenuOpen] = useState(false)
@@ -59,10 +61,6 @@ const NavTemplate = ({
         nav_toggle_ref,
     )
 
-    if (is_mobile_or_tablet && typeof window !== undefined) {
-        alert('is mobile')
-    }
-
     return (
         <Container.Fixed
             as="header"
@@ -83,7 +81,7 @@ const NavTemplate = ({
                         align="center"
                         grow={has_centered_logo && items.length === 0 ? '1' : undefined}
                     >
-                        {items.length !== 0 ? (
+                        {has_items ? (
                             <Flex.Item visible="phone-and-tablet" innerRef={nav_toggle_ref}>
                                 <MobileMenuToggle
                                     is_open={is_menu_open}
@@ -94,15 +92,18 @@ const NavTemplate = ({
                         {renderLogo()}
                     </Flex.Box>
 
-                    {items.length !== 0 ? (
+                    {has_items ? (
                         <>
-                            <DesktopMenu
-                                items={visible_items}
-                                has_centered_items={has_centered_items}
-                            />
-                            <span ref={nav_wrapper_ref}>
-                                <MobileMenu items={visible_items} has_top_nav={has_top_nav} />
-                            </span>
+                            {is_mobile_or_tablet ? (
+                                <span ref={nav_wrapper_ref}>
+                                    <MobileMenu items={visible_items} has_top_nav={has_top_nav} />
+                                </span>
+                            ) : (
+                                <DesktopMenu
+                                    items={visible_items}
+                                    has_centered_items={has_centered_items}
+                                />
+                            )}
                         </>
                     ) : null}
                     {children}

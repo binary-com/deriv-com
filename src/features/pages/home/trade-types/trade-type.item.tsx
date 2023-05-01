@@ -36,7 +36,13 @@ const TradeTypeItem = ({ item }: TradeTypeItemProps) => {
                     <Localize translate_text={item.description} />
                 </Typography.Paragraph>
             </Flex.Item>
-            <Link textcolor="inverted" size="large" url={item.url} className={item_learn_more}>
+            <Link
+                textcolor="inverted"
+                size="large"
+                url={item.url}
+                className={item_learn_more}
+                font_family="UBUNTU"
+            >
                 <Localize translate_text="_t_Learn more >_t_" />
             </Link>
         </Flex.Box>

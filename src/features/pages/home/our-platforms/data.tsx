@@ -50,11 +50,13 @@ const platformSliderItems: SmartPlatformItem[] = [
                         key={0}
                         url={{ type: 'non-company', href: deriv_go_playstore_url }}
                         weight="bold"
+                        font_family="UBUNTU"
                     />,
                     <Link
                         key={1}
                         url={{ type: 'non-company', href: deriv_go_ios_url }}
                         weight="bold"
+                        font_family="UBUNTU"
                     />,
                 ],
             },
@@ -80,28 +82,38 @@ const platformSliderItems: SmartPlatformItem[] = [
                         key={0}
                         url={{ type: 'non-company', href: dmt5_android_url }}
                         weight="bold"
+                        font_family="UBUNTU"
                     />,
                     <Link
                         key={1}
                         url={{ type: 'non-company', href: dmt5_ios_url }}
                         weight="bold"
+                        font_family="UBUNTU"
                     />,
                     <Link
                         key={2}
                         url={{ type: 'non-company', href: dmt5_mac_app_url }}
                         weight="bold"
+                        font_family="UBUNTU"
                     />,
                     <Link
                         key={3}
                         url={{ type: 'non-company', href: dmt5_windows_download_url }}
                         weight="bold"
+                        font_family="UBUNTU"
                     />,
                     <Link
                         key={4}
                         url={{ type: 'non-company', href: dmt5_linux_url }}
                         weight="bold"
+                        font_family="UBUNTU"
                     />,
-                    <Link key={5} url={{ type: 'company', url_name: 'mt5' }} weight="bold" />,
+                    <Link
+                        key={5}
+                        url={{ type: 'company', url_name: 'mt5' }}
+                        weight="bold"
+                        font_family="UBUNTU"
+                    />,
                 ],
             },
             image: ({ is_eu }) =>
@@ -137,7 +149,12 @@ const platformSliderItems: SmartPlatformItem[] = [
             image_caption: {
                 text: '_t_Available on <0>web browser</0>_t_',
                 components: [
-                    <Link key={0} url={{ type: 'company', url_name: 'deriv_app' }} weight="bold" />,
+                    <Link
+                        key={0}
+                        url={{ type: 'company', url_name: 'deriv_app' }}
+                        weight="bold"
+                        font_family="UBUNTU"
+                    />,
                 ],
             },
             image: ({ is_eu }) =>
@@ -177,13 +194,20 @@ const platformSliderItems: SmartPlatformItem[] = [
                         key={0}
                         url={{ type: 'non-company', href: derivx_android_url }}
                         weight="bold"
+                        font_family="UBUNTU"
                     />,
                     <Link
                         key={1}
                         url={{ type: 'non-company', href: derivx_ios_url }}
                         weight="bold"
+                        font_family="UBUNTU"
                     />,
-                    <Link key={2} url={{ type: 'company', url_name: 'derivx' }} weight="bold" />,
+                    <Link
+                        key={2}
+                        url={{ type: 'company', url_name: 'derivx' }}
+                        weight="bold"
+                        font_family="UBUNTU"
+                    />,
                 ],
             },
             image: (
@@ -217,11 +241,13 @@ const platformSliderItems: SmartPlatformItem[] = [
                         key={0}
                         url={{ type: 'non-company', href: derivx_android_url }}
                         weight="bold"
+                        font_family="UBUNTU"
                     />,
                     <Link
                         key={1}
                         url={{ type: 'non-company', href: derivx_ios_url }}
                         weight="bold"
+                        font_family="UBUNTU"
                     />,
                 ],
             },
@@ -252,7 +278,12 @@ const platformSliderItems: SmartPlatformItem[] = [
             image_caption: {
                 text: '_t_Available on <0>web browser</0>_t_',
                 components: [
-                    <Link key={0} url={{ type: 'company', url_name: 'dbot' }} weight="bold" />,
+                    <Link
+                        key={0}
+                        url={{ type: 'company', url_name: 'dbot' }}
+                        weight="bold"
+                        font_family="UBUNTU"
+                    />,
                 ],
             },
             image: (
@@ -286,6 +317,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                         key={0}
                         url={{ type: 'company', url_name: 'smart_trader', path: 'trading' }}
                         weight="bold"
+                        font_family="UBUNTU"
                     />,
                 ],
             },
@@ -320,6 +352,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                         key={0}
                         url={{ type: 'company', url_name: 'binary_bot' }}
                         weight="bold"
+                        font_family="UBUNTU"
                     />,
                 ],
             },
@@ -350,7 +383,12 @@ const platformSliderItems: SmartPlatformItem[] = [
             image_caption: {
                 text: '_t_Available on <0>web browser</0>_t_',
                 components: [
-                    <Link key={0} url={{ type: 'company', url_name: 'api' }} weight="bold" />,
+                    <Link
+                        key={0}
+                        url={{ type: 'company', url_name: 'api' }}
+                        weight="bold"
+                        font_family="UBUNTU"
+                    />,
                 ],
             },
             image: (

@@ -5,11 +5,19 @@
     user-select: none;
     padding-inline-start: 2rem;
     padding-block: 2rem;
+    outline: none;
+
+    &:focus,
+    &:visited,
+    &:active {
+        outline: none;
+    }
+    cursor: default;
 
     @include breakpoints(tablet) {
         padding-inline-start: 0rem;
+        cursor: pointer;
     }
-    cursor: pointer;
     & p {
         text-transform: uppercase;
     }

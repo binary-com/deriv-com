@@ -5,6 +5,12 @@ import Button from 'features/components/atoms/button'
 import Flex from 'features/components/atoms/flex-box'
 
 const BottomText = () => {
+    const onClick = () => {
+        if (typeof window !== undefined) {
+            window.location.href = '/trading-specification'
+        }
+    }
+
     return (
         <Flex.Box
             direction="col"
@@ -17,7 +23,7 @@ const BottomText = () => {
             <Typography.Paragraph size="medium" mb="10x" textcolor="black" align="center">
                 <Localize translate_text="_t_Want to know more about CFD trading conditions for the instruments we offer?_t_" />
             </Typography.Paragraph>
-            <Button.Primary textsize="medium" aria-label="check trading specs">
+            <Button.Primary textsize="medium" aria-label="check trading specs" onClick={onClick}>
                 <Localize translate_text="_t_Check trading specs_t_" />
             </Button.Primary>
         </Flex.Box>

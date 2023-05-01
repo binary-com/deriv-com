@@ -60,7 +60,7 @@ const InputWrapper = styled.div<InputWrapperProps>`
     /* prettier-ignore */
     width: 100%;
     border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
-    border-radius: 4px;
+    border-radius: 16px;
     @media ${device.tabletL} {
         height: 5rem;
     }
@@ -116,8 +116,6 @@ const StyledError = styled.img`
 `
 
 const StyledInput = styled.input<StyledInputProps>`
-    background: ${({ input_background }) =>
-        input_background ? `var(--color-${input_background})` : 'none'};
     color: ${({ inputColor }) =>
         inputColor ? `var(--color-${inputColor})` : 'var(--color-black)'};
     font-size: var(--text-size-s);
@@ -126,7 +124,7 @@ const StyledInput = styled.input<StyledInputProps>`
     width: 100%;
     display: block;
     border: none;
-    border-radius: 4px;
+    border-radius: 16px;
     @media ${device.tabletL} {
         height: 100%;
 

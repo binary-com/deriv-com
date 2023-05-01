@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
-import type { Swiper as SwiperType } from 'swiper'
+import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination } from 'swiper'
 import { market_items } from '../data'
 import MarketSliderItem from '../market-item'
 import useRegion from 'components/hooks/use-region'
 import useVisibleContent from 'components/hooks/use-visible-content'
-import Container from 'features/components/atoms/container'
 import './market-slide.scss'
 
 const MarketSlider = () => {
@@ -20,7 +18,7 @@ const MarketSlider = () => {
     })
 
     return (
-        <Container.Fluid padding_inline="10x">
+        <div className="markets_swiper_container">
             <Swiper
                 modules={[Pagination]}
                 pagination={{
@@ -41,7 +39,7 @@ const MarketSlider = () => {
                     )
                 })}
             </Swiper>
-        </Container.Fluid>
+        </div>
     )
 }
 

@@ -2,11 +2,10 @@ import React from 'react'
 import { button_link, info_items, not_available_image } from './data'
 import * as styles from './not-found.module.scss'
 import Typography from 'features/components/atoms/typography'
-import Button from 'features/components/atoms/button'
-import Link from 'features/components/atoms/link'
 import FlexBox from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
 import { Localize } from 'components/localization'
+import LinkButton from 'features/components/atoms/link-button'
 
 const NotFoundContainer = () => {
     return (
@@ -42,11 +41,9 @@ const NotFoundContainer = () => {
                 >
                     <Localize translate_text={info_items.sub_header} />
                 </Typography.Paragraph>
-                <Button.Primary type={'button'}>
-                    <Link url={button_link.url} textcolor={'white'} no_hover>
-                        <Localize translate_text={button_link.text} />
-                    </Link>
-                </Button.Primary>
+                <LinkButton.Primary url={button_link.url}>
+                    <Localize translate_text={button_link.text} />
+                </LinkButton.Primary>
             </FlexBox.Box>
         </FlexBox.Box>
     )

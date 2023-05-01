@@ -42,6 +42,9 @@ export const resourcesNavSectionContent: SmartNavContent[] = [
             title: '_t_Status page_t_',
             url: { type: 'non-company', href: 'https://deriv.statuspage.io', show_eu_modal: true },
         },
+        visibility: {
+            is_mobile: true,
+        },
     },
     {
         id: 6,

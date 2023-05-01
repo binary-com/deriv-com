@@ -20,7 +20,7 @@ const MobileMenu = ({ className, has_top_nav }: INavMenuProps) => {
         if (accordion_ref.current) {
             accordion_ref.current.scroll({
                 top: 0,
-                behavior: 'smooth',
+                behavior: 'auto', // please don't use `smooth` here, it causes issue on safari, check this out: https://github.com/reactjs/react.dev/issues/4846#issuecomment-1216827589
             })
         }
     }

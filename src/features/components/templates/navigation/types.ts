@@ -11,6 +11,7 @@ export type NavConfig = {
     is_eu: boolean
     is_ppc: boolean
     is_ppc_redirect: boolean
+    is_mobile: boolean
 }
 
 export type NavColumn = {

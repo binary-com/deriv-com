@@ -25,6 +25,7 @@ const PublicSignupBanner = () => {
                 }}
                 formats={['avif', 'webp', 'auto']}
                 placeholder="none"
+                className={'public_signup_image'}
             />
             <Link
                 url={{ type: 'company', url_name: 'deriv_app' }}

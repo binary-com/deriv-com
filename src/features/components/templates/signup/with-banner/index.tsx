@@ -12,19 +12,21 @@ const SignupPublic = () => {
             bgcolor="primary"
             md={{ padding_block: '30x', margin_block: '30x' }}
         >
-            <Flex.Box
-                direction={'col-reverse'}
-                container="fluid"
-                className={public_signup_container}
-                bgcolor="brand"
-                align="stretch"
-                md={{
-                    direction: 'row',
-                }}
-            >
-                <SignupPublicForm />
-                <PublicSignupBanner />
-            </Flex.Box>
+            <Container.Fluid>
+                <Flex.Box
+                    direction={'col-reverse'}
+                    container="fluid"
+                    className={public_signup_container}
+                    bgcolor="brand"
+                    align="stretch"
+                    md={{
+                        direction: 'row',
+                    }}
+                >
+                    <SignupPublicForm />
+                    <PublicSignupBanner />
+                </Flex.Box>
+            </Container.Fluid>
         </Container.Fixed>
     )
 }

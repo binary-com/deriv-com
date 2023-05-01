@@ -1,5 +1,20 @@
 @import 'features/styles/theme/variables';
 
+.link-button {
+    display: flex;
+    border-radius: 1.6rem;
+    border-color: transparent;
+    padding: 10px 24px;
+    transition: all 0.25s;
+    line-height: 1;
+    min-block-size: 4rem;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+}
+
 .button {
     border-radius: 1.6rem;
     border-color: transparent;
@@ -26,7 +41,8 @@
 [dir='rtl'] .button {
     font-family: 'Noto Sans', sans-serif;
 }
-.button.hero {
+.button.hero,
+.link-button.hero {
     min-block-size: 6.4rem;
     border-radius: 2.4rem;
     background-color: black;
@@ -49,7 +65,8 @@
     animation: sweep 1s linear alternate infinite, rotates 0.8s linear infinite;
 }
 
-.button.primary {
+.button.primary,
+.link-button.primary {
     color: $color-white;
     background-color: $color-brand;
 
@@ -58,7 +75,8 @@
     }
 }
 
-.button.primary.outlined {
+.button.primary.outlined,
+.link-button.primary.outlined {
     border: 2px solid $color-red;
     background-color: $color-white;
     color: $color-brand;
@@ -67,15 +85,18 @@
     }
 }
 
-.button.secondary {
+.button.secondary,
+.link-button.secondary {
     color: $color-black-9;
-    background: $color-white;
+    background-color: $color-white;
 
     &:hover {
         background-color: $color-grey-40;
         color: $color-black-9;
     }
 }
-.button.secondary.outlined {
+
+.button.secondary.outlined,
+.link-button.secondary.outlined {
     border: 1px solid $color-grey-7;
 }

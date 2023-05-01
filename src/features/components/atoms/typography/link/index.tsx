@@ -12,7 +12,7 @@ export interface TypographyLinkProps
     no_hover?: boolean
 }
 
-const TypographyLink = ({ className, size, no_hover = false, ...rest }: TypographyLinkProps) => {
+const TypographyLink = ({ className, size, no_hover, ...rest }: TypographyLinkProps) => {
     const classnames = dclsx(className, generateTextSize(size))
     return (
         <BaseTypography

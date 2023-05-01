@@ -9,12 +9,12 @@
     }
 
     @include breakpoints(laptop) {
-        inline-size: 85%;
+        inline-size: 84%;
     }
 
     @include breakpoints(desktop) {
         inline-size: 80%;
-        max-inline-size: 160rem;
+        max-inline-size: 120rem;
     }
 }
 

@@ -17,7 +17,7 @@ const FooterLink = ({ item: { data } }: FooterLinkProps) => {
     const visible_url = typeof url === 'function' ? url({ is_ppc, is_ppc_redirect, is_row }) : url
 
     return (
-        <Link url={visible_url} size="small" pb="10x">
+        <Link url={visible_url} size="small" pb="6x">
             <Localize translate_text={data.text} />
         </Link>
     )

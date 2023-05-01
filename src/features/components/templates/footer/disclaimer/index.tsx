@@ -33,7 +33,7 @@ const Disclaimer = () => {
     return (
         <Container.Fixed margin_block="10x">
             {visible_disclaimer_content.map((item) => (
-                <Typography.Paragraph key={item.id} size={'medium'} mb="10x">
+                <Typography.Paragraph key={item.id} size={'small'} mb="10x">
                     <Localize translate_text={item.data.text} components={item.data.components} />
                 </Typography.Paragraph>
             ))}
@@ -42,7 +42,11 @@ const Disclaimer = () => {
                     const not_last_item =
                         index !== visible_risk_content.length - 1 ? 'small' : undefined
                     return (
-                        <Typography.Paragraph key={item.id} mb={not_last_item ? '10x' : undefined}>
+                        <Typography.Paragraph
+                            key={item.id}
+                            size={'small'}
+                            mb={not_last_item ? '10x' : undefined}
+                        >
                             <Localize
                                 translate_text={item.data.text}
                                 components={item.data.components}

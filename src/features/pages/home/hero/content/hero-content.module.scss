@@ -15,3 +15,9 @@
         min-block-size: 6.4rem;
     }
 }
+
+html:not([lang='en']) .hero_content_title {
+    @include breakpoints(tablet) {
+        max-inline-size: 75%;
+    }
+}

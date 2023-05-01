@@ -1,59 +1,65 @@
 import { LinkUrlType } from 'features/types'
 import { TSmartContent, TString } from 'types/generics'
 
-export type TActiveNav = 'trade' | 'markets' | 'about' | 'resources' | 'none'
+export type NavItemsContentConfig = {
+    is_mobile: boolean
+    is_eu: boolean
+    is_row: boolean
+}
+export type NavConfig = {
+    is_row: boolean
+    is_eu: boolean
+    is_ppc: boolean
+    is_ppc_redirect: boolean
+    is_mobile: boolean
+}
 
-export type TNavColumn = {
+export type NavColumn = {
     icon?: {
         src: string
         alt: string
     }
-    content?: TString | ((config: Partial<TNavConfig>) => TString)
+    content?: TString | ((config: Partial<NavConfig>) => TString)
     title: TString
-    url: LinkUrlType | ((config: Partial<TNavConfig>) => LinkUrlType)
+    url: LinkUrlType | ((config: Partial<NavConfig>) => LinkUrlType)
     aria_label?: string
 }
 
-export type TNavMultiColumn = {
+export type NavMultiColumn = {
     title?: TString
-    section: TSmartNavContent[]
+    section: SmartNavContent[]
 }
 
-export type TSmartNavContent = TSmartContent<TNavColumn, TNavConfig>
-export type TSmartNavSectionColumns = TSmartContent<TNavMultiColumn, TNavConfig>
+export type SmartNavContent = TSmartContent<NavColumn, NavConfig>
+export type SmartNavSectionColumns = TSmartContent<NavMultiColumn, NavConfig>
 
 interface TBaseNavItem {
     title?: TString
 }
 
-export interface TNavSingleItem extends TBaseNavItem {
+export interface NavLinkItem extends TBaseNavItem {
     type: 'single-item'
     content: LinkUrlType
 }
 
-export interface TNavSingleColumnItems extends TBaseNavItem {
+export interface NavSingleColumnItems extends TBaseNavItem {
     type: 'single-column'
-    content: TSmartNavContent[]
+    content: SmartNavContent[]
 }
 
-export interface TNavMultiColumnItems extends TBaseNavItem {
+export interface NavMultiColumnItems extends TBaseNavItem {
     type: 'multi-column'
-    content: TSmartNavSectionColumns[]
+    content: SmartNavSectionColumns[]
 }
 
-export type TNavItemsContent = TNavSingleItem | TNavSingleColumnItems | TNavMultiColumnItems
+export type NavItemsContent = NavLinkItem | NavSingleColumnItems | NavMultiColumnItems
 
-export type TSmartNavItemsContent = TSmartContent<TNavItemsContent, TNavItemsContentConfig>
+export type SmartSingleItem = TSmartContent<NavLinkItem, NavItemsContentConfig>
+export type SmartSingleColumnItems = TSmartContent<NavSingleColumnItems, NavItemsContentConfig>
+export type SmartMultiColumnItems = TSmartContent<NavMultiColumnItems, NavItemsContentConfig>
 
-export type TNavItems = TSmartNavItemsContent[]
+export type SmartNavDropItems = SmartSingleColumnItems | SmartMultiColumnItems
 
-export type TNavItemsContentConfig = {
-    is_mobile: boolean
-    is_eu: boolean
-}
-export type TNavConfig = {
-    is_row: boolean
-    is_eu: boolean
-    is_ppc: boolean
-    is_ppc_redirect: boolean
-}
+export type NavItem = SmartSingleItem | SmartNavDropItems
+
+export type NavItems = NavItem[]

@@ -1,4 +1,4 @@
-import { TNavItems } from '../../types'
+import { NavItems } from '../../types'
 import { aboutUsNavSectionContent, aboutUsNavSectionContentMobile } from './about'
 import { legalNavSectionContent } from './legal'
 import { marketSectionContent } from './market'
@@ -6,7 +6,7 @@ import { partnerNavSectionContent } from './partner'
 import { trade_nav_section_items } from './platform'
 import { resourcesNavSectionContent } from './resources/data'
 
-export const mainItems: TNavItems = [
+export const mainItems: NavItems = [
     {
         id: 0,
         data: {

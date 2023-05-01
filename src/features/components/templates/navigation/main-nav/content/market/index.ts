@@ -1,11 +1,11 @@
-import { TSmartNavContent } from '../../../types'
+import { SmartNavContent } from '../../../types'
 import Commodities from 'images/svg/custom/rebranding/commodities-icon.svg'
 import Cryptocurrencies from 'images/svg/custom/rebranding/cryptocurrencies-icon.svg'
 import DerivedFX from 'images/svg/custom/rebranding/derived-fx-icon.svg'
 import Forex from 'images/svg/custom/rebranding/forex-icon.svg'
 import StockIndices from 'images/svg/custom/rebranding/stock-indices-icon.svg'
 
-export const marketSectionContent: TSmartNavContent[] = [
+export const marketSectionContent: SmartNavContent[] = [
     {
         id: 0,
         data: {

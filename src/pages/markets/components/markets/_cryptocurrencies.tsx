@@ -38,22 +38,22 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
         {
             src: Leverage,
             text: is_eu ? localize('1:2 leverage') : localize('1:100 leverage'),
-            alt: 'Leverage',
+            alt: '1 to 100 leverage',
         },
         {
             src: TightSpread,
             text: localize('Tight spreads'),
-            alt: 'Spreads',
+            alt: 'tight spreads',
         },
         {
             src: CryptoPairs,
             text: localize('25+ crypto pairs'),
-            alt: 'Crypto currency pairs',
+            alt: 'more than 25 crypto pairs',
         },
         {
             src: ZeroCommission,
             text: localize('Zero commission'),
-            alt: 'Commission',
+            alt: 'zero commission',
         },
     ]
 
@@ -64,7 +64,7 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                     <StyledBox
                         key={index}
                         text={content.text}
-                        icon={<img src={content.src} alt="" />}
+                        icon={<img src={content.src} alt={content.alt} />}
                     ></StyledBox>
                 ))}
             </WhyTrade>

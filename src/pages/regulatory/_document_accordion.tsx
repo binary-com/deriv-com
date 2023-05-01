@@ -74,21 +74,21 @@ const RTS27_28 = () => (
                 color="red"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="/regulatory/RTS28-2021.pdf"
+                href="/regulatory/RTS28-2022.pdf"
                 m="1.6rem 2.4rem"
             >
                 <img src={PDFIcon} alt="pdf icon black" />
-                <span>{localize('RTS28 2021')}</span>
+                <span>{localize('RTS28 2022')}</span>
             </FlexText>
             <FlexText
                 color="red"
                 target="_blank"
                 rel="noopener noreferrer"
-                href="/regulatory/RTS28-2020.pdf"
+                href="/regulatory/RTS28-2021.pdf"
                 m="1.6rem 2.4rem"
             >
                 <img src={PDFIcon} alt="pdf icon black" />
-                <span>{localize('RTS28 2020')}</span>
+                <span>{localize('RTS28 2021')}</span>
             </FlexText>
         </EdgeFlex>
     </>

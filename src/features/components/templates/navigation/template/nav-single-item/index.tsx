@@ -1,9 +1,16 @@
 import React from 'react'
-import { TNavSingleItem } from '../../types'
+import { useNavContext } from '../nav-context'
+import type { NavLinkItem } from '../../types'
 import { Localize } from 'components/localization'
 import Link from 'features/components/atoms/link'
 
-const NavSingleItem = ({ item, is_mobile }: { is_mobile?: boolean; item: TNavSingleItem }) => {
+interface NavSingleItemProps {
+    is_mobile?: boolean
+    item: NavLinkItem
+}
+
+const NavSingleItem = ({ item, is_mobile }: NavSingleItemProps) => {
+    const { onCloseMenu } = useNavContext()
     return (
         <Link
             size={is_mobile ? 'large' : 'medium'}
@@ -12,6 +19,7 @@ const NavSingleItem = ({ item, is_mobile }: { is_mobile?: boolean; item: TNavSin
             url={item.content}
             weight={is_mobile ? 'bold' : 'normal'}
             font_family="UBUNTU"
+            onClick={onCloseMenu}
         >
             <Localize translate_text={item.title} />
         </Link>

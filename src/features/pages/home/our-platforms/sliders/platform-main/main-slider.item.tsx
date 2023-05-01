@@ -28,7 +28,7 @@ const MainSliderItem = ({ item }: MainSliderItemProps) => {
             {swiperSlide.isActive && (
                 <Flex.Box
                     direction="col"
-                    justify="start"
+                    justify="between"
                     align="start"
                     gap={'5x'}
                     className={description_grid_item}

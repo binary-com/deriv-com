@@ -10,7 +10,7 @@ import { Header } from 'components/elements'
 const Wrapper = styled(Flex)`
     padding: 5rem 0;
     width: 100%;
-    height: 90vh;
+    min-height: 90vh;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -18,7 +18,7 @@ const Wrapper = styled(Flex)`
 
     @media ${device.tabletL} {
         padding: 0;
-        height: 110vh;
+        min-height: 110vh;
     }
 `
 const Content = styled.div`

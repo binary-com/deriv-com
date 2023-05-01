@@ -46,7 +46,7 @@ const SignupContent = styled.div`
 `
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 `
 const SignupWithContainer = styled.div`
@@ -66,10 +66,6 @@ const Line = styled.div`
 `
 const SubTitle = styled(Header)`
     margin-top: 8px;
-
-    @media ${device.mobileL} {
-        font-size: 18px;
-    }
 `
 const InputGroup = styled.div`
     position: relative;

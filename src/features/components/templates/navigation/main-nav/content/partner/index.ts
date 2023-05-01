@@ -1,6 +1,6 @@
-import { TSmartNavContent } from '../../../types'
+import { SmartNavContent } from '../../../types'
 
-export const partnerNavSectionContent: TSmartNavContent[] = [
+export const partnerNavSectionContent: SmartNavContent[] = [
     {
         id: 0,
         data: {

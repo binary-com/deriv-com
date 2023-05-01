@@ -11,7 +11,8 @@ interface LinkProps extends TypographyLinkProps {
 }
 
 const Link = (props: LinkProps) => {
-    const { url, target, rel, ...rest } = props
+    const { url, target, rel, onClick, href: baseHref, ...rest } = props
+
     const [is_active_page, setIs_active_page] = useState(false)
 
     useEffect(() => {
@@ -19,54 +20,53 @@ const Link = (props: LinkProps) => {
         setIs_active_page(url.type === 'internal' && pathname === url.to)
     }, [url])
 
-    const { getLinkUrl } = useLinkUrl()
+    const hrefObject = useLinkUrl(url)
     const { is_eu } = useRegion()
 
-    const hrefObject = useMemo(() => {
-        return getLinkUrl(url)
-    }, [getLinkUrl, url])
-
-    const show_modal = is_eu && hrefObject.type === 'non-company' && hrefObject.show_eu_modal
+    const show_modal = is_eu && hrefObject?.type === 'non-company' && hrefObject?.show_eu_modal
 
     const [is_redirect_modal_visible, setIsRedirectModalVisible] = useState(false)
 
     const handleClick: React.MouseEventHandler<'a'> = (event) => {
-        event.preventDefault()
-        setIsRedirectModalVisible(true)
+        onClick?.(event)
+
+        if (show_modal) {
+            setIsRedirectModalVisible(true)
+        }
     }
     const handleCancel = () => {
         setIsRedirectModalVisible(false)
     }
     const handleProceed = () => {
-        window.location.href = hrefObject.href
+        if (hrefObject?.target === '_blank') {
+            window.open(hrefObject?.href)
+        } else {
+            window.location.href = hrefObject?.href
+        }
     }
 
     const linkTarget = useMemo(() => {
-        const { type } = hrefObject
-
-        if (type !== 'internal') {
-            return hrefObject.target ?? target
+        if (hrefObject?.type !== 'internal') {
+            return hrefObject?.target ?? target
         }
 
         return target
     }, [hrefObject, target])
 
     const linkRel = useMemo(() => {
-        const { type } = hrefObject
-
-        if (type !== 'internal') {
-            return hrefObject.rel ?? rel
+        if (url?.type !== 'internal') {
+            return url?.rel ?? rel
         }
 
         return rel
-    }, [hrefObject, rel])
+    }, [url, rel])
 
     return (
         <>
             <Typography.Link
-                // href={!show_modal ? hrefObject.href : ''}
-                href={hrefObject.href}
-                onClick={show_modal ? handleClick : null}
+                href={!show_modal ? hrefObject?.href : undefined}
+                // href={hrefObject?.href}
+                onClick={handleClick}
                 target={linkTarget}
                 rel={linkRel}
                 textcolor={is_active_page ? 'brand' : 'primary'}

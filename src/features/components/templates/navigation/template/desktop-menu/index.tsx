@@ -1,18 +1,19 @@
 import React, { useState } from 'react'
 import * as NavigationMenu from '@radix-ui/react-navigation-menu'
-import { TSmartNavItemsContent } from '../../types'
+import { useNavContext } from '../nav-context'
+import NavSingleItem from '../nav-single-item'
 import NavDesktopItem from './desktop.items'
 import { get_lang_direction } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
 import './styles.scss'
 
 interface IDesktopNavbarProps {
-    items: TSmartNavItemsContent[]
     has_centered_items?: boolean
 }
 
-const DesktopMenu = ({ items, has_centered_items }: IDesktopNavbarProps) => {
+const DesktopMenu = ({ has_centered_items }: IDesktopNavbarProps) => {
     const [active, setActive] = useState('')
+    const { link_items, drop_items } = useNavContext()
 
     return (
         <NavigationMenu.Root
@@ -26,8 +27,15 @@ const DesktopMenu = ({ items, has_centered_items }: IDesktopNavbarProps) => {
             )}
         >
             <NavigationMenu.List className="navigation_list">
-                {items.map((item) => (
+                {drop_items.map((item) => (
                     <NavDesktopItem key={item.id} item={item} />
+                ))}
+                {link_items.map((item) => (
+                    <NavigationMenu.Item key={item.id} value={item.data.title} asChild>
+                        <NavigationMenu.Link asChild>
+                            <NavSingleItem item={item.data} />
+                        </NavigationMenu.Link>
+                    </NavigationMenu.Item>
                 ))}
             </NavigationMenu.List>
             <div

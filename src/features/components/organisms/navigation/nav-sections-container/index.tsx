@@ -3,14 +3,14 @@ import NavSectionColumn from './section-column'
 import useRegion from 'components/hooks/use-region'
 import useVisibleContent from 'components/hooks/use-visible-content'
 import usePpc from 'features/hooks/use-ppc'
-import { TNavConfig, TSmartNavSectionColumns } from 'features/components/templates/navigation/types'
+import { NavConfig, SmartNavSectionColumns } from 'features/components/templates/navigation/types'
 import Flex from 'features/components/atoms/flex-box'
 
-const NavSectionContainer = ({ items }: { items: TSmartNavSectionColumns[] }) => {
+const NavSectionContainer = ({ items }: { items: SmartNavSectionColumns[] }) => {
     const { is_ppc, is_ppc_redirect } = usePpc()
     const { is_row, is_eu } = useRegion()
 
-    const filter_config: TNavConfig = useMemo(() => {
+    const filter_config: NavConfig = useMemo(() => {
         return {
             is_eu,
             is_ppc,

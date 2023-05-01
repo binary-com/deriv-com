@@ -21,7 +21,7 @@ const FooterSocialIcons = () => {
             {icons.map(({ data, id }) => {
                 return (
                     <Link key={id} url={data.url}>
-                        <Image src={data.icon} alt={data.image_alt} width={32} height={32} />
+                        <Image src={data.icon} alt={data.image_alt} width={24} height={24} />
                     </Link>
                 )
             })}

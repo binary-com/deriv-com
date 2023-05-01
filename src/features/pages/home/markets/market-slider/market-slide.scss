@@ -1,3 +1,4 @@
+@use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
 
 .market_slide {
@@ -6,7 +7,25 @@
     box-shadow: 0px 12px 16px -4px rgba(14, 14, 14, 0.08), 0px 4px 6px -2px rgba(14, 14, 14, 0.03);
     max-inline-size: 28rem;
     overflow: hidden;
-    margin-inline-end: 1.6rem;
+    margin-inline-end: 2rem;
+}
+
+.markets_swiper_container {
+    margin-inline: auto;
+    inline-size: 95%;
+
+    @include breakpoints(tablet) {
+        inline-size: 90%;
+    }
+
+    @include breakpoints(laptop) {
+        inline-size: 85%;
+    }
+
+    @include breakpoints(desktop) {
+        inline-size: 80%;
+        max-inline-size: 160rem;
+    }
 }
 
 .markets_swiper {

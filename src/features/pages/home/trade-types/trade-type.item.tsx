@@ -23,7 +23,7 @@ const TradeTypeItem = ({ item }: TradeTypeItemProps) => {
             }}
         >
             <Icon src={item.icon_src} size="xlarge" />
-            <Typography.Heading as="h3" size="small" textcolor="inverted" mt={'5x'}>
+            <Typography.Heading as="h3" size="xs" textcolor="inverted" mt={'5x'}>
                 <Localize translate_text={item.title} />
             </Typography.Heading>
             <Flex.Item className={item_description} padding_inline={'5x'}>

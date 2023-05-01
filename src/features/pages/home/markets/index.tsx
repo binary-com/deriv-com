@@ -15,7 +15,7 @@ const HomeMarkets = () => {
                 padding_block: '40x',
             }}
         >
-            <Typography.Heading as="h1" size="xlarge" align="center" mb="10x">
+            <Typography.Heading as="h1" size="large" align="center" mb="10x">
                 <Localize translate_text="_t_Markets_t_" />
             </Typography.Heading>
             <MarketSlider />

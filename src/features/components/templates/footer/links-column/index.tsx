@@ -23,9 +23,9 @@ const FooterLinksColumn = ({ item: { data } }: FooterLinksColumnProps) => {
 
     return (
         <Flex.Box direction="col">
-            <Typography.Heading as={'h5'} size={'xxs'} weight="bold" pb="10x">
+            <Typography.Paragraph size={'medium'} weight="bold" pb="10x">
                 <Localize translate_text={data.title} />
-            </Typography.Heading>
+            </Typography.Paragraph>
             {links.map((linkItem) => (
                 <FooterLink key={linkItem.id} item={linkItem} />
             ))}

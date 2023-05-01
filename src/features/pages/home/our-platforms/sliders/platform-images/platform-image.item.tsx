@@ -24,7 +24,11 @@ const PlatformImageItem = ({ item }: PlatformImageItemProps) => {
         >
             {image}
             {item.image_caption && (
-                <Typography.Paragraph className={platform_image_caption} align="center">
+                <Typography.Paragraph
+                    className={platform_image_caption}
+                    align="center"
+                    font_family="UBUNTU"
+                >
                     <Localize
                         translate_text={item.image_caption.text}
                         components={item.image_caption.components}

@@ -66,6 +66,10 @@ const Line = styled.div`
 `
 const SubTitle = styled(Header)`
     margin-top: 8px;
+
+    @media ${device.mobileL} {
+        font-size: 18px;
+    }
 `
 const InputGroup = styled.div`
     position: relative;

@@ -64,8 +64,8 @@ const Link = (props: LinkProps) => {
     return (
         <>
             <Typography.Link
-                // href={!show_modal ? href : undefined}
-                href={hrefObject?.href}
+                href={!show_modal ? hrefObject?.href : undefined}
+                // href={hrefObject?.href}
                 onClick={handleClick}
                 target={linkTarget}
                 rel={linkRel}

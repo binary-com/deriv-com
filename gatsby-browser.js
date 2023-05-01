@@ -5,7 +5,13 @@ import { isProduction, isLive } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
-import { getClientInformation, getDomain, getLanguage, addScript, updateURLAsPerUserLanguage } from 'common/utility'
+import {
+    getClientInformation,
+    getDomain,
+    getLanguage,
+    addScript,
+    updateURLAsPerUserLanguage,
+} from 'common/utility'
 import { pushwoosh_app_code } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
@@ -18,6 +24,10 @@ const checkDomain = () => {
             'var%20curhost%20%3D%20window.location.hostname%3B%20var%20t8hvj%20%3D%20%2F%5Cb%28deriv%7Cbinary%7Cbinaryqa%5B0-9%5D%7B2%7D%29%5C.%28com%7Cbot%7Cme%7Cbe%7Capp%7Csx%29%24%7C%5Cb%28localhost%29%2Fgm%3B%20if%20%28t8hvj.test%28curhost%29%20%3D%3D%20false%29%7Balert%28%22Not%20our%20domain%22%29%7D',
         ),
     )
+}
+
+export const shouldUpdateScroll = () => {
+    return false
 }
 
 const sendTags = (api) => {
@@ -71,7 +81,7 @@ const pushwooshInit = (push_woosh) => {
                     }
                 })
                 // eslint-disable-next-line no-empty
-            } catch { }
+            } catch {}
 
             sendTags(api)
         },
@@ -84,7 +94,6 @@ export const wrapRootElement = ({ element }) => {
 
 export const onInitialClientRender = () => {
     if (is_browser) {
-
         // Check for PerformanceLongTaskTiming compatibility before collecting measurement
         const tti_script = document.createElement('script')
         tti_script.type = 'text/javascript'
@@ -123,33 +132,34 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
-
-     //datadog
-     const dd_options = {
-        clientToken: "pub08554ab30284600af157441bfb0fa923",
-        applicationId: "5c8975a3-ec86-4a64-8a3a-e6888fdde082",
-        site: "datadoghq.com",
-        service: "deriv.com",
-        env: "production",
-        version: "1.0.4",
+    //datadog
+    const dd_options = {
+        clientToken: 'pub08554ab30284600af157441bfb0fa923',
+        applicationId: '5c8975a3-ec86-4a64-8a3a-e6888fdde082',
+        site: 'datadoghq.com',
+        service: 'deriv.com',
+        env: 'production',
+        version: '1.0.4',
         sessionSampleRate: 10,
         sessionReplaySampleRate: 1,
         trackResources: true,
         trackLongTasks: true,
         trackUserInteractions: true,
         trackFrustrations: true,
-        enableExperimentalFeatures: ["clickmap"],
-        defaultPrivacyLevel: "mask-user-input"
-    };
-    const dd_script=document.createElement("script");
-    dd_script.type="text/javascript";
-    dd_script.text=`!function(e,a,t,n,s){e=e[s]=e[s]||{q:[],onReady:function(a){e.q.push(a)}},(s=a.createElement(t)).async=1,s.src=n,(n=a.getElementsByTagName(t)[0]).parentNode.insertBefore(s,n)}(window,document,"script","https://www.datadoghq-browser-agent.com/us1/v4/datadog-rum.js","DD_RUM"),window.DD_RUM.onReady(function(){window.DD_RUM.init(${JSON.stringify(dd_options)})});`;
-    document.head.appendChild(dd_script);
+        enableExperimentalFeatures: ['clickmap'],
+        defaultPrivacyLevel: 'mask-user-input',
+    }
+    const dd_script = document.createElement('script')
+    dd_script.type = 'text/javascript'
+    dd_script.text = `!function(e,a,t,n,s){e=e[s]=e[s]||{q:[],onReady:function(a){e.q.push(a)}},(s=a.createElement(t)).async=1,s.src=n,(n=a.getElementsByTagName(t)[0]).parentNode.insertBefore(s,n)}(window,document,"script","https://www.datadoghq-browser-agent.com/us1/v4/datadog-rum.js","DD_RUM"),window.DD_RUM.onReady(function(){window.DD_RUM.init(${JSON.stringify(
+        dd_options,
+    )})});`
+    document.head.appendChild(dd_script)
     // Start session replay recording
-    window.DD_RUM.onReady(function() {
-        window.DD_RUM.startSessionReplayRecording();
-    });
-      
+    window.DD_RUM.onReady(function () {
+        window.DD_RUM.startSessionReplayRecording()
+    })
+
     const push_woosh = new Pushwoosh()
     if (isLive()) {
         pushwooshInit(push_woosh)
@@ -164,7 +174,6 @@ export const onClientEntry = () => {
     checkLiveChatRedirection()
 
     updateURLAsPerUserLanguage()
-
 }
 
 export const onRouteUpdate = () => {

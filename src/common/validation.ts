@@ -1,6 +1,6 @@
 import { localize } from 'components/localization'
 
-const validation_regex = {
+export const validation_regex = {
     email: /^[^@]+@[^@]+\.[^@.]{2,}$/,
     url: /^[\w|\-|.]+$/,
     alphabetic: /^[a-zA-Z]+$/,

@@ -1,0 +1,30 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.public_signup_banner_container {
+    position: relative;
+    overflow: hidden;
+
+    & > a {
+        z-index: 1;
+    }
+}
+
+.public_signup_link {
+    position: absolute;
+    inset-block-start: 150px;
+    inset-inline-start: 35%;
+    inline-size: 20rem;
+
+    @include breakpoints(phone) {
+        inset-inline-start: 45%;
+        inline-size: 30rem;
+    }
+
+    @include breakpoints(tablet) {
+        inset-inline-start: 15%;
+    }
+
+    @include breakpoints(laptop) {
+        inline-size: 45rem;
+    }
+}

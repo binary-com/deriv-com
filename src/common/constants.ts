@@ -40,9 +40,10 @@ const getDomainAppID = () => {
 export const eu_domains = [
     new RegExp(/^eu$/),
     new RegExp(/^staging-eu$/),
+    new RegExp(/^beta-eu$/),
     new RegExp(/-eutestlink-/),
 ]
-export const eu_urls = ['eu.deriv.com', 'staging-eu.deriv.com']
+export const eu_urls = ['eu.deriv.com', 'staging-eu.deriv.com', 'beta-eu.deriv.com']
 
 // URL
 export const domain_full_url = `https://${getDomainUrl()}`

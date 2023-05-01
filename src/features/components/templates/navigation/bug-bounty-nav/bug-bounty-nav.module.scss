@@ -1,0 +1,10 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.bug_bounty_logo {
+    inline-size: 12rem;
+    block-size: 2rem;
+    @include breakpoints(tablet) {
+        inline-size: 19rem;
+        block-size: 3.2rem;
+    }
+}

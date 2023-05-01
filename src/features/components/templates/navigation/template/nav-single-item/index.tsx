@@ -1,12 +1,12 @@
 import React from 'react'
 import { useNavContext } from '../nav-context'
-import { TNavSingleItem } from '../../types'
+import type { NavLinkItem } from '../../types'
 import { Localize } from 'components/localization'
 import Link from 'features/components/atoms/link'
 
 interface NavSingleItemProps {
     is_mobile?: boolean
-    item: TNavSingleItem
+    item: NavLinkItem
 }
 
 const NavSingleItem = ({ item, is_mobile }: NavSingleItemProps) => {

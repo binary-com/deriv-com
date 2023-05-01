@@ -1,11 +1,11 @@
 import React from 'react'
-import { TSmartNavItemsContent } from '../../types'
-import NavSingleItem from '../nav-single-item'
+import { NavItem } from '../../types'
 import NavDropItems from '../nav-drop-items'
+import NavSingleItem from '../nav-single-item'
 import Accordion from 'features/components/atoms/accordion'
 
 interface MobileNavItemProps {
-    item: TSmartNavItemsContent
+    item: NavItem
 }
 
 const MobileNavItem = ({ item }: MobileNavItemProps) => {

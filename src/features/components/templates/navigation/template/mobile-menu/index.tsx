@@ -1,5 +1,4 @@
-import React, { HTMLAttributes, useMemo, useRef, useState } from 'react'
-import { TSmartNavItemsContent } from '../../types'
+import React, { HTMLAttributes, useRef, useState } from 'react'
 import { useNavContext } from '../nav-context'
 import * as styles from './mobile-menu.module.scss'
 import MobileNavItem from './mobile.items'
@@ -8,28 +7,13 @@ import dclsx from 'features/utils/dclsx'
 import Flex from 'features/components/atoms/flex-box'
 
 interface INavMenuProps extends HTMLAttributes<HTMLDivElement> {
-    items: TSmartNavItemsContent[]
     has_top_nav?: boolean
 }
 
-const MobileMenu = ({ className, items, has_top_nav }: INavMenuProps) => {
+const MobileMenu = ({ className, has_top_nav }: INavMenuProps) => {
     const accordion_ref = useRef<HTMLDivElement>()
     const [current_tab, setCurrentTab] = useState('')
-    const { is_menu_open } = useNavContext()
-
-    const { other_items, single_items } = useMemo(() => {
-        const single_items: TSmartNavItemsContent[] = []
-        const other_items: TSmartNavItemsContent[] = []
-
-        items.forEach((item) => {
-            if (item.data.type === 'single-item') {
-                single_items.push(item)
-            } else {
-                other_items.push(item)
-            }
-        })
-        return { single_items, other_items }
-    }, [items])
+    const { is_menu_open, link_items, drop_items } = useNavContext()
 
     const onTabChange = (tab: string) => {
         setCurrentTab(tab)
@@ -52,19 +36,19 @@ const MobileMenu = ({ className, items, has_top_nav }: INavMenuProps) => {
             gap={'8x'}
             innerRef={accordion_ref}
         >
-            {other_items.length ? (
+            {drop_items.length ? (
                 <Accordion.Root
                     type="single"
                     value={current_tab}
                     onValueChange={onTabChange}
                     collapsible
                 >
-                    {other_items.map((contentItem) => (
+                    {drop_items.map((contentItem) => (
                         <MobileNavItem item={contentItem} key={contentItem.id} />
                     ))}
                 </Accordion.Root>
             ) : null}
-            {single_items.map((single_item) => {
+            {link_items.map((single_item) => {
                 return <MobileNavItem key={single_item.id} item={single_item} />
             })}
         </Flex.Box>

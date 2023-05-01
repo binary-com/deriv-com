@@ -1,9 +1,9 @@
 import React from 'react'
-import { TNavMultiColumnItems, TNavSingleColumnItems } from '../../types'
+import { NavMultiColumnItems, NavSingleColumnItems } from '../../types'
 import NavCardItems from 'features/components/organisms/navigation/nav-card-items'
 import NavSectionContainer from 'features/components/organisms/navigation/nav-sections-container'
 
-const NavDropItems = ({ items }: { items: TNavSingleColumnItems | TNavMultiColumnItems }) => {
+const NavDropItems = ({ items }: { items: NavSingleColumnItems | NavMultiColumnItems }) => {
     if (items.type === 'single-column') {
         return <NavCardItems items={items.content} />
     }

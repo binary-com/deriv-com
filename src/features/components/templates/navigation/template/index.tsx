@@ -1,5 +1,5 @@
 import React, { HTMLAttributes, ReactNode, useRef, useState } from 'react'
-import { TNavItems } from '../types'
+import { NavItems } from '../types'
 import DesktopMenu from './desktop-menu'
 import * as styles from './nav.template.module.scss'
 import MobileMenu from './mobile-menu'
@@ -20,7 +20,7 @@ interface NavTemplateProps extends HTMLAttributes<HTMLDivElement> {
     has_centered_items?: boolean
     has_centered_logo?: boolean
     render_bottom_nav?: () => ReactNode
-    items?: TNavItems
+    items?: NavItems
 }
 
 const NavTemplate = ({
@@ -38,8 +38,6 @@ const NavTemplate = ({
 
     const has_items = items.length !== 0
 
-    const { is_eu } = useRegion()
-
     const [is_menu_open, setIsMenuOpen] = useState(false)
 
     const { is_mobile_or_tablet } = useBreakpoints()
@@ -47,11 +45,6 @@ const NavTemplate = ({
     const onMenuToggleClick = () => {
         setIsMenuOpen((prevState) => !prevState)
     }
-
-    const visible_items = useVisibleContent({
-        content: items,
-        config: { is_mobile: is_mobile_or_tablet, is_eu },
-    })
 
     useOutsideClick(
         nav_wrapper_ref,
@@ -75,7 +68,11 @@ const NavTemplate = ({
                 gap="8x"
                 className={styles.nav_container}
             >
-                <NavProvider is_menu_open={is_menu_open} onCloseMenu={onMenuToggleClick}>
+                <NavProvider
+                    is_menu_open={is_menu_open}
+                    onCloseMenu={onMenuToggleClick}
+                    items={items}
+                >
                     <Flex.Box
                         justify="center"
                         align="center"
@@ -96,13 +93,10 @@ const NavTemplate = ({
                         <>
                             {is_mobile_or_tablet ? (
                                 <span ref={nav_wrapper_ref}>
-                                    <MobileMenu items={visible_items} has_top_nav={has_top_nav} />
+                                    <MobileMenu has_top_nav={has_top_nav} />
                                 </span>
                             ) : (
-                                <DesktopMenu
-                                    items={visible_items}
-                                    has_centered_items={has_centered_items}
-                                />
+                                <DesktopMenu has_centered_items={has_centered_items} />
                             )}
                         </>
                     ) : null}

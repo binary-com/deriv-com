@@ -3,21 +3,21 @@ import NavCardItems from '../nav-card-items'
 import * as styles from './render-section-items.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
-import { TNavConfig, TSmartNavSectionColumns } from 'features/components/templates/navigation/types'
+import { NavConfig, SmartNavSectionColumns } from 'features/components/templates/navigation/types'
 import { Localize } from 'components/localization'
 import usePpc from 'features/hooks/use-ppc'
 import useRegion from 'components/hooks/use-region'
 import useVisibleContent from 'components/hooks/use-visible-content'
 
 interface NavSectionColumnProps {
-    item: TSmartNavSectionColumns
+    item: SmartNavSectionColumns
 }
 
 const NavSectionColumn = ({ item }: NavSectionColumnProps) => {
     const { is_ppc, is_ppc_redirect } = usePpc()
     const { is_row, is_eu } = useRegion()
 
-    const filter_config: TNavConfig = useMemo(() => {
+    const filter_config: NavConfig = useMemo(() => {
         return {
             is_eu,
             is_ppc,

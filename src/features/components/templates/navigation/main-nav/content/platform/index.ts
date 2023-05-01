@@ -1,4 +1,4 @@
-import { TSmartNavContent, TSmartNavSectionColumns } from '../../../types'
+import { SmartNavContent, SmartNavSectionColumns } from '../../../types'
 import BinaryBot from 'images/svg/custom/rebranding/binarybot-icon.svg'
 import DerivX from 'images/svg/custom/rebranding/deriv-x-icon.svg'
 import CFD from 'images/svg/custom/rebranding/cfds-icon.svg'
@@ -11,7 +11,7 @@ import DTrader from 'images/svg/custom/rebranding/dtrader-icon.svg'
 import DerivEZ from 'images/svg/custom/rebranding/deriv-ez-icon.svg'
 import DerivBot from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
 
-export const tradeTypesContent: TSmartNavContent[] = [
+export const tradeTypesContent: SmartNavContent[] = [
     {
         id: 0,
         data: {
@@ -83,7 +83,7 @@ export const tradeTypesContent: TSmartNavContent[] = [
     },
 ]
 
-export const tradingPlatformsContent: TSmartNavContent[] = [
+export const tradingPlatformsContent: SmartNavContent[] = [
     {
         id: 0,
         data: {
@@ -168,7 +168,7 @@ export const tradingPlatformsContent: TSmartNavContent[] = [
     },
 ]
 
-export const noTitleSection: TSmartNavContent[] = [
+export const noTitleSection: SmartNavContent[] = [
     {
         id: 0,
         data: {
@@ -239,7 +239,7 @@ export const noTitleSection: TSmartNavContent[] = [
     },
 ]
 
-export const trade_nav_section_items: TSmartNavSectionColumns[] = [
+export const trade_nav_section_items: SmartNavSectionColumns[] = [
     {
         id: 0,
         data: {

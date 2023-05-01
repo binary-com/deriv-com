@@ -4,6 +4,7 @@
     align-self: start;
     grid-column-start: 2;
     grid-column-end: 3;
+    block-size: 100%;
 }
 
 .platform_swiper {
@@ -11,7 +12,7 @@
     margin: 0;
     @include breakpoints(tablet) {
         min-block-size: 60rem;
-        inline-size: 30rem;
+        inline-size: 37rem;
     }
 }
 

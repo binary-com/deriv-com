@@ -1,11 +1,11 @@
 import React, { ReactNode, Ref } from 'react'
+import Loadable from '@loadable/component'
 import styled from 'styled-components'
 import { LocationProvider } from './location-context'
 import LayoutOverlay from './layout-overlay'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
-import BrowserUpdateAlertModal from 'components/layout/modal/browser_update_alert_modal'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import usePopup from 'components/hooks/use-popup'
 import { getLanguage, isBrowser } from 'common/utility'
@@ -18,6 +18,11 @@ import CareerNav from 'features/components/templates/navigation/career-nav'
 import MarketNav from 'features/components/templates/navigation/market-nav'
 import RebrandingFooter from 'features/components/templates/footer'
 import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
+import BannerAlert from 'components/custom/_banner-alert'
+import { bannerTypes } from 'common/constants'
+
+const LoadableFooter = Loadable(() => import('./footer'))
+const BeSquareFooter = Loadable(() => import('./besquare/footer'))
 
 type LayoutProps = {
     children: ReactNode
@@ -126,7 +131,7 @@ const Layout = ({
                         ref={modal_payload.ref}
                         aria_label={modal_payload.aria_label}
                     />
-                    <BrowserUpdateAlertModal />
+                    <BannerAlert bannerType={bannerTypes.outdatedBrowserBanner} />
                     {show_non_eu_popup && (
                         <NonEuRedirectPopUp
                             is_open={show_non_eu_popup}

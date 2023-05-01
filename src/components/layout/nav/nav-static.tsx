@@ -1,17 +1,20 @@
 import React from 'react'
 import NavTemplate from './components/nav-template'
-import { LogoLink, Line } from './styles/nav-styles'
+import { LogoLink } from './styles/nav-styles'
 import { Flex } from 'components/containers'
-import LogoOnly from 'images/svg/layout/logo-deriv-only.svg'
-import GetTrading from 'images/svg/layout/get-trading.svg'
+import LogoOnly from 'images/svg/layout/logo-deriv-new.svg'
 
 const NavStatic = () => (
-    <NavTemplate nav_height="10.4rem" nav_height_mobile="10.4rem" static_position>
+    <NavTemplate
+        nav_height="10.4rem"
+        nav_height_mobile="10.4rem"
+        static_position
+        background="white"
+        transparent_background
+    >
         <LogoLink max_width="31rem" to="/" aria-label="Home">
             <Flex ai="center">
                 <img src={LogoOnly} alt="deriv logo" width={160} height={27} />
-                <Line />
-                <img src={GetTrading} alt="get trading" width={120} height={17} />
             </Flex>
         </LogoLink>
     </NavTemplate>

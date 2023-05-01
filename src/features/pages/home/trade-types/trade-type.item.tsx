@@ -23,7 +23,7 @@ const TradeTypeItem = ({ item }: TradeTypeItemProps) => {
             }}
         >
             <Icon src={item.icon_src} size="xlarge" />
-            <Typography.Heading as="h3" size="small" textcolor="inverted" mt={'5x'}>
+            <Typography.Heading as="h3" size="xs" textcolor="inverted" mt={'5x'}>
                 <Localize translate_text={item.title} />
             </Typography.Heading>
             <Flex.Item className={item_description} padding_inline={'5x'}>
@@ -36,7 +36,13 @@ const TradeTypeItem = ({ item }: TradeTypeItemProps) => {
                     <Localize translate_text={item.description} />
                 </Typography.Paragraph>
             </Flex.Item>
-            <Link textcolor="inverted" size="large" url={item.url} className={item_learn_more}>
+            <Link
+                textcolor="inverted"
+                size="large"
+                url={item.url}
+                className={item_learn_more}
+                font_family="UBUNTU"
+            >
                 <Localize translate_text="_t_Learn more >_t_" />
             </Link>
         </Flex.Box>

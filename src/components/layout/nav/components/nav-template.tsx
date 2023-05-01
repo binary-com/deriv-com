@@ -16,11 +16,13 @@ type NavProps = {
 type Wrapper = {
     static_position?: boolean
     hide_nav?: boolean
+    background?: string
 }
 
 const Wrapper = styled.div<Wrapper>`
     position: ${({ static_position }) => (static_position ? 'static' : 'fixed')};
     display: ${({ hide_nav }) => (hide_nav ? 'none' : 'block')};
+    background-color: ${({ background }) => background || ''};
     transition: opacity 1s ease-out;
     z-index: 100;
     top: 0;
@@ -41,6 +43,7 @@ const Nav = styled.nav<NavProps>`
 `
 
 const NavTemplate = ({
+    background,
     children,
     transparent_background,
     nav_height,
@@ -50,7 +53,7 @@ const NavTemplate = ({
 }: NavTemplateProps) => {
     return (
         <>
-            <Wrapper static_position={static_position} hide_nav={hide_nav}>
+            <Wrapper static_position={static_position} hide_nav={hide_nav} background={background}>
                 <Nav
                     nav_height={nav_height}
                     nav_height_mobile={nav_height_mobile}

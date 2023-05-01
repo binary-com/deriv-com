@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
-import { useHover } from 'usehooks-ts'
 import * as styles from './language-switcher.module.scss'
 import useLangSwitcher from './useLangSwitcher'
 import Typography from 'features/components/atoms/typography'
@@ -27,7 +26,6 @@ const LanguageSwitcher = () => {
 
             <DropdownMenu.Content
                 className={styles.menu_content}
-                sideOffset={20}
                 collisionPadding={{
                     right: 20,
                 }}

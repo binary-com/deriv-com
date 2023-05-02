@@ -322,7 +322,7 @@ type NavCardProps = {
     title?: ReactNode
     target?: string
     type?: string
-    otherLinkProps?: { rel?: string }
+    otherlinkprops?: { rel?: string }
     onClick?: () => void
     to?: string
 }

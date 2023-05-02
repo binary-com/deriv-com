@@ -18,9 +18,9 @@ const HelpCentre = () => {
     return (
         <Layout>
             <SEO
-                title={localize('Help centre | Frequently asked questions | Deriv')}
+                title={localize('_t_Help centre | Frequently asked questions | Deriv_t_')}
                 description={localize(
-                    'Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question.',
+                    '_t_Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question._t_',
                 )}
             />
             <FaqSchema />

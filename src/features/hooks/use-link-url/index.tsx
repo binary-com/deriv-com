@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import language_config from '../../../../i18n-config.js'
 import { localized_link_url } from 'common/constants'
@@ -49,7 +49,30 @@ const product_links: ProductLinksType = {
 
 const non_localized_internal_links = ['/careers']
 
-const useLinkUrl = () => {
+const useLinkUrl = (url: LinkUrlType) => {
+    const [hrefObject, setHrefObject] = useState<
+        | {
+              href: string
+              target: LinkTarget
+              type: 'internal'
+              to: `/${string}`
+          }
+        | {
+              href: string
+              target: LinkTarget
+              type: 'company'
+              url_name: ExternalURLNames
+              path?: string
+              rel?: string
+          }
+        | {
+              type: 'non-company'
+              href: string
+              target?: LinkTarget
+              rel?: string
+              show_eu_modal?: boolean
+          }
+    >()
     const { i18n } = useTranslation()
     const { language } = i18n
 
@@ -83,7 +106,7 @@ const useLinkUrl = () => {
         [i18n.language, language],
     )
 
-    const getLinkUrl = (url: LinkUrlType) => {
+    useEffect(() => {
         let href = ''
         let target: LinkTarget = url.target
         switch (url.type) {
@@ -99,10 +122,10 @@ const useLinkUrl = () => {
                 href = ''
                 break
         }
-        return { ...url, href, target }
-    }
-
-    return { getLinkUrl }
+        const link = { ...url, href, target }
+        setHrefObject(link)
+    }, [getExternalLink, getInternalLink, url])
+    return hrefObject
 }
 
 export default useLinkUrl

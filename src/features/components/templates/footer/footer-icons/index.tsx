@@ -16,7 +16,7 @@ const FooterIcons = () => {
                     direction: 'row',
                 }}
             >
-                <Image src={DerivFooterLogo} alt="deriv logo image" width={110} height={40} />
+                <Image src={DerivFooterLogo} alt="deriv logo image" width={96} height={36} />
                 <FooterSocialIcons />
             </Flex.Box>
         </Flex.Box>

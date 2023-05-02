@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TTranslatedQuestions } from '../data/_data-types'
+import { TQuestions } from '../data/_data-types'
 import SearchError from './_search-error'
 import SearchSuccess from './_search-success'
 
 type TSearchResult = {
     has_searched_question: boolean
-    suggested_topics: TTranslatedQuestions[]
+    suggested_topics: TQuestions[]
     search_value: string
 }
 

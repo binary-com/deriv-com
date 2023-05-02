@@ -25,6 +25,7 @@ const PublicSignupBanner = () => {
                 }}
                 formats={['avif', 'webp', 'auto']}
                 placeholder="none"
+                className={'public_signup_image'}
             />
             <Link
                 url={{ type: 'company', url_name: 'deriv_app' }}
@@ -32,7 +33,7 @@ const PublicSignupBanner = () => {
                 className={'public_signup_link'}
             >
                 <Flex.Box align="center" gap="4x">
-                    <Typography.Heading size="medium" textcolor="white">
+                    <Typography.Heading size="large" textcolor="white">
                         <Localize translate_text={'_t_Get a taste of the Deriv experience_t_'} />
                     </Typography.Heading>
                     <Image has_rtl src={Arrow} width={32} height={32} />

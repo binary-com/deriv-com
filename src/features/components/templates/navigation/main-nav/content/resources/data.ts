@@ -1,6 +1,6 @@
-import { TSmartNavContent } from '../../../types'
+import { SmartNavContent } from '../../../types'
 
-export const resourcesNavSectionContent: TSmartNavContent[] = [
+export const resourcesNavSectionContent: SmartNavContent[] = [
     {
         id: 0,
         data: {
@@ -41,6 +41,9 @@ export const resourcesNavSectionContent: TSmartNavContent[] = [
         data: {
             title: '_t_Status page_t_',
             url: { type: 'non-company', href: 'https://deriv.statuspage.io', show_eu_modal: true },
+        },
+        visibility: {
+            is_mobile: true,
         },
     },
     {

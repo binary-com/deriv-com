@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import AgreementLabel from './_agreement-label'
+import Login, { TSocialProvider } from 'common/login'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, QueryImage, Text, ImageWithDireciton } from 'components/elements'
 import { localize } from 'components/localization'
@@ -10,9 +11,9 @@ import { deriv_app_url } from 'common/constants'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 // SVG
-import Apple from 'images/svg/custom/apple-40.svg'
-import Facebook from 'images/svg/custom/facebook-40.svg'
-import Google from 'images/svg/custom/google-40.svg'
+import Apple from 'images/svg/custom/apple.svg'
+import Facebook from 'images/svg/custom/facebook-blue.svg'
+import Google from 'images/svg/custom/google.svg'
 import Arrow from 'images/svg/custom/chevron-right.svg'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
@@ -20,6 +21,7 @@ type SocialButtonContent = {
     provider: string
     id: string
     img: string
+    text: string
 }
 
 type SignupPublicProps = {
@@ -46,7 +48,8 @@ const query = graphql`
 `
 const StyledSectionContainer = styled(Box)`
     width: 100%;
-    padding: 80px 0;
+    padding-top: 80px;
+    padding-bottom: 140px;
     position: static;
     background-color: var(--color-white);
 
@@ -57,7 +60,7 @@ const StyledSectionContainer = styled(Box)`
 `
 const Wrapper = styled.div`
     border-radius: 8px;
-    background: linear-gradient(241.92deg, #d74b56 12.96%, #d1632f 86.33%);
+    background: var(--color-red);
     background-repeat: round;
     position: relative;
     display: flex;
@@ -81,7 +84,7 @@ const MobileWrapper = styled.div`
     max-width: 600px;
 `
 const SignupFormWrapper = styled(Flex)`
-    width: 50%;
+    width: 42%;
     align-items: center;
     @media ${device.tablet} {
         padding: 0 2rem;
@@ -97,7 +100,7 @@ const SignupFormWrapper = styled(Flex)`
 const MobileSignupFormWrapper = styled(Flex)`
     width: 50%;
     align-items: center;
-    padding: 0 2rem;
+    padding: 0 2.4rem;
     @media (max-width: 991px) {
         width: 100%;
         box-shadow: 0 16px 16px 0 rgba(14, 14, 14, 0.04), 0 0 16px 0 rgba(14, 14, 14, 0.04);
@@ -106,12 +109,11 @@ const MobileSignupFormWrapper = styled(Flex)`
         border-radius: 8px;
         position: relative;
         top: -10px;
-        padding-left: 20px;
-
-        & > div {
-            width: auto;
-        }
     }
+`
+const MobileSignupContainer = styled(Flex)`
+    flex-direction: column;
+    padding: 0 6px;
 `
 const BackgroundWrapper = styled(Flex)`
     position: relative;
@@ -121,7 +123,7 @@ const BackgroundWrapper = styled(Flex)`
 
     @media screen and (max-width: 1040px) and (min-width: 992px) {
         width: 47%;
-        margin-left: 3%;
+        margin-left: 5%;
     }
 
     & > div {
@@ -131,46 +133,55 @@ const BackgroundWrapper = styled(Flex)`
     }
 `
 const InputWrapper = styled.div`
-    width: 245px;
+    width: 232px;
     line-height: 10px;
     font-weight: normal;
     margin-right: 1rem;
-    @media ${device.mobileL} {
-        width: unset;
-        max-width: 191px;
+    border-radius: 16px;
+    @media ${device.tabletL} {
+        width: 95%;
+        border-radius: 4px;
+        padding: 10px 0;
     }
 `
 const InputGroup = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 8px;
+
+    @media ${device.tabletL} {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
 `
 const EmailButton = styled(Button)<{ isChecked?: boolean }>`
-    margin-left: 1rem;
     min-width: 125px;
     height: 40px;
     padding: 10px;
-    border-radius: 4px;
+    border-radius: 16px;
     font-weight: normal;
+
     @media ${device.tabletL} {
         padding: 10px 16px;
         white-space: nowrap;
-        min-width: unset;
         margin-left: 0;
         height: 40px;
-        width: auto;
+        width: 96%;
     }
 `
 const SocialWrapper = styled(Flex)`
     width: 100%;
-    margin-top: 4rem;
+    display: flex;
+    gap: 6px;
     flex-wrap: wrap;
+    height: 40%;
 `
 const MobileSocialWrapper = styled(SocialWrapper)`
     > div {
         justify-content: flex-start;
+        gap: 6px;
     }
 
     @media ${device.tabletL} {
@@ -180,21 +191,32 @@ const MobileSocialWrapper = styled(SocialWrapper)`
 const SocialButton = styled(Button)`
     display: flex;
     padding: 0;
-    margin: 0 1rem;
-    border: none;
+    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+    width: 10.6rem;
+    height: 4rem;
+    background-color: white;
+    border: 1px solid var(--color-grey-7);
+    border-radius: 16px;
+    gap: 10px;
 
     @media ${device.tabletL} {
         justify-content: center;
+        width: 33%;
+        height: 6rem;
+        margin: 0 0.6rem;
     }
 `
 const StyledHeader = styled(Header)<{ position?: string }>`
-    width: ${(props) => props.width || '41.4rem'};
     position: ${(props) => props.position || 'static'};
+    width: auto;
+
     @media ${device.tablet} {
         width: auto;
     }
     @media (max-width: 991px) {
-        margin-top: 3rem;
+        margin-top: 4rem;
     }
     @media (max-width: 991px) {
         max-width: 290px;
@@ -202,10 +224,10 @@ const StyledHeader = styled(Header)<{ position?: string }>`
 `
 const StyledFormWrapper = styled.div`
     background: white;
-    max-width: 414px;
-    padding: 20px 20px 30px;
-    margin-left: 30px;
+    max-width: 416px;
+    padding: 40px;
     border-radius: 8px;
+    margin-top: 3rem;
     top: 1rem;
     display: inline-block;
     position: absolute;
@@ -218,20 +240,15 @@ const StyledFormWrapper = styled.div`
             line-height: 3.5rem;
         }
     }
-
-    @media (min-width: 1600px) {
-        min-width: 430px;
-    }
 `
 const StyledHeaderText = styled(Text)`
     width: ${(props) => props.width || '41.4rem'};
-    @media ${device.tablet} {
+    padding: 10px 0;
+
+    @media ${device.tabletL} {
         width: auto;
-    }
-    @media (max-width: 991px) {
-        margin-top: 1rem;
         font-size: 2rem;
-        margin-bottom: 3rem;
+        padding: 10px 0 0 0;
     }
 `
 const SignInText = styled(Text)`
@@ -246,16 +263,16 @@ const SignInText = styled(Text)`
     line-height: 1.5;
     letter-spacing: normal;
     color: #333333;
+    padding: 20px 0 0 0;
     @media ${device.tabletL} {
         width: 90px;
         margin-right: 0;
     }
 `
-
 const MobileSignInText = styled(SignInText)`
     @media ${device.tabletL} {
         width: unset;
-        margin: 0 auto 0.8rem 0.8rem;
+        margin: 0 auto 0.8rem 0;
     }
 `
 const LinkFlex = styled(LinkText)`
@@ -267,7 +284,7 @@ const LinkFlex = styled(LinkText)`
     }
 `
 const MobileBackground = styled.div`
-    background-image: linear-gradient(73deg, #ff6444, #ff444f);
+    background: var(--color-red);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
@@ -292,7 +309,8 @@ const DerivExperience = styled(LinkText)`
         text-decoration: none;
     }
 
-    @media ${device.mobileL} {
+    @media ${device.tabletL} {
+        top: 50%;
         width: unset;
         margin: 0 auto 0.8rem 0.8rem;
         max-width: 230px;
@@ -314,6 +332,8 @@ const MobilePlatform = styled.div<{ is_rtl: boolean }>`
 
     @media screen and (max-width: 991px) {
         img {
+            width: 85%;
+            top: 28px;
             ${({ is_rtl }) =>
                 is_rtl
                     ? css`
@@ -325,25 +345,26 @@ const MobilePlatform = styled.div<{ is_rtl: boolean }>`
         }
     }
 `
-
 const social_button_content: SocialButtonContent[] = [
     {
         provider: 'google',
-        id: 'gtm-signup-google',
+        id: 'dm-signup-google',
         img: Google,
+        text: 'Google',
     },
     {
         provider: 'facebook',
-        id: 'gtm-signup-facebook',
+        id: 'dm-signup-facebook',
         img: Facebook,
+        text: 'Facebook',
     },
     {
         provider: 'apple',
-        id: 'gtm-signup-apple',
+        id: 'dm-signup-apple',
         img: Apple,
+        text: 'Apple',
     },
 ]
-
 const SignupPublic = ({
     email_error_msg,
     email,
@@ -351,7 +372,6 @@ const SignupPublic = ({
     handleInputChange,
     handleValidation,
     autofocus,
-    handleSocialSignup,
     is_submitting,
 }: SignupPublicProps) => {
     const data = useStaticQuery(query)
@@ -362,6 +382,14 @@ const SignupPublic = ({
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
     }
+
+    const handleSocialSignup = (e) => {
+        e.preventDefault()
+
+        const data_provider: TSocialProvider = e.currentTarget.getAttribute('data-provider')
+        Login.initOneAll(data_provider)
+    }
+
     return (
         <StyledSectionContainer>
             <Desktop>
@@ -370,9 +398,8 @@ const SignupPublic = ({
                         <SignupFormWrapper>
                             <StyledFormWrapper>
                                 <StyledHeader type="section-title" width="100%">
-                                    {localize('Join over 1 million traders worldwide')}
+                                    {localize('Join over 2.5 million traders worldwide')}
                                 </StyledHeader>
-                                <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
                                     {localize('Sign up for your demo account now.')}
                                 </StyledHeaderText>
@@ -382,26 +409,20 @@ const SignupPublic = ({
                                             id="dm-email-input"
                                             name="email"
                                             type="text"
+                                            border="solid 1px var(--color-grey-7)"
+                                            label_color="grey-5"
+                                            label_hover_color="grey-5"
+                                            background="white"
                                             error={email_error_msg}
                                             value={email}
-                                            background="white"
-                                            tablet_background="green-1"
-                                            inputColor="grey-5"
-                                            input_background="grey-8"
-                                            label_focus_color="grey-7"
-                                            label_color="black-3"
-                                            labelSize="16px"
-                                            labelTop="1.2rem"
-                                            label={localize('Email')}
-                                            placeholder={'example@mail.com'}
+                                            label={localize('Email address')}
+                                            placeholder={'Email'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
                                             onBlur={handleValidation}
                                             autoFocus={autofocus}
                                             autoComplete="off"
                                             required
-                                            height="40px"
-                                            focus_border="var(--color-grey-7)"
                                         />
                                     </InputWrapper>
                                     <EmailButton
@@ -423,9 +444,9 @@ const SignupPublic = ({
                                     isChecked={is_checked}
                                     handleChangeCheckbox={handleChange}
                                 />
+                                <SignInText>{localize('Or sign up with')}</SignInText>
                                 <SocialWrapper jc="unset" ai="center">
-                                    <SignInText>{localize('Or sign up with')}</SignInText>
-                                    {social_button_content.map(({ provider, id, img }) => (
+                                    {social_button_content.map(({ provider, id, img, text }) => (
                                         <SocialButton
                                             key={provider}
                                             onClick={handleSocialSignup}
@@ -435,7 +456,8 @@ const SignupPublic = ({
                                             type="button"
                                             social
                                         >
-                                            <img src={img} alt={provider} width="40" height="40" />
+                                            <img src={img} alt={provider} width="24" height="24" />
+                                            {text}
                                         </SocialButton>
                                     ))}
                                 </SocialWrapper>
@@ -448,7 +470,7 @@ const SignupPublic = ({
                                     (is_eu && data['deriv_platform_eu'])
                                 }
                                 alt="forex trading on mobile"
-                                width="225px"
+                                width="255px"
                             />
                             <LinkFlex
                                 external
@@ -457,12 +479,11 @@ const SignupPublic = ({
                                 rel="noopener noreferrer nofollow"
                             >
                                 <StyledHeader
-                                    size="4rem"
-                                    width="330px"
+                                    size="48px"
                                     align="start"
                                     color="grey-8"
                                     mr="1.2rem"
-                                    ml="-4rem"
+                                    ml="6rem"
                                     position="relative"
                                 >
                                     {localize('Get a taste of the Deriv experience')}
@@ -505,29 +526,30 @@ const SignupPublic = ({
                             </DerivExperience>
                         </MobileBackground>
                         <MobileSignupFormWrapper>
-                            <div>
+                            <MobileSignupContainer>
                                 <StyledHeader type="section-title">
-                                    {localize('Join over 1 million traders worldwide')}
+                                    {localize('Join over 2.5 million traders worldwide')}
                                 </StyledHeader>
-                                <br />
                                 <StyledHeaderText weight="normal" size="1.6rem">
                                     {localize('Sign up for your demo account now.')}
                                 </StyledHeaderText>
                                 <InputGroup>
                                     <InputWrapper>
                                         <Input
-                                            id="email"
+                                            id="dm-email-input"
                                             name="email"
                                             type="text"
                                             error={email_error_msg}
                                             value={email}
                                             background="white"
                                             tablet_background="green-1"
-                                            inputColor="grey-5"
+                                            inputColor="black-3"
                                             input_background="grey-8"
-                                            label_focus_color="grey-7"
-                                            label_color="black-3"
-                                            label={localize('Email')}
+                                            label_focus_color="grey-5"
+                                            label_color="grey-5"
+                                            labelSize="4px"
+                                            labelTop="1.2rem"
+                                            label={localize('Email address')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
@@ -535,7 +557,7 @@ const SignupPublic = ({
                                             autoFocus={autofocus}
                                             autoComplete="off"
                                             required
-                                            border="unset"
+                                            height="40px"
                                             focus_border="var(--color-grey-7)"
                                         />
                                     </InputWrapper>
@@ -560,7 +582,7 @@ const SignupPublic = ({
                                 />
                                 <MobileSocialWrapper jc="unset" ai="center">
                                     <MobileSignInText>
-                                        {localize('Or sign in with')}
+                                        {localize('Or sign up with')}
                                     </MobileSignInText>
                                     <Flex>
                                         {social_button_content.map(({ provider, id, img }) => (
@@ -576,14 +598,14 @@ const SignupPublic = ({
                                                 <img
                                                     src={img}
                                                     alt={provider}
-                                                    width="40"
-                                                    height="40"
+                                                    width="24"
+                                                    height="24"
                                                 />
                                             </SocialButton>
                                         ))}
                                     </Flex>
                                 </MobileSocialWrapper>
-                            </div>
+                            </MobileSignupContainer>
                         </MobileSignupFormWrapper>
                     </MobileWrapper>
                 </Container>

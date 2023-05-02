@@ -1,6 +1,6 @@
-import { TNavItems } from '../types'
+import { NavItems } from '../types'
 
-const affiliateNavItems: TNavItems = [
+const affiliateNavItems: NavItems = [
     {
         id: 0,
         data: {
@@ -23,7 +23,7 @@ const affiliateNavItems: TNavItems = [
             },
         },
         visibility: {
-            is_eu: false,
+            is_row: true,
         },
     },
     {

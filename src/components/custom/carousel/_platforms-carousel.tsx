@@ -2,20 +2,21 @@ import React from 'react'
 import styled from 'styled-components'
 import LearnMore from './_learn-more'
 import MarketsCarousel from './_markets-carousel'
-import { SectionContainer, Flex, Container } from 'components/containers'
+import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 type TRenderableData = {
     icon: string
     heading: string
-    paragraph: string
+    paragraph: TString
     link: string
 }
 type TProps = {
     renderableData: TRenderableData[]
-    mainHeading: string
+    mainHeading: TString
 }
 
 const StyledSection = styled(SectionContainer)`
@@ -109,13 +110,13 @@ const SmallContainer = styled(Container)`
     }
 `
 
-const GenericCarousel: React.FC<TProps> = ({ renderableData, mainHeading }) => {
+const GenericCarousel = ({ renderableData, mainHeading }: TProps) => {
     return (
         <>
             <StyledSection background="white" position="relative">
                 <SmallContainer direction="column" ai="flex-start">
                     <StyledHeading as="h3" type="section-title" mb="2.4rem" align="center">
-                        {localize(`_t_${mainHeading}_t_`)}
+                        <Localize translate_text={mainHeading} />
                     </StyledHeading>
                 </SmallContainer>
                 <MarketsCarousel>
@@ -130,7 +131,9 @@ const GenericCarousel: React.FC<TProps> = ({ renderableData, mainHeading }) => {
                                             {localize(`_t_${item.heading}_t_`)}
                                         </StyledText>
                                     </MobileCardHeader>
-                                    <StyledPara>{localize(`${item.paragraph}`)}</StyledPara>
+                                    <StyledPara>
+                                        <Localize translate_text={item.paragraph} />
+                                    </StyledPara>
                                     <LearnMore
                                         text={<Localize translate_text="Learn more" />}
                                         to={item.link}

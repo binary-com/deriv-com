@@ -9,33 +9,33 @@ import GenericCarousel from 'components/custom/carousel/_platforms-carousel'
 const OurPlatforms = () => {
     const carouselData = [
         {
+            icon: dmt5Icon,
+            heading: 'Deriv MT5',
+            paragraph: '_t_The all-in-one CFD trading platform._t_',
+            link: '/dmt5/',
+        },
+        {
             icon: dtIcon,
             heading: 'Deriv Trader',
-            paragraph: 'Our flagship app for trading options and multipliers.',
+            paragraph: '_t_Our flagship app for trading options and multipliers._t_',
             link: '/dtrader/',
         },
         {
             icon: dGoIcon,
             heading: 'Deriv Go',
-            paragraph: 'Our best trading experience on your mobile.',
+            paragraph: '_t_Our best trading experience on your mobile._t_',
             link: '/deriv-go/',
         },
         {
             icon: dxIcon,
             heading: 'Deriv X',
-            paragraph: 'The CFD trading platform to fit your style.',
+            paragraph: '_t_The CFD trading platform to fit your style._t_',
             link: '/derivx/',
-        },
-        {
-            icon: dmt5Icon,
-            heading: 'Deriv MT5',
-            paragraph: 'The all-in-one CFD trading platform.',
-            link: '/dmt5/',
         },
         {
             icon: dbIcon,
             heading: 'Deriv Bot',
-            paragraph: 'Automate your trading. No coding required.',
+            paragraph: '_t_Automate your trading. No coding required._t_',
             link: '/dbot/',
         },
     ]
@@ -43,7 +43,7 @@ const OurPlatforms = () => {
         <>
             <GenericCarousel
                 renderableData={carouselData}
-                mainHeading="Check out our other platforms"
+                mainHeading="_t_Check out our other platforms_t_"
             />
         </>
     )

@@ -1,5 +1,5 @@
 import React from 'react'
-import OurPlatforms from './other-platforms'
+import OurPlatforms from './deprecated-other-platforms'
 import Hero from './hero'
 import Numbers from './numbers'
 import WhatIsDerivEZ from './what-have'

@@ -7,6 +7,12 @@
         "stylelint-config-styled-components",
         "stylelint-config-prettier"
     ],
+    "overrides": [
+        {
+            "files": ["**/*.{js,ts,jsx,tsx}"],
+            "customSyntax": ["@stylelint/postcss-css-in-js"]
+        }
+    ],
     "rules": {
         "string-quotes": "single",
         "number-leading-zero": "always",

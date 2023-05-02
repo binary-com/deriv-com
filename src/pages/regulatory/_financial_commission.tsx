@@ -19,7 +19,7 @@ const FinancialCommission = () => {
                     {is_eu && (
                         <Text mt="2rem" max_width="58.8rem">
                             <Localize
-                                translate_text="For fair resolution of any complaints, please <0>chat</0> with us. To learn more, see our <1>complaint policy</1>."
+                                translate_text="_t_For fair resolution of any complaints, please <0>chat</0> with us. To learn more, see our <1>complaint policy</1>._t_"
                                 components={[
                                     <TextLink
                                         key={0}
@@ -43,7 +43,7 @@ const FinancialCommission = () => {
                     {is_non_eu && (
                         <Text mt="2rem" max_width="58.8rem">
                             <Localize
-                                translate_text="For fair resolution of any complaints, please <0>chat</0> with us."
+                                translate_text="_t_For fair resolution of any complaints, please <0>chat</0> with us._t_"
                                 components={[
                                     <TextLink
                                         key={0}

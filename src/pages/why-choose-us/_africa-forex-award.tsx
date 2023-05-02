@@ -103,7 +103,7 @@ const AfricaAward = () => {
 
                         <Flex style={{ height: '360px' }} ai="center" jc="space-evenly">
                             <StyledHeader type="heading-2" align="left" color="white">
-                                <Localize translate_text="Best Forex Broker Africa" />
+                                <Localize translate_text="_t_Best Forex Broker Africa_t_" />
                             </StyledHeader>
 
                             <AwardImageWrapper>
@@ -141,7 +141,7 @@ const AfricaAward = () => {
                         </StaticImageWrapper>
 
                         <StyledHeaderMobile type="heading-2" align="center" color="white">
-                            <Localize translate_text="Best Forex Broker Africa" />
+                            <Localize translate_text="_t_Best Forex Broker Africa_t_" />
                         </StyledHeaderMobile>
                         <Header as="h2" width="50%"></Header>
                     </BackgroundImageWrapper>

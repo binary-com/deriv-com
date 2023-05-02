@@ -68,9 +68,9 @@ const Minsk = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('Minsk | Our office – Belarus | Deriv')}
+                title={localize('_t_Minsk | Our office – Belarus | Deriv_t_')}
                 description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Minsk, Belarus.',
+                    '_t_Find your role with us by browsing Deriv job opportunities in Minsk, Belarus._t_',
                 )}
             />
             <LocationLayout location={minsk} images={images} />

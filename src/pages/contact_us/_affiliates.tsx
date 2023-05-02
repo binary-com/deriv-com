@@ -67,11 +67,11 @@ export const Affiliates = () => {
             <CardContainer>
                 <Item>
                     <Header as="h3" type="section-title">
-                        <Localize translate_text="Business Partnership" />
+                        <Localize translate_text="_t_Business Partnership_t_" />
                     </Header>
                     <TextWrapper>
                         <Text m="0.8rem 0">
-                            <Localize translate_text="Questions about becoming our affiliates or other business collaboration opportunities? " />
+                            <Localize translate_text="_t_Questions about becoming our affiliates or other business collaboration opportunities? _t_" />
                         </Text>
                         <LinkText
                             color="red"
@@ -80,7 +80,7 @@ export const Affiliates = () => {
                                 is_livechat_interactive && LC_API.open_chat_window()
                             }}
                         >
-                            <Localize translate_text="Contact us via live chat" />
+                            <Localize translate_text="_t_Contact us via live chat_t_" />
                         </LinkText>
                     </TextWrapper>
                 </Item>

@@ -27,7 +27,7 @@ const DerivEZ = () => {
             <WhyTradeEZ />
             <WhatIsDerivEZ />
             <StartDerivEZ />
-            {/*refactor the component below with atomic design*/}
+            {/*refactor this 2 components below with atomic design*/}
             <DerivEZGetApp />
             <OurPlatforms />
             <Footer />

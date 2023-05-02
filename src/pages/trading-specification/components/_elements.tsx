@@ -341,6 +341,7 @@ export const ModalCard = styled.div`
 
     @media ${device.mobileL} {
         width: 80%;
+        max-height: 75vh;
     }
 `
 export const Background = styled.div`

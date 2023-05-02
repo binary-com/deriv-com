@@ -33,10 +33,26 @@ const query = graphql`
         ) {
             ...fadeIn
         }
+        eu_margin_calculator: file(relativePath: { eq: "dmt5/eu-dmt5-margin-calculator.png" }) {
+            ...fadeIn
+        }
+        eu_margin_calculator_mobile: file(
+            relativePath: { eq: "dmt5/eu-dmt5-margin-calculator-mobile.png" }
+        ) {
+            ...fadeIn
+        }
         swap_calculator: file(relativePath: { eq: "dmt5/dmt5-swap-calculator.png" }) {
             ...fadeIn
         }
         swap_calculator_mobile: file(relativePath: { eq: "dmt5/dmt5-swap-calculator-mobile.png" }) {
+            ...fadeIn
+        }
+        eu_swap_calculator: file(relativePath: { eq: "dmt5/eu-dmt5-swap-calculator.png" }) {
+            ...fadeIn
+        }
+        eu_swap_calculator_mobile: file(
+            relativePath: { eq: "dmt5/eu-dmt5-swap-calculator-mobile.png" }
+        ) {
             ...fadeIn
         }
     }
@@ -176,6 +192,8 @@ const CalculatorCard = ({
     text,
 }: CalculatorProps) => {
     const data = useStaticQuery(query)
+    const { is_eu } = useRegion()
+
     return (
         <StyledCardContainer>
             <SubHeader as="h3" align="center">
@@ -184,10 +202,20 @@ const CalculatorCard = ({
             <CardText align="center">{text}</CardText>
             <ImageWrapper>
                 <Desktop>
-                    <QueryImage data={data[image_name]} alt={image_alt_name} />
+                    <QueryImage
+                        data={is_eu ? data['eu_' + image_name] : data[image_name]}
+                        alt={image_alt_name}
+                    />
                 </Desktop>
                 <Mobile>
-                    <QueryImage data={data[image_name + '_mobile']} alt={image_alt_name} />
+                    <QueryImage
+                        data={
+                            is_eu
+                                ? data['eu_' + image_name + '_mobile']
+                                : data[image_name + '_mobile']
+                        }
+                        alt={image_alt_name}
+                    />
                 </Mobile>
             </ImageWrapper>
             <StyledLinkButton tertiary to={link}>

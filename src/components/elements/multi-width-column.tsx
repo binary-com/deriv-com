@@ -13,9 +13,16 @@ interface Props {
     mobileBackgroundImage: string
     secondColumnMobileMargin?: string
     mobilePadding?: string
+    mobilePositionBackgroundImage?: string
+    tabletPositionBackgroundImage?: string
 }
 
-const StyledSectionContainer = styled.section<{ mobileBG: string; mobilePadding: string }>`
+const StyledSectionContainer = styled.section<{
+    mobileBG: string
+    mobilePadding: string
+    mobilePositionBackgroundImage: string
+    tabletPositionBackgroundImage: string
+}>`
     color: white;
     display: flex;
     width: 100%;
@@ -36,9 +43,11 @@ const StyledSectionContainer = styled.section<{ mobileBG: string; mobilePadding:
     @media ${device.tabletL} {
         flex-direction: column;
         padding: ${(props) => (props.mobilePadding ? props.mobilePadding : `80px 0`)};
-        background: url(${(props) => props.mobileBG});
+        background-image: url(${(props) => props.mobileBG});
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
+        background-position-y: 36%;
         &::before {
             content: none;
         }
@@ -98,11 +107,18 @@ const MultiWidthColumn: React.FC<Props> = ({
     children,
     secondColumnMobileMargin,
     mobilePadding,
+    mobilePositionBackgroundImage,
+    tabletPositionBackgroundImage,
 }) => {
     const is_rtl = useIsRtl()
 
     return (
-        <StyledSectionContainer mobileBG={mobileBackgroundImage} mobilePadding={mobilePadding}>
+        <StyledSectionContainer
+            mobileBG={mobileBackgroundImage}
+            mobilePadding={mobilePadding}
+            tabletPositionBackgroundImage={tabletPositionBackgroundImage}
+            mobilePositionBackgroundImage={mobilePositionBackgroundImage}
+        >
             <Container ai="stretch" justify="flex-start" tablet_direction="column">
                 <FirstColumn
                     background={firstColumnBackground}

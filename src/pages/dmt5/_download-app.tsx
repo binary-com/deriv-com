@@ -11,7 +11,7 @@ import BrowserIcon from '../../images/svg/browser-icon.svg'
 import LinuxIcon from '../../images/svg/linux-icon.svg'
 import MacIcon from '../../images/svg/mac-icon.svg'
 import WinIcon from '../../images/svg/windows-icon.svg'
-import GetAppMobileBG from '../../images/common/getAppMobileBGUpdated.png'
+import GetAppMobileBG from '../../images/common/getAppMobileBG.png'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
@@ -89,11 +89,11 @@ const DerivMT5GetApp = () => {
             firstColumnWidth="59%"
             secondColumnWidth="45%"
             mobileBackgroundImage={GetAppMobileBG}
-            secondColumnMobileMargin="140px 0 0"
+            secondColumnMobileMargin="115px 0 0"
             mobilePadding="40px 0 10px"
         >
             <ContentWrapper is_rtl={is_rtl}>
-                <img src={dmt5Logo} alt="Deriv Go logo" width="64px" height="64px" />
+                <img src={dmt5Logo} alt="Deriv MT5 logo" width="64px" height="64px" />
                 <TextAndButtonWrapper>
                     <CommonHeaderSection
                         title="_t_Get trading with Deriv MT5_t_"

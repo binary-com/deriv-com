@@ -124,6 +124,9 @@ const DHero = () => {
                         <CommonHeaderSection
                             title="_t_A trading platform for on-the-go traders_t_"
                             title_font_size={`${is_mobile ? 32 : 64}px`}
+                            font_family_title={
+                                is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'
+                            }
                             color="var(--color-black-9)"
                         />
                         <BannerButtonWrapper>

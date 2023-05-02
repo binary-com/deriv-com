@@ -169,6 +169,9 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                         <StyledLogo src={DerivBotLogo} />
                         <CommonHeaderSection
                             title="_t_Automate your trading ideas without writing code_t_"
+                            font_family_title={
+                                is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'
+                            }
                             title_font_size={is_mobile ? '32px' : '64px'}
                             color="var(--color-black-9)"
                         />

@@ -39,6 +39,7 @@ type CardContentProps = {
     subtitle?: string
     text?: string | JSX.Element
     src?: string
+    alt?: string
     content?: string[]
 }
 
@@ -90,7 +91,11 @@ const Card = ({ card_content, custom_icon, has_list, style, title_component }: C
     const { card_wrapper, icon_wrapper, text_wrapper } = style
     return (
         <CardWrapper {...card_wrapper}>
-            <IconWrapper {...icon_wrapper} src={custom_icon?.src || card_content.src} alt="" />
+            <IconWrapper
+                {...icon_wrapper}
+                src={custom_icon?.src || card_content.src}
+                alt={card_content?.alt}
+            />
             {title_component}
             <TextWrapper {...text_wrapper}>{card_content.text}</TextWrapper>
             {has_list && getCurrentDropdownComponent(slugify(card_content.text))}

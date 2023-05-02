@@ -12,7 +12,7 @@ const HeroFeaturesCarousel = () => {
                     strings: [
                         localize('_t_Forex_t_'),
                         localize('_t_Cryptocurrencies_t_'),
-                        localize('_t_Shares_t_'),
+                        localize('_t_Stocks & indices_t_'),
                         localize('_t_Commodities_t_'),
                         localize('_t_Derived Indices_t_'),
                     ],

@@ -3,18 +3,19 @@ import styled from 'styled-components'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 type TSearchError = {
     search_value: string
 }
 
-const data = [
+const data: TString[] = [
     '_t_Check your spelling and try again_t_',
     '_t_Try another keyword_t_',
     '_t_Keep your search term short as our search capabilities works best with short search terms_t_',
 ]
 
-const Error = styled(Header)`
+const ErrorWrapper = styled(Header)`
     @media ${device.tabletL} {
         font-weight: normal;
     }
@@ -47,15 +48,15 @@ const StyledList = styled.ul`
 
 const SearchError = ({ search_value }: TSearchError) => (
     <>
-        <Error as="h5" type="paragraph-1" color="black" size="var(--text-size-sm)">
+        <ErrorWrapper as="h5" type="paragraph-1" color="black" size="var(--text-size-sm)">
             <Localize
-                translate_text="Sorry, we couldn’t find any results matching '{{search_value}}'."
+                translate_text="_t_Sorry, we couldn’t find any results matching '{{search_value}}'._t_"
                 values={{ search_value }}
             />
-        </Error>
+        </ErrorWrapper>
 
         <Tips color="green" weight="normal">
-            <Localize translate_text="Search tips:" />
+            <Localize translate_text="_t_Search tips:_t_" />
         </Tips>
         <StyledList>
             {data.map((error) => (

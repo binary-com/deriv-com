@@ -3,18 +3,19 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 type TextType = {
     props: { translate_text: string }
 }
 
 export type WhyUsType = {
-    title: string | React.ReactElement
-    subtitle: string | React.ReactElement
+    title: TString
+    subtitle: TString
     image_name: string
-    image_alt: TextType | React.ReactElement
+    image_alt: TString
 }[]
 
 type WhyUsProps = {
@@ -113,7 +114,7 @@ const WhyUs = ({ items }: WhyUsProps) => {
         <StyledContainer>
             <Container direction="column">
                 <WhyUsHeader as="h2" size="4.8rem" align="center">
-                    {localize('Why partner with us')}
+                    <Localize translate_text="_t_Why partner with us_t_" />
                 </WhyUsHeader>
                 {items.map((item, index) => {
                     const is_even = index % 2
@@ -121,13 +122,15 @@ const WhyUs = ({ items }: WhyUsProps) => {
                         <Row flex_direction={is_even ? 'row-reverse' : 'row'} key={index}>
                             <Content>
                                 <StyledHeader as="h4" size="2.4rem">
-                                    {item.title}
+                                    <Localize translate_text={item.title} />
                                 </StyledHeader>
-                                <Text mt="0.8rem">{item.subtitle}</Text>
+                                <Text mt="0.8rem">
+                                    <Localize translate_text={item.subtitle} />
+                                </Text>
                             </Content>
                             <QueryImage
                                 data={data[item.image_name]}
-                                alt={item.image_alt.props.translate_text}
+                                alt={localize(item.image_alt)}
                                 width="100%"
                             />
                         </Row>

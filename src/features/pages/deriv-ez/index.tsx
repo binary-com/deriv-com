@@ -1,4 +1,5 @@
 import React from 'react'
+import OurPlatforms from './other-platforms'
 import Hero from './hero'
 import Numbers from './numbers'
 import WhatIsDerivEZ from './what-have'
@@ -28,6 +29,7 @@ const DerivEZ = () => {
             <StartDerivEZ />
             {/*refactor the component below with atomic design*/}
             <DerivEZGetApp />
+            <OurPlatforms />
             <Footer />
         </Layout>
     )

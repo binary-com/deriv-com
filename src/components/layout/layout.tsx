@@ -74,7 +74,7 @@ const Layout = ({
     const { show_non_eu_popup, setShowNonEuPopup } = usePopup()
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({} as ModalPayloadType)
-    const { has_platform } = usePlatformQueryParam()
+    const { has_platform, state_in_progress } = usePlatformQueryParam()
 
     const is_static = type === 'static'
 
@@ -140,40 +140,44 @@ const Layout = ({
 
     return (
         <>
-            {has_platform ? (
-                <Main margin_top={'0'} is_static={is_static}>
-                    {children}
-                </Main>
-            ) : (
-                <LocationProvider
-                    has_mounted={is_mounted}
-                    toggleModal={toggleModal}
-                    setModalPayload={setModalPayload}
-                >
-                    {Navigation}
-                    <Main margin_top={margin_top} is_static={is_static}>
+            {!state_in_progress ? (
+                has_platform ? (
+                    <Main margin_top={'0'} is_static={is_static}>
                         {children}
                     </Main>
-                    {FooterNav}
-                    <EURedirect
-                        toggle={toggleModal}
-                        is_open={show_modal}
-                        closeModal={closeModal}
-                        to={modal_payload.to}
-                        target={modal_payload.target}
-                        rel={modal_payload.rel}
-                        ref={modal_payload.ref}
-                        aria_label={modal_payload.aria_label}
-                    />
-                    <BannerAlert bannerType={bannerTypes.outdatedBrowserBanner} />
-                    {show_non_eu_popup && (
-                        <NonEuRedirectPopUp
-                            is_open={show_non_eu_popup}
-                            setShowNonEuPopup={setShowNonEuPopup}
+                ) : (
+                    <LocationProvider
+                        has_mounted={is_mounted}
+                        toggleModal={toggleModal}
+                        setModalPayload={setModalPayload}
+                    >
+                        {Navigation}
+                        <Main margin_top={margin_top} is_static={is_static}>
+                            {children}
+                        </Main>
+                        {FooterNav}
+                        <EURedirect
+                            toggle={toggleModal}
+                            is_open={show_modal}
+                            closeModal={closeModal}
+                            to={modal_payload.to}
+                            target={modal_payload.target}
+                            rel={modal_payload.rel}
+                            ref={modal_payload.ref}
+                            aria_label={modal_payload.aria_label}
                         />
-                    )}
-                    <LayoutOverlay is_ppc={is_ppc} />
-                </LocationProvider>
+                        <BannerAlert bannerType={bannerTypes.outdatedBrowserBanner} />
+                        {show_non_eu_popup && (
+                            <NonEuRedirectPopUp
+                                is_open={show_non_eu_popup}
+                                setShowNonEuPopup={setShowNonEuPopup}
+                            />
+                        )}
+                        <LayoutOverlay is_ppc={is_ppc} />
+                    </LocationProvider>
+                )
+            ) : (
+                <></>
             )}
         </>
     )

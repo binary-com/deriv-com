@@ -4,7 +4,7 @@
     display: flex;
     border-radius: 1.6rem;
     border-color: transparent;
-    padding: 10px 24px;
+    padding: 10px 18px;
     transition: all 0.25s;
     line-height: 1;
     min-block-size: 4rem;
@@ -18,11 +18,10 @@
 .button {
     border-radius: 1.6rem;
     border-color: transparent;
-    padding: 10px 24px;
+    padding: 10px 18px;
     transition: all 0.25s;
     line-height: 1;
     min-block-size: 4rem;
-    max-inline-size: 18rem;
     display: table-cell;
     vertical-align: middle;
     outline: none;

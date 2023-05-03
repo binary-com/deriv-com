@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react'
+import { Link as GatsbyLink, navigate } from 'gatsby'
 import Typography from '../typography'
 import { TypographyLinkProps } from '../typography/link'
 import Alert from '../alert'
@@ -29,6 +30,10 @@ const Link = (props: LinkProps) => {
 
     const handleClick: React.MouseEventHandler<'a'> = (event) => {
         onClick?.(event)
+
+        if (url.type === 'internal') {
+            navigate(hrefObject.href)
+        }
 
         if (show_modal) {
             setIsRedirectModalVisible(true)
@@ -61,11 +66,14 @@ const Link = (props: LinkProps) => {
         return rel
     }, [url, rel])
 
+    const foo = url.type === 'internal' && url.to.includes('careers')
+
+    const noHref = show_modal || foo
+
     return (
         <>
             <Typography.Link
-                href={!show_modal ? hrefObject?.href : undefined}
-                // href={hrefObject?.href}
+                href={!noHref ? hrefObject?.href : undefined}
                 onClick={handleClick}
                 target={linkTarget}
                 rel={linkRel}

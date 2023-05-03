@@ -15,11 +15,12 @@ const NavSingleItem = ({ item, is_mobile }: NavSingleItemProps) => {
         <Link
             size={is_mobile ? 'large' : 'medium'}
             padding_block="2x"
-            padding_inline="10x"
+            padding_inline="8x"
             url={item.content}
             weight={is_mobile ? 'bold' : 'normal'}
             font_family="UBUNTU"
             onClick={onCloseMenu}
+            break_word="normal"
         >
             <Localize translate_text={item.title} />
         </Link>

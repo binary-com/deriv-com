@@ -1,5 +1,3 @@
-import React from 'react'
-import { Localize } from 'components/localization'
 import Reliable from 'images/svg/principles/reliable.svg'
 import Fair from 'images/svg/principles/fare.svg'
 import Transparent from 'images/svg/principles/transparent.svg'
@@ -13,6 +11,7 @@ type PrinciplesType = {
         text: TString
     }>
     img: string
+    img_alt: TString
     separator: string
     color: string
 }
@@ -39,6 +38,7 @@ export const principles: Array<PrinciplesType> = [
             },
         ],
         img: Reliable,
+        img_alt: '_t_Deriv values reliability_t_',
         separator: '#85BDB140',
         color: '#85BDB1',
     },
@@ -67,6 +67,7 @@ export const principles: Array<PrinciplesType> = [
             },
         ],
         img: Fair,
+        img_alt: '_t_Deriv values fairness_t_',
         separator: '#FFC35940',
         color: '#FFC359',
     },
@@ -95,6 +96,7 @@ export const principles: Array<PrinciplesType> = [
             },
         ],
         img: Transparent,
+        img_alt: '_t_Deriv values transparency_t_',
         separator: '#9685BD40',
         color: '#9685BD',
     },
@@ -123,6 +125,7 @@ export const principles: Array<PrinciplesType> = [
             },
         ],
         img: Responsible,
+        img_alt: '_t_Deriv values responsibility_t_',
         separator: '#77A0C640',
         color: '#77A0C6',
     },

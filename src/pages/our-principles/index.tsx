@@ -95,7 +95,12 @@ const StyledFlex = styled(Flex)`
 const OurPrinciples = () => {
     return (
         <Layout>
-            <SEO title={localize('_t_Our principles | Deriv_t_')} />
+            <SEO
+                title={localize('_t_Our principles | Online trading | Deriv_t_')}
+                description={localize(
+                    '_t_Experience reliable, fair, transparent, and responsible online trading with Deriv. Our commitment to these principles drives everything we do._t_',
+                )}
+            />
             <TitleSection padding="120px 0 24px 10rem">
                 <StyledContainer>
                     <Header as="h1" type="hero" align="start" mb="24px">
@@ -112,7 +117,7 @@ const OurPrinciples = () => {
                         <Separator background={principle.separator} />
                         <Flex jc="space-between" tablet={{ fd: 'column' }} mobileM={{ m: '0 0' }}>
                             <StyledFlex max_width="180px" m="10px">
-                                <StyledImg src={principle.img} />
+                                <StyledImg src={principle.img} alt={localize(principle.img_alt)} />
                             </StyledFlex>
                             <Flex fd="column" max_width="792px">
                                 <ColorHeader as="h2" color={principle.color}>

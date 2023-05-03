@@ -26,8 +26,8 @@ const countries: CountryProps[] = [
     { name: '_t_India_t_', flag: India },
     { name: '_t_Kenya_t_', flag: Kenya },
     { name: '_t_Nigeria_t_', flag: Nigeria },
-    { name: '_t_SriLanka_t_', flag: SriLanka },
-    { name: '_t_SouthAfrica_t_', flag: SouthAfrica },
+    { name: '_t_Sri Lanka_t_', flag: SriLanka },
+    { name: '_t_South Africa_t_', flag: SouthAfrica },
     { name: '_t_Tanzania_t_', flag: Tanzania },
     { name: '_t_Zimbabwe_t_', flag: Zimbabwe },
 ]

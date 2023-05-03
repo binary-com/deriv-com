@@ -1,6 +1,6 @@
 import React from 'react'
+import Instant from 'images/svg/markets/instant.svg'
 import Favourite from 'images/svg/trade-types/favourite.svg'
-import Instant from 'images/svg/trade-types/instant.svg'
 import UserFriendly from 'images/svg/trade-types/user-friendly.svg'
 import Flexible from 'images/svg/trade-types/flexible.svg'
 import { Localize } from 'components/localization'

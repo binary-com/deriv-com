@@ -3,7 +3,7 @@ import { Localize } from 'components/localization'
 import Risk from 'images/svg/trade-types/risk.svg'
 import Exposure from 'images/svg/trade-types/exposure.svg'
 import Responsive from 'images/svg/trade-types/responsive.svg'
-import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
+import FriendlySupport from 'images/svg/markets/forex/smart.svg'
 import TradeAnytime from 'images/svg/trade-types/trade-anytime.svg'
 import Crash from 'images/svg/trade-types/crash.svg'
 

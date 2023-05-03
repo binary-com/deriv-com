@@ -138,7 +138,11 @@ const Layout = ({
             break
     }
     if (state_in_progress) {
-        return <Main margin_top={'0'} is_static={is_static}></Main>
+        return (
+            <Main margin_top={'0'} is_static={is_static}>
+                {children}
+            </Main>
+        )
     }
 
     // //Handle page layout when redirection from mobile app.

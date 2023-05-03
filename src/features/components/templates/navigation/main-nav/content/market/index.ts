@@ -9,6 +9,19 @@ export const marketSectionContent: SmartNavContent[] = [
     {
         id: 0,
         data: {
+            aria_label: 'Forex',
+            icon: {
+                src: Forex,
+                alt: 'Forex',
+            },
+            content: '_t_Trade the world’s largest financial market with popular forex pairs._t_',
+            title: '_t_Forex_t_',
+            url: { type: 'internal', to: '/markets/forex/' },
+        },
+    },
+    {
+        id: 1,
+        data: {
             aria_label: 'Derived',
             icon: {
                 src: DerivedFX,
@@ -21,19 +34,6 @@ export const marketSectionContent: SmartNavContent[] = [
             },
             title: '_t_Derived_t_',
             url: { type: 'internal', to: '/markets/synthetic/' },
-        },
-    },
-    {
-        id: 1,
-        data: {
-            aria_label: 'Forex',
-            icon: {
-                src: Forex,
-                alt: 'Forex',
-            },
-            content: '_t_Trade the world’s largest financial market with popular forex pairs._t_',
-            title: '_t_Forex_t_',
-            url: { type: 'internal', to: '/markets/forex/' },
         },
     },
     {

@@ -122,7 +122,7 @@ const platformsLinks: SmartFooterLink[] = [
     {
         id: 0,
         data: {
-            text: '_t_Deriv MT5_t_',
+            text: '_t_deriv MT5_t_',
             url: ({ is_ppc_redirect }) => ({
                 type: 'internal',
                 to: is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/',
@@ -132,7 +132,7 @@ const platformsLinks: SmartFooterLink[] = [
     {
         id: 1,
         data: {
-            text: '_t_Deriv X_t_',
+            text: '_t_deriv X_t_',
             url: { type: 'internal', to: '/derivx/' },
         },
         visibility: {
@@ -142,7 +142,7 @@ const platformsLinks: SmartFooterLink[] = [
     {
         id: 2,
         data: {
-            text: '_t_Deriv EZ_t_',
+            text: '_t_deriv EZ_t_',
             url: { type: 'internal', to: '/derivez/' },
         },
         visibility: {
@@ -152,7 +152,7 @@ const platformsLinks: SmartFooterLink[] = [
     {
         id: 3,
         data: {
-            text: '_t_Deriv GO_t_',
+            text: '_t_deriv GO_t_',
             url: { type: 'internal', to: '/deriv-go/' },
         },
         visibility: {
@@ -162,7 +162,7 @@ const platformsLinks: SmartFooterLink[] = [
     {
         id: 4,
         data: {
-            text: '_t_Deriv Trader_t_',
+            text: '_t_deriv Trader_t_',
             url: { type: 'internal', to: '/dtrader/' },
         },
     },
@@ -179,7 +179,7 @@ const platformsLinks: SmartFooterLink[] = [
     {
         id: 6,
         data: {
-            text: '_t_Deriv Bot_t_',
+            text: '_t_deriv Bot_t_',
             url: { type: 'internal', to: '/dbot/' },
         },
         visibility: {

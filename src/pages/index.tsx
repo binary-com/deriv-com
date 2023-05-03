@@ -6,7 +6,7 @@ import {
     TradeTypes,
     P2PHomeBanner,
 } from './home/_lazy-load'
-import MarketsFold from './home/_markets_fold'
+import LivePricing from './home/live-pricing'
 import Hero from './home/_hero'
 import { useHandleLazyLoad } from 'components/hooks/use-handle-lazy-load'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
@@ -24,7 +24,7 @@ const Home = () => {
     useOpenLiveChat(true)
     const { is_p2p_allowed_country } = useRegion()
 
-    const target = '#market-fold'
+    const target = '#live-pricing'
     const options = {
         root: null,
         rootMargin: '0px',
@@ -85,7 +85,7 @@ const Home = () => {
                 has_organization_schema
             />
             <Hero />
-            <MarketsFold />
+            <LivePricing />
             {lazyTemplate}
         </Layout>
     )

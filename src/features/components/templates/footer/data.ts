@@ -47,7 +47,7 @@ const aboutUsLinks: SmartFooterLink[] = [
     {
         id: 6,
         data: {
-            text: '_t_Deriv life_t_',
+            text: '_t_deriv life_t_',
             url: { type: 'company', url_name: 'derivlife' },
         },
     },

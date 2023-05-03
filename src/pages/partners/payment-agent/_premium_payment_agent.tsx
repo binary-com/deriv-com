@@ -5,6 +5,7 @@ import { Container, SectionContainer, Desktop, Mobile, Flex } from 'components/c
 import { Localize } from 'components/localization'
 import { Header, LocalizedLinkText } from 'components/elements'
 import device from 'themes/device'
+import useScreenSize from 'components/hooks/use-screen-size'
 import Botswana from 'images/svg/flags/botswana.svg'
 import Brazil from 'images/svg/flags/brazil.svg'
 import India from 'images/svg/flags/india.svg'
@@ -78,6 +79,8 @@ const ArrayWrapper = styled.div`
 `
 
 const PremiumPaymentAgent = () => {
+    const { is_mobile_or_tablet } = useScreenSize()
+
     return (
         <PremiumContainer>
             <WrapContainer justify="center">
@@ -94,6 +97,7 @@ const PremiumPaymentAgent = () => {
                             components={[
                                 <LocalizedLinkText
                                     key={0}
+                                    size={is_mobile_or_tablet ? '14px' : '16px'}
                                     color="red"
                                     target="_blank"
                                     href="/tnc/business-partners-payment-agents.pdf"

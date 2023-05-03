@@ -93,7 +93,7 @@ const PremiumPaymentAgent = () => {
                     </Header>
                     <Header as="h4" type="paragraph-1" weight="normal" mt="0.8rem">
                         <Localize
-                            translate_text="_t_For more info, <0>contact your country manager</0>_t_"
+                            translate_text="_t_For more info, contact your country manager_t_"
                             components={[
                                 <LocalizedLinkText
                                     key={0}

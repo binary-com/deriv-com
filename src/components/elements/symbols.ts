@@ -39,6 +39,8 @@ import CRASH300EU from 'images/svg/symbols/crash-eu-crash-300.svg'
 import BTCUSD from 'images/svg/symbols/btc-usd.svg'
 import BTCETH from 'images/svg/symbols/btc-eth.svg'
 import C from 'images/svg/symbols/c.svg'
+import DEX900UP from 'images/svg/symbols/dex-900up.svg'
+import DEX900DN from 'images/svg/symbols/dex-900dn.svg'
 import CADCHF from 'images/svg/symbols/cad-chf.svg'
 import CADJPY from 'images/svg/symbols/cad-jpy.svg'
 import CARDANO from 'images/svg/symbols/cardano.svg'
@@ -400,6 +402,8 @@ export {
     BTCUSD,
     BTCETH,
     C,
+    DEX900UP,
+    DEX900DN,
     CARDANO,
     CADCHF,
     CADJPY,

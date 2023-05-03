@@ -58,7 +58,7 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
     {
         id: 2,
         data: {
-            text: '_t_Deriv (BVI) Ltd is licensed by the British Virgin Islands Financial Services Commission (<0>licence</0>). The registered office of Deriv (BVI) is at Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands._t_',
+            text: '_t_Deriv (BVI) Ltd is licensed by the British Virgin Islands Financial Services Commission (<0>licence</0>). The registered office of Deriv (BVI) Ltd is at Kingston Chambers, P.O. Box 173, Road Town, Tortola, British Virgin Islands._t_',
             components: [
                 <Link
                     weight="bold"

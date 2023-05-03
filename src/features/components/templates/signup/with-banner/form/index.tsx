@@ -135,7 +135,7 @@ const SignupPublicForm = () => {
                     </Flex.Item>
                     <Flex.Item shrink="0" grow="1">
                         <Button.Primary fluid disabled={isButtonDisabled}>
-                            Sign up
+                            <Localize translate_text="_t_Sign up_t_" />
                         </Button.Primary>
                     </Flex.Item>
                 </Flex.Box>
@@ -154,7 +154,7 @@ const SignupPublicForm = () => {
                     </Input.Checkbox>
                 </Flex.Box>
                 <Typography.Paragraph>
-                    <Localize translate_text="Or sign up with" />
+                    <Localize translate_text="_t_Or sign up with_t_" />
                 </Typography.Paragraph>
                 <PublicSignupSocial />
             </Flex.Box>

@@ -78,6 +78,14 @@ const Layout = ({
 
     const is_static = type === 'static'
 
+    // Handle page layout when redirection from mobile app.
+    if (has_platform) {
+        return (
+            <Main margin_top={'0'} is_static={is_static}>
+                {children}
+            </Main>
+        )
+    }
     // Handle navigation types
     let Navigation
     let FooterNav = <></>
@@ -137,14 +145,7 @@ const Layout = ({
             FooterNav = <LoadableFooter is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
     }
-    //Handle page layout when redirection from mobile app.
-    if (has_platform) {
-        return (
-            <Main margin_top={'0'} is_static={is_static}>
-                {children}
-            </Main>
-        )
-    }
+
     return (
         <LocationProvider
             has_mounted={is_mounted}

@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 import Hero from './_pa-hero'
 import TapInto from './_tap-into'
 import { faq_schema } from './_faq-schema'
+import PremiumPaymentAgent from './_premium_payment_agent'
 import PageNotFound from 'pages/404'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
@@ -45,6 +46,7 @@ const PaymentAgent = () => {
                     <YourControl />
                     <WhoCanApply />
                     {is_p2p_allowed_country && <P2PBanner />}
+                    {is_row && <PremiumPaymentAgent />}
                     <Faq />
                 </Layout>
             ) : (

@@ -66,9 +66,9 @@ const Link = (props: LinkProps) => {
         return rel
     }, [url, rel])
 
-    const foo = url.type === 'internal' && url.to.includes('careers')
+    const is_internal_careers = url.type === 'internal' && url.to.includes('careers')
 
-    const noHref = show_modal || foo
+    const noHref = show_modal || is_internal_careers
 
     return (
         <>

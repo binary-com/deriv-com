@@ -137,49 +137,49 @@ const Layout = ({
             FooterNav = <LoadableFooter is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
             break
     }
+    if (state_in_progress) {
+        return <Main margin_top={'0'} is_static={is_static}></Main>
+    }
+
+    // //Handle page layout when redirection from mobile app.
+    if (has_platform) {
+        return (
+            <Main margin_top={'0'} is_static={is_static}>
+                {children}
+            </Main>
+        )
+    }
 
     return (
-        <>
-            {!state_in_progress ? (
-                has_platform ? (
-                    <Main margin_top={'0'} is_static={is_static}>
-                        {children}
-                    </Main>
-                ) : (
-                    <LocationProvider
-                        has_mounted={is_mounted}
-                        toggleModal={toggleModal}
-                        setModalPayload={setModalPayload}
-                    >
-                        {Navigation}
-                        <Main margin_top={margin_top} is_static={is_static}>
-                            {children}
-                        </Main>
-                        {FooterNav}
-                        <EURedirect
-                            toggle={toggleModal}
-                            is_open={show_modal}
-                            closeModal={closeModal}
-                            to={modal_payload.to}
-                            target={modal_payload.target}
-                            rel={modal_payload.rel}
-                            ref={modal_payload.ref}
-                            aria_label={modal_payload.aria_label}
-                        />
-                        <BannerAlert bannerType={bannerTypes.outdatedBrowserBanner} />
-                        {show_non_eu_popup && (
-                            <NonEuRedirectPopUp
-                                is_open={show_non_eu_popup}
-                                setShowNonEuPopup={setShowNonEuPopup}
-                            />
-                        )}
-                        <LayoutOverlay is_ppc={is_ppc} />
-                    </LocationProvider>
-                )
-            ) : (
-                <></>
+        <LocationProvider
+            has_mounted={is_mounted}
+            toggleModal={toggleModal}
+            setModalPayload={setModalPayload}
+        >
+            {Navigation}
+            <Main margin_top={margin_top} is_static={is_static}>
+                {children}
+            </Main>
+            {FooterNav}
+            <EURedirect
+                toggle={toggleModal}
+                is_open={show_modal}
+                closeModal={closeModal}
+                to={modal_payload.to}
+                target={modal_payload.target}
+                rel={modal_payload.rel}
+                ref={modal_payload.ref}
+                aria_label={modal_payload.aria_label}
+            />
+            <BannerAlert bannerType={bannerTypes.outdatedBrowserBanner} />
+            {show_non_eu_popup && (
+                <NonEuRedirectPopUp
+                    is_open={show_non_eu_popup}
+                    setShowNonEuPopup={setShowNonEuPopup}
+                />
             )}
-        </>
+            <LayoutOverlay is_ppc={is_ppc} />
+        </LocationProvider>
     )
 }
 

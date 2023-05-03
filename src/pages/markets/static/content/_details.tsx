@@ -91,7 +91,7 @@ export const DexIndicesDetails = () => (
                 }
                 components={[<strong key={0} />]}
             />
-        </Text>{' '}
+        </Text>
         <Text>
             <Localize
                 translate_text={
@@ -99,7 +99,7 @@ export const DexIndicesDetails = () => (
                 }
                 components={[<strong key={0} />]}
             />
-        </Text>{' '}
+        </Text>
         <Text>
             <Localize
                 translate_text={

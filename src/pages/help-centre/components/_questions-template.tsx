@@ -28,7 +28,6 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
     const untranslate_category = getUntranslatedCategory(category)
     const filtered_questions = useFilteredQuestions(questions)
     const { is_deriv_go } = usePlatformQueryParam()
-    //checlk dummy
     return (
         <Layout>
             <SEO

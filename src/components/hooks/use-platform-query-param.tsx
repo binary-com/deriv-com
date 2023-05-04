@@ -7,7 +7,7 @@ export const usePlatformQueryParam = () => {
     const [is_deriv_go, setIsDerivGo] = useState(true)
     const [is_deriv_p2p, setIsDerivP2P] = useState(true)
     const [has_platform, setHasPlatform] = useState(false)
-    const [is_inprogress, setInprogress] = useState(true)
+    const [is_loading, setInprogress] = useState(true)
 
     useEffect(() => {
         setIsDerivGo(platform === 'derivgo')
@@ -16,5 +16,5 @@ export const usePlatformQueryParam = () => {
         setInprogress(false)
     }, [platform])
 
-    return { platform, has_platform, is_deriv_p2p, is_deriv_go, is_inprogress }
+    return { platform, has_platform, is_deriv_p2p, is_deriv_go, is_loading }
 }

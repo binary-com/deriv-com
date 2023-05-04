@@ -74,7 +74,7 @@ const Layout = ({
     const { show_non_eu_popup, setShowNonEuPopup } = usePopup()
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({} as ModalPayloadType)
-    const { has_platform, is_inprogress } = usePlatformQueryParam()
+    const { has_platform, is_loading } = usePlatformQueryParam()
 
     const is_static = type === 'static'
 
@@ -141,7 +141,7 @@ const Layout = ({
     return (
         <>
             {/* Handle page layout when redirection from mobile app. and when platform state not ready  */}
-            {has_platform || is_inprogress ? (
+            {has_platform || is_loading ? (
                 <Main margin_top={'0'} is_static={is_static}>
                     {children}
                 </Main>

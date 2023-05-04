@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
+import { Link } from "gatsby";
 import Login, { TSocialProvider } from 'common/login'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import validation from 'common/validation'
@@ -157,7 +158,10 @@ const StyledText = styled(Text)<{ tabletFontSize?: string }>`
     }
 `
 
-const StyledLocalizedLink = styled(LocalizedLinkText)`
+const StyledLocalizedLink = styled(Link)`
+    font-size: 1.2rem;
+    color: var(--color-red);
+    text-decoration-line: none;
     @media ${device.tabletL} {
         font-size: 10px;
     }
@@ -344,8 +348,6 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                                 <StyledLocalizedLink
                                     key={0}
                                     href="/tnc/security-and-privacy.pdf"
-                                    size="1.2rem"
-                                    color="red"
                                     rel="noopener noreferrer"
                                     target="_blank"
                                 />,

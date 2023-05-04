@@ -20,6 +20,9 @@ const NavSingleItem = ({ item, is_mobile }: NavSingleItemProps) => {
             weight={is_mobile ? 'bold' : 'normal'}
             font_family="UBUNTU"
             onClick={onCloseMenu}
+            md={{
+                padding_inline: '0x',
+            }}
             break_word="normal"
         >
             <Localize translate_text={item.title} />

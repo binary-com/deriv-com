@@ -8,3 +8,7 @@
         block-size: 3.2rem;
     }
 }
+
+html:not([lang='en']) .partners_buttons {
+    max-inline-size: 17rem;
+}

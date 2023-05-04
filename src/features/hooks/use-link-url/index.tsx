@@ -47,7 +47,7 @@ const product_links: ProductLinksType = {
     tnc_security: () => `${localized_link_url.domain_full_url}/tnc/security-and-privacy.pdf`,
 }
 
-const non_localized_internal_links = ['/careers']
+const non_localized_internal_links = ['/careers/']
 
 const useLinkUrl = (url: LinkUrlType) => {
     const [hrefObject, setHrefObject] = useState<
@@ -80,7 +80,7 @@ const useLinkUrl = (url: LinkUrlType) => {
         (url: string) => {
             const locale = i18n.language ?? 'en'
             const { is_default, path } = language_config[locale]
-            const is_non_localized = non_localized_internal_links.includes(url?.replace(/\/$/, ''))
+            const is_non_localized = non_localized_internal_links.includes(url)
             if (is_non_localized || is_default) {
                 return url
             }

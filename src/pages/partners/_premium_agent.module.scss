@@ -1,0 +1,87 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+
+.wrap_container {
+  display: flex;
+  margin-bottom: 6rem;
+  gap: 0;
+  width: 90% !important;
+  margin-inline: auto;
+  justify-content: center;
+
+
+  @media (max-width: 1024px ) {
+    flex-wrap: wrap;
+
+  }
+
+  @media (max-width: 600px ) {
+    flex-wrap: wrap;
+    justify-content: start;
+
+  }
+
+    @include breakpoints (laptop) {
+      gap: 3rem;
+      padding: 40px 0 36px;
+    }
+
+
+  }
+
+  .wrapper {
+    width: 100%;
+    max-width: 56rem;
+  }
+
+  .premium-container {
+    @include breakpoints(tablet) {
+      padding: 40px 0 36px;
+    }
+  }
+
+  .array_wrapper {
+    display: grid;
+    gap: 3rem;
+    width: 296px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    margin-top: 2.5rem;
+
+    .country {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    @media (min-width: 600px ) {
+      width: 54rem;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+
+  .heading{
+    max-width: 32rem;
+    line-height: 40px !important;
+
+        @include breakpoints(laptop) {
+          max-width: 38rem;
+          line-height: 60px !important;
+
+        }
+
+        .heading_countries{
+          max-width: 32rem;
+          @include breakpoints(laptop) {
+            max-width: 38rem;
+
+          }
+
+        }
+  }
+
+  .box{
+    max-width: 56rem;
+  }

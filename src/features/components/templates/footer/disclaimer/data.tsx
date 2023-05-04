@@ -13,8 +13,8 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
                     key={0}
                     target="_blank"
                     url={{
-                        type: 'internal',
-                        to: '/regulatory/Deriv_Investments_(Europe)_Limited.pdf',
+                        type: 'non-company',
+                        href: '/regulatory/Deriv_Investments_(Europe)_Limited.pdf',
                     }}
                     rel="noopener noreferrer"
                 />,
@@ -34,8 +34,8 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
                     key={0}
                     target="_blank"
                     url={{
-                        type: 'internal',
-                        to: '/regulatory/Deriv_(FX)_Ltd.pdf',
+                        type: 'non-company',
+                        href: '/regulatory/Deriv_(FX)_Ltd.pdf',
                     }}
                     rel="noopener noreferrer"
                 />,
@@ -44,8 +44,8 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
                     key={0}
                     target="_blank"
                     url={{
-                        type: 'internal',
-                        to: '/regulatory/Deriv_(BVI)_Ltd.pdf',
+                        type: 'non-company',
+                        href: '/regulatory/Deriv_(BVI)_Ltd.pdf',
                     }}
                     rel="noopener noreferrer"
                 />,
@@ -65,8 +65,8 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
                     key={0}
                     target="_blank"
                     url={{
-                        type: 'internal',
-                        to: '/regulatory/Deriv_(BVI)_Ltd.pdf',
+                        type: 'non-company',
+                        href: '/regulatory/Deriv_(BVI)_Ltd.pdf',
                     }}
                     rel="noopener noreferrer"
                 />,
@@ -86,8 +86,8 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
                     key={0}
                     target="_blank"
                     url={{
-                        type: 'internal',
-                        to: '/regulatory/Deriv_(V)_Ltd.pdf',
+                        type: 'non-company',
+                        href: '/regulatory/Deriv_(V)_Ltd.pdf',
                     }}
                     rel="noopener noreferrer"
                 />,
@@ -125,8 +125,8 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
                     key={0}
                     target="_blank"
                     url={{
-                        type: 'internal',
-                        to: '/regulatory/Deriv_Investments_(Europe)_Limited.pdf',
+                        type: 'non-company',
+                        href: '/regulatory/Deriv_Investments_(Europe)_Limited.pdf',
                     }}
                     rel="noopener noreferrer"
                 />,
@@ -177,8 +177,8 @@ export const riskWarningContent: SmartDisclaimerParagraph[] = [
                     key={1}
                     target="_blank"
                     url={{
-                        type: 'internal',
-                        to: '/tnc/risk-disclosure.pdf',
+                        type: 'non-company',
+                        href: '/tnc/risk-disclosure.pdf',
                     }}
                 />,
                 <Link
@@ -225,8 +225,8 @@ export const riskWarningContent: SmartDisclaimerParagraph[] = [
                     key={1}
                     target="_blank"
                     url={{
-                        type: 'internal',
-                        to: '/tnc/risk-disclosure.pdf',
+                        type: 'non-company',
+                        href: '/tnc/risk-disclosure.pdf',
                     }}
                 />,
                 <Link
@@ -272,8 +272,8 @@ export const riskWarningContent: SmartDisclaimerParagraph[] = [
                     key={1}
                     target="_blank"
                     url={{
-                        type: 'internal',
-                        to: '/tnc/risk-disclosure-eu.pdf',
+                        type: 'non-company',
+                        href: '/tnc/risk-disclosure-eu.pdf',
                     }}
                 />,
                 <Link

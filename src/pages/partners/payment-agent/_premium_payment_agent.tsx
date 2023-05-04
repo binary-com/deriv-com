@@ -69,7 +69,6 @@ const PremiumPaymentAgent = () => {
                                     className={heading_countries}
                                     size="large"
                                     weight="normal"
-                                    mb="2x"
                                 >
                                     <Localize translate_text={name} />
                                 </Typography.Paragraph>

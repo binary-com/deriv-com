@@ -74,7 +74,7 @@ const Link = (props: LinkProps) => {
     return (
         <>
             <Typography.Link
-                href={!noHref ? hrefObject?.href : undefined}
+                href={!noHref ? hrefObject?.href : 'javascript:void(0)'}
                 onClick={handleClick}
                 target={linkTarget}
                 rel={linkRel}

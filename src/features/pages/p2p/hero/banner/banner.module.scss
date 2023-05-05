@@ -1,0 +1,19 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.wrapper {
+    @include breakpoints(tablet){
+        height: 100%;
+        position: absolute;
+        right: 0;
+        width: 52%;
+    } 
+}
+.image_style {
+    @include breakpoints(tablet){
+        max-width: 600px;
+        margin-inline-start: 110px;
+    }
+    @include breakpoints(desktop){
+        max-width: 800px;
+    }
+}

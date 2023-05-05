@@ -38,12 +38,12 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
         {
             src: Leverage,
             text: is_eu ? localize('1:2 leverage') : localize('1:100 leverage'),
-            alt: 'Leverage',
+            alt: '1 to 100 leverage',
         },
         {
             src: TightSpread,
             text: localize('Tight spreads'),
-            alt: 'Spreads',
+            alt: 'tight spreads',
         },
         {
             src: CryptoPairs,
@@ -53,7 +53,7 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
         {
             src: ZeroCommission,
             text: localize('Zero commission'),
-            alt: 'Commission',
+            alt: 'zero commission',
         },
     ]
 

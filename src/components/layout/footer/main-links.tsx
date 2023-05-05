@@ -157,6 +157,11 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                                     </StyledLink>
                                 </LinkWrapper>
                                 <LinkWrapper>
+                                    <StyledLink to="/derivez/">
+                                        {<Localize translate_text="Deriv EZ" />}
+                                    </StyledLink>
+                                </LinkWrapper>
+                                <LinkWrapper>
                                     <StyledLink to="/deriv-go/">
                                         {<Localize translate_text="Deriv GO" />}
                                     </StyledLink>
@@ -290,7 +295,7 @@ const MainLinksSection = ({ is_ppc = false, is_ppc_redirect = false }: MainLinks
                         <LinkWrapper>
                             <StyledLink
                                 to=""
-                                type="academy"
+                                type="blog"
                                 external
                                 target="_blank"
                                 rel="noopener noreferrer"

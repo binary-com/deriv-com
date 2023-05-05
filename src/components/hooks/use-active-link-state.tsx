@@ -22,7 +22,7 @@ const getNavigationMap = (type: string) => {
                     'trader-tools',
                     'payment-methods',
                     'dmt5-trading-signals',
-                    'academy',
+                    'blog',
                 ],
             }
         case 'careers':
@@ -67,7 +67,7 @@ export const useActiveLinkState = (type: string) => {
             }
 
             Object.keys(navigation_map).forEach((key) => {
-                if (navigation_map[key].includes(current_root_page[level].replace('/', ''))) {
+                if (navigation_map[key].includes(current_root_page[level]?.replace('/', ''))) {
                     setCurrentPage(key)
                 }
             })

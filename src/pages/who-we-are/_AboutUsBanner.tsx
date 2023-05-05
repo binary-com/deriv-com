@@ -4,7 +4,7 @@ import BgMobile from 'images/common/who-we-are/about-us-banner-mobile.jpg'
 import BgMobileRTL from 'images/common/who-we-are/about-us-banner-mobile_rtl.jpg'
 import Bg from 'images/common/who-we-are/about-us-banner.jpg'
 import BgRTL from 'images/common/who-we-are/about-us-banner_rtl.jpg'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
 import { Header } from 'components/elements'
@@ -119,7 +119,7 @@ const AboutUsBanner = () => {
             >
                 <PictureFlex jc="start" ai="start" direction="column">
                     <StyledHeader as="h3" width="100%" type="unset" size="32px" color="white">
-                        {localize('We have a huge mission, an incredible team, and rapid growth.')}
+                        <Localize translate_text="_t_We have a huge mission, an incredible team, and rapid growth._t_" />
                     </StyledHeader>
                     <StyledHeader2
                         width="100%"
@@ -128,10 +128,10 @@ const AboutUsBanner = () => {
                         size="16px"
                         weight="400px"
                     >
-                        {localize('Join and grow with us.')}
+                        <Localize translate_text="_t_Join and grow with us._t_" />
                     </StyledHeader2>
                     <StyledLinkButton secondary to="/careers/">
-                        {localize('See our open positions')}
+                        <Localize translate_text="_t_See our open positions_t_" />
                     </StyledLinkButton>
                 </PictureFlex>
             </StyledFlex>

@@ -72,7 +72,7 @@ const pushwooshInit = (push_woosh) => {
                     }
                 })
                 // eslint-disable-next-line no-empty
-            } catch {}
+            } catch { }
 
             sendTags(api)
         },
@@ -85,6 +85,7 @@ export const wrapRootElement = ({ element }) => {
 
 export const onInitialClientRender = () => {
     if (is_browser) {
+
         // Check for PerformanceLongTaskTiming compatibility before collecting measurement
         const tti_script = document.createElement('script')
         tti_script.type = 'text/javascript'
@@ -123,13 +124,40 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
+
+     //datadog
+     const dd_options = {
+        clientToken: "pub08554ab30284600af157441bfb0fa923",
+        applicationId: "5c8975a3-ec86-4a64-8a3a-e6888fdde082",
+        site: "datadoghq.com",
+        service: "deriv.com",
+        env: "production",
+        version: "1.0.4",
+        sessionSampleRate: 10,
+        sessionReplaySampleRate: 10,
+        trackResources: true,
+        trackLongTasks: true,
+        trackUserInteractions: true,
+        trackFrustrations: true,
+        enableExperimentalFeatures: ["clickmap"],
+        defaultPrivacyLevel: "mask-user-input"
+    };
+    const dd_script=document.createElement("script");
+    dd_script.type="text/javascript";
+    dd_script.text=`!function(e,a,t,n,s){e=e[s]=e[s]||{q:[],onReady:function(a){e.q.push(a)}},(s=a.createElement(t)).async=1,s.src=n,(n=a.getElementsByTagName(t)[0]).parentNode.insertBefore(s,n)}(window,document,"script","https://www.datadoghq-browser-agent.com/us1/v4/datadog-rum.js","DD_RUM"),window.DD_RUM.onReady(function(){window.DD_RUM.init(${JSON.stringify(dd_options)})});`;
+    document.head.appendChild(dd_script);
+    // Start session replay recording
+    window.DD_RUM.onReady(function() {
+        window.DD_RUM.startSessionReplayRecording();
+    });
+      
     const push_woosh = new Pushwoosh()
     if (isLive()) {
         pushwooshInit(push_woosh)
     }
 
     addScript({
-        src: 'https://cdn.jsdelivr.net/gh/mohammad-hashemi-deriv/deriv-static-content@utm-source-replace-6/public/scripts/cookie.js',
+        src: 'https://static.deriv.com/scripts/cookie.js',
         async: true,
         strategy: 'off-main-thread',
     })

@@ -1,6 +1,7 @@
 import React from 'react'
 import loadable from '@loadable/component'
 import DP2Hero from './hero'
+import DP2Numbers from './numbers'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
@@ -29,6 +30,7 @@ const DP2PPage = () => {
                 />
                 <MainNav />
                 <DP2Hero />
+                <DP2Numbers />
                 <Footer />
             </Layout>
         )

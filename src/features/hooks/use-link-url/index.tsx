@@ -47,8 +47,6 @@ const product_links: ProductLinksType = {
     tnc_security: () => `${localized_link_url.domain_full_url}/tnc/security-and-privacy.pdf`,
 }
 
-const non_localized_internal_links = ['/careers/']
-
 const useLinkUrl = (url: LinkUrlType) => {
     const [hrefObject, setHrefObject] = useState<
         | {
@@ -76,18 +74,17 @@ const useLinkUrl = (url: LinkUrlType) => {
     const { i18n } = useTranslation()
     const { language } = i18n
 
-    const getInternalLink = useCallback(
-        (url: string) => {
-            const locale = i18n.language ?? 'en'
-            const { is_default, path } = language_config[locale]
-            const is_non_localized = non_localized_internal_links.includes(url)
-            if (is_non_localized || is_default) {
-                return url
-            }
-            return `/${path}${url}`
-        },
-        [i18n.language],
-    )
+    const getInternalLink = useCallback((url: string) => {
+        const rawLocale = localStorage.getItem('i18n') ?? 'en'
+        const locale = rawLocale?.replaceAll('-', '_')
+
+        const { is_default, path } = language_config[locale]
+        const is_non_localized = url.includes('careers')
+        if (is_non_localized || is_default) {
+            return url
+        }
+        return `/${path}${url}`
+    }, [])
     const getExternalLink = useCallback(
         (url: ExternalLinkType) => {
             if (url.type === 'company') {

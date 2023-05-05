@@ -54,14 +54,6 @@ module.exports = {
                 ],
             },
         },
-        'gatsby-plugin-react-helmet',
-        {
-            resolve: `gatsby-plugin-react-helmet-canonical-urls`,
-            options: {
-                siteUrl: `${site_url}`,
-                noQueryString: true,
-            },
-        },
         'gatsby-plugin-styled-components',
         {
             resolve: 'gatsby-source-filesystem',
@@ -289,14 +281,7 @@ module.exports = {
                 //   ],
             },
         },
-        {
-            resolve: 'gatsby-plugin-svgr',
-            options: {
-                rule: {
-                    include: /svg/, // See below to configure properly
-                },
-            },
-        },
+        'gatsby-plugin-svgr',
         {
             resolve: 'gatsby-plugin-eslint',
             options: {
@@ -329,21 +314,6 @@ module.exports = {
             options: {
                 id: 'GTM-NF7884S',
                 includeInDevelopment: false,
-            },
-        },
-        {
-            resolve: 'gatsby-plugin-anchor-links',
-            options: {
-                offset: -100,
-                duration: 0,
-            },
-        },
-        'gatsby-plugin-use-query-params',
-        {
-            resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
-            options: {
-                analyzerMode: 'disabled',
-                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
             },
         },
     ],

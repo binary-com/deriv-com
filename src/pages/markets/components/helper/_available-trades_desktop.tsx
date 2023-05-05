@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect } from 'react'
 import styled, { css } from 'styled-components'
-import { StringParam, useQueryParam } from 'use-query-params'
+import { useQueryParamString } from 'react-use-query-param-string'
 import { navigate } from 'gatsby'
 import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
@@ -209,7 +209,7 @@ const AvailableTradesDesktop = ({
     display_title,
 }: AvailableTradesProps) => {
     const { is_non_eu, is_region_loading } = useRegion()
-    const [tab, setTab] = useQueryParam('tab', StringParam)
+    const [tab, setTab] = useQueryParamString('tab', '')
 
     useEffect(() => {
         if (window.location.hash && !is_region_loading) {

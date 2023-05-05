@@ -27,7 +27,7 @@ const platformSliderItems: SmartPlatformItem[] = [
     {
         id: 0,
         data: {
-            title: '_t_Deriv GO_t_',
+            title: '_t_deriv GO_t_',
             description: '_t_Our best trading experience on your mobile._t_',
             url: {
                 type: 'internal',
@@ -68,7 +68,7 @@ const platformSliderItems: SmartPlatformItem[] = [
     {
         id: 1,
         data: {
-            title: '_t_Deriv MT5_t_',
+            title: '_t_deriv MT5_t_',
             description: '_t_The all-in-one CFD trading platform._t_',
             url: {
                 type: 'internal',
@@ -139,7 +139,7 @@ const platformSliderItems: SmartPlatformItem[] = [
     {
         id: 2,
         data: {
-            title: '_t_Deriv Trader_t_',
+            title: '_t_deriv Trader_t_',
             description: '_t_Our flagship app for trading options and multipliers._t_',
             url: {
                 type: 'internal',
@@ -180,7 +180,7 @@ const platformSliderItems: SmartPlatformItem[] = [
     {
         id: 3,
         data: {
-            title: '_t_Deriv X_t_',
+            title: '_t_deriv X_t_',
             description: '_t_The CFD trading platform to fit your style._t_',
             url: {
                 type: 'internal',
@@ -227,7 +227,7 @@ const platformSliderItems: SmartPlatformItem[] = [
     {
         id: 4,
         data: {
-            title: '_t_Deriv EZ_t_',
+            title: '_t_deriv EZ_t_',
             description: '_t_Our mobile-first CFD trading platform_t_',
             url: {
                 type: 'internal',
@@ -268,7 +268,7 @@ const platformSliderItems: SmartPlatformItem[] = [
     {
         id: 5,
         data: {
-            title: '_t_Deriv Bot_t_',
+            title: '_t_deriv Bot_t_',
             description: '_t_Automate your trading. No coding required._t_',
             url: {
                 type: 'internal',

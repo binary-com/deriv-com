@@ -1,11 +1,21 @@
-<svg width="70" height="69" viewBox="0 0 70 69" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-        d="M57.4389 4.15773L4.66757 56.9291C2.48454 59.1121 2.48454 62.6515 4.66757 64.8346L4.67464 64.8416C6.85767 67.0247 10.3971 67.0247 12.5801 64.8416L65.3515 12.0703C67.5345 9.88722 67.5345 6.34783 65.3515 4.1648L65.3444 4.15773C63.1614 1.9747 59.622 1.9747 57.4389 4.15773Z"
-        stroke="white" stroke-width="4" stroke-miterlimit="10" />
-    <path
-        d="M57.2004 64.8895C61.7843 64.8895 65.5004 61.1735 65.5004 56.5895C65.5004 52.0056 61.7843 48.2896 57.2004 48.2896C52.6164 48.2896 48.9004 52.0056 48.9004 56.5895C48.9004 61.1735 52.6164 64.8895 57.2004 64.8895Z"
-        stroke="white" stroke-width="4" stroke-miterlimit="10" />
-    <path
-        d="M12.9094 20.6C17.4933 20.6 21.2094 16.884 21.2094 12.3C21.2094 7.71604 17.4933 4 12.9094 4C8.32541 4 4.60938 7.71604 4.60938 12.3C4.60938 16.884 8.32541 20.6 12.9094 20.6Z"
-        stroke="white" stroke-width="4" stroke-miterlimit="10" />
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Linear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #414652;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <g id="Trade_types" data-name="Trade types">
+    <g id="_96px" data-name="96px">
+      <g id="Layer_457_copy_12" data-name="Layer 457 copy 12">
+        <rect class="cls-1" x="8.96" y="34.03" width="79.9" height="22.83" rx="4" ry="4" transform="translate(-10.09 14.21) rotate(-15)"/>
+        <path class="cls-1" d="M59.95,73.75c1.49,2.69-.49,5.99-3.56,5.94l-7.48-.13-7.48-.13c-3.08-.05-4.95-3.42-3.36-6.06l3.85-6.42,3.85-6.42c1.58-2.64,5.43-2.58,6.93,.12l3.63,6.54,3.63,6.54Z"/>
+      </g>
+    </g>
+  </g>
 </svg>

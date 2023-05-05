@@ -1,7 +1,5 @@
 {
-    "processors": [
-        "stylelint-processor-styled-components"
-    ],
+    "processors": ["stylelint-processor-styled-components"],
     "extends": [
         "stylelint-config-standard",
         "stylelint-config-styled-components",
@@ -19,21 +17,14 @@
         "selector-type-no-unknown": [
             true,
             {
-                "ignoreTypes": [
-                    "/^amp-/"
-                ]
+                "ignoreTypes": ["/^amp-/"]
             }
         ],
         "rule-empty-line-before": [
             "always",
             {
-                "ignore": [
-                    "after-comment"
-                ],
-                "except": [
-                    "inside-block-and-after-rule",
-                    "first-nested"
-                ]
+                "ignore": ["after-comment"],
+                "except": ["inside-block-and-after-rule", "first-nested"]
             }
         ],
         "value-keyword-case": null,
@@ -44,5 +35,15 @@
         "keyframes-name-pattern": null,
         "selector-class-pattern": null
     },
-    "syntax": "scss"
+    "syntax": "scss",
+    "overrides": [
+        {
+            "files": ["**/*.scss"],
+            "customSyntax": "postcss-scss"
+        },
+        {
+            "files": ["**/*.{js,ts,jsx,tsx}"],
+            "customSyntax": "@stylelint/postcss-css-in-js"
+        }
+    ]
 }

@@ -13,8 +13,8 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
                     key={0}
                     target="_blank"
                     url={{
-                        type: 'internal',
-                        to: '/terms-and-conditions/#clients',
+                        type: 'non-company',
+                        href: '/terms-and-conditions/#clients',
                     }}
                 />,
                 <Link
@@ -22,8 +22,8 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
                     key={1}
                     target="_blank"
                     url={{
-                        type: 'internal',
-                        to: '/tnc/risk-disclosure.pdf',
+                        type: 'non-company',
+                        href: '/tnc/risk-disclosure.pdf',
                     }}
                 />,
                 <Link
@@ -31,8 +31,8 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
                     key={2}
                     target="_blank"
                     url={{
-                        type: 'internal',
-                        to: '/responsible/',
+                        type: 'non-company',
+                        href: '/responsible/',
                     }}
                 />,
             ],
@@ -44,15 +44,15 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
     {
         id: 1,
         data: {
-            text: '_t_Make sure to read our <0>Terms and conditions</0>,<1> Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice._t_',
+            text: '_t_Make sure href read our <0>Terms and conditions</0>,<1> Risk disclosure</1>, and <2>Secure and responsible trading</2> href fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice._t_',
             components: [
                 <Link
                     weight="bold"
                     key={0}
                     target="_blank"
                     url={{
-                        type: 'internal',
-                        to: '/terms-and-conditions/#clients',
+                        type: 'non-company',
+                        href: '/terms-and-conditions/#clients',
                     }}
                 />,
                 <Link
@@ -60,8 +60,8 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
                     key={1}
                     target="_blank"
                     url={{
-                        type: 'internal',
-                        to: '/tnc/risk-disclosure-eu.pdf',
+                        type: 'non-company',
+                        href: '/tnc/risk-disclosure-eu.pdf',
                     }}
                 />,
                 <Link
@@ -69,8 +69,8 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
                     key={2}
                     target="_blank"
                     url={{
-                        type: 'internal',
-                        to: '/responsible/',
+                        type: 'non-company',
+                        href: '/responsible/',
                     }}
                 />,
             ],

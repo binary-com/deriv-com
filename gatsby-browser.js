@@ -26,13 +26,6 @@ const checkDomain = () => {
     )
 }
 
-export const shouldUpdateScroll = () => {
-    // window.scrollTo(0, 0)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-
-    return false
-}
-
 const sendTags = (api) => {
     const language = LocalStore.get('i18n') || ''
     const domain = getDomain()

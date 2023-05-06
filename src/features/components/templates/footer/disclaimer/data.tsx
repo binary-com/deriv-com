@@ -13,8 +13,8 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
                     key={0}
                     target="_blank"
                     url={{
-                        type: 'non-company',
-                        href: '/terms-and-conditions/#clients',
+                        type: 'internal',
+                        to: '/terms-and-conditions/#clients',
                     }}
                 />,
                 <Link
@@ -31,8 +31,8 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
                     key={2}
                     target="_blank"
                     url={{
-                        type: 'non-company',
-                        href: '/responsible/',
+                        type: 'internal',
+                        to: '/responsible/',
                     }}
                 />,
             ],
@@ -51,8 +51,8 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
                     key={0}
                     target="_blank"
                     url={{
-                        type: 'non-company',
-                        href: '/terms-and-conditions/#clients',
+                        type: 'internal',
+                        to: '/terms-and-conditions/#clients',
                     }}
                 />,
                 <Link
@@ -69,8 +69,8 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
                     key={2}
                     target="_blank"
                     url={{
-                        type: 'non-company',
-                        href: '/responsible/',
+                        type: 'internal',
+                        to: '/responsible/',
                     }}
                 />,
             ],

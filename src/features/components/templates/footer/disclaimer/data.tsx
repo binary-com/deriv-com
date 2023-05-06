@@ -44,7 +44,7 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
     {
         id: 1,
         data: {
-            text: '_t_Make sure href read our <0>Terms and conditions</0>,<1> Risk disclosure</1>, and <2>Secure and responsible trading</2> href fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice._t_',
+            text: '_t_Make sure to read our <0>Terms and conditions</0>,<1> Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. Please also note that the information on this website does not constitute investment advice._t_',
             components: [
                 <Link
                     weight="bold"

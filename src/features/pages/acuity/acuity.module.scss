@@ -1,0 +1,11 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.acuity_tools_container {
+    margin-top: 120px;
+
+    @include breakpoints(tablet) {
+        margin-inline: 200px;
+        border-bottom: 1px solid $color-grey-1;
+    }
+}

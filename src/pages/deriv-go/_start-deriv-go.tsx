@@ -87,7 +87,7 @@ const StartDerivGo = () => {
                 <StyledHeader as="h2" type="heading-2" align="center" mb="4rem">
                     {localize('How to get started with Deriv GO')}
                 </StyledHeader>
-                <StepperView items={stepsData} contentWidth="385px" imageWidth="286px" />
+                <StepperView items={stepsData} contentWidth="385px" imageWidth="286px" gap="0" />
             </SmallContainer>
         </SectionContainer>
     )

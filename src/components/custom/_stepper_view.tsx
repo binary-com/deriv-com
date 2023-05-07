@@ -15,6 +15,7 @@ type TProps = {
     contentWidth?: string
     reverse?: boolean
     imageWidth?: string
+    gap?: string
 }
 
 type ItemsWrapperProps = {
@@ -23,13 +24,13 @@ type ItemsWrapperProps = {
 type ImageWrapperProps = {
     width?: string
 }
-const Wrapper = styled.div<{ reverse: boolean }>`
+const Wrapper = styled.div<{ reverse: boolean; gap: string }>`
     display: flex;
     align-items: center;
     width: 100%;
     max-width: 1120px;
     flex-direction: ${(props) => (props.reverse ? 'row-reverse' : 'row')};
-
+    gap: ${(props) => props.gap};
     @media ${device.tabletL} {
         flex-direction: column;
         gap: 24px;
@@ -49,9 +50,6 @@ const ItemsWrapper = styled.div<ItemsWrapperProps>`
         width: 100%;
         max-width: 100%;
         padding-left: 16px;
-    }
-    @media ${device.tablet} {
-        padding-inline-start: 0;
     }
 `
 
@@ -92,6 +90,7 @@ const StepperView: React.FC<TProps> = ({
     contentWidth,
     reverse = false,
     imageWidth,
+    gap = '60px',
 }) => {
     const [selected, setSelected] = useState<number>(default_step)
 
@@ -102,7 +101,7 @@ const StepperView: React.FC<TProps> = ({
     useEffect(() => setSelected(default_step), [items, default_step])
 
     return (
-        <Wrapper reverse={reverse}>
+        <Wrapper reverse={reverse} gap={gap}>
             <ImageWrapper>
                 <ImageInnerBox width={imageWidth}>{items[selected]?.image()}</ImageInnerBox>
             </ImageWrapper>

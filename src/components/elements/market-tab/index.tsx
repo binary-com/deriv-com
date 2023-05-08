@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import { market_buttons } from './_utils'
 import { TAvailableLiveMarkets } from './_types'
 import { ContainerWrapper, MarketButton, MarketsContainer, SVGWrapper } from './_styles'

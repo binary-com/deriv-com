@@ -28,21 +28,19 @@ const LiveMarketTable = ({ selected_market, to, display_name }: TLiveMarketTable
 
     const [sorting, setSorting] = React.useState<SortingState>([])
 
-    const region = is_eu ? 'eu' : 'row'
-
-    const regions = is_eu
+    const region = is_eu
         ? 'https://deriv-static-testing-default-rtdb.firebaseio.com/eu.json'
         : 'https://deriv-static-testing-default-rtdb.firebaseio.com/row.json'
 
     useEffect(() => {
-        fetch(regions)
+        fetch(region)
             .then((response) => response.json())
             .then((data) => {
                 const markets = data.market === 'stocks' ? 'indices' : data.market
                 Object.keys(markets).map((item) => {
                     if (item == selected_market) {
-                        const filetr = data.market[item]
-                        const result = Object.values(filetr)
+                        const selected_market_data = data.market[item]
+                        const result = Object.values(selected_market_data)
                         setMarketsData(result)
                     }
                 })
@@ -61,13 +59,11 @@ const LiveMarketTable = ({ selected_market, to, display_name }: TLiveMarketTable
         getSortedRowModel: getSortedRowModel(),
         onSortingChange: setSorting,
     })
-
     useEffect(() => {
-        const intervalId = setInterval(() => {
-            regions
-        }, 1000) // 10 seconds
-        console.log('markets_data', markets_data)
-        return () => clearInterval(intervalId)
+        const interval = setInterval(() => region, 1000)
+        return () => {
+            clearInterval(interval)
+        }
     }, [])
 
     const rows = table.getRowModel().rows.slice(0, TABLE_VISIBLE_ROWS)

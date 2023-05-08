@@ -1,7 +1,9 @@
 import React, { useEffect, useMemo, useState } from 'react'
+import { navigate } from 'gatsby'
 import Typography from '../typography'
 import { TypographyLinkProps } from '../typography/link'
 import Alert from '../alert'
+import Internal from './internal'
 import { LinkUrlType } from 'features/types'
 import useLinkUrl from 'features/hooks/use-link-url'
 import useRegion from 'components/hooks/use-region'
@@ -29,6 +31,10 @@ const Link = (props: LinkProps) => {
 
     const handleClick: React.MouseEventHandler<'a'> = (event) => {
         onClick?.(event)
+
+        if (url.type === 'internal') {
+            navigate(hrefObject.href)
+        }
 
         if (show_modal) {
             setIsRedirectModalVisible(true)
@@ -61,17 +67,29 @@ const Link = (props: LinkProps) => {
         return rel
     }, [url, rel])
 
+    const is_internal_careers = url.type === 'internal'
+
+    const noHref = show_modal || is_internal_careers
+
     return (
         <>
-            <Typography.Link
-                href={!show_modal ? hrefObject?.href : undefined}
-                // href={hrefObject?.href}
-                onClick={handleClick}
-                target={linkTarget}
-                rel={linkRel}
-                textcolor={is_active_page ? 'brand' : 'primary'}
-                {...rest}
-            />
+            {url.type === 'internal' ? (
+                <Internal
+                    to={hrefObject?.href}
+                    rel={linkRel}
+                    textcolor={is_active_page ? 'brand' : 'primary'}
+                    {...rest}
+                />
+            ) : (
+                <Typography.Link
+                    href={!noHref ? hrefObject?.href : 'javascript:void(0)'}
+                    onClick={handleClick}
+                    target={linkTarget}
+                    rel={linkRel}
+                    textcolor={is_active_page ? 'brand' : 'primary'}
+                    {...rest}
+                />
+            )}
 
             {is_redirect_modal_visible && (
                 <Alert

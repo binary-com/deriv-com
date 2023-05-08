@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TTranslatedQuestions } from '../data/_data-types'
+import { TQuestions } from '../data/_data-types'
 import { convertToHash } from './_utility'
 import { Header } from 'components/elements'
 import { Localize, LocalizedLink } from 'components/localization'
 
 type TSearchSuccess = {
-    suggested_topics: TTranslatedQuestions[]
+    suggested_topics: TQuestions[]
 }
 
 const StyledList = styled.ul`
@@ -36,7 +36,7 @@ const Link = styled(LocalizedLink)`
 const SearchSuccess = ({ suggested_topics }: TSearchSuccess) => (
     <>
         <Header as="h3" type="heading-3" color="black">
-            <Localize translate_text="Topic suggestions" />
+            <Localize translate_text="_t_Topic suggestions_t_" />
         </Header>
 
         <StyledList>

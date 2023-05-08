@@ -92,8 +92,6 @@ module.exports = {
                     '/**/endpoint',
                     '/signup-success',
                     '/**/signup-success',
-                    '/academy/blog/posts/preview',
-                    '/academy/subscription',
                 ],
                 query: `
                 {
@@ -321,7 +319,7 @@ module.exports = {
             resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
             options: {
                 analyzerMode: 'disabled',
-                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
+                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
             },
         },
     ],

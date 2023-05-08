@@ -3,7 +3,7 @@ import { Trans } from 'react-i18next'
 import { TString } from 'types/generics'
 
 type LocalizeProps = {
-    translate_text: string | TString
+    translate_text: TString
     values?: { [key: string]: string | number }
     components?: React.ReactElement[]
 }

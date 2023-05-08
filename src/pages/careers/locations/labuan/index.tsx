@@ -43,9 +43,9 @@ const Labuan = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('Labuan | Our office – Malaysia | Deriv')}
+                title={localize('_t_Labuan | Our office – Malaysia | Deriv_t_')}
                 description={localize(
-                    'Browse, find, and apply for jobs in IT, compliance, and accounts at our Labuan office.',
+                    '_t_Browse, find, and apply for jobs in IT, compliance, and accounts at our Labuan office._t_',
                 )}
             />
             <LocationLayout location={labuan} images={images} />

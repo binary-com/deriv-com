@@ -190,6 +190,7 @@ const SignupNew = ({
                     onBlur={handleValidation}
                     autoFocus={autofocus}
                     autoComplete="off"
+                    autoCapitalize="none"
                     required
                 />
             </InputGroup>

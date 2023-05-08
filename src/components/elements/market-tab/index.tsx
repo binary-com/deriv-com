@@ -5,9 +5,16 @@ import { ContainerWrapper, MarketButton, MarketsContainer, SVGWrapper } from './
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import TradingSpecificationTable from 'pages/trading-specification/components/_trading_spec_table'
+import LiveMarketTable from 'features/pages/home/live-pricing/components/_live_market_table'
 
-const MarketTab = () => {
+type MarketTabProps = {
+    is_home: boolean
+}
+
+const MarketTab = ({ is_home }: MarketTabProps) => {
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
+    const [linkToMarketPage, setLinkToMarketPage] = useState('/markets/forex')
+    const [displayName, setDisplayName] = useState('forex')
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
     }
@@ -22,10 +29,13 @@ const MarketTab = () => {
                             key={marketItem.id}
                             onClick={() => {
                                 onMarketButtonClick(marketItem.market_name)
+                                setLinkToMarketPage(marketItem.to)
+                                setDisplayName(marketItem.button_text)
                             }}
                         >
                             <SVGWrapper
                                 selected={marketItem.market_name === selected_market}
+                                key={marketItem.id}
                                 width={24}
                                 height={24}
                             >
@@ -55,7 +65,15 @@ const MarketTab = () => {
                 )}
             </ContainerWrapper>
 
-            <TradingSpecificationTable market={selected_market} />
+            {is_home ? (
+                <LiveMarketTable
+                    selected_market={selected_market}
+                    to={linkToMarketPage}
+                    display_name={displayName}
+                />
+            ) : (
+                <TradingSpecificationTable market={selected_market} />
+            )}
         </>
     )
 }

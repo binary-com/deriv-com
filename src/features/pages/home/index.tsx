@@ -1,10 +1,10 @@
 import React from 'react'
 import loadable from '@loadable/component'
 import HomeHero from './hero'
-import HomeMarkets from './markets'
 import P2PBanner from './p2p-banner'
 import ClientTestimonial from './client-testimonial'
 import TradeTypes from './trade-types'
+import LivePricing from './live-pricing'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
@@ -33,7 +33,7 @@ const HomePage = () => {
             />
             <MainNav />
             <HomeHero />
-            <HomeMarkets />
+            <LivePricing />
             <TradeTypes />
             <OurPlatforms />
             <ClientTestimonial />

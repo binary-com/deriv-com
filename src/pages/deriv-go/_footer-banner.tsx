@@ -10,6 +10,7 @@ import GetAppMobileBG from '../../images/common/dtrader/getAppMobileBG.jpg'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import {
     deriv_go_playstore_url,
@@ -18,11 +19,12 @@ import {
 } from 'common/constants'
 import DownloadColumn from 'components/custom/_multi-width-column-download'
 
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
-    gap: 28px;
+    gap: 16px;
     flex: 1;
     z-index: 2;
+    direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
     @media ${device.tabletL} {
         flex-direction: column;
         justify-content: center;
@@ -31,6 +33,7 @@ const ContentWrapper = styled.div`
 `
 const TextAndButtonWrapper = styled.div`
     @media ${device.tabletL} {
+        width: 328px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -40,10 +43,11 @@ const TextAndButtonWrapper = styled.div`
 
 const DerivGoGetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
+    const is_rtl = useIsRtl()
 
     const items = [
-        { text: 'App Store', icon: AndroidIcon, link: deriv_go_playstore_url },
-        { text: 'Google Play', icon: AppleIcon, link: deriv_go_ios_url },
+        { text: 'Google Play', icon: AndroidIcon, link: deriv_go_playstore_url },
+        { text: 'App Store', icon: AppleIcon, link: deriv_go_ios_url },
         { text: 'AppGallery', icon: AppGalleryIcon, link: deriv_go_huaweiappgallery_url },
     ]
 
@@ -51,17 +55,19 @@ const DerivGoGetApp = () => {
         <MultiWidthColumn
             firstColumnBackground="#4C515C"
             secondColumnBackground={GrayAngle30}
-            firstColumnWidth="50%"
-            secondColumnWidth="50%"
+            firstColumnWidth="55%"
+            secondColumnWidth="45%"
+            mobilePadding="50px 0"
             mobileBackgroundImage={GetAppMobileBG}
+            secondColumnMobileMargin="8rem 0 0 0"
         >
-            <ContentWrapper>
+            <ContentWrapper is_rtl={is_rtl}>
                 <img src={derivGoLogo} alt="Deriv Go logo" width="64px" height="64px" />
                 <TextAndButtonWrapper>
                     <CommonHeaderSection
                         title="_t_Get trading with Deriv GO_t_"
                         title_font_size={is_mobile_or_tablet ? '32px' : '64px'}
-                        align_title={is_mobile_or_tablet ? 'center' : 'left'}
+                        align_title={is_mobile_or_tablet ? 'center' : is_rtl ? 'right' : 'left'}
                         width="100%"
                         font_family_title="Ubuntu"
                         color="#fff"
@@ -74,6 +80,7 @@ const DerivGoGetApp = () => {
                 QRHeading1="_t_Scan to download_t_"
                 QRHeading2="Android & Huawei"
                 items={items}
+                is_rtl={is_rtl}
             />
         </MultiWidthColumn>
     )

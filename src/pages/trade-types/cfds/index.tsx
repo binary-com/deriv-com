@@ -39,7 +39,7 @@ const CFD = () => {
 
             <FullWidthMultiColumn
                 multiple_row={true}
-                header={<Localize translate_text="Why trade on CFDs on Deriv" />}
+                header={<Localize translate_text="Why trade CFDs on Deriv" />}
                 button_title={<Localize translate_text="Don't have a Deriv account yet?" />}
                 button_text="Create free demo account"
             >
@@ -48,7 +48,9 @@ const CFD = () => {
                         item_title={is_eu ? content.item_title_eu : content.item_title}
                         key={index}
                         text={is_eu ? content.text_eu : content.text}
-                        icon={<img src={content.src} alt={content.alt} />}
+                        icon={
+                            <img width="48px" height="48px" src={content.src} alt={content.alt} />
+                        }
                     />
                 ))}
             </FullWidthMultiColumn>

@@ -34,12 +34,20 @@ const query = graphql`
         }
     }
 `
+
+const StyledSection = styled(SectionContainer)`
+    @media ${device.tablet} {
+        padding-block-start: 5rem;
+        padding-block-end: 1.7rem;
+    }
+`
 const GoToLiveDemo = styled(LinkButton)`
     border: 2px solid var(--color-red);
     font-weight: bold;
     line-height: 1.43;
     width: fit-content;
     border-radius: 16px;
+    display: inline-block;
 
     @media ${device.tabletL} {
         max-width: 100%;
@@ -79,7 +87,7 @@ const DtraderEasySteps = () => {
                 title: () => <Localize translate_text="Select an asset" />,
                 image: () => (
                     <QueryImage
-                        data={data[is_mobile_or_tablet ? 'step_1' : 'step_1_eu']}
+                        data={data[is_row ? 'step_1' : 'step_1_eu']}
                         alt={<Localize translate_text="Select an asset" />}
                     />
                 ),
@@ -88,7 +96,7 @@ const DtraderEasySteps = () => {
                 title: () => <Localize translate_text="Monitor the chart" />,
                 image: () => (
                     <QueryImage
-                        data={data[is_mobile_or_tablet ? 'step_2' : 'step_2_eu']}
+                        data={data[is_row ? 'step_2' : 'step_2_eu']}
                         alt={<Localize translate_text="Monitor the chart" />}
                     />
                 ),
@@ -97,16 +105,16 @@ const DtraderEasySteps = () => {
                 title: () => <Localize translate_text="Place a trade" />,
                 image: () => (
                     <QueryImage
-                        data={data[is_mobile_or_tablet ? 'step_3' : 'step_3_eu']}
+                        data={data[is_row ? 'step_3' : 'step_3_eu']}
                         alt={<Localize translate_text="Place a trade" />}
                     />
                 ),
             },
         ],
-        [data, is_mobile],
+        [data, is_row],
     )
     return (
-        <SectionContainer>
+        <StyledSection>
             <Container justify="center" direction="column" ai="flex-start">
                 <CommonHeaderSection
                     title="_t_How it works_t_"
@@ -118,7 +126,6 @@ const DtraderEasySteps = () => {
                     align_title="center"
                     align_subtitle="center"
                     width="100%"
-                    font_weight_title="300"
                     font_weight_subtitle="bold"
                     font_family_title="Ubuntu"
                     font_family_subtitle="Ubuntu"
@@ -140,7 +147,7 @@ const DtraderEasySteps = () => {
                     )}
                 />
             </Container>
-        </SectionContainer>
+        </StyledSection>
     )
 }
 

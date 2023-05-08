@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import { StaticImage } from 'gatsby-plugin-image'
 import DerivBotLogo from 'images/svg/dbot/deriv-bot-banner-logo.svg'
-import DBotBanner from 'images/common/dbot/dbot-banner.png'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
@@ -12,6 +12,8 @@ import { Localize } from 'components/localization'
 import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import Shape from 'components/custom/_hero-shape'
 import Button from 'components/custom/_button'
+import { useIsRtl } from 'components/hooks/use-isrtl'
+import { Container } from 'components/containers'
 
 type DHeroProps = {
     background_alt?: string
@@ -29,11 +31,10 @@ type DHeroProps = {
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
-const ImageStyle = styled.img`
+const ImageStyle = styled.div`
     z-index: 1;
     max-width: 843px;
     width: inherit;
-    src: ${({ src }) => src};
 
     @media ${device.tablet} {
         width: 80%;
@@ -66,6 +67,8 @@ const BackgroundStyle = styled.div`
     height: 90vh;
     display: flex;
     justify-content: flex-end;
+    position: relative;
+    direction: ltr;
 
     @media ${device.tablet} {
         flex-direction: column-reverse;
@@ -73,18 +76,27 @@ const BackgroundStyle = styled.div`
         height: 100%;
     }
 `
-const ContentWrapperStyle = styled.div`
+const ContentWrapperStyle = styled.div<{ is_rtl: boolean }>`
     flex: 1;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     display: flex;
+    direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
+    max-width: 55%;
+    @media ${device.tablet} {
+        max-width: 100%;
+    }
 `
 const HeroImageWrapper = styled.div`
-    width: 50%;
+    width: 45%;
+    position: absolute;
+    right: 0;
+    height: 100%;
 
     @media ${device.tablet} {
         width: 100%;
+        position: relative;
     }
 `
 const GoToLiveDemo = styled(LinkButton)`
@@ -120,7 +132,6 @@ const Content = styled.div`
     display: flex;
     gap: 30px;
     flex-direction: column;
-    padding-left: 120px;
 
     @media ${device.tablet} {
         padding: 0 16px 64px;
@@ -135,60 +146,80 @@ const StyledLogo = styled.img`
         height: 32px;
     }
 `
+const StyledContainer = styled(Container)`
+    @media ${device.tablet} {
+        flex-direction: column-reverse;
+        justify-content: center;
+        margin: 0;
+        width: 100%;
+    }
+`
 const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
+    const is_rtl = useIsRtl()
 
     return (
         <BackgroundStyle>
-            <ContentWrapperStyle>
-                <Content>
-                    <StyledLogo src={DerivBotLogo} />
-                    <CommonHeaderSection
-                        title="_t_Automate your trading ideas without writing code_t_"
-                        title_font_size={is_mobile ? '32px' : '64px'}
-                        color="var(--color-black-9)"
-                    />
-                    <BannerButtonWrapper>
-                        {join_us_for_free &&
-                            (is_logged_in ? (
-                                <CreateAccountButton
-                                    onClick={handleGetTrading}
-                                    label="_t_Get Trading_t_"
-                                    primary
-                                    mobileFullWidth
+            <StyledContainer jc="flex-start">
+                <ContentWrapperStyle is_rtl={is_rtl}>
+                    <Content>
+                        <StyledLogo src={DerivBotLogo} />
+                        <CommonHeaderSection
+                            title="_t_Automate your trading ideas without writing code_t_"
+                            font_family_title={
+                                is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'
+                            }
+                            title_font_size={is_mobile ? '32px' : '64px'}
+                            color="var(--color-black-9)"
+                        />
+                        <BannerButtonWrapper>
+                            {join_us_for_free &&
+                                (is_logged_in ? (
+                                    <CreateAccountButton
+                                        onClick={handleGetTrading}
+                                        label="_t_Get Trading_t_"
+                                        primary
+                                        mobileFullWidth
+                                    />
+                                ) : (
+                                    <CreateAccountButton
+                                        onClick={handleSignup}
+                                        label="_t_Create free demo account_t_"
+                                        primary
+                                        mobileFullWidth
+                                    />
+                                ))}
+                            {is_live_demo && (
+                                <GoToLiveDemo
+                                    tertiary
+                                    external
+                                    type={getLinkType()}
+                                    target="_blank"
+                                    rel="noopener noreferrer nofollow"
+                                >
+                                    <Localize translate_text="Go to live demo" />
+                                </GoToLiveDemo>
+                            )}
+                        </BannerButtonWrapper>
+                    </Content>
+                </ContentWrapperStyle>
+                <HeroImageWrapper>
+                    <Shape angle={is_mobile ? 101 : 163} width="50%">
+                        <ImageWrapper>
+                            <ImageStyle>
+                                <StaticImage
+                                    src="../../images/common/dbot/dbot-banner.png"
+                                    loading="eager"
+                                    alt="banner"
                                 />
-                            ) : (
-                                <CreateAccountButton
-                                    onClick={handleSignup}
-                                    label="_t_Create free demo account_t_"
-                                    primary
-                                    mobileFullWidth
-                                />
-                            ))}
-                        {is_live_demo && (
-                            <GoToLiveDemo
-                                tertiary
-                                external
-                                type={getLinkType()}
-                                target="_blank"
-                                rel="noopener noreferrer nofollow"
-                            >
-                                <Localize translate_text="Go to live demo" />
-                            </GoToLiveDemo>
-                        )}
-                    </BannerButtonWrapper>
-                </Content>
-            </ContentWrapperStyle>
-            <HeroImageWrapper>
-                <Shape angle={is_mobile ? 101 : 163} width="50%">
-                    <ImageWrapper>
-                        <ImageStyle src={DBotBanner} />
-                    </ImageWrapper>
-                </Shape>
-            </HeroImageWrapper>
+                            </ImageStyle>
+                        </ImageWrapper>
+                    </Shape>
+                </HeroImageWrapper>
+            </StyledContainer>
         </BackgroundStyle>
     )
 }

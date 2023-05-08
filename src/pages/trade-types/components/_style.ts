@@ -24,11 +24,6 @@ const SmallContainer = styled(Container)`
         padding-right: 0;
     }
     @media ${device.tablet} {
-        width: 80%;
-        padding-left: 0;
-        padding-right: 0;
-    }
-    @media ${device.mobileM} {
         width: 90%;
         padding-left: 0;
         padding-right: 0;
@@ -100,10 +95,14 @@ const Card = styled.article`
     padding: 24px 24px;
     max-width: 28.2rem;
 
-    @media (max-width: 994px) {
+    @media (max-width: 680px) {
         padding: 16px 16px 36px;
-        max-width: 282px;
-        height: 42rem;
+        max-width: 80vw;
+        height: 35rem;
+    }
+
+    @media (max-width: 375px) {
+        height: 40rem;
     }
 
     &:hover .learn-more {
@@ -136,6 +135,7 @@ const HowItWorksItem = styled(Flex)`
     @media ${device.mobileL} {
         justify-content: flex-start;
         min-height: 123px;
+        padding: 24px;
     }
 `
 

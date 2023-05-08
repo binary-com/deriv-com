@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
@@ -14,17 +14,24 @@ type TradingType = {
     second_subtitle?: string
 }
 
+type Spacing = 1
+
+type SpaceProps = {
+    $spacing: Spacing
+}
+
 type DTradingProps = {
     reverse?: boolean
     trading?: TradingType[]
     two_title?: boolean
+    spacing?: Spacing
 }
 
 type ContentProps = {
     margin_right?: string
 }
 
-type ImageWrapperProps = {
+type ImageWrapperProps = SpaceProps & {
     margin_right?: string
 }
 
@@ -32,13 +39,20 @@ type RowProps = {
     flex_direction?: string
 }
 
-const StyledSection = styled(SectionContainer)`
+const StyledSection = styled(SectionContainer)<SpaceProps>`
     background-color: var(--color-white);
     @media ${device.tabletL} {
         padding: 1.74rem 0 4rem 0;
         border-top: unset;
         border-bottom: unset;
     }
+    ${(props) =>
+        props.$spacing === 1 &&
+        css`
+            @media ${device.tablet} {
+                padding-block-end: 0;
+            }
+        `}
 `
 
 const Content = styled.div<ContentProps>`
@@ -67,6 +81,27 @@ const ImageWrapper = styled.div<ImageWrapperProps>`
     @media ${device.tabletL} {
         margin: 2rem auto;
     }
+    ${(props) =>
+        props.$spacing === 1 &&
+        css`
+            @media ${device.tablet} {
+                margin-block-end: 0;
+                max-inline-size: 65rem;
+                max-block-size: 37.7rem;
+            }
+            @media ${device.tabletS} {
+                max-inline-size: 45rem;
+                max-height: 27rem;
+            }
+            @media ${device.mobileL} {
+                max-inline-size: 41rem;
+                max-height: 24.7rem;
+            }
+            @media ${device.mobileM} {
+                max-inline-size: 35rem;
+                max-block-size: 21.5rem;
+            }
+        `}
 `
 const StyledHeader = styled(Header)`
     line-height: 1.25;
@@ -79,10 +114,8 @@ const StyledHeader = styled(Header)`
     }
 `
 const StyledTitle = styled(Header)`
-    font-size: 18px;
-    font-weight: 100;
+    font-weight: normal;
     margin: 8px 0 0;
-    color: var(--color-black-9);
 `
 const Row = styled.div<RowProps>`
     flex-direction: ${(props) => props.flex_direction};
@@ -163,10 +196,10 @@ const query = graphql`
         }
     }
 `
-const DTrading = ({ trading, reverse, two_title }: DTradingProps) => {
+const DTrading = ({ trading, reverse, two_title, spacing }: DTradingProps) => {
     const data = useStaticQuery(query)
     return (
-        <StyledSection>
+        <StyledSection $spacing={spacing}>
             <Container direction="column">
                 {trading.map((item, index) => {
                     const is_even = reverse ? (index + 1) % 2 : index % 2
@@ -183,17 +216,24 @@ const DTrading = ({ trading, reverse, two_title }: DTradingProps) => {
                                 <StyledHeader type="page-title" as="h2">
                                     {item.title}
                                 </StyledHeader>
-                                <StyledTitle>{item.subtitle}</StyledTitle>
+                                <StyledTitle as="p" type="paragraph-1">
+                                    {item.subtitle}
+                                </StyledTitle>
                                 {two_title && (
                                     <>
                                         <StyledHeader type="page-title" mt="2.4rem">
                                             {item.second_title}
                                         </StyledHeader>
-                                        <StyledTitle>{item.second_subtitle}</StyledTitle>
+                                        <StyledTitle as="p" type="paragraph-1">
+                                            {item.second_subtitle}
+                                        </StyledTitle>
                                     </>
                                 )}
                             </Content>
-                            <ImageWrapper margin_right={!is_even ? '0' : '2.4rem'}>
+                            <ImageWrapper
+                                margin_right={!is_even ? '0' : '2.4rem'}
+                                $spacing={spacing}
+                            >
                                 <QueryImage
                                     data={data[item.image_name]}
                                     alt={item.image_alt}

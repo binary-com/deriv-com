@@ -5,7 +5,7 @@ import { TString } from 'types/generics'
 import device from 'themes/device'
 
 type TProps = {
-    label: TString
+    label: TString | string
     onClick?: VoidFunction
     primary?: boolean
     secondary?: boolean
@@ -15,6 +15,7 @@ type TProps = {
     mobileFullWidth?: boolean
     disabled?: boolean
     id?: string
+    className?: string
 }
 
 type TLabelProps = Omit<TProps, 'label' | 'onClick'>
@@ -93,6 +94,7 @@ const Button: React.FC<TProps> = ({
     mobileFullWidth = false,
     disabled = false,
     id,
+    className,
 }) => {
     return (
         <Container
@@ -105,6 +107,7 @@ const Button: React.FC<TProps> = ({
             disabled={disabled}
             id={id}
             mobileFullWidth={mobileFullWidth}
+            className={className}
         >
             <Label
                 primary={primary}

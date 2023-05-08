@@ -1,9 +1,11 @@
 import React, { ReactNode, ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { Flex, Desktop, Mobile } from 'components/containers'
-import { Text } from 'components/elements'
+import { Text, Header } from 'components/elements'
+import CommonHeaderSection from 'components/elements/common-header-section'
 import device, { SizeType } from 'themes/device'
 import { ReactComponent as Info } from 'images/svg/trade-types/info2.svg'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 type ChildProps = {
     label?: JSX.Element
@@ -166,6 +168,8 @@ const Tabs = <T extends object>({
         setSelectedTab(tabIndex)
     }
 
+    const [is_mobile] = useBrowserResize()
+
     return (
         <Flex className={className} ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
             <TabListWrapper className="side-tab__wrapper">
@@ -183,12 +187,16 @@ const Tabs = <T extends object>({
                                     aria-selected={selected_tab === index ? 'true' : 'false'}
                                     onClick={() => selectTab(index)}
                                 >
-                                    <Text className="side-tab__label" weight="bold">
-                                        {label}
-                                    </Text>
-                                    <Text className="side-tab__description" mt="0.8rem">
-                                        {description}
-                                    </Text>
+                                    <CommonHeaderSection
+                                        title={label}
+                                        title_font_size={is_mobile ? '14px' : '16px'}
+                                    />
+                                    <CommonHeaderSection
+                                        subtitle={description}
+                                        subtitle_font_size={is_mobile ? '14px' : '16px'}
+                                        margin_subtitle="0.8rem 0 0 0"
+                                        line_height={is_mobile ? '20px' : '24px'}
+                                    />
                                 </TabButton>
                                 <MobileWrapper
                                     className="side-tab__mobile"

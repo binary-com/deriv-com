@@ -13,6 +13,7 @@ import { localize, WithIntl } from 'components/localization'
 import { StepperView } from 'components/elements'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useRegion from 'components/hooks/use-region'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 const HowAccumulatorsWork = Loadable(() => import('./_how-accumulators-works'))
 const AccumulatorsToTrade = Loadable(() => import('./_accumulators-to-trade'))
 
@@ -29,6 +30,7 @@ const ButtonContainer = styled.div`
 
 const Accumulators = () => {
     const { is_row } = useRegion()
+    const [is_mobile] = useBrowserResize()
     const [is_loaded, setLoaded] = useState(false)
     const handleSignup = useHandleSignup()
 
@@ -60,7 +62,7 @@ const Accumulators = () => {
                 <SmallContainer direction="column" ai="flex-start">
                     <CommonHeaderSection
                         title="_t_Start trading accumulators on Deriv_t_"
-                        title_font_size="3.2rem"
+                        title_font_size={is_mobile ? '24px' : '32px'}
                         margin_title="15rem 0 7rem 0"
                     />
                     <StepperView

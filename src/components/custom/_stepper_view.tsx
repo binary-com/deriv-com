@@ -14,26 +14,32 @@ type TProps = {
     renderFooter?: () => JSX.Element
     contentWidth?: string
     reverse?: boolean
+    imageWidth?: string
+    gap?: string
 }
 
 type ItemsWrapperProps = {
     width?: string
 }
-
-const Wrapper = styled.div<{ reverse: boolean }>`
+type ImageWrapperProps = {
+    width?: string
+}
+const Wrapper = styled.div<{ reverse: boolean; gap: string }>`
     display: flex;
     align-items: center;
     width: 100%;
     max-width: 1120px;
-    gap: 60px;
     flex-direction: ${(props) => (props.reverse ? 'row-reverse' : 'row')};
-
+    gap: ${(props) => props.gap};
     @media ${device.tabletL} {
         flex-direction: column;
         gap: 24px;
         padding: 40px 20px 0;
         width: 100%;
         align-items: flex-start;
+    }
+    @media ${device.tablet} {
+        padding-inline: 0;
     }
 `
 const ItemsWrapper = styled.div<ItemsWrapperProps>`
@@ -49,6 +55,7 @@ const ItemsWrapper = styled.div<ItemsWrapperProps>`
 
 const ImageWrapper = styled.div`
     flex: 1;
+    margin: 0 auto;
 `
 
 const UlStyle = styled.ul`
@@ -58,7 +65,6 @@ const UlStyle = styled.ul`
     flex-direction: column;
     gap: 24px;
     cursor: pointer;
-    font-family: Ubuntu, sans-serif;
 
     li {
         color: var(--color-black-9);
@@ -70,6 +76,11 @@ const UlStyle = styled.ul`
         align-items: left;
     }
 `
+const ImageInnerBox = styled.div<ImageWrapperProps>`
+    max-width: ${(props) => (props.width ? props.width : 'inherit')};
+    width: 100%;
+    margin: 0 auto;
+`
 
 const StepperView: React.FC<TProps> = ({
     items,
@@ -78,6 +89,8 @@ const StepperView: React.FC<TProps> = ({
     renderFooter,
     contentWidth,
     reverse = false,
+    imageWidth,
+    gap = '60px',
 }) => {
     const [selected, setSelected] = useState<number>(default_step)
 
@@ -88,8 +101,10 @@ const StepperView: React.FC<TProps> = ({
     useEffect(() => setSelected(default_step), [items, default_step])
 
     return (
-        <Wrapper reverse={reverse}>
-            <ImageWrapper>{items[selected]?.image()}</ImageWrapper>
+        <Wrapper reverse={reverse} gap={gap}>
+            <ImageWrapper>
+                <ImageInnerBox width={imageWidth}>{items[selected]?.image()}</ImageInnerBox>
+            </ImageWrapper>
             <ItemsWrapper width={contentWidth}>
                 <UlStyle>
                     {items.map((item, index) => (

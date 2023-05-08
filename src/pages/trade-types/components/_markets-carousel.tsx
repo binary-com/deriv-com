@@ -83,7 +83,7 @@ const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
             margin: '4rem 0',
         },
         chevron_style: {
-            chevron_color: 'red',
+            chevron_color: 'black-9',
         },
     }
 

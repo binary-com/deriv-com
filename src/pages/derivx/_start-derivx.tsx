@@ -107,6 +107,11 @@ const realActive = css`
         font-weight: unset;
     }
 `
+
+const StyledButtonWrapper = styled(Mobile)`
+    width: 100%;
+    padding: 0 15px;
+`
 const ButtonDp2p = styled(Button)`
     padding: 10px 16px;
     height: 40px;
@@ -119,7 +124,8 @@ const ButtonDp2p = styled(Button)`
     justify-content: center;
     align-items: center;
     background: #ff444f;
-    border-radius: 4px;
+    border-radius: 16px;
+    width: 100%;
 `
 const TabItem = styled.div<StartDerivXProps>`
     padding: 2.4rem 4rem;
@@ -267,13 +273,13 @@ const StartDerivX = () => {
                     </StyledText>
                 </TabItem>
                 <TabItem
-                    mobile_padding="12px 24px"
+                    mobile_padding="21px 12px"
                     active={tab === 'real'}
                     onClick={() => onTabClick('real')}
                     className="real-account"
                 >
                     <StyledText size="var(--text-size-m)" align="center">
-                        {localize('Real money account')}
+                        {localize('Real account')}
                     </StyledText>
                 </TabItem>
             </Flex>
@@ -281,11 +287,6 @@ const StartDerivX = () => {
             <Flex max_width="1200px">
                 <StepperView items={tab === 'demo' ? demo : real} contentWidth="385px" />
             </Flex>
-            <Mobile>
-                <ButtonDp2p secondary onClick={handleExternalLink}>
-                    {localize('Download Deriv X app')}
-                </ButtonDp2p>
-            </Mobile>
         </Section>
     )
 }

@@ -18,6 +18,12 @@ type TProps = {
     mainHeading: string
 }
 
+const StyledSection = styled(SectionContainer)`
+    @media ${device.tablet} {
+        padding-block-end: 4.5rem;
+    }
+`
+
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
     flex-direction: column;
@@ -43,7 +49,6 @@ const StyledText = styled(Text)`
 `
 const StyledPara = styled(Text)`
     margin-top: 1.6rem;
-    font-family: Ubuntu, sans-serif;
     font-size: 16px;
 
     @media (max-width: 680px) {
@@ -57,6 +62,8 @@ const StyledHeading = styled(Header)`
     color: var(--color-black-9);
     @media ${device.tablet} {
         font-size: 24px;
+        max-width: 213px;
+        margin: 0 auto;
     }
 `
 const Card = styled.article`
@@ -67,12 +74,12 @@ const Card = styled.article`
     height: 100%;
     padding: 24px 24px 0;
     max-width: 315px;
-    font-family: Ubuntu, sans-serif;
 
     @media (max-width: 680px) {
         padding: 16px 16px 36px;
-        max-width: 282px;
+        max-width: 328px;
         min-height: unset;
+        margin: 0 15px;
     }
 
     &:hover .learn-more {
@@ -110,7 +117,7 @@ const SmallContainer = styled(Container)`
 const GenericCarousel: React.FC<TProps> = ({ renderableData, mainHeading }) => {
     return (
         <>
-            <SectionContainer background="white" padding="8rem 0" position="relative">
+            <StyledSection background="white" position="relative">
                 <SmallContainer direction="column" ai="flex-start">
                     <StyledHeading as="h3" type="section-title" mb="2.4rem" align="center">
                         {localize(`_t_${mainHeading}_t_`)}
@@ -138,7 +145,7 @@ const GenericCarousel: React.FC<TProps> = ({ renderableData, mainHeading }) => {
                         </MarketsCarousel.Item>
                     ))}
                 </MarketsCarousel>
-            </SectionContainer>
+            </StyledSection>
         </>
     )
 }

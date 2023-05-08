@@ -23,6 +23,7 @@ const query = graphql`
 
 const SmallContainer = styled(Container)`
     width: 100%;
+    margin: 0 auto;
     @media ${device.tabletL} {
         width: 90%;
         padding: 0;
@@ -33,10 +34,10 @@ const StyledHeader = styled(Header)`
 
     @media ${device.mobileL} {
         font-size: 32px;
-        padding: 0 35px;
+        padding: 0;
     }
     @media ${device.mobileM} {
-        padding: 0 20px;
+        padding: 0;
     }
 `
 const StartDerivGo = () => {
@@ -86,7 +87,7 @@ const StartDerivGo = () => {
                 <StyledHeader as="h2" type="heading-2" align="center" mb="4rem">
                     {localize('How to get started with Deriv GO')}
                 </StyledHeader>
-                <StepperView items={stepsData} contentWidth="385px" />
+                <StepperView items={stepsData} contentWidth="385px" imageWidth="286px" gap="0" />
             </SmallContainer>
         </SectionContainer>
     )

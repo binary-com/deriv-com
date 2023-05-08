@@ -366,7 +366,7 @@ const WhatAreOptions = () => {
                         key={index}
                         item_title={is_eu ? content.item_title_eu : content.item_title}
                         text={is_eu ? content.text_eu : content.text}
-                        icon={<img src={content.src} alt="" />}
+                        icon={<img width="48px" height="48px" src={content.src} alt="" />}
                     ></StyledBox>
                 ))}
             </FullWidthMultiColumn>

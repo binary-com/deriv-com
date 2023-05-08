@@ -18,7 +18,7 @@ const StocksAndIndicesPage = () => (
         <DerivedFXHero
             title={localize('Stocks & indices')}
             description={localize(
-                'Trade global stocks of your favourite household brands and international stock market indices on Deriv. Our stocks & indices offer competitively priced equities and asset baskets that you can trade outside the regular hours of major stock markets.',
+                'Trade global stocks of your favourite household brands and international stock market indices on Deriv. Expand your trading opportunities with access to a wide range of stocks and indices at competitive prices, and the convenience to trade indices beyond standard market hours.',
             )}
             is_stocks_and_indices
         />

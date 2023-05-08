@@ -23,3 +23,11 @@ export const handleGetTrading = () => {
     )
     window.location.href = trading_url_localized
 }
+
+export const handleRedirectToTradersHub = () => {
+    const trading_hub_url_localized = getDerivAppLocalizedURL(
+        `${deriv_app_url}/appstore/traders-hub`,
+        getLanguage(),
+    )
+    window.location.href = trading_hub_url_localized
+}

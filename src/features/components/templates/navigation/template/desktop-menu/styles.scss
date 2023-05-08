@@ -16,11 +16,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 3.2rem;
     }
 
     &_trigger {
         all: unset;
-        padding: 8px 16px;
         outline: none;
         user-select: none;
         display: flex;

@@ -1,7 +1,7 @@
 import { SmartTradeTypeItem } from './types'
 import OptionsHomeIcon from 'images/svg/home/options_icon.svg'
 import MultipliersHomeIcon from 'images/svg/home/multipliers_icon.svg'
-import CfdHomeIcon from 'images/svg/home/cfd_icon.svg'
+import CfdHomeIcon from 'images/svg/home/cfd_icon_white.svg'
 
 export const tradeTypesItems: SmartTradeTypeItem[] = [
     {

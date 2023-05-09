@@ -299,12 +299,5 @@ module.exports = {
                 duration: 0,
             },
         },
-        {
-            resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
-            options: {
-                analyzerMode: 'disabled',
-                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
-            },
-        },
     ],
 }

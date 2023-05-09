@@ -18,7 +18,7 @@ const ask_price: TString = '_t_Ask price_t_'
 const spread: TString = '_t_Spread_t_'
 const daily_percentage_change: TString = '_t_Daily % Change_t_'
 
-const useLiveColumns = (marketData: () => void) => {
+const useLiveColumns = () => {
     const columns = useMemo(() => {
         return [
             liveMarketColumnHelper.accessor('shortcode', {
@@ -48,7 +48,7 @@ const useLiveColumns = (marketData: () => void) => {
                 cell: (info) => <DailyPercentageCell value={info.getValue()} />,
             }),
         ]
-    }, [marketData])
+    }, [])
 
     return columns
 }

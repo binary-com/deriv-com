@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
     flexRender,
     getCoreRowModel,
@@ -20,34 +20,61 @@ export type TLiveMarketTableProps = {
 
 const LiveMarketTable = ({ selected_market, to, display_name }: TLiveMarketTableProps) => {
     const { is_eu } = useRegion()
+    const [initial_loaded, setInitialLoaded] = useState(false)
+
+    const [rawMarketsData, setRawMarketsData] = useState()
+
     const TABLE_VISIBLE_ROWS = 5
     const [markets_data, setMarketsData] = useState(() => {
         const temp = new Map<TAvailableLiveMarkets, TMarketData[]>()
         return temp
     })
+    const intervalRef = useRef(null)
 
     const [sorting, setSorting] = React.useState<SortingState>([])
 
-    const region = is_eu
-        ? 'https://deriv-static-testing-default-rtdb.firebaseio.com/eu.json'
-        : 'https://deriv-static-testing-default-rtdb.firebaseio.com/row.json'
+    const region = useMemo(() => {
+        return is_eu
+            ? 'https://deriv-static-testing-default-rtdb.firebaseio.com/eu.json'
+            : 'https://deriv-static-testing-default-rtdb.firebaseio.com/row.json'
+    }, [is_eu])
+
+    const getData = useCallback(async () => {
+        const rawResponse = await fetch(region)
+        const response = await rawResponse.json()
+        setRawMarketsData(response)
+    }, [region])
 
     useEffect(() => {
-        fetch(region)
-            .then((response) => response.json())
-            .then((data) => {
-                const markets = data.market === 'stocks' ? 'indices' : data.market
-                Object.keys(markets).map((item) => {
-                    if (item == selected_market) {
-                        const selected_market_data = data.market[item]
-                        const result = Object.values(selected_market_data)
-                        setMarketsData(result)
-                    }
-                })
-            })
-    }, [selected_market, region])
+        if (!initial_loaded) {
+            getData()
+            setInitialLoaded(true)
+        }
+        intervalRef.current = setInterval(getData, 10000)
+        return () => {
+            clearInterval(intervalRef.current)
+        }
+    }, [getData, initial_loaded])
 
-    const columns = useLiveColumns(markets_data)
+    const updateData = useCallback(() => {
+        if (rawMarketsData) {
+            const markets = rawMarketsData.market == 'indices' ? 'stocks' : rawMarketsData.market
+
+            Object.keys(markets).map((item) => {
+                if (item == selected_market) {
+                    const selected_market_data = rawMarketsData.market[item]
+                    const result = Object.values(selected_market_data)
+                    setMarketsData(result)
+                }
+            })
+        }
+    }, [rawMarketsData, selected_market])
+
+    useEffect(() => {
+        updateData()
+    }, [updateData])
+
+    const columns = useLiveColumns()
 
     const table = useReactTable({
         data: markets_data,
@@ -59,12 +86,6 @@ const LiveMarketTable = ({ selected_market, to, display_name }: TLiveMarketTable
         getSortedRowModel: getSortedRowModel(),
         onSortingChange: setSorting,
     })
-    useEffect(() => {
-        const interval = setInterval(() => region, 1000)
-        return () => {
-            clearInterval(interval)
-        }
-    }, [])
 
     const rows = table.getRowModel().rows.slice(0, TABLE_VISIBLE_ROWS)
 

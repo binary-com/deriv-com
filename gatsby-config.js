@@ -294,7 +294,6 @@ module.exports = {
                             '/landing/',
                             '/endpoint/',
                             '/livechat/',
-                            '/storybook/',
                         ],
                     },
                 ],

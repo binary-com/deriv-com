@@ -409,9 +409,9 @@ export const updateURLAsPerUserLanguage = () => {
     const first_path = paths[1]
     const has_language_in_url = first_path in language_config
     if (has_language_in_url) {
-        setCookiesWithDomain('user_language', first_path)
+        setCookiesWithDomain('language', first_path)
     }
-    const user_language = Cookies.get('user_language') || 'en'
+    const user_language = Cookies.get('language') || 'en'
 
     const language = has_language_in_url ? first_path : user_language
 

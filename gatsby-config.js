@@ -30,14 +30,6 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
-        'gatsby-plugin-react-helmet',
-        {
-            resolve: `gatsby-plugin-react-helmet-canonical-urls`,
-            options: {
-                siteUrl: `${site_url}`,
-                noQueryString: true,
-            },
-        },
         'gatsby-plugin-styled-components',
         {
             resolve: 'gatsby-source-filesystem',
@@ -288,13 +280,7 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: [
-                            '/404/',
-                            '/homepage/',
-                            '/landing/',
-                            '/endpoint/',
-                            '/livechat/',
-                        ],
+                        disallow: ['/404/', '/homepage/', '/landing/', '/endpoint/', '/livechat/'],
                     },
                 ],
             },
@@ -313,7 +299,6 @@ module.exports = {
                 duration: 0,
             },
         },
-        'gatsby-plugin-use-query-params',
         {
             resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
             options: {

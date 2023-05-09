@@ -9,6 +9,7 @@ import {
     heading_countries,
 } from '../_premium_agent.module.scss'
 import { TString } from 'types/generics'
+import Container from 'features/components/atoms/container'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import FlexBox from 'features/components/atoms/flex-box'
@@ -44,9 +45,9 @@ const PremiumPaymentAgent = () => {
     const { is_mobile } = useScreenSize()
 
     return (
-        <div className={wrap_container}>
+        <Container.Fixed className={wrap_container}>
             <FlexBox.Box className={box} direction={'col'} mr={is_mobile ? '0x' : '40x'}>
-                <Typography.Heading className={heading} size={'medium'} mb="2x">
+                <Typography.Heading className={heading} size={'large'} mb="2x">
                     <Localize translate_text="_t_Premium payment agent_t_" />
                 </Typography.Heading>
                 <Typography.Paragraph size="medium" mt="5x" mb="2x">
@@ -57,7 +58,7 @@ const PremiumPaymentAgent = () => {
                 </Typography.Paragraph>
             </FlexBox.Box>
             <FlexBox.Box className={box} direction={'col'}>
-                <Typography.Paragraph weight={'bold'} size="medium" mt="10x" mb="2x">
+                <Typography.Paragraph weight={'bold'} size="medium" mt="19x" mb="2x">
                     <Localize translate_text="_t_Only available in these countries:_t_" />
                 </Typography.Paragraph>
                 <FlexBox.Box direction={'col'}>
@@ -77,7 +78,7 @@ const PremiumPaymentAgent = () => {
                     </div>
                 </FlexBox.Box>
             </FlexBox.Box>
-        </div>
+        </Container.Fixed>
     )
 }
 

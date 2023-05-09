@@ -64,11 +64,9 @@
 
   .heading{
     max-width: 32rem;
-    line-height: 40px !important;
 
         @include breakpoints(laptop) {
           max-width: 38rem;
-          line-height: 60px !important;
 
         }
 

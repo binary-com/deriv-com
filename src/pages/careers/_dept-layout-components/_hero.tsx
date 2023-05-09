@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Container from './_career-container'
 import { HeaderProps } from './_dept-layout.types'
 import { Header, BackgroundImage } from 'components/elements'
+import { LinkButton } from 'components/form'
 import device from 'themes/device'
 
 const StyledBackGroundImage = styled(BackgroundImage)`
@@ -41,6 +42,11 @@ const StyledContainer = styled(Container)`
     @media ${device.tablet} {
         padding: 0 2rem;
     }
+`
+const ButtonContainer = styled(Container)`
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 const query = graphql`
@@ -100,9 +106,10 @@ const query = graphql`
 
 type HeaderDataProps = {
     data: HeaderProps
+    link: string
 }
 
-const Hero = (header_data: HeaderDataProps) => {
+const Hero = (header_data: HeaderDataProps, link: string) => {
     const data = useStaticQuery(query)
     return (
         <StyledBackGroundImage
@@ -122,6 +129,11 @@ const Hero = (header_data: HeaderDataProps) => {
                 <Subheadline align="center" as="h3" type="subtitle-1" weight="400">
                     {header_data.data.subtitle}
                 </Subheadline>
+                <ButtonContainer>
+                    <LinkButton external mt="35px" to={header_data.link} secondary target="_blank">
+                        Apply Now
+                    </LinkButton>
+                </ButtonContainer>
             </StyledContainer>
         </StyledBackGroundImage>
     )

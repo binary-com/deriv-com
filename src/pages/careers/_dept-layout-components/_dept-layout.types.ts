@@ -2,6 +2,7 @@ export type HeaderProps = {
     background: string
     title: string
     subtitle: string
+    linkUrl: string
 }
 
 export type OpenPositionsProps = {

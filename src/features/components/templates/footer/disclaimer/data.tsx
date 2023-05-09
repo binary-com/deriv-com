@@ -91,4 +91,13 @@ export const riskWarningContent: SmartDisclaimerParagraph[] = [
             is_non_eu: true,
         },
     },
+    {
+        id: 1,
+        data: {
+            text: '_t_73% of retail investor accounts lose money when trading CFDs with Deriv. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money._t_',
+        },
+        visibility: {
+            is_cpa_plan: true,
+        },
+    },
 ]

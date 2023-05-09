@@ -258,13 +258,12 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-plugin-svgr',
+            resolve: `gatsby-plugin-canonical-urls`,
             options: {
-                rule: {
-                    include: /svg/, // See below to configure properly
-                },
+                siteUrl: `https://www.example.com`,
             },
         },
+        'gatsby-plugin-svgr',
         {
             resolve: 'gatsby-plugin-eslint',
             options: {
@@ -290,13 +289,6 @@ module.exports = {
             options: {
                 id: 'GTM-NF7884S',
                 includeInDevelopment: false,
-            },
-        },
-        {
-            resolve: 'gatsby-plugin-anchor-links',
-            options: {
-                offset: -100,
-                duration: 0,
             },
         },
     ],

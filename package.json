@@ -4,7 +4,7 @@
     "version": "0.1.0",
     "author": "Deriv",
     "dependencies": {
-        "@artsy/fresnel": "^3.2.1",
+        "@artsy/fresnel": "^6.1.0",
         "@deriv/deriv-api": "^1.0.11",
         "@livechat/customer-sdk": "^3.1.0",
         "@loadable/component": "^5.15.2",
@@ -15,7 +15,7 @@
         "crc-32": "^1.2.0",
         "deriv-api-ts": "^1.0.7",
         "embla-carousel-autoplay": "^6.2.0",
-        "embla-carousel-react": "^6.0.2",
+        "embla-carousel-react": "8.0.0-rc03",
         "eslint-import-resolver-node": "^0.3.6",
         "extend": "^3.0.2",
         "formik": "^2.2.9",
@@ -43,9 +43,9 @@
         "postcss": "^8.4.5",
         "prompt-sync": "^4.2.0",
         "prop-types": "^15.8.1",
-        "react": "^17.0.2",
+        "react": "^18.2.0",
         "react-device-detect": "^2.2.2",
-        "react-dom": "^17.0.2",
+        "react-dom": "^18.2.0",
         "react-helmet": "^6.1.0",
         "react-i18next": "^11.15.3",
         "react-is": "^17.0.2",
@@ -68,7 +68,7 @@
         "@types/node": "^18.11.10",
         "@types/react": "^17.0.38",
         "@types/react-dom": "^17.0.11",
-        "@types/react-test-renderer": "^17.0.1",
+        "@types/react-test-renderer": "^18.0.0",
         "@types/styled-components": "^5.1.19",
         "@typescript-eslint/eslint-plugin": "^5.9.0",
         "@typescript-eslint/parser": "^5.9.0",
@@ -98,7 +98,7 @@
         "npm-force-resolutions": "0.0.10",
         "prettier": "^2.5.1",
         "query-string": "^7.0.1",
-        "react-test-renderer": "^17.0.2",
+        "react-test-renderer": "^18.2.0",
         "styled-components": "^5.3.3",
         "stylelint": "^14.2.0",
         "stylelint-config-prettier": "^9.0.3",
@@ -153,6 +153,13 @@
         "url": "https://github.com/binary-com/deriv-com/issues"
     },
     "engines": {
+        "node": "18.x",
         "npm": ">=8.19.2"
+    },
+    "overrides": {
+        "react-ticker": {
+            "react": "^18.2.0",
+            "react-dom": "^18.2.0"
+        }
     }
 }

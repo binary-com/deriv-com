@@ -1,5 +1,5 @@
 import React from 'react'
-import { platform_list, platform_list_item, link_btn } from './styles.module.scss'
+import { platform_list, platform_list_item } from './styles.module.scss'
 import { PlatformType } from './types'
 import Flex from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'

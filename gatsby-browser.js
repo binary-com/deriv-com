@@ -15,6 +15,7 @@ import {
 import { pushwoosh_app_code } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
+import './static/css/ubuntu.css'
 
 const is_browser = typeof window !== 'undefined'
 

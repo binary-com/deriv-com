@@ -1,10 +1,21 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import { market_buttons } from './_utils'
 import { TAvailableLiveMarkets } from './_types'
-import { ContainerWrapper, MarketButton, MarketsContainer, SVGWrapper } from './_styles'
+import { ContainerWrapper, MarketButton, MarketsContainer } from './_styles'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import TradingSpecificationTable from 'pages/trading-specification/components/_trading_spec_table'
+
+const TabStyledHeader = styled(Header)`
+    font-family: 'Ubuntu';
+`
+
+const MarketIcon = styled.img<{ is_selected?: boolean }>`
+    inline-size: 24px;
+    block-size: 24px;
+    margin-block-end: 10px;
+`
 
 const MarketTab = () => {
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
@@ -24,16 +35,16 @@ const MarketTab = () => {
                                 onMarketButtonClick(marketItem.market_name)
                             }}
                         >
-                            <SVGWrapper
-                                selected={marketItem.market_name === selected_market}
-                                width={24}
-                                height={24}
-                            >
-                                <use href={`${marketItem.src}#${marketItem.market_name}`} />
-                            </SVGWrapper>
-                            <Header type="paragraph-2" as="p">
+                            <MarketIcon
+                                src={
+                                    marketItem.market_name === selected_market
+                                        ? marketItem.selected_src
+                                        : marketItem.src
+                                }
+                            />
+                            <TabStyledHeader type="paragraph-2" as="p">
                                 <Localize translate_text={marketItem.button_text} />
-                            </Header>
+                            </TabStyledHeader>
                         </MarketButton>
                     </>
                 ))}

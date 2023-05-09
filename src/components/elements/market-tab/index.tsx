@@ -27,7 +27,7 @@ const MarketTab = () => {
         <>
             <MarketsContainer>
                 {market_buttons.map((marketItem) => (
-                    <>
+                    <React.Fragment key={marketItem.market_name}>
                         <MarketButton
                             selected={marketItem.market_name === selected_market}
                             key={marketItem.id}
@@ -46,7 +46,7 @@ const MarketTab = () => {
                                 <Localize translate_text={marketItem.button_text} />
                             </TabStyledHeader>
                         </MarketButton>
-                    </>
+                    </React.Fragment>
                 ))}
             </MarketsContainer>
             <ContainerWrapper>

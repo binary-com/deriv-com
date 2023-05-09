@@ -8,6 +8,7 @@ export type TAvailableLiveMarkets =
 export type TInstrumentData = {
     symbol?: string
     dl_icon?: true
+    swf_icon?: true
     instrument?: string
 }
 export type THeaders = {
@@ -36,3 +37,5 @@ export type TSpecification = {
     dl_data?: TDLHeaders[]
     dl_title?: string
 }
+
+export type TPopupType = 'dl' | 'swf'

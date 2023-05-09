@@ -134,7 +134,7 @@ const MinimumVolume = () => {
                     </Text>
                 </TitleWrapper>
                 <ExampleWrapper>
-                    <StyledHeader as="h4" type="main-paragraph" mb="2.4rem">
+                    <StyledHeader as="p" type="main-paragraph" mb="2.4rem">
                         <Localize translate_text="_t_Example:_t_" />
                     </StyledHeader>
                     <CalculationWrapper ai="center" mb="24px">

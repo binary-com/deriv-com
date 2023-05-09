@@ -136,7 +136,7 @@ const Signup = (props: SignupProps) => {
             apiManager
                 .augmentedSend('trading_platform_new_account', {
                     trading_platform_new_account: 1,
-                    account_type: 'real',
+                    account_type: 'demo',
                     market_type: 'all',
                     platform: 'ctrader',
                 })

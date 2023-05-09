@@ -8,6 +8,7 @@ import device from 'themes/device'
 import { Header, StyledLink, Text } from 'components/elements'
 import EmailIcon from 'images/svg/check-email/email.svg'
 import { Button, Input } from 'components/form'
+import apiManager from 'common/websocket'
 
 const EmailLink = styled(StyledLink)`
     display: table;
@@ -81,6 +82,24 @@ const SignupSuccess = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log(code)
+
+        apiManager
+            .augmentedSend('new_account_virtual', {
+                new_account_virtual: 1,
+                type: 'trading',
+                // client_password: 'C0rrect_p4ssword',
+                // residence: 'id',
+                verification_code: code,
+            })
+            .then((response) => {
+                if (response.error) {
+                    setCodeErrorMessage(response.error.message)
+                } else {
+                    setIsSubmitting(false)
+                    setSubmitStatus('success')
+                    if (onSubmit) onSubmit(submit_status, email)
+                }
+            })
     }
     const clearCode = () => {
         setCode('')

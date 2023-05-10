@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { market_buttons } from './_utils'
-import { TAvailableLiveMarkets } from './_types'
 import { ContainerWrapper, MarketButton, MarketsContainer } from './_styles'
+import { TAvailableLiveMarkets } from './_types'
+import AvailablePlatform from 'pages/trading-specification/components/_available-platform'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import TradingSpecificationTable from 'pages/trading-specification/components/_trading_spec_table'
@@ -65,6 +66,7 @@ const MarketTab = () => {
                         ),
                 )}
             </ContainerWrapper>
+            <AvailablePlatform selected_market={selected_market} />
 
             <TradingSpecificationTable market={selected_market} />
         </>

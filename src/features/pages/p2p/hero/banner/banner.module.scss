@@ -10,8 +10,7 @@
 }
 .image_style {
     @include breakpoints(tablet){
-        max-width: 600px;
-        margin-inline-start: 110px;
+        max-width: 730px;
     }
     @include breakpoints(desktop){
         max-width: 800px;

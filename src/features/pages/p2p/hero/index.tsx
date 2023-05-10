@@ -2,11 +2,11 @@ import React from 'react'
 import DP2HeroContent from './content'
 import DP2HeroBanner from './banner'
 import Flex from 'features/components/atoms/flex-box'
-import ProductHeroContainer from 'features/components/templates/hero-banners/product'
+import DP2HeroContainer from 'features/components/templates/hero-banners/p2p'
 
 const DP2Hero = () => {
     return (
-        <ProductHeroContainer
+        <DP2HeroContainer
             container="fixed"
             style={{ direction: 'ltr' }}
             pt="40x"
@@ -27,7 +27,7 @@ const DP2Hero = () => {
                 <DP2HeroContent />
                 <DP2HeroBanner />
             </Flex.Box>
-        </ProductHeroContainer>
+        </DP2HeroContainer>
     )
 }
 

@@ -6,11 +6,11 @@ import { Button } from 'components/form'
 import BannerBg from 'images/common/markets/hero-derived-fx.png'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
-import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import MarketNav from 'features/components/templates/navigation/market-nav'
+import { handleGetTrading } from 'components/custom/utils'
 
 const BackgroundWrapper = styled.div`
     background: url(${BannerBg});

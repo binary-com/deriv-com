@@ -131,7 +131,7 @@ const Hero = (header_data: HeaderDataProps, link: string) => {
                 </Subheadline>
                 <ButtonContainer>
                     <LinkButton external mt="35px" to={header_data.link} secondary target="_blank">
-                        Apply Now
+                        Apply now
                     </LinkButton>
                 </ButtonContainer>
             </StyledContainer>

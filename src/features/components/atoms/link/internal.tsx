@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import language_config from '../../../../../i18n-config.js'
 import { LinkProps } from '.'
 import dclsx from 'features/utils/dclsx'
 import {
@@ -13,12 +14,12 @@ import {
     generateTypographyWeightClasses,
     generateVisibleClasses,
 } from 'features/styles/utils'
+import { InternalLinkType } from 'features/types'
 
 interface InternalProps extends Omit<LinkProps, 'url'> {
-    to: string
+    url: InternalLinkType
 }
 const Internal = ({
-    to,
     className,
     align,
     weight,
@@ -46,8 +47,16 @@ const Internal = ({
     lg,
     bgcolor,
     radius,
-    ...rest
+    url,
+    children,
 }: InternalProps) => {
+    const rawLocale = localStorage.getItem('i18n') ?? 'en'
+    const locale = rawLocale?.replaceAll('-', '_')
+
+    const { is_default, path } = language_config[locale]
+    const is_non_localized = url.to.includes('careers')
+
+    const to = is_non_localized || is_default ? url.to : `/${path}${url}`
     return (
         <Link
             to={to}
@@ -88,9 +97,10 @@ const Internal = ({
                     'typography-hover': !no_hover,
                 },
             )}
-            {...rest}
-        />
+        >
+            {children}
+        </Link>
     )
 }
 
-export default Internal
+export default React.memo(Internal)

@@ -75,7 +75,7 @@ const Link = (props: LinkProps) => {
         <>
             {url.type === 'internal' ? (
                 <Internal
-                    to={hrefObject?.href}
+                    url={url}
                     rel={linkRel}
                     textcolor={is_active_page ? 'brand' : 'primary'}
                     {...rest}

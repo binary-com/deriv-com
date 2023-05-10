@@ -9,9 +9,9 @@ import usePpc from 'features/hooks/use-ppc'
 
 const CfdWarningBanner = () => {
     const { is_ppc } = usePpc()
-    const { is_eu, is_cpa_plan } = useRegion()
+    const { is_eu } = useRegion()
 
-    if (is_ppc || is_eu || is_cpa_plan) {
+    if (is_ppc || is_eu) {
         return (
             <Container.Fixed className={cfd_banner_container} bgcolor="primary">
                 <Container.Fluid padding_block="10x">

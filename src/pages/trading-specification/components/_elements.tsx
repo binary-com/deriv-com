@@ -51,7 +51,7 @@ export const TableRow = styled.tr<TableRowProps>`
     padding: 10px;
     gap: 40px;
     th {
-        width: 7.6rem;
+        width: 8.6rem;
     }
     th: nth-child(1) {
         width: 180px;
@@ -60,7 +60,7 @@ export const TableRow = styled.tr<TableRowProps>`
         width: 160px;
     }
     td {
-        width: 7.6rem;
+        width: 8.6rem;
     }
     td: nth-child(1) {
         width: 180px;

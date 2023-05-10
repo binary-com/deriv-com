@@ -230,10 +230,7 @@ type TTableCellGroup = {
 }
 export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const { is_row } = useRegion()
-    const symbol = data.symbol
-    const text = data.instrument
-    const dlIcon = data.dl_icon
-    const swfIcon = data.swf_icon
+    const { symbol, instrument: text, dl_icon, swf_icon } = data
     const [showPopUp, setShowPopUp] = useState(false)
     const [popupType, setPopupType] = useState<TPopupType>()
     const [is_mobile] = useBrowserResize(768)
@@ -247,7 +244,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                 </StyledHeaderText>
                 {is_row && (
                     <>
-                        {dlIcon &&
+                        {dl_icon &&
                             (is_mobile ? (
                                 <StyledImg
                                     src={dl}
@@ -271,7 +268,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                                     }}
                                 />
                             ))}
-                        {swfIcon &&
+                        {swf_icon &&
                             (is_mobile ? (
                                 <StyledImg
                                     src={swf}

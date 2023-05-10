@@ -5,6 +5,7 @@ import DP2Numbers from './numbers'
 import DP2P from './dp2p'
 import DP2Steps from './steps'
 import DP2Availability from './availability'
+import DP2Banner from './banner'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
@@ -37,6 +38,7 @@ const DP2PPage = () => {
                 <DP2P />
                 <DP2Steps />
                 <DP2Availability />
+                <DP2Banner />
                 <Footer />
             </Layout>
         )

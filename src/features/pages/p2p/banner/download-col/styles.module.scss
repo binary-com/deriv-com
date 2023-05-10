@@ -1,0 +1,19 @@
+.qr_box {
+    border: 0.5px solid var(--color-white);
+    border-radius: 24px;
+}
+
+.app_text {
+    font-weight: 500;
+}
+
+.download_col {
+    max-inline-size: 416px;
+}
+.app_btn_wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding-inline-start: 18px;
+    padding-block-start: 32px;
+}

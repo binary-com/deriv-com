@@ -249,6 +249,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                                 <StyledImg
                                     src={dl}
                                     width="24px"
+                                    height="24px"
                                     onTouchStart={() => {
                                         setShowPopUp(true)
                                         setPopupType('dl')
@@ -260,6 +261,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                                 <StyledImg
                                     src={dl}
                                     width="24px"
+                                    height="24px"
                                     onClick={() => {
                                         setShowPopUp(true)
                                         setPopupType('dl')
@@ -273,6 +275,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                                 <StyledImg
                                     src={swf}
                                     width="30px"
+                                    height="24px"
                                     onTouchStart={() => {
                                         setShowPopUp(true)
                                         setPopupType('swf')
@@ -284,6 +287,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                                 <StyledImg
                                     src={swf}
                                     width="30px"
+                                    height="24px"
                                     onClick={() => {
                                         setShowPopUp(true)
                                         setPopupType('swf')

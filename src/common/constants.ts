@@ -172,3 +172,7 @@ export const browsers_minimum_required_version = {
     'Samsung Browser': 10,
     UCBrowser: 13,
 }
+export const bannerTypes = {
+    cookieBanner: 'cookie-banner',
+    outdatedBrowserBanner: 'outdated-browser-banner',
+}

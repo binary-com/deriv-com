@@ -40,9 +40,9 @@ const Malta = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('Malta – Our office | Deriv')}
+                title={localize('_t_Malta – Our office | Deriv_t_')}
                 description={localize(
-                    "Checkout the open job positions at our Malta office. Don't see the job you want? Send us your CV and we will contact you when your role becomes available.",
+                    "_t_Checkout the open job positions at our Malta office. Don't see the job you want? Send us your CV and we will contact you when your role becomes available._t_",
                 )}
             />
             <LocationLayout location={malta} images={images} />

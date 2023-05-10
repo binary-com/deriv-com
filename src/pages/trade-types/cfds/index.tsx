@@ -43,11 +43,23 @@ const CFD = () => {
                 button_title={<Localize translate_text="Don't have a Deriv account yet?" />}
                 button_text="Create free demo account"
             >
-                {cfd_content.map((content, index) => (
+                {cfd_content.map((content) => (
                     <StyledBox
-                        item_title={is_eu ? content.item_title_eu : content.item_title}
-                        key={index}
-                        text={is_eu ? content.text_eu : content.text}
+                        key={content.title}
+                        item_title={
+                            is_eu ? (
+                                <Localize translate_text={content.title_eu} />
+                            ) : (
+                                <Localize translate_text={content.title} />
+                            )
+                        }
+                        text={
+                            is_eu ? (
+                                <Localize translate_text={content.text_eu} />
+                            ) : (
+                                <Localize translate_text={content.text} />
+                            )
+                        }
                         icon={
                             <img width="48px" height="48px" src={content.src} alt={content.alt} />
                         }

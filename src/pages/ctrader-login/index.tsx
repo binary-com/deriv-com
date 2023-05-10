@@ -160,8 +160,8 @@ const SignupSuccess = () => {
                 no_index
             />
             <Wrapper>
-                <StatusHeader>{account_error && account_error}</StatusHeader>
-                <StatusHeader>{error && error}</StatusHeader>
+                {account_error && <StatusHeader>{account_error}</StatusHeader>}
+                {error && <StatusHeader>{error}</StatusHeader>}
                 {account_loading ? (
                     <StatusHeader>Loading</StatusHeader>
                 ) : (

@@ -3,6 +3,7 @@ import { graphql, StaticQuery, navigate } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import { getLanguage } from '../../common/utility'
+import CtraderSignupSuccess from './_ctrader-signup-success'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { Box } from 'components/containers'
 import Login, { TSocialProvider } from 'common/login'
@@ -134,11 +135,9 @@ const Signup = (props: SignupProps) => {
 
         if (props.appearance === 'cTrader') {
             apiManager
-                .augmentedSend('trading_platform_new_account', {
-                    trading_platform_new_account: 1,
-                    account_type: 'demo',
-                    market_type: 'all',
-                    platform: 'ctrader',
+                .augmentedSend('verify_email', {
+                    verify_email: email,
+                    type: 'account_opening',
                 })
                 .then((response) => {
                     setSubmitting(false)
@@ -147,9 +146,9 @@ const Signup = (props: SignupProps) => {
                         setSubmitErrorMsg(response.error.message)
                         handleValidation(formatted_email)
                     } else {
-                        setSubmitStatus('success')
+                        setSubmitStatus('ctrader-success')
                         if (props.onSubmit) {
-                            props.onSubmit(submit_status || 'success', email)
+                            props.onSubmit(submit_status || 'ctrader-success', email)
                         }
                     }
                 })
@@ -230,36 +229,43 @@ const Signup = (props: SignupProps) => {
                 return <SignupDefault {...parameters}></SignupDefault>
         }
     }
-    return props.submit_state === 'success' ? (
-        <ResponseWrapper>
-            <Header as="h3" type="section-title" align="center" weight="normal">
-                {localize('Check your email')}
-            </Header>
-            <StaticQuery
-                query={graphql`
-                    query {
-                        view_email: file(relativePath: { eq: "sign-up/view-email.png" }) {
-                            ...fadeIn
+
+    if (props.submit_state === 'success') {
+        return (
+            <ResponseWrapper>
+                <Header as="h3" type="section-title" align="center" weight="normal">
+                    {localize('Check your email')}
+                </Header>
+                <StaticQuery
+                    query={graphql`
+                        query {
+                            view_email: file(relativePath: { eq: "sign-up/view-email.png" }) {
+                                ...fadeIn
+                            }
                         }
-                    }
-                `}
-                render={(data) => (
-                    <Box m="3.2rem 0">
-                        <QueryImage data={data.view_email} alt="Email image" />
-                    </Box>
-                )}
-            />
-            <ConfirmationMessage>
-                <Localize
-                    translate_text="We've sent a message to {{email}} with a link to activate your account."
-                    values={{ email: props.email }}
+                    `}
+                    render={(data) => (
+                        <Box m="3.2rem 0">
+                            <QueryImage data={data.view_email} alt="Email image" />
+                        </Box>
+                    )}
                 />
-            </ConfirmationMessage>
-            <EmailLink to="/check-email/" align="center">
-                {localize("Didn't receive your email?")}
-            </EmailLink>
-        </ResponseWrapper>
-    ) : (
+                <ConfirmationMessage>
+                    <Localize
+                        translate_text="We've sent a message to {{email}} with a link to activate your account."
+                        values={{ email: props.email }}
+                    />
+                </ConfirmationMessage>
+                <EmailLink to="/check-email/" align="center">
+                    {localize("Didn't receive your email?")}
+                </EmailLink>
+            </ResponseWrapper>
+        )
+    }
+
+    if (props.submit_state === 'ctrader-success') return <CtraderSignupSuccess email={email} />
+
+    return (
         <Form onSubmit={handleEmailSignup} noValidate bgColor={props.bgColor}>
             {renderSwitch(props.appearance)}
         </Form>

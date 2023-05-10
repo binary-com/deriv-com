@@ -1,4 +1,6 @@
 import React from 'react'
+import AcuityFeatureGuide from './acuity-feature-guide'
+import WelcomeBannerAcuity from './welcome-banner-acuity'
 import MainNav from 'features/components/templates/navigation/main-nav'
 import Footer from 'features/components/templates/footer/'
 import Layout from 'features/components/templates/layout'
@@ -17,7 +19,8 @@ const Acuity = () => {
                 )}
             />
             <AcuityTradeTools />
-
+            <AcuityFeatureGuide />
+            <WelcomeBannerAcuity />
             <Footer />
         </Layout>
     )

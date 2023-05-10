@@ -1,23 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
 import SignalSteps from './_signal-steps'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 type HowToProps = {
     active_tab: 'signal-subscriber' | 'signal-provider'
 }
 
-const content = {
-    subscriber: {
-        header: <Localize translate_text="How to subscribe to an MT5 signal" />,
-    },
-    provider: {
-        header: <Localize translate_text="How to register as a signals provider" />,
-    },
+type THeaderContent = {
+    subscriber: TString
+    provider: TString
+}
+
+const header_content: THeaderContent = {
+    subscriber: '_t_How to subscribe to an MT5 signal_t_',
+    provider: '_t_How to register as a signals provider_t_',
 }
 
 const StyledSectionContainer = styled(SectionContainer)<HowToProps>`
@@ -70,11 +72,15 @@ const HowTo = ({ active_tab }: HowToProps) => {
         active_tab === 'signal-provider',
     ]
 
+    const header_text: TString = signal_subscriber
+        ? header_content.subscriber
+        : header_content.provider
+
     return (
         <StyledSectionContainer active_tab={active_tab}>
             <StyledContainer justify="center" direction="column">
                 <StyledHeader as="h2">
-                    {signal_subscriber ? content.subscriber.header : content.provider.header}
+                    <Localize translate_text={header_text} />
                 </StyledHeader>
                 <SignalSteps active_tab={active_tab} />
                 {signal_provider && (
@@ -86,7 +92,7 @@ const HowTo = ({ active_tab }: HowToProps) => {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        {localize('Go to your Deriv MT5 dashboard')}
+                        <Localize translate_text="_t_Go to your Deriv MT5 dashboard_t_" />
                     </DMT5Button>
                 )}
             </StyledContainer>

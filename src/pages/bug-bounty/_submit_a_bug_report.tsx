@@ -99,7 +99,7 @@ const SubmitABugReport = () => {
                     <TextWrap>
                         <Header type="heading-2" color="white" as="p" weight="700">
                             <Localize
-                                translate_text="Send your reports to our <0>Bug Bounty Platform</0>"
+                                translate_text="_t_Send your reports to our <0>Bug Bounty Platform</0>_t_"
                                 components={[
                                     <LinkText
                                         key={0}
@@ -129,7 +129,7 @@ const SubmitABugReport = () => {
                     weight="normal"
                 >
                     <Localize
-                        translate_text="Please read and understand the Deriv Bug Bounty Program’s <0>terms and conditions</0> before you participate in the program."
+                        translate_text="_t_Please read and understand the Deriv Bug Bounty Program’s <0>terms and conditions</0> before you participate in the program._t_"
                         components={[
                             <StyledLocalizedLinkText
                                 key={0}

@@ -50,7 +50,7 @@ const Internal = ({
     url,
     children,
 }: InternalProps) => {
-    const rawLocale = localStorage.getItem('i18n') ?? 'en'
+    const rawLocale = typeof window !== undefined ? localStorage.getItem('i18n') ?? 'en' : 'en'
     const locale = rawLocale?.replaceAll('-', '_')
 
     const { is_default, path } = language_config[locale]

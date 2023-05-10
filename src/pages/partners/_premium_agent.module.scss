@@ -32,22 +32,16 @@
 
   .wrapper {
     width: 100%;
-    max-width: 56rem;
-  }
-
-  .premium-container {
-    @include breakpoints(tablet) {
-      padding: 40px 0 36px;
-    }
+    max-inline-size: 56rem;
   }
 
   .array_wrapper {
     display: grid;
-    gap: 3rem;
-    width: 296px;
+    gap: 4rem;
+    inline-size: 296px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    margin-top: 2.5rem;
+    margin-block-start: 2.5rem;
 
     .country {
       display: flex;
@@ -56,30 +50,28 @@
     }
 
     @media (min-width: 600px ) {
-      width: 54rem;
+      inline-size: 54rem;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(3, 1fr);
     }
   }
 
   .heading{
-    max-width: 32rem;
+    max-inline-size: 27rem;
 
-        @include breakpoints(laptop) {
-          max-width: 38rem;
+    @include breakpoints(laptop) {
+      max-inline-size: 38rem;
+    }
 
-        }
+    .heading_countries{
+      max-inline-size: 32rem;
 
-        .heading_countries{
-          max-width: 32rem;
-          @include breakpoints(laptop) {
-            max-width: 38rem;
-
-          }
-
-        }
+      @include breakpoints(laptop) {
+        max-inline-size: 38rem;
+      }
+    }
   }
 
   .box{
-    max-width: 56rem;
+    max-inline-size: 56rem;
   }

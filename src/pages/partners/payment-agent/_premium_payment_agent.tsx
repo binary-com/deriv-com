@@ -11,6 +11,7 @@ import {
 import { TString } from 'types/generics'
 import Container from 'features/components/atoms/container'
 import { Localize } from 'components/localization'
+import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
 import FlexBox from 'features/components/atoms/flex-box'
 import useScreenSize from 'components/hooks/use-screen-size'
@@ -50,22 +51,22 @@ const PremiumPaymentAgent = () => {
                 <Typography.Heading className={heading} size={'large'} mb="2x">
                     <Localize translate_text="_t_Premium payment agent_t_" />
                 </Typography.Heading>
-                <Typography.Paragraph size="medium" mt="5x" mb="2x">
+                <Typography.Paragraph mt="5x" mb="2x">
                     <Localize translate_text="_t_Payment agents with good transaction volumes are selected to join an exclusive network of partners who can transfer funds with each other via their Deriv accounts. If an agent needs help with cash flow, others may pitch in to help. Only a limited number of payment agents are selected per country._t_" />
                 </Typography.Paragraph>
-                <Typography.Paragraph size="medium" mt="5x" mb="2x">
+                <Typography.Paragraph mt="5x" mb="2x">
                     <Localize translate_text="_t_For more info, contact your country manager_t_" />
                 </Typography.Paragraph>
             </FlexBox.Box>
             <FlexBox.Box className={box} direction={'col'}>
-                <Typography.Paragraph weight={'bold'} size="medium" mt="19x" mb="2x">
+                <Typography.Paragraph weight={'bold'} mt="14x" mb="2x">
                     <Localize translate_text="_t_Only available in these countries:_t_" />
                 </Typography.Paragraph>
                 <FlexBox.Box direction={'col'}>
-                    <div className={array_wrapper}>
+                    <FlexBox.Item className={array_wrapper}>
                         {countries.map(({ name, flag }) => (
-                            <div key={name} className={country}>
-                                <img src={flag} alt={`${name} flag`} />
+                            <FlexBox.Box key={name} className={country}>
+                                <Image src={flag} alt={`${name} flag`} />
                                 <Typography.Paragraph
                                     className={heading_countries}
                                     size="large"
@@ -73,9 +74,9 @@ const PremiumPaymentAgent = () => {
                                 >
                                     <Localize translate_text={name} />
                                 </Typography.Paragraph>
-                            </div>
+                            </FlexBox.Box>
                         ))}
-                    </div>
+                    </FlexBox.Item>
                 </FlexBox.Box>
             </FlexBox.Box>
         </Container.Fixed>

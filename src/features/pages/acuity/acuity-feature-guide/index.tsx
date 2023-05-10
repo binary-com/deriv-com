@@ -4,6 +4,7 @@ import FlexBox from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
+import LinkButton from 'features/components/atoms/link-button'
 
 const AcuityFeatureGuide = () => {
     const { is_eu } = useRegion()
@@ -37,9 +38,17 @@ const AcuityFeatureGuide = () => {
                                 margin_block="10x"
                                 md={{ basis: '4-12' }}
                             >
-                                {typeof feature.button === 'function'
-                                    ? feature.button({ is_eu })
-                                    : feature.button}
+                                <LinkButton.Primary
+                                    url={{
+                                        type: 'non-company',
+                                        href:
+                                            typeof feature.system_url === 'function'
+                                                ? feature.system_url({ is_eu })
+                                                : feature.system_url,
+                                    }}
+                                >
+                                    <Localize translate_text={feature.button_text} />
+                                </LinkButton.Primary>
                             </FlexBox.Item>
 
                             {feature?.info_title ? (

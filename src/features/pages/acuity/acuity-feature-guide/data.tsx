@@ -1,8 +1,6 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { TAcuityFeatures } from '../types'
-import { Localize } from 'components/localization'
-import LinkButton from 'features/components/atoms/link-button'
 import { deriv_acuity_eu_download, deriv_acuity_row_download } from 'common/constants'
 
 export const acuity_feature_guide_data: TAcuityFeatures[] = [
@@ -13,7 +11,7 @@ export const acuity_feature_guide_data: TAcuityFeatures[] = [
         image: (
             <StaticImage
                 src="../../../../images/common/acuity/acuity-feature-guide-image-1.png"
-                alt="Download the Acuity suite"
+                alt="Acuity trading tools for MT5 desktop terminal"
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
                 quality={100}
@@ -21,22 +19,8 @@ export const acuity_feature_guide_data: TAcuityFeatures[] = [
                 placeholder="none"
             />
         ),
-        button: ({ is_eu }) =>
-            is_eu ? (
-                <LinkButton.Primary
-                    size="medium"
-                    url={{ type: 'non-company', href: deriv_acuity_eu_download }}
-                >
-                    <Localize translate_text="_t_Download for free_t_" />
-                </LinkButton.Primary>
-            ) : (
-                <LinkButton.Primary
-                    size="medium"
-                    url={{ type: 'non-company', href: deriv_acuity_row_download }}
-                >
-                    <Localize translate_text="_t_Download for free_t_" />
-                </LinkButton.Primary>
-            ),
+        button_text: '_t_Download for free_t_',
+        system_url: ({ is_eu }) => (is_eu ? deriv_acuity_eu_download : deriv_acuity_row_download),
         direction: 'row',
         info_title: '_t_Only available on Windows_t_',
     },
@@ -47,7 +31,7 @@ export const acuity_feature_guide_data: TAcuityFeatures[] = [
         image: (
             <StaticImage
                 src="../../../../images/common/acuity/acuity-feature-guide-image-2.png"
-                alt="Want to know how the Acuity tools work?"
+                alt="Acuity research terminal"
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
                 quality={100}
@@ -55,14 +39,8 @@ export const acuity_feature_guide_data: TAcuityFeatures[] = [
                 placeholder="none"
             />
         ),
-        button: (
-            <LinkButton.Primary
-                size="medium"
-                url={{ type: 'non-company', href: '/acuity/acuity-tool-user-guide.pdf' }}
-            >
-                <Localize translate_text="_t_Show me the user guide_t_" />
-            </LinkButton.Primary>
-        ),
+        system_url: '/acuity/acuity-tool-user-guide.pdf',
+        button_text: '_t_Show me the user guide_t_',
         direction: 'row-reverse',
     },
 ]

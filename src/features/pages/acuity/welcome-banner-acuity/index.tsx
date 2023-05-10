@@ -14,7 +14,7 @@ const WelcomeBannerAcuity = () => {
             padding_inline="8x"
             md={{ padding_block: '40x', mt: '40x' }}
         >
-            <Typography.Heading as="h1" size="large" align="center" mb="10x" textcolor="inverted">
+            <Typography.Heading as="h3" size="large" align="center" mb="10x" textcolor="inverted">
                 <Localize translate_text="_t_Come start your trading journey with Deriv_t_" />
             </Typography.Heading>
             <Typography.Paragraph

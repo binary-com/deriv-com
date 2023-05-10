@@ -8,7 +8,8 @@ export type TAcuityFeatures = {
     image: ReactElement
     direction: TFlexDirection
     info_title?: TString
-    button?: ReactElement | ((config: Partial<SystemUrlItemConfig>) => ReactElement)
+    system_url?: string | ((config: Partial<SystemUrlItemConfig>) => string)
+    button_text: TString
 }
 
 interface SystemUrlItemConfig {

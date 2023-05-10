@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import language_config from '../../../../../i18n-config.js'
 import { LinkProps } from '.'
+import { isBrowser } from 'common/utility'
 import dclsx from 'features/utils/dclsx'
 import {
     generateBackgroundColor,
@@ -50,7 +51,10 @@ const Internal = ({
     url,
     children,
 }: InternalProps) => {
-    const rawLocale = typeof window !== undefined ? localStorage.getItem('i18n') ?? 'en' : 'en'
+    let rawLocale = 'en'
+    if (isBrowser()) {
+        rawLocale = localStorage.getItem('i18n') ?? 'en'
+    }
     const locale = rawLocale?.replaceAll('-', '_')
 
     const { is_default, path } = language_config[locale]

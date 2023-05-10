@@ -1,7 +1,7 @@
 @use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
 
-.product_hero {
+.p2p_hero {
     position: relative;
 
     @include breakpoints(tablet) {
@@ -18,8 +18,8 @@
         block-size: 65%;
         inline-size: 100%;
         background-color: $color-brand;
-        inset-block-end: 0;
-        clip-path: polygon(0 60%, 100% 40%, 100% 100%, 0% 100%);
+        inset-block-start: 0;
+        clip-path: polygon(0 0, 100% 0, 100% 60%, 0% 40%);
 
         @include breakpoints(tablet) {
             inset-block-end: unset;

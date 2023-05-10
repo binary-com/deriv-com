@@ -1,11 +1,13 @@
 @use 'features/styles/theme/theme-mixins' as *;
 
 .wrapper {
+    padding-block-start: 68px;
     @include breakpoints(tablet){
         height: 100%;
         position: absolute;
         right: 0;
         width: 52%;
+        padding-block-start: 0;
     } 
 }
 .image_style {

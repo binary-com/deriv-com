@@ -18,7 +18,7 @@ const DP2Hero = () => {
                 container="fluid"
                 align="center"
                 gap={'20x'}
-                direction="col"
+                direction="col-reverse"
                 md={{
                     direction: 'row',
                     justify: 'start',

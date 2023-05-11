@@ -5,12 +5,12 @@ import Favourite from 'images/svg/markets/forex/favourite.svg'
 import Golong from 'images/svg/markets/forex/go-long.svg'
 import Instant from 'images/svg/markets/forex/instant.svg'
 import SwapFree from 'images/svg/markets/forex/swap-free.svg'
-import { TString } from 'types/generics'
+import { TRegion, TString } from 'types/generics'
 
 type TCFD = {
-    text: TString
+    text: TString | ((config: Partial<TRegion>) => string)
     text_eu?: TString
-    title: TString
+    title: TString | ((config: Partial<TRegion>) => string)
     title_eu?: TString
 
     src: string
@@ -18,18 +18,21 @@ type TCFD = {
 }
 export const cfd_content: TCFD[] = [
     {
-        title: '_t_High leverage, tight spreads_t_',
-        title_eu: '_t_Tight spreads_t_',
-        text: '_t_Take advantage of high leverage and tight spreads on Deriv’s CFD trading platforms._t_',
-        text_eu: '_t_Take advantage of tight spreads on Deriv’s CFD trading platforms._t_',
+        title: ({ is_eu }) =>
+            is_eu ? '_t_Tight spreads_t_' : '_t_High leverage, tight spreads_t_',
+        text: ({ is_eu }) =>
+            is_eu
+                ? '_t_Take advantage of tight spreads on Deriv’s CFD trading platforms._t_'
+                : '_t_Take advantage of high leverage and tight spreads on Deriv’s CFD trading platforms._t_',
         src: Tight,
         alt: '_t_High leverage, tight spreads_t_',
     },
     {
         title: '_t_All your favourite markets_t_',
-        text: '_t_Trade on financial markets plus our proprietary synthetic indices that are available 24/7._t_',
-        text_eu:
-            '_t_Trade on all popular markets plus our proprietary synthetic indices that are available 24/7._t_',
+        text: ({ is_eu }) =>
+            is_eu
+                ? '_t_Trade on all popular markets plus our proprietary synthetic indices that are available 24/7._t_'
+                : '_t_Trade on financial markets plus our proprietary synthetic indices that are available 24/7._t_',
         src: Favourite,
         alt: '_t_All your favourite markets_t_',
     },
@@ -51,6 +54,8 @@ export const cfd_content: TCFD[] = [
         src: Instant,
         alt: '_t_Instant access_t_',
     },
+]
+export const non_eu_cfd_content: TCFD[] = [
     {
         title: '_t_Swap-free MT5 account_t_',
         text: '_t_Leave your trades open overnight with no additional charges._t_',

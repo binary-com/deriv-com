@@ -4,6 +4,7 @@ import { Flex } from 'components/containers'
 import { CardStyle, Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
 import Checkmark from 'images/svg/dmt5/checkmark.svg'
 import ZeroPercent from 'images/svg/dmt5/zero_percent.svg'
 import device from 'themes/device'
@@ -150,6 +151,10 @@ const CheckedText = ({ children }: CheckedTextProps) => (
 )
 
 const InterestFreeTrading = () => {
+    const { is_eu } = useRegion()
+    const commission = is_eu
+        ? '_t_Enjoy zero commission trading on all assets._t_'
+        : '_t_Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected derived and financial assets._t_'
     return (
         <StyledContainer>
             <InterestCardFlex fd="column" ai="center" jc="center">
@@ -172,7 +177,7 @@ const InterestFreeTrading = () => {
                     <Localize translate_text="_t_Trade on the world markets without commission_t_" />
                 </StyledHeader>
                 <StyledRightText>
-                    <Localize translate_text="_t_Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected derived and financial assets._t_" />
+                    <Localize translate_text={commission} />
                 </StyledRightText>
                 <StyledLinkButton secondary external type="mt5" target="_blank">
                     <Localize translate_text="_t_Trade without commission_t_" />

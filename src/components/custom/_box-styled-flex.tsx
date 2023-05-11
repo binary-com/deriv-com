@@ -22,7 +22,6 @@ type TProps = {
 const StyledText = styled(Header)`
     padding-block-end: 8px;
     font-size: 24px;
-    color: var(--color-black-9);
 
     @media ${device.tabletL} {
         font-size: 18px;
@@ -54,11 +53,13 @@ const StyledHowItWorksItem = styled(HowItWorksItem)`
     }
 `
 const StyledSubText = styled(Header)`
-    color: var(--color-black-9);
+    font-size: 16px;
+    line-height: 24px;
     font-weight: normal;
 
     @media ${device.tabletL} {
         font-size: 14px;
+        line-height: 20px;
     }
 `
 const ImageWrapper = styled.div`
@@ -71,9 +72,9 @@ const ImageWrapper = styled.div`
 const BoxStyledFlex = ({ items, containerWidth, boxsPerRow = 3 }: TProps) => {
     return (
         <OptionFlex containerWidth={containerWidth} boxsPerRow={boxsPerRow}>
-            {items.map((item, index) => {
+            {items.map((item) => {
                 return (
-                    <StyledHowItWorksItem key={index}>
+                    <StyledHowItWorksItem key={item.title}>
                         <OptionItems>
                             <ImageWrapper>
                                 <img src={item.icon} alt={item.image_alt} />

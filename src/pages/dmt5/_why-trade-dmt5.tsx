@@ -7,6 +7,7 @@ import TwentyFourSeven from 'images/svg/dmt5/twenty-four-seven.svg'
 import SwapFree from 'images/svg/dmt5/swap-free.svg'
 import { Localize } from 'components/localization'
 import { Header } from 'components/elements'
+import useRegion from 'components/hooks/use-region'
 import { Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 import BoxStyledFlex, { TItem } from 'components/custom/_box-styled-flex'
@@ -39,6 +40,8 @@ const card_data: TItem[] = [
             '_t_Trade with a regulated industry pioneer trusted by traders for more than 20 years._t_',
         image_alt: '_t_licensed and regulated_t_',
     },
+]
+const non_eu_card_data: TItem[] = [
     {
         icon: SwapFree,
         title: '_t_No overnight charges on swap-free accounts_t_',
@@ -73,13 +76,17 @@ const StyledHeader = styled(Header)`
     }
 `
 const WhyTrader = () => {
+    const { is_eu } = useRegion()
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
                 <Localize translate_text={'_t_Why trade with Deriv MT5_t_'} />
             </StyledHeader>
             <CardContainer>
-                <BoxStyledFlex items={card_data} containerWidth="900px" />
+                <BoxStyledFlex
+                    items={is_eu ? card_data : card_data.concat(non_eu_card_data)}
+                    containerWidth={is_eu ? '1200px' : '900px'}
+                />
             </CardContainer>
         </Section>
     )

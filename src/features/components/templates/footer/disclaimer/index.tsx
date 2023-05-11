@@ -9,7 +9,7 @@ import useRegion from 'components/hooks/use-region'
 import Container from 'features/components/atoms/container'
 
 const Disclaimer = () => {
-    const { is_eu, is_non_eu, is_cpa_plan } = useRegion()
+    const { is_eu, is_non_eu, is_cpa_plan, is_row } = useRegion()
 
     const visibility_config: DisclaimerParagraphConfig = useMemo(() => {
         return {
@@ -37,24 +37,30 @@ const Disclaimer = () => {
                     <Localize translate_text={item.data.text} components={item.data.components} />
                 </Typography.Paragraph>
             ))}
-            <Container.Fixed className={risk_warning_container} bgcolor="tertiary" padding="10x">
-                {visible_risk_content.map((item, index) => {
-                    const not_last_item =
-                        index !== visible_risk_content.length - 1 ? 'small' : undefined
-                    return (
-                        <Typography.Paragraph
-                            key={item.id}
-                            size={'small'}
-                            mb={not_last_item ? '10x' : undefined}
-                        >
-                            <Localize
-                                translate_text={item.data.text}
-                                components={item.data.components}
-                            />
-                        </Typography.Paragraph>
-                    )
-                })}
-            </Container.Fixed>
+            {is_row && !is_cpa_plan && (
+                <Container.Fixed
+                    className={risk_warning_container}
+                    bgcolor="tertiary"
+                    padding="10x"
+                >
+                    {visible_risk_content.map((item, index) => {
+                        const not_last_item =
+                            index !== visible_risk_content.length - 1 ? 'small' : undefined
+                        return (
+                            <Typography.Paragraph
+                                key={item.id}
+                                size={'small'}
+                                mb={not_last_item ? '10x' : undefined}
+                            >
+                                <Localize
+                                    translate_text={item.data.text}
+                                    components={item.data.components}
+                                />
+                            </Typography.Paragraph>
+                        )
+                    })}
+                </Container.Fixed>
+            )}
         </Container.Fixed>
     )
 }

@@ -121,7 +121,7 @@ const WhyUs = ({ items }: WhyUsProps) => {
                     return (
                         <Row flex_direction={is_even ? 'row-reverse' : 'row'} key={index}>
                             <Content>
-                                <StyledHeader as="h4" size="2.4rem">
+                                <StyledHeader as="h3" size="2.4rem">
                                     <Localize translate_text={item.title} />
                                 </StyledHeader>
                                 <Text mt="0.8rem">

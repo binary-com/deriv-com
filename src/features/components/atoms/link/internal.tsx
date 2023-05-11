@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import language_config from '../../../../../i18n-config.js'
 import { LinkProps } from '.'
+import { isBrowser } from 'common/utility'
 import dclsx from 'features/utils/dclsx'
 import {
     generateBackgroundColor,
@@ -16,15 +17,23 @@ import {
 } from 'features/styles/utils'
 import { InternalLinkType } from 'features/types'
 
+const isActiveLink = (currentPage: string) => {
+    const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
+    return pathname === currentPage
+}
+
 interface InternalProps extends Omit<LinkProps, 'url'> {
     url: InternalLinkType
+    link_target: string
+    link_rel: string
 }
+
 const Internal = ({
     className,
     align,
     weight,
     break_word = 'word',
-    textcolor = 'primary',
+    textcolor,
     font_family,
     no_hover,
     margin,
@@ -49,17 +58,27 @@ const Internal = ({
     radius,
     url,
     children,
+    link_target,
+    link_rel,
 }: InternalProps) => {
-    const rawLocale = localStorage.getItem('i18n') ?? 'en'
+    let rawLocale = 'en'
+    if (isBrowser()) {
+        rawLocale = localStorage.getItem('i18n') ?? 'en'
+    }
     const locale = rawLocale?.replaceAll('-', '_')
 
     const { is_default, path } = language_config[locale]
     const is_non_localized = url.to.includes('careers')
 
     const to = is_non_localized || is_default ? url.to : `/${path}${url}`
+
+    const is_active = isActiveLink(url.to)
+
     return (
         <Link
             to={to}
+            target={link_target}
+            rel={link_rel}
             className={dclsx(
                 className,
                 'typography-link',
@@ -95,6 +114,7 @@ const Internal = ({
                 }),
                 {
                     'typography-hover': !no_hover,
+                    'typography-color-brand': is_active,
                 },
             )}
         >
@@ -103,4 +123,4 @@ const Internal = ({
     )
 }
 
-export default React.memo(Internal)
+export default Internal

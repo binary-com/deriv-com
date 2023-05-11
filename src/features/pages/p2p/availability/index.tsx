@@ -10,7 +10,7 @@ import Link from 'features/components/atoms/link'
 
 const DP2Availability = () => {
     return (
-        <Container.Fixed as="section">
+        <Container.Fixed as="section" mb="20x">
             <Container.Fluid>
                 <Typography.Heading as="h2" size="large" align="center" mb="20x">
                     <Localize translate_text="_t_How to get Deriv P2P_t_" />
@@ -20,13 +20,19 @@ const DP2Availability = () => {
                     wrap="wrap"
                     gap="20x"
                     className={platform_wrap}
-                    mb="40x"
+                    mb="28x"
+                    md={{ mb: '40x' }}
                 >
                     {platforms.map((platform) => (
                         <DP2Platform key={platform.id} item={platform.data} />
                     ))}
                 </Flex.Box>
-                <Typography.Paragraph align="center" size="xlarge" textcolor="black" pt="20x">
+                <Typography.Paragraph
+                    align="center"
+                    size="xlarge"
+                    textcolor="black"
+                    md={{ pt: '20x' }}
+                >
                     <Localize
                         translate_text="_t_Want to learn more about Deriv P2P? Head to our <0>Help centre</0>._t_"
                         components={[

@@ -3,6 +3,8 @@ import { SmartPlatform } from './types'
 import Link from 'features/components/atoms/link'
 import DesktopImage from 'images/svg/p2p/p2p-desktop.svg'
 import MobileImage from 'images/svg/p2p/p2p-mobile.svg'
+import DesktopImageForMobile from 'images/svg/p2p/p2p-desktop-for-mobile.svg'
+import MobileImageForMobile from 'images/svg/p2p/p2p-mobile-for-mobile.svg'
 import Login from 'common/login'
 
 const handleLogin = () => {
@@ -15,6 +17,7 @@ export const platforms: SmartPlatform[] = [
         data: {
             header: '_t_On your computer_t_',
             icon_src: DesktopImage,
+            mobile_icon_src: DesktopImageForMobile,
             list: [
                 {
                     text: '_t_<0>Log in</0> to your Deriv account. Don’t have one? <1>Sign up</1> for free._t_',
@@ -66,6 +69,7 @@ export const platforms: SmartPlatform[] = [
         data: {
             header: '_t_On your mobile_t_',
             icon_src: MobileImage,
+            mobile_icon_src: MobileImageForMobile,
             list: [
                 {
                     text: '_t_Download Deriv P2P._t_',

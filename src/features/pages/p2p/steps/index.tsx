@@ -7,12 +7,12 @@ import Flex from 'features/components/atoms/flex-box'
 
 const DP2Steps = () => {
     return (
-        <Container.Fixed as="section">
+        <Container.Fixed as="section" padding_block="40x">
             <Container.Fluid>
-                <Typography.Heading as="h2" size="large" align="center" mb="30x">
+                <Typography.Heading as="h2" size="large" align="center" md={{ mb: '30x' }}>
                     3 steps for faster deposits and withdrawals
                 </Typography.Heading>
-                <Flex.Box gap="12x" direction="col" md={{ direction: 'col' }}>
+                <Flex.Box gap="12x" direction="col" md={{ direction: 'row' }}>
                     {step_items.map((step) => (
                         <DP2StepItem key={step.id} item={step.data} />
                     ))}

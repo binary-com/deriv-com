@@ -15,7 +15,7 @@ const DP2PItem = ({ item, is_even }: IP2PItemProps) => {
             justify="center"
             align="center"
             gap="10x"
-            direction="col"
+            direction="col-reverse"
             mt="40x"
             md={{ direction: is_even ? 'row-reverse' : 'row', justify: 'between' }}
         >

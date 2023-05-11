@@ -11,7 +11,9 @@ const DP2Banner = () => {
             as="section"
             bgcolor="black"
             className={banner_section}
-            padding_block="40x"
+            pt="32x"
+            pb="35x"
+            md={{ padding_block: '40x' }}
         >
             <Flex.Box container="fluid" wrap="wrap" justify="between" className={banner_wrap}>
                 <DP2BannerInfo />

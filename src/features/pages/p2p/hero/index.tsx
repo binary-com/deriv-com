@@ -9,19 +9,21 @@ const DP2Hero = () => {
         <DP2HeroContainer
             container="fixed"
             style={{ direction: 'ltr' }}
-            pt="40x"
+            pt="35x"
+            pb="15x"
             md={{
-                pt: '0x',
+                padding_block: '0x',
             }}
         >
             <Flex.Box
                 container="fluid"
                 align="center"
-                gap={'20x'}
+                gap="15x"
                 direction="col-reverse"
                 md={{
                     direction: 'row',
                     justify: 'start',
+                    gap: '20x',
                 }}
             >
                 <DP2HeroContent />

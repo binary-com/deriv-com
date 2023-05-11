@@ -10,6 +10,7 @@ type Paragraph = {
 export type PlatformType = {
     header: TString
     icon_src: string
+    mobile_icon_src: string
     list: Paragraph[]
     button?: {
         text: TString

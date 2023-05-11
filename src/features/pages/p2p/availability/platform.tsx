@@ -6,15 +6,22 @@ import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import LinkButton from 'features/components/atoms/link-button'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
 interface PlatformProps {
     item: PlatformType
 }
 
 const DP2Platform = ({ item }: PlatformProps) => {
+    const { is_mobile } = useBreakpoints()
     return (
         <Flex.Box basis="full" direction="col" align="start" md={{ basis: '5-12' }}>
-            <Image src={item.icon_src} alt="Desktop image" width={64} height={64} />
+            {is_mobile ? (
+                <Image src={item.mobile_icon_src} alt="icon" width={48} height={48} />
+            ) : (
+                <Image src={item.icon_src} alt="icon" width={64} height={64} />
+            )}
+
             <Typography.Heading as="h3" size="xs" mt="8x" mb="16x">
                 <Localize translate_text={item.header} />
             </Typography.Heading>

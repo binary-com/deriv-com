@@ -6,7 +6,7 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
     {
         id: 0,
         data: {
-            text: '_t_Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority._t_',
+            text: '_t_Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority under the Investment Services Act._t_',
         },
         visibility: {
             is_eu: true,

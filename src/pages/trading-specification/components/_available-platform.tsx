@@ -66,6 +66,8 @@ const deriv_ctrader: TString = '_t_deriv cTrader_t_'
 
 const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
     const { is_row } = useRegion()
+    const selectedEtfsTab = selected_market === 'etfs'
+
     return (
         <>
             <StyledFlex wrap="nowrap" ai="center">
@@ -95,7 +97,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                         </StyledHeader>
                                     </Flex>
                                 </StyledLocalizedLink>
-                                {selected_market !== 'etfs' && (
+                                {!selectedEtfsTab ? (
                                     <StyledLocalizedLink to="/derivez/">
                                         <Flex direction="row">
                                             <img
@@ -109,8 +111,8 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                             </StyledHeader>
                                         </Flex>
                                     </StyledLocalizedLink>
-                                )}
-                                {selected_market === 'etfs' && (
+                                ) : null}
+                                {selectedEtfsTab ? (
                                     <StyledLocalizedLink to="/deriv-ctrader/">
                                         <Flex direction="row">
                                             <img
@@ -124,7 +126,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                             </StyledHeader>
                                         </Flex>
                                     </StyledLocalizedLink>
-                                )}
+                                ) : null}
                             </FlexContainer>
                         </>
                     ) : (

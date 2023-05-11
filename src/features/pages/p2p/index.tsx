@@ -21,7 +21,7 @@ const DP2PPage = () => {
     useOpenLiveChat(true)
     const { is_p2p_allowed_country } = useRegion()
 
-    if (!is_p2p_allowed_country) {
+    if (is_p2p_allowed_country) {
         return (
             <Layout>
                 <SEO

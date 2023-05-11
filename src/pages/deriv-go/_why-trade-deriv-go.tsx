@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import IconEasyAccess from 'images/svg/deriv-go/easy-access.svg'
-import { SectionContainer, Container } from 'components/containers'
-import { Localize, localize } from 'components/localization'
+import { Container, SectionContainer } from 'components/containers'
+import { Localize } from 'components/localization'
 import { Header } from 'components/elements/typography'
 import device from 'themes/device'
 import Icon24_7 from 'images/svg/deriv-go/24-7.svg'
 import IconUserFriendly from 'images/svg/deriv-go/user-friendly.svg'
-import BoxStyledGrid from 'components/custom/_box-styled-grid'
+import BoxStyledFlex, { TItem } from 'components/custom/_box-styled-flex'
 
 const StyledHeader = styled(Header)`
     color: var(--color-black-9);
@@ -23,30 +23,26 @@ const StyledHeader = styled(Header)`
         margin: 0 0 40px;
     }
 `
-const trade_data = [
+const trade_data: TItem[] = [
     {
         icon: Icon24_7,
-        title: <Localize translate_text="24/7 trading" />,
-        subtitle: (
-            <Localize translate_text="Trade synthetics and cryptocurrencies round the clock and forex during regular market hours." />
-        ),
-        image_alt: 'Trade 24/7 with DerivGO',
+        title: '_t_24/7 trading_t_',
+        subtitle:
+            '_t_Trade synthetics and cryptocurrencies round the clock and forex during regular market hours._t_',
+        image_alt: '_t_Trade 24/7 with DerivGO_t_',
     },
     {
         icon: IconUserFriendly,
-        title: <Localize translate_text="User-friendly features" />,
-        subtitle: (
-            <Localize translate_text="Enjoy a smooth trading experience with easy-to-use charts and a pleasant dark theme." />
-        ),
-        image_alt: 'Easy to use trading features',
+        title: '_t_User-friendly features_t_',
+        subtitle:
+            '_t_Enjoy a smooth trading experience with easy-to-use charts and a pleasant dark theme._t_',
+        image_alt: '_t_Easy to use trading features_t_',
     },
     {
         icon: IconEasyAccess,
-        title: <Localize translate_text="Easy access" />,
-        subtitle: (
-            <Localize translate_text="Get instant access to your trades wherever you are whenever you want." />
-        ),
-        image_alt: 'Instant and easy access for trading',
+        title: '_t_Easy access_t_',
+        subtitle: '_t_Get instant access to your trades wherever you are whenever you want._t_',
+        image_alt: '_t_Instant and easy access for trading_t_',
     },
 ]
 
@@ -56,9 +52,9 @@ const WhyTradeDerivGo = () => {
             <SectionContainer>
                 <Container fd="column">
                     <StyledHeader as="h2" type="heading-2" align="center">
-                        {localize('Why trade with Deriv GO')}
+                        <Localize translate_text={'_t_Why trade with Deriv GO_t_'} />
                     </StyledHeader>
-                    <BoxStyledGrid items={trade_data} />
+                    <BoxStyledFlex items={trade_data} />
                 </Container>
             </SectionContainer>
         </div>

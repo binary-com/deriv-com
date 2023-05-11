@@ -1,12 +1,12 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import { TAcuityFeatures } from '../types'
+import { TAcuityFeatures } from '../../../components/molecules/image-text-boxes/types'
 import { deriv_acuity_eu_download, deriv_acuity_row_download } from 'common/constants'
 
-export const acuity_feature_guide_data: TAcuityFeatures[] = [
+export const contentData: TAcuityFeatures[] = [
     {
         id: 0,
-        description:
+        subtitle:
             '_t_Download the Acuity suite of trading tools to your MT5 desktop terminal and get access to an array of valuable market insights and trading opportunities._t_',
         image: (
             <StaticImage
@@ -26,7 +26,7 @@ export const acuity_feature_guide_data: TAcuityFeatures[] = [
     },
     {
         id: 1,
-        description:
+        subtitle:
             '_t_Want to know how the Acuity tools work? Check out the Acuity tools user guide for more information._t_',
         image: (
             <StaticImage

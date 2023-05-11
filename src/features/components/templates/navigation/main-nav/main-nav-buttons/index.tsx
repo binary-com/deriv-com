@@ -6,9 +6,9 @@ import Button from 'features/components/atoms/button'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import usePpc from 'features/hooks/use-ppc'
-import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import LanguageSwitcher from 'features/components/molecules/language-switcher'
 import Flex from 'features/components/atoms/flex-box'
+import { handleGetTrading } from 'components/custom/utils'
 
 const MainNavButtons = () => {
     const [is_logged_in] = useAuthCheck()

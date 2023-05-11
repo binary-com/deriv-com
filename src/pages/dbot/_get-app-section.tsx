@@ -8,9 +8,9 @@ import MultiWidthColumn from 'components/elements/multi-width-column'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import Button from 'components/custom/_button'
+import { handleGetTrading } from 'components/custom/utils'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import device from 'themes/device'
-import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`

@@ -7,8 +7,8 @@ import { Button } from 'components/form'
 import { Localize } from 'components/localization'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useHandleLogin from 'components/hooks/use-handle-login'
-import { handleRedirectToTradersHub } from 'components/layout/nav/util/nav-methods'
 import MarketTab from 'components/elements/market-tab'
+import { handleRedirectToTradersHub } from 'components/custom/utils'
 
 const LivePricingSection = styled.section`
     background-color: var(--color-white);

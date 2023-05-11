@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { graphql, StaticQuery, navigate } from 'gatsby'
+import { graphql, navigate, useStaticQuery } from 'gatsby'
 import { getLanguage } from '../../common/utility'
 import Layout from 'components/layout/layout'
 import { localize, Localize, WithIntl } from 'components/localization'
-import { SEO, Box } from 'components/containers'
+import { SEO, Flex } from 'components/containers'
 import device from 'themes/device'
-import { Header, QueryImage, StyledLink, Text } from 'components/elements'
-
-const EmailLink = styled(StyledLink)`
-    display: table;
-    font-size: 1.4rem;
-    margin-top: 1.8rem;
-    text-decoration: underline;
-    width: 100%;
-    text-align: center;
-`
+import { Header, QueryImage, StyledLink } from 'components/elements'
 
 const Wrapper = styled.section`
     padding: 8rem 0;
@@ -39,15 +30,37 @@ const StyledDiv = styled.div`
         padding: 0;
     }
 `
-const ResponseWrapper = styled.div`
+const ResponseWrapper = styled(Flex)`
     justify-content: center;
-    max-width: 33rem;
+    max-width: 24rem;
     margin: 0 auto;
     flex-direction: column;
     padding: 2rem 1rem;
+    gap: 12px;
+    margin-top: -100px;
+    @media ${device.mobileL} {
+        max-width: 40rem;
+    }
+`
+const EmailLink = styled(StyledLink)`
+    display: table;
+    font-size: 14px;
+    margin-top: 1.8rem;
+    text-decoration: underline;
+    width: 100%;
+    text-align: center;
+`
+
+const query = graphql`
+    query {
+        view_email: file(relativePath: { eq: "sign-up/response-email.png" }) {
+            ...fadeIn
+        }
+    }
 `
 
 const SignupSuccess = () => {
+    const data = useStaticQuery(query)
     const [registeredEmail, setRegisteredEmail] = useState('')
     useEffect(() => {
         const params = new URLSearchParams(location.search)
@@ -69,29 +82,23 @@ const SignupSuccess = () => {
             />
             <Wrapper>
                 <ResponseWrapper>
-                    <Header as="h3" type="section-title" align="center" weight="normal">
+                    <Header as="p" type="subtitle-1" align="center" weight="700">
                         {localize('Check your email')}
                     </Header>
-                    <StaticQuery
-                        query={graphql`
-                            query {
-                                view_email: file(relativePath: { eq: "sign-up/view-email.png" }) {
-                                    ...fadeIn
-                                }
-                            }
-                        `}
-                        render={(data) => (
-                            <Box m="3.2rem 0">
-                                <QueryImage data={data.view_email} alt="Email image" />
-                            </Box>
-                        )}
-                    />
-                    <Text align="center">
+                    <Flex jc="center" height="128px">
+                        <QueryImage
+                            data={data.view_email}
+                            alt="Email image"
+                            height="128px"
+                            width="128px"
+                        />
+                    </Flex>
+                    <Header type="paragraph-1" weight="normal" align="center">
                         <Localize
                             translate_text="We've sent a message to {{email}} with a link to activate your account."
                             values={{ email: registeredEmail }}
                         />
-                    </Text>
+                    </Header>
                     <EmailLink to="/check-email/" align="center">
                         {localize("Didn't receive your email?")}
                     </EmailLink>

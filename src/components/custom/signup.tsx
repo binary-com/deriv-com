@@ -126,6 +126,15 @@ const Signup = (props: SignupProps) => {
         }
     }
 
+    const navigateToSuccessPage = () => {
+        const success_default_link = `signup-success?email=${email}`
+        const link_with_language = `${getLanguage()}/${success_default_link}`
+        const success_link = `/${
+            getLanguage() === 'en' ? success_default_link : link_with_language
+        }`
+        navigate(success_link, { replace: true })
+    }
+
     const handleEmailSignup = (e) => {
         e.preventDefault()
         setSubmitting(true)
@@ -150,16 +159,12 @@ const Signup = (props: SignupProps) => {
                     if (props.onSubmit) {
                         props.onSubmit(submit_status || 'success', email)
                     }
+                    navigateToSuccessPage()
                 }
             })
 
         if (props.appearance === 'public') {
-            const success_default_link = `signup-success?email=${email}`
-            const link_with_language = `${getLanguage()}/${success_default_link}`
-            const success_link = `/${
-                getLanguage() === 'en' ? success_default_link : link_with_language
-            }`
-            navigate(success_link, { replace: true })
+            navigateToSuccessPage()
         }
     }
 
@@ -211,25 +216,7 @@ const Signup = (props: SignupProps) => {
         }
     }
 
-    return props.submit_state === 'success' ? (
-        <ResponseWrapper>
-            <Header as="p" type="subtitle-1" align="center" weight="700">
-                {localize('Check your email')}
-            </Header>
-            <Flex jc="center" height="128px">
-                <QueryImage data={data.view_email} alt="Email image" height="128px" width="128px" />
-            </Flex>
-            <Header type="paragraph-1" weight="normal" align="center">
-                <Localize
-                    translate_text="We've sent a message to {{email}} with a link to activate your account."
-                    values={{ email: props.email }}
-                />
-            </Header>
-            <EmailLink to="/check-email/" align="center">
-                {localize("Didn't receive your email?")}
-            </EmailLink>
-        </ResponseWrapper>
-    ) : (
+    return (
         <Form onSubmit={handleEmailSignup} noValidate bgColor={props.bgColor}>
             {renderSwitch(props.appearance)}
         </Form>

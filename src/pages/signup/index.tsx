@@ -55,24 +55,22 @@ const NewSignup = () => {
                 )}
             />
             <Wrapper>
-                {submit_state !== 'success' && (
-                    <Content>
-                        <Header as="h3" type="heading-3" align="center">
-                            {localize(
-                                'Unique trade types. Hundreds of instruments. Financial and derived markets.',
-                            )}
-                        </Header>
+                <Content>
+                    <Header as="h3" type="heading-3" align="center">
+                        {localize(
+                            'Unique trade types. Hundreds of instruments. Financial and derived markets.',
+                        )}
+                    </Header>
 
-                        <Header as="p" type="subtitle-2" align="center" weight="normal">
-                            {localize('Trade anywhere, anytime.')}
-                        </Header>
-                        <Header as="p" type="paragraph-1" align="center" weight="normal">
-                            {localize(
-                                'Ready to join over 2.5 million traders who have chosen Deriv as their trusted broker? Enter your email address to create a free demo account.',
-                            )}
-                        </Header>
-                    </Content>
-                )}
+                    <Header as="p" type="subtitle-2" align="center" weight="normal">
+                        {localize('Trade anywhere, anytime.')}
+                    </Header>
+                    <Header as="p" type="paragraph-1" align="center" weight="normal">
+                        {localize(
+                            'Ready to join over 2.5 million traders who have chosen Deriv as their trusted broker? Enter your email address to create a free demo account.',
+                        )}
+                    </Header>
+                </Content>
 
                 <Signup
                     appearance={Appearances.newSignup}

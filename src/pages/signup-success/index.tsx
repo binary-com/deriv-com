@@ -15,16 +15,6 @@ const Wrapper = styled.section`
     display: flex;
     justify-content: center;
     flex-direction: row;
-    background-color: rgba(200, 214, 215, 0.22);
-
-    @media ${device.mobileL} {
-        padding: 0;
-    }
-`
-
-const StyledDiv = styled.div`
-    padding: 6rem 0;
-    background-color: rgba(200, 214, 215, 0.22);
 
     @media ${device.mobileL} {
         padding: 0;
@@ -104,7 +94,6 @@ const SignupSuccess = () => {
                     </EmailLink>
                 </ResponseWrapper>
             </Wrapper>
-            <StyledDiv />
         </Layout>
     )
 }

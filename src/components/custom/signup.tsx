@@ -1,18 +1,15 @@
 import React, { useState } from 'react'
-import { graphql, useStaticQuery, navigate } from 'gatsby'
+import { navigate } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import { getLanguage } from '../../common/utility'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
-import { Flex } from 'components/containers'
 import Login, { TSocialProvider } from 'common/login'
 import validation from 'common/validation'
 import SignupDefault from 'components/custom/_signup-default'
 import SignupFlat from 'components/custom/_signup-flat'
 import SignupNew from 'components/custom/_signup-new'
 import SignupPublic from 'components/custom/_signup-public'
-import { Header, QueryImage, StyledLink } from 'components/elements'
-import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import apiManager from 'common/websocket'
 
@@ -30,15 +27,6 @@ type FormProps = {
     bgColor?: string
 }
 
-const EmailLink = styled(StyledLink)`
-    display: table;
-    font-size: 14px;
-    margin-top: 1.8rem;
-    text-decoration: underline;
-    width: 100%;
-    text-align: center;
-`
-
 const Form = styled.form<FormProps>`
     height: 100%;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
@@ -46,18 +34,6 @@ const Form = styled.form<FormProps>`
     @media ${device.mobileL} {
         width: 100%;
         margin-top: 70px;
-    }
-`
-const ResponseWrapper = styled(Flex)`
-    justify-content: center;
-    max-width: 24rem;
-    margin: 0 auto;
-    flex-direction: column;
-    padding: 2rem 1rem;
-    gap: 12px;
-    margin-top: -100px;
-    @media ${device.mobileL} {
-        max-width: 40rem;
     }
 `
 
@@ -69,16 +45,8 @@ export const Appearances = {
     public: 'public',
     newSignup: 'newSignup',
 }
-const query = graphql`
-    query {
-        view_email: file(relativePath: { eq: "sign-up/response-email.png" }) {
-            ...fadeIn
-        }
-    }
-`
 
 const Signup = (props: SignupProps) => {
-    const data = useStaticQuery(query)
     const [email, setEmail] = useState('')
     const [is_submitting, setSubmitting] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
@@ -155,11 +123,11 @@ const Signup = (props: SignupProps) => {
                     setSubmitErrorMsg(response.error.message)
                     handleValidation(formatted_email)
                 } else {
+                    navigateToSuccessPage()
                     setSubmitStatus('success')
                     if (props.onSubmit) {
                         props.onSubmit(submit_status || 'success', email)
                     }
-                    navigateToSuccessPage()
                 }
             })
 

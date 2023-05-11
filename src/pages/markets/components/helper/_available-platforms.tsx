@@ -23,6 +23,7 @@ type AvailablePlatformsProps = {
     smarttrader?: boolean
     derivx?: boolean
     deriv_ez?: boolean
+    derivez?: boolean
     flex_direction?: string
     tablet_direction?: string
     m_top?: string
@@ -102,6 +103,7 @@ const AvailablePlatforms = ({
     deriv_ez,
     smarttrader,
     derivx,
+    derivez,
     flex_direction,
     tablet_direction,
     m_top,
@@ -163,6 +165,14 @@ const AvailablePlatforms = ({
                         <StyledFlex direction="row" ai="center">
                             <embed src={DerivX} width="25" height="25" />
                             <Text ml="0.4rem">{localize('Deriv X')}</Text>
+                        </StyledFlex>
+                    </LocalizedLink>
+                )}
+                {derivez && !is_eu && (
+                    <LocalizedLink to="/derivez/">
+                        <StyledFlex direction="row" ai="center">
+                            <img src={DerivEZ} alt="Deriv ez" width="32" height="32" />
+                            <Text ml="0.4rem">{localize('Deriv EZ')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}

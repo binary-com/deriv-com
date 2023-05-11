@@ -1,20 +1,24 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 import { market_buttons } from './_utils'
 import { TAvailableLiveMarkets } from './_types'
-import { ContainerWrapper, MarketButton, MarketsContainer, SVGWrapper } from './_styles'
+import { ContainerWrapper, MarketButton, MarketsContainer } from './_styles'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
-import LiveMarketTable from 'pages/home/live-pricing/components/_live_market_table'
 import TradingSpecificationTable from 'pages/trading-specification/components/_trading_spec_table'
 
-type MarketTabProps = {
-    is_home: boolean
-}
+const TabStyledHeader = styled(Header)`
+    font-family: 'Ubuntu';
+`
 
-const MarketTab = ({ is_home }: MarketTabProps) => {
+const MarketIcon = styled.img<{ is_selected?: boolean }>`
+    inline-size: 24px;
+    block-size: 24px;
+    margin-block-end: 10px;
+`
+
+const MarketTab = () => {
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
-    const [linkToMarketPage, setLinkToMarketPage] = useState('/markets/forex')
-    const [displayName, setDisplayName] = useState('forex')
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
     }
@@ -29,20 +33,18 @@ const MarketTab = ({ is_home }: MarketTabProps) => {
                             key={marketItem.id}
                             onClick={() => {
                                 onMarketButtonClick(marketItem.market_name)
-                                setLinkToMarketPage(marketItem.to)
-                                setDisplayName(marketItem.button_text)
                             }}
                         >
-                            <SVGWrapper
-                                selected={marketItem.market_name === selected_market}
-                                width={24}
-                                height={24}
-                            >
-                                <use href={`${marketItem.src}#${marketItem.market_name}`} />
-                            </SVGWrapper>
-                            <Header type="paragraph-2" as="p">
+                            <MarketIcon
+                                src={
+                                    marketItem.market_name === selected_market
+                                        ? marketItem.selected_src
+                                        : marketItem.src
+                                }
+                            />
+                            <TabStyledHeader type="paragraph-2" as="p">
                                 <Localize translate_text={marketItem.button_text} />
-                            </Header>
+                            </TabStyledHeader>
                         </MarketButton>
                     </>
                 ))}
@@ -63,17 +65,7 @@ const MarketTab = ({ is_home }: MarketTabProps) => {
                         ),
                 )}
             </ContainerWrapper>
-            {is_home ? (
-                <>
-                    <LiveMarketTable
-                        market={selected_market}
-                        to={linkToMarketPage}
-                        display_name={displayName}
-                    />
-                </>
-            ) : (
-                <TradingSpecificationTable market={selected_market} />
-            )}
+            <TradingSpecificationTable market={selected_market} />
         </>
     )
 }

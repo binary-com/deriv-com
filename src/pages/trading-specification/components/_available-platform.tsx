@@ -8,6 +8,11 @@ import DerivEZ from 'images/svg/trading-specification/deriv-ez.svg'
 import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import { Header } from 'components/elements'
+import { TString } from 'types/generics'
+
+const StyledHeader = styled(Header)`
+    font-family: 'Ubuntu';
+`
 
 const PlatformsContainer = styled(Flex)`
     justify-content: space-around;
@@ -46,6 +51,11 @@ const StyledLocalizedLink = styled(LocalizedLink)`
 const StyledFlex = styled(Flex)`
     padding: 20px;
 `
+const available_on: TString = '_t_Available on_t_'
+const deriv_mt5: TString = '_t_deriv MT5_t_'
+const deriv_x: TString = '_t_deriv X_t_'
+const deriv_ez: TString = '_t_deriv EZ_t_'
+
 const AvailablePlatform = () => {
     const { is_row } = useRegion()
     return (
@@ -53,9 +63,9 @@ const AvailablePlatform = () => {
             <StyledFlex wrap="nowrap" ai="center">
                 <PlatformsContainer ai="center">
                     <FlexContainer>
-                        <Header type="paragraph-1" weight="normal" width="auto" as="p">
-                            <Localize translate_text="Available on" />
-                        </Header>
+                        <StyledHeader type="paragraph-1" weight="normal" width="auto" as="p">
+                            <Localize translate_text={available_on} />
+                        </StyledHeader>
                     </FlexContainer>
 
                     {is_row ? (
@@ -63,38 +73,58 @@ const AvailablePlatform = () => {
                             <FlexContainer>
                                 <StyledLocalizedLink to="/dmt5/">
                                     <Flex direction="row">
-                                        <img src={DerivMT5} alt="Deriv X" width="24" height="24" />
-                                        <Header type="paragraph-1" weight="normal" as="p">
-                                            <Localize translate_text="Deriv MT5" />
-                                        </Header>
+                                        <img src={DerivMT5} alt="Deriv MT5" />
+                                        <StyledHeader
+                                            type="paragraph-1"
+                                            weight="bold"
+                                            as="p"
+                                            width="auto"
+                                        >
+                                            <Localize translate_text={deriv_mt5} />
+                                        </StyledHeader>
                                     </Flex>
                                 </StyledLocalizedLink>
                                 <StyledLocalizedLink to="/derivx/">
                                     <Flex direction="row">
                                         <img src={DerivX} alt="Deriv X" width="24" height="24" />
-                                        <Header type="paragraph-1" weight="normal" as="p">
-                                            <Localize translate_text="Deriv X" />
-                                        </Header>
+                                        <StyledHeader
+                                            type="paragraph-1"
+                                            weight="bold"
+                                            as="p"
+                                            width="auto"
+                                        >
+                                            <Localize translate_text={deriv_x} />
+                                        </StyledHeader>
                                     </Flex>
                                 </StyledLocalizedLink>
                                 <StyledLocalizedLink to="/derivez/">
                                     <Flex direction="row">
-                                        <img src={DerivEZ} alt="Deriv X" width="24" height="24" />
-                                        <Header type="paragraph-1" weight="normal" as="p">
-                                            <Localize translate_text="Deriv EZ" />
-                                        </Header>
+                                        <img src={DerivEZ} alt="Deriv EZ" width="24" height="24" />
+                                        <StyledHeader
+                                            type="paragraph-1"
+                                            weight="bold"
+                                            as="p"
+                                            width="auto"
+                                        >
+                                            <Localize translate_text={deriv_ez} />
+                                        </StyledHeader>
                                     </Flex>
                                 </StyledLocalizedLink>
                             </FlexContainer>
                         </>
                     ) : (
                         <FlexContainer>
-                            <StyledLocalizedLink to="/derivx/">
+                            <StyledLocalizedLink to="/dmt5/">
                                 <Flex direction="row">
-                                    <img src={DerivX} alt="Deriv X" width="24" height="24" />
-                                    <Header type="paragraph-1" weight="normal" as="p">
-                                        <Localize translate_text="Deriv X" />
-                                    </Header>
+                                    <img src={DerivMT5} alt="Deriv MT5" width="24" height="24" />
+                                    <StyledHeader
+                                        type="paragraph-1"
+                                        weight="bold"
+                                        as="p"
+                                        width="auto"
+                                    >
+                                        <Localize translate_text={deriv_mt5} />
+                                    </StyledHeader>
                                 </Flex>
                             </StyledLocalizedLink>
                         </FlexContainer>

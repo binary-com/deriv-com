@@ -3,44 +3,63 @@ import React, { useMemo } from 'react'
 import { THeaders } from './_types'
 import { TableCellGroup, TableCell, TableHeaderCell } from './components/_elements'
 import { Localize } from 'components/localization'
-import info from 'images/svg/trading-specification/info-icon.svg'
+import { TString } from 'types/generics'
 
 const liveMarketColumnHelper = createColumnHelper<THeaders>()
+
+const instrument: TString = '_t_Instrument_t_'
+const contract_size: TString = '_t_Contract size_t_'
+const base_currency: TString = '_t_Base currency_t_'
+const minimum_size: TString = '_t_Minimum size_t_'
+const minimum_spread: TString = '_t_Minimum Spread_t_'
+const target_spread: TString = '_t_Target Spread_t_'
+const max_effective_leverage: TString = '_t_Max effective leverage_t_'
+const margin_requirement: TString = '_t_Margin requirement (%)_t_'
+const swap_long: TString = '_t_Swap long (%)_t_'
+const swap_short: TString = '_t_Swap short (Points)_t_'
+const trading_hours: TString = '_t_Trading hours_t_'
+const contract_size_tooltip: TString =
+    '_t_A standardised amount that tells traders the exact quantities being bought or sold._t_'
+const minimum_size_tooltip: TString = '_t_The minimum lot size required to open a new position._t_'
+const minimum_spread_tooltip: TString =
+    '_t_The lowest possible spread obtainable with the current trading conditions._t_'
+const target_spread_tooltip: TString =
+    '_t_The spread that the broker wishes to offer under the current trading conditions._t_'
+const max_effective_leverage_tooltip: TString =
+    '_t_The actual leverage experienced by the client when account leverage is divided by the margin rate._t_'
+const margin_requirement_tooltip: TString =
+    '_t_The percentage requirement of funds the client needs in their account to open a position._t_'
+const swap_long_tooltip: TString = '_t_Swaps charged upon rollover for long (buy) positions._t_'
+const swap_short_tooltip: TString = '_t_Swaps charged upon rollover for short (sell) positions._t_'
 
 const useLiveColumns = (market: string) => {
     const columns = useMemo(() => {
         return [
             liveMarketColumnHelper.accessor('instrument', {
-                header: () => <TableHeaderCell text={<Localize translate_text="Instrument" />} />,
+                header: () => <TableHeaderCell text={<Localize translate_text={instrument} />} />,
                 cell: (info) =>
                     info.getValue() && <TableCellGroup data={info.getValue()} market={market} />,
             }),
             liveMarketColumnHelper.accessor('contract_size', {
                 header: () => (
                     <TableHeaderCell
-                        text={<Localize translate_text="Contract size" />}
-                        infoIcon={info}
-                        toolTip={
-                            <Localize translate_text="A standardised amount that tells traders the exact quantities being bought or sold" />
-                        }
+                        text={<Localize translate_text={contract_size} />}
+                        toolTip={<Localize translate_text={contract_size_tooltip} />}
                     />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
             }),
             liveMarketColumnHelper.accessor('base_currency', {
                 header: () => (
-                    <TableHeaderCell text={<Localize translate_text="Base currency" />} />
+                    <TableHeaderCell text={<Localize translate_text={base_currency} />} />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
             }),
             liveMarketColumnHelper.accessor('minimum_size', {
                 header: () => (
                     <TableHeaderCell
-                        text={<Localize translate_text="Minimum size" />}
-                        infoIcon={info}
-                        toolTip={
-                            <Localize translate_text="The minimum lot size required to open a new position" />
-                        }
+                        text={<Localize translate_text={minimum_size} />}
+                        toolTip={<Localize translate_text={minimum_size_tooltip} />}
                     />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
@@ -48,11 +67,8 @@ const useLiveColumns = (market: string) => {
             liveMarketColumnHelper.accessor('minimum_spread', {
                 header: () => (
                     <TableHeaderCell
-                        text={<Localize translate_text="Minimum Spread" />}
-                        infoIcon={info}
-                        toolTip={
-                            <Localize translate_text="The lowest possible spread obtainable with the current trading conditions" />
-                        }
+                        text={<Localize translate_text={minimum_spread} />}
+                        toolTip={<Localize translate_text={minimum_spread_tooltip} />}
                     />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
@@ -60,11 +76,8 @@ const useLiveColumns = (market: string) => {
             liveMarketColumnHelper.accessor('target_spread', {
                 header: () => (
                     <TableHeaderCell
-                        text={<Localize translate_text="Target Spread" />}
-                        infoIcon={info}
-                        toolTip={
-                            <Localize translate_text="The spread that the broker wishes to offer under the current trading conditions" />
-                        }
+                        text={<Localize translate_text={target_spread} />}
+                        toolTip={<Localize translate_text={target_spread_tooltip} />}
                     />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
@@ -72,11 +85,8 @@ const useLiveColumns = (market: string) => {
             liveMarketColumnHelper.accessor('max_effective_leverage', {
                 header: () => (
                     <TableHeaderCell
-                        text={<Localize translate_text="Max effective leverage" />}
-                        infoIcon={info}
-                        toolTip={
-                            <Localize translate_text="The actual leverage experienced by the client when account leverage is divided by the margin rate" />
-                        }
+                        text={<Localize translate_text={max_effective_leverage} />}
+                        toolTip={<Localize translate_text={max_effective_leverage_tooltip} />}
                     />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
@@ -84,11 +94,8 @@ const useLiveColumns = (market: string) => {
             liveMarketColumnHelper.accessor('margin_requirement', {
                 header: () => (
                     <TableHeaderCell
-                        text={<Localize translate_text="Margin requirement (%)" />}
-                        infoIcon={info}
-                        toolTip={
-                            <Localize translate_text="The percentage requirement of funds the client needs in their account to open a position" />
-                        }
+                        text={<Localize translate_text={margin_requirement} />}
+                        toolTip={<Localize translate_text={margin_requirement_tooltip} />}
                     />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
@@ -96,11 +103,8 @@ const useLiveColumns = (market: string) => {
             liveMarketColumnHelper.accessor('swap_long', {
                 header: () => (
                     <TableHeaderCell
-                        text={<Localize translate_text="Swap long (%)" />}
-                        infoIcon={info}
-                        toolTip={
-                            <Localize translate_text="Swaps charged upon rollover for long (buy) positions" />
-                        }
+                        text={<Localize translate_text={swap_long} />}
+                        toolTip={<Localize translate_text={swap_long_tooltip} />}
                     />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
@@ -108,18 +112,15 @@ const useLiveColumns = (market: string) => {
             liveMarketColumnHelper.accessor('swap_short', {
                 header: () => (
                     <TableHeaderCell
-                        text={<Localize translate_text="Swap short (Points)" />}
-                        infoIcon={info}
-                        toolTip={
-                            <Localize translate_text="Swaps charged upon rollover for short (sell) positions" />
-                        }
+                        text={<Localize translate_text={swap_short} />}
+                        toolTip={<Localize translate_text={swap_short_tooltip} />}
                     />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
             }),
             liveMarketColumnHelper.accessor('trading_hours', {
                 header: () => (
-                    <TableHeaderCell text={<Localize translate_text="Trading hours" />} />
+                    <TableHeaderCell text={<Localize translate_text={trading_hours} />} />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
             }),

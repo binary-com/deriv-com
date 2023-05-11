@@ -9,7 +9,7 @@ import { localize, WithIntl } from 'components/localization'
 
 const JumpIndices = () => {
     return (
-        <Layout type="jump-indices">
+        <Layout type="static">
             <SEO
                 title={localize('Jump Indices')}
                 description={localize('Trade jump indices, the new synthetics with a twist')}

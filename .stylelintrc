@@ -5,12 +5,6 @@
         "stylelint-config-styled-components",
         "stylelint-config-prettier"
     ],
-    "overrides": [
-        {
-            "files": ["**/*.tsx"],
-            "customSyntax": "@stylelint/postcss-css-in-js"
-        }
-    ],
     "rules": {
         "string-quotes": "single",
         "number-leading-zero": "always",
@@ -41,5 +35,15 @@
         "keyframes-name-pattern": null,
         "selector-class-pattern": null
     },
-    "syntax": "scss"
+    "syntax": "scss",
+    "overrides": [
+        {
+            "files": ["**/*.scss"],
+            "customSyntax": "postcss-scss"
+        },
+        {
+            "files": ["**/*.{js,ts,jsx,tsx}"],
+            "customSyntax": "@stylelint/postcss-css-in-js"
+        }
+    ]
 }

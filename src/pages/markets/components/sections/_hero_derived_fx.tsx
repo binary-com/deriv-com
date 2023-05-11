@@ -6,17 +6,17 @@ import DerivedRowBg from 'images/common/markets/derived-row.jpg'
 import StocksAndIndicesBg from 'images/common/markets/stocks-and-indices.jpg'
 import CryptocurrenciesBg from 'images/common/markets/cryptocurrencies.jpg'
 import CommoditiesBg from 'images/common/markets/commodities.jpg'
-import NavMarkets from 'components/layout/nav/nav-markets'
+import { Desktop, Mobile } from 'components/containers'
 import { Header } from 'components/elements'
 import Button from 'components/custom/_button'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
-import { Desktop, Mobile } from 'components/containers'
-import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import MarketNav from 'features/components/templates/navigation/market-nav'
+import { handleGetTrading } from 'components/custom/utils'
 
 type MarketProps = {
     title: string
@@ -130,6 +130,7 @@ const StyledContainer = styled.div<BackgroundWrapperProps>`
         margin-top: -9rem;
     }
 `
+
 const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
     position: relative;
     background: url(${handleBg});
@@ -205,7 +206,7 @@ export const DerivedFXHero = ({
 
     return (
         <>
-            <NavMarkets />
+            <MarketNav />
             <Desktop breakpoint={'laptop'}>
                 <BackgroundWrapper
                     is_forex={is_forex}

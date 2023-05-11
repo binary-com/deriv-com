@@ -2,6 +2,10 @@ import React from 'react'
 import { DlMarketTypeProps } from './_howItsCalculated'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
+import { TString } from 'types/generics'
+
+const note: TString =
+    '_t_Note: Margin requirements will be adjusted to a lower amount in the case of a decreased volume when positions are closed._t_'
 
 const CalculationCard = ({ data }: DlMarketTypeProps) => {
     return (
@@ -18,11 +22,12 @@ const CalculationCard = ({ data }: DlMarketTypeProps) => {
                     <Header key={index} type="paragraph-2" weight="normal" as="p">
                         <Localize translate_text={list.details} components={[<strong key={0} />]} />
                     </Header>
-                    <img src={list.icon} height="87px" width="313px" />
+
+                    <img src={list.icon} />
                 </>
             ))}
             <Header type="paragraph-2" weight="normal" as="p">
-                <Localize translate_text="Note: Margin requirements will be adjusted to a lower amount in the case of a decreased volume when positions are closed." />
+                <Localize translate_text={note} />
             </Header>
         </>
     )

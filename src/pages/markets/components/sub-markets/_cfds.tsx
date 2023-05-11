@@ -26,7 +26,6 @@ const StyledHeader = styled(Header)`
 
 const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
     const { is_eu } = useRegion()
-
     return (
         <StyledSection padding="4rem 0 8rem">
             <ContentWrapper>

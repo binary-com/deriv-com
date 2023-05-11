@@ -1,4 +1,5 @@
 const language_config = require(`./i18n-config.js`)
+const plugin = require('./src/features/styles/postcss-plugin/plugin')
 const isBrowser = typeof window !== 'undefined'
 
 require('dotenv').config({
@@ -30,6 +31,29 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
+        {
+            resolve: `gatsby-plugin-offline`,
+            options: {
+                precachePages: [`/`],
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-sass',
+            options: {
+                postCssPlugins: [
+                    require('postcss-discard-duplicates'),
+                    plugin({
+                        dest: 'src/classnames.d.ts',
+                        // Set isModule if you want to import ClassNames from another file
+                        // isModule: true,
+                        exportAsDefault: true, // to use in combination with isModule
+                    }),
+                    require('cssnano')({
+                        preset: 'default',
+                    }),
+                ],
+            },
+        },
         'gatsby-plugin-react-helmet',
         {
             resolve: `gatsby-plugin-react-helmet-canonical-urls`,
@@ -92,8 +116,6 @@ module.exports = {
                     '/**/endpoint',
                     '/signup-success',
                     '/**/signup-success',
-                    '/academy/blog/posts/preview',
-                    '/academy/subscription',
                 ],
                 query: `
                 {
@@ -287,8 +309,8 @@ module.exports = {
                 policy: [
                     {
                         userAgent: '*',
-                        allow: '/',
                         disallow: [
+                            '/',
                             '/404/',
                             '/homepage/',
                             '/landing/',
@@ -319,7 +341,7 @@ module.exports = {
             resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
             options: {
                 analyzerMode: 'disabled',
-                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true' ? true : false,
+                generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
             },
         },
     ],

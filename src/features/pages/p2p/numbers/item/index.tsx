@@ -10,7 +10,7 @@ interface INumberProps {
 
 const DP2NumberItem = ({ item }: INumberProps) => {
     return (
-        <Flex.Box direction="col" align="center" padding_inline="26x">
+        <Flex.Box direction="col" align="center" md={{ padding_inline: '26x' }}>
             <Typography.Heading as="h2" size="large">
                 <Localize translate_text={item.header} />
             </Typography.Heading>

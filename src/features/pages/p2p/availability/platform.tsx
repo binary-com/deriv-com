@@ -13,7 +13,7 @@ interface PlatformProps {
 
 const DP2Platform = ({ item }: PlatformProps) => {
     return (
-        <Flex.Box basis="5-12" direction="col" align="start">
+        <Flex.Box basis="full" direction="col" align="start" md={{ basis: '5-12' }}>
             <Image src={item.icon_src} alt="Desktop image" width={64} height={64} />
             <Typography.Heading as="h3" size="xs" mt="8x" mb="16x">
                 <Localize translate_text={item.header} />

@@ -1,13 +1,26 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
 .banner_section {
     position: relative;
     isolation: isolate;
     &:before {
         background: #4c515c;
-        clip-path: polygon(0 0,94% 2%,100% 100%,0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
         inset: 0;
+        bottom: 58%;
         position: absolute;
         content: "";
-        right: 43%;
         z-index: -1;
+        @include breakpoints(tablet) {
+            right: 43%;
+            clip-path: polygon(0 0,94% 2%,100% 100%,0 100%);
+        }
+    }
+}
+
+.banner_wrap {
+    gap: 165px;
+    @include breakpoints(tablet) {
+        gap: 24px;
     }
 }

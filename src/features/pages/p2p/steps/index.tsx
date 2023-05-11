@@ -12,7 +12,7 @@ const DP2Steps = () => {
                 <Typography.Heading as="h2" size="large" align="center" mb="30x">
                     3 steps for faster deposits and withdrawals
                 </Typography.Heading>
-                <Flex.Box gap="12x">
+                <Flex.Box gap="12x" direction="col" md={{ direction: 'col' }}>
                     {step_items.map((step) => (
                         <DP2StepItem key={step.id} item={step.data} />
                     ))}

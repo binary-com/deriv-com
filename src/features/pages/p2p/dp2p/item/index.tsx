@@ -12,18 +12,25 @@ interface IP2PItemProps {
 const DP2PItem = ({ item, is_even }: IP2PItemProps) => {
     return (
         <Flex.Box
-            justify="between"
+            justify="center"
             align="center"
             gap="10x"
-            direction={is_even ? 'row-reverse' : 'row'}
+            direction="col"
             mt="40x"
+            md={{ direction: is_even ? 'row-reverse' : 'row', justify: 'between' }}
         >
-            <Flex.Item basis="5-12">{item.img}</Flex.Item>
-            <Flex.Item basis="6-12">
-                <Typography.Heading as="h3" size="small" mb="4x">
+            <Flex.Item md={{ basis: '5-12' }}>{item.img}</Flex.Item>
+            <Flex.Item md={{ basis: '6-12' }}>
+                <Typography.Heading
+                    as="h3"
+                    size="small"
+                    mb="4x"
+                    align="center"
+                    md={{ align: 'left' }}
+                >
                     <Localize translate_text={item.header} />
                 </Typography.Heading>
-                <Typography.Paragraph size="xlarge">
+                <Typography.Paragraph size="xlarge" align="center" md={{ align: 'left' }}>
                     <Localize translate_text={item.description} />
                 </Typography.Paragraph>
             </Flex.Item>

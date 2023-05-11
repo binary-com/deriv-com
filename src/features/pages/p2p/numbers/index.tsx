@@ -7,7 +7,12 @@ import Container from 'features/components/atoms/container'
 const DP2Numbers = () => {
     return (
         <Container.Fixed as="section" padding_block="20x">
-            <Flex.Box container="fluid" gap="40x" justify="center">
+            <Flex.Box
+                container="fluid"
+                direction="col"
+                gap="12x"
+                md={{ direction: 'row', justify: 'center', gap: '40x' }}
+            >
                 {number_items.map((numb) => (
                     <DP2NumberItem key={numb.id} item={numb.data} />
                 ))}

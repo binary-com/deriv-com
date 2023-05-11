@@ -15,7 +15,13 @@ const DP2Availability = () => {
                 <Typography.Heading as="h2" size="large" align="center" mb="20x">
                     <Localize translate_text="_t_How to get Deriv P2P_t_" />
                 </Typography.Heading>
-                <Flex.Box justify="between" className={platform_wrap} mb="40x">
+                <Flex.Box
+                    justify="between"
+                    wrap="wrap"
+                    gap="20x"
+                    className={platform_wrap}
+                    mb="40x"
+                >
                     {platforms.map((platform) => (
                         <DP2Platform key={platform.id} item={platform.data} />
                     ))}

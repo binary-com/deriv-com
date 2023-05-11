@@ -1,22 +1,32 @@
 import React from 'react'
 import { StepItem } from './types'
+import { step_item } from './styles.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import Image from 'features/components/atoms/image'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
 interface IStepItemProps {
     item: StepItem
 }
 
 const DP2StepItem = ({ item }: IStepItemProps) => {
+    const { is_mobile } = useBreakpoints()
     return (
-        <Flex.Item basis="4-12">
-            <Image src={item.icon_src} width={96} height={96} />
-            <Typography.Heading as="h3" size="xs" mt="9x">
+        <Flex.Item
+            basis="full"
+            padding_inline="8x"
+            pt="9x"
+            pb="8x"
+            md={{ basis: '4-12', padding: '0x' }}
+            className={step_item}
+        >
+            <Image src={item.icon_src} width={is_mobile ? 48 : 96} height={is_mobile ? 48 : 96} />
+            <Typography.Heading as="h3" size="xs" mt="8x" md={{ mt: '9x' }}>
                 <Localize translate_text={item.header} />
             </Typography.Heading>
-            <Typography.Paragraph size="xlarge" mt="8x">
+            <Typography.Paragraph size={is_mobile ? 'medium' : 'xlarge'} mt="4x" md={{ mt: '8x' }}>
                 <Localize translate_text={item.description} />
             </Typography.Paragraph>
             {item?.note && (

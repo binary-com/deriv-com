@@ -8,7 +8,13 @@ import Flex from 'features/components/atoms/flex-box'
 
 const DP2QRbox = () => {
     return (
-        <Flex.Box align="center" gap="12x" padding="12x" className={qr_box}>
+        <Flex.Box
+            align="center"
+            gap="8x"
+            padding="8x"
+            className={qr_box}
+            md={{ gap: '12x', padding: '12x' }}
+        >
             <Image src={p2pQrImage} alt="p2p qr" width={64} height={64} />
             <div>
                 <Typography.Paragraph textcolor="white" size="medium">

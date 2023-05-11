@@ -47,7 +47,7 @@ export const aboutUsNavSectionContent: SmartNavContent[] = [
         id: 6,
         data: {
             url: { type: 'company', url_name: 'derivlife', target: '_blank' },
-            title: '_t_Deriv life_t_',
+            title: '_t_deriv life_t_',
         },
     },
 ]

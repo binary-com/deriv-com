@@ -3,8 +3,8 @@ import { hero_cta } from './hero-content.module.scss'
 import { Localize } from 'components/localization'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import Button from 'features/components/atoms/button'
-import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { handleGetTrading } from 'components/custom/utils'
 
 const HeroCtaButton = () => {
     const [is_logged_in] = useAuthCheck()

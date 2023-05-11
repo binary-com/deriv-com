@@ -16,13 +16,8 @@ const DepartmentPage = (data: FirstDataProps) => {
     const career_data = data.data
     return (
         <Layout type="careers">
-            <Hero data={career_data.header} />
+            <Hero data={career_data.header} link={career_data.link_url} />
             <DeptDescription data={career_data.intro_section} />
-            <OpenPositions data={career_data.open_position} />
-            <OpenPositionButton
-                link={career_data.link_url}
-                has_position={career_data.open_position != undefined}
-            />
             {career_data?.testimony_section ? (
                 <StaffReview data={career_data.testimony_section} />
             ) : (

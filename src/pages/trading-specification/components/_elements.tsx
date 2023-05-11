@@ -10,6 +10,7 @@ import { Flex } from 'components/containers'
 import * as icons from 'components/elements/symbols'
 import useRegion from 'components/hooks/use-region'
 import dl from 'images/svg/trading-specification/dl.svg'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 export const TableContainer = styled.div`
     display: grid;
@@ -50,7 +51,7 @@ export const TableRow = styled.tr<TableRowProps>`
     padding: 10px;
     gap: 40px;
     th {
-        width: 7.6rem;
+        width: 8.6rem;
     }
     th: nth-child(1) {
         width: 180px;
@@ -59,7 +60,7 @@ export const TableRow = styled.tr<TableRowProps>`
         width: 160px;
     }
     td {
-        width: 7.6rem;
+        width: 8.6rem;
     }
     td: nth-child(1) {
         width: 180px;
@@ -229,6 +230,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const text = data.instrument
     const dlIcon = data.dl_icon
     const [showPopUp, setShowPopUp] = useState(false)
+    const [is_mobile] = useBrowserResize(768)
 
     if (data !== undefined)
         return (
@@ -237,18 +239,31 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                 <StyledHeaderText type="small" align="start" as="p">
                     {text}
                 </StyledHeaderText>
-                {dlIcon && is_row && (
-                    <img
-                        src={dl}
-                        width="24px"
-                        height="24px"
-                        onClick={() => {
-                            setShowPopUp(true)
-                            document.documentElement.scrollTop = 40
-                            document.body.style.overflow = 'hidden'
-                        }}
-                    />
-                )}
+                {dlIcon &&
+                    is_row &&
+                    (is_mobile ? (
+                        <img
+                            src={dl}
+                            width="24px"
+                            height="24px"
+                            onTouchStart={() => {
+                                setShowPopUp(true)
+                                document.documentElement.scrollTop = 40
+                                document.body.style.overflow = 'hidden'
+                            }}
+                        />
+                    ) : (
+                        <img
+                            src={dl}
+                            width="24px"
+                            height="24px"
+                            onClick={() => {
+                                setShowPopUp(true)
+                                document.documentElement.scrollTop = 40
+                                document.body.style.overflow = 'hidden'
+                            }}
+                        />
+                    ))}
                 {showPopUp && (
                     <PopUpMenu
                         market={market}

@@ -1,14 +1,20 @@
 import { TMarketButtons } from './_types'
-import Forex from 'images/svg/home/forex-live-table.svg'
-import Derived from 'images/svg/home/derived-live-table.svg'
-import Stocks from 'images/svg/home/stocks-live-table.svg'
-import Crypto from 'images/svg/home/crypto-live-table.svg'
-import Commodities from 'images/svg/home/commodites-live-table.svg'
+import Forex from 'images/svg/home/ts_fx_icon.svg'
+import Derived from 'images/svg/home/ts_derived_icon.svg'
+import Stocks from 'images/svg/home/ts_stocks_icon.svg'
+import Crypto from 'images/svg/home/ts_crypto_icon.svg'
+import Commodities from 'images/svg/home/ts_commodities_icon.svg'
+import SelectedForex from 'images/svg/home/selected_ts_fx_icon.svg'
+import SelectedDerived from 'images/svg/home/selected_ts_derived_icon.svg'
+import SelectedStocks from 'images/svg/home/selected_ts_stocks_icon.svg'
+import SelectedCrypto from 'images/svg/home/selected_ts_crypto_icon.svg'
+import SelectedCommodities from 'images/svg/home/selected_ts_commodities_icon.svg'
 
 export const market_buttons: TMarketButtons[] = [
     {
         id: 0,
         src: Forex,
+        selected_src: SelectedForex,
         button_text: 'Forex',
         market_name: 'forex',
         market_description:
@@ -18,6 +24,7 @@ export const market_buttons: TMarketButtons[] = [
     {
         id: 1,
         src: Derived,
+        selected_src: SelectedDerived,
         button_text: 'Derived',
         market_name: 'derived',
         market_description:
@@ -27,6 +34,7 @@ export const market_buttons: TMarketButtons[] = [
     {
         id: 2,
         src: Stocks,
+        selected_src: SelectedStocks,
         button_text: 'Stocks & indices',
         market_name: 'indices',
         market_description:
@@ -36,6 +44,7 @@ export const market_buttons: TMarketButtons[] = [
     {
         id: 3,
         src: Crypto,
+        selected_src: SelectedCrypto,
         button_text: 'Cryptocurrencies',
         market_name: 'cryptocurrency',
         market_description:
@@ -45,6 +54,7 @@ export const market_buttons: TMarketButtons[] = [
     {
         id: 4,
         src: Commodities,
+        selected_src: SelectedCommodities,
         button_text: 'Commodities',
         market_name: 'commodities',
         market_description:

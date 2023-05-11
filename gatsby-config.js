@@ -30,6 +30,13 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
+        {
+            resolve: `gatsby-plugin-canonical-urls`,
+            options: {
+                siteUrl: `${site_url}`,
+                noQueryString: true,
+            },
+        },
         'gatsby-plugin-styled-components',
         {
             resolve: 'gatsby-source-filesystem',
@@ -255,12 +262,6 @@ module.exports = {
                 //       description: 'Die Anwendung macht coole Dinge und macht Ihr Leben besser.',
                 //     },
                 //   ],
-            },
-        },
-        {
-            resolve: `gatsby-plugin-canonical-urls`,
-            options: {
-                siteUrl: `https://www.example.com`,
             },
         },
         'gatsby-plugin-svgr',

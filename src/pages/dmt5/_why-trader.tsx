@@ -31,7 +31,7 @@ const card_data = [
         icon: TwentyFourSeven,
         title: <Localize translate_text="24/7 trading" />,
         subtitle: (
-            <Localize translate_text="Trade round-the-clock, even on weekends, with our proprietary derived indices." />
+            <Localize translate_text="_t_Trade round-the-clock, even on weekends, with our proprietary derived indices._t_" />
         ),
         image_alt: 'Trade any time of the day and week',
     },

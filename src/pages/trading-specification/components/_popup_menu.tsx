@@ -50,13 +50,15 @@ const PopUpMenu = ({ market, popupType, toggle }: TPopUpMenuProps) => {
         setCalculated(!is_calculated)
     }
 
+    const dl = 'dl'
+    const swf = 'swf'
     useEffect(() => {
         market_specification.map((specification) => {
             if (specification.market === market) {
-                if (popupType === 'dl') {
+                if (popupType === dl) {
                     setMarketsData(specification.dl_data)
                     setModalTitle(specification.dl_title)
-                } else if (popupType === 'swf') {
+                } else if (popupType === swf) {
                     setModalTitle(swf_title)
                     setModalDescription(swf_description)
                 }
@@ -93,7 +95,7 @@ const PopUpMenu = ({ market, popupType, toggle }: TPopUpMenuProps) => {
                             <Localize translate_text={modalDescription} />
                         </Header>
 
-                        {popupType === 'dl' && (
+                        {popupType === 'dl' ? (
                             <>
                                 <DLTableContainer>
                                     <TableWrapper>
@@ -123,7 +125,7 @@ const PopUpMenu = ({ market, popupType, toggle }: TPopUpMenuProps) => {
                                     </StyledLinkButton>
                                 </HowItIsCalculated>
                             </>
-                        )}
+                        ) : null}
                     </ModalCard>
                 )}
                 <Background></Background>

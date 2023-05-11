@@ -242,7 +242,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                 <StyledHeaderText type="small" align="start" as="p">
                     {text}
                 </StyledHeaderText>
-                {is_row && (
+                {is_row ? (
                     <>
                         {dl_icon &&
                             (is_mobile ? (
@@ -297,7 +297,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                                 />
                             ))}
                     </>
-                )}
+                ) : null}
                 {showPopUp && (
                     <PopUpMenu
                         market={market}

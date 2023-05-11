@@ -43,7 +43,7 @@ const countries: CountryProps[] = [
 ]
 
 const PremiumPaymentAgent = () => {
-    const { is_mobile } = useScreenSize()
+    const { is_mobile, is_mobile_or_tablet } = useScreenSize()
 
     return (
         <FlexBox.Box
@@ -66,7 +66,11 @@ const PremiumPaymentAgent = () => {
                 </Typography.Paragraph>
             </FlexBox.Box>
             <FlexBox.Box className={box} direction={'col'}>
-                <Typography.Paragraph weight={'bold'} mt="14x" mb="2x">
+                <Typography.Paragraph
+                    weight={'bold'}
+                    mt={is_mobile_or_tablet ? '14x' : '0x'}
+                    mb="2x"
+                >
                     <Localize translate_text="_t_Only available in these countries:_t_" />
                 </Typography.Paragraph>
                 <FlexBox.Box direction={'col'}>

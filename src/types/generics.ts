@@ -4,7 +4,7 @@ export type TRegion = {
     is_region_loading: boolean
     is_eu_location: boolean
     is_eu: boolean
-    is_row: boolean
+    is_non_eu: boolean
     is_cpa_plan: boolean
     is_latam: boolean
     is_row: boolean

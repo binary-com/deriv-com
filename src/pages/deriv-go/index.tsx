@@ -96,7 +96,6 @@ const DerivGo = () => {
                     <WhyTradeDerivGo />
                     <DerivGoContent reverse P2P={items} />
                     <StartDerivGo />
-                    <Roadmap portal={derivGoPortalData} />
                     <FooterBanner />
                     <OtherApps />
                     <Roadmap portal={derivGoPortalData} />

@@ -6,6 +6,7 @@ import device from 'themes/device'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import useRegion from 'components/hooks/use-region'
+import { fallback_loss_percent } from 'common/constants'
 
 type TProps = {
     is_ppc: boolean
@@ -76,7 +77,7 @@ const CFDWarningBanner = ({ is_ppc }: TProps) => {
             }
         }
     `)
-    const { loss_percent } = data?.strapiCfdWarningBanner || {}
+    const loss_percent = data?.strapiCfdWarningBanner?.loss_percent ?? fallback_loss_percent
 
     if (is_ppc || is_eu || is_cpa_plan) {
         return (

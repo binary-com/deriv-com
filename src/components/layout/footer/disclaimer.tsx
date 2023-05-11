@@ -1,13 +1,13 @@
 import React from 'react'
 import {
-    DisclaimerWrapper,
-    DisclaimerParagraph,
-    StaticAsset,
-    RiskWarning,
     BoldLink,
+    DisclaimerParagraph,
+    DisclaimerWrapper,
+    RiskWarning,
+    StaticAsset,
 } from './common/style'
-import { Mobile, Desktop } from 'components/containers'
-import { Localize } from 'components/localization'
+import { Desktop, Mobile } from 'components/containers'
+import { Localize, localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 
 const DisclaimerSection = () => {

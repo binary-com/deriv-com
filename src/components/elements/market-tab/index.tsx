@@ -5,7 +5,7 @@ import { ContainerWrapper, MarketButton, MarketsContainer, SVGWrapper } from './
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import TradingSpecificationTable from 'pages/trading-specification/components/_trading_spec_table'
-import LiveMarketTable from 'features/pages/home/live-pricing/components/live_market_table'
+import LiveMarketTable from 'features/pages/home/live-pricing/table-component/live-market-table'
 
 type MarketTabProps = {
     is_home: boolean

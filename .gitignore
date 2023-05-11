@@ -5,6 +5,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+remove_orphan_assets.sh
 
 # classnames
 src/classnames.d.ts

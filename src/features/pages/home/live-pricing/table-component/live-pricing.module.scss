@@ -1,0 +1,69 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.table-container {
+    
+}
+.table_row_header{
+    background-color: $color-white-1;
+    border-block-end: 2px solid $color-grey-8;
+    display: flex;
+    border-radius: 0 1.6rem;
+    justify-content: space-between;
+    align-items: center;
+    min-block-size: 7.5rem;
+    padding: 2.4rem;
+    th {
+        &:nth-child(6) {
+          display: none;
+        }
+      }
+    @include breakpoints(laptop) {
+      
+        th {
+          width: 17rem;
+            &:nth-child(1) {
+                width: 32rem;
+              }
+              &:nth-child(2) {
+                width: 0.2rem;
+              }
+            &:nth-child(6) {
+              display: block;
+            }
+           
+          }
+    }
+
+}
+.table_row_data {
+    border-block-end: 2px solid $color-grey-8;
+    display: flex;
+    border-radius: 0 1.6rem;
+    justify-content: space-between;
+    align-items: center;
+    min-block-size: 7.5rem;
+    padding: 2.4rem;
+    td {
+        &:nth-child(6) {
+          display: none;
+        }
+      }
+    @include breakpoints(laptop) {
+        td {
+          width: 17rem;
+          &:nth-child(1) {
+            width: 3.4rem;
+          }
+            &:nth-child(6) {
+              display: block;
+            }
+            &:nth-child(2) {
+                width: 30rem;
+              }
+          }
+    }
+}
+.table_header_cell{
+    display: flex;
+}

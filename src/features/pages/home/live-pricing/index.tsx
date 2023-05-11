@@ -1,12 +1,12 @@
 import React from 'react'
+import MarketTab from './market-tabs/market-tab'
 import Container from 'features/components/atoms/container'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import Button from 'features/components/atoms/button'
 import { Localize } from 'components/localization'
 import useAuthCheck from 'components/hooks/use-auth-check'
-import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
-import MarketTab from 'components/elements/market-tab'
+import { handleGetTrading } from 'components/custom/utils'
 import { TString } from 'types/generics'
 
 const handleTradingSpec = () => {
@@ -22,7 +22,7 @@ const LivePricing = () => {
 
     return (
         <Container.Fixed as="section" pt="16x" pb="16x" md={{ padding_block: '40x' }}>
-            <MarketTab is_home={true} />
+            <MarketTab />
             <Flex.Box justify="center" align="center" padding="16x">
                 <Typography.Paragraph align="center" font_family="UBUNTU" textcolor="secondary">
                     <Localize translate_text={disclaimer_text} />

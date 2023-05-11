@@ -36,7 +36,7 @@ const StyledHeader = styled(Header)`
 `
 
 const ResponsibleTrading = () => {
-    const { is_eu, is_non_eu } = useRegion()
+    const { is_eu, is_row } = useRegion()
     const HeroBackground = is_eu ? EuBackground : NoneEuBackground
 
     return (
@@ -66,7 +66,7 @@ const ResponsibleTrading = () => {
                                     localize(
                                         'Trading online can be exciting, but it’s important to keep in mind that there are risks involved including addiction and financial losses. To avoid the danger of addiction, it is important that you engage in a careful self-analysis to check if you are at risk, and follow some basic principles and guidelines.',
                                     )}
-                                {is_non_eu &&
+                                {is_row &&
                                     localize(
                                         'Trading online can be exciting, but it’s important to be reminded that there are risks involved. We encourage all our users to secure their accounts and trade responsibly to experience the best in online trading.',
                                     )}

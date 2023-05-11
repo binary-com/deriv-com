@@ -81,7 +81,7 @@ const StyledSubHeader = styled(Header)`
 `
 
 const TradingLimits = () => {
-    const { is_non_eu, is_eu } = useRegion()
+    const { is_row, is_eu } = useRegion()
     return (
         <Flex tablet_direction="column">
             <Flex height="auto">
@@ -158,7 +158,7 @@ const TradingLimits = () => {
                             {localize('How trading limits and self-exclusion work')}
                         </StyledHeader>
                         <div>
-                            {is_non_eu && (
+                            {is_row && (
                                 <Text ml="0.8rem" max_width="44rem">
                                     <TimelineTick color="var(--color-red)" pb="1rem">
                                         <TimelineTick.Item>
@@ -229,7 +229,7 @@ const TradingLimits = () => {
                             )}
                         </div>
                         <div>
-                            {is_non_eu && (
+                            {is_row && (
                                 <Text mt="1.4rem">
                                     <Localize
                                         translate_text="If you wish to reduce or remove the self-exclusion period, contact <0>Customer Support</0>."

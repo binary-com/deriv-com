@@ -1,5 +1,5 @@
 import React from 'react'
-import { p2p_iframe } from './video.module.scss'
+import { p2p_iframe } from './styles.module.scss'
 
 const DP2PVideo = () => {
     return (

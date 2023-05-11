@@ -1,19 +1,19 @@
 @use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
 
 .banner_section {
     position: relative;
     isolation: isolate;
     &:before {
-        background: #4c515c;
+        background: $color-black-10;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
-        inset: 0;
-        bottom: 58%;
+        inset: 0 0 58% 0;
         position: absolute;
         content: "";
         z-index: -1;
         @include breakpoints(tablet) {
-            right: 43%;
-            clip-path: polygon(0 0,94% 2%,100% 100%,0 100%);
+            inset: 0 43% 0 0;
+            clip-path: polygon(0 0,94% 0,100% 100%,0 100%);
         }
     }
 }

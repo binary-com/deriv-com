@@ -15,7 +15,13 @@ const DP2Banner = () => {
             pb="35x"
             md={{ padding_block: '40x' }}
         >
-            <Flex.Box container="fluid" wrap="wrap" justify="between" className={banner_wrap}>
+            <Flex.Box
+                container="fluid"
+                direction="col"
+                justify="between"
+                md={{ direction: 'row' }}
+                className={banner_wrap}
+            >
                 <DP2BannerInfo />
                 <DP2BannerDownload />
             </Flex.Box>

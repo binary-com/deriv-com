@@ -22,7 +22,21 @@ const DP2StepItem = ({ item }: IStepItemProps) => {
             md={{ basis: '4-12', padding: '0x' }}
             className={step_item}
         >
-            <Image src={item.icon_src} width={is_mobile ? 48 : 96} height={is_mobile ? 48 : 96} />
+            <Image
+                src={item.icon_src}
+                alt="Icon"
+                width={48}
+                height={48}
+                className="visible-phone-and-tablet"
+            />
+            <Image
+                src={item.icon_src}
+                alt="Icon"
+                width={96}
+                height={96}
+                className="visible-larger-than-tablet"
+            />
+
             <Typography.Heading as="h3" size="xs" mt="8x" md={{ mt: '9x' }}>
                 <Localize translate_text={item.header} />
             </Typography.Heading>

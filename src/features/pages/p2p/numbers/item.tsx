@@ -1,5 +1,5 @@
 import React from 'react'
-import { NumberItem } from '../types'
+import { NumberItem } from './types'
 import Typography from 'features/components/atoms/typography'
 import Flex from 'features/components/atoms/flex-box'
 import { Localize } from 'components/localization'

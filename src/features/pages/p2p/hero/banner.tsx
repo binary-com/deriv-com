@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import { wrapper, image_style } from './banner.module.scss'
+import { wrapper, image_style } from './styles.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 
 const DP2HeroBanner = () => {
@@ -11,6 +11,8 @@ const DP2HeroBanner = () => {
                     src="../../../../../images/common/p2p/p2p_hero_banner.png"
                     alt="p2p banner"
                     loading="eager"
+                    formats={['avif', 'webp', 'auto']}
+                    placeholder="none"
                 />
             </div>
         </Flex.Box>

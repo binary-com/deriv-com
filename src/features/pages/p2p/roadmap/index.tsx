@@ -38,7 +38,7 @@ const Roadmap = () => {
                         outlined
                         mt="20x"
                     >
-                        Go to portal
+                        <Localize translate_text="_t_Go to portal_t_" />
                     </LinkButton.Secondary>
                 </Flex.Box>
             </Container.Fluid>

@@ -46,7 +46,14 @@ const PremiumPaymentAgent = () => {
     const { is_mobile } = useScreenSize()
 
     return (
-        <Container.Fixed className={wrap_container}>
+        <FlexBox.Box
+            justify="start"
+            align="start"
+            margin_inline={'10x'}
+            margin_block={'20x'}
+            direction="col"
+            md={{ direction: 'row', align: 'center', justify: 'center', margin: '25x' }}
+        >
             <FlexBox.Box className={box} direction={'col'} mr={is_mobile ? '0x' : '40x'}>
                 <Typography.Heading className={heading} size={'large'} mb="2x">
                     <Localize translate_text="_t_Premium payment agent_t_" />
@@ -79,7 +86,7 @@ const PremiumPaymentAgent = () => {
                     </FlexBox.Item>
                 </FlexBox.Box>
             </FlexBox.Box>
-        </Container.Fixed>
+        </FlexBox.Box>
     )
 }
 

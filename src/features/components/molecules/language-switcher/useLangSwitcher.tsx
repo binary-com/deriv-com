@@ -60,7 +60,7 @@ const useLangSwitcher = () => {
                 }
             }
         }
-    }, [client_information, i18n, language])
+    }, [i18n, language])
 
     const isSelected = (key: string) => {
         const { short_name } = language_config[key]

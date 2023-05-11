@@ -6,6 +6,24 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
     {
         id: 0,
         data: {
+            text: '_t_Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority._t_',
+        },
+        visibility: {
+            is_eu: true,
+        },
+    },
+    {
+        id: 1,
+        data: {
+            text: '_t_Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority._t_',
+        },
+        visibility: {
+            is_cpa_plan: true,
+        },
+    },
+    {
+        id: 2,
+        data: {
             text: '_t_Please read our <0>Terms and conditions</0>,<1> Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. The information on this website does not constitute investment advice._t_',
             components: [
                 <Link
@@ -42,7 +60,7 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
         },
     },
     {
-        id: 1,
+        id: 3,
         data: {
             text: '_t_Please read our <0>Terms and conditions</0>,<1> Risk disclosure</1>, and <2>Secure and responsible trading</2> to fully understand the risks involved before using our services. The information on this website does not constitute investment advice._t_',
             components: [
@@ -89,15 +107,6 @@ export const riskWarningContent: SmartDisclaimerParagraph[] = [
         },
         visibility: {
             is_non_eu: true,
-        },
-    },
-    {
-        id: 1,
-        data: {
-            text: '_t_73% of retail investor accounts lose money when trading CFDs with Deriv. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money._t_',
-        },
-        visibility: {
-            is_cpa_plan: true,
         },
     },
 ]

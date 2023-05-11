@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import { market_buttons } from './_utils'
 import { TAvailableLiveMarkets } from './_types'
 import { ContainerWrapper, MarketButton, MarketsContainer, SVGWrapper } from './_styles'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import TradingSpecificationTable from 'pages/trading-specification/components/_trading_spec_table'
-import LiveMarketTable from 'features/pages/home/live-pricing/components/_live_market_table'
+import LiveMarketTable from 'features/pages/home/live-pricing/components/live_market_table'
 
 type MarketTabProps = {
     is_home: boolean
@@ -69,7 +68,7 @@ const MarketTab = ({ is_home }: MarketTabProps) => {
             {is_home ? (
                 <LiveMarketTable
                     selected_market={selected_market}
-                    to={linkToMarketPage}
+                    link_to={linkToMarketPage}
                     display_name={displayName}
                 />
             ) : (

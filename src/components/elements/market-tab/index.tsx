@@ -27,10 +27,9 @@ const MarketTab = () => {
         <>
             <MarketsContainer>
                 {market_buttons.map((marketItem) => (
-                    <React.Fragment key={marketItem.market_name}>
+                    <React.Fragment key={marketItem.id}>
                         <MarketButton
                             selected={marketItem.market_name === selected_market}
-                            key={marketItem.id}
                             onClick={() => {
                                 onMarketButtonClick(marketItem.market_name)
                             }}

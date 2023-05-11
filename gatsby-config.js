@@ -11,7 +11,8 @@ const site_url =
     origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
 
 const strapi_preview_param = {
-    publicationState: process.env.STRAPI_PREVIEW === 'true' ? 'preview' : 'live',
+    publicationState:
+        process.env.STRAPI_PREVIEW === 'true' ? 'preview&filters[publishedAt][$null]=true' : 'live',
 }
 const strapi_config = process.env.STRAPI_BUILD == 'true' && [
     {

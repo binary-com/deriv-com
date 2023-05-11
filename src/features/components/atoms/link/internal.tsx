@@ -70,7 +70,7 @@ const Internal = ({
     const { is_default, path } = language_config[locale]
     const is_non_localized = url.to.includes('careers')
 
-    const to = is_non_localized || is_default ? url.to : `/${path}${url}`
+    const to = is_non_localized || is_default ? url.to : `/${path}${url.to}`
 
     const is_active = isActiveLink(url.to)
 

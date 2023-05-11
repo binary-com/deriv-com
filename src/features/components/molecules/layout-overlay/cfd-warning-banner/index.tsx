@@ -1,4 +1,5 @@
 import React from 'react'
+import { cfd_banner_container } from './cfd-warning-banner.module.scss'
 import { Localize } from 'components/localization'
 import Container from 'features/components/atoms/container'
 import { loss_percent } from 'common/constants'
@@ -12,7 +13,7 @@ const CfdWarningBanner = () => {
 
     if (is_ppc || is_eu || is_cpa_plan) {
         return (
-            <Container.Fixed bgcolor="primary">
+            <Container.Fixed className={cfd_banner_container} bgcolor="primary">
                 <Container.Fluid padding_block="10x">
                     <Typography.Paragraph size="small">
                         <Localize

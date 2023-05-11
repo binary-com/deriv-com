@@ -26,7 +26,7 @@ type Link = {
 }
 
 const Col = ({ Icon, content, title, eu_links, non_eu_links }: ColProps) => {
-    const { is_non_eu, is_eu } = useRegion()
+    const { is_row, is_eu } = useRegion()
     return (
         <GridCol>
             <IconWrapper>
@@ -36,7 +36,7 @@ const Col = ({ Icon, content, title, eu_links, non_eu_links }: ColProps) => {
                 {title}
             </Header>
             <Text lh="1.55">{content}</Text>
-            {is_non_eu &&
+            {is_row &&
                 non_eu_links?.map((link, index) => (
                     <Cta key={index}>
                         <img src={PDF} alt="pdf icon black" />

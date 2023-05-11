@@ -52,7 +52,7 @@ type TradeProps = {
 }
 
 const Trade = ({ is_ppc_redirect }: TradeProps) => {
-    const { is_non_eu } = useRegion()
+    const { is_row } = useRegion()
     const data = useStaticQuery(query)
     // one option always has to be selected
     const [selected, setSelected] = React.useState(null)
@@ -103,7 +103,7 @@ const Trade = ({ is_ppc_redirect }: TradeProps) => {
                             >
                                 <TraderCard />
                             </div>
-                            {is_non_eu && (
+                            {is_row && (
                                 <div
                                     onMouseEnter={() => setSelected(platforms.bot)}
                                     onMouseLeave={() => setSelected('')}

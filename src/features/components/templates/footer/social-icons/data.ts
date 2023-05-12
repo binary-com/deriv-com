@@ -8,7 +8,7 @@ import { TSmartContent, TString } from 'types/generics'
 import { LinkUrlType } from 'features/types'
 
 export type SocialMediaAccount = {
-    url: LinkUrlType
+    url: ((config: Config) => LinkUrlType) | LinkUrlType
     icon: string
     image_alt?: TString
 }
@@ -16,6 +16,8 @@ export type SocialMediaAccount = {
 export type Config = {
     is_eu?: boolean
     is_career_page?: boolean
+    is_ar?: boolean
+    is_es?: boolean
 }
 
 export type SmartSocialAccount = TSmartContent<SocialMediaAccount, Config>
@@ -24,9 +26,25 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
     {
         id: 0,
         data: {
-            url: {
-                type: 'non-company',
-                href: 'https://www.facebook.com/derivdotcom',
+            url: ({ is_ar, is_es }) => {
+                if (is_es) {
+                    return {
+                        type: 'non-company',
+                        target: '_blank',
+                        href: 'https://www.facebook.com/derivespanol',
+                    }
+                } else if (is_ar) {
+                    return {
+                        type: 'non-company',
+                        target: '_blank',
+                        href: 'https://www.facebook.com/derivarabic',
+                    }
+                }
+                return {
+                    type: 'non-company',
+                    target: '_blank',
+                    href: 'https://www.facebook.com/derivdotcom',
+                }
             },
             icon: Facebook,
             image_alt: '_t_Facebook_t_',
@@ -38,9 +56,28 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
     {
         id: 1,
         data: {
-            url: {
-                type: 'non-company',
-                href: 'https://www.facebook.com/derivEU/',
+            url: ({ is_ar, is_es }) => {
+                if (is_es) {
+                    return {
+                        type: 'non-company',
+                        show_eu_modal: true,
+                        target: '_blank',
+                        href: 'https://www.facebook.com/derivespanol',
+                    }
+                } else if (is_ar) {
+                    return {
+                        type: 'non-company',
+                        show_eu_modal: true,
+                        target: '_blank',
+                        href: 'https://www.facebook.com/derivarabic',
+                    }
+                }
+                return {
+                    type: 'non-company',
+                    show_eu_modal: true,
+                    target: '_blank',
+                    href: 'https://www.facebook.com/derivEU/',
+                }
             },
             icon: Facebook,
             image_alt: '_t_Facebook_t_',
@@ -55,6 +92,7 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         data: {
             url: {
                 type: 'non-company',
+                target: '_blank',
                 href: 'https://www.facebook.com/derivcareers',
             },
             icon: Facebook,
@@ -67,9 +105,25 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
     {
         id: 3,
         data: {
-            url: {
-                type: 'non-company',
-                href: 'https://www.instagram.com/deriv_official/',
+            url: ({ is_ar, is_es }) => {
+                if (is_es) {
+                    return {
+                        type: 'non-company',
+                        target: '_blank',
+                        href: 'https://www.instagram.com/deriv_espanol/',
+                    }
+                } else if (is_ar) {
+                    return {
+                        type: 'non-company',
+                        target: '_blank',
+                        href: 'https://www.instagram.com/deriv_ar/',
+                    }
+                }
+                return {
+                    type: 'non-company',
+                    target: '_blank',
+                    href: 'https://www.instagram.com/deriv_official/',
+                }
             },
             icon: Instagram,
             image_alt: '_t_Instagram_t_',
@@ -81,9 +135,28 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
     {
         id: 4,
         data: {
-            url: {
-                type: 'non-company',
-                href: 'https://www.instagram.com/deriv_eu/',
+            url: ({ is_ar, is_es }) => {
+                if (is_es) {
+                    return {
+                        type: 'non-company',
+                        show_eu_modal: true,
+                        target: '_blank',
+                        href: 'https://www.instagram.com/deriv_espanol/',
+                    }
+                } else if (is_ar) {
+                    return {
+                        type: 'non-company',
+                        show_eu_modal: true,
+                        target: '_blank',
+                        href: 'https://www.instagram.com/deriv_ar/',
+                    }
+                }
+                return {
+                    type: 'non-company',
+                    show_eu_modal: true,
+                    target: '_blank',
+                    href: 'https://www.instagram.com/deriv_eu/',
+                }
             },
             icon: Instagram,
             image_alt: '_t_Instagram_t_',
@@ -98,6 +171,7 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         data: {
             url: {
                 type: 'non-company',
+                target: '_blank',
                 href: 'https://www.instagram.com/derivcareers/',
             },
             icon: Instagram,
@@ -110,9 +184,25 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
     {
         id: 6,
         data: {
-            url: {
-                type: 'non-company',
-                href: 'https://twitter.com/derivdotcom/',
+            url: ({ is_ar, is_es }) => {
+                if (is_es) {
+                    return {
+                        type: 'non-company',
+                        target: '_blank',
+                        href: 'https://twitter.com/DerivEspanol',
+                    }
+                } else if (is_ar) {
+                    return {
+                        type: 'non-company',
+                        target: '_blank',
+                        href: 'https://twitter.com/DerivArabic',
+                    }
+                }
+                return {
+                    type: 'non-company',
+                    target: '_blank',
+                    href: 'https://twitter.com/derivdotcom/',
+                }
             },
             icon: Twitter,
             image_alt: '_t_Twitter_t_',
@@ -125,9 +215,28 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
     {
         id: 7,
         data: {
-            url: {
-                type: 'non-company',
-                href: 'https://www.twitter.com/deriv_eu/',
+            url: ({ is_ar, is_es }) => {
+                if (is_es) {
+                    return {
+                        type: 'non-company',
+                        show_eu_modal: true,
+                        target: '_blank',
+                        href: 'https://twitter.com/DerivEspanol',
+                    }
+                } else if (is_ar) {
+                    return {
+                        type: 'non-company',
+                        show_eu_modal: true,
+                        target: '_blank',
+                        href: 'https://twitter.com/DerivArabic',
+                    }
+                }
+                return {
+                    type: 'non-company',
+                    show_eu_modal: true,
+                    target: '_blank',
+                    href: 'https://www.twitter.com/deriv_eu/',
+                }
             },
             icon: Twitter,
             image_alt: '_t_Twitter_t_',
@@ -142,6 +251,7 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         data: {
             url: {
                 type: 'non-company',
+                target: '_blank',
                 href: 'https://www.youtube.com/@deriv',
             },
             icon: Youtube,
@@ -156,6 +266,7 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         data: {
             url: {
                 type: 'non-company',
+                target: '_blank',
                 href: 'https://www.linkedin.com/company/derivdotcom/',
             },
             icon: Linkedin,
@@ -170,6 +281,7 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         data: {
             url: {
                 type: 'non-company',
+                target: '_blank',
                 href: 'https://www.linkedin.com/company/derivdotcom/life/',
             },
             icon: Linkedin,
@@ -184,6 +296,7 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         data: {
             url: {
                 type: 'non-company',
+                target: '_blank',
                 href: 'https://t.me/derivdotcom',
             },
             icon: Telegram,

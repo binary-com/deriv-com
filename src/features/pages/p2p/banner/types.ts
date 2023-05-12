@@ -1,9 +1,10 @@
+import { LinkUrlType } from 'features/types'
 import { TSmartContent, TString } from 'types/generics'
 
 export type OsApp = {
     icon_src: string
-    link: string
     text: TString
+    url: LinkUrlType
     smallText?: TString
 }
 

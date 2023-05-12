@@ -1,11 +1,12 @@
 import React from 'react'
 import { StepItem } from './types'
-import { step_item } from './styles.module.scss'
+import { step_item, desktop_icon, mobile_icon } from './styles.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import Image from 'features/components/atoms/image'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import dclsx from 'features/utils/dclsx'
 
 interface IStepItemProps {
     item: StepItem
@@ -22,29 +23,29 @@ const DP2StepItem = ({ item }: IStepItemProps) => {
             md={{ basis: '4-12', padding: '0x' }}
             className={step_item}
         >
-            <Image
-                src={item.icon_src}
-                alt="Icon"
-                width={48}
-                height={48}
-                className="visible-phone-and-tablet"
-            />
-            <Image
-                src={item.icon_src}
-                alt="Icon"
-                width={96}
-                height={96}
-                className="visible-larger-than-tablet"
-            />
+            <Flex.Box
+                className={dclsx(mobile_icon, 'visible-phone-and-tablet')}
+                justify="center"
+                align="center"
+            >
+                <Image src={item.mobile_icon_src} alt="Icon" />
+            </Flex.Box>
+            <Flex.Box
+                className={dclsx(desktop_icon, 'visible-larger-than-tablet')}
+                justify="center"
+                align="center"
+            >
+                <Image src={item.icon_src} alt="Icon" />
+            </Flex.Box>
 
-            <Typography.Heading as="h3" size="xs" mt="8x" md={{ mt: '9x' }}>
+            <Typography.Heading as="h3" size="xs" mt="8x">
                 <Localize translate_text={item.header} />
             </Typography.Heading>
-            <Typography.Paragraph size={is_mobile ? 'medium' : 'xlarge'} mt="4x" md={{ mt: '8x' }}>
+            <Typography.Paragraph size={is_mobile ? 'medium' : 'xlarge'} mt="4x" md={{ mt: '7x' }}>
                 <Localize translate_text={item.description} />
             </Typography.Paragraph>
             {item?.note && (
-                <Typography.Paragraph textcolor="light" size="large" mt="8x">
+                <Typography.Paragraph textcolor="light" size="large" mt="7x">
                     <Localize translate_text={item.note} />
                 </Typography.Paragraph>
             )}

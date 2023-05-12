@@ -9,7 +9,7 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 const DP2P = () => {
     const { is_mobile } = useBreakpoints()
     return (
-        <Container.Fixed as="section" padding_block="40x">
+        <Container.Fixed as="section" pt="40x">
             <Container.Fluid>
                 <Typography.Paragraph align="center" size={is_mobile ? 'xlarge' : 'xxl'} mb="40x">
                     Deriv P2P is Deriv’s peer-to-peer deposit and withdrawal service that offers an

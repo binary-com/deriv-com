@@ -10,9 +10,9 @@ import Link from 'features/components/atoms/link'
 
 const DP2Availability = () => {
     return (
-        <Container.Fixed as="section" mb="20x">
+        <Container.Fixed as="section" pt="15x" pb="20x" md={{ pt: '40x' }}>
             <Container.Fluid>
-                <Typography.Heading as="h2" size="large" align="center" mb="20x">
+                <Typography.Heading as="h2" size="large" align="center" mb="12x" md={{ mb: '20x' }}>
                     <Localize translate_text="_t_How to get Deriv P2P_t_" />
                 </Typography.Heading>
                 <Flex.Box

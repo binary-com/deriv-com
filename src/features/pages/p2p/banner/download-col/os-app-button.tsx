@@ -15,7 +15,7 @@ const OsAppButton = ({ item }: OsAppButtonProps) => {
     return (
         <Flex.Box align="center" basis="5-12">
             <Image src={item.icon_src} alt={item.text} width={32} height={32} />
-            <Link pl="3x" url={{ type: 'non-company', href: item.link }} no_hover>
+            <Link pl="3x" url={item.url} no_hover>
                 {item?.smallText && (
                     <Typography.Paragraph textcolor="white" size="xxs">
                         <Localize translate_text={item.smallText} />

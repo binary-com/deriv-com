@@ -19,7 +19,7 @@ const Roadmap = () => {
     return (
         <Container.Fixed as="section" padding_block="20x" md={{ padding_block: '40x' }}>
             <Container.Fluid>
-                <Typography.Heading as="h2" size="large" align="center" mb="20x">
+                <Typography.Heading as="h2" size="large" align="center" mb="4x" md={{ mb: '20x' }}>
                     <Localize translate_text="_t_What’s next?_t_" />
                 </Typography.Heading>
                 <Typography.Paragraph align="center" size={is_mobile ? 'xlarge' : 'xxl'} mb="20x">

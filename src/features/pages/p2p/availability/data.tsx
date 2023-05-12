@@ -6,6 +6,7 @@ import MobileImage from 'images/svg/p2p/p2p-mobile.svg'
 import DesktopImageForMobile from 'images/svg/p2p/p2p-desktop-for-mobile.svg'
 import MobileImageForMobile from 'images/svg/p2p/p2p-mobile-for-mobile.svg'
 import Login from 'common/login'
+import { deriv_dp2p_app_url } from 'common/constants'
 
 const handleLogin = () => {
     Login.redirectToLogin()
@@ -48,8 +49,8 @@ export const platforms: SmartPlatform[] = [
                             textcolor="brand"
                             key={1}
                             url={{
-                                type: 'internal',
-                                to: '/',
+                                type: 'non-company',
+                                href: deriv_dp2p_app_url,
                             }}
                         />,
                     ],

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { THero } from '../_types'
+import { first_section_texts } from './_data'
 import { Localize } from 'components/localization'
 import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
@@ -11,7 +11,6 @@ const FirstSectionContainer = styled(SectionContainer)`
     flex-direction: column;
     align-items: center;
     padding: 120px 16px 24px;
-
     @media ${device.tabletL} {
         padding: 40px 16px;
     }
@@ -19,7 +18,6 @@ const FirstSectionContainer = styled(SectionContainer)`
 const StyledHeader = styled(Header)`
     max-width: 742px;
     padding: 0;
-
     @media ${device.laptop} {
         font-size: 48px;
         line-height: 60px;
@@ -32,29 +30,21 @@ const StyledFirstSectionText = styled(Header)`
     padding: 0 0 40px 0;
     line-height: 36px;
     font-weight: 400;
-
     @media ${device.laptop} {
         padding: 0 0 24px 0;
     }
 `
-type TFirstSectionTexts = {
-    text: string
-}
-const MakeTrading = ({ hero }: THero) => {
-    const first_section_texts: TFirstSectionTexts[] = [
-        { text: hero?.first_paragraph },
-        { text: hero?.second_paragraph },
-        { text: hero?.third_paragraph },
-    ]
+
+const MakeTrading = () => {
     return (
         <FirstSectionContainer padding="120px 0 80px" background="var(--color-white)">
-            {first_section_texts?.map(({ text }) => (
-                <StyledFirstSectionText as="p" type="unset" key={text} size="24px">
+            {first_section_texts.map(({ text }, index) => (
+                <StyledFirstSectionText as="p" type="unset" key={index} size="24px">
                     <Localize translate_text={text} />
                 </StyledFirstSectionText>
             ))}
             <StyledHeader as="h2" size="48px" align="center" type="page-title">
-                <Localize translate_text={hero?.sub_header} />
+                <Localize translate_text="_t_Make trading accessible to anyone, anywhere_t_" />
             </StyledHeader>
         </FirstSectionContainer>
     )

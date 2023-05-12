@@ -12,7 +12,6 @@ const site_url =
 
 const strapi_preview_param = {
     publicationState: process.env.STRAPI_PREVIEW === 'true' ? 'preview' : 'live',
-    'filters[publishedAt][$null]': process.env.STRAPI_PREVIEW === 'true' ? 'true' : 'false',
 }
 const strapi_config = process.env.STRAPI_BUILD == 'true' && [
     {

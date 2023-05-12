@@ -1,35 +1,37 @@
 @use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
 
-.table-container {
-    
-}
 .table_row_header{
     background-color: $color-white-1;
-    border-block-end: 2px solid $color-grey-8;
+    border-start-start-radius: 16px;
+    border-start-end-radius: 16px;
     display: flex;
-    border-radius: 0 1.6rem;
     justify-content: space-between;
     align-items: center;
     min-block-size: 7.5rem;
-    padding: 2.4rem;
+    padding: 1.4rem;
     th {
+      inline-size: 7rem;
         &:nth-child(6) {
           display: none;
         }
+        &:nth-child(1) {
+          inline-size: 12rem;
+        }
+        &:nth-child(2) {
+          inline-size: 4rem;
+        }
       }
     @include breakpoints(laptop) {
-      
+      padding: 2.4rem;
         th {
-          width: 17rem;
+          inline-size: 17rem;
             &:nth-child(1) {
-                width: 32rem;
+              inline-size: 32rem;
               }
-              &:nth-child(2) {
-                width: 0.2rem;
-              }
+             
             &:nth-child(6) {
-              display: block;
+              inline-size: block;
             }
            
           }
@@ -37,29 +39,35 @@
 
 }
 .table_row_data {
-    border-block-end: 2px solid $color-grey-8;
     display: flex;
-    border-radius: 0 1.6rem;
-    justify-content: space-between;
-    align-items: center;
+    border-block-end: 2px solid var(--color-grey-8);
+     align-items: center;
     min-block-size: 7.5rem;
-    padding: 2.4rem;
+    padding: 1.4rem;
     td {
+      inline-size: 7rem;
+      &:nth-child(1) {
+        inline-size: 4rem;
+      }
+      &:nth-child(2) {
+        inline-size: 12rem;
+      }
         &:nth-child(6) {
           display: none;
         }
       }
     @include breakpoints(laptop) {
+      padding: 2.4rem;
         td {
-          width: 17rem;
+          inline-size: 17rem;
           &:nth-child(1) {
-            width: 3.4rem;
+            inline-size: 3.4rem;
           }
             &:nth-child(6) {
               display: block;
             }
             &:nth-child(2) {
-                width: 30rem;
+              inline-size: 30rem;
               }
           }
     }

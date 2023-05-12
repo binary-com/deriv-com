@@ -97,7 +97,7 @@ const LiveMarketTable = ({ selected_market, link_to, display_name }: TLiveMarket
         <>
             <Container.Fixed>
                 <Flex.Box justify="center" mt="16x">
-                    <table className="table-container">
+                    <table>
                         <thead>
                             {table.getHeaderGroups().map((headerGroup) => (
                                 <tr key={headerGroup.id} className={table_row_header}>
@@ -133,7 +133,7 @@ const LiveMarketTable = ({ selected_market, link_to, display_name }: TLiveMarket
             </Container.Fixed>
             <Flex.Box justify="center" align="center" mt="18x" gap="10x">
                 <Link url={{ type: 'internal', to: link_to }} font_family="UBUNTU">
-                    <Typography.Paragraph>
+                    <Typography.Paragraph size="small">
                         <Localize
                             translate_text="_t_See all {{display_name}} market >_t_"
                             values={{ display_name }}

@@ -8,7 +8,7 @@ const DP2HeroBanner = () => {
         <Flex.Box align="end" className={wrapper} pt="34x" md={{ pt: '0x' }}>
             <div className={image_style}>
                 <StaticImage
-                    src="../../../../../images/common/p2p/p2p_hero_banner.png"
+                    src="../../../../images/common/p2p/p2p_hero_banner.png"
                     alt="p2p banner"
                     loading="eager"
                     formats={['avif', 'webp', 'auto']}

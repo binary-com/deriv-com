@@ -35,7 +35,7 @@ export const p2p_items: SmartP2PItem[] = [
         },
     },
     {
-        id: 1,
+        id: 2,
         data: {
             header: '_t_Available as web and mobile apps_t_',
             description:

@@ -187,15 +187,15 @@ const DerivAffiliateProgramme = () => {
         <StyledSection>
             <ContentContainer direction="column">
                 <TitleWrapper>
-                    <Header size="4.8rem" align="center" as="h3" mb="1.2rem">
+                    <Header size="4.8rem" align="center" as="h2" mb="1.2rem">
                         <Localize translate_text="_t_Deriv Affiliate Programme_t_" />
                     </Header>
-                    <SubtitleHeader as="h4" type="sub-section-title" align="center" weight="normal">
+                    <SubtitleHeader as="p" type="sub-section-title" align="center" weight="normal">
                         <Localize translate_text="_t_Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on DTrader and DBot._t_" />
                     </SubtitleHeader>
                 </TitleWrapper>
                 <ComissionPlanContainer>
-                    <StyledHeader as="h4" type="main-paragraph">
+                    <StyledHeader as="h3" type="main-paragraph">
                         <Localize translate_text="_t_Choose a commission plan:_t_" />
                     </StyledHeader>
                     <CardWrapper>

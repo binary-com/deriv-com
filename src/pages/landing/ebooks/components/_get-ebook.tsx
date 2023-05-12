@@ -5,7 +5,7 @@ import Login, { TSocialProvider } from 'common/login'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import validation from 'common/validation'
 import { Input, Button } from 'components/form'
-import { Header, Text, LinkText } from 'components/elements'
+import { Header, Text, LocalizedLinkText } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
@@ -157,7 +157,7 @@ const StyledText = styled(Text)<{ tabletFontSize?: string }>`
     }
 `
 
-const StyledLocalizedLink = styled(LinkText)`
+const StyledLocalizedLink = styled(LocalizedLinkText)`
     @media ${device.tabletL} {
         font-size: 10px;
     }
@@ -343,7 +343,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                             components={[
                                 <StyledLocalizedLink
                                     key={0}
-                                    href="/tnc/security-and-privacy.pdf"
+                                    to="/tnc/security-and-privacy.pdf"
                                     size="1.2rem"
                                     color="red"
                                     rel="noopener noreferrer"

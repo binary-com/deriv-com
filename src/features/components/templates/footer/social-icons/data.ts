@@ -26,10 +26,13 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         data: {
             url: {
                 type: 'non-company',
-                href: 'https://www.facebook.com/',
+                href: 'https://www.facebook.com/derivdotcom',
             },
             icon: Facebook,
             image_alt: '_t_Facebook_t_',
+        },
+        visibility: {
+            is_eu: false,
         },
     },
     {
@@ -37,10 +40,14 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         data: {
             url: {
                 type: 'non-company',
-                href: 'https://www.instagram.com/',
+                href: 'https://www.facebook.com/derivEU/',
             },
-            icon: Instagram,
-            image_alt: '_t_Instagram_t_',
+            icon: Facebook,
+            image_alt: '_t_Facebook_t_',
+        },
+        visibility: {
+            is_eu: true,
+            is_career_page: false,
         },
     },
     {
@@ -48,13 +55,13 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         data: {
             url: {
                 type: 'non-company',
-                href: 'https://twitter.com/',
+                href: 'https://www.facebook.com/derivcareers',
             },
-            icon: Twitter,
-            image_alt: '_t_Twitter_t_',
+            icon: Facebook,
+            image_alt: '_t_Facebook_t_',
         },
         visibility: {
-            is_career_page: false,
+            is_career_page: true,
         },
     },
     {
@@ -62,7 +69,80 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         data: {
             url: {
                 type: 'non-company',
-                href: 'https://www.youtube.com/',
+                href: 'https://www.instagram.com/deriv_official/',
+            },
+            icon: Instagram,
+            image_alt: '_t_Instagram_t_',
+        },
+        visibility: {
+            is_eu: false,
+        },
+    },
+    {
+        id: 4,
+        data: {
+            url: {
+                type: 'non-company',
+                href: 'https://www.instagram.com/deriv_eu/',
+            },
+            icon: Instagram,
+            image_alt: '_t_Instagram_t_',
+        },
+        visibility: {
+            is_career_page: false,
+            is_eu: true,
+        },
+    },
+    {
+        id: 5,
+        data: {
+            url: {
+                type: 'non-company',
+                href: 'https://www.instagram.com/derivcareers/',
+            },
+            icon: Instagram,
+            image_alt: '_t_Instagram_t_',
+        },
+        visibility: {
+            is_career_page: true,
+        },
+    },
+    {
+        id: 6,
+        data: {
+            url: {
+                type: 'non-company',
+                href: 'https://twitter.com/derivdotcom/',
+            },
+            icon: Twitter,
+            image_alt: '_t_Twitter_t_',
+        },
+        visibility: {
+            is_career_page: false,
+            is_eu: false,
+        },
+    },
+    {
+        id: 7,
+        data: {
+            url: {
+                type: 'non-company',
+                href: 'https://www.twitter.com/deriv_eu/',
+            },
+            icon: Twitter,
+            image_alt: '_t_Twitter_t_',
+        },
+        visibility: {
+            is_career_page: false,
+            is_eu: true,
+        },
+    },
+    {
+        id: 8,
+        data: {
+            url: {
+                type: 'non-company',
+                href: 'https://www.youtube.com/@deriv',
             },
             icon: Youtube,
             image_alt: '_t_Youtube_t_',
@@ -72,18 +152,35 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         },
     },
     {
-        id: 4,
+        id: 9,
         data: {
             url: {
                 type: 'non-company',
-                href: 'https://www.linkedin.com/',
+                href: 'https://www.linkedin.com/company/derivdotcom/',
             },
             icon: Linkedin,
             image_alt: '_t_Linkedin_t_',
         },
+        visibility: {
+            is_career_page: false,
+        },
     },
     {
-        id: 5,
+        id: 10,
+        data: {
+            url: {
+                type: 'non-company',
+                href: 'https://www.linkedin.com/company/derivdotcom/life/',
+            },
+            icon: Linkedin,
+            image_alt: '_t_Linkedin_t_',
+        },
+        visibility: {
+            is_career_page: true,
+        },
+    },
+    {
+        id: 11,
         data: {
             url: {
                 type: 'non-company',

@@ -3,12 +3,7 @@ import {
     ProductDesign,
     MobileDev,
     BackEnd,
-    PlatformArchitecture,
     QualityAssurance,
-    DevAndOperations,
-    Cybersecurity,
-    BusinessIntelligence,
-    QuantAnalysis,
 } from '../images/_what-lies-ahead'
 
 export default {
@@ -18,7 +13,7 @@ export default {
     content: [
         {
             src: FrontEnd,
-            alt: 'Front-end development Icon',
+            alt: 'Front-end development',
             text: 'Front-end development',
             content: [
                 'Deploy and collaborate with GitHub —what makes GitHub so special?',
@@ -28,7 +23,7 @@ export default {
         },
         {
             src: ProductDesign,
-            alt: 'Product design Icon',
+            alt: 'Product design',
             text: 'Product design',
             content: [
                 'Grasp UX design and principles — why is design so essential and how to use it best?',
@@ -39,7 +34,7 @@ export default {
         },
         {
             src: MobileDev,
-            alt: 'Mobile development Icon',
+            alt: 'Mobile development',
             text: 'Mobile development',
             content: [
                 'Build iOS and Android apps with a single codebase.',
@@ -50,7 +45,7 @@ export default {
         },
         {
             src: BackEnd,
-            alt: 'Back-end development Icon',
+            alt: 'Back-end development',
             text: 'Back-end development',
             content: [
                 'Master the basics of the software development life cycle (SDLC).',
@@ -60,7 +55,7 @@ export default {
         },
         {
             src: QualityAssurance,
-            alt: 'Quality assurance Icon',
+            alt: 'Quality Assurance',
             text: 'Quality assurance',
             content: [
                 'Learn how to break a developer’s code: what flaws should you look out for?',

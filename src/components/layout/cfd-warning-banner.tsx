@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
 import { Container } from 'components/containers'
+import { loss_percent } from 'common/constants'
 import device from 'themes/device'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
@@ -67,6 +67,7 @@ const CFDText = styled(Text)`
         font-size: 10px;
     }
 `
+
 const CFDWarningBanner = ({ is_ppc }: TProps) => {
     const { is_eu, is_cpa_plan } = useRegion()
     const data = useStaticQuery(graphql`
@@ -76,7 +77,7 @@ const CFDWarningBanner = ({ is_ppc }: TProps) => {
             }
         }
     `)
-    const { loss_percent } = data?.strapiCfdWarningBanner || {}
+    const loss_percent = data?.strapiCfdWarningBanner?.loss_percent ?? fallback_loss_percent
 
     if (is_ppc || is_eu || is_cpa_plan) {
         return (

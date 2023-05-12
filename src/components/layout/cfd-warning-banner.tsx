@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import { fallback_loss_percent } from 'common/constants'
 import { Container } from 'components/containers'
 import device from 'themes/device'
 import { Localize } from 'components/localization'
@@ -76,7 +77,7 @@ const CFDWarningBanner = ({ is_ppc }: TProps) => {
             }
         }
     `)
-    const { loss_percent } = data?.strapiCfdWarningBanner || {}
+    const loss_percent = data?.strapiCfdWarningBanner?.loss_percent ?? fallback_loss_percent
 
     if (is_ppc || is_eu || is_cpa_plan) {
         return (

@@ -74,9 +74,6 @@ const validation = {
         if (input) {
             return numberValidation(input.toString(), localize('_t_Asset Price is required_t_'), 15)
         }
-        if (input) {
-            return numberValidation(input.toString(), localize('Asset Price is required'), 15)
-        }
 
         return null
     },

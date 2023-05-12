@@ -94,7 +94,7 @@ const WhyTradeDerivEZ = () => {
                             return (
                                 <Card key={index}>
                                     <div>
-                                        <img src={card.icon} alt={card.image_alt} />
+                                        <img src={card.icon} alt="wecw" />
                                     </div>
                                     <Header
                                         width="240px"

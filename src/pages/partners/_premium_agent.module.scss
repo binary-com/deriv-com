@@ -9,7 +9,7 @@
 
   .array_wrapper {
     display: grid;
-    gap: 4rem;
+    gap: 2.5rem;
     inline-size: 296px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);
@@ -23,6 +23,7 @@
 
     @media (min-width: 600px ) {
       inline-size: 54rem;
+      gap: 4rem;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(3, 1fr);
     }

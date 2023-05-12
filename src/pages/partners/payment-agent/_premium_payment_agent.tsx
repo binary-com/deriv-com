@@ -52,7 +52,7 @@ const PremiumPaymentAgent = () => {
             margin_inline={'10x'}
             margin_block={'20x'}
             direction="col"
-            md={{ direction: 'row', align: 'center', justify: 'center', margin: '25x' }}
+            md={{ direction: 'row', align: 'center', justify: 'center', margin_block: '40x' }}
         >
             <FlexBox.Box className={box} direction={'col'} mr={is_mobile ? '0x' : '40x'}>
                 <Typography.Heading className={heading} size={'large'} mb="2x">
@@ -62,7 +62,7 @@ const PremiumPaymentAgent = () => {
                     <Localize translate_text="_t_Payment agents with good transaction volumes are selected to join an exclusive network of partners who can transfer funds with each other via their Deriv accounts. If an agent needs help with cash flow, others may pitch in to help. Only a limited number of payment agents are selected per country._t_" />
                 </Typography.Paragraph>
                 <Typography.Paragraph mt="5x" mb="2x">
-                    <Localize translate_text="_t_For more info, contact your country manager_t_" />
+                    <Localize translate_text="_t_For more info, contact your country manager._t_" />
                 </Typography.Paragraph>
             </FlexBox.Box>
             <FlexBox.Box className={box} direction={'col'}>

@@ -51,6 +51,7 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         },
         visibility: {
             is_eu: false,
+            is_career_page: false,
         },
     },
     {
@@ -130,6 +131,7 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         },
         visibility: {
             is_eu: false,
+            is_career_page: false,
         },
     },
     {

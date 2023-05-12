@@ -3,6 +3,10 @@ import { TFlexDirection } from '../../../types'
 import { TString } from 'types/generics'
 
 export type TAcuityFeatures = {
+    mobileFlexDirection: TFlexDirection
+    data: TContentData[]
+}
+interface TContentData {
     id: number
     direction: TFlexDirection
     image: ReactElement

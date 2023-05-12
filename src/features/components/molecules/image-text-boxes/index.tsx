@@ -5,21 +5,21 @@ import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import LinkButton from 'features/components/atoms/link-button'
-import { TFlexDirection } from 'features/types'
 
-interface TContentDataProps {
-    contentData: TAcuityFeatures[]
-    mobileDirection: TFlexDirection
+interface TImageWithParagraph {
+    contentData: TAcuityFeatures
 }
-const ImageWithParagraph = ({ contentData, mobileDirection }: TContentDataProps) => {
+
+const ImageWithParagraph = ({ contentData }: TImageWithParagraph) => {
     const { is_eu } = useRegion()
+    const { mobileFlexDirection, data } = contentData
     return (
         <FlexBox.Box container="fluid" direction={'col'} mt={'20x'} md={{ mt: '40x' }}>
-            {contentData.map((feature) => {
+            {data.map((feature) => {
                 return (
                     <FlexBox.Box
                         key={feature?.id}
-                        direction={mobileDirection}
+                        direction={mobileFlexDirection}
                         mb={'10x'}
                         justify={'center'}
                         align="center"

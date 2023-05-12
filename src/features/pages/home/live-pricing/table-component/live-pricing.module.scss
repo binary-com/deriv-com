@@ -22,16 +22,18 @@
           inline-size: 4rem;
         }
       }
-    @include breakpoints(laptop) {
+    @include breakpoints(tablet) {
       padding: 2.4rem;
         th {
           inline-size: 17rem;
             &:nth-child(1) {
               inline-size: 32rem;
               }
-             
+              &:nth-child(2) {
+                inline-size: 1rem;
+              }
             &:nth-child(6) {
-              inline-size: block;
+              display: block;
             }
            
           }
@@ -56,7 +58,7 @@
           display: none;
         }
       }
-    @include breakpoints(laptop) {
+    @include breakpoints(tablet) {
       padding: 2.4rem;
         td {
           inline-size: 17rem;

@@ -9,7 +9,7 @@
         display: none;
     }
 
-    @include breakpoints(laptop) { 
+    @include breakpoints(tablet) { 
     overflow: auto hidden;
     justify-content: center;
     padding: 2rem;

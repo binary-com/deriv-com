@@ -16,7 +16,7 @@ import ImageMarquee from './components/_image-marquee'
 import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl, localize } from 'components/localization'
 
 const StartSeparator = styled.div`
     width: 0;

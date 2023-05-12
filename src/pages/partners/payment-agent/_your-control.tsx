@@ -1,7 +1,7 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Container, SectionContainer, Flex, CssGrid } from 'components/containers'
-import { localize, Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 // SVG
@@ -9,6 +9,7 @@ import CloseAccount from 'images/svg/partners/pa-close-account.svg'
 import Comission from 'images/svg/partners/pa-comission.svg'
 import LoudSpeaker from 'images/svg/partners/icon-loudspeaker.svg'
 import WithdrawDeposit from 'images/svg/partners/pa-withdraw-deposit.svg'
+import { TString } from 'types/generics'
 
 const Card = styled(Flex)`
     padding: 24px 32px;
@@ -68,46 +69,43 @@ const YourControlContainer = styled(SectionContainer)`
 
 type CardItemType = {
     img_src: string
-    card_text: ReactElement
-    alt: string
+    card_text: TString
+    alt: TString
 }
+
 const cardItems: CardItemType[] = [
     {
         img_src: Comission,
-        card_text: (
-            <Localize translate_text="Determine your commission per transaction, subject to our established thresholds." />
-        ),
-        alt: 'Commission per transaction',
+        card_text:
+            '_t_Determine your commission per transaction, subject to our established thresholds._t_',
+        alt: '_t_Commission per transaction_t_',
     },
     {
         img_src: LoudSpeaker,
-        card_text: (
-            <Localize translate_text="Promote your services to Deriv clients in your country." />
-        ),
-        alt: 'Spread the word',
+        card_text: '_t_Promote your services to Deriv clients in your country._t_',
+        alt: '_t_Spread the word_t_',
     },
     {
         img_src: WithdrawDeposit,
-        card_text: (
-            <Localize translate_text="Help Deriv clients to make multiple deposits and withdrawals daily." />
-        ),
-        alt: 'Multiple deposits and withdrawals',
+        card_text: '_t_Help Deriv clients to make multiple deposits and withdrawals daily._t_',
+        alt: '_t_Multiple deposits and withdrawals_t_',
     },
     {
         img_src: CloseAccount,
-        card_text: <Localize translate_text="Close your account at any time you want." />,
-        alt: 'Close your account',
+        card_text: '_t_Close your account at any time you want._t_',
+        alt: '_t_Close your account_t_',
     },
 ]
+
 const YourControl = () => {
     return (
         <YourControlContainer>
             <Container direction="column">
                 <Header as="h3" size="var(--text-size-header-1)" align="center">
-                    {localize('You are in control')}
+                    <Localize translate_text="_t_You are in control_t_" />
                 </Header>
                 <StyledText size="2.4rem" align="center" m="12px 0 40px">
-                    {localize('As a payment agent, you are an independent exchanger. You can:')}
+                    <Localize translate_text="_t_As a payment agent, you are an independent exchanger. You can:_t_" />
                 </StyledText>
                 <CssGrid
                     columns="repeat(2, 38.4rem)"
@@ -119,10 +117,12 @@ const YourControl = () => {
                     mobile_columns="1fr"
                     mobile_row_gap="24px"
                 >
-                    {cardItems.map((item, index) => (
-                        <Card key={`key-${index}`}>
-                            <img src={item.img_src} alt={item.alt} />
-                            <CardText>{item.card_text}</CardText>
+                    {cardItems.map(({ img_src, alt, card_text }) => (
+                        <Card key={card_text}>
+                            <img src={img_src} alt={localize(alt)} />
+                            <CardText>
+                                <Localize translate_text={card_text} />
+                            </CardText>
                         </Card>
                     ))}
                 </CssGrid>

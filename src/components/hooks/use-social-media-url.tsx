@@ -28,6 +28,11 @@ const special_language_urls = {
         twitter: 'https://twitter.com/DerivEspanol',
         facebook: 'https://www.facebook.com/derivespanol',
     },
+    ar: {
+        instagram: 'https://www.instagram.com/deriv_ar/',
+        twitter: 'https://twitter.com/DerivArabic',
+        facebook: 'https://www.facebook.com/derivarabic',
+    },
 }
 const types = ['facebook', 'instagram', 'twitter', 'linkedin']
 

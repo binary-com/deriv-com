@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import MobileExpandedList from './_mobile-expanded-list'
-import { PaymentDataProps } from './index'
+import { PaymentDataProps } from './_payment-data'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 
 const ParentWrapper = styled(Flex)`
     flex-direction: column;
@@ -51,7 +51,8 @@ const MobileAccordianItem = ({ locale, pd }: MobileAccordianItemProps) => {
             {pd.note && (
                 <Notes>
                     <Header type="paragraph-1" weight="normal">
-                        {localize('Note:')} {pd.note}
+                        <Localize translate_text="_t_Note:_t_" />{' '}
+                        <Localize translate_text={pd.note} />
                     </Header>
                 </Notes>
             )}

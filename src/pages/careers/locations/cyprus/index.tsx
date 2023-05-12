@@ -43,9 +43,9 @@ const Cyprus = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('Limassol | Our office – Cyprus | Deriv')}
+                title={localize('_t_Limassol | Our office – Cyprus | Deriv_t_')}
                 description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Limassol, Cyprus.',
+                    '_t_Find your role with us by browsing Deriv job opportunities in Limassol, Cyprus._t_',
                 )}
             />
             <LocationLayout location={cyprus} images={images} />

@@ -340,7 +340,7 @@ module.exports = {
         {
             resolve: 'gatsby-source-strapi',
             options: {
-                apiURL: process.env.STRAPI_URL,
+                apiURL: 'https://chief-skinny-instrument.strapiapp.com',
                 accessToken: process.env.STRAPI_TOKEN,
                 collectionTypes: strapi_config,
             },

@@ -39,7 +39,7 @@ export const domain_config = {
     },
     beta: {
         hostname: 'beta.deriv.com',
-        app_id: 16303,
+        app_id: deriv_com_app_id,
     },
     test: {
         app_id: 11780,

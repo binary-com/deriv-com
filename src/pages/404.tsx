@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 import { isBrowser } from 'common/utility'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Header } from 'components/elements'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
 import { LinkButton } from 'components/form'
 import ImageNotAvailable from 'images/svg/image-not-available.svg'
 
@@ -34,30 +35,28 @@ const PageNotFound = () => {
         isBrowser() && (
             <Layout>
                 <SEO
-                    title={localize('404 - Page not found | Deriv')}
-                    description={localize('The page you are looking for does not exist.')}
+                    title={localize('_t_404 - Page not found | Deriv_t_')}
+                    description={localize('_t_The page you are looking for does not exist._t_')}
                 />
                 <PageNotFoundContainer>
                     <img
                         src={ImageNotAvailable}
-                        alt={localize('Page not found')}
+                        alt={localize('_t_Page not found_t_')}
                         width="96"
                         height="96"
                     />
 
                     <PageNotFoundContainerInfo>
                         <Header as="h3" type="heading-3" align="center">
-                            {localize('We couldn’t find that page')}
+                            <Localize translate_text="_t_We couldn’t find that page_t_" />
                         </Header>
                         <Header as="p" type="paragraph-1" align="center" weight="normal">
-                            {localize(
-                                'It may not be available in your country, or maybe a broken link has brought you here.',
-                            )}
+                            <Localize translate_text="_t_It may not be available in your country, or maybe a broken link has brought you here._t_" />
                         </Header>
 
                         <ButtonWrapper>
                             <LinkButton secondary to="/">
-                                {localize('Visit our homepage')}
+                                <Localize translate_text="_t_Visit our homepage_t_" />
                             </LinkButton>
                         </ButtonWrapper>
                     </PageNotFoundContainerInfo>
@@ -66,5 +65,64 @@ const PageNotFound = () => {
         )
     )
 }
+
+// this query exist here to get data only which need to be translated in crowdin
+const strapi_query =
+    process.env.STRAPI_BUILD == 'true' &&
+    graphql`
+        query {
+            strapiWhoWeArePage {
+                hero {
+                    header
+                    sub_header
+                    first_paragraph
+                    second_paragraph
+                    third_paragraph
+                }
+                our_values {
+                    header
+                    values {
+                        header
+                        sub_header
+                    }
+                }
+                our_principles {
+                    header
+                    principles {
+                        header
+                        sub_header
+                    }
+                    button {
+                        link_name
+                    }
+                }
+                our_leadership {
+                    header
+                    leaders {
+                        role
+                    }
+                }
+                deriv_in_numbers {
+                    header
+                    sub_header
+                    numbers {
+                        description
+                    }
+                }
+                our_locations {
+                    header
+                    numbers {
+                        description
+                    }
+                }
+                banner {
+                    header
+                    sub_header
+                    link_name
+                }
+            }
+        }
+    `
+export const query = strapi_query
 
 export default WithIntl()(PageNotFound)

@@ -8,7 +8,7 @@ import useRegion from 'components/hooks/use-region'
 // TODO: (discussion) make footer pure component, and move usage of footer to custom
 
 type FooterProps = {
-    academy?: boolean
+    blog?: boolean
     is_ppc?: boolean
     is_ppc_redirect?: boolean
     no_footer_links?: boolean
@@ -19,20 +19,20 @@ const Footer = ({
     type = '',
     is_ppc = false,
     is_ppc_redirect = false,
-    academy = false,
+    blog = false,
     no_footer_links = false,
 }: FooterProps) => {
-    const { is_eu } = useRegion()
+    const { is_eu, is_cpa_plan } = useRegion()
 
     return (
-        <DefaultFooter is_eu={is_eu}>
+        <DefaultFooter is_margin={is_eu || is_cpa_plan}>
             <Container>
                 <FooterGrid>
                     <LogoSection type={type} />
                     {!no_footer_links && (
                         <MainLinksSection is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect} />
                     )}
-                    <DisclaimerSection is_academy={academy} />
+                    <DisclaimerSection />
                 </FooterGrid>
             </Container>
         </DefaultFooter>

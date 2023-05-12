@@ -4,6 +4,7 @@ import { SectionContainer, Flex, FlexGridContainer } from 'components/containers
 import { Text, Card, Header, NavCard, CardLink, LocalizedLinkText } from 'components/elements'
 import { localize, LocalizedLink, Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
+import { TString } from 'types/generics'
 import { binary_bot_url } from 'common/constants'
 import device from 'themes/device'
 // icons
@@ -16,6 +17,7 @@ import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
 import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
+import DerivEZ from 'images/svg/deriv-ez/derivez-logo-black.svg'
 import DBot from 'images/svg/dbot/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
@@ -408,6 +410,23 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                             to="/derivx/"
                         />
                         <NavCard
+                            aria_label="Derivez"
+                            icon={() => (
+                                <img
+                                    src={DerivEZ}
+                                    alt="Deriv EZ trading paltform"
+                                    width="32"
+                                    height="32"
+                                />
+                            )}
+                            content={
+                                <Localize translate_text="Trade on global markets from anywhere with our mobile-first CFD trading platform." />
+                            }
+                            title={<Localize translate_text="Deriv EZ" />}
+                            onClick={onClick}
+                            to="/derivez/"
+                        />
+                        <NavCard
                             aria_label="SmartTrader"
                             icon={() => (
                                 <img
@@ -498,7 +517,12 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
     )
 }
 
+const derived_text_eu: TString = '_t_Enjoy trading asset prices derived from simulated markets._t_'
+const derived_text_row: TString =
+    '_t_Enjoy trading asset prices derived from real-world or simulated markets._t_'
+
 export const NavMarket = ({ onClick }: NavMarketProps) => {
+    const { is_eu } = useRegion()
     return (
         <Flex direction="column" wrap="wrap" jc="flex-start">
             <NavCard
@@ -515,7 +539,11 @@ export const NavMarket = ({ onClick }: NavMarketProps) => {
                 aria_label="Derived"
                 icon={() => <img src={DerivedFX} alt="Synthetic indices" width="32" height="32" />}
                 content={
-                    <Localize translate_text="Enjoy trading asset prices derived from real-world or simulated markets." />
+                    is_eu ? (
+                        <Localize translate_text={derived_text_eu} />
+                    ) : (
+                        <Localize translate_text={derived_text_row} />
+                    )
                 }
                 title={<Localize translate_text="Derived" />}
                 onClick={onClick}
@@ -649,10 +677,13 @@ export const NavResources = ({ onClick }: NavResourcesProps) => (
             to="/dmt5-trading-signals/#signal-subscriber/"
         />
         <CardLink
-            icon={() => <img src={Blog} alt="academy" width="24" height="24" />}
-            title={<Localize translate_text="Academy" />}
-            onClick={onClick}
-            to="/academy/"
+            icon={() => <img src={Blog} alt="blog" width="24" height="24" />}
+            title={<Localize translate_text="Blog" />}
+            to=""
+            type="blog"
+            external={true}
+            target="_blank"
+            rel="noopener noreferrer"
         />
     </Flex>
 )

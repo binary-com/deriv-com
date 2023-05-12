@@ -4,7 +4,7 @@ type ErrorsType = {
     errors?: null
     symbol?: string
     volume?: string | JSX.Element
-    assetPrice?: string
+    assetPrice?: string | JSX.Element
     leverage?: string
     pointValue?: string | JSX.Element
     takeProfitAmount?: string | JSX.Element
@@ -89,7 +89,7 @@ export const getPnlMarginCommon = (values, action) => {
             return toFixed(take_profit_level_formula)
         }
         case 'getStopLossLevelBuy': {
-            const stop_loss_level_formula = assetPrice + [-stopLossAmount / (volume * contractSize)]
+            const stop_loss_level_formula = assetPrice + -[stopLossAmount / (volume * contractSize)]
             return toFixed(stop_loss_level_formula)
         }
         case 'getTakeProfitLevelBuy': {

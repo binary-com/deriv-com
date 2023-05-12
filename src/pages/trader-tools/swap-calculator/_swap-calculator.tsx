@@ -228,17 +228,22 @@ const SwapCalculator = () => {
                     )}
                 </SectionSubtitle>
 
-                <Flex mt="80px" mb="40px" tablet={{ mt: '40px', mb: '24px' }}>
+                <Flex
+                    mt="80px"
+                    mb="40px"
+                    tablet={{ mt: '40px', mb: '24px' }}
+                    id="swap-tab-selector"
+                >
                     <SwapTabSelector
                         active={tab === 'Synthetic'}
                         onClick={() => onTabClick('Synthetic')}
                     >
-                        <Text size="var(--text-size-m)" align="center">
+                        <Text size="var(--text-size-m)" align="center" className="synthetic">
                             {localize('Synthetic')}
                         </Text>
                     </SwapTabSelector>
                     <SwapTabSelector active={tab === 'Real'} onClick={() => onTabClick('Real')}>
-                        <Text size="var(--text-size-m)" align="center">
+                        <Text size="var(--text-size-m)" align="center" className="financial">
                             {localize('Financial')}
                         </Text>
                     </SwapTabSelector>
@@ -428,12 +433,13 @@ const SwapCalculator = () => {
                                     {localize('Example calculation')}
                                 </Header>
 
-                                <Accordion has_single_state>
+                                <Accordion id="swap-calculator" has_single_state>
                                     <AccordionItem
                                         header={localize('Swap charge')}
                                         header_style={header_style}
                                         style={item_style}
                                         plus
+                                        class_name="swap-charge"
                                     >
                                         <Text mb="2rem">
                                             {localize(
@@ -673,12 +679,13 @@ const SwapCalculator = () => {
                                     {localize('Example calculation')}
                                 </Header>
 
-                                <Accordion has_single_state>
+                                <Accordion id="swap-calculator" has_single_state>
                                     <AccordionItem
                                         header={localize('Swap charge')}
                                         header_style={header_style}
                                         style={item_style}
                                         plus
+                                        class_name="swap-charge"
                                     >
                                         <Text mb="2rem">
                                             {localize(

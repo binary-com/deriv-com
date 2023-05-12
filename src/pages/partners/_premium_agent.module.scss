@@ -9,7 +9,8 @@
 
   .array_wrapper {
     display: grid;
-    gap: 2.5rem;
+    grid-row-gap: 2.5rem;
+    grid-column-gap: 5rem;
     inline-size: 296px;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(5, 1fr);

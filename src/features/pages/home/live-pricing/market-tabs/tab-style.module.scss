@@ -10,29 +10,30 @@
     }
 
     @include breakpoints(tablet) { 
-    overflow: auto hidden;
+    overflow-x: auto;
     justify-content: center;
     padding: 2rem;
 }
 }
-.market_icon svg{
-    
-    fill: red;
-}
 .inactive_button{
     white-space: nowrap;
     border-inline: none;
-    border-block-end: 1px solid $color-black-9;
+    border-block-end: 2px solid $color-grey-8;
     border-radius: unset;
     background: none;
-    padding: 1.6rem 5.2rem;
-      
+    padding: 1.6rem 4rem;
+    @include breakpoints(laptop) { 
+        padding: 1.6rem 5.2rem;
+    }
 }
 .active_button {
     white-space: nowrap;
     border-inline: none;
     border-radius: unset;
     background: none;
-    padding: 1.6rem 5.2rem;
+    padding: 1.6rem 4rem;
     border-block-end: 2px solid $color-red;
+    @include breakpoints(laptop) { 
+        padding: 1.6rem 5.2rem;
+    }
 }

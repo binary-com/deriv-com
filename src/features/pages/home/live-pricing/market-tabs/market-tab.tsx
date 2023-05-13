@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { TAvailableLiveMarkets } from '../types'
 import LiveMarketTable from '../table-component/live-market-table'
 import { market_buttons } from './utils'
-import { tab_container, active_button, inactive_button, market_icon } from './tab-style.module.scss'
+import { tab_container, active_button, inactive_button } from './tab-style.module.scss'
 import Button from 'features/components/atoms/button'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
@@ -37,7 +37,6 @@ const MarketTab = () => {
                         }}
                     >
                         <Icon
-                            className={market_icon}
                             size="medium"
                             selected={marketItem.market_name === selected_market}
                             key={marketItem.id}
@@ -49,7 +48,7 @@ const MarketTab = () => {
                         <Typography.Paragraph
                             size="large"
                             textcolor={
-                                marketItem.market_name === selected_market ? 'brand' : 'primary'
+                                marketItem.market_name === selected_market ? 'brand' : 'secondary'
                             }
                         >
                             <Localize translate_text={marketItem.button_text} />

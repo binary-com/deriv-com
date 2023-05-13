@@ -1,5 +1,5 @@
 import { TQuestionsData } from './_data-types'
-import { binary_bot_url, deriv_app_url } from 'common/constants'
+import { binary_bot_url, deriv_app_url, traders_hub } from 'common/constants'
 
 const dmt5: TQuestionsData = {
     section: 'Platforms',
@@ -288,7 +288,13 @@ const dmt5: TQuestionsData = {
             category: 'DMT5',
             sub_category: '_t_Deposits_t_',
             label: 'swap-free-Deriv-MT5-accounts',
-            answer: [{ translation_text: "_t_No, we don't._t_" }],
+            answer: [
+                {
+                    translation_text:
+                        '_t_Yes, we do. You can create a swap-free Deriv MT5 account in the <0>Trader’s hub</0>._t_',
+                    translation_components: [{ key: 0, type: 'link', to: traders_hub }],
+                },
+            ],
         },
         {
             question: '_t_How can I reactivate my Deriv MT5 account?_t_',

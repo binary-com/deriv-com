@@ -4,6 +4,7 @@ import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Localize } from 'components/localization'
 import FinancialIcon from 'images/svg/dmt5/financial.svg'
+import SwapFreeIcon from 'images/svg/dmt5/swap-free.svg'
 import DerivedIcon from 'images/svg/dmt5/derived.svg'
 import CFDsIcon from 'images/svg/dmt5/cfds.svg'
 import device from 'themes/device'
@@ -47,7 +48,7 @@ const content: ContentType[] = [
     {
         header: '_t_Swap-free_t_',
         text: '_t_Trade selected derived and financial assets without overnight charges._t_',
-        icon: <StyledIcon src={FinancialIcon} alt="financial-icon" />,
+        icon: <StyledIcon src={SwapFreeIcon} alt="financial-icon" />,
     },
 ]
 

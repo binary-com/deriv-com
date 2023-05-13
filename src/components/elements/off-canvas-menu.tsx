@@ -371,7 +371,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         type="smart_trader"
                                         external
                                         target="_blank"
-                                        otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                        otherlinkprops={{ rel: 'noopener noreferrer' }}
                                     />
                                 </Flex>
                                 <Flex mb="2rem">
@@ -412,7 +412,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         to={binary_bot_url}
                                         external
                                         target="_blank"
-                                        otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                        otherlinkprops={{ rel: 'noopener noreferrer' }}
                                     />
                                 </Flex>
                             </>

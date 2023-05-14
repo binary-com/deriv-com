@@ -95,17 +95,17 @@ const ExternalLink = ({ url, onClick, link_target, link_rel, ...rest }: External
     }
 
     const handleClick: React.MouseEventHandler<'a'> = (event) => {
-        onClick?.(event)
-
         if (show_modal) {
+            event.preventDefault()
             setIsRedirectModalVisible(true)
         }
+        onClick?.(event)
     }
 
     return (
         <>
             <Typography.Link
-                href={!show_modal ? href : 'javascript:void(0)'}
+                href={!show_modal ? href : ''}
                 onClick={handleClick}
                 target={link_target}
                 rel={link_rel}

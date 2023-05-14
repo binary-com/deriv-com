@@ -1,10 +1,11 @@
-import React from 'react'
-import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
-import Container from './_career-container'
-import { HeaderProps } from './_dept-layout.types'
-import { Header, BackgroundImage } from 'components/elements'
-import device from 'themes/device'
+import React from 'react';
+import styled from 'styled-components';
+import { graphql, useStaticQuery } from 'gatsby';
+import Container from './_career-container';
+import { HeaderProps } from './_dept-layout.types';
+import { Header, BackgroundImage } from 'components/elements';
+import { LinkButton } from 'components/form';
+import device from 'themes/device';
 
 const StyledBackGroundImage = styled(BackgroundImage)`
     height: 660px;
@@ -12,25 +13,25 @@ const StyledBackGroundImage = styled(BackgroundImage)`
     @media ${device.tablet} {
         height: 560px;
     }
-`
+`;
 
 const StyledHeader = styled(Header)`
     margin-bottom: 2.4rem;
     color: var(--color-white);
 
     @media ${device.tablet} {
-        text-align: start;
+        text-align: center;
     }
-`
+`;
 
 const Subheadline = styled(Header)`
     color: var(--color-white);
     max-width: 99.6rem;
 
     @media ${device.tablet} {
-        text-align: start;
+        text-align: center;
     }
-`
+`;
 
 const StyledContainer = styled(Container)`
     max-width: 984px;
@@ -41,7 +42,12 @@ const StyledContainer = styled(Container)`
     @media ${device.tablet} {
         padding: 0 2rem;
     }
-`
+`;
+const ButtonContainer = styled(Container)`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
 
 const query = graphql`
     query {
@@ -90,20 +96,19 @@ const query = graphql`
         trading_operations_bg: file(relativePath: { eq: "careers-2/trading-operations-bg.png" }) {
             ...fadeIn
         }
-        business_intelligence_bg: file(
-            relativePath: { eq: "careers-2/business-intelligence-bg.png" }
-        ) {
+        business_intelligence_bg: file(relativePath: { eq: "careers-2/business-intelligence-bg.png" }) {
             ...fadeIn
         }
     }
-`
+`;
 
 type HeaderDataProps = {
-    data: HeaderProps
-}
+    data: HeaderProps;
+    link: string;
+};
 
-const Hero = (header_data: HeaderDataProps) => {
-    const data = useStaticQuery(query)
+const Hero = (header_data: HeaderDataProps, link: string) => {
+    const data = useStaticQuery(query);
     return (
         <StyledBackGroundImage
             data={data[header_data.data.background]}
@@ -113,17 +118,22 @@ const Hero = (header_data: HeaderDataProps) => {
                 backgroundColor: 'var(--color-black)',
                 maxWidth: '100%',
             }}
-            dark="0.3"
+            dark='0.3'
         >
             <StyledContainer>
-                <StyledHeader align="center" as="h1" type="display-title">
+                <StyledHeader align='center' as='h1' type='display-title'>
                     {header_data.data.title}
                 </StyledHeader>
-                <Subheadline align="center" as="h3" type="subtitle-1" weight="400">
+                <Subheadline align='center' as='h3' type='subtitle-1' weight='400'>
                     {header_data.data.subtitle}
                 </Subheadline>
+                <ButtonContainer>
+                    <LinkButton external mt='35px' to={header_data.link} secondary target='_blank'>
+                        Apply now
+                    </LinkButton>
+                </ButtonContainer>
             </StyledContainer>
         </StyledBackGroundImage>
-    )
-}
-export default Hero
+    );
+};
+export default Hero;

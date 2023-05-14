@@ -1,26 +1,26 @@
-import React, { JSXElementConstructor, ReactElement, useState } from 'react'
-import styled from 'styled-components'
-import { TQuestions } from '../data/_data-types'
-import { Header } from 'components/elements'
-import device, { size } from 'themes/device'
-import { getWindowWidth, matchHashInURL, scrollTop, setHashInURL } from 'common/utility'
-import { Desktop } from 'components/containers/show'
-import { TString } from 'types/generics'
-import { Localize } from 'components/localization'
+import React, { JSXElementConstructor, ReactElement, useState } from 'react';
+import styled from 'styled-components';
+import { TQuestions } from '../data/_data-types';
+import { Header } from 'components/elements';
+import device, { size } from 'themes/device';
+import { getWindowWidth, matchHashInURL, scrollTop, setHashInURL } from 'common/utility';
+import { Desktop } from 'components/containers/show';
+import { TString } from 'types/generics';
+import { Localize } from 'components/localization';
 
 interface ChildProps {
-    label: string
+    label: string;
 }
 
 class ChildComponent extends React.Component<ChildProps> {}
 
-export type TChildren = Array<ReactElement<ChildProps, JSXElementConstructor<ChildComponent>>>
+export type TChildren = Array<ReactElement<ChildProps, JSXElementConstructor<ChildComponent>>>;
 
 type SideTabType = {
-    tab_header: TString
-    data: TQuestions[]
-    children: TChildren
-}
+    tab_header: TString;
+    data: TQuestions[];
+    children: TChildren;
+};
 
 const Wrapper = styled.div`
     display: flex;
@@ -31,12 +31,12 @@ const Wrapper = styled.div`
         flex-direction: column;
         margin-top: 0;
     }
-`
+`;
 
 const Ol = styled.ol`
     width: 38.4rem;
     list-style: none;
-`
+`;
 
 const ListItem = styled.li`
     max-width: 38rem;
@@ -57,51 +57,49 @@ const ListItem = styled.li`
         border-left: 4px red solid;
         opacity: 1;
     }
-`
+`;
 
 const TabContent = styled.div`
     flex: 1;
-`
+`;
 
 const SideTab = ({ children, tab_header, data }: SideTabType) => {
-    const [is_menu, setMenu] = useState(false)
-    const show_content = !is_menu || getWindowWidth() >= size.tabletL
+    const [is_menu, setMenu] = useState(false);
+    const show_content = !is_menu || Number(getWindowWidth()) >= size.tabletL;
 
     return (
         <Wrapper>
             <Desktop>
-                <Header max_width="38.4rem" size="3.6rem" mb="4rem">
+                <Header max_width='38.4rem' size='3.6rem' mb='4rem'>
                     <Localize translate_text={tab_header} />
                 </Header>
 
                 <Ol>
                     {data.map(({ question, label }) => {
-                        const className = matchHashInURL(label) ? 'tab-active' : ''
+                        const className = matchHashInURL(label) ? 'tab-active' : '';
 
                         const handleClick = () => {
-                            setHashInURL(label)
-                            setMenu(!is_menu)
-                            scrollTop()
-                        }
+                            setHashInURL(label);
+                            setMenu(!is_menu);
+                            scrollTop();
+                        };
 
                         return (
                             <ListItem key={label} className={className} onClick={handleClick}>
                                 <Localize translate_text={question} />
                             </ListItem>
-                        )
+                        );
                     })}
                 </Ol>
             </Desktop>
 
             {show_content && (
                 <TabContent>
-                    {React.Children.map(children, (child) =>
-                        matchHashInURL(child.props.label) ? child : undefined,
-                    )}
+                    {React.Children.map(children, child => (matchHashInURL(child.props.label) ? child : undefined))}
                 </TabContent>
             )}
         </Wrapper>
-    )
-}
+    );
+};
 
-export default SideTab
+export default SideTab;

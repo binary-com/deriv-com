@@ -1,10 +1,10 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import { berlin } from '../../_model/_locations/_locations'
-import { NewLocationLayout } from '../_location-layout-new-offices'
-import { SEO } from 'components/containers'
-import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import { berlin } from '../../_model/_locations/_locations';
+import { NewLocationLayout } from '../_location-layout-new-offices';
+import { SEO } from 'components/containers';
+import Layout from 'components/layout/layout';
+import { localize, WithIntl } from 'components/localization';
 
 const query = graphql`
     query {
@@ -30,22 +30,22 @@ const query = graphql`
             ...fadeIn
         }
     }
-`
+`;
 
 const Berlin = () => {
-    const images = useStaticQuery(query)
+    const images = useStaticQuery(query);
 
     return (
-        <Layout type="careers">
+        <Layout type='careers'>
             <SEO
-                title={localize('Berlin - Our office | Deriv')}
+                title={localize('_t_Berlin - Our office | Deriv_t_')}
                 description={localize(
-                    'Join Deriv’s team in Germany and work on next-gen fintech products. View our current openings for a chance to build a fulfilling career.',
+                    '_t_Join Deriv’s team in Germany and work on next-gen fintech products. View our current openings for a chance to build a fulfilling career._t_'
                 )}
             />
             <NewLocationLayout location={berlin} images={images} />
         </Layout>
-    )
-}
+    );
+};
 
-export default WithIntl()(Berlin)
+export default WithIntl()(Berlin);

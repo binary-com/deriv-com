@@ -1,10 +1,10 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import { labuan } from '../../_model/_locations/_locations'
-import { LocationLayout } from '../_location-layout'
-import { SEO } from 'components/containers'
-import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import { labuan } from '../../_model/_locations/_locations';
+import { LocationLayout } from '../_location-layout';
+import { SEO } from 'components/containers';
+import Layout from 'components/layout/layout';
+import { localize, WithIntl } from 'components/localization';
 
 const query = graphql`
     query {
@@ -35,22 +35,22 @@ const query = graphql`
             ...fadeIn
         }
     }
-`
+`;
 
 const Labuan = () => {
-    const images = useStaticQuery(query)
+    const images = useStaticQuery(query);
 
     return (
-        <Layout type="careers">
+        <Layout type='careers'>
             <SEO
-                title={localize('Labuan | Our office – Malaysia | Deriv')}
+                title={localize('_t_Labuan | Our office – Malaysia | Deriv_t_')}
                 description={localize(
-                    'Browse, find, and apply for jobs in IT, compliance, and accounts at our Labuan office.',
+                    '_t_Browse, find, and apply for jobs in IT, compliance, and accounts at our Labuan office._t_'
                 )}
             />
             <LocationLayout location={labuan} images={images} />
         </Layout>
-    )
-}
+    );
+};
 
-export default WithIntl()(Labuan)
+export default WithIntl()(Labuan);

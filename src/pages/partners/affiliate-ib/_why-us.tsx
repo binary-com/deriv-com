@@ -1,34 +1,33 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import styled from 'styled-components'
-import { SectionContainer, Container } from 'components/containers'
-import { Header, Text, QueryImage } from 'components/elements'
-import { localize } from 'components/localization'
-import device from 'themes/device'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import styled from 'styled-components';
+import { SectionContainer, Container } from 'components/containers';
+import { Header, Text, QueryImage } from 'components/elements';
+import { Localize, localize } from 'components/localization';
+import device from 'themes/device';
+import { TString } from 'types/generics';
 
 type TextType = {
-    props: { translate_text: string }
-}
+    props: { translate_text: string };
+};
 
 export type WhyUsType = {
-    title: string | React.ReactElement
-    subtitle: string | React.ReactElement
-    image_name: string
-    image_alt: TextType | React.ReactElement
-}[]
+    title: TString;
+    subtitle: TString;
+    image_name: string;
+    image_alt: TString;
+}[];
 
 type WhyUsProps = {
-    items: WhyUsType
-}
+    items: WhyUsType;
+};
 
 type RowProps = {
-    flex_direction?: string
-}
+    flex_direction?: string;
+};
 const query = graphql`
     query {
-        multiple_income_opportunities: file(
-            relativePath: { eq: "affiliate/multiple-income-opportunities.png" }
-        ) {
+        multiple_income_opportunities: file(relativePath: { eq: "affiliate/multiple-income-opportunities.png" }) {
             ...fadeIn
         }
         daily_ib_commission: file(relativePath: { eq: "affiliate/daily-ib-commission.png" }) {
@@ -38,7 +37,7 @@ const query = graphql`
             ...fadeIn
         }
     }
-`
+`;
 const StyledContainer = styled(SectionContainer)`
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
 
@@ -52,7 +51,7 @@ const StyledContainer = styled(SectionContainer)`
     @media ${device.tabletL} {
         padding: 40px 0;
     }
-`
+`;
 
 const StyledHeader = styled(Header)`
     margin-bottom: 0 !important;
@@ -60,17 +59,17 @@ const StyledHeader = styled(Header)`
         text-align: left !important;
         font-size: 20px;
     }
-`
+`;
 
 const WhyUsHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 24px;
     }
-`
+`;
 
 const Row = styled(SectionContainer)<RowProps>`
     display: flex;
-    flex-direction: ${(props) => props.flex_direction};
+    flex-direction: ${props => props.flex_direction};
     justify-content: space-between;
     padding: 2rem 0;
 
@@ -90,7 +89,7 @@ const Row = styled(SectionContainer)<RowProps>`
             font-size: 16px;
         }
     }
-`
+`;
 const Content = styled.div`
     display: flex;
     flex-direction: column;
@@ -104,38 +103,36 @@ const Content = styled.div`
             text-align: unset;
         }
     }
-`
+`;
 
 const WhyUs = ({ items }: WhyUsProps) => {
-    const data = useStaticQuery(query)
+    const data = useStaticQuery(query);
 
     return (
         <StyledContainer>
-            <Container direction="column">
-                <WhyUsHeader as="h2" size="4.8rem" align="center">
-                    {localize('Why partner with us')}
+            <Container direction='column'>
+                <WhyUsHeader as='h2' size='4.8rem' align='center'>
+                    <Localize translate_text='_t_Why partner with us_t_' />
                 </WhyUsHeader>
                 {items.map((item, index) => {
-                    const is_even = index % 2
+                    const is_even = index % 2;
                     return (
                         <Row flex_direction={is_even ? 'row-reverse' : 'row'} key={index}>
                             <Content>
-                                <StyledHeader as="h4" size="2.4rem">
-                                    {item.title}
+                                <StyledHeader as='h3' size='2.4rem'>
+                                    <Localize translate_text={item.title} />
                                 </StyledHeader>
-                                <Text mt="0.8rem">{item.subtitle}</Text>
+                                <Text mt='0.8rem'>
+                                    <Localize translate_text={item.subtitle} />
+                                </Text>
                             </Content>
-                            <QueryImage
-                                data={data[item.image_name]}
-                                alt={item.image_alt.props.translate_text}
-                                width="100%"
-                            />
+                            <QueryImage data={data[item.image_name]} alt={localize(item.image_alt)} width='100%' />
                         </Row>
-                    )
+                    );
                 })}
             </Container>
         </StyledContainer>
-    )
-}
+    );
+};
 
-export default WhyUs
+export default WhyUs;

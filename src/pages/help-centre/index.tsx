@@ -1,42 +1,42 @@
-import React from 'react'
-import QuestionsSection from './components/_questions-section'
-import SearchSection from './components/_search-section'
-import FaqSchema from './components/_faq-schema'
-import { DidntFindYourAnswerBanner, Community } from './components/_lazy-load'
-import { getQuestionsBySection } from './components/_utility'
-import { PLATFORMS, GENERAL } from './components/_constants'
-import { SEO, Desktop, Container } from 'components/containers'
-import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
-import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import React from 'react';
+import QuestionsSection from './components/_questions-section';
+import SearchSection from './components/_search-section';
+import FaqSchema from './components/_faq-schema';
+import { DidntFindYourAnswerBanner, Community } from './components/_lazy-load';
+import { getQuestionsBySection } from './components/_utility';
+import { PLATFORMS, GENERAL } from './components/_constants';
+import { SEO, Desktop, Container } from 'components/containers';
+import Layout from 'components/layout/layout';
+import { localize, WithIntl } from 'components/localization';
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param';
 
 const HelpCentre = () => {
-    const { is_deriv_go } = usePlatformQueryParam()
-    const general_questions = getQuestionsBySection(GENERAL)
-    const platforms_questions = getQuestionsBySection(PLATFORMS)
+    const { is_deriv_go } = usePlatformQueryParam();
+    const general_questions = getQuestionsBySection(GENERAL);
+    const platforms_questions = getQuestionsBySection(PLATFORMS);
 
     return (
         <Layout>
             <SEO
-                title={localize('Help centre | Frequently asked questions | Deriv')}
+                title={localize('_t_Help centre | Frequently asked questions | Deriv_t_')}
                 description={localize(
-                    'Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question.',
+                    '_t_Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question._t_'
                 )}
             />
             <FaqSchema />
             <SearchSection />
 
-            <Container align="start" justify="flex-start" direction="column">
+            <Container align='start' justify='flex-start' direction='column'>
                 <QuestionsSection data={general_questions} section_name={`_t_${GENERAL}_t_`} />
                 <QuestionsSection data={platforms_questions} section_name={`_t_${PLATFORMS}_t_`} />
             </Container>
 
-            <Desktop breakpoint="tabletL">
+            <Desktop breakpoint='tabletL'>
                 <Community />
             </Desktop>
             {!is_deriv_go && <DidntFindYourAnswerBanner />}
         </Layout>
-    )
-}
+    );
+};
 
-export default WithIntl()(HelpCentre)
+export default WithIntl()(HelpCentre);

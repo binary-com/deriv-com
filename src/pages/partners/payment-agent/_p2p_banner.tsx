@@ -1,12 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
-import { SectionContainer, Flex } from 'components/containers'
-import { Header } from 'components/elements'
-import { LinkButton } from 'components/form'
-import { localize, Localize } from 'components/localization'
-import banner from 'images/common/p2p/banner.png'
-import bannerBG from 'images/common/p2p/gradient_bg.png'
-import device from 'themes/device'
+import React from 'react';
+import styled from 'styled-components';
+import { SectionContainer, Flex } from 'components/containers';
+import { Header } from 'components/elements';
+import { LinkButton } from 'components/form';
+import { Localize } from 'components/localization';
+import banner from 'images/common/p2p/banner.png';
+import bannerBG from 'images/common/p2p/gradient_bg.png';
+import device from 'themes/device';
 
 const StyledSection = styled(SectionContainer)`
     display: flex;
@@ -20,7 +20,7 @@ const StyledSection = styled(SectionContainer)`
         width: 90%;
         padding-bottom: 0;
     }
-`
+`;
 const MainWrapper = styled(Flex)`
     border-radius: 10px;
     height: 35rem;
@@ -46,7 +46,7 @@ const MainWrapper = styled(Flex)`
     @media (max-width: 355px) {
         height: 580px;
     }
-`
+`;
 const LeftWrapper = styled(Flex)`
     padding: 56px 0 56px 102px;
     justify-content: flex-start;
@@ -62,7 +62,7 @@ const LeftWrapper = styled(Flex)`
         justify-content: center;
         align-items: flex-start;
     }
-`
+`;
 const LeftChild = styled(Flex)`
     flex-direction: column;
     max-width: 49rem;
@@ -76,7 +76,7 @@ const LeftChild = styled(Flex)`
     @media ${device.tabletL} {
         height: unset;
     }
-`
+`;
 
 const StyledH3 = styled.h3`
     font-weight: bold;
@@ -88,7 +88,7 @@ const StyledH3 = styled.h3`
     @media ${device.tabletL} {
         max-width: 378px;
     }
-`
+`;
 
 const Subtitle = styled(Header)`
     min-width: 58.8rem;
@@ -100,7 +100,7 @@ const Subtitle = styled(Header)`
     @media (max-width: 355px) {
         min-width: calc(100% - 16px);
     }
-`
+`;
 
 const StyledLinkButton = styled(LinkButton)`
     width: fit-content;
@@ -108,7 +108,7 @@ const StyledLinkButton = styled(LinkButton)`
     @media ${device.tabletL} {
         padding-bottom: 30px;
     }
-`
+`;
 
 const P2PBanner = () => {
     return (
@@ -116,28 +116,22 @@ const P2PBanner = () => {
             <MainWrapper>
                 <LeftWrapper>
                     <LeftChild>
-                        <StyledH3>{localize('Looking for Deriv P2P instead?')}</StyledH3>
-                        <Subtitle as="h4" type="subtitle-1" weight="none" color="white" mb="24px">
+                        <StyledH3>
+                            <Localize translate_text='_t_Looking for Deriv P2P instead?_t_' />
+                        </StyledH3>
+                        <Subtitle as='h4' type='subtitle-1' weight='none' color='white' mb='24px'>
                             <Localize
-                                translate_text="We offer a <0>peer-to-peer payment service</0> where you can make deposits and withdrawals in minutes via exchanges with fellow traders."
-                                components={[
-                                    <Header key={0} as="span" type="subtitle-1" color="red" />,
-                                ]}
+                                translate_text='_t_We offer a <0>peer-to-peer payment service</0> where you can make deposits and withdrawals in minutes via exchanges with fellow traders._t_'
+                                components={[<Header key={0} as='span' type='subtitle-1' color='red' />]}
                             />
                         </Subtitle>
-                        <StyledLinkButton
-                            secondary
-                            external
-                            to="/p2p/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Learn more
+                        <StyledLinkButton secondary external to='/p2p/' target='_blank' rel='noopener noreferrer'>
+                            <Localize translate_text='_t_Learn more_t_' />
                         </StyledLinkButton>
                     </LeftChild>
                 </LeftWrapper>
             </MainWrapper>
         </StyledSection>
-    )
-}
-export default P2PBanner
+    );
+};
+export default P2PBanner;

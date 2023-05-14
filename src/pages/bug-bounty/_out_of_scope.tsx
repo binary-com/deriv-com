@@ -1,11 +1,12 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Container, Flex, SectionContainer } from 'components/containers'
-import { Header } from 'components/elements'
-import { localize, Localize } from 'components/localization'
-import device from 'themes/device'
+import React from 'react';
+import styled from 'styled-components';
+import { Container, Flex, SectionContainer } from 'components/containers';
+import { Header } from 'components/elements';
+import { Localize } from 'components/localization';
+import device from 'themes/device';
 // icons
-import TickIcon from 'images/svg/bug-bounty/tick.svg'
+import TickIcon from 'images/svg/bug-bounty/tick.svg';
+import { TString } from 'types/generics';
 
 const Card = styled.div`
     background-color: var(--color-white);
@@ -18,68 +19,69 @@ const Card = styled.div`
     @media ${device.tabletL} {
         padding: 16px 24px;
     }
-`
+`;
 const FlexContainer = styled(Flex)`
     flex-wrap: wrap;
     gap: 2.1rem;
-`
+`;
 
 const IconWrap = styled.img`
     margin-right: 0.8rem;
     margin-top: 0.5rem;
-`
+`;
 
-const out_of_scope_content = [
-    <Localize key={0} translate_text="Clickjacking on pages with no sensitive actions" />,
-    <Localize
-        key={1}
-        translate_text="Cross-site request forgery (CSRF) on unauthenticated forms or forms with no sensitive actions"
-    />,
-    <Localize
-        key={2}
-        translate_text="Attacks requiring man in the middle (MITM) or physical access to a user's device"
-    />,
-    <Localize
-        key={3}
-        translate_text="Previously known vulnerable libraries without a working proof of concept (PoC)"
-    />,
-    <Localize
-        key={4}
-        translate_text="Open redirect — unless an additional security impact can be demonstrated"
-    />,
-    <Localize
-        key={5}
-        translate_text="Output from automated vulnerability scanners without a PoC to demonstrate a specific vulnerability"
-    />,
-]
+type TOutOfScope = {
+    id: number;
+    text: TString;
+};
+
+const out_of_scope_content: TOutOfScope[] = [
+    { id: 0, text: '_t_Clickjacking on pages with no sensitive actions_t_' },
+    {
+        id: 1,
+        text: '_t_Cross-site request forgery (CSRF) on unauthenticated forms or forms with no sensitive actions_t_',
+    },
+    {
+        id: 2,
+        text: "_t_Attacks requiring man in the middle (MITM) or physical access to a user's device_t_",
+    },
+    {
+        id: 3,
+        text: '_t_Previously known vulnerable libraries without a working proof of concept (PoC)_t_',
+    },
+    {
+        id: 4,
+        text: '_t_Open redirect — unless an additional security impact can be demonstrated_t_',
+    },
+    {
+        id: 5,
+        text: '_t_Output from automated vulnerability scanners without a PoC to demonstrate a specific vulnerability_t_',
+    },
+];
 
 // Todo(mitra): can be merged with `scope` component into a generic component
-const OutOfScope = () => {
-    return (
-        <SectionContainer background="grey-30">
-            <Container direction="column">
-                <Header tabletL={{ pb: '24px' }} as="h2" type="heading-2" align="center">
-                    {localize('Out of scope vulnerabilities')}
-                </Header>
-                <FlexContainer tabletL={{ mt: '0', fd: 'column' }} mt="4rem">
-                    {out_of_scope_content.map((item, index) => {
-                        return (
-                            <Card key={index}>
-                                <Flex height="auto" ai="flex-start" jc="flex-start">
-                                    <IconWrap src={TickIcon} />
-                                    <div>
-                                        <Header as="p" type="paragraph-2" weight="normal">
-                                            {item}
-                                        </Header>
-                                    </div>
-                                </Flex>
-                            </Card>
-                        )
-                    })}
-                </FlexContainer>
-            </Container>
-        </SectionContainer>
-    )
-}
+const OutOfScope = () => (
+    <SectionContainer background='grey-30'>
+        <Container direction='column'>
+            <Header tabletL={{ pb: '24px' }} as='h2' type='heading-2' align='center'>
+                <Localize translate_text='_t_Out of scope vulnerabilities_t_' />
+            </Header>
+            <FlexContainer tabletL={{ mt: '0', fd: 'column' }} mt='4rem'>
+                {out_of_scope_content.map(({ id, text }) => (
+                    <Card key={id}>
+                        <Flex height='auto' ai='flex-start' jc='flex-start'>
+                            <IconWrap src={TickIcon} />
+                            <div>
+                                <Header as='p' type='paragraph-2' weight='normal'>
+                                    <Localize translate_text={text} />
+                                </Header>
+                            </div>
+                        </Flex>
+                    </Card>
+                ))}
+            </FlexContainer>
+        </Container>
+    </SectionContainer>
+);
 
-export default OutOfScope
+export default OutOfScope;

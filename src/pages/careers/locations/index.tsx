@@ -1,36 +1,36 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
-import type { ImageDataLike } from 'gatsby-plugin-image'
-import { StyledCard } from '../_layout-components/_team-card'
-import { allContinents } from '../_model/_locations/_locations'
-import device from 'themes/device'
-import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
-import Layout from 'components/layout/layout'
-import { WithIntl, localize } from 'components/localization'
-import { Header, Text, Tabs, QueryImage } from 'components/elements'
-import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { graphql, useStaticQuery } from 'gatsby';
+import type { ImageDataLike } from 'gatsby-plugin-image';
+import { StyledCard } from '../_layout-components/_team-card';
+import { allContinents } from '../_model/_locations/_locations';
+import device from 'themes/device';
+import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers';
+import Layout from 'components/layout/layout';
+import { WithIntl, localize } from 'components/localization';
+import { Header, Text, Tabs, QueryImage } from 'components/elements';
+import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg';
 
 const meta_attributes = {
-    og_title: localize('Explore our office locations | Deriv'),
+    og_title: localize('_t_Explore our office locations | Deriv_t_'),
     og_description: localize(
-        'Discover career opportunities at Deriv across our office locations around the globe.',
+        '_t_Discover career opportunities at Deriv across our office locations around the globe._t_'
     ),
-}
+};
 
 const ChevronRight = styled(Chevron)`
     transform: rotate(180deg);
     width: 16px;
     height: 16px;
-`
+`;
 const StyledTabs = styled(Tabs)`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     width: 912px;
     height: 56px;
-`
+`;
 const BackDrop = styled.section`
     background-color: var(--color-black);
     padding: 120px 0;
@@ -50,7 +50,7 @@ const BackDrop = styled.section`
         max-width: 79.2rem;
         text-align: center;
     }
-`
+`;
 const StyledSectionContainer = styled(SectionContainer)`
     margin: 0 16px;
     max-width: 100%;
@@ -58,26 +58,25 @@ const StyledSectionContainer = styled(SectionContainer)`
         padding: 40px 0;
         margin: 0;
     }
-`
+`;
 const StyledImg = styled.img`
     margin-right: 8px;
-`
+`;
 
 const Hero = () => (
     <BackDrop>
-        <Container fd="column">
-            <Header as="h1" size="var(--text-size-xl)" align="center" color="white">
+        <Container fd='column'>
+            <Header as='h1' size='var(--text-size-xl)' align='center' color='white'>
                 Our locations
             </Header>
-            <Text size="var(--text-size-sm)" color="white">
-                From IT to marketing to data analytics, we offer opportunities for people of almost
-                every skill set across our locations around the globe. As we expand, our culture of
-                collaboration gives our teams the opportunity to enjoy a diverse, dynamic, and
-                rewarding career experience.
+            <Text size='var(--text-size-sm)' color='white'>
+                From IT to marketing to data analytics, we offer opportunities for people of almost every skill set
+                across our locations around the globe. As we expand, our culture of collaboration gives our teams the
+                opportunity to enjoy a diverse, dynamic, and rewarding career experience.
             </Text>
         </Container>
     </BackDrop>
-)
+);
 
 const CountryCardWrapper = styled(StyledCard)`
     display: flex;
@@ -98,14 +97,14 @@ const CountryCardWrapper = styled(StyledCard)`
         max-width: 328px;
         height: 304px;
     }
-`
+`;
 const StyledText = styled(Text)`
     font-size: 16px;
 
     @media ${device.laptop} {
         font-size: 14px;
     }
-`
+`;
 
 const StyledDiv = styled.div`
     display: flex;
@@ -123,17 +122,17 @@ const StyledDiv = styled.div`
     @media ${device.mobileS} {
         gap: 8px;
     }
-`
+`;
 type CountryCardProps = {
-    country_name: string
-    continent: string
-    city_name: string
-    thumbnail_name: string
-    link: string
-    img_alt: string
-    img_data: ImageDataLike
-    Icon: string
-}
+    country_name: string;
+    continent: string;
+    city_name: string;
+    thumbnail_name: string;
+    link: string;
+    img_alt: string;
+    img_data: ImageDataLike;
+    Icon: string;
+};
 const StyledFrame = styled(Flex)`
     display: flex;
     flex-direction: row;
@@ -151,7 +150,7 @@ const StyledFrame = styled(Flex)`
     align-self: stretch;
     flex-grow: 0;
     justify-content: space-between;
-`
+`;
 const StyledHeader = styled(Text)`
     height: 36px;
     font-size: 24px;
@@ -164,7 +163,7 @@ const StyledHeader = styled(Text)`
         order: 0;
         flex-grow: 1;
     }
-`
+`;
 const StyledBox = styled(Flex)`
     box-sizing: border-box;
     display: flex;
@@ -179,7 +178,7 @@ const StyledBox = styled(Flex)`
     flex: none;
     order: 1;
     flex-grow: 0;
-`
+`;
 const StyledName = styled(Text)`
     font-weight: 700;
     font-size: 14px;
@@ -187,7 +186,7 @@ const StyledName = styled(Text)`
     flex: none;
     order: 0;
     flex-grow: 0;
-`
+`;
 const CountryCard = ({
     country_name,
     continent,
@@ -200,25 +199,25 @@ const CountryCard = ({
 }: CountryCardProps) => {
     return (
         <CountryCardWrapper to={link}>
-            <QueryImage data={img_data} alt={img_alt} width="100%" />
+            <QueryImage data={img_data} alt={img_alt} width='100%' />
             <StyledDiv>
                 <StyledFrame>
-                    <StyledHeader weight="bold">{city_name && thumbnail_name}</StyledHeader>
+                    <StyledHeader weight='bold'>{city_name && thumbnail_name}</StyledHeader>
                     <StyledBox>
-                        <StyledName weight="bold">{continent}</StyledName>
+                        <StyledName weight='bold'>{continent}</StyledName>
                     </StyledBox>
                 </StyledFrame>
-                <Flex jc="unset" ai="center" mt="8px" mb="8px">
-                    <StyledImg src={Icon} alt="" />
+                <Flex jc='unset' ai='center' mt='8px' mb='8px'>
+                    <StyledImg src={Icon} alt='' />
                     <StyledText>{country_name}</StyledText>
                 </Flex>
-                <Flex ai="center" jc="flex-end" width="100%">
+                <Flex ai='center' jc='flex-end' width='100%'>
                     <ChevronRight />
                 </Flex>
             </StyledDiv>
         </CountryCardWrapper>
-    )
-}
+    );
+};
 
 CountryCard.propTypes = {
     city_name: PropTypes.string,
@@ -228,7 +227,7 @@ CountryCard.propTypes = {
     img_data: PropTypes.object,
     link: PropTypes.string,
     open_positions: PropTypes.number,
-}
+};
 
 const query = graphql`
     query {
@@ -293,42 +292,37 @@ const query = graphql`
             ...fadeIn
         }
     }
-`
+`;
 
 const Locations = () => {
-    const images = useStaticQuery(query)
+    const images = useStaticQuery(query);
 
-    const continents = Object.keys(allContinents)
+    const continents = Object.keys(allContinents);
 
-    const changeCase = (continentName) => {
-        return continentName.charAt(0).toUpperCase() + continentName.slice(1)
-    }
+    const changeCase = continentName => {
+        return continentName.charAt(0).toUpperCase() + continentName.slice(1);
+    };
 
     const formatContinentName = (continent: string) => {
         return continent
             .split('_')
-            .filter((continentName) => continentName.length > 0)
-            .map((continentName) => changeCase(continentName))
-            .join(' ')
-    }
+            .filter(continentName => continentName.length > 0)
+            .map(continentName => changeCase(continentName))
+            .join(' ');
+    };
 
     return (
-        <Layout type="careers" margin_top={7}>
+        <Layout type='careers' margin_top={7}>
             <SEO
-                title={localize('Explore our office locations | Deriv')}
+                title={localize('_t_Explore our office locations | Deriv_t_')}
                 description={localize(
-                    'Discover career opportunities at Deriv across our office locations around the globe.',
+                    '_t_Discover career opportunities at Deriv across our office locations around the globe._t_'
                 )}
                 meta_attributes={meta_attributes}
             />
             <Hero />
-            <StyledSectionContainer direction="column" padding="80px 16px">
-                <Header
-                    as="h2"
-                    align="center"
-                    padding="0 0 35px"
-                    size={'var(--text-size-header-1)'}
-                >
+            <StyledSectionContainer direction='column' padding='80px 16px'>
+                <Header as='h2' align='center' padding='0 0 35px' size={'var(--text-size-header-1)'}>
                     Explore our locations
                 </Header>
                 <StyledTabs
@@ -343,28 +337,28 @@ const Locations = () => {
                         'latam',
                         'caribbean',
                     ]}
-                    jc_mobileL="start"
-                    jc_laptopM="start"
+                    jc_mobileL='start'
+                    jc_laptopM='start'
                     mobile_font_size={16}
-                    line_divider_length="unset"
+                    line_divider_length='unset'
                     starting_index={1}
                 >
-                    {continents.map((continent) => {
+                    {continents.map(continent => {
                         return (
                             <Tabs.Panel label={formatContinentName(continent)} key={continent}>
                                 <CssGrid
-                                    columns="repeat(3, 384px)"
-                                    row_gap="40px"
-                                    column_gap="24px"
-                                    laptop_columns="repeat(3, minmax(280px, 384px))"
-                                    tablet_columns="repeat(2, 1fr)"
-                                    mobile_columns="minmax(300px, 384px)"
-                                    mobile_row_gap="37px"
+                                    columns='repeat(3, 384px)'
+                                    row_gap='40px'
+                                    column_gap='24px'
+                                    laptop_columns='repeat(3, minmax(280px, 384px))'
+                                    tablet_columns='repeat(2, 1fr)'
+                                    mobile_columns='minmax(300px, 384px)'
+                                    mobile_row_gap='37px'
                                     style={{ justifyContent: 'center', marginTop: '80px' }}
                                     mobileS={{ mt: '40px' }}
-                                    margin="0 16px"
+                                    margin='0 16px'
                                 >
-                                    {allContinents[continent].map((office) => (
+                                    {allContinents[continent].map(office => (
                                         <CountryCard
                                             key={office.name}
                                             Icon={office.flagIcon}
@@ -379,12 +373,12 @@ const Locations = () => {
                                     ))}
                                 </CssGrid>
                             </Tabs.Panel>
-                        )
+                        );
                     })}
                 </StyledTabs>
             </StyledSectionContainer>
         </Layout>
-    )
-}
+    );
+};
 
-export default WithIntl()(Locations)
+export default WithIntl()(Locations);

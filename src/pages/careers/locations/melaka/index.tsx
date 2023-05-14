@@ -1,10 +1,10 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import { melaka } from '../../_model/_locations/_locations'
-import { LocationLayout } from '../_location-layout'
-import { SEO } from 'components/containers'
-import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import { melaka } from '../../_model/_locations/_locations';
+import { LocationLayout } from '../_location-layout';
+import { SEO } from 'components/containers';
+import Layout from 'components/layout/layout';
+import { localize, WithIntl } from 'components/localization';
 
 const query = graphql`
     query {
@@ -35,22 +35,22 @@ const query = graphql`
             ...fadeIn
         }
     }
-`
+`;
 
 const Melaka = () => {
-    const images = useStaticQuery(query)
+    const images = useStaticQuery(query);
 
     return (
-        <Layout type="careers">
+        <Layout type='careers'>
             <SEO
-                title={localize('Melaka | Our office – Malaysia | Deriv')}
+                title={localize('_t_Melaka | Our office – Malaysia | Deriv_t_')}
                 description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Melaka, Malaysia.',
+                    '_t_Find your role with us by browsing Deriv job opportunities in Melaka, Malaysia._t_'
                 )}
             />
             <LocationLayout location={melaka} images={images} />
         </Layout>
-    )
-}
+    );
+};
 
-export default WithIntl()(Melaka)
+export default WithIntl()(Melaka);

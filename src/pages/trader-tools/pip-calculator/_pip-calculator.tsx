@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Formik, Field } from 'formik'
+import React, { useState } from 'react';
+import { Formik, Field } from 'formik';
 import {
     getPipValue,
     resetValidationPip,
@@ -7,12 +7,8 @@ import {
     getContractSize,
     numberSubmitFormat,
     getMaxLength,
-} from '../common/_utility'
-import {
-    optionItemDefault,
-    syntheticItemLists,
-    financialItemLists,
-} from '../common/_underlying-data'
+} from '../common/_utility';
+import { optionItemDefault, syntheticItemLists, financialItemLists } from '../common/_underlying-data';
 import {
     BreadCrumbContainer,
     CalculateButton,
@@ -37,53 +33,46 @@ import {
     StyledSection,
     FormulaText,
     StyledOl,
-} from '../common/_style'
-import { PipSyntheticExample, PipForexExample } from './_example-pip'
-import {
-    Accordion,
-    AccordionItem,
-    Header,
-    LocalizedLinkText,
-    Text,
-    ImageWithDireciton,
-} from 'components/elements'
-import Input from 'components/form/input'
-import RightArrow from 'images/svg/tools/black-right-arrow.svg'
-import { Flex, Desktop, Mobile } from 'components/containers'
-import { localize, Localize } from 'components/localization'
+} from '../common/_style';
+import { PipSyntheticExample, PipForexExample } from './_example-pip';
+import { Accordion, AccordionItem, Header, LocalizedLinkText, Text, ImageWithDireciton } from 'components/elements';
+import Input from 'components/form/input';
+import RightArrow from 'images/svg/tools/black-right-arrow.svg';
+import { Flex, Desktop, Mobile } from 'components/containers';
+import { localize, Localize } from 'components/localization';
 
 const PipCalculator = () => {
-    const [tab, setTab] = useState('Synthetic')
+    const [tab, setTab] = useState('Synthetic');
 
-    const onTabClick = (t) => {
-        setTab(t)
-    }
+    const onTabClick = t => {
+        setTab(t);
+    };
 
     return (
         <>
             <BreadCrumbContainer>
-                <Flex jc="flex-start" ai="center">
-                    <LocalizedLinkText to="/trader-tools/" color="grey-5">
-                        {localize("Traders' tools")}
+                <Flex jc='flex-start' ai='center'>
+                    <LocalizedLinkText to='/trader-tools/' color='grey-5'>
+                        <Localize translate_text="_t_Traders' tools_t_" />
                     </LocalizedLinkText>
                     <ImageWithDireciton
                         src={RightArrow}
-                        alt={localize('right arrow')}
-                        height="16"
-                        width="16"
+                        alt={localize('_t_right arrow_t_')}
+                        height='16'
+                        width='16'
                         style={{ margin: '0 8px' }}
                     />
-                    <Text>{localize('Pip calculator')}</Text>
+                    <Text>
+                        <Localize translate_text='_t_Pip calculator_t_' />
+                    </Text>
                 </Flex>
             </BreadCrumbContainer>
-            <StyledSection direction="column">
-                <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
-                    {localize(
-                        'Our pip calculator helps you to estimate the pip value in your trades so that you can better manage your risk.',
-                    )}
+            <StyledSection direction='column'>
+                <SectionSubtitle as='h3' type='sub-section-title' align='center' weight='normal'>
+                    <Localize translate_text='_t_Our pip calculator helps you to estimate the pip value in your trades so that you can better manage your risk._t_' />
                 </SectionSubtitle>
 
-                <ContentContainer mt="8rem" mb="4rem">
+                <ContentContainer mt='8rem' mb='4rem'>
                     <FormWrapper>
                         <Formik
                             enableReinitialize
@@ -99,9 +88,9 @@ const PipCalculator = () => {
                             }}
                             validate={resetValidationPip}
                             onSubmit={(values, { setFieldValue }) => {
-                                setFieldValue('margin', getPipValue(values))
-                                setFieldValue('volume', numberSubmitFormat(values.volume))
-                                setFieldValue('pointValue', numberSubmitFormat(values.pointValue))
+                                setFieldValue('margin', getPipValue(values));
+                                setFieldValue('volume', numberSubmitFormat(values.volume));
+                                setFieldValue('pointValue', numberSubmitFormat(values.pointValue));
                             }}
                         >
                             {({
@@ -119,99 +108,91 @@ const PipCalculator = () => {
                             }) => (
                                 <CalculatorForm>
                                     <CalculatorHeader>
-                                        <CalculatorLabel htmlFor="message">
-                                            {localize('Pip value')}
+                                        <CalculatorLabel htmlFor='message'>
+                                            <Localize translate_text='_t_Pip value_t_' />
                                         </CalculatorLabel>
                                         <CalculatorOutputContainer>
-                                            <CalculatorOutputField>
-                                                {values.margin}
-                                            </CalculatorOutputField>
-                                            <CalculatorOutputSymbol>
-                                                {values.marginSymbol}
-                                            </CalculatorOutputSymbol>
+                                            <CalculatorOutputField>{values.margin}</CalculatorOutputField>
+                                            <CalculatorOutputSymbol>{values.marginSymbol}</CalculatorOutputSymbol>
                                         </CalculatorOutputContainer>
                                     </CalculatorHeader>
 
                                     <CalculatorBody>
                                         <CalculatorLabel>
-                                            {localize('Account type')}
+                                            <Localize translate_text='_t_Account type_t_' />
                                         </CalculatorLabel>
-                                        <Flex
-                                            mb="3rem"
-                                            mt="1rem"
-                                            jc="space-between"
-                                            tablet={{ height: 'unset' }}
-                                        >
+                                        <Flex mb='3rem' mt='1rem' jc='space-between' tablet={{ height: 'unset' }}>
                                             <CalculatorTabItem
                                                 active={tab === 'Synthetic'}
                                                 onClick={() => {
-                                                    onTabClick('Synthetic')
-                                                    setErrors({})
-                                                    resetForm({})
+                                                    onTabClick('Synthetic');
+                                                    setErrors({});
+                                                    resetForm({});
                                                 }}
                                             >
-                                                <Text align="center">{localize('Synthetic')}</Text>
+                                                <Text align='center'>
+                                                    <Localize translate_text='_t_Synthetic_t_' />
+                                                </Text>
                                             </CalculatorTabItem>
                                             <CalculatorTabItem
                                                 active={tab === 'Financial'}
                                                 disabled={tab === 'Financial'}
                                                 onClick={() => {
-                                                    onTabClick('Financial')
-                                                    setErrors({})
-                                                    resetForm({})
-                                                    setFieldValue('accountType', 'Financial')
-                                                    setFieldValue('optionList', financialItemLists)
+                                                    onTabClick('Financial');
+                                                    setErrors({});
+                                                    resetForm({});
+                                                    setFieldValue('accountType', 'Financial');
+                                                    setFieldValue('optionList', financialItemLists);
                                                 }}
                                             >
-                                                <Text align="center">{localize('Financial')}</Text>
+                                                <Text align='center'>
+                                                    <Localize translate_text='_t_Financial_t_' />
+                                                </Text>
                                             </CalculatorTabItem>
                                         </Flex>
 
                                         <CalculatorDropdown
                                             option_list={values.optionList}
-                                            label={localize('Symbol')}
+                                            label={localize('_t_Symbol_t_')}
                                             default_option={optionItemDefault}
                                             selected_option={values.symbol}
-                                            id="symbol"
-                                            onChange={(value) => {
-                                                setFieldValue('marginSymbol', getCurrency(value))
-                                                setFieldValue(
-                                                    'contractSize',
-                                                    getContractSize(value),
-                                                )
-                                                setFieldValue('symbol', value)
+                                            id='symbol'
+                                            onChange={value => {
+                                                setFieldValue('marginSymbol', getCurrency(value));
+                                                setFieldValue('contractSize', getContractSize(value));
+                                                setFieldValue('symbol', value);
                                             }}
                                             error={touched.symbol && errors.symbol}
                                             onBlur={handleBlur}
-                                            autocomplete="off"
+                                            autocomplete='off'
                                             contractSize={values.contractSize}
                                         />
 
                                         <InputGroup>
                                             <Field
-                                                name="volume"
+                                                name='volume'
                                                 value={values.volume}
-                                                onChange={(value) => {
-                                                    setFieldValue('volume', value)
+                                                onChange={value => {
+                                                    setFieldValue('volume', value);
                                                 }}
                                             >
                                                 {({ field }) => (
                                                     <Input
                                                         {...field}
-                                                        id="volume"
-                                                        type="text"
-                                                        label={localize('Volume')}
-                                                        autoComplete="off"
+                                                        id='volume'
+                                                        type='text'
+                                                        label={localize('_t_Volume_t_')}
+                                                        autoComplete='off'
                                                         error={touched.volume && errors.volume}
                                                         onBlur={handleBlur}
-                                                        handleError={(current_input) => {
-                                                            setFieldValue('volume', '', false)
-                                                            setFieldError('volume', '')
-                                                            setFieldTouched('volume', false, false)
-                                                            current_input.focus()
+                                                        handleError={current_input => {
+                                                            setFieldValue('volume', '', false);
+                                                            setFieldError('volume', '');
+                                                            setFieldTouched('volume', false, false);
+                                                            current_input.focus();
                                                         }}
                                                         maxLength={getMaxLength(values.volume, 8)}
-                                                        background="white"
+                                                        background='white'
                                                     />
                                                 )}
                                             </Field>
@@ -219,49 +200,36 @@ const PipCalculator = () => {
 
                                         <InputGroup>
                                             <Field
-                                                name="pointValue"
+                                                name='pointValue'
                                                 value={values.pointValue}
-                                                onChange={(value) => {
-                                                    setFieldValue('pointValue', value)
+                                                onChange={value => {
+                                                    setFieldValue('pointValue', value);
                                                 }}
                                             >
                                                 {({ field }) => (
                                                     <Input
                                                         {...field}
-                                                        id="pointValue"
-                                                        type="text"
-                                                        label={localize('Point Value')}
-                                                        autoComplete="off"
-                                                        error={
-                                                            touched.pointValue && errors.pointValue
-                                                        }
+                                                        id='pointValue'
+                                                        type='text'
+                                                        label={localize('_t_Point Value_t_')}
+                                                        autoComplete='off'
+                                                        error={touched.pointValue && errors.pointValue}
                                                         onBlur={handleBlur}
-                                                        handleError={(current_input) => {
-                                                            setFieldValue('pointValue', '', false)
-                                                            setFieldError('pointValue', '')
-                                                            setFieldTouched(
-                                                                'pointValue',
-                                                                false,
-                                                                false,
-                                                            )
-                                                            current_input.focus()
+                                                        handleError={current_input => {
+                                                            setFieldValue('pointValue', '', false);
+                                                            setFieldError('pointValue', '');
+                                                            setFieldTouched('pointValue', false, false);
+                                                            current_input.focus();
                                                         }}
-                                                        maxLength={getMaxLength(
-                                                            values.pointValue,
-                                                            15,
-                                                        )}
-                                                        background="white"
+                                                        maxLength={getMaxLength(values.pointValue, 15)}
+                                                        background='white'
                                                     />
                                                 )}
                                             </Field>
                                         </InputGroup>
-                                        <Flex mt="3rem">
-                                            <CalculateButton
-                                                secondary
-                                                type="submit"
-                                                disabled={!isValid || !dirty}
-                                            >
-                                                {localize('Calculate')}
+                                        <Flex mt='3rem'>
+                                            <CalculateButton secondary type='submit' disabled={!isValid || !dirty}>
+                                                <Localize translate_text='_t_Calculate_t_' />
                                             </CalculateButton>
                                         </Flex>
                                     </CalculatorBody>
@@ -271,49 +239,41 @@ const PipCalculator = () => {
                     </FormWrapper>
 
                     <RightContent>
-                        <Header as="h3" type="section-title" mb="0.8rem">
-                            {localize('How to calculate pip value')}
+                        <Header as='h3' type='section-title' mb='0.8rem'>
+                            <Localize translate_text='_t_How to calculate pip value_t_' />
                         </Header>
 
                         <Text>
-                            {localize(
-                                'The pip value for a contract on Deriv MT5 is calculated based on this formula:',
-                            )}
+                            <Localize translate_text='_t_The pip value for a contract on Deriv MT5 is calculated based on this formula:_t_' />
                         </Text>
-                        <Text mb="1.6rem">
+                        <Text mb='1.6rem'>
                             <Localize
-                                translate_text="<0>Pip value = point value × volume × contract size</0>"
+                                translate_text='_t_<0>Pip value = point value × volume × contract size</0>_t_'
                                 components={[<strong key={0} />]}
                             />
                         </Text>
 
-                        <Text mb="1.6rem">
-                            {localize(
-                                'For synthetic accounts, the pip value is calculated in USD.',
-                            )}
+                        <Text mb='1.6rem'>
+                            <Localize translate_text='_t_For synthetic accounts, the pip value is calculated in USD._t_' />
                         </Text>
-                        <Text mb="40px">
-                            {localize(
-                                'For financial accounts, the pip value is in the quote currency for forex pairs.',
-                            )}
+                        <Text mb='40px'>
+                            <Localize translate_text='_t_For financial accounts, the pip value is in the quote currency for forex pairs._t_' />
                         </Text>
 
-                        <Header as="h3" type="section-title" mb="0.8rem">
-                            {localize('Example calculation')}
+                        <Header as='h3' type='section-title' mb='0.8rem'>
+                            <Localize translate_text='_t_Example calculation_t_' />
                         </Header>
 
-                        <Accordion id="pip-calculator" has_single_state>
+                        <Accordion id='pip-calculator' has_single_state>
                             <AccordionItem
-                                header={localize('Pip value for synthetic indices')}
+                                header={localize('_t_Pip value for synthetic indices_t_')}
                                 header_style={header_style}
                                 style={item_style}
                                 plus
-                                class_name="pip-value"
+                                class_name='pip-value'
                             >
-                                <Text mb="16px">
-                                    {localize(
-                                        'Let’s say you want to trade 1 lot of Volatility 75 Index.',
-                                    )}
+                                <Text mb='16px'>
+                                    <Localize translate_text='_t_Let’s say you want to trade 1 lot of Volatility 75 Index._t_' />
                                 </Text>
 
                                 <Desktop>
@@ -327,36 +287,32 @@ const PipCalculator = () => {
                                     <StyledOl>
                                         <li>
                                             <span>
-                                                {localize(
-                                                    'The point value is derived from the current digits of the assets. In the example, the digit is 2, so the point value is 0.01.',
-                                                )}
+                                                <Localize translate_text='_t_The point value is derived from the current digits of the assets. In the example, the digit is 2, so the point value is 0.01._t_' />
                                             </span>
                                         </li>
                                         <li>
                                             <span>
-                                                {localize(
-                                                    'The contract size is one standard lot of Volatility 75 index = 1',
-                                                )}
+                                                <Localize translate_text='_t_The contract size is one standard lot of Volatility 75 index = 1_t_' />
                                             </span>
                                         </li>
                                     </StyledOl>
                                 </FormulaText>
-                                <Text mb="1.6rem" mt="1.6rem">
+                                <Text mb='1.6rem' mt='1.6rem'>
                                     <Localize
-                                        translate_text="So your pip value is <0>0.01 USD</0>."
+                                        translate_text='_t_So your pip value is <0>0.01 USD</0>._t_'
                                         components={[<strong key={0} />]}
                                     />
                                 </Text>
                             </AccordionItem>
                             <AccordionItem
-                                header={localize('Pip value for forex')}
+                                header={localize('_t_Pip value for forex_t_')}
                                 header_style={header_style}
                                 style={item_style}
                                 plus
-                                class_name="pip-value-forex"
+                                class_name='pip-value-forex'
                             >
-                                <Text mb="16px">
-                                    {localize('Let’s say you want to trade 2 lots of EUR/USD.')}
+                                <Text mb='16px'>
+                                    <Localize translate_text='_t_Let’s say you want to trade 2 lots of EUR/USD._t_' />
                                 </Text>
 
                                 <Desktop>
@@ -371,24 +327,20 @@ const PipCalculator = () => {
                                     <StyledOl>
                                         <li>
                                             <span>
-                                                {localize(
-                                                    'The point value is derived from the current digits of the assets. In the example, the digit is 5, so the point value is 0.00001.',
-                                                )}
+                                                <Localize translate_text='_t_The point value is derived from the current digits of the assets. In the example, the digit is 5, so the point value is 0.00001._t_' />
                                             </span>
                                         </li>
                                         <li>
                                             <span>
-                                                {localize(
-                                                    'One standard lot of forex = 100,000 units',
-                                                )}
+                                                <Localize translate_text='_t_One standard lot of forex = 100,000 units_t_' />
                                             </span>
                                         </li>
                                     </StyledOl>
                                 </FormulaText>
 
-                                <Text mb="1.6rem" mt="1.6rem">
+                                <Text mb='1.6rem' mt='1.6rem'>
                                     <Localize
-                                        translate_text="So your pip value is <0>2 USD</0>."
+                                        translate_text='_t_So your pip value is <0>2 USD</0>._t_'
                                         components={[<strong key={0} />]}
                                     />
                                 </Text>
@@ -396,21 +348,15 @@ const PipCalculator = () => {
                         </Accordion>
 
                         <LinkWrapper style={{ height: 'fit-content' }}>
-                            <StyledLinkButton
-                                secondary
-                                external
-                                type="mt5"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                {localize('Go to Deriv MT5 dashboard')}
+                            <StyledLinkButton secondary external type='mt5' target='_blank' rel='noopener noreferrer'>
+                                <Localize translate_text='_t_Go to Deriv MT5 dashboard_t_' />
                             </StyledLinkButton>
                         </LinkWrapper>
                     </RightContent>
                 </ContentContainer>
             </StyledSection>
         </>
-    )
-}
+    );
+};
 
-export default PipCalculator
+export default PipCalculator;

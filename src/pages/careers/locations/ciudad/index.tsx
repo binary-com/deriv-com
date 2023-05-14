@@ -1,10 +1,10 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import { ciudad } from '../../_model/_locations/_locations'
-import { NewLocationLayout } from '../_location-layout-new-offices'
-import { SEO } from 'components/containers'
-import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import { ciudad } from '../../_model/_locations/_locations';
+import { NewLocationLayout } from '../_location-layout-new-offices';
+import { SEO } from 'components/containers';
+import Layout from 'components/layout/layout';
+import { localize, WithIntl } from 'components/localization';
 
 const query = graphql`
     query {
@@ -15,24 +15,24 @@ const query = graphql`
             ...fadeIn
         }
     }
-`
+`;
 
 const CiudadDelEste = () => {
-    const images = useStaticQuery(query)
+    const images = useStaticQuery(query);
 
     return (
-        <Layout type="careers">
+        <Layout type='careers'>
             {
                 <SEO
-                    title={localize('Ciudad del Este – Our office | Deriv')}
+                    title={localize('_t_Ciudad del Este – Our office | Deriv_t_')}
                     description={localize(
-                        'Join great marketing minds at Deriv’s office in Ciudad del Este, Paraguay. Be part of a vibrant team that develops the company’s growth in the region. ',
+                        '_t_Join great marketing minds at Deriv’s office in Ciudad del Este, Paraguay. Be part of a vibrant team that develops the company’s growth in the region._t_'
                     )}
                 />
             }
             <NewLocationLayout location={ciudad} images={images} />
         </Layout>
-    )
-}
+    );
+};
 
-export default WithIntl()(CiudadDelEste)
+export default WithIntl()(CiudadDelEste);

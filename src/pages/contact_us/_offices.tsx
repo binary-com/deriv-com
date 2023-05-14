@@ -1,30 +1,30 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import styled from 'styled-components'
-import { Header, QueryImage, Text, LocalizedLinkText } from 'components/elements'
-import { SectionContainer, Container, Flex, Box, Desktop, Mobile } from 'components/containers'
-import { localize, LocalizedLink } from 'components/localization'
-import device from 'themes/device'
-import France from 'images/svg/contact/france.svg'
-import Malta from 'images/svg/contact/malta.svg'
-import Guernsey from 'images/svg/contact/guernsey.svg'
-import Dubai from 'images/svg/contact/dubai.svg'
-import Paraguay from 'images/svg/contact/paraguay.svg'
-import Malaysia from 'images/svg/contact/malaysia.svg'
-import Cayman from 'images/svg/contact/cayman.svg'
-import Cyprus from 'images/svg/contact/cyprus.svg'
-import Rwanda from 'images/svg/contact/rwanda.svg'
-import Belarus from 'images/svg/contact/belarus.svg'
-import Singapore from 'images/svg/contact/singapore.svg'
-import Jordan from 'images/svg/contact/jordan.svg'
-import Vanuatu from 'images/svg/contact/vanuatu.svg'
-import UK from 'images/svg/contact/uk.svg'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import styled from 'styled-components';
+import { Header, QueryImage, Text, LocalizedLinkText } from 'components/elements';
+import { SectionContainer, Container, Flex, Box, Desktop, Mobile } from 'components/containers';
+import { Localize, LocalizedLink } from 'components/localization';
+import device from 'themes/device';
+import France from 'images/svg/contact/france.svg';
+import Malta from 'images/svg/contact/malta.svg';
+import Guernsey from 'images/svg/contact/guernsey.svg';
+import Dubai from 'images/svg/contact/dubai.svg';
+import Paraguay from 'images/svg/contact/paraguay.svg';
+import Malaysia from 'images/svg/contact/malaysia.svg';
+import Cayman from 'images/svg/contact/cayman.svg';
+import Cyprus from 'images/svg/contact/cyprus.svg';
+import Rwanda from 'images/svg/contact/rwanda.svg';
+import Belarus from 'images/svg/contact/belarus.svg';
+import Singapore from 'images/svg/contact/singapore.svg';
+import Jordan from 'images/svg/contact/jordan.svg';
+import Vanuatu from 'images/svg/contact/vanuatu.svg';
+import UK from 'images/svg/contact/uk.svg';
 
 type GridLayoutProps = {
-    children?: React.ReactNode | React.ReactChild
-    row_gap?: string
-    mt?: string
-}
+    children?: React.ReactNode | React.ReactChild;
+    row_gap?: string;
+    mt?: string;
+};
 
 const query = graphql`
     query {
@@ -83,12 +83,12 @@ const query = graphql`
             ...fadeIn
         }
     }
-`
+`;
 
 const Content = styled.div`
     max-width: 996px;
     width: 100%;
-`
+`;
 
 const GridLayout = styled.div<GridLayoutProps>`
     display: grid;
@@ -101,13 +101,13 @@ const GridLayout = styled.div<GridLayoutProps>`
     @media ${device.tablet} {
         grid-template-columns: 1fr;
     }
-`
+`;
 
 const MapContainer = styled.div`
     width: 100%;
     max-width: 22.8rem;
     height: 12rem;
-`
+`;
 
 const BorderBox = styled.div`
     display: flex;
@@ -135,7 +135,7 @@ const BorderBox = styled.div`
             margin-bottom: 16px;
         }
     }
-`
+`;
 
 const CountryText = styled(Text)`
     font-size: var(--text-size-xs);
@@ -145,11 +145,11 @@ const CountryText = styled(Text)`
         margin-bottom: 13px;
         margin-top: 13px;
     }
-`
+`;
 
 const FullBorder = styled(BorderBox)`
     padding: 1rem 0;
-`
+`;
 
 const ResHeader = styled(Header)`
     margin-bottom: 4rem;
@@ -159,7 +159,7 @@ const ResHeader = styled(Header)`
         font-size: 40px;
         margin-bottom: 40px;
     }
-`
+`;
 
 const ContinentHeader = styled(Header)`
     border-bottom: 1px solid var(--color-grey-2);
@@ -184,7 +184,7 @@ const ContinentHeader = styled(Header)`
     @media ${device.mobileL} {
         margin-top: 65px;
     }
-`
+`;
 
 const OfficeHeader = styled.div`
     display: flex;
@@ -202,7 +202,7 @@ const OfficeHeader = styled.div`
             font-size: 20px;
         }
     }
-`
+`;
 
 const FullBox = styled(Flex)`
     justify-content: flex-start;
@@ -225,13 +225,13 @@ const FullBox = styled(Flex)`
             margin-bottom: 0;
         }
     }
-`
+`;
 
 const StyledSectionContainer = styled(SectionContainer)`
     @media ${device.tabletL} {
         padding: 40px 0;
     }
-`
+`;
 const StyledMobileAddress = styled.div`
     @media ${device.tablet} {
         max-width: 328px;
@@ -242,19 +242,21 @@ const StyledMobileAddress = styled.div`
         max-width: 320px;
         font-size: 14px;
     }
-`
+`;
 
 export const Offices = () => {
-    const data = useStaticQuery(query)
+    const data = useStaticQuery(query);
 
     return (
         <StyledSectionContainer>
             <Container>
                 <Content>
                     <ResHeader as='h2' type='page-title'>
-                        {localize('Our offices')}
+                        <Localize translate_text='_t_Our offices_t_' />
                     </ResHeader>
-                    <ContinentHeader>{localize('Europe')}</ContinentHeader>
+                    <ContinentHeader>
+                        <Localize translate_text='_t_Europe_t_' />
+                    </ContinentHeader>
                     <GridLayout>
                         <Flex mt='30px' fd='column' max_width='48.6rem' id='france'>
                             <OfficeHeader>
@@ -262,7 +264,7 @@ export const Offices = () => {
                                     <img src={UK} alt='UK' />
                                 </div>
                                 <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
-                                    {localize('United Kingdom')}
+                                    <Localize translate_text='_t_United Kingdom_t_' />
                                 </Header>
                             </OfficeHeader>
 
@@ -297,8 +299,8 @@ export const Offices = () => {
                                     </Desktop>
                                     <Mobile>
                                         <StyledMobileAddress>
-                                            Deriv Technologies LimitedSuite 1, Ground Floor, Block
-                                            D, Apex, Forbury Road, Reading RG1 1AX
+                                            Deriv Technologies LimitedSuite 1, Ground Floor, Block D, Apex, Forbury
+                                            Road, Reading RG1 1AX
                                         </StyledMobileAddress>
                                     </Mobile>
                                 </LocalizedLinkText>
@@ -310,7 +312,7 @@ export const Offices = () => {
                                     <img src={France} alt='France - Eiffel Tower' />
                                 </div>
                                 <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
-                                    {localize('France')}
+                                    <Localize translate_text='_t_France_t_' />
                                 </Header>
                             </OfficeHeader>
 
@@ -341,9 +343,7 @@ export const Offices = () => {
                                         <p>17 Rue d&apos;Antin, 75002 Paris</p>
                                     </Desktop>
                                     <Mobile>
-                                        <StyledMobileAddress>
-                                            17 Rue d&apos;Antin, 75002 Paris
-                                        </StyledMobileAddress>
+                                        <StyledMobileAddress>17 Rue d&apos;Antin, 75002 Paris</StyledMobileAddress>
                                     </Mobile>
                                 </LocalizedLinkText>
                             </BorderBox>
@@ -354,7 +354,7 @@ export const Offices = () => {
                                     <img src={Malta} alt='Malta - Valleta' />
                                 </div>
                                 <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
-                                    {localize('Malta')}
+                                    <Localize translate_text='_t_Malta_t_' />
                                 </Header>
                             </OfficeHeader>
                             <BorderBox>
@@ -387,8 +387,7 @@ export const Offices = () => {
                                     </Desktop>
                                     <Mobile>
                                         <StyledMobileAddress>
-                                            Level 3, W Business Centre,Triq Dun Karm, Birkirkara,
-                                            BKR 9033
+                                            Level 3, W Business Centre,Triq Dun Karm, Birkirkara, BKR 9033
                                         </StyledMobileAddress>
                                     </Mobile>
                                 </LocalizedLinkText>
@@ -400,7 +399,7 @@ export const Offices = () => {
                                     <img src={Cyprus} alt='Cyprus - Limassol' />
                                 </div>
                                 <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
-                                    {localize('Cyprus')}
+                                    <Localize translate_text='_t_Cyprus_t_' />
                                 </Header>
                             </OfficeHeader>
                             <BorderBox>
@@ -428,14 +427,14 @@ export const Offices = () => {
                                 >
                                     <Desktop>
                                         <p>
-                                            181, Leoforos Archiepiskopou Makariou III Avenue 15
-                                            Business Centre, 1st Floor, 3030, Limassol Cyprus
+                                            181, Leoforos Archiepiskopou Makariou III Avenue 15 Business Centre, 1st
+                                            Floor, 3030, Limassol Cyprus
                                         </p>
                                     </Desktop>
                                     <Mobile>
                                         <StyledMobileAddress>
-                                            181, Leoforos Archiepiskopou Makariou III Avenue 15
-                                            Business Centre, 1st Floor, 3030, Limassol Cyprus
+                                            181, Leoforos Archiepiskopou Makariou III Avenue 15 Business Centre, 1st
+                                            Floor, 3030, Limassol Cyprus
                                         </StyledMobileAddress>
                                     </Mobile>
                                 </LocalizedLinkText>
@@ -447,7 +446,7 @@ export const Offices = () => {
                                     <img src={Guernsey} alt='Guernsey - Sark Lighthouse' />
                                 </div>
                                 <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
-                                    {localize('Guernsey')}
+                                    <Localize translate_text='_t_Guernsey_t_' />
                                 </Header>
                             </OfficeHeader>
                             <BorderBox>
@@ -479,8 +478,7 @@ export const Offices = () => {
                                     </Desktop>
                                     <Mobile>
                                         <StyledMobileAddress>
-                                            Suite 5, One Cornet Street, St Peter Port, Guernsey GY1
-                                            1 BZ
+                                            Suite 5, One Cornet Street, St Peter Port, Guernsey GY1 1 BZ
                                         </StyledMobileAddress>
                                     </Mobile>
                                 </LocalizedLinkText>
@@ -488,13 +486,15 @@ export const Offices = () => {
                         </Flex>
                     </GridLayout>
                     <Flex fd='column' mt='30px' id='malaysia'>
-                        <ContinentHeader>{localize('Asia')}</ContinentHeader>
+                        <ContinentHeader>
+                            <Localize translate_text='_t_Asia_t_' />
+                        </ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Malaysia} alt='Malaysia - Petronas Twin Towers' />
                             </div>
                             <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
-                                {localize('Malaysia')}
+                                <Localize translate_text='_t_Malaysia_t_' />
                             </Header>
                         </OfficeHeader>
                         <FullBorder>
@@ -528,8 +528,7 @@ export const Offices = () => {
                                             </Desktop>
                                             <Mobile>
                                                 <StyledMobileAddress>
-                                                    Deriv HQ, 3500, Jalan Teknokrat 3, 63000
-                                                    Cyberjaya, Selangor
+                                                    Deriv HQ, 3500, Jalan Teknokrat 3, 63000 Cyberjaya, Selangor
                                                 </StyledMobileAddress>
                                             </Mobile>
                                         </LocalizedLinkText>
@@ -565,8 +564,7 @@ export const Offices = () => {
                                             </Desktop>
                                             <Mobile>
                                                 <StyledMobileAddress>
-                                                    F16, Level 1, Paragon Labuan Jalan Tun Mustapha,
-                                                    Labuan 87000, Sabah
+                                                    F16, Level 1, Paragon Labuan Jalan Tun Mustapha, Labuan 87000, Sabah
                                                 </StyledMobileAddress>
                                             </Mobile>
                                         </LocalizedLinkText>
@@ -602,8 +600,7 @@ export const Offices = () => {
                                             </Desktop>
                                             <Mobile>
                                                 <StyledMobileAddress>
-                                                    E-5-6, Soho Ipoh 2, Jalan Sultan Idris Shah,
-                                                    Ipoh 30000, Perak
+                                                    E-5-6, Soho Ipoh 2, Jalan Sultan Idris Shah, Ipoh 30000, Perak
                                                 </StyledMobileAddress>
                                             </Mobile>
                                         </LocalizedLinkText>
@@ -639,8 +636,7 @@ export const Offices = () => {
                                             </Desktop>
                                             <Mobile>
                                                 <StyledMobileAddress>
-                                                    67-1 & 69-1, Jalan KLJ 6, Taman Kota Laksamana
-                                                    Jaya, Melaka 75200
+                                                    67-1 & 69-1, Jalan KLJ 6, Taman Kota Laksamana Jaya, Melaka 75200
                                                 </StyledMobileAddress>
                                             </Mobile>
                                         </LocalizedLinkText>
@@ -655,7 +651,7 @@ export const Offices = () => {
                                 <img src={Singapore} alt='Singapore - Merlion Park' />
                             </div>
                             <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
-                                {localize('Singapore')}
+                                <Localize translate_text='_t_Singapore_t_' />
                             </Header>
                         </OfficeHeader>
                     </Flex>
@@ -692,7 +688,9 @@ export const Offices = () => {
                             </LocalizedLinkText>
                         </BorderBox>
                     </Flex>
-                    <ContinentHeader>{localize('Middle East')}</ContinentHeader>
+                    <ContinentHeader>
+                        <Localize translate_text='_t_Middle East_t_' />
+                    </ContinentHeader>
                     <GridLayout>
                         <Flex mt='30px' fd='column' max_width='48.6rem' id='dubai'>
                             <OfficeHeader>
@@ -700,7 +698,7 @@ export const Offices = () => {
                                     <img src={Dubai} alt='Dubai - Burj Al Arab' />
                                 </div>
                                 <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
-                                    {localize('Dubai')}
+                                    <Localize translate_text='_t_Dubai_t_' />
                                 </Header>
                             </OfficeHeader>
                             <BorderBox>
@@ -744,7 +742,7 @@ export const Offices = () => {
                                     <img src={Jordan} alt='Jordan - Petra Gate' />
                                 </div>
                                 <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
-                                    {localize('Jordan')}
+                                    <Localize translate_text='_t_Jordan_t_' />
                                 </Header>
                             </OfficeHeader>
                             <BorderBox>
@@ -772,14 +770,14 @@ export const Offices = () => {
                                 >
                                     <Desktop>
                                         <p>
-                                            AJIB Building, No 12A & 12B, 3rd Floor, Al Bonouk
-                                            Street,Al Abdali Boulevard, Amman - Jordan.
+                                            AJIB Building, No 12A & 12B, 3rd Floor, Al Bonouk Street,Al Abdali
+                                            Boulevard, Amman - Jordan.
                                         </p>
                                     </Desktop>
                                     <Mobile>
                                         <StyledMobileAddress>
-                                            AJIB Building, No 12A & 12B, 3rd Floor, Al Bonouk
-                                            Street, Al Abdali Boulevard, Amman - Jordan.
+                                            AJIB Building, No 12A & 12B, 3rd Floor, Al Bonouk Street, Al Abdali
+                                            Boulevard, Amman - Jordan.
                                         </StyledMobileAddress>
                                     </Mobile>
                                 </LocalizedLinkText>
@@ -787,13 +785,15 @@ export const Offices = () => {
                         </Flex>
                     </GridLayout>
                     <Flex mt='30px' fd='column' id='belarus'>
-                        <ContinentHeader>{localize('Eastern Europe')}</ContinentHeader>
+                        <ContinentHeader>
+                            <Localize translate_text='_t_Eastern Europe_t_' />
+                        </ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Belarus} alt='Belarus - National Library' />
                             </div>
                             <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
-                                {localize('Belarus')}
+                                <Localize translate_text='_t_Belarus_t_' />
                             </Header>
                         </OfficeHeader>
                     </Flex>
@@ -834,13 +834,15 @@ export const Offices = () => {
                         </BorderBox>
                     </Flex>
                     <Flex mt='30px' fd='column' id='rwanda'>
-                        <ContinentHeader>{localize('Africa')}</ContinentHeader>
+                        <ContinentHeader>
+                            <Localize translate_text='_t_Africa_t_' />
+                        </ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Rwanda} alt='Rwanda - Kigali Convention Center' />
                             </div>
                             <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
-                                {localize('Rwanda')}
+                                <Localize translate_text='_t_Rwanda_t_' />
                             </Header>
                         </OfficeHeader>
                     </Flex>
@@ -882,13 +884,15 @@ export const Offices = () => {
                     </Flex>
 
                     <Flex fd='column' mt='30px' id='latam'>
-                        <ContinentHeader>{localize('Latin America')}</ContinentHeader>
+                        <ContinentHeader>
+                            <Localize translate_text='_t_Latin America_t_' />
+                        </ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Paraguay} alt='Paraguay - National Pantheon of Heroes' />
                             </div>
                             <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
-                                {localize('Paraguay')}
+                                <Localize translate_text='_t_Paraguay_t_' />
                             </Header>
                         </OfficeHeader>
                         <FullBorder>
@@ -923,8 +927,8 @@ export const Offices = () => {
                                             </Desktop>
                                             <Mobile>
                                                 <StyledMobileAddress>
-                                                    Edificio Atrium, Piso 2, Guido Spano Esq. Doctor
-                                                    Morra, Asunción 1849
+                                                    Edificio Atrium, Piso 2, Guido Spano Esq. Doctor Morra, Asunción
+                                                    1849
                                                 </StyledMobileAddress>
                                             </Mobile>
                                         </LocalizedLinkText>
@@ -968,13 +972,15 @@ export const Offices = () => {
                         </FullBorder>
                     </Flex>
                     <Flex mt='30px' fd='column' id='paraguay'>
-                        <ContinentHeader>{localize('Caribbean')}</ContinentHeader>
+                        <ContinentHeader>
+                            <Localize translate_text='_t_Caribbean_t_' />
+                        </ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Cayman} alt='Cayman Islands - George Town' />
                             </div>
                             <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
-                                {localize('Cayman Islands')}
+                                <Localize translate_text='_t_Cayman Islands_t_' />
                             </Header>
                         </OfficeHeader>
                     </Flex>
@@ -1010,21 +1016,23 @@ export const Offices = () => {
                                 </Desktop>
                                 <Mobile>
                                     <StyledMobileAddress>
-                                        Cayman Enterprise City, Strathvale House, 2nd Floor, 90 N
-                                        Church St, George Town, Cayman Islands
+                                        Cayman Enterprise City, Strathvale House, 2nd Floor, 90 N Church St, George
+                                        Town, Cayman Islands
                                     </StyledMobileAddress>
                                 </Mobile>
                             </LocalizedLinkText>
                         </BorderBox>
                     </Flex>
                     <Flex mt='30px' fd='column' id='vanuatu'>
-                        <ContinentHeader>{localize('Oceania')}</ContinentHeader>
+                        <ContinentHeader>
+                            <Localize translate_text='_t_Oceania_t_' />
+                        </ContinentHeader>
                         <OfficeHeader>
                             <div>
                                 <img src={Vanuatu} alt='Vanuatu - Port Vila' />
                             </div>
                             <Header as='h4' type='sub-section-title' mt='0.8rem' mb='1.6rem'>
-                                {localize('Vanuatu')}
+                                <Localize translate_text='_t_Vanuatu_t_' />
                             </Header>
                         </OfficeHeader>
                     </Flex>
@@ -1053,13 +1061,11 @@ export const Offices = () => {
                                 ml='1.6rem'
                             >
                                 <Desktop>
-                                    Yumiwork, Lolam building, Kumul Highway, Land # 11/OD22/021,
-                                    Port Vila, Vanuatu.
+                                    Yumiwork, Lolam building, Kumul Highway, Land # 11/OD22/021, Port Vila, Vanuatu.
                                 </Desktop>
                                 <Mobile>
                                     <StyledMobileAddress>
-                                        Yumiwork, Lolam building, Kumul Highway, Land # 11/OD22/021,
-                                        Port Vila, Vanuatu.
+                                        Yumiwork, Lolam building, Kumul Highway, Land # 11/OD22/021, Port Vila, Vanuatu.
                                     </StyledMobileAddress>
                                 </Mobile>
                             </LocalizedLinkText>
@@ -1068,7 +1074,7 @@ export const Offices = () => {
                 </Content>
             </Container>
         </StyledSectionContainer>
-    )
-}
+    );
+};
 
-export default Offices
+export default Offices;

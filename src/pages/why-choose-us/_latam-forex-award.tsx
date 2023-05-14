@@ -1,25 +1,23 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import styled from 'styled-components'
-import { BackgroundImage, Header, QueryImage } from 'components/elements'
-import { Localize } from 'components/localization'
-import { Flex, Desktop, Mobile } from 'components/containers'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import styled from 'styled-components';
+import { BackgroundImage, Header, QueryImage } from 'components/elements';
+import { Localize } from 'components/localization';
+import { Flex, Desktop, Mobile } from 'components/containers';
 
 const query = graphql`
     query {
         latam_award_background: file(relativePath: { eq: "choose-us/latam_award_bg.png" }) {
             ...fadeIn
         }
-        latam_award_background_mobile: file(
-            relativePath: { eq: "choose-us/latam_award_bg_mobile.png" }
-        ) {
+        latam_award_background_mobile: file(relativePath: { eq: "choose-us/latam_award_bg_mobile.png" }) {
             ...fadeIn
         }
         latam_award: file(relativePath: { eq: "choose-us/latam_award.png" }) {
             ...fadeIn
         }
     }
-`
+`;
 
 const AwardImageWrapper = styled.div`
     position: relative;
@@ -42,7 +40,7 @@ const AwardImageWrapper = styled.div`
         width: 290px;
         margin-top: 1%;
     }
-`
+`;
 const AwardImageWrapperMobile = styled.div`
     z-index: 2;
     padding: 36px 18px;
@@ -51,7 +49,7 @@ const AwardImageWrapperMobile = styled.div`
     background: #ffffff;
     box-shadow: 0 25.3563px 50.7126px -9.5086px rgba(14, 14, 14, 0.14);
     border-radius: 8px;
-`
+`;
 
 const StyledFlex = styled(Flex)`
     padding: 80px 120px 160px 120px;
@@ -59,7 +57,7 @@ const StyledFlex = styled(Flex)`
     @media (max-width: 1200px) {
         padding: 0 50px 40px 50px;
     }
-`
+`;
 
 const StyledHeader = styled(Header)`
     max-width: 462px;
@@ -71,15 +69,15 @@ const StyledHeader = styled(Header)`
     @media (max-width: 700px) {
         max-width: 200px;
     }
-`
+`;
 
 const StyledHeaderMobile = styled(Header)`
     margin-top: 25%;
     padding: 0 7rem;
-`
+`;
 
 const LatamAward = () => {
-    const data = useStaticQuery(query)
+    const data = useStaticQuery(query);
 
     return (
         <>
@@ -97,7 +95,7 @@ const LatamAward = () => {
                     >
                         <Flex style={{ maxHeight: '360px' }} ai='center' jc='space-evenly'>
                             <StyledHeader type='heading-2' align='left' color='white'>
-                                {<Localize translate_text='Best Forex Broker Latin America' />}
+                                <Localize translate_text='_t_Best Forex Broker Latin America_t_' />
                             </StyledHeader>
                             <AwardImageWrapper>
                                 <QueryImage
@@ -126,7 +124,7 @@ const LatamAward = () => {
                         }}
                     >
                         <StyledHeaderMobile type='heading-2' align='center' color='white'>
-                            {<Localize translate_text='Best Forex Broker Latin America' />}
+                            <Localize translate_text='_t_Best Forex Broker Latin America_t_' />
                         </StyledHeaderMobile>
                         <Header as='h2' width='50%' />
                     </BackgroundImage>
@@ -141,7 +139,7 @@ const LatamAward = () => {
                 </Flex>
             </Mobile>
         </>
-    )
-}
+    );
+};
 
-export default LatamAward
+export default LatamAward;

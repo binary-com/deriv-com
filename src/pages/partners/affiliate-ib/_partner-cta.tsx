@@ -1,16 +1,16 @@
-import React from 'react'
-import styled from 'styled-components'
-import device from 'themes/device'
-import { SectionContainer, Container, Flex } from 'components/containers'
-import { Header, Text, LinkText } from 'components/elements/typography'
-import { LinkButton } from 'components/form'
-import { useLivechat } from 'components/hooks/use-livechat'
-import { localize, Localize } from 'components/localization'
-import { affiliate_signup_url } from 'common/constants'
+import React from 'react';
+import styled from 'styled-components';
+import device from 'themes/device';
+import { SectionContainer, Container, Flex } from 'components/containers';
+import { Header, Text, LinkText } from 'components/elements/typography';
+import { LinkButton } from 'components/form';
+import { useLivechat } from 'components/hooks/use-livechat';
+import { Localize } from 'components/localization';
+import { affiliate_signup_url } from 'common/constants';
 
 type RedButtonProps = {
-    id?: string
-}
+    id?: string;
+};
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-black-3);
 
@@ -28,7 +28,7 @@ const StyledSection = styled(SectionContainer)`
             max-width: 58.8rem;
         }
     }
-`
+`;
 
 const RedButton = styled(LinkButton)<RedButtonProps>`
     border-radius: 4px;
@@ -38,20 +38,20 @@ const RedButton = styled(LinkButton)<RedButtonProps>`
         padding-top: 1rem;
         width: 100%;
     }
-`
+`;
 
 const PartnerCTA = () => {
-    const [is_livechat_interactive, LC_API] = useLivechat()
+    const [is_livechat_interactive, LC_API] = useLivechat();
 
     return (
         <StyledSection padding='4rem 0'>
             <Container>
                 <Flex direction='column' ai='center' jc='space-between'>
                     <Header as='h4' type='sub-section-title' align='center' color='white'>
-                        {localize('Got more questions?')}
+                        <Localize translate_text='_t_Got more questions?_t_' />
                     </Header>
                     <Text align='center' color='white' mt='0.8rem'>
-                        {localize('The Deriv affiliate management team is here to help.')}
+                        <Localize translate_text='_t_The Deriv affiliate management team is here to help._t_' />
                     </Text>
                     <LinkText
                         color='red'
@@ -59,17 +59,15 @@ const PartnerCTA = () => {
                         mt='1rem'
                         size='var(--text-size-s)'
                         onClick={() => {
-                            if (is_livechat_interactive) LC_API.open_chat_window()
+                            if (is_livechat_interactive) LC_API.open_chat_window();
                         }}
                     >
-                        <Localize translate_text='Contact us via live chat' />
+                        <Localize translate_text='_t_Contact us via live chat_t_' />
                     </LinkText>
                 </Flex>
                 <Flex direction='column' ai='center'>
                     <Header as='h4' type='sub-section-title' align='center' color='white'>
-                        {localize(
-                            'Enjoy generous commissions and all the other benefits of being a Deriv partner'
-                        )}
+                        <Localize translate_text='_t_Enjoy generous commissions and all the other benefits of being a Deriv partner_t_' />
                     </Header>
                     <RedButton
                         id='dm-cta-affiliate-signup'
@@ -80,12 +78,12 @@ const PartnerCTA = () => {
                         type='affiliate_sign_up'
                         secondary
                     >
-                        {localize('Sign up')}
+                        <Localize translate_text='_t_Sign up_t_' />
                     </RedButton>
                 </Flex>
             </Container>
         </StyledSection>
-    )
-}
+    );
+};
 
-export default PartnerCTA
+export default PartnerCTA;

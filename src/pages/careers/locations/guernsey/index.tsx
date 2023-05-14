@@ -1,10 +1,10 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import { guernsey } from '../../_model/_locations/_locations'
-import { NewLocationLayout } from '../_location-layout-new-offices'
-import { SEO } from 'components/containers'
-import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import { guernsey } from '../../_model/_locations/_locations';
+import { NewLocationLayout } from '../_location-layout-new-offices';
+import { SEO } from 'components/containers';
+import Layout from 'components/layout/layout';
+import { localize, WithIntl } from 'components/localization';
 
 const query = graphql`
     query {
@@ -30,22 +30,22 @@ const query = graphql`
             ...fadeIn
         }
     }
-`
+`;
 
 const Guernsey = () => {
-    const images = useStaticQuery(query)
+    const images = useStaticQuery(query);
 
     return (
-        <Layout type="careers">
+        <Layout type='careers'>
             <SEO
-                title={localize('Guernsey | Our office – Channel Islands | Deriv')}
+                title={localize('_t_Guernsey | Our office – Channel Islands | Deriv_t_')}
                 description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Guernsey, Channel Islands.',
+                    '_t_Find your role with us by browsing Deriv job opportunities in Guernsey, Channel Islands._t_'
                 )}
             />
             <NewLocationLayout location={guernsey} images={images} />
         </Layout>
-    )
-}
+    );
+};
 
-export default WithIntl()(Guernsey)
+export default WithIntl()(Guernsey);

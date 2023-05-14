@@ -1,10 +1,10 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import { cyprus } from '../../_model/_locations/_locations'
-import { LocationLayout } from '../_location-layout'
-import { SEO } from 'components/containers'
-import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import { cyprus } from '../../_model/_locations/_locations';
+import { LocationLayout } from '../_location-layout';
+import { SEO } from 'components/containers';
+import Layout from 'components/layout/layout';
+import { localize, WithIntl } from 'components/localization';
 
 const query = graphql`
     query {
@@ -29,28 +29,26 @@ const query = graphql`
         map_cyprus: file(relativePath: { eq: "careers/maps/map-cyprus.png" }) {
             ...fadeIn
         }
-        cyprus_great_place_to_work_badge: file(
-            relativePath: { eq: "careers/cyprus_great_place_to_work_badge.png" }
-        ) {
+        cyprus_great_place_to_work_badge: file(relativePath: { eq: "careers/cyprus_great_place_to_work_badge.png" }) {
             ...fadeIn
         }
     }
-`
+`;
 
 const Cyprus = () => {
-    const images = useStaticQuery(query)
+    const images = useStaticQuery(query);
 
     return (
-        <Layout type="careers">
+        <Layout type='careers'>
             <SEO
-                title={localize('Limassol | Our office – Cyprus | Deriv')}
+                title={localize('_t_Limassol | Our office – Cyprus | Deriv_t_')}
                 description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Limassol, Cyprus.',
+                    '_t_Find your role with us by browsing Deriv job opportunities in Limassol, Cyprus._t_'
                 )}
             />
             <LocationLayout location={cyprus} images={images} />
         </Layout>
-    )
-}
+    );
+};
 
-export default WithIntl()(Cyprus)
+export default WithIntl()(Cyprus);

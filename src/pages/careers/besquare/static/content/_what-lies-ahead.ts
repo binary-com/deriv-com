@@ -1,15 +1,4 @@
-import {
-    FrontEnd,
-    ProductDesign,
-    MobileDev,
-    BackEnd,
-    PlatformArchitecture,
-    QualityAssurance,
-    DevAndOperations,
-    Cybersecurity,
-    BusinessIntelligence,
-    QuantAnalysis,
-} from '../images/_what-lies-ahead';
+import { FrontEnd, ProductDesign, MobileDev, BackEnd, QualityAssurance } from '../images/_what-lies-ahead';
 
 export default {
     title: 'What lies ahead',

@@ -1,16 +1,16 @@
-import React from 'react'
-import styled from 'styled-components'
-import Loadable from '@loadable/component'
-import ContactWays from './_contact-ways'
-import device from 'themes/device'
-import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
-import { Header, Text } from 'components/elements'
-import { localize, WithIntl } from 'components/localization'
-import Layout from 'components/layout/layout'
-import { SEO, SectionContainer, Container } from 'components/containers'
+import React from 'react';
+import styled from 'styled-components';
+import Loadable from '@loadable/component';
+import ContactWays from './_contact-ways';
+import device from 'themes/device';
+import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection';
+import { Header, Text } from 'components/elements';
+import { Localize, WithIntl, localize } from 'components/localization';
+import Layout from 'components/layout/layout';
+import { SEO, SectionContainer, Container } from 'components/containers';
 
-const Offices = Loadable(() => import('./_offices'))
-const Affiliates = Loadable(() => import('./_affiliates'))
+const Offices = Loadable(() => import('./_offices'));
+const Affiliates = Loadable(() => import('./_affiliates'));
 
 const HeroWrapper = styled(Container)`
     @media ${device.tablet} {
@@ -19,7 +19,7 @@ const HeroWrapper = styled(Container)`
             margin-bottom: 16px;
         }
     }
-`
+`;
 
 const StyledText = styled(Text)`
     max-width: 63.4rem;
@@ -30,29 +30,29 @@ const StyledText = styled(Text)`
         font-size: var(--text-size-sm);
         margin-top: 0;
     }
-`
+`;
 
 const ContactUs = () => {
     /* redirect livechat for en to open live chat popup */
     /* set true to allow redirection for other lang also*/
-    useOpenLiveChat(true)
+    useOpenLiveChat(true);
 
     return (
         <Layout>
             <SEO
-                title={localize('Contact Us | Online Trading | Deriv.com')}
+                title={localize('_t_Contact Us | Online Trading | Deriv.com_t_')}
                 description={localize(
-                    'Have any query or need assistance, check out the details to call our international help desk and our email ID. Feel free to contact us anytime!'
+                    '_t_Have any query or need assistance, check out the details to call our international help desk and our email ID. Feel free to contact us anytime!_t_'
                 )}
                 has_organization_schema
             />
             <SectionContainer tablet={{ p: '40px 0' }}>
                 <HeroWrapper fd='column'>
                     <Header align='center' as='h1' type='display-title'>
-                        {localize('Contact us')}
+                        <Localize translate_text='_t_Contact us_t_' />
                     </Header>
                     <StyledText align='center' size='var(--text-size-sm)'>
-                        {localize("Got questions? Here's how to get answers.")}
+                        <Localize translate_text="_t_Got questions? Here's how to get answers._t_" />
                     </StyledText>
                 </HeroWrapper>
             </SectionContainer>
@@ -60,7 +60,7 @@ const ContactUs = () => {
             <Offices />
             <Affiliates />
         </Layout>
-    )
-}
+    );
+};
 
-export default WithIntl()(ContactUs)
+export default WithIntl()(ContactUs);

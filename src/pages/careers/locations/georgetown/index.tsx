@@ -1,10 +1,10 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import { georgetown } from '../../_model/_locations/_locations'
-import { NewLocationLayout } from '../_location-layout-new-offices'
-import { SEO } from 'components/containers'
-import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import { georgetown } from '../../_model/_locations/_locations';
+import { NewLocationLayout } from '../_location-layout-new-offices';
+import { SEO } from 'components/containers';
+import Layout from 'components/layout/layout';
+import { localize, WithIntl } from 'components/localization';
 
 const query = graphql`
     query {
@@ -15,24 +15,24 @@ const query = graphql`
             ...fadeIn
         }
     }
-`
+`;
 
 const Georgetown = () => {
-    const images = useStaticQuery(query)
+    const images = useStaticQuery(query);
 
     return (
-        <Layout type="careers">
+        <Layout type='careers'>
             {
                 <SEO
-                    title={localize('Cayman Islands – Our office | Deriv')}
+                    title={localize('_t_Cayman Islands – Our office | Deriv_t_')}
                     description={localize(
-                        'View current openings at Deriv’s office in the Cayman Islands. Join us and be part of a talented team that analyses compliance and trading strategies. ',
+                        '_t_View current openings at Deriv’s office in the Cayman Islands. Join us and be part of a talented team that analyses compliance and trading strategies._t_'
                     )}
                 />
             }
             <NewLocationLayout location={georgetown} images={images} />
         </Layout>
-    )
-}
+    );
+};
 
-export default WithIntl()(Georgetown)
+export default WithIntl()(Georgetown);

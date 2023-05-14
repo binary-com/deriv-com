@@ -1,10 +1,10 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import { ipoh } from '../../_model/_locations/_locations'
-import { LocationLayout } from '../_location-layout'
-import { SEO } from 'components/containers'
-import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import { ipoh } from '../../_model/_locations/_locations';
+import { LocationLayout } from '../_location-layout';
+import { SEO } from 'components/containers';
+import Layout from 'components/layout/layout';
+import { localize, WithIntl } from 'components/localization';
 
 const query = graphql`
     query {
@@ -35,22 +35,22 @@ const query = graphql`
             ...fadeIn
         }
     }
-`
+`;
 
 const Ipoh = () => {
-    const images = useStaticQuery(query)
+    const images = useStaticQuery(query);
 
     return (
-        <Layout type="careers">
+        <Layout type='careers'>
             <SEO
-                title={localize('Ipoh | Our office – Malaysia | Deriv')}
+                title={localize('_t_Ipoh | Our office – Malaysia | Deriv_t_')}
                 description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Ipoh, Malaysia.',
+                    '_t_Find your role with us by browsing Deriv job opportunities in Ipoh, Malaysia._t_'
                 )}
             />
             <LocationLayout location={ipoh} images={images} />
         </Layout>
-    )
-}
+    );
+};
 
-export default WithIntl()(Ipoh)
+export default WithIntl()(Ipoh);

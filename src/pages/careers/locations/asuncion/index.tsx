@@ -1,10 +1,10 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import { asuncion } from '../../_model/_locations/_locations'
-import { LocationLayout } from '../_location-layout'
-import { SEO } from 'components/containers'
-import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import { asuncion } from '../../_model/_locations/_locations';
+import { LocationLayout } from '../_location-layout';
+import { SEO } from 'components/containers';
+import Layout from 'components/layout/layout';
+import { localize, WithIntl } from 'components/localization';
 
 const query = graphql`
     query {
@@ -35,22 +35,22 @@ const query = graphql`
             ...fadeIn
         }
     }
-`
+`;
 
 const Asuncion = () => {
-    const images = useStaticQuery(query)
+    const images = useStaticQuery(query);
 
     return (
-        <Layout type="careers">
+        <Layout type='careers'>
             <SEO
-                title={localize('Asunción | Our office – Paraguay | Deriv')}
+                title={localize('_t_Asunción | Our office – Paraguay | Deriv_t_')}
                 description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Asunción, Paraguay.',
+                    '_t_Find your role with us by browsing Deriv job opportunities in Asunción, Paraguay._t_'
                 )}
             />
             <LocationLayout location={asuncion} images={images} />
         </Layout>
-    )
-}
+    );
+};
 
-export default WithIntl()(Asuncion)
+export default WithIntl()(Asuncion);

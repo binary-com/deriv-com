@@ -60,22 +60,3 @@ export type TQuestionsData = {
     questions: TQuestions[];
     hide_non_p2p?: boolean;
 };
-
-export type TTranslatedQuestions = {
-    sub_category?: string;
-    category: string;
-    label: string;
-    question: string;
-    answer?: TAnswer;
-    renderProp?: () => ReactNode;
-    hide_for_non_eu?: boolean;
-    hide_for_eu?: boolean;
-};
-
-export type TTranslatedQuestionsData = {
-    section: string;
-    category: string;
-    hide_for_eu?: boolean;
-    hide_non_p2p?: boolean;
-    questions: TTranslatedQuestions[];
-};

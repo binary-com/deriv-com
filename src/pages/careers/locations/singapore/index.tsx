@@ -1,11 +1,11 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import type { ImageDataLike } from 'gatsby-plugin-image'
-import { singapore } from '../../_model/_locations/_locations'
-import { NewLocationLayout } from '../_location-layout-new-offices'
-import { SEO } from 'components/containers'
-import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import type { ImageDataLike } from 'gatsby-plugin-image';
+import { singapore } from '../../_model/_locations/_locations';
+import { NewLocationLayout } from '../_location-layout-new-offices';
+import { SEO } from 'components/containers';
+import Layout from 'components/layout/layout';
+import { localize, WithIntl } from 'components/localization';
 
 const query = graphql`
     query {
@@ -31,22 +31,22 @@ const query = graphql`
             ...fadeIn
         }
     }
-`
+`;
 
 const Singapore = () => {
-    const images = useStaticQuery<ImageDataLike>(query)
+    const images = useStaticQuery<ImageDataLike>(query);
 
     return (
-        <Layout type="careers">
+        <Layout type='careers'>
             <SEO
-                title={localize('Singapore – Our office | Deriv')}
+                title={localize('_t_Singapore – Our office | Deriv_t_')}
                 description={localize(
-                    'Join great trading minds at Deriv in Singapore and build your career in developing online trading solutions, particularly for CFD trading.',
+                    '_t_Join great trading minds at Deriv in Singapore and build your career in developing online trading solutions, particularly for CFD trading._t_'
                 )}
             />
             <NewLocationLayout location={singapore} images={images} />
         </Layout>
-    )
-}
+    );
+};
 
-export default WithIntl()(Singapore)
+export default WithIntl()(Singapore);

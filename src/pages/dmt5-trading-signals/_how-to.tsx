@@ -1,24 +1,26 @@
-import React from 'react'
-import styled from 'styled-components'
-import SignalSteps from './_signal-steps'
-import { localize, Localize } from 'components/localization'
-import { SectionContainer, Container } from 'components/containers'
-import { Header } from 'components/elements'
-import { LinkButton } from 'components/form'
-import device from 'themes/device'
+import React from 'react';
+import styled from 'styled-components';
+import SignalSteps from './_signal-steps';
+import { Localize } from 'components/localization';
+import { SectionContainer, Container } from 'components/containers';
+import { Header } from 'components/elements';
+import { LinkButton } from 'components/form';
+import device from 'themes/device';
+import { TString } from 'types/generics';
 
 type HowToProps = {
-    active_tab: 'signal-subscriber' | 'signal-provider'
-}
+    active_tab: 'signal-subscriber' | 'signal-provider';
+};
 
-const content = {
-    subscriber: {
-        header: <Localize translate_text="How to subscribe to an MT5 signal" />,
-    },
-    provider: {
-        header: <Localize translate_text="How to register as a signals provider" />,
-    },
-}
+type THeaderContent = {
+    subscriber: TString;
+    provider: TString;
+};
+
+const header_content: THeaderContent = {
+    subscriber: '_t_How to subscribe to an MT5 signal_t_',
+    provider: '_t_How to register as a signals provider_t_',
+};
 
 const StyledSectionContainer = styled(SectionContainer)<HowToProps>`
     padding: 9.1rem 0 8rem 0;
@@ -30,14 +32,14 @@ const StyledSectionContainer = styled(SectionContainer)<HowToProps>`
     @media ${device.tabletL} {
         padding: 29px 0 40px 0;
     }
-`
+`;
 const StyledContainer = styled(Container)`
     @media ${device.tabletL} {
         width: 90%;
         padding-left: 0;
         padding-right: 0;
     }
-`
+`;
 
 const StyledHeader = styled(Header)`
     text-align: center;
@@ -48,7 +50,7 @@ const StyledHeader = styled(Header)`
         font-size: 32px;
         line-height: 40px;
     }
-`
+`;
 
 const DMT5Button = styled(LinkButton)`
     margin-top: 2.4rem;
@@ -62,36 +64,28 @@ const DMT5Button = styled(LinkButton)`
     @media ${device.tabletL} {
         margin-top: 24px;
     }
-`
+`;
 
 const HowTo = ({ active_tab }: HowToProps) => {
-    const [signal_subscriber, signal_provider] = [
-        active_tab === 'signal-subscriber',
-        active_tab === 'signal-provider',
-    ]
+    const [signal_subscriber, signal_provider] = [active_tab === 'signal-subscriber', active_tab === 'signal-provider'];
+
+    const header_text: TString = signal_subscriber ? header_content.subscriber : header_content.provider;
 
     return (
         <StyledSectionContainer active_tab={active_tab}>
-            <StyledContainer justify="center" direction="column">
-                <StyledHeader as="h2">
-                    {signal_subscriber ? content.subscriber.header : content.provider.header}
+            <StyledContainer justify='center' direction='column'>
+                <StyledHeader as='h2'>
+                    <Localize translate_text={header_text} />
                 </StyledHeader>
                 <SignalSteps active_tab={active_tab} />
                 {signal_provider && (
-                    <DMT5Button
-                        secondary
-                        external
-                        type="mt5"
-                        to=""
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {localize('Go to your Deriv MT5 dashboard')}
+                    <DMT5Button secondary external type='mt5' to='' target='_blank' rel='noopener noreferrer'>
+                        <Localize translate_text='_t_Go to your Deriv MT5 dashboard_t_' />
                     </DMT5Button>
                 )}
             </StyledContainer>
         </StyledSectionContainer>
-    )
-}
+    );
+};
 
-export default HowTo
+export default HowTo;

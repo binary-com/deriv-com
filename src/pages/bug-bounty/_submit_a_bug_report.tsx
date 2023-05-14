@@ -1,11 +1,11 @@
-import React from 'react'
-import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
-import { Container, SectionContainer, Flex } from 'components/containers'
-import { Localize } from 'components/localization'
-import { Header, LocalizedLinkText, QueryImage } from 'components/elements'
-import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import device from 'themes/device'
+import React from 'react';
+import styled from 'styled-components';
+import { graphql, useStaticQuery } from 'gatsby';
+import { Container, SectionContainer, Flex } from 'components/containers';
+import { Localize } from 'components/localization';
+import { Header, LocalizedLinkText, QueryImage } from 'components/elements';
+import { useBrowserResize } from 'components/hooks/use-browser-resize';
+import device from 'themes/device';
 
 const Wrapper = styled(Flex)`
     background-image: linear-gradient(216deg, #122734 20.14%, #060c11 86.24%, #060c11 86.24%);
@@ -18,11 +18,11 @@ const Wrapper = styled(Flex)`
         flex-direction: column;
         padding: 32px 24px;
     }
-`
+`;
 
 type LinkTextProps = {
-    sm?: boolean
-}
+    sm?: boolean;
+};
 
 const LinkText = styled.a<LinkTextProps>`
     color: var(--color-red);
@@ -32,7 +32,7 @@ const LinkText = styled.a<LinkTextProps>`
     @media ${device.tabletL} {
         font-size: ${({ sm }) => (sm ? '14px' : '28px')};
     }
-`
+`;
 
 const StyledLocalizedLinkText = styled(LocalizedLinkText)<{ LinkTextProps }>`
     font-size: ${({ sm }) => (sm ? '14px' : '4.8rem')};
@@ -40,7 +40,7 @@ const StyledLocalizedLinkText = styled(LocalizedLinkText)<{ LinkTextProps }>`
     @media ${device.tabletL} {
         font-size: ${({ sm }) => (sm ? '14px' : '28px')};
     }
-`
+`;
 
 const TextWrap = styled.div`
     padding: 83px 0;
@@ -56,7 +56,7 @@ const TextWrap = styled.div`
             text-align: center;
         }
     }
-`
+`;
 
 const ImageWrap = styled.div`
     width: 320px;
@@ -74,7 +74,7 @@ const ImageWrap = styled.div`
     @media ${device.mobileM} {
         width: 240px;
     }
-`
+`;
 
 const query = graphql`
     query {
@@ -85,12 +85,12 @@ const query = graphql`
             ...heroImage
         }
     }
-`
+`;
 
 const SubmitABugReport = () => {
-    const data = useStaticQuery(query)
-    const [is_mobile] = useBrowserResize()
-    const bug_report_image = is_mobile ? data.bug_report_mobile : data.bug_report_desktop
+    const data = useStaticQuery(query);
+    const [is_mobile] = useBrowserResize();
+    const bug_report_image = is_mobile ? data.bug_report_mobile : data.bug_report_desktop;
 
     return (
         <SectionContainer>
@@ -99,14 +99,8 @@ const SubmitABugReport = () => {
                     <TextWrap>
                         <Header type='heading-2' color='white' as='p' weight='700'>
                             <Localize
-                                translate_text='Send your reports to our <0>Bug Bounty Platform</0>'
-                                components={[
-                                    <LinkText
-                                        key={0}
-                                        href='https://hackerone.com/binary'
-                                        target='_blank'
-                                    />,
-                                ]}
+                                translate_text='_t_Send your reports to our <0>Bug Bounty Platform</0>_t_'
+                                components={[<LinkText key={0} href='https://hackerone.com/binary' target='_blank' />]}
                             />
                         </Header>
                     </TextWrap>
@@ -120,16 +114,9 @@ const SubmitABugReport = () => {
                     </ImageWrap>
                 </Wrapper>
 
-                <Header
-                    p='0 18px'
-                    align='center'
-                    type='paragraph-2'
-                    mt='16px'
-                    as='p'
-                    weight='normal'
-                >
+                <Header p='0 18px' align='center' type='paragraph-2' mt='16px' as='p' weight='normal'>
                     <Localize
-                        translate_text='Please read and understand the Deriv Bug Bounty Program’s <0>terms and conditions</0> before you participate in the program.'
+                        translate_text='_t_Please read and understand the Deriv Bug Bounty Program’s <0>terms and conditions</0> before you participate in the program._t_'
                         components={[
                             <StyledLocalizedLinkText
                                 key={0}
@@ -142,7 +129,7 @@ const SubmitABugReport = () => {
                 </Header>
             </Container>
         </SectionContainer>
-    )
-}
+    );
+};
 
-export default SubmitABugReport
+export default SubmitABugReport;

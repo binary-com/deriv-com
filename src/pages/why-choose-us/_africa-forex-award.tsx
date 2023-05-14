@@ -1,25 +1,23 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import styled from 'styled-components'
-import { BackgroundImage, Header, QueryImage } from 'components/elements'
-import { Localize } from 'components/localization'
-import { Flex, Desktop, Mobile } from 'components/containers'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import styled from 'styled-components';
+import { BackgroundImage, Header, QueryImage } from 'components/elements';
+import { Localize } from 'components/localization';
+import { Flex, Desktop, Mobile } from 'components/containers';
 
 const query = graphql`
     query {
         africa_award_background: file(relativePath: { eq: "choose-us/africa_award_bg.png" }) {
             ...fadeIn
         }
-        africa_award_background_mobile: file(
-            relativePath: { eq: "choose-us/africa_award_bg_mobile.png" }
-        ) {
+        africa_award_background_mobile: file(relativePath: { eq: "choose-us/africa_award_bg_mobile.png" }) {
             ...fadeIn
         }
         africa_award: file(relativePath: { eq: "choose-us/africa_award.png" }) {
             ...fadeIn
         }
     }
-`
+`;
 
 const AwardImageWrapper = styled.div`
     position: relative;
@@ -49,7 +47,7 @@ const AwardImageWrapper = styled.div`
         margin-right: 1%;
         margin-top: 1%;
     }
-`
+`;
 const AwardImageWrapperMobile = styled.div`
     z-index: 2;
     padding: 36px 18px;
@@ -58,7 +56,7 @@ const AwardImageWrapperMobile = styled.div`
     background: #ffffff;
     border-radius: 8px;
     box-shadow: 0 25.3563px 50.7126px -9.5086px rgba(14, 14, 14, 0.14);
-`
+`;
 
 const StyledFlex = styled(Flex)`
     padding: 80px 120px 160px 120px;
@@ -66,7 +64,7 @@ const StyledFlex = styled(Flex)`
     @media (max-width: 1200px) {
         padding: 0 50px 40px 50px;
     }
-`
+`;
 
 const StyledHeader = styled(Header)`
     max-width: 462px;
@@ -78,16 +76,16 @@ const StyledHeader = styled(Header)`
     @media (max-width: 700px) {
         max-width: 200px;
     }
-`
+`;
 
 const StyledHeaderMobile = styled(Header)`
     word-break: break-word;
     margin-top: 25%;
     padding: 0 7rem;
-`
+`;
 
 const AfricaAward = () => {
-    const data = useStaticQuery(query)
+    const data = useStaticQuery(query);
 
     return (
         <>
@@ -105,7 +103,7 @@ const AfricaAward = () => {
                     >
                         <Flex style={{ maxHeight: '360px' }} ai='center' jc='space-evenly'>
                             <StyledHeader type='heading-2' align='left' color='white'>
-                                {<Localize translate_text='Best Forex Broker Africa' />}
+                                <Localize translate_text='_t_Best Forex Broker Africa_t_' />
                             </StyledHeader>
                             <AwardImageWrapper>
                                 <QueryImage
@@ -134,22 +132,17 @@ const AfricaAward = () => {
                         }}
                     >
                         <StyledHeaderMobile type='heading-2' align='center' color='white'>
-                            {<Localize translate_text='Best Forex Broker Africa' />}
+                            <Localize translate_text='_t_Best Forex Broker Africa_t_' />
                         </StyledHeaderMobile>
                         <Header as='h2' width='50%' />
                     </BackgroundImage>
                     <AwardImageWrapperMobile>
-                        <QueryImage
-                            data={data.africa_award}
-                            alt={'Africa Forex Award'}
-                            width='auto'
-                            height='100%'
-                        />
+                        <QueryImage data={data.africa_award} alt={'Africa Forex Award'} width='auto' height='100%' />
                     </AwardImageWrapperMobile>
                 </Flex>
             </Mobile>
         </>
-    )
-}
+    );
+};
 
-export default AfricaAward
+export default AfricaAward;

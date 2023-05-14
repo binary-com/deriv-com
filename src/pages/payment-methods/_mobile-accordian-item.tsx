@@ -1,14 +1,14 @@
-import React from 'react'
-import styled from 'styled-components'
-import MobileExpandedList from './_mobile-expanded-list'
-import { PaymentDataProps } from './index'
-import { Flex } from 'components/containers'
-import { Header } from 'components/elements'
-import { localize } from 'components/localization'
+import React from 'react';
+import styled from 'styled-components';
+import MobileExpandedList from './_mobile-expanded-list';
+import { PaymentDataProps } from './_payment-data';
+import { Flex } from 'components/containers';
+import { Header } from 'components/elements';
+import { Localize } from 'components/localization';
 
 const ParentWrapper = styled(Flex)`
     flex-direction: column;
-`
+`;
 const StyledAccordianItem = styled(Flex)`
     justify-content: space-between;
     border-bottom: 1px solid var(--color-grey-8);
@@ -16,19 +16,19 @@ const StyledAccordianItem = styled(Flex)`
     &:last-child {
         border-bottom: none;
     }
-`
+`;
 const Notes = styled.div`
     width: auto;
     background: var(--color-grey-8);
     margin: 0 -16px;
     padding: 16px;
-`
+`;
 type MobileAccordianItemProps = {
     locale?: {
-        locale?: { language?: string }
-    }
-    pd: PaymentDataProps
-}
+        locale?: { language?: string };
+    };
+    pd: PaymentDataProps;
+};
 const MobileAccordianItem = ({ locale, pd }: MobileAccordianItemProps) => {
     return (
         <>
@@ -44,19 +44,19 @@ const MobileAccordianItem = ({ locale, pd }: MobileAccordianItemProps) => {
                                 is_dp2p={pd.is_dp2p}
                             />
                         </StyledAccordianItem>
-                    )
+                    );
                 })}
             </ParentWrapper>
 
             {pd.note && (
                 <Notes>
                     <Header type='paragraph-1' weight='normal'>
-                        {localize('Note:')} {pd.note}
+                        <Localize translate_text='_t_Note:_t_' /> <Localize translate_text={pd.note} />
                     </Header>
                 </Notes>
             )}
         </>
-    )
-}
+    );
+};
 
-export default MobileAccordianItem
+export default MobileAccordianItem;

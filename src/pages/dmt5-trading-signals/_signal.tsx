@@ -1,9 +1,11 @@
-import React from 'react'
-import styled from 'styled-components'
-import { Text, Header } from 'components/elements'
-import { SectionContainer, Flex } from 'components/containers'
-import device from 'themes/device'
-import { ReactComponent as Checklist } from 'images/svg/trade-types/checklist-red.svg'
+import React, { ReactElement } from 'react';
+import styled from 'styled-components';
+import { Text, Header } from 'components/elements';
+import { SectionContainer, Flex } from 'components/containers';
+import device from 'themes/device';
+import { ReactComponent as Checklist } from 'images/svg/trade-types/checklist-red.svg';
+import { TString } from 'types/generics';
+import { Localize } from 'components/localization';
 
 const ContentWrapper = styled(Flex)`
     margin: 8rem auto;
@@ -14,7 +16,7 @@ const ContentWrapper = styled(Flex)`
         flex-direction: column;
         margin: 40px auto 0 auto;
     }
-`
+`;
 
 const CardWrapper = styled(Flex)`
     flex-direction: column;
@@ -24,7 +26,7 @@ const CardWrapper = styled(Flex)`
         align-items: center;
         margin-right: 0;
     }
-`
+`;
 
 const StyledText = styled(Text)`
     padding: 8rem 0 0 0;
@@ -36,7 +38,7 @@ const StyledText = styled(Text)`
         font-size: 2rem;
         padding: 0 0;
     }
-`
+`;
 
 const StyledHeader = styled(Header)`
     font-size: 4.8rem;
@@ -54,7 +56,7 @@ const StyledHeader = styled(Header)`
     @media ${device.mobileL} {
         max-width: 275px;
     }
-`
+`;
 
 const StyledSection = styled(SectionContainer)`
     padding: 0;
@@ -62,7 +64,7 @@ const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
         padding: 40px 16px;
     }
-`
+`;
 
 const Card = styled.div`
     display: flex;
@@ -82,7 +84,7 @@ const Card = styled.div`
         width: 328px;
         padding: 16px;
     }
-`
+`;
 
 const CardText = styled(Text)`
     font-size: 1.6rem;
@@ -94,7 +96,7 @@ const CardText = styled(Text)`
         font-size: 16px;
         line-height: 24px;
     }
-`
+`;
 
 const StyledChecklist = styled(Checklist)`
     margin-right: 1.6rem;
@@ -102,35 +104,48 @@ const StyledChecklist = styled(Checklist)`
     @media ${device.tabletL} {
         margin-right: 16px;
     }
-`
+`;
+
+export type SignalContentType = {
+    header: {
+        text: TString;
+        components?: ReactElement[];
+    };
+    text: TString;
+    list: TString[];
+};
 
 type SignalProps = {
-    content: {
-        header: React.ReactElement
-        text: React.ReactElement
-        list: React.ReactElement[]
-    }
-}
+    content: SignalContentType;
+};
 
 export const Signal = ({ content }: SignalProps) => {
+    const { header, text, list }: SignalContentType = content;
+
     return (
-        <StyledSection background="var(--color-white)">
-            <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
-                <StyledText>{content.text}</StyledText>
+        <StyledSection background='var(--color-white)'>
+            <Flex direction='column' max_width='99.6rem' m='0 auto' jc='space-between' ai='center'>
+                <StyledText>
+                    <Localize translate_text={text} />
+                </StyledText>
                 <ContentWrapper>
-                    <StyledHeader>{content.header}</StyledHeader>
+                    <StyledHeader>
+                        <Localize translate_text={header.text} components={header.components} />
+                    </StyledHeader>
                     <CardWrapper>
-                        {content.list.map((text, idx) => {
+                        {list.map(text => {
                             return (
-                                <Card key={idx}>
+                                <Card key={text}>
                                     <StyledChecklist />
-                                    <CardText>{text}</CardText>
+                                    <CardText>
+                                        <Localize translate_text={text} key={text} />
+                                    </CardText>
                                 </Card>
-                            )
+                            );
                         })}
                     </CardWrapper>
                 </ContentWrapper>
             </Flex>
         </StyledSection>
-    )
-}
+    );
+};

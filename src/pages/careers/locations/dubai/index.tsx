@@ -1,11 +1,11 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import type { ImageDataLike } from 'gatsby-plugin-image'
-import { dubai } from '../../_model/_locations/_locations'
-import { LocationLayout } from '../_location-layout'
-import { SEO } from 'components/containers'
-import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import type { ImageDataLike } from 'gatsby-plugin-image';
+import { dubai } from '../../_model/_locations/_locations';
+import { LocationLayout } from '../_location-layout';
+import { SEO } from 'components/containers';
+import Layout from 'components/layout/layout';
+import { localize, WithIntl } from 'components/localization';
 
 const query = graphql`
     query {
@@ -30,28 +30,26 @@ const query = graphql`
         map_dubai: file(relativePath: { eq: "careers/maps/map-dubai.png" }) {
             ...fadeIn
         }
-        dubai_great_place_to_work_badge: file(
-            relativePath: { eq: "careers/dubai_great_place_to_work_badge.png" }
-        ) {
+        dubai_great_place_to_work_badge: file(relativePath: { eq: "careers/dubai_great_place_to_work_badge.png" }) {
             ...fadeIn
         }
     }
-`
+`;
 
 const Dubai = () => {
-    const images = useStaticQuery<ImageDataLike>(query)
+    const images = useStaticQuery<ImageDataLike>(query);
 
     return (
-        <Layout type="careers">
+        <Layout type='careers'>
             <SEO
-                title={localize('Dubai | Our office – UAE | Deriv')}
+                title={localize('_t_Dubai | Our office – UAE | Deriv_t_')}
                 description={localize(
-                    'Browse job opportunities available at our Dubai office. Find your role in IT, marketing, and human resources.',
+                    '_t_Browse job opportunities available at our Dubai office. Find your role in IT, marketing, and human resources._t_'
                 )}
             />
             <LocationLayout location={dubai} images={images} />
         </Layout>
-    )
-}
+    );
+};
 
-export default WithIntl()(Dubai)
+export default WithIntl()(Dubai);

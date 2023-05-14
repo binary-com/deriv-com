@@ -1,10 +1,10 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import { paris } from '../../_model/_locations/_locations'
-import { NewLocationLayout } from '../_location-layout-new-offices'
-import { SEO } from 'components/containers'
-import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import { paris } from '../../_model/_locations/_locations';
+import { NewLocationLayout } from '../_location-layout-new-offices';
+import { SEO } from 'components/containers';
+import Layout from 'components/layout/layout';
+import { localize, WithIntl } from 'components/localization';
 
 const query = graphql`
     query {
@@ -30,22 +30,22 @@ const query = graphql`
             ...fadeIn
         }
     }
-`
+`;
 
 const Paris = () => {
-    const images = useStaticQuery(query)
+    const images = useStaticQuery(query);
 
     return (
-        <Layout type="careers">
+        <Layout type='careers'>
             <SEO
-                title={localize('Paris | Our office – France | Deriv')}
+                title={localize('_t_Paris | Our office – France | Deriv_t_')}
                 description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Paris, France.',
+                    '_t_Find your role with us by browsing Deriv job opportunities in Paris, France._t_'
                 )}
             />
             <NewLocationLayout location={paris} images={images} />
         </Layout>
-    )
-}
+    );
+};
 
-export default WithIntl()(Paris)
+export default WithIntl()(Paris);

@@ -1,16 +1,16 @@
-import React from 'react'
-import styled from 'styled-components'
-import { SectionContainer, Container, Flex } from 'components/containers'
-import { Header, Text } from 'components/elements/typography'
-import { localize } from 'components/localization'
-import device from 'themes/device'
-import GlobalAffiliate from 'images/svg/partners/global-affiliate-support.svg'
-import Advertise from 'images/svg/partners/advertise.svg'
-import HighValue from 'images/svg/partners/high-value-partnership.svg'
+import React from 'react';
+import styled from 'styled-components';
+import { SectionContainer, Container, Flex } from 'components/containers';
+import { Header, Text } from 'components/elements/typography';
+import { Localize } from 'components/localization';
+import device from 'themes/device';
+import GlobalAffiliate from 'images/svg/partners/global-affiliate-support.svg';
+import Advertise from 'images/svg/partners/advertise.svg';
+import HighValue from 'images/svg/partners/high-value-partnership.svg';
 
 type StyledContainerProps = {
-    mw: string
-}
+    mw: string;
+};
 const StyledContainer = styled(Container)<StyledContainerProps>`
     align-items: flex-start;
     max-width: 1200px;
@@ -22,12 +22,12 @@ const StyledContainer = styled(Container)<StyledContainerProps>`
     @media ${device.tabletL} {
         align-items: center;
     }
-`
+`;
 const ReasonHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 24px;
     }
-`
+`;
 const Reason = styled.div`
     margin-top: 4rem;
     width: 384px;
@@ -57,7 +57,7 @@ const Reason = styled.div`
     @media ${device.laptopL} {
         width: auto;
     }
-`
+`;
 const StyledFlex = styled(Flex)`
     margin-top: -2rem;
     gap: 24px;
@@ -68,60 +68,54 @@ const StyledFlex = styled(Flex)`
         flex-wrap: wrap;
         width: auto;
     }
-`
+`;
 const StyledSection = styled(SectionContainer)`
     box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1);
 
     @media ${device.tabletL} {
         padding: 40px 0;
     }
-`
+`;
 
 const MoreReason = () => {
     return (
         <StyledSection>
-            <StyledContainer direction="column" mw="0">
-                <ReasonHeader as="h3" size="3.2rem" align="center" mb="2rem">
-                    {localize('More reasons to join')}
+            <StyledContainer direction='column' mw='0'>
+                <ReasonHeader as='h3' size='3.2rem' align='center' mb='2rem'>
+                    <Localize translate_text='_t_More reasons to join_t_' />
                 </ReasonHeader>
-                <StyledFlex jc="center">
+                <StyledFlex jc='center'>
                     <Reason>
-                        <img src={HighValue} alt="Partnership" />
-                        <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
-                            {localize('High-value partnership')}
+                        <img src={HighValue} alt='Partnership' />
+                        <Header as='h4' type='sub-section-title' lh='1.5' mb='8px'>
+                            <Localize translate_text='_t_High-value partnership_t_' />
                         </Header>
                         <Text>
-                            {localize(
-                                'Join a proven referral programme that’s designed to help you succeed in every way possible.',
-                            )}
+                            <Localize translate_text='_t_Join a proven referral programme that’s designed to help you succeed in every way possible._t_' />
                         </Text>
                     </Reason>
                     <Reason>
-                        <img src={Advertise} alt="Speaker" />
-                        <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
-                            {localize('Proven creative materials')}
+                        <img src={Advertise} alt='Speaker' />
+                        <Header as='h4' type='sub-section-title' lh='1.5' mb='8px'>
+                            <Localize translate_text='_t_Proven creative materials_t_' />
                         </Header>
                         <Text>
-                            {localize(
-                                'Use a broad and tested selection of banners, emails, videos, and text ads to drive traffic to our site.',
-                            )}
+                            <Localize translate_text='_t_Use a broad and tested selection of banners, emails, videos, and text ads to drive traffic to our site._t_' />
                         </Text>
                     </Reason>
                     <Reason>
-                        <img src={GlobalAffiliate} alt="Support team" />
-                        <Header as="h4" type="sub-section-title" lh="1.5" mb="8px">
-                            {localize('Global affiliate support')}
+                        <img src={GlobalAffiliate} alt='Support team' />
+                        <Header as='h4' type='sub-section-title' lh='1.5' mb='8px'>
+                            <Localize translate_text='_t_Global affiliate support_t_' />
                         </Header>
                         <Text>
-                            {localize(
-                                'Got questions? Need help? Call or email a dedicated team of affiliate managers for all the answers.',
-                            )}
+                            <Localize translate_text='_t_Got questions? Need help? Call or email a dedicated team of affiliate managers for all the answers._t_' />
                         </Text>
                     </Reason>
                 </StyledFlex>
             </StyledContainer>
         </StyledSection>
-    )
-}
+    );
+};
 
-export default MoreReason
+export default MoreReason;

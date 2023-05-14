@@ -1,12 +1,13 @@
-import React from 'react'
-import styled from 'styled-components'
-import ImageCard from './_image-card'
-import { Header } from 'components/elements'
-import { Localize } from 'components/localization'
-import LossesImage from 'images/common/help-centre/dbot-losses.png'
-import VariablesImage from 'images/common/help-centre/dbot-variables.png'
-import LogicBlockImage from 'images/common/help-centre/dbot-logic-block.png'
-import UpdateCurrentPlImage from 'images/common/help-centre/dbot-update-currentPL.png'
+import React from 'react';
+import styled from 'styled-components';
+import ImageCard from './_image-card';
+import { Header } from 'components/elements';
+import { Localize } from 'components/localization';
+import LossesImage from 'images/common/help-centre/dbot-losses.png';
+import VariablesImage from 'images/common/help-centre/dbot-variables.png';
+import LogicBlockImage from 'images/common/help-centre/dbot-logic-block.png';
+import UpdateCurrentPlImage from 'images/common/help-centre/dbot-update-currentPL.png';
+import { TString } from 'types/generics';
 
 const Table = styled.table`
     width: 100%;
@@ -14,26 +15,26 @@ const Table = styled.table`
     color: var(--color-black-3);
     line-height: 1.5;
     margin-bottom: 1.6rem;
-`
+`;
 
 const Tr = styled.tr`
     border: 1px solid var(--color-grey-7);
-`
+`;
 
 const Th = styled.th`
     font-weight: bold;
     vertical-align: middle;
     padding: 1.6rem 2rem;
     border: 1px solid var(--color-grey-7);
-`
+`;
 
 const Td = styled.td`
     max-width: 48.6rem;
     display: inline-block;
     padding: 1.6rem;
-`
+`;
 
-const table_data = [
+const table_data: { th: TString; td: TString }[] = [
     {
         th: '_t_currentPL_t_',
         td: '_t_Use this variable to store the cumulative profit or loss while your bot is running. Set the initial value to <0>0</0>._t_',
@@ -50,18 +51,18 @@ const table_data = [
         th: '_t_tradeAgain_t_',
         td: '_t_Use this variable to stop trading when your loss limit is reached. Set the initial value to <0>true</0>._t_',
     },
-]
+];
 
 const ControlLosses = () => (
     <>
-        <Header size="16px" weight="normal" mb="1.6rem">
-            <Localize translate_text="There are several ways to control your losses with DBot. Here’s a simple example of how you can implement loss control in your strategy:" />
+        <Header size='16px' weight='normal' mb='1.6rem'>
+            <Localize translate_text='_t_There are several ways to control your losses with DBot. Here’s a simple example of how you can implement loss control in your strategy:_t_' />
         </Header>
 
-        <ImageCard src={LossesImage} alt="Control loss" width="70rem" />
+        <ImageCard src={LossesImage} alt='Control loss' width='70rem' />
 
-        <Header size="16px" weight="normal" mt="2.3rem" mb="2.4rem">
-            <Localize translate_text="1. Create the following variables:" />
+        <Header size='16px' weight='normal' mt='2.3rem' mb='2.4rem'>
+            <Localize translate_text='_t_1. Create the following variables:_t_' />
         </Header>
 
         <Table>
@@ -79,26 +80,26 @@ const ControlLosses = () => (
             </thead>
         </Table>
 
-        <ImageCard src={VariablesImage} alt="Variables" width="40rem" />
+        <ImageCard src={VariablesImage} alt='Variables' width='40rem' />
 
-        <Header size="16px" weight="normal" mt="2.3rem" mb="2.6rem">
+        <Header size='16px' weight='normal' mt='2.3rem' mb='2.6rem'>
             <Localize
-                translate_text="2. Use a logic block to check if <0>currentPL</0> exceeds <0>maximumLoss</0>. If it does, set <0>tradeAgain</0> to false to prevent the bot from running another cycle."
+                translate_text='_t_2. Use a logic block to check if <0>currentPL</0> exceeds <0>maximumLoss</0>. If it does, set <0>tradeAgain</0> to false to prevent the bot from running another cycle._t_'
                 components={[<strong key={0} />]}
             />
         </Header>
 
-        <ImageCard src={LogicBlockImage} alt="Logic block" width="40rem" />
+        <ImageCard src={LogicBlockImage} alt='Logic block' width='40rem' />
 
-        <Header size="16px" weight="normal" mt="2.3rem" mb="2.6rem">
+        <Header size='16px' weight='normal' mt='2.3rem' mb='2.6rem'>
             <Localize
-                translate_text="3. Update <0>currentPL</0> with the profit from the last contract. If the last contract was lost, the value of <0>currentPL</0> will be negative."
+                translate_text='_t_3. Update <0>currentPL</0> with the profit from the last contract. If the last contract was lost, the value of <0>currentPL</0> will be negative._t_'
                 components={[<strong key={0} />]}
             />
         </Header>
 
-        <ImageCard src={UpdateCurrentPlImage} alt="Update currentPL" width="40rem" />
+        <ImageCard src={UpdateCurrentPlImage} alt='Update currentPL' width='40rem' />
     </>
-)
+);
 
-export default ControlLosses
+export default ControlLosses;

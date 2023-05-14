@@ -1,13 +1,13 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import styled from 'styled-components'
-import Tabs from '../trade-types/components/_tabs'
-import { Mobile, Desktop } from '../../components/containers'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { Localize } from 'components/localization'
-import { QueryImage, LocalizedLinkText } from 'components/elements'
-import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import styled from 'styled-components';
+import Tabs from '../trade-types/components/_tabs';
+import { Mobile, Desktop } from '../../components/containers';
+import { usePageLoaded } from 'components/hooks/use-page-loaded';
+import { Localize } from 'components/localization';
+import { QueryImage, LocalizedLinkText } from 'components/elements';
+import device from 'themes/device';
+import useRegion from 'components/hooks/use-region';
 
 const Container = styled.section`
     width: 100%;
@@ -23,24 +23,24 @@ const Container = styled.section`
         justify-content: center;
         margin: 0;
     }
-`
+`;
 const content = {
     subscriber: {
-        header: <Localize translate_text='How to subscribe to an MT5 signal' />,
-        step_one_header: <Localize translate_text='1. Click on the Signals tab' />,
+        header: <Localize translate_text='_t_How to subscribe to an MT5 signal_t_' />,
+        step_one_header: <Localize translate_text='_t_1. Click on the Signals tab_t_' />,
         step_one_text: (
-            <Localize translate_text='From your Deriv MT5 trading terminal, click on the Signals tab to view the list of signal providers.' />
+            <Localize translate_text='_t_From your Deriv MT5 trading terminal, click on the Signals tab to view the list of signal providers._t_' />
         ),
         step_one_text_eu: (
-            <Localize translate_text='Go to your MT5 desktop app terminal and click on the Signals tab to view the list of signal providers. Not available on the web version.' />
+            <Localize translate_text='_t_Go to your MT5 desktop app terminal and click on the Signals tab to view the list of signal providers. Not available on the web version._t_' />
         ),
-        step_two_header: <Localize translate_text='2. Subscribe to a signal provider' />,
+        step_two_header: <Localize translate_text='_t_2. Subscribe to a signal provider_t_' />,
         step_two_text: (
-            <Localize translate_text='Select the signal provider you prefer and click the Subscribe button.' />
+            <Localize translate_text='_t_Select the signal provider you prefer and click the Subscribe button._t_' />
         ),
-        step_three_header: <Localize translate_text='3. Configure the parameters' />,
+        step_three_header: <Localize translate_text='_t_3. Configure the parameters_t_' />,
         step_three_text: (
-            <Localize translate_text='Configure your trading and risk management parameters. Then click OK to complete the process.' />
+            <Localize translate_text='_t_Configure your trading and risk management parameters. Then click OK to complete the process._t_' />
         ),
         notice: (
             <Localize
@@ -56,16 +56,16 @@ const content = {
                         key={1}
                     />,
                 ]}
-                translate_text='<0>Note:</0> For a wider selection of signal providers for Deriv, go to <1>MQL5 showcase page</1> and search for <0>Deriv</0> under the <0>Broker</0> server field.'
+                translate_text='_t_<0>Note:</0> For a wider selection of signal providers for Deriv, go to <1>MQL5 showcase page</1> and search for <0>Deriv</0> under the <0>Broker</0> server field._t_'
             />
         ),
     },
     provider: {
-        header: <Localize translate_text='How to register as a signals provider' />,
-        step_one_header: <Localize translate_text='1.  Head to MQL5.com' />,
+        header: <Localize translate_text='_t_How to register as a signals provider_t_' />,
+        step_one_header: <Localize translate_text='_t_1.  Head to MQL5.com_t_' />,
         step_one_text: (
             <Localize
-                translate_text='In the <0>MQL5 signals showcase page</0>, click the Create signal button.'
+                translate_text='_t_In the <0>MQL5 signals showcase page</0>, click the Create signal button._t_'
                 components={[
                     <LocalizedLinkText
                         external
@@ -78,10 +78,10 @@ const content = {
                 ]}
             />
         ),
-        step_two_header: <Localize translate_text='2. Fill the broker field' />,
+        step_two_header: <Localize translate_text='_t_2. Fill the broker field_t_' />,
         step_two_text: (
             <Localize
-                translate_text='Complete the form with your Deriv MT5 account credentials. In the <0>Broker</0> field, enter your account server name: <1/> <0>- Deriv-Demo</0> if your signal is for demo accounts only <1/> <0>- Deriv-Server</0> or <0>Deriv-Server-02</0> if your signal is for real accounts only <1/>(You can find the account server name on your <2>Deriv MT5 dashboard</2>.)'
+                translate_text='_t_Complete the form with your Deriv MT5 account credentials. In the <0>Broker</0> field, enter your account server name: <1/> <0>- Deriv-Demo</0> if your signal is for demo accounts only <1/> <0>- Deriv-Server</0> or <0>Deriv-Server-02</0> if your signal is for real accounts only <1/>(You can find the account server name on your <2>Deriv MT5 dashboard</2>.)_t_'
                 components={[
                     <strong key={0} />,
                     <br key={1} />,
@@ -97,13 +97,13 @@ const content = {
                 ]}
             />
         ),
-        step_three_header: <Localize translate_text='3. Fill in your details' />,
+        step_three_header: <Localize translate_text='_t_3. Fill in your details_t_' />,
         step_three_text: (
-            <Localize translate_text='Add a description and click Save to complete your registration.' />
+            <Localize translate_text='_t_Add a description and click Save to complete your registration._t_' />
         ),
         notice: (
             <Localize
-                translate_text='<1>Note:</1> You need to upgrade your MQL5 account to seller status to be able to add a signal. If you’ve not upgraded yet, <0>follow the steps on this page</0> to register as a seller.'
+                translate_text='_t_<1>Note:</1> You need to upgrade your MQL5 account to seller status to be able to add a signal. If you’ve not upgraded yet, <0>follow the steps on this page</0> to register as a seller._t_'
                 components={[
                     <LocalizedLinkText
                         external
@@ -119,7 +119,7 @@ const content = {
             />
         ),
     },
-}
+};
 
 const StyledTabs = styled(Tabs)`
     .side-tab__wrapper {
@@ -153,14 +153,14 @@ const StyledTabs = styled(Tabs)`
             }
         }
     }
-`
+`;
 
 const StyledQueryImage = styled(QueryImage)`
     .gatsby-image-wrapper {
         max-width: 588px;
         max-height: 401px;
     }
-`
+`;
 
 const query = graphql`
     query {
@@ -182,51 +182,36 @@ const query = graphql`
         provider_step_3: file(relativePath: { eq: "dmt5-signals/provider-step3.png" }) {
             ...fadeIn
         }
-        subscriber_step_1_mobile: file(
-            relativePath: { eq: "dmt5-signals/subscriber-step1-mobile.png" }
-        ) {
+        subscriber_step_1_mobile: file(relativePath: { eq: "dmt5-signals/subscriber-step1-mobile.png" }) {
             ...fadeIn
         }
-        subscriber_step_2_mobile: file(
-            relativePath: { eq: "dmt5-signals/subscriber-step2-mobile.png" }
-        ) {
+        subscriber_step_2_mobile: file(relativePath: { eq: "dmt5-signals/subscriber-step2-mobile.png" }) {
             ...fadeIn
         }
-        subscriber_step_3_mobile: file(
-            relativePath: { eq: "dmt5-signals/subscriber-step3-mobile.png" }
-        ) {
+        subscriber_step_3_mobile: file(relativePath: { eq: "dmt5-signals/subscriber-step3-mobile.png" }) {
             ...fadeIn
         }
-        provider_step_1_mobile: file(
-            relativePath: { eq: "dmt5-signals/provider-step1-mobile.png" }
-        ) {
+        provider_step_1_mobile: file(relativePath: { eq: "dmt5-signals/provider-step1-mobile.png" }) {
             ...fadeIn
         }
-        provider_step_2_mobile: file(
-            relativePath: { eq: "dmt5-signals/provider-step2-mobile.png" }
-        ) {
+        provider_step_2_mobile: file(relativePath: { eq: "dmt5-signals/provider-step2-mobile.png" }) {
             ...fadeIn
         }
-        provider_step_3_mobile: file(
-            relativePath: { eq: "dmt5-signals/provider-step3-mobile.png" }
-        ) {
+        provider_step_3_mobile: file(relativePath: { eq: "dmt5-signals/provider-step3-mobile.png" }) {
             ...fadeIn
         }
     }
-`
+`;
 
 type SignalStepsProps = {
-    active_tab: 'signal-subscriber' | 'signal-provider'
-}
+    active_tab: 'signal-subscriber' | 'signal-provider';
+};
 
 const SignalSteps = ({ active_tab }: SignalStepsProps) => {
-    const data = useStaticQuery(query)
-    const [is_mounted] = usePageLoaded() // needed to fix tab highlighting not being rerendered during first load
-    const [signal_subscriber, signal_provider] = [
-        active_tab === 'signal-subscriber',
-        active_tab === 'signal-provider',
-    ]
-    const { is_eu } = useRegion()
+    const data = useStaticQuery(query);
+    const [is_mounted] = usePageLoaded(); // needed to fix tab highlighting not being rerendered during first load
+    const [signal_subscriber, signal_provider] = [active_tab === 'signal-subscriber', active_tab === 'signal-provider'];
+    const { is_eu } = useRegion();
 
     return (
         <>
@@ -243,9 +228,7 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                 <Tabs.Panel
                                     label={content.subscriber.step_one_header}
                                     description={
-                                        is_eu
-                                            ? content.subscriber.step_one_text_eu
-                                            : content.subscriber.step_one_text
+                                        is_eu ? content.subscriber.step_one_text_eu : content.subscriber.step_one_text
                                     }
                                 >
                                     <Desktop>
@@ -315,10 +298,7 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                     description={content.provider.step_one_text}
                                 >
                                     <Desktop>
-                                        <StyledQueryImage
-                                            data={data.provider_step_1}
-                                            alt='Trade types option market'
-                                        />
+                                        <StyledQueryImage data={data.provider_step_1} alt='Trade types option market' />
                                     </Desktop>
                                     <Mobile>
                                         <StyledQueryImage
@@ -367,7 +347,7 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                 </Container>
             )}
         </>
-    )
-}
+    );
+};
 
-export default SignalSteps
+export default SignalSteps;

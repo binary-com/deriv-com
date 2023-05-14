@@ -1,54 +1,52 @@
-import React from 'react'
-import styled from 'styled-components'
-import { TQuestionsData } from '../data/_data-types'
-import { useFilteredQuestions } from '../data/_hooks'
-import { getUntranslatedCategory } from './_utility'
-import SideTab from './_side-tab'
-import AnswerCard from './_answer-card'
-import { Community, DidntFindYourAnswerBanner } from './_lazy-load'
-import Layout from 'components/layout/layout'
-import { Localize, localize } from 'components/localization'
-import { StyledLink } from 'components/elements'
-import { Container, SEO } from 'components/containers'
-import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
-import { useIsRtl } from 'components/hooks/use-isrtl'
+import React from 'react';
+import styled from 'styled-components';
+import { TQuestionsData } from '../data/_data-types';
+import { useFilteredQuestions } from '../data/_hooks';
+import { getUntranslatedCategory } from './_utility';
+import SideTab from './_side-tab';
+import AnswerCard from './_answer-card';
+import { Community, DidntFindYourAnswerBanner } from './_lazy-load';
+import Layout from 'components/layout/layout';
+import { Localize, localize } from 'components/localization';
+import { StyledLink } from 'components/elements';
+import { Container, SEO } from 'components/containers';
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param';
+import { useIsRtl } from 'components/hooks/use-isrtl';
 
 type TQuestionsTemplate = {
-    data: TQuestionsData
-}
+    data: TQuestionsData;
+};
 
 const ContactContainer = styled.div`
     margin-top: 8rem;
-`
+`;
 
 const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
-    const { platform, has_platform } = usePlatformQueryParam()
-    const is_rtl = useIsRtl()
-    const { questions, category } = data
-    const untranslate_category = getUntranslatedCategory(category)
-    const filtered_questions = useFilteredQuestions(questions)
-    const { is_deriv_go } = usePlatformQueryParam()
+    const { platform, has_platform } = usePlatformQueryParam();
+    const is_rtl = useIsRtl();
+    const { questions, category } = data;
+    const untranslate_category = getUntranslatedCategory(category);
+    const filtered_questions = useFilteredQuestions(questions);
+    const { is_deriv_go } = usePlatformQueryParam();
 
     return (
         <Layout>
             <SEO
-                title={localize(
-                    `Help centre | Frequently asked questions | ${untranslate_category} | Deriv`,
-                )}
-                description={localize(`Frequently asked questions - ${untranslate_category}`)}
+                title={localize(`_t_Help centre | Frequently asked questions | ${untranslate_category} | Deriv_t_`)}
+                description={localize(`_t_Frequently asked questions - ${untranslate_category}_t_`)}
             />
-            <Container align="start" justify="flex-start" direction="column">
+            <Container align='start' justify='flex-start' direction='column'>
                 <StyledLink
                     to={has_platform ? `/help-centre/?platform=${platform}` : '/help-centre/'}
-                    has_arrow="true"
-                    color="black"
+                    has_arrow='true'
+                    color='black'
                     is_rtl={is_rtl}
-                    size="var(--text-size-s)"
-                    weight="bold"
-                    arrow_margin="1rem"
-                    margin="4rem 0 0"
+                    size='var(--text-size-s)'
+                    weight='bold'
+                    arrow_margin='1rem'
+                    margin='4rem 0 0'
                 >
-                    <Localize translate_text="Back" />
+                    <Localize translate_text='_t_Back_t_' />
                 </StyledLink>
 
                 <SideTab data={filtered_questions} tab_header={category}>
@@ -69,7 +67,7 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
                 {!is_deriv_go && <DidntFindYourAnswerBanner />}
             </ContactContainer>
         </Layout>
-    )
-}
+    );
+};
 
-export default QuestionsTemplate
+export default QuestionsTemplate;

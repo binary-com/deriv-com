@@ -1,10 +1,10 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import { rwanda } from '../../_model/_locations/_locations'
-import { LocationLayout } from '../_location-layout'
-import { SEO } from 'components/containers'
-import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import { rwanda } from '../../_model/_locations/_locations';
+import { LocationLayout } from '../_location-layout';
+import { SEO } from 'components/containers';
+import Layout from 'components/layout/layout';
+import { localize, WithIntl } from 'components/localization';
 
 const query = graphql`
     query {
@@ -29,28 +29,26 @@ const query = graphql`
         rwanda_map: file(relativePath: { eq: "maps/map-rwanda-career.png" }) {
             ...fadeIn
         }
-        rwanda_great_place_to_work_badge: file(
-            relativePath: { eq: "careers/rwanda_great_place_to_work_badge.png" }
-        ) {
+        rwanda_great_place_to_work_badge: file(relativePath: { eq: "careers/rwanda_great_place_to_work_badge.png" }) {
             ...fadeIn
         }
     }
-`
+`;
 
 const Rwanda = () => {
-    const images = useStaticQuery(query)
+    const images = useStaticQuery(query);
 
     return (
-        <Layout type="careers">
+        <Layout type='careers'>
             <SEO
-                title={localize('Kigali | Our office – Rwanda | Deriv')}
+                title={localize('_t_Kigali | Our office – Rwanda | Deriv_t_')}
                 description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Kigali, Rwanda.',
+                    '_t_Find your role with us by browsing Deriv job opportunities in Kigali, Rwanda._t_'
                 )}
             />
             <LocationLayout location={rwanda} images={images} />
         </Layout>
-    )
-}
+    );
+};
 
-export default WithIntl()(Rwanda)
+export default WithIntl()(Rwanda);

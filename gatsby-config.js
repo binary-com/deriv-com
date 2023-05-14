@@ -12,7 +12,7 @@ const site_url = origin === 'https://deriv.com' || origin === 'https://eu.deriv.
 const strapi_preview_param = {
     publicationState: process.env.STRAPI_PREVIEW === 'true' ? 'preview' : 'live',
     'filters[publishedAt][$null]': process.env.STRAPI_PREVIEW === 'true' ? 'true' : 'false',
-}
+};
 const strapi_config = process.env.STRAPI_BUILD == 'true' && [
     {
         singularName: 'who-we-are-page',
@@ -22,7 +22,7 @@ const strapi_config = process.env.STRAPI_BUILD == 'true' && [
         singularName: 'cfd-warning-banner',
         queryParams: strapi_preview_param,
     },
-]
+];
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment

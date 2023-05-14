@@ -7,6 +7,7 @@ import Button from 'features/components/atoms/button'
 import { Localize } from 'components/localization'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/custom/utils'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const handleTradingSpec = () => {
     window.location.href = '/trading-specification'
@@ -14,6 +15,7 @@ const handleTradingSpec = () => {
 
 const LivePricing = () => {
     const [is_logged_in] = useAuthCheck()
+    const handleSignup = useHandleSignup()
 
     return (
         <Container.Fixed as="section" pt="16x" pb="16x" md={{ padding_block: '40x' }}>
@@ -37,11 +39,13 @@ const LivePricing = () => {
                 >
                     <Localize translate_text="_t_Check trading specs_t_" />
                 </Button.Primary>
-                {is_logged_in && (
-                    <Button.Primary onClick={handleGetTrading} aria-label="Get trading">
-                        <Localize translate_text="_t_Trade now_t_" />
-                    </Button.Primary>
-                )}
+
+                <Button.Primary
+                    onClick={is_logged_in ? handleGetTrading : handleSignup}
+                    aria-label="Get trading"
+                >
+                    <Localize translate_text="_t_Trade now_t_" />
+                </Button.Primary>
             </Flex.Box>
         </Container.Fixed>
     )

@@ -38,11 +38,11 @@ const MarketTab = () => {
                     >
                         <Icon
                             size="medium"
-                            selected={marketItem.market_name === selected_market}
                             key={marketItem.id}
-                            src={`${marketItem.src}#${marketItem.market_name}`}
-                            stroke={
-                                marketItem.market_name === selected_market ? 'brand' : 'primary'
+                            src={
+                                marketItem.market_name === selected_market
+                                    ? `${marketItem.selected_src}#${marketItem.market_name}`
+                                    : `${marketItem.src}#${marketItem.market_name}`
                             }
                         />
                         <Typography.Paragraph

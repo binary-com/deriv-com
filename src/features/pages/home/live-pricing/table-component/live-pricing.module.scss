@@ -10,9 +10,8 @@
     align-items: center;
     min-block-size: 7.5rem;
     padding: 1.4rem;
-    max-inline-size: 90%;
     th {
-      inline-size: 7rem;
+      inline-size: 7.5rem;
         &:nth-child(5) {
           display: none;
         }
@@ -20,12 +19,13 @@
           inline-size: 11rem;
         }
         &:nth-child(2) {
-          inline-size: 4rem;
+          inline-size: 3rem;
         }
+       
       }
       @include breakpoints(tablet) {
         padding: 2.4rem;
-        max-inline-size: 100%;
+        
           th {
             inline-size: 17rem;
               &:nth-child(1) {
@@ -42,7 +42,7 @@
       }
     @include breakpoints(laptop) {
       padding: 2.4rem;
-      max-inline-size: 100%;
+      
         th {
           inline-size: 17rem;
             &:nth-child(1) {
@@ -65,27 +65,32 @@
     align-items: center;
     min-block-size: 7.5rem;
     padding: 1.4rem;
-    max-inline-size: 90%;
+    gap: 1rem;
+    
     td {
+      display: flex;
+      justify-content: center;
       inline-size: 7rem;
+     
       &:nth-child(1) {
-        inline-size: 4rem;
+        inline-size: 3rem;
       }
       &:nth-child(2) {
-        inline-size: 11rem;
+        justify-content: flex-start;
+        inline-size: 8.2rem;
       }
         &:nth-child(5) {
           display: none;
         }
-        &:nth-child(6) {
-          display: flex;
-          justify-content: center;
-        }
+       
       }
       @include breakpoints(tablet) {
-        max-inline-size: 100%;
+        
+        gap: 0;
         padding: 2.4rem;
           td {
+            justify-content: flex-start;
+        
             inline-size: 17rem;
             &:nth-child(1) {
               inline-size: 3.4rem;
@@ -101,8 +106,9 @@
       }
     @include breakpoints(laptop) {
       padding: 2.4rem;
-      max-inline-size: 100%;
+      
         td {
+          justify-content: flex-start;
           inline-size: 17rem;
           &:nth-child(1) {
             inline-size: 3.4rem;
@@ -110,16 +116,10 @@
             &:nth-child(5) {
               display: block;
             }
-            &:nth-child(6) {
-          display: flex;
-          justify-content: flex-start;
-        }
+        
             &:nth-child(2) {
               inline-size: 30rem;
               }
           }
     }
-}
-.table_header_cell{
-    display: flex;
 }

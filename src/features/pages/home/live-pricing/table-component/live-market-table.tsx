@@ -61,11 +61,14 @@ const LiveMarketTable = ({ selected_market, link_to, display_name }: TLiveMarket
 
     const updateData = useCallback(() => {
         if (rawMarketsData) {
-            const markets = rawMarketsData.market === 'indices' ? 'stocks' : rawMarketsData.market
+            const stocks = rawMarketsData.market['stocks']
+            const indices = rawMarketsData.market['indices']
+            const stocks_indices = Object.assign(stocks, indices)
+            const res = { ...rawMarketsData.market, indices: { ...stocks_indices } }
 
-            Object.keys(markets).map((item) => {
+            Object.keys(res).map((item) => {
                 if (item == selected_market) {
-                    const selected_market_data = rawMarketsData.market[item]
+                    const selected_market_data = res[item]
                     const result = Object.values(selected_market_data)
                     setMarketsData(result)
                 }
@@ -98,7 +101,7 @@ const LiveMarketTable = ({ selected_market, link_to, display_name }: TLiveMarket
                 <table>
                     <thead>
                         {table.getHeaderGroups().map((headerGroup) => (
-                            <Flex.Box key={headerGroup.id} justify="center">
+                            <Flex.Box key={headerGroup.id}>
                                 <tr className={table_row_header}>
                                     {headerGroup.headers.map((header) => (
                                         <th key={header.id}>
@@ -116,7 +119,7 @@ const LiveMarketTable = ({ selected_market, link_to, display_name }: TLiveMarket
                     </thead>
                     <tbody>
                         {rows.map((row) => (
-                            <Flex.Box key={row.id} justify="center">
+                            <Flex.Box key={row.id}>
                                 <tr className={table_row_data}>
                                     {row.getVisibleCells().map((cell) => (
                                         <td key={cell.id}>
@@ -134,14 +137,20 @@ const LiveMarketTable = ({ selected_market, link_to, display_name }: TLiveMarket
             </Flex.Box>
 
             <Flex.Box justify="center" align="center" mt="18x" gap="10x">
-                <Link url={{ type: 'internal', to: link_to }} font_family="UBUNTU">
-                    <Typography.Paragraph size="small">
-                        <Localize
-                            translate_text="_t_See all {{display_name}} market >_t_"
-                            values={{ display_name }}
-                        />
-                    </Typography.Paragraph>
-                </Link>
+                <Typography.Paragraph size="medium">
+                    <Localize
+                        translate_text="_t_<0>See all {{display_name}} market ></0>_t_"
+                        values={{ display_name }}
+                        components={[
+                            <Link
+                                key={0}
+                                url={{ type: 'internal', to: link_to }}
+                                font_family="UBUNTU"
+                            />,
+                        ]}
+                    />
+                </Typography.Paragraph>
+                ,
             </Flex.Box>
         </>
     )

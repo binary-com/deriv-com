@@ -299,7 +299,7 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
             url: {
                 type: 'non-company',
                 target: '_blank',
-                href: 'https://t.me/derivdotcom',
+                href: 'https://t.me/derivdotcomofficial',
             },
             icon: Telegram,
             image_alt: '_t_Telegram_t_',

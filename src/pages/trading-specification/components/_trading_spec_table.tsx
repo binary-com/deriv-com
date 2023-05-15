@@ -150,7 +150,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
 
     const handleChange = (e) => {
         e.preventDefault()
-        setSearchValue(sanitize(e.target.value))
+        setSearchValue(sanitize(e.target.value.trim()))
     }
     useEffect(() => {
         let updatedRowData = []

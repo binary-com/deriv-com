@@ -1,0 +1,29 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.signup_wrapper {
+    min-block-size: calc(100svh - 7rem);
+}
+
+.signup_form_container {
+    @include breakpoints(tablet) {
+        box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.05);
+    }
+}
+
+.signup_form_line {
+    block-size: 1px;
+    background-color: $color-grey-7;
+}
+
+.signup_login_redirect {
+    cursor: pointer;
+}
+
+.signup_fb_btn {
+    background-color: #1877f2;
+}
+
+.signup_apple_btn {
+    background-color: #000000;
+}

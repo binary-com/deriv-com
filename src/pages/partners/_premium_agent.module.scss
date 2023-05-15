@@ -33,5 +33,9 @@
   }
 
   .box{
+    max-inline-size: unset;
+
+    @include breakpoints(laptop) {
     max-inline-size: 56rem;
+    }
   }

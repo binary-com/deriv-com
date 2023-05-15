@@ -1,9 +1,10 @@
 import React from 'react'
-import { os_apps } from '../data'
-import DP2QRbox from './qr-box'
+import { os_apps } from './data'
 import { download_col } from './styles.module.scss'
 import OsAppButton from 'features/components/molecules/os-app-button'
 import Flex from 'features/components/atoms/flex-box'
+import QRScanbox from 'features/components/molecules/qr-scan-box'
+import p2pQrImage from 'images/svg/p2p/p2p_qr.svg'
 
 const DP2BannerDownload = () => {
     return (
@@ -15,7 +16,11 @@ const DP2BannerDownload = () => {
             md={{ basis: '5-12', align: 'end' }}
         >
             <div className={download_col}>
-                <DP2QRbox />
+                <QRScanbox
+                    img_src={p2pQrImage}
+                    heading_one="_t_Scan to download Deriv P2P_t_"
+                    heading_two="_t_Android, iOS, and Huawei_t_"
+                />
                 <Flex.Box
                     wrap="wrap"
                     pl="5x"

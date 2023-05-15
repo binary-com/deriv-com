@@ -1,6 +1,6 @@
 import React from 'react'
 import DP2BannerInfo from './information'
-import DP2BannerDownload from './download-col'
+import DP2BannerDownload from './download'
 import { banner_section, banner_wrap } from './styles.module.scss'
 import Container from 'features/components/atoms/container'
 import Flex from 'features/components/atoms/flex-box'

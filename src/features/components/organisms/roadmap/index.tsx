@@ -6,15 +6,19 @@ import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import { TString } from 'types/generics'
 
-const derivP2PPortalData = {
-    paragraph: (
-        <Localize translate_text="_t_Take a look at Deriv P2P’s product roadmap, give us your feedback on what we’re building and suggestions on what to build next._t_" />
-    ),
-    frame: 'https://portal.productboard.com/hnv4nsfcbxgidym2hmbun56m?hide_header=1',
-    link: 'https://portal.productboard.com/hnv4nsfcbxgidym2hmbun56m',
+export type RoadmapType = {
+    paragraph: TString
+    frame: string
+    link: string
 }
-const Roadmap = () => {
+
+interface RoadmapProps {
+    data: RoadmapType
+}
+
+const Roadmap = ({ data }: RoadmapProps) => {
     const { is_mobile } = useBreakpoints()
     return (
         <Container.Fixed as="section" padding_block="20x" md={{ padding_block: '40x' }}>
@@ -23,18 +27,18 @@ const Roadmap = () => {
                     <Localize translate_text="_t_What’s next?_t_" />
                 </Typography.Heading>
                 <Typography.Paragraph align="center" size={is_mobile ? 'xlarge' : 'xxl'} mb="20x">
-                    {derivP2PPortalData.paragraph}
+                    {data.paragraph}
                 </Typography.Paragraph>
                 <Flex.Box direction="col" align="center">
                     <iframe
-                        src={derivP2PPortalData.frame}
+                        src={data.frame}
                         frameBorder="0"
                         height="100%"
                         width="100%"
                         className={iframe}
                     ></iframe>
                     <LinkButton.Secondary
-                        url={{ type: 'non-company', href: derivP2PPortalData.link }}
+                        url={{ type: 'non-company', href: data.link }}
                         outlined
                         mt="20x"
                     >

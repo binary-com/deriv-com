@@ -5,8 +5,8 @@ import DP2Numbers from './numbers'
 import DP2P from './dp2p'
 import DP2Steps from './steps'
 import DP2Availability from './availability'
-import Roadmap from './roadmap'
-import { banner_data } from './_data'
+import { banner_data, portalData } from './_data'
+import Roadmap from 'features/components/organisms/roadmap'
 import DP2Banner from 'features/components/organisms/banner/blade-shape-banner'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import Layout from 'features/components/templates/layout'
@@ -41,7 +41,7 @@ const DP2PPage = () => {
                 <DP2Steps />
                 <DP2Availability />
                 <DP2Banner data={banner_data} />
-                <Roadmap />
+                <Roadmap data={portalData} />
                 <Footer />
             </Layout>
         )

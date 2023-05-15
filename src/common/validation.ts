@@ -52,7 +52,7 @@ const validation: TValidationType = {
     },
     alphabetic: (input, message) => {
         if (!validation_regex.alphabetic.test(input)) {
-            return message ? message : localize('Please enter only alphabetic characters')
+            return message ? message : localize('Please enter only alphabetic characters asdsd')
         } else {
             return null
         }

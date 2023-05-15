@@ -1,9 +1,11 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import { TAcuityFeatures } from '../../../components/molecules/image-text-boxes/types'
-import { deriv_acuity_eu_download, deriv_acuity_row_download } from 'common/constants'
+import { AcuityFeaturesType } from '../../../components/molecules/image-text-boxes/types'
 
-export const contentData: TAcuityFeatures = {
+const deriv_acuity_row_download = 'https://deriv.link/3Vk37Ds'
+const deriv_acuity_eu_download = 'https://deriv.link/3GXrhz6'
+
+export const contentData: AcuityFeaturesType = {
     mobileFlexDirection: 'col-reverse',
     data: [
         {
@@ -24,7 +26,6 @@ export const contentData: TAcuityFeatures = {
             button_text: '_t_Download for free_t_',
             system_url: ({ is_eu }) =>
                 is_eu ? deriv_acuity_eu_download : deriv_acuity_row_download,
-            direction: 'row',
             info_title: '_t_Only available on Windows_t_',
         },
         {
@@ -44,7 +45,6 @@ export const contentData: TAcuityFeatures = {
             ),
             system_url: '/acuity/acuity-tool-user-guide.pdf',
             button_text: '_t_Show me the user guide_t_',
-            direction: 'row-reverse',
         },
     ],
 }

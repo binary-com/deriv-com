@@ -1,21 +1,21 @@
 import React from 'react'
-import { TAcuityFeatures } from './types'
+import { AcuityFeaturesType } from './types'
 import FlexBox from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import LinkButton from 'features/components/atoms/link-button'
 
-interface TImageWithParagraph {
-    contentData: TAcuityFeatures
+interface ImageWithParagraphType {
+    contentData: AcuityFeaturesType
 }
 
-const ImageWithParagraph = ({ contentData }: TImageWithParagraph) => {
+const ImageWithParagraph = ({ contentData }: ImageWithParagraphType) => {
     const { is_eu } = useRegion()
     const { mobileFlexDirection, data } = contentData
     return (
         <FlexBox.Box container="fluid" direction={'col'} mt={'20x'} md={{ mt: '40x' }}>
-            {data.map((feature) => {
+            {data.map((feature, index) => {
                 return (
                     <FlexBox.Box
                         key={feature?.id}
@@ -24,7 +24,7 @@ const ImageWithParagraph = ({ contentData }: TImageWithParagraph) => {
                         justify={'center'}
                         align="center"
                         md={{
-                            direction: feature.direction,
+                            direction: index == 0 || index % 2 == 0 ? 'row' : 'row-reverse',
                             justify: 'between',
                         }}
                     >
@@ -32,7 +32,6 @@ const ImageWithParagraph = ({ contentData }: TImageWithParagraph) => {
                             {feature?.title ? (
                                 <Typography.Heading
                                     mb={'8x'}
-                                    weight={'bold'}
                                     size="large"
                                     align="center"
                                     textcolor="primary"
@@ -41,12 +40,7 @@ const ImageWithParagraph = ({ contentData }: TImageWithParagraph) => {
                                 </Typography.Heading>
                             ) : null}
 
-                            <Typography.Paragraph
-                                align={'center'}
-                                mb={'8x'}
-                                weight={'normal'}
-                                size="large"
-                            >
+                            <Typography.Paragraph align={'center'} mb={'8x'} size="large">
                                 <Localize translate_text={feature?.subtitle} />
                             </Typography.Paragraph>
                             {feature?.system_url ? (
@@ -62,6 +56,7 @@ const ImageWithParagraph = ({ contentData }: TImageWithParagraph) => {
                                                 typeof feature.system_url === 'function'
                                                     ? feature.system_url({ is_eu })
                                                     : feature.system_url,
+                                            target: '_blank',
                                         }}
                                     >
                                         <Localize translate_text={feature.button_text} />

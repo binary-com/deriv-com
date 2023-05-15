@@ -2,8 +2,8 @@ import React from 'react'
 import { WithIntl } from 'components/localization'
 import Acuity from 'features/pages/acuity'
 
-const DerivEZPage = () => {
+const DerivAcuityPage = () => {
     return <Acuity />
 }
 
-export default WithIntl()(DerivEZPage)
+export default WithIntl()(DerivAcuityPage)

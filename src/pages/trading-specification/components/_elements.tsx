@@ -231,9 +231,37 @@ type TTableCellGroup = {
 export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const { is_row } = useRegion()
     const { symbol, instrument: text, dl_icon, swf_icon } = data
-    const [showPopUp, setShowPopUp] = useState(false)
-    const [popupType, setPopupType] = useState<TPopupType>()
+    const [show_popUp, setShowPopUp] = useState(false)
+    const [popup_type, setPopupType] = useState<TPopupType>()
     const [is_mobile] = useBrowserResize(768)
+
+    const getStyledImg = (width, icon, type) => {
+        return is_mobile ? (
+            <StyledImg
+                src={icon}
+                width={width}
+                height="24px"
+                onTouchStart={() => {
+                    setShowPopUp(true)
+                    setPopupType(type)
+                    document.documentElement.scrollTop = 40
+                    document.body.style.overflow = 'hidden'
+                }}
+            />
+        ) : (
+            <StyledImg
+                src={icon}
+                width={width}
+                height="24px"
+                onClick={() => {
+                    setShowPopUp(true)
+                    setPopupType(type)
+                    document.documentElement.scrollTop = 40
+                    document.body.style.overflow = 'hidden'
+                }}
+            />
+        )
+    }
 
     if (data !== undefined)
         return (
@@ -244,64 +272,14 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                 </StyledHeaderText>
                 {is_row ? (
                     <>
-                        {dl_icon &&
-                            (is_mobile ? (
-                                <StyledImg
-                                    src={dl}
-                                    width="24px"
-                                    height="24px"
-                                    onTouchStart={() => {
-                                        setShowPopUp(true)
-                                        setPopupType('dl')
-                                        document.documentElement.scrollTop = 40
-                                        document.body.style.overflow = 'hidden'
-                                    }}
-                                />
-                            ) : (
-                                <StyledImg
-                                    src={dl}
-                                    width="24px"
-                                    height="24px"
-                                    onClick={() => {
-                                        setShowPopUp(true)
-                                        setPopupType('dl')
-                                        document.documentElement.scrollTop = 40
-                                        document.body.style.overflow = 'hidden'
-                                    }}
-                                />
-                            ))}
-                        {swf_icon &&
-                            (is_mobile ? (
-                                <StyledImg
-                                    src={swf}
-                                    width="30px"
-                                    height="24px"
-                                    onTouchStart={() => {
-                                        setShowPopUp(true)
-                                        setPopupType('swf')
-                                        document.documentElement.scrollTop = 40
-                                        document.body.style.overflow = 'hidden'
-                                    }}
-                                />
-                            ) : (
-                                <StyledImg
-                                    src={swf}
-                                    width="30px"
-                                    height="24px"
-                                    onClick={() => {
-                                        setShowPopUp(true)
-                                        setPopupType('swf')
-                                        document.documentElement.scrollTop = 40
-                                        document.body.style.overflow = 'hidden'
-                                    }}
-                                />
-                            ))}
+                        {dl_icon && getStyledImg('24px', dl, 'dl')}
+                        {swf_icon && getStyledImg('30px', swf, 'swf')}
                     </>
                 ) : null}
-                {showPopUp && (
+                {show_popUp && (
                     <PopUpMenu
                         market={market}
-                        popupType={popupType}
+                        popup_type={popup_type}
                         toggle={() => {
                             setShowPopUp(false)
                             document.body.style.overflow = 'scroll'

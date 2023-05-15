@@ -26,7 +26,7 @@ import { TString } from 'types/generics'
 
 type TPopUpMenuProps = {
     market: TAvailableLiveMarkets
-    popupType: TPopupType
+    popup_type: TPopupType
     toggle: (event: React.MouseEvent<HTMLElement>) => void
 }
 const how_it_is_calculated: TString = '_t_How it’s calculated_t_'
@@ -41,7 +41,7 @@ const swf_title: TString = '_t_Swap-free_t_'
 const swf_description: TString =
     '_t_Please note, while our swap-free accounts come with no overnight financing charges, the spreads on these accounts might be slightly wider than those on our regular account. However, we strive to keep our spreads competitive and offer the best possible pricing to our clients at all times._t_'
 
-const PopUpMenu = ({ market, popupType, toggle }: TPopUpMenuProps) => {
+const PopUpMenu = ({ market, popup_type, toggle }: TPopUpMenuProps) => {
     const [markets_data, setMarketsData] = useState(forex_specification.dl_data)
     const [modalTitle, setModalTitle] = useState(forex_specification.dl_title)
     const [modalDescription, setModalDescription] = useState(dl_description)
@@ -55,16 +55,16 @@ const PopUpMenu = ({ market, popupType, toggle }: TPopUpMenuProps) => {
     useEffect(() => {
         market_specification.map((specification) => {
             if (specification.market === market) {
-                if (popupType === dl) {
+                if (popup_type === dl) {
                     setMarketsData(specification.dl_data)
                     setModalTitle(specification.dl_title)
-                } else if (popupType === swf) {
+                } else if (popup_type === swf) {
                     setModalTitle(swf_title)
                     setModalDescription(swf_description)
                 }
             }
         })
-    }, [market, popupType])
+    }, [market, popup_type])
 
     return (
         <>
@@ -95,7 +95,7 @@ const PopUpMenu = ({ market, popupType, toggle }: TPopUpMenuProps) => {
                             <Localize translate_text={modalDescription} />
                         </Header>
 
-                        {popupType === 'dl' ? (
+                        {popup_type === dl ? (
                             <>
                                 <DLTableContainer>
                                     <TableWrapper>

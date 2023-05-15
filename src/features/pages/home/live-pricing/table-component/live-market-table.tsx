@@ -150,7 +150,6 @@ const LiveMarketTable = ({ selected_market, link_to, display_name }: TLiveMarket
                         ]}
                     />
                 </Typography.Paragraph>
-                ,
             </Flex.Box>
         </>
     )

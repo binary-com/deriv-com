@@ -251,7 +251,10 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                                 <StyledButtonPage
                                     selected={page === table.getState().pagination.pageIndex}
                                     key={page}
-                                    onClick={() => table.setPageIndex(page)}
+                                    onClick={() => {
+                                        table.setPageIndex(page)
+                                        document.documentElement.scrollTop = 500
+                                    }}
                                 >
                                     {page + 1}
                                 </StyledButtonPage>

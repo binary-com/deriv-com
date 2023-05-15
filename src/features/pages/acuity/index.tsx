@@ -7,8 +7,8 @@ import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 import AcuityTradeTools from 'features/pages/acuity/acuity-trade-tools'
-const Footer = loadable(() => import('features/components/templates/footer'))
 
+const Footer = loadable(() => import('features/components/templates/footer'))
 const Acuity = () => {
     return (
         <Layout>

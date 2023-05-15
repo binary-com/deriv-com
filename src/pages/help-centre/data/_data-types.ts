@@ -44,7 +44,7 @@ export type TQuestions = {
     category: string
     label: string
     question: TString
-    answer?: TAnswer
+    answer?: TAnswer | ((config: { is_eu: boolean }) => TAnswer)
     renderProp?: () => ReactNode
     hide_for_non_eu?: boolean
     hide_for_eu?: boolean

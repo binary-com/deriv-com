@@ -131,6 +131,7 @@ const EURedirect = ({
                             <Localize translate_text="_t_Trade CFDs on forex, stocks, stock indices, synthetics, cryptocurrencies, and commodities with leverage._t_" />
                             <Localize translate_text="_t_Trade global stocks of your favourite household brands and international stock market indices on Deriv. Expand your trading opportunities with access to a wide range of stocks and indices at competitive prices, and the convenience to trade indices beyond standard market hours._t_" />
                             <Localize translate_text="_t_Why trade CFDs on Deriv_t_" />
+                            <Localize translate_text="_t_Diversify your portfolio with various assets, such as bonds, commodities, and indices, without the high cost of owning the underlying assets._t_" />
                         </Text>
                         <CloseButton src={Close} alt="close-2" onClick={toggle} />
                     </Action>

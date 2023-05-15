@@ -1,19 +1,28 @@
 import React from 'react'
-import { OsApp } from '../types'
 import { app_text } from './styles.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
 import Link from 'features/components/atoms/link'
 import { Localize } from 'components/localization'
+import { TString } from 'types/generics'
+import { LinkUrlType } from 'features/types'
+import { FlexBoxProps } from 'features/components/atoms/flex-box/box'
 
-interface OsAppButtonProps {
-    item: OsApp
+export type OsAppType = {
+    icon_src: string
+    text: TString
+    url: LinkUrlType
+    smallText?: TString
 }
 
-const OsAppButton = ({ item }: OsAppButtonProps) => {
+interface OsAppButtonProps extends FlexBoxProps<'div'> {
+    item: OsAppType
+}
+
+const OsAppButton = ({ item, ...rest }: OsAppButtonProps) => {
     return (
-        <Flex.Box align="center" basis="5-12">
+        <Flex.Box align="center" {...rest}>
             <Image src={item.icon_src} alt={item.text} width={32} height={32} />
             <Link pl="3x" url={item.url} no_hover>
                 {item?.smallText && (

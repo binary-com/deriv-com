@@ -1,15 +1,8 @@
-import { LinkUrlType } from 'features/types'
-import { TSmartContent, TString } from 'types/generics'
-
-export type OsApp = {
-    icon_src: string
-    text: TString
-    url: LinkUrlType
-    smallText?: TString
-}
+import { TSmartContent } from 'types/generics'
+import type { OsAppType } from 'features/components/molecules/os-app-button'
 
 type OsAppConfig = {
     is_eu: boolean
 }
 
-export type SmartOsApp = TSmartContent<OsApp, OsAppConfig>
+export type SmartOsApp = TSmartContent<OsAppType, OsAppConfig>

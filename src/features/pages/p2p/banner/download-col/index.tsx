@@ -1,8 +1,8 @@
 import React from 'react'
 import { os_apps } from '../data'
-import OsAppButton from './os-app-button'
 import DP2QRbox from './qr-box'
 import { download_col } from './styles.module.scss'
+import OsAppButton from 'features/components/molecules/os-app-button'
 import Flex from 'features/components/atoms/flex-box'
 
 const DP2BannerDownload = () => {
@@ -25,7 +25,7 @@ const DP2BannerDownload = () => {
                     md={{ pl: '9x' }}
                 >
                     {os_apps.map((app) => (
-                        <OsAppButton key={app.id} item={app.data} />
+                        <OsAppButton key={app.id} item={app.data} basis="5-12" />
                     ))}
                 </Flex.Box>
             </div>

@@ -84,7 +84,12 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                 <StyledLocalizedLink to="/dmt5/">
                                     <Flex direction="row">
                                         <img src={DerivMT5} alt="Deriv MT5" />
-                                        <StyledHeader type="paragraph-1" as="p" width="auto">
+                                        <StyledHeader
+                                            type="paragraph-1"
+                                            as="p"
+                                            weight="bold"
+                                            width="auto"
+                                        >
                                             <Localize translate_text={deriv_mt5} />
                                         </StyledHeader>
                                     </Flex>
@@ -92,7 +97,12 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                 <StyledLocalizedLink to="/derivx/">
                                     <Flex direction="row">
                                         <img src={DerivX} alt="Deriv X" width="24" height="24" />
-                                        <StyledHeader type="paragraph-1" as="p" width="auto">
+                                        <StyledHeader
+                                            weight="bold"
+                                            type="paragraph-1"
+                                            as="p"
+                                            width="auto"
+                                        >
                                             <Localize translate_text={deriv_x} />
                                         </StyledHeader>
                                     </Flex>
@@ -106,7 +116,12 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                                 width="24"
                                                 height="24"
                                             />
-                                            <StyledHeader type="paragraph-1" as="p" width="auto">
+                                            <StyledHeader
+                                                weight="bold"
+                                                type="paragraph-1"
+                                                as="p"
+                                                width="auto"
+                                            >
                                                 <Localize translate_text={deriv_ez} />
                                             </StyledHeader>
                                         </Flex>
@@ -121,7 +136,12 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                                 width="24"
                                                 height="24"
                                             />
-                                            <StyledHeader type="paragraph-1" as="p" width="auto">
+                                            <StyledHeader
+                                                weight="bold"
+                                                type="paragraph-1"
+                                                as="p"
+                                                width="auto"
+                                            >
                                                 <Localize translate_text={deriv_ctrader} />
                                             </StyledHeader>
                                         </Flex>
@@ -134,7 +154,12 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                             <StyledLocalizedLink to="/dmt5/">
                                 <Flex direction="row">
                                     <img src={DerivMT5} alt="Deriv MT5" width="24" height="24" />
-                                    <StyledHeader type="paragraph-1" as="p" width="auto">
+                                    <StyledHeader
+                                        weight="bold"
+                                        type="paragraph-1"
+                                        as="p"
+                                        width="auto"
+                                    >
                                         <Localize translate_text={deriv_mt5} />
                                     </StyledHeader>
                                 </Flex>

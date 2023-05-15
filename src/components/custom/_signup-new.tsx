@@ -223,7 +223,7 @@ const SignupNew = ({
             <StyledHeader as="h4" type="sub-section-title" mb="0.8rem">
                 {localize('Sign up')}
             </StyledHeader>
-            <SubTitle>{localize('Enter your email address to begin')}</SubTitle>
+            <SubTitle>{localize('Enter your mobile number to begin')}</SubTitle>
 
             <InputGroup>
                 <Input

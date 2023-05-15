@@ -36,12 +36,7 @@ export default {
             src: MobileDev,
             alt: 'Mobile development',
             text: 'Mobile development',
-            content: [
-                'Build iOS and Android apps with a single codebase.',
-                'Apply version control to the codebase: seamless teamwork is no longer a headache.',
-                'Use APIs in Flutter apps and store data on different storages.',
-                'Debug and log issues for resolution to create a flowing user experience.',
-            ],
+            content: [],
         },
         {
             src: BackEnd,

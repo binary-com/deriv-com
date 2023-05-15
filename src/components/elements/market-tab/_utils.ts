@@ -50,7 +50,7 @@ export const market_buttons: TMarketButtons[] = [
         button_text: 'ETFs',
         market_name: 'etfs',
         market_description:
-            '_t_Speculate on the price movements of silver, gold, oil and more. Profit from the price difference when the market moves in the direction that you have predicted._t_',
+            '_t_Diversify your portfolio with various assets, such as bonds, commodities, and indices, without the high cost of owning the underlying assets._t_',
         to: 'markets/etfs/',
     },
     {

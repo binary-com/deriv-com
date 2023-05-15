@@ -29,29 +29,37 @@ const Alert = ({
             <AlertDialog.Portal>
                 <AlertDialog.Overlay className="alert-overlay" />
                 <AlertDialog.Content className="alert-content">
-                    <AlertDialog.Title className="AlertDialogTitle">
-                        <Typography.Heading size="xxs" pb="12x">
-                            <Localize translate_text={title} />
-                        </Typography.Heading>
+                    <AlertDialog.Title asChild className="AlertDialogTitle">
+                        <div>
+                            <Typography.Heading as="h3" size="xxs" pb="12x">
+                                <Localize translate_text={title} />
+                            </Typography.Heading>
+                        </div>
                     </AlertDialog.Title>
-                    <AlertDialog.Description className="AlertDialogDescription">
-                        <Typography.Paragraph>
-                            <Localize translate_text={description} />
-                        </Typography.Paragraph>
+                    <AlertDialog.Description asChild className="AlertDialogDescription">
+                        <div>
+                            <Typography.Paragraph>
+                                <Localize translate_text={description} />
+                            </Typography.Paragraph>
+                        </div>
                     </AlertDialog.Description>
 
                     <Flex.Box gap="12x" justify="end" pt="12x">
                         <AlertDialog.Cancel asChild>
                             {cancel_button && (
-                                <Button.Secondary onClick={cancel_button?.onClick} outlined>
-                                    <Localize translate_text={cancel_button.text} />
-                                </Button.Secondary>
+                                <span>
+                                    <Button.Secondary onClick={cancel_button?.onClick} outlined>
+                                        <Localize translate_text={cancel_button.text} />
+                                    </Button.Secondary>
+                                </span>
                             )}
                         </AlertDialog.Cancel>
                         <AlertDialog.Action asChild>
-                            <Button.Primary onClick={action_button.onClick}>
-                                <Localize translate_text={action_button.text} />
-                            </Button.Primary>
+                            <span>
+                                <Button.Primary onClick={action_button.onClick}>
+                                    <Localize translate_text={action_button.text} />
+                                </Button.Primary>
+                            </span>
                         </AlertDialog.Action>
                     </Flex.Box>
                 </AlertDialog.Content>

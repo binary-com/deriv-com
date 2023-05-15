@@ -48,7 +48,7 @@ const StyledText = styled(Text)`
 const GridContent = [
     {
         Icon: Spam,
-        content: localize('The email is in your spam folder (Sometimes things get lost there).'),
+        content: localize('The email is in your spam folder (sometimes things get lost there).'),
         alt: 'Check email in your spam',
     },
     {
@@ -61,14 +61,14 @@ const GridContent = [
     {
         Icon: WorkEmail,
         content: localize(
-            'You accidentally gave us another email address (Usually a work or a personal one instead of the one you meant).',
+            'You accidentally gave us another email address (usually a work or a personal one instead of the one you meant).',
         ),
         alt: 'Gave incorrect email ID',
     },
     {
         Icon: Firewalls,
         content: localize(
-            'We can’t deliver the email to this address (Usually because of firewalls or filtering).',
+            'We can’t deliver the email to this address (usually because of firewalls or filtering).',
         ),
         alt: 'Firewall filter',
     },

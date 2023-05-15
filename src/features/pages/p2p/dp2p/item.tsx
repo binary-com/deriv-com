@@ -16,8 +16,8 @@ const DP2PItem = ({ item, is_even }: IP2PItemProps) => {
             align="center"
             gap="10x"
             direction="col-reverse"
-            mb="40x"
-            md={{ direction: is_even ? 'row-reverse' : 'row', justify: 'between' }}
+            mb="20x"
+            md={{ direction: is_even ? 'row-reverse' : 'row', justify: 'between', mb: '40x' }}
         >
             <Flex.Item md={{ basis: '5-12' }}>{item.img}</Flex.Item>
             <Flex.Item md={{ basis: '6-12' }}>

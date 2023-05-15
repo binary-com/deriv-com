@@ -7,7 +7,7 @@ import Flex from 'features/components/atoms/flex-box'
 
 const DP2Steps = () => {
     return (
-        <Container.Fixed as="section" padding_block="20x">
+        <Container.Fixed as="section" pt="40x" md={{ padding_block: '20x' }}>
             <Container.Fluid>
                 <Typography.Heading as="h2" size="large" align="center" md={{ mb: '30x' }}>
                     3 steps for faster deposits and withdrawals

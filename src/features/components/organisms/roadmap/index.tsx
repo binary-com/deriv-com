@@ -27,7 +27,7 @@ const Roadmap = ({ data }: RoadmapProps) => {
                     <Localize translate_text="_t_What’s next?_t_" />
                 </Typography.Heading>
                 <Typography.Paragraph align="center" size={is_mobile ? 'xlarge' : 'xxl'} mb="20x">
-                    {data.paragraph}
+                    <Localize translate_text={data.paragraph} />
                 </Typography.Paragraph>
                 <Flex.Box direction="col" align="center">
                     <iframe

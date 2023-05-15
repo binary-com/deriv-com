@@ -150,14 +150,16 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
 
     const handleChange = (e) => {
         e.preventDefault()
-        setSearchValue(sanitize(e.target.value.trim()))
+        setSearchValue(sanitize(e.target.value))
     }
     useEffect(() => {
         let updatedRowData = []
         if (search_value.length >= 1) {
             updatedRowData = [
                 ...markets_data.filter((market) =>
-                    market.instrument.instrument.toLowerCase().match(new RegExp(search_value, 'i')),
+                    market.instrument.instrument
+                        .toLowerCase()
+                        .match(new RegExp(search_value.trim(), 'i')),
                 ),
             ]
             setFilteredData(updatedRowData)

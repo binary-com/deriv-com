@@ -3,6 +3,7 @@ import { graphql, StaticQuery, navigate } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import { getLanguage } from '../../common/utility'
+import CtraderCheckEmail from './_ctrader-check-email'
 import CtraderSignupSuccess from './_ctrader-signup-success'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { Box } from 'components/containers'
@@ -134,6 +135,9 @@ const Signup = (props: SignupProps) => {
         const verify_email_req = getVerifyEmailRequest(formatted_email)
 
         if (props.appearance === 'cTrader') {
+            if (submit_status === 'signup-success') {
+                props.onSubmit(submit_status, email)
+            }
             apiManager
                 .augmentedSend('verify_email', {
                     verify_email: email,
@@ -146,9 +150,9 @@ const Signup = (props: SignupProps) => {
                         setSubmitErrorMsg(response.error.message)
                         handleValidation(formatted_email)
                     } else {
-                        setSubmitStatus('ctrader-success')
+                        setSubmitStatus('ctrader-check-email')
                         if (props.onSubmit) {
-                            props.onSubmit(submit_status || 'ctrader-success', email)
+                            props.onSubmit(submit_status || 'ctrader-check-email', email)
                         }
                     }
                 })
@@ -194,6 +198,10 @@ const Signup = (props: SignupProps) => {
     const handleLogin = (e) => {
         e.preventDefault()
         Login.redirectToLogin()
+    }
+
+    const hanldeCtraderSuccess = () => {
+        props.onSubmit('ctrader-success', email)
     }
 
     const renderSwitch = (param) => {
@@ -263,7 +271,12 @@ const Signup = (props: SignupProps) => {
         )
     }
 
-    if (props.submit_state === 'ctrader-success') return <CtraderSignupSuccess email={email} />
+    if (props.submit_state === 'ctrader-check-email') {
+        return <CtraderCheckEmail handleSuccess={hanldeCtraderSuccess} email={email} />
+    }
+    if (props.submit_state === 'ctrader-success') {
+        return <CtraderSignupSuccess email={email} />
+    }
 
     return (
         <Form onSubmit={handleEmailSignup} noValidate bgColor={props.bgColor}>

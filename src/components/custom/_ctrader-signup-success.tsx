@@ -217,7 +217,7 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
                                 setResidence(e)
                             }}
                             id="residence list"
-                            label={localize('Residence List')}
+                            label={localize('_t_Residence List_t_')}
                             selected_option={residence}
                             // error={touched.residence && errors.residence}
                             // onBlur={handleBlur}

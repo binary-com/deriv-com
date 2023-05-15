@@ -146,7 +146,6 @@ const SignupCtrader = ({
     handleLogin,
     handleSocialSignup,
     handleValidation,
-    is_ppc,
     is_submitting,
 }: SignupCtraderProps) => {
     const [is_checked, setChecked] = useState(false)

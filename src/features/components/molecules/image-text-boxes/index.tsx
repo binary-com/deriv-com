@@ -12,14 +12,14 @@ interface ImageWithParagraphType {
 
 const ImageWithParagraph = ({ contentData }: ImageWithParagraphType) => {
     const { is_eu } = useRegion()
-    const { mobileFlexDirection, data } = contentData
+    const { mobile_flex_direction, data } = contentData
     return (
         <FlexBox.Box container="fluid" direction={'col'} mt={'20x'} md={{ mt: '40x' }}>
             {data.map((feature, index) => {
                 return (
                     <FlexBox.Box
                         key={feature?.id}
-                        direction={mobileFlexDirection}
+                        direction={mobile_flex_direction}
                         mb={'10x'}
                         justify={'center'}
                         align="center"

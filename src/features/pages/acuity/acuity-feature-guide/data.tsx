@@ -6,7 +6,7 @@ const deriv_acuity_row_download = 'https://deriv.link/3Vk37Ds'
 const deriv_acuity_eu_download = 'https://deriv.link/3GXrhz6'
 
 export const contentData: AcuityFeaturesType = {
-    mobileFlexDirection: 'col-reverse',
+    mobile_flex_direction: 'col-reverse',
     data: [
         {
             id: 0,

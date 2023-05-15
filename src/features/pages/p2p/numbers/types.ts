@@ -1,9 +1,5 @@
-import { TSmartContent, TString } from 'types/generics'
-
-export type NumberItem = {
-    header: TString
-    description: TString
-}
+import { TSmartContent } from 'types/generics'
+import type { NumberItem } from 'features/components/molecules/number-box'
 
 type NumberItemConfig = {
     is_eu: boolean

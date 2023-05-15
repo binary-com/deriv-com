@@ -1,6 +1,6 @@
 import React from 'react'
 import { number_items } from './data'
-import DP2NumberItem from './item'
+import DP2NumberItem from 'features/components/molecules/number-box'
 import Flex from 'features/components/atoms/flex-box'
 import Container from 'features/components/atoms/container'
 

@@ -15,9 +15,10 @@ const TradeSteps = ({ item }: TradeStepsProps) => {
             className={item_container}
             direction="col"
             gap="4x"
-            md={{
-                padding_block: '20x',
-            }}
+            bgcolor="white"
+            radius="8x"
+            lg={{ padding: '12x' }}
+            padding="8x"
         >
             <Typography.Heading as="h3" size="xs">
                 <Localize translate_text={item.title} />

@@ -20,8 +20,20 @@ const TradeStepsWrapper = ({ header, data }: TradeStepsType) => {
     const handleSignup = useHandleSignup(is_ppc_redirect)
 
     return (
-        <Container.Fixed as="section" bgcolor="secondary" padding_block="40x">
-            <Typography.Heading as="h1" size="large" align="center" mb="20x">
+        <Container.Fixed
+            as="section"
+            bgcolor="secondary"
+            lg={{ padding: '40x' }}
+            padding_block="20x"
+            padding_inline="8x"
+        >
+            <Typography.Heading
+                as="h1"
+                size="small"
+                align="center"
+                pb="12x"
+                lg={{ padding: '20x' }}
+            >
                 <Localize translate_text={header} />
             </Typography.Heading>
 
@@ -30,7 +42,7 @@ const TradeStepsWrapper = ({ header, data }: TradeStepsType) => {
                 direction="col"
                 justify="center"
                 align="center"
-                gap="20x"
+                gap="8x"
                 md={{ direction: 'row', gap: '12x', justify: 'center' }}
                 lg={{
                     gap: '12x',
@@ -40,7 +52,13 @@ const TradeStepsWrapper = ({ header, data }: TradeStepsType) => {
                     <TradeSteps key={item.id} item={item.data} />
                 ))}
             </Flex.Box>
-            <Flex.Box container="fluid" justify="center" align="center" mt="20x">
+            <Flex.Box
+                container="fluid"
+                justify="center"
+                align="center"
+                pt="20x"
+                lg={{ padding_block: '20x' }}
+            >
                 <Button.Primary aria-label="Signup" id="dm-nav-signup" onClick={handleSignup}>
                     <Localize translate_text="_t_Sign up now_t_" />
                 </Button.Primary>

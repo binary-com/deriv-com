@@ -17,8 +17,7 @@ type AvailablePlatformProps = {
 
 const StyledHeader = styled(Header)`
     font-family: 'Ubuntu';
-    font-size: 14px;
-    font-weight: normal;
+    font-weight: bold;
 `
 
 const PlatformsContainer = styled(Flex)`
@@ -46,13 +45,16 @@ const FlexContainer = styled(Flex)`
     @media ${device.tablet} {
         gap: 12px;
     }
+    @media ${device.mobileM} {
+        gap: 0px;
+    }
 `
 const StyledLocalizedLink = styled(LocalizedLink)`
-    width: 117px;
+    width: 133px;
 
     @media ${device.tablet} {
         flex-direction: row;
-        width: auto;
+        width: max-content;
     }
 `
 const StyledFlex = styled(Flex)`
@@ -73,9 +75,9 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
             <StyledFlex wrap="nowrap" ai="center">
                 <PlatformsContainer ai="center">
                     <FlexContainer>
-                        <StyledHeader type="paragraph-1" weight="normal" width="auto" as="p">
+                        <Header type="paragraph-1" weight="normal" width="auto" as="h2">
                             <Localize translate_text={available_on} />
-                        </StyledHeader>
+                        </Header>
                     </FlexContainer>
 
                     {is_row ? (
@@ -84,12 +86,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                 <StyledLocalizedLink to="/dmt5/">
                                     <Flex direction="row">
                                         <img src={DerivMT5} alt="Deriv MT5" />
-                                        <StyledHeader
-                                            type="paragraph-1"
-                                            as="p"
-                                            weight="bold"
-                                            width="auto"
-                                        >
+                                        <StyledHeader type="paragraph-1" as="h2" width="auto">
                                             <Localize translate_text={deriv_mt5} />
                                         </StyledHeader>
                                     </Flex>
@@ -97,12 +94,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                 <StyledLocalizedLink to="/derivx/">
                                     <Flex direction="row">
                                         <img src={DerivX} alt="Deriv X" width="24" height="24" />
-                                        <StyledHeader
-                                            weight="bold"
-                                            type="paragraph-1"
-                                            as="p"
-                                            width="auto"
-                                        >
+                                        <StyledHeader type="paragraph-1" as="h2" width="auto">
                                             <Localize translate_text={deriv_x} />
                                         </StyledHeader>
                                     </Flex>
@@ -116,12 +108,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                                 width="24"
                                                 height="24"
                                             />
-                                            <StyledHeader
-                                                weight="bold"
-                                                type="paragraph-1"
-                                                as="p"
-                                                width="auto"
-                                            >
+                                            <StyledHeader type="paragraph-1" as="h2" width="auto">
                                                 <Localize translate_text={deriv_ez} />
                                             </StyledHeader>
                                         </Flex>
@@ -136,12 +123,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                                 width="24"
                                                 height="24"
                                             />
-                                            <StyledHeader
-                                                weight="bold"
-                                                type="paragraph-1"
-                                                as="p"
-                                                width="auto"
-                                            >
+                                            <StyledHeader type="paragraph-1" as="h2" width="auto">
                                                 <Localize translate_text={deriv_ctrader} />
                                             </StyledHeader>
                                         </Flex>
@@ -157,7 +139,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                     <StyledHeader
                                         weight="bold"
                                         type="paragraph-1"
-                                        as="p"
+                                        as="h2"
                                         width="auto"
                                     >
                                         <Localize translate_text={deriv_mt5} />

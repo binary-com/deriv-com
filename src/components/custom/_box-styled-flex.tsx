@@ -45,7 +45,7 @@ const StyledHowItWorksItem = styled(HowItWorksItem)`
     box-shadow: 0px 12px 16px -4px rgba(14, 14, 14, 0.08), 0px 4px 6px -2px rgba(14, 14, 14, 0.03);
     border-radius: 16px;
     max-inline-size: 282px;
-    min-block-size: 308px;
+    min-block-size: 332px;
 
     @media ${device.tabletL} {
         max-inline-size: 328px;

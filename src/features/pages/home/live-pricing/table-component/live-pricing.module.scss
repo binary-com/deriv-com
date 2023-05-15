@@ -6,34 +6,34 @@
     border-start-start-radius: 16px;
     border-start-end-radius: 16px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     min-block-size: 7.5rem;
     padding: 1.4rem;
     th {
-      inline-size: 7.5rem;
-        &:nth-child(5) {
-          display: none;
-        }
-        &:nth-child(1) {
+      inline-size: 7.3rem;
+       &:nth-child(1) {
           inline-size: 11rem;
         }
         &:nth-child(2) {
-          inline-size: 3rem;
+          inline-size: 2rem;
+        }
+        &:nth-child(5) {
+          display: none;
         }
        
       }
-      @include breakpoints(tablet) {
+      @include breakpoints(phone) {
         padding: 2.4rem;
         
           th {
-            inline-size: 17rem;
+            inline-size: 12rem;
               &:nth-child(1) {
-                inline-size: 32rem;
-                }
-                &:nth-child(2) {
-                  inline-size: 1rem;
-                }
+                inline-size: 18rem;
+              }
+              &:nth-child(2) {
+                inline-size: 7rem;
+              }
               &:nth-child(5) {
                 display: block;
               }
@@ -47,10 +47,10 @@
           inline-size: 17rem;
             &:nth-child(1) {
               inline-size: 32rem;
-              }
-              &:nth-child(2) {
-                inline-size: 1rem;
-              }
+            }
+            &:nth-child(2) {
+              inline-size: 1rem;
+            }
             &:nth-child(5) {
               display: block;
             }
@@ -61,6 +61,7 @@
 }
 .table_row_data {
     display: flex;
+    justify-content: center;
     border-block-end: 2px solid var(--color-grey-8);
     align-items: center;
     min-block-size: 7.5rem;
@@ -70,56 +71,53 @@
     td {
       display: flex;
       justify-content: center;
-      inline-size: 7rem;
+      inline-size: 6.9rem;
      
       &:nth-child(1) {
-        inline-size: 3rem;
+        inline-size: 2rem;
       }
       &:nth-child(2) {
         justify-content: flex-start;
         inline-size: 8.2rem;
       }
-        &:nth-child(5) {
-          display: none;
-        }
-       
+      &:nth-child(5) {
+        display: none;
       }
-      @include breakpoints(tablet) {
-        
-        gap: 0;
-        padding: 2.4rem;
-          td {
-            justify-content: flex-start;
-        
-            inline-size: 17rem;
-            &:nth-child(1) {
-              inline-size: 3.4rem;
-            }
-              &:nth-child(5) {
-                display: block;
-              }
-           
-              &:nth-child(2) {
-                inline-size: 30rem;
-                }
-            }
-      }
-    @include breakpoints(laptop) {
+    }
+    @include breakpoints(phone) {
       padding: 2.4rem;
-      
+      gap: 0;
         td {
           justify-content: flex-start;
-          inline-size: 17rem;
+          inline-size: 12rem;
+          
           &:nth-child(1) {
             inline-size: 3.4rem;
           }
-            &:nth-child(5) {
-              display: block;
-            }
-        
-            &:nth-child(2) {
-              inline-size: 30rem;
-              }
+          &:nth-child(2) {
+            inline-size: 21.2rem;
           }
+          &:nth-child(5) {
+            display: block;
+          }
+        }
+    }
+    @include breakpoints(laptop) {
+      padding: 2.4rem;
+      gap: 0;
+        td {
+          justify-content: flex-start;
+          inline-size: 17rem;
+          
+          &:nth-child(1) {
+            inline-size: 3.4rem;
+          }
+          &:nth-child(2) {
+            inline-size: 30rem;
+          }
+          &:nth-child(5) {
+            display: block;
+          }
+        }
     }
 }

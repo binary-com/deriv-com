@@ -101,7 +101,7 @@ const LiveMarketTable = ({ selected_market, link_to, display_name }: TLiveMarket
                 <table>
                     <thead>
                         {table.getHeaderGroups().map((headerGroup) => (
-                            <Flex.Box key={headerGroup.id}>
+                            <Flex.Box key={headerGroup.id} justify="center">
                                 <tr className={table_row_header}>
                                     {headerGroup.headers.map((header) => (
                                         <th key={header.id}>
@@ -119,7 +119,7 @@ const LiveMarketTable = ({ selected_market, link_to, display_name }: TLiveMarket
                     </thead>
                     <tbody>
                         {rows.map((row) => (
-                            <Flex.Box key={row.id}>
+                            <Flex.Box key={row.id} justify="center">
                                 <tr className={table_row_data}>
                                     {row.getVisibleCells().map((cell) => (
                                         <td key={cell.id}>

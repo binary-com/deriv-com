@@ -6,13 +6,17 @@ import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import { TString } from 'types/generics'
 
-interface QRScanBoxProps {
+export type QRScanBoxType = {
     img_src: string
     heading_one: TString
     heading_two: TString
 }
 
-const QRScanbox = ({ img_src, heading_one, heading_two }: QRScanBoxProps) => {
+interface QRScanBoxProps {
+    item: QRScanBoxType
+}
+
+const QRScanbox = ({ item }: QRScanBoxProps) => {
     return (
         <Flex.Box
             align="center"
@@ -21,13 +25,13 @@ const QRScanbox = ({ img_src, heading_one, heading_two }: QRScanBoxProps) => {
             className={qr_box}
             md={{ gap: '12x', padding: '12x' }}
         >
-            <Image src={img_src} alt="p2p qr" width={64} height={64} />
+            <Image src={item.img_src} alt="p2p qr" width={64} height={64} />
             <div>
                 <Typography.Paragraph textcolor="white" size="medium">
-                    <Localize translate_text={heading_one} />
+                    <Localize translate_text={item.heading_one} />
                 </Typography.Paragraph>
                 <Typography.Heading as="h5" size="xxs" textcolor="white">
-                    <Localize translate_text={heading_two} />
+                    <Localize translate_text={item.heading_two} />
                 </Typography.Heading>
             </div>
         </Flex.Box>

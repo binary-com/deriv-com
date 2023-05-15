@@ -15,6 +15,7 @@ import {
 import { pushwoosh_app_code } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
+import './static/css/ubuntu.css'
 
 const is_browser = typeof window !== 'undefined'
 
@@ -24,13 +25,6 @@ const checkDomain = () => {
             'var%20curhost%20%3D%20window.location.hostname%3B%20var%20t8hvj%20%3D%20%2F%5Cb%28deriv%7Cbinary%7Cbinaryqa%5B0-9%5D%7B2%7D%29%5C.%28com%7Cbot%7Cme%7Cbe%7Capp%7Csx%29%24%7C%5Cb%28localhost%29%2Fgm%3B%20if%20%28t8hvj.test%28curhost%29%20%3D%3D%20false%29%7Balert%28%22Not%20our%20domain%22%29%7D',
         ),
     )
-}
-
-export const shouldUpdateScroll = () => {
-    // window.scrollTo(0, 0)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-
-    return false
 }
 
 const sendTags = (api) => {
@@ -140,7 +134,7 @@ export const onClientEntry = () => {
         clientToken: 'pub08554ab30284600af157441bfb0fa923',
         applicationId: '5c8975a3-ec86-4a64-8a3a-e6888fdde082',
         site: 'datadoghq.com',
-        service: 'deriv.com',
+        service: 'beta.deriv.com',
         env: 'production',
         version: '1.0.4',
         sessionSampleRate: 10,

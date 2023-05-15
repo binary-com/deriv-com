@@ -22,8 +22,8 @@ const schema = yup.object({
     email: yup
         .string()
         .required('_t_Email is required_t_')
-        .matches(validation_regex.email, { message: '_t_Please enter a valid email_t_' })
-        .email('_t_Please enter a valid email_t_'),
+        .matches(validation_regex.email, { message: '_t_Email is required_t_' })
+        .email('_t_Email is required_t_'),
     terms: yup.boolean(),
 })
 

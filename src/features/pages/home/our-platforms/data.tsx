@@ -239,13 +239,13 @@ const platformSliderItems: SmartPlatformItem[] = [
                 components: [
                     <Link
                         key={0}
-                        url={{ type: 'non-company', href: derivx_android_url }}
+                        url={{ type: 'non-company', href: deriv_go_playstore_url }}
                         weight="bold"
                         font_family="UBUNTU"
                     />,
                     <Link
                         key={1}
-                        url={{ type: 'non-company', href: derivx_ios_url }}
+                        url={{ type: 'non-company', href: deriv_go_ios_url }}
                         weight="bold"
                         font_family="UBUNTU"
                     />,

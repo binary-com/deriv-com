@@ -153,7 +153,7 @@ const Faq = () => {
                 <Localize translate_text="_t_Browse our FAQ_t_" />
             </FaqHeader>
             <FaqSubHeader
-                as="h4"
+                as="h3"
                 type="sub-section-title"
                 align="center"
                 m="4rem 0"
@@ -181,7 +181,7 @@ const Faq = () => {
                 </Accordion>
             </StyledAccordionWrapper>
             <FaqSubHeader
-                as="h4"
+                as="h3"
                 type="sub-section-title"
                 align="center"
                 m="8rem 0 4rem 0 "

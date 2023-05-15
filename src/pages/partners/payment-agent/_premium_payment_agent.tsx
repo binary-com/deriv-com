@@ -25,7 +25,7 @@ import SriLanka from 'images/svg/flags/sri-lanka.svg'
 import Tanzania from 'images/svg/flags/tanzania.svg'
 import Zimbabwe from 'images/svg/flags/zimbabwe.svg'
 
-interface CountryProps {
+type CountryProps = {
     name: TString
     flag: string
 }
@@ -76,13 +76,9 @@ const PremiumPaymentAgent = () => {
                 <FlexBox.Box direction={'col'}>
                     <FlexBox.Item className={array_wrapper}>
                         {countries.map(({ name, flag }) => (
-                            <FlexBox.Box key={name} className={country}>
+                            <FlexBox.Box key={name} align="center" gap="5x">
                                 <Image src={flag} alt={`${name} flag`} />
-                                <Typography.Paragraph
-                                    className={heading_countries}
-                                    size="large"
-                                    weight="normal"
-                                >
+                                <Typography.Paragraph className={heading_countries} size="large">
                                     <Localize translate_text={name} />
                                 </Typography.Paragraph>
                             </FlexBox.Box>

@@ -16,12 +16,6 @@
     grid-template-rows: repeat(5, 1fr);
     margin-block-start: 2.5rem;
 
-    .country {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
     @media (min-width: 600px ) {
       inline-size: 54rem;
       gap: 4rem;

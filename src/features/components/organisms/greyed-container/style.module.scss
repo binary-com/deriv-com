@@ -1,15 +1,5 @@
 @use 'features/styles/theme/theme-mixins' as *;
+
 .item_container {
-    inline-size: 32rem;
-    min-block-size: 15rem;
-}
-
-.item_learn_more {
-    align-self: center;
-}
-
-.item_description {
-    @include breakpoints(tablet) {
-        min-block-size: 15rem;
-    }
+    inline-size: 17rem;
 }

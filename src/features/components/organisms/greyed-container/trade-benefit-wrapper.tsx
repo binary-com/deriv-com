@@ -17,23 +17,27 @@ const TradeBenefitWrapper = ({ data, header }: TradeBenefitWrapperProps) => {
         <Container.Fixed
             as="section"
             bgcolor="inverted"
-            padding_block="16x"
-            md={{ padding_block: '40x' }}
-            lg={{ padding_block: '16x' }}
+            padding_block="20x"
+            padding_inline="8x"
+            lg={{ padding: '40x' }}
         >
-            <Typography.Heading as="h1" size="large" align="center" textcolor="inverted" mt="40x">
+            <Typography.Heading
+                as="h1"
+                size="small"
+                align="center"
+                textcolor="inverted"
+                padding_inline="40x"
+                pb="10x"
+                lg={{ padding_block: '20x' }}
+            >
                 <Localize translate_text={header} />
             </Typography.Heading>
             <Flex.Box
-                container="fluid"
                 direction="col"
                 justify="center"
                 align="center"
-                gap="20x"
-                md={{ direction: 'row', gap: '12x', justify: 'center' }}
-                lg={{
-                    gap: '12x',
-                }}
+                gap="12x"
+                lg={{ direction: 'row', padding_inline: '20x', pb: '20x' }}
             >
                 {data.map((item) => (
                     <TradeBenefit key={item.id} item={item.data} />

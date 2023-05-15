@@ -73,17 +73,22 @@ const PremiumPaymentAgent = () => {
                 >
                     <Localize translate_text="_t_Only available in these countries:_t_" />
                 </Typography.Paragraph>
-                <FlexBox.Box direction={'col'}>
-                    <FlexBox.Item className={array_wrapper}>
-                        {countries.map(({ name, flag }) => (
-                            <FlexBox.Box key={name} align="center" gap="5x">
-                                <Image src={flag} alt={`${name} flag`} />
-                                <Typography.Paragraph className={heading_countries} size="large">
-                                    <Localize translate_text={name} />
-                                </Typography.Paragraph>
-                            </FlexBox.Box>
-                        ))}
-                    </FlexBox.Item>
+                <FlexBox.Box wrap="wrap" className={array_wrapper} direction={'row'}>
+                    {countries.map(({ name, flag }) => (
+                        <FlexBox.Box
+                            basis={'1-2'}
+                            padding_block="6x"
+                            key={name}
+                            align_self="center"
+                            gap="5x"
+                            md={{ basis: '1-3', padding_block: '10x' }}
+                        >
+                            <Image src={flag} alt={`${name} flag`} />
+                            <Typography.Paragraph className={heading_countries} size="large">
+                                <Localize translate_text={name} />
+                            </Typography.Paragraph>
+                        </FlexBox.Box>
+                    ))}
                 </FlexBox.Box>
             </FlexBox.Box>
         </FlexBox.Box>

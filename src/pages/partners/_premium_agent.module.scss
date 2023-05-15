@@ -8,19 +8,11 @@
   }
 
   .array_wrapper {
-    display: grid;
-    grid-row-gap: 2.5rem;
-    grid-column-gap: 5rem;
-    inline-size: 296px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    margin-block-start: 2.5rem;
+    inline-size: 348px;
 
-    @media (min-width: 600px ) {
-      inline-size: 54rem;
-      gap: 4rem;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, 1fr);
+    @include breakpoints(laptop) {
+      inline-size: unset;
+
     }
   }
 

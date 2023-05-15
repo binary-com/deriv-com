@@ -11,6 +11,7 @@ import {
 import { TString } from 'types/generics'
 import Container from 'features/components/atoms/container'
 import { Localize } from 'components/localization'
+import { Header } from 'components/elements'
 import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
 import FlexBox from 'features/components/atoms/flex-box'
@@ -58,9 +59,9 @@ const PremiumPaymentAgent = () => {
                 <Typography.Heading className={heading} size={'large'} mb="2x">
                     <Localize translate_text="_t_Premium payment agent_t_" />
                 </Typography.Heading>
-                <Typography.Paragraph mt="5x" mb="2x">
+                <Header as="p" type="paragraph-1" weight="normal">
                     <Localize translate_text="_t_Payment agents with good transaction volumes are selected to join an exclusive network of partners who can transfer funds with each other via their Deriv accounts. If an agent needs help with cash flow, others may pitch in to help. Only a limited number of payment agents are selected per country._t_" />
-                </Typography.Paragraph>
+                </Header>
                 <Typography.Paragraph mt="5x" mb="2x">
                     <Localize translate_text="_t_For more info, contact your country manager._t_" />
                 </Typography.Paragraph>

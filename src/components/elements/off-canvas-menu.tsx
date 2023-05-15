@@ -1,20 +1,20 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { withLangDirection } from 'themes/function'
 import { TString } from 'types/generics'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex } from 'components/containers'
-import { LocalizedLink, Localize } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import {
     Accordion,
     AccordionItem,
-    NavCard,
-    Text,
     Divider,
     ImageWithDireciton,
+    NavCard,
+    Text,
 } from 'components/elements'
-import { deriv_status_page_url, binary_bot_url } from 'common/constants'
+import { binary_bot_url, deriv_status_page_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
@@ -305,7 +305,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         }
                                         title={<Localize translate_text="Deriv EZ" />}
                                         onClick={handleArrowClick}
-                                        to="/derivez/"
+                                        to="/deriv-ez/"
                                     />
                                 </Flex>
                             </>

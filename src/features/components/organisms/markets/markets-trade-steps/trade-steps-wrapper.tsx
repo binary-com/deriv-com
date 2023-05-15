@@ -23,9 +23,9 @@ const TradeStepsWrapper = ({ header, data }: TradeStepsType) => {
         <Container.Fixed
             as="section"
             bgcolor="secondary"
-            lg={{ padding: '40x' }}
             padding_block="20x"
             padding_inline="8x"
+            lg={{ padding: '40x' }}
         >
             <Typography.Heading
                 as="h1"
@@ -44,9 +44,7 @@ const TradeStepsWrapper = ({ header, data }: TradeStepsType) => {
                 align="center"
                 gap="8x"
                 md={{ direction: 'row', gap: '12x', justify: 'center' }}
-                lg={{
-                    gap: '12x',
-                }}
+                lg={{ gap: '12x' }}
             >
                 {data.map((item) => (
                     <TradeSteps key={item.id} item={item.data} />

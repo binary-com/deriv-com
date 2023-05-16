@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { navigate } from 'gatsby'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import { Dropdown, Header, StyledLink, Text } from 'components/elements'
@@ -10,6 +9,7 @@ import apiManager from 'common/websocket'
 import { useCheckExistingAccount } from 'components/hooks/use-check-existing-account'
 import { useResidenceList } from 'components/hooks/use-residence-list'
 import { optionItemDefault } from 'pages/trader-tools/common/_underlying-data'
+import { isBrowser } from 'common/utility'
 
 const EmailLink = styled(StyledLink)`
     display: table;
@@ -85,7 +85,12 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
     const [token, setToken] = useState('')
     const [service_token, setServiceToken] = useState('')
     const [has_account, account_loading, account_error] = useCheckExistingAccount('ctrader', token)
-    if (has_account) navigate('https://oauth.deriv.com/oauth2/authorize?app_id=12345')
+
+    if (has_account) {
+        if (isBrowser()) {
+            window.location.href = 'https://oauth.deriv.com/oauth2/authorize?app_id=12345'
+        }
+    }
 
     useEffect(() => {
         if (!account_loading && !has_account) {
@@ -180,7 +185,11 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
     // }
 
     if (submit_status === 'success') {
-        if (service_token) navigate(`https://ct.deriv.com/?token=${service_token}`)
+        if (service_token) {
+            if (isBrowser()) {
+                window.location.href = `https://ct.deriv.com/?token=${service_token}`
+            }
+        }
         // return <StatusHeader>Your account has been created</StatusHeader>
     }
 

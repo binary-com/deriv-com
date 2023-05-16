@@ -1,13 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {
-    wrap_container,
-    array_wrapper,
-    heading,
-    country,
-    box,
-    heading_countries,
-} from '../_premium_agent.module.scss'
+import { array_wrapper, heading, box, heading_countries } from '../_premium_agent.module.scss'
 import { TString } from 'types/generics'
 import Container from 'features/components/atoms/container'
 import { Localize } from 'components/localization'
@@ -44,7 +37,7 @@ const countries: CountryProps[] = [
 ]
 
 const PremiumPaymentAgent = () => {
-    const { is_mobile, is_mobile_or_tablet } = useScreenSize()
+    const { is_mobile_or_tablet } = useScreenSize()
 
     return (
         <FlexBox.Box
@@ -88,7 +81,7 @@ const PremiumPaymentAgent = () => {
                             key={name}
                             align_self="center"
                             gap="5x"
-                            md={{ basis: '1-3', padding_block: '10x' }}
+                            md={{ basis: '1-3', padding_block: '10x', padding_inline: '5x' }}
                         >
                             <Image src={flag} alt={`${name} flag`} />
                             <Typography.Paragraph className={heading_countries} size="large">

@@ -10,6 +10,10 @@
   .array_wrapper {
     inline-size: 34rem;
 
+    @include breakpoints(tablet) {
+      inline-size: 39rem;
+
+    }
     @include breakpoints(laptop) {
       inline-size: unset;
 
@@ -18,6 +22,10 @@
 
   .heading{
     max-inline-size: 27rem;
+
+    @include breakpoints(phone) {
+      max-inline-size: 38rem;
+    }
 
     @include breakpoints(laptop) {
       max-inline-size: 38rem;

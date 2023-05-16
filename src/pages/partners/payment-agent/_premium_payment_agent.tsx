@@ -48,7 +48,7 @@ const PremiumPaymentAgent = () => {
 
     return (
         <FlexBox.Box
-            justify="start"
+            justify="center"
             align="start"
             margin_inline={'10x'}
             margin_block={'20x'}

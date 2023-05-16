@@ -64,14 +64,11 @@ const LiveMarketTable = ({ selected_market, link_to, display_name }: TLiveMarket
             const stocks = rawMarketsData.market['stocks']
             const indices = rawMarketsData.market['indices']
             const stocks_indices = Object.assign(stocks, indices)
-            const combined_market_data = {
-                ...rawMarketsData.market,
-                indices: { ...stocks_indices },
-            }
+            const res = { ...rawMarketsData.market, indices: { ...stocks_indices } }
 
-            Object.keys(combined_market_data).map((item) => {
+            Object.keys(res).map((item) => {
                 if (item == selected_market) {
-                    const selected_market_data = combined_market_data[item]
+                    const selected_market_data = res[item]
                     const result = Object.values(selected_market_data)
                     setMarketsData(result)
                 }

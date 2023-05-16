@@ -8,7 +8,7 @@ import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import { TString } from 'types/generics'
 
-type TRenderableData = {
+export type TRenderableData = {
     icon: string
     heading: string
     paragraph: TString
@@ -135,7 +135,7 @@ const GenericCarousel = ({ renderableData, mainHeading }: TProps) => {
                                         <Localize translate_text={item.paragraph} />
                                     </StyledPara>
                                     <LearnMore
-                                        text={<Localize translate_text="Learn more" />}
+                                        text={<Localize translate_text="_t_Learn more_t_" />}
                                         to={item.link}
                                     />
                                 </Card>

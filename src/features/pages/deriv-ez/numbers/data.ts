@@ -1,6 +1,6 @@
-import { TSellingPoints } from '../types'
+import { SellingPointsTypes } from '../types'
 
-export const selling_points: TSellingPoints[] = [
+export const selling_points: SellingPointsTypes[] = [
     {
         title: '150',
         subtitle: '_t_tradable assets_t_',

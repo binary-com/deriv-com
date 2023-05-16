@@ -1,21 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import { TStepperTab, TTabItem } from '../types'
+import React, { useState } from 'react'
+import { StepperTabTypes, TabItemTypes } from '../types'
 import FlexBox from 'features/components/atoms/flex-box'
 import Box from 'features/components/atoms/box'
 import Typography from 'features/components/atoms/typography'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import { Localize } from 'components/localization'
 
-const TabContent = ({ items: initialItems, tab, direction = 'row' }: TStepperTab) => {
+const TabContent = ({ items: initial_tems, tab, direction = 'row' }: StepperTabTypes) => {
     const [selected, setSelected] = useState<number>(0)
-    const [items, setItems] = useState<TTabItem[]>(initialItems)
+    const [items, setItems] = useState<TabItemTypes[]>(initial_tems)
     const { is_mobile_or_tablet } = useBreakpoints()
 
     const image_style = !is_mobile_or_tablet ? { blockSize: '62.5rem' } : { blockSize: '43.5rem' }
-
-    useEffect(() => {
-        setItems(initialItems)
-    }, [tab, initialItems])
 
     return (
         <FlexBox.Box

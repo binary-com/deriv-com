@@ -1,5 +1,5 @@
 import React from 'react'
-import { AcuityFeaturesType } from './types'
+import { AcuityFeaturesTypes } from './types'
 import FlexBox from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
@@ -7,7 +7,7 @@ import useRegion from 'components/hooks/use-region'
 import LinkButton from 'features/components/atoms/link-button'
 
 interface ImageWithParagraphType {
-    contentData: AcuityFeaturesType
+    contentData: AcuityFeaturesTypes
 }
 
 const ImageWithParagraph = ({ contentData }: ImageWithParagraphType) => {
@@ -43,7 +43,7 @@ const ImageWithParagraph = ({ contentData }: ImageWithParagraphType) => {
                             <Typography.Paragraph align={'center'} mb={'8x'} size="large">
                                 <Localize translate_text={feature?.subtitle} />
                             </Typography.Paragraph>
-                            {feature?.system_url ? (
+                            {feature?.system_url && (
                                 <FlexBox.Item
                                     align_self="center"
                                     margin_block="10x"
@@ -62,9 +62,9 @@ const ImageWithParagraph = ({ contentData }: ImageWithParagraphType) => {
                                         <Localize translate_text={feature.button_text} />
                                     </LinkButton.Primary>
                                 </FlexBox.Item>
-                            ) : null}
+                            )}
 
-                            {feature?.info_title ? (
+                            {feature?.info_title && (
                                 <Typography.Paragraph
                                     mt={'6x'}
                                     weight="normal"
@@ -73,7 +73,7 @@ const ImageWithParagraph = ({ contentData }: ImageWithParagraphType) => {
                                 >
                                     <Localize translate_text={feature?.info_title} />
                                 </Typography.Paragraph>
-                            ) : null}
+                            )}
                         </FlexBox.Box>
                         <FlexBox.Box
                             margin_inline={'24x'}

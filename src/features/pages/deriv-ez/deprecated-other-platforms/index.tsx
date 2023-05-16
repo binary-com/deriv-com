@@ -1,13 +1,13 @@
 import React from 'react'
-import dxIcon from '../../../../images/svg/deriv-ez/dx-icon.svg'
-import dtIcon from '../../../../images/svg/deriv-ez/dt-icon.svg'
-import dmt5Icon from '../../../../images/svg/deriv-ez/dmt5-icon.svg'
-import dGoIcon from '../../../../images/svg/deriv-ez/go-icon.svg'
-import dbIcon from '../../../../images/svg/deriv-ez/db-icon.svg'
-import GenericCarousel from 'components/custom/carousel/_platforms-carousel'
+import dxIcon from 'images/svg/deriv-ez/dx-icon.svg'
+import dtIcon from 'images/svg/deriv-ez/dt-icon.svg'
+import dmt5Icon from 'images/svg/deriv-ez/dmt5-icon.svg'
+import dGoIcon from 'images/svg/deriv-ez/go-icon.svg'
+import dbIcon from 'images/svg/deriv-ez/db-icon.svg'
+import GenericCarousel, { TRenderableData } from 'components/custom/carousel/_platforms-carousel'
 
 const OurPlatforms = () => {
-    const carouselData = [
+    const carouselData: TRenderableData[] = [
         {
             icon: dmt5Icon,
             heading: 'Deriv MT5',

@@ -2,11 +2,11 @@ import { ReactElement } from 'react'
 import { TFlexDirection } from 'features/types'
 import { TString } from 'types/generics'
 
-export type AcuityFeaturesType = {
+export type AcuityFeaturesTypes = {
     mobile_flex_direction: TFlexDirection
-    data: TContentData[]
+    data: ContentDataTypes[]
 }
-interface TContentData {
+interface ContentDataTypes {
     id: number
     image: ReactElement
     title?: TString

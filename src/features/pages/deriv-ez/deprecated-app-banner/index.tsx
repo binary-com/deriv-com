@@ -76,7 +76,7 @@ const DerivEZGetApp = () => {
             mobilePadding="40px 0 10px"
         >
             <ContentWrapper is_rtl={is_rtl}>
-                <img src={derivEZLogo} alt="Deriv Go logo" width="64px" height="64px" />
+                <img src={derivEZLogo} alt="_t_Deriv Go logo_t_" width="64px" height="64px" />
                 <TextAndButtonWrapper>
                     <CommonHeaderSection
                         title="_t_Get trading with Deriv EZ_t_"
@@ -91,7 +91,7 @@ const DerivEZGetApp = () => {
                         <StyledInfoIcon src={InfoIcon} />
                         <InfoText>
                             <Localize
-                                translate_text="Deriv EZ is available on <0>Deriv GO.<0>"
+                                translate_text="_t_Deriv EZ is available on <0>Deriv GO.<0>_t_"
                                 components={[<strong key={0} />]}
                             />
                         </InfoText>

@@ -1,8 +1,8 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import { TCard } from '../types'
+import { DerivEzCardTypes } from '../types'
 
-export const card_data: TCard[] = [
+export const card_data: DerivEzCardTypes[] = [
     {
         title: '_t_Easy to start_t_',
         subtitle:

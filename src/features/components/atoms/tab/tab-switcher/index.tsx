@@ -1,12 +1,12 @@
 import React from 'react'
-import { TStepperTab } from '../types'
+import { StepperTabTypes } from '../types'
 import Typography from '../../typography'
 import TabButton from '../../button/tab'
 import FlexBox from '../../flex-box'
 import FlexBoxContainer from '../../flex-box/box'
 import { Localize } from 'components/localization'
 
-const TabSwitcher = ({ tab, onTabClick }: Omit<TStepperTab, 'items'>) => {
+const TabSwitcher = ({ tab, onTabClick }: Omit<StepperTabTypes, 'items'>) => {
     const button_style = {
         active: {
             fontWeight: 'bold',

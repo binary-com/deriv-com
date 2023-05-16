@@ -4,6 +4,7 @@ import Typography from '../../typography'
 import TabButton from '../../button/tab'
 import FlexBox from '../../flex-box'
 import FlexBoxContainer from '../../flex-box/box'
+import * as styles from './tab-switcher.module.scss'
 import { Localize } from 'components/localization'
 
 const TabSwitcher = ({ tab, onTabClick }: Omit<StepperTabTypes, 'items'>) => {
@@ -32,7 +33,9 @@ const TabSwitcher = ({ tab, onTabClick }: Omit<StepperTabTypes, 'items'>) => {
             </Typography.Heading>
             <FlexBox.Box justify={'center'}>
                 <TabButton
-                    style={tab === 'demo' ? button_style['active'] : button_style['inactive']}
+                    className={
+                        tab === 'demo' ? styles.tab_switcher_active : styles.tab_switcher_unactive
+                    }
                     onClick={() => onTabClick('demo')}
                 >
                     <Typography.Paragraph size={'xlarge'} align={'center'}>
@@ -40,7 +43,10 @@ const TabSwitcher = ({ tab, onTabClick }: Omit<StepperTabTypes, 'items'>) => {
                     </Typography.Paragraph>
                 </TabButton>
                 <TabButton
-                    style={tab === 'real' ? button_style['active'] : button_style['inactive']}
+                    className={
+                        tab === 'real' ? styles.tab_switcher_active : styles.tab_switcher_unactive
+                    }
+                    style={{ background: 'transparent' }}
                     onClick={() => onTabClick('real')}
                 >
                     <Typography.Paragraph size={'xlarge'} align={'center'}>

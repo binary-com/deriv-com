@@ -2,17 +2,18 @@ import React from 'react'
 import { AcuityFeaturesTypes } from './types'
 import FlexBox from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
+import { TFlexDirection } from 'features/types'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import LinkButton from 'features/components/atoms/link-button'
 
-interface ImageWithParagraphType {
-    contentData: AcuityFeaturesTypes
+type ImageWithParagraphType = {
+    mobile_flex_direction: TFlexDirection
+    data: AcuityFeaturesTypes[]
 }
 
-const ImageWithParagraph = ({ contentData }: ImageWithParagraphType) => {
+const ImageWithParagraph = ({ mobile_flex_direction, data }: ImageWithParagraphType) => {
     const { is_eu } = useRegion()
-    const { mobile_flex_direction, data } = contentData
     return (
         <FlexBox.Box container="fluid" direction={'col'} mt={'20x'} md={{ mt: '40x' }}>
             {data.map((feature, index) => {

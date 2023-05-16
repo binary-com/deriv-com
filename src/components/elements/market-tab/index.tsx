@@ -53,7 +53,7 @@ const MarketTab = ({ is_home }: MarketTabProps) => {
                     (marketItem) =>
                         marketItem.market_name === selected_market && (
                             <Header
-                                key={marketItem.market_name}
+                                key={marketItem.id}
                                 type="paragraph-1"
                                 weight="normal"
                                 align="center"

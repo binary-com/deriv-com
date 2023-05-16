@@ -10,7 +10,7 @@ import { handleGetTrading } from 'components/custom/utils'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const handleTradingSpec = () => {
-    window.location.href = '/trading-specification'
+    window.location.href = '/trading-specification/'
 }
 
 const LivePricing = () => {

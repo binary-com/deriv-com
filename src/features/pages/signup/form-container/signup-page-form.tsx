@@ -25,12 +25,13 @@ const SignUpPageForm = () => {
             <Input.Text
                 autoComplete="none"
                 autoCapitalize="none"
+                id="email_address"
                 label={'_t_Email address_t_'}
                 error={errors?.email?.message ? localize(errors?.email?.message as TString) : null}
                 {...register('email')}
             />
             <Flex.Item padding_block="4x">
-                <Input.Checkbox {...register('terms')}>
+                <Input.Checkbox {...register('terms')} id="terms_and_conditions">
                     <Localize
                         translate_text="_t_I agree to the <0>terms and conditions</0>._t_"
                         components={[

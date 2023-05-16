@@ -51,6 +51,7 @@ export const platforms: SmartPlatform[] = [
                             url={{
                                 type: 'non-company',
                                 href: deriv_dp2p_app_url,
+                                target: '_blank',
                             }}
                         />,
                     ],

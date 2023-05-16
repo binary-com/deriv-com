@@ -157,24 +157,15 @@ const platformSliderItems: SmartPlatformItem[] = [
                     />,
                 ],
             },
-            image: ({ is_eu }) =>
-                is_eu ? (
-                    <StaticImage
-                        objectFit="contain"
-                        src="../../../../images/common/home/rebranding/platform_deriv_trader_eu.png"
-                        alt="deriv trader eu"
-                        formats={['avif', 'webp', 'auto']}
-                        placeholder="none"
-                    />
-                ) : (
-                    <StaticImage
-                        objectFit="contain"
-                        src="../../../../images/common/home/rebranding/platform_deriv_trader.png"
-                        alt="deriv trader"
-                        formats={['avif', 'webp', 'auto']}
-                        placeholder="none"
-                    />
-                ),
+            image: (
+                <StaticImage
+                    objectFit="contain"
+                    src="../../../../images/common/home/rebranding/platform_deriv_trader.png"
+                    alt="deriv trader"
+                    formats={['avif', 'webp', 'auto']}
+                    placeholder="none"
+                />
+            ),
         },
     },
     {

@@ -20,7 +20,7 @@ const HeroCtaButton = () => {
                 aria-label="Get trading"
                 hero
             >
-                <Localize translate_text={'_t_Get Trading_t_'} />
+                <Localize translate_text={'_t_Get trading_t_'} />
             </Button.Primary>
         )
     }

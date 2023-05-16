@@ -5,6 +5,7 @@ import LiveChatIC from 'images/svg/layout/chat-normal.svg'
 import LiveChatHover from 'images/svg/layout/chat-hover.svg'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { getClientInformation, getDomain, getUTMData, isBrowser } from 'common/utility'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const LiveChatButton = () => {
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
@@ -15,6 +16,7 @@ const LiveChatButton = () => {
     const LC_API = useRef<typeof window.LC_API>()
 
     const [is_logged_in] = useAuthCheck()
+    const { is_mobile } = useBreakpoints()
 
     useEffect(() => {
         if (isBrowser()) {
@@ -114,8 +116,8 @@ const LiveChatButton = () => {
                     {(has_hover) => (
                         <img
                             src={has_hover ? LiveChatHover : LiveChatIC}
-                            width="32"
-                            height="32"
+                            width={is_mobile ? '20' : '32'}
+                            height={is_mobile ? '20' : '32'}
                             alt="livechat icon"
                         />
                     )}

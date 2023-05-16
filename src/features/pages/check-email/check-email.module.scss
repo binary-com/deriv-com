@@ -1,0 +1,13 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.check_email_container {
+    min-block-size: calc(60svh - 7rem);
+}
+
+.check_email_steps {
+    display: grid;
+    @include breakpoints(tablet) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    grid-gap: 3rem;
+}

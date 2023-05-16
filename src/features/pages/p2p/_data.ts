@@ -32,6 +32,7 @@ export const banner_data: BannerType = {
                 url: {
                     type: 'non-company',
                     href: p2p_playstore_url,
+                    target: '_blank',
                 },
             },
         },
@@ -43,6 +44,7 @@ export const banner_data: BannerType = {
                 url: {
                     type: 'non-company',
                     href: p2p_applestore_url,
+                    target: '_blank',
                 },
             },
         },
@@ -54,6 +56,7 @@ export const banner_data: BannerType = {
                 url: {
                     type: 'non-company',
                     href: p2p_huawei_appgallery_url,
+                    target: '_blank',
                 },
             },
         },
@@ -66,6 +69,7 @@ export const banner_data: BannerType = {
                 url: {
                     type: 'non-company',
                     href: deriv_dp2p_app_url,
+                    target: '_blank',
                 },
             },
         },

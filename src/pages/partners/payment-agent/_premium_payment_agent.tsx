@@ -68,8 +68,9 @@ const PremiumPaymentAgent = () => {
             <FlexBox.Box className={box} direction={'col'}>
                 <Typography.Paragraph
                     weight={'bold'}
-                    mt={is_mobile_or_tablet ? '7x' : '0x'}
+                    margin_block="7x"
                     mb="2x"
+                    md={{ padding_inline: '4x', margin_block: '0x' }}
                 >
                     <Localize translate_text="_t_Only available in these countries:_t_" />
                 </Typography.Paragraph>

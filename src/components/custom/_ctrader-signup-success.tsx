@@ -85,6 +85,7 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
     const [token, setToken] = useState('')
     const [service_token, setServiceToken] = useState('')
     const [has_account, account_loading, account_error] = useCheckExistingAccount('ctrader', token)
+    const [loading, setLoading] = useState(false)
 
     if (has_account) {
         if (isBrowser()) {
@@ -131,6 +132,7 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        setLoading(true)
 
         apiManager
             .augmentedSend('new_account_virtual', {
@@ -266,11 +268,12 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
                             code_error_message !== '' ||
                             !verification_code ||
                             !password ||
-                            !residence
+                            !residence ||
+                            loading
                         }
                         type="submit"
                     >
-                        Submit
+                        {loading ? 'Loading' : 'Submit'}
                     </SubmitButton>
                     <EmailLink to="/check-email/" align="center">
                         <Localize translate_text="Didn't receive the code?" />

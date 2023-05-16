@@ -18,6 +18,7 @@ const BottomText = () => {
                 <Localize translate_text="_t_Want to know more about CFD trading conditions for the instruments we offer?_t_" />
             </Typography.Paragraph>
             <LinkButton.Primary
+                font_family="UBUNTU"
                 size="medium"
                 aria-label="check trading specs"
                 url={{

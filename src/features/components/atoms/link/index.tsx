@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useMemo } from 'react'
 import { TypographyLinkProps } from '../typography/link'
 import Internal from './internal'
 import ExternalLink from './external'
@@ -15,7 +15,7 @@ const Link = (props: LinkProps) => {
         if (url.type === 'non-company') {
             return url.target ?? target
         }
-        return target
+        return url.target ?? target
     }, [target, url.target, url.type])
 
     const linkRel = useMemo(() => {

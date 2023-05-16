@@ -55,7 +55,7 @@ const PremiumPaymentAgent = () => {
             direction="col"
             md={{ direction: 'row', align: 'center', justify: 'center', margin_block: '40x' }}
         >
-            <FlexBox.Box className={box} direction={'col'} mr={is_mobile_or_tablet ? '0x' : '40x'}>
+            <FlexBox.Box className={box} direction={'col'}>
                 <Typography.Heading className={heading} size={'large'} mb="2x">
                     <Localize translate_text="_t_Premium payment agent_t_" />
                 </Typography.Heading>

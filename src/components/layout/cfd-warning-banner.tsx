@@ -10,7 +10,7 @@ import useRegion from 'components/hooks/use-region'
 
 type TProps = {
     is_ppc: boolean
-    data: {
+    data?: {
         strapiCfdWarningBanner: {
             loss_percent: number
         }

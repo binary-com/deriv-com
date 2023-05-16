@@ -55,65 +55,63 @@ const PopUpMenu = ({ market, toggle }: TPopUpMenuProps) => {
     }, [market])
 
     return (
-        <>
-            <Card>
-                {is_calculated ? (
-                    <ModalCard>
-                        <Header type="subtitle-1" as="p">
-                            <Localize translate_text={how_it_is_calculated} />
-                        </Header>
+        <Card>
+            {is_calculated ? (
+                <ModalCard>
+                    <Header type="subtitle-1" as="p">
+                        <Localize translate_text={how_it_is_calculated} />
+                    </Header>
 
-                        <HowItsCalculated market={market} />
-                        <StyledFlex jc="center">
-                            <BackButton tertiary onClick={toggleCalculated}>
-                                <Localize translate_text={back} />
-                            </BackButton>
-                        </StyledFlex>
-                    </ModalCard>
-                ) : (
-                    <ModalCard>
-                        <StyledHeading>
-                            <Header type="paragraph-1" align="center" as="p">
-                                <Localize translate_text={dlTitle} />
-                            </Header>
-                            <CloseIconButton src={CloseIcon} onClick={toggle} />
-                        </StyledHeading>
-
-                        <Header type="paragraph-2" align="center" weight="normal" as="p">
-                            <Localize translate_text={dl_description} />
+                    <HowItsCalculated market={market} />
+                    <StyledFlex jc="center">
+                        <BackButton tertiary onClick={toggleCalculated}>
+                            <Localize translate_text={back} />
+                        </BackButton>
+                    </StyledFlex>
+                </ModalCard>
+            ) : (
+                <ModalCard>
+                    <StyledHeading>
+                        <Header type="paragraph-1" align="center" as="p">
+                            <Localize translate_text={dlTitle} />
                         </Header>
-                        <DLTableContainer>
-                            <TableWrapper>
-                                <Tr>
-                                    <Th>
-                                        <Localize translate_text={from_lots} />
-                                    </Th>
-                                    <Th>
-                                        <Localize translate_text={to_lots} />
-                                    </Th>
-                                    <Th>
-                                        <Localize translate_text={leverage} />
-                                    </Th>
+                        <CloseIconButton src={CloseIcon} onClick={toggle} />
+                    </StyledHeading>
+
+                    <Header type="paragraph-2" align="center" weight="normal" as="p">
+                        <Localize translate_text={dl_description} />
+                    </Header>
+                    <DLTableContainer>
+                        <TableWrapper>
+                            <Tr>
+                                <Th>
+                                    <Localize translate_text={from_lots} />
+                                </Th>
+                                <Th>
+                                    <Localize translate_text={to_lots} />
+                                </Th>
+                                <Th>
+                                    <Localize translate_text={leverage} />
+                                </Th>
+                            </Tr>
+                            {markets_data.map((data, index) => (
+                                <Tr key={index}>
+                                    <Td>{data.from}</Td>
+                                    <Td>{data.to}</Td>
+                                    <Td>{data.leverage}</Td>
                                 </Tr>
-                                {markets_data.map((data, index) => (
-                                    <Tr key={index}>
-                                        <Td>{data.from}</Td>
-                                        <Td>{data.to}</Td>
-                                        <Td>{data.leverage}</Td>
-                                    </Tr>
-                                ))}
-                            </TableWrapper>
-                        </DLTableContainer>
-                        <HowItIsCalculated>
-                            <StyledLinkButton flat onClick={toggleCalculated}>
-                                <Localize translate_text={how_dl_is_calculated} />
-                            </StyledLinkButton>
-                        </HowItIsCalculated>
-                    </ModalCard>
-                )}
-                <Background></Background>
-            </Card>
-        </>
+                            ))}
+                        </TableWrapper>
+                    </DLTableContainer>
+                    <HowItIsCalculated>
+                        <StyledLinkButton flat onClick={toggleCalculated}>
+                            <Localize translate_text={how_dl_is_calculated} />
+                        </StyledLinkButton>
+                    </HowItIsCalculated>
+                </ModalCard>
+            )}
+            <Background></Background>
+        </Card>
     )
 }
 

@@ -199,7 +199,7 @@ export const riskWarningContent: SmartDisclaimerParagraph[] = [
     {
         id: 0,
         data: {
-            text: '_t_CFDs and other products offered on this website are complex instruments with high risk of losing money rapidly owing to leverage. You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money._t_',
+            text: '_t_CFDs and other products offered on this website are complex instruments with high risk of losing money rapidly owing to leverage. You should consider whether you understand how these products work and whether you can afford to risk losing your money._t_',
         },
         visibility: {
             is_non_eu: true,

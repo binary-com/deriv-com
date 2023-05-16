@@ -10,6 +10,7 @@ interface Window {
     }
     LiveChatWidget: {
         on: (x: string, y: (e) => void) => void
+        off: (x: string, y: (e) => void) => void
         call: (x: string, y: any) => void
     }
 }

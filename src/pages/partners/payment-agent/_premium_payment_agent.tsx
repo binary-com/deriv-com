@@ -53,7 +53,13 @@ const PremiumPaymentAgent = () => {
             margin_inline={'10x'}
             margin_block={'20x'}
             direction="col"
-            md={{ direction: 'row', align: 'center', justify: 'center', margin_block: '40x' }}
+            md={{
+                direction: 'row',
+                align: 'center',
+                justify: 'center',
+                margin_block: '40x',
+                gap: '40x',
+            }}
         >
             <FlexBox.Box className={box} direction={'col'}>
                 <Typography.Heading className={heading} size={'large'} mb="2x">
@@ -69,7 +75,7 @@ const PremiumPaymentAgent = () => {
             <FlexBox.Box className={box} direction={'col'}>
                 <Typography.Paragraph
                     weight={'bold'}
-                    mt={is_mobile_or_tablet ? '14x' : '0x'}
+                    mt={is_mobile_or_tablet ? '7x' : '0x'}
                     mb="2x"
                 >
                     <Localize translate_text="_t_Only available in these countries:_t_" />

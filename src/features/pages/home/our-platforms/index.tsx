@@ -25,7 +25,7 @@ const OurPlatforms = () => {
 
     return (
         <Container.Fixed as="section" pt="16x" md={{ padding_block: '40x' }}>
-            <Typography.Heading as="h1" size="medium" align="center">
+            <Typography.Heading as="h1" size="medium" align="center" mb="10x">
                 <Localize translate_text="_t_Our platforms_t_" />
             </Typography.Heading>
             <Typography.Paragraph size="xlarge" align="center" padding_inline="20x">

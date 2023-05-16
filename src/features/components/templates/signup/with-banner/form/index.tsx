@@ -64,6 +64,7 @@ const SignupPublicForm = () => {
                     <Flex.Item grow={'1'}>
                         <Input.Text
                             label={'_t_Email address_t_'}
+                            id="email_address"
                             error={
                                 errors?.email?.message
                                     ? localize(errors?.email?.message as TString)
@@ -79,7 +80,7 @@ const SignupPublicForm = () => {
                     </Flex.Item>
                 </Flex.Box>
                 <Flex.Box justify="start" align="baseline" gap={'5x'} mt="5x">
-                    <Input.Checkbox {...register('terms')}>
+                    <Input.Checkbox {...register('terms')} id="terms_and_conditions">
                         <Localize
                             translate_text="_t_I agree to the <0>terms and conditions</0>._t_"
                             components={[

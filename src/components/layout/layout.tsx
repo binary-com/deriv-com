@@ -1,5 +1,4 @@
 import React, { ReactNode, Ref } from 'react'
-import Loadable from '@loadable/component'
 import styled from 'styled-components'
 import { LocationProvider } from './location-context'
 import LayoutOverlay from './layout-overlay'
@@ -21,8 +20,8 @@ import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
 import BannerAlert from 'components/custom/_banner-alert'
 import { bannerTypes } from 'common/constants'
 
-const LoadableFooter = Loadable(() => import('./footer'))
-const BeSquareFooter = Loadable(() => import('./besquare/footer'))
+// const LoadableFooter = Loadable(() => import('./footer'))
+// const BeSquareFooter = Loadable(() => import('./besquare/footer'))
 
 type LayoutProps = {
     children: ReactNode

@@ -1,9 +1,4 @@
 import React from 'react'
-import * as yup from 'yup'
-import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import Cookies from 'js-cookie'
-import { navigate } from 'gatsby'
 import PublicSignupSocial from '../social'
 import { signup_public_form_container, signup_public_form } from './form.module.scss'
 import Flex from 'features/components/atoms/flex-box'
@@ -11,78 +6,22 @@ import Typography from 'features/components/atoms/typography'
 import { localize, Localize } from 'components/localization'
 import Button from 'features/components/atoms/button'
 import Link from 'features/components/atoms/link'
-import { validation_regex } from 'common/validation'
-import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
-import { getLanguage } from 'common/utility'
-import apiManager from 'common/websocket'
 import Input from 'features/components/atoms/input'
 import { TString } from 'types/generics'
-
-const schema = yup.object({
-    email: yup
-        .string()
-        .required('_t_Email is required_t_')
-        .matches(validation_regex.email, { message: '_t_Please enter a valid email_t_' })
-        .email('_t_Please enter a valid email_t_'),
-    terms: yup.boolean(),
-})
-
-type FormData = yup.InferType<typeof schema>
-
-const getVerifyEmailRequest = (formatted_email: string) => {
-    // TODO: this getJSON seems incorrect, we have to check it out, I don't know how this cookie is being populated
-    const affiliate_token = Cookies.getJSON('affiliate_tracking')
-
-    const cookies = getCookiesFields()
-    const cookies_objects = getCookiesObject(cookies)
-    const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
-
-    return {
-        verify_email: formatted_email,
-        url_parameters: {
-            ...(affiliate_token && { affiliate_token: affiliate_token }),
-            ...(cookies_value && { ...cookies_value }),
-        },
-    }
-}
+import useSignupForm from 'features/hooks/use-signup-form'
 
 const SignupPublicForm = () => {
+    const { onSignup, signUpForm } = useSignupForm()
+
     const {
         register,
-        handleSubmit,
-        setError,
         formState: { errors, isValid },
         watch,
-    } = useForm<FormData>({
-        mode: 'onChange',
-        resolver: yupResolver(schema),
-    })
-
+        handleSubmit,
+    } = signUpForm
     const values = watch()
 
     const isButtonDisabled = values.email === '' || !values.terms || !isValid
-
-    const onSubmit = ({ email }: FormData) => {
-        const formatted_email = getVerifyEmailRequest(email)
-        apiManager
-            .augmentedSend('verify_email', {
-                ...formatted_email,
-                type: 'account_opening',
-            })
-            .then(() => {
-                const success_default_link = `signup-success?email=${email}`
-                const link_with_language = `${getLanguage()}/${success_default_link}`
-                const success_link = `/${
-                    getLanguage() === 'en' ? success_default_link : link_with_language
-                }`
-                navigate(success_link, { replace: true })
-            })
-            .catch((reason) => {
-                setError('email', {
-                    message: reason.error.code,
-                })
-            })
-    }
 
     return (
         <Flex.Box
@@ -101,7 +40,7 @@ const SignupPublicForm = () => {
                 gap="8x"
                 as="form"
                 bgcolor="primary"
-                onSubmit={handleSubmit(onSubmit)}
+                onSubmit={handleSubmit(onSignup)}
                 md={{
                     padding: '14x',
                 }}
@@ -146,6 +85,7 @@ const SignupPublicForm = () => {
                             components={[
                                 <Link
                                     textcolor="brand"
+                                    target="_blank"
                                     key={0}
                                     url={{ type: 'internal', to: '/terms-and-conditions/#clients' }}
                                 />,

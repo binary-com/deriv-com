@@ -21,7 +21,7 @@ const DP2P = () => {
                 </Typography.Heading>
                 <DP2PVideo />
                 {p2p_items.map(({ id, data }, index) => {
-                    const is_even = (index + 1) % 2 === 0
+                    const is_even = (index + 1) % 2 === 0 ? true : false
                     return <P2PItem key={id} item={data} is_even={is_even} />
                 })}
             </Container.Fluid>

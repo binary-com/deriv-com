@@ -157,7 +157,9 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
         if (search_value.length >= 1) {
             updatedRowData = [
                 ...markets_data.filter((market) =>
-                    market.instrument.instrument.toLowerCase().match(new RegExp(search_value, 'i')),
+                    market.instrument.instrument
+                        .toLowerCase()
+                        .match(new RegExp(search_value.trim(), 'i')),
                 ),
             ]
             setFilteredData(updatedRowData)

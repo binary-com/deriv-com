@@ -1,10 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Script } from 'gatsby'
 import Layout from '../../components/layout/layout'
 import { SEO } from '../../components/containers'
 import { localize } from '../../components/localization'
+import { isBrowser } from 'common/utility'
 
 const MyComponent = () => {
+    const [is_script_loaded, setIsScriptLoaded] = useState(false)
+
+    useEffect(() => {
+        if (isBrowser() && is_script_loaded) {
+            const widget = window.AcuityWidgets
+            widget.globals({ apikey: '2713b8d0-43ed-4194-b5d7-b1ff60dbdae0', locale: 'en-GB' })
+            const economicCalendar = widget.CreateWidget(
+                'CalendarPage',
+                document.getElementById('economicCalendar'),
+                {
+                    settingId: 2619,
+                },
+            )
+            const signalCentre = widget.CreateWidget(
+                'SignalCentre',
+                document.getElementById('signalcentre'),
+                { settingId: 2617 },
+            )
+            economicCalendar.mount()
+            signalCentre.mount()
+        }
+    }, [is_script_loaded])
+
     return (
         <Layout>
             <SEO
@@ -21,26 +45,25 @@ const MyComponent = () => {
                 }}
             >
                 <Script
-                    id="economicCalendar"
                     src={'https://prodstorage.azureedge.net/Widgets/lib/@1.0.0/widget-core.js'}
-                    dangerouslySetInnerHTML={{
-                        __html: `AcuityWidgets.globals({ apikey: '2713b8d0-43ed-4194-b5d7-b1ff60dbdae0', locale: 'en-GB' }); var widget = AcuityWidgets.CreateWidget( 'CalendarPage', document.getElementById('economicCalendar'), { settingId: 2619 } ); widget.mount();`,
-                    }}
+                    onLoad={() => setIsScriptLoaded(true)}
                 />
-
-                {/*<iframe*/}
-                {/*    src={'https://prodstorage.azureedge.net/Widgets/lib/@1.0.0/widget-core.js'}*/}
-                {/*    height={'100%'}*/}
-                {/*    width={'100%'}*/}
-                {/*/>*/}
-
-                {/*<iframe*/}
-                {/*    src={*/}
-                {/*        'https://dashboard.acuitytrading.com/widget/researchterminal?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0'*/}
-                {/*    }*/}
-                {/*    height={'100%'}*/}
-                {/*    width={'100%'}*/}
-                {/*/>*/}
+                <div id="economicCalendar"></div>
+                <iframe
+                    src={
+                        'https://dashboard.acuitytrading.com/widget/marketalerts?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0'
+                    }
+                    height={'100%'}
+                    width={'100%'}
+                />
+                <iframe
+                    src={
+                        'https://dashboard.acuitytrading.com/widget/researchterminal?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0'
+                    }
+                    height={'100%'}
+                    width={'100%'}
+                />
+                <div id="signalcentre"></div>
             </div>
         </Layout>
     )

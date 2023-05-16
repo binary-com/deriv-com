@@ -8,18 +8,6 @@ import * as styles from './tab-switcher.module.scss'
 import { Localize } from 'components/localization'
 
 const TabSwitcher = ({ tab, onTabClick }: Omit<StepperTabTypes, 'items'>) => {
-    const button_style = {
-        active: {
-            fontWeight: 'bold',
-            boxShadow: '0px 24px 48px rgba(14, 14, 14, 0.18)',
-            'border-radius': '4px 0px 0px 4px',
-        },
-        inactive: {
-            fontWeight: 'normal',
-            'border-radius': '0px 4px 4px 0px',
-            background: 'transparent',
-        },
-    }
     return (
         <FlexBoxContainer
             direction={'col'}

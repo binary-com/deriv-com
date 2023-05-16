@@ -39,7 +39,7 @@ export const deriv_ez_images = {
     ),
     'step3-demo': (
         <StaticImage
-            src="../../../../images/common/deriv-ez/step-3.png"
+            src="../../../../images/common/deriv-ez/step-3-demo.png"
             alt="Deriv EZ demo account for trading"
             loading="eager"
             formats={['avif', 'webp', 'auto']}

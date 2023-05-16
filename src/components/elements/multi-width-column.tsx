@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Container } from 'components/containers'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import device from 'themes/device'
+
 //TODO: (deriv-rebranding) to make this section more reusable .
 
 interface Props {
@@ -22,7 +23,7 @@ const StyledSectionContainer = styled.section<{ mobileBG: string; mobilePadding:
     height: 100%;
     background: #414652;
     padding: 0;
-    margin-top: 20px;
+    margin-top: 164px;
     flex-direction: row;
     direction: ltr;
     position: relative;
@@ -40,6 +41,7 @@ const StyledSectionContainer = styled.section<{ mobileBG: string; mobilePadding:
         background: url(${(props) => props.mobileBG});
         background-size: cover;
         background-position: center;
+        margin-top: 0px;
 
         &::before {
             content: none;

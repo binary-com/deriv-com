@@ -52,9 +52,15 @@ const InfoText = styled.p`
     }
 `
 const StyledInfoIcon = styled.img`
-    margin-top: 7px;
+    margin-top: 2px;
     width: 24px;
     height: 24px;
+
+    @media ${device.tabletL} {
+        margin-top: 2px;
+        width: 16px;
+        height: 16px;
+    }
 `
 const DerivEZGetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
@@ -72,7 +78,7 @@ const DerivEZGetApp = () => {
             firstColumnWidth="59%"
             secondColumnWidth="45%"
             mobileBackgroundImage={GetAppMobileBG}
-            secondColumnMobileMargin="140px 0 0"
+            secondColumnMobileMargin="40px 0 0"
             mobilePadding="40px 0 10px"
         >
             <ContentWrapper is_rtl={is_rtl}>
@@ -86,6 +92,7 @@ const DerivEZGetApp = () => {
                         font_family_title="Ubuntu"
                         color="#fff"
                         margin_title="0 0 18px"
+                        line_height="80px"
                     />
                     <Flex jc="stretch" ai="flex-start" height="auto">
                         <StyledInfoIcon src={InfoIcon} />

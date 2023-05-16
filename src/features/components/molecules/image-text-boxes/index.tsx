@@ -32,7 +32,7 @@ const ImageWithParagraph = ({ mobile_flex_direction, data }: ImageWithParagraphT
                         <FlexBox.Box direction={'col'} md={{ basis: '6-12' }}>
                             {feature?.title ? (
                                 <Typography.Heading
-                                    mb={'8x'}
+                                    mb={'6x'}
                                     size="large"
                                     align="center"
                                     textcolor="primary"

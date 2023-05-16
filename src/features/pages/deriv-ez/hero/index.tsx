@@ -34,7 +34,9 @@ const DerivEZHero = () => {
                     size={'xlarge'}
                     color={'secondary'}
                     weight={'bold'}
+                    pt={'4x'}
                     align={is_mobile_or_tablet ? 'center' : 'left'}
+                    md={{ pt: '8x' }}
                 >
                     <Localize translate_text="_t_An intuitive,_t_" />
                     <br />

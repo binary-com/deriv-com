@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { StepperTabTypes, TabItemTypes } from '../types'
 import FlexBox from 'features/components/atoms/flex-box'
 import Box from 'features/components/atoms/box'
@@ -10,6 +10,10 @@ const TabContent = ({ items: initial_tems, tab, direction = 'row' }: StepperTabT
     const [selected, setSelected] = useState<number>(0)
     const [items, setItems] = useState<TabItemTypes[]>(initial_tems)
     const { is_mobile_or_tablet } = useBreakpoints()
+
+    useEffect(() => {
+        setItems(initial_tems)
+    }, [initial_tems])
 
     const image_style = !is_mobile_or_tablet ? { blockSize: '62.5rem' } : { blockSize: '43.5rem' }
 

@@ -1,5 +1,5 @@
 module.exports = {
-    ...require('prettier-config-deriv'),
+    ...require('prettier-config-deriv-beta'),
     overrides: [
         {
             files: ['crowdin/messages.json', 'src/translations/*.json'],

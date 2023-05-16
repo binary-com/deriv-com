@@ -1,6 +1,6 @@
 {
     "parser": "babel-eslint",
-    "extends": ["eslint:recommended", "deriv"],
+    "extends": ["eslint:recommended", "deriv-beta"],
     "overrides": [
         {
             "files": ["*.ts", "*.tsx"], // Your TypeScript files extension

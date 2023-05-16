@@ -15,11 +15,11 @@ export const useCheckExistingAccount = (platform: string, token: string) => {
                     authorize: token,
                 })
                 .then((response) => {
-                    if (!response.error) {
+                    if (response.error) {
+                        setAccountError(response.error)
+                    } else {
                         setEmail(response.authorize.email)
                         setAuthorized(true)
-                    } else {
-                        setAccountError(response.error)
                     }
                 })
         } else {

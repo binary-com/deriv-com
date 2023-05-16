@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { navigate } from 'gatsby'
 import { localize, Localize } from 'components/localization'
@@ -35,13 +35,6 @@ const Wrapper = styled.section`
     }
 `
 
-const StyledDiv = styled.div`
-    padding: 6rem 0;
-
-    @media ${device.mobileL} {
-        padding: 0;
-    }
-`
 const ResponseWrapper = styled.div`
     display: flex;
     justify-content: center;
@@ -73,10 +66,6 @@ const StyledDropdown = styled(Dropdown)`
     border-radius: 18px;
 `
 
-const StatusHeader = styled.h2`
-    font-size: 48px;
-`
-
 const CtraderSignupSuccess = ({ email }: { email: string }) => {
     // const [token] = useQueryParam('token2', StringParam)
     // // API_TOKEN Sample: a1-tzAF6PBTnHkOH97ooBdSYvY26oFSm
@@ -84,7 +73,6 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
     //     'ctrader',
     //     token,
     // )
-    // if (has_account) navigate('https://oauth.deriv.com/oauth2/authorize?app_id=12345')
 
     const [verification_code, setVerificationCode] = useState('')
     const [code_error_message, setCodeErrorMessage] = useState('')
@@ -95,7 +83,46 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
     const [error, setError] = useState('')
     const [submit_status, setSubmitStatus] = useState('')
     const [token, setToken] = useState('')
+    const [service_token, setServiceToken] = useState('')
     const [has_account, account_loading, account_error] = useCheckExistingAccount('ctrader', token)
+    if (has_account) navigate('https://oauth.deriv.com/oauth2/authorize?app_id=12345')
+
+    useEffect(() => {
+        if (!account_loading && !has_account) {
+            apiManager
+                .augmentedSend('trading_platform_new_account', {
+                    trading_platform_new_account: 1,
+                    account_type: 'demo',
+                    market_type: 'all',
+                    platform: 'ctrader',
+                })
+                .then((response) => {
+                    if (response.error) {
+                        setError(response.error.message)
+                    } else {
+                        setSubmitStatus('ctrader-account-created')
+                    }
+                })
+        }
+    }, [account_loading, has_account])
+
+    useEffect(() => {
+        if (submit_status === 'ctrader-account-created') {
+            apiManager
+                .augmentedSend('service_token', {
+                    service_token: 1,
+                    service: 'ctrader',
+                })
+                .then((response) => {
+                    if (response.error) {
+                        setError(response.error.message)
+                    } else {
+                        setServiceToken(response.service_token.ctrader.token)
+                        setSubmitStatus('success')
+                    }
+                })
+        }
+    }, [submit_status])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -113,7 +140,7 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
                 } else {
                     setToken(response.new_account_virtual.oauth_token)
                     // setIsSubmitting(false)
-                    setSubmitStatus('success')
+                    // setSubmitStatus('success')
                     // if (onSubmit) onSubmit(submit_status, email)
                 }
             })
@@ -153,14 +180,14 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
     // }
 
     if (submit_status === 'success') {
-        if (has_account) navigate('https://oauth.deriv.com/oauth2/authorize?app_id=12345')
-        return <StatusHeader>Your account has been created</StatusHeader>
+        if (service_token) navigate(`https://ct.deriv.com/?token=${service_token}`)
+        // return <StatusHeader>Your account has been created</StatusHeader>
     }
 
     return (
         <Wrapper>
-            {account_error && <StatusHeader>{account_error}</StatusHeader>}
-            {error && <StatusHeader>{error}</StatusHeader>}
+            {/* {account_error && <StatusHeader>{account_error}</StatusHeader>}
+            {error && <StatusHeader>{error}</StatusHeader>} */}
 
             <form onSubmit={handleSubmit}>
                 <ResponseWrapper>

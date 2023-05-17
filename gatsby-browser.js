@@ -136,7 +136,7 @@ export const onClientEntry = () => {
         site: 'datadoghq.com',
         service: 'deriv.com',
         env: 'production',
-        version: '1.0.4',
+        version: '1.0.5',
         sessionSampleRate: 10,
         sessionReplaySampleRate: 10,
         trackResources: true,

@@ -1,0 +1,11 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.static_nav_logo {
+    inline-size: 7rem;
+    block-size: 2.4rem;
+
+    @include breakpoints(tablet) {
+        inline-size: 9.6rem;
+        block-size: 3.6rem;
+    }
+}

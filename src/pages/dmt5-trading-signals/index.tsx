@@ -64,7 +64,7 @@ const Item = styled.div<ItemProps>`
     border-bottom: ${(props) =>
         props.name === props.active_tab ? '2px solid var(--color-red)' : ''};
     cursor: pointer;
-    z-index: 10;
+    z-index: 2;
     white-space: nowrap;
 
     ${Header} {

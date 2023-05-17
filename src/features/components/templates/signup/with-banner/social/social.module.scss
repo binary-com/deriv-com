@@ -1,0 +1,9 @@
+.public_signup_social_links {
+    & button {
+        padding: 0;
+        flex: 1;
+        border-radius: 16px;
+        border: 1px solid #d6dadb;
+        min-block-size: 4rem;
+    }
+}

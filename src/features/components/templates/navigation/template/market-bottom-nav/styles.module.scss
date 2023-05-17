@@ -1,0 +1,18 @@
+@use 'features/styles/theme/theme-mixins' as *;
+.container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 1.6rem;
+    gap: 3.2rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+
+    @include breakpoints(phone) {
+        justify-content: center;
+    }
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

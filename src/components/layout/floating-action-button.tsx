@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import device from 'themes/device'
 
 const Container = styled.div<{ has_hover: boolean }>`
     background-color: var(--color-white);
@@ -15,6 +16,10 @@ const Container = styled.div<{ has_hover: boolean }>`
     animation: scale 0.2s;
     transition: all 0.2s;
     scale: ${({ has_hover }) => (has_hover ? '1.1' : '1')};
+
+    @media ${device.tabletS} {
+        padding: 1rem;
+    }
 
     @keyframes scale {
         from {

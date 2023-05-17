@@ -10,6 +10,12 @@ interface Window {
     }
     LiveChatWidget: {
         on: (x: string, y: (e) => void) => void
+        off: (x: string, y: (e) => void) => void
         call: (x: string, y: any) => void
     }
+}
+
+declare module '*.module.scss' {
+    const classes: { readonly [key: string]: string }
+    export default classes
 }

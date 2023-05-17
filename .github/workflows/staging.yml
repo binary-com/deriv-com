@@ -52,6 +52,7 @@ jobs:
         with:
           node-version: "18.x"
           cache: "npm"
+          node-options: "--max-old-space-size=4096"
 
       - run: npm ci
       - run: npm run format

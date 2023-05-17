@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TDerivNumbers } from '../_types'
+import { deriv_numbers } from './_data'
 import { Localize } from 'components/localization'
-import { CssGrid, Flex, SectionContainer } from 'components/containers'
-import { Header } from 'components/elements'
+import { SectionContainer, Flex, CssGrid } from 'components/containers'
+import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 
 const StyledSection = styled(SectionContainer)`
@@ -18,6 +18,7 @@ const StyledSection = styled(SectionContainer)`
         padding: 30px 16px 40px;
     }
 `
+
 const StyledFlex = styled(Flex)`
     margin: 0 2rem;
     max-width: 1200px;
@@ -28,6 +29,7 @@ const StyledFlex = styled(Flex)`
         align-items: center;
     }
 `
+
 const TitleSection = styled(Flex)`
     max-width: 46rem;
 
@@ -36,16 +38,19 @@ const TitleSection = styled(Flex)`
         max-width: 90rem;
         grid-column-gap: 4rem;
     }
+
     @media ${device.laptop} {
         margin-bottom: 24px;
     }
 `
+
 const NumberSection = styled(CssGrid)`
     max-width: 588px;
 
     @media ${device.tabletL} {
         grid-column-gap: 4rem;
     }
+
     @media ${device.tabletS} {
         grid-template-columns: minmax(auto, 484px);
         grid-row-gap: 24px;
@@ -53,6 +58,7 @@ const NumberSection = styled(CssGrid)`
         justify-content: start;
     }
 `
+
 const TitleHeader = styled(Header)`
     font-size: 48px;
     line-height: 60px;
@@ -64,11 +70,13 @@ const TitleHeader = styled(Header)`
     @media ${device.tabletS} {
         text-align: start;
     }
+
     @media ${device.mobileL} {
         width: auto;
         text-align: start;
     }
 `
+
 const StyledHeader = styled(Header)`
     @media ${device.laptop} {
         text-align: center;
@@ -78,7 +86,9 @@ const StyledHeader = styled(Header)`
         text-align: start;
     }
 `
-const NumberHeader = styled(Header)`
+
+const NumberHeader = styled(Text)`
+    font-weight: bold;
     line-height: 6rem;
     text-align: start;
 
@@ -86,21 +96,22 @@ const NumberHeader = styled(Header)`
         margin-bottom: 8px;
     }
 `
-const NumberText = styled(Header)`
-    font-weight: normal;
+
+const NumberText = styled(Text)`
+    font-weight: 400;
     text-align: start;
 `
 
-const DerivNumbers = ({ deriv_in_numbers }: TDerivNumbers) => {
+const DerivNumbers = () => {
     return (
         <StyledSection>
             <StyledFlex>
                 <TitleSection fd="column">
                     <TitleHeader as="h6" color="black-2" align="start" type="unset">
-                        <Localize translate_text={deriv_in_numbers?.header} />
+                        <Localize translate_text="_t_Deriv in numbers_t_" />
                     </TitleHeader>
                     <StyledHeader as="h6" size="24px" align="start" weight="400" type="unset">
-                        <Localize translate_text={deriv_in_numbers?.sub_header} />
+                        <Localize translate_text="_t_We aim to deliver market-leading products that are trusted around the world._t_" />
                     </StyledHeader>
                 </TitleSection>
                 <NumberSection
@@ -110,18 +121,18 @@ const DerivNumbers = ({ deriv_in_numbers }: TDerivNumbers) => {
                     row_gap="4rem"
                     height="unset"
                 >
-                    {deriv_in_numbers?.numbers.map(({ number, description }) => {
-                        return (
-                            <Flex key={description} fd="column" height="unset">
-                                <NumberHeader as="div" size="48px" type="unset">
-                                    {number}
+                    {deriv_numbers.map((number) =>
+                        number.map(({ count, title }) => (
+                            <Flex key={title} fd="column" height="unset">
+                                <NumberHeader size="48px" type="unset">
+                                    <Localize translate_text={count} />
                                 </NumberHeader>
-                                <NumberText as="div" size="20px" align="start">
-                                    <Localize translate_text={description} />
+                                <NumberText size="20px" align="start">
+                                    <Localize translate_text={title} />
                                 </NumberText>
                             </Flex>
-                        )
-                    })}
+                        )),
+                    )}
                 </NumberSection>
             </StyledFlex>
         </StyledSection>

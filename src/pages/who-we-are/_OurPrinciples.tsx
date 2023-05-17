@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TOurPrinciples } from '../_types'
+import { our_principles } from './_data'
 import { Localize } from 'components/localization'
-import { Box, Flex, SectionContainer } from 'components/containers'
-import { Divider, Header } from 'components/elements'
+import { SectionContainer, Flex, Box } from 'components/containers'
+import { Header, Divider } from 'components/elements'
 import device from 'themes/device'
 import { LinkButton } from 'components/form'
 
@@ -29,7 +29,6 @@ const StyledDivider = styled(Divider)`
 const StyledFlex = styled(Flex)`
     margin-bottom: 40px;
     max-width: 792px;
-
     @media (max-width: 930px) {
         flex-direction: column;
         width: unset;
@@ -47,7 +46,6 @@ const StyledText = styled(Header)`
     max-width: 551px;
     margin: 16px 0;
     font-size: 16px;
-
     @media ${device.tablet} {
         font-size: 14px;
     }
@@ -66,7 +64,7 @@ const ColoredBox = styled(Box)<{ bgcolor: string }>`
     align-self: left;
     width: fit-content;
     padding: 8px 16px;
-    background-color: ${({ bgcolor }) => bgcolor};
+    background-color: ${(props) => props.bgcolor};
     border-radius: 8px;
     font-weight: bold;
     color: #333333;
@@ -79,22 +77,14 @@ const ColoredBox = styled(Box)<{ bgcolor: string }>`
     }
 `
 
-const OurPrinciples = ({ our_principles }: TOurPrinciples) => {
-    // depends on our_principles.principles by index
-    const colors = [
-        'rgba(133, 189, 177, 0.25)',
-        'rgba(255, 195, 89, 0.25)',
-        'rgba(150, 133, 189, 0.25)',
-        'rgba(119, 160, 198, 0.25)',
-    ]
-
+const OurPrinciples = () => {
     return (
         <StyledSection>
             <Header as="h2" align="center" type="heading-2" mb="40px" laptop={{ mb: '24px' }}>
-                <Localize translate_text={our_principles?.header} />
+                <Localize translate_text="_t_Our principles are the framework for our decisions_t_" />
             </Header>
             <StyledFlex wrap="wrap" jc="left" ai="center">
-                {our_principles?.principles.map(({ header, sub_header }, idx) => (
+                {our_principles.map(({ color, title, text }, idx) => (
                     <div key={idx}>
                         <StyledDivider height="2px" width="100% - 32px" color="grey-8" />
                         <InsideFlex
@@ -106,20 +96,20 @@ const OurPrinciples = ({ our_principles }: TOurPrinciples) => {
                             tablet_ai="left"
                         >
                             <StyledDiv>
-                                <ColoredBox bgcolor={colors[idx]}>
-                                    <Localize translate_text={header} />
+                                <ColoredBox bgcolor={color}>
+                                    <Localize translate_text={title} />
                                 </ColoredBox>
                             </StyledDiv>
                             <StyledText as="p" type="sub-paragraph" weight="400">
-                                <Localize translate_text={sub_header} />
+                                <Localize translate_text={text} />
                             </StyledText>
                         </InsideFlex>
                     </div>
                 ))}
                 <StyledDivider height="2px" width="100% - 32px" color="grey-8" />
             </StyledFlex>
-            <StyledLinkButton to={our_principles?.button.link_url} secondary>
-                <Localize translate_text={our_principles?.button.link_name} />
+            <StyledLinkButton to="/our-principles/" secondary>
+                <Localize translate_text="_t_Learn more about our principles_t_" />
             </StyledLinkButton>
         </StyledSection>
     )

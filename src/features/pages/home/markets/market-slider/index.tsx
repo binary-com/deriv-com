@@ -34,7 +34,7 @@ const MarketSlider = () => {
                 {slider_items.map(({ id, data }) => {
                     return (
                         <SwiperSlide key={id} className={'market_slide'}>
-                            <MarketSliderItem item={data} />
+                            <MarketSliderItem item={data} is_eu={is_eu} />
                         </SwiperSlide>
                     )
                 })}

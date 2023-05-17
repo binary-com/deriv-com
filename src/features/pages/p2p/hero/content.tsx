@@ -17,14 +17,14 @@ const DP2HeroContent = () => {
             dir={get_lang_direction()}
         >
             <StaticImage
-                src="../../../../../images/common/p2p/p2p_logo.png"
+                src="../../../../images/common/p2p/p2p_logo.png"
                 alt="p2p logo"
                 width={125}
                 height={32}
                 className="visible-phone-and-tablet"
             />
             <StaticImage
-                src="../../../../../images/common/p2p/p2p_logo.png"
+                src="../../../../images/common/p2p/p2p_logo.png"
                 alt="p2p logo"
                 width={250}
                 height={64}

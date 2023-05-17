@@ -16,20 +16,24 @@ const DP2HeroContent = () => {
             basis="6-12"
             dir={get_lang_direction()}
         >
-            <StaticImage
-                src="../../../../images/common/p2p/p2p_logo.png"
-                alt="p2p logo"
-                width={125}
-                height={32}
-                className="visible-phone-and-tablet"
-            />
-            <StaticImage
-                src="../../../../images/common/p2p/p2p_logo.png"
-                alt="p2p logo"
-                width={250}
-                height={64}
-                className="visible-larger-than-tablet"
-            />
+            <div className="visible-phone-and-tablet">
+                <StaticImage
+                    src="../../../../images/common/p2p/p2p_logo.png"
+                    alt="p2p logo"
+                    width={125}
+                    height={32}
+                    layout="fixed"
+                />
+            </div>
+            <div className="visible-larger-than-tablet">
+                <StaticImage
+                    src="../../../../images/common/p2p/p2p_logo.png"
+                    alt="p2p logo"
+                    width={250}
+                    height={64}
+                    layout="fixed"
+                />
+            </div>
             <Typography.Heading as="h1" size={is_mobile ? 'large' : 'xxxl'}>
                 <Localize translate_text="_t_Hassle-free deposits and withdrawals_t_" />
             </Typography.Heading>

@@ -5,7 +5,7 @@ import Flex from 'features/components/atoms/flex-box'
 
 const DP2HeroBanner = () => {
     return (
-        <Flex.Box align="end" className={wrapper} pt="34x" md={{ pt: '0x' }}>
+        <Flex.Box align="end" className={wrapper} pt="34x" md={{ pt: '0x', basis: '6-12' }}>
             <div className={image_style}>
                 <StaticImage
                     src="../../../../images/common/p2p/p2p_hero_banner.png"

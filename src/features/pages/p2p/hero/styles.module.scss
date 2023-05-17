@@ -5,12 +5,14 @@
         height: 100%;
         position: absolute;
         right: 0;
-        width: 52%;
     } 
 }
 .image_style {
     @include breakpoints(tablet){
-        max-width: 730px;
+        max-width: 500px;
+    }
+    @include breakpoints(laptop){
+        max-width: 650px;
     }
     @include breakpoints(desktop){
         max-width: 800px;

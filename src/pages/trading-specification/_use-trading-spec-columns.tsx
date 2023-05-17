@@ -18,17 +18,22 @@ const margin_requirement: TString = '_t_Margin requirement (%)_t_'
 const swap_long: TString = '_t_Swap long (%)_t_'
 const swap_short: TString = '_t_Swap short (Points)_t_'
 const trading_hours: TString = '_t_Trading hours_t_'
-const contract_size_tooltip: TString =
-    '_t_A standardised amount that tells traders the exact quantities being bought or sold._t_'
-const minimum_size_tooltip: TString = '_t_The minimum lot size required to open a new position._t_'
+const instrument_tooltip: TString =
+    '_t_Refers to the currency pair or other product that can be traded._t_'
+const base_currency_tooltip: TString = '_t_The currency in which an asset is denominated._t_'
+const trading_hours_tooltip: TString =
+    '_t_The time period during which an asset or market is available for trading._t_'
+
+const contract_size_tooltip: TString = '_t_The standardised amount of an asset in one contract._t_'
+const minimum_size_tooltip: TString = '_t_The smallest trade size allowed._t_'
 const minimum_spread_tooltip: TString =
     '_t_The lowest possible spread obtainable with the current trading conditions._t_'
 const target_spread_tooltip: TString =
-    '_t_The spread that the broker wishes to offer under the current trading conditions._t_'
+    '_t_The expected difference between the bid and ask prices._t_'
 const max_effective_leverage_tooltip: TString =
-    '_t_The actual leverage experienced by the client when account leverage is divided by the margin rate._t_'
+    '_t_The maximum ratio of borrowed to owned funds._t_'
 const margin_requirement_tooltip: TString =
-    '_t_The percentage requirement of funds the client needs in their account to open a position._t_'
+    '_t_The percentage of position value required as collateral. Calculated as (% x trade size)._t_'
 const swap_long_tooltip: TString = '_t_Swaps charged upon rollover for long (buy) positions._t_'
 const swap_short_tooltip: TString = '_t_Swaps charged upon rollover for short (sell) positions._t_'
 
@@ -36,7 +41,12 @@ const useLiveColumns = (market: string) => {
     const columns = useMemo(() => {
         return [
             liveMarketColumnHelper.accessor('instrument', {
-                header: () => <TableHeaderCell text={<Localize translate_text={instrument} />} />,
+                header: () => (
+                    <TableHeaderCell
+                        text={<Localize translate_text={instrument} />}
+                        toolTip={<Localize translate_text={instrument_tooltip} />}
+                    />
+                ),
                 cell: (info) =>
                     info.getValue() && <TableCellGroup data={info.getValue()} market={market} />,
             }),
@@ -51,7 +61,10 @@ const useLiveColumns = (market: string) => {
             }),
             liveMarketColumnHelper.accessor('base_currency', {
                 header: () => (
-                    <TableHeaderCell text={<Localize translate_text={base_currency} />} />
+                    <TableHeaderCell
+                        text={<Localize translate_text={base_currency} />}
+                        toolTip={<Localize translate_text={base_currency_tooltip} />}
+                    />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
             }),
@@ -120,7 +133,10 @@ const useLiveColumns = (market: string) => {
             }),
             liveMarketColumnHelper.accessor('trading_hours', {
                 header: () => (
-                    <TableHeaderCell text={<Localize translate_text={trading_hours} />} />
+                    <TableHeaderCell
+                        text={<Localize translate_text={trading_hours} />}
+                        toolTip={<Localize translate_text={trading_hours_tooltip} />}
+                    />
                 ),
                 cell: (info) => <TableCell text={info.getValue()} />,
             }),

@@ -244,7 +244,10 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
 
                         <Flex jc="end" tablet_jc="center">
                             <StyledButton
-                                onClick={() => table.previousPage()}
+                                onClick={() => {
+                                    table.previousPage()
+                                    document.documentElement.scrollTop = 500
+                                }}
                                 disabled={!table.getCanPreviousPage()}
                             >
                                 <StyledChevron src={is_rtl ? RightChevron : LeftChevron} />
@@ -253,13 +256,19 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                                 <StyledButtonPage
                                     selected={page === table.getState().pagination.pageIndex}
                                     key={page}
-                                    onClick={() => table.setPageIndex(page)}
+                                    onClick={() => {
+                                        table.setPageIndex(page)
+                                        document.documentElement.scrollTop = 500
+                                    }}
                                 >
                                     {page + 1}
                                 </StyledButtonPage>
                             ))}
                             <StyledButton
-                                onClick={() => table.nextPage()}
+                                onClick={() => {
+                                    table.nextPage()
+                                    document.documentElement.scrollTop = 500
+                                }}
                                 disabled={!table.getCanNextPage()}
                             >
                                 <StyledChevron src={is_rtl ? LeftChevron : RightChevron} />

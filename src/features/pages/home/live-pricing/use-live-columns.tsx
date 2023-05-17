@@ -123,6 +123,7 @@ const useLiveColumns = () => {
                                 size={is_mobile ? 'small' : 'medium'}
                                 font_family="UBUNTU"
                                 textcolor={color}
+                                dir="ltr"
                             >
                                 {info.getValue()}
                             </Typography.Paragraph>

@@ -21,7 +21,7 @@ const MarketNav = () => {
                 </Link>
             )}
             items={mainItems}
-            has_top_nav={!is_deriv_go}
+            has_deriv_go={is_deriv_go}
         >
             <MainNavButtons />
         </NavTemplate>

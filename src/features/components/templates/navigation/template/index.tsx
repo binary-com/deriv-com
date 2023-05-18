@@ -16,6 +16,7 @@ import { useOutsideClick } from 'components/hooks/use-outside-click'
 
 interface NavTemplateProps extends HTMLAttributes<HTMLDivElement> {
     has_top_nav?: boolean
+    has_deriv_go?: boolean
     renderLogo: () => ReactNode
     has_centered_items?: boolean
     has_centered_logo?: boolean
@@ -27,6 +28,7 @@ const NavTemplate = ({
     renderLogo,
     render_bottom_nav,
     has_top_nav = false,
+    has_deriv_go,
     items = [],
     children,
     className,
@@ -56,13 +58,13 @@ const NavTemplate = ({
 
     return (
         <>
-            {has_top_nav ? (
+            {!has_deriv_go ? (
                 <Container.Fixed
                     as="header"
                     bgcolor="white"
                     className={dclsx(styles.header_wrapper, className)}
                 >
-                    <TopNav />
+                    {has_top_nav && <TopNav />}
                     <Flex.Box
                         container="fluid"
                         justify="between"

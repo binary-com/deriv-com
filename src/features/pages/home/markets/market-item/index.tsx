@@ -8,11 +8,9 @@ import './market-item.scss'
 
 interface IMarketSliderProps {
     item: MarketItem
-    is_eu?: boolean
 }
 
-const MarketSliderItem = ({ item, is_eu }: IMarketSliderProps) => {
-    const img = typeof item.img === 'function' ? item.img({ is_eu }) : item.img
+const MarketSliderItem = ({ item }: IMarketSliderProps) => {
     return (
         <Link url={item.url} className={'link_container'} padding={'10x'} no_hover>
             <Flex.Box direction="col" gap="5x" className={'container'}>
@@ -23,7 +21,7 @@ const MarketSliderItem = ({ item, is_eu }: IMarketSliderProps) => {
                     <Localize translate_text={item.description} />
                 </Typography.Paragraph>
             </Flex.Box>
-            <div className={'image_container'}>{img}</div>
+            <div className={'image_container'}>{item.img}</div>
         </Link>
     )
 }

@@ -39,6 +39,13 @@ export const resourcesNavSectionContent: SmartNavContent[] = [
     {
         id: 5,
         data: {
+            title: '_t_Acuity_t_',
+            url: { type: 'internal', to: '/acuity/' },
+        },
+    },
+    {
+        id: 6,
+        data: {
             title: '_t_Status page_t_',
             url: { type: 'non-company', href: 'https://deriv.statuspage.io', show_eu_modal: true },
         },
@@ -47,7 +54,7 @@ export const resourcesNavSectionContent: SmartNavContent[] = [
         },
     },
     {
-        id: 6,
+        id: 7,
         data: {
             title: '_t_Blog_t_',
             url: { type: 'company', url_name: 'academy', target: '_blank' },

@@ -6,7 +6,7 @@ export type MarketItem = {
     header: TString
     description: TString
     url: LinkUrlType
-    img: ReactElement | ((config: Partial<MarketItemConfig>) => ReactElement)
+    img: ReactElement
 }
 
 type MarketItemConfig = {

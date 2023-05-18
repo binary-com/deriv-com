@@ -1,4 +1,5 @@
 const language_config = require(`./i18n-config.js`)
+const plugin = require('./src/features/styles/postcss-plugin/plugin')
 const isBrowser = typeof window !== 'undefined'
 
 require('dotenv').config({
@@ -9,21 +10,6 @@ const origin = isBrowser && window.location.origin
 const href = isBrowser && window.location.href
 const site_url =
     origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
-
-const strapi_preview_param = {
-    publicationState: process.env.STRAPI_PREVIEW === 'true' ? 'preview' : 'live',
-    'filters[publishedAt][$null]': process.env.STRAPI_PREVIEW === 'true' ? 'true' : 'false',
-}
-const strapi_config = process.env.STRAPI_BUILD == 'true' && [
-    {
-        singularName: 'who-we-are-page',
-        queryParams: strapi_preview_param,
-    },
-    {
-        singularName: 'cfd-warning-banner',
-        queryParams: strapi_preview_param,
-    },
-]
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
@@ -45,6 +31,29 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
+        {
+            resolve: `gatsby-plugin-offline`,
+            options: {
+                precachePages: [`/`],
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-sass',
+            options: {
+                postCssPlugins: [
+                    require('postcss-discard-duplicates'),
+                    plugin({
+                        dest: 'src/classnames.d.ts',
+                        // Set isModule if you want to import ClassNames from another file
+                        // isModule: true,
+                        exportAsDefault: true, // to use in combination with isModule
+                    }),
+                    require('cssnano')({
+                        preset: 'default',
+                    }),
+                ],
+            },
+        },
         {
             resolve: `gatsby-plugin-canonical-urls`,
             options: {
@@ -294,8 +303,14 @@ module.exports = {
                 policy: [
                     {
                         userAgent: '*',
-                        allow: '/',
-                        disallow: ['/404/', '/homepage/', '/landing/', '/endpoint/', '/livechat/'],
+                        disallow: [
+                            '/',
+                            '/404/',
+                            '/homepage/',
+                            '/landing/',
+                            '/endpoint/',
+                            '/livechat/',
+                        ],
                     },
                 ],
             },
@@ -305,14 +320,6 @@ module.exports = {
             options: {
                 id: 'GTM-NF7884S',
                 includeInDevelopment: false,
-            },
-        },
-        {
-            resolve: 'gatsby-source-strapi',
-            options: {
-                apiURL: 'https://chief-skinny-instrument.strapiapp.com',
-                accessToken: process.env.STRAPI_TOKEN,
-                collectionTypes: strapi_config,
             },
         },
     ],

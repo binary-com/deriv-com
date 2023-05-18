@@ -1,0 +1,49 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.nav_card {
+    &_container {
+        position: relative;
+        display: grid;
+        grid-template-columns: 3.2rem 1fr;
+
+        grid-column-gap: 0.8rem;
+        grid-row-gap: 0.4rem;
+        justify-content: center;
+        align-items: center;
+
+        padding: 0.8rem;
+
+        min-block-size: 5rem;
+        min-inline-size: 26rem;
+
+        cursor: pointer;
+        white-space: pre-line;
+
+        @include breakpoints(tablet) {
+            inline-size: 28rem;
+            grid-column-gap: 1.6rem;
+            grid-row-gap: 0.8rem;
+        }
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+        }
+
+        & > h2 {
+            font-size: 1.6rem;
+            line-height: 1;
+        }
+    }
+    &_no_icon {
+        grid-template-columns: 1fr;
+        padding-inline-start: 0;
+    }
+
+    &_content {
+        min-block-size: 6rem;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+}

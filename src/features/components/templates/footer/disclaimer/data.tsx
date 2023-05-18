@@ -175,7 +175,7 @@ export const disclaimerContent: SmartDisclaimerParagraph[] = [
                     target="_blank"
                     url={{
                         type: 'non-company',
-                        href: '/tnc/risk-disclosure-eu.pdf',
+                        href: '/tnc/eu/risk-disclosure.pdf',
                     }}
                 />,
                 <Link

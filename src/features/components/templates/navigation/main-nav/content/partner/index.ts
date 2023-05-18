@@ -11,7 +11,7 @@ export const partnerNavSectionContent: SmartNavContent[] = [
     {
         id: 1,
         data: {
-            title: '_t_Terms and conditions_t_',
+            title: '_t_Payment agents_t_',
             url: { type: 'internal', to: '/partners/payment-agent/' },
         },
         visibility: {

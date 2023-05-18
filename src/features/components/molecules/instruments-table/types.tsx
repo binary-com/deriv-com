@@ -6,6 +6,7 @@ export interface CommonMarketSymbol extends MarketSymbol {
     id: number
 }
 export type InstrumentContentType = {
+    // based on the design can pass columns by passing mobile_basis and desktop_basis
     mobile_basis: TFlexBasis
     desktop_basis: TFlexBasis
     title: TString

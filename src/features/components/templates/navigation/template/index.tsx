@@ -64,7 +64,7 @@ const NavTemplate = ({
                     bgcolor="white"
                     className={dclsx(styles.header_wrapper, className)}
                 >
-                    {has_top_nav && <TopNav />}
+                    {has_top_nav ? <TopNav /> : null}
                     <Flex.Box
                         container="fluid"
                         justify="between"

@@ -23,7 +23,8 @@ export const domains = [
     staging_deriv_be_url,
     'localhost',
     'deriv-com-git-fork',
-] //deriv-com-git-fork for vercel server, localhost - for developer mode
+]
+//deriv-com-git-fork for vercel server, localhost - for developer mode
 
 const getDomainUrl = (): string =>
     isBrowser() && window.location.hostname in domain_url_pair

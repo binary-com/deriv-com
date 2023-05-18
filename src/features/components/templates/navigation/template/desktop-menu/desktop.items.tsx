@@ -10,12 +10,15 @@ interface DesktopItemsProps {
 }
 
 const NavDesktopItem = ({ item }: DesktopItemsProps) => {
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+        if (!('ontouchstart' in window)) {
+            e.preventDefault()
+        }
+    }
+
     return (
         <NavigationMenu.Item value={item.data.title}>
-            <NavigationMenu.Trigger
-                className="navigation_trigger"
-                onClick={(event) => event.preventDefault()}
-            >
+            <NavigationMenu.Trigger className="navigation_trigger" onClick={handleClick}>
                 <Typography.Paragraph size="medium" font_family="UBUNTU">
                     <Localize translate_text={item.data.title} />
                 </Typography.Paragraph>

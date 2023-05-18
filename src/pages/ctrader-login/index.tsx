@@ -36,7 +36,8 @@ const StatusHeader = styled.h2`
 const CtraderLogin = () => {
     const [token] = useQueryParam('token1', StringParam)
     // API_TOKEN Sample: a1-tzAF6PBTnHkOH97ooBdSYvY26oFSm
-    const [has_account, service_token] = useCheckExistingAccount('ctrader', token)
+    const { has_account, service_token } = useCheckExistingAccount('ctrader', token)
+
     if (service_token) {
         if (isBrowser()) {
             window.location.href = `https://ct-uat.deriv.com/?token=${service_token}`

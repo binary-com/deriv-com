@@ -66,5 +66,5 @@ export const useCheckExistingAccount = (platform: string, token: string) => {
         }
     }, [has_account, platform])
 
-    return [has_account, account_loading, email, account_error, service_token]
+    return { has_account, account_loading, email, account_error, service_token }
 }

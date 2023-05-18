@@ -84,7 +84,7 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
     const [submit_status, setSubmitStatus] = useState('')
     const [token, setToken] = useState('')
     const [service_token, setServiceToken] = useState('')
-    const [has_account, account_loading, account_error] = useCheckExistingAccount('ctrader', token)
+    const { has_account, account_loading } = useCheckExistingAccount('ctrader', token)
     const [loading, setLoading] = useState(false)
 
     if (has_account) {

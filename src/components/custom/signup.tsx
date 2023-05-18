@@ -200,7 +200,7 @@ const Signup = (props: SignupProps) => {
         Login.redirectToLogin()
     }
 
-    const hanldeCtraderSuccess = () => {
+    const handleCtraderSuccess = () => {
         props.onSubmit('ctrader-success', email)
     }
 
@@ -272,7 +272,7 @@ const Signup = (props: SignupProps) => {
     }
 
     if (props.submit_state === 'ctrader-check-email') {
-        return <CtraderCheckEmail handleSuccess={hanldeCtraderSuccess} email={email} />
+        return <CtraderCheckEmail handleSuccess={handleCtraderSuccess} email={email} />
     }
     if (props.submit_state === 'ctrader-success') {
         return <CtraderSignupSuccess email={email} />

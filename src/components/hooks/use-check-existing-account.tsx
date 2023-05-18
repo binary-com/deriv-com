@@ -7,6 +7,7 @@ export const useCheckExistingAccount = (platform: string, token: string) => {
     const [account_loading, setLoading] = useState(true)
     const [email, setEmail] = useState('')
     const [account_error, setAccountError] = useState(null)
+    const [service_token, setServiceToken] = useState('')
 
     useEffect(() => {
         if (token) {
@@ -48,5 +49,22 @@ export const useCheckExistingAccount = (platform: string, token: string) => {
         }
     }, [authorized, platform])
 
-    return [has_account, account_loading, email, account_error]
+    useEffect(() => {
+        if (has_account === true) {
+            apiManager
+                .augmentedSend('service_token', {
+                    service_token: 1,
+                    service: platform,
+                })
+                .then((response) => {
+                    if (response.error) {
+                        setAccountError(response.error.message)
+                    } else {
+                        setServiceToken(response.service_token[platform].token)
+                    }
+                })
+        }
+    }, [has_account, platform])
+
+    return [has_account, account_loading, email, account_error, service_token]
 }

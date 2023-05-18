@@ -29,7 +29,7 @@ const StyledDiv = styled.div`
     }
 `
 
-const NewSignup = () => {
+const CtraderSignup = () => {
     const [submit_state, setSubmitState] = useState('')
     const [email, setEmail] = useState('')
 
@@ -64,4 +64,4 @@ const NewSignup = () => {
     )
 }
 
-export default WithIntl()(NewSignup)
+export default CtraderSignup

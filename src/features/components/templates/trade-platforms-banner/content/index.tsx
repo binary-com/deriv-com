@@ -25,7 +25,7 @@ type TradingPlatformHeroContentProps = {
 }
 const TradingPlatformHeroContent: React.FC<
     React.PropsWithChildren<TradingPlatformHeroContentProps>
-> = ({ heading, imageWidth, rightImage, children }) => (
+> = ({ heading, imageWidth, rightImage, productLogo, children }) => (
     <Flex.Box
         container="fluid"
         align="center"
@@ -46,7 +46,7 @@ const TradingPlatformHeroContent: React.FC<
         >
             <Flex.Item className={contentWrapper}>
                 <Box className={contentBox}>
-                    <Image src={item.icon_src} width={96} height={96} />
+                    <Image src={productLogo} width="255px" />
                     <Typography.Heading
                         as="h1"
                         size={'xlarge'}

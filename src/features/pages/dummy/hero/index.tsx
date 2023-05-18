@@ -5,7 +5,7 @@ import Flex from 'features/components/atoms/flex-box'
 import TradePlatformHeroContainer from 'features/components/templates/trade-platforms-banner/'
 import useRegion from 'components/hooks/use-region'
 import TradingPlatformHeroContent from 'features/components/templates/trade-platforms-banner/content'
-
+import Dmt5Logo from 'images/svg/dmt5/dmt5_logo.svg'
 const DummyHero = () => {
     const { is_eu } = useRegion()
     return (
@@ -22,6 +22,7 @@ const DummyHero = () => {
                 heading="The all-in-one CFD trading platform"
                 imageWidth="843px"
                 rightImage={true}
+                productLogo={Dmt5Logo}
             >
                 <StaticImage
                     src="../../../../images/common/dmt5/rebranded-dmt5-banner.png"

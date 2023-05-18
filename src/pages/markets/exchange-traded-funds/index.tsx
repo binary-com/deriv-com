@@ -1,21 +1,19 @@
 import React from 'react'
-import StockIndices from '../components/markets/_stock-indices'
-import { DerivedFXHero } from '../components/sections/_hero_derived_fx'
-import { simple_step_content_stock } from '../static/content/_stock'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import MarketNav from 'features/components/templates/navigation/market-nav'
 import ETFMarket from 'features/pages/markets/etf'
+import InstrumentsTableEtf from 'features/pages/markets/etf/instruments-etf'
 
 const StocksAndIndicesPage = () => (
     <Layout type="noNav">
         <SEO
             description={localize(
-                'Trade global stocks and stock market indices on Deriv. Enjoy our competitively priced equities even outside regular hours of major stock markets.',
+                '_t_Trade global stocks and stock market indices on Deriv. Enjoy our competitively priced equities even outside regular hours of major stock markets._t_',
             )}
-            title={localize('Stock market | Indices trading | Deriv')}
+            title={localize('_t_Stock market | Indices trading | Deriv_t_')}
         />
         {/* <DerivedFXHero
             title={localize('Stocks & indices')}
@@ -25,6 +23,7 @@ const StocksAndIndicesPage = () => (
         /> */}
         <MarketNav />
         <ETFMarket />
+        <InstrumentsTableEtf />
         <Signup appearance={Appearances.public} />
     </Layout>
 )

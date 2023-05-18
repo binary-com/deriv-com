@@ -17,10 +17,10 @@ const AcuityTradeTools = () => {
                 md={{ mt: '40x', margin_inline: '25x', mb: '30x' }}
             >
                 <FlexBox.Box direction={'col'}>
-                    <Typography.Heading align={'center'} as="h1" size="large" textcolor="brand">
+                    <Typography.Heading align={'center'} as="h1" size="xlarge" textcolor="brand">
                         <Localize translate_text={'_t_Acuity Trading Tools_t_'} />
                     </Typography.Heading>
-                    <Typography.Paragraph align={'center'} mt={'8x'} weight={'normal'} size="large">
+                    <Typography.Paragraph align={'center'} mt={'8x'} size="xlarge">
                         <Localize
                             translate_text={
                                 '_t_Experience the power of AI-driven tools to get an in-depth overview of market sentiment and level up your trading strategies. Acuity tools use machine learning algorithms to analyse and interpret market news and trends in real time, providing traders of all levels of experience with a competitive edge._t_'

@@ -40,7 +40,7 @@ const ImageWithParagraph = ({ contentData }: ImageWithParagraphType) => {
                                 </Typography.Heading>
                             ) : null}
 
-                            <Typography.Paragraph align={'center'} mb={'8x'} size="large">
+                            <Typography.Paragraph align={'center'} mb={'8x'} size="xlarge">
                                 <Localize translate_text={feature?.subtitle} />
                             </Typography.Paragraph>
                             {feature?.system_url ? (
@@ -58,6 +58,7 @@ const ImageWithParagraph = ({ contentData }: ImageWithParagraphType) => {
                                                     : feature.system_url,
                                             target: '_blank',
                                         }}
+                                        font_family="UBUNTU"
                                     >
                                         <Localize translate_text={feature.button_text} />
                                     </LinkButton.Primary>

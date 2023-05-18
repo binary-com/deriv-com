@@ -14,30 +14,34 @@ const WelcomeBannerAcuity = () => {
             padding_inline="8x"
             md={{ padding_block: '40x', mt: '40x' }}
         >
-            <Typography.Heading as="h3" size="large" align="center" mb="10x" textcolor="inverted">
+            <Typography.Heading as="h3" size="small" align="center" mb="8x" textcolor="inverted">
                 <Localize translate_text="_t_Come start your trading journey with Deriv_t_" />
             </Typography.Heading>
             <Typography.Paragraph
-                size="large"
+                size="medium"
                 align="center"
                 textcolor="inverted"
                 padding_inline="20x"
-                mb="30x"
+                mb="15x"
             >
                 <Localize translate_text="_t_Take advantage of our latest tools and resources and trade with confidence. Join us now!_t_" />
             </Typography.Paragraph>
 
             <Typography.Paragraph
-                size="xlarge"
+                size="medium"
                 align="center"
                 weight="bold"
                 textcolor="inverted"
-                mb="20x"
+                mb="10x"
             >
                 <Localize translate_text="_t_Sign up for a free demo account_t_" />
             </Typography.Paragraph>
             <FlexBox.Box basis="2-12" justify="center">
-                <LinkButton.Primary size="medium" url={{ type: 'internal', to: '/signup/' }}>
+                <LinkButton.Primary
+                    size="medium"
+                    url={{ type: 'internal', to: '/signup/' }}
+                    font_family="UBUNTU"
+                >
                     <Localize translate_text="_t_Sign up_t_" />
                 </LinkButton.Primary>
             </FlexBox.Box>

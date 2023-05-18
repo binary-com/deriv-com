@@ -87,6 +87,7 @@ export const smart_trader_languages = [
     'zh_cn',
     'zh_tw',
 ]
+
 export const deriv_status_page_url = 'https://deriv.statuspage.io'
 export const derivx_ios_url = 'https://apps.apple.com/us/app/deriv-x/id1563337503'
 export const derivx_android_url = 'https://play.google.com/store/apps/details?id=com.deriv.dx'

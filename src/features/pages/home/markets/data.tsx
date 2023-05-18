@@ -34,14 +34,22 @@ export const market_items: SmartMarketItem[] = [
                 type: 'internal',
                 to: '/markets/synthetic/',
             },
-            img: (
-                <StaticImage
-                    src="../../../../images/common/home/market_derived.png"
-                    alt="synthetic market"
-                    formats={['avif', 'webp', 'auto']}
-                    placeholder="none"
-                />
-            ),
+            img: ({ is_eu }) =>
+                is_eu ? (
+                    <StaticImage
+                        src="../../../../images/common/home/market_derived_eu.png"
+                        alt="synthetic market"
+                        formats={['avif', 'webp', 'auto']}
+                        placeholder="none"
+                    />
+                ) : (
+                    <StaticImage
+                        src="../../../../images/common/home/market_derived.png"
+                        alt="synthetic market"
+                        formats={['avif', 'webp', 'auto']}
+                        placeholder="none"
+                    />
+                ),
         },
     },
     {

@@ -28,7 +28,7 @@ const BugBountyNav = () => {
             >
                 <Button.Primary
                     id="dm-nav-submit-button"
-                    onClick={() => window.open('https://hackerone.com/binary?type=team', '_blank')}
+                    onClick={() => window.open('https://hackerone.com/deriv?type=team', '_blank')}
                     outlined
                 >
                     <Localize translate_text="_t_Submit a report_t_" />

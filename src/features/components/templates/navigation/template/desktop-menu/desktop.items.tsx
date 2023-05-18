@@ -11,7 +11,7 @@ interface DesktopItemsProps {
 
 const NavDesktopItem = ({ item }: DesktopItemsProps) => {
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        if (!('ontouchstart' in window)) {
+        if (!window.matchMedia('(hover: none)').matches) {
             e.preventDefault()
         }
     }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactElement } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import PageNotFound from '../404'
 import { DerivGoContent, FooterBanner, StartDerivGo } from './_lazy-load'
 import Banner from './_banner'
@@ -96,9 +96,9 @@ const DerivGo = () => {
                     <WhyTradeDerivGo />
                     <DerivGoContent reverse P2P={items} />
                     <StartDerivGo />
+                    <Roadmap portal={derivGoPortalData} />
                     <FooterBanner />
                     <OtherApps />
-                    <Roadmap portal={derivGoPortalData} />
                 </Layout>
             )
         }

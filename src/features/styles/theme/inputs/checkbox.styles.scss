@@ -1,0 +1,22 @@
+@import 'features/styles/theme/variables';
+
+.checkbox_input_container {
+    cursor: pointer;
+    user-select: none;
+    & input[type='checkbox'] {
+        accent-color: $color-brand;
+        margin: 0;
+        margin-inline-end: 1rem;
+        color: currentColor;
+        inline-size: 16px;
+        block-size: 16px;
+        border: 2px solid #999999;
+        border-radius: 2px;
+        vertical-align: -2px;
+        appearance: none;
+
+        &:checked {
+            appearance: auto;
+        }
+    }
+}

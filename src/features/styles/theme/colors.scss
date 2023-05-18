@@ -1,0 +1,23 @@
+@import './variables';
+
+.bg-color-brand {
+    background-color: $color-brand;
+}
+.bg-color-primary {
+    background-color: $color-white;
+}
+.bg-color-secondary {
+    background-color: $color-white-1;
+}
+.bg-color-tertiary {
+    background-color: $color-grey-44;
+}
+.bg-color-inverted {
+    background-color: $color-black-9;
+}
+.bg-color-white {
+    background-color: $color-white;
+}
+.bg-color-black {
+    background-color: $color-black-9;
+}

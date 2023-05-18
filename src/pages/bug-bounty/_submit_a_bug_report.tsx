@@ -103,7 +103,7 @@ const SubmitABugReport = () => {
                                 components={[
                                     <LinkText
                                         key={0}
-                                        href="https://hackerone.com/binary"
+                                        href="https://hackerone.com/deriv"
                                         target="_blank"
                                     />,
                                 ]}

@@ -1,0 +1,16 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.item_container {
+}
+.flex_container {
+    justify-content: center;
+    @include breakpoints(tablet) {
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+.item_box {
+    @include breakpoints(tablet) {
+        inline-size: 44rem;
+    }
+}

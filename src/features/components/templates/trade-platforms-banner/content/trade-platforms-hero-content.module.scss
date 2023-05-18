@@ -1,0 +1,71 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.hero_cta {
+    inline-size: 100%;
+    padding: 1rem 2.4rem;
+    min-block-size: 4rem;
+    block-size: 4rem;
+    font-size: 1.4rem;
+    max-width: inherit;
+    width: max-content;
+    @include breakpoints(tablet) {
+        
+    }
+}
+
+html:not([lang='en']) .hero_content_title {
+    @include breakpoints(tablet) {
+        max-inline-size: 100%;
+    }
+}
+.right_fixed{
+    @include breakpoints(tablet) {
+        // position: absolute;
+        // right: 0;
+    }
+}
+.contentWrapper{
+    flex: 1 1 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-inline-size: 40%;
+    direction: ltr;
+    .contentBox{
+        max-inline-size: 632px;
+        inline-size: 100%;
+        display: flex;
+        gap: 30px;
+        flex-direction: column;
+    }
+}
+.hero_image_wrapper{
+    inline-size: 60%;
+    position: absolute;
+    inset-inline-end: 0px;
+    block-size: 100%;
+
+    .image_container{
+        overflow: hidden;
+        block-size: 100%;
+        inline-size: 100%;
+        display: flex;
+        position: relative;
+        .image_wrapper{
+            display: flex;
+            padding: 64px 0px;
+            -webkit-box-pack: end;
+            justify-content: end;
+            inline-size: 100%;
+            align-self: center;
+            flex: 1 1 0%;
+            .image_size{
+                z-index: 1;
+                max-inline-size: 843px;
+                inline-size: inherit;
+            }
+        }
+    }
+}
+

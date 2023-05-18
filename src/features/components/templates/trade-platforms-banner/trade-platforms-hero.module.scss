@@ -1,0 +1,44 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.trade_platform_hero {
+    position: relative;
+
+    @include breakpoints(tablet) {
+        min-block-size: 100rem;
+    }
+
+    @include breakpoints(desktop) {
+        min-block-size: 100svh;
+    }
+
+    &::before {
+        content: ' ';
+        position: absolute;
+        block-size: 65%;
+        inline-size: 100%;
+        background-color: $color-brand;
+        inset-block-end: 0;
+        clip-path: polygon(0 60%, 100% 40%, 100% 100%, 0% 100%);
+
+        @include breakpoints(tablet) {
+            inset-block-end: unset;
+            inset-inline-end: 0;
+            block-size: 100%;
+            inline-size: 50%;
+            clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+    }
+}
+.blueCurve{
+    &::before {
+        content: ' ';
+        background-color: $color-blue-15;
+    }
+}
+.redCurve{
+    &::before {
+        content: ' ';
+        background-color: $color-brand;
+    }
+}

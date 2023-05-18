@@ -3,7 +3,14 @@
 .text_input {
     &_container {
         position: relative;
-
+        &.error{
+            & > input{
+                border: 1px solid $color-brand;
+                + label {
+                    color:$color-brand;
+                }
+            }
+        }
         & > input {
             font-size: 1.6rem;
             display: block;

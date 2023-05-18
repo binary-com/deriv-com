@@ -26,7 +26,7 @@ const SignUpPageForm = () => {
                 autoComplete="none"
                 autoCapitalize="none"
                 id="email_address"
-                label={'_t_Email address_t_'}
+                label={'_t_Email_t_'}
                 error={errors?.email?.message ? localize(errors?.email?.message as TString) : null}
                 {...register('email')}
             />

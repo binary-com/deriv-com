@@ -11,8 +11,9 @@ interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
 
 const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     ({ error, className, label, ...rest }, ref) => {
+        const notValid = error && error.length ? 'error' : 'valid'
         return (
-            <div className={dclsx(className, 'text_input_container')}>
+            <div className={dclsx(className, 'text_input_container', notValid)}>
                 <input placeholder={localize(label)} {...rest} ref={ref} />
                 {label && (
                     <Typography.Paragraph

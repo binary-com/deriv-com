@@ -20,7 +20,6 @@ import {
     StyledButtonPage,
     StyledPaginationContainer,
 } from './_elements'
-import AvailablePlatform from './_available-platform'
 import SearchNotFound from 'images/svg/trading-specification/search-not-found.svg'
 import RightChevron from 'images/svg/trading-specification/right-chevron.svg'
 import LeftChevron from 'images/svg/trading-specification/left-chevron.svg'
@@ -174,8 +173,6 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
 
     return (
         <>
-            <AvailablePlatform />
-
             <TableContainer>
                 <StyledFlex>
                     <SearchForm onSubmit={handleSubmit}>

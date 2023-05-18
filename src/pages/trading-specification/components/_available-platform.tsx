@@ -5,13 +5,19 @@ import { Flex } from 'components/containers'
 import DerivMT5 from 'images/svg/trading-specification/deriv-mt5.svg'
 import DerivX from 'images/svg/trading-specification/deriv-x.svg'
 import DerivEZ from 'images/svg/trading-specification/deriv-ez.svg'
+import Ctrader from 'images/svg/trading-specification/deriv-ctrader.svg'
 import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import { Header } from 'components/elements'
 import { TString } from 'types/generics'
 
+type AvailablePlatformProps = {
+    selected_market: string
+}
+
 const StyledHeader = styled(Header)`
     font-family: 'Ubuntu';
+    font-weight: bold;
 `
 
 const PlatformsContainer = styled(Flex)`
@@ -39,13 +45,16 @@ const FlexContainer = styled(Flex)`
     @media ${device.tablet} {
         gap: 12px;
     }
+    @media ${device.mobileM} {
+        gap: 0px;
+    }
 `
 const StyledLocalizedLink = styled(LocalizedLink)`
-    width: 108px;
+    width: 133px;
 
     @media ${device.tablet} {
         flex-direction: row;
-        width: auto;
+        width: max-content;
     }
 `
 const StyledFlex = styled(Flex)`
@@ -55,17 +64,20 @@ const available_on: TString = '_t_Available on_t_'
 const deriv_mt5: TString = '_t_deriv MT5_t_'
 const deriv_x: TString = '_t_deriv X_t_'
 const deriv_ez: TString = '_t_deriv EZ_t_'
+const deriv_ctrader: TString = '_t_deriv cTrader_t_'
 
-const AvailablePlatform = () => {
+const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
     const { is_row } = useRegion()
+    const selectedEtfsTab = selected_market === 'etfs'
+
     return (
         <>
             <StyledFlex wrap="nowrap" ai="center">
                 <PlatformsContainer ai="center">
                     <FlexContainer>
-                        <StyledHeader type="paragraph-1" weight="normal" width="auto" as="p">
+                        <Header type="paragraph-1" weight="normal" width="auto" as="h2">
                             <Localize translate_text={available_on} />
-                        </StyledHeader>
+                        </Header>
                     </FlexContainer>
 
                     {is_row ? (
@@ -74,12 +86,7 @@ const AvailablePlatform = () => {
                                 <StyledLocalizedLink to="/dmt5/">
                                     <Flex direction="row">
                                         <img src={DerivMT5} alt="Deriv MT5" />
-                                        <StyledHeader
-                                            type="paragraph-1"
-                                            weight="bold"
-                                            as="p"
-                                            width="auto"
-                                        >
+                                        <StyledHeader type="paragraph-1" as="h2" width="auto">
                                             <Localize translate_text={deriv_mt5} />
                                         </StyledHeader>
                                     </Flex>
@@ -87,29 +94,41 @@ const AvailablePlatform = () => {
                                 <StyledLocalizedLink to="/derivx/">
                                     <Flex direction="row">
                                         <img src={DerivX} alt="Deriv X" width="24" height="24" />
-                                        <StyledHeader
-                                            type="paragraph-1"
-                                            weight="bold"
-                                            as="p"
-                                            width="auto"
-                                        >
+                                        <StyledHeader type="paragraph-1" as="h2" width="auto">
                                             <Localize translate_text={deriv_x} />
                                         </StyledHeader>
                                     </Flex>
                                 </StyledLocalizedLink>
-                                <StyledLocalizedLink to="/derivez/">
-                                    <Flex direction="row">
-                                        <img src={DerivEZ} alt="Deriv EZ" width="24" height="24" />
-                                        <StyledHeader
-                                            type="paragraph-1"
-                                            weight="bold"
-                                            as="p"
-                                            width="auto"
-                                        >
-                                            <Localize translate_text={deriv_ez} />
-                                        </StyledHeader>
-                                    </Flex>
-                                </StyledLocalizedLink>
+                                {!selectedEtfsTab ? (
+                                    <StyledLocalizedLink to="/derivez/">
+                                        <Flex direction="row">
+                                            <img
+                                                src={DerivEZ}
+                                                alt="Deriv EZ"
+                                                width="24"
+                                                height="24"
+                                            />
+                                            <StyledHeader type="paragraph-1" as="h2" width="auto">
+                                                <Localize translate_text={deriv_ez} />
+                                            </StyledHeader>
+                                        </Flex>
+                                    </StyledLocalizedLink>
+                                ) : null}
+                                {selectedEtfsTab ? (
+                                    <StyledLocalizedLink to="/deriv-ctrader/">
+                                        <Flex direction="row">
+                                            <img
+                                                src={Ctrader}
+                                                alt="Deriv cTrader"
+                                                width="24"
+                                                height="24"
+                                            />
+                                            <StyledHeader type="paragraph-1" as="h2" width="auto">
+                                                <Localize translate_text={deriv_ctrader} />
+                                            </StyledHeader>
+                                        </Flex>
+                                    </StyledLocalizedLink>
+                                ) : null}
                             </FlexContainer>
                         </>
                     ) : (
@@ -118,9 +137,9 @@ const AvailablePlatform = () => {
                                 <Flex direction="row">
                                     <img src={DerivMT5} alt="Deriv MT5" width="24" height="24" />
                                     <StyledHeader
-                                        type="paragraph-1"
                                         weight="bold"
-                                        as="p"
+                                        type="paragraph-1"
+                                        as="h2"
                                         width="auto"
                                     >
                                         <Localize translate_text={deriv_mt5} />

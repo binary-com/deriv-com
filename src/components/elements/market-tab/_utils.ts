@@ -4,11 +4,13 @@ import Derived from 'images/svg/home/ts_derived_icon.svg'
 import Stocks from 'images/svg/home/ts_stocks_icon.svg'
 import Crypto from 'images/svg/home/ts_crypto_icon.svg'
 import Commodities from 'images/svg/home/ts_commodities_icon.svg'
+import Etfs from 'images/svg/home/ts_etfs.svg'
 import SelectedForex from 'images/svg/home/selected_ts_fx_icon.svg'
 import SelectedDerived from 'images/svg/home/selected_ts_derived_icon.svg'
 import SelectedStocks from 'images/svg/home/selected_ts_stocks_icon.svg'
 import SelectedCrypto from 'images/svg/home/selected_ts_crypto_icon.svg'
 import SelectedCommodities from 'images/svg/home/selected_ts_commodities_icon.svg'
+import SelectedEtfs from 'images/svg/home/selected_etfs.svg'
 
 export const market_buttons: TMarketButtons[] = [
     {
@@ -43,6 +45,16 @@ export const market_buttons: TMarketButtons[] = [
     },
     {
         id: 3,
+        src: Etfs,
+        selected_src: SelectedEtfs,
+        button_text: 'ETFs',
+        market_name: 'etfs',
+        market_description:
+            '_t_Diversify your portfolio with various assets, such as bonds, commodities, and indices, without the high cost of owning the underlying assets._t_',
+        to: 'markets/etfs/',
+    },
+    {
+        id: 4,
         src: Crypto,
         selected_src: SelectedCrypto,
         button_text: 'Cryptocurrencies',
@@ -52,7 +64,7 @@ export const market_buttons: TMarketButtons[] = [
         to: 'markets/cryptocurrencies/',
     },
     {
-        id: 4,
+        id: 5,
         src: Commodities,
         selected_src: SelectedCommodities,
         button_text: 'Commodities',

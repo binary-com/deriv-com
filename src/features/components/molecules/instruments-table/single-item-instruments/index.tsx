@@ -5,13 +5,13 @@ import Symbol from 'pages/markets/components/helper/_symbol'
 import { CommonMarketSymbol } from 'features/components/molecules/instruments-table/types'
 import { TFlexBasis } from 'features/types'
 
-interface SingleInstrumentsItemType {
+interface SingleInstrumentsItemProps {
     content: CommonMarketSymbol
     mobile_basis: TFlexBasis
     md_basis: TFlexBasis
 }
 
-const SingleInstrumentsItem = ({ content, mobile_basis, md_basis }: SingleInstrumentsItemType) => {
+const SingleInstrumentsItem = ({ content, mobile_basis, md_basis }: SingleInstrumentsItemProps) => {
     const { src, text } = content
     return (
         <Flex.Box

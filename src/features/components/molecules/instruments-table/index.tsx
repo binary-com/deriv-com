@@ -6,10 +6,10 @@ import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 
-interface InstrumentalTableType {
+interface InstrumentalTableProps {
     tableContent: InstrumentContentType
 }
-const InstrumentalTable = ({ tableContent }: InstrumentalTableType) => {
+const InstrumentalTable = ({ tableContent }: InstrumentalTableProps) => {
     const { title, data, mobile_basis, desktop_basis } = tableContent
     return (
         <Flex.Box container="fluid" margin_block={'30x'} className={styles.instrumental_wrapper}>

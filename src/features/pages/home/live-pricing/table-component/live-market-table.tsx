@@ -19,16 +19,20 @@ import { TString } from 'types/generics'
 export type TLiveMarketTableProps = {
     selected_market: TAvailableLiveMarkets
     link_to: string
-    display_name: string
 }
 
-const LiveMarketTable = ({ selected_market, link_to, display_name }: TLiveMarketTableProps) => {
+const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) => {
     const { is_eu } = useRegion()
     const [initial_loaded, setInitialLoaded] = useState(false)
 
     const [rawMarketsData, setRawMarketsData] = useState()
-    const see_all_markets: TString = `_t_See all ${display_name} market >_t_`
-
+    const markets = {
+        forex: `See all forex market >`,
+        derived: `See all derived market >`,
+        indices: `See all stocks & indices market >`,
+        cryptocurrency: `See all cryptocurrencies market >`,
+        commodities: `See all commodities market >`,
+    }
     const TABLE_VISIBLE_ROWS = 5
     const [markets_data, setMarketsData] = useState(() => {
         const temp = new Map<TAvailableLiveMarkets, TMarketData[]>()
@@ -139,18 +143,9 @@ const LiveMarketTable = ({ selected_market, link_to, display_name }: TLiveMarket
             </Flex.Box>
 
             <Flex.Box justify="center" align="center" mt="18x" gap="10x">
-                <Typography.Paragraph>
-                    <Localize
-                        translate_text={see_all_markets}
-                        components={[
-                            <Link
-                                key={0}
-                                url={{ type: 'internal', to: link_to }}
-                                font_family="UBUNTU"
-                            />,
-                        ]}
-                    />
-                </Typography.Paragraph>
+                <Link url={{ type: 'internal', to: link_to }} font_family="UBUNTU" size="medium">
+                    <Localize translate_text={markets[selected_market]}></Localize>
+                </Link>
             </Flex.Box>
         </>
     )

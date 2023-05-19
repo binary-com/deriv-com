@@ -6,7 +6,7 @@ import Typography from 'features/components/atoms/typography'
 import Button from 'features/components/atoms/button'
 import { Localize } from 'components/localization'
 import useAuthCheck from 'components/hooks/use-auth-check'
-import { handleGetTrading } from 'components/custom/utils'
+import { handleRedirectToTradersHub } from 'components/custom/utils'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import LinkButton from 'features/components/atoms/link-button'
 
@@ -37,7 +37,7 @@ const LivePricing = () => {
                 </LinkButton.Primary>
 
                 <Button.Primary
-                    onClick={is_logged_in ? handleGetTrading : handleLogin}
+                    onClick={is_logged_in ? handleRedirectToTradersHub : handleLogin}
                     aria-label="Get trading"
                 >
                     <Localize translate_text="_t_Trade now_t_" />

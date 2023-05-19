@@ -13,7 +13,6 @@ import Icon from 'features/components/atoms/icon'
 const MarketTab = () => {
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
     const [linkToMarketPage, setLinkToMarketPage] = useState('/markets/forex/')
-    const [displayName, setDisplayName] = useState('Forex')
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
     }
@@ -36,7 +35,6 @@ const MarketTab = () => {
                         onClick={() => {
                             onMarketButtonClick(market_item.market_name)
                             setLinkToMarketPage(market_item.to)
-                            setDisplayName(market_item.button_text)
                         }}
                     >
                         <Icon
@@ -73,11 +71,7 @@ const MarketTab = () => {
                     ),
             )}
 
-            <LiveMarketTable
-                selected_market={selected_market}
-                link_to={linkToMarketPage}
-                display_name={displayName}
-            />
+            <LiveMarketTable selected_market={selected_market} link_to={linkToMarketPage} />
         </Container.Fluid>
     )
 }

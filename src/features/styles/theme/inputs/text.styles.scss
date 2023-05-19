@@ -3,7 +3,14 @@
 .text_input {
     &_container {
         position: relative;
-
+        &.error{
+            & > input{
+                border: 1px solid $color-brand;
+            }
+            label {
+                color:$color-brand;
+            }
+        }
         & > input {
             font-size: 1.6rem;
             display: block;
@@ -29,6 +36,14 @@
             &:not(:placeholder-shown) ~ .text_input_label {
                 inset-block-start: -12px;
             }
+        }
+        .cross_icon{
+            position: absolute;
+            inset-inline-end: 0.8rem;
+            inset-block-start: 1.2rem;
+            block-size: 1.6rem;
+            inline-size: 1.6rem;
+            cursor: pointer;
         }
     }
 

@@ -22,10 +22,15 @@ const OurPlatforms = () => {
             ? '_t_Choose from {{platform_count}} powerful platforms — each designed with your needs in mind._t_'
             : '_t_Choose from {{platform_count}} powerful platforms — designed with you in mind_t_'
     }, [is_eu])
-
+    // const [current_widget, setCurrentWidget] = useState<TString>('_t_hey_t_')
     return (
         <Container.Fixed as="section" pt="16x" md={{ padding_block: '40x' }}>
             <Typography.Heading as="h1" size="medium" align="center" mb="10x">
+                {/*<TabMenu*/}
+                {/*    tab_names={['_t_hey_t_', '_t_you_t_', '_t_watsup_t_']}*/}
+                {/*    current_tab={current_widget}*/}
+                {/*    setCurrentTab={setCurrentWidget}*/}
+                {/*/>*/}
                 <Localize translate_text="_t_Our platforms_t_" />
             </Typography.Heading>
             <Typography.Paragraph size="xlarge" align="center" padding_inline="20x">

@@ -282,7 +282,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                         popup_type={popup_type}
                         toggle={() => {
                             setShowPopUp(false)
-                            document.body.style.overflow = 'scroll'
+                            // document.body.style.overflow = 'scroll'
                         }}
                     />
                 )}
@@ -335,6 +335,7 @@ export const Card = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
 `
 export const ModalCard = styled.div`
     position: relative;

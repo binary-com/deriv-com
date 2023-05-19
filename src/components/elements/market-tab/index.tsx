@@ -27,25 +27,24 @@ const MarketTab = () => {
         <>
             <MarketsContainer>
                 {market_buttons.map((marketItem) => (
-                    <React.Fragment key={marketItem.id}>
-                        <MarketButton
-                            selected={marketItem.market_name === selected_market}
-                            onClick={() => {
-                                onMarketButtonClick(marketItem.market_name)
-                            }}
-                        >
-                            <MarketIcon
-                                src={
-                                    marketItem.market_name === selected_market
-                                        ? marketItem.selected_src
-                                        : marketItem.src
-                                }
-                            />
-                            <TabStyledHeader type="paragraph-2" as="p">
-                                <Localize translate_text={marketItem.button_text} />
-                            </TabStyledHeader>
-                        </MarketButton>
-                    </React.Fragment>
+                    <MarketButton
+                        selected={marketItem.market_name === selected_market}
+                        key={marketItem.id}
+                        onClick={() => {
+                            onMarketButtonClick(marketItem.market_name)
+                        }}
+                    >
+                        <MarketIcon
+                            src={
+                                marketItem.market_name === selected_market
+                                    ? marketItem.selected_src
+                                    : marketItem.src
+                            }
+                        />
+                        <TabStyledHeader type="paragraph-2" as="p">
+                            <Localize translate_text={marketItem.button_text} />
+                        </TabStyledHeader>
+                    </MarketButton>
                 ))}
             </MarketsContainer>
             <ContainerWrapper>
@@ -53,7 +52,7 @@ const MarketTab = () => {
                     (marketItem) =>
                         marketItem.market_name === selected_market && (
                             <Header
-                                key={marketItem.market_name}
+                                key={marketItem.id}
                                 type="paragraph-1"
                                 weight="normal"
                                 align="center"

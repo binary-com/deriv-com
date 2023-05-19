@@ -157,24 +157,15 @@ const platformSliderItems: SmartPlatformItem[] = [
                     />,
                 ],
             },
-            image: ({ is_eu }) =>
-                is_eu ? (
-                    <StaticImage
-                        objectFit="contain"
-                        src="../../../../images/common/home/rebranding/platform_deriv_trader_eu.png"
-                        alt="deriv trader eu"
-                        formats={['avif', 'webp', 'auto']}
-                        placeholder="none"
-                    />
-                ) : (
-                    <StaticImage
-                        objectFit="contain"
-                        src="../../../../images/common/home/rebranding/platform_deriv_trader.png"
-                        alt="deriv trader"
-                        formats={['avif', 'webp', 'auto']}
-                        placeholder="none"
-                    />
-                ),
+            image: (
+                <StaticImage
+                    objectFit="contain"
+                    src="../../../../images/common/home/rebranding/platform_deriv_trader.png"
+                    alt="deriv trader"
+                    formats={['avif', 'webp', 'auto']}
+                    placeholder="none"
+                />
+            ),
         },
     },
     {
@@ -239,13 +230,13 @@ const platformSliderItems: SmartPlatformItem[] = [
                 components: [
                     <Link
                         key={0}
-                        url={{ type: 'non-company', href: derivx_android_url }}
+                        url={{ type: 'non-company', href: deriv_go_playstore_url }}
                         weight="bold"
                         font_family="UBUNTU"
                     />,
                     <Link
                         key={1}
-                        url={{ type: 'non-company', href: derivx_ios_url }}
+                        url={{ type: 'non-company', href: deriv_go_ios_url }}
                         weight="bold"
                         font_family="UBUNTU"
                     />,

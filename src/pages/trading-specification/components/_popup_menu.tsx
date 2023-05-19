@@ -67,70 +67,68 @@ const PopUpMenu = ({ market, popup_type, toggle }: TPopUpMenuProps) => {
     }, [market, popup_type])
 
     return (
-        <>
-            <Card>
-                {is_calculated ? (
-                    <ModalCard>
-                        <Header type="subtitle-1" as="p">
-                            <Localize translate_text={how_it_is_calculated} />
+        <Card>
+            {is_calculated ? (
+                <ModalCard>
+                    <Header type="subtitle-1" as="p">
+                        <Localize translate_text={how_it_is_calculated} />
+                    </Header>
+
+                    <HowItsCalculated market={market} />
+                    <StyledFlex jc="center">
+                        <BackButton tertiary onClick={toggleCalculated}>
+                            <Localize translate_text={back} />
+                        </BackButton>
+                    </StyledFlex>
+                </ModalCard>
+            ) : (
+                <ModalCard>
+                    <StyledHeading>
+                        <Header type="paragraph-1" align="center" as="p">
+                            <Localize translate_text={modalTitle} />
                         </Header>
+                        <CloseIconButton src={CloseIcon} onClick={toggle} />
+                    </StyledHeading>
 
-                        <HowItsCalculated market={market} />
-                        <StyledFlex jc="center">
-                            <BackButton tertiary onClick={toggleCalculated}>
-                                <Localize translate_text={back} />
-                            </BackButton>
-                        </StyledFlex>
-                    </ModalCard>
-                ) : (
-                    <ModalCard>
-                        <StyledHeading>
-                            <Header type="paragraph-1" align="center" as="p">
-                                <Localize translate_text={modalTitle} />
-                            </Header>
-                            <CloseIconButton src={CloseIcon} onClick={toggle} />
-                        </StyledHeading>
+                    <Header type="paragraph-2" align="center" weight="normal" as="p">
+                        <Localize translate_text={modalDescription} />
+                    </Header>
 
-                        <Header type="paragraph-2" align="center" weight="normal" as="p">
-                            <Localize translate_text={modalDescription} />
-                        </Header>
-
-                        {popup_type === dl ? (
-                            <>
-                                <DLTableContainer>
-                                    <TableWrapper>
-                                        <Tr>
-                                            <Th>
-                                                <Localize translate_text={from_lots} />
-                                            </Th>
-                                            <Th>
-                                                <Localize translate_text={to_lots} />
-                                            </Th>
-                                            <Th>
-                                                <Localize translate_text={leverage} />
-                                            </Th>
+                    {popup_type === dl ? (
+                        <>
+                            <DLTableContainer>
+                                <TableWrapper>
+                                    <Tr>
+                                        <Th>
+                                            <Localize translate_text={from_lots} />
+                                        </Th>
+                                        <Th>
+                                            <Localize translate_text={to_lots} />
+                                        </Th>
+                                        <Th>
+                                            <Localize translate_text={leverage} />
+                                        </Th>
+                                    </Tr>
+                                    {markets_data.map((data, index) => (
+                                        <Tr key={index}>
+                                            <Td>{data.from}</Td>
+                                            <Td>{data.to}</Td>
+                                            <Td>{data.leverage}</Td>
                                         </Tr>
-                                        {markets_data.map((data, index) => (
-                                            <Tr key={index}>
-                                                <Td>{data.from}</Td>
-                                                <Td>{data.to}</Td>
-                                                <Td>{data.leverage}</Td>
-                                            </Tr>
-                                        ))}
-                                    </TableWrapper>
-                                </DLTableContainer>
-                                <HowItIsCalculated>
-                                    <StyledLinkButton flat onClick={toggleCalculated}>
-                                        <Localize translate_text={how_dl_is_calculated} />
-                                    </StyledLinkButton>
-                                </HowItIsCalculated>
-                            </>
-                        ) : null}
-                    </ModalCard>
-                )}
-                <Background></Background>
-            </Card>
-        </>
+                                    ))}
+                                </TableWrapper>
+                            </DLTableContainer>
+                            <HowItIsCalculated>
+                                <StyledLinkButton flat onClick={toggleCalculated}>
+                                    <Localize translate_text={how_dl_is_calculated} />
+                                </StyledLinkButton>
+                            </HowItIsCalculated>
+                        </>
+                    ) : null}
+                </ModalCard>
+            )}
+            <Background></Background>
+        </Card>
     )
 }
 

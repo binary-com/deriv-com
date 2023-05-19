@@ -15,6 +15,8 @@ const SignUpPageForm = () => {
         formState: { errors, isValid },
         watch,
         handleSubmit,
+        clearErrors,
+        setValue,
     } = signUpForm
     const values = watch()
 
@@ -27,6 +29,8 @@ const SignUpPageForm = () => {
                 autoCapitalize="none"
                 id="email_address"
                 label={'_t_Email_t_'}
+                clearErrors={clearErrors}
+                setValue={setValue}
                 error={errors?.email?.message ? localize(errors?.email?.message as TString) : null}
                 {...register('email')}
             />

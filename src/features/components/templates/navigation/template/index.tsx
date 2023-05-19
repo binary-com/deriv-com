@@ -110,7 +110,7 @@ const NavTemplate = ({
                     {render_bottom_nav?.()}
                 </Container.Fixed>
             ) : (
-                <Flex.Box className={styles.bgblack} />
+                <Flex.Box className={styles.no_nav} />
             )}
         </>
     )

@@ -1,3 +1,5 @@
+@import 'features/styles/theme/variables';
+
 .header_wrapper {
     position: fixed;
     z-index: 4;
@@ -8,13 +10,10 @@
     block-size: 7rem;
 }
 
-.bgblack{
-    background-color:#0f0f0f;
-    display: block;
+.no_nav{
+    background-color: $color-black;
     width: 100%;
-    height:13.2rem;
-    z-index: 100;
-    top: -132px;
+    height:18.4rem;
+    top: -184px;
     position: absolute;
-
 }

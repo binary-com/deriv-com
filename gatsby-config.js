@@ -31,12 +31,12 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
-        {
-            resolve: `gatsby-plugin-offline`,
-            options: {
-                precachePages: [`/`],
-            },
-        },
+        // {
+        //     resolve: `gatsby-plugin-offline`,
+        //     options: {
+        //         // precachePages: [`/`],
+        //     },
+        // },
         {
             resolve: 'gatsby-plugin-sass',
             options: {

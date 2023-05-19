@@ -37,7 +37,7 @@ const SignUpPageForm = () => {
             <Flex.Item padding_block="4x">
                 <Input.Checkbox {...register('terms')} id="terms_and_conditions">
                     <Localize
-                        translate_text="_t_I agree to the <0>terms and conditions</0>._t_"
+                        translate_text="_t_I agree to the <0>terms and conditions</0>_t_"
                         components={[
                             <Link
                                 textcolor="brand"

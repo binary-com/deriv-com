@@ -1,7 +1,6 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { AcuityFeaturesType } from '../../../components/molecules/image-text-boxes/types'
-import { AcuityFeaturePicture2 } from '../../../../images/common/acuity/acuity-feature-guide-image-2.png'
 import { localize } from 'components/localization'
 
 const deriv_acuity_row_download = 'https://deriv.link/3Vk37Ds'
@@ -36,7 +35,7 @@ export const contentData: AcuityFeaturesType = {
                 '_t_Want to know how the Acuity tools work? Check out the Acuity tools user guide for more information._t_',
             image: (
                 <StaticImage
-                    src={AcuityFeaturePicture2}
+                    src={'../../../../images/common/acuity/acuity-feature-guide-image-2.png'}
                     alt={localize('_t_Acuity research terminal_t_')}
                     loading="eager"
                     formats={['avif', 'webp', 'auto']}

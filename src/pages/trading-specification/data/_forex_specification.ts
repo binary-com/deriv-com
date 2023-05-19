@@ -298,6 +298,22 @@ const forex_specification: TSpecification = {
         },
         {
             instrument: {
+                symbol: 'CHFJPY',
+                instrument: 'CHF/JPY',
+            },
+            contract_size: 100000,
+            base_currency: 'CHF',
+            minimum_size: 0.01,
+            minimum_spread: 0.01,
+            target_spread: 0.021,
+            max_effective_leverage: 1000,
+            margin_requirement: 0.1,
+            swap_long: -0.02,
+            swap_short: -5.8,
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT',
+        },
+        {
+            instrument: {
                 symbol: 'AUDNZD',
                 instrument: 'AUD/NZD',
             },

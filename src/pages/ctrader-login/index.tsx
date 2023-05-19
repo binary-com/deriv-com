@@ -40,7 +40,7 @@ const CtraderLogin = () => {
 
     if (service_token) {
         if (isBrowser()) {
-            window.location.href = `https://ct-uat.deriv.com/?token=${service_token}`
+            window.location.href = `https://id-ct-uat.deriv.com/brokeroauth/success?token=${service_token}`
         }
     }
 

@@ -12,8 +12,8 @@
 
 .no_nav{
     background-color: $color-black;
-    width: 100%;
-    height:18.4rem;
+    inline-size: 100%;
+    block-size:18.4rem;
     top: -184px;
     position: absolute;
 }

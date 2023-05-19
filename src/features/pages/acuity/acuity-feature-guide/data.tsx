@@ -2,9 +2,7 @@ import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { AcuityFeaturesType } from '../../../components/molecules/image-text-boxes/types'
 import { localize } from 'components/localization'
-
-const deriv_acuity_row_download = 'https://deriv.link/3Vk37Ds'
-const deriv_acuity_eu_download = 'https://deriv.link/3GXrhz6'
+import { deriv_acuity_eu_download, deriv_acuity_row_download } from 'common/constants'
 
 export const contentData: AcuityFeaturesType = {
     mobile_flex_direction: 'col-reverse',

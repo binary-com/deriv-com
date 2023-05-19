@@ -1,4 +1,5 @@
 import { SmartNavContent } from '../../../types'
+import { deriv_status_page_url } from 'common/constants'
 
 export const resourcesNavSectionContent: SmartNavContent[] = [
     {
@@ -47,7 +48,7 @@ export const resourcesNavSectionContent: SmartNavContent[] = [
         id: 6,
         data: {
             title: '_t_Status page_t_',
-            url: { type: 'non-company', href: 'https://deriv.statuspage.io', show_eu_modal: true },
+            url: { type: 'non-company', href: deriv_status_page_url, show_eu_modal: true },
         },
         visibility: {
             is_mobile: true,

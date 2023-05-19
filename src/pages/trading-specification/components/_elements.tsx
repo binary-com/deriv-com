@@ -228,7 +228,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const { is_row } = useRegion()
     const symbol = data.symbol
     const text = data.instrument
-    const dlIcon = !is_row ? data.dl_icon : ''
+    const dl_icon = !is_row ? data.dl_icon : ''
     const [showPopUp, setShowPopUp] = useState(false)
     const [is_mobile] = useBrowserResize(768)
 
@@ -239,7 +239,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                 <StyledHeaderText type="small" align="start" as="p">
                     {text}
                 </StyledHeaderText>
-                {dlIcon &&
+                {dl_icon &&
                     is_row &&
                     (is_mobile ? (
                         <img

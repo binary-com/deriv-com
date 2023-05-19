@@ -10,7 +10,7 @@
 .platform_swiper {
     inline-size: 35rem;
     margin: 0;
-    & > div{
+    & > div {
         height: 18.5rem!important;
     }
     @include breakpoints(tablet) {

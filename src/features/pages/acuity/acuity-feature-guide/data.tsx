@@ -1,6 +1,8 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { AcuityFeaturesType } from '../../../components/molecules/image-text-boxes/types'
+import { AcuityFeaturePicture2 } from '../../../../images/common/acuity/acuity-feature-guide-image-2.png'
+import { localize } from 'components/localization'
 
 const deriv_acuity_row_download = 'https://deriv.link/3Vk37Ds'
 const deriv_acuity_eu_download = 'https://deriv.link/3GXrhz6'
@@ -15,7 +17,7 @@ export const contentData: AcuityFeaturesType = {
             image: (
                 <StaticImage
                     src="../../../../images/common/acuity/acuity-feature-guide-image-1.png"
-                    alt="Acuity trading tools for MT5 desktop terminal"
+                    alt={localize('_t_Acuity trading tools for MT5 desktop terminal_t_')}
                     loading="eager"
                     formats={['avif', 'webp', 'auto']}
                     quality={100}
@@ -34,8 +36,8 @@ export const contentData: AcuityFeaturesType = {
                 '_t_Want to know how the Acuity tools work? Check out the Acuity tools user guide for more information._t_',
             image: (
                 <StaticImage
-                    src="../../../../images/common/acuity/acuity-feature-guide-image-2.png"
-                    alt="Acuity research terminal"
+                    src={AcuityFeaturePicture2}
+                    alt={localize('_t_Acuity research terminal_t_')}
                     loading="eager"
                     formats={['avif', 'webp', 'auto']}
                     quality={100}

@@ -18,7 +18,7 @@ const ImageWithParagraph = ({ contentData }: ImageWithParagraphType) => {
             {data.map((feature, index) => {
                 return (
                     <FlexBox.Box
-                        key={feature?.id}
+                        key={feature.id}
                         direction={mobile_flex_direction}
                         mb={'10x'}
                         justify={'center'}

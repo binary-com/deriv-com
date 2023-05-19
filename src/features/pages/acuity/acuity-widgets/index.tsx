@@ -65,20 +65,12 @@ const AcuityWidgets = () => {
                 src={'https://prodstorage.azureedge.net/Widgets/lib/@1.0.0/widget-core.js'}
                 onLoad={() => setIsScriptLoaded(true)}
             />
-
-            <FlexBox.Box
-                className={styles.widget_menu}
-                direction={'row'}
-                justify={'start'}
-                mb={'24x'}
-                md={{ justify: 'center' }}
-            >
-                <TabMenu
-                    tab_names={Object?.keys(acuity_widgets)}
-                    current_tab={current_widget}
-                    setCurrentTab={setCurrentWidget}
-                />
-            </FlexBox.Box>
+            <TabMenu
+                class_name={styles.widget_menu}
+                tab_names={Object?.keys(acuity_widgets)}
+                current_tab={current_widget}
+                setCurrentTab={setCurrentWidget}
+            />
             <FlexBox.Box direction={'col'} padding={'4x'} radius={'4x'}>
                 {acuity_widgets[current_widget]}
             </FlexBox.Box>

@@ -5,7 +5,6 @@ import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import MarketNav from 'features/components/templates/navigation/market-nav'
 import ETFMarket from 'features/pages/markets/etf'
-import InstrumentsTableEtf from 'features/pages/markets/etf/instruments-etf'
 
 const StocksAndIndicesPage = () => (
     <Layout type="noNav">
@@ -23,7 +22,7 @@ const StocksAndIndicesPage = () => (
         /> */}
         <MarketNav />
         <ETFMarket />
-        <InstrumentsTableEtf />
+
         <Signup appearance={Appearances.public} />
     </Layout>
 )

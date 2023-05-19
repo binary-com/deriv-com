@@ -1,0 +1,7 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.item_container {
+    @include breakpoints(tablet) {
+        padding: 2.4rem 22rem;
+    }
+}

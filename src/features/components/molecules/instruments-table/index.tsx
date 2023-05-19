@@ -12,7 +12,7 @@ interface InstrumentalTableProps {
 const InstrumentalTable = ({ tableContent }: InstrumentalTableProps) => {
     const { title, data, mobile_basis, desktop_basis } = tableContent
     return (
-        <Flex.Box container="fluid" margin_block={'30x'} className={styles.instrumental_wrapper}>
+        <Flex.Box container="fixed" className={styles.instrumental_wrapper}>
             <Flex.Item className={styles.instrumental_left_item}>
                 <Typography.Heading size="xxs" textcolor="black">
                     <Localize translate_text={title} />

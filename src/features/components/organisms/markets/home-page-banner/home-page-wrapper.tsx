@@ -12,12 +12,17 @@ interface HomepageBannerProps {
 
 const HomePageWrapper = ({ item }: HomepageBannerProps) => {
     return (
-        <Container.Fluid as="section" bgcolor="white" className={item_container}>
-            <Flex.Box className={flex_container} direction="col-reverse" lg={{ direction: 'row' }}>
+        <Container.Fixed as="section" bgcolor="white" className={item_container}>
+            <Flex.Box
+                container="fluid"
+                className={flex_container}
+                direction="col-reverse"
+                lg={{ direction: 'row' }}
+            >
                 <BannerText item={item} />
                 <ImageBanner item={item} />
             </Flex.Box>
-        </Container.Fluid>
+        </Container.Fixed>
     )
 }
 

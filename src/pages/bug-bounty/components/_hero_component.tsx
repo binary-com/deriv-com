@@ -4,7 +4,7 @@ import type { ImageDataLike } from 'gatsby-plugin-image'
 import { BackgroundImage, Header } from 'components/elements'
 import { Container } from 'components/containers'
 import device from 'themes/device'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 
 interface HeroComponentProps {
     background_data: ImageDataLike
@@ -39,11 +39,10 @@ const HeroComponent = ({ background_data, background_dark }: HeroComponentProps)
         >
             <StyledContainer direction="column">
                 <Header as="h1" color="white" align="center" type="heading-1">
-                    {localize('Bug bounty program')}
+                    <Localize translate_text="_t_Bug bounty program_t_" />
                 </Header>
-
                 <Subheadline as="p" color="white" align="center" type="subtitle-1">
-                    {localize('Security is a collaboration. Report bugs and be rewarded.')}
+                    <Localize translate_text="_t_Security is a collaboration. Report bugs and be rewarded._t_" />
                 </Subheadline>
             </StyledContainer>
         </BackgroundImage>

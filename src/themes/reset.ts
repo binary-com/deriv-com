@@ -5,7 +5,6 @@ const Reset = css`
         v4.0 | 20180602
         License: none (public domain)
     */
-    html,
     body,
     div,
     span,

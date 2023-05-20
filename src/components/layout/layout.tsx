@@ -140,7 +140,7 @@ const Layout = ({
                     <LayoutOverlay is_ppc={is_ppc} />
                 </div>
             </LocationProvider>
-            <RebrandingFooter />
+            {!is_static && <RebrandingFooter />}
         </PpcProvider>
     )
 }

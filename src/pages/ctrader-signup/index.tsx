@@ -2,31 +2,16 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { localize } from 'components/localization'
 import { SEO } from 'components/containers'
-import device from 'themes/device'
 
 const Wrapper = styled.section`
     padding: 8rem 0;
-    width: 100%;
-    height: 80vh;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: rgba(200, 214, 215, 0.22);
-
-    @media ${device.mobileL} {
-        padding: 0;
-    }
-`
-const StyledDiv = styled.div`
-    padding: 6rem 0;
-    background-color: rgba(200, 214, 215, 0.22);
-
-    @media ${device.mobileL} {
-        padding: 0;
-    }
+    background-color: #ffffff;
 `
 
 const CtraderSignup = () => {
@@ -59,7 +44,6 @@ const CtraderSignup = () => {
                     autofocus={true}
                 />
             </Wrapper>
-            <StyledDiv />
         </Layout>
     )
 }

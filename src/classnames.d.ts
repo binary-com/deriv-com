@@ -40,6 +40,8 @@ type ClassNames =
     | 'checkbox_input_container'
     | 'container-fixed'
     | 'container-fluid'
+    | 'cross_icon'
+    | 'error'
     | 'flex'
     | 'flex-basis-1-12'
     | 'flex-basis-1-2'

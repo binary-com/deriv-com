@@ -1,5 +1,6 @@
 import React from 'react'
 import MarketTab from './market-tabs/market-tab'
+import { button_table } from './live-pricing.module.scss'
 import Container from 'features/components/atoms/container'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
@@ -22,14 +23,21 @@ const LivePricing = () => {
                     align="center"
                     font_family="UBUNTU"
                     textcolor="secondary"
-                    size="small"
+                    size="medium"
                 >
                     <Localize translate_text="_t_All spreads are indicative. To view real-time spreads, please refer to your terminal._t_" />
                 </Typography.Paragraph>
             </Flex.Box>
 
-            <Flex.Box justify="center" align="center" gap="10x">
+            <Flex.Box
+                justify="center"
+                align="center"
+                gap="4x"
+                direction="col"
+                md={{ direction: 'row', gap: '10x' }}
+            >
                 <LinkButton.Primary
+                    className={button_table}
                     url={{ type: 'internal', to: '/trading-specification/' }}
                     outlined
                 >
@@ -37,6 +45,7 @@ const LivePricing = () => {
                 </LinkButton.Primary>
 
                 <Button.Primary
+                    className={button_table}
                     onClick={is_logged_in ? handleRedirectToTradersHub : handleLogin}
                     aria-label="Get trading"
                 >

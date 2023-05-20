@@ -11,39 +11,26 @@
     overflow-x: auto;
 }
 }
-.inactive_button{
-    white-space: nowrap;
-    border-inline: none;
-    border-block-end: 2px solid $color-grey-8;
-    border-radius: unset;
-    background: none;
-    padding: 1.6rem 4rem;
+
+.button {
+    background: none !important;
+    border-block-end: 2px solid $color-grey-8 !important;
+    border-inline: none !important;
+    border-radius: unset !important;
+    padding: 1.6rem 4rem !important;
+    white-space: nowrap !important;
+     
+    &_active {
+        white-space: nowrap !important;
+        padding: 1.6rem 4rem !important;
+        background: none !important;
+        border-inline: none !important;
+        border-radius: unset !important;
+        border-block-end: 2px solid $color-red !important;
+    }
+
     @include breakpoints(tablet) { 
-        padding: 1.6rem 5.2rem;
+        padding: 1.6rem 5.2rem !important;
+        
     }
 }
-.active_button {
-    white-space: nowrap;
-    border-inline: none;
-    border-radius: unset;
-    background: none;
-    padding: 1.6rem 4rem;
-    border-block-end: 2px solid $color-red;
-    @include breakpoints(tablet) { 
-        padding: 1.6rem 5.2rem;
-    }
-}
-//.button {
-//    white-space: nowrap;
-//    border-inline: none;
-//    background: none;
-//    padding: 1.6rem 4rem;
-//    border-block-end: 2px solid $color-grey-8;
-//    
-//    &_active {
-//        border-block-end: 2px solid $color-red;
-//    }
-//    @include breakpoints(laptop) { 
-//        padding: 1.6rem 5.2rem;
-//    }
-//}

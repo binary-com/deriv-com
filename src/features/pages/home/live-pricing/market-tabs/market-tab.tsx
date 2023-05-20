@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import { TAvailableLiveMarkets } from '../types'
 import LiveMarketTable from '../table-component/live-market-table'
 import { market_buttons } from './utils'
-import { tab_container, inactive_button, active_button } from './tab-style.module.scss'
+import { tab_container, button_active, button } from './tab-style.module.scss'
 import Button from 'features/components/atoms/button'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import Container from 'features/components/atoms/container'
 import Flex from 'features/components/atoms/flex-box'
-import Icon from 'features/components/atoms/icon'
+import Image from 'features/components/atoms/image'
 
 const MarketTab = () => {
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
@@ -27,9 +27,7 @@ const MarketTab = () => {
                 {market_buttons.map((market_item) => (
                     <Button.Base
                         className={
-                            market_item.market_name === selected_market
-                                ? active_button
-                                : inactive_button
+                            market_item.market_name === selected_market ? button_active : button
                         }
                         key={market_item.market_name}
                         onClick={() => {
@@ -37,15 +35,16 @@ const MarketTab = () => {
                             setLinkToMarketPage(market_item.to)
                         }}
                     >
-                        <Icon
-                            size="medium"
-                            key={market_item.market_name}
+                        <Image
                             src={
                                 market_item.market_name === selected_market
                                     ? `${market_item.selected_src}#${market_item.market_name}`
                                     : `${market_item.src}#${market_item.market_name}`
                             }
+                            width="24px"
+                            height="24px"
                         />
+
                         <Typography.Paragraph
                             size="large"
                             textcolor={

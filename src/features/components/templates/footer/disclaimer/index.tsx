@@ -9,7 +9,7 @@ import useRegion from 'components/hooks/use-region'
 import Container from 'features/components/atoms/container'
 
 const Disclaimer = () => {
-    const { is_eu, is_non_eu, is_cpa_plan, is_row } = useRegion()
+    const { is_eu, is_non_eu, is_cpa_plan, is_row, is_region_loading } = useRegion()
 
     const visibility_config: DisclaimerParagraphConfig = useMemo(() => {
         return {
@@ -32,11 +32,15 @@ const Disclaimer = () => {
 
     return (
         <Container.Fixed margin_block="10x">
-            {visible_disclaimer_content.map((item) => (
-                <Typography.Paragraph key={item.id} size={'small'} mb="10x">
-                    <Localize translate_text={item.data.text} components={item.data.components} />
-                </Typography.Paragraph>
-            ))}
+            {!is_region_loading &&
+                visible_disclaimer_content.map((item) => (
+                    <Typography.Paragraph key={item.id} size={'small'} mb="10x">
+                        <Localize
+                            translate_text={item.data.text}
+                            components={item.data.components}
+                        />
+                    </Typography.Paragraph>
+                ))}
             {is_row && !is_cpa_plan && (
                 <Container.Fixed
                     className={risk_warning_container}

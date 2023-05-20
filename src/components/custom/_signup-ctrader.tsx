@@ -31,6 +31,7 @@ type SocialButtonProps = {
 }
 
 const SignupContent = styled.div`
+    margin-top: 8rem;
     width: 48.4rem;
     display: flex;
     justify-content: flex-start;
@@ -38,7 +39,7 @@ const SignupContent = styled.div`
     padding: 4rem;
     background-color: var(--color-white);
     border-radius: 0.6rem;
-    box-shadow: 0 1.6rem 2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
 
     @media ${device.tablet} {
         width: 53rem;

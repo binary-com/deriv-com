@@ -201,7 +201,7 @@ export const onRouteUpdate = () => {
 
 export const wrapPageElement = WrapPagesWithLocaleContext
 
-exports.shouldUpdateScroll = () => {
+export const shouldUpdateScroll = () => {
     // since we have this issue everywhere I didn't specify any special route here!
     setTimeout(() => {
         window.scrollTo(0, 0)

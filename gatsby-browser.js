@@ -200,3 +200,27 @@ export const onRouteUpdate = () => {
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext
+
+exports.shouldUpdateScroll = () => {
+    // since we have this issue everywhere I didn't specify any special route here!
+    setTimeout(() => {
+        window.scrollTo(0, 0)
+    }, 2)
+
+    return false
+}
+
+// If we want to have this on specific routes:
+// exports.shouldUpdateScroll = ({ routerProps: { location } }) => {
+//     const { pathname } = location
+//     list of routes for the scroll-to-top-hook
+//     const scrollToTopRoutes = ['/trade-types/cfds/']
+//     // if the new route is part of the list above, scroll to top (0, 0)
+//     if (scrollToTopRoutes.indexOf(pathname) !== -1) {
+//     setTimeout(() => {
+//         window.scrollTo(0, 0)
+//     }, 2)
+//     }
+
+//     return false
+// }

@@ -1,6 +1,6 @@
 import { localize } from 'components/localization'
 
-const validation_regex = {
+export const validation_regex = {
     email: /^[^@]+@[^@]+\.[^@.]{2,}$/,
     url: /^[\w|\-|.]+$/,
     alphabetic: /^[a-zA-Z]+$/,
@@ -31,7 +31,7 @@ const validation: TValidationType = {
     },
     required: (input, message) => {
         if (!input) {
-            return message ? message : localize('This field is required')
+            return message ? message : localize('Email is required')
         } else {
             return null
         }

@@ -1,0 +1,7 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.rtl_image {
+    @include rtl() {
+        transform: scaleX(-1);
+    }
+}

@@ -1,18 +1,18 @@
-import React from 'react'
-import { WrapPagesWithLocaleContext } from './src/components/localization'
-import './src/components/localization/config'
-import GlobalProvider from './src/store/global-provider'
+import React from 'react';
+import { WrapPagesWithLocaleContext } from './src/components/localization';
+import './src/components/localization/config';
+import GlobalProvider from './src/store/global-provider';
 
 export const wrapRootElement = ({ element }) => {
-    return <GlobalProvider>{element}</GlobalProvider>
-}
+    return <GlobalProvider>{element}</GlobalProvider>;
+};
 
-export const wrapPageElement = WrapPagesWithLocaleContext
+export const wrapPageElement = WrapPagesWithLocaleContext;
 
 export const onRenderBody = ({ setHeadComponents }) => {
     setHeadComponents([
         <script
-            key="partytown-vanilla-config"
+            key='partytown-vanilla-config'
             dangerouslySetInnerHTML={{
                 __html: `partytown = {
            resolveUrl(url, location) {
@@ -28,5 +28,5 @@ export const onRenderBody = ({ setHeadComponents }) => {
          }`,
             }}
         />,
-    ])
-}
+    ]);
+};

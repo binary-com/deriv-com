@@ -2,9 +2,9 @@
 
 module.exports = {
     process() {
-        return 'module.exports = {};'
+        return 'module.exports = {};';
     },
     getCacheKey() {
-        return 'svgTransform'
+        return 'svgTransform';
     },
-}
+};

@@ -1,14 +1,14 @@
-import React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import { handleGetTrading } from './utils'
-import useAuthCheck from 'components/hooks/use-auth-check'
-import { localize, Localize } from 'components/localization'
-import { Flex } from 'components/containers'
-import { QueryImage, Header } from 'components/elements'
-import { Button, LinkButton } from 'components/form'
-import device from 'themes/device'
-import useHandleSignup from 'components/hooks/use-handle-signup'
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { handleGetTrading } from './utils';
+import useAuthCheck from 'components/hooks/use-auth-check';
+import { localize, Localize } from 'components/localization';
+import { Flex } from 'components/containers';
+import { QueryImage, Header } from 'components/elements';
+import { Button, LinkButton } from 'components/form';
+import device from 'themes/device';
+import useHandleSignup from 'components/hooks/use-handle-signup';
 
 const Wrapper = styled.div`
     display: flex;
@@ -22,12 +22,12 @@ const Wrapper = styled.div`
         flex-direction: column-reverse;
         padding-left: 0;
     }
-`
+`;
 const HeroContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-`
+`;
 const StyledHeader = styled(Header)`
     color: var(--color-white);
     display: flex;
@@ -37,7 +37,7 @@ const StyledHeader = styled(Header)`
     @media ${device.laptopM} {
         font-size: 24px;
     }
-`
+`;
 const StyledHeaderTitle = styled.div`
     color: var(--color-white);
     display: flex;
@@ -50,7 +50,7 @@ const StyledHeaderTitle = styled.div`
         font-size: 32px;
         line-height: 48px;
     }
-`
+`;
 const LinkWrapper = styled.div`
     display: flex;
     margin-top: 32px;
@@ -65,7 +65,7 @@ const LinkWrapper = styled.div`
         max-height: 40px;
         margin-top: 12px;
     }
-`
+`;
 
 const GoToLiveDemo = styled(LinkButton)`
     color: var(--color-white);
@@ -83,7 +83,7 @@ const GoToLiveDemo = styled(LinkButton)`
     @media (max-width: 360px) {
         white-space: nowrap;
     }
-`
+`;
 const DemoButton = styled(Button)`
     padding: 14px 16px;
     width: auto;
@@ -99,7 +99,7 @@ const DemoButton = styled(Button)`
         white-space: nowrap;
         margin-bottom: 1.6rem;
     }
-`
+`;
 const ImgWrapper = styled.div`
     width: 100%;
     height: 100%;
@@ -115,7 +115,7 @@ const ImgWrapper = styled.div`
     @media ${device.tabletL} {
         margin-left: 0;
     }
-`
+`;
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 562px;
@@ -136,48 +136,39 @@ const InformationWrapper = styled(Flex)`
         width: 100%;
         margin-top: 22px;
     }
-`
+`;
 
 const DLogo = styled.img`
     width: 32px;
     height: 32px;
     margin-right: 1.6rem;
-`
-const DHero = ({
-    title,
-    background_alt,
-    background,
-    content,
-    image_name,
-    join_us_for_free,
-    is_live_demo,
-    Logo,
-}) => {
-    const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
-    const handleSignup = useHandleSignup()
-    const [is_logged_in] = useAuthCheck()
+`;
+const DHero = ({ title, background_alt, background, content, image_name, join_us_for_free, is_live_demo, Logo }) => {
+    const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app');
+    const handleSignup = useHandleSignup();
+    const [is_logged_in] = useAuthCheck();
 
     return (
         <Wrapper>
-            <InformationWrapper height="unset" direction="column">
-                <StyledHeader as="h4" weight="normal">
-                    <DLogo src={Logo} alt="logo" width="32" height="32" />
+            <InformationWrapper height='unset' direction='column'>
+                <StyledHeader as='h4' weight='normal'>
+                    <DLogo src={Logo} alt='logo' width='32' height='32' />
                     {title}
                 </StyledHeader>
                 <HeroContent>
-                    <StyledHeaderTitle type="display-title" color="white" mt="1.5rem">
+                    <StyledHeaderTitle type='display-title' color='white' mt='1.5rem'>
                         {content}
                     </StyledHeaderTitle>
                 </HeroContent>
                 <LinkWrapper>
                     {join_us_for_free &&
                         (is_logged_in ? (
-                            <DemoButton onClick={handleGetTrading} secondary type="mt5">
-                                <Localize translate_text="Go to Deriv MT5 dashboard" />
+                            <DemoButton onClick={handleGetTrading} secondary type='mt5'>
+                                <Localize translate_text='Go to Deriv MT5 dashboard' />
                             </DemoButton>
                         ) : (
-                            <DemoButton onClick={handleSignup} id="dm-hero-signup" secondary>
-                                <Localize translate_text="Create free demo account" />
+                            <DemoButton onClick={handleSignup} id='dm-hero-signup' secondary>
+                                <Localize translate_text='Create free demo account' />
                             </DemoButton>
                         ))}
                     {is_live_demo && (
@@ -185,8 +176,8 @@ const DHero = ({
                             tertiary
                             external
                             type={getLinkType()}
-                            target="_blank"
-                            rel="noopener noreferrer nofollow"
+                            target='_blank'
+                            rel='noopener noreferrer nofollow'
                         >
                             {localize('Go to live demo')}
                         </GoToLiveDemo>
@@ -197,8 +188,8 @@ const DHero = ({
                 <QueryImage data={background} alt={background_alt} />
             </ImgWrapper>
         </Wrapper>
-    )
-}
+    );
+};
 
 DHero.propTypes = {
     background: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
@@ -211,6 +202,6 @@ DHero.propTypes = {
     join_us_for_free: PropTypes.bool,
     Logo: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     title: PropTypes.string,
-}
+};
 
-export default DHero
+export default DHero;

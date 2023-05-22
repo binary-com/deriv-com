@@ -7,16 +7,15 @@ import Typography from 'features/components/atoms/typography'
 
 const Numbers = () => {
     return (
-        <FlexBox.Box direction={'col'} className={style.number_box} md={{ mt: '20x' }}>
+        <FlexBox.Box direction={'col'} className={style.number_box} margin_block={'20x'}>
             <FlexBox.Box
                 direction={'col'}
                 align={'center'}
-                mb={'20x'}
                 md={{ direction: 'row', justify: 'around' }}
             >
                 {selling_points.map((item) => (
-                    <FlexBox.Item basis={'1-3'} key={item.title}>
-                        <Typography.Heading align={'center'}>
+                    <FlexBox.Item basis={'1-3'} key={item.title} pb={'12x'}>
+                        <Typography.Heading align={'center'} md={{ mb: '4x' }}>
                             <Localize translate_text={item.title} />
                         </Typography.Heading>
                         <Typography.Paragraph align={'center'}>

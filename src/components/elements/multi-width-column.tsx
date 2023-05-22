@@ -57,7 +57,7 @@ const Column = styled.div<{ background: string; width: string }>`
     justify-content: center;
     @media ${device.tabletL} {
         width: 100%;
-        height: 250px;
+        height: 192px;
         background: none;
     }
 `

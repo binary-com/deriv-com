@@ -1,10 +1,16 @@
 @use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
 
-.hero_image {
+.hero_wrapper {
   max-inline-size: 38.1rem;
   @include breakpoints(tablet) {
     max-inline-size: 63.2rem;
+  }
+}
+.hero_image {
+  max-block-size: 31rem;
+  @include breakpoints(tablet) {
+    max-block-size: 64.1rem;
   }
 }
 .number_box {

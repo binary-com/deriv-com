@@ -43,16 +43,16 @@ const TextAndButtonWrapper = styled.div`
     }
 `
 const InfoText = styled.p`
-    font-size: 25px;
+    font-size: 24px;
     margin-left: 16px;
-    line-height: 34px;
+    line-height: 36px;
     @media ${device.tabletL} {
         font-size: 16px;
         line-height: 24px;
     }
 `
 const StyledInfoIcon = styled.img`
-    margin-top: 2px;
+    margin-top: 5px;
     width: 24px;
     height: 24px;
 
@@ -78,11 +78,21 @@ const DerivEZGetApp = () => {
             firstColumnWidth="59%"
             secondColumnWidth="45%"
             mobileBackgroundImage={GetAppMobileBG}
-            secondColumnMobileMargin="40px 0 0"
+            secondColumnMobileMargin="72px 0 0"
             mobilePadding="40px 0 10px"
         >
             <ContentWrapper is_rtl={is_rtl}>
-                <img src={derivEZLogo} alt="_t_Deriv Go logo_t_" width="64px" height="64px" />
+                {is_mobile_or_tablet ? (
+                    <img src={derivEZLogo} alt="_t_Deriv Go logo_t_" width="48px" height="48px" />
+                ) : (
+                    <img
+                        src={derivEZLogo}
+                        alt="_t_Deriv Go logo_t_"
+                        width="64px"
+                        height="64px"
+                        style={{ marginTop: '10px' }}
+                    />
+                )}
                 <TextAndButtonWrapper>
                     <CommonHeaderSection
                         title="_t_Get trading with Deriv EZ_t_"
@@ -92,7 +102,7 @@ const DerivEZGetApp = () => {
                         font_family_title="Ubuntu"
                         color="#fff"
                         margin_title="0 0 18px"
-                        line_height="80px"
+                        line_height={is_mobile_or_tablet ? '40px' : '80px'}
                     />
                     <Flex jc="stretch" ai="flex-start" height="auto">
                         <StyledInfoIcon src={InfoIcon} />

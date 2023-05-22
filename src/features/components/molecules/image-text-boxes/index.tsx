@@ -15,7 +15,7 @@ type ImageWithParagraphType = {
 const ImageWithParagraph = ({ mobile_flex_direction, data }: ImageWithParagraphType) => {
     const { is_eu } = useRegion()
     return (
-        <FlexBox.Box container="fluid" direction={'col'} mt={'20x'} md={{ mt: '40x' }}>
+        <FlexBox.Box container="fluid" direction={'col'} pt={'20x'} md={{ pt: '40x' }}>
             {data.map((feature, index) => {
                 return (
                     <FlexBox.Box
@@ -76,13 +76,13 @@ const ImageWithParagraph = ({ mobile_flex_direction, data }: ImageWithParagraphT
                                 </Typography.Paragraph>
                             )}
                         </FlexBox.Box>
-                        <FlexBox.Box
+                        <FlexBox.Item
                             margin_inline={'24x'}
                             margin_block={'14x'}
                             md={{ basis: '4-12' }}
                         >
                             {feature?.image}
-                        </FlexBox.Box>
+                        </FlexBox.Item>
                     </FlexBox.Box>
                 )
             })}

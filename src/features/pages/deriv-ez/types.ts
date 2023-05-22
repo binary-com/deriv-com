@@ -14,6 +14,6 @@ export type FeaturesTypes = {
     direction?: TFlexDirection
 }
 export type SellingPointsTypes = {
-    title: string | TString
+    title: TString
     subtitle: TString
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { hero_image } from '../deriv-ez.module.scss'
+import { hero_image, hero_wrapper } from '../deriv-ez.module.scss'
 import { hero_images } from './data'
 import FlexBox from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
@@ -17,17 +17,19 @@ const DerivEZHero = () => {
             align={'center'}
             direction={'col-reverse'}
             mt={'20x'}
-            md={{ direction: 'row', mt: '25x' }}
+            md={{ direction: 'row', mt: '0x' }}
         >
             <FlexBox.Box
-                className={hero_image}
+                className={hero_wrapper}
                 direction={'col'}
                 justify={'center'}
                 gap={'8x'}
                 ml={'8x'}
-                mb={'40x'}
+                pt={'5x'}
+                margin_block={'15x'}
             >
                 <FlexBox.Item
+                    className={hero_image}
                     align_self={is_mobile_or_tablet ? 'start' : 'center'}
                     md={{ align_self: 'start' }}
                 >
@@ -54,7 +56,7 @@ const DerivEZHero = () => {
                 md={{ pt: '0x', ml: '17x' }}
                 style={{ zIndex: '1' }}
             >
-                {is_mobile ? hero_images['hero_mobile'] : hero_images['hero']}
+                {is_mobile_or_tablet ? hero_images['hero_mobile'] : hero_images['hero']}
             </FlexBox.Item>
         </TradeHeroContainer>
     )

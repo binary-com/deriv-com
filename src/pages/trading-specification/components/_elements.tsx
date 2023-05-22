@@ -1,7 +1,7 @@
 import React, { ReactElement, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Popover, ArrowContainer } from 'react-tiny-popover'
-import { TAvailableLiveMarkets, TInstrumentData } from '../_types'
+import { TAvailableLiveMarkets, TInstrumentData, TPopupType } from '../_types'
 import PopUpMenu from './_popup_menu'
 import { Header as HeaderText } from 'components/elements'
 import device from 'themes/device'
@@ -10,6 +10,7 @@ import { Flex } from 'components/containers'
 import * as icons from 'components/elements/symbols'
 import useRegion from 'components/hooks/use-region'
 import dl from 'images/svg/trading-specification/dl.svg'
+import swf from 'images/svg/trading-specification/swf.svg'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 export const TableContainer = styled.div`
@@ -138,6 +139,9 @@ const StyledTableHeaderText = styled(HeaderText)`
 const StyledToolTipContainer = styled.div`
     width: 24rem;
 `
+const StyledImg = styled.img`
+    cursor: pointer;
+`
 export const TableHeaderCell = ({ text, infoIcon, toolTip }: TTableHeaderCell) => {
     const [isInfoVisible, setIsInfoVisible] = useState(false)
     const onMouseOver = () => {
@@ -226,11 +230,34 @@ type TTableCellGroup = {
 }
 export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const { is_row } = useRegion()
-    const symbol = data.symbol
-    const text = data.instrument
-    const dl_icon = !is_row ? data.dl_icon : ''
-    const [showPopUp, setShowPopUp] = useState(false)
+    const { symbol, instrument: text, dl_icon, swf_icon } = data
+    const [show_popUp, setShowPopUp] = useState(false)
+    const [popup_type, setPopupType] = useState<TPopupType>()
     const [is_mobile] = useBrowserResize(768)
+
+    const getStyledImg = (width, icon, type) => {
+        return is_mobile ? (
+            <StyledImg
+                src={icon}
+                width={width}
+                height="24px"
+                onTouchStart={() => {
+                    setShowPopUp(true)
+                    setPopupType(type)
+                }}
+            />
+        ) : (
+            <StyledImg
+                src={icon}
+                width={width}
+                height="24px"
+                onClick={() => {
+                    setShowPopUp(true)
+                    setPopupType(type)
+                }}
+            />
+        )
+    }
 
     if (data !== undefined)
         return (
@@ -239,30 +266,16 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                 <StyledHeaderText type="small" align="start" as="p">
                     {text}
                 </StyledHeaderText>
-                {dl_icon &&
-                    is_row &&
-                    (is_mobile ? (
-                        <img
-                            src={dl}
-                            width="24px"
-                            height="24px"
-                            onTouchStart={() => {
-                                setShowPopUp(true)
-                            }}
-                        />
-                    ) : (
-                        <img
-                            src={dl}
-                            width="24px"
-                            height="24px"
-                            onClick={() => {
-                                setShowPopUp(true)
-                            }}
-                        />
-                    ))}
-                {showPopUp && (
+                {is_row ? (
+                    <>
+                        {/* {dl_icon && getStyledImg('24px', dl, 'dl')} */}
+                        {swf_icon && getStyledImg('30px', swf, 'swf')}
+                    </>
+                ) : null}
+                {show_popUp && (
                     <PopUpMenu
                         market={market}
+                        popup_type={popup_type}
                         toggle={() => {
                             setShowPopUp(false)
                             // document.body.style.overflow = 'scroll'
@@ -329,7 +342,7 @@ export const ModalCard = styled.div`
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
     max-width: 44rem;
     background: var(--color-white);
-    padding: 2.6rem 2.6rem 1.6rem 2.6rem;
+    padding: 2.6rem;
     width: 450px;
     height: auto;
     gap: 12px;
@@ -425,4 +438,5 @@ export const StyledHeading = styled(Flex)``
 
 export const CloseIconButton = styled.img`
     width: 16px;
+    cursor: pointer;
 `

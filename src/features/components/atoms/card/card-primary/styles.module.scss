@@ -1,0 +1,17 @@
+@use 'features/styles/theme/theme-mixins' as *;
+.item_container {
+    box-shadow: rgba(14, 14, 14, 0.1) 0px 4px 8px 0px;
+
+    padding: 1.6rem;
+    @include breakpoints(tablet) {
+        min-inline-size: 28.2rem;
+        padding: 2.4rem;
+    }
+}
+
+.item_block {
+    min-block-size: 20rem;
+    @include breakpoints(tablet) {
+        min-block-size: 24rem;
+    }
+}

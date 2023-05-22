@@ -4,6 +4,7 @@ import Cryptocurrencies from 'images/svg/custom/rebranding/cryptocurrencies-icon
 import DerivedFX from 'images/svg/custom/rebranding/derived-fx-icon.svg'
 import Forex from 'images/svg/custom/rebranding/forex-icon.svg'
 import StockIndices from 'images/svg/custom/rebranding/stock-indices-icon.svg'
+import ETF from 'images/svg/custom/rebranding/etf-icon.svg'
 
 export const marketSectionContent: SmartNavContent[] = [
     {
@@ -53,6 +54,20 @@ export const marketSectionContent: SmartNavContent[] = [
     {
         id: 3,
         data: {
+            aria_label: 'Exchange-traded funds (ETFs)',
+            icon: {
+                src: ETF,
+                alt: 'Exchange-traded funds (ETFs)',
+            },
+            content:
+                '_t_Diversify your portfolio and enjoy low-cost intraday trading with ETFs._t_',
+            title: '_t_Exchange-traded funds (ETFs)_t_',
+            url: { type: 'internal', to: '/markets/exchange-traded-funds/' },
+        },
+    },
+    {
+        id: 4,
+        data: {
             aria_label: 'Cryptocurrencies',
             icon: {
                 src: Cryptocurrencies,
@@ -65,7 +80,7 @@ export const marketSectionContent: SmartNavContent[] = [
         },
     },
     {
-        id: 4,
+        id: 5,
         data: {
             aria_label: 'Commodities',
             icon: {

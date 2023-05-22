@@ -1,0 +1,9 @@
+@use 'features/styles/theme/theme-mixins' as *;
+.item_container {
+    box-shadow: rgba(14, 14, 14, 0.1) 0px 4px 8px 0px;
+
+    @include breakpoints(tablet) {
+        inline-size: 31.6rem;
+        block-size: 16.4rem;
+    }
+}

@@ -15,13 +15,8 @@
         align-items: center;
         justify-content: center;
         @include breakpoints(tablet) {
-            width: 20%;
             border-right: 1px solid $color-grey-6;
-        }
-    }
-    .instrumental_right_item {
-        @include breakpoints(tablet) {
-            width: 80%;
+            border-bottom: none;
         }
     }
 }

@@ -89,7 +89,7 @@ const CardContainer = styled(Flex)<CardContainerProps>`
             opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.48')};
         }
         h4 {
-            width: 17vw;
+            width: 20rem;
             text-align: center;
             padding-bottom: 1rem;
             color: ${(props) =>

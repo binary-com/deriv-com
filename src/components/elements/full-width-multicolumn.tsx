@@ -21,7 +21,6 @@ type FullWidthMultiColumnProps = {
 }
 
 const Item = styled(Flex)`
-    max-width: 22rem;
     width: 100%;
 
     img {
@@ -124,6 +123,9 @@ const StyledTextContent = styled.div<FullWidthMultiColumnProps>`
     font-family: 'IBM Plex Sans', sans-serif;
     margin-bottom: 1.6rem;
 
+    @media ${device.laptopM} {
+        width: 170px;
+    }
     @media ${device.tabletL} {
         font-size: 14px;
         margin-top: 0;

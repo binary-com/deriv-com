@@ -126,7 +126,7 @@ const LearnMore = styled(LocalizedLink)<LearnMoreProps>`
     }
 
     @media ${device.tabletL} {
-        left: -19rem;
+        left: -20rem;
         bottom: 0;
         margin-bottom: 1rem;
 
@@ -135,15 +135,22 @@ const LearnMore = styled(LocalizedLink)<LearnMoreProps>`
             margin-right: 1rem;
         }
     }
+    @media ${device.mobileL} {
+        left: -60%;
+
+        ${Text} {
+            font-size: var(--text-size-xxs);
+        }
+    }
 `
 const MobileCardWrapper = styled(Flex)`
     box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
     position: relative;
     width: 100%;
     max-width: 38.25rem;
-    height: 100%;
     padding: 24px 24px 44px;
     align-items: center;
+    border-radius: 16px;
     flex-direction: column;
 
     img {
@@ -154,6 +161,12 @@ const MobileCardWrapper = styled(Flex)`
         img {
             width: 16px;
             height: 16px;
+        }
+        @media ${device.mobileL} {
+            img {
+                width: 6.5px;
+                height: 6.5px;
+            }
         }
     }
 `
@@ -218,7 +231,7 @@ const MobileCard = ({ market }: CardProps) => {
 
     return (
         <MobileCardWrapper m="5.5rem auto 0 auto" jc="flex-start">
-            <Flex width="100%" jc="space-between" mb="2.4rem" ai="start" direction="column">
+            <Flex width="100%" ai="start" direction="column">
                 <Icon dynamic_id={markets_type[market].id + '_mobile'} />
                 <Text size="18px" mt="2rem" weight="bold">
                     {markets_type[market].title}
@@ -255,6 +268,11 @@ const StyledHeader = styled(Header)`
 const MobileCardContainer = styled(Flex)`
     div:first-child {
         margin-top: 0;
+    }
+
+    @media ${device.mobileL} {
+        width: 90%;
+        margin-inline: auto;
     }
 `
 

@@ -23,7 +23,8 @@ export const domains = [
     staging_deriv_be_url,
     'localhost',
     'deriv-com-git-fork',
-] //deriv-com-git-fork for vercel server, localhost - for developer mode
+]
+//deriv-com-git-fork for vercel server, localhost - for developer mode
 
 const getDomainUrl = (): string =>
     isBrowser() && window.location.hostname in domain_url_pair
@@ -46,6 +47,8 @@ export const eu_domains = [
 export const eu_urls = ['eu.deriv.com', 'staging-eu.deriv.com', 'beta-eu.deriv.com']
 
 // URL
+export const deriv_acuity_row_download = 'https://deriv.link/3Vk37Ds'
+export const deriv_acuity_eu_download = 'https://deriv.link/3GXrhz6'
 export const domain_full_url = `https://${getDomainUrl()}`
 export const deriv_app_id = getDomainAppID()
 export const deriv_app_url = `https://app.${getDomainUrl()}`

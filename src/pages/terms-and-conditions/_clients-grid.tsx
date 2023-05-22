@@ -139,7 +139,7 @@ const IconGrid = () => {
             ),
             eu_links: [
                 {
-                    url: '/tnc/risk-disclosure-eu.pdf',
+                    url: '/tnc/eu/risk-disclosure.pdf',
                     title: localize('Risk disclosure'),
                 },
             ],

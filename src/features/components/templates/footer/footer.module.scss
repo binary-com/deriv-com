@@ -1,0 +1,20 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.footer {
+    opacity: 0.8;
+
+    @include breakpoints(tablet) {
+        border-block-start: 1px solid $color-grey-44;
+    }
+}
+
+.footer_grid {
+    display: grid;
+    inline-size: 100%;
+    grid-template-columns: 1fr;
+
+    @include breakpoints(tablet) {
+        grid-template-columns: 2fr;
+    }
+}

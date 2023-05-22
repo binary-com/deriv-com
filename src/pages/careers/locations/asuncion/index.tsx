@@ -43,9 +43,9 @@ const Asuncion = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('Asunción | Our office – Paraguay | Deriv')}
+                title={localize('_t_Asunción | Our office – Paraguay | Deriv_t_')}
                 description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Asunción, Paraguay.',
+                    '_t_Find your role with us by browsing Deriv job opportunities in Asunción, Paraguay._t_',
                 )}
             />
             <LocationLayout location={asuncion} images={images} />

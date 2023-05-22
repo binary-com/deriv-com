@@ -1,0 +1,90 @@
+name: Release Beta
+
+on:
+  push:
+    branches:
+      - translation-beta
+    paths-ignore:
+      - "**.md"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  GATSBY_CPU_COUNT: 2
+  GATSBY_ENV: staging
+  NODE_OPTIONS: "--max_old_space_size=7168"
+
+jobs:
+  lint:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    environment: staging
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "npm"
+
+      - name: Install Node.js dependencies
+        run: |
+          npm ci
+          npm test
+
+  release-beta:
+    needs: lint
+    timeout-minutes: 40
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+          cache: "npm"
+
+      - run: npm ci
+      # - run: npm run format
+      # - run: npm run test
+      - run: npm run build
+      - uses: olegtarasov/get-tag@v2.1
+        id: tagName
+        # For using same tag for staging and production we need to uncomment these two below lines:
+        # with:
+        #   tagRegex: "staging(.*)"
+
+      - name: Deploy to Cloudflare ☁️
+        uses: cloudflare/wrangler-action@2.0.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages publish public --project-name=deriv-com-pages --branch=beta
+
+      - name: Cloudflare preview link ✨
+        run: echo "New beta website - https://beta.deriv.com"
+
+      - name: Slack Notification 📣
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: workflow,repo
+          if_mention: failure,cancelled
+          custom_payload: |
+            {
+              attachments: [{
+                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                text: `Release for *Deriv.com* with version *$GITHUB_SHA*`
+              }]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        if: always()

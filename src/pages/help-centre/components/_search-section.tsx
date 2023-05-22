@@ -2,7 +2,6 @@ import React, { useMemo, useState } from 'react'
 import { matchSorter } from 'match-sorter'
 import styled from 'styled-components'
 import { useFilteredCategory, useFilteredQuestions } from '../data/_hooks'
-import { TTranslatedQuestionsData } from '../data/_data-types'
 import SearchResult from './_search-result'
 import { all_questions } from './_constants'
 import { Container } from 'components/containers'
@@ -97,17 +96,17 @@ const SearchSection = () => {
         setSearchValue(sanitize(e.target.value))
     }
 
-    const translated_all_questions: TTranslatedQuestionsData[] = useMemo(
+    const translated_all_questions = useMemo(
         () =>
             all_questions.map((section) => {
                 return {
                     ...section,
-                    category: localize(section.category),
+                    category: section.category,
                     questions: section.questions.map((question) => {
                         return {
                             ...question,
-                            sub_category: localize(question.sub_category),
-                            question: localize(question.question),
+                            sub_category: question.sub_category,
+                            question: question.question,
                         }
                     }),
                 }
@@ -122,7 +121,10 @@ const SearchSection = () => {
     // putting all of the questions in a variable
     const questions = filtered_categories
         .map(({ questions }) => questions)
-        .reduce((array, questions_array) => array.concat(questions_array), [])
+        .reduce(
+            (array, questions_array) => array.concat(questions_array),
+            filtered_categories[0].questions,
+        )
     // filtering eu and none-eu questions
     const filtered_questions = useFilteredQuestions(questions)
     // searching
@@ -138,7 +140,7 @@ const SearchSection = () => {
             <Container align="start" justify="flex-start" direction="column">
                 <Wrapper>
                     <ResponsiveHeader as="h1" type="heading-1" mb="4rem">
-                        <Localize translate_text="How can we help?" />
+                        <Localize translate_text="_t_How can we help?_t_" />
                     </ResponsiveHeader>
 
                     <SearchForm onSubmit={handleSubmit}>

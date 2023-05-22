@@ -148,15 +148,15 @@ module.exports = {
                     languages.push('x-default')
                     languages.splice(languages.indexOf('ach'), 1)
                     const ignore_localized = current_page.match(ignore_localized_regex)
-                    const links = languages.map((locale) => {
-                        if (locale !== 'ach' && locale) {
+                    const links = languages
+                        .filter((l) => l !== 'ach' && l)
+                        .map((locale) => {
                             const replaced_locale = locale.replace('_', '-')
                             const is_default = ['en', 'x-default'].includes(locale)
                             const href_locale = is_default ? '' : `/${replaced_locale}`
                             const href = `${site_url}${href_locale}${current_page}`
                             return { lang: replaced_locale, url: href }
-                        }
-                    })
+                        })
 
                     return {
                         url: path,

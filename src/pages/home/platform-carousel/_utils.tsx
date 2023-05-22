@@ -1,20 +1,20 @@
-import React, { ReactElement } from 'react'
 import type { CSSProperties } from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import {
+    binary_bot_url,
     deriv_api_url,
     deriv_go_ios_url,
     deriv_go_playstore_url,
     derivx_android_url,
     derivx_ios_url,
     dmt5_android_url,
-    dmt5_linux_url,
+    dmt5_app_gallery,
     dmt5_ios_url,
-    smarttrader_url,
-    binary_bot_url,
+    dmt5_linux_url,
     dmt5_mac_app_url,
     dmt5_windows_download_url,
-    dmt5_app_gallery,
+    smarttrader_url,
 } from 'common/constants'
 import { Header, StyledLink } from 'components/elements'
 import { Flex } from 'components/containers'
@@ -24,7 +24,7 @@ import DTraderIcon from 'images/svg/dtrader/dtrader-icon.svg'
 import DMT5Icon from 'images/svg/dmt5/dmt5-icon.svg'
 import DerivGOIcon from 'images/svg/deriv-go/deriv-go-logo.svg'
 import DerivXIcon from 'images/svg/deriv-x/derivx-logo.svg'
-import DerivEZIcon from 'images/svg/deriv-ez/derivez-logo-black.svg'
+import DerivEZIcon from 'images/svg/deriv-ez/deriv-ez-logo-red.svg'
 import DBotIcon from 'images/svg/dbot/dbot-icon.svg'
 import BinaryBotIcon from 'images/svg/binarybot-icon.svg'
 import SmartTraderIcon from 'images/svg/custom/smarttrader.svg'

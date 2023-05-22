@@ -1,0 +1,21 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.hero_image {
+  max-inline-size: 38.1rem;
+  @include breakpoints(tablet) {
+    max-inline-size: 63.2rem;
+  }
+}
+.number_box {
+  @include breakpoints(tablet) {
+    margin-inline: 120px;
+    border-bottom: 1px solid $color-grey-1;
+  }
+}
+.styled_card {
+  @include breakpoints(tablet) {
+    inline-size: 28.2rem;
+    block-size: 30.8rem;
+  }
+}

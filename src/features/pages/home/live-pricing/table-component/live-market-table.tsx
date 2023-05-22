@@ -24,13 +24,6 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
     const [initial_loaded, setInitialLoaded] = useState(false)
 
     const [rawMarketsData, setRawMarketsData] = useState()
-    const markets = {
-        forex: `See all forex market >`,
-        derived: `See all derived market >`,
-        indices: `See all stocks & indices market >`,
-        cryptocurrency: `See all cryptocurrencies market >`,
-        commodities: `See all commodities market >`,
-    }
     const TABLE_VISIBLE_ROWS = 5
     const [markets_data, setMarketsData] = useState(() => {
         const temp = new Map<TAvailableLiveMarkets, TMarketData[]>()
@@ -142,7 +135,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
 
             <Flex.Box justify="center" align="center" mt="18x" gap="10x">
                 <Link url={{ type: 'internal', to: link_to }} font_family="UBUNTU" size="medium">
-                    <Localize translate_text={markets[selected_market]}></Localize>
+                    <Localize translate_text="_t_View all >_t_"></Localize>
                 </Link>
             </Flex.Box>
         </>

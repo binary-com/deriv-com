@@ -6,7 +6,7 @@ import DerivedRowBg from 'images/common/markets/derived-row.jpg'
 import StocksAndIndicesBg from 'images/common/markets/stocks-and-indices.jpg'
 import CryptocurrenciesBg from 'images/common/markets/cryptocurrencies.jpg'
 import CommoditiesBg from 'images/common/markets/commodities.jpg'
-import { Desktop, Mobile } from 'components/containers'
+import { Container, Desktop, Mobile } from 'components/containers'
 import { Header } from 'components/elements'
 import Button from 'components/custom/_button'
 import { Localize } from 'components/localization'
@@ -17,6 +17,11 @@ import { useIsRtl } from 'components/hooks/use-isrtl'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import MarketNav from 'features/components/templates/navigation/market-nav'
 import { handleGetTrading } from 'components/custom/utils'
+
+type ContainerProps = {
+    isDerivGo?: boolean
+    is_rtl?: boolean
+}
 
 type MarketProps = {
     title: string
@@ -88,7 +93,9 @@ const StyledButton = styled.div<BackgroundWrapperProps>`
         margin-top: 0;
     }
 `
-const StyledContainer = styled.div<BackgroundWrapperProps>`
+const StyledContainer = styled(Container)<ContainerProps>`
+    margin-top: ${(props) => (props.isDerivGo ? '175px' : '130px')};
+    margin-bottom: 120px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -97,6 +104,10 @@ const StyledContainer = styled.div<BackgroundWrapperProps>`
 
     @media (min-width: 2080px) {
         margin-left: ${(props) => (props.is_rtl ? '54vw' : '20vw')};
+    }
+    h4,
+    h1 {
+        z-index: 3;
     }
     @media (min-width: 1024px) and (max-width: 1340px) {
         margin-left: ${(props) => (props.is_rtl ? '60vw' : '5vw')};
@@ -217,7 +228,7 @@ export const DerivedFXHero = ({
                     is_commodities={is_commodities}
                     is_rtl={is_rtl}
                 >
-                    <StyledContainer is_rtl={is_rtl}>
+                    <StyledContainer is_rtl={is_rtl} isDerivGo={is_deriv_go}>
                         <StyledHeader as="h1" align="center">
                             <Localize translate_text={title} />
                         </StyledHeader>

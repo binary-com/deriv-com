@@ -10,7 +10,8 @@ import useRegion from 'components/hooks/use-region'
 
 const FooterSocialIcons = () => {
     const current_path = getLocationPathname()
-    const is_career_page = current_path === '/careers/'
+    const splitted_path = current_path.split('/')
+    const is_career_page = splitted_path.includes('careers')
     const { is_eu } = useRegion()
     const { i18n } = useTranslation()
     const { language } = i18n

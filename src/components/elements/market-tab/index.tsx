@@ -27,26 +27,24 @@ const MarketTab = () => {
         <>
             <MarketsContainer>
                 {market_buttons.map((marketItem) => (
-                    <>
-                        <MarketButton
-                            selected={marketItem.market_name === selected_market}
-                            key={marketItem.id}
-                            onClick={() => {
-                                onMarketButtonClick(marketItem.market_name)
-                            }}
-                        >
-                            <MarketIcon
-                                src={
-                                    marketItem.market_name === selected_market
-                                        ? marketItem.selected_src
-                                        : marketItem.src
-                                }
-                            />
-                            <TabStyledHeader type="paragraph-2" as="p">
-                                <Localize translate_text={marketItem.button_text} />
-                            </TabStyledHeader>
-                        </MarketButton>
-                    </>
+                    <MarketButton
+                        selected={marketItem.market_name === selected_market}
+                        key={marketItem.id}
+                        onClick={() => {
+                            onMarketButtonClick(marketItem.market_name)
+                        }}
+                    >
+                        <MarketIcon
+                            src={
+                                marketItem.market_name === selected_market
+                                    ? marketItem.selected_src
+                                    : marketItem.src
+                            }
+                        />
+                        <TabStyledHeader type="paragraph-2" as="p">
+                            <Localize translate_text={marketItem.button_text} />
+                        </TabStyledHeader>
+                    </MarketButton>
                 ))}
             </MarketsContainer>
             <ContainerWrapper>

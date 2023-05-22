@@ -31,12 +31,12 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
-        {
-            resolve: `gatsby-plugin-offline`,
-            options: {
-                precachePages: [`/`],
-            },
-        },
+        // [TODO] Enable this when we have a proper setup to enable both caching and pushwoosh service workers together, Otherwise it will cause one of them stop working.
+        //     resolve: `gatsby-plugin-offline`,
+        //     options: {
+        //         // precachePages: [`/`],
+        //     },
+        // },
         {
             resolve: 'gatsby-plugin-sass',
             options: {

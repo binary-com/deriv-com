@@ -228,7 +228,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const { is_row } = useRegion()
     const symbol = data.symbol
     const text = data.instrument
-    const dlIcon = data.dl_icon
+    const dl_icon = !is_row ? data.dl_icon : ''
     const [showPopUp, setShowPopUp] = useState(false)
     const [is_mobile] = useBrowserResize(768)
 
@@ -239,7 +239,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                 <StyledHeaderText type="small" align="start" as="p">
                     {text}
                 </StyledHeaderText>
-                {dlIcon &&
+                {dl_icon &&
                     is_row &&
                     (is_mobile ? (
                         <img
@@ -248,8 +248,6 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                             height="24px"
                             onTouchStart={() => {
                                 setShowPopUp(true)
-                                document.documentElement.scrollTop = 40
-                                document.body.style.overflow = 'hidden'
                             }}
                         />
                     ) : (
@@ -259,8 +257,6 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                             height="24px"
                             onClick={() => {
                                 setShowPopUp(true)
-                                document.documentElement.scrollTop = 40
-                                document.body.style.overflow = 'hidden'
                             }}
                         />
                     ))}
@@ -269,7 +265,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                         market={market}
                         toggle={() => {
                             setShowPopUp(false)
-                            document.body.style.overflow = 'scroll'
+                            // document.body.style.overflow = 'scroll'
                         }}
                     />
                 )}
@@ -322,6 +318,7 @@ export const Card = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
 `
 export const ModalCard = styled.div`
     position: relative;

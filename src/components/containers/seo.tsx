@@ -220,8 +220,9 @@ const SEO = ({
             )}
 
             {!is_non_localized &&
-                languages.map((locale) => {
-                    if (!(locale === 'ach')) {
+                languages
+                    .filter((l) => l !== 'ach' && l)
+                    .map((locale) => {
                         const replaced_local = locale.replace('_', '-')
                         const is_default = locale === 'en' || locale === 'x-default'
                         const href_lang = is_default ? '' : `/${replaced_local}`
@@ -235,8 +236,7 @@ const SEO = ({
                                 key={replaced_local}
                             />
                         )
-                    }
-                })}
+                    })}
         </Helmet>
     )
 }

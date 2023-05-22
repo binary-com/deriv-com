@@ -33,26 +33,30 @@ const AcuityWidgets = () => {
     const [current_widget, setCurrentWidget] = useState<TString>('_t_Signal Centre Trade Ideas_t_')
 
     useEffect(() => {
+        let created_widget
         if (isBrowser() && is_script_loaded) {
             const widget = window.AcuityWidgets
             widget.globals({ apikey: '2713b8d0-43ed-4194-b5d7-b1ff60dbdae0', locale: 'en-GB' })
 
             if (current_widget == '_t_Economic Calendar_t_') {
-                const economicCalendar = widget.CreateWidget(
+                created_widget = widget.CreateWidget(
                     'CalendarPage',
                     document.getElementById('economicCalendar'),
                     { settingId: 2619 },
                 )
-                economicCalendar.mount()
+                created_widget.mount()
             }
             if (current_widget == '_t_Signal Centre Trade Ideas_t_') {
-                const signalCentre = widget.CreateWidget(
+                created_widget = widget.CreateWidget(
                     'SignalCentre',
                     document.getElementById('signalcentre'),
                     { settingId: 2617 },
                 )
-                signalCentre.mount()
+                created_widget.mount()
             }
+        }
+        return function cleanup() {
+            created_widget?.unmount()
         }
     }, [is_script_loaded, current_widget])
 

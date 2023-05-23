@@ -12,6 +12,6 @@
 .item_block {
     min-block-size: 20rem;
     @include breakpoints(tablet) {
-        min-block-size: 24rem;
+        min-block-size: 25rem;
     }
 }

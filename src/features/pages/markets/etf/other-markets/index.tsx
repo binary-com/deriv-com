@@ -23,7 +23,7 @@ const OtherMarkets = () => {
                     <Localize translate_text="_t_Other markets you might be interested in_t_" />
                 </Typography.Heading>
             </Flex.Box>
-            <Flex.Box lg={{ direction: 'row' }} direction="col" gap="12x">
+            <Flex.Box lg={{ direction: 'row' }} direction="col">
                 <MarketsMainSlider
                     items={ETFOtherMarkets}
                     setSwiper={() => {

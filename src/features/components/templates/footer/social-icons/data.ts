@@ -327,6 +327,7 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         },
         visibility: {
             is_career_page: true,
+            is_eu: false,
         },
     },
     {

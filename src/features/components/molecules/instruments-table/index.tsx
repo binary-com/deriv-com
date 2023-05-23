@@ -13,12 +13,17 @@ const InstrumentalTable = ({ tableContent }: InstrumentalTableProps) => {
     const { title, data, mobile_basis, desktop_basis } = tableContent
     return (
         <Flex.Box container="fixed" className={styles.instrumental_wrapper}>
-            <Flex.Item className={styles.instrumental_left_item}>
+            <Flex.Box
+                className={styles.instrumental_left_item}
+                justify="center"
+                align="center"
+                md={{ basis: '3-12' }}
+            >
                 <Typography.Heading size="xxs" textcolor="black">
                     <Localize translate_text={title} />
                 </Typography.Heading>
-            </Flex.Item>
-            <Flex.Box className={styles.instrumental_right_item} wrap="wrap" justify="start">
+            </Flex.Box>
+            <Flex.Box wrap="wrap" justify="start" md={{ basis: '9-12' }}>
                 {data.map((row) => (
                     <SingleInstrumentsItem
                         key={row.id}

@@ -2,6 +2,6 @@
 
 .item_container {
     @include breakpoints(tablet) {
-        padding: 2.4rem 22rem;
+        padding: 0 22rem;
     }
 }

@@ -6,6 +6,7 @@ import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
+import SignupPublic from 'features/components/templates/signup/with-banner'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 const CryptocurrenciesPage = () => (
@@ -24,7 +25,7 @@ const CryptocurrenciesPage = () => (
             is_cryptocurrencies
         />
         <Cryptocurrencies simple_step_content={simple_step_content_cryptocurrencies} />
-        <Signup appearance={Appearances.public} />
+        <SignupPublic />
     </Layout>
 )
 

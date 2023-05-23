@@ -233,7 +233,7 @@ const MobileCard = ({ market }: CardProps) => {
         <MobileCardWrapper m="5.5rem auto 0 auto" jc="flex-start">
             <Flex width="100%" ai="start" direction="column">
                 <Icon dynamic_id={markets_type[market].id + '_mobile'} />
-                <Text size="18px" mt="2rem" weight="bold">
+                <Text size="18px" mt="2rem" mb="1rem" weight="bold">
                     {markets_type[market].title}
                 </Text>
             </Flex>
@@ -270,6 +270,9 @@ const MobileCardContainer = styled(Flex)`
         margin-top: 0;
     }
 
+    @media ${device.tabletL} {
+        height: unset;
+    }
     @media ${device.mobileL} {
         width: 90%;
         margin-inline: auto;

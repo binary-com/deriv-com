@@ -21,7 +21,7 @@ type FullWidthMultiColumnProps = {
 }
 
 const Item = styled(Flex)`
-    width: 100%;
+    width: auto;
 
     img {
         width: 48px;
@@ -91,6 +91,10 @@ const StyledTitle = styled(Header)`
     color: white;
     text-align: center;
 
+    @media ${device.laptopM} {
+        width: 220px;
+    }
+
     @media ${device.tablet} {
         max-width: 90vw;
         font-weight: 700;
@@ -123,8 +127,8 @@ const StyledTextContent = styled.div<FullWidthMultiColumnProps>`
     font-family: 'IBM Plex Sans', sans-serif;
     margin-bottom: 1.6rem;
 
-    @media ${device.laptopM} {
-        width: 170px;
+    @media ${device.laptopL} {
+        width: 161px;
     }
     @media ${device.tabletL} {
         font-size: 14px;

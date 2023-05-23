@@ -261,6 +261,7 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         },
         visibility: {
             is_career_page: false,
+            is_eu: false,
         },
     },
     {
@@ -271,7 +272,6 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
                 target: '_blank',
                 href: 'https://www.youtube.com/@deriv',
                 show_eu_modal: true,
-
             },
             icon: Youtube,
             image_alt: '_t_Youtube_t_',
@@ -294,6 +294,7 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         },
         visibility: {
             is_career_page: false,
+            is_eu: false,
         },
     },
     {

@@ -98,11 +98,7 @@ const Card = styled.article`
     @media (max-width: 680px) {
         padding: 16px 16px 36px;
         max-width: 80vw;
-        height: 35rem;
-    }
-
-    @media (max-width: 375px) {
-        height: 40rem;
+        height: auto;
     }
 
     &:hover .learn-more {

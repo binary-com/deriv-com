@@ -32,10 +32,20 @@ const MobileCardHeader = styled(Flex)`
 `
 const StyledText = styled(Text)`
     margin-top: 1.6rem;
+    font-size: 20px;
 
     @media (max-width: 680px) {
-        font-size: 18px;
+        font-size: 16px;
         margin-top: 0;
+    }
+`
+
+const StyledDescription = styled(Text)`
+    font-size: 14px;
+    margin-bottom: 2rem;
+
+    @media (max-width: 425px) {
+        font-size: 12px;
     }
 `
 
@@ -133,11 +143,11 @@ const AvailableMarkets = () => {
 
                                                 <StyledText weight="bold">{market.text}</StyledText>
                                             </MobileCardHeader>
-                                            <Text>
+                                            <StyledDescription>
                                                 {is_eu
                                                     ? market.eu_description || market.description
                                                     : market.description}
-                                            </Text>
+                                            </StyledDescription>
                                             <LearnMore
                                                 text={<Localize translate_text="Learn more" />}
                                                 to={market.learn_more_path}
@@ -168,11 +178,11 @@ const AvailableMarkets = () => {
 
                                                 <StyledText weight="bold">{market.text}</StyledText>
                                             </MobileCardHeader>
-                                            <Text>
+                                            <StyledDescription>
                                                 {is_eu
                                                     ? market.eu_description || market.description
                                                     : market.description}
-                                            </Text>
+                                            </StyledDescription>
                                             <LearnMore
                                                 text={<Localize translate_text="Learn more" />}
                                                 to={market.learn_more_path}

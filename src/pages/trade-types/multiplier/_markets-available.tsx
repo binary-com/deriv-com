@@ -25,10 +25,20 @@ const MobileCardHeader = styled(Flex)`
 `
 const StyledText = styled(Text)`
     margin-top: 1.6rem;
+    font-size: 20px;
 
     @media (max-width: 680px) {
-        font-size: 18px;
+        font-size: 16px;
         margin-top: 0;
+    }
+`
+
+const StyledDescription = styled(Text)`
+    font-size: 14px;
+    margin-bottom: 2rem;
+
+    @media (max-width: 425px) {
+        font-size: 12px;
     }
 `
 const available_markets = [
@@ -97,7 +107,9 @@ const MarketsAvailable = () => {
                                                         {market.text}
                                                     </StyledText>
                                                 </MobileCardHeader>
-                                                <Text>{market.description}</Text>
+                                                <StyledDescription>
+                                                    {market.description}
+                                                </StyledDescription>
                                                 <LearnMore
                                                     text={<Localize translate_text="Learn more" />}
                                                     to={market.learn_more_path}
@@ -131,7 +143,9 @@ const MarketsAvailable = () => {
                                                         {market.text}
                                                     </StyledText>
                                                 </MobileCardHeader>
-                                                <Text>{market.eu_description}</Text>
+                                                <StyledDescription>
+                                                    {market.eu_description}
+                                                </StyledDescription>
                                                 <LearnMore
                                                     text={<Localize translate_text="Learn more" />}
                                                     to={market.learn_more_path}

@@ -10,7 +10,7 @@ const Wrapper = styled.div`
     position: absolute;
     left: 0;
     bottom: -2rem;
-    width: 100%;
+    width: auto;
     opacity: 0;
     transition: opacity 0.25s;
 

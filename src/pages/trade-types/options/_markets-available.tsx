@@ -23,17 +23,26 @@ const MobileCardHeader = styled(Flex)`
 
         > img {
             width: 48px;
-            margin: 2.5rem 0;
+            margin: 1.5rem 0;
             height: 48px;
         }
     }
 `
 const StyledText = styled(Text)`
     margin-top: 1.6rem;
+    font-size: 20px;
 
     @media (max-width: 680px) {
-        font-size: 18px;
+        font-size: 16px;
         margin-top: 0;
+    }
+`
+const StyledDescription = styled(Text)`
+    font-size: 14px;
+    margin-bottom: 2rem;
+
+    @media (max-width: 425px) {
+        font-size: 12px;
     }
 `
 
@@ -55,11 +64,11 @@ const MarketsAvailable = () => {
 
                                     <StyledText weight="bold">{localize('Forex')}</StyledText>
                                 </MobileCardHeader>
-                                <Text>
+                                <StyledDescription>
                                     {localize(
                                         'Take part in the world’s largest financial market. Trade digital options and Call/Put Spreads on major, minor, and smart forex pairs.',
                                     )}
-                                </Text>
+                                </StyledDescription>
                                 <LearnMore
                                     text={<Localize translate_text="Learn more" />}
                                     to="/markets/forex/"
@@ -79,11 +88,11 @@ const MarketsAvailable = () => {
                                     />
                                     <StyledText weight="bold">{localize('Derived')}</StyledText>
                                 </MobileCardHeader>
-                                <Text>
+                                <StyledDescription>
                                     {localize(
                                         'Enjoy trading a wide range of offerings that mimic characteristics of financial markets or are derived from them.',
                                     )}
-                                </Text>
+                                </StyledDescription>
                                 <LearnMore
                                     text={<Localize translate_text="Learn more" />}
                                     to="/markets/synthetic/"
@@ -106,11 +115,11 @@ const MarketsAvailable = () => {
                                         {localize('Stocks & indices')}
                                     </StyledText>
                                 </MobileCardHeader>
-                                <Text>
+                                <StyledDescription>
                                     {localize(
                                         'Go long or short on our OTC German index and utilise leverage to increase your potential profit.',
                                     )}
-                                </Text>
+                                </StyledDescription>
                                 <LearnMore
                                     text={<Localize translate_text="Learn more" />}
                                     to="/markets/stock/"
@@ -130,11 +139,11 @@ const MarketsAvailable = () => {
                                     />
                                     <StyledText weight="bold">{localize('Commodities')}</StyledText>
                                 </MobileCardHeader>
-                                <Text>
+                                <StyledDescription>
                                     {localize(
                                         'Predict the price movements of commodities like silver, gold, and oil, and use margin to amplify your possible profits.',
                                     )}
-                                </Text>
+                                </StyledDescription>
                                 <LearnMore
                                     text={<Localize translate_text="Learn more" />}
                                     to="/markets/commodities/"

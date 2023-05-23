@@ -1,5 +1,5 @@
 import React from 'react'
-import * as Styles from './styles.module.scss'
+import * as styles from './styles.module.scss'
 import { instrumental_content } from './data'
 import Flex from 'features/components/atoms/flex-box'
 import Container from 'features/components/atoms/container'
@@ -9,10 +9,10 @@ import { Localize } from 'components/localization'
 const InstrumentsContentEtf = () => {
     return (
         <Container.Fluid as="section">
-            <Flex.Box direction="col" className={Styles.item_container}>
+            <Flex.Box direction="col" className={styles.item_container}>
                 <Flex.Box
                     container="fixed"
-                    className={Styles.content_wrapper}
+                    className={styles.content_wrapper}
                     mb="20x"
                     padding="15x"
                     gap="8x"

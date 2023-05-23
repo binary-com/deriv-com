@@ -11,9 +11,6 @@
 
     .instrumental_left_item {
         border-bottom: 1px solid $color-grey-6;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         @include breakpoints(tablet) {
             border-right: 1px solid $color-grey-6;
             border-bottom: none;

@@ -1,14 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
+import type { Swiper } from 'swiper'
+import MarketsMainSlider from '../carousel-markets'
 import { ETFOtherMarkets } from './data'
-import { item_container_card } from './styles.module.scss'
-import CardBasic from 'features/components/atoms/card/card-primary'
-import { CardType } from 'features/components/atoms/card/card-primary/type'
 import Container from 'features/components/atoms/container'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 
 const OtherMarkets = () => {
+    const [firstSwiper, setFirstSwiper] = useState<Swiper>(null)
     return (
         <Container.Fluid as="section">
             <Flex.Box direction="col" gap="12x">
@@ -24,9 +24,13 @@ const OtherMarkets = () => {
                 </Typography.Heading>
             </Flex.Box>
             <Flex.Box lg={{ direction: 'row' }} direction="col" gap="12x">
-                {ETFOtherMarkets.map((data) => {
-                    return <CardBasic item={data} key={data.id} />
-                })}
+                <MarketsMainSlider
+                    items={ETFOtherMarkets}
+                    setSwiper={() => {
+                        setFirstSwiper(firstSwiper)
+                    }}
+                    connectedSwiper={firstSwiper}
+                />
             </Flex.Box>
         </Container.Fluid>
     )

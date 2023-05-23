@@ -126,21 +126,25 @@ const LearnMore = styled(LocalizedLink)<LearnMoreProps>`
     }
 
     @media ${device.tabletL} {
-        left: -20rem;
+        left: -23rem;
         bottom: 0;
         margin-bottom: 1rem;
 
         ${Text} {
-            font-size: var(--text-size-sm);
+            font-size: var(--text-size-xs);
             margin-right: 1rem;
         }
     }
     @media ${device.mobileL} {
-        left: -60%;
+        left: -65%;
 
         ${Text} {
             font-size: var(--text-size-xxs);
         }
+    }
+
+    @media ${device.mobileM} {
+        left: -60%;
     }
 `
 const MobileCardWrapper = styled(Flex)`
@@ -165,7 +169,7 @@ const MobileCardWrapper = styled(Flex)`
         @media ${device.mobileL} {
             img {
                 width: 6.5px;
-                height: 6.5px;
+                height: 12px;
             }
         }
     }

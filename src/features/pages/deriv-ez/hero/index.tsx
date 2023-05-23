@@ -27,6 +27,7 @@ const DerivEZHero = () => {
                 ml={'8x'}
                 pt={'5x'}
                 margin_block={'15x'}
+                md={{ ml: '0x' }}
             >
                 <FlexBox.Item
                     className={hero_image}

@@ -3,7 +3,7 @@ import OurPlatforms from './deprecated-other-platforms'
 import Hero from './hero'
 import Numbers from './numbers'
 import WhatIsDerivEZ from './what-have'
-import DerivEZGetApp from './deprecated-app-banner'
+import DerivEZAppBanner from './app-banner'
 import WhyTradeEZ from 'features/pages/deriv-ez/why-trade'
 import StartDerivEZ from 'features/pages/deriv-ez/how-to-start'
 import MainNav from 'features/components/templates/navigation/main-nav'
@@ -27,8 +27,8 @@ const DerivEZ = () => {
             <WhyTradeEZ />
             <WhatIsDerivEZ />
             <StartDerivEZ />
-            {/*refactor this 2 components below with atomic design*/}
-            <DerivEZGetApp />
+            <DerivEZAppBanner />
+            {/*refactor this component below with atomic design*/}
             <OurPlatforms />
             <Footer />
         </Layout>

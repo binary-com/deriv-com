@@ -86,9 +86,7 @@ export const deriv_ez_images = {
 export const demo: React.ComponentProps<typeof StepperView>['items'] = [
     {
         title: '_t_Get the <0>Deriv GO</0> app._t_',
-        component: (
-            <LocalizedLinkText key={0} to="/deriv-go" color="red" weight="bold" size={'24px'} />
-        ),
+        component: <LocalizedLinkText key={0} to="/deriv-go" color="red" />,
         image: deriv_ez_images['step1'],
     },
     {
@@ -108,9 +106,7 @@ export const demo: React.ComponentProps<typeof StepperView>['items'] = [
 export const real: React.ComponentProps<typeof StepperView>['items'] = [
     {
         title: '_t_Get the <0>Deriv GO</0> app._t_',
-        component: (
-            <LocalizedLinkText key={0} to="/deriv-go" color="red" weight="bold" size={'24px'} />
-        ),
+        component: <LocalizedLinkText key={0} to="/deriv-go" color="red" />,
         image: deriv_ez_images['step1'],
     },
     {

@@ -67,7 +67,7 @@ const StyledHeading = styled(Header)`
 const Card = styled.article`
     position: relative;
     border-radius: 16px;
-    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
+    box-shadow: 0px 12px 16px -4px rgba(14, 14, 14, 0.08), 0px 4px 6px -2px rgba(14, 14, 14, 0.03);
     background-color: var(--color-white);
     height: 100%;
     padding: 24px 24px 0;

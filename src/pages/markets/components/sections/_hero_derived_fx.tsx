@@ -86,7 +86,7 @@ const StyledButton = styled.div<BackgroundWrapperProps>`
         margin-left: ${(props) => (props.is_rtl ? '60vw' : '5vw')};
     }
     @media (min-width: 1340px) and (max-width: 2080px) {
-        margin-left: ${(props) => (props.is_rtl ? '61vw' : '16vw')};
+        margin-left: ${(props) => (props.is_rtl ? '61vw' : '6vw')};
     }
     @media ${device.laptop} {
         margin-left: 0;
@@ -95,7 +95,6 @@ const StyledButton = styled.div<BackgroundWrapperProps>`
 `
 const StyledContainer = styled(Container)<ContainerProps>`
     margin-top: ${(props) => (props.isDerivGo ? '175px' : '130px')};
-    margin-bottom: 120px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -113,7 +112,7 @@ const StyledContainer = styled(Container)<ContainerProps>`
         margin-left: ${(props) => (props.is_rtl ? '60vw' : '5vw')};
     }
     @media (min-width: 1340px) and (max-width: 2080px) {
-        margin-left: ${(props) => (props.is_rtl ? '61vw' : '16vw')};
+        margin-left: ${(props) => (props.is_rtl ? '61vw' : '6vw')};
     }
 
     @media ${device.laptop} {
@@ -124,7 +123,7 @@ const StyledContainer = styled(Container)<ContainerProps>`
         justify-content: center;
         text-align: center;
         gap: 20px;
-        margin-left: 0;
+        margin-inline: auto;
 
         h1 {
             text-align: center;
@@ -174,7 +173,7 @@ const MarketSubHeader = styled.div`
     line-height: 24px;
 
     @media ${device.laptop} {
-        min-width: 40rem;
+        min-width: 35rem;
         text-align: center;
     }
     @media ${device.mobileM} {

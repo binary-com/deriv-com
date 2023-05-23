@@ -3,7 +3,7 @@ import Derived from '../components/markets/_derived'
 import { DerivedFXHero } from '../components/sections/_hero_derived_fx'
 import NavTab from '../components/sections/_nav-tab'
 import { simple_step_derived_fx } from '../static/content/_forex'
-import Signup, { Appearances } from 'components/custom/signup'
+import SignupPublic from 'features/components/templates/signup/with-banner'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
@@ -32,7 +32,7 @@ const DerivedFxPage = () => {
             />
             <NavTab route_from={'derived-fx'} route_offset={500} />
             <Derived simple_step_content={simple_step_derived_fx} />
-            <Signup appearance={Appearances.public} />
+            <SignupPublic />
         </Layout>
     )
 }

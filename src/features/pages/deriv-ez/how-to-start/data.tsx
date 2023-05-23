@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import StepperView from 'features/components/atoms/tab/tab-content'
-import { LocalizedLinkText } from 'components/elements'
+import Link from 'features/components/atoms/link'
 
 export const deriv_ez_images = {
     step1: (
@@ -87,7 +87,15 @@ export const demo: React.ComponentProps<typeof StepperView>['items'] = [
     {
         title: '_t_Get the <0>Deriv GO</0> app._t_',
         component: (
-            <LocalizedLinkText key={0} to="/deriv-go" color="red" weight="bold" size={'24px'} />
+            <Link
+                textcolor="brand"
+                weight="bold"
+                key={0}
+                url={{
+                    type: 'internal',
+                    to: '/deriv-go',
+                }}
+            />
         ),
         image: deriv_ez_images['step1'],
     },
@@ -109,7 +117,15 @@ export const real: React.ComponentProps<typeof StepperView>['items'] = [
     {
         title: '_t_Get the <0>Deriv GO</0> app._t_',
         component: (
-            <LocalizedLinkText key={0} to="/deriv-go" color="red" weight="bold" size={'24px'} />
+            <Link
+                textcolor="brand"
+                weight="bold"
+                key={0}
+                url={{
+                    type: 'internal',
+                    to: '/deriv-go',
+                }}
+            />
         ),
         image: deriv_ez_images['step1'],
     },

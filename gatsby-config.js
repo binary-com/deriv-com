@@ -1,4 +1,5 @@
 const language_config = require(`./i18n-config.js`)
+const plugin = require('./src/features/styles/postcss-plugin/plugin')
 const isBrowser = typeof window !== 'undefined'
 
 require('dotenv').config({
@@ -9,21 +10,6 @@ const origin = isBrowser && window.location.origin
 const href = isBrowser && window.location.href
 const site_url =
     origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
-
-const strapi_preview_param = {
-    publicationState: process.env.STRAPI_PREVIEW === 'true' ? 'preview' : 'live',
-    'filters[publishedAt][$null]': process.env.STRAPI_PREVIEW === 'true' ? 'true' : 'false',
-}
-const strapi_config = process.env.STRAPI_BUILD == 'true' && [
-    {
-        singularName: 'who-we-are-page',
-        queryParams: strapi_preview_param,
-    },
-    {
-        singularName: 'cfd-warning-banner',
-        queryParams: strapi_preview_param,
-    },
-]
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
@@ -45,6 +31,29 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
+        // [TODO] Enable this when we have a proper setup to enable both caching and pushwoosh service workers together, Otherwise it will cause one of them stop working.
+        //     resolve: `gatsby-plugin-offline`,
+        //     options: {
+        //         // precachePages: [`/`],
+        //     },
+        // },
+        {
+            resolve: 'gatsby-plugin-sass',
+            options: {
+                postCssPlugins: [
+                    require('postcss-discard-duplicates'),
+                    plugin({
+                        dest: 'src/classnames.d.ts',
+                        // Set isModule if you want to import ClassNames from another file
+                        // isModule: true,
+                        exportAsDefault: true, // to use in combination with isModule
+                    }),
+                    require('cssnano')({
+                        preset: 'default',
+                    }),
+                ],
+            },
+        },
         'gatsby-plugin-react-helmet',
         {
             resolve: `gatsby-plugin-react-helmet-canonical-urls`,
@@ -140,15 +149,15 @@ module.exports = {
                     languages.push('x-default')
                     languages.splice(languages.indexOf('ach'), 1)
                     const ignore_localized = current_page.match(ignore_localized_regex)
-                    const links = languages.map((locale) => {
-                        if (locale !== 'ach' && locale) {
+                    const links = languages
+                        .filter((l) => l !== 'ach' && l)
+                        .map((locale) => {
                             const replaced_locale = locale.replace('_', '-')
                             const is_default = ['en', 'x-default'].includes(locale)
                             const href_locale = is_default ? '' : `/${replaced_locale}`
                             const href = `${site_url}${href_locale}${current_page}`
                             return { lang: replaced_locale, url: href }
-                        }
-                    })
+                        })
 
                     return {
                         url: path,
@@ -302,8 +311,8 @@ module.exports = {
                 policy: [
                     {
                         userAgent: '*',
-                        allow: '/',
                         disallow: [
+                            '/',
                             '/404/',
                             '/homepage/',
                             '/landing/',
@@ -335,14 +344,6 @@ module.exports = {
             options: {
                 analyzerMode: 'disabled',
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
-            },
-        },
-        {
-            resolve: 'gatsby-source-strapi',
-            options: {
-                apiURL: 'https://chief-skinny-instrument.strapiapp.com',
-                accessToken: process.env.STRAPI_TOKEN,
-                collectionTypes: strapi_config,
             },
         },
     ],

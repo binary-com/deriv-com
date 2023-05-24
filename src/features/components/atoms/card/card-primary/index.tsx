@@ -12,7 +12,7 @@ interface CardItemsProps {
 
 const CardBasic = ({ item }: CardItemsProps) => {
     return (
-        <Flex.Box className={item_container} direction="col" bgcolor="white" radius="8x">
+        <Flex.Box className={item_container} direction="col" gap="4x" bgcolor="white" radius="8x">
             <Flex.Item className={item_block}>
                 {item.icon && (
                     <Flex.Box pb="4x" lg={{ pb: '8x' }}>

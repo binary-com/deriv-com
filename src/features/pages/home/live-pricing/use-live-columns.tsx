@@ -18,6 +18,7 @@ const useLiveColumns = () => {
                 header: () => (
                     <Flex.Box className={table_header_cell}>
                         <Typography.Paragraph
+                            align="left"
                             weight="bold"
                             font_family="UBUNTU"
                             size={is_mobile ? 'small' : 'medium'}
@@ -46,6 +47,7 @@ const useLiveColumns = () => {
                 header: () => (
                     <Flex.Box className={table_header_cell}>
                         <Typography.Paragraph
+                            align="left"
                             weight="bold"
                             font_family="UBUNTU"
                             size={is_mobile ? 'small' : 'medium'}
@@ -66,6 +68,7 @@ const useLiveColumns = () => {
                 header: () => (
                     <Flex.Box className={table_header_cell}>
                         <Typography.Paragraph
+                            align="left"
                             weight="bold"
                             font_family="UBUNTU"
                             size={is_mobile ? 'small' : 'medium'}
@@ -86,6 +89,7 @@ const useLiveColumns = () => {
                 header: () => (
                     <Flex.Box className={table_header_cell}>
                         <Typography.Paragraph
+                            align="left"
                             weight="bold"
                             font_family="UBUNTU"
                             size={is_mobile ? 'small' : 'medium'}
@@ -109,6 +113,7 @@ const useLiveColumns = () => {
                             weight="bold"
                             font_family="UBUNTU"
                             size={is_mobile ? 'small' : 'medium'}
+                            md={{ align: 'left' }}
                         >
                             <Localize translate_text="_t_Daily % Change_t_" />
                         </Typography.Paragraph>

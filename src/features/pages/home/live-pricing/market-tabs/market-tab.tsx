@@ -2,16 +2,17 @@ import React, { useState } from 'react'
 import { TAvailableLiveMarkets } from '../types'
 import LiveMarketTable from '../table-component/live-market-table'
 import { market_buttons } from './utils'
-import { tab_container, button_active, button } from './tab-style.module.scss'
-import Button from 'features/components/atoms/button'
+import { tab_container } from './tab-style.module.scss'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import Container from 'features/components/atoms/container'
 import Flex from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
+import TabMenu from 'features/components/templates/tabs/menu'
 
 const MarketTab = () => {
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
+    const [tab_name, setTabName] = useState('Forex')
     const [linkToMarketPage, setLinkToMarketPage] = useState('/markets/forex/')
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
@@ -25,35 +26,35 @@ const MarketTab = () => {
                 md={{ justify: 'center', padding: '10x' }}
             >
                 {market_buttons.map((market_item) => (
-                    <Button.Base
-                        className={
-                            market_item.market_name === selected_market ? button_active : button
-                        }
-                        key={market_item.market_name}
-                        onClick={() => {
-                            onMarketButtonClick(market_item.market_name)
-                            setLinkToMarketPage(market_item.to)
-                        }}
-                    >
-                        <Image
-                            src={
-                                market_item.market_name === selected_market
-                                    ? `${market_item.selected_src}#${market_item.market_name}`
-                                    : `${market_item.src}#${market_item.market_name}`
-                            }
-                            width="24px"
-                            height="24px"
-                        />
-
-                        <Typography.Paragraph
-                            size="large"
-                            textcolor={
-                                market_item.market_name === selected_market ? 'brand' : 'secondary'
-                            }
+                    <>
+                        <Flex.Box
+                            direction="col"
+                            className="tab_container"
+                            onClick={() => {
+                                onMarketButtonClick(market_item.market_name)
+                                setLinkToMarketPage(market_item.to)
+                            }}
                         >
-                            <Localize translate_text={market_item.button_text} />
-                        </Typography.Paragraph>
-                    </Button.Base>
+                            <Flex.Box justify="center">
+                                <Image
+                                    src={
+                                        market_item.market_name === selected_market
+                                            ? `${market_item.selected_src}#${market_item.market_name}`
+                                            : `${market_item.src}#${market_item.market_name}`
+                                    }
+                                    width="24px"
+                                    height="24px"
+                                />
+                            </Flex.Box>
+
+                            <TabMenu
+                                tab_names={[market_item.button_text]}
+                                key={market_item.button_text}
+                                current_tab={tab_name}
+                                setCurrentTab={setTabName}
+                            />
+                        </Flex.Box>
+                    </>
                 ))}
             </Flex.Box>
             {market_buttons.map(

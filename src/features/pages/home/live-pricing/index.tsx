@@ -1,6 +1,6 @@
 import React from 'react'
 import MarketTab from './market-tabs/market-tab'
-import { button_table } from './live-pricing.module.scss'
+import { button_table } from './live-pricing-section.module.scss'
 import Container from 'features/components/atoms/container'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
@@ -40,6 +40,7 @@ const LivePricing = () => {
                     className={button_table}
                     url={{ type: 'internal', to: '/trading-specification/' }}
                     outlined
+                    font_family="UBUNTU"
                 >
                     <Localize translate_text="_t_Check trading specs_t_" />
                 </LinkButton.Primary>

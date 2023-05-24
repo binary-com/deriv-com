@@ -29,7 +29,7 @@ export const TableData = styled.table`
     width: 100%;
     display: inline-block;
     overflow: auto;
-    table > :nth-child(1) > tr:nth-of-type(1) {
+    table > :nth-child(1) > tbody:nth-of-type(1) {
         height: 110px;
         border-bottom: none;
     }
@@ -235,6 +235,12 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const [popup_type, setPopupType] = useState<TPopupType>()
     const [is_mobile] = useBrowserResize(768)
 
+    const openPopup = (type: TPopupType) => {
+        setShowPopUp(true)
+        setPopupType(type)
+        document.body.style.overflow = 'hidden'
+    }
+
     const getStyledImg = (width, icon, type) => {
         return is_mobile ? (
             <StyledImg
@@ -242,9 +248,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                 width={width}
                 height="24px"
                 onTouchStart={() => {
-                    setShowPopUp(true)
-                    setPopupType(type)
-                    document.body.style.overflow = 'hidden'
+                    openPopup(type)
                 }}
             />
         ) : (
@@ -253,9 +257,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                 width={width}
                 height="24px"
                 onClick={() => {
-                    setShowPopUp(true)
-                    setPopupType(type)
-                    document.body.style.overflow = 'hidden'
+                    openPopup(type)
                 }}
             />
         )

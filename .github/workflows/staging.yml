@@ -42,7 +42,7 @@ jobs:
   release-staging:
     needs: lint
     timeout-minutes: 30
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04-64core
     environment: staging
     steps:
       - name: Checkout 🛎️

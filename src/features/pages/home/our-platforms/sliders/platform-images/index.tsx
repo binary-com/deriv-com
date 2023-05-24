@@ -29,7 +29,7 @@ const PlatformImageSlider = ({ items, setSwiper, connectedSwiper }: PlatformMain
             dir={get_lang_direction()}
             modules={[Controller, EffectFade, Autoplay, Pagination]}
             autoplay={{
-                delay: 3000,
+                delay: 4000,
             }}
             className={platform_images_swiper}
             pagination={{

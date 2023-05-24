@@ -1,26 +1,21 @@
-import { Swiper, SwiperSlide } from 'swiper/react'
 import React from 'react'
-import type { Swiper as SwiperType } from 'swiper'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper'
-// import { SmartPlatformItem } from '../../types'
-// import { platform_swiper } from './platforms-main.module.scss'
 import * as styles from './styles.module.scss'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import CardBasic from 'features/components/atoms/card/card-primary'
+import { CardType } from 'features/components/atoms/card/card-primary/type'
 
-interface PlatformMainSliderProps {
-    items: any
-    setSwiper: (swiper: SwiperType) => void
-    connectedSwiper: SwiperType
+interface MarketsMainSliderProps {
+    cards: CardType[]
 }
 
-const MarketsMainSlider = ({ items, setSwiper, connectedSwiper }: PlatformMainSliderProps) => {
+const MarketsMainSlider = ({ cards }: MarketsMainSliderProps) => {
     const { is_mobile_or_tablet } = useBreakpoints()
-
     return (
         <>
             {is_mobile_or_tablet ? (
-                items.map((data, index) => <CardBasic item={data} key={index} />)
+                cards.map((card) => <CardBasic item={card} key={card.id} />)
             ) : (
                 <Swiper
                     slidesPerView={3}
@@ -38,9 +33,9 @@ const MarketsMainSlider = ({ items, setSwiper, connectedSwiper }: PlatformMainSl
                     }}
                     className={styles.swiper_wrapper}
                 >
-                    {items.map((data, index) => (
-                        <SwiperSlide key={index}>
-                            <CardBasic item={data} key={index} />
+                    {cards.map((card) => (
+                        <SwiperSlide key={card.id}>
+                            <CardBasic item={card} />
                         </SwiperSlide>
                     ))}
                 </Swiper>

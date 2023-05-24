@@ -30,18 +30,13 @@ const ImageWithParagraph = ({ mobile_flex_direction, data }: ImageWithParagraphT
                         }}
                     >
                         <FlexBox.Box direction={'col'} md={{ basis: '6-12' }}>
-                            {feature?.title ? (
-                                <Typography.Heading
-                                    mb={'6x'}
-                                    size="large"
-                                    align="center"
-                                    textcolor="primary"
-                                >
+                            {feature?.title && (
+                                <Typography.Heading mb={'6x'} align="left" textcolor="primary">
                                     <Localize translate_text={feature?.title} />
                                 </Typography.Heading>
-                            ) : null}
+                            )}
 
-                            <Typography.Paragraph align={'center'} mb={'8x'} size="large">
+                            <Typography.Paragraph align={'left'} mb={'8x'} size="large">
                                 <Localize translate_text={feature?.subtitle} />
                             </Typography.Paragraph>
                             {feature?.system_url && (

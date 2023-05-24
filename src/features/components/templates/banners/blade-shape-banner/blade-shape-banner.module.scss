@@ -4,16 +4,21 @@
 .banner_section {
   position: relative;
   isolation: isolate;
+
+  @include breakpoints(tablet) {
+    padding-inline: 12rem;
+    padding-block: 13.4rem;
+  }
   &:before {
     background: $color-black-10;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
-    inset: 0 0 58% 0;
+    clip-path: polygon(0 0,100% 0,100% 100%,0 78%);
+    inset: 0 0 50% 0;
     position: absolute;
     content: "";
     z-index: -1;
     @include breakpoints(tablet) {
-      inset: 0 43% 0 0;
-      clip-path: polygon(0 0,94% 0,100% 100%,0 100%);
+      clip-path: polygon(0 0,85% 0,100% 100%,0 100%);
+      inset: 0 42% 0 0;
     }
   }
 }

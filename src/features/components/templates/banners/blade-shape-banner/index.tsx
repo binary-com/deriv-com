@@ -18,16 +18,11 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
             as={'section'}
             bgcolor={'black'}
             padding_block={'32x'}
-            md={{ padding_block: '40x' }}
+            padding_inline={'8x'}
+            md={{ padding_inline: '0x', padding_block: '0x' }}
         >
-            <Flex.Box
-                container={'fluid'}
-                direction={'col'}
-                justify={'between'}
-                gap={'40x'}
-                md={{ direction: 'row', gap: '12x' }}
-            >
-                <Flex.Box direction={'col'} align={'center'} md={{ basis: '7-12' }}>
+            <Flex.Box direction={'col'} justify={'between'} md={{ direction: 'row', gap: '12x' }}>
+                <Flex.Box direction={'col'} align={'center'} md={{ basis: '3-6' }}>
                     <FlexBox.Box
                         direction={'col'}
                         align={'center'}
@@ -75,8 +70,10 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
                     <FlexBox.Box
                         className={styles.qr_box}
                         align={'center'}
-                        gap={'12x'}
                         padding={'12x'}
+                        mb={'12x'}
+                        mt={'20x'}
+                        md={{ mt: '0x' }}
                     >
                         <Image
                             src={data.scan_box.icon}
@@ -93,7 +90,7 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
                             </Typography.Heading>
                         </FlexBox.Box>
                     </FlexBox.Box>
-                    <Flex.Box wrap={'wrap'} justify={'start'} padding_block={'10x'} pl={'12x'}>
+                    <Flex.Box wrap={'wrap'} justify={'start'} pl={'12x'}>
                         {data.os_apps.map((item) => (
                             <Flex.Box
                                 key={item.id}

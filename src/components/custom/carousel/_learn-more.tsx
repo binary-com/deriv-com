@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Text, ImageWithDireciton } from 'components/elements'
+import { ImageWithDireciton, Text } from 'components/elements'
 import { LocalizedLink } from 'components/localization'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import device from 'themes/device'
@@ -23,7 +23,7 @@ const Item = styled.div`
     align-items: center;
     justify-content: center;
     border-radius: 23px;
-    background: var(--color-grey-45);
+    background: #f6f7f8;
     padding: 0.8rem 1.6rem;
     width: fit-content;
     margin: 0 auto;

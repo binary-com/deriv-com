@@ -261,7 +261,6 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         },
         visibility: {
             is_career_page: false,
-            is_eu: false,
         },
     },
     {
@@ -270,52 +269,17 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
             url: {
                 type: 'non-company',
                 target: '_blank',
-                href: 'https://www.youtube.com/@deriv',
-                show_eu_modal: true,
+                href: 'https://www.linkedin.com/company/derivdotcom/',
             },
-            icon: Youtube,
-            image_alt: '_t_Youtube_t_',
+            icon: Linkedin,
+            image_alt: '_t_Linkedin_t_',
         },
         visibility: {
             is_career_page: false,
-            is_eu: true,
         },
     },
     {
         id: 10,
-        data: {
-            url: {
-                type: 'non-company',
-                target: '_blank',
-                href: 'https://www.linkedin.com/company/derivdotcom/',
-            },
-            icon: Linkedin,
-            image_alt: '_t_Linkedin_t_',
-        },
-        visibility: {
-            is_career_page: false,
-            is_eu: false,
-        },
-    },
-    {
-        id: 11,
-        data: {
-            url: {
-                type: 'non-company',
-                target: '_blank',
-                href: 'https://www.linkedin.com/company/derivdotcom/',
-                show_eu_modal: true,
-            },
-            icon: Linkedin,
-            image_alt: '_t_Linkedin_t_',
-        },
-        visibility: {
-            is_career_page: false,
-            is_eu: true,
-        },
-    },
-    {
-        id: 12,
         data: {
             url: {
                 type: 'non-company',
@@ -327,11 +291,10 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         },
         visibility: {
             is_career_page: true,
-            is_eu: false,
         },
     },
     {
-        id: 13,
+        id: 11,
         data: {
             url: {
                 type: 'non-company',

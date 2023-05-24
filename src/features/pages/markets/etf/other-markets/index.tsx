@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import type { Swiper } from 'swiper'
+import React from 'react'
 import MarketsMainSlider from '../carousel-markets'
 import { ETFOtherMarkets } from './data'
 import Container from 'features/components/atoms/container'

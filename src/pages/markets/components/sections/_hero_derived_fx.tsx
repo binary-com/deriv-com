@@ -75,44 +75,20 @@ const handleBg = ({
 }
 
 const StyledButton = styled.div<BackgroundWrapperProps>`
-    margin-top: 5rem;
-    margin-left: 10vw;
-
-    @media (min-width: 2080px) {
-        margin-left: ${(props) => (props.is_rtl ? '54vw' : '20vw')};
-    }
-
-    @media (min-width: 1024px) and (max-width: 1340px) {
-        margin-left: ${(props) => (props.is_rtl ? '60vw' : '5vw')};
-    }
-    @media (min-width: 1340px) and (max-width: 2080px) {
-        margin-left: ${(props) => (props.is_rtl ? '61vw' : '6vw')};
-    }
-    @media ${device.laptop} {
-        margin-left: 0;
-        margin-top: 0;
-    }
+    margin-top: 1rem;
 `
 const StyledContainer = styled(Container)<ContainerProps>`
     margin-top: ${(props) => (props.isDerivGo ? '175px' : '130px')};
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: ${(props) => (props.is_rtl ? 'flex-end' : 'flex-start')};
     gap: 12px;
-    margin-left: 10vw;
+    margin-inline: auto;
+    max-width: 123.2rem;
 
-    @media (min-width: 2080px) {
-        margin-left: ${(props) => (props.is_rtl ? '54vw' : '20vw')};
-    }
     h4,
     h1 {
         z-index: 3;
-    }
-    @media (min-width: 1024px) and (max-width: 1340px) {
-        margin-left: ${(props) => (props.is_rtl ? '60vw' : '5vw')};
-    }
-    @media (min-width: 1340px) and (max-width: 2080px) {
-        margin-left: ${(props) => (props.is_rtl ? '61vw' : '6vw')};
     }
 
     @media ${device.laptop} {
@@ -147,11 +123,13 @@ const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
     background-size: 200vw;
     background-repeat: no-repeat;
     background-position: right;
-    height: 63rem;
+    height: 50.6rem;
+    margin-bottom: 8rem;
 
     @media (max-width: 610px) {
         background-size: 1200px;
         background-position-x: -588px;
+        margin-bottom: 5rem;
     }
 
     @media (min-width: 1024px) {
@@ -159,7 +137,7 @@ const BackgroundWrapper = styled.div<BackgroundWrapperProps>`
     }
 
     @media (min-width: 1980px) {
-        background-size: 105vw;
+        background-size: 90vw;
     }
     @media (min-width: 1024px) and (max-width: 1340px) {
         background-size: ${(props) => (props.is_rtl ? '115vw' : '130vw')};
@@ -183,12 +161,13 @@ const MarketSubHeader = styled.div`
         text-align: center;
     }
 `
-const StyledHeader = styled(Header)`
+const StyledHeader = styled.h1<ContainerProps>`
     font-size: 48px;
     color: var(--color-black-9);
     width: 39vw;
-    text-align: start;
-    margin-top: 16rem;
+    text-align: ${(props) => (props.is_rtl ? 'end' : 'start')};
+    margin-top: 12rem;
+    margin-bottom: 1rem;
 
     @media ${device.laptop} {
         font-size: 28px;
@@ -228,24 +207,28 @@ export const DerivedFXHero = ({
                     is_rtl={is_rtl}
                 >
                     <StyledContainer is_rtl={is_rtl} isDerivGo={is_deriv_go}>
-                        <StyledHeader as="h1" align="center">
+                        <StyledHeader is_rtl={is_rtl}>
                             <Localize translate_text={title} />
                         </StyledHeader>
                         <MarketSubHeader color="white">
                             <Localize translate_text={description} />
                         </MarketSubHeader>
+                        <StyledButton is_rtl={is_rtl}>
+                            {is_logged_in ? (
+                                <Button
+                                    onClick={handleGetTrading}
+                                    label="_t_Get trading_t_"
+                                    primary
+                                />
+                            ) : (
+                                <Button
+                                    onClick={handleSignup}
+                                    label="_t_Create free demo account_t_"
+                                    primary
+                                />
+                            )}
+                        </StyledButton>
                     </StyledContainer>
-                    <StyledButton is_rtl={is_rtl}>
-                        {is_logged_in ? (
-                            <Button onClick={handleGetTrading} label="_t_Get trading_t_" primary />
-                        ) : (
-                            <Button
-                                onClick={handleSignup}
-                                label="_t_Create free demo account_t_"
-                                primary
-                            />
-                        )}
-                    </StyledButton>
                 </BackgroundWrapper>
             </Desktop>
             <Mobile breakpoint={'laptop'}>
@@ -259,7 +242,7 @@ export const DerivedFXHero = ({
                     is_rtl={is_rtl}
                 />
                 <StyledContainer>
-                    <StyledHeader as="h1" align="center">
+                    <StyledHeader is_rtl={is_rtl} as="h1" align="center">
                         <Localize translate_text={title} />
                     </StyledHeader>
                     <MarketSubHeader color="white">

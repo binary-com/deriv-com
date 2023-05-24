@@ -79,7 +79,7 @@ module.exports = {
             stripMetadata: true,
             defaultQuality: 50,
             defaults: {
-              formats: [`auto`],
+              formats: [`webp`],
               placeholder: `dominantColor`,
               quality: 50,
               backgroundColor: `transparent`,

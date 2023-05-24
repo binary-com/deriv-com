@@ -17,15 +17,13 @@ const DerivEZHero = () => {
             align={'center'}
             direction={'col-reverse'}
             mt={'20x'}
-            md={{ direction: 'row', mt: '0x' }}
+            md={{ direction: 'row' }}
         >
             <FlexBox.Box
                 className={hero_wrapper}
                 direction={'col'}
                 justify={'center'}
-                gap={'8x'}
                 ml={'8x'}
-                pt={'5x'}
                 margin_block={'15x'}
                 md={{ ml: '0x' }}
             >
@@ -40,8 +38,8 @@ const DerivEZHero = () => {
                     size={'xlarge'}
                     color={'secondary'}
                     weight={'bold'}
-                    pt={'4x'}
                     align={'left'}
+                    pt={'4x'}
                     md={{ pt: '8x' }}
                 >
                     <Localize translate_text="_t_An intuitive,_t_" />

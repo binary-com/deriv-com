@@ -1,5 +1,5 @@
 import React from 'react'
-import * as style from '../deriv-ez.module.scss'
+import * as styles from '../deriv-ez.module.scss'
 import { card_data } from './data'
 import Typography from 'features/components/atoms/typography'
 import FlexBox from 'features/components/atoms/flex-box'
@@ -26,11 +26,7 @@ const WhyTradeDerivEZ = () => {
                     return (
                         <FlexBox.Box
                             key={card.title}
-                            style={{
-                                boxShadow:
-                                    '0px 12px 16px -4px rgba(14, 14, 14, 0.08), 0px 4px 6px -2px rgba(14, 14, 14, 0.03)',
-                            }}
-                            className={style.styled_card}
+                            className={styles.styled_card}
                             direction={'col'}
                             justify={'start'}
                             radius={'8x'}
@@ -38,7 +34,7 @@ const WhyTradeDerivEZ = () => {
                             mt={'12x'}
                             md={{ padding: '12x', mr: '12x' }}
                         >
-                            <div>{card.icon}</div>
+                            {card.icon}
                             <Typography.Paragraph
                                 size={'xlarge'}
                                 weight={'bold'}

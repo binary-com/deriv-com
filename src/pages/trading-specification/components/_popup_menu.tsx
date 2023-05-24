@@ -50,8 +50,7 @@ const PopUpMenu = ({ market, popup_type, toggle }: TPopUpMenuProps) => {
         setCalculated(!is_calculated)
     }
 
-    const dl = 'dl'
-    const swf = 'swf'
+    const [dl, swf] = ['dl', 'swf']
     useEffect(() => {
         market_specification.map((specification) => {
             if (specification.market === market) {

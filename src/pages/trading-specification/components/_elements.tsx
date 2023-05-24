@@ -244,6 +244,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                 onTouchStart={() => {
                     setShowPopUp(true)
                     setPopupType(type)
+                    document.body.style.overflow = 'hidden'
                 }}
             />
         ) : (
@@ -254,6 +255,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                 onClick={() => {
                     setShowPopUp(true)
                     setPopupType(type)
+                    document.body.style.overflow = 'hidden'
                 }}
             />
         )
@@ -278,7 +280,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                         popup_type={popup_type}
                         toggle={() => {
                             setShowPopUp(false)
-                            // document.body.style.overflow = 'scroll'
+                            document.body.style.overflow = 'scroll'
                         }}
                     />
                 )}

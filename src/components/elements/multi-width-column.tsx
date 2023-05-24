@@ -75,6 +75,9 @@ const FirstColumn = styled(Column)<{ is_rtl: boolean }>`
         padding-right: 0;
     }
 `
+const StyledContainerBox = styled(Container)`
+    max-width: 123.2rem;
+`
 const StyledContainer = styled(Container)`
     margin: 0;
     width: 100%;
@@ -119,7 +122,7 @@ const MultiWidthColumn: React.FC<Props> = ({
             tabletPositionBackgroundImage={tabletPositionBackgroundImage}
             mobilePositionBackgroundImage={mobilePositionBackgroundImage}
         >
-            <Container ai="stretch" justify="flex-start" tablet_direction="column">
+            <StyledContainerBox ai="stretch" justify="flex-start" tablet_direction="column">
                 <FirstColumn
                     background={firstColumnBackground}
                     width={firstColumnWidth}
@@ -137,7 +140,7 @@ const MultiWidthColumn: React.FC<Props> = ({
                 >
                     {children[1]}
                 </SecondColumn>
-            </Container>
+            </StyledContainerBox>
         </StyledSectionContainer>
     )
 }

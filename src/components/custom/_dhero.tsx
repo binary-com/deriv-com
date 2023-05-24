@@ -67,7 +67,7 @@ const BannerButtonWrapper = styled.div`
 const BackgroundStyle = styled.div`
     background-color: var(--color-white);
     flex: 1;
-    height: 90vh;
+    height: 93vh;
     display: flex;
     justify-content: flex-end;
     position: relative;
@@ -150,6 +150,8 @@ const Content = styled.div`
     }
 `
 const StyledContainer = styled(Container)`
+    max-width: 123.2rem;
+
     @media ${device.tablet} {
         flex-direction: column-reverse;
         justify-content: center;
@@ -177,6 +179,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                             font_family_title={
                                 is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'
                             }
+                            line_height_title={is_rtl ? '80px' : 'inherit'}
                             color="var(--color-black-9)"
                         />
                         <BannerButtonWrapper>
@@ -218,12 +221,14 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                                     <StaticImage
                                         src="../../images/common/dtrader/hero-image-eu.png"
                                         loading="eager"
+                                        formats={['avif', 'webp', 'auto']}
                                         alt="banner"
                                     />
                                 ) : (
                                     <StaticImage
                                         src="../../images/common/dtrader/hero-image.png"
                                         loading="eager"
+                                        formats={['avif', 'webp', 'auto']}
                                         alt="banner"
                                     />
                                 )}

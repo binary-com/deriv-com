@@ -45,7 +45,7 @@ const BannerButtonWrapper = styled.div`
 const BackgroundStyle = styled.div`
     background-color: var(--color-white);
     flex: 1;
-    height: 90vh;
+    height: 93vh;
     display: flex;
     justify-content: flex-end;
     position: relative;
@@ -108,6 +108,8 @@ const StyledTradingLogin = styled.img`
     }
 `
 const StyledContainer = styled(Container)`
+    max-width: 123.2rem;
+
     @media ${device.tablet} {
         flex-direction: column-reverse;
         justify-content: center;
@@ -133,6 +135,7 @@ const DCommonBanner = () => {
                             font_family_title={
                                 is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'
                             }
+                            line_height_title={is_rtl ? '80px' : 'inherit'}
                             color="var(--color-black-9)"
                             margin_title={is_mobile ? '0 0 5px 0' : '0'}
                         />
@@ -162,6 +165,7 @@ const DCommonBanner = () => {
                                 <StaticImage
                                     src="../../images/common/deriv-x/banner_image_derivx.png"
                                     loading="eager"
+                                    formats={['avif', 'webp', 'auto']}
                                     alt="Banner"
                                 />
                             </ImageStyle>

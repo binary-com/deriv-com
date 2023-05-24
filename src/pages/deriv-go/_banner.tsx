@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import DerivGoRow from 'images/common/deriv-go/banner_image.png'
-import DerivGoRowMobile from 'images/common/deriv-go/deriv-go-mobile.png'
+import { StaticImage } from 'gatsby-plugin-image'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import DerivGOLogo from 'images/svg/deriv-go/deriv-go-banner-logo.svg'
 import device from 'themes/device'
@@ -16,9 +15,9 @@ import { Container } from 'components/containers'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
-const ImageStyle = styled.img`
+const ImageStyle = styled.div`
     z-index: 1;
-
+    max-width: 575px;
     @media ${device.tablet} {
         width: 100%;
     }
@@ -41,7 +40,7 @@ const BannerButtonWrapper = styled.div`
 const BackgroundStyle = styled.div`
     background-color: var(--color-white);
     flex: 1;
-    height: 90vh;
+    height: 93vh;
     display: flex;
     justify-content: flex-end;
     position: relative;
@@ -103,6 +102,7 @@ const StyledTradingLogin = styled.img`
     }
 `
 const StyledContainer = styled(Container)`
+    max-width: 123.2rem;
     @media ${device.tablet} {
         flex-direction: column-reverse;
         justify-content: center;
@@ -127,6 +127,7 @@ const DHero = () => {
                             font_family_title={
                                 is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'
                             }
+                            line_height_title={is_rtl ? '80px' : 'inherit'}
                             color="var(--color-black-9)"
                         />
                         <BannerButtonWrapper>
@@ -151,7 +152,23 @@ const DHero = () => {
                 <HeroImageWrapper>
                     <Shape angle={is_mobile ? 101 : 163} width="60%">
                         <ImageWrapper>
-                            <ImageStyle src={is_mobile ? DerivGoRowMobile : DerivGoRow} />
+                            <ImageStyle>
+                                {is_mobile ? (
+                                    <StaticImage
+                                        src="../../images/common/deriv-go/deriv-go-mobile.png"
+                                        loading="eager"
+                                        formats={['avif', 'webp', 'auto']}
+                                        alt="banner"
+                                    />
+                                ) : (
+                                    <StaticImage
+                                        src="../../images/common/deriv-go/banner_image.png"
+                                        loading="eager"
+                                        formats={['avif', 'webp', 'auto']}
+                                        alt="banner"
+                                    />
+                                )}
+                            </ImageStyle>
                         </ImageWrapper>
                     </Shape>
                 </HeroImageWrapper>

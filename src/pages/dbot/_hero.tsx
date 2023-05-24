@@ -64,7 +64,7 @@ const BannerButtonWrapper = styled.div`
 const BackgroundStyle = styled.div`
     background-color: var(--color-white);
     flex: 1;
-    height: 90vh;
+    height: 93vh;
     display: flex;
     justify-content: flex-end;
     position: relative;
@@ -147,6 +147,8 @@ const StyledLogo = styled.img`
     }
 `
 const StyledContainer = styled(Container)`
+    max-width: 123.2rem;
+
     @media ${device.tablet} {
         flex-direction: column-reverse;
         justify-content: center;
@@ -172,6 +174,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                             font_family_title={
                                 is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'
                             }
+                            line_height_title={is_rtl ? '80px' : 'inherit'}
                             title_font_size={is_mobile ? '32px' : '64px'}
                             color="var(--color-black-9)"
                         />
@@ -213,6 +216,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                                 <StaticImage
                                     src="../../images/common/dbot/dbot-banner.png"
                                     loading="eager"
+                                    formats={['avif', 'webp', 'auto']}
                                     alt="banner"
                                 />
                             </ImageStyle>

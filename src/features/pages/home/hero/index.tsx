@@ -15,7 +15,6 @@ const HomeHeroSlider = loadable(() => pMinDelay(import('./slider'), 4000), {
                 objectFit="fill"
                 src="../../../../images/common/home/hero_1.png"
                 alt="person-hero-1"
-                formats={['avif', 'webp', 'auto']}
                 loading="eager"
                 quality={50}
                 placeholder="blurred"
@@ -31,7 +30,6 @@ const HomeHeroSliderEu = loadable(() => pMinDelay(import('./slider'), 4000), {
                 objectFit="fill"
                 src="../../../../images/common/home/eu_hero_person_5.png"
                 alt="person-hero-1"
-                formats={['avif', 'webp', 'auto']}
                 loading="eager"
                 quality={50}
                 placeholder="blurred"

@@ -11,7 +11,6 @@ const query = graphql`
         deriv_platform: file(relativePath: { eq: "bug-bounty/devices.png" }) {
             childImageSharp {
                 gatsbyImageData(
-                    formats: [AUTO, WEBP]
                     layout: CONSTRAINED
                     quality: 70
                     breakpoints: [360, 992]

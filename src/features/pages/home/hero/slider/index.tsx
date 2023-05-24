@@ -17,7 +17,6 @@ const HomeHeroSlider = () => {
                         objectFit="fill"
                         src="../../../../../images/common/home/hero_3.png"
                         alt="person-hero-3"
-                        formats={['avif', 'webp', 'auto']}
                         placeholder="none"
                         quality={75}
                     />
@@ -30,7 +29,6 @@ const HomeHeroSlider = () => {
                         objectFit="fill"
                         src="../../../../../images/common/home/hero_4.png"
                         alt="person-hero-4"
-                        formats={['avif', 'webp', 'auto']}
                         placeholder="none"
                     />
                 ),
@@ -45,7 +43,6 @@ const HomeHeroSlider = () => {
                             objectFit="fill"
                             src="../../../../../images/common/home/hero_2.png"
                             alt="person-hero-2"
-                            formats={['avif', 'webp', 'auto']}
                             loading="eager"
                             placeholder="none"
                         />
@@ -58,7 +55,6 @@ const HomeHeroSlider = () => {
                             objectFit="fill"
                             src="../../../../../images/common/home/hero_1.png"
                             alt="person-hero-1"
-                            formats={['avif', 'webp', 'auto']}
                             quality={50}
                             placeholder="none"
                         />
@@ -73,7 +69,6 @@ const HomeHeroSlider = () => {
                         objectFit="fill"
                         src="../../../../../images/common/home/eu_hero_person_5.png"
                         alt="person-hero-1"
-                        formats={['avif', 'webp', 'auto']}
                         quality={50}
                         placeholder="none"
                     />

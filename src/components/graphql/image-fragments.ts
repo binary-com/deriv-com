@@ -5,11 +5,7 @@ import { graphql } from 'gatsby'
 export const heroImage = graphql`
     fragment heroImage on File {
         childImageSharp {
-            gatsbyImageData(
-                formats: [AUTO, AVIF, WEBP]
-                layout: FULL_WIDTH
-                placeholder: DOMINANT_COLOR
-            )
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: DOMINANT_COLOR)
         }
     }
 `
@@ -17,12 +13,7 @@ export const heroImage = graphql`
 export const backgroundImage = graphql`
     fragment backgroundImage on File {
         childImageSharp {
-            gatsbyImageData(
-                formats: [AUTO, WEBP]
-                layout: CONSTRAINED
-                quality: 100
-                placeholder: NONE
-            )
+            gatsbyImageData(layout: CONSTRAINED, quality: 100, placeholder: NONE)
         }
     }
 `
@@ -30,7 +21,7 @@ export const backgroundImage = graphql`
 export const bannerImage = graphql`
     fragment bannerImage on File {
         childImageSharp {
-            gatsbyImageData(formats: [AUTO, AVIF, WEBP], layout: CONSTRAINED, placeholder: NONE)
+            gatsbyImageData(layout: CONSTRAINED, placeholder: NONE)
         }
     }
 `
@@ -38,12 +29,7 @@ export const bannerImage = graphql`
 export const fadeIn = graphql`
     fragment fadeIn on File {
         childImageSharp {
-            gatsbyImageData(
-                formats: [AUTO, WEBP]
-                layout: CONSTRAINED
-                breakpoints: [360, 992]
-                placeholder: NONE
-            )
+            gatsbyImageData(layout: CONSTRAINED, breakpoints: [360, 992], placeholder: NONE)
         }
     }
 `
@@ -51,7 +37,7 @@ export const fadeIn = graphql`
 export const homePageHeroFadeIn = graphql`
     fragment homePageHeroFadeIn on File {
         childImageSharp {
-            gatsbyImageData(formats: [AUTO, AVIF, WEBP], layout: CONSTRAINED, placeholder: NONE)
+            gatsbyImageData(layout: CONSTRAINED, placeholder: NONE)
         }
     }
 `

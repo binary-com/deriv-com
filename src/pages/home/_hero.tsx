@@ -83,7 +83,6 @@ const Hero = ({ is_ppc }: HeroProps) => {
                         src="../../images/common/home/hero_bg.png"
                         alt="world map"
                         loading="eager"
-                        formats={['avif', 'webp', 'auto']}
                         quality={26}
                         objectFit="contain"
                         placeholder="none"

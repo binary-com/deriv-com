@@ -2,27 +2,11 @@
 @import 'features/styles/theme/variables';
 
 .widget_box {
+  block-size: 60.6rem;
+  overflow: auto;
+
   @include breakpoints(tablet) {
-    padding-inline: 6.6rem;
-  }
-
-  &_small {
-    overflow: hidden;
-    block-size: 60.6rem;
-
-    @include breakpoints(tablet) {
-      block-size: 74rem;
-      padding-inline: 6.6rem;
-    }
-  }
-  &_big {
-    overflow: hidden;
-    block-size: 118rem;
-
-    @include breakpoints(tablet) {
-      block-size: 152rem;
-      padding-inline: 6.6rem;
-    }
+    block-size: 80rem;
   }
 }
 .widget_menu {

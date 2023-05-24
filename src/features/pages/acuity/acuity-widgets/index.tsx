@@ -7,13 +7,13 @@ import TabMenu from 'features/components/templates/tabs/menu'
 import { TString } from 'types/generics'
 
 const acuity_widgets = {
-    '_t_Signal Centre Trade Ideas_t_': <div id="signalcentre" className={styles.widget_box_big} />,
+    '_t_Signal Centre Trade Ideas_t_': <div id="signalcentre" className={styles.widget_box} />,
     '_t_Research Terminal_t_': (
         <iframe
             src={
                 'https://dashboard.acuitytrading.com/widget/researchterminal?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0'
             }
-            className={styles.widget_box_small}
+            className={styles.widget_box}
         />
     ),
     '_t_Market Alerts_t_': (
@@ -22,7 +22,7 @@ const acuity_widgets = {
                 'https://dashboard.acuitytrading.com/widget/marketalerts?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0'
             }
             height={'100%'}
-            className={styles.widget_box_small}
+            className={styles.widget_box}
         />
     ),
     '_t_Economic Calendar_t_': <div id="economicCalendar" className={styles.widget_box} />,
@@ -72,7 +72,7 @@ const AcuityWidgets = () => {
                 current_tab={current_widget}
                 setCurrentTab={setCurrentWidget}
             />
-            <FlexBox.Box direction={'col'} padding_inline={'8x'}>
+            <FlexBox.Box direction={'col'} padding_inline={'8x'} md={{ padding_inline: '33x' }}>
                 {acuity_widgets[current_widget]}
             </FlexBox.Box>
         </FlexBox.Box>

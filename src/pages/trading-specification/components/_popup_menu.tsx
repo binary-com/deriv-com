@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { TAvailableLiveMarkets } from '../_types'
+import { TAvailableLiveMarkets, TPopupType } from '../_types'
 import forex_specification from '../data/_forex_specification'
 import {
     Card,
@@ -26,6 +26,7 @@ import { TString } from 'types/generics'
 
 type TPopUpMenuProps = {
     market: TAvailableLiveMarkets
+    popup_type: TPopupType
     toggle: (event: React.MouseEvent<HTMLElement>) => void
 }
 const how_it_is_calculated: TString = '_t_How it’s calculated_t_'
@@ -36,23 +37,33 @@ const from_lots: TString = '_t_From (lots)_t_'
 const to_lots: TString = '_t_To (lots)_t_'
 const leverage: TString = '_t_Leverage (1:x)_t_'
 const how_dl_is_calculated: TString = '_t_How dynamic leverage is calculated_t_'
+const swf_title: TString = '_t_Swap-free_t_'
+const swf_description: TString =
+    '_t_Please note, while our swap-free accounts come with no overnight financing charges, the spreads on these accounts might be slightly wider than those on our regular account. However, we strive to keep our spreads competitive and offer the best possible pricing to our clients at all times._t_'
 
-const PopUpMenu = ({ market, toggle }: TPopUpMenuProps) => {
+const PopUpMenu = ({ market, popup_type, toggle }: TPopUpMenuProps) => {
     const [markets_data, setMarketsData] = useState(forex_specification.dl_data)
-    const [dlTitle, setDlTitle] = useState(forex_specification.dl_title)
+    const [modalTitle, setModalTitle] = useState(forex_specification.dl_title)
+    const [modalDescription, setModalDescription] = useState(dl_description)
     const [is_calculated, setCalculated] = React.useState(false)
     const toggleCalculated = () => {
         setCalculated(!is_calculated)
     }
 
+    const [dl, swf] = ['dl', 'swf']
     useEffect(() => {
         market_specification.map((specification) => {
             if (specification.market === market) {
-                setMarketsData(specification.dl_data)
-                setDlTitle(specification.dl_title)
+                if (popup_type === dl) {
+                    setMarketsData(specification.dl_data)
+                    setModalTitle(specification.dl_title)
+                } else if (popup_type === swf) {
+                    setModalTitle(swf_title)
+                    setModalDescription(swf_description)
+                }
             }
         })
-    }, [market])
+    }, [market, popup_type])
 
     return (
         <Card>
@@ -73,41 +84,48 @@ const PopUpMenu = ({ market, toggle }: TPopUpMenuProps) => {
                 <ModalCard>
                     <StyledHeading>
                         <Header type="paragraph-1" align="center" as="p">
-                            <Localize translate_text={dlTitle} />
+                            <Localize translate_text={modalTitle} />
                         </Header>
                         <CloseIconButton src={CloseIcon} onClick={toggle} />
                     </StyledHeading>
 
                     <Header type="paragraph-2" align="center" weight="normal" as="p">
-                        <Localize translate_text={dl_description} />
+                        <Localize translate_text={modalDescription} />
                     </Header>
-                    <DLTableContainer>
-                        <TableWrapper>
-                            <Tr>
-                                <Th>
-                                    <Localize translate_text={from_lots} />
-                                </Th>
-                                <Th>
-                                    <Localize translate_text={to_lots} />
-                                </Th>
-                                <Th>
-                                    <Localize translate_text={leverage} />
-                                </Th>
-                            </Tr>
-                            {markets_data.map((data, index) => (
-                                <Tr key={index}>
-                                    <Td>{data.from}</Td>
-                                    <Td>{data.to}</Td>
-                                    <Td>{data.leverage}</Td>
-                                </Tr>
-                            ))}
-                        </TableWrapper>
-                    </DLTableContainer>
-                    <HowItIsCalculated>
-                        <StyledLinkButton flat onClick={toggleCalculated}>
-                            <Localize translate_text={how_dl_is_calculated} />
-                        </StyledLinkButton>
-                    </HowItIsCalculated>
+
+                    {popup_type === dl ? (
+                        <>
+                            <DLTableContainer>
+                                <TableWrapper>
+                                    <tbody>
+                                        <Tr>
+                                            <Th>
+                                                <Localize translate_text={from_lots} />
+                                            </Th>
+                                            <Th>
+                                                <Localize translate_text={to_lots} />
+                                            </Th>
+                                            <Th>
+                                                <Localize translate_text={leverage} />
+                                            </Th>
+                                        </Tr>
+                                        {markets_data.map((data, index) => (
+                                            <Tr key={index}>
+                                                <Td>{data.from}</Td>
+                                                <Td>{data.to}</Td>
+                                                <Td>{data.leverage}</Td>
+                                            </Tr>
+                                        ))}
+                                    </tbody>
+                                </TableWrapper>
+                            </DLTableContainer>
+                            <HowItIsCalculated>
+                                <StyledLinkButton flat onClick={toggleCalculated}>
+                                    <Localize translate_text={how_dl_is_calculated} />
+                                </StyledLinkButton>
+                            </HowItIsCalculated>
+                        </>
+                    ) : null}
                 </ModalCard>
             )}
             <Background></Background>

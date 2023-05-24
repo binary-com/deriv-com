@@ -1,6 +1,6 @@
 import React from 'react'
 import { HomepageBannerType } from './types'
-import { item_box } from './styles.module.scss'
+import { item_box, text_description } from './styles.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
@@ -25,7 +25,13 @@ const BannerText = ({ item }: HomepageBannerProps) => {
                 <Localize translate_text={item.title} />
             </Typography.Heading>
 
-            <Typography.Paragraph size="medium" pb="12x" align="center" lg={{ align: 'left' }}>
+            <Typography.Paragraph
+                className={text_description}
+                size="medium"
+                pb="12x"
+                align="center"
+                lg={{ align: 'left' }}
+            >
                 <Localize translate_text={item.description} />
             </Typography.Paragraph>
 

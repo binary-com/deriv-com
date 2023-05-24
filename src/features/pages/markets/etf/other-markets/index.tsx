@@ -11,7 +11,7 @@ import { Localize } from 'components/localization'
 const OtherMarkets = () => {
     const [firstSwiper, setFirstSwiper] = useState<Swiper>(null)
     return (
-        <Container.Fixed as="section" className={styles.swiper_wrap}>
+        <Container.Fluid as="section">
             <Flex.Box direction="col" gap="12x">
                 <Typography.Heading
                     as="h1"
@@ -24,7 +24,7 @@ const OtherMarkets = () => {
                     <Localize translate_text="_t_Other markets you might be interested in_t_" />
                 </Typography.Heading>
             </Flex.Box>
-            <Flex.Box lg={{ direction: 'row' }} direction="col">
+            <Flex.Box md={{ direction: 'row' }} direction="col" gap="4x">
                 <MarketsMainSlider
                     items={ETFOtherMarkets}
                     setSwiper={() => {
@@ -33,7 +33,7 @@ const OtherMarkets = () => {
                     connectedSwiper={firstSwiper}
                 />
             </Flex.Box>
-        </Container.Fixed>
+        </Container.Fluid>
     )
 }
 

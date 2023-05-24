@@ -19,34 +19,32 @@ const MarketsMainSlider = ({ items, setSwiper, connectedSwiper }: PlatformMainSl
 
     return (
         <>
-            <Swiper
-                slidesPerView={4}
-                // spaceBetween={20}
-                autoplay={{
-                    delay: 3500,
-                    disableOnInteraction: false,
-                }}
-                speed={1200}
-                modules={[Autoplay]}
-                // breakpoints={{
-                //     640: {
-                //         slidesPerView: 2,
-                //     },
-                //     768: {
-                //         slidesPerView: 3,
-                //     },
-                //     1024: {
-                //         slidesPerView: 3,
-                //     },
-                // }}
-                className={styles.swiper_wrapper}
-            >
-                {items.map((data, index) => (
-                    <SwiperSlide key={index}>
-                        <CardBasic item={data} key={index} />
-                    </SwiperSlide>
-                ))}
-            </Swiper>
+            {is_mobile_or_tablet ? (
+                items.map((data, index) => <CardBasic item={data} key={index} />)
+            ) : (
+                <Swiper
+                    slidesPerView={3}
+                    spaceBetween={20}
+                    autoplay={{
+                        delay: 3500,
+                        disableOnInteraction: false,
+                    }}
+                    speed={1200}
+                    modules={[Autoplay]}
+                    breakpoints={{
+                        1200: {
+                            slidesPerView: 4,
+                        },
+                    }}
+                    className={styles.swiper_wrapper}
+                >
+                    {items.map((data, index) => (
+                        <SwiperSlide key={index}>
+                            <CardBasic item={data} key={index} />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            )}
         </>
     )
 }

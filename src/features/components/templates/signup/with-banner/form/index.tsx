@@ -17,8 +17,6 @@ const SignupPublicForm = () => {
         register,
         formState: { errors, isValid },
         watch,
-        clearErrors,
-        setValue,
         handleSubmit,
     } = signUpForm
     const values = watch()
@@ -67,8 +65,6 @@ const SignupPublicForm = () => {
                         <Input.Text
                             label={'_t_Email address_t_'}
                             id="email_address"
-                            clearErrors={clearErrors}
-                            setValue={setValue}
                             error={
                                 errors?.email?.message
                                     ? localize(errors?.email?.message as TString)

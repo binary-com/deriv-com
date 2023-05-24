@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import { AcuityFeaturesTypes } from 'features/components/molecules/image-text-boxes/types'
+import { AcuityFeaturesTypes } from '../types'
 
 export const content_data: AcuityFeaturesTypes[] = [
     {

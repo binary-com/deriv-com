@@ -1,5 +1,4 @@
 import { ReactElement } from 'react'
-import { TFlexDirection } from '../../types'
 import { TString } from 'types/generics'
 
 export type DerivEzCardTypes = {
@@ -7,13 +6,16 @@ export type DerivEzCardTypes = {
     title?: TString
     subtitle?: TString
 }
-export type FeaturesTypes = {
-    title: TString
-    subtitle: TString
-    image: ReactElement
-    direction?: TFlexDirection
-}
 export type SellingPointsTypes = {
     title: TString
     subtitle: TString
+}
+export type AcuityFeaturesTypes = {
+    id: number
+    image: ReactElement
+    title?: TString
+    subtitle?: TString
+    info_title?: TString
+    system_url?: string
+    button_text?: TString
 }

@@ -4,7 +4,7 @@
 
     padding: 1.6rem;
     @include breakpoints(tablet) {
-        min-inline-size: 28.2rem;
+        max-inline-size: 30rem;
         padding: 2.4rem;
     }
 }
@@ -12,6 +12,6 @@
 .item_block {
     min-block-size: 20rem;
     @include breakpoints(tablet) {
-        min-block-size: 24rem;
+        min-block-size: 28rem;
     }
 }

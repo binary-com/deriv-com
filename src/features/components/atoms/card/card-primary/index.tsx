@@ -20,7 +20,7 @@ const CardBasic = ({ item }: CardItemsProps) => {
                     </Flex.Box>
                 )}
 
-                <Typography.Heading as="h3" size="xs" pb="4x">
+                <Typography.Heading as="h3" size="xxs" pb="4x">
                     <Localize translate_text={item.header} />
                 </Typography.Heading>
                 <Typography.Paragraph size="small" md={{ mb: '10x' }}>

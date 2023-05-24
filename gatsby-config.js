@@ -71,14 +71,26 @@ module.exports = {
             },
         },
         'gatsby-transformer-sharp',
-        {
-            resolve: `gatsby-plugin-sharp`,
-            options: {
-                failOnError: true,
-                base64Width: 20,
-                stripMetadata: true,
-                defaultQuality: 50,
-            },
+	{
+          resolve: `gatsby-plugin-sharp`,
+          options: {
+	    failOnError: true,
+            base64Width: 20,
+            stripMetadata: true,
+            defaultQuality: 50,
+            defaults: {
+              formats: [`auto`],
+              placeholder: `dominantColor`,
+              quality: 50,
+              backgroundColor: `transparent`,
+              tracedSVGOptions: {},
+              blurredOptions: {},
+              jpgOptions: {},
+              pngOptions: {},
+              webpOptions: {},
+              avifOptions: {},
+            }
+          }
         },
         `gatsby-plugin-image`,
         {

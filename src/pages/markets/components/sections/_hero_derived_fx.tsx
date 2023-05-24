@@ -89,9 +89,6 @@ const BackgroundStyle = styled.div`
     position: relative;
     direction: ltr;
 
-    @media (min-width: 992px) and (max-width: 1240px) {
-        height: 60vh;
-    }
     @media ${device.tabletL} {
         flex-direction: column-reverse;
         justify-content: center;

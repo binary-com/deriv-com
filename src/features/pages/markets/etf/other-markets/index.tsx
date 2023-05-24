@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import type { Swiper } from 'swiper'
 import MarketsMainSlider from '../carousel-markets'
+import * as styles from './styles.module.scss'
 import { ETFOtherMarkets } from './data'
 import Container from 'features/components/atoms/container'
 import Flex from 'features/components/atoms/flex-box'
@@ -10,7 +11,7 @@ import { Localize } from 'components/localization'
 const OtherMarkets = () => {
     const [firstSwiper, setFirstSwiper] = useState<Swiper>(null)
     return (
-        <Container.Fluid as="section">
+        <Container.Fixed as="section" className={styles.swiper_wrap}>
             <Flex.Box direction="col" gap="12x">
                 <Typography.Heading
                     as="h1"
@@ -32,7 +33,7 @@ const OtherMarkets = () => {
                     connectedSwiper={firstSwiper}
                 />
             </Flex.Box>
-        </Container.Fluid>
+        </Container.Fixed>
     )
 }
 

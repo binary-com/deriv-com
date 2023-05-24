@@ -12,7 +12,7 @@ interface CardItemsProps {
 
 const CardBasic = ({ item }: CardItemsProps) => {
     return (
-        <Flex.Box className={item_container} direction="col" gap="4x" bgcolor="white" radius="8x">
+        <Flex.Box className={item_container} direction="col" bgcolor="white" radius="8x">
             <Flex.Item className={item_block}>
                 {item.icon && (
                     <Flex.Box pb="4x" lg={{ pb: '8x' }}>
@@ -20,7 +20,7 @@ const CardBasic = ({ item }: CardItemsProps) => {
                     </Flex.Box>
                 )}
 
-                <Typography.Heading as="h3" size="xs" pb="4x">
+                <Typography.Heading as="h3" size="xxs" pb="4x">
                     <Localize translate_text={item.header} />
                 </Typography.Heading>
                 <Typography.Paragraph size="small" md={{ mb: '10x' }}>

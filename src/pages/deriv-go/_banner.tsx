@@ -28,7 +28,6 @@ const BannerButtonWrapper = styled.div`
         justify-content: center;
     }
 `
-
 const BackgroundStyle = styled.div`
     background-color: var(--color-white);
     flex: 1;

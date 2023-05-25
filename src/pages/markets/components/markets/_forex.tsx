@@ -44,7 +44,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                 display_title={<Localize translate_text="Forex trades available on Deriv" />}
             />
             <FullWidthMultiColumn
-                gap="0"
+                gap="2rem"
                 header={<Localize translate_text="Why trade forex on Deriv" />}
             >
                 {(is_eu ? forex_content_eu : forex_content).map((content, index) => (

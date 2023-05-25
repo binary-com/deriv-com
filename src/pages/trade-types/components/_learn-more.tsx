@@ -22,6 +22,10 @@ const Item = styled.div`
     margin-bottom: 3rem;
     padding: 0.8rem 2.6rem;
     width: fit-content;
+
+    @media (max-width: 680px) {
+        margin-left: -0.9rem;
+    }
 `
 
 const Link = styled(LocalizedLink)`
@@ -36,15 +40,22 @@ type LearnMoreProps = {
     text: string | ReactNode
     to: string
 }
+const StyledLink = styled(Text)`
+    font-size: 14px;
+
+    @media (max-width: 425px) {
+        font-size: 12px;
+    }
+`
 
 const LearnMore = ({ text, to }: LearnMoreProps) => {
     return (
         <Wrapper className="learn-more">
             <Link to={to}>
                 <Item>
-                    <Text mr="0.8rem" weight="normal" color="red">
+                    <StyledLink mr="0.8rem" weight="normal" color="red">
                         {text}
-                    </Text>
+                    </StyledLink>
                     <ImageWithDireciton src={Arrow} alt="arrow right" />
                 </Item>
             </Link>

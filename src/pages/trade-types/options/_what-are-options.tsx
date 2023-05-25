@@ -21,10 +21,10 @@ const WhatAreOptions = () => {
                             'Options are products that allow for payouts from predicting market movements, without needing to buy the underlying asset. You only need to open a position that predicts how the asset will move over a period of time. This makes it possible for people to participate in the financial markets with minimal capital investment.',
                         )}
                     </Text>
-                    <Header as="h3" type="section-title" mb="0.8rem">
+                    <Header as="h3" type="section-title" mb="1.6rem">
                         {localize('Options available on Deriv')}
                     </Header>
-                    <Text align="start" mb="0.8rem">
+                    <Text align="start" mb="1.6rem">
                         {localize('You can trade the following options on Deriv:')}
                     </Text>
                     <Ul>
@@ -40,14 +40,6 @@ const WhatAreOptions = () => {
                             <Text>
                                 <Localize
                                     translate_text="<0>Lookbacks</0> that allow you to earn a payout depending on the optimum high or low achieved by the market during the duration of a contract."
-                                    components={[<strong key={0} />]}
-                                />
-                            </Text>
-                        </li>
-                        <li>
-                            <Text>
-                                <Localize
-                                    translate_text="<0>Call/Put Spreads</0> that allow you to earn up to the specified payout depending on the position of the exit spot relative to the two defined barriers."
                                     components={[<strong key={0} />]}
                                 />
                             </Text>

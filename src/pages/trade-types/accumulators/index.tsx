@@ -14,6 +14,8 @@ import { StepperView } from 'components/elements'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useRegion from 'components/hooks/use-region'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+
 const HowAccumulatorsWork = Loadable(() => import('./_how-accumulators-works'))
 const AccumulatorsToTrade = Loadable(() => import('./_accumulators-to-trade'))
 
@@ -32,6 +34,8 @@ const Accumulators = () => {
     const { is_row } = useRegion()
     const [is_mobile] = useBrowserResize()
     const [is_loaded, setLoaded] = useState(false)
+    const { is_accumulators_released } = usePlatformQueryParam()
+
     const handleSignup = useHandleSignup()
 
     useEffect(() => {
@@ -39,7 +43,7 @@ const Accumulators = () => {
     }, [])
 
     if (is_loaded) {
-        return is_row ? (
+        return is_accumulators_released && is_row ? (
             <Layout>
                 <SEO
                     title={localize('Options trading | Trade digital options on Deriv')}

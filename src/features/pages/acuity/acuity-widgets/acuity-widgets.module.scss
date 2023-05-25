@@ -2,11 +2,12 @@
 @import 'features/styles/theme/variables';
 
 .widget_box {
-  block-size: 60.6rem;
+  block-size: 100%;
+  min-block-size: 142rem;
   overflow: auto;
 
   @include breakpoints(tablet) {
-    block-size: 80rem;
+    min-block-size: 120rem;
   }
 }
 .widget_menu {

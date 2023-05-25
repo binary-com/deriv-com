@@ -15,14 +15,6 @@ import { Container } from 'components/containers'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
-const ImageStyle = styled.div`
-    z-index: 1;
-    max-width: 575px;
-    @media ${device.tablet} {
-        width: 100%;
-    }
-`
-
 const ImageWrapper = styled.div`
     display: flex;
     flex: 1;
@@ -31,7 +23,7 @@ const ImageWrapper = styled.div`
 const BannerButtonWrapper = styled.div`
     display: flex;
     align-items: center;
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         flex-direction: column;
         justify-content: center;
     }
@@ -46,7 +38,7 @@ const BackgroundStyle = styled.div`
     position: relative;
     direction: ltr;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         flex-direction: column-reverse;
         justify-content: center;
         height: 100%;
@@ -60,7 +52,7 @@ const ContentWrapperStyle = styled.div<{ is_rtl: boolean }>`
     display: flex;
     max-width: 50%;
     direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         max-width: 100%;
     }
 `
@@ -70,13 +62,13 @@ const HeroImageWrapper = styled.div`
     right: 0;
     height: 100%;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         width: 100%;
         position: relative;
     }
 `
 const CreateAccountButton = styled(Button)`
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         max-width: 100%;
         width: 100%;
     }
@@ -88,7 +80,7 @@ const Content = styled.div`
     gap: 30px;
     flex-direction: column;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         padding: 0 16px 64px;
     }
 `
@@ -96,14 +88,14 @@ const StyledTradingLogin = styled.img`
     width: 237px;
     height: 64px;
 
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         width: 119px;
         height: 32px;
     }
 `
 const StyledContainer = styled(Container)`
     max-width: 123.2rem;
-    @media ${device.tablet} {
+    @media ${device.tabletL} {
         flex-direction: column-reverse;
         justify-content: center;
         margin: 0;
@@ -111,7 +103,7 @@ const StyledContainer = styled(Container)`
     }
 `
 const DHero = () => {
-    const { is_mobile } = useBreakpoints()
+    const { is_mobile, is_mobile_or_tablet } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()
@@ -123,7 +115,7 @@ const DHero = () => {
                         <StyledTradingLogin src={DerivGOLogo} />
                         <CommonHeaderSection
                             title="_t_A trading platform for on-the-go traders_t_"
-                            title_font_size={`${is_mobile ? 32 : 64}px`}
+                            title_font_size={`${is_mobile_or_tablet ? 32 : 64}px`}
                             font_family_title={
                                 is_rtl ? 'Noto Sans, sans-serif' : 'Ubuntu, sans-serif'
                             }
@@ -150,25 +142,24 @@ const DHero = () => {
                     </Content>
                 </ContentWrapperStyle>
                 <HeroImageWrapper>
-                    <Shape angle={is_mobile ? 101 : 163} width="60%">
+                    <Shape angle={is_mobile_or_tablet ? 101 : 163} width="60%">
                         <ImageWrapper>
-                            <ImageStyle>
-                                {is_mobile ? (
-                                    <StaticImage
-                                        src="../../images/common/deriv-go/deriv-go-mobile.png"
-                                        loading="eager"
-                                        formats={['avif', 'webp', 'auto']}
-                                        alt="banner"
-                                    />
-                                ) : (
-                                    <StaticImage
-                                        src="../../images/common/deriv-go/banner_image.png"
-                                        loading="eager"
-                                        formats={['avif', 'webp', 'auto']}
-                                        alt="banner"
-                                    />
-                                )}
-                            </ImageStyle>
+                            {is_mobile_or_tablet ? (
+                                <StaticImage
+                                    src="../../images/common/deriv-go/deriv-go-mobile.png"
+                                    loading="eager"
+                                    formats={['avif', 'webp', 'auto']}
+                                    alt="banner"
+                                />
+                            ) : (
+                                <StaticImage
+                                    src="../../images/common/deriv-go/banner_image.png"
+                                    loading="eager"
+                                    formats={['avif', 'webp', 'auto']}
+                                    alt="banner"
+                                    imgStyle={{ objectFit: 'contain' }}
+                                />
+                            )}
                         </ImageWrapper>
                     </Shape>
                 </HeroImageWrapper>

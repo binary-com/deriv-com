@@ -2,12 +2,24 @@
 @import 'features/styles/theme/variables';
 
 .widget_box {
-  block-size: 100%;
-  min-block-size: 142rem;
-  overflow: auto;
-
-  @include breakpoints(tablet) {
-    min-block-size: 120rem;
+  &_centre {
+    block-size: 100%;
+    overflow: auto;
+    max-block-size: 94vh;
+    @include breakpoints(tablet) {
+      max-block-size: 82vh;
+    }
+  }
+  &_calendar {
+    block-size: 100%;
+    overflow: auto;
+    max-block-size: 74vh;
+  }
+  &_small {
+    min-block-size: 70vh;
+    @include breakpoints(tablet) {
+      min-block-size: 92vh;
+    }
   }
 }
 .widget_menu {

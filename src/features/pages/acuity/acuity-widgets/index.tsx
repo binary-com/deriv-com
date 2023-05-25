@@ -7,13 +7,15 @@ import TabMenu from 'features/components/templates/tabs/menu'
 import { TString } from 'types/generics'
 
 const acuity_widgets = {
-    '_t_Signal Centre Trade Ideas_t_': <div id="signalcentre" className={styles.widget_box} />,
+    '_t_Signal Centre Trade Ideas_t_': (
+        <div id="signalcentre" className={styles.widget_box_centre} />
+    ),
     '_t_Research Terminal_t_': (
         <iframe
             src={
                 'https://dashboard.acuitytrading.com/widget/researchterminal?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0'
             }
-            className={styles.widget_box}
+            className={styles.widget_box_small}
         />
     ),
     '_t_Market Alerts_t_': (
@@ -22,10 +24,10 @@ const acuity_widgets = {
                 'https://dashboard.acuitytrading.com/widget/marketalerts?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0'
             }
             height={'100%'}
-            className={styles.widget_box}
+            className={styles.widget_box_small}
         />
     ),
-    '_t_Economic Calendar_t_': <div id="economicCalendar" className={styles.widget_box} />,
+    '_t_Economic Calendar_t_': <div id="economicCalendar" className={styles.widget_box_calendar} />,
 }
 
 const AcuityWidgets = () => {

@@ -40,23 +40,27 @@ const TradesAvailableWrapper = ({ item }: TradesAvailableWrapperProps) => {
                         <Typography.Paragraph pt="3x" align="center">
                             <Localize translate_text="_t_Available on_t_" />
                         </Typography.Paragraph>
-                        {item.trade_items.map((data) => {
-                            return (
-                                <Flex.Box direction="row" gap="2x" align="center" key={data.name}>
-                                    <Icon
-                                        src={data.icon}
-                                        className={'accordion_icon'}
-                                        alt={'chevron'}
-                                        size={'large'}
-                                        width={24}
-                                        height={24}
-                                    />
-                                    <Typography.Paragraph>
-                                        <Localize translate_text={data.name} />
-                                    </Typography.Paragraph>
-                                </Flex.Box>
-                            )
-                        })}
+                        <Flex.Box direction="row" gap="12x" justify="center">
+                            {item.trade_items.map((data) => {
+                                return (
+                                    <Flex.Box direction="row" key={data.name}>
+                                        <Flex.Box direction="row" gap="2x" align="center">
+                                            <Icon
+                                                src={data.icon}
+                                                className={'accordion_icon'}
+                                                alt={'chevron'}
+                                                size={'large'}
+                                                width={24}
+                                                height={24}
+                                            />
+                                            <Typography.Paragraph>
+                                                <Localize translate_text={data.name} />
+                                            </Typography.Paragraph>
+                                        </Flex.Box>
+                                    </Flex.Box>
+                                )
+                            })}
+                        </Flex.Box>
                     </Flex.Box>
                 </Flex.Box>
             )}

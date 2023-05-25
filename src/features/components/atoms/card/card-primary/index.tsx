@@ -5,12 +5,13 @@ import Link from '../../link'
 import { item_container, item_block } from './styles.module.scss'
 import { CardType } from './type'
 import { Localize } from 'components/localization'
-
+import useBreakpoints from 'components/hooks/use-breakpoints'
 interface CardItemsProps {
     item: CardType
 }
 
 const CardBasic = ({ item }: CardItemsProps) => {
+    const { is_mobile_or_tablet } = useBreakpoints()
     return (
         <Flex.Box className={item_container} direction="col" gap="4x" bgcolor="white" radius="8x">
             <Flex.Item className={item_block}>
@@ -20,10 +21,13 @@ const CardBasic = ({ item }: CardItemsProps) => {
                     </Flex.Box>
                 )}
 
-                <Typography.Heading as="h3" size="xxs" pb="4x">
+                <Typography.Heading as="h3" size={is_mobile_or_tablet ? 'xs' : 'xxs'} pb="4x">
                     <Localize translate_text={item.header} />
                 </Typography.Heading>
-                <Typography.Paragraph size="small" md={{ mb: '10x' }}>
+                <Typography.Paragraph
+                    size={is_mobile_or_tablet ? 'medium' : 'small'}
+                    md={{ mb: '10x' }}
+                >
                     <Localize translate_text={item.description} />
                 </Typography.Paragraph>
             </Flex.Item>

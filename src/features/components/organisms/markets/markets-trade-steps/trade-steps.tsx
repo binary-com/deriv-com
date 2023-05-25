@@ -1,5 +1,5 @@
 import React from 'react'
-import { item_container, item_description } from './styles.module.scss'
+import { item_container } from './styles.module.scss'
 import { TradeStepsType } from './types'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
@@ -23,7 +23,7 @@ const TradeSteps = ({ item }: TradeStepsProps) => {
             <Typography.Heading as="h3" size="xs">
                 <Localize translate_text={item.title} />
             </Typography.Heading>
-            <Flex.Item className={item_description}>
+            <Flex.Item>
                 <Typography.Paragraph size="medium" md={{ mb: '10x' }}>
                     <Localize translate_text={item.description} />
                 </Typography.Paragraph>

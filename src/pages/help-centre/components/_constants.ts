@@ -25,7 +25,6 @@ export const all_questions = [
     ib_programme,
     about_deriv,
     payment_agent,
-    accumulators,
     dmt5,
     derivx,
     dtrader,

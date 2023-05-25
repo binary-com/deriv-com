@@ -8,7 +8,6 @@ import { SEO, SmallContainer } from 'components/containers'
 import Layout from 'components/layout/layout'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import Button from 'components/custom/_button'
-import OptionsNavTab from 'pages/markets/components/sections/_options-nav-tab'
 import { localize, WithIntl } from 'components/localization'
 import { StepperView } from 'components/elements'
 import useRegion from 'components/hooks/use-region'
@@ -53,7 +52,6 @@ const Options = () => {
                         title_font_size="6.4rem"
                     />
                 </Hero>
-                <OptionsNavTab route_from={'options'} route_offset={650} />
                 <WhatAreTheOptions />
                 <HowOptionsWorks />
                 <OptionsToTrade />

@@ -26,7 +26,7 @@ type StockIndicesProps = {
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     const { is_eu } = useRegion()
-    const { is_deriv_go } = usePlatformQueryParam()
+    const { is_deriv_go, is_accumulators_released } = usePlatformQueryParam()
 
     return (
         <div>
@@ -54,7 +54,9 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                         market_content={is_eu ? synthetic_multiplier_eu : synthetic_multiplier}
                     />
                 }
-                Accumulators={<Accumulators market_content={accumulators} />}
+                Accumulators={
+                    is_accumulators_released ? <Accumulators market_content={accumulators} /> : null
+                }
                 display_title={<Localize translate_text="Synthetics trades available on Deriv" />}
             />
             <FullWidthMultiColumn

@@ -35,23 +35,16 @@ const MarketTab = () => {
                                 setLinkToMarketPage(market_item.to)
                             }}
                         >
-                            <Flex.Box justify="center">
-                                <Image
-                                    src={
-                                        market_item.market_name === selected_market
-                                            ? `${market_item.selected_src}#${market_item.market_name}`
-                                            : `${market_item.src}#${market_item.market_name}`
-                                    }
-                                    width="24px"
-                                    height="24px"
-                                />
-                            </Flex.Box>
-
                             <TabMenu
                                 tab_names={[market_item.button_text]}
                                 key={market_item.button_text}
                                 current_tab={tab_name}
                                 setCurrentTab={setTabName}
+                                icon={
+                                    market_item.market_name === selected_market
+                                        ? `${market_item.selected_src}#${market_item.market_name}`
+                                        : `${market_item.src}#${market_item.market_name}`
+                                }
                             />
                         </Flex.Box>
                     </>

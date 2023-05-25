@@ -15,8 +15,10 @@ const minimum_spread: TString = '_t_Minimum Spread_t_'
 const target_spread: TString = '_t_Target Spread_t_'
 const max_effective_leverage: TString = '_t_Max effective leverage_t_'
 const margin_requirement: TString = '_t_Margin requirement (%)_t_'
-const swap_long: TString = '_t_Swap long (%)_t_'
-const swap_short: TString = '_t_Swap short (Points)_t_'
+const swap_long_percentage: TString = '_t_Swap long (Daily %)_t_'
+const swap_long_points: TString = '_t_Swap long (Daily points)_t_'
+const swap_short_points: TString = '_t_Swap short (Daily points)_t_'
+const swap_short_percentage: TString = '_t_Swap short (Daily %)_t_'
 const trading_hours: TString = '_t_Trading hours_t_'
 const instrument_tooltip: TString =
     '_t_Refers to the currency pair or other product that can be traded._t_'
@@ -114,21 +116,44 @@ const useLiveColumns = (market: string) => {
                 cell: (info) => <TableCell text={info.getValue()} />,
             }),
             liveMarketColumnHelper.accessor('swap_long', {
-                header: () => (
-                    <TableHeaderCell
-                        text={<Localize translate_text={swap_long} />}
-                        toolTip={<Localize translate_text={swap_long_tooltip} />}
-                    />
-                ),
+                header: () => {
+                    if (market == 'forex' || market == 'indices' || market == 'commodities')
+                        return (
+                            <TableHeaderCell
+                                text={<Localize translate_text={swap_long_points} />}
+                                toolTip={<Localize translate_text={swap_long_tooltip} />}
+                            />
+                        )
+                    else {
+                        return (
+                            <TableHeaderCell
+                                text={<Localize translate_text={swap_long_percentage} />}
+                                toolTip={<Localize translate_text={swap_long_tooltip} />}
+                            />
+                        )
+                    }
+                },
+
                 cell: (info) => <TableCell text={info.getValue()} />,
             }),
             liveMarketColumnHelper.accessor('swap_short', {
-                header: () => (
-                    <TableHeaderCell
-                        text={<Localize translate_text={swap_short} />}
-                        toolTip={<Localize translate_text={swap_short_tooltip} />}
-                    />
-                ),
+                header: () => {
+                    if (market == 'forex' || market == 'indices' || market == 'commodities')
+                        return (
+                            <TableHeaderCell
+                                text={<Localize translate_text={swap_short_points} />}
+                                toolTip={<Localize translate_text={swap_short_tooltip} />}
+                            />
+                        )
+                    else {
+                        return (
+                            <TableHeaderCell
+                                text={<Localize translate_text={swap_short_percentage} />}
+                                toolTip={<Localize translate_text={swap_short_tooltip} />}
+                            />
+                        )
+                    }
+                },
                 cell: (info) => <TableCell text={info.getValue()} />,
             }),
             liveMarketColumnHelper.accessor('trading_hours', {

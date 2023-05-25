@@ -40,7 +40,6 @@ const swap_long_tooltip: TString = '_t_Swaps charged upon rollover for long (buy
 const swap_short_tooltip: TString = '_t_Swaps charged upon rollover for short (sell) positions._t_'
 
 const useLiveColumns = (market: string) => {
-    console.log(market)
     const columns = useMemo(() => {
         return [
             liveMarketColumnHelper.accessor('instrument', {

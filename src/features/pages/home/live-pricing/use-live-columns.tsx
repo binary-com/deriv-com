@@ -121,7 +121,15 @@ const useLiveColumns = () => {
                 ),
                 cell: (info) => {
                     const value_in_integer = info.getValue().replace(/[% ]/g, '')
-                    const color = value_in_integer >= 0 ? 'profit' : 'brand'
+                    const color =
+                        (value_in_integer > 0 && 'profit') ||
+                        (value_in_integer < 0 && 'brand') ||
+                        'primary'
+                    const percentage_change =
+                        value_in_integer == 0.0
+                            ? info.getValue().replace(/[- ]/g, '')
+                            : info.getValue()
+
                     return (
                         <Flex.Box className={table_header_cell}>
                             <Typography.Paragraph
@@ -130,7 +138,7 @@ const useLiveColumns = () => {
                                 textcolor={color}
                                 dir="ltr"
                             >
-                                {info.getValue()}
+                                {percentage_change}
                             </Typography.Paragraph>
                         </Flex.Box>
                     )

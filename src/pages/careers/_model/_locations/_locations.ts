@@ -393,6 +393,7 @@ export const paris: LocationsType = {
     display_name: 'Paris',
     display_thumbnail_name: 'Paris',
     display_title_name: 'Paris',
+    img_alt: 'Eiffel Tower - Paris',
     map_office_name: '(France) SAS',
     country: 'France',
     flagIcon: FranceFlagIcon,
@@ -400,6 +401,7 @@ export const paris: LocationsType = {
     first_p:
         "Deriv (France) SAS is a wholly-owned subsidiary of the Deriv Group dedicated to research and development. It brings together a diverse range of expertise, from blockchain professionals to mathematicians and quantitative analysts. The goal of this team is to develop Deriv's future-proof products and services.",
     first_img: 'living_in_paris',
+    first_img_alt: 'Deriv staff having a discussion with their laptops',
     grid_images: ['paris_grid_1', 'paris_grid_2', 'paris_grid_3', 'paris_grid_4'],
     map: 'ChIJHzsdKOdv5kcRCRcM_lUIW14',
     map_text:
@@ -488,11 +490,12 @@ export const reading: LocationsType = {
     first_img_alt: 'Working at Deriv Technologies Ltd',
     grid_images: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
     grid_img_alt: ['reading_grid_1', 'reading_grid_2', 'reading_grid_3', 'reading_grid_4'],
-    map: '',
+    map: 'ChIJlfOm_xebdkgRgITDVJhzsMw',
     map_text:
         "Our UK base is a hub for Deriv fintech talent. Taking on exciting projects, this team play a key role in ideating, designing, and developing Deriv's next-generation trading products, as well as cutting-edge applications and technical systems. If software technology is what you live and breathe, join our UK team.",
-    map_img: 'reading',
-    need_address_block: true,
+    google_map_link: 'https://goo.gl/maps/hYvX7SUgPaTcf1uj6',
+    has_iframe: true,
+    has_map: true,
 }
 
 export const vanuatu: LocationsType = {
@@ -571,7 +574,7 @@ export const roadtown: LocationsType = {
     first_img: 'living_in_roadtown',
     first_img_alt: 'Road Town, British Virgin Islands',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'bvi_grid_3', 'guernsey_grid_4'],
-    grid_img_alt: ['Deriv’s British Virgin Islands team'],
+    grid_img_alt: ['Deriv’s British Virgin Islands team', '', 'Boss explaining to team members'],
     map: 'ChIJs5fO51eGJY8RKFew8LoGSxU',
     map_text:
         'Being part of our British Virgin Islands team gives you the chance to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to make sure our BVI compliance strategies are effective. If you have a passion for law and look for worthy challenges in your career, join us at Deriv (BVI).',

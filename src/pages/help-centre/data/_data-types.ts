@@ -11,7 +11,7 @@ export type TImage = {
 
 export type TTranslationComponents = {
     key: number
-    type: 'link' | 'deriv_app_link' | 'strong'
+    type: 'link' | 'internal_link' | 'deriv_app_link' | 'strong'
     to?: string
 }[]
 
@@ -28,6 +28,7 @@ export type TList = {
     margin_top: string
     first_child_margin_top?: string
     padding_left?: string
+    size?: string
 }
 
 type TAnswerProps = {
@@ -35,6 +36,8 @@ type TAnswerProps = {
     margin_top?: string
     eu_translation_text?: TString
     list?: TList
+    color?: string
+    size?: string
 }
 
 export type TAnswer = Array<TAnswerProps & TLocalize>
@@ -55,4 +58,5 @@ export type TQuestionsData = {
     category: TString
     hide_for_eu?: boolean
     questions: TQuestions[]
+    hide_non_p2p?: boolean
 }

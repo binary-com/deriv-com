@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import type { IGatsbyImageData } from 'gatsby-plugin-image'
+import { handleGetTrading } from './utils'
 import { Flex } from 'components/containers'
 import { Header, QueryImage } from 'components/elements'
 import { Button } from 'components/form'
@@ -9,7 +10,6 @@ import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import useAuthCheck from 'components/hooks/use-auth-check'
-import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useRegion from 'components/hooks/use-region'
 
 type DBannerProps = {

@@ -43,9 +43,9 @@ const Ipoh = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('Ipoh | Our office – Malaysia | Deriv')}
+                title={localize('_t_Ipoh | Our office – Malaysia | Deriv_t_')}
                 description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Ipoh, Malaysia.',
+                    '_t_Find your role with us by browsing Deriv job opportunities in Ipoh, Malaysia._t_',
                 )}
             />
             <LocationLayout location={ipoh} images={images} />

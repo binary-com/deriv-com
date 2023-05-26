@@ -27,14 +27,15 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
     const { questions, category } = data
     const untranslate_category = getUntranslatedCategory(category)
     const filtered_questions = useFilteredQuestions(questions)
+    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <Layout>
             <SEO
                 title={localize(
-                    `Help centre | Frequently asked questions | ${untranslate_category} | Deriv`,
+                    `_t_Help centre | Frequently asked questions | ${untranslate_category} | Deriv_t_`,
                 )}
-                description={localize(`Frequently asked questions - ${untranslate_category}`)}
+                description={localize(`_t_Frequently asked questions - ${untranslate_category}_t_`)}
             />
             <Container align="start" justify="flex-start" direction="column">
                 <StyledLink
@@ -47,7 +48,7 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
                     arrow_margin="1rem"
                     margin="4rem 0 0"
                 >
-                    <Localize translate_text="Back" />
+                    <Localize translate_text="_t_Back_t_" />
                 </StyledLink>
 
                 <SideTab data={filtered_questions} tab_header={category}>
@@ -65,7 +66,7 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
 
             <ContactContainer>
                 <Community />
-                <DidntFindYourAnswerBanner />
+                {!is_deriv_go && <DidntFindYourAnswerBanner />}
             </ContactContainer>
         </Layout>
     )

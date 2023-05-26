@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { matchSorter } from 'match-sorter'
 import styled from 'styled-components'
 import { useFilteredCategory, useFilteredQuestions } from '../data/_hooks'
@@ -96,12 +96,35 @@ const SearchSection = () => {
         setSearchValue(sanitize(e.target.value))
     }
 
+    const translated_all_questions = useMemo(
+        () =>
+            all_questions.map((section) => {
+                return {
+                    ...section,
+                    category: section.category,
+                    questions: section.questions.map((question) => {
+                        return {
+                            ...question,
+                            sub_category: question.sub_category,
+                            question: question.question,
+                        }
+                    }),
+                }
+            }),
+        [all_questions],
+    )
+
     // we need to hide some of the platforms for eu countries!
-    const filtered_categories = useFilteredCategory(all_questions)
+    const filtered_categories = useFilteredCategory(translated_all_questions)
+    //Removing p2p from the search result
+
     // putting all of the questions in a variable
     const questions = filtered_categories
         .map(({ questions }) => questions)
-        .reduce((array, questions_array) => array.concat(questions_array), [])
+        .reduce(
+            (array, questions_array) => array.concat(questions_array),
+            filtered_categories[0].questions,
+        )
     // filtering eu and none-eu questions
     const filtered_questions = useFilteredQuestions(questions)
     // searching
@@ -117,7 +140,7 @@ const SearchSection = () => {
             <Container align="start" justify="flex-start" direction="column">
                 <Wrapper>
                     <ResponsiveHeader as="h1" type="heading-1" mb="4rem">
-                        <Localize translate_text="How can we help?" />
+                        <Localize translate_text="_t_How can we help?_t_" />
                     </ResponsiveHeader>
 
                     <SearchForm onSubmit={handleSubmit}>
@@ -126,7 +149,7 @@ const SearchSection = () => {
                             autoFocus
                             value={search_value}
                             onChange={handleSearchOnChange}
-                            placeholder={localize('Try “Trade”')}
+                            placeholder={localize('_t_Try “Trade”_t_')}
                             data-lpignore="true"
                             autoComplete="off"
                         />

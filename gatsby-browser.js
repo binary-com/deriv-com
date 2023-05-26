@@ -5,10 +5,17 @@ import { isProduction, isLive } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
-import { getClientInformation, getDomain, getLanguage, addScript } from 'common/utility'
+import {
+    getClientInformation,
+    getDomain,
+    getLanguage,
+    addScript,
+    updateURLAsPerUserLanguage,
+} from 'common/utility'
 import { pushwoosh_app_code } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
+import './static/css/ubuntu.css'
 
 const is_browser = typeof window !== 'undefined'
 
@@ -122,6 +129,34 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
+    //datadog
+    const dd_options = {
+        clientToken: 'pub08554ab30284600af157441bfb0fa923',
+        applicationId: '5c8975a3-ec86-4a64-8a3a-e6888fdde082',
+        site: 'datadoghq.com',
+        service: 'deriv.com',
+        env: 'production',
+        version: '1.0.6',
+        sessionSampleRate: 10,
+        sessionReplaySampleRate: 10,
+        trackResources: true,
+        trackLongTasks: true,
+        trackUserInteractions: true,
+        trackFrustrations: true,
+        enableExperimentalFeatures: ['clickmap'],
+        defaultPrivacyLevel: 'mask-user-input',
+    }
+    const dd_script = document.createElement('script')
+    dd_script.type = 'text/javascript'
+    dd_script.text = `!function(e,a,t,n,s){e=e[s]=e[s]||{q:[],onReady:function(a){e.q.push(a)}},(s=a.createElement(t)).async=1,s.src=n,(n=a.getElementsByTagName(t)[0]).parentNode.insertBefore(s,n)}(window,document,"script","https://www.datadoghq-browser-agent.com/us1/v4/datadog-rum.js","DD_RUM"),window.DD_RUM.onReady(function(){window.DD_RUM.init(${JSON.stringify(
+        dd_options,
+    )})});`
+    document.head.appendChild(dd_script)
+    // Start session replay recording
+    window.DD_RUM.onReady(function () {
+        window.DD_RUM.startSessionReplayRecording()
+    })
+
     const push_woosh = new Pushwoosh()
     if (isLive()) {
         pushwooshInit(push_woosh)
@@ -134,6 +169,8 @@ export const onClientEntry = () => {
     })
 
     checkLiveChatRedirection()
+
+    updateURLAsPerUserLanguage()
 }
 
 export const onRouteUpdate = () => {

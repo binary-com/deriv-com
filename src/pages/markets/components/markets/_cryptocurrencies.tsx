@@ -14,6 +14,7 @@ import CryptoPairs from 'images/svg/markets/crypto-pairs-new.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission-new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
 import useRegion from 'components/hooks/use-region'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -31,26 +32,28 @@ type CryptoContent = {
 
 const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
     const { is_eu } = useRegion()
+    const { is_deriv_go } = usePlatformQueryParam()
+
     const crypto_content: CryptoContent[] = [
         {
             src: Leverage,
             text: is_eu ? localize('1:2 leverage') : localize('1:100 leverage'),
-            alt: 'Leverage',
+            alt: '1 to 100 leverage',
         },
         {
             src: TightSpread,
             text: localize('Tight spreads'),
-            alt: 'Spreads',
+            alt: 'tight spreads',
         },
         {
             src: CryptoPairs,
             text: localize('25+ crypto pairs'),
-            alt: 'Crypto currency pairs',
+            alt: 'more than 25 crypto pairs',
         },
         {
             src: ZeroCommission,
             text: localize('Zero commission'),
-            alt: 'Commission',
+            alt: 'zero commission',
         },
     ]
 
@@ -61,7 +64,7 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                     <StyledBox
                         key={index}
                         text={content.text}
-                        icon={<img src={content.src} alt="" />}
+                        icon={<img src={content.src} alt={content.alt} />}
                     ></StyledBox>
                 ))}
             </WhyTrade>
@@ -79,7 +82,7 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                 content={simple_step_content}
                 sign_up
             />
-            <OtherMarkets except="cryptocurrencies" />
+            {!is_deriv_go && <OtherMarkets except="cryptocurrencies" />}
         </>
     )
 }

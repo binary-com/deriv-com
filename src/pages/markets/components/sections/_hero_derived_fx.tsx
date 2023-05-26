@@ -1,15 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
-import NavMarkets from 'components/layout/nav/nav-markets'
 import { Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Button } from 'components/form'
 import BannerBg from 'images/common/markets/hero-derived-fx.png'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
-import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import MarketNav from 'features/components/templates/navigation/market-nav'
+import { handleGetTrading } from 'components/custom/utils'
+
+type ContainerProps = {
+    isDerivGo?: boolean
+}
 
 const BackgroundWrapper = styled.div`
     background: url(${BannerBg});
@@ -21,8 +26,8 @@ const BackgroundWrapper = styled.div`
         min-height: 500px;
     }
 `
-const StyledContainer = styled(Container)`
-    margin-top: 175px;
+const StyledContainer = styled(Container)<ContainerProps>`
+    margin-top: ${(props) => (props.isDerivGo ? '175px' : '130px')};
     margin-bottom: 120px;
     display: flex;
     flex-direction: column;
@@ -33,7 +38,7 @@ const StyledContainer = styled(Container)`
 
     h4,
     h1 {
-        z-index: 10;
+        z-index: 3;
     }
     h1 {
         line-height: 1.25;
@@ -93,30 +98,39 @@ type MarketProps = {
     title: string
     description: string
 }
-export const DerivedFXHero = ({ title, description }: MarketProps) => {
+
+const GetTrading = () => (
+    <StyledButton width="128px" onClick={handleGetTrading} secondary>
+        {localize('Get Trading')}
+    </StyledButton>
+)
+
+const CreateFreeDemoAccount = () => {
     const handleSignup = useHandleSignup()
+
+    return (
+        <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary>
+            {localize('Create free demo account')}
+        </StyledButton>
+    )
+}
+
+export const DerivedFXHero = ({ title, description }: MarketProps) => {
     const [is_logged_in] = useAuthCheck()
+    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <BackgroundWrapper>
-            <NavMarkets />
-
-            <StyledContainer>
+            <MarketNav />
+            <StyledContainer isDerivGo={is_deriv_go}>
                 <StyledHeader as="h1" align="center">
                     <Localize translate_text={title} />
                 </StyledHeader>
                 <MarketSubHeader color="white" weight="normal" align="center">
                     <Localize translate_text={description} />
                 </MarketSubHeader>
-                {is_logged_in ? (
-                    <StyledButton width="128px" onClick={handleGetTrading} secondary>
-                        {localize('Get Trading')}
-                    </StyledButton>
-                ) : (
-                    <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary>
-                        {localize('Create free demo account')}
-                    </StyledButton>
-                )}
+                {is_logged_in && !is_deriv_go && <GetTrading />}
+                {!is_logged_in && !is_deriv_go && <CreateFreeDemoAccount />}
             </StyledContainer>
         </BackgroundWrapper>
     )

@@ -77,6 +77,7 @@ import EURHKD from 'images/svg/symbols/eur-hkd.svg'
 import EURILS from 'images/svg/symbols/eur-ils.svg'
 import EURJPY from 'images/svg/symbols/eur-jpy.svg'
 import EURLPN from 'images/svg/symbols/eur-lpn.svg'
+import EURPLN from 'images/svg/symbols/eur-pln.svg'
 import EURMXN from 'images/svg/symbols/eur-mxn.svg'
 import EURNOK from 'images/svg/symbols/eur-nok.svg'
 import EURNZD from 'images/svg/symbols/eur-nzd.svg'
@@ -351,6 +352,8 @@ import VCRASHIC300 from 'images/svg/symbols/volatility-crash-300-new.svg'
 import VINDEXIC200 from 'images/svg/symbols/volatility-index-ic-200.svg'
 import VINDEXIC300 from 'images/svg/symbols/volatility-index-ic-300.svg'
 import VINDEX2001S from 'images/svg/symbols/volatility_200_1s.svg'
+import VINDEX1501S from 'images/svg/symbols/volatility_150_1s.svg'
+import VINDEX2501S from 'images/svg/symbols/volatility_250_1s.svg'
 import VINDEX3001S from 'images/svg/symbols/volatility_300_1s.svg'
 import ZECUSD from 'images/svg/symbols/zec-usd.svg'
 
@@ -435,6 +438,7 @@ export {
     EURILS,
     EURJPY,
     EURLPN,
+    EURPLN,
     EURMXN,
     EURNOK,
     EURNZD,
@@ -707,6 +711,8 @@ export {
     VINDEXIC200,
     VINDEXIC300,
     VINDEX2001S,
+    VINDEX1501S,
+    VINDEX2501S,
     VINDEX3001S,
     USDCNH,
     USDBRENT,

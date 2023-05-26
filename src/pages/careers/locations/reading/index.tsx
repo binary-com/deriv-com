@@ -26,9 +26,9 @@ const Reading = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('UK | Our office – UK | Deriv')}
+                title={localize('_t_UK | Our office – UK | Deriv_t_')}
                 description={localize(
-                    'Find your role with us by browsing Deriv job opportunities in Reading, UK.',
+                    '_t_Find your role with us by browsing Deriv job opportunities in Reading, UK._t_',
                 )}
             />
             <NewLocationLayout location={reading} images={images} />

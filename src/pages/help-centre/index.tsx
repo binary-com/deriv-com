@@ -9,18 +9,22 @@ import { SEO, Desktop, Container } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import useWebsiteStatus from 'components/hooks/use-website-status'
+import InitialLoader from 'components/elements/dot-loader'
 
 const HelpCentre = () => {
     const { is_deriv_go } = usePlatformQueryParam()
     const general_questions = getQuestionsBySection(GENERAL)
     const platforms_questions = getQuestionsBySection(PLATFORMS)
+    const { website_status } = useWebsiteStatus()
+    const clients_country = website_status?.clients_country
 
     return (
         <Layout>
             <SEO
-                title={localize('Help centre | Frequently asked questions | Deriv')}
+                title={localize('_t_Help centre | Frequently asked questions | Deriv_t_')}
                 description={localize(
-                    'Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question.',
+                    '_t_Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question._t_',
                 )}
             />
             <FaqSchema />
@@ -28,7 +32,14 @@ const HelpCentre = () => {
 
             <Container align="start" justify="flex-start" direction="column">
                 <QuestionsSection data={general_questions} section_name={`_t_${GENERAL}_t_`} />
-                <QuestionsSection data={platforms_questions} section_name={`_t_${PLATFORMS}_t_`} />
+                {clients_country !== undefined ? (
+                    <QuestionsSection
+                        data={platforms_questions}
+                        section_name={`_t_${PLATFORMS}_t_`}
+                    />
+                ) : (
+                    <InitialLoader />
+                )}
             </Container>
 
             <Desktop breakpoint="tabletL">

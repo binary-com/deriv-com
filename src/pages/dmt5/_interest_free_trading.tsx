@@ -146,10 +146,10 @@ const InterestFreeTrading = () => {
         <StyledContainer>
             <InterestCardFlex fd="column" ai="center" jc="center">
                 <ImageWrapper>
-                    <ImageTag src={ZeroPercent} alt="Zero percent interest" />
+                    <ImageTag src={ZeroPercent} alt="Zero Commission" />
                 </ImageWrapper>
                 <InterestText size="32px">
-                    <Localize translate_text="interest" />
+                    <Localize translate_text="Commission" />
                 </InterestText>
                 <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
                     <CheckedText>Forex</CheckedText>

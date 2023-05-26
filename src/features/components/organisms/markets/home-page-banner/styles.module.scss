@@ -1,7 +1,5 @@
 @use 'features/styles/theme/theme-mixins' as *;
 
-.item_container {
-}
 .flex_container {
     justify-content: center;
     @include breakpoints(tablet) {
@@ -12,7 +10,7 @@
 .item_box {
     @include breakpoints(tablet) {
         inline-size: 44rem;
-        margin-left: 11.7rem;
+        margin-inline-start: 11.7rem;
     }
 }
 .text_description {

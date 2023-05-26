@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { StringParam, useQueryParam } from 'use-query-params'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import { Dropdown, Header, StyledLink, Text } from 'components/elements'
@@ -60,20 +61,11 @@ const SubmitButton = styled(Button)`
 const StyledInput = styled(Input)`
     width: 406px;
 `
-
 const StyledDropdown = styled(Dropdown)`
     width: 406px;
     border-radius: 18px;
 `
-
 const CtraderSignupSuccess = ({ email }: { email: string }) => {
-    // const [token] = useQueryParam('token2', StringParam)
-    // // API_TOKEN Sample: a1-tzAF6PBTnHkOH97ooBdSYvY26oFSm
-    // const [has_account, account_loading, email, account_error] = useCheckExistingAccount(
-    //     'ctrader',
-    //     token,
-    // )
-
     const [verification_code, setVerificationCode] = useState('')
     const [code_error_message, setCodeErrorMessage] = useState('')
     const [residence_list] = useResidenceList()
@@ -86,6 +78,7 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
     const [service_token, setServiceToken] = useState('')
     const { has_account, account_loading } = useCheckExistingAccount('ctrader', token)
     const [loading, setLoading] = useState(false)
+    const [affiliate_token] = useQueryParam('partnerId', StringParam)
 
     if (has_account) {
         if (isBrowser()) {
@@ -140,6 +133,7 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
                 client_password: password,
                 residence: residence.name,
                 verification_code,
+                ...(affiliate_token && { affiliate_token: affiliate_token }),
             })
             .then((response) => {
                 if (response.error) {

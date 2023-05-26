@@ -22,7 +22,6 @@ const OurPlatforms = () => {
             ? '_t_Choose from {{platform_count}} powerful platforms — each designed with your needs in mind._t_'
             : '_t_Choose from {{platform_count}} powerful platforms — designed with you in mind_t_'
     }, [is_eu])
-
     return (
         <Container.Fixed as="section" pt="16x" md={{ padding_block: '40x' }}>
             <Typography.Heading as="h1" size="medium" align="center" mb="10x">

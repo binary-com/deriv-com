@@ -266,7 +266,7 @@ const StyledHeader = styled(Header)`
         padding-left: 0;
         text-align: center;
         width: 300px;
-        margin: 2rem auto;
+        margin: 4rem auto;
     }
 `
 const MobileCardContainer = styled(Flex)`
@@ -286,7 +286,7 @@ const MobileCardContainer = styled(Flex)`
 const StyledCarousel = styled.div`
     height: 40rem;
     @media ${device.tabletL} {
-        height: 160rem;
+        height: 100%;
     }
 `
 

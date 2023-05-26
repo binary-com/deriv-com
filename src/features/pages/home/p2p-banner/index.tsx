@@ -34,7 +34,7 @@ const P2PBanner = () => {
                     height={700}
                     objectFit="cover"
                     placeholder="none"
-                    formats={['avif', 'webp', 'auto']}
+                    formats={['avif', 'webp']}
                 />
             </Flex.Box>
         </Flex.Box>

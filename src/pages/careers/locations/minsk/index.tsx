@@ -16,42 +16,22 @@ const query = graphql`
         }
         minsk_grid_1: file(relativePath: { eq: "careers/minsk_grid_1.png" }) {
             childImageSharp {
-                gatsbyImageData(
-                    formats: [AUTO, WEBP]
-                    layout: CONSTRAINED
-                    quality: 70
-                    placeholder: NONE
-                )
+                gatsbyImageData(layout: CONSTRAINED, quality: 70, placeholder: NONE)
             }
         }
         minsk_grid_2: file(relativePath: { eq: "careers/minsk_grid_2.png" }) {
             childImageSharp {
-                gatsbyImageData(
-                    formats: [AUTO, WEBP]
-                    layout: CONSTRAINED
-                    quality: 70
-                    placeholder: NONE
-                )
+                gatsbyImageData(layout: CONSTRAINED, quality: 70, placeholder: NONE)
             }
         }
         minsk_grid_3: file(relativePath: { eq: "careers/minsk_grid_3.png" }) {
             childImageSharp {
-                gatsbyImageData(
-                    formats: [AUTO, WEBP]
-                    layout: CONSTRAINED
-                    quality: 70
-                    placeholder: NONE
-                )
+                gatsbyImageData(layout: CONSTRAINED, quality: 70, placeholder: NONE)
             }
         }
         minsk_grid_4: file(relativePath: { eq: "careers/minsk_grid_4.png" }) {
             childImageSharp {
-                gatsbyImageData(
-                    formats: [AUTO, WEBP]
-                    layout: CONSTRAINED
-                    quality: 70
-                    placeholder: NONE
-                )
+                gatsbyImageData(layout: CONSTRAINED, quality: 70, placeholder: NONE)
             }
         }
         minsk_map: file(relativePath: { eq: "maps/map-minsk-career.png" }) {

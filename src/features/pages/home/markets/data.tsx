@@ -17,7 +17,7 @@ export const market_items: SmartMarketItem[] = [
                 <StaticImage
                     src="../../../../images/common/home/market_forex.png"
                     alt="forex market"
-                    formats={['avif', 'webp', 'auto']}
+                    formats={['avif', 'webp']}
                     placeholder="none"
                 />
             ),
@@ -39,14 +39,14 @@ export const market_items: SmartMarketItem[] = [
                     <StaticImage
                         src="../../../../images/common/home/market_derived_eu.png"
                         alt="synthetic market"
-                        formats={['avif', 'webp', 'auto']}
+                        formats={['avif', 'webp']}
                         placeholder="none"
                     />
                 ) : (
                     <StaticImage
                         src="../../../../images/common/home/market_derived.png"
                         alt="synthetic market"
-                        formats={['avif', 'webp', 'auto']}
+                        formats={['avif', 'webp']}
                         placeholder="none"
                     />
                 ),
@@ -66,7 +66,7 @@ export const market_items: SmartMarketItem[] = [
                 <StaticImage
                     src="../../../../images/common/home/market_stocks_indices.png"
                     alt="stocks indices market"
-                    formats={['avif', 'webp', 'auto']}
+                    formats={['avif', 'webp']}
                     placeholder="none"
                 />
             ),
@@ -86,7 +86,7 @@ export const market_items: SmartMarketItem[] = [
                 <StaticImage
                     src="../../../../images/common/home/market_crypto.png"
                     alt="cryptocurrencies market"
-                    formats={['avif', 'webp', 'auto']}
+                    formats={['avif', 'webp']}
                     placeholder="none"
                 />
             ),
@@ -106,7 +106,7 @@ export const market_items: SmartMarketItem[] = [
                 <StaticImage
                     src="../../../../images/common/home/market_commodities.png"
                     alt="commodities market"
-                    formats={['avif', 'webp', 'auto']}
+                    formats={['avif', 'webp']}
                     placeholder="none"
                 />
             ),

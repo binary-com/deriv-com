@@ -17,7 +17,7 @@ const P2PBannerImage = () => {
                         height={400}
                         objectFit="cover"
                         placeholder="none"
-                        formats={['avif', 'webp', 'auto']}
+                        formats={['avif', 'webp']}
                     />
                 ) : (
                     <StaticImage
@@ -26,7 +26,7 @@ const P2PBannerImage = () => {
                         height={400}
                         objectFit="cover"
                         placeholder="none"
-                        formats={['avif', 'webp', 'auto']}
+                        formats={['avif', 'webp']}
                     />
                 )}
             </Flex.Box>

@@ -39,7 +39,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                     objectFit="contain"
                     src="../../../../images/common/home/rebranding/platform_deriv_go.png"
                     alt="deriv go"
-                    formats={['avif', 'webp', 'auto']}
+                    formats={['avif', 'webp']}
                     placeholder="none"
                 />
             ),
@@ -122,7 +122,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                         objectFit="contain"
                         src="../../../../images/common/home/rebranding/platform_mt5_eu.png"
                         alt="deriv mt5 eu"
-                        formats={['avif', 'webp', 'auto']}
+                        formats={['avif', 'webp']}
                         placeholder="none"
                     />
                 ) : (
@@ -130,7 +130,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                         objectFit="contain"
                         src="../../../../images/common/home/rebranding/platform_mt5.png"
                         alt="deriv mt5"
-                        formats={['avif', 'webp', 'auto']}
+                        formats={['avif', 'webp']}
                         placeholder="none"
                     />
                 ),
@@ -162,7 +162,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                     objectFit="contain"
                     src="../../../../images/common/home/rebranding/platform_deriv_trader.png"
                     alt="deriv trader"
-                    formats={['avif', 'webp', 'auto']}
+                    formats={['avif', 'webp']}
                     placeholder="none"
                 />
             ),
@@ -206,7 +206,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                     objectFit="contain"
                     src="../../../../images/common/home/rebranding/platform_derivx.png"
                     alt="deriv x"
-                    formats={['avif', 'webp', 'auto']}
+                    formats={['avif', 'webp']}
                     placeholder="none"
                 />
             ),
@@ -247,7 +247,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                     objectFit="contain"
                     src="../../../../images/common/home/rebranding/platform_deriv_ez.png"
                     alt="deriv ez"
-                    formats={['avif', 'webp', 'auto']}
+                    formats={['avif', 'webp']}
                     placeholder="none"
                 />
             ),
@@ -282,7 +282,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                     objectFit="contain"
                     src="../../../../images/common/home/rebranding/platform_deriv_bot.png"
                     alt="deriv bot"
-                    formats={['avif', 'webp', 'auto']}
+                    formats={['avif', 'webp']}
                     placeholder="none"
                 />
             ),
@@ -317,7 +317,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                     objectFit="contain"
                     src="../../../../images/common/home/rebranding/platform_smart_trader.png"
                     alt="deriv smart trader"
-                    formats={['avif', 'webp', 'auto']}
+                    formats={['avif', 'webp']}
                     placeholder="none"
                 />
             ),
@@ -352,7 +352,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                     objectFit="contain"
                     src="../../../../images/common/home/rebranding/platform_binary_bot.png"
                     alt="binary bot"
-                    formats={['avif', 'webp', 'auto']}
+                    formats={['avif', 'webp']}
                     placeholder="none"
                 />
             ),
@@ -387,7 +387,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                     objectFit="contain"
                     src="../../../../images/common/home/rebranding/platform_deriv_api.png"
                     alt="deriv api"
-                    formats={['avif', 'webp', 'auto']}
+                    formats={['avif', 'webp']}
                     placeholder="none"
                 />
             ),

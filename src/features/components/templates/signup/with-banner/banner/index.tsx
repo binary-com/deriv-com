@@ -23,7 +23,7 @@ const PublicSignupBanner = () => {
                 style={{
                     insetBlockEnd: '-16px',
                 }}
-                formats={['avif', 'webp', 'auto']}
+                formats={['avif', 'webp']}
                 placeholder="none"
                 className={'public_signup_image'}
             />

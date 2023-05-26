@@ -10,6 +10,7 @@ on:
 env:
     GATSBY_CPU_COUNT: 2
     GATSBY_ENV: production
+    NODE_OPTIONS: "--max_old_space_size=7168"
     DATADOG_APPLICATION_ID: ${{ secrets.DATADOG_APPLICATION_ID }}
     DATADOG_CLIENT_TOKEN: ${{ secrets.DATADOG_CLIENT_TOKEN }}
 
@@ -36,7 +37,7 @@ jobs:
 
     release-production:
         needs: lint
-        timeout-minutes: 30
+        timeout-minutes: 40
         runs-on: ubuntu-latest
         environment: production
         steps:

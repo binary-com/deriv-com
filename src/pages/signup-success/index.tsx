@@ -9,10 +9,15 @@ const SignupSuccess = () => {
     useEffect(() => {
         const params = new URLSearchParams(location.search)
         const email = params.get('email')
-        const success_url = `/${getLanguage()}/signup-success`
+        const locale = getLanguage()
 
         setRegisteredEmail(email?.replaceAll(' ', '+'))
-        navigate(email ? success_url : `/${getLanguage()}/`, { replace: true })
+        if (!email) {
+            if (locale !== 'en') navigate(`/${locale}/`, { replace: true })
+            else {
+                navigate('/', { replace: true })
+            }
+        }
     }, [])
 
     return <SignUpSuccessContainer email={registeredEmail} />

@@ -12,6 +12,10 @@ import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param
 import MarketNav from 'features/components/templates/navigation/market-nav'
 import { handleGetTrading } from 'components/custom/utils'
 
+type ContainerProps = {
+    isDerivGo?: boolean
+}
+
 const BackgroundWrapper = styled.div`
     background: url(${BannerBg});
     background-repeat: round;
@@ -22,8 +26,8 @@ const BackgroundWrapper = styled.div`
         min-height: 500px;
     }
 `
-const StyledContainer = styled(Container)`
-    margin-top: 130px;
+const StyledContainer = styled(Container)<ContainerProps>`
+    margin-top: ${(props) => (props.isDerivGo ? '175px' : '130px')};
     margin-bottom: 120px;
     display: flex;
     flex-direction: column;
@@ -118,7 +122,7 @@ export const DerivedFXHero = ({ title, description }: MarketProps) => {
     return (
         <BackgroundWrapper>
             <MarketNav />
-            <StyledContainer>
+            <StyledContainer isDerivGo={is_deriv_go}>
                 <StyledHeader as="h1" align="center">
                     <Localize translate_text={title} />
                 </StyledHeader>

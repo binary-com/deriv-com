@@ -136,7 +136,7 @@ const TabItem = styled.div<StartDerivXProps>`
     cursor: pointer;
     ${(props) => (props.active ? demoActive : realActive)}
 
-    @media ${device.tabletS} {
+    @media ${device.tablet} {
         padding: 17px 20px;
     }
     @media ${device.mobileL} {

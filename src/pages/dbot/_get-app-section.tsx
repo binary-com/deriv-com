@@ -27,7 +27,7 @@ const ContentWrapper = styled.div<{ is_rtl: boolean }>`
 `
 const CreateAccountButton = styled(Button)`
     @media ${device.tablet} {
-        max-width: 100%;
+        max-width: 80%;
         width: 100%;
     }
 `
@@ -68,7 +68,7 @@ const DBotGetApp = () => {
                     {is_logged_in ? (
                         <CreateAccountButton
                             onClick={handleGetTrading}
-                            label="_t_Create free demo account_t_"
+                            label="_t_Get Trading_t_"
                             primary
                         />
                     ) : (

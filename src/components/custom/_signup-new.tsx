@@ -4,7 +4,8 @@ import AgreementLabel from './_agreement-label'
 import Apple from 'images/svg/custom/apple-signup.svg'
 import Facebook from 'images/svg/custom/fb-signup.svg'
 import { Input, Button } from 'components/form'
-import { Header, LinkText, LocalizedLinkText } from 'components/elements'
+import { Header, LinkText } from 'components/elements'
+import Link from 'features/components/atoms/link'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 // SVG
@@ -140,11 +141,6 @@ const StyledLinkText = styled(LinkText)`
     font-size: ${(props) => props.size || '14px'};
 `
 
-const StyledLocalizedLink = styled(LocalizedLinkText)`
-    @media ${device.tabletL} {
-        font-size: 10px;
-    }
-`
 const SignupNew = ({
     autofocus,
     clearEmail,
@@ -162,6 +158,8 @@ const SignupNew = ({
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
     }
+
+    const security_pdf_link = `/tnc${is_eu ? '/eu' : ''}/security-and-privacy.pdf`
 
     return (
         <SignupContent>
@@ -207,14 +205,14 @@ const SignupNew = ({
                 <Localize
                     translate_text="By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy.</0>"
                     components={[
-                        <StyledLocalizedLink
+                        <Link
+                            textcolor="brand"
                             key={0}
-                            to={`/tnc${is_eu ? '/eu' : ''}/security-and-privacy.pdf`}
-                            size="1.2rem"
-                            color="red"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                            external
+                            url={{
+                                target: '_blank',
+                                type: 'non-company',
+                                href: security_pdf_link,
+                            }}
                         />,
                     ]}
                 />

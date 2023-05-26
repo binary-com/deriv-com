@@ -115,7 +115,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                     </StyledLocalizedLink>
                                 ) : null}
                                 {selectedEtfsTab ? (
-                                    <StyledLocalizedLink to="/deriv-ctrader/">
+                                    <StyledLocalizedLink>
                                         <Flex direction="row">
                                             <img
                                                 src={Ctrader}

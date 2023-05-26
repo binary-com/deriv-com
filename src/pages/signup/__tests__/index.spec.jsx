@@ -1,10 +1,14 @@
+import React from 'react'
 import { render, screen } from '@testing-library/react'
-import '@testing-library/jest-dom'
 import { useStaticQuery } from 'gatsby'
 import { QueryParamProvider } from 'use-query-params'
 import { LocaleContextWrapper } from '../../../components/localization/locale-context'
 import { RegionProvider } from '../../../store/region-context'
+import { WebsiteStatusProvider } from '../../../store/website-status-context'
+import { BreakpointsProvider } from '../../../store/breakpoints-context'
+import { PopupProvider } from '../../../store/popup-context'
 import NewSignup from '../index.tsx'
+import { MediaContextProvider } from 'themes/media'
 
 // mock all functions that are required in signup page.
 jest.mock('common/utility', () => ({
@@ -23,6 +27,9 @@ jest.mock('common/utility', () => ({
     isNullUndefined: jest.fn(() => true),
     isLocalhost: jest.fn(() => true),
     isEuDomain: jest.fn(() => true),
+    queryParams: {
+        get: jest.fn(() => ''),
+    },
 }))
 
 // mock the qraphql query used in seo.js
@@ -41,13 +48,23 @@ useStaticQuery.mockReturnValue({
 describe('NewSignUp', () => {
     it('must contain create demo account Button', () => {
         render(
-            <RegionProvider value={{ is_eu: true }}>
-                <LocaleContextWrapper pageContext={{ locale: 'en', pathname: '/en/signup' }}>
-                    <QueryParamProvider>
-                        <NewSignup />,
-                    </QueryParamProvider>
-                </LocaleContextWrapper>
-            </RegionProvider>,
+            <BreakpointsProvider>
+                <PopupProvider>
+                    <WebsiteStatusProvider>
+                        <RegionProvider value={{ is_eu: true }}>
+                            <MediaContextProvider>
+                                <LocaleContextWrapper
+                                    pageContext={{ locale: 'en', pathname: '/en/signup' }}
+                                >
+                                    <QueryParamProvider>
+                                        <NewSignup />,
+                                    </QueryParamProvider>
+                                </LocaleContextWrapper>
+                            </MediaContextProvider>
+                        </RegionProvider>
+                    </WebsiteStatusProvider>
+                </PopupProvider>
+            </BreakpointsProvider>,
         )
         const singup_button = screen.getByRole('button', {
             name: /Create demo account/i,

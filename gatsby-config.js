@@ -1,6 +1,7 @@
 const language_config = require(`./i18n-config.js`)
 const plugin = require('./src/features/styles/postcss-plugin/plugin')
 const isBrowser = typeof window !== 'undefined'
+const isBetaDeriv = process.env.GATSBY_DOMAIN === 'beta.deriv.com'
 
 require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`,
@@ -308,18 +309,21 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
+                host: isBetaDeriv ? 'https://beta.deriv.com' : 'https://deriv.com',
                 policy: [
                     {
                         userAgent: '*',
-                        allow: '/',
-                        disallow: [
-                            '/404/',
-                            '/homepage/',
-                            '/landing/',
-                            '/endpoint/',
-                            '/livechat/',
-                            '/storybook/',
-                        ],
+                        allow: isBetaDeriv ? null : '/',
+                        disallow: isBetaDeriv
+                            ? '/'
+                            : [
+                                  '/404/',
+                                  '/homepage/',
+                                  '/landing/',
+                                  '/endpoint/',
+                                  '/livechat/',
+                                  '/storybook/',
+                              ],
                     },
                 ],
             },

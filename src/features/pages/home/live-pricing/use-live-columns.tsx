@@ -38,7 +38,7 @@ const useLiveColumns = () => {
                 cell: (info) => (
                     <Flex.Box className={table_header_cell}>
                         <Typography.Paragraph size={is_mobile ? 'small' : 'medium'}>
-                            {info.getValue()}
+                            {/* {info.getValue()} */}
                         </Typography.Paragraph>
                     </Flex.Box>
                 ),

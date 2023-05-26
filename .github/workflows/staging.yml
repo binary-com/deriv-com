@@ -21,7 +21,7 @@ env:
 jobs:
   lint:
     timeout-minutes: 10
-    runs-on: ubuntu-20.04-16core
+    runs-on: ubuntu-latest
     environment: staging
 
     steps:
@@ -42,7 +42,7 @@ jobs:
   release-staging:
     needs: lint
     timeout-minutes: 30
-    runs-on: ubuntu-20.04-64core
+    runs-on: ubuntu-latest
     environment: staging
     steps:
       - name: Checkout 🛎️

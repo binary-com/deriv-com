@@ -1,7 +1,7 @@
 import React from 'react'
 import loadable from '@loadable/component'
 import HomeHero from './hero'
-import HomeMarkets from './markets'
+import LivePricing from './live-pricing'
 import P2PBanner from './p2p-banner'
 import ClientTestimonial from './client-testimonial'
 import TradeTypes from './trade-types'
@@ -33,7 +33,7 @@ const HomePage = () => {
             />
             <MainNav />
             <HomeHero />
-            <HomeMarkets />
+            <LivePricing />
             <TradeTypes />
             <OurPlatforms />
             <ClientTestimonial />

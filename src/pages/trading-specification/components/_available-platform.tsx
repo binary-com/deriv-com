@@ -114,6 +114,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                         </Flex>
                                     </StyledLocalizedLink>
                                 ) : null}
+                                {/* Commented until we release cTrader
                                 {selectedEtfsTab ? (
                                     <StyledLocalizedLink>
                                         <Flex direction="row">
@@ -128,7 +129,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                             </StyledHeader>
                                         </Flex>
                                     </StyledLocalizedLink>
-                                ) : null}
+                                ) : null} */}
                             </FlexContainer>
                         </>
                     ) : (

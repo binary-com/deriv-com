@@ -381,7 +381,6 @@ const dmt5: TQuestionsData = {
             question: '_t_Do you offer swap-free Deriv MT5 accounts?_t_',
             category: 'DMT5',
             sub_category: '_t_Deposits_t_',
-            hide_for_non_eu: true,
             label: 'swap-free-Deriv-MT5-accounts',
             answer: ({ is_eu }) =>
                 is_eu
@@ -393,26 +392,6 @@ const dmt5: TQuestionsData = {
                               translation_components: [{ key: 0, type: 'link', to: traders_hub }],
                           },
                       ],
-        },
-        {
-            question: '_t_Do you offer swap-free Deriv MT5 accounts?_t_',
-            category: 'DMT5',
-            sub_category: '_t_Deposits_t_',
-            hide_for_eu: true,
-            label: 'swap-free-Deriv-MT5-accounts',
-            answer: [
-                {
-                    translation_text:
-                        "_t_No, we don't. But you can trade selected forex pairs without paying a swap fee. To calculate the swap fee for your trade, use our <0>Swap calculator</0>._t_",
-                    translation_components: [
-                        {
-                            key: 0,
-                            type: 'link',
-                            to: '/trader-tools/swap-calculator',
-                        },
-                    ],
-                },
-            ],
         },
         {
             question: '_t_How can I reactivate my Deriv MT5 account?_t_',

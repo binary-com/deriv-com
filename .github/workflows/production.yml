@@ -68,6 +68,8 @@ jobs:
               # For using same tag for staging and production we need to uncomment these two below lines:
               # with:
               #   tagRegex: "production(.*)"
+            - name: Add version file 📝
+              run: echo "production $(date -u +'%Y-%m-%dT%H:%M:%SZ') $GIT_TAG_NAME" > public/version
             - name: Building docker image 🐳
               run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME .
 

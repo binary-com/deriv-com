@@ -59,7 +59,10 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
                                         textcolor={'inverted'}
                                         ml={'8x'}
                                     >
-                                        <Localize translate_text={data.extra_info.where} />
+                                        <Localize
+                                            translate_text={data.extra_info.where}
+                                            components={[<strong key={0} />]}
+                                        />
                                     </Typography.Paragraph>
                                 </FlexBox.Box>
                             )}

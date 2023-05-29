@@ -6,7 +6,12 @@ import { Localize } from 'components/localization'
 
 const WhatIsDerivEZ = () => {
     return (
-        <FlexBox.Box container="fluid" direction={'col'} pt={'20x'} md={{ pt: '40x' }}>
+        <FlexBox.Box
+            direction={'col'}
+            padding_inline={'8x'}
+            pt={'20x'}
+            md={{ padding_inline: '0', pt: '40x' }}
+        >
             {content_data.map((content, index) => {
                 return (
                     <FlexBox.Box
@@ -14,13 +19,12 @@ const WhatIsDerivEZ = () => {
                         direction={'col'}
                         mb={'10x'}
                         justify={'center'}
-                        align="center"
+                        align={'center'}
                         md={{
                             direction: index == 0 || index % 2 == 0 ? 'row' : 'row-reverse',
-                            justify: 'between',
                         }}
                     >
-                        <FlexBox.Box direction={'col'} md={{ basis: '6-12' }}>
+                        <FlexBox.Box direction={'col'} md={{ basis: '5-12' }}>
                             <Typography.Heading mb={'6x'} align="left" textcolor="primary">
                                 <Localize translate_text={content.title} />
                             </Typography.Heading>

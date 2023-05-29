@@ -117,7 +117,12 @@ const useLiveColumns = (market: string) => {
             }),
             liveMarketColumnHelper.accessor('swap_long', {
                 header: () => {
-                    if (market == 'forex' || market == 'indices' || market == 'commodities')
+                    if (
+                        market == 'forex' ||
+                        market == 'indices' ||
+                        market == 'commodities' ||
+                        market == 'etfs'
+                    )
                         return (
                             <TableHeaderCell
                                 text={<Localize translate_text={swap_long_points} />}
@@ -138,7 +143,12 @@ const useLiveColumns = (market: string) => {
             }),
             liveMarketColumnHelper.accessor('swap_short', {
                 header: () => {
-                    if (market == 'forex' || market == 'indices' || market == 'commodities')
+                    if (
+                        market == 'forex' ||
+                        market == 'indices' ||
+                        market == 'commodities' ||
+                        market == 'etfs'
+                    )
                         return (
                             <TableHeaderCell
                                 text={<Localize translate_text={swap_short_points} />}

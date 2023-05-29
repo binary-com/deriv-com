@@ -83,11 +83,19 @@ const StyledHeader = styled.h1<ContainerProps>`
 const BackgroundStyle = styled.div`
     background-color: var(--color-white);
     flex: 1;
-    height: 70vh;
+    height: 65rem;
     display: flex;
     justify-content: flex-end;
     position: relative;
     direction: ltr;
+
+    @media ${device.laptopM} {
+        height: 55rem;
+    }
+
+    @media (min-width: 1920px) {
+        height: 73rem;
+    }
 
     @media ${device.tabletL} {
         flex-direction: column-reverse;
@@ -137,11 +145,6 @@ const HeroImageWrapper = styled.div`
     position: absolute;
     right: 0;
     height: 100%;
-
-    @media (max-width: 610px) {
-        background-size: 1200px;
-        background-position-x: -588px;
-    }
 
     @media (min-width: 1920px) {
         width: 50%;

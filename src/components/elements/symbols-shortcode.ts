@@ -1,4 +1,6 @@
 //commodities
+import Vol_1HZ250V from 'images/svg/symbols/volatility_250_1s.svg'
+import Vol_1HZ150V from 'images/svg/symbols/volatility_150_1s.svg'
 import WTI_OIL from 'images/svg/symbols/usd-brent.svg'
 import CL_BRENT from 'images/svg/symbols/pound-brent.svg'
 import XAGEUR from 'images/svg/symbols/silver-eur.svg'
@@ -149,8 +151,6 @@ import USDCHFDFX10 from 'images/svg/symbols/usd-chf-10.svg'
 import EURUSDDFX10 from 'images/svg/symbols/eur-usd-10.svg'
 import BOOM300 from 'images/svg/symbols/boom-eu-boom-300.svg'
 import CRASH300 from 'images/svg/symbols/crash-eu-crash-300.svg'
-import Vol_1HZ150V from 'images/svg/symbols/volatility-150-1s.svg'
-import Vol_1HZ250V from 'images/svg/symbols/volatility-250-1s.svg'
 //forex
 import frxAUDJPY from 'images/svg/symbols/aud-jpy.svg'
 import frxAUDUSD from 'images/svg/symbols/aud-usd.svg'

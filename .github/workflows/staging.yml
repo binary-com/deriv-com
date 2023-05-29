@@ -14,7 +14,6 @@ concurrency:
 env:
   GATSBY_CPU_COUNT: 16
   GATSBY_ENV: staging
-  GATSBY_ENV_CIO_SITE_ID: ${{ secrets.GATSBY_ENV_CIO_SITE_ID }}
   NODE_OPTIONS: "--max_old_space_size=7168"
   DATADOG_APPLICATION_ID: ${{ secrets.DATADOG_APPLICATION_ID }}
   DATADOG_CLIENT_TOKEN: ${{ secrets.DATADOG_CLIENT_TOKEN }}
@@ -32,7 +31,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
           cache: "npm"
 
       - name: Install Node.js dependencies
@@ -52,7 +51,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "16.x"
+          node-version: "18.x"
           cache: "npm"
 
       - run: npm ci

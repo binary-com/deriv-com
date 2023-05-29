@@ -6,9 +6,15 @@ import { LocalizedLink } from 'components/localization'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import device from 'themes/device'
 
-const Wrapper = styled.div`
+type LearnMoreProps = {
+    text: string | ReactNode
+    to: string
+    in_trading_platforms?: boolean
+}
+
+const Wrapper = styled.div<LearnMoreProps>`
     position: absolute;
-    left: 0;
+    left: ${(props) => (props.in_trading_platforms ? '9rem' : '0')};
     bottom: -2rem;
     width: auto;
     opacity: 0;
@@ -41,14 +47,10 @@ const Link = styled(LocalizedLink)`
 const LinkTitle = styled(Text)`
     font-family: Ubuntu, sans-serif;
 `
-type LearnMoreProps = {
-    text: string | ReactNode
-    to: string
-}
 
-const LearnMore = ({ text, to }: LearnMoreProps) => {
+const LearnMore = ({ text, to, in_trading_platforms }: LearnMoreProps) => {
     return (
-        <Wrapper className="learn-more">
+        <Wrapper in_trading_platforms={in_trading_platforms} className="learn-more">
             <Link to={to}>
                 <Item>
                     <LinkTitle mr="0.8rem" weight="bold" color="red">

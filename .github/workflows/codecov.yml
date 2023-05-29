@@ -2,7 +2,7 @@ name: Codecov Workflow
 on:
   pull_request:
     branches:
-      - '**'
+      - "**"
   push:
     branches:
       - master
@@ -20,7 +20,6 @@ jobs:
         run: |
           npm ci
           npm run jest:coverage
-
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3.1.1
         with:

@@ -90,6 +90,12 @@ module.exports = {
         short_name: 'KO',
         affiliate_lang: 16,
     },
+    // ach: {
+    //     path: 'ach',
+    //     display_name: 'Crowdin',
+    //     short_name: 'CR',
+    //     affiliate_lang: 13,
+    // },
     de: {
         path: 'de',
         display_name: 'Deutsch',

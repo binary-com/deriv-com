@@ -11,6 +11,7 @@ import Button from 'components/custom/_button'
 import { localize, WithIntl } from 'components/localization'
 import { StepperView } from 'components/elements'
 import useRegion from 'components/hooks/use-region'
+import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 const HowOptionsWorks = Loadable(() => import('./_how-options-works'))
 const OptionsToTrade = Loadable(() => import('./_options-to-trade'))
@@ -25,6 +26,10 @@ const meta_attributes = {
 
 const ButtonContainer = styled.div`
     margin-bottom: 16.4rem;
+
+    @media ${device.tablet} {
+        margin-bottom: 0;
+    }
 `
 const Options = () => {
     const handleSignup = useHandleSignup()

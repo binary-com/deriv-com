@@ -20,7 +20,7 @@ jobs:
    check-translation-branch:
         runs-on: ubuntu-latest
         if: |
-            (startsWith(github.head_ref, 'translation') || startsWith(github.head_ref, 'stp') || startsWith(github.head_ref, 'rebranding')) &&
+            (startsWith(github.head_ref, 'translation') || startsWith(github.head_ref, 'stp')) &&
             !contains(github.head_ref, '!') &&
             !contains(github.head_ref, '@') &&   
             !contains(github.head_ref, '#') &&   
@@ -38,4 +38,3 @@ jobs:
                
                echo "$CLEAN_BRANCH is valid branch for translation workflow"
               
-

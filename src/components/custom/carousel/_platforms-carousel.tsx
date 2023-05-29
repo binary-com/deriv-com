@@ -139,6 +139,7 @@ const GenericCarousel: React.FC<TProps> = ({ renderableData, mainHeading }) => {
                                     <LearnMore
                                         text={<Localize translate_text="Learn more" />}
                                         to={item.link}
+                                        in_trading_platforms
                                     />
                                 </Card>
                             </MarketsItem>

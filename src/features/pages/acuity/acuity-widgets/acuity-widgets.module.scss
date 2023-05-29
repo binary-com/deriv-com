@@ -5,20 +5,20 @@
   &_centre {
     block-size: 100%;
     overflow: auto;
-    max-block-size: 94vh;
+    max-block-size: 92rem;
     @include breakpoints(tablet) {
-      max-block-size: 82vh;
+      max-block-size: 80rem;
     }
   }
   &_calendar {
     block-size: 100%;
     overflow: auto;
-    max-block-size: 74vh;
+    max-block-size: 74rem;
   }
   &_small {
-    min-block-size: 70vh;
+    min-block-size: 70rem;
     @include breakpoints(tablet) {
-      min-block-size: 92vh;
+      min-block-size: 92rem;
     }
   }
 }
@@ -29,4 +29,11 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
+.widget_loader {
+  color: grey;
+  content: ' .';
+  animation: 3 1s steps(5, end) infinite;
+  font-size: 6rem;
+  line-height: 1;
 }

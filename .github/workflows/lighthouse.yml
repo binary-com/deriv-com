@@ -78,3 +78,4 @@ jobs:
                   header: lighthouse
                   message: |
                       ${{ steps.format_lighthouse_score.outputs.comment }}
+                      

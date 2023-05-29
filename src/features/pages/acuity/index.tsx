@@ -13,7 +13,7 @@ const Footer = loadable(() => import('features/components/templates/footer'))
 const Acuity = () => {
     return (
         <Layout>
-            <MainNav />
+            <MainNav z_index={'3'} />
             <SEO
                 title={localize('_t_Acuity trading tools | MT5 trading solutions | Deriv_t_')}
                 description={localize(

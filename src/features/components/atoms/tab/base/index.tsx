@@ -31,6 +31,7 @@ const TabBase = ({
 }: TabBaseProps) => {
     return (
         <Box
+            as={'h2'}
             className={dclsx(
                 'tab',
                 className,

@@ -63,7 +63,7 @@ const AcuityWidgets = () => {
     }, [is_script_loaded, current_widget])
 
     return (
-        <FlexBox.Box direction={'col'} margin_block={'20x'} md={{ margin_block: '40x' }}>
+        <FlexBox.Box direction={'col'} pt={'20x'} pb={'27x'} md={{ pt: '40x', pb: '11x' }}>
             <Script
                 src={'https://prodstorage.azureedge.net/Widgets/lib/@1.0.0/widget-core.js'}
                 onLoad={() => setIsScriptLoaded(true)}
@@ -74,7 +74,7 @@ const AcuityWidgets = () => {
                 current_tab={current_widget}
                 setCurrentTab={setCurrentWidget}
             />
-            <FlexBox.Box direction={'col'} padding_inline={'8x'} md={{ padding_inline: '33x' }}>
+            <FlexBox.Box direction={'col'} padding_inline={'8x'} md={{ padding_inline: '40x' }}>
                 {acuity_widgets[current_widget]}
             </FlexBox.Box>
         </FlexBox.Box>

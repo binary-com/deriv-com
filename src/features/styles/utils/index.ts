@@ -9,6 +9,7 @@ import {
     TTypographyFont,
     TTypographyWeight,
     TVisible,
+    TZIndex,
 } from 'features/types'
 import dclsx from 'features/utils/dclsx'
 
@@ -87,9 +88,10 @@ export const generateHeadingSize = (size?: THeadingSize) => {
     })
 }
 
-export const generateBorderRadius = (radius?: TBorderRadius) => {
+export const generateCommonCSSProperties = (radius?: TBorderRadius, z_index?: TZIndex) => {
     return dclsx({
         [`border-radius-${radius}`]: radius,
+        [`z-index-${z_index}`]: z_index,
     })
 }
 export const generateTextSize = (size?: THeadingSize) => {

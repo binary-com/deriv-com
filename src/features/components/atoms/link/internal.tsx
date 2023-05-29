@@ -6,7 +6,7 @@ import { isBrowser } from 'common/utility'
 import dclsx from 'features/utils/dclsx'
 import {
     generateBackgroundColor,
-    generateBorderRadius,
+    generateCommonCSSProperties,
     generateSpacingClasses,
     generateTextSize,
     generateTypographyAlignClasses,
@@ -56,6 +56,7 @@ const Internal = ({
     lg,
     bgcolor,
     radius,
+    z_index,
     url,
     children,
     link_target,
@@ -103,7 +104,7 @@ const Internal = ({
                 generateSpacingClasses(md ?? {}, 'md'),
                 generateSpacingClasses(lg ?? {}, 'lg'),
                 generateBackgroundColor(bgcolor),
-                generateBorderRadius(radius),
+                generateCommonCSSProperties(radius, z_index),
                 generateTypographyAlignClasses(align),
                 generateTextSize(size),
                 generateTypographyWeightClasses(weight),

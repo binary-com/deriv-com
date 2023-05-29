@@ -7,12 +7,11 @@ import TopNav from './top-nav'
 import { NavProvider } from './nav-context'
 import Container from 'features/components/atoms/container'
 import useBreakpoints from 'components/hooks/use-breakpoints'
-import useVisibleContent from 'components/hooks/use-visible-content'
 import MobileMenuToggle from 'features/components/molecules/mobile-menu-toggle'
 import Flex from 'features/components/atoms/flex-box'
 import dclsx from 'features/utils/dclsx'
-import useRegion from 'components/hooks/use-region'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
+import { TZIndex } from 'features/types'
 
 interface NavTemplateProps extends HTMLAttributes<HTMLDivElement> {
     has_top_nav?: boolean
@@ -22,6 +21,7 @@ interface NavTemplateProps extends HTMLAttributes<HTMLDivElement> {
     has_centered_logo?: boolean
     render_bottom_nav?: () => ReactNode
     items?: NavItems
+    z_index?: TZIndex
 }
 
 const NavTemplate = ({
@@ -29,6 +29,7 @@ const NavTemplate = ({
     render_bottom_nav,
     has_top_nav = false,
     has_deriv_go,
+    z_index,
     items = [],
     children,
     className,
@@ -62,6 +63,7 @@ const NavTemplate = ({
                 <Container.Fixed
                     as="header"
                     bgcolor="white"
+                    z_index={z_index}
                     className={dclsx(styles.header_wrapper, className)}
                 >
                     {has_top_nav ? <TopNav /> : null}

@@ -2,8 +2,12 @@ $sm-base-spacing: 0.2rem;
 
 @for $i from 0 through 10 {
   $sm-value: $i * $sm-base-spacing;
+  $index-value: $i * 1000;
 
   .border-radius-#{$i}x {
-    border-radius: $sm-value
+    border-radius: $sm-value;
+  }
+  .z-index-#{$i} {
+    z-index: $index-value;
   }
 }

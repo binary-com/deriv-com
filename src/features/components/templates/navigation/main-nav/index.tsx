@@ -6,8 +6,9 @@ import { mainItems } from './content'
 import Image from 'features/components/atoms/image'
 import LogoImage from 'images/common/rebranding_logo.svg'
 import Link from 'features/components/atoms/link'
+import { TZIndex } from 'features/types'
 
-const MainNav = () => {
+const MainNav = ({ z_index }: { z_index?: TZIndex }) => {
     return (
         <NavTemplate
             renderLogo={() => (
@@ -16,6 +17,7 @@ const MainNav = () => {
                 </Link>
             )}
             items={mainItems}
+            z_index={z_index}
         >
             <MainNavButtons />
         </NavTemplate>

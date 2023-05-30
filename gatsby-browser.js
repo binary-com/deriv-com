@@ -163,7 +163,7 @@ export const onClientEntry = () => {
     }
 
     addScript({
-        src: 'https://static.deriv.com/scripts/cookie.js',
+        src: 'https://static.deriv.com/scripts/cookie-test.js',
         async: true,
         strategy: 'off-main-thread',
     })

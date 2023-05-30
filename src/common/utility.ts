@@ -243,7 +243,7 @@ export const redirectToTradingPlatform = () =>
 
 // Function to manually add external js files.
 type TSettings = {
-    src?: 'https://static.deriv.com/scripts/cookie.js'
+    src?: 'https://static.deriv.com/scripts/cookie-test.js'
     text?: string
     async: boolean
     strategy?: 'off-main-thread'

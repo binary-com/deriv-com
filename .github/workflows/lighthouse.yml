@@ -80,17 +80,27 @@ jobs:
                       ${{ steps.format_lighthouse_score.outputs.comment }}
             - name: Dump GitHub context
               id: github_context_step
-              run: echo '${{ toJSON(github) }}'
+              run: echo '${{ toJSON(github.event.issue) }}'
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
               with:
+                  script: |
+                      const result = ${{ steps.lighthouse_audit.outputs.manifest }}[0].summary
+                      const links = ${{ steps.lighthouse_audit.outputs.links }}
+
+                      const formatResult = (res) => Math.round((res * 100))
+                      Object.keys(result).forEach(key => result[key] = formatResult(result[key]))
                   status: custom
                   fields: workflow,job,commit,repo
                   custom_payload: |
                       {
                         attachments: [{
                           color: 'danger',
+<<<<<<< HEAD
+                          text: `*[Deriv.com]*  [SEO: ${result.seo}] this branch hasn't meet the standard score on lighthouse performance report : *${{ github.event.workflow_run.head_branch }} `
+=======
                           text: `*[Deriv.com]*  [SEO:  ${{ steps.lighthouse_audit.outputs.manifest }}[0].summary.seo] this branch hasn't meet the standard score on lighthouse performance report : *${{ github.event.workflow_run.head_branch }} `
+>>>>>>> master
                         }]
                       }
               env:

@@ -90,6 +90,7 @@ export type PartialRecord<K extends keyof any, T> = {
     //based on common typescript Record<>, but make everything optional
 }
 
+//
 export type ResponseDeviceProps = PartialRecord<keyof typeof device, BaseStyleType>
 
 export type BoxType = {

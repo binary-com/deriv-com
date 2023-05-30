@@ -347,11 +347,11 @@ module.exports = {
                 workboxConfig: {
                     runtimeCaching: [
                         {
-                            urlPattern: /.*\.(?:png|jpg|jpeg|svg|gif|webp|ico|woff|woff2|ttf|otf|css|scss)$/,
+                            urlPattern: /\.(png|jpe?g|svg|gif|webp|ico|woff2?|ttf|otf|css|scss)$/,
                             handler: `StaleWhileRevalidate`,
                         },
                         {
-                            urlPattern: /.*$/,
+                            urlPattern: /^.*$/,
                             handler: `StaleWhileRevalidate`,
                         },
                     ],

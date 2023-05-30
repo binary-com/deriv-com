@@ -1,0 +1,29 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.platform_list {
+    list-style: decimal;
+}
+.platform_list_item {
+    font-size: 18px;
+    line-height: 1.44;
+    @include breakpoints(tablet){
+        font-size: 24px;
+        line-height: 1.5;
+    }
+}
+
+.platform_wrap {
+    position: relative;
+    @include breakpoints(tablet) {
+        &::before{
+            position: absolute;
+            content: "";
+            width: 1px;
+            height: 100%;
+            background-color: $color-grey-17;
+            inset: 0;
+            margin-inline: auto;
+        }
+    }
+}

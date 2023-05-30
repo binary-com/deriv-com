@@ -127,7 +127,7 @@ const useLiveColumns = () => {
                         'primary'
                     const percentage_change =
                         value_in_integer == 0.0
-                            ? info.getValue().replace(/[- ]/g, '')
+                            ? info.getValue().replace(/[-, + ]/g, '')
                             : info.getValue()
 
                     return (

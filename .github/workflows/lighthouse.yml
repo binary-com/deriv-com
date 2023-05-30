@@ -12,13 +12,6 @@ on:
     issue_comment:
         types: [edited]
 
-env: 
- lighthouse_seo: 0
- lighthouse_pwa: 0
- lighthouse_accessibility: 0
- lighthouse_best_practices: 0
-
-
 jobs:
     generate_lighthouse_audit:
         timeout-minutes: 30

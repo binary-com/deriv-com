@@ -87,7 +87,7 @@ jobs:
                       {
                         attachments: [{
                           color: 'danger',
-                          text: `*[Deriv.com]*  this branch hasn't meet the standard score on lighthouse performance report : *${{ github.event.workflow_run.head_branch }} `
+                          text: `*[Deriv.com]*  [SEO:  ${{ steps.lighthouse_audit.outputs.manifest }}[0].summary.seo] this branch hasn't meet the standard score on lighthouse performance report : *${{ github.event.workflow_run.head_branch }} `
                         }]
                       }
               env:

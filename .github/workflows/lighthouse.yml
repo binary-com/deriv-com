@@ -69,6 +69,12 @@ jobs:
                       ].join('\n')
 
                        core.setOutput("comment", comment);
+                       core.setOutput("seo", result.seo);
+                       core.setOutput("pwa", result.pwa);
+                       core.setOutput("acessibility", result.accessibility);
+                       core.setOutput("best_practices", result['best-practices']);
+
+
             - name: Add comment to PR
               id: comment_to_pr
               uses: marocchino/sticky-pull-request-comment@v2
@@ -84,19 +90,13 @@ jobs:
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
               with:
-                  script: |
-                      const result = ${{ steps.lighthouse_audit.outputs.manifest }}[0].summary
-                      const links = ${{ steps.lighthouse_audit.outputs.links }}
-
-                      const formatResult = (res) => Math.round((res * 100))
-                      Object.keys(result).forEach(key => result[key] = formatResult(result[key]))
                   status: custom
                   fields: workflow,job,commit,repo
                   custom_payload: |
                       {
                         attachments: [{
                           color: 'danger',
-                          text: `*[Deriv.com]*  [SEO: ${result.seo}] this branch hasn't meet the standard score on lighthouse performance report : *${{ github.event.workflow_run.head_branch }} `
+                          text: `*[Deriv.com]*  [SEO: ${{ steps.format_lighthouse_score.outputs.seo }}] this branch hasn't meet the standard score on lighthouse performance report : *${{ github.event.workflow_run.head_branch }} `
                         }]
                       }
               env:

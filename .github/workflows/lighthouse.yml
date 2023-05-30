@@ -72,13 +72,13 @@ jobs:
                        core.setOutput("performance", result.performance);
                        core.setOutput("seo", result.seo);
                        core.setOutput("pwa", result.pwa);
-                       core.setOutput("acessibility", result.accessibility);
+                       core.setOutput("accessibility", result.accessibility);
                        core.setOutput("best_practices", result['best-practices']);
                        
                        core.setOutput("performance_color", score(result.performance));
                        core.setOutput("seo_color", score(result.seo));
                        core.setOutput("pwa_color", score(result.pwa));
-                       core.setOutput("acessibility_color", score(result.accessibility));
+                       core.setOutput("accessibility_color", score(result.accessibility));
                        core.setOutput("best_practices_color", score(result['best-practices']));
 
 
@@ -127,7 +127,7 @@ jobs:
                             "type": "section",
                             "text": {
                               "type": "mrkdwn",
-                              "text": "*<${{ github.event.issue.user.url }}|${{ github.event.issue.user.login }}>*\n*Link:* ${{ github.event.issue.pull_request.html_url }}\n*Title:* ${{ github.event.issue.title }}\n*Status:* ${{ github.event.issue.state }}"
+                              "text": "*User: <${{ github.event.issue.user.url }}|${{ github.event.issue.user.login }}>*\n*Link:* ${{ github.event.issue.pull_request.html_url }}\n*Title:* ${{ github.event.issue.title }}\n*Status:* ${{ github.event.issue.state }}"
                             },
                             "accessory": {
                               "type": "image",

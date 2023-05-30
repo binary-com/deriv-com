@@ -17,8 +17,8 @@ const BannerText = ({ item }: HomepageBannerProps) => {
         <Flex.Box
             direction="col"
             className={item_box}
-            lg={{ align: 'start', justify: 'start', pt: '32x' }}
             align="center"
+            lg={{ align: 'start', justify: 'start', pt: '32x', mr: '28x' }}
         >
             <Typography.Heading as="h1" size="medium" pb="4x" pt="13x" align="center">
                 <Localize translate_text={item.title} />

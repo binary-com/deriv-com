@@ -8,15 +8,16 @@ export const BannerItems: HomepageBannerType = {
         <StaticImage
             src="../../../../../images/common/markets/ETF.jpg"
             alt="etf banner"
-            objectFit="cover"
+            quality={100}
             placeholder="none"
             formats={['avif', 'webp', 'auto']}
         />
     ),
     image_phone: (
         <StaticImage
-            src="../../../../../images/common/markets/markets-etf.png"
+            src="../../../../../images/common/markets/ETF.jpg"
             alt="etf banner"
+            quality={100}
             objectFit="cover"
             placeholder="none"
             formats={['avif', 'webp', 'auto']}

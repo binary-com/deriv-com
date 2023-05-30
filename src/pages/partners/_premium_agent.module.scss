@@ -1,0 +1,49 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+
+  .wrapper {
+    width: 100%;
+    max-inline-size: 56rem;
+  }
+
+  .array_wrapper {
+    inline-size: 34rem;
+
+    @include breakpoints(tablet) {
+      inline-size: 39rem;
+
+    }
+    @include breakpoints(laptop) {
+      inline-size: unset;
+
+    }
+  }
+
+  .heading{
+    max-inline-size: 27rem;
+
+    @include breakpoints(phone) {
+      max-inline-size: 38rem;
+    }
+
+    @include breakpoints(laptop) {
+      max-inline-size: 38rem;
+    }
+
+    .heading_countries{
+      max-inline-size: 32rem;
+
+      @include breakpoints(laptop) {
+        max-inline-size: 38rem;
+      }
+    }
+  }
+
+  .box{
+    max-inline-size: 100%;
+
+    @include breakpoints(laptop) {
+    max-inline-size: 56rem;
+    }
+  }

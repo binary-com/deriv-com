@@ -53,3 +53,4 @@ jobs:
                CLEAN_BRANCH="${BRANCH//[^[:alnum:]-_]/}"    
                crowdin branch delete $CLEAN_BRANCH -T ${{ secrets.CROWDIN_API_KEY }}
                 
+

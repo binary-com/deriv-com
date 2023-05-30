@@ -12,6 +12,7 @@ interface MarketsMainSliderProps {
 
 const MarketsMainSlider = ({ cards }: MarketsMainSliderProps) => {
     const { is_mobile_or_tablet } = useBreakpoints()
+    console.log(is_mobile_or_tablet)
     return (
         <>
             {is_mobile_or_tablet ? (

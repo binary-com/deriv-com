@@ -78,3 +78,17 @@ jobs:
                   header: lighthouse
                   message: |
                       ${{ steps.format_lighthouse_score.outputs.comment }}
+            - name: Slack Notification 📣
+              uses: 8398a7/action-slack@v3
+              with:
+                  status: custom
+                  fields: workflow,job,commit,repo
+                  custom_payload: |
+                      {
+                        attachments: [{
+                          color: 'danger',
+                          text: `*[Deriv.com]*  this branch hasn't meet the standard score on lighthouse performance report : *${{ github.event.workflow_run.head_branch }} `
+                        }]
+                      }
+              env:
+                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_LIGHTHOUSE }}

@@ -2,7 +2,7 @@ import React from 'react'
 import { ETFStepItems } from './data'
 import TradeStepsWrapper from 'features/components/organisms/markets/markets-trade-steps/trade-steps-wrapper'
 
-const ETFSteps = () => {
+const Steps = () => {
     return (
         <TradeStepsWrapper
             data={ETFStepItems}
@@ -11,4 +11,4 @@ const ETFSteps = () => {
     )
 }
 
-export default ETFSteps
+export default Steps

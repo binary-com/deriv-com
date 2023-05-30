@@ -6,7 +6,7 @@ import Container from 'features/components/atoms/container'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 
-const InstrumentsContentEtf = () => {
+const InstrumentsContent = () => {
     return (
         <Container.Fluid as="section">
             <Flex.Box direction="col" className={styles.item_container}>
@@ -32,4 +32,4 @@ const InstrumentsContentEtf = () => {
     )
 }
 
-export default InstrumentsContentEtf
+export default InstrumentsContent

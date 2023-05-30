@@ -13,8 +13,7 @@ const TradeTypes = () => {
                 as="h1"
                 size="small"
                 align="center"
-                padding_inline="40x"
-                pb="10x"
+                padding="20x"
                 lg={{ padding_block: '20x' }}
             >
                 <Localize translate_text="_t_ETF trades available on Deriv_t_" />

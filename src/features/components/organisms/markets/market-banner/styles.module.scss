@@ -1,0 +1,35 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.item_box {
+    @include breakpoints(laptop) {
+        max-inline-size: 53rem;
+        height: 53rem;
+    }
+}
+
+.text_description {
+    text-align: center;
+    @include breakpoints(tablet) {
+        min-inline-size: 45.4rem;
+        text-align: left;
+    }
+}
+
+@include breakpoints(tablet) {
+    .flex_container {
+        position: relative;
+        isolation: isolate;
+    }
+}
+.image_phone {
+    margin-block-start: 7rem;
+}
+.image_container {
+    @include breakpoints(tablet) {
+        position: absolute;
+        right: 0;
+        z-index: -1;
+        padding-top: 6rem;
+        margin-block-start: 0;
+    }
+}

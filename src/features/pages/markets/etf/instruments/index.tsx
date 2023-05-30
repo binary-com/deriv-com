@@ -7,7 +7,7 @@ import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Container from 'features/components/atoms/container'
 
-const InstrumentsTableEtf = () => {
+const InstrumentsTable = () => {
     return (
         <Container.Fluid as="section">
             <Flex.Box direction="col" className={item_container}>
@@ -20,4 +20,4 @@ const InstrumentsTableEtf = () => {
     )
 }
 
-export default InstrumentsTableEtf
+export default InstrumentsTable

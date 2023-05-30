@@ -4,7 +4,8 @@ import { TSmartContent, TString } from 'types/generics'
 export type HomepageBannerType = {
     description: TString
     title: TString
-    image: ReactElement
+    image_tablet?: ReactElement
+    image_phone?: ReactElement
 }
 
 export type TradeTypeConfig = {

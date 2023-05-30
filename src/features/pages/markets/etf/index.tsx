@@ -1,21 +1,21 @@
 import React from 'react'
-import ETFSteps from './etf-steps'
-import WhyETFTrade from './why-etf-trade'
-import HomePage from './home-page'
-import InstrumentsTableEtf from './instruments-etf'
+import Steps from './steps'
+import WhyTrade from './why-trade'
+import Banner from './banner'
+import InstrumentsTable from './instruments'
 import OtherMarkets from './other-markets'
-import InstrumentsContentEtf from './instrumental-etf-content.tsx'
+import InstrumentsContent from './instrumental-content.tsx'
 import TradeTypes from './trades-available'
 
 const ETFMarket = () => {
     return (
         <>
-            <HomePage />
+            <Banner />
             <TradeTypes />
-            <InstrumentsTableEtf />
-            <InstrumentsContentEtf />
-            <WhyETFTrade />
-            <ETFSteps />
+            <InstrumentsTable />
+            <InstrumentsContent />
+            <WhyTrade />
+            <Steps />
             <OtherMarkets />
         </>
     )

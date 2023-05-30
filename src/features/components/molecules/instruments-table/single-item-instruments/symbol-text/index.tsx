@@ -11,7 +11,7 @@ interface SingleInstrumentsItemProps {
 const SymbolWithText = ({ content }: SingleInstrumentsItemProps) => {
     const { src, text } = content
     return (
-        <Flex.Box gap="5x">
+        <Flex.Box gap="5x" align="center">
             <img src={src} alt="symbol" />
             <Typography.Paragraph>
                 <Localize translate_text={text} />

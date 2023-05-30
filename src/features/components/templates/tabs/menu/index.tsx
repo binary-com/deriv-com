@@ -35,7 +35,7 @@ const TabMenu = ({ class_name, tab_names, current_tab, icon, setCurrentTab }: Ta
                         >
                             {icon && (
                                 <FlexBox.Box justify="center" padding_block="6x">
-                                    <Image src={icon} width="24px" height="24px" />
+                                    {icon && <Image src={icon} width="24px" height="24px" />}
                                 </FlexBox.Box>
                             )}
 

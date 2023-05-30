@@ -40,6 +40,7 @@ const AcuityWidgets = () => {
             current_widget == '_t_Economic Calendar_t_' ||
             current_widget == '_t_Signal Centre Trade Ideas_t_'
         ) {
+            setIsLoading(true)
             setTimeout(() => {
                 setIsLoading(false)
             }, 5000)

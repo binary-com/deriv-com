@@ -105,7 +105,7 @@ jobs:
                             "text": {
                               "type": "plain_text",
                               "emoji": true,
-                              "text": "Looks like this pull request hasn't meet the required performance score "
+                              "text": "It appears that this pull request has not met the required performance score."
                             }
                           },
                           {

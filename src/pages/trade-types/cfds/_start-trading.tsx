@@ -7,6 +7,7 @@ import { StepperView } from 'components/elements'
 import useRegion from 'components/hooks/use-region'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { TString } from 'types/generics'
 
 const ButtonContainer = styled.div`
     margin-left: -1rem;
@@ -20,23 +21,23 @@ const StartTrading = () => {
     const { is_eu } = useRegion()
     const [is_mobile] = useBrowserResize()
 
-    const CfdItems = [
+    const CfdItems: { title: TString; subtitle: TString }[] = [
         {
-            title: 'Practise',
+            title: '_t_Practise_t_',
             subtitle: is_eu
-                ? 'Open a demo CFDs account and practise with an unlimited amount of virtual funds.'
-                : 'Open a demo Deriv MT5 or demo Deriv X account and practise with an unlimited amount of virtual funds.',
+                ? '_t_Open a demo CFDs account and practise with an unlimited amount of virtual funds._t_'
+                : '_t_Open a demo Deriv MT5 or demo Deriv X account and practise with an unlimited amount of virtual funds._t_',
         },
         {
-            title: 'Trade',
+            title: '_t_Trade_t_',
             subtitle: is_eu
-                ? 'Trade with a real CFDs account. Get access to leverage and trade positions larger than your existing capital.'
-                : 'Trade with a real Deriv MT5 or real Deriv X account and get access to high leverage to trade positions larger than your existing capital.',
+                ? '_t_Trade with a real CFDs account. Get access to leverage and trade positions larger than your existing capital._t_'
+                : '_t_Trade with a real Deriv MT5 or real Deriv X account and get access to high leverage to trade positions larger than your existing capital._t_',
         },
         {
-            title: 'Withdraw',
+            title: '_t_Withdraw_t_',
             subtitle:
-                'Conveniently withdraw your funds through any of our supported withdrawal methods.',
+                '_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_',
         },
     ]
 

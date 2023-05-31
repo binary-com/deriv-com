@@ -15,6 +15,7 @@ import useHandleSignup from 'components/hooks/use-handle-signup'
 import useRegion from 'components/hooks/use-region'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import { TString } from 'types/generics'
 
 const HowAccumulatorsWork = Loadable(() => import('./_how-accumulators-works'))
 const AccumulatorsToTrade = Loadable(() => import('./_accumulators-to-trade'))
@@ -42,21 +43,21 @@ const Accumulators = () => {
         setLoaded(true)
     }, [])
 
-    const AccumulatorsItems = [
+    const AccumulatorsItems: { title: TString; subtitle: TString }[] = [
         {
-            title: 'Practise',
+            title: '_t_Practise_t_',
             subtitle:
-                'Open a demo account on Deriv and practise with an unlimited amount of virtual funds.',
+                '_t_Open a demo account on Deriv and practise with an unlimited amount of virtual funds._t_',
         },
         {
-            title: 'Trade',
+            title: '_t_Trade_t_',
             subtitle:
-                'Open a real account, make a deposit, and start trading accumulators for real.',
+                '_t_Open a real account, make a deposit, and start trading accumulators for real._t_',
         },
         {
-            title: 'Withdraw',
+            title: '_t_Withdraw_t_',
             subtitle:
-                'Conveniently withdraw your funds through any of our supported withdrawal methods.',
+                '_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_',
         },
     ]
 

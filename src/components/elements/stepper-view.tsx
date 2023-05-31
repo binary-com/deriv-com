@@ -81,8 +81,8 @@ type StepperViewTickProps = {
 
 type StepperViewProps = {
     items: {
-        title?: string
-        subtitle?: string
+        title?: TString
+        subtitle?: TString
     }[]
 } & Pick<StepperViewTickProps, 'pb' | 'pl'>
 
@@ -104,8 +104,8 @@ const StepperView = ({ pb, items }: StepperViewProps) => {
                         <ContentWrapper>
                             <Oval></Oval>
                             <CommonHeaderSection
-                                title={`_t_${item.title}_t_`}
-                                subtitle={`_t_${item.subtitle}_t_`}
+                                title={item.title}
+                                subtitle={item.subtitle}
                                 title_font_size={is_mobile ? '18px ' : '24px'}
                                 margin_subtitle="1.3rem 0 0 0"
                                 subtitle_font_size="1.6rem"

@@ -16,6 +16,7 @@ import useHandleSignup from 'components/hooks/use-handle-signup'
 const HowOptionsWorks = Loadable(() => import('./_how-options-works'))
 const OptionsToTrade = Loadable(() => import('./_options-to-trade'))
 const MarketsAvailable = Loadable(() => import('./_markets-available'))
+import { TString } from 'types/generics'
 
 const meta_attributes = {
     og_title: localize('Options trading | Trading types | Deriv'),
@@ -32,20 +33,20 @@ const ButtonContainer = styled.div`
     }
 `
 
-const OptionsItems = [
+const OptionsItems: { title: TString; subtitle: TString }[] = [
     {
-        title: 'Practise',
+        title: '_t_Practise_t_',
         subtitle:
-            'Open a demo account and get unlimited virtual funds to practise on our platforms — Deriv Trader, SmartTrader, and Deriv Bot.',
+            '_t_Open a demo account and get unlimited virtual funds to practise on our platforms — Deriv Trader, SmartTrader, and Deriv Bot._t_',
     },
     {
-        title: 'Trade',
-        subtitle: 'Open a real account, make a deposit, and start trading options for real.',
+        title: '_t_Trade_t_',
+        subtitle: '_t_Open a real account, make a deposit, and start trading options for real._t_',
     },
     {
-        title: 'Withdraw',
+        title: '_t_Withdraw_t_',
         subtitle:
-            'Conveniently withdraw your funds through any of our supported withdrawal methods.',
+            '_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_',
     },
 ]
 

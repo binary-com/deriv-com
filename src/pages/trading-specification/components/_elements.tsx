@@ -335,7 +335,6 @@ export const ModalCard = styled.div`
     gap: 12px;
     max-height: 80vh;
     overflow: auto;
-
     @media ${device.mobileL} {
         width: 80%;
     }

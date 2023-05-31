@@ -1,137 +1,296 @@
 import React from 'react'
 import styled from 'styled-components'
+import { StaticImage } from 'gatsby-plugin-image'
 import { Container } from 'components/containers'
-import { Header } from 'components/elements'
-import { Button } from 'components/form'
-import BannerBg from 'images/common/markets/hero-derived-fx.png'
-import { Localize, localize } from 'components/localization'
+import Button from 'components/custom/_button'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import MarketNav from 'features/components/templates/navigation/market-nav'
 import { handleGetTrading } from 'components/custom/utils'
 
 type ContainerProps = {
     isDerivGo?: boolean
+    is_rtl?: boolean
 }
 
-const BackgroundWrapper = styled.div`
-    background: url(${BannerBg});
-    background-repeat: round;
-    position: relative;
-    min-height: 38.3rem;
+type MarketProps = {
+    title: string
+    description: string
+    is_forex?: boolean
+    is_derived_row?: boolean
+    is_derived_eu?: boolean
+    is_stocks_and_indices?: boolean
+    is_cryptocurrencies?: boolean
+    is_commodities?: boolean
+}
 
-    @media ${device.tabletL} {
-        min-height: 500px;
-    }
+type BackgroundWrapperProps = {
+    is_forex?: boolean
+    is_derived_row?: boolean
+    is_derived_eu?: boolean
+    is_stocks_and_indices?: boolean
+    is_cryptocurrencies?: boolean
+    is_commodities?: boolean
+    is_rtl?: boolean
+}
+
+const StyledButton = styled.div<BackgroundWrapperProps>`
+    margin-top: 1rem;
 `
-const StyledContainer = styled(Container)<ContainerProps>`
-    margin-top: ${(props) => (props.isDerivGo ? '175px' : '130px')};
-    margin-bottom: 120px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    position: relative;
-    top: 7.2rem;
 
-    h4,
-    h1 {
-        z-index: 3;
-    }
-    h1 {
-        line-height: 1.25;
-    }
-    h4 {
-        line-height: 1.5;
-    }
-    @media ${device.tabletL} {
-        padding: 4rem 2.3rem;
-        top: 0;
-        gap: 20px;
-
-        h1 {
-            text-align: center;
-        }
-        h4 {
-            text-align: center;
-        }
-    }
-    @media ${device.mobileM} {
-        padding: 4rem 1.3rem;
-    }
-`
-const MarketSubHeader = styled(Header)`
+const MarketSubHeader = styled.div`
     font-size: 16px;
-    width: 58vw;
+    width: 22vw;
+    color: var(--color-black-9);
+    text-align: left;
+    line-height: 24px;
 
     @media ${device.tabletL} {
-        width: 86vw;
+        min-width: 35rem;
+        text-align: center;
     }
     @media ${device.mobileM} {
         font-size: 14px;
         width: 83vw;
-    }
-`
-const StyledHeader = styled(Header)`
-    font-size: 48px;
-    color: white;
-
-    @media ${device.tabletL} {
-        font-size: 32px;
+        min-width: 0;
         text-align: center;
     }
 `
-const StyledButton = styled(Button)`
-    border-radius: 4px;
-    margin-top: 20px;
+const StyledHeader = styled.h1<ContainerProps>`
+    font-size: 48px;
+    color: var(--color-black-9);
+    width: 39vw;
+    text-align: ${(props) => (props.is_rtl ? 'end' : 'start')};
+    margin-bottom: 1rem;
+
+    @media ${device.laptopM} {
+        font-size: 28px;
+    }
 
     @media ${device.tabletL} {
-        width: 90vw;
-        font-size: 1.75rem;
-        padding: 1.25rem 4.75rem;
-        margin-top: 16px;
+        font-size: 28px;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+        margin-top: 0;
     }
 `
-type MarketProps = {
-    title: string
-    description: string
-}
 
-const GetTrading = () => (
-    <StyledButton width="128px" onClick={handleGetTrading} secondary>
-        {localize('Get Trading')}
-    </StyledButton>
-)
+const BackgroundStyle = styled.div`
+    background-color: var(--color-white);
+    flex: 1;
+    height: 65rem;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    direction: ltr;
 
-const CreateFreeDemoAccount = () => {
-    const handleSignup = useHandleSignup()
+    @media ${device.laptopM} {
+        height: 55rem;
+    }
 
-    return (
-        <StyledButton onClick={handleSignup} id="dm-why-trade-signup" secondary>
-            {localize('Create free demo account')}
-        </StyledButton>
-    )
-}
+    @media (min-width: 1920px) {
+        height: 73rem;
+    }
 
-export const DerivedFXHero = ({ title, description }: MarketProps) => {
+    @media ${device.tabletL} {
+        flex-direction: column-reverse;
+        justify-content: center;
+        height: 100%;
+    }
+`
+const StyledContainer = styled(Container)`
+    max-width: 123.2rem;
+    flex-wrap: wrap;
+
+    @media (min-width: 1536px) {
+        width: 80%;
+    }
+
+    @media (min-width: 1280px) and (max-width: 1536px) {
+        width: 84%;
+        max-width: 100%;
+    }
+    @media (min-width: 920px) and (max-width: 1280px) {
+        width: 90%;
+    }
+    @media ${device.tabletL} {
+        flex-direction: column-reverse;
+        justify-content: center;
+        margin: 0;
+        width: 100%;
+    }
+`
+
+const ContentWrapperStyle = styled.div<{ is_rtl: boolean }>`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    max-width: 40%;
+    direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
+    @media ${device.tabletL} {
+        max-width: 100%;
+    }
+`
+const Content = styled.div`
+    max-width: 632px;
+    width: 100%;
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    overflow-wrap: break-word;
+
+    @media ${device.tabletL} {
+        padding: 0 16px 40px;
+        align-items: center;
+    }
+`
+
+const HeroImageWrapper = styled.div`
+    width: 60%;
+    position: absolute;
+    right: 0;
+    height: 100%;
+
+    @media (min-width: 1920px) {
+        width: 50%;
+    }
+    @media (min-width: 992px) and (max-width: 1440px) {
+        width: 65%;
+    }
+    @media ${device.tabletL} {
+        width: 100%;
+        position: relative;
+    }
+`
+
+const ImageWrapper = styled.div`
+    display: flex;
+    padding: 64px 0;
+    justify-content: end;
+    width: 100%;
+    align-self: center;
+    flex: 1 1 0%;
+`
+
+const ImageStyle = styled.div`
+    z-index: 1;
+    max-width: fit-content;
+    width: inherit;
+
+    @media ${device.tabletL} {
+        width: 100%;
+    }
+`
+
+export const DerivedFXHero = ({
+    title,
+    description,
+    is_forex,
+    is_derived_row,
+    is_derived_eu,
+    is_stocks_and_indices,
+    is_cryptocurrencies,
+    is_commodities,
+}: MarketProps) => {
     const [is_logged_in] = useAuthCheck()
+    const handleSignup = useHandleSignup()
     const { is_deriv_go } = usePlatformQueryParam()
 
+    const is_rtl = useIsRtl()
+
     return (
-        <BackgroundWrapper>
+        <>
             <MarketNav />
-            <StyledContainer isDerivGo={is_deriv_go}>
-                <StyledHeader as="h1" align="center">
-                    <Localize translate_text={title} />
-                </StyledHeader>
-                <MarketSubHeader color="white" weight="normal" align="center">
-                    <Localize translate_text={description} />
-                </MarketSubHeader>
-                {is_logged_in && !is_deriv_go && <GetTrading />}
-                {!is_logged_in && !is_deriv_go && <CreateFreeDemoAccount />}
-            </StyledContainer>
-        </BackgroundWrapper>
+            <BackgroundStyle>
+                <StyledContainer jc="flex-start">
+                    <ContentWrapperStyle is_rtl={is_rtl}>
+                        <Content>
+                            <StyledHeader is_rtl={is_rtl}>
+                                <Localize translate_text={title} />
+                            </StyledHeader>
+                            <MarketSubHeader color="white">
+                                <Localize translate_text={description} />
+                            </MarketSubHeader>
+                            <StyledButton is_rtl={is_rtl}>
+                                {is_logged_in ? (
+                                    <Button
+                                        onClick={handleGetTrading}
+                                        label="_t_Get trading_t_"
+                                        primary
+                                    />
+                                ) : (
+                                    <Button
+                                        onClick={handleSignup}
+                                        label="_t_Create free demo account_t_"
+                                        primary
+                                    />
+                                )}
+                            </StyledButton>
+                        </Content>
+                    </ContentWrapperStyle>
+                    <HeroImageWrapper>
+                        <ImageWrapper>
+                            <ImageStyle>
+                                {is_forex ? (
+                                    <StaticImage
+                                        src="../../../../images/common/markets/hero-forex.png"
+                                        loading="eager"
+                                        formats={['avif', 'webp', 'auto']}
+                                        alt="banner"
+                                    />
+                                ) : null}
+                                {is_derived_row ? (
+                                    <StaticImage
+                                        src="../../../../images/common/markets/derived-row.png"
+                                        loading="eager"
+                                        formats={['avif', 'webp', 'auto']}
+                                        alt="banner"
+                                    />
+                                ) : null}
+                                {is_derived_eu ? (
+                                    <StaticImage
+                                        src="../../../../images/common/markets/derived-eu.png"
+                                        loading="eager"
+                                        formats={['avif', 'webp', 'auto']}
+                                        alt="banner"
+                                    />
+                                ) : null}
+                                {is_stocks_and_indices ? (
+                                    <StaticImage
+                                        src="../../../../images/common/markets/stocks-and-indices.png"
+                                        loading="eager"
+                                        formats={['avif', 'webp', 'auto']}
+                                        alt="banner"
+                                    />
+                                ) : null}
+                                {is_cryptocurrencies ? (
+                                    <StaticImage
+                                        src="../../../../images/common/markets/cryptocurrencies.png"
+                                        loading="eager"
+                                        formats={['avif', 'webp', 'auto']}
+                                        alt="banner"
+                                    />
+                                ) : null}
+                                {is_commodities ? (
+                                    <StaticImage
+                                        src="../../../../images/common/markets/commodities.png"
+                                        loading="eager"
+                                        formats={['avif', 'webp', 'auto']}
+                                        alt="banner"
+                                    />
+                                ) : null}
+                            </ImageStyle>
+                        </ImageWrapper>
+                    </HeroImageWrapper>
+                </StyledContainer>
+            </BackgroundStyle>
+        </>
     )
 }

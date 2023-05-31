@@ -22,6 +22,7 @@ const NumberWrapper = styled.div`
 `
 const StyledText = styled(Text)`
     padding-top: 8px;
+    color: var(--color-black-9);
 
     @media ${device.tabletL} {
         padding-top: 0;
@@ -33,12 +34,17 @@ const StyledContainer = styled(Container)`
     direction: ltr;
     width: 100%;
     margin-top: 3rem;
+    align-items: flex-start;
     @media ${device.tabletL} {
         flex-direction: column;
-        background-color: #f2f3f4;
         margin-top: 0;
         padding: 3rem 0;
+        align-items: center;
     }
+`
+const Title = styled(Header)`
+    font-family: Ubuntu, sans-serif;
+    color: var(--color-black-9);
 `
 
 const DNumbers = ({ items, justify }: DNumbersProps) => {
@@ -52,9 +58,9 @@ const DNumbers = ({ items, justify }: DNumbersProps) => {
                             : item.subtitle.props.translate_text
                     }
                 >
-                    <Header as="p" type="page-title" align="center">
+                    <Title as="p" type="page-title" align="center">
                         {item.title}
-                    </Header>
+                    </Title>
                     <StyledText align="center">{item.subtitle}</StyledText>
                 </NumberWrapper>
             ))}

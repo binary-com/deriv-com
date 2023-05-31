@@ -93,9 +93,6 @@ jobs:
                   header: lighthouse
                   message: |
                       ${{ steps.format_lighthouse_score.outputs.comment }}
-            - name: Dump Lighthouse Output
-              id: lighthouse_context_step
-              run: echo '${{ toJSON(steps.lighthouse_audit.outputs) }}'
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
               if: ${{ steps.format_lighthouse_score.outputs.performance < 60 }}

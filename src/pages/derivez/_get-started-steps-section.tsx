@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Localize } from 'components/localization'
 import StepperView from 'components/custom/_stepper_view'
-import { LocalizedLinkText } from 'components/elements'
+import { LocalizedLinkText, QueryImage } from 'components/elements'
 import { TString } from 'types/generics'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 
@@ -74,7 +74,7 @@ const GetStartedStepsSection: React.FC<TProps> = ({ is_demo = false, chosen_tab 
     const demo: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: (
+                title: () => (
                     <Localize
                         translate_text={demo_step1_title}
                         components={[
@@ -88,23 +88,39 @@ const GetStartedStepsSection: React.FC<TProps> = ({ is_demo = false, chosen_tab 
                         ]}
                     />
                 ),
-                image: data['demo_step1'],
-                alt: <Localize translate_text={demo_step1_alt} />,
+                image: () => (
+                    <QueryImage
+                        data={data['demo_step1']}
+                        alt={<Localize translate_text={demo_step1_alt} />}
+                    />
+                ),
             },
             {
-                title: <Localize translate_text={demo_step2_title} />,
-                image: data['demo_step2'],
-                alt: <Localize translate_text={demo_step2_alt} />,
+                title: () => <Localize translate_text={demo_step2_title} />,
+                image: () => (
+                    <QueryImage
+                        data={data['demo_step2']}
+                        alt={<Localize translate_text={demo_step2_alt} />}
+                    />
+                ),
             },
             {
-                title: <Localize translate_text={demo_step3_title} />,
-                image: data['demo_step3'],
-                alt: <Localize translate_text={demo_step3_alt} />,
+                title: () => <Localize translate_text={demo_step3_title} />,
+                image: () => (
+                    <QueryImage
+                        data={data['demo_step3']}
+                        alt={<Localize translate_text={demo_step3_alt} />}
+                    />
+                ),
             },
             {
-                title: <Localize translate_text={demo_step4_title} />,
-                image: data['demo_step4'],
-                alt: <Localize translate_text={real_demo_step4_alt} />,
+                title: () => <Localize translate_text={demo_step4_title} />,
+                image: () => (
+                    <QueryImage
+                        data={data['demo_step4']}
+                        alt={<Localize translate_text={real_demo_step4_alt} />}
+                    />
+                ),
             },
         ],
         [data, is_mobile],
@@ -113,7 +129,7 @@ const GetStartedStepsSection: React.FC<TProps> = ({ is_demo = false, chosen_tab 
     const real: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: (
+                title: () => (
                     <Localize
                         translate_text={real_step1_title}
                         components={[
@@ -127,38 +143,70 @@ const GetStartedStepsSection: React.FC<TProps> = ({ is_demo = false, chosen_tab 
                         ]}
                     />
                 ),
-                image: data['real_step1'],
-                alt: <Localize translate_text={real_step1_alt} />,
+                image: () => (
+                    <QueryImage
+                        data={data['real_step1']}
+                        alt={<Localize translate_text={real_step1_alt} />}
+                    />
+                ),
             },
             {
-                title: <Localize translate_text={real_step2_title} />,
-                image: data['real_step2'],
-                alt: <Localize translate_text={real_step2_alt} />,
+                title: () => <Localize translate_text={real_step2_title} />,
+                image: () => (
+                    <QueryImage
+                        data={data['real_step2']}
+                        alt={<Localize translate_text={real_step2_alt} />}
+                    />
+                ),
             },
             {
-                title: <Localize translate_text={real_step3_title} />,
-                image: data['real_step3'],
-                alt: <Localize translate_text={real_step3_alt} />,
+                title: () => <Localize translate_text={real_step3_title} />,
+                image: () => (
+                    <QueryImage
+                        data={data['real_step3']}
+                        alt={<Localize translate_text={real_step3_alt} />}
+                    />
+                ),
             },
             {
-                title: <Localize translate_text={real_step4_title} />,
-                image: data['real_step4'],
-                alt: <Localize translate_text={real_step4_alt} />,
+                title: () => <Localize translate_text={real_step4_title} />,
+                image: () => (
+                    <QueryImage
+                        data={data['real_step4']}
+                        alt={<Localize translate_text={real_step4_alt} />}
+                    />
+                ),
             },
             {
-                title: <Localize translate_text={real_step5_title} />,
-                image: data['real_step5'],
-                alt: <Localize translate_text={real_step5_alt} />,
+                title: () => <Localize translate_text={real_step5_title} />,
+                image: () => (
+                    <QueryImage
+                        data={data['real_step5']}
+                        alt={<Localize translate_text={real_step5_alt} />}
+                    />
+                ),
             },
             {
-                title: <Localize translate_text={real_step6_title} />,
-                image: data['real_step6'],
-                alt: <Localize translate_text={real_demo_step4_alt} />,
+                title: () => <Localize translate_text={real_step6_title} />,
+                image: () => (
+                    <QueryImage
+                        data={data['real_step6']}
+                        alt={<Localize translate_text={real_demo_step4_alt} />}
+                    />
+                ),
             },
         ],
         [data, is_mobile],
     )
-    return <StepperView chosen_tab={chosen_tab} items={is_demo ? demo : real} />
+    return (
+        <StepperView
+            gap="180px"
+            items={is_demo ? demo : real}
+            reverse={true}
+            imageWidth="220px"
+            contentWidth="450px"
+        />
+    )
 }
 
 export default GetStartedStepsSection

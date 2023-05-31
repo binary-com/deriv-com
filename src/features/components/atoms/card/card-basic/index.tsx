@@ -19,6 +19,7 @@ const CardBasic = ({ header, description }: CardItemsProps) => {
             radius="8x"
             lg={{ padding: '12x' }}
             padding="8x"
+            bgcolor="white"
         >
             <Typography.Heading as="h3" size="xs">
                 <Localize translate_text={header} />

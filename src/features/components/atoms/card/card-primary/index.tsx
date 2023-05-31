@@ -2,41 +2,42 @@ import React from 'react'
 import Typography from '../../typography'
 import Flex from '../../flex-box'
 import Link from '../../link'
-import Image from '../../image'
+import { CardType } from '../type'
 import { Localize } from 'components/localization'
-import { TString } from 'types/generics'
 import dclsx from 'features/utils/dclsx'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 
-type CardItemsProps = {
-    header: TString
-    description: TString
-    icon?: string
-    link?: `/${string}`
-}
-
-const CardPrimary = ({ header, description, icon, link }: CardItemsProps) => {
+const CardPrimary = ({ header, description, icon, link }: CardType) => {
     const { is_mobile_or_tablet } = useBreakpoints()
 
     return (
         <Flex.Box
-            className={dclsx('item_container')}
+            className={dclsx('card_primary_container')}
             direction="col"
             gap="4x"
+            bgcolor="white"
             radius="8x"
-            lg={{ padding: '12x' }}
-            padding="8x"
         >
-            {icon && <Image src={icon} width={48} height={48} pb="4x" lg={{ pb: '8x' }} />}
+            <Flex.Item className={dclsx('item_block')}>
+                {icon && (
+                    <Flex.Box pb="11x" lg={{ pb: '8x' }}>
+                        <img src={icon} width={44} height={44} />
+                    </Flex.Box>
+                )}
 
-            <Typography.Heading as="h3" size={is_mobile_or_tablet ? 'xs' : 'xxs'}>
-                <Localize translate_text={header} />
-            </Typography.Heading>
-            <Typography.Paragraph size="small" md={{ mb: '10x' }}>
-                <Localize translate_text={description} />
-            </Typography.Paragraph>
+                <Typography.Heading as="h3" size={is_mobile_or_tablet ? 'xs' : 'xxs'} pb="4x">
+                    <Localize translate_text={header} />
+                </Typography.Heading>
+                <Typography.Paragraph
+                    size={is_mobile_or_tablet ? 'medium' : 'small'}
+                    md={{ mb: '10x' }}
+                >
+                    <Localize translate_text={description} />
+                </Typography.Paragraph>
+            </Flex.Item>
+
             {link && (
-                <Flex.Box pt="12x">
+                <Flex.Box>
                     <Link
                         url={{ type: 'internal', to: link }}
                         size="medium"

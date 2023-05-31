@@ -7,6 +7,7 @@ import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import { TString } from 'types/generics'
+import Box from 'features/components/atoms/box'
 
 export type RoadmapType = {
     paragraph: TString
@@ -30,13 +31,15 @@ const Roadmap = ({ data }: RoadmapProps) => {
                     <Localize translate_text={data.paragraph} />
                 </Typography.Paragraph>
                 <Flex.Box direction="col" align="center">
-                    <iframe
+                    <Box
+                        as="iframe"
+                        radius="5x"
                         src={data.frame}
                         frameBorder="0"
                         height="100%"
                         width="100%"
                         className={iframe}
-                    ></iframe>
+                    ></Box>
                     <LinkButton.Secondary
                         url={{ type: 'non-company', href: data.link }}
                         outlined

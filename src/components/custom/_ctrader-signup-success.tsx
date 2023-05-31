@@ -72,7 +72,7 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
     const [residence, setResidence] = useState(null)
     const [password, setPassword] = useState('')
     const [password_error_message, setPasswordErrorMessage] = useState('')
-    const [error, setError] = useState('')
+    const [error, setError] = useState(null)
     const [submit_status, setSubmitStatus] = useState('')
     const [token, setToken] = useState('')
     const [service_token, setServiceToken] = useState('')
@@ -102,6 +102,9 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
                         setSubmitStatus('ctrader-account-created')
                     }
                 })
+                .catch((reason) => {
+                    setError(reason.error.message)
+                })
         }
     }, [account_loading, has_account])
 
@@ -113,15 +116,23 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
                     service: 'ctrader',
                 })
                 .then((response) => {
-                    if (response.error) {
-                        setError(response.error.message)
-                    } else {
-                        setServiceToken(response.service_token.ctrader.token)
-                        setSubmitStatus('success')
-                    }
+                    setServiceToken(response.service_token.ctrader.token)
+                    setSubmitStatus('success')
+                })
+                .catch((reason) => {
+                    setError(reason.error.message)
                 })
         }
     }, [submit_status])
+
+    useEffect(() => {
+        if (error?.code === 'InvalidToken') {
+            setCodeErrorMessage(error.message)
+        }
+        if (error?.details?.client_password?.length > 0) {
+            setPasswordErrorMessage(error.message)
+        }
+    }, [error])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -136,14 +147,11 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
                 ...(affiliate_token && { affiliate_token: affiliate_token }),
             })
             .then((response) => {
-                if (response.error) {
-                    setError(response.error.message)
-                } else {
-                    setToken(response.new_account_virtual.oauth_token)
-                    // setIsSubmitting(false)
-                    // setSubmitStatus('success')
-                    // if (onSubmit) onSubmit(submit_status, email)
-                }
+                setToken(response.new_account_virtual.oauth_token)
+            })
+            .catch((reason) => {
+                setError(reason.error)
+                setLoading(false)
             })
     }
     const clearCode = () => {
@@ -160,8 +168,10 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
         } else setCodeErrorMessage('')
     }
     const handlePasswordValidation = (value) => {
-        if (value.length < 8) {
-            setPasswordErrorMessage('Password should be more than 8 characters')
+        if (!/^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])[ -~]{8,25}$/.test(value)) {
+            setPasswordErrorMessage(
+                'Password should be more than 8 characters including 1 uppercase and 1 number',
+            )
         } else setPasswordErrorMessage('')
     }
     const handleCodeChange = (e) => {
@@ -174,11 +184,6 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
         setPassword(value)
         handlePasswordValidation(value)
     }
-    // const handleResidenceChange = (e) => {
-    //     const { value } = e.target
-    //     setResidence(value)
-    //     // handleValidation(value)
-    // }
 
     if (submit_status === 'success') {
         if (service_token) {
@@ -190,9 +195,6 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
 
     return (
         <Wrapper>
-            {/* {account_error && <StatusHeader>{account_error}</StatusHeader>}
-            {error && <StatusHeader>{error}</StatusHeader>} */}
-
             <form onSubmit={handleSubmit}>
                 <ResponseWrapper>
                     <Header as="h3" type="section-title" align="center" weight="bold" mb="2rem">
@@ -247,13 +249,9 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
                             onChange={(e) => {
                                 setResidence(e)
                             }}
-                            id="residence list"
-                            label={localize('_t_Residence List_t_')}
+                            id="residence"
+                            label={localize('_t_Residence_t_')}
                             selected_option={residence}
-                            // error={touched.residence && errors.residence}
-                            // onBlur={handleBlur}
-                            // autoComplete="off"
-                            // data-lpignore="true"
                         />
                     )}
                     <SubmitButton

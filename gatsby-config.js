@@ -12,6 +12,9 @@ const href = isBrowser && window.location.href
 const site_url =
     origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
 
+const getHostName = () => (isBetaDeriv ? 'https://beta.deriv.com' : 'https://deriv.com')
+console.log(getHostName())
+
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     flags: {
@@ -309,21 +312,19 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
-                host: isBetaDeriv ? 'https://beta.deriv.com' : 'https://deriv.com',
+                host: 'https://beta.deriv.com',
                 policy: [
                     {
                         userAgent: '*',
-                        allow: isBetaDeriv ? null : '/',
-                        disallow: isBetaDeriv
-                            ? '/'
-                            : [
-                                  '/404/',
-                                  '/homepage/',
-                                  '/landing/',
-                                  '/endpoint/',
-                                  '/livechat/',
-                                  '/storybook/',
-                              ],
+                        allow: '/',
+                        disallow: [
+                            '/404/',
+                            '/homepage/',
+                            '/landing/',
+                            '/endpoint/',
+                            '/livechat/',
+                            '/storybook/',
+                        ],
                     },
                 ],
             },

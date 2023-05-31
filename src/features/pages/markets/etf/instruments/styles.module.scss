@@ -2,6 +2,7 @@
 
 .item_container {
     @include breakpoints(tablet) {
-        padding: 0 22rem;
+        max-inline-size: 80rem;
+        margin-inline: auto;
     }
 }

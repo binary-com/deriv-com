@@ -8,7 +8,7 @@ import { Localize } from 'components/localization'
 
 const OtherMarkets = () => {
     return (
-        <Container.Fluid as="section">
+        <Container.Fluid as="section" padding_block="20x">
             <Flex.Box direction="col" gap="12x">
                 <Typography.Heading
                     as="h1"

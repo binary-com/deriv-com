@@ -39,6 +39,7 @@ import RcRp from 'images/svg/options/rc-rp.svg'
 import RiseFall from 'images/svg/options/rise-fall.svg'
 import SbGo from 'images/svg/options/sb-go.svg'
 import TNT from 'images/svg/options/tnt.svg'
+import { Desktop } from 'components/containers'
 
 type OptionElement = {
     svg: string
@@ -307,8 +308,12 @@ export const stock_options: Options = {
                 id: 'american-indices',
                 title: (
                     <Localize
-                        translate_text="American<0></0>indices"
-                        components={[<br key={0} />]}
+                        translate_text="American <0></0>indices"
+                        components={[
+                            <Desktop key={0}>
+                                <br />
+                            </Desktop>,
+                        ]}
                     />
                 ),
                 component: <Americas />,
@@ -322,7 +327,14 @@ export const stock_options: Options = {
             {
                 id: 'asian-indices',
                 title: (
-                    <Localize translate_text="Asian<0></0>indices" components={[<br key={0} />]} />
+                    <Localize
+                        translate_text="Asian <0></0>indices"
+                        components={[
+                            <Desktop key={0}>
+                                <br />
+                            </Desktop>,
+                        ]}
+                    />
                 ),
                 component: <AsiaOceania />,
                 details: <AsiaOceaniaDetails />,
@@ -336,13 +348,17 @@ export const stock_options: Options = {
                 id: 'european-indices',
                 title: (
                     <Localize
-                        translate_text="European<0></0>indices"
-                        components={[<br key={0} />]}
+                        translate_text="European <0></0>indices"
+                        components={[
+                            <Desktop key={0}>
+                                <br />
+                            </Desktop>,
+                        ]}
                     />
                 ),
                 component: <Europe />,
                 details: <EuropeDetails custom_index={-1} />,
-                col: 4,
+                col: 3,
                 tablet_col: 2,
                 mobile_col: 2,
                 padding: '32px 16px',

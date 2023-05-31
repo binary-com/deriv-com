@@ -10,12 +10,8 @@ const Wrapper = styled.div`
     left: 0;
     bottom: -2rem;
     width: 100%;
-    opacity: 0;
+    opacity: 1;
     transition: opacity 0.25s;
-
-    @media (max-width: 680px) {
-        opacity: 1;
-    }
 `
 
 const Item = styled.div`
@@ -23,10 +19,13 @@ const Item = styled.div`
     align-items: center;
     justify-content: center;
     border-radius: 23px;
-    background: var(--color-grey-18);
-    padding: 0.8rem 1.6rem;
+    margin-bottom: 3rem;
+    padding: 0.8rem 2.6rem;
     width: fit-content;
-    margin: 0 auto;
+
+    @media (max-width: 680px) {
+        margin-left: -0.9rem;
+    }
 `
 
 const Link = styled(LocalizedLink)`
@@ -41,15 +40,22 @@ type LearnMoreProps = {
     text: string | ReactNode
     to: string
 }
+const StyledLink = styled(Text)`
+    font-size: 14px;
+
+    @media (max-width: 425px) {
+        font-size: 12px;
+    }
+`
 
 const LearnMore = ({ text, to }: LearnMoreProps) => {
     return (
         <Wrapper className="learn-more">
             <Link to={to}>
                 <Item>
-                    <Text mr="0.8rem" weight="bold" color="red">
+                    <StyledLink mr="0.8rem" weight="normal" color="red">
                         {text}
-                    </Text>
+                    </StyledLink>
                     <ImageWithDireciton src={Arrow} alt="arrow right" />
                 </Item>
             </Link>

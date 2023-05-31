@@ -52,7 +52,7 @@ const MarketTab = () => {
                     (marketItem) =>
                         marketItem.market_name === selected_market && (
                             <Header
-                                key={marketItem.id}
+                                key={marketItem.market_name}
                                 type="paragraph-1"
                                 weight="normal"
                                 align="center"
@@ -63,7 +63,6 @@ const MarketTab = () => {
                         ),
                 )}
             </ContainerWrapper>
-
             <TradingSpecificationTable market={selected_market} />
         </>
     )

@@ -1,22 +1,9 @@
 @use 'features/styles/theme/theme-mixins' as *;
 
-
-.item_flex {
-    margin-inline: auto;
-    @include breakpoints(tablet) {
-        inline-size: 90%;
-    }
-    @include breakpoints(laptop) {
-        inline-size: 84%;
-    }
-    @include breakpoints(desktop) {
-        inline-size: 80%;
-        max-inline-size: 123.2rem;
-    }
-}
 .item_box {
-    @include breakpoints(tablet) {
+    @include breakpoints(laptop) {
         max-inline-size: 53rem;
+        height: 53rem;
     }
 }
 .text_description {
@@ -26,14 +13,20 @@
         text-align: left;
     }
 }
+@include breakpoints(tablet) {
+    .flex_container {
+        position: relative;
+        isolation: isolate;
+    }
+}
 
 .image_container {
     @include breakpoints(tablet) {
-        position: relative;
-        left: 9.5%;
-    }
-    @include breakpoints(desktop) {
-        left: 20%;
+        position: absolute;
+        right: 0;
+        z-index: -1;
+        padding-top: 6rem;
+        margin-block-start: 0;
     }
 }
 

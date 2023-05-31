@@ -6,9 +6,9 @@ export const BannerItems: HomepageBannerType = {
     title: '_t_Exchange-traded funds_t_',
     image_tablet: (
         <StaticImage
-            src="../../../../../images/common/markets/ETF.jpg"
+            src="../../../../../images/common/markets/etf-desktop.jpg"
             alt="etf banner"
-            quality={100}
+            objectFit="cover"
             placeholder="none"
             formats={['avif', 'webp', 'auto']}
         />
@@ -17,7 +17,6 @@ export const BannerItems: HomepageBannerType = {
         <StaticImage
             src="../../../../../images/common/markets/ETF.jpg"
             alt="etf banner"
-            quality={100}
             objectFit="cover"
             placeholder="none"
             formats={['avif', 'webp', 'auto']}

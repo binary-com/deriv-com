@@ -348,7 +348,6 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                                     size="1.2rem"
                                     color="red"
                                     rel="noopener noreferrer"
-                                    target="_blank"
                                 />,
                             ]}
                         />

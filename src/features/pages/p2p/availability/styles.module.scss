@@ -19,8 +19,8 @@
         &::before{
             position: absolute;
             content: "";
-            width: 1px;
-            height: 100%;
+            inline-size: 1px;
+            block-size: 100%;
             background-color: $color-grey-17;
             inset: 0;
             margin-inline: auto;

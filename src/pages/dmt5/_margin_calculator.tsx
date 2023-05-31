@@ -2,7 +2,7 @@ import React from 'react'
 import Proptypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { Box, Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
+import { Box, Flex, SectionContainer, Desktop, Mobile, Container } from 'components/containers'
 import { Carousel, CarouselProps, Header, LinkText, QueryImage, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
@@ -33,10 +33,26 @@ const query = graphql`
         ) {
             ...fadeIn
         }
+        eu_margin_calculator: file(relativePath: { eq: "dmt5/eu-dmt5-margin-calculator.png" }) {
+            ...fadeIn
+        }
+        eu_margin_calculator_mobile: file(
+            relativePath: { eq: "dmt5/eu-dmt5-margin-calculator-mobile.png" }
+        ) {
+            ...fadeIn
+        }
         swap_calculator: file(relativePath: { eq: "dmt5/dmt5-swap-calculator.png" }) {
             ...fadeIn
         }
         swap_calculator_mobile: file(relativePath: { eq: "dmt5/dmt5-swap-calculator-mobile.png" }) {
+            ...fadeIn
+        }
+        eu_swap_calculator: file(relativePath: { eq: "dmt5/eu-dmt5-swap-calculator.png" }) {
+            ...fadeIn
+        }
+        eu_swap_calculator_mobile: file(
+            relativePath: { eq: "dmt5/eu-dmt5-swap-calculator-mobile.png" }
+        ) {
             ...fadeIn
         }
     }
@@ -51,7 +67,6 @@ const CardContainer = styled(Flex)`
 const ImageWrapper = styled.div`
     display: flex;
     width: 392px;
-    height: 386px;
     object-fit: contain;
     margin-bottom: 2.4rem;
 
@@ -59,7 +74,6 @@ const ImageWrapper = styled.div`
         align-items: center;
         justify-content: center;
         width: 232px;
-        height: 229px;
 
         div {
             max-width: 232px;
@@ -71,6 +85,8 @@ const ImageWrapper = styled.div`
 
 const MainHeader = styled(Header)`
     margin: 0 0 12px;
+    color: var(--color-black-9);
+
     @media ${device.tabletL} {
         font-size: 28px;
         margin-bottom: 24px;
@@ -81,7 +97,7 @@ const MainHeader = styled(Header)`
 
 const SubHeader = styled(Header)`
     font-size: 24px;
-    color: var(--color-black-3);
+    color: var(--color-black-9);
     @media ${device.tabletL} {
         font-size: 20px;
         margin-bottom: 8px;
@@ -89,11 +105,9 @@ const SubHeader = styled(Header)`
 `
 
 const StyledBox = styled(Box)`
-    max-width: 508px;
-    margin: 11.9rem 4rem 0 16rem;
     @media ${device.tabletL} {
         max-width: 100%;
-        margin: 40px 16px 24px;
+        margin: 0 16px 0;
     }
 `
 
@@ -128,6 +142,9 @@ const StyledLinkButton = styled(LinkButton)`
     height: 40px;
     width: auto;
     min-width: 210px;
+    color: var(--color-black-9);
+    border-radius: 16px;
+
     @media ${device.tabletL} {
         padding: 10px 15px;
     }
@@ -141,25 +158,28 @@ const StyledLinkButton = styled(LinkButton)`
     }
 `
 
-const StyledFlexContainer = styled(Flex)`
-    width: 100%;
-    flex-wrap: nowrap;
-    border: 1px solid var(--color-grey-34);
-    @media ${device.tabletL} {
-        flex-wrap: wrap;
-        border: none;
-    }
-`
-
 const StyledFlex = styled(Flex)<{ has_color?: boolean }>`
     width: 50%;
     min-height: 694px;
     margin-right: 2.4rem;
-    background-color: ${({ has_color }) => (has_color ? 'var(--color-grey-25)' : 'inherit')};
+    background-color: inherit;
+    align-items: center;
+    justify-content: center;
     @media ${device.tabletL} {
         width: 100%;
-        min-height: 340px;
+        min-height: auto;
         margin-right: 0;
+    }
+`
+const StyledSectionContainer = styled(SectionContainer)`
+    padding: 4rem 0;
+    @media ${device.tabletL} {
+        padding: 2rem 0;
+    }
+`
+const StyledContainer = styled(Container)`
+    @media ${device.tabletL} {
+        flex-direction: column;
     }
 `
 
@@ -172,6 +192,8 @@ const CalculatorCard = ({
     text,
 }: CalculatorProps) => {
     const data = useStaticQuery(query)
+    const { is_eu } = useRegion()
+
     return (
         <StyledCardContainer>
             <SubHeader as="h3" align="center">
@@ -180,10 +202,20 @@ const CalculatorCard = ({
             <CardText align="center">{text}</CardText>
             <ImageWrapper>
                 <Desktop>
-                    <QueryImage data={data[image_name]} alt={image_alt_name} />
+                    <QueryImage
+                        data={is_eu ? data['eu_' + image_name] : data[image_name]}
+                        alt={image_alt_name}
+                    />
                 </Desktop>
                 <Mobile>
-                    <QueryImage data={data[image_name + '_mobile']} alt={image_alt_name} />
+                    <QueryImage
+                        data={
+                            is_eu
+                                ? data['eu_' + image_name + '_mobile']
+                                : data[image_name + '_mobile']
+                        }
+                        alt={image_alt_name}
+                    />
                 </Mobile>
             </ImageWrapper>
             <StyledLinkButton tertiary to={link}>
@@ -249,21 +281,15 @@ const MarginCalculator = () => {
         },
         navigation_style: {
             nav_color: 'red',
+            bottom_offset: '0',
         },
     }
 
     const { is_eu } = useRegion()
     return (
-        <SectionContainer>
-            <StyledFlexContainer>
-                <StyledFlex
-                    ai="center"
-                    jc="flex-start"
-                    tablet_jc="center"
-                    fd="column"
-                    wrap="wrap"
-                    has_color
-                >
+        <StyledSectionContainer>
+            <StyledContainer>
+                <StyledFlex ai="center" jc="flex-start" tablet_jc="center" fd="column" wrap="wrap">
                     <StyledBox max_width="100%">
                         <MainHeader as="h2" type="page-title" lh="1.25" align="start">
                             <Localize translate_text="Take control of your trades on Deriv MT5" />
@@ -313,7 +339,7 @@ const MarginCalculator = () => {
                     tablet_jc="center"
                     wrap="wrap"
                     ml="2.4rem"
-                    tabletL={{ ml: '0px', pt: '24px', pl: '16px', pr: '16px' }}
+                    tabletL={{ ml: '0px', pl: '16px', pr: '16px' }}
                 >
                     <CardContainer>
                         <Carousel {...settings}>
@@ -331,8 +357,8 @@ const MarginCalculator = () => {
                         </Carousel>
                     </CardContainer>
                 </StyledFlex>
-            </StyledFlexContainer>
-        </SectionContainer>
+            </StyledContainer>
+        </StyledSectionContainer>
     )
 }
 

@@ -39,6 +39,16 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         background: var(--color-white);
     }
+    p {
+        font-family: 'IBM Plex Sans', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    h1,h2,h3,h4,h5,h6 {
+        font-family: Ubuntu, sans-serif;
+        font-style: normal;
+        font-weight: 700;
+    }
 
     /* when the language direction is "rtl" for example "Arabic" we use this font family  */
     *[dir='rtl'] {

@@ -2,19 +2,19 @@
 
 .wrapper {
     @include breakpoints(tablet){
-        height: 100%;
+        block-size: 100%;
         position: absolute;
         right: 0;
     } 
 }
 .image_style {
     @include breakpoints(tablet){
-        max-width: 500px;
+        max-inline-size: 500px;
     }
     @include breakpoints(laptop){
-        max-width: 650px;
+        max-inline-size: 650px;
     }
     @include breakpoints(desktop){
-        max-width: 800px;
+        max-inline-size: 800px;
     }
 }

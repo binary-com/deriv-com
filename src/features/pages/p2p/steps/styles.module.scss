@@ -9,10 +9,10 @@
     }
 }
 .desktop_icon {
-    width: 96px;
-    height: 96px;
+    inline-size: 96px;
+    block-size: 96px;
 }
 .mobile_icon {
-    width: 48px;
-    height: 48px;   
+    inline-size: 48px;
+    block-size: 48px;   
 }

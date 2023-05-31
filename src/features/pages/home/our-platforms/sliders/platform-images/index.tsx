@@ -15,7 +15,6 @@ interface PlatformMainSliderProps {
 
 const PlatformImageSlider = ({ items, setSwiper, connectedSwiper }: PlatformMainSliderProps) => {
     const sliderHandler = (swiper: SwiperType) => {
-        console.log('dafd')
         setTimeout(function () {
             swiper.autoplay.start()
             swiper.params.autoplay = {

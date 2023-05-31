@@ -1,10 +1,10 @@
-import React, { ReactElement, useEffect } from 'react'
+import React, { ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { StringParam, useQueryParam } from 'use-query-params'
-import { navigate } from 'gatsby'
+import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
-import { Localize, LocalizedLink } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
@@ -175,7 +175,7 @@ const CardHeader = styled(Header)`
     }
 `
 
-const Link = styled(LocalizedLink)`
+const Link = styled(AnchorLink)`
     text-decoration: none;
 `
 
@@ -208,26 +208,8 @@ const AvailableTradesDesktop = ({
     Multipliers,
     display_title,
 }: AvailableTradesProps) => {
-    const { is_non_eu, is_region_loading } = useRegion()
+    const { is_non_eu } = useRegion()
     const [tab, setTab] = useQueryParam('tab', StringParam)
-
-    useEffect(() => {
-        if (window.location.hash && !is_region_loading) {
-            const id = window.location.hash.substring(1)
-            const element = document.getElementById(id)
-            const headerOffset = 170
-            const elementPosition = element?.getBoundingClientRect().top
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-            if (element) {
-                setTimeout(() => {
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth',
-                    })
-                }, 1000)
-            }
-        }
-    }, [is_region_loading])
 
     return (
         <StyledSection>
@@ -237,38 +219,41 @@ const AvailableTradesDesktop = ({
             <StyledContainer direction="column">
                 <CardWrapper position="relative" id="available-trades">
                     {CFDs && (
-                        <Card
-                            name="CFDs"
-                            display_name={<Localize translate_text="CFDs" />}
-                            onTabChange={() => {
-                                setTab('cfds')
-                                navigate(`?tab=cfds#cfds`)
-                            }}
-                            active_tab={tab || 'cfds'}
-                        />
+                        <Link to="?tab=cfds#cfds">
+                            <Card
+                                name="CFDs"
+                                display_name={<Localize translate_text="CFDs" />}
+                                onTabChange={() => {
+                                    setTab('cfds')
+                                }}
+                                active_tab={tab || 'cfds'}
+                            />
+                        </Link>
                     )}
                     {is_non_eu && DigitalOptions && (
-                        <Card
-                            name="Options"
-                            display_name={<Localize translate_text="Options" />}
-                            onTabChange={() => {
-                                setTab('options')
-                                navigate(`?tab=options#options`)
-                            }}
-                            active_tab={tab || 'cfds'}
-                        />
+                        <Link to="?tab=options#options">
+                            <Card
+                                name="Options"
+                                display_name={<Localize translate_text="Options" />}
+                                onTabChange={() => {
+                                    setTab('options')
+                                }}
+                                active_tab={tab || 'cfds'}
+                            />
+                        </Link>
                     )}
 
                     {Multipliers && (
-                        <Card
-                            name="Multipliers"
-                            display_name={<Localize translate_text="Multipliers" />}
-                            onTabChange={() => {
-                                setTab('multipliers')
-                                navigate(`?tab=multipliers#multipliers`)
-                            }}
-                            active_tab={tab || 'cfds'}
-                        />
+                        <Link to="?tab=multipliers#multipliers">
+                            <Card
+                                name="Multipliers"
+                                display_name={<Localize translate_text="Multipliers" />}
+                                onTabChange={() => {
+                                    setTab('multipliers')
+                                }}
+                                active_tab={tab || 'cfds'}
+                            />
+                        </Link>
                     )}
                 </CardWrapper>
                 <ContentWrapper>

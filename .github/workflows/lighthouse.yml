@@ -91,11 +91,9 @@ jobs:
                   header: lighthouse
                   message: |
                       ${{ steps.format_lighthouse_score.outputs.comment }}
-            - name: Dump GitHub context
-              id: github_context_step
-              run: echo '${{ toJSON(github.event.issue) }}'
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
+              if: ${{ steps.format_lighthouse_score.performance > 60 }}
               with:
                   status: custom
                   fields: workflow,job,commit,repo

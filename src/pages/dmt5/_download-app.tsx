@@ -30,6 +30,21 @@ import DownloadColumn from 'components/custom/_multi-width-column-download'
 import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 
+const items = [
+    { text: 'Google Play', icon: AndroidIcon, link: dmt5_android_url },
+    { text: 'App Store', icon: AppleIcon, link: dmt5_ios_url },
+    { text: 'AppGallery', icon: AppGalleryIcon, link: dmt5_app_gallery_url },
+    {
+        text: 'Web Browser',
+        icon: BrowserIcon,
+        link: dmt5_web_browser_url,
+        smallText: '_t_Use it on your_t_',
+    },
+    { text: 'Windows', icon: WinIcon, link: dmt5_windows },
+    { text: 'macOS', icon: MacIcon, link: dmt5_mac_app_url },
+    { text: 'Linux', icon: LinuxIcon, link: dmt5_linux_url },
+]
+
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
     gap: 28px;
@@ -67,20 +82,6 @@ const StyledInfoIcon = styled.img`
 const DerivMT5GetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
-    const items = [
-        { text: 'Google Play', icon: AndroidIcon, link: dmt5_android_url },
-        { text: 'App Store', icon: AppleIcon, link: dmt5_ios_url },
-        { text: 'AppGallery', icon: AppGalleryIcon, link: dmt5_app_gallery_url },
-        {
-            text: 'Web Browser',
-            icon: BrowserIcon,
-            link: dmt5_web_browser_url,
-            smallText: '_t_Use it on your_t_',
-        },
-        { text: 'Windows', icon: WinIcon, link: dmt5_windows },
-        { text: 'macOS', icon: MacIcon, link: dmt5_mac_app_url },
-        { text: 'Linux', icon: LinuxIcon, link: dmt5_linux_url },
-    ]
 
     return (
         <MultiWidthColumn

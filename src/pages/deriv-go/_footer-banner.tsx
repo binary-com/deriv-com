@@ -19,6 +19,12 @@ import {
 } from 'common/constants'
 import DownloadColumn from 'components/custom/_multi-width-column-download'
 
+const items = [
+    { text: 'Google Play', icon: AndroidIcon, link: deriv_go_playstore_url },
+    { text: 'App Store', icon: AppleIcon, link: deriv_go_ios_url },
+    { text: 'AppGallery', icon: AppGalleryIcon, link: deriv_go_huaweiappgallery_url },
+]
+
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
     gap: 16px;
@@ -44,12 +50,6 @@ const TextAndButtonWrapper = styled.div`
 const DerivGoGetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
-
-    const items = [
-        { text: 'Google Play', icon: AndroidIcon, link: deriv_go_playstore_url },
-        { text: 'App Store', icon: AppleIcon, link: deriv_go_ios_url },
-        { text: 'AppGallery', icon: AppGalleryIcon, link: deriv_go_huaweiappgallery_url },
-    ]
 
     return (
         <MultiWidthColumn

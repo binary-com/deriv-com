@@ -49,22 +49,21 @@ const Wrapper = styled.div`
         margin-top: -3rem;
     }
 `
+const items = [
+    { text: 'Google Play', icon: AndroidIcon, link: derivx_android_url },
+    { text: 'App Store', icon: AppleIcon, link: derivx_ios_url },
+    { text: 'AppGallery', icon: AppGalleryIcon, link: derivx_huawei_url },
+    {
+        text: 'Web Browser',
+        icon: BrowserIcon,
+        link: derivx_app_url,
+        smallText: '_t_Use it on your_t_',
+    },
+]
 
 const DerivXGetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
-
-    const items = [
-        { text: 'Google Play', icon: AndroidIcon, link: derivx_android_url },
-        { text: 'App Store', icon: AppleIcon, link: derivx_ios_url },
-        { text: 'AppGallery', icon: AppGalleryIcon, link: derivx_huawei_url },
-        {
-            text: 'Web Browser',
-            icon: BrowserIcon,
-            link: derivx_app_url,
-            smallText: '_t_Use it on your_t_',
-        },
-    ]
 
     return (
         <Wrapper>

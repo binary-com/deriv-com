@@ -48,7 +48,7 @@ const WhoCanApply = () => {
                         <Card
                             key={index}
                             style={style}
-                            card_content={{ text }}
+                            card_content={{ text, alt: `Checkmark ` + (index + 1).toString() }}
                             custom_icon={custom_icon}
                         />
                     ))}

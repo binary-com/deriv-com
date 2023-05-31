@@ -23,6 +23,7 @@ export class ApiManager {
     private socket: WebSocket
     public derivApi: TDerivApi
     private pingInterval: NodeJS.Timer
+    private ready: boolean
 
     public static instance: ApiManager
     public static getInstance() {
@@ -33,16 +34,19 @@ export class ApiManager {
     }
 
     public init(lang?: string) {
-        if (!this.socket) {
-            const language = lang === 'ach' ? getCrowdin() : lang?.replace('-', '_')
-            const socket_url = getSocketURL()
-            const app_id = getAppId()
-            const websocket_connection_url = `${socket_url}?app_id=${app_id}&l=${language}&brand=${brand_name.toLowerCase()}`
+        if (!this.ready) {
+            if (!this.socket) {
+                const language = lang === 'ach' ? getCrowdin() : lang?.replace('-', '_')
+                const socket_url = getSocketURL()
+                const app_id = getAppId()
+                const websocket_connection_url = `${socket_url}?app_id=${app_id}&l=${language}&brand=${brand_name.toLowerCase()}`
 
-            this.socket = new WebSocket(websocket_connection_url)
+                this.socket = new WebSocket(websocket_connection_url)
+            }
+            this.derivApi = new DerivAPIBasic({ connection: this.socket })
+            this.registerKeepAlive()
+            this.ready = true
         }
-        this.derivApi = new DerivAPIBasic({ connection: this.socket })
-        this.registerKeepAlive()
     }
 
     public augmentedSend<T extends TSocketEndpointNames>(

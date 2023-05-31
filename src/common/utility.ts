@@ -397,13 +397,22 @@ export const matchHashInURL = (hash: string) =>
 
 export const setHashInURL = (hash: string) => isBrowser() && (location.hash = `#${hash}`)
 
+export const setCookiesWithDomain = (key: string, value: string) => {
+    const domainObj = !isLocalhost() ? `domain=.${getDomain()};` : ''
+    document.cookie = `${key}=${value};path=/;${domainObj}`
+}
+
 export const updateURLAsPerUserLanguage = () => {
     const current_path = window.location.pathname
     const current_hash = window.location.hash
     const paths = current_path.split('/')
     const first_path = paths[1]
     const has_language_in_url = first_path in language_config
-    has_language_in_url && Cookies.set('user_language', first_path)
+    const is_careers = paths.includes('careers')
+
+    if (has_language_in_url) {
+        setCookiesWithDomain('user_language', first_path)
+    }
     const user_language = Cookies.get('user_language') || 'en'
 
     const language = has_language_in_url ? first_path : user_language
@@ -411,10 +420,15 @@ export const updateURLAsPerUserLanguage = () => {
     if (!has_language_in_url && user_language === 'en') return
     if (first_path === user_language) return
 
-    const updated_url = has_language_in_url
-        ? paths.map((item) => (item === first_path ? language : item)).join('/')
-        : language + paths.join('/')
-    const new_url = updated_url + current_hash
+    if (!is_careers) {
+        const updated_url = has_language_in_url
+            ? paths.map((item) => (item === first_path ? language : item)).join('/')
+            : language + paths.join('/')
+        const new_url = updated_url + current_hash
 
-    window.location.href = '/' + new_url
+        window.location.href = '/' + new_url
+    } else {
+        if (!has_language_in_url) return
+        window.location.href = '/' + 'careers'
+    }
 }

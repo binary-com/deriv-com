@@ -22,8 +22,8 @@ const trading: TQuestionsData = {
                     translation_components: [
                         {
                             key: 0,
-                            type: 'link',
-                            to: 'https://academy.deriv.com/blog/posts/what-is-forex-live-trading/',
+                            type: 'internal_link',
+                            to: 'https://blog.deriv.com/blog/posts/what-is-forex-live-trading/',
                         },
                     ],
                     has_margin_top: true,
@@ -46,8 +46,8 @@ const trading: TQuestionsData = {
                     translation_components: [
                         {
                             key: 0,
-                            type: 'link',
-                            to: 'https://academy.deriv.com/blog/posts/what-are-commodities/',
+                            type: 'internal_link',
+                            to: 'https://blog.deriv.com/blog/posts/what-are-commodities/',
                         },
                     ],
                     has_margin_top: true,
@@ -70,8 +70,8 @@ const trading: TQuestionsData = {
                     translation_components: [
                         {
                             key: 0,
-                            type: 'link',
-                            to: 'https://academy.deriv.com/blog/posts/what-are-stocks-how-and-where-to-trade-them/',
+                            type: 'internal_link',
+                            to: 'https://blog.deriv.com/blog/posts/what-are-stocks-how-and-where-to-trade-them/',
                         },
                     ],
                     has_margin_top: true,
@@ -101,8 +101,8 @@ const trading: TQuestionsData = {
                     translation_components: [
                         {
                             key: 0,
-                            type: 'link',
-                            to: 'https://academy.deriv.com/blog/posts/what-is-cfd-trading/',
+                            type: 'internal_link',
+                            to: 'https://blog.deriv.com/blog/posts/what-is-cfd-trading/',
                         },
                     ],
                     has_margin_top: true,
@@ -181,8 +181,8 @@ const trading: TQuestionsData = {
                     translation_components: [
                         {
                             key: 0,
-                            type: 'link',
-                            to: 'https://academy.deriv.com/blog/posts/automated-trading-what-you-need-to-know/',
+                            type: 'internal_link',
+                            to: 'https://blog.deriv.com/blog/posts/automated-trading-what-you-need-to-know/',
                         },
                     ],
                     has_margin_top: true,
@@ -271,7 +271,7 @@ const trading: TQuestionsData = {
             question: '_t_What are multipliers?_t_',
             category: 'trading',
             sub_category: '_t_Platforms_t_',
-            hide_for_eu: false,
+            hide_for_eu: true,
             label: 'what-are-multipliers',
             answer: [
                 {

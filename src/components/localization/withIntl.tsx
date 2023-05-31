@@ -5,6 +5,7 @@ import { isBrowser } from 'common/utility'
 
 type PageContextType = {
     locale: string
+    pathname?: string
 }
 
 type WrapWithIntl = {
@@ -37,7 +38,9 @@ export const WithIntl = () => (WrappedComponent: any) => {
                 i18next.changeLanguage(current_language)
                 if (isBrowser()) {
                     const normalize_lang = current_language && current_language.replace('_', '-')
-                    localStorage.setItem('i18n', normalize_lang)
+                    if (!pageContext?.pathname?.includes('careers')) {
+                        localStorage.setItem('i18n', normalize_lang)
+                    }
                 }
             }
         }

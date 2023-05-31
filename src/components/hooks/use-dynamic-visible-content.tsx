@@ -3,7 +3,7 @@ import { ObjectPropType, TSmartContent } from 'types/generics'
 
 export interface IUseDynamicVisibleContent<T extends TSmartContent<unknown, object>> {
     config: {
-        [key in keyof T['visiblity']]?: (value: ObjectPropType<T['visiblity'], key>) => boolean
+        [key in keyof T['visibility']]?: (value: ObjectPropType<T['visibility'], key>) => boolean
     }
     content: T[]
 }
@@ -18,7 +18,7 @@ function filterDynamicVisibleContent<T extends TSmartContent<unknown, object>, K
         return filterKeys.every((key) => {
             // ignores non-function predicates
             if (typeof filters[key] !== 'function') return true
-            return filters[key](item?.visiblity?.[key])
+            return filters[key](item?.visibility?.[key])
         })
     })
 }

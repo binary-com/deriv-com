@@ -81,7 +81,6 @@ export const ContinuousIndicesDetails = () => (
         </Text>
     </DetailsContainer>
 )
-
 export const DexIndicesDetails = () => (
     <DetailsContainer>
         <Text>

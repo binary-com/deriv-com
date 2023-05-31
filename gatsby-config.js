@@ -1,7 +1,6 @@
 const language_config = require(`./i18n-config.js`)
 const plugin = require('./src/features/styles/postcss-plugin/plugin')
 const isBrowser = typeof window !== 'undefined'
-const isBetaDeriv = process.env.GATSBY_DOMAIN === 'beta.deriv.com'
 
 require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`,
@@ -11,9 +10,6 @@ const origin = isBrowser && window.location.origin
 const href = isBrowser && window.location.href
 const site_url =
     origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
-
-const getHostName = () => (isBetaDeriv ? 'https://beta.deriv.com' : 'https://deriv.com')
-console.log(getHostName())
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
@@ -312,19 +308,25 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-robots-txt',
             options: {
-                host: 'https://beta.deriv.com',
+                host:
+                    process.env.GATSBY_DOMAIN === 'beta.deriv.com'
+                        ? 'https://beta.deriv.com'
+                        : 'https://deriv.com',
                 policy: [
                     {
                         userAgent: '*',
-                        allow: '/',
-                        disallow: [
-                            '/404/',
-                            '/homepage/',
-                            '/landing/',
-                            '/endpoint/',
-                            '/livechat/',
-                            '/storybook/',
-                        ],
+                        allow: process.env.GATSBY_DOMAIN === 'beta.deriv.com' ? null : '/',
+                        disallow:
+                            process.env.GATSBY_DOMAIN === 'beta.deriv.com'
+                                ? ['/']
+                                : [
+                                      '/404/',
+                                      '/homepage/',
+                                      '/landing/',
+                                      '/endpoint/',
+                                      '/livechat/',
+                                      '/storybook/',
+                                  ],
                     },
                 ],
             },

@@ -16,11 +16,11 @@ type NumberItem = {
 
 export type SmartNumberItem = TSmartContent<NumberItem, NumberItemConfig>
 
-interface INumberProps extends FlexBoxProps<'div'> {
+interface NumberProps extends FlexBoxProps<'div'> {
     item: NumberItem
 }
 
-const NumberItem = ({ item, ...rest }: INumberProps) => {
+const NumberItem = ({ item, ...rest }: NumberProps) => {
     return (
         <Flex.Box direction="col" align="center" md={{ padding_inline: '26x' }} {...rest}>
             <Typography.Heading as="h2" size="large">

@@ -10,7 +10,6 @@ import useRegion from 'components/hooks/use-region'
 
 const FooterSocialIcons = () => {
     const [isCareer, setIsCareer] = useState(false)
-
     const { is_eu } = useRegion()
     const { i18n } = useTranslation()
     const { language } = i18n

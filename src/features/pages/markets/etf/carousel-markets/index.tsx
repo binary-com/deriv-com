@@ -12,12 +12,14 @@ interface MarketsMainSliderProps {
 
 const MarketsMainSlider = ({ cards }: MarketsMainSliderProps) => {
     const { is_mobile_or_tablet } = useBreakpoints()
+    document.getElementsByClassName('swiper-wrapper')[0]?.remove()
     return (
         <>
             {is_mobile_or_tablet ? (
                 cards.map((card) => <CardBasic item={card} key={card.id} />)
             ) : (
                 <Swiper
+                    id={'swiper'}
                     slidesPerView={3}
                     spaceBetween={20}
                     autoplay={{

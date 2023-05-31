@@ -46,8 +46,8 @@ jobs:
         # For using same tag for staging and production we need to uncomment these two below lines:
         # with:
         #   tagRegex: "staging(.*)"
-      - name: Add version file 📝
-        run: echo "staging $(date -u +'%Y-%m-%dT%H:%M:%SZ')" > public/version
+      # - name: Add version file 📝
+      #   run: echo "staging $(date -u +'%Y-%m-%dT%H:%M:%SZ')" > public/version
       - name: Building docker image 🐳
         run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
 

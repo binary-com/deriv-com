@@ -2,40 +2,44 @@ import React from 'react'
 import Typography from '../../typography'
 import Flex from '../../flex-box'
 import Link from '../../link'
-import { item_container, item_block } from './styles.module.scss'
-import { CardType } from './type'
+import { CardType } from '../type'
 import { Localize } from 'components/localization'
+import dclsx from 'features/utils/dclsx'
 import useBreakpoints from 'components/hooks/use-breakpoints'
-interface CardItemsProps {
-    item: CardType
-}
 
-const CardBasic = ({ item }: CardItemsProps) => {
+const CardPrimary = ({ header, description, icon, link }: CardType) => {
     const { is_mobile_or_tablet } = useBreakpoints()
+
     return (
-        <Flex.Box className={item_container} direction="col" gap="4x" bgcolor="white" radius="8x">
-            <Flex.Item className={item_block}>
-                {item.icon && (
-                    <Flex.Box pb="4x" lg={{ pb: '8x' }}>
-                        <img src={item.icon} width={44} height={44} />
+        <Flex.Box
+            className={dclsx('card_primary_container')}
+            direction="col"
+            gap="4x"
+            bgcolor="white"
+            radius="8x"
+        >
+            <Flex.Item className={dclsx('item_block')}>
+                {icon && (
+                    <Flex.Box pb="11x" lg={{ pb: '8x' }}>
+                        <img src={icon} width={44} height={44} />
                     </Flex.Box>
                 )}
 
                 <Typography.Heading as="h3" size={is_mobile_or_tablet ? 'xs' : 'xxs'} pb="4x">
-                    <Localize translate_text={item.header} />
+                    <Localize translate_text={header} />
                 </Typography.Heading>
                 <Typography.Paragraph
                     size={is_mobile_or_tablet ? 'medium' : 'small'}
                     md={{ mb: '10x' }}
                 >
-                    <Localize translate_text={item.description} />
+                    <Localize translate_text={description} />
                 </Typography.Paragraph>
             </Flex.Item>
 
-            {item.link && (
+            {link && (
                 <Flex.Box>
                     <Link
-                        url={{ type: 'internal', to: item.link }}
+                        url={{ type: 'internal', to: link }}
                         size="medium"
                         textcolor="brand"
                         font_family="UBUNTU"
@@ -48,4 +52,4 @@ const CardBasic = ({ item }: CardItemsProps) => {
     )
 }
 
-export default CardBasic
+export default CardPrimary

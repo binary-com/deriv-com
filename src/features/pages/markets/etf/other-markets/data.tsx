@@ -1,4 +1,4 @@
-import { CardType } from 'features/components/atoms/card/card-primary/type'
+import { CardType } from 'features/components/atoms/card/type'
 import Forex from 'images/svg/markets/forex_markets.svg'
 import Derived from 'images/svg/markets/derived_markets.svg'
 import Stocks from 'images/svg/markets/stocks_markets.svg'

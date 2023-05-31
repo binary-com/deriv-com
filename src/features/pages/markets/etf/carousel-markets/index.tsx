@@ -1,10 +1,10 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper'
-import * as styles from './styles.module.scss'
+import { swiper_wrapper } from './styles.module.scss'
 import useBreakpoints from 'components/hooks/use-breakpoints'
-import CardBasic from 'features/components/atoms/card/card-primary'
-import { CardType } from 'features/components/atoms/card/card-primary/type'
+import { CardType } from 'features/components/atoms/card/type'
+import Card from 'features/components/atoms/card'
 
 interface MarketsMainSliderProps {
     cards: CardType[]
@@ -12,11 +12,19 @@ interface MarketsMainSliderProps {
 
 const MarketsMainSlider = ({ cards }: MarketsMainSliderProps) => {
     const { is_mobile_or_tablet } = useBreakpoints()
-    console.log(is_mobile_or_tablet)
+
     return (
         <>
             {is_mobile_or_tablet ? (
-                cards.map((card) => <CardBasic item={card} key={card.id} />)
+                cards.map((card) => (
+                    <Card.Primary
+                        header={card.header}
+                        description={card.description}
+                        icon={card.icon}
+                        link={card.link}
+                        key={card.id}
+                    />
+                ))
             ) : (
                 <Swiper
                     slidesPerView={3}
@@ -32,11 +40,17 @@ const MarketsMainSlider = ({ cards }: MarketsMainSliderProps) => {
                             slidesPerView: 4,
                         },
                     }}
-                    className={styles.swiper_wrapper}
+                    className={swiper_wrapper}
                 >
                     {cards.map((card) => (
                         <SwiperSlide key={card.id}>
-                            <CardBasic item={card} />
+                            <Card.Primary
+                                header={card.header}
+                                description={card.description}
+                                icon={card.icon}
+                                link={card.link}
+                                key={card.id}
+                            />
                         </SwiperSlide>
                     ))}
                 </Swiper>

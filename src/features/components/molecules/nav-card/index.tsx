@@ -48,7 +48,7 @@ const NavigationCard = ({
                 {content && (
                     <div className={dclsx(styles.nav_card_content)}>
                         <Typography.Paragraph
-                            size={is_mobile_or_tablet ? 'large' : 'medium'}
+                            size={is_mobile_or_tablet ? 'medium' : 'small'}
                             align="left"
                             textcolor="light"
                         >

@@ -119,4 +119,4 @@ const StepperView = ({ pb, items }: StepperViewProps) => {
     )
 }
 
-export default React.memo(StepperView)
+export default StepperView

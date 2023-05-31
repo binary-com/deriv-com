@@ -33,11 +33,9 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
 
     const [sorting, setSorting] = React.useState<SortingState>([])
 
-    const region = useMemo(() => {
-        return is_eu
-            ? 'https://deriv-static-pricingfeed.firebaseio.com/eu.json'
-            : 'https://deriv-static-pricingfeed.firebaseio.com/row.json'
-    }, [is_eu])
+    const region = is_eu
+        ? 'https://deriv-static-pricingfeed.firebaseio.com/eu.json'
+        : 'https://deriv-static-pricingfeed.firebaseio.com/row.json'
 
     const getData = useCallback(async () => {
         const rawResponse = await fetch(region)

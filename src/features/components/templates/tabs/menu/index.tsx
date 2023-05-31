@@ -26,7 +26,8 @@ const TabMenu = ({ class_name, tab_names, current_tab, icon, setCurrentTab }: Ta
                         <Tab.MenuItem
                             key={tab_name}
                             selected={tab_name == current_tab}
-                            textsize={'large'}
+                            textsize={'medium'}
+                            textweight={'normal'}
                             onClick={() => {
                                 setCurrentTab(tab_name)
                             }}

@@ -201,7 +201,7 @@ const SocialButton = styled(Button)`
     border-radius: 16px;
     gap: 10px;
 
-    @media ${device.tabletL} {
+    @media ${device.laptop} {
         justify-content: center;
         width: 33%;
         height: 6rem;

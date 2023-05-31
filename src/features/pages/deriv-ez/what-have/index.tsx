@@ -10,7 +10,7 @@ const WhatIsDerivEZ = () => {
             direction={'col'}
             padding_inline={'8x'}
             pt={'20x'}
-            md={{ padding_inline: '0', pt: '40x' }}
+            md={{ padding_inline: '0x', pt: '40x' }}
         >
             {content_data.map((content, index) => {
                 return (
@@ -21,7 +21,7 @@ const WhatIsDerivEZ = () => {
                         justify={'center'}
                         align={'center'}
                         md={{
-                            direction: index == 0 || index % 2 == 0 ? 'row' : 'row-reverse',
+                            direction: index % 2 == 0 ? 'row' : 'row-reverse',
                         }}
                     >
                         <FlexBox.Box direction={'col'} md={{ basis: '5-12' }}>

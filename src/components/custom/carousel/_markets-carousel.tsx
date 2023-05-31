@@ -10,6 +10,7 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 const SmallContainer = styled(Container)`
     width: 60%;
     max-width: 62.5rem;
+
     @media ${device.desktop} {
         max-width: 1200px;
         width: 100%;
@@ -29,6 +30,7 @@ const SmallContainer = styled(Container)`
 
 const Wrapper = styled(SmallContainer)`
     position: relative;
+
     @media (max-width: 770px) {
         width: 100%;
     }
@@ -87,11 +89,9 @@ const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
     }
 
     return (
-        <>
-            <Wrapper>
-                <Carousel {...carousel_props}>{children.map((child) => child)}</Carousel>
-            </Wrapper>
-        </>
+        <Wrapper>
+            <Carousel {...carousel_props}>{children.map((child) => child)}</Carousel>
+        </Wrapper>
     )
 }
 

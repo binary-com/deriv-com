@@ -29,6 +29,7 @@ const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
     flex-direction: column;
     height: auto;
+
     @media (max-width: 680px) {
         > img {
             width: 48px;
@@ -41,6 +42,7 @@ const StyledText = styled(Text)`
     margin-top: 1.6rem;
     font-family: Ubuntu, sans-serif;
     color: var(--color-black-9);
+
     @media (max-width: 680px) {
         font-size: 18px;
         margin-top: 0;
@@ -49,6 +51,7 @@ const StyledText = styled(Text)`
 const StyledPara = styled(Text)`
     margin-top: 1.6rem;
     font-size: 16px;
+
     @media (max-width: 680px) {
         font-size: 18px;
         margin-top: 0;
@@ -72,6 +75,7 @@ const Card = styled.article`
     height: 100%;
     padding: 24px 24px 0;
     max-width: 315px;
+
     @media (max-width: 680px) {
         padding: 16px 16px 36px;
         max-width: 328px;
@@ -94,6 +98,7 @@ const MarketsItem = styled(Flex)`
 const SmallContainer = styled(Container)`
     width: 60%;
     max-width: 62.5rem;
+
     @media ${device.desktop} {
         max-width: 800px;
     }
@@ -137,6 +142,7 @@ const GenericCarousel = ({ renderableData, mainHeading }: TProps) => {
                                     <LearnMore
                                         text={<Localize translate_text="_t_Learn more_t_" />}
                                         to={item.link}
+                                        in_trading_platforms
                                     />
                                 </Card>
                             </MarketsItem>

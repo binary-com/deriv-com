@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'react'
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
+import DerivEZIcon from 'images/svg/deriv-ez/deriv-ez-logo-red.svg'
 import {
     binary_bot_url,
     deriv_api_url,
@@ -24,7 +25,6 @@ import DTraderIcon from 'images/svg/dtrader/dtrader-icon.svg'
 import DMT5Icon from 'images/svg/dmt5/dmt5-icon.svg'
 import DerivGOIcon from 'images/svg/deriv-go/deriv-go-logo.svg'
 import DerivXIcon from 'images/svg/deriv-x/derivx-logo.svg'
-import DerivEZIcon from 'images/svg/deriv-ez/deriv-ez-logo-red.svg'
 import DBotIcon from 'images/svg/dbot/dbot-icon.svg'
 import BinaryBotIcon from 'images/svg/binarybot-icon.svg'
 import SmartTraderIcon from 'images/svg/custom/smarttrader.svg'

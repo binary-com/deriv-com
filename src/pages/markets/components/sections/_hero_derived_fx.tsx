@@ -106,6 +106,18 @@ const BackgroundStyle = styled.div`
 const StyledContainer = styled(Container)`
     max-width: 123.2rem;
     flex-wrap: wrap;
+
+    @media (min-width: 1536px) {
+        width: 80%;
+    }
+
+    @media (min-width: 1280px) and (max-width: 1536px) {
+        width: 84%;
+        max-width: 100%;
+    }
+    @media (min-width: 920px) and (max-width: 1280px) {
+        width: 90%;
+    }
     @media ${device.tabletL} {
         flex-direction: column-reverse;
         justify-content: center;

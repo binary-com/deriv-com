@@ -1,6 +1,5 @@
 import React from 'react'
 import { Localize } from 'components/localization'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import FlexBox from 'features/components/atoms/flex-box'
 import Tab from 'features/components/atoms/tab'
 import { TString } from 'types/generics'
@@ -14,7 +13,6 @@ export type TabMenuProps = {
     icon?: string
 }
 const TabMenu = ({ class_name, tab_names, current_tab, icon, setCurrentTab }: TabMenuProps) => {
-    const { is_mobile_or_tablet } = useBreakpoints()
     return (
         <FlexBox.Box
             className={class_name}
@@ -28,7 +26,7 @@ const TabMenu = ({ class_name, tab_names, current_tab, icon, setCurrentTab }: Ta
                         <Tab.MenuItem
                             key={tab_name}
                             selected={tab_name == current_tab}
-                            textsize={is_mobile_or_tablet ? 'medium' : 'large'}
+                            textsize={'large'}
                             onClick={() => {
                                 setCurrentTab(tab_name)
                             }}

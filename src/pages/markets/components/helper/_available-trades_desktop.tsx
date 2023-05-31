@@ -1,5 +1,7 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement } from 'react'
 import styled, { css } from 'styled-components'
+import { StringParam, useQueryParam } from 'use-query-params'
+import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
@@ -17,7 +19,6 @@ type AvailableTradesProps = {
     CFDs: ReactElement
     DigitalOptions?: ReactElement
     Multipliers?: ReactElement
-    Accumulators?: ReactElement
     display_title: ReactElement
 }
 
@@ -79,25 +80,31 @@ const CardContainer = styled(Flex)<CardContainerProps>`
     height: 68px;
     font-weight: 400;
     cursor: pointer;
-    z-index: ${(props) => (props.active_tab === props.name ? '4 !important' : '')};
+    z-index: ${(props) =>
+        props.active_tab === props.name.toLocaleLowerCase() ? '4 !important' : ''};
 
     ${Flex} {
         img {
             width: 32px;
             height: 32px;
             margin: 0 8px 0 0;
-            opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.48')};
+            opacity: ${(props) =>
+                props.active_tab === props.name.toLocaleLowerCase() ? '1' : '0.48'};
         }
         h4 {
             width: 20rem;
             text-align: center;
             padding-bottom: 1rem;
             color: ${(props) =>
-                props.active_tab === props.name ? 'var(--color-red)' : 'var(--color-black-3)'};
-            opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.48')};
-            font-weight: ${(props) => (props.active_tab === props.name ? '300' : '400')};
+                props.active_tab === props.name.toLocaleLowerCase()
+                    ? 'var(--color-red)'
+                    : 'var(--color-black-3)'};
+            opacity: ${(props) =>
+                props.active_tab === props.name.toLocaleLowerCase() ? '1' : '0.48'};
+            font-weight: ${(props) =>
+                props.active_tab === props.name.toLocaleLowerCase() ? '300' : '400'};
             border-bottom: ${(props) =>
-                props.active_tab === props.name
+                props.active_tab === props.name.toLocaleLowerCase()
                     ? '2px solid var(--color-red)'
                     : '2px solid var(--color-black-3    )'};
 
@@ -139,7 +146,7 @@ const CardContainer = styled(Flex)<CardContainerProps>`
         transform: perspective(8px) rotateX(0.8deg);
         transform-origin: ${({ is_rtl }) => (is_rtl ? 'bottom right' : 'bottom left')};
         ${(props) => {
-            if (props.active_tab === props.name)
+            if (props.active_tab === props.name.toLocaleLowerCase())
                 return css`
                     font-weight: bold;
                     background-color: var(--color-white);
@@ -170,6 +177,10 @@ const CardHeader = styled(Header)`
     }
 `
 
+const Link = styled(AnchorLink)`
+    text-decoration: none;
+`
+
 const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
     const is_rtl = useIsRtl()
 
@@ -185,7 +196,6 @@ const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
                 {name === 'CFDs'}
                 {name === 'Options'}
                 {name === 'Multipliers'}
-                {name === 'Accumulators'}
                 <CardHeader as="h4" width="auto">
                     {display_name}
                 </CardHeader>
@@ -198,14 +208,10 @@ const AvailableTradesDesktop = ({
     CFDs,
     DigitalOptions,
     Multipliers,
-    Accumulators,
     display_title,
 }: AvailableTradesProps) => {
     const { is_non_eu } = useRegion()
-    const [active_tab, SetActiveTab] = useState('CFDs')
-    const handleTabChange = (new_tab: string) => {
-        if (new_tab !== active_tab) return SetActiveTab(new_tab)
-    }
+    const [tab, setTab] = useQueryParam('tab', StringParam)
 
     return (
         <StyledSection>
@@ -215,44 +221,47 @@ const AvailableTradesDesktop = ({
             <StyledContainer direction="column">
                 <CardWrapper position="relative" id="available-trades">
                     {CFDs && (
-                        <Card
-                            name="CFDs"
-                            display_name={<Localize translate_text="CFDs" />}
-                            onTabChange={() => handleTabChange('CFDs')}
-                            active_tab={active_tab}
-                        />
+                        <Link to="?tab=cfds#cfds">
+                            <Card
+                                name="CFDs"
+                                display_name={<Localize translate_text="CFDs" />}
+                                onTabChange={() => {
+                                    setTab('cfds')
+                                }}
+                                active_tab={tab || 'cfds'}
+                            />
+                        </Link>
                     )}
                     {is_non_eu && DigitalOptions && (
-                        <Card
-                            name="Options"
-                            display_name={<Localize translate_text="Options" />}
-                            onTabChange={() => handleTabChange('Options')}
-                            active_tab={active_tab}
-                        />
+                        <Link to="?tab=options#options">
+                            <Card
+                                name="Options"
+                                display_name={<Localize translate_text="Options" />}
+                                onTabChange={() => {
+                                    setTab('options')
+                                }}
+                                active_tab={tab || 'cfds'}
+                            />
+                        </Link>
                     )}
 
                     {Multipliers && (
-                        <Card
-                            name="Multipliers"
-                            display_name={<Localize translate_text="Multipliers" />}
-                            onTabChange={() => handleTabChange('Multipliers')}
-                            active_tab={active_tab}
-                        />
-                    )}
-                    {is_non_eu && Accumulators && (
-                        <Card
-                            name="Accumulators"
-                            display_name={<Localize translate_text="Accumulators" />}
-                            onTabChange={() => handleTabChange('Accumulators')}
-                            active_tab={active_tab}
-                        />
+                        <Link to="?tab=multipliers#multipliers">
+                            <Card
+                                name="Multipliers"
+                                display_name={<Localize translate_text="Multipliers" />}
+                                onTabChange={() => {
+                                    setTab('multipliers')
+                                }}
+                                active_tab={tab || 'cfds'}
+                            />
+                        </Link>
                     )}
                 </CardWrapper>
                 <ContentWrapper>
-                    {active_tab === 'CFDs' && CFDs}
-                    {active_tab === 'Options' && DigitalOptions}
-                    {active_tab === 'Multipliers' && Multipliers}
-                    {active_tab === 'Accumulators' && Accumulators}
+                    {(tab === 'cfds' || !tab) && CFDs}
+                    {tab === 'options' && DigitalOptions}
+                    {tab === 'multipliers' && Multipliers}
                 </ContentWrapper>
             </StyledContainer>
         </StyledSection>

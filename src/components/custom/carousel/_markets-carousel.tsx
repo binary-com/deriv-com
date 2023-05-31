@@ -89,11 +89,9 @@ const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
     }
 
     return (
-        <>
-            <Wrapper>
-                <Carousel {...carousel_props}>{children.map((child) => child)}</Carousel>
-            </Wrapper>
-        </>
+        <Wrapper>
+            <Carousel {...carousel_props}>{children.map((child) => child)}</Carousel>
+        </Wrapper>
     )
 }
 

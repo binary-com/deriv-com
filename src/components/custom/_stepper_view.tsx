@@ -21,6 +21,7 @@ type TProps = {
 type ItemsWrapperProps = {
     width?: string
 }
+
 type ImageWrapperProps = {
     width?: string
 }

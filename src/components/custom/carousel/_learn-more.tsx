@@ -63,9 +63,4 @@ const LearnMore = ({ text, to, in_trading_platforms }: LearnMoreProps) => {
     )
 }
 
-LearnMore.propTypes = {
-    text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    to: PropTypes.string,
-}
-
 export default LearnMore

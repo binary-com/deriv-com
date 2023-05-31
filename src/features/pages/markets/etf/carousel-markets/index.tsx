@@ -14,7 +14,10 @@ interface MarketsMainSliderProps {
 const MarketsMainSlider = ({ cards }: MarketsMainSliderProps) => {
     const { is_mobile_or_tablet } = useBreakpoints()
     useEffect(() => {
-        isBrowser() && window.document.getElementsByClassName('swiper-wrapper')[0]?.remove()
+        isBrowser() &&
+            window.document
+                .getElementsByClassName('swiper-wrapper')[0]
+                .classList.remove('swiper-wrapper')
     }, [])
 
     return (

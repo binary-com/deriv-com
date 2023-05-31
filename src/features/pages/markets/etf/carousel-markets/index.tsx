@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper'
 import * as styles from './styles.module.scss'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import CardBasic from 'features/components/atoms/card/card-primary'
 import { CardType } from 'features/components/atoms/card/card-primary/type'
+import { isBrowser } from 'common/utility'
 
 interface MarketsMainSliderProps {
     cards: CardType[]
@@ -12,7 +13,10 @@ interface MarketsMainSliderProps {
 
 const MarketsMainSlider = ({ cards }: MarketsMainSliderProps) => {
     const { is_mobile_or_tablet } = useBreakpoints()
-    document.getElementsByClassName('swiper-wrapper')[0]?.remove()
+    useEffect(() => {
+        isBrowser() && window.document.getElementsByClassName('swiper-wrapper')[0]?.remove()
+    }, [])
+
     return (
         <>
             {is_mobile_or_tablet ? (

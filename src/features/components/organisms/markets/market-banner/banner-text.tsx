@@ -6,12 +6,14 @@ import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Button from 'features/components/atoms/button'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-
+import useAuthCheck from 'components/hooks/use-auth-check'
+import { handleGetTrading } from 'components/custom/utils'
 interface HomepageBannerProps {
     item: HomepageBannerType
 }
 
 const BannerText = ({ item }: HomepageBannerProps) => {
+    const [is_logged_in] = useAuthCheck()
     const handleSignup = useHandleSignup()
     return (
         <Flex.Box
@@ -28,15 +30,25 @@ const BannerText = ({ item }: HomepageBannerProps) => {
             <Typography.Paragraph className={text_description} size="medium" pb="12x">
                 <Localize translate_text={item.description} />
             </Typography.Paragraph>
-
-            <Button.Primary
-                type={'button'}
-                aria-label="create free demo account"
-                onClick={handleSignup}
-                id="dm-hero-signup"
-            >
-                <Localize translate_text={'_t_Create free demo account_t_'} />
-            </Button.Primary>
+            {is_logged_in ? (
+                <Button.Primary
+                    type={'button'}
+                    aria-label="Get trading"
+                    onClick={handleGetTrading}
+                    id="dm-hero-signup"
+                >
+                    <Localize translate_text={'_t_Get trading_t_'} />
+                </Button.Primary>
+            ) : (
+                <Button.Primary
+                    type={'button'}
+                    aria-label="create free demo account"
+                    onClick={handleSignup}
+                    id="dm-hero-signup"
+                >
+                    <Localize translate_text={'_t_Create free demo account_t_'} />
+                </Button.Primary>
+            )}
         </Flex.Box>
     )
 }

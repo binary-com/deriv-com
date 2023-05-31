@@ -116,6 +116,8 @@ module.exports = {
                     '/**/endpoint',
                     '/signup-success',
                     '/**/signup-success',
+                    'beta.deriv.com',
+                    'staging.deriv.com',
                 ],
                 query: `
                 {

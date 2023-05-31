@@ -28,7 +28,7 @@ const ImageWithParagraph = ({ contentData }: ImageWithParagraphType) => {
                             justify: 'between',
                         }}
                     >
-                        <FlexBox.Box direction={'col'} md={{ basis: '6-12' }}>
+                        <FlexBox.Box direction={'col'} md={{ basis: '5-12', margin: '20x' }}>
                             {feature?.title ? (
                                 <Typography.Heading
                                     mb={'8x'}
@@ -47,7 +47,7 @@ const ImageWithParagraph = ({ contentData }: ImageWithParagraphType) => {
                                 <FlexBox.Item
                                     align_self="center"
                                     margin_block="10x"
-                                    md={{ basis: '4-12' }}
+                                    md={{ basis: '5-12' }}
                                 >
                                     <LinkButton.Primary
                                         url={{
@@ -79,7 +79,7 @@ const ImageWithParagraph = ({ contentData }: ImageWithParagraphType) => {
                         <FlexBox.Box
                             margin_inline={'24x'}
                             margin_block={'14x'}
-                            md={{ basis: '4-12' }}
+                            md={{ basis: '5-12', margin: '10x' }}
                         >
                             {feature?.image}
                         </FlexBox.Box>

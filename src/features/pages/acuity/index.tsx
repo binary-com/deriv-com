@@ -17,7 +17,7 @@ const Acuity = () => {
             <SEO
                 title={localize('_t_Acuity trading tools | MT5 trading solutions | Deriv_t_')}
                 description={localize(
-                    '_t_Get access to market insights using AI-driven trading tools. Download Acuity to your Deriv MT5 desktop terminal for free._t_',
+                    '_t_Download Acuity to your Deriv MT5 desktop terminal for free and get access to market insights using AI-driven trading tools._t_',
                 )}
             />
             <AcuityTradeTools />

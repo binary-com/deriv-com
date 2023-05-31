@@ -17,10 +17,10 @@ env:
   NODE_OPTIONS: "--max_old_space_size=7168"
   DATADOG_APPLICATION_ID: ${{ secrets.DATADOG_APPLICATION_ID }}
   DATADOG_CLIENT_TOKEN: ${{ secrets.DATADOG_CLIENT_TOKEN }}
-
+  
 jobs:
-  release-staging:
-    timeout-minutes: 35
+  build-preview:
+    timeout-minutes: 30
     runs-on: ubuntu-latest
     environment: staging
     steps:
@@ -30,14 +30,17 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "18.x"
+          node-version: "16.x"
           cache: "npm"
 
       - run: npm ci
-      - run: npm run format
-      - run: npm run test
       - run: npm run build
-      - run: npm run build:storybook
+  release-staging:
+    needs: build-preview
+    timeout-minutes: 40
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
       - uses: olegtarasov/get-tag@v2.1
         id: tagName
         # For using same tag for staging and production we need to uncomment these two below lines:

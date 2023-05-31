@@ -42,6 +42,24 @@ const Accumulators = () => {
         setLoaded(true)
     }, [])
 
+    const AccumulatorsItems = [
+        {
+            title: 'Practise',
+            subtitle:
+                'Open a demo account on Deriv and practise with an unlimited amount of virtual funds.',
+        },
+        {
+            title: 'Trade',
+            subtitle:
+                'Open a real account, make a deposit, and start trading accumulators for real.',
+        },
+        {
+            title: 'Withdraw',
+            subtitle:
+                'Conveniently withdraw your funds through any of our supported withdrawal methods.',
+        },
+    ]
+
     if (is_loaded) {
         return is_accumulators_released && is_row ? (
             <Layout>
@@ -69,14 +87,7 @@ const Accumulators = () => {
                         title_font_size={is_mobile ? '24px' : '32px'}
                         margin_title="15rem 0 7rem 0"
                     />
-                    <StepperView
-                        first_step_title="_t_Practise_t_"
-                        first_step_subtitle="_t_Open a demo account on Deriv and practise with an unlimited amount of virtual funds._t_"
-                        second_step_title="_t_Trade_t_"
-                        second_step_subtitle="_t_Open a real account, make a deposit, and start trading accumulators for real._t_"
-                        third_step_title="_t_Withdraw_t_"
-                        third_step_subtitle="_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_"
-                    />
+                    <StepperView items={AccumulatorsItems} />
                     <ButtonContainer>
                         <Button label="Create free demo account" onClick={handleSignup} primary />
                     </ButtonContainer>

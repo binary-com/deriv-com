@@ -80,20 +80,11 @@ type StepperViewTickProps = {
 }
 
 type StepperViewProps = {
-    first_step_title?: TString
-    first_step_subtitle?: TString
-    second_step_title?: TString
-    second_step_subtitle?: TString
-    third_step_title?: TString
-    third_step_subtitle?: TString
-    fourth_step_title?: TString
-    fourth_step_subtitle?: TString
+    items: {
+        title?: string
+        subtitle?: string
+    }[]
 } & Pick<StepperViewTickProps, 'pb' | 'pl'>
-
-interface Item {
-    title?: TString
-    subtitle?: TString
-}
 
 const handleLastBorder = (index, items) => {
     if (index !== items.length - 1) {
@@ -102,31 +93,9 @@ const handleLastBorder = (index, items) => {
     return false
 }
 
-const StepperView = ({
-    pb,
-    first_step_title,
-    first_step_subtitle,
-    second_step_title,
-    second_step_subtitle,
-    third_step_title,
-    third_step_subtitle,
-}: StepperViewProps) => {
+const StepperView = ({ pb, items }: StepperViewProps) => {
     const [is_mobile] = useBrowserResize()
 
-    const items: Item[] = [
-        {
-            title: first_step_title,
-            subtitle: first_step_subtitle,
-        },
-        {
-            title: second_step_title,
-            subtitle: second_step_subtitle,
-        },
-        {
-            title: third_step_title,
-            subtitle: third_step_subtitle,
-        },
-    ]
     return (
         <>
             {items.map((item, index) => (
@@ -135,8 +104,8 @@ const StepperView = ({
                         <ContentWrapper>
                             <Oval></Oval>
                             <CommonHeaderSection
-                                title={item.title}
-                                subtitle={item.subtitle}
+                                title={`_t_${item.title}_t_`}
+                                subtitle={`_t_${item.subtitle}_t_`}
                                 title_font_size={is_mobile ? '18px ' : '24px'}
                                 margin_subtitle="1.3rem 0 0 0"
                                 subtitle_font_size="1.6rem"
@@ -150,4 +119,4 @@ const StepperView = ({
     )
 }
 
-export default StepperView
+export default React.memo(StepperView)

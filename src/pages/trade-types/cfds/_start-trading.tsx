@@ -20,6 +20,26 @@ const StartTrading = () => {
     const { is_eu } = useRegion()
     const [is_mobile] = useBrowserResize()
 
+    const CfdItems = [
+        {
+            title: 'Practise',
+            subtitle: is_eu
+                ? 'Open a demo CFDs account and practise with an unlimited amount of virtual funds.'
+                : 'Open a demo Deriv MT5 or demo Deriv X account and practise with an unlimited amount of virtual funds.',
+        },
+        {
+            title: 'Trade',
+            subtitle: is_eu
+                ? 'Trade with a real CFDs account. Get access to leverage and trade positions larger than your existing capital.'
+                : 'Trade with a real Deriv MT5 or real Deriv X account and get access to high leverage to trade positions larger than your existing capital.',
+        },
+        {
+            title: 'Withdraw',
+            subtitle:
+                'Conveniently withdraw your funds through any of our supported withdrawal methods.',
+        },
+    ]
+
     const handleSignup = useHandleSignup()
     return (
         <>
@@ -30,22 +50,7 @@ const StartTrading = () => {
                     margin_title={is_mobile ? '40px 0 30px 0' : '120px 0 50px 0'}
                 />
                 <StepperContainer>
-                    <StepperView
-                        first_step_title="_t_Practise_t_"
-                        first_step_subtitle={
-                            is_eu
-                                ? '_t_Open a demo CFDs account and practise with an unlimited amount of virtual funds._t_'
-                                : '_t_Open a demo Deriv MT5 or demo Deriv X account and practise with an unlimited amount of virtual funds._t_'
-                        }
-                        second_step_title="_t_Trade_t_"
-                        second_step_subtitle={
-                            is_eu
-                                ? '_t_Trade with a real CFDs account. Get access to leverage and trade positions larger than your existing capital._t_'
-                                : '_t_Trade with a real Deriv MT5 or real Deriv X account and get access to high leverage to trade positions larger than your existing capital._t_'
-                        }
-                        third_step_title="_t_Withdraw_t_"
-                        third_step_subtitle="_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_"
-                    />
+                    <StepperView items={CfdItems} />
                 </StepperContainer>
                 <ButtonContainer>
                     <Button onClick={handleSignup} label="Create free demo account" primary />

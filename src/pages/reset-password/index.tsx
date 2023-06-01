@@ -73,6 +73,9 @@ const ResetPassword = () => {
                     ),
                 })
             })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     return (

@@ -138,7 +138,6 @@ const MobileWrapper = styled(Mobile)`
 `
 
 const TabPanel = ({ children }: TabProps) => <TabContent role="tabpanel">{children}</TabContent>
-
 const SideTab = ({
     children = '',
     is_reverse = '',

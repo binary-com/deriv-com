@@ -14,7 +14,7 @@ type TQuestionsCategory = {
 }
 
 const Wrapper = styled.div`
-    width: 35rem;
+    width: 35.3rem;
     margin-right: 2.4rem;
     line-height: 1.5;
 
@@ -66,6 +66,12 @@ const QuestionsCategory = ({ data, topic_number }: TQuestionsCategory) => {
         ? '_t_<0>View fewer questions</0>_t_'
         : '_t_<0>View all questions</0>_t_'
 
+    const handleLinkClick = () => {
+        setTimeout(() => {
+            window.scrollTo(0, 0)
+        }, 100)
+    }
+
     const handleShowMoreClick = () => setShowMore(!show_more)
     return (
         <Wrapper>
@@ -77,7 +83,7 @@ const QuestionsCategory = ({ data, topic_number }: TQuestionsCategory) => {
                 {questions_to_show.map(({ question, label }) => {
                     const to = convertToHash(getUntranslatedCategory(category), label, platform)
                     return (
-                        <Link key={label} to={to}>
+                        <Link key={label} to={to} onClick={handleLinkClick}>
                             <Localize translate_text={question} />
                         </Link>
                     )

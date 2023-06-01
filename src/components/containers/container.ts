@@ -15,12 +15,13 @@ type ContainerType = {
     wrap?: string
     fw?: string
     scroll?: boolean
+    margin?: string
     laptop_direction?: string
     tablet_direction?: string
 }
 
 const Container = styled(Box)<ContainerType>`
-    margin: 0 auto;
+    margin: ${(props) => (props.margin ? props.margin : '0 auto')};
     display: flex;
     align-items: ${(props) => (props.align || props.ai ? props.align || props.ai : 'center')};
     justify-content: ${(props) =>
@@ -34,7 +35,7 @@ const Container = styled(Box)<ContainerType>`
         max-width: 1200px;
     }
     @media ${device.laptopL} {
-        width: 84%;
+        width: 92%;
     }
     @media ${device.laptopM} {
         flex-direction: ${(props) => props.laptop_direction};

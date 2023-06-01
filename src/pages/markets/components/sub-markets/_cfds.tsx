@@ -17,7 +17,7 @@ type CFDProps = {
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
-        padding: 24px 0 40px;
+        padding: 24px 0 24px;
     }
 `
 const StyledHeader = styled(Header)`
@@ -44,11 +44,11 @@ const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
                             <Localize translate_text="On Deriv, you can trade CFDs with high leverage, enabling you to pay just a fraction of the contract’s value. It will amplify your potential gain and also increase your potential loss." />
                         )}
                     </StyledText>
-                    <AvailablePlatforms
-                        dmt5
-                        derivez={market_tab_name !== 'derived-fx'}
-                        derivx={market_tab_name !== 'stock-indices'}
-                    />
+                    {is_eu ? (
+                        <AvailablePlatforms dmt5 />
+                    ) : (
+                        <AvailablePlatforms dmt5 derivx deriv_ez />
+                    )}
                 </Descriptions>
 
                 <StyledHeader as="h3" size="16px">

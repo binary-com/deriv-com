@@ -16,25 +16,31 @@ const MobileCardHeader = styled(Flex)`
     height: auto;
 
     @media (max-width: 680px) {
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        align-items: center;
-
         > img {
             width: 48px;
             height: 48px;
+            margin-bottom: 2rem;
         }
     }
 `
 const StyledText = styled(Text)`
     margin-top: 1.6rem;
+    font-size: 20px;
 
     @media (max-width: 680px) {
-        font-size: 18px;
+        font-size: 16px;
         margin-top: 0;
     }
 `
 
+const StyledDescription = styled(Text)`
+    font-size: 14px;
+    margin-bottom: 2rem;
+
+    @media (max-width: 425px) {
+        font-size: 12px;
+    }
+`
 const available_markets = [
     {
         name: 'Forex',
@@ -42,7 +48,10 @@ const available_markets = [
         img_alt: 'forex',
         text: <Localize translate_text="Forex" />,
         description: (
-            <Localize translate_text="Speculate on the price movements of major forex pairs and increase your profit potential without losing more than your stake." />
+            <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
+        ),
+        eu_description: (
+            <Localize translate_text="_t_Speculate on the price movements of major forex pairs and increase your profit potential without losing more than your stake._t_" />
         ),
         learn_more_path: '/markets/forex/',
     },
@@ -52,7 +61,10 @@ const available_markets = [
         img_alt: 'derived',
         text: <Localize translate_text="Derived" />,
         description: (
-            <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
+            <Localize translate_text="Enjoy trading a wide range of offerings that mimic characteristics of financial markets or are derived from them." />
+        ),
+        eu_description: (
+            <Localize translate_text="Enjoy trading a wide range of offerings that mimic characteristics of financial markets." />
         ),
         learn_more_path: '/markets/synthetic/',
     },
@@ -95,7 +107,9 @@ const MarketsAvailable = () => {
                                                         {market.text}
                                                     </StyledText>
                                                 </MobileCardHeader>
-                                                <Text>{market.description}</Text>
+                                                <StyledDescription>
+                                                    {market.description}
+                                                </StyledDescription>
                                                 <LearnMore
                                                     text={<Localize translate_text="Learn more" />}
                                                     to={market.learn_more_path}
@@ -129,7 +143,9 @@ const MarketsAvailable = () => {
                                                         {market.text}
                                                     </StyledText>
                                                 </MobileCardHeader>
-                                                <Text>{market.description}</Text>
+                                                <StyledDescription>
+                                                    {market.eu_description}
+                                                </StyledDescription>
                                                 <LearnMore
                                                     text={<Localize translate_text="Learn more" />}
                                                     to={market.learn_more_path}

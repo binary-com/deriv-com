@@ -73,6 +73,9 @@ const StyledText = styled(Text)`
         font-size: 16px;
     }
 `
+const StyledGetStartedStepsSectionText = styled.div`
+    padding: 40px 0;
+`
 
 const demo_title: TString = '_t_Demo account _t_'
 const real_title: TString = '_t_Real money account_t_'
@@ -110,7 +113,9 @@ const StartDerivEZ = () => {
                     </StyledText>
                 </TabItem>
             </Flex>
-            <GetStartedStepsSection chosen_tab={tab} is_demo={tab === 'demo'} />
+            <StyledGetStartedStepsSectionText>
+                <GetStartedStepsSection chosen_tab={tab} is_demo={tab === 'demo'} />
+            </StyledGetStartedStepsSectionText>
         </Section>
     )
 }

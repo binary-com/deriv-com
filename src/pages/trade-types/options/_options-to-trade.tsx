@@ -58,7 +58,7 @@ const OptionsToTrade = () => {
                 <SingleOptionsGrid />
                 <Notes
                     text={
-                        <Localize translate_text="High Ticks/Low Ticks, Asians, Reset Call/Reset Put, Digits, and Only Ups/Only Downs are available exclusively on synthetic indices." />
+                        <Localize translate_text="High Ticks/Low Ticks, Asians, Reset Call/Reset Put, Digits, and Only Ups/Only Downs are available exclusively on synthetics." />
                     }
                 />
                 <Header as="h4" type="sub-section-title" mt="4rem" mb="1.6rem">
@@ -67,7 +67,7 @@ const OptionsToTrade = () => {
                 <LookbacksGrid />
                 <Notes
                     text={
-                        <Localize translate_text="Lookback options are available only on synthetic indices." />
+                        <Localize translate_text="Lookback options are available only on synthetics." />
                     }
                 />
                 {is_eu && (
@@ -191,7 +191,7 @@ const InOutGrid = () => {
                 </MiddleText>
                 <MiddleText>
                     {localize(
-                        'If you select ‘Stays Between’, you win the payout if the market stays between (does not touch). either the high barrier or the low barrier at any time during the contract period.',
+                        'If you select ‘Stays Between’, you win the payout if the market stays between (does not touch) either the high barrier or the low barrier at any time during the contract period.',
                     )}
                 </MiddleText>
                 <Text>
@@ -348,12 +348,12 @@ const SingleOptionsGrid = () => {
                 </MiddleText>
                 <MiddleText>
                     {localize(
-                        'If you select ‘Touches’, you win the payout if the market touches the barrier at any time during the contract period.',
+                        'If you select ‘Touch’, you win the payout if the market touches the barrier at any time during the contract period.',
                     )}
                 </MiddleText>
                 <Text>
                     {localize(
-                        'If you select ‘Does Not Touch’, you win the payout if the market never touches the barrier at any time during the contract period.',
+                        'If you select ‘No Touch’, you win the payout if the market never touches the barrier at any time during the contract period.',
                     )}
                 </Text>
             </Flex>

@@ -11,7 +11,7 @@ import DerivX from 'images/svg/custom/deriv-x.svg'
 import DBot from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
 import DMT5 from 'images/svg/custom/rebranding/dmt5-icon.svg'
 import DTrader from 'images/svg/custom/rebranding/dtrader-icon.svg'
-import DerivGo from 'images/svg/deriv-go/deriv-go-logo.svg'
+import DerivGo from 'images/svg/custom/rebranding/deriv-go-icon.svg'
 import DerivEZ from 'images/svg/trading-specification/deriv-ez.svg'
 import useRegion from 'components/hooks/use-region'
 

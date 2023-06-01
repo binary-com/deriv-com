@@ -59,6 +59,11 @@ let plugins = [
             base64Width: 20,
             stripMetadata: true,
             defaultQuality: 50,
+            cacheOptions: {
+                // Configure cache options here
+                cacheFolder: '.cache/caches/gatsby-plugin-sharp',
+                maxMemory: 500000000,
+            },
         },
     },
     `gatsby-plugin-image`,
@@ -99,14 +104,14 @@ let plugins = [
                 '/**/signup-success',
             ],
             query: `
-                {
-                    allSitePage {
-                      nodes {
-                        path
-                      }
-                    }
+            {
+                allSitePage {
+                  nodes {
+                    path
+                  }
                 }
-                `,
+            }
+            `,
             resolveSiteUrl: () => (isBrowser && window.location.hostname) || site_url,
             resolvePages: ({ allSitePage: { nodes: allPages } }) => {
                 return allPages.map((page) => {

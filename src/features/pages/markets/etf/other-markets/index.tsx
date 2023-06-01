@@ -5,6 +5,7 @@ import Container from 'features/components/atoms/container'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
+import Card from 'features/components/atoms/card'
 
 const OtherMarkets = () => {
     return (
@@ -21,7 +22,24 @@ const OtherMarkets = () => {
                     <Localize translate_text="_t_Other markets you might be interested in_t_" />
                 </Typography.Heading>
             </Flex.Box>
-            <Flex.Box md={{ direction: 'row' }} direction="col" gap="4x">
+
+            <Flex.Box visible="phone-and-tablet" md={{ direction: 'row' }} direction="col" gap="4x">
+                {ETFOtherMarkets.map((card) => (
+                    <Card.Primary
+                        header={card.header}
+                        description={card.description}
+                        icon={card.icon}
+                        link={card.link}
+                        key={card.id}
+                    />
+                ))}
+            </Flex.Box>
+            <Flex.Box
+                visible="larger-than-tablet"
+                md={{ direction: 'row' }}
+                direction="col"
+                gap="4x"
+            >
                 <MarketsMainSlider cards={ETFOtherMarkets} />
             </Flex.Box>
         </Container.Fluid>

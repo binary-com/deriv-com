@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import BannerText from './banner-text'
 import { HomepageBannerType } from './types'
 import { flex_container, image_container, image_phone } from './styles.module.scss'

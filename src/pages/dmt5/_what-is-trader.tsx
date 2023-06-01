@@ -42,7 +42,7 @@ const WhatIsTrader = () => {
                 {localize('What is Deriv MT5')}
             </StyledHeader>
             <StyledText max_width="80.2rem" align="center" as="p" type="paragraph-1">
-                <Localize translate_text="Deriv MT5 gives you access to multiple asset classes – forex, stocks & indices, cryptocurrencies, commodities, and derived indices – on a single platform. With exclusive access to innovative assets, Deriv brings the MT5 experience to a superior level for both new and experienced traders." />
+                <Localize translate_text="_t_Deriv MT5 gives you access to multiple asset classes – forex, stocks & indices, cryptocurrencies, commodities, exchange-traded funds, and derived — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders._t_" />
             </StyledText>
         </Section>
     )

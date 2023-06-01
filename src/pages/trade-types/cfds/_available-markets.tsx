@@ -8,6 +8,7 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import Forex from 'images/svg/trade-types/forex.svg'
+import ETFs from 'images/svg/markets/etfs.svg'
 import Cryptocurrencies from 'images/svg/trade-types/cryptocurrencies.svg'
 import Commodities from 'images/svg/trade-types/commodities.svg'
 import Derived from 'images/svg/trade-types/derived.svg'
@@ -84,6 +85,16 @@ const available_markets = [
         learn_more_path: '/markets/stock/',
     },
     {
+        name: 'ETFs',
+        img_src: ETFs,
+        img_alt: 'ETFs',
+        text: <Localize translate_text="Exchange-traded funds (ETFs)" />,
+        description: (
+            <Localize translate_text="_t_ETFs allow you to diversify your portfolio with various assets that track bonds, commodities, and indices, without the high cost of owning the underlying assets._t_" />
+        ),
+        learn_more_path: '/markets/stock/',
+    },
+    {
         name: 'Cryptocurrencies',
         img_src: Cryptocurrencies,
         img_alt: 'cryptocurrencies',
@@ -108,7 +119,7 @@ const available_markets = [
     },
 ]
 
-const eu_restricted_markets = ['Basket Indices']
+const eu_restricted_markets = ['ETFs', 'Basket Indices']
 
 const eu_available_markets = available_markets.filter(
     (el) => !eu_restricted_markets.includes(el.name),

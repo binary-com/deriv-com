@@ -8,8 +8,6 @@ import imagemin from 'imagemin'
 import imageminMozjpeg from 'imagemin-mozjpeg'
 import imageminPngquant from 'imagemin-pngquant'
 
-const input_path = './scripts/optimize-image/input'
-const output_path = './scripts/optimize-image/output'
 const temp_path = './scripts/optimize-image/temp'
 const max_bytes = 300000
 const images = {}
@@ -79,16 +77,20 @@ async function createDirectoryIfNotExists(directory_path) {
     }
 }
 
-function isImage(file_path) {
-    try {
-        const buffer = fs.readFileSync(file_path)
-        const type = imageType(buffer)
-
-        return type !== null
-    } catch (error) {
-        console.error('Error checking file type:', error)
-        return false
-    }
+function isImage(file_name) {
+    const image_extensions = [
+        '.jpg',
+        '.jpeg',
+        '.png',
+        '.gif',
+        '.bmp',
+        '.svg',
+        '.webp',
+        '.ico',
+        '.avif',
+    ]
+    const ext = path.extname(file_name).toLowerCase()
+    return image_extensions.includes(ext)
 }
 
 function formatBytes(bytes) {
@@ -103,7 +105,17 @@ function formatBytes(bytes) {
     }
 }
 
-async function optimizeImage(input_path, output_path, file_name, quality = 80) {
+function segregate_file_path(file_path) {
+    const file_name = path.basename(file_path)
+    const directory_path = path.dirname(file_path)
+
+    return {
+        file_name,
+        directory_path,
+    }
+}
+
+async function optimizeImage({ input_path, output_path, key, quality = 80 }) {
     try {
         if (isImage(input_path)) {
             const png_quality_max = quality * 0.01
@@ -119,7 +131,7 @@ async function optimizeImage(input_path, output_path, file_name, quality = 80) {
 
             const optimized_img = getImageMetadata(input_path)
 
-            const original_img = images[file_name]
+            const original_img = images[key]
 
             const new_size = optimized_img.file_size_in_bytes
 
@@ -128,20 +140,20 @@ async function optimizeImage(input_path, output_path, file_name, quality = 80) {
             const original_img_size = formatBytes(original_img.file_size_in_bytes)
 
             console.log(
-                `${file_name}: ${original_img_size} ===> ${formatBytes(new_size)} ${
+                `\x1b[33m${key}:\x1b[0m ${original_img_size} ===> ${formatBytes(new_size)} ${
                     compression_attempt ? '| attempt(' + compression_attempt + ')' : ''
                 }`,
             )
 
             // Record last compressed size to adjust quality
-            images[file_name].last_compressed_size = new_size
+            images[key].last_compressed_size = new_size
 
             if (new_size > max_bytes && max_compression_attempt > compression_attempt) {
-                images[file_name].compression_attempt += 1
+                images[key].compression_attempt += 1
 
-                const output_img_path = `${output_path}/${file_name}`
+                const output_img_path = `${output_path}/${key}`
 
-                const temp_img_path = `${temp_path}/${file_name}`
+                const temp_img_path = `${temp_path}/${key}`
 
                 await createDirectoryIfNotExists(temp_path)
 
@@ -152,11 +164,15 @@ async function optimizeImage(input_path, output_path, file_name, quality = 80) {
                 if (last_compressed_size && new_size === last_compressed_size) {
                     // Reduce quality to further compress
                     new_quality -= 1
-
-                    console.log(`decreasing quality to ${new_quality}`)
+                   
                 }
 
-                await optimizeImage(temp_img_path, output_path, file_name, new_quality)
+                await optimizeImage({
+                    input_path: temp_img_path,
+                    output_path,
+                    key,
+                    quality: new_quality,
+                })
             }
         } else {
             console.log(`Skipping: ${input_path}`)
@@ -166,21 +182,27 @@ async function optimizeImage(input_path, output_path, file_name, quality = 80) {
     }
 }
 
-async function optimizeImages() {
-    const files = getFilesInFolder(input_path)
-
+async function optimizeImages(files) {
     await Promise.all(
         files.map(async (file) => {
-            const input_img_path = `${input_path}/${file}`
+            const { directory_path, file_name } = segregate_file_path(file)
 
-            const meta_data = getImageMetadata(input_img_path)
+            const meta_data = getImageMetadata(file)
 
-            images[file] = { ...meta_data, compression_attempt: 0 }
+            images[file_name] = { ...meta_data, compression_attempt: 0 }
 
-            await optimizeImage(input_img_path, output_path, file)
+            await optimizeImage({ input_path: file, output_path: directory_path, key: file_name })
         }),
     )
+
+    deleteFolder(temp_path)
+
+    throw new Error('Cancelling Commit! ')
 }
+
+console.log(
+    `\x1b[33m[Image Compressor]\x1b[32m Checking staged images and compressing down to maximum allowed size \n \x1b[0m`,
+)
 
 exec('git diff --name-only --cached', (err, stdout) => {
     if (err) {
@@ -188,12 +210,12 @@ exec('git diff --name-only --cached', (err, stdout) => {
     }
 
     if (typeof stdout === 'string') {
-        const files = stdout.trim()
+        const raw_files = stdout.trim()
 
-        console.log(files)
+        const files = raw_files.split('\n')
+
+        const image_files = files.filter((file) => isImage(file) && !file.includes('-nc'))
+
+        optimizeImages(image_files)
     }
 })
-
-// await optimizeImages()
-
-// deleteFolder(temp_path)

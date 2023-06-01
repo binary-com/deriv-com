@@ -27,7 +27,13 @@ const BannerText = ({ item }: HomepageBannerProps) => {
                 <Localize translate_text={item.title} />
             </Typography.Heading>
 
-            <Typography.Paragraph className={text_description} size="medium" pb="12x">
+            <Typography.Paragraph
+                className={text_description}
+                size="medium"
+                pb="12x"
+                align="center"
+                md={{ align: 'left' }}
+            >
                 <Localize translate_text={item.description} />
             </Typography.Paragraph>
             {is_logged_in ? (

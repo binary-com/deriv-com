@@ -9,10 +9,8 @@
     }
 }
 .text_description {
-    text-align: center;
     @include breakpoints(tablet) {
         min-inline-size: 45.4rem;
-        text-align: start;
     }
 }
 .flex_container {

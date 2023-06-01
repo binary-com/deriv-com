@@ -10,7 +10,7 @@ const TradeTypes = () => {
     return (
         <>
             <Typography.Heading
-                as="h1"
+                as="h3"
                 size="small"
                 align="center"
                 padding="20x"

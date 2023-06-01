@@ -11,7 +11,7 @@ const OtherMarkets = () => {
         <Container.Fluid as="section" padding_block="20x">
             <Flex.Box direction="col" gap="12x">
                 <Typography.Heading
-                    as="h1"
+                    as="h3"
                     size="small"
                     align="center"
                     padding_inline="8x"

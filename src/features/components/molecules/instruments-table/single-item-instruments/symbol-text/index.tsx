@@ -3,16 +3,13 @@ import Flex from 'features/components/atoms/flex-box'
 import { CommonMarketSymbol } from 'features/components/molecules/instruments-table/types'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
+import Image from 'features/components/atoms/image'
 
-interface SingleInstrumentsItemProps {
-    content: CommonMarketSymbol
-}
-
-const SymbolWithText = ({ content }: SingleInstrumentsItemProps) => {
+const SymbolWithText = ({ content }: { content: CommonMarketSymbol }) => {
     const { src, text } = content
     return (
         <Flex.Box gap="5x" align="center">
-            <img src={src} alt="symbol" />
+            <Image src={src} alt="symbol" />
             <Typography.Paragraph>
                 <Localize translate_text={text} />
             </Typography.Paragraph>

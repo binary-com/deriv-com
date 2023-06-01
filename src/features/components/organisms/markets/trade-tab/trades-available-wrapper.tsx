@@ -48,7 +48,7 @@ const TradesAvailableWrapper = ({ item }: TradesAvailableWrapperProps) => {
                                             <Icon
                                                 src={data.icon}
                                                 className={'accordion_icon'}
-                                                alt={'chevron'}
+                                                alt={'_t_chevron_t_'}
                                                 size={'large'}
                                                 width={24}
                                                 height={24}

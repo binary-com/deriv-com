@@ -41,7 +41,6 @@ const TradeStepsWrapper = ({ header, data }: TradeStepsType) => {
                 container="fluid"
                 direction="col"
                 justify="center"
-                align="center"
                 gap="8x"
                 md={{ direction: 'row', gap: '12x', justify: 'center' }}
                 lg={{

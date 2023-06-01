@@ -3,11 +3,17 @@
 
 .tab_container {
     overflow: scroll;
+    justify-content: start;
     &::-webkit-scrollbar {
         display: none;
     }
+    @include breakpoints(phone) { 
+        overflow: scroll;
+        justify-content: center;
+    }
 
-    @include breakpoints(tablet) { 
+    @include breakpoints(laptop) { 
     overflow-x: auto;
+    justify-content: center;
 }
 }

@@ -16,14 +16,22 @@ import { Localize } from 'components/localization'
 
 export type TLiveMarketTableProps = {
     selected_market: TAvailableLiveMarkets
-    link_to: string
+    link_to: `/${string}`
+}
+
+type MarketResponseType = {
+    market: {
+        [key in TAvailableLiveMarkets]: {
+            [key: string]: TMarketData
+        }
+    }
 }
 
 const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) => {
     const { is_eu } = useRegion()
     const [initial_loaded, setInitialLoaded] = useState(false)
 
-    const [rawMarketsData, setRawMarketsData] = useState()
+    const [rawMarketsData, setRawMarketsData] = useState<MarketResponseType>()
     const TABLE_VISIBLE_ROWS = 5
     const [markets_data, setMarketsData] = useState(() => {
         const temp = new Map<TAvailableLiveMarkets, TMarketData[]>()
@@ -38,9 +46,13 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
         : 'https://deriv-static-pricingfeed.firebaseio.com/row.json'
 
     const getData = useCallback(async () => {
-        const rawResponse = await fetch(region)
-        const response = await rawResponse.json()
-        setRawMarketsData(response)
+        try {
+            const rawResponse = await fetch(region)
+            const response = (await rawResponse.json()) as MarketResponseType
+            setRawMarketsData(response)
+        } catch (error) {
+            console.error('Error:', error)
+        }
     }, [region])
 
     useEffect(() => {
@@ -59,13 +71,19 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
             const stocks = rawMarketsData.market['stocks']
             const indices = rawMarketsData.market['indices']
             const stocks_indices = Object.assign(stocks, indices)
-            const res = { ...rawMarketsData.market, indices: { ...stocks_indices } }
+            const res = {
+                ...rawMarketsData.market,
+                indices: { ...stocks_indices },
+            }
 
             Object.keys(res).map((item) => {
                 if (item == selected_market) {
-                    const selected_market_data = res[item]
+                    const selected_market_data = res[item as TAvailableLiveMarkets]
                     const result = Object.values(selected_market_data)
-                    setMarketsData(result)
+                    setMarketsData((prevState) => {
+                        prevState.set(item, result)
+                        return prevState
+                    })
                 }
             })
         }
@@ -78,7 +96,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
     const columns = useLiveColumns()
 
     const table = useReactTable({
-        data: markets_data,
+        data: markets_data.get(selected_market) ?? [],
         columns,
         state: {
             sorting,

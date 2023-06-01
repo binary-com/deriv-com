@@ -71,6 +71,9 @@ const available_markets = [
         description: (
             <Localize translate_text="Enjoy trading a wide range of offerings that mimic characteristics of financial markets or are derived from them." />
         ),
+        eu_description: (
+            <Localize translate_text="Enjoy trading a wide range of offerings that mimic characteristics of financial markets" />
+        ),
         learn_more_path: '/markets/synthetic/',
     },
     {

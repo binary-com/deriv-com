@@ -15,12 +15,12 @@ interface PlatformMainSliderProps {
 
 const PlatformImageSlider = ({ items, setSwiper, connectedSwiper }: PlatformMainSliderProps) => {
     const sliderHandler = (swiper: SwiperType) => {
-       setTimeout(() => {
+        setTimeout(() => {
             swiper.autoplay.start()
             swiper.params.autoplay = {
                 delay: 4000,
             }
-        }, 3000)
+        }, 2000)
     }
     return (
         <Swiper

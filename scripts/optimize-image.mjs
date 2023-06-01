@@ -3,12 +3,13 @@ import path from 'path'
 import { exec } from 'child_process'
 import rimraf from 'rimraf'
 import sizeOf from 'image-size'
-import imageType from 'image-type'
 import imagemin from 'imagemin'
 import imageminMozjpeg from 'imagemin-mozjpeg'
 import imageminPngquant from 'imagemin-pngquant'
 
-const temp_path = './scripts/optimize-image/temp'
+const script_path = './scripts/optimize-image'
+const temp_path = `${script_path}/temp`
+
 const max_bytes = 300000
 const images = {}
 const max_compression_attempt = 10
@@ -196,6 +197,7 @@ async function optimizeImages(files) {
     )
 
     deleteFolder(temp_path)
+    deleteFolder(script_path)
 
 }
 
@@ -214,6 +216,8 @@ exec('git diff --name-only --cached', (err, stdout) => {
         const files = raw_files.split('\n')
 
         const image_files = files.filter((file) => isImage(file) && !file.includes('-nc'))
+
+        createDirectoryIfNotExists(script_path)
 
         optimizeImages(image_files)
     }

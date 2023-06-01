@@ -47,7 +47,6 @@
         "gatsby-transformer-sharp": "^4.24.0",
         "gbimage-bridge": "^0.2.1",
         "i18next": "^21.6.5",
-        "image-type": "^5.2.0",
         "imagemin": "^8.0.1",
         "imagemin-mozjpeg": "^10.0.0",
         "imagemin-pngquant": "^9.0.2",

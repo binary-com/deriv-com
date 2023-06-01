@@ -141,7 +141,7 @@ async function optimizeImage({ input_path, output_path, key, quality = 80 }) {
             const original_img_size = formatBytes(original_img.file_size_in_bytes)
 
             console.log(
-                `\x1b[33m${key}:\x1b[0m ${original_img_size} ===> ${formatBytes(new_size)} ${
+                `[\x1b[33m${key}\x1b[0m] ${original_img_size} ===> ${formatBytes(new_size)} ${
                     compression_attempt ? '| attempt(' + compression_attempt + ')' : ''
                 }`,
             )

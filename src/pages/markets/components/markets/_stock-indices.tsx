@@ -8,6 +8,9 @@ import CFDs from '../sub-markets/_cfds'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
 import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
+import Typography from 'features/components/atoms/typography'
+import LinkButton from 'features/components/atoms/link-button'
+import Flex from 'features/components/atoms/flex-box'
 import { localize, Localize } from 'components/localization'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import useRegion from 'components/hooks/use-region'
@@ -45,6 +48,29 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                     <Localize translate_text="Stocks & indices trades available on Deriv" />
                 }
             />
+            <Flex.Box
+                direction="col"
+                container="fluid"
+                justify="center"
+                align="center"
+                pb="10x"
+                md={{ pb: '40x', mb: '20x' }}
+            >
+                <Typography.Paragraph size="medium" mb="10x" textcolor="black" align="center">
+                    <Localize translate_text="_t_Want to know more about CFD trading conditions for the instruments we offer?_t_" />
+                </Typography.Paragraph>
+                <LinkButton.Primary
+                    font_family="UBUNTU"
+                    size="medium"
+                    aria-label="check trading specs"
+                    url={{
+                        type: 'internal',
+                        to: '/trading-specification',
+                    }}
+                >
+                    <Localize translate_text="_t_Check trading specs_t_" />
+                </LinkButton.Primary>
+            </Flex.Box>
             <FullWidthMultiColumn
                 header={<Localize translate_text="Why trade stocks & indices on Deriv" />}
                 subtext_width="180px"

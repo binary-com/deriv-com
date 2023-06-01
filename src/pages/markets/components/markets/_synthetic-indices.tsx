@@ -13,6 +13,9 @@ import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
 import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
 import { TradeDetails } from '../sections/_trade-details'
+import Typography from 'features/components/atoms/typography'
+import LinkButton from 'features/components/atoms/link-button'
+import Flex from 'features/components/atoms/flex-box'
 import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
@@ -59,6 +62,29 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 }
                 display_title={<Localize translate_text="Synthetics trades available on Deriv" />}
             />
+            <Flex.Box
+                direction="col"
+                container="fluid"
+                justify="center"
+                align="center"
+                pb="10x"
+                md={{ pb: '40x', mb: '20x' }}
+            >
+                <Typography.Paragraph size="medium" mb="10x" textcolor="black" align="center">
+                    <Localize translate_text="_t_Want to know more about CFD trading conditions for the instruments we offer?_t_" />
+                </Typography.Paragraph>
+                <LinkButton.Primary
+                    font_family="UBUNTU"
+                    size="medium"
+                    aria-label="check trading specs"
+                    url={{
+                        type: 'internal',
+                        to: '/trading-specification',
+                    }}
+                >
+                    <Localize translate_text="_t_Check trading specs_t_" />
+                </LinkButton.Primary>
+            </Flex.Box>
             <FullWidthMultiColumn
                 description={
                     <Localize translate_text="Deriv’s proprietary synthetics simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks." />

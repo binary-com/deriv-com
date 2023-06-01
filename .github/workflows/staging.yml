@@ -48,8 +48,12 @@ jobs:
     needs: release-staging-part1
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
       - name: Building docker image 🐳
-        run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
+        run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
+        working-directory: .
 
       - name: Verify nginx image
         run: |
@@ -63,6 +67,13 @@ jobs:
           docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging
           docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA
 
+  release-staging-part3:
+    needs: release-staging-part2
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
       - name: Deploy 🚀
         run: |
           export NAMESPACE="deriv-com-staging"
@@ -75,10 +86,6 @@ jobs:
           echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
           ./release.sh deriv-com $GITHUB_SHA
 
-  release-staging-part3:
-    needs: release-staging-part2
-    runs-on: ubuntu-latest
-    steps:
       - name: Deploy to Cloudflare ☁️
         uses: cloudflare/wrangler-action@2.0.0
         with:

@@ -182,7 +182,6 @@ async function optimizeImages() {
     )
 }
 
-console.log('tf')
 exec('git diff --name-only --cached', (err, stdout) => {
     if (err) {
         console.log(err)

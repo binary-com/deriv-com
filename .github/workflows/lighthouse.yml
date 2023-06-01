@@ -47,7 +47,7 @@ jobs:
               with:
                   github-token: ${{secrets.GITHUB_TOKEN}}
                   script: |
-                      const result = ${{ steps.lighthouse_audit.outputs.manifest }}[0].summary
+                      const result = ${{ steps.lighthouse_audit.outputs.manifest }}[4].summary
                       const links = ${{ steps.lighthouse_audit.outputs.links }}
 
                       const formatResult = (res) => Math.round((res * 100))
@@ -55,8 +55,9 @@ jobs:
 
                       const score = res => res >= 90 ? '🟢' : res >= 50 ? '🟠' : '🔴'
 
+                      const full_report = Object.values(links)[0]
                       const comment = [
-                          `⚡️ [Lighthouse report](${Object.values(links)[0]}) for the changes in this PR:`,
+                          `⚡️ [Lighthouse report](${full_report}) for the changes in this PR:`,
                           '| Category | Score |',
                           '| --- | --- |',
                           `| ${score(result.performance)} Performance | ${result.performance} |`,
@@ -80,6 +81,7 @@ jobs:
                        core.setOutput("pwa_color", score(result.pwa));
                        core.setOutput("accessibility_color", score(result.accessibility));
                        core.setOutput("best_practices_color", score(result['best-practices']));
+                       core.setOutput("full_report", full_report);
 
 
             - name: Add comment to PR
@@ -134,6 +136,9 @@ jobs:
                             }
                           },
                           {
+                            "type": "divider"
+                          },
+                          {
                             "type": "context",
                             "elements": [
                               {
@@ -143,14 +148,35 @@ jobs:
                               },
                               {
                                 "type": "mrkdwn",
-                                "text": "*Check the PR to avoid impacting deriv.com performance*"
+                                "text": "*<!subteam^S04RV6RFCTW> please check the PR*"
                               }
                             ]
                           },
                           {
                             "type": "divider"
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": "Want the full lighthouse report?"
+                            },
+                            "accessory": {
+                              "type": "button",
+                              "text": {
+                                "type": "plain_text",
+                                "text": "View",
+                                "emoji": true
+                              },
+                              "value": "click_me_123",
+                              "url": "${{ steps.format_lighthouse_score.outputs.full_report }}",
+                              "action_id": "button-action"
+                            }
+                          },
+                          {
+                            "type": "divider"
                           }
                         ]
-                    }
+                      }
               env:
                   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_LIGHTHOUSE }}

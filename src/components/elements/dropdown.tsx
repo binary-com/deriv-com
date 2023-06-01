@@ -85,12 +85,13 @@ export const DropdownContainer = styled.ul<DropdownContainerProps>`
         height: 43px;
     }
 
+    inline-size: 100%;
     list-style: none;
     position: relative;
     border: 1px solid var(--color-grey-7);
     cursor: pointer;
     padding: 0;
-    border-radius: 4px;
+    border-radius: 16px;
     height: 40px;
     margin-bottom: ${(props) => props.mb ?? '0'};
 
@@ -144,6 +145,7 @@ const StyledDiv = styled.div`
 
 const DropdownSelected = styled.li<DropdownSelectedProps>`
     color: var(--color-grey-6);
+    cursor: pointer;
     list-style-position: inside;
     white-space: nowrap;
     overflow: hidden;
@@ -248,9 +250,9 @@ export const Arrow = styled(Chevron)<ArrowType>`
 `
 
 export const StyledLabel = styled.label<DropdownStyledProps>`
-    color: gray;
+    color: var(--color-grey-5);
     background: var(--color-white);
-    font-size: 1.6rem;
+    font-size: var(--text-size-s);
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
@@ -261,12 +263,10 @@ export const StyledLabel = styled.label<DropdownStyledProps>`
     padding: 0 0.4rem;
 
     @media ${device.tabletL} {
-        font-size: 1.65rem;
         top: 1.4rem;
     }
 
     @media ${device.mobileL} {
-        font-size: 1.5rem;
         top: 1.6rem;
     }
 

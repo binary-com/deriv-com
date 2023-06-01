@@ -3,13 +3,12 @@ import styled from 'styled-components'
 import { StringParam, useQueryParam } from 'use-query-params'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { Dropdown, Header, StyledLink, Text } from 'components/elements'
+import { DropdownSearch, Header, StyledLink, Text } from 'components/elements'
 import EmailIcon from 'images/svg/check-email/email.svg'
 import { Button, Input } from 'components/form'
 import apiManager from 'common/websocket'
 import { useCheckExistingAccount } from 'components/hooks/use-check-existing-account'
 import { useResidenceList } from 'components/hooks/use-residence-list'
-import { optionItemDefault } from 'pages/trader-tools/common/_underlying-data'
 import { isBrowser } from 'common/utility'
 
 const EmailLink = styled(StyledLink)`
@@ -23,10 +22,8 @@ const EmailLink = styled(StyledLink)`
 
 const Wrapper = styled.section`
     background-color: white;
-    min-height: 80vh;
-    padding: 8rem 0;
+    padding: 0;
     width: 100%;
-    height: 80vh;
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -59,12 +56,9 @@ const SubmitButton = styled(Button)`
     font-weight: bold;
 `
 const StyledInput = styled(Input)`
-    width: 406px;
+    width: 100%;
 `
-const StyledDropdown = styled(Dropdown)`
-    width: 406px;
-    border-radius: 18px;
-`
+
 const CtraderSignupSuccess = ({ email }: { email: string }) => {
     const [verification_code, setVerificationCode] = useState('')
     const [code_error_message, setCodeErrorMessage] = useState('')
@@ -142,7 +136,7 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
             .augmentedSend('new_account_virtual', {
                 type: 'trading',
                 client_password: password,
-                residence: residence.name,
+                residence,
                 verification_code,
                 ...(affiliate_token && { affiliate_token: affiliate_token }),
             })
@@ -243,17 +237,26 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
                         required
                     />
                     {residence_list.length > 0 && (
-                        <StyledDropdown
-                            default_option={optionItemDefault}
-                            option_list={residence_list}
-                            onChange={(e) => {
-                                setResidence(e)
-                            }}
+                        <DropdownSearch
                             id="residence"
+                            key="residence"
+                            default_item={{
+                                name: 'default',
+                                display_name: '',
+                                key: '14',
+                                icon: '',
+                                market: '',
+                            }}
+                            items={residence_list}
                             label={localize('_t_Residence_t_')}
-                            selected_option={residence}
+                            onChange={(value) => {
+                                setResidence(value.symbol)
+                            }}
+                            selected_item={residence}
+                            disabled={residence_list.length < 1}
                         />
                     )}
+
                     <SubmitButton
                         disabled={
                             code_error_message !== '' ||

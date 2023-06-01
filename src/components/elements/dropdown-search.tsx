@@ -30,6 +30,7 @@ type DropdownInputProps = {
 
 const DropdownInput = styled.input<DropdownInputProps>`
     color: var(--color-black-3);
+    cursor: pointer;
     width: calc(100% - 2px);
     border: none;
     white-space: nowrap;
@@ -116,7 +117,7 @@ const DropdownSearch = ({
                 mb="36px"
                 {...props}
             >
-                <Flex>
+                <Flex ai="center">
                     <StyledLabel active={is_open || (!is_open && selected_item)}>
                         {label}
                     </StyledLabel>

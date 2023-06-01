@@ -5,20 +5,16 @@ export const useResidenceList = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        apiManager
-            .augmentedSend('residence_list', {
-                residence_list: 1,
-            })
-            .then((response) => {
-                setData(response.residence_list)
-            })
+        apiManager.augmentedSend('residence_list').then((response) => {
+            setData(response.residence_list)
+        })
     }, [])
 
     const formatResidenceList = (data) => {
-        return data?.map(({ text: display_name, value: name, value: key }) => ({
+        return data?.map(({ text: display_name, text: name, value: symbol }) => ({
             name,
             display_name,
-            key,
+            symbol,
         }))
     }
 

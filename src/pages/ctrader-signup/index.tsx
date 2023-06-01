@@ -6,7 +6,6 @@ import { localize } from 'components/localization'
 import { SEO } from 'components/containers'
 
 const Wrapper = styled.section`
-    padding: 8rem 0;
     display: flex;
     flex-direction: row;
     align-items: center;

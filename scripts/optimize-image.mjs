@@ -197,7 +197,6 @@ async function optimizeImages(files) {
 
     deleteFolder(temp_path)
 
-    throw new Error('Cancelling Commit! ')
 }
 
 console.log(

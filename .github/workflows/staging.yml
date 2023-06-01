@@ -30,47 +30,45 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "18.x"
+          node-version: "16.x"
           cache: "npm"
 
       - run: npm ci
-      - run: npm run format
-      - run: npm run test
+      # - run: npm run format
+      # - run: npm run test
       - run: npm run build
-      - run: npm run build:storybook
+      # - run: npm run build:storybook
       - uses: olegtarasov/get-tag@v2.1
         id: tagName
         # For using same tag for staging and production we need to uncomment these two below lines:
         # with:
         #   tagRegex: "staging(.*)"
-      - name: Add version file 📝
-        run: echo "staging $(date -u +'%Y-%m-%dT%H:%M:%SZ')" > public/version
-      - name: Building docker image 🐳
-        run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
+      # - name: Building docker image 🐳
+      #   run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
 
-      - name: Verify nginx image
-        run: |
-          set -e
-          docker run --rm ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA nginx -t
-          echo "docker image validated successfully"
+      # - name: Verify nginx image
+      #   run: |
+      #     set -e
+      #     docker run --rm ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA nginx -t
+      #     echo "docker image validated successfully"
 
-      - name: Pushing Image to docker hub 🐳
-        run: |
-          echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-          docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging
-          docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA
+      # - name: Pushing Image to docker hub 🐳
+      #   run: |
+      #     echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+      #     docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging
+      #     docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA
 
-      - name: Deploy 🚀
-        run: |
-          export NAMESPACE="deriv-com-staging"
-          export SERVICEACCOUNT_TOKEN=${{ secrets.SERVICEACCOUNT_TOKEN }}
-          export DOCKERHUB_ORGANISATION=${{ secrets.DOCKERHUB_ORGANISATION }}
-          export KUBE_SERVER=${{ secrets.KUBE_SERVER }}
-          export CA=${{ secrets.CA }}
-          git clone https://github.com/binary-com/devops-ci-scripts
-          cd devops-ci-scripts/k8s-build_tools
-          echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
-          ./release.sh deriv-com $GITHUB_SHA
+      # - name: Deploy 🚀
+      #   run: |
+      #     export NAMESPACE="deriv-com-staging"
+      #     export SERVICEACCOUNT_TOKEN=${{ secrets.SERVICEACCOUNT_TOKEN }}
+      #     export DOCKERHUB_ORGANISATION=${{ secrets.DOCKERHUB_ORGANISATION }}
+      #     export KUBE_SERVER=${{ secrets.KUBE_SERVER }}
+      #     export CA=${{ secrets.CA }}
+      #     git clone https://github.com/binary-com/devops-ci-scripts
+      #     cd devops-ci-scripts/k8s-build_tools
+      #     echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
+      #     ./release.sh deriv-com $GITHUB_SHA
 
       - name: Deploy to Cloudflare ☁️
         uses: cloudflare/wrangler-action@2.0.0

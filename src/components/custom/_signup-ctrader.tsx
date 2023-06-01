@@ -74,7 +74,8 @@ const InputGroup = styled.div`
 `
 
 const StyledInput = styled(Input)`
-    border-radius: 50rem;
+    border-radius: 16px;
+    block-size: 40px;
 `
 
 const EmailButton = styled(Button)<{ isChecked?: boolean }>`

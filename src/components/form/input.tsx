@@ -63,9 +63,6 @@ const InputWrapper = styled.div<InputWrapperProps>`
     width: 100%;
     border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
     border-radius: 16px;
-    @media ${device.tabletL} {
-        height: 5rem;
-    }
 
     &:hover {
         border-color: var(--color-grey-5);
@@ -106,10 +103,8 @@ const StyledError = styled.img`
     cursor: pointer;
     @media ${device.tablet} {
         right: 2rem;
-        top: 1.6rem;
     }
     @media ${device.desktopL} {
-        top: 1rem;
     }
 `
 
@@ -125,14 +120,12 @@ const StyledInput = styled.input<StyledInputProps>`
     border-radius: 16px;
     align-items: center;
     @media ${device.tabletL} {
-        margin: 0 8px;
         width: 95%;
         height: 100%;
         border-radius: 15px;
 
         & ~ label {
             font-size: 1.75rem;
-            top: 1.95rem;
         }
     }
     @media ${device.mobileL} {

@@ -48,7 +48,6 @@ const Form = styled.form<FormProps>`
 
     @media ${device.mobileL} {
         width: 100%;
-        margin-top: 70px;
     }
 `
 const ResponseWrapper = styled(Flex)`

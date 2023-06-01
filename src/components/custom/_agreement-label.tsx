@@ -43,6 +43,8 @@ const AgreementLabel = ({
                 lineHeight: is_rtl ? '18px' : '1px',
                 marginTop: '5px',
                 marginBottom: '0',
+                display: 'flex',
+                alignItems: 'center',
             }}
         >
             <Checkbox

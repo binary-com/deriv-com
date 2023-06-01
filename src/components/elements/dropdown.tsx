@@ -81,10 +81,6 @@ const Symbol = styled(Flex)`
 `
 
 export const DropdownContainer = styled.ul<DropdownContainerProps>`
-    @media ${device.mobileL} {
-        height: 43px;
-    }
-
     inline-size: 100%;
     list-style: none;
     position: relative;
@@ -256,29 +252,17 @@ export const StyledLabel = styled.label<DropdownStyledProps>`
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
-    top: 1.1rem;
+    top: 1.3rem;
     height: 2rem;
     transition: 0.25s ease transform;
     transform: translateZ(0);
     padding: 0 0.4rem;
 
-    @media ${device.tabletL} {
-        top: 1.4rem;
-    }
-
-    @media ${device.mobileL} {
-        top: 1.6rem;
-    }
-
     ${(props) =>
         props.active &&
         css`
-            color: var(--color-green);
+            color: var(--color-grey-5);
             transform: translate(-0.6rem, -2.2rem) scale(0.7);
-
-            @media ${device.tabletL} {
-                top: 9px;
-            }
         `}
 `
 

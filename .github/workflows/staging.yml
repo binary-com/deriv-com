@@ -19,7 +19,7 @@ env:
   DATADOG_CLIENT_TOKEN: ${{ secrets.DATADOG_CLIENT_TOKEN }}
 
 jobs:
-  release-staging:
+  release-staging-part1:
     timeout-minutes: 35
     runs-on: ubuntu-latest
     environment: staging
@@ -40,36 +40,45 @@ jobs:
       # - run: npm run build:storybook
       - uses: olegtarasov/get-tag@v2.1
         id: tagName
-        # For using same tag for staging and production we need to uncomment these two below lines:
+        # For using the same tag for staging and production, uncomment these two lines:
         # with:
         #   tagRegex: "staging(.*)"
-      # - name: Building docker image 🐳
-      #   run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
 
-      # - name: Verify nginx image
-      #   run: |
-      #     set -e
-      #     docker run --rm ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA nginx -t
-      #     echo "docker image validated successfully"
+  release-staging-part2:
+    needs: release-staging-part1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Building docker image 🐳
+        run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
 
-      # - name: Pushing Image to docker hub 🐳
-      #   run: |
-      #     echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-      #     docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging
-      #     docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA
+      - name: Verify nginx image
+        run: |
+          set -e
+          docker run --rm ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA nginx -t
+          echo "docker image validated successfully"
 
-      # - name: Deploy 🚀
-      #   run: |
-      #     export NAMESPACE="deriv-com-staging"
-      #     export SERVICEACCOUNT_TOKEN=${{ secrets.SERVICEACCOUNT_TOKEN }}
-      #     export DOCKERHUB_ORGANISATION=${{ secrets.DOCKERHUB_ORGANISATION }}
-      #     export KUBE_SERVER=${{ secrets.KUBE_SERVER }}
-      #     export CA=${{ secrets.CA }}
-      #     git clone https://github.com/binary-com/devops-ci-scripts
-      #     cd devops-ci-scripts/k8s-build_tools
-      #     echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
-      #     ./release.sh deriv-com $GITHUB_SHA
+      - name: Pushing Image to docker hub 🐳
+        run: |
+          echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+          docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging
+          docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA
 
+      - name: Deploy 🚀
+        run: |
+          export NAMESPACE="deriv-com-staging"
+          export SERVICEACCOUNT_TOKEN=${{ secrets.SERVICEACCOUNT_TOKEN }}
+          export DOCKERHUB_ORGANISATION=${{ secrets.DOCKERHUB_ORGANISATION }}
+          export KUBE_SERVER=${{ secrets.KUBE_SERVER }}
+          export CA=${{ secrets.CA }}
+          git clone https://github.com/binary-com/devops-ci-scripts
+          cd devops-ci-scripts/k8s-build_tools
+          echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
+          ./release.sh deriv-com $GITHUB_SHA
+
+  release-staging-part3:
+    needs: release-staging-part2
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to Cloudflare ☁️
         uses: cloudflare/wrangler-action@2.0.0
         with:

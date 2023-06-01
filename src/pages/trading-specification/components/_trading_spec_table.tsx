@@ -157,9 +157,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
         if (search_value.length >= 1) {
             updatedRowData = [
                 ...markets_data.filter((market) =>
-                    market.instrument.instrument
-                        .toLowerCase()
-                        .match(new RegExp(search_value.trim(), 'i')),
+                    market.instrument.instrument.toLowerCase().match(new RegExp(search_value, 'i')),
                 ),
             ]
             setFilteredData(updatedRowData)
@@ -206,7 +204,6 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                             </TableRow>
                         ))}
                     </thead>
-
                     <tbody>
                         {table.getRowModel().rows.map((row) => (
                             <TableRow key={row.id}>
@@ -244,10 +241,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
 
                         <Flex jc="end" tablet_jc="center">
                             <StyledButton
-                                onClick={() => {
-                                    table.previousPage()
-                                    document.documentElement.scrollTop = 500
-                                }}
+                                onClick={() => table.previousPage()}
                                 disabled={!table.getCanPreviousPage()}
                             >
                                 <StyledChevron src={is_rtl ? RightChevron : LeftChevron} />
@@ -256,19 +250,13 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                                 <StyledButtonPage
                                     selected={page === table.getState().pagination.pageIndex}
                                     key={page}
-                                    onClick={() => {
-                                        table.setPageIndex(page)
-                                        document.documentElement.scrollTop = 500
-                                    }}
+                                    onClick={() => table.setPageIndex(page)}
                                 >
                                     {page + 1}
                                 </StyledButtonPage>
                             ))}
                             <StyledButton
-                                onClick={() => {
-                                    table.nextPage()
-                                    document.documentElement.scrollTop = 500
-                                }}
+                                onClick={() => table.nextPage()}
                                 disabled={!table.getCanNextPage()}
                             >
                                 <StyledChevron src={is_rtl ? LeftChevron : RightChevron} />

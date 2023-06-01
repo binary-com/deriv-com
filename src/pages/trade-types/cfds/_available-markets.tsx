@@ -59,7 +59,7 @@ const available_markets = [
             <Localize translate_text="Access over 50 currency pairs and trade with leverage up to 1:1000 to increase your market exposure." />
         ),
         eu_description: (
-            <Localize translate_text="Access over 30+ currency pairs and trade with leverage up to 1:30 to increase your market exposure." />
+            <Localize translate_text="Access over 30 currency pairs and trade with leverage up to 1:30 to increase your market exposure." />
         ),
         learn_more_path: '/markets/forex/',
     },

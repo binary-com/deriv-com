@@ -51,7 +51,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
             const response = (await rawResponse.json()) as MarketResponseType
             setRawMarketsData(response)
         } catch (error) {
-            console.error('Error:', error)
+            // show the message or modal incase it's needed here
         }
     }, [region])
 

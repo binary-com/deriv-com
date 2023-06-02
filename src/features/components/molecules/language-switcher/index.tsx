@@ -10,6 +10,7 @@ const LanguageSwitcher = () => {
     const [open, setOpen] = useState(false)
 
     const openHandler = () => {
+        // HOTFIX: Temporary solution - to be fixed in future
         setOpen((prev) => !prev)
         const styleTag = document.createElement('style')
         styleTag.type = 'text/css'

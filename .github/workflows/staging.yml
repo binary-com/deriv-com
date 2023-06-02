@@ -20,8 +20,8 @@ env:
 
 jobs:
   release-staging:
-    timeout-minutes: 35
-    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    runs-on: Runner_16cores
     environment: staging
     steps:
       - name: Checkout 🛎️

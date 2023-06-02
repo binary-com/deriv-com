@@ -29,7 +29,7 @@ type MarketResponseType = {
 
 const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) => {
     const { is_eu } = useRegion()
-    const [initial_loaded, setInitialLoaded] = useState(false)
+    const [is_offline, setIsOffline] = useState(false)
 
     const [rawMarketsData, setRawMarketsData] = useState<MarketResponseType>()
     const TABLE_VISIBLE_ROWS = 5
@@ -45,26 +45,34 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
         ? 'https://deriv-static-pricingfeed.firebaseio.com/eu.json'
         : 'https://deriv-static-pricingfeed.firebaseio.com/row.json'
 
-    const getData = useCallback(async () => {
-        try {
-            const rawResponse = await fetch(region)
-            const response = (await rawResponse.json()) as MarketResponseType
-            setRawMarketsData(response)
-        } catch (error) {
-            // show the message or modal incase it's needed here
-        }
-    }, [region])
+    window.addEventListener('online', () => setIsOffline(false))
+    window.addEventListener('offline', () => setIsOffline(true))
 
     useEffect(() => {
-        if (!initial_loaded) {
-            getData()
-            setInitialLoaded(true)
+        if (intervalRef?.current) {
+            clearInterval(intervalRef.current)
         }
-        intervalRef.current = setInterval(getData, 10000)
+        const getData = async () => {
+            if (is_offline) {
+                clearInterval(intervalRef?.current)
+                return
+            }
+            try {
+                const rawResponse = await fetch(region)
+                const response = (await rawResponse.json()) as MarketResponseType
+                setRawMarketsData(response)
+            } catch (error) {
+                clearInterval(intervalRef?.current)
+                // show the message or modal incase it's needed here
+            }
+        }
+
+        intervalRef.current = setInterval(getData, 300)
+
         return () => {
             clearInterval(intervalRef.current)
         }
-    }, [getData, initial_loaded])
+    }, [is_offline, region])
 
     const updateData = useCallback(() => {
         if (rawMarketsData) {

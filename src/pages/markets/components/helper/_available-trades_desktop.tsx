@@ -1,11 +1,9 @@
 import React, { ReactElement } from 'react'
 import styled, { css } from 'styled-components'
 import { StringParam, useQueryParam } from 'use-query-params'
-import { Link } from 'gatsby'
-import { AnchorLink } from 'gatsby-plugin-anchor-links'
+import { LocalizedLink , Localize } from 'components/localization'
 import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
-import { Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
@@ -32,8 +30,9 @@ type CardContainerProps = {
 const StyledSection = styled(SectionContainer)`
     padding: 0;
     background-color: var(--color-white);
+    margin-bottom: 80px;
     @media ${device.tabletL} {
-        padding: 40px 0;
+        padding: 20px 0;
         margin-bottom: 0;
     }
 `
@@ -177,7 +176,7 @@ const CardHeader = styled(Header)`
     }
 `
 
-const StyledLink = styled(Link)`
+const Link = styled(LocalizedLink)`
     text-decoration: none;
 `
 
@@ -221,7 +220,7 @@ const AvailableTradesDesktop = ({
             <StyledContainer direction="column">
                 <CardWrapper position="relative" id="available-trades">
                     {CFDs && (
-                        <StyledLink to="?tab=cfds#cfds">
+                        <Link to="?tab=cfds#cfds">
                             <Card
                                 name="CFDs"
                                 display_name={<Localize translate_text="CFDs" />}
@@ -230,10 +229,10 @@ const AvailableTradesDesktop = ({
                                 }}
                                 active_tab={tab || 'cfds'}
                             />
-                        </StyledLink>
+                        </Link>
                     )}
                     {is_non_eu && DigitalOptions && (
-                        <StyledLink to="?tab=options#options">
+                        <Link to="?tab=options#options">
                             <Card
                                 name="Options"
                                 display_name={<Localize translate_text="Options" />}
@@ -242,11 +241,11 @@ const AvailableTradesDesktop = ({
                                 }}
                                 active_tab={tab || 'cfds'}
                             />
-                        </StyledLink>
+                        </Link>
                     )}
 
                     {Multipliers && (
-                        <StyledLink to="?tab=multipliers#multipliers">
+                        <Link to="?tab=multipliers#multipliers">
                             <Card
                                 name="Multipliers"
                                 display_name={<Localize translate_text="Multipliers" />}
@@ -255,7 +254,7 @@ const AvailableTradesDesktop = ({
                                 }}
                                 active_tab={tab || 'cfds'}
                             />
-                        </StyledLink>
+                        </Link>
                     )}
                 </CardWrapper>
                 <ContentWrapper>

@@ -50,6 +50,10 @@ const StyledDescription = styled(Text)`
     }
 `
 
+const StyledCard = styled(Card)`
+    max-block-size: 30.2rem;
+`
+
 const available_markets = [
     {
         name: 'Forex',
@@ -143,13 +147,13 @@ const AvailableMarkets = () => {
                             return (
                                 <MarketsCarousel.Item key={market.name}>
                                     <MarketsItem>
-                                        <Card>
+                                        <StyledCard>
                                             <MobileCardHeader>
                                                 <img
                                                     src={market.img_src}
                                                     alt={market.img_alt}
-                                                    width="64"
-                                                    height="64"
+                                                    width="48"
+                                                    height="48"
                                                 />
 
                                                 <StyledText weight="bold">{market.text}</StyledText>
@@ -163,7 +167,7 @@ const AvailableMarkets = () => {
                                                 text={<Localize translate_text="Learn more" />}
                                                 to={market.learn_more_path}
                                             />
-                                        </Card>
+                                        </StyledCard>
                                     </MarketsItem>
                                 </MarketsCarousel.Item>
                             )
@@ -178,13 +182,13 @@ const AvailableMarkets = () => {
                             return (
                                 <MarketsCarousel.Item key={market.name}>
                                     <MarketsItem>
-                                        <Card>
+                                        <StyledCard>
                                             <MobileCardHeader>
                                                 <img
                                                     src={market.img_src}
                                                     alt={market.img_alt}
-                                                    width="64"
-                                                    height="64"
+                                                    width="48"
+                                                    height="48"
                                                 />
 
                                                 <StyledText weight="bold">{market.text}</StyledText>
@@ -198,7 +202,7 @@ const AvailableMarkets = () => {
                                                 text={<Localize translate_text="Learn more" />}
                                                 to={market.learn_more_path}
                                             />
-                                        </Card>
+                                        </StyledCard>
                                     </MarketsItem>
                                 </MarketsCarousel.Item>
                             )

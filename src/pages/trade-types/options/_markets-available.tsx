@@ -46,6 +46,10 @@ const StyledDescription = styled(Text)`
     }
 `
 
+const StyledCard = styled(Card)`
+    max-block-size: 30.2rem;
+`
+
 const MarketsAvailable = () => {
     return (
         <>
@@ -58,9 +62,9 @@ const MarketsAvailable = () => {
                 <MarketsCarousel>
                     <MarketsCarousel.Item>
                         <MarketsItem>
-                            <Card>
+                            <StyledCard>
                                 <MobileCardHeader>
-                                    <img src={Forex} alt="Forex" width="64" height="64" />
+                                    <img src={Forex} alt="Forex" width="48" height="48" />
 
                                     <StyledText weight="bold">{localize('Forex')}</StyledText>
                                 </MobileCardHeader>
@@ -73,18 +77,18 @@ const MarketsAvailable = () => {
                                     text={<Localize translate_text="Learn more" />}
                                     to="/markets/forex/"
                                 />
-                            </Card>
+                            </StyledCard>
                         </MarketsItem>
                     </MarketsCarousel.Item>
                     <MarketsCarousel.Item>
                         <MarketsItem>
-                            <Card>
+                            <StyledCard>
                                 <MobileCardHeader>
                                     <img
                                         src={Derived}
                                         alt="Synthetic indices"
-                                        width="64"
-                                        height="64"
+                                        width="48"
+                                        height="48"
                                     />
                                     <StyledText weight="bold">{localize('Derived')}</StyledText>
                                 </MobileCardHeader>
@@ -97,18 +101,18 @@ const MarketsAvailable = () => {
                                     text={<Localize translate_text="Learn more" />}
                                     to="/markets/synthetic/"
                                 />
-                            </Card>
+                            </StyledCard>
                         </MarketsItem>
                     </MarketsCarousel.Item>
                     <MarketsCarousel.Item>
                         <MarketsItem>
-                            <Card>
+                            <StyledCard>
                                 <MobileCardHeader>
                                     <img
                                         src={StockIndices}
                                         alt="Stocks & indices"
-                                        width="64"
-                                        height="64"
+                                        width="48"
+                                        height="48"
                                     />
 
                                     <StyledText weight="bold">
@@ -124,18 +128,18 @@ const MarketsAvailable = () => {
                                     text={<Localize translate_text="Learn more" />}
                                     to="/markets/stock/"
                                 />
-                            </Card>
+                            </StyledCard>
                         </MarketsItem>
                     </MarketsCarousel.Item>
                     <MarketsCarousel.Item>
                         <MarketsItem>
-                            <Card>
+                            <StyledCard>
                                 <MobileCardHeader>
                                     <img
                                         src={Commodities}
                                         alt="Commodities"
-                                        width="64"
-                                        height="64"
+                                        width="48"
+                                        height="48"
                                     />
                                     <StyledText weight="bold">{localize('Commodities')}</StyledText>
                                 </MobileCardHeader>
@@ -148,7 +152,7 @@ const MarketsAvailable = () => {
                                     text={<Localize translate_text="Learn more" />}
                                     to="/markets/commodities/"
                                 />
-                            </Card>
+                            </StyledCard>
                         </MarketsItem>
                     </MarketsCarousel.Item>
                 </MarketsCarousel>

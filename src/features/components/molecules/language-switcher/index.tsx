@@ -24,36 +24,35 @@ const LanguageSwitcher = () => {
                 </div>
             </DropdownMenu.Trigger>
 
-            <DropdownMenu.Portal>
-                <DropdownMenu.Content
-                    className={styles.menu_content}
-                    collisionPadding={{
-                        right: 20,
-                    }}
-                    align="center"
-                    onMouseLeave={() => {
-                        setOpen(false)
-                    }}
-                >
-                    {languages.map((langItem) => (
-                        <DropdownMenu.Item
-                            key={langItem.key}
-                            className={styles.menu_item}
-                            onSelect={() => onSwitchLanguage(langItem.url)}
+            <DropdownMenu.Content
+                style={{ zIndex: 9 }}
+                className={styles.menu_content}
+                collisionPadding={{
+                    right: 20,
+                }}
+                align="center"
+                onMouseLeave={() => {
+                    setOpen(false)
+                }}
+            >
+                {languages.map((langItem) => (
+                    <DropdownMenu.Item
+                        key={langItem.key}
+                        className={styles.menu_item}
+                        onSelect={() => onSwitchLanguage(langItem.url)}
+                    >
+                        <Typography.Paragraph
+                            align="left"
+                            padding_block="3x"
+                            padding_inline="6x"
+                            font_family="UBUNTU"
+                            textcolor={isSelected(langItem.key) ? 'brand' : 'primary'}
                         >
-                            <Typography.Paragraph
-                                align="left"
-                                padding_block="3x"
-                                padding_inline="6x"
-                                font_family="UBUNTU"
-                                textcolor={isSelected(langItem.key) ? 'brand' : 'primary'}
-                            >
-                                {langItem.display_name}
-                            </Typography.Paragraph>
-                        </DropdownMenu.Item>
-                    ))}
-                </DropdownMenu.Content>
-            </DropdownMenu.Portal>
+                            {langItem.display_name}
+                        </Typography.Paragraph>
+                    </DropdownMenu.Item>
+                ))}
+            </DropdownMenu.Content>
         </DropdownMenu.Root>
     )
 }

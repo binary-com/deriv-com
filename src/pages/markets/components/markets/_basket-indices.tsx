@@ -62,17 +62,11 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                         pb="10x"
                         md={{ pb: '40x', mb: '20x' }}
                     >
-                        <Typography.Paragraph
-                            size="medium"
-                            mb="10x"
-                            textcolor="black"
-                            align="center"
-                        >
+                        <Typography.Paragraph mb="10x" textcolor="black" align="center">
                             <Localize translate_text="_t_Want to know more about CFD trading conditions for the instruments we offer?_t_" />
                         </Typography.Paragraph>
                         <LinkButton.Primary
                             font_family="UBUNTU"
-                            size="medium"
                             aria-label="check trading specs"
                             url={{
                                 type: 'internal',

@@ -16,7 +16,7 @@ export const marketItems: TMarketNavItem[] = [
         },
     },
     {
-        title: '_t_Stock & indices_t_',
+        title: '_t_Stocks & indices_t_',
         link: {
             type: 'internal',
             to: '/markets/stock/',

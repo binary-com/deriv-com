@@ -55,8 +55,10 @@ const ImageWrapper = styled.div`
 const BannerButtonWrapper = styled.div`
     display: flex;
     align-items: center;
+    gap: 6px;
     @media ${device.tablet} {
         flex-direction: column;
+        gap: 20px;
         justify-content: center;
     }
 `
@@ -143,6 +145,7 @@ const StyledLogo = styled.img`
     @media ${device.tablet} {
         width: 119px;
         height: 32px;
+        margin-bottom: -1.5rem;
     }
 `
 const StyledContainer = styled(Container)`

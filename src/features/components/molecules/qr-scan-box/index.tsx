@@ -22,6 +22,7 @@ const QRScanbox = ({ item }: QRScanBoxProps) => {
             align="center"
             gap="8x"
             padding="8x"
+            radius="12x"
             className={qr_box}
             md={{ gap: '12x', padding: '12x' }}
         >

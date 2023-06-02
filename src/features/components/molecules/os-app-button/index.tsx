@@ -1,5 +1,4 @@
 import React from 'react'
-import { app_text } from './styles.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
@@ -30,7 +29,7 @@ const OsAppButton = ({ item, ...rest }: OsAppButtonProps) => {
                         <Localize translate_text={item.smallText} />
                     </Typography.Paragraph>
                 )}
-                <Typography.Paragraph textcolor="white" size="large" className={app_text}>
+                <Typography.Paragraph textcolor="white" size="large" weight="bold">
                     <Localize translate_text={item.text} />
                 </Typography.Paragraph>
             </Link>

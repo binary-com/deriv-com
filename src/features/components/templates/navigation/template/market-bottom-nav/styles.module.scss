@@ -10,6 +10,7 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     background-color: $color-grey-45;
+    position: relative;
 
     @include breakpoints(phone) {
         justify-content: center;

@@ -14,6 +14,9 @@ import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { TradeDetails } from '../sections/_trade-details'
 import { Localize, localize } from 'components/localization'
+import Typography from 'features/components/atoms/typography'
+import LinkButton from 'features/components/atoms/link-button'
+import Flex from 'features/components/atoms/flex-box'
 import useRegion from 'components/hooks/use-region'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 
@@ -51,6 +54,28 @@ const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
                             <Localize translate_text="Baskets trades  available on Deriv" />
                         }
                     />
+                    <Flex.Box
+                        direction="col"
+                        container="fluid"
+                        justify="center"
+                        align="center"
+                        pb="10x"
+                        md={{ pb: '40x', mb: '20x' }}
+                    >
+                        <Typography.Paragraph mb="10x" textcolor="black" align="center">
+                            <Localize translate_text="_t_Want to know more about CFD trading conditions for the instruments we offer?_t_" />
+                        </Typography.Paragraph>
+                        <LinkButton.Primary
+                            font_family="UBUNTU"
+                            aria-label="check trading specs"
+                            url={{
+                                type: 'internal',
+                                to: '/trading-specification',
+                            }}
+                        >
+                            <Localize translate_text="_t_Check trading specs_t_" />
+                        </LinkButton.Primary>
+                    </Flex.Box>
                     <FullWidthMultiColumn
                         header={<Localize translate_text="Why trade baskets on Deriv" />}
                     >

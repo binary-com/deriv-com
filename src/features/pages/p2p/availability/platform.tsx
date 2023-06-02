@@ -1,5 +1,5 @@
 import React from 'react'
-import { platform_list, platform_list_item } from './styles.module.scss'
+import { platform_list } from './styles.module.scss'
 import { PlatformType } from './types'
 import Flex from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
@@ -7,6 +7,7 @@ import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import LinkButton from 'features/components/atoms/link-button'
 import Box from 'features/components/atoms/box'
+import dclsx from 'features/utils/dclsx'
 
 const DP2Platform = ({ item }: { item: PlatformType }) => {
     return (
@@ -36,7 +37,7 @@ const DP2Platform = ({ item }: { item: PlatformType }) => {
                         mb="12x"
                         textcolor="black"
                         md={{ mb: '16x' }}
-                        className={platform_list_item}
+                        className={dclsx('text-xlarge')}
                         key={list_item.text}
                     >
                         <Localize

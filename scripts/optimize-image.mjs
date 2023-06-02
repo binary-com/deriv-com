@@ -205,7 +205,7 @@ console.log(
     `\x1b[33m[Image Compressor]\x1b[32m Checking staged images and compressing down to maximum allowed size \x1b[0m`,
 )
 console.log(
-    `\x1b[33m[Image Compressor] \x1b[0mAdd \x1b[32m -nc\x1b[0m to the filename to bypass compression \n`,
+    `\x1b[33m[Image Compressor] \x1b[0mAdd\x1b[32m -nc\x1b[0m to the filename to bypass compression \n`,
 )
 
 exec('git diff --name-only --cached', (err, stdout) => {

@@ -24,34 +24,36 @@ const LanguageSwitcher = () => {
                 </div>
             </DropdownMenu.Trigger>
 
-            <DropdownMenu.Content
-                className={styles.menu_content}
-                collisionPadding={{
-                    right: 20,
-                }}
-                align="center"
-                onMouseLeave={() => {
-                    setOpen(false)
-                }}
-            >
-                {languages.map((langItem) => (
-                    <DropdownMenu.Item
-                        key={langItem.key}
-                        className={styles.menu_item}
-                        onSelect={() => onSwitchLanguage(langItem.url)}
-                    >
-                        <Typography.Paragraph
-                            align="left"
-                            padding_block="3x"
-                            padding_inline="6x"
-                            font_family="UBUNTU"
-                            textcolor={isSelected(langItem.key) ? 'brand' : 'primary'}
+            <DropdownMenu.Portal>
+                <DropdownMenu.Content
+                    className={styles.menu_content}
+                    collisionPadding={{
+                        right: 20,
+                    }}
+                    align="center"
+                    onMouseLeave={() => {
+                        setOpen(false)
+                    }}
+                >
+                    {languages.map((langItem) => (
+                        <DropdownMenu.Item
+                            key={langItem.key}
+                            className={styles.menu_item}
+                            onSelect={() => onSwitchLanguage(langItem.url)}
                         >
-                            {langItem.display_name}
-                        </Typography.Paragraph>
-                    </DropdownMenu.Item>
-                ))}
-            </DropdownMenu.Content>
+                            <Typography.Paragraph
+                                align="left"
+                                padding_block="3x"
+                                padding_inline="6x"
+                                font_family="UBUNTU"
+                                textcolor={isSelected(langItem.key) ? 'brand' : 'primary'}
+                            >
+                                {langItem.display_name}
+                            </Typography.Paragraph>
+                        </DropdownMenu.Item>
+                    ))}
+                </DropdownMenu.Content>
+            </DropdownMenu.Portal>
         </DropdownMenu.Root>
     )
 }

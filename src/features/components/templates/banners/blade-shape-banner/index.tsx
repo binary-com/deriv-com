@@ -36,7 +36,12 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
                                 height={is_mobile ? 48 : 64}
                             />
                         </FlexBox.Item>
-                        <FlexBox.Box direction={'col'} align={'start'} md={{ ml: '8x' }}>
+                        <FlexBox.Box
+                            className={styles.heading_box}
+                            direction={'col'}
+                            align={'start'}
+                            md={{ ml: '8x' }}
+                        >
                             <Typography.Heading
                                 as={'h2'}
                                 size={'xlarge'}

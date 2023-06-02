@@ -89,7 +89,6 @@ export const demo: React.ComponentProps<typeof StepperView>['items'] = [
         component: (
             <Link
                 textcolor="brand"
-                weight="bold"
                 key={0}
                 url={{
                     type: 'internal',

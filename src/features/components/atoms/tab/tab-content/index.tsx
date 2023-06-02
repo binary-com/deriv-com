@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { StepperTabTypes, TabItemTypes } from '../types'
+import { tab_images, tab_ul } from './tab-content.module.scss'
 import FlexBox from 'features/components/atoms/flex-box'
 import Box from 'features/components/atoms/box'
 import Typography from 'features/components/atoms/typography'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import { Localize } from 'components/localization'
 
-const TabContent = ({ items: initial_tems, tab, direction = 'row' }: StepperTabTypes) => {
+const TabContent = ({ items: initial_tems, direction = 'row' }: Omit<StepperTabTypes, 'tab'>) => {
     const [selected, setSelected] = useState<number>(0)
     const [items, setItems] = useState<TabItemTypes[]>(initial_tems)
-    const { is_mobile_or_tablet } = useBreakpoints()
 
     useEffect(() => {
         setItems(initial_tems)
+        setSelected(0)
     }, [initial_tems])
-
-    const image_style = !is_mobile_or_tablet ? { blockSize: '62.5rem' } : { blockSize: '43.5rem' }
 
     return (
         <FlexBox.Box
@@ -27,8 +25,8 @@ const TabContent = ({ items: initial_tems, tab, direction = 'row' }: StepperTabT
             md={{ direction: direction, margin_block: '32x', margin_inline: '0x' }}
         >
             <FlexBox.Box
+                className={tab_images}
                 margin_inline={'40x'}
-                style={image_style}
                 md={{ margin_block: '12x', margin_inline: '0x' }}
             >
                 {items[selected]?.image}
@@ -39,10 +37,10 @@ const TabContent = ({ items: initial_tems, tab, direction = 'row' }: StepperTabT
                         const is_selected = selected === index
                         return (
                             <Box
+                                className={tab_ul}
                                 as={'li'}
                                 pt={'12x'}
                                 key={item.title}
-                                style={{ cursor: 'pointer', maxWidth: '38.4rem' }}
                                 onClick={() => setSelected(index)}
                             >
                                 <Typography.Paragraph

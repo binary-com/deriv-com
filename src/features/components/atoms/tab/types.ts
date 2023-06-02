@@ -11,7 +11,7 @@ export type TabItemTypes = {
 
 export type StepperTabTypes = {
     items: TabItemTypes[]
-    tab: string
+    tab?: string
     onTabClick: (step: 'demo' | 'real' | number) => void
     direction?: TFlexDirection
 }

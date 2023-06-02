@@ -45,10 +45,12 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
         ? 'https://deriv-static-pricingfeed.firebaseio.com/eu.json'
         : 'https://deriv-static-pricingfeed.firebaseio.com/row.json'
 
-    if (typeof window !== 'undefined') {
-        window.addEventListener('online', () => setIsOffline(false))
-        window.addEventListener('offline', () => setIsOffline(true))
-    }
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            window.addEventListener('online', () => setIsOffline(false))
+            window.addEventListener('offline', () => setIsOffline(true))
+        }
+    }, [])
 
     useEffect(() => {
         if (intervalRef?.current) {
@@ -69,7 +71,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
             }
         }
 
-        intervalRef.current = setInterval(getData, 300)
+        intervalRef.current = setInterval(getData, 1000)
 
         return () => {
             clearInterval(intervalRef.current)

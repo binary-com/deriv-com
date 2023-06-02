@@ -25,6 +25,7 @@ const LanguageSwitcher = () => {
             </DropdownMenu.Trigger>
 
             <DropdownMenu.Content
+                //It's due to radix default z-index: auto;
                 style={{ zIndex: 9 }}
                 className={styles.menu_content}
                 collisionPadding={{

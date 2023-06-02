@@ -33,7 +33,7 @@ const Multipliers = ({ market_content }: MultipliersProps) => {
                         <AvailablePlatforms dtrader dbot deriv_go />
                     )}
                 </Descriptions>
-                <StyledText font_size={'16px'} weight="bold" mt="2.4rem">
+                <StyledText font_size={'16px'} weight="bold" mt="0.8rem">
                     {localize('Instruments available for multipliers trading')}
                 </StyledText>
                 <MarketInstruments market_content={market_content} />

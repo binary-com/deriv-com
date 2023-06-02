@@ -45,8 +45,10 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
         ? 'https://deriv-static-pricingfeed.firebaseio.com/eu.json'
         : 'https://deriv-static-pricingfeed.firebaseio.com/row.json'
 
-    window.addEventListener('online', () => setIsOffline(false))
-    window.addEventListener('offline', () => setIsOffline(true))
+    if (typeof window !== 'undefined') {
+        window.addEventListener('online', () => setIsOffline(false))
+        window.addEventListener('offline', () => setIsOffline(true))
+    }
 
     useEffect(() => {
         if (intervalRef?.current) {

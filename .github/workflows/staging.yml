@@ -20,7 +20,7 @@ env:
 
 jobs:
   release-staging:
-    timeout-minutes: 35
+    timeout-minutes: 30
     runs-on: ubuntu-latest
     environment: staging
     steps:

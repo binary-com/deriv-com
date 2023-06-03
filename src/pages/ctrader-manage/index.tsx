@@ -25,7 +25,7 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: center;
     background-color: #ffffff;
-    height: 100vh;
+    height: 80vh;
 `
 const StyledHeader = styled(Header)`
     display: flex;

@@ -1,6 +1,7 @@
 import {
     TBGColor,
     TBorderRadius,
+    TCursor,
     THeadingSize,
     TSpacingSize,
     TTypographyAlign,
@@ -90,6 +91,12 @@ export const generateHeadingSize = (size?: THeadingSize) => {
 export const generateBorderRadius = (radius?: TBorderRadius) => {
     return dclsx({
         [`border-radius-${radius}`]: radius,
+    })
+}
+
+export const generateCommonCSSProperties = (cursor?: TCursor) => {
+    return dclsx({
+        [`cursor-${cursor}`]: cursor,
     })
 }
 export const generateTextSize = (size?: THeadingSize) => {

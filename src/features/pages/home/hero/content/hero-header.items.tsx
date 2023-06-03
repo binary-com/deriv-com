@@ -14,6 +14,7 @@ const HeroHeaderItems = () => {
                 gap="1x"
                 direction="row"
                 wrap="wrap"
+                cursor={'pointer'}
                 md={{
                     direction: 'col',
                     wrap: 'nowrap',

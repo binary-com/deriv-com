@@ -4,6 +4,7 @@ import dclsx from 'features/utils/dclsx'
 import {
     generateBackgroundColor,
     generateBorderRadius,
+    generateCommonCSSProperties,
     generateSpacingClasses,
     generateVisibleClasses,
 } from 'features/styles/utils'
@@ -41,6 +42,7 @@ const Box = <T extends React.ElementType>({
     innerRef,
     bgcolor,
     radius,
+    cursor,
     visible,
     ...rest
 }: BoxProps<T> & Omit<React.ComponentPropsWithoutRef<T>, keyof BoxProps<T>>) => {
@@ -69,6 +71,7 @@ const Box = <T extends React.ElementType>({
         generateSpacingClasses(lg ?? {}, 'lg'),
         generateBackgroundColor(bgcolor),
         generateBorderRadius(radius),
+        generateCommonCSSProperties(cursor),
     )
 
     return <Component ref={innerRef} className={classnames === '' ? null : classnames} {...rest} />

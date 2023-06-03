@@ -1,0 +1,20 @@
+.cursor-pointer {
+  &:hover {
+    cursor: pointer;
+  }
+}
+.cursor-default {
+  &:hover {
+    cursor: default;
+  }
+}
+.cursor-move {
+  &:hover {
+    cursor: move;
+  }
+}
+.cursor-auto {
+  &:hover {
+    cursor: auto;
+  }
+}

@@ -107,10 +107,13 @@ export type TTypographyBreakWord = InferSide<ClassNames, 'typography-break'>
 export type TTypographyWeight = InferSide<ClassNames, 'typography-weight'>
 export type THeadingSize = InferSide<ClassNames, 'heading'>
 export type TTextSize = InferSide<ClassNames, 'text'>
-export type TBorderRadius = InferSide<ClassNames, 'border-radius'>
 export type TSpacingSize = InferSide<ClassNames, 'margin-block'>
 export type TTypographyColor = InferSide<ClassNames, 'typography-color'>
 export type TTypographyFont = InferSide<ClassNames, 'typography-font'>
+
+//common css Classes
+export type TBorderRadius = InferSide<ClassNames, 'border-radius'>
+export type TCursor = InferSide<ClassNames, 'cursor'>
 
 // Background Classes
 export type TBGColor = InferSide<ClassNames, 'bg-color'>
@@ -143,4 +146,5 @@ export interface ClassProps {
     padding_inline?: TSpacingSize
     padding_block?: TSpacingSize
     radius?: TBorderRadius
+    cursor?: TCursor
 }

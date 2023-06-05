@@ -58,6 +58,7 @@ export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
 export const deriv_life_url = `https://derivlife.com/`
 export const academy_url = `https://academy.deriv.com/`
 export const derivx_app_url = `${deriv_app_url}/derivx`
+export const ctrader_url = `/deriv-ctrader/`
 export const smarttrader_url = `https://smarttrader.${getDomainUrl()}`
 export const traders_hub = 'https://app.deriv.com/appstore/traders-hub'
 export const binary_bot_url = `https://bot.${getDomainUrl()}`
@@ -145,6 +146,7 @@ export const localized_link_url = Object.freeze({
     blog: blog_url,
     community: community_url,
     derivx: derivx_app_url,
+    ctrader: ctrader_url,
     api: deriv_api_url,
     dbot: deriv_bot_app_url,
     deriv_app: deriv_app_url,

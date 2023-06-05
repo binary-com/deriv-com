@@ -1,13 +1,21 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import * as styles from './language-switcher.module.scss'
 import useLangSwitcher from './useLangSwitcher'
 import Typography from 'features/components/atoms/typography'
 import { get_lang_direction } from 'components/localization'
+import { useNavContext } from 'features/components/templates/navigation/template/nav-context'
 
 const LanguageSwitcher = () => {
     const { isSelected, languages, onSwitchLanguage, currentLang } = useLangSwitcher()
     const [open, setOpen] = useState(false)
+    const { onCloseMenu, is_menu_open } = useNavContext()
+
+    useEffect(() => {
+        if (open && is_menu_open) {
+            onCloseMenu()
+        }
+    }, [open, is_menu_open, onCloseMenu])
 
     return (
         <DropdownMenu.Root

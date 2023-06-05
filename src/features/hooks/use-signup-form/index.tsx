@@ -19,9 +19,10 @@ const getVerifyEmailRequest = (formatted_email: string) => {
     const getUrlParams = (params: string[]) => {
         const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
         const params_with_value = params.filter((param) => url_params.get(param))
-        return params_with_value.map((param) => {
-            return { [param]: url_params.get(param) }
-        })
+        return params_with_value.reduce(
+            (o, param) => ({ ...o, [param]: url_params.get(param) }),
+            {},
+        )
     }
     const params_list = [
         'gclid_url',

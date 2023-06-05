@@ -327,6 +327,42 @@ const platformSliderItems: SmartPlatformItem[] = [
             is_eu: false,
         },
     },
+    {
+        id: 8,
+        data: {
+            title: '_t_Deriv cTrader_t_',
+            description:
+                '_t_Trade CFDs on forex, commodities, cryptocurrencies, stocks, stock indices, and derived indices._t_',
+            url: {
+                type: 'company',
+                url_name: 'ctrader',
+            },
+            icon: DerivcTrader,
+            image_caption: {
+                text: '_t_Available on <0>web browser</0>_t_',
+                components: [
+                    <Link
+                        key={0}
+                        url={{ type: 'company', url_name: 'ctrader' }}
+                        weight="bold"
+                        font_family="UBUNTU"
+                    />,
+                ],
+            },
+            image: (
+                <StaticImage
+                    objectFit="contain"
+                    src="../../../../images/common/home/rebranding/platform_deriv_ctrader.png"
+                    alt="deriv api"
+                    formats={['avif', 'webp', 'auto']}
+                    placeholder="none"
+                />
+            ),
+        },
+        visibility: {
+            is_eu: false,
+        },
+    },
 ]
 
 export default platformSliderItems

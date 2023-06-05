@@ -14,6 +14,7 @@ export const marketItems: TMarketNavItem[] = [
             type: 'internal',
             to: '/markets/synthetic/',
         },
+        active_urls: ['/markets/synthetic/', '/markets/basket-indices/', '/markets/derived-fx/'],
     },
     {
         title: '_t_Stocks & indices_t_',

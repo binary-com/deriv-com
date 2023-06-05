@@ -15,9 +15,10 @@ import { SEO } from 'components/containers'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 const Markets = () => {
+    const hash = location?.hash.slice(1)
     const { is_eu, is_row } = useRegion()
     const { is_deriv_go } = usePlatformQueryParam()
-    const [trade, setTrade] = useState(location?.hash.slice(1) || 'synthetic')
+    const [trade, setTrade] = useState(hash || 'synthetic')
     const description_eu = localize(
         '_t_Trade on asset prices derived from simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite._t_',
     )

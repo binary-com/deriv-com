@@ -220,7 +220,7 @@ const AvailableTradesDesktop = ({
             <StyledContainer direction="column">
                 <CardWrapper position="relative" id="available-trades">
                     {CFDs && (
-                        <StyledLink to="?tab=cfds#cfds">
+                        <StyledLink to="?tab=cfds&#cfds">
                             <Card
                                 name="CFDs"
                                 display_name={<Localize translate_text="CFDs" />}
@@ -232,7 +232,7 @@ const AvailableTradesDesktop = ({
                         </StyledLink>
                     )}
                     {is_non_eu && DigitalOptions && (
-                        <StyledLink to="?tab=options#options">
+                        <StyledLink to="?tab=options&#options">
                             <Card
                                 name="Options"
                                 display_name={<Localize translate_text="Options" />}
@@ -245,7 +245,7 @@ const AvailableTradesDesktop = ({
                     )}
 
                     {Multipliers && (
-                        <StyledLink to="?tab=multipliers#multipliers">
+                        <StyledLink to="?tab=multipliers&#multipliers">
                             <Card
                                 name="Multipliers"
                                 display_name={<Localize translate_text="Multipliers" />}

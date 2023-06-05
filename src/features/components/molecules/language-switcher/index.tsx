@@ -33,6 +33,7 @@ const LanguageSwitcher = () => {
             </DropdownMenu.Trigger>
 
             <DropdownMenu.Content
+                style={{ zIndex: 9 }}
                 className={styles.menu_content}
                 collisionPadding={{
                     right: 20,

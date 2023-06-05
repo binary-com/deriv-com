@@ -17,8 +17,12 @@ import {
 } from 'features/styles/utils'
 import { InternalLinkType } from 'features/types'
 
-const isActiveLink = (currentPage: string) => {
+const isActiveLink = (currentPage: string, active_urls?: string[]) => {
     const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
+    if (active_urls?.length) {
+        return active_urls.includes(pathname)
+    }
+
     return pathname === currentPage
 }
 
@@ -26,6 +30,7 @@ interface InternalProps extends Omit<LinkProps, 'url'> {
     url: InternalLinkType
     link_target: string
     link_rel: string
+    active_urls?: string[]
 }
 
 const Internal = ({
@@ -60,6 +65,7 @@ const Internal = ({
     children,
     link_target,
     link_rel,
+    active_urls,
 }: InternalProps) => {
     let rawLocale = 'en'
     if (isBrowser()) {
@@ -72,7 +78,7 @@ const Internal = ({
 
     const to = is_non_localized || is_default ? url.to : `/${path}${url.to}`
 
-    const is_active = isActiveLink(url.to)
+    const is_active = isActiveLink(url.to, active_urls)
 
     return (
         <Link

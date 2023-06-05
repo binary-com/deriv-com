@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
-import { Link } from "gatsby";
+import Link from 'features/components/atoms/link'
+import useRegion from 'components/hooks/use-region'
 import Login, { TSocialProvider } from 'common/login'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import validation from 'common/validation'

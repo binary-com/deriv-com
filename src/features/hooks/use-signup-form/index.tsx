@@ -8,8 +8,14 @@ import { validation_regex } from 'common/validation'
 import apiManager from 'common/websocket'
 import { getLanguage, isBrowser } from 'common/utility'
 
+const getUrlParams = (params: string[]) => {
+    const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
+    const params_with_value = params.filter((param) => url_params.get(param))
+    return params_with_value.reduce((o, param) => ({ ...o, [param]: url_params.get(param) }), {})
+}
+
 const params_list = [
-    'gclid_url',
+    'gclid',
     'utm_source',
     'utm_medium',
     'utm_campaign',
@@ -27,15 +33,6 @@ const getVerifyEmailRequest = (formatted_email: string) => {
     const cookies = getCookiesFields()
     const cookies_objects = getCookiesObject(cookies)
     const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
-
-    const getUrlParams = (params: string[]) => {
-        const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
-        const params_with_value = params.filter((param) => url_params.get(param))
-        return params_with_value.reduce(
-            (o, param) => ({ ...o, [param]: url_params.get(param) }),
-            {},
-        )
-    }
 
     const url_params = getUrlParams(params_list)
 

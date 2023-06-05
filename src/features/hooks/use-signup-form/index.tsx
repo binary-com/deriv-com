@@ -14,17 +14,7 @@ const getUrlParams = (params: string[]) => {
     return params_with_value.reduce((o, param) => ({ ...o, [param]: url_params.get(param) }), {})
 }
 
-const params_list = [
-    'gclid_url',
-    'utm_source',
-    'utm_medium',
-    'utm_campaign',
-    'utm_campaign_id',
-    'utm_campaign_id',
-    'utm_adgroup_id',
-    'utm_ad_id',
-    'signup_device',
-]
+const params_list = ['gclid_url', 'signup_device']
 
 const getVerifyEmailRequest = (formatted_email: string) => {
     // TODO: this getJSON seems incorrect, we have to check it out, I don't know how this cookie is being populated

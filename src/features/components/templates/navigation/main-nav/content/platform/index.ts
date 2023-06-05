@@ -10,6 +10,7 @@ import DMT5 from 'images/svg/custom/rebranding/dmt5-icon.svg'
 import DTrader from 'images/svg/custom/rebranding/dtrader-icon.svg'
 import DerivEZ from 'images/svg/custom/rebranding/deriv-ez-icon.svg'
 import DerivBot from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
+import DerivcTrader from 'images/svg/custom/rebranding/deriv-ctrader-icon.svg'
 
 export const tradeTypesContent: SmartNavContent[] = [
     {
@@ -164,6 +165,23 @@ export const tradingPlatformsContent: SmartNavContent[] = [
         },
         visibility: {
             is_eu: true,
+        },
+    },
+    {
+        id: 5,
+        data: {
+            aria_label: 'Deriv cTrader',
+            icon: {
+                src: DerivcTrader,
+                alt: 'Deriv cTrader trading platform',
+            },
+            content:
+                '_t_Advance trading, charting and technical analysis tools available for users._t_',
+            title: '_t_Deriv cTrader_t_',
+            url: { type: 'internal', to: '/deriv-ctrader/' },
+        },
+        visibility: {
+            is_row: true,
         },
     },
 ]

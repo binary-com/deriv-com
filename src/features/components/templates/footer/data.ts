@@ -196,6 +196,16 @@ const platformsLinks: SmartFooterLink[] = [
             is_row: true,
         },
     },
+    {
+        id: 8,
+        data: {
+            text: '_t_Deriv cTrader_t_',
+            url: { type: 'internal', to: '/deriv-ctrader/' },
+        },
+        visibility: {
+            is_row: true,
+        },
+    },
 ]
 
 const legalLinks: SmartFooterLink[] = [

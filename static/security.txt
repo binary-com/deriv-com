@@ -1,2 +1,7 @@
-# HackerOne Security Page
-Security: https://hackerone.com/deriv?type=team
+Contact: https://hackerone.com/deriv?type=team
+Preferred-Languages: en
+Canonical: https://deriv.com/security.txt
+Expires: 2024-06-05
+
+# Found a bug? Our bug bounty policy:
+Policy: https://deriv.com/bug-bounty/

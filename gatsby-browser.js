@@ -173,7 +173,7 @@ export const onClientEntry = () => {
     updateURLAsPerUserLanguage()
 }
 
-function scrollToAnchor(location, mainNavHeight = 120) {
+function scrollToAnchor(location, mainNavHeight = 0) {
     // Check for location so build does not fail
     if (location && location.hash) {
         const item = window.innerHeight

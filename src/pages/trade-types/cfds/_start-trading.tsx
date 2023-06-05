@@ -26,13 +26,13 @@ const StartTrading = () => {
             title: '_t_Practise_t_',
             subtitle: is_eu
                 ? '_t_Open a demo CFDs account and practise with an unlimited amount of virtual funds._t_'
-                : '_t_Open a demo Deriv MT5 or demo Deriv X account and practise with an unlimited amount of virtual funds._t_',
+                : '_t_Open a demo Deriv MT5, Deriv X, or Deriv cTrader account and practise with an unlimited amount of virtual funds._t_',
         },
         {
             title: '_t_Trade_t_',
             subtitle: is_eu
                 ? '_t_Trade with a real CFDs account. Get access to leverage and trade positions larger than your existing capital._t_'
-                : '_t_Trade with a real Deriv MT5 or real Deriv X account and get access to high leverage to trade positions larger than your existing capital._t_',
+                : '_t_Trade with a real Deriv MT5, Deriv X, or Deriv cTrader account and get access to high leverage to trade positions larger than your existing capital._t_',
         },
         {
             title: '_t_Withdraw_t_',

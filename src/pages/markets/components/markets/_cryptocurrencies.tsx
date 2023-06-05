@@ -13,6 +13,9 @@ import CryptoPairs from 'images/svg/markets/crypto-pairs-new.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission-new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
 import useRegion from 'components/hooks/use-region'
+import Typography from 'features/components/atoms/typography'
+import LinkButton from 'features/components/atoms/link-button'
+import Flex from 'features/components/atoms/flex-box'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
@@ -66,6 +69,28 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                     <Localize translate_text="Cryptocurrency trades available on Deriv" />
                 }
             />
+            <Flex.Box
+                direction="col"
+                container="fluid"
+                justify="center"
+                align="center"
+                pb="10x"
+                md={{ pb: '40x', mb: '20x' }}
+            >
+                <Typography.Paragraph mb="10x" textcolor="black" align="center">
+                    <Localize translate_text="_t_Want to know more about CFD trading conditions for the instruments we offer?_t_" />
+                </Typography.Paragraph>
+                <LinkButton.Primary
+                    font_family="UBUNTU"
+                    aria-label="check trading specs"
+                    url={{
+                        type: 'internal',
+                        to: '/trading-specification',
+                    }}
+                >
+                    <Localize translate_text="_t_Check trading specs_t_" />
+                </LinkButton.Primary>
+            </Flex.Box>
             <FullWidthMultiColumn
                 header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}
             >

@@ -64,7 +64,7 @@ const available_markets = [
             <Localize translate_text="Access over 50 currency pairs and trade with leverage up to 1:1000 to increase your market exposure." />
         ),
         eu_description: (
-            <Localize translate_text="Access over 30+ currency pairs and trade with leverage up to 1:30 to increase your market exposure." />
+            <Localize translate_text="Access over 30 currency pairs and trade with leverage up to 1:30 to increase your market exposure." />
         ),
         learn_more_path: '/markets/forex/',
     },
@@ -75,6 +75,9 @@ const available_markets = [
         text: <Localize translate_text="Derived" />,
         description: (
             <Localize translate_text="Enjoy trading a wide range of offerings that mimic characteristics of financial markets or are derived from them." />
+        ),
+        eu_description: (
+            <Localize translate_text="Enjoy trading a wide range of offerings that mimic characteristics of financial markets." />
         ),
         learn_more_path: '/markets/synthetic/',
     },

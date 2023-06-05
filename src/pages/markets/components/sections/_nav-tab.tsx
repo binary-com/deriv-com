@@ -8,8 +8,9 @@ import device from 'themes/device'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 type NavTabProps = {
-    route_from: string
     route_offset: number
+    trade?: string
+    setTrade?: (value: string) => void
 }
 
 type TabButtonProps = {
@@ -116,12 +117,12 @@ const tab_list: TabList[] = [
     {
         title: <Localize translate_text="Baskets" />,
         tab_name: 'basket-indices',
-        route_to: '/markets/basket-indices/#basket-indices',
+        route_to: '/markets/synthetic/#basket-indices',
     },
     {
         title: <Localize translate_text="Derived FX" />,
         tab_name: 'derived-fx',
-        route_to: '/markets/derived-fx/#derived-fx',
+        route_to: '/markets/synthetic/#derived-fx',
     },
 ]
 
@@ -133,7 +134,7 @@ const tab_list_eu: TabList[] = [
     },
 ]
 
-const NavTab = ({ route_from }: NavTabProps) => {
+const NavTab = ({ trade, setTrade }: NavTabProps) => {
     const { is_eu } = useRegion()
     const ref = useRef(null)
     const { is_deriv_go } = usePlatformQueryParam()
@@ -145,7 +146,10 @@ const NavTab = ({ route_from }: NavTabProps) => {
                     {(is_eu ? tab_list_eu : tab_list).map((item) => {
                         return (
                             <StyledLink to={item.route_to} key={item.tab_name}>
-                                <TabButton selected={route_from == item.tab_name}>
+                                <TabButton
+                                    selected={trade == item.tab_name}
+                                    onClick={() => setTrade(item.tab_name)}
+                                >
                                     <TextWrapper>{item.title}</TextWrapper>
                                 </TabButton>
                             </StyledLink>

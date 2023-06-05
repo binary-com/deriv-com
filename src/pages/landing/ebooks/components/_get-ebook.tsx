@@ -346,7 +346,8 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                         <Localize
                             translate_text="By pressing “Get your free ebook now!”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>."
                             components={[
-                                <StyledLocalizedLink
+                                  <Link
+                                    textcolor="brand"
                                     key={0}
                                     href="/tnc/security-and-privacy.pdf"
                                     rel="noopener noreferrer"

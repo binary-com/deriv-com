@@ -15,7 +15,7 @@ const getUrlParams = (params: string[]) => {
 }
 
 const params_list = [
-    'gclid',
+    'gclid_url',
     'utm_source',
     'utm_medium',
     'utm_campaign',

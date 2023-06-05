@@ -1,0 +1,2 @@
+# HackerOne Security Page
+Security: https://hackerone.com/deriv?type=team

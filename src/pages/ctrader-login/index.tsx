@@ -63,7 +63,7 @@ const CtraderLogin = () => {
     }, [submit_status])
 
     return (
-        <Layout type="static" margin_top={20}>
+        <Layout type="static" margin_top={35}>
             <Loading />
         </Layout>
     )

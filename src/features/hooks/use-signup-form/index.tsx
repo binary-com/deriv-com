@@ -8,6 +8,18 @@ import { validation_regex } from 'common/validation'
 import apiManager from 'common/websocket'
 import { getLanguage, isBrowser } from 'common/utility'
 
+const params_list = [
+    'gclid_url',
+    'utm_source',
+    'utm_medium',
+    'utm_campaign',
+    'utm_campaign_id',
+    'utm_campaign_id',
+    'utm_adgroup_id',
+    'utm_ad_id',
+    'signup_device',
+]
+
 const getVerifyEmailRequest = (formatted_email: string) => {
     // TODO: this getJSON seems incorrect, we have to check it out, I don't know how this cookie is being populated
     const affiliate_token = Cookies.getJSON('affiliate_tracking')
@@ -24,17 +36,7 @@ const getVerifyEmailRequest = (formatted_email: string) => {
             {},
         )
     }
-    const params_list = [
-        'gclid_url',
-        'utm_source',
-        'utm_medium',
-        'utm_campaign',
-        'utm_campaign_id',
-        'utm_campaign_id',
-        'utm_adgroup_id',
-        'utm_ad_id',
-        'signup_device',
-    ]
+
     const url_params = getUrlParams(params_list)
 
     return {

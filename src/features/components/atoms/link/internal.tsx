@@ -20,10 +20,15 @@ import { InternalLinkType } from 'features/types'
 const isActiveLink = (currentPage: string, active_urls?: string[]) => {
     const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
     if (active_urls?.length) {
-        return active_urls.includes(pathname)
+        for (const url of active_urls) {
+            if (pathname.includes(url)) {
+                return true
+            }
+        }
+        return false
     }
 
-    return pathname === currentPage
+    return pathname.includes(currentPage)
 }
 
 interface InternalProps extends Omit<LinkProps, 'url'> {

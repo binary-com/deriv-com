@@ -31,36 +31,35 @@ type CardContainerProps = {
 const StyledSection = styled(SectionContainer)`
     padding: 0;
     background-color: var(--color-white);
-    margin-bottom: 80px;
     @media ${device.tabletL} {
-        padding: 20px 0;
+        padding: 40px 0;
         margin-bottom: 0;
     }
 `
 
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
-        max-width: 320px;
+        max-width: 326px;
         font-size: 24px;
         margin: 0 auto;
     }
 `
 
 const StyledContainer = styled(Container)`
-    margin-top: 4rem;
+    margin-top: 9.6rem;
 
     @media ${device.tabletL} {
+        margin-top: 4rem;
         width: 100%;
     }
 `
 
 const CardWrapper = styled(Flex)`
     max-width: 99.6rem;
-    justify-content: flex-start;
+    justify-content: center;
     z-index: 1;
-    align-items: flex-end;
+    align-items: center;
     overflow: hidden;
-    background-color: #f2f3f4;
     margin: 0;
 
     div:first-child {
@@ -79,7 +78,6 @@ const CardContainer = styled(Flex)<CardContainerProps>`
     width: fit-content;
     font-size: 20px;
     height: 68px;
-    padding: 16px 24px;
     font-weight: 400;
     cursor: pointer;
     z-index: ${(props) =>
@@ -94,18 +92,31 @@ const CardContainer = styled(Flex)<CardContainerProps>`
                 props.active_tab === props.name.toLocaleLowerCase() ? '1' : '0.48'};
         }
         h4 {
+            width: 20rem;
+            text-align: center;
+            padding-bottom: 1rem;
             color: ${(props) =>
                 props.active_tab === props.name.toLocaleLowerCase()
-                    ? 'var(--color-black)'
+                    ? 'var(--color-red)'
                     : 'var(--color-black-3)'};
             opacity: ${(props) =>
                 props.active_tab === props.name.toLocaleLowerCase() ? '1' : '0.48'};
             font-weight: ${(props) =>
-                props.active_tab === props.name.toLocaleLowerCase() ? 'bold' : '400'};
+                props.active_tab === props.name.toLocaleLowerCase() ? '300' : '400'};
+            border-bottom: ${(props) =>
+                props.active_tab === props.name.toLocaleLowerCase()
+                    ? '2px solid var(--color-red)'
+                    : '2px solid var(--color-black-3    )'};
+
+            @media (min-width: 320px) and (max-width: 992px) {
+                width: 30vw;
+                height: 6rem;
+            }
         }
         @media ${device.tabletL} {
-            width: 100%;
+            width: 25vw;
             height: 100%;
+            text-align: center;
             justify-content: flex-start;
 
             img {
@@ -122,7 +133,6 @@ const CardContainer = styled(Flex)<CardContainerProps>`
         }
     }
     ::before {
-        content: ''; /* To generate the box */
         width: 100%;
         position: absolute;
         top: 1px;
@@ -135,21 +145,13 @@ const CardContainer = styled(Flex)<CardContainerProps>`
         background: var(--color-grey-36);
         transform: perspective(8px) rotateX(0.8deg);
         transform-origin: ${({ is_rtl }) => (is_rtl ? 'bottom right' : 'bottom left')};
-        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.05);
         ${(props) => {
             if (props.active_tab === props.name.toLocaleLowerCase())
                 return css`
                     font-weight: bold;
                     background-color: var(--color-white);
-                    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.08);
                 `
         }}
-    }
-
-    @media ${device.tabletL} {
-        height: 48px;
-        min-width: unset;
-        padding: 8px 16px;
     }
 `
 
@@ -159,7 +161,6 @@ const ContentWrapper = styled.div`
     display: block;
     background: var(--color-white);
     border-radius: 0.15em;
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
 
     @media ${device.tabletL} {
         padding: 0 2rem;
@@ -168,10 +169,11 @@ const ContentWrapper = styled.div`
 `
 
 const CardHeader = styled(Header)`
-    line-height: 44px;
     @media ${device.tabletL} {
         font-size: 1.75rem;
-        line-height: 20px;
+    }
+    @media ${device.mobileL} {
+        font-size: 1.5rem;
     }
 `
 
@@ -190,7 +192,7 @@ const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
             className={name.toLowerCase()}
             is_rtl={is_rtl}
         >
-            <Flex height="fit-content" jc="flex-start" ai="center" style={{ overflow: 'hidden' }}>
+            <Flex height="fit-content" jc="flex-start" ai="center" style={{ overflow: 'visible' }}>
                 {name === 'CFDs'}
                 {name === 'Options'}
                 {name === 'Multipliers'}

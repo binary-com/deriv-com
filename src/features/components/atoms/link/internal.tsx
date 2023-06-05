@@ -17,7 +17,7 @@ import {
 } from 'features/styles/utils'
 import { InternalLinkType } from 'features/types'
 
-const isActiveLink = (currentPage: string, active_urls: string[]) => {
+const isActiveLink = (currentPage: string, active_urls?: string[]) => {
     const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
     if (active_urls?.length) {
         return active_urls.includes(pathname)
@@ -30,7 +30,7 @@ interface InternalProps extends Omit<LinkProps, 'url'> {
     url: InternalLinkType
     link_target: string
     link_rel: string
-    active_urls: string[]
+    active_urls?: string[]
 }
 
 const Internal = ({

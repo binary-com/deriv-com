@@ -6,31 +6,49 @@ import FlexBox from 'features/components/atoms/flex-box'
 import TabMenu from 'features/components/templates/tabs/menu'
 import { TString } from 'types/generics'
 import InitialLoader from 'components/elements/dot-loader'
+import useRegion from 'components/hooks/use-region'
 
 const acuity_widgets = {
     '_t_Signal Centre Trade Ideas_t_': (
         <div id="signalcentre" className={styles.widget_box_centre} />
     ),
-    '_t_Research Terminal_t_': (
-        <iframe
-            src={
-                'https://dashboard.acuitytrading.com/widget/researchterminal?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0'
-            }
-            className={styles.widget_box_small}
-        />
-    ),
-    '_t_Market Alerts_t_': (
-        <iframe
-            src={
-                'https://dashboard.acuitytrading.com/widget/marketalerts?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0'
-            }
-            className={styles.widget_box_small}
-        />
-    ),
+    '_t_Research Terminal_t_': ({ is_eu }: { is_eu: boolean }) =>
+        is_eu ? (
+            <iframe
+                src={
+                    'https://dashboard.acuitytrading.com/widget/researchterminal?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0&watchlistName=EU_WL'
+                }
+                className={styles.widget_box_small}
+            />
+        ) : (
+            <iframe
+                src={
+                    'https://dashboard.acuitytrading.com/widget/researchterminal?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0'
+                }
+                className={styles.widget_box_small}
+            />
+        ),
+    '_t_Market Alerts_t_': ({ is_eu }: { is_eu: boolean }) =>
+        is_eu ? (
+            <iframe
+                src={
+                    'https://dashboard.acuitytrading.com/widget/marketalerts?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0&watchlistName=NON_EU_WL'
+                }
+                className={styles.widget_box_small}
+            />
+        ) : (
+            <iframe
+                src={
+                    'https://dashboard.acuitytrading.com/widget/marketalerts?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0'
+                }
+                className={styles.widget_box_small}
+            />
+        ),
     '_t_Economic Calendar_t_': <div id="economicCalendar" className={styles.widget_box_calendar} />,
 }
 
 const AcuityWidgets = () => {
+    const { is_eu } = useRegion()
     const [is_script_loaded, setIsScriptLoaded] = useState(false)
     const [is_loading, setIsLoading] = useState(true)
     const [current_widget, setCurrentWidget] = useState<TString>('_t_Signal Centre Trade Ideas_t_')
@@ -48,6 +66,7 @@ const AcuityWidgets = () => {
 
         let created_widget
         if (isBrowser() && is_script_loaded) {
+            const watchlistName = is_eu ? 'EU_WL' : 'NON_EU_WL'
             const widget = window.AcuityWidgets
             widget.globals({ apikey: '2713b8d0-43ed-4194-b5d7-b1ff60dbdae0', locale: 'en-GB' })
 
@@ -55,7 +74,7 @@ const AcuityWidgets = () => {
                 created_widget = widget.CreateWidget(
                     'CalendarPage',
                     document.getElementById('economicCalendar'),
-                    { settingId: 2619 },
+                    { settingId: 2619, watchlistName },
                 )
                 created_widget.mount()
             }
@@ -63,7 +82,7 @@ const AcuityWidgets = () => {
                 created_widget = widget.CreateWidget(
                     'SignalCentre',
                     document.getElementById('signalcentre'),
-                    { settingId: 2617 },
+                    { settingId: 2617, watchlistName },
                 )
                 created_widget.mount()
             }
@@ -78,6 +97,12 @@ const AcuityWidgets = () => {
             }
         }
     }, [is_script_loaded, current_widget])
+    console.log(is_eu)
+    console.log(
+        typeof acuity_widgets[current_widget] == 'function'
+            ? acuity_widgets[current_widget]({ is_eu })
+            : acuity_widgets[current_widget],
+    )
 
     return (
         <>
@@ -95,7 +120,9 @@ const AcuityWidgets = () => {
                 />
                 <FlexBox.Box direction={'col'} padding_inline={'8x'} md={{ padding_inline: '40x' }}>
                     {is_loading && <InitialLoader style={{ position: 'absolute', right: '0' }} />}
-                    {acuity_widgets[current_widget]}
+                    {typeof acuity_widgets[current_widget] == 'function'
+                        ? acuity_widgets[current_widget]({ is_eu })
+                        : acuity_widgets[current_widget]}
                 </FlexBox.Box>
             </FlexBox.Box>
         </>

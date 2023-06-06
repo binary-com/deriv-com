@@ -14,7 +14,6 @@
 
 .public_signup_link {
     position: absolute;
-    inset-inline-end: 5%;
     inline-size: 30rem;
 
     @include breakpoints(phone) {

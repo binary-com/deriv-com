@@ -13,14 +13,14 @@ concurrency:
 
 env:
   GATSBY_CPU_COUNT: 2
-  GATSBY_ENV: staging
+  GATSBY_ENV: production
   NODE_OPTIONS: "--max_old_space_size=7168"
 
 jobs:
   lint:
     timeout-minutes: 10
     runs-on: ubuntu-latest
-    environment: staging
+    environment: production
 
     steps:
       - name: Checkout 🛎️
@@ -41,7 +41,7 @@ jobs:
     needs: lint
     timeout-minutes: 40
     runs-on: ubuntu-latest
-    environment: staging
+    environment: production
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1

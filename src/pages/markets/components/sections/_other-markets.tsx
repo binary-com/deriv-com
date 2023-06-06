@@ -270,7 +270,7 @@ const MarketsWrapper = styled(Flex)`
 const StyledHeader = styled(Header)`
     padding: auto;
     text-align: center;
-    margin: 9rem auto;
+    margin: 12rem 0 2.4rem;
 
     @media ${device.tabletL} {
         padding-left: 0;

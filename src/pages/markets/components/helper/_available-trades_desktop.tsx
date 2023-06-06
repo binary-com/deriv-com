@@ -31,9 +31,8 @@ type CardContainerProps = {
 const StyledSection = styled(SectionContainer)`
     padding: 0;
     background-color: var(--color-white);
-    margin-bottom: 80px;
     @media ${device.tabletL} {
-        padding: 20px 0;
+        padding: 40px 0;
         margin-bottom: 0;
     }
 `
@@ -47,9 +46,10 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledContainer = styled(Container)`
-    margin-top: 4rem;
+    margin-top: 9.6rem;
 
     @media ${device.tabletL} {
+        margin-top: 4rem;
         width: 100%;
     }
 `

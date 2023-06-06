@@ -14,17 +14,8 @@ interface PlatformMainSliderProps {
 }
 
 const PlatformImageSlider = ({ items, setSwiper, connectedSwiper }: PlatformMainSliderProps) => {
-    const sliderHandler = (swiper: SwiperType) => {
-        setTimeout(() => {
-            swiper.autoplay.start()
-            swiper.params.autoplay = {
-                delay: 4000,
-            }
-        }, 2000)
-    }
     return (
         <Swiper
-            onInit={sliderHandler}
             speed={800}
             effect={'fade'}
             slidesPerView={1}
@@ -37,6 +28,9 @@ const PlatformImageSlider = ({ items, setSwiper, connectedSwiper }: PlatformMain
             }}
             dir={get_lang_direction()}
             modules={[Controller, EffectFade, Autoplay, Pagination]}
+            autoplay={{
+                delay: 4000,
+            }}
             className={platform_images_swiper}
             pagination={{
                 enabled: true,
@@ -55,8 +49,8 @@ const PlatformImageSlider = ({ items, setSwiper, connectedSwiper }: PlatformMain
                 },
             }}
         >
-            {items.map(({ id, data }) => (
-                <SwiperSlide key={id}>
+            {items.map(({ id, data }, index) => (
+                <SwiperSlide key={id} data-swiper-autoplay={index === 0 ? '5000' : '4000'}>
                     <PlatformImageItem item={data} />
                 </SwiperSlide>
             ))}

@@ -170,7 +170,7 @@
         "translation:fetch": "node scripts/handle-translations.js pull-master",
         "translation:branch": "node scripts/handle-translations.js branch",
         "translation:check": "cd scripts && node extract-translations.js show-untranslated && cd ..",
-        "branch:create": "node script/branch-manager.js",
+        "branch:create": "node scripts/branch-manager.js",
         "deploy": "npm run build && gh-pages -d public -b master",
         "deploy-dev": "npm run build && gh-pages -d public",
         "deploy-branch": "PATH_PREFIX=/deriv-com/br/$branch_name npm run build && gh-pages -d public -e br/$branch_name",

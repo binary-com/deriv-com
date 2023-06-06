@@ -26,13 +26,16 @@ const BugBountyNav = () => {
                 align="center"
                 gap="8x"
             >
-                <Button.Primary
-                    id="dm-nav-submit-button"
-                    onClick={() => window.open('https://hackerone.com/deriv?type=team', '_blank')}
-                    outlined
+                <a
+                    href="https://hackerone.com/deriv?type=team"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ textDecoration: 'none' }}
                 >
-                    <Localize translate_text="_t_Submit a report_t_" />
-                </Button.Primary>
+                    <Button.Primary id="dm-nav-submit-button" outlined>
+                        <Localize translate_text="_t_Submit a report_t_" />
+                    </Button.Primary>
+                </a>
                 <LanguageSwitcher />
             </Flex.Box>
         </NavTemplate>

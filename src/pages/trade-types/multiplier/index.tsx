@@ -38,7 +38,7 @@ const Multipliers = () => {
             />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>
-                    <StyledHeader as="h1" size="6.4rem" color="white" align="center">
+                    <StyledHeader as="h1" size="6.4rem" color="red" align="center">
                         {localize('Multipliers')}
                     </StyledHeader>
                 </SmallContainer>

@@ -11,6 +11,7 @@ import device from 'themes/device'
 import LinkButton from 'features/components/atoms/link-button'
 import { TString } from 'types/generics'
 import { LinkUrlType } from 'features/types'
+import { isBrowser } from 'common/utility'
 
 type ContentType = {
     title: TString
@@ -81,12 +82,10 @@ const data = (page: string): ContentType => {
 }
 
 const CtraderManage = () => {
-    const [page] = useQueryParam('q', StringParam)
-    const [content, setContent] = useState<ContentType>(() => data(page))
+    const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
+    const page = url_params.get('q')
 
-    useEffect(() => {
-        setContent(data(page))
-    }, [page])
+    const content = data(page)
 
     return (
         <Layout type="static" margin_top={'0'}>

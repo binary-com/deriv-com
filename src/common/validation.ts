@@ -5,18 +5,10 @@ export const validation_regex = {
     url: /^[\w|\-|.]+$/,
     alphabetic: /^[a-zA-Z]+$/,
     number: /^\d+$/,
-    password: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
 }
 
 type TValidationHandler = (input: string, message?: string) => string | null
-type TValidationMethods =
-    | 'email'
-    | 'name'
-    | 'required'
-    | 'url'
-    | 'number'
-    | 'alphabetic'
-    | 'password'
+type TValidationMethods = 'email' | 'name' | 'required' | 'url' | 'number' | 'alphabetic'
 type TValidationType = {
     [key in TValidationMethods]: TValidationHandler
 }
@@ -61,17 +53,6 @@ const validation: TValidationType = {
     alphabetic: (input, message) => {
         if (!validation_regex.alphabetic.test(input)) {
             return message ? message : localize('Please enter only alphabetic characters')
-        } else {
-            return null
-        }
-    },
-    password: (input, message) => {
-        if (!validation_regex.password.test(input)) {
-            return message
-                ? message
-                : localize(
-                      'Please enter minimum eight characters, at least one uppercase letter, one lowercase letter and one number',
-                  )
         } else {
             return null
         }

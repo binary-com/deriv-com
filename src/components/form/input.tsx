@@ -26,7 +26,6 @@ type InputProps = ReactInput & InputWrapperProps & StyledInputProps & StyledLabe
 
 type InputWrapperProps = {
     border?: string
-    border_radius?: string
     label_hover_color?: string
     focus_border?: string
     error?: string
@@ -206,7 +205,6 @@ const Input = ({
     label = '',
     height = '',
     border = '',
-    border_radius = '',
     focus_border = '',
     label_hover_color,
     label_color = '',
@@ -225,7 +223,6 @@ const Input = ({
         <RelativeWrapper>
             <InputWrapper
                 border={border}
-                border_radius={border_radius}
                 focus_border={focus_border}
                 label_hover_color={label_hover_color}
                 disabled={disabled}

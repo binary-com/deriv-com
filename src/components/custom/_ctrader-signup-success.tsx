@@ -256,7 +256,6 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
                             disabled={residence_list.length < 1}
                         />
                     )}
-
                     <SubmitButton
                         disabled={
                             code_error_message !== '' ||

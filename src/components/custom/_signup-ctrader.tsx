@@ -72,12 +72,6 @@ const InputGroup = styled.div`
         margin: 25px 0 16px 0;
     }
 `
-
-const StyledInput = styled(Input)`
-    border-radius: 16px;
-    block-size: 40px;
-`
-
 const EmailButton = styled(Button)<{ isChecked?: boolean }>`
     width: 100%;
     height: 40px;
@@ -167,12 +161,11 @@ const SignupCtrader = ({
                 <Localize translate_text="_t_Enter your email address to begin_t_" />
             </SubTitle>
             <InputGroup>
-                <StyledInput
+                <Input
                     id="dm-email-input"
                     name="email"
                     type="text"
                     border="solid 1.5px var(--color-grey-7)"
-                    border_radius="18px"
                     label_color="grey-5"
                     label_hover_color="grey-5"
                     background="white"

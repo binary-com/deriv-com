@@ -18,7 +18,6 @@ const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
     flex-direction: column;
     height: auto;
-
     @media (max-width: 680px) {
         flex-direction: column;
         justify-content: space-between;
@@ -51,7 +50,7 @@ const StyledDescription = styled(Text)`
 `
 
 const StyledCard = styled(Card)`
-    max-block-size: 35.2rem;
+    max-block-size: 30.2rem;
 `
 
 const available_markets = [

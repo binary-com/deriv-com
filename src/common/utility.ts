@@ -417,6 +417,10 @@ export const updateURLAsPerUserLanguage = () => {
 
     if (!has_language_in_url && user_language === 'en') return
     if (first_path === user_language) return
+    if (first_path !== user_language) {
+        Cookies.remove('user_language')
+        setCookiesWithDomain('user_language', first_path)
+    }
 
     if (!is_careers) {
         const updated_url = has_language_in_url
@@ -424,7 +428,7 @@ export const updateURLAsPerUserLanguage = () => {
             : user_language + paths.join('/')
         const new_url = updated_url + current_hash
 
-        window.location.href = nonENLangUrlReplace(`/${new_url}`)
+        window.location.href = '/' + new_url
     } else {
         if (!has_language_in_url) return
         window.location.href = '/' + 'careers'

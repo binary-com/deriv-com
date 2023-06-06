@@ -23,7 +23,7 @@ const acuity_widgets = {
         ) : (
             <iframe
                 src={
-                    'https://dashboard.acuitytrading.com/widget/researchterminal?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0'
+                    'https://dashboard.acuitytrading.com/widget/researchterminal?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0&watchlistName=NON_EU_WL'
                 }
                 className={styles.widget_box_small}
             />
@@ -32,14 +32,14 @@ const acuity_widgets = {
         is_eu ? (
             <iframe
                 src={
-                    'https://dashboard.acuitytrading.com/widget/marketalerts?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0&watchlistName=NON_EU_WL'
+                    'https://dashboard.acuitytrading.com/widget/marketalerts?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0&watchlistName=EU_WL'
                 }
                 className={styles.widget_box_small}
             />
         ) : (
             <iframe
                 src={
-                    'https://dashboard.acuitytrading.com/widget/marketalerts?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0'
+                    'https://dashboard.acuitytrading.com/widget/marketalerts?lang=en-GB&apikey=2713b8d0-43ed-4194-b5d7-b1ff60dbdae0&watchlistName=NON_EU_WL'
                 }
                 className={styles.widget_box_small}
             />
@@ -97,12 +97,6 @@ const AcuityWidgets = () => {
             }
         }
     }, [is_script_loaded, current_widget])
-    console.log(is_eu)
-    console.log(
-        typeof acuity_widgets[current_widget] == 'function'
-            ? acuity_widgets[current_widget]({ is_eu })
-            : acuity_widgets[current_widget],
-    )
 
     return (
         <>

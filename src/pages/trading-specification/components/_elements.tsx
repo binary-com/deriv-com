@@ -236,22 +236,13 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const [is_mobile] = useBrowserResize(768)
 
     const openPopup = (type: TPopupType) => {
+        document.body.style.overflow = 'hidden'
         setShowPopUp(true)
         setPopupType(type)
-        document.body.style.overflow = 'hidden'
     }
 
     const getStyledImg = (width, icon, type) => {
-        return is_mobile ? (
-            <StyledImg
-                src={icon}
-                width={width}
-                height="24px"
-                onTouchStart={() => {
-                    openPopup(type)
-                }}
-            />
-        ) : (
+        return (
             <StyledImg
                 src={icon}
                 width={width}

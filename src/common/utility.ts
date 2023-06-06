@@ -415,18 +415,16 @@ export const updateURLAsPerUserLanguage = () => {
     }
     const user_language = Cookies.get('user_language') || 'en'
 
-    const language = has_language_in_url ? first_path : user_language
-
     if (!has_language_in_url && user_language === 'en') return
     if (first_path === user_language) return
 
     if (!is_careers) {
         const updated_url = has_language_in_url
-            ? paths.map((item) => (item === first_path ? language : item)).join('/')
-            : language + paths.join('/')
+            ? paths.map((item) => (item === first_path ? user_language : item)).join('/')
+            : user_language + paths.join('/')
         const new_url = updated_url + current_hash
 
-        window.location.href = '/' + new_url
+        window.location.href = nonENLangUrlReplace(`/${new_url}`)
     } else {
         if (!has_language_in_url) return
         window.location.href = '/' + 'careers'

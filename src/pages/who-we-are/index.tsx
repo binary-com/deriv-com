@@ -52,7 +52,7 @@ const WhoWeAre = ({ data }: TWhoWeAre) => {
     } = data?.strapiWhoWeArePage || {}
 
     return (
-        <Layout type="transparent" margin_top="0">
+        <Layout>
             <SEO
                 title={localize('_t_Who we are | An Online Trading Platform | Deriv.com_t_')}
                 description={localize(

@@ -1,0 +1,21 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables.scss';
+
+.container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 1.6rem;
+    gap: 4.8rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    background-color: $color-grey-45;
+
+    @include breakpoints(phone) {
+        justify-content: center;
+    }
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}

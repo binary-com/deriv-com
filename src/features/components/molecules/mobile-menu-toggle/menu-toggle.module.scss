@@ -1,0 +1,12 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.menu_toggle {
+    cursor: pointer;
+    inline-size: 16px;
+    display: block;
+    margin-inline-end: 1rem;
+
+    @include breakpoints(tablet) {
+        display: none;
+    }
+}

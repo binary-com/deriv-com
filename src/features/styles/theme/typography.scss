@@ -1,0 +1,215 @@
+@use './theme-mixins' as *;
+@import './variables';
+
+.typography {
+    line-height: calc(2px + 2.5ex + 2px);
+    color: $color-black-9;
+    word-break: break-word;
+}
+
+[dir='ltr'] .typography-font-IBM {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+[dir='ltr'] .typography-font-UBUNTU {
+    font-family: Ubuntu, sans-serif;
+}
+
+.typography-link {
+    cursor: pointer;
+    text-decoration: none;
+    transition: text-shadow 0.25s;
+
+    &:active {
+        color: $color-red;
+    }
+
+    &:disabled {
+        pointer-events: none;
+        opacity: 0.32;
+    }
+}
+.typography-hover {
+    &:hover {
+        color: $color-red;
+        text-decoration: underline;
+    }
+}
+
+.typography-align-center {
+    text-align: center;
+}
+.typography-align-left {
+    text-align: start;
+}
+.typography-align-right {
+    text-align: end;
+}
+.typography-align-justify {
+    text-align: justify;
+}
+
+.typography-color-brand {
+    color: $color-brand;
+}
+.typography-color-primary {
+    color: $color-black-9;
+}
+.typography-color-secondary {
+    color: #414652b2;
+}
+.typography-color-tertiary {
+    color: #425651;
+}
+.typography-color-inverted {
+    color: $color-white;
+}
+.typography-color-white {
+    color: $color-white;
+}
+.typography-color-black {
+    color: $color-black-9;
+}
+.typography-color-light {
+    color: $color-grey-5;
+}
+.typography-color-profit {
+    color: $color-blue-7;
+}
+.typography-break-word {
+    word-break: break-word;
+}
+
+.typography-break-normal {
+    word-break: normal;
+}
+
+.typography-weight-normal {
+    font-weight: normal;
+}
+.typography-weight-bold {
+    font-weight: bold;
+}
+.typography-weight-bolder {
+    font-weight: 700;
+}
+
+*[dir='ltr'] {
+    .heading {
+        font-family: Ubuntu, sans-serif;
+    }
+}
+
+.heading-xxxl {
+    @include font-size($font-size-1300);
+}
+
+.heading-xxl {
+    @include font-size($font-size-1200);
+}
+
+.heading-xlarge {
+    @include font-size($font-size-1100);
+}
+
+.heading-large {
+    @include font-size($font-size-1000);
+}
+
+.heading-medium {
+    @include font-size($font-size-900);
+}
+
+.heading-small {
+    @include font-size($font-size-800);
+}
+
+.heading-xs {
+    @include font-size($font-size-700);
+}
+
+.heading-xxs {
+    @include font-size($font-size-600);
+}
+
+.text-xxxl {
+    @include font-size($font-size-900);
+}
+
+.text-xxl {
+    @include font-size($font-size-800);
+}
+
+.text-xlarge {
+    @include font-size($font-size-700);
+}
+
+.text-large {
+    @include font-size($font-size-600);
+}
+
+.text-medium {
+    @include font-size($font-size-500);
+}
+
+.text-small {
+    @include font-size($font-size-400);
+}
+
+.text-xs {
+    @include font-size($font-size-300);
+}
+
+.text-xxs {
+    @include font-size($font-size-200);
+}
+
+@mixin typography-align($media-name) {
+    .#{$media-name + #{'-'}}typography-align-center {
+        @include media($media-name) {
+            text-align: center;
+        }
+    }
+    .#{$media-name + #{'-'}}typography-align-left {
+        @include media($media-name) {
+            text-align: start;
+        }
+    }
+    .#{$media-name + #{'-'}}typography-align-right {
+        @include media($media-name) {
+            text-align: end;
+        }
+    }
+    .#{$media-name + #{'-'}}typography-align-justify {
+        @include media($media-name) {
+            text-align: justify;
+        }
+    }
+}
+
+@mixin typography-weight($media-name) {
+    .#{$media-name + #{'-'}}typography-weight-normal {
+        @include media($media-name) {
+            font-weight: normal;
+        }
+    }
+    .#{$media-name + #{'-'}}typography-weight-bold {
+        @include media($media-name) {
+            font-weight: bold;
+        }
+    }
+    .#{$media-name + #{'-'}}typography-weight-bolder {
+        @include media($media-name) {
+            font-weight: 700;
+        }
+    }
+}
+
+$typography-medias: (md, lg);
+
+@each $name in $typography-medias {
+    @include typography-align($name);
+}
+@each $name in $typography-medias {
+    @include typography-weight($name);
+}

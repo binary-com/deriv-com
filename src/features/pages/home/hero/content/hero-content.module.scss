@@ -1,0 +1,23 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.hero_cta {
+    inline-size: 100%;
+    @include breakpoints(tablet) {
+        inline-size: auto;
+    }
+}
+
+.hero_typewriter {
+    margin-block: 0.8rem;
+    min-block-size: 4.8rem;
+
+    @include breakpoints(tablet) {
+        min-block-size: 6.4rem;
+    }
+}
+
+html:not([lang='en']) .hero_content_title {
+    @include breakpoints(tablet) {
+        max-inline-size: 75%;
+    }
+}

@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import PageNotFound from '../404'
 import { DerivGoContent, FooterBanner, StartDerivGo } from './_lazy-load'
 import Banner from './_banner'
@@ -26,7 +26,7 @@ const items: ContentType[] = [
     {
         title: <Localize translate_text="Multiply your profit and limit your loss" />,
         subtitle: (
-            <Localize translate_text="Amplify your profits up to 1000x without losing more than your trade amount with multipliers." />
+            <Localize translate_text="Amplify your profits up to 1000x without losing more than your stake with multipliers." />
         ),
         image_name: 'multiply_profit',
         image_alt: 'Trading multipliers on Deriv GO',
@@ -40,9 +40,9 @@ const items: ContentType[] = [
         image_alt: 'Trading forex pairs on Deriv GO',
     },
     {
-        title: <Localize translate_text="Trade synthetic indices" />,
+        title: <Localize translate_text="Trade synthetics" />,
         subtitle: (
-            <Localize translate_text="Trade Volatility and Crash/Boom indices that emulate the movements of real-world markets." />
+            <Localize translate_text="Trade Volatility and Crash/Boom indices that simulate the movements of real-world markets." />
         ),
         image_name: 'synthetic_indices',
         image_alt: 'Trading Volatility 100 Index on Deriv GO',
@@ -65,7 +65,7 @@ type DerivGoPortalType = {
 
 const derivGoPortalData: DerivGoPortalType = {
     paragraph: (
-        <Localize translate_text="Take a look at Deriv GO’s product roadmap, give us your feedback on what we’re building, and suggestions on what to build next." />
+        <Localize translate_text="Take a look at Deriv GO’s product roadmap, give us your feedback on what we’re building and suggestions on what to build next." />
     ),
     frame: 'https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn?hide_header=1',
     link: 'https://portal.productboard.com/gfueayjjwpmfhdysrrn3n3wn',
@@ -73,30 +73,51 @@ const derivGoPortalData: DerivGoPortalType = {
 
 const DerivGo = () => {
     const { is_region_loading, is_row } = useRegion()
+    const [is_loaded, setLoaded] = useState(false)
 
-    if (!is_region_loading && is_row) {
-        return (
-            <Layout>
-                <SEO
-                    title={localize(
-                        'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO.',
-                    )}
-                    description={localize(
-                        'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',
-                    )}
-                />
-                <Banner />
-                <WhatIsDerivGo />
-                <WhyTradeDerivGo />
-                <DerivGoContent reverse P2P={items} />
-                <StartDerivGo />
-                <FooterBanner />
-                <OtherApps />
-                <Roadmap portal={derivGoPortalData} />
-            </Layout>
-        )
+    useEffect(() => {
+        setLoaded(true)
+    }, [])
+
+    if (is_loaded) {
+        if (is_row) {
+            return (
+                <Layout>
+                    <SEO
+                        title={localize(
+                            'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO.',
+                        )}
+                        description={localize(
+                            'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',
+                        )}
+                    />
+                    <Banner />
+                    <WhatIsDerivGo />
+                    <WhyTradeDerivGo />
+                    <DerivGoContent reverse P2P={items} />
+                    <StartDerivGo />
+                    <Roadmap portal={derivGoPortalData} />
+                    <FooterBanner />
+                    <OtherApps />
+                </Layout>
+            )
+        }
+
+        return <PageNotFound />
     }
-    return <PageNotFound />
+
+    return (
+        <>
+            <SEO
+                title={localize(
+                    'Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO.',
+                )}
+                description={localize(
+                    'Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO.',
+                )}
+            />
+        </>
+    )
 }
 
 export default WithIntl()(DerivGo)

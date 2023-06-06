@@ -12,7 +12,7 @@ interface SingleInstrumentsItemProps {
 
 const SingleInstrumentsItem = ({ content, mobile_basis, md_basis }: SingleInstrumentsItemProps) => {
     return (
-        <Flex.Box align="center" padding="10x" basis={mobile_basis} md={{ basis: md_basis }}>
+        <Flex.Box align="center" padding="7x" basis={mobile_basis} md={{ basis: md_basis }}>
             <SymbolWithText content={content} />
         </Flex.Box>
     )

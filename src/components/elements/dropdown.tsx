@@ -84,19 +84,12 @@ export const DropdownContainer = styled.ul<DropdownContainerProps>`
     inline-size: 100%;
     list-style: none;
     position: relative;
-    border: 1px solid var(--color-grey-7);
+    border: 1.5px solid var(--color-grey-7);
     cursor: pointer;
     padding: 0;
     border-radius: 16px;
-    height: 40px;
+    height: 42px;
     margin-bottom: ${(props) => props.mb ?? '0'};
-
-    /* ul has no focus attributes, it needs to pass on active props instead */
-    ${(props) =>
-        props.active &&
-        css`
-            border-color: var(--color-green) !important;
-        `}
 
     &:hover {
         border-color: var(--color-grey-5);
@@ -236,7 +229,7 @@ const UnorderedList = styled.ul<DropdownStyledProps>`
 export const Arrow = styled(Chevron)<ArrowType>`
     position: absolute;
     right: 8px;
-    top: 25%;
+    top: 30%;
     transition: transform 0.2s linear;
     ${(props) => (props.expanded ? 'transform: rotate(-180deg);' : '')}
 
@@ -248,7 +241,7 @@ export const Arrow = styled(Chevron)<ArrowType>`
 export const StyledLabel = styled.label<DropdownStyledProps>`
     color: var(--color-grey-5);
     background: var(--color-white);
-    font-size: var(--text-size-s);
+    font-size: var(--text-size-xs);
     position: absolute;
     pointer-events: none;
     left: 0.8rem;

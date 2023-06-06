@@ -7,7 +7,7 @@ import { LocalizedLink } from 'components/localization'
 const Link = styled(LocalizedLink)`
     text-decoration: none;
     font-size: var(--text-size-s);
-    font-weight: ${({ weight }) => weight};
+    font-weight: normal;
     color: var(--color-red);
 
     :hover {

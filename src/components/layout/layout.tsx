@@ -4,9 +4,7 @@ import { LocationProvider } from './location-context'
 import LayoutOverlay from './layout-overlay'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
-import NonEuRedirectPopUp from 'components/custom/_non-eu-redirect-popup'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import usePopup from 'components/hooks/use-popup'
 import { getLanguage, isBrowser } from 'common/utility'
 import apiManager from 'common/websocket'
 import MainNav from 'features/components/templates/navigation/main-nav'
@@ -93,7 +91,6 @@ const Layout = ({
     type = 'default',
 }: LayoutProps) => {
     const [is_mounted] = usePageLoaded()
-    const { show_non_eu_popup, setShowNonEuPopup } = usePopup()
     const [show_modal, toggleModal, closeModal] = useModal()
     const [modal_payload, setModalPayload] = React.useState({} as ModalPayloadType)
     const { has_platform } = usePlatformQueryParam()
@@ -131,12 +128,6 @@ const Layout = ({
                         aria_label={modal_payload.aria_label}
                     />
                     <BannerAlert bannerType={bannerTypes.outdatedBrowserBanner} />
-                    {show_non_eu_popup && (
-                        <NonEuRedirectPopUp
-                            is_open={show_non_eu_popup}
-                            setShowNonEuPopup={setShowNonEuPopup}
-                        />
-                    )}
                     <LayoutOverlay is_ppc={is_ppc} />
                 </div>
             </LocationProvider>

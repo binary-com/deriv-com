@@ -8,7 +8,7 @@ const Derived = () => {
     const { is_row, is_eu } = useRegion()
     const first_paragraph = is_eu
         ? '_t_Derived in the EU consist of synthetic indices whose prices are generated using a random number generator with no influence from real-world events._t_'
-        : '_t_Derived indices consist of asset prices generated from real-world and simulated markets and indices, with little to no influence from real-world events. You can trade from a variety of derived indices, including synthetic indices, derived FX indices, and basket indices._t_'
+        : '_t_Derived indices consist of asset prices generated from real-world and simulated markets and indices, with little to no influence from real-world events. You can trade from a variety of derived indices, including synthetic indices, derived FX indices, and baskets._t_'
 
     return (
         <>

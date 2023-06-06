@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import { WithIntl } from 'components/localization'
 import PageNotFound from 'features/pages/404'
 
@@ -7,7 +8,7 @@ const NotFound = () => {
 }
 
 // this query exist here to get data only which need to be translated in crowdin
-const strapi_query =
+export const query =
     process.env.STRAPI_BUILD == 'true' &&
     graphql`
         query {
@@ -63,6 +64,5 @@ const strapi_query =
             }
         }
     `
-export const query = strapi_query
 
 export default WithIntl()(NotFound)

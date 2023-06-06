@@ -21,7 +21,7 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 const StyledHeader = styled(Header)`
-    margin-top: 4rem;
+    margin-top: 0.8rem;
 `
 
 const CFDs = ({ market_content, market_tab_name }: CFDProps) => {

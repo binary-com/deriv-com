@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Popover, ArrowContainer } from 'react-tiny-popover'
 import { TAvailableLiveMarkets, TInstrumentData, TPopupType } from '../_types'
@@ -233,10 +233,12 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const { symbol, instrument: text, dl_icon, swf_icon } = data
     const [show_popUp, setShowPopUp] = useState(false)
     const [popup_type, setPopupType] = useState<TPopupType>()
-    const [is_mobile] = useBrowserResize(768)
+
+    useEffect(() => {
+        document.body.style.overflow = show_popUp ? 'hidden' : 'unset'
+    }, [show_popUp])
 
     const openPopup = (type: TPopupType) => {
-        document.body.style.overflow = 'hidden'
         setShowPopUp(true)
         setPopupType(type)
     }

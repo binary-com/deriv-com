@@ -44,6 +44,7 @@
         "gatsby-plugin-svgr": "^3.0.0-beta.0",
         "gatsby-plugin-use-query-params": "^1.0.1",
         "gatsby-source-filesystem": "^4.24.0",
+        "gatsby-source-strapi": "^3.1.2",
         "gatsby-transformer-sharp": "^4.24.0",
         "gbimage-bridge": "^0.2.1",
         "i18next": "^21.6.5",
@@ -150,7 +151,7 @@
     "license": "Apache License 2.0",
     "scripts": {
         "analyze-bundle": "GENERATE_JSON_STATS=true gatsby build && npx webpack-bundle-analyzer -m static -r ./webpack-bundle-report/report.html ./public/stats.json",
-        "build": "GATSBY_CPU_COUNT=2 gatsby build --log-pages",
+        "build": "STRAPI_BUILD=true GATSBY_CPU_COUNT=2 gatsby build --log-pages",
         "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o",
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import {
     flexRender,
     getCoreRowModel,
@@ -30,8 +30,8 @@ type MarketResponseType = {
 
 const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) => {
     const { is_eu } = useRegion()
+    const [initial_loaded, setInitialLoaded] = useState(false)
     const [is_offline, setIsOffline] = useState(false)
-
     const [rawMarketsData, setRawMarketsData] = useState<MarketResponseType>()
     const TABLE_VISIBLE_ROWS = 5
     const [markets_data, setMarketsData] = useState(() => {
@@ -42,43 +42,47 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
 
     const [sorting, setSorting] = React.useState<SortingState>([])
 
-    const region = is_eu
-        ? 'https://deriv-static-pricingfeed.firebaseio.com/eu.json'
-        : 'https://deriv-static-pricingfeed.firebaseio.com/row.json'
+    const region = useMemo(() => {
+        return is_eu
+            ? 'https://deriv-static-pricingfeed.firebaseio.com/eu.json'
+            : 'https://deriv-static-pricingfeed.firebaseio.com/row.json'
+    }, [is_eu])
 
-    const [is_loading, setIsLoading] = useState(true)
     useEffect(() => {
         if (typeof window !== 'undefined') {
             window.addEventListener('online', () => setIsOffline(false))
             window.addEventListener('offline', () => setIsOffline(true))
         }
     }, [])
-    useEffect(() => {
+
+    const getData = useCallback(async () => {
         if (intervalRef?.current) {
             clearInterval(intervalRef.current)
         }
-        const getData = async () => {
-            if (is_offline) {
-                clearInterval(intervalRef?.current)
-                return
-            }
-            try {
-                const rawResponse = await fetch(region)
-                const response = (await rawResponse.json()) as MarketResponseType
-                setIsLoading(false)
-                setRawMarketsData(response)
-            } catch (error) {
-                clearInterval(intervalRef?.current)
-                // show the message or modal incase it's needed here
-            }
+        if (is_offline) {
+            clearInterval(intervalRef?.current)
+            return
         }
+        try {
+            const rawResponse = await fetch(region)
+            const response = (await rawResponse.json()) as MarketResponseType
+            setRawMarketsData(response) // the error
+        } catch (error) {
+            clearInterval(intervalRef?.current)
+            // show the message or modal incase it's needed here
+        }
+    }, [region, is_offline])
 
+    useEffect(() => {
+        if (!initial_loaded) {
+            getData()
+            setInitialLoaded(true)
+        }
         intervalRef.current = setInterval(getData, 10000)
-
         return () => {
             clearInterval(intervalRef.current)
         }
-    }, [is_offline, region])
+    }, [getData, initial_loaded])
 
     const updateData = useCallback(() => {
         if (rawMarketsData) {
@@ -144,7 +148,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
                             </Flex.Box>
                         ))}
                     </thead>
-                    {is_loading ? (
+                    {!initial_loaded ? (
                         <InitialLoader style={{ marginBlock: '40x' }} />
                     ) : (
                         <tbody>

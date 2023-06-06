@@ -64,8 +64,8 @@ export const banner_data: BannerType = {
             id: 3,
             data: {
                 icon_src: WebBrowserIcon,
-                text: '_t_Use it on your_t_',
-                smallText: '_t_Web Browser_t_',
+                text: '_t_Web Browser_t_',
+                smallText: '_t_Use it on your_t_',
                 url: {
                     type: 'non-company',
                     href: deriv_dp2p_app_url,

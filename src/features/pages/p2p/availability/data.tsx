@@ -7,6 +7,7 @@ import DesktopImageForMobile from 'images/svg/p2p/p2p-desktop-for-mobile.svg'
 import MobileImageForMobile from 'images/svg/p2p/p2p-mobile-for-mobile.svg'
 import Login from 'common/login'
 import { deriv_dp2p_app_url } from 'common/constants'
+import Typography from 'features/components/atoms/typography'
 
 const handleLogin = () => {
     Login.redirectToLogin()
@@ -23,15 +24,7 @@ export const platforms: SmartPlatform[] = [
                 {
                     text: '_t_<0>Log in</0> to your Deriv account. Don’t have one? <1>Sign up</1> for free._t_',
                     components: [
-                        <Link
-                            textcolor="brand"
-                            key={0}
-                            onClick={handleLogin}
-                            url={{
-                                type: 'internal',
-                                to: '/',
-                            }}
-                        />,
+                        <Typography.Link textcolor="brand" key={0} onClick={handleLogin} />,
                         <Link
                             textcolor="brand"
                             key={1}
@@ -61,8 +54,13 @@ export const platforms: SmartPlatform[] = [
                 },
             ],
             button: {
-                text: '_t_Try Deriv P2P now<_t_',
-                url: { type: 'internal', to: '/our-principles/' },
+                text: '_t_Try Deriv P2P now_t_',
+                url: {
+                    type: 'company',
+                    url_name: 'deriv_app',
+                    path: '/cashier/p2p',
+                    target: '_blank',
+                },
             },
         },
     },

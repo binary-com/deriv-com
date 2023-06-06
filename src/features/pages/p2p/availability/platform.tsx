@@ -8,8 +8,22 @@ import { Localize } from 'components/localization'
 import LinkButton from 'features/components/atoms/link-button'
 import Box from 'features/components/atoms/box'
 import dclsx from 'features/utils/dclsx'
+import { mobileOSDetect } from 'common/os-detect'
+import { p2p_playstore_url, p2p_applestore_url } from 'common/constants'
+import Button from 'features/components/atoms/button'
 
 const DP2Platform = ({ item }: { item: PlatformType }) => {
+    const handleExternalLink = () => {
+        let link = ''
+        if (mobileOSDetect() === 'Android') {
+            link = p2p_playstore_url
+        }
+        if (mobileOSDetect() === 'iOS') {
+            link = p2p_applestore_url
+        }
+
+        window.open(link, '_blank')
+    }
     return (
         <Flex.Box basis="full" direction="col" align="start" md={{ basis: '5-12' }}>
             <Image
@@ -48,9 +62,21 @@ const DP2Platform = ({ item }: { item: PlatformType }) => {
                 ))}
             </Box>
             {item?.button && (
-                <LinkButton.Primary url={item.button.url} size="medium">
-                    <Localize translate_text={item.button.text} />
-                </LinkButton.Primary>
+                <>
+                    <LinkButton.Primary
+                        url={item.button.url}
+                        size="medium"
+                        className="visible-larger-than-tablet"
+                    >
+                        <Localize translate_text={item.button.text} />
+                    </LinkButton.Primary>
+                    <Button.Primary
+                        onClick={handleExternalLink}
+                        className="visible-phone-and-tablet"
+                    >
+                        <Localize translate_text={item.button.text} />
+                    </Button.Primary>
+                </>
             )}
         </Flex.Box>
     )

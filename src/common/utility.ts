@@ -420,6 +420,7 @@ export const updateURLAsPerUserLanguage = () => {
     if (first_path !== user_language) {
         Cookies.remove('user_language')
         setCookiesWithDomain('user_language', first_path)
+        return
     }
 
     if (!is_careers) {

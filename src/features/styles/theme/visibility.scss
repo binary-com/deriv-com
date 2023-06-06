@@ -28,7 +28,7 @@
 }
 
 .visible-larger-than-phone {
-    // > 600px
+    // > 599px
     @include breakpoints(phone, max){
         display: none;
     }

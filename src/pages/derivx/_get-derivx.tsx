@@ -55,7 +55,6 @@ const DerivXGetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
     const { is_appgallery_supported } = useRegion()
-
     const items = [
         { text: 'Google Play', icon: AndroidIcon, link: derivx_android_url },
         { text: 'App Store', icon: AppleIcon, link: derivx_ios_url },

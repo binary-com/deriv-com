@@ -2,7 +2,7 @@ import { SellingPointsTypes } from '../types'
 
 export const selling_points: SellingPointsTypes[] = [
     {
-        title: '_t_150_t_',
+        title: '_t_150+_t_',
         subtitle: '_t_tradable assets_t_',
     },
     {

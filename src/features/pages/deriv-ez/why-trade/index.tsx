@@ -20,7 +20,8 @@ const WhyTradeDerivEZ = () => {
                 direction={'col'}
                 align={'center'}
                 mt={'4x'}
-                md={{ direction: 'row', justify: 'center', mt: '20x' }}
+                mb={'12x'}
+                md={{ direction: 'row', justify: 'center', mt: '20x', shrink: '1' }}
             >
                 {card_data.map((card) => {
                     return (
@@ -31,7 +32,6 @@ const WhyTradeDerivEZ = () => {
                             justify={'start'}
                             radius={'8x'}
                             padding={'8x'}
-                            mt={'12x'}
                             md={{ padding: '12x', mr: '12x' }}
                         >
                             {card.icon}

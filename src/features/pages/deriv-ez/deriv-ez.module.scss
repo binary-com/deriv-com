@@ -24,7 +24,6 @@
   inline-size: 32.8rem;
   min-block-size: 21.6rem;
   @include breakpoints(tablet) {
-    inline-size: 28.2rem;
     min-block-size: 30.8rem;
   }
 }

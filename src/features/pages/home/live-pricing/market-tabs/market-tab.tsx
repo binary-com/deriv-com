@@ -7,13 +7,12 @@ import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import Container from 'features/components/atoms/container'
 import Flex from 'features/components/atoms/flex-box'
-import Image from 'features/components/atoms/image'
 import TabMenu from 'features/components/templates/tabs/menu'
 
 const MarketTab = () => {
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
     const [tab_name, setTabName] = useState('Forex')
-    const [linkToMarketPage, setLinkToMarketPage] = useState('/markets/forex/')
+    const [linkToMarketPage, setLinkToMarketPage] = useState<`/${string}`>('/markets/forex/')
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
     }

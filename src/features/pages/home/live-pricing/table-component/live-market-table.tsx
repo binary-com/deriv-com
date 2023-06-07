@@ -13,37 +13,57 @@ import Flex from 'features/components/atoms/flex-box'
 import useRegion from 'components/hooks/use-region'
 import Link from 'features/components/atoms/link'
 import { Localize } from 'components/localization'
+import InitialLoader from 'components/elements/dot-loader'
+import useNetwork from 'features/hooks/use-network'
 
 export type TLiveMarketTableProps = {
     selected_market: TAvailableLiveMarkets
-    link_to: string
+    link_to: `/${string}`
+}
+
+type MarketResponseType = {
+    market: {
+        [key in TAvailableLiveMarkets]: {
+            [key: string]: TMarketData
+        }
+    }
 }
 
 const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) => {
     const { is_eu } = useRegion()
     const [initial_loaded, setInitialLoaded] = useState(false)
-
-    const [rawMarketsData, setRawMarketsData] = useState()
-    const TABLE_VISIBLE_ROWS = 5
+    const [rawMarketsData, setRawMarketsData] = useState<MarketResponseType>()
+    const [sorting, setSorting] = React.useState<SortingState>([])
+    const intervalRef = useRef(null)
     const [markets_data, setMarketsData] = useState(() => {
         const temp = new Map<TAvailableLiveMarkets, TMarketData[]>()
         return temp
     })
-    const intervalRef = useRef(null)
 
-    const [sorting, setSorting] = React.useState<SortingState>([])
+    const network = useNetwork()
 
-    const region = useMemo(() => {
-        return is_eu
-            ? 'https://deriv-static-pricingfeed.firebaseio.com/eu.json'
-            : 'https://deriv-static-pricingfeed.firebaseio.com/row.json'
-    }, [is_eu])
+    const is_online = network.online
+    console.log(network.effectiveType)
+    const TABLE_VISIBLE_ROWS = 5
+
+    const region = is_eu
+        ? 'https://deriv-static-pricingfeed.firebaseio.com/eu.json'
+        : 'https://deriv-static-pricingfeed.firebaseio.com/row.json'
 
     const getData = useCallback(async () => {
-        const rawResponse = await fetch(region)
-        const response = await rawResponse.json()
-        setRawMarketsData(response)
-    }, [region])
+        if (!is_online) {
+            clearInterval(intervalRef?.current)
+            return
+        }
+        try {
+            const rawResponse = await fetch(region)
+            const response = (await rawResponse.json()) as MarketResponseType
+            setRawMarketsData(response) // the error
+        } catch (error) {
+            clearInterval(intervalRef?.current)
+            // show the message or modal incase it's needed here
+        }
+    }, [region, is_online])
 
     useEffect(() => {
         if (!initial_loaded) {
@@ -54,7 +74,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
         return () => {
             clearInterval(intervalRef.current)
         }
-    }, [getData, initial_loaded])
+    }, [getData])
 
     const updateData = useCallback(() => {
         if (rawMarketsData) {
@@ -65,9 +85,12 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
 
             Object.keys(res).map((item) => {
                 if (item == selected_market) {
-                    const selected_market_data = res[item]
+                    const selected_market_data = res[item as TAvailableLiveMarkets]
                     const result = Object.values(selected_market_data)
-                    setMarketsData(result)
+                    setMarketsData((prevState) => {
+                        prevState.set(item, result)
+                        return prevState
+                    })
                 }
             })
         }
@@ -80,7 +103,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
     const columns = useLiveColumns()
 
     const table = useReactTable({
-        data: markets_data,
+        data: markets_data.get(selected_market) ?? [],
         columns,
         state: {
             sorting,
@@ -114,22 +137,30 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
                             </Flex.Box>
                         ))}
                     </thead>
-                    <tbody>
-                        {rows.map((row) => (
-                            <Flex.Box key={row.id} justify="center">
-                                <tr className={table_row_data}>
-                                    {row.getVisibleCells().map((cell) => (
-                                        <td key={cell.id}>
-                                            {flexRender(
-                                                cell.column.columnDef.cell,
-                                                cell.getContext(),
-                                            )}
-                                        </td>
-                                    ))}
-                                </tr>
-                            </Flex.Box>
-                        ))}
-                    </tbody>
+                    {!initial_loaded ? (
+                        <InitialLoader
+                            style={{
+                                padding: '40px',
+                            }}
+                        />
+                    ) : (
+                        <tbody>
+                            {rows.map((row) => (
+                                <Flex.Box key={row.id} justify="center">
+                                    <tr className={table_row_data}>
+                                        {row.getVisibleCells().map((cell) => (
+                                            <td key={cell.id}>
+                                                {flexRender(
+                                                    cell.column.columnDef.cell,
+                                                    cell.getContext(),
+                                                )}
+                                            </td>
+                                        ))}
+                                    </tr>
+                                </Flex.Box>
+                            ))}
+                        </tbody>
+                    )}
                 </table>
             </Flex.Box>
 

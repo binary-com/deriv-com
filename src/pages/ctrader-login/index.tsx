@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { StringParam, useQueryParam } from 'use-query-params'
+import styled from 'styled-components'
 import Layout from 'components/layout/layout'
 import { useCheckExistingAccount } from 'components/hooks/use-check-existing-account'
 import { isBrowser } from 'common/utility'
 import apiManager from 'common/websocket'
 import Loading from 'features/components/atoms/loading'
+
+const ErrorMessage = styled.h3`
+    font-size: 20px;
+    text-align: center;
+`
 
 const CtraderLogin = () => {
     const [token] = useQueryParam('token1', StringParam)
@@ -59,12 +65,16 @@ const CtraderLogin = () => {
                         setSubmitStatus('success')
                     }
                 })
+                .catch((reason) => {
+                    setError(reason.error.message)
+                })
         }
     }, [submit_status])
 
     return (
         <Layout type="static" margin_top={35}>
-            <Loading />
+            {!error && <Loading />}
+            {error && <ErrorMessage>{error}</ErrorMessage>}
         </Layout>
     )
 }

@@ -15,7 +15,7 @@ const strapi_preview_param = {
     publicationState: process.env.STRAPI_PREVIEW === 'true' ? 'preview' : 'live',
     'filters[publishedAt][$null]': process.env.STRAPI_PREVIEW === 'true' ? 'true' : 'false',
 }
-const strapi_config = [
+const strapi_config = process.env.STRAPI_BUILD == 'true' && [
     {
         singularName: 'who-we-are-page',
         queryParams: strapi_preview_param,
@@ -97,7 +97,7 @@ module.exports = {
                     // Configure cache options here
                     cacheFolder: '.cache/caches/gatsby-plugin-sharp',
                     maxMemory: 500000000,
-                },
+                  },
             },
         },
         `gatsby-plugin-image`,

@@ -151,7 +151,7 @@
     "license": "Apache License 2.0",
     "scripts": {
         "analyze-bundle": "GENERATE_JSON_STATS=true gatsby build && npx webpack-bundle-analyzer -m static -r ./webpack-bundle-report/report.html ./public/stats.json",
-        "build": "GATSBY_CPU_COUNT=2 gatsby build --log-pages",
+        "build": "STRAPI_BUILD=true GATSBY_CPU_COUNT=2 gatsby build --log-pages",
         "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o",
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",

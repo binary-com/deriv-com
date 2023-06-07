@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Popover, ArrowContainer } from 'react-tiny-popover'
 import { TAvailableLiveMarkets, TInstrumentData, TPopupType } from '../_types'
@@ -233,25 +233,18 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const { symbol, instrument: text, dl_icon, swf_icon } = data
     const [show_popUp, setShowPopUp] = useState(false)
     const [popup_type, setPopupType] = useState<TPopupType>()
-    const [is_mobile] = useBrowserResize(768)
+
+    useEffect(() => {
+        document.body.style.overflow = show_popUp ? 'hidden' : 'unset'
+    }, [show_popUp])
 
     const openPopup = (type: TPopupType) => {
         setShowPopUp(true)
         setPopupType(type)
-        document.body.style.overflow = 'hidden'
     }
 
     const getStyledImg = (width, icon, type) => {
-        return is_mobile ? (
-            <StyledImg
-                src={icon}
-                width={width}
-                height="24px"
-                onTouchStart={() => {
-                    openPopup(type)
-                }}
-            />
-        ) : (
+        return (
             <StyledImg
                 src={icon}
                 width={width}
@@ -282,7 +275,6 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                         popup_type={popup_type}
                         toggle={() => {
                             setShowPopUp(false)
-                            document.body.style.overflow = 'scroll'
                         }}
                     />
                 )}

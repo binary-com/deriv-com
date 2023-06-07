@@ -22,8 +22,8 @@ const InstrumentalTable = ({ tableContent }: InstrumentalTableProps) => {
                 <Typography.Paragraph
                     size="medium"
                     textcolor="black"
-                    font_family="UBUNTU"
                     weight="bold"
+                    font_family="UBUNTU"
                 >
                     <Localize translate_text={title} />
                 </Typography.Paragraph>

@@ -3,10 +3,10 @@ import Steps from './steps'
 import WhyTrade from './why-trade'
 import Banner from './banner'
 import InstrumentsTable from './instruments'
-import OtherMarkets from './other-markets'
 import InstrumentsContent from './instrumental-content.tsx'
 import TradeTypes from './trades-available'
 import Flex from 'features/components/atoms/flex-box'
+import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 
 const ETFMarket = () => {
     return (
@@ -25,7 +25,7 @@ const ETFMarket = () => {
             </Flex.Box>
             <WhyTrade />
             <Steps />
-            <OtherMarkets />
+            <OtherMarketsSlider current_market="etfs" />
         </>
     )
 }

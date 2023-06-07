@@ -2,21 +2,26 @@ import React from 'react'
 import Typography from '../../typography'
 import Flex from '../../flex-box'
 import Link from '../../link'
+import { FlexBoxProps } from '../../flex-box/box'
 import { CardType } from '../type'
 import { Localize } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 
-const CardPrimary = ({ header, description, icon, link }: CardType) => {
+export interface CardPrimaryProps extends FlexBoxProps<'div'>, CardType {}
+
+const CardPrimary = ({ header, description, icon, link, className, ...rest }: CardPrimaryProps) => {
     const { is_mobile_or_tablet } = useBreakpoints()
 
     return (
         <Flex.Box
-            className={dclsx('card_primary_container')}
+            className={dclsx(className, 'card_primary_container')}
             direction="col"
+            justify="between"
             gap="4x"
             bgcolor="white"
             radius="8x"
+            {...rest}
         >
             <Flex.Item className={dclsx('item_block')}>
                 {icon && (
@@ -24,10 +29,15 @@ const CardPrimary = ({ header, description, icon, link }: CardType) => {
                         <img src={icon} width={44} height={44} />
                     </Flex.Box>
                 )}
-
-                <Typography.Heading as="h3" size={is_mobile_or_tablet ? 'xs' : 'xxs'} pb="4x">
+                <Typography.Paragraph
+                    as="p"
+                    size={is_mobile_or_tablet ? 'large' : 'medium'}
+                    pb="4x"
+                    weight="bold"
+                    font_family="UBUNTU"
+                >
                     <Localize translate_text={header} />
-                </Typography.Heading>
+                </Typography.Paragraph>
                 <Typography.Paragraph
                     size={is_mobile_or_tablet ? 'medium' : 'small'}
                     md={{ mb: '10x' }}
@@ -38,12 +48,7 @@ const CardPrimary = ({ header, description, icon, link }: CardType) => {
 
             {link && (
                 <Flex.Box>
-                    <Link
-                        url={{ type: 'internal', to: link }}
-                        size="small"
-                        textcolor="brand"
-                        font_family="UBUNTU"
-                    >
+                    <Link url={link} size="small" textcolor="brand" font_family="UBUNTU">
                         <Localize translate_text="_t_Learn more >_t_" />
                     </Link>
                 </Flex.Box>

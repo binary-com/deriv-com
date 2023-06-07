@@ -1,25 +1,24 @@
 import React from 'react'
 import Typography from '../../typography'
 import Flex from '../../flex-box'
+import { FlexBoxProps } from '../../flex-box/box'
+import { BasicCardType } from '../type'
 import { Localize } from 'components/localization'
-import { TString } from 'types/generics'
 import dclsx from 'features/utils/dclsx'
 
-type CardItemsProps = {
-    header: TString
-    description: TString
-}
+export interface CardItemsProps extends FlexBoxProps<'div'>, BasicCardType {}
 
-const CardBasic = ({ header, description }: CardItemsProps) => {
+const CardBasic = ({ header, description, className, ...rest }: CardItemsProps) => {
     return (
         <Flex.Box
-            className={dclsx('item_container')}
+            className={dclsx(className, 'item_container')}
             direction="col"
             gap="4x"
             radius="8x"
             lg={{ padding: '12x' }}
             padding="8x"
             bgcolor="white"
+            {...rest}
         >
             <Typography.Heading as="h3" size="xs">
                 <Localize translate_text={header} />

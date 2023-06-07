@@ -239,8 +239,8 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     }, [show_popUp])
 
     const openPopup = (type: TPopupType) => {
-        setShowPopUp(true)
         setPopupType(type)
+        setShowPopUp(true)
     }
 
     const getStyledImg = (width, icon, type) => {

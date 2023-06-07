@@ -7,6 +7,9 @@ import CFDs from '../sub-markets/_cfds'
 import { StyledBox } from '../../static/style/_markets-style'
 import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
 import { TradeDetails } from '../sections/_trade-details'
+import Typography from 'features/components/atoms/typography'
+import LinkButton from 'features/components/atoms/link-button'
+import Flex from 'features/components/atoms/flex-box'
 import { Localize } from 'components/localization'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -27,6 +30,28 @@ const Derived = ({ simple_step_content }: DerivedProps) => {
                 CFDs={<CFDs market_content={derived_fx_cfds} market_tab_name={'derived-fx'} />}
                 display_title={<Localize translate_text="Derived FX trades available on Deriv" />}
             />
+            <Flex.Box
+                direction="col"
+                container="fluid"
+                justify="center"
+                align="center"
+                pb="10x"
+                md={{ pb: '40x', mb: '20x' }}
+            >
+                <Typography.Paragraph mb="10x" textcolor="black" align="center">
+                    <Localize translate_text="_t_Want to know more about CFD trading conditions for the instruments we offer?_t_" />
+                </Typography.Paragraph>
+                <LinkButton.Primary
+                    font_family="UBUNTU"
+                    aria-label="check trading specs"
+                    url={{
+                        type: 'internal',
+                        to: '/trading-specification',
+                    }}
+                >
+                    <Localize translate_text="_t_Check trading specs_t_" />
+                </LinkButton.Primary>
+            </Flex.Box>
             <FullWidthMultiColumn
                 header={<Localize translate_text="Why trade derived FX on Deriv" />}
             >

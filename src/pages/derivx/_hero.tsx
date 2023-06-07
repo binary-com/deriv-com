@@ -159,16 +159,27 @@ const DCommonBanner = () => {
                     </Content>
                 </ContentWrapperStyle>
                 <HeroImageWrapper>
-                    <Shape angle={is_mobile ? 101 : 163} width="60%">
+                    <Shape angle={is_mobile ? 101 : 168} width="55%">
                         <ImageWrapper>
-                            <ImageStyle>
-                                <StaticImage
-                                    src="../../images/common/deriv-x/banner_image_derivx.png"
-                                    loading="eager"
-                                    formats={['avif', 'webp', 'auto']}
-                                    alt="Banner"
-                                />
-                            </ImageStyle>
+                            {is_mobile ? (
+                                <ImageStyle>
+                                    <StaticImage
+                                        src="../../images/common/deriv-x/banner_image_derivx_mobile.png"
+                                        loading="eager"
+                                        formats={['avif', 'webp', 'auto']}
+                                        alt="Banner"
+                                    />
+                                </ImageStyle>
+                            ) : (
+                                <ImageStyle>
+                                    <StaticImage
+                                        src="../../images/common/deriv-x/banner_image_derivx.png"
+                                        loading="eager"
+                                        formats={['avif', 'webp', 'auto']}
+                                        alt="Banner"
+                                    />
+                                </ImageStyle>
+                            )}
                         </ImageWrapper>
                     </Shape>
                 </HeroImageWrapper>

@@ -7,7 +7,7 @@ import AppleIcon from '../../images/svg/apple-icon.svg'
 import AppGalleryIcon from '../../images/svg/appGallery-icon.svg'
 import AndroidIcon from '../../images/svg/android-icon.svg'
 import BrowserIcon from '../../images/svg/browser-icon.svg'
-import GetAppMobileBG from '../../images/common/dtrader/getAppMobileBG.jpg'
+import GetAppMobileBG from '../../images/common/getAppMobileBG.png'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
@@ -74,7 +74,7 @@ const DerivXGetApp = () => {
                 secondColumnWidth="42%"
                 mobileBackgroundImage={GetAppMobileBG}
                 mobilePadding="25px 0 120px 0"
-                secondColumnMobileMargin="8rem 0 0 0"
+                secondColumnMobileMargin="95px 0 0"
             >
                 <ContentWrapper is_rtl={is_rtl}>
                     <img src={derivXLogo} alt="Deriv X logo" width="64px" height="64px" />
@@ -86,7 +86,8 @@ const DerivXGetApp = () => {
                             width="100%"
                             font_family_title="Ubuntu"
                             color="#fff"
-                            margin_title="0 0 18px"
+                            margin_title={is_mobile_or_tablet ? '0' : '0 0 18px'}
+                            line_height_title={is_mobile_or_tablet ? '50px' : 'normal'}
                         />
                     </TextAndButtonWrapper>
                 </ContentWrapper>

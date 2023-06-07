@@ -26,3 +26,10 @@
         display: none;
     }
 }
+
+.visible-larger-than-phone {
+    // 0 - 599px
+    @include breakpoints(phone, max){
+        display: none;
+    }
+}

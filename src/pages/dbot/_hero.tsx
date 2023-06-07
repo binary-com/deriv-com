@@ -55,8 +55,10 @@ const ImageWrapper = styled.div`
 const BannerButtonWrapper = styled.div`
     display: flex;
     align-items: center;
+    gap: 6px;
     @media ${device.tablet} {
         flex-direction: column;
+        gap: 20px;
         justify-content: center;
     }
 `
@@ -107,8 +109,7 @@ const GoToLiveDemo = styled(LinkButton)`
     border-radius: 16px;
 
     &:hover {
-        color: var(--color-white);
-        background-color: var(--color-red);
+        background-color: rgba(255, 68, 79, 0.08);
     }
     @media ${device.tablet} {
         max-width: 100%;
@@ -144,6 +145,7 @@ const StyledLogo = styled.img`
     @media ${device.tablet} {
         width: 119px;
         height: 32px;
+        margin-bottom: -1.5rem;
     }
 `
 const StyledContainer = styled(Container)`

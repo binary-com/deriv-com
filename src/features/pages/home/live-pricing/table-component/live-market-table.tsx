@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import {
     flexRender,
     getCoreRowModel,
@@ -10,9 +10,9 @@ import { TAvailableLiveMarkets, TMarketData } from '../types'
 import useLiveColumns from '../use-live-columns'
 import { table_row_header, table_row_data } from './live-pricing.module.scss'
 import Flex from 'features/components/atoms/flex-box'
-import useRegion from 'components/hooks/use-region'
 import Link from 'features/components/atoms/link'
 import { Localize } from 'components/localization'
+import useFetchFirebaseData from 'components/hooks/use-firebase-fetch-data'
 
 export type TLiveMarketTableProps = {
     selected_market: TAvailableLiveMarkets
@@ -20,48 +20,23 @@ export type TLiveMarketTableProps = {
 }
 
 const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) => {
-    const { is_eu } = useRegion()
-    const [initial_loaded, setInitialLoaded] = useState(false)
+    const firebaseData = useFetchFirebaseData()
 
-    const [rawMarketsData, setRawMarketsData] = useState()
+    const rawMarketsData = firebaseData.data
     const TABLE_VISIBLE_ROWS = 5
     const [markets_data, setMarketsData] = useState(() => {
         const temp = new Map<TAvailableLiveMarkets, TMarketData[]>()
         return temp
     })
-    const intervalRef = useRef(null)
 
     const [sorting, setSorting] = React.useState<SortingState>([])
 
-    const region = useMemo(() => {
-        return is_eu
-            ? 'https://deriv-static-pricingfeed.firebaseio.com/eu.json'
-            : 'https://deriv-static-pricingfeed.firebaseio.com/row.json'
-    }, [is_eu])
-
-    const getData = useCallback(async () => {
-        const rawResponse = await fetch(region)
-        const response = await rawResponse.json()
-        setRawMarketsData(response)
-    }, [region])
-
-    useEffect(() => {
-        if (!initial_loaded) {
-            getData()
-            setInitialLoaded(true)
-        }
-        intervalRef.current = setInterval(getData, 10000)
-        return () => {
-            clearInterval(intervalRef.current)
-        }
-    }, [getData, initial_loaded])
-
     const updateData = useCallback(() => {
         if (rawMarketsData) {
-            const stocks = rawMarketsData.market['stocks']
-            const indices = rawMarketsData.market['indices']
+            const stocks = rawMarketsData['stocks']
+            const indices = rawMarketsData['indices']
             const stocks_indices = Object.assign(stocks, indices)
-            const res = { ...rawMarketsData.market, indices: { ...stocks_indices } }
+            const res = { ...rawMarketsData, indices: { ...stocks_indices } }
 
             Object.keys(res).map((item) => {
                 if (item == selected_market) {

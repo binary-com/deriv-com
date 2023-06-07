@@ -24,7 +24,13 @@ const TradesAvailableWrapper = ({ item }: TradesAvailableWrapperProps) => {
                 setCurrentTab={setCurrentTab}
             />
             {current_tab == item.trade_name && (
-                <Flex.Box direction="col">
+                <Flex.Box
+                    direction="col"
+                    padding_inline="4x"
+                    md={{
+                        padding_inline: '35x',
+                    }}
+                >
                     <Typography.Paragraph align="center">
                         <Localize translate_text={item.trade_description_1} />
                     </Typography.Paragraph>

@@ -116,7 +116,7 @@ export const DropdownContainer = styled.ul<DropdownContainerProps>`
             return css`
                 border-color: var(--color-red-1) !important;
 
-                & > label {
+                label {
                     color: var(--color-red-1) !important;
                 }
             `
@@ -129,6 +129,7 @@ export const DropdownContainer = styled.ul<DropdownContainerProps>`
 
 const StyledDiv = styled.div`
     position: relative;
+    width: 100%;
     top: -30px;
 `
 

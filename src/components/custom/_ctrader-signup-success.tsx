@@ -10,6 +10,7 @@ import apiManager from 'common/websocket'
 import { useCheckExistingAccount } from 'components/hooks/use-check-existing-account'
 import { useResidenceList } from 'components/hooks/use-residence-list'
 import { isBrowser } from 'common/utility'
+import { eu_countries } from 'common/country-base'
 
 const EmailLink = styled(StyledLink)`
     display: table;
@@ -64,6 +65,7 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
     const [code_error_message, setCodeErrorMessage] = useState('')
     const [residence_list] = useResidenceList()
     const [residence, setResidence] = useState(null)
+    const [residence_error_message, setResidenceErrorMessage] = useState('')
     const [password, setPassword] = useState('')
     const [password_error_message, setPasswordErrorMessage] = useState('')
     const [error, setError] = useState(null)
@@ -168,6 +170,12 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
             )
         } else setPasswordErrorMessage('')
     }
+    const handleResidenceValidation = (residence) => {
+        const eu_country = eu_countries.includes(residence)
+        if (eu_country) {
+            setResidenceErrorMessage('Ctrader is not available in Europe')
+        } else setResidenceErrorMessage('')
+    }
     const handleCodeChange = (e) => {
         const { value } = e.target
         setVerificationCode(value)
@@ -177,6 +185,10 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
         const { value } = e.target
         setPassword(value)
         handlePasswordValidation(value)
+    }
+    const handleResidenceChange = (e) => {
+        setResidence(e.symbol)
+        handleResidenceValidation(e.symbol)
     }
 
     if (submit_status === 'success') {
@@ -197,7 +209,7 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
                     <img src={EmailIcon} alt="email" width="128px" height="128px" />
                     <Text align="center" pt="20px" pb="20px">
                         <Localize
-                            translate_text="Please enter the 8 character verification code that was sent to {{email}} to activate your account."
+                            translate_text="_t_Please enter the 8 character verification code that was sent to {{email}} to activate your account._t_"
                             values={{ email }}
                         />
                     </Text>
@@ -205,7 +217,6 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
                         type="text"
                         id="verification_code"
                         border="solid 1.5px var(--color-grey-7)"
-                        border_radius="18px"
                         label_color="grey-5"
                         label_hover_color="grey-5"
                         background="white"
@@ -223,7 +234,6 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
                         type="password"
                         id="password"
                         border="solid 1.5px var(--color-grey-7)"
-                        border_radius="18px"
                         label_color="grey-5"
                         label_hover_color="grey-5"
                         background="white"
@@ -240,6 +250,7 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
                         <DropdownSearch
                             id="residence"
                             key="residence"
+                            label={localize('_t_Residence_t_')}
                             default_item={{
                                 name: 'default',
                                 display_name: '',
@@ -248,20 +259,20 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
                                 market: '',
                             }}
                             items={residence_list}
-                            label={localize('_t_Residence_t_')}
-                            onChange={(value) => {
-                                setResidence(value.symbol)
-                            }}
+                            onChange={handleResidenceChange}
+                            error={residence_error_message}
                             selected_item={residence}
                             disabled={residence_list.length < 1}
                         />
                     )}
                     <SubmitButton
                         disabled={
-                            code_error_message !== '' ||
                             !verification_code ||
+                            code_error_message !== '' ||
                             !password ||
+                            password_error_message !== '' ||
                             !residence ||
+                            residence_error_message !== '' ||
                             loading
                         }
                         type="submit"
@@ -269,7 +280,7 @@ const CtraderSignupSuccess = ({ email }: { email: string }) => {
                         {loading ? 'Loading' : 'Submit'}
                     </SubmitButton>
                     <EmailLink to="/check-email/" align="center">
-                        <Localize translate_text="Didn't receive the code?" />
+                        <Localize translate_text="_t_Didn't receive the code?_t_" />
                     </EmailLink>
                 </ResponseWrapper>
             </form>

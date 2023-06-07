@@ -11,6 +11,21 @@ const href = isBrowser && window.location.href
 const site_url =
     origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
 
+const strapi_preview_param = {
+    publicationState: process.env.STRAPI_PREVIEW === 'true' ? 'preview' : 'live',
+    'filters[publishedAt][$null]': process.env.STRAPI_PREVIEW === 'true' ? 'true' : 'false',
+}
+const strapi_config = process.env.STRAPI_BUILD == 'true' && [
+    {
+        singularName: 'who-we-are-page',
+        queryParams: strapi_preview_param,
+    },
+    {
+        singularName: 'cfd-warning-banner',
+        queryParams: strapi_preview_param,
+    },
+]
+
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     flags: {
@@ -78,6 +93,11 @@ module.exports = {
                 base64Width: 20,
                 stripMetadata: true,
                 defaultQuality: 50,
+                cacheOptions: {
+                    // Configure cache options here
+                    cacheFolder: '.cache/caches/gatsby-plugin-sharp',
+                    maxMemory: 500000000,
+                  },
             },
         },
         `gatsby-plugin-image`,
@@ -311,8 +331,8 @@ module.exports = {
                 policy: [
                     {
                         userAgent: '*',
+                        allow: '/',
                         disallow: [
-                            '/',
                             '/404/',
                             '/homepage/',
                             '/landing/',
@@ -344,6 +364,14 @@ module.exports = {
             options: {
                 analyzerMode: 'disabled',
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
+            },
+        },
+        {
+            resolve: 'gatsby-source-strapi',
+            options: {
+                apiURL: 'https://chief-skinny-instrument.strapiapp.com',
+                accessToken: process.env.STRAPI_TOKEN,
+                collectionTypes: strapi_config,
             },
         },
     ],

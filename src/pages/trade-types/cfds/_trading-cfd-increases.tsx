@@ -3,11 +3,13 @@ import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SmallContainer } from '../components/_style'
 import { SectionContainer, Desktop, Mobile } from 'components/containers'
+import Button from 'components/custom/_button'
 import { Header, Text, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import useRegion from 'components/hooks/use-region'
 import { localize } from 'components/localization'
 import device from 'themes/device'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 const query = graphql`
     query {
@@ -41,17 +43,22 @@ const ExampleImage = styled(QueryImage)<ExampleImageType>`
 
     @media ${device.laptop} {
         width: 630px;
-        height: 361px;
+        height: 192px;
     }
 
     @media ${device.tabletL} {
-        width: ${(props) => (props.eu ? '350px' : '328px')};
-        height: 506px;
+        width: 100%;
+        height: auto;
     }
+`
+const StyledButton = styled(LinkButton)`
+    margin-bottom: 90px;
+    margin-left: -2.2rem;
 
-    @media ${device.mobileM} {
-        width: 289px;
-        height: 454px;
+    @media ${device.tabletL} {
+        margin-top: 0.8rem;
+        margin-bottom: 1.6rem;
+        margin-left: -2.8rem;
     }
 `
 
@@ -64,12 +71,8 @@ const ExampleImageEu = styled(QueryImage)<ExampleImageType>`
         height: 200px;
     }
     @media ${device.tabletL} {
-        width: 350px;
-        height: 200px;
-    }
-    @media ${device.mobileM} {
-        width: 289px;
-        height: 200px;
+        width: 100%;
+        height: auto;
     }
 `
 export const StyledLinkButton = styled(LinkButton)`
@@ -87,6 +90,8 @@ const StyledSectionContainer = styled(SectionContainer)`
 const TradingCFDIncreases = () => {
     const data = useStaticQuery(query)
     const { is_eu } = useRegion()
+    const [is_mobile] = useBrowserResize()
+
     return (
         <StyledSectionContainer background="white" padding="4rem 0 0">
             <SmallContainer direction="column" ai="flex-start">
@@ -160,13 +165,18 @@ const TradingCFDIncreases = () => {
                         />
                     ) : (
                         <ExampleImage
-                            data={data['example_mobile']}
+                            data={data['example']}
                             alt="Example for stop loss with crash/boom indices"
                         />
                     )}
                 </Mobile>
 
-                <Header mt="3.2rem" as="h5" type="main-paragraph" mb="0.8rem">
+                <Header
+                    mt={is_mobile ? '1rem' : '3.2rem'}
+                    as="h5"
+                    type="main-paragraph"
+                    mb="0.8rem"
+                >
                     {localize('Stop out')}
                 </Header>
                 <Text mb="1.6rem">
@@ -202,15 +212,15 @@ const TradingCFDIncreases = () => {
                         'If you keep any position open overnight, an adjustment (swap rate) will be applied to your trading account to compensate for the cost of keeping that position open. Instruments traded on our platforms are subject to different swap rates. These rates are based on conditions such as time and number of days, including public holidays, that you hold your positions open.',
                     )}
                 </Text>
-                <Text mb="1.6rem">
+                <Text mb="0.3rem">
                     {localize(
                         'You can use our swap calculator to estimate the swap charges required to keep your positions open overnight on Deriv’s CFD trading platforms.',
                     )}
                 </Text>
 
-                <StyledLinkButton mb="4rem" secondary to="/trader-tools/swap-calculator/">
-                    {localize('Swap calculator')}
-                </StyledLinkButton>
+                <StyledButton to="/trader-tools/swap-calculator/">
+                    <Button label="Swap calculator" primary />
+                </StyledButton>
             </SmallContainer>
         </StyledSectionContainer>
     )

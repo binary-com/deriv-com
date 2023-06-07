@@ -96,13 +96,12 @@ const DP2PHome = () => {
                 </Layout>
             )
         }
-        return <PageNotFound/>
+        return <PageNotFound />
     }
     return (
         <Layout>
             <InitialLoader />
         </Layout>
     )
-
 }
 export default WithIntl()(DP2PHome)

@@ -218,7 +218,7 @@ const commodities_specification: TSpecification = {
             margin_requirement: 2.0,
             swap_long: -24.737,
             swap_short: -29.797,
-            "trading_hours": "Sun 22:00 - 24:00\nMon - Fri 00:00 - 21:00 GMT",
+            trading_hours: 'Sun 22:00 - 24:00\nMon - Fri 00:00 - 21:00 GMT',
         },
         {
             instrument: {

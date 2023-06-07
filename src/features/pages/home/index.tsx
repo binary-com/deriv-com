@@ -12,6 +12,7 @@ import { localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import MainNav from 'features/components/templates/navigation/main-nav'
 import SignupPublic from 'features/components/templates/signup/with-banner'
+import CardCarousel from 'features/components/templates/card-carousel/other-platforms'
 
 const OurPlatforms = loadable(() => import('./our-platforms'))
 const Footer = loadable(() => import('features/components/templates/footer'))
@@ -34,6 +35,7 @@ const HomePage = () => {
             <MainNav />
             <HomeHero />
             <LivePricing />
+            <CardCarousel />
             <TradeTypes />
             <OurPlatforms />
             <ClientTestimonial />

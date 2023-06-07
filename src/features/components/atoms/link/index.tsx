@@ -6,10 +6,11 @@ import { LinkUrlType } from 'features/types'
 
 export interface LinkProps extends TypographyLinkProps {
     url: LinkUrlType
+    active_urls?: string[]
 }
 
 const Link = (props: LinkProps) => {
-    const { url, target, rel, href: baseHref, ...rest } = props
+    const { url, target, rel, href: baseHref, active_urls, ...rest } = props
 
     const linkTarget = useMemo(() => {
         if (url.type === 'non-company') {
@@ -34,6 +35,7 @@ const Link = (props: LinkProps) => {
                     rel={linkRel}
                     link_target={linkTarget}
                     link_rel={linkRel}
+                    active_urls={active_urls}
                     {...rest}
                 />
             ) : (

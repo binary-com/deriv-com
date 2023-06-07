@@ -110,8 +110,7 @@ const GoToLiveDemo = styled(LinkButton)`
     border-radius: 16px;
 
     &:hover {
-        color: var(--color-white);
-        background-color: var(--color-red);
+        background-color: rgba(255, 68, 79, 0.08);
     }
     @media ${device.tablet} {
         max-width: 100%;

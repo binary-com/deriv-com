@@ -8,6 +8,7 @@ import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import Card from 'features/components/atoms/card'
 import './other-markets-slider.scss'
+import Container from 'features/components/atoms/container'
 
 export type OtherMarketSliderProps = {
     current_market: MarketPageType
@@ -22,13 +23,7 @@ const OtherMarketsSlider = ({ current_market }: OtherMarketSliderProps) => {
     })
 
     return (
-        <Flex.Box
-            container="fixed"
-            direction="col"
-            justify="center"
-            align="center"
-            padding_inline="10x"
-        >
+        <Container.Fixed padding_block="20x" md={{ padding_block: '40x' }}>
             <Flex.Box direction="col" gap="12x">
                 <Typography.Heading
                     as="h3"
@@ -41,33 +36,35 @@ const OtherMarketsSlider = ({ current_market }: OtherMarketSliderProps) => {
                     <Localize translate_text="_t_Other markets you might be interested in_t_" />
                 </Typography.Heading>
             </Flex.Box>
-            <Swiper
-                modules={[Pagination]}
-                pagination={{
-                    enabled: true,
-                    type: 'bullets',
-                    horizontalClass: 'markets_slider_pagination',
-                    clickable: true,
-                }}
-                rewind
-                className={'markets_swiper'}
-                slidesPerView={'auto'}
-            >
-                {slider_items.map(({ id, data }) => {
-                    return (
-                        <SwiperSlide key={id} className={'market_slide'}>
-                            <Card.Primary
-                                className="other_market_item"
-                                header={data.header}
-                                description={data.description}
-                                icon={data.icon}
-                                link={data.link}
-                            />
-                        </SwiperSlide>
-                    )
-                })}
-            </Swiper>
-        </Flex.Box>
+            <Flex.Box justify="center" align="center">
+                <Swiper
+                    modules={[Pagination]}
+                    pagination={{
+                        enabled: true,
+                        type: 'bullets',
+                        horizontalClass: 'markets_slider_pagination',
+                        clickable: true,
+                    }}
+                    rewind
+                    className={'markets_swiper'}
+                    slidesPerView={'auto'}
+                >
+                    {slider_items.map(({ id, data }) => {
+                        return (
+                            <SwiperSlide key={id} className={'market_slide'}>
+                                <Card.Primary
+                                    className="other_market_item"
+                                    header={data.header}
+                                    description={data.description}
+                                    icon={data.icon}
+                                    link={data.link}
+                                />
+                            </SwiperSlide>
+                        )
+                    })}
+                </Swiper>
+            </Flex.Box>
+        </Container.Fixed>
     )
 }
 

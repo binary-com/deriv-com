@@ -12,9 +12,13 @@ const InstrumentsContent = () => {
                 container="fixed"
                 className={styles.content_wrapper}
                 mb="20x"
-                padding="15x"
+                padding_inline="7x"
+                padding_block="15x"
                 gap="8x"
                 direction="col"
+                md={{
+                    padding_inline: '15x',
+                }}
             >
                 {instrumental_content.map((data) => (
                     <Typography.Paragraph key={data.id} size="small">

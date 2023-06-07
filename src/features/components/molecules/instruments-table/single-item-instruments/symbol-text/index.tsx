@@ -10,7 +10,7 @@ const SymbolWithText = ({ content }: { content: CommonMarketSymbol }) => {
     return (
         <Flex.Box gap="5x" align="center">
             <Image src={src} alt="symbol" />
-            <Typography.Paragraph>
+            <Typography.Paragraph size="small">
                 <Localize translate_text={text} />
             </Typography.Paragraph>
         </Flex.Box>

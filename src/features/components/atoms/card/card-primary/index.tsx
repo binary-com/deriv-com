@@ -34,6 +34,7 @@ const CardPrimary = ({ header, description, icon, link, className, ...rest }: Ca
                     size={is_mobile_or_tablet ? 'large' : 'medium'}
                     pb="4x"
                     weight="bold"
+                    font_family="UBUNTU"
                 >
                     <Localize translate_text={header} />
                 </Typography.Paragraph>

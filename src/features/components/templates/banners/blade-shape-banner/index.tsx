@@ -21,7 +21,12 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
             padding_inline={'8x'}
             md={{ padding_inline: '0x', padding_block: '0x' }}
         >
-            <Flex.Box direction={'col'} justify={'between'} md={{ direction: 'row' }}>
+            <Flex.Box
+                container={'fluid'}
+                direction={'col'}
+                justify={'between'}
+                md={{ direction: 'row' }}
+            >
                 <Flex.Box direction={'col'} align={'center'} md={{ basis: '3-6' }}>
                     <FlexBox.Box
                         direction={'col'}

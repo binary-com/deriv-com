@@ -244,7 +244,7 @@ export const DerivedFXHero = ({
                                         loading="eager"
                                         formats={['avif', 'webp', 'auto']}
                                         alt="banner"
-                                        placeholder="none"
+                                        placeholder="blurred"
                                     />
                                 ) : null}
                                 {is_derived_row ? (
@@ -253,7 +253,7 @@ export const DerivedFXHero = ({
                                         loading="eager"
                                         formats={['avif', 'webp', 'auto']}
                                         alt="banner"
-                                        placeholder="none"
+                                        placeholder="blurred"
                                     />
                                 ) : null}
                                 {is_derived_eu ? (
@@ -262,7 +262,7 @@ export const DerivedFXHero = ({
                                         loading="eager"
                                         formats={['avif', 'webp', 'auto']}
                                         alt="banner"
-                                        placeholder="none"
+                                        placeholder="blurred"
                                     />
                                 ) : null}
                                 {is_stocks_and_indices ? (
@@ -271,7 +271,7 @@ export const DerivedFXHero = ({
                                         loading="eager"
                                         formats={['avif', 'webp', 'auto']}
                                         alt="banner"
-                                        placeholder="none"
+                                        placeholder="blurred"
                                     />
                                 ) : null}
                                 {is_cryptocurrencies ? (
@@ -280,7 +280,7 @@ export const DerivedFXHero = ({
                                         loading="eager"
                                         formats={['avif', 'webp', 'auto']}
                                         alt="banner"
-                                        placeholder="none"
+                                        placeholder="blurred"
                                     />
                                 ) : null}
                                 {is_commodities ? (
@@ -289,7 +289,7 @@ export const DerivedFXHero = ({
                                         loading="eager"
                                         formats={['avif', 'webp', 'auto']}
                                         alt="banner"
-                                        placeholder="none"
+                                        placeholder="blurred"
                                     />
                                 ) : null}
                             </ImageStyle>

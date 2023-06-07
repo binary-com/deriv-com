@@ -1,23 +1,27 @@
 @font-face {
     font-family: 'Ubuntu';
-	src:url('../fonts/Ubuntu-Regular.ttf') format('truetype');
+    src: url('../fonts/Ubuntu-Regular.ttf') format('truetype');
     font-weight: 100 400;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Ubuntu';
-	src:url('../fonts/Ubuntu-Bold.ttf') format('truetype');
+    src: url('../fonts/Ubuntu-Bold.ttf') format('truetype');
     font-weight: 800;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Ubuntu';
-	src:url('../fonts/Ubuntu-Light.ttf') format('truetype');
+    src: url('../fonts/Ubuntu-Light.ttf') format('truetype');
     font-weight: 200;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Ubuntu';
-	src:url('../fonts/Ubuntu-Medium.ttf') format('truetype');
+    src: url('../fonts/Ubuntu-Medium.ttf') format('truetype');
     font-weight: 500;
+    font-display: swap;
 }

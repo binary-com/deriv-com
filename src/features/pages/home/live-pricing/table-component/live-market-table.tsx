@@ -73,7 +73,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
         return () => {
             clearInterval(intervalRef.current)
         }
-    }, [getData])
+    }, [getData, initial_loaded])
 
     const updateData = useCallback(() => {
         if (rawMarketsData) {
@@ -136,7 +136,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
                             </Flex.Box>
                         ))}
                     </thead>
-                    {!initial_loaded ? (
+                    {!markets_data.size ? (
                         <InitialLoader
                             style={{
                                 padding: '40px',

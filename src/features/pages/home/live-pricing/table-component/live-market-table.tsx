@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import {
     flexRender,
     getCoreRowModel,
@@ -43,7 +43,6 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
     const network = useNetwork()
 
     const is_online = network.online
-    console.log(network.effectiveType)
     const TABLE_VISIBLE_ROWS = 5
 
     const region = is_eu

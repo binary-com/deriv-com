@@ -19,9 +19,14 @@ const InstrumentalTable = ({ tableContent }: InstrumentalTableProps) => {
                 align="center"
                 md={{ basis: '3-12' }}
             >
-                <Typography.Heading size="xxs" textcolor="black">
+                <Typography.Paragraph
+                    size="medium"
+                    textcolor="black"
+                    font_family="UBUNTU"
+                    weight="bold"
+                >
                     <Localize translate_text={title} />
-                </Typography.Heading>
+                </Typography.Paragraph>
             </Flex.Box>
             <Flex.Box wrap="wrap" justify="start" md={{ basis: '9-12' }}>
                 {data.map((row) => (

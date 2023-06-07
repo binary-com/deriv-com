@@ -40,7 +40,7 @@ const CardPrimary = ({ header, description, icon, link }: CardType) => {
                 <Flex.Box>
                     <Link
                         url={{ type: 'internal', to: link }}
-                        size="medium"
+                        size="small"
                         textcolor="brand"
                         font_family="UBUNTU"
                     >

@@ -14,11 +14,14 @@ function getNetworkConnectionInfo() {
 }
 function useNetwork() {
     const [state, setState] = useState(() => {
-        return {
-            online: navigator.onLine,
-            ...getNetworkConnectionInfo(),
+        if (typeof window !== 'undefined') {
+            return {
+                online: navigator.onLine,
+                ...getNetworkConnectionInfo(),
+            }
         }
     })
+
     useEffect(() => {
         const handleOnline = () => {
             setState((prevState) => ({

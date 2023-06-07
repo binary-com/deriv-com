@@ -66,14 +66,11 @@ const DP2Platform = ({ item }: { item: PlatformType }) => {
                     <LinkButton.Primary
                         url={item.button.url}
                         size="medium"
-                        className="visible-larger-than-tablet"
+                        className="visible-larger-than-phone"
                     >
                         <Localize translate_text={item.button.text} />
                     </LinkButton.Primary>
-                    <Button.Primary
-                        onClick={handleExternalLink}
-                        className="visible-phone-and-tablet"
-                    >
+                    <Button.Primary onClick={handleExternalLink} className="visible-phone-only">
                         <Localize translate_text={item.button.text} />
                     </Button.Primary>
                 </>

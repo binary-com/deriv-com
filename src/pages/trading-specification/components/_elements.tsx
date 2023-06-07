@@ -239,8 +239,8 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     }, [show_popUp])
 
     const openPopup = (type: TPopupType) => {
-        setShowPopUp(true)
         setPopupType(type)
+        setShowPopUp(true)
     }
 
     const getStyledImg = (width, icon, type) => {
@@ -265,7 +265,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                 </StyledHeaderText>
                 {is_row ? (
                     <>
-                        {/* {dl_icon && getStyledImg('24px', dl, 'dl')} */}
+                        {dl_icon && getStyledImg('24px', dl, 'dl')}
                         {swf_icon && getStyledImg('30px', swf, 'swf')}
                     </>
                 ) : null}

@@ -1,3 +1,5 @@
+import { TString } from 'types/generics'
+
 export type TAvailableLiveMarkets =
     | 'forex'
     | 'derived'
@@ -35,7 +37,7 @@ export type TSpecification = {
     data: THeaders[]
     eu_data: THeaders[]
     dl_data?: TDLHeaders[]
-    dl_title?: string
+    dl_title?: TString
 }
 
 export type TPopupType = 'dl' | 'swf'

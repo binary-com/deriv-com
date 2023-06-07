@@ -77,7 +77,7 @@ const pushwooshInit = (push_woosh) => {
                     }
                 })
             } catch (error) {
-                console.log(error)
+                console.log(error.message)
             }
 
             sendTags(api)

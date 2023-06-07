@@ -1,6 +1,5 @@
 import React, { ReactElement } from 'react'
 import styled, { css } from 'styled-components'
-import { StringParam, useQueryParam } from 'use-query-params'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header } from 'components/elements'
@@ -8,12 +7,12 @@ import { Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import { isBrowser } from 'common/utility'
 
 type CardProps = {
     active_tab: string
     display_name: ReactElement
     name: string
-    onTabChange: (name: string) => void
 }
 type AvailableTradesProps = {
     CFDs: ReactElement
@@ -31,9 +30,8 @@ type CardContainerProps = {
 const StyledSection = styled(SectionContainer)`
     padding: 0;
     background-color: var(--color-white);
-    margin-bottom: 80px;
     @media ${device.tabletL} {
-        padding: 20px 0;
+        padding: 40px 0;
         margin-bottom: 0;
     }
 `
@@ -47,9 +45,10 @@ const StyledHeader = styled(Header)`
 `
 
 const StyledContainer = styled(Container)`
-    margin-top: 4rem;
+    margin-top: 9.6rem;
 
     @media ${device.tabletL} {
+        margin-top: 4rem;
         width: 100%;
     }
 `
@@ -181,14 +180,13 @@ const Link = styled(AnchorLink)`
     text-decoration: none;
 `
 
-const Card = ({ display_name, active_tab, onTabChange, name }: CardProps) => {
+const Card = ({ display_name, active_tab, name }: CardProps) => {
     const is_rtl = useIsRtl()
 
     return (
         <CardContainer
             name={name}
             active_tab={active_tab}
-            onClick={() => onTabChange(name)}
             className={name.toLowerCase()}
             is_rtl={is_rtl}
         >
@@ -211,7 +209,8 @@ const AvailableTradesDesktop = ({
     display_title,
 }: AvailableTradesProps) => {
     const { is_non_eu } = useRegion()
-    const [tab, setTab] = useQueryParam('tab', StringParam)
+    const params = new URLSearchParams(isBrowser() && location.search)
+    const tab = params.get('tab')
 
     return (
         <StyledSection>
@@ -225,9 +224,6 @@ const AvailableTradesDesktop = ({
                             <Card
                                 name="CFDs"
                                 display_name={<Localize translate_text="CFDs" />}
-                                onTabChange={() => {
-                                    setTab('cfds')
-                                }}
                                 active_tab={tab || 'cfds'}
                             />
                         </Link>
@@ -237,9 +233,6 @@ const AvailableTradesDesktop = ({
                             <Card
                                 name="Options"
                                 display_name={<Localize translate_text="Options" />}
-                                onTabChange={() => {
-                                    setTab('options')
-                                }}
                                 active_tab={tab || 'cfds'}
                             />
                         </Link>
@@ -250,9 +243,6 @@ const AvailableTradesDesktop = ({
                             <Card
                                 name="Multipliers"
                                 display_name={<Localize translate_text="Multipliers" />}
-                                onTabChange={() => {
-                                    setTab('multipliers')
-                                }}
                                 active_tab={tab || 'cfds'}
                             />
                         </Link>

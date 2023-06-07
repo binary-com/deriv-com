@@ -90,7 +90,7 @@ const ClientCard = styled.article<ClientCardProps>`
         padding: 24px;
 
         ${Text} {
-            font-size: 2rem;
+            font-size: 1.4rem;
         }
         ${Flex} {
             padding-bottom: 8px;

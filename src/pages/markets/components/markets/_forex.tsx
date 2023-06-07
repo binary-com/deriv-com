@@ -10,6 +10,9 @@ import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
 import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
+import Typography from 'features/components/atoms/typography'
+import LinkButton from 'features/components/atoms/link-button'
+import Flex from 'features/components/atoms/flex-box'
 import Button from 'components/custom/_button'
 import useRegion from 'components/hooks/use-region'
 import { Localize, localize } from 'components/localization'
@@ -43,6 +46,29 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                 // name="Forex"
                 display_title={<Localize translate_text="Forex trades available on Deriv" />}
             />
+            <Flex.Box
+                direction="col"
+                container="fluid"
+                justify="center"
+                align="center"
+                pb="10x"
+                md={{ pb: '40x', mb: '20x' }}
+            >
+                <Typography.Paragraph mb="10x" textcolor="black" align="center">
+                    <Localize translate_text="_t_Want to know more about CFD trading conditions for the instruments we offer?_t_" />
+                </Typography.Paragraph>
+                <LinkButton.Primary
+                    font_family="UBUNTU"
+                    size="medium"
+                    aria-label="check trading specs"
+                    url={{
+                        type: 'internal',
+                        to: '/trading-specification',
+                    }}
+                >
+                    <Localize translate_text="_t_Check trading specs_t_" />
+                </LinkButton.Primary>
+            </Flex.Box>
             <FullWidthMultiColumn
                 gap="2rem"
                 header={<Localize translate_text="Why trade forex on Deriv" />}

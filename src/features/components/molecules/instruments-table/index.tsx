@@ -19,7 +19,12 @@ const InstrumentalTable = ({ tableContent }: InstrumentalTableProps) => {
                 align="center"
                 md={{ basis: '3-12' }}
             >
-                <Typography.Paragraph textcolor="black" weight="bold" font_family="UBUNTU">
+                <Typography.Paragraph
+                    size="medium"
+                    textcolor="black"
+                    weight="bold"
+                    font_family="UBUNTU"
+                >
                     <Localize translate_text={title} />
                 </Typography.Paragraph>
             </Flex.Box>

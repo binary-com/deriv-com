@@ -6,6 +6,7 @@ import { Localize } from 'components/localization'
 import { TString } from 'types/generics'
 import TabMenu from 'features/components/templates/tabs/menu'
 import Icon from 'features/components/atoms/icon'
+import Link from 'features/components/atoms/link'
 
 interface TradesAvailableWrapperProps {
     header?: TString
@@ -37,27 +38,31 @@ const TradesAvailableWrapper = ({ item }: TradesAvailableWrapperProps) => {
                         justify="center"
                         pt="24x"
                     >
-                        <Typography.Paragraph pt="3x" align="center">
+                        <Typography.Paragraph pt="3x" align="center" font_family="UBUNTU">
                             <Localize translate_text="_t_Available on_t_" />
                         </Typography.Paragraph>
                         <Flex.Box direction="row" gap="12x" justify="center">
                             {item.trade_items.map((data) => {
                                 return (
-                                    <Flex.Box direction="row" key={data.name}>
-                                        <Flex.Box direction="row" gap="2x" align="center">
-                                            <Icon
-                                                src={data.icon}
-                                                className={'accordion_icon'}
-                                                alt={'_t_chevron_t_'}
-                                                size={'large'}
-                                                width={24}
-                                                height={24}
-                                            />
-                                            <Typography.Paragraph>
-                                                <Localize translate_text={data.name} />
-                                            </Typography.Paragraph>
+                                    <Link url={data.link} key={data.name} no_hover>
+                                        <Flex.Box direction="row" justify="center" align="center">
+                                            <Flex.Box direction="row" gap="2x" align="center">
+                                                <Icon
+                                                    src={data.icon}
+                                                    alt={'_t_chevron_t_'}
+                                                    size={'large'}
+                                                    width={24}
+                                                    height={24}
+                                                />
+                                                <Typography.Paragraph
+                                                    font_family="UBUNTU"
+                                                    size="small"
+                                                >
+                                                    <Localize translate_text={data.name} />
+                                                </Typography.Paragraph>
+                                            </Flex.Box>
                                         </Flex.Box>
-                                    </Flex.Box>
+                                    </Link>
                                 )
                             })}
                         </Flex.Box>

@@ -21,14 +21,14 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
             padding_inline={'8x'}
             md={{ padding_inline: '0x', padding_block: '0x' }}
         >
-            <Flex.Box direction={'col'} justify={'between'} md={{ direction: 'row', gap: '12x' }}>
+            <Flex.Box direction={'col'} justify={'between'} md={{ direction: 'row' }}>
                 <Flex.Box direction={'col'} align={'center'} md={{ basis: '3-6' }}>
                     <FlexBox.Box
                         direction={'col'}
                         align={'center'}
                         md={{ direction: 'row', align: 'start' }}
                     >
-                        <FlexBox.Item mt={'5x'} pb={'8x'}>
+                        <FlexBox.Item mt={'7x'} pb={'8x'}>
                             <Image
                                 src={data.information.icon}
                                 alt="_t_banner information_t_"

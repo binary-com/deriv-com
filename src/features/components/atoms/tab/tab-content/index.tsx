@@ -22,7 +22,7 @@ const TabContent = ({ items: initial_tems, direction = 'row' }: Omit<StepperTabT
             align={'center'}
             margin_inline={'10x'}
             margin_block={'20x'}
-            md={{ direction: direction, margin_block: '32x', margin_inline: '0x' }}
+            md={{ direction: direction, margin_block: '32x', pb: '40x', margin_inline: '0x' }}
         >
             <FlexBox.Box
                 className={tab_images}

@@ -19,9 +19,7 @@ const WhyTradeDerivEZ = () => {
             <FlexBox.Box
                 direction={'col'}
                 align={'center'}
-                mt={'4x'}
-                mb={'12x'}
-                md={{ direction: 'row', justify: 'center', mt: '20x', shrink: '1' }}
+                md={{ direction: 'row', justify: 'center', mt: '20x' }}
             >
                 {card_data.map((card) => {
                     return (
@@ -30,9 +28,11 @@ const WhyTradeDerivEZ = () => {
                             className={styles.styled_card}
                             direction={'col'}
                             justify={'start'}
+                            align={'start'}
                             radius={'8x'}
                             padding={'8x'}
-                            md={{ padding: '12x', mr: '12x' }}
+                            mt={'12x'}
+                            md={{ padding: '12x', mr: '12x', mt: '0x' }}
                         >
                             {card.icon}
                             <Typography.Paragraph

@@ -19,6 +19,16 @@
     border-bottom: 1px solid $color-grey-1;
   }
 }
+.what_have_wrapper {
+  @include breakpoints(tablet) {
+    block-size: 31.1rem;
+  }
+}
+.what_have_text {
+  @include breakpoints(tablet) {
+    max-inline-size: 58.8rem;
+  }
+}
 .styled_card {
   box-shadow: 0px 12px 16px -4px rgba(14, 14, 14, 0.08), 0px 4px 6px -2px rgba(14, 14, 14, 0.03);
   inline-size: 32.8rem;

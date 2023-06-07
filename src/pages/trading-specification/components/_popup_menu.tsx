@@ -89,13 +89,13 @@ const PopUpMenu = ({ market, popup_type, toggle }: TPopUpMenuProps) => {
                         <ModalCard>
                             <StyledHeading>
                                 <Header type="paragraph-1" align="center" as="p">
-                                    {modalTitle && <Localize translate_text={modalTitle} />}
+                                    <Localize translate_text={modalTitle} />
                                 </Header>
                                 <CloseIconButton src={CloseIcon} onClick={toggle} />
                             </StyledHeading>
 
                             <Header type="paragraph-2" align="center" weight="normal" as="p">
-                                {modalDescription && <Localize translate_text={modalDescription} />}
+                                <Localize translate_text={modalDescription} />
                             </Header>
 
                             {popup_type === dl ? (
@@ -114,7 +114,7 @@ const PopUpMenu = ({ market, popup_type, toggle }: TPopUpMenuProps) => {
                                                         <Localize translate_text={leverage} />
                                                     </Th>
                                                 </Tr>
-                                                {markets_data?.map((data, index) => (
+                                                {markets_data.map((data, index) => (
                                                     <Tr key={index}>
                                                         <Td>{data.from}</Td>
                                                         <Td>{data.to}</Td>

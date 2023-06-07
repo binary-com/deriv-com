@@ -224,7 +224,7 @@ export const instrumental_content: InstrumentalContentProps[] = [
     {
         id: 12,
         instrumental_content_text: {
-            text: '_t_<0>IVW.US</0> VW.US The iShares S&P 500 Growth ETF tracks the performance of an index of large-capitalisation US equities with above-average growth characteristics._t_',
+            text: '_t_<0>IVW.US</0> The iShares S&P 500 Growth ETF tracks the performance of an index of large-capitalisation US equities with above-average growth characteristics._t_',
             components: [
                 <Link
                     key={0}
@@ -242,7 +242,7 @@ export const instrumental_content: InstrumentalContentProps[] = [
     {
         id: 13,
         instrumental_content_text: {
-            text: '_t_<0>IWM.US</0> IWM.US The iShares Russell 2000 ETF tracks the investment results of an index of small-capitalisation US equities._t_',
+            text: '_t_<0>IWM.US</0> The iShares Russell 2000 ETF tracks the investment results of an index of small-capitalisation US equities._t_',
             components: [
                 <Link
                     key={0}

@@ -236,6 +236,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
 
     useEffect(() => {
         document.body.style.overflow = show_popUp ? 'hidden' : 'scroll'
+        document.getElementById('gatsby-focus-wrapper').style.overflow = show_popUp ? 'hidden' : 'scroll'
     }, [show_popUp])
 
     const openPopup = (type: TPopupType) => {

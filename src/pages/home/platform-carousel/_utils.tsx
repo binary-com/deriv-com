@@ -1,21 +1,21 @@
-import React, { ReactElement } from 'react'
 import type { CSSProperties } from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import DerivEZIcon from 'images/svg/deriv-ez/derivez-logo-black.svg'
+import DerivEZIcon from 'images/svg/deriv-ez/deriv-ez-logo-red.svg'
 import {
+    binary_bot_url,
     deriv_api_url,
     deriv_go_ios_url,
     deriv_go_playstore_url,
     derivx_android_url,
     derivx_ios_url,
     dmt5_android_url,
-    dmt5_linux_url,
+    dmt5_app_gallery,
     dmt5_ios_url,
-    smarttrader_url,
-    binary_bot_url,
+    dmt5_linux_url,
     dmt5_mac_app_url,
     dmt5_windows_download_url,
-    dmt5_app_gallery,
+    smarttrader_url,
 } from 'common/constants'
 import { Header, StyledLink } from 'components/elements'
 import { Flex } from 'components/containers'

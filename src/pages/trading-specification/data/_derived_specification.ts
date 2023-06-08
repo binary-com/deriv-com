@@ -102,6 +102,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'JUMP10NEW',
+                swf_icon: true,
                 instrument: 'Jump 10 Index',
             },
             contract_size: 1,
@@ -118,6 +119,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'JUMP100NEW',
+                swf_icon: true,
                 instrument: 'Jump 100 Index',
             },
             contract_size: 1,
@@ -134,6 +136,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'JUMP25NEW',
+                swf_icon: true,
                 instrument: 'Jump 25 Index',
             },
             contract_size: 1,
@@ -150,6 +153,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'JUMP50NEW',
+                swf_icon: true,
                 instrument: 'Jump 50 Index',
             },
             contract_size: 1,
@@ -166,6 +170,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'JUMP75NEW',
+                swf_icon: true,
                 instrument: 'Jump 75 Index',
             },
             contract_size: 1,
@@ -182,6 +187,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'RANGEBREAK100New',
+                swf_icon: true,
                 instrument: 'Range Break 100 Index',
             },
             contract_size: 1,
@@ -198,6 +204,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'RANGEBREAK200New',
+                swf_icon: true,
                 instrument: 'Range Break 200 Index',
             },
             contract_size: 1,
@@ -214,6 +221,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STEPINDICES',
+                swf_icon: true,
                 instrument: 'Step Index',
             },
             contract_size: 10,
@@ -230,6 +238,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'INDEX10S1NEW',
+                swf_icon: true,
                 instrument: 'Volatility 10 (1s) Index',
             },
             contract_size: 1,
@@ -246,6 +255,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'INDEX10NEW',
+                swf_icon: true,
                 instrument: 'Volatility 10 Index',
             },
             contract_size: 1,
@@ -262,6 +272,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'INDEX100S1NEW',
+                swf_icon: true,
                 instrument: 'Volatility 100 (1s) Index',
             },
             contract_size: 1,
@@ -278,6 +289,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'INDEX100NEW',
+                swf_icon: true,
                 instrument: 'Volatility 100 Index',
             },
             contract_size: 1,
@@ -294,6 +306,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'VINDEX2001S',
+                swf_icon: true,
                 instrument: 'Volatility 200 (1s) Index',
             },
             contract_size: 1,
@@ -310,6 +323,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'INDEX25S1NEW',
+                swf_icon: true,
                 instrument: 'Volatility 25 (1s) Index',
             },
             contract_size: 1,
@@ -326,6 +340,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'INDEX25NEW',
+                swf_icon: true,
                 instrument: 'Volatility 25 Index',
             },
             contract_size: 1,
@@ -342,6 +357,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'VINDEX3001S',
+                swf_icon: true,
                 instrument: 'Volatility 300 (1s) Index',
             },
             contract_size: 1,
@@ -358,6 +374,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'INDEX50S1NEW',
+                swf_icon: true,
                 instrument: 'Volatility 50 (1s) Index',
             },
             contract_size: 1,
@@ -374,6 +391,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'INDEX50NEW',
+                swf_icon: true,
                 instrument: 'Volatility 50 Index',
             },
             contract_size: 1,
@@ -390,6 +408,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'INDEX75S1NEW',
+                swf_icon: true,
                 instrument: 'Volatility 75 (1s) Index',
             },
             contract_size: 1,
@@ -406,6 +425,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'INDEX75NEW',
+                swf_icon: true,
                 instrument: 'Volatility 75 Index',
             },
             contract_size: 1,
@@ -422,6 +442,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'VINDEX1501S',
+                swf_icon: true,
                 instrument: 'Volatility 150 (1s) Index',
             },
             contract_size: 1,
@@ -438,6 +459,7 @@ const derived_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'VINDEX2501S',
+                swf_icon: true,
                 instrument: 'Volatility 250 (1s) Index',
             },
             contract_size: 1,

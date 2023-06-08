@@ -11,21 +11,6 @@ const href = isBrowser && window.location.href
 const site_url =
     origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
 
-const strapi_preview_param = {
-    publicationState: process.env.STRAPI_PREVIEW === 'true' ? 'preview' : 'live',
-    'filters[publishedAt][$null]': process.env.STRAPI_PREVIEW === 'true' ? 'true' : 'false',
-}
-const strapi_config = process.env.STRAPI_BUILD == 'true' && [
-    {
-        singularName: 'who-we-are-page',
-        queryParams: strapi_preview_param,
-    },
-    {
-        singularName: 'cfd-warning-banner',
-        queryParams: strapi_preview_param,
-    },
-]
-
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     flags: {
@@ -46,12 +31,6 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
-        // [TODO] Enable this when we have a proper setup to enable both caching and pushwoosh service workers together, Otherwise it will cause one of them stop working.
-        //     resolve: `gatsby-plugin-offline`,
-        //     options: {
-        //         // precachePages: [`/`],
-        //     },
-        // },
         {
             resolve: 'gatsby-plugin-sass',
             options: {
@@ -367,11 +346,21 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-source-strapi',
+            resolve: `gatsby-plugin-offline`,
             options: {
-                apiURL: 'https://chief-skinny-instrument.strapiapp.com',
-                accessToken: process.env.STRAPI_TOKEN,
-                collectionTypes: strapi_config,
+                precachePages: [`/`],
+                workboxConfig: {
+                    runtimeCaching: [
+                        {
+                            urlPattern: /\.(png|jpe?g|svg|gif|webp|ico|woff2?|ttf|otf|css|scss)$/,
+                            handler: `StaleWhileRevalidate`,
+                        },
+                        {
+                            urlPattern: /^.*$/,
+                            handler: `StaleWhileRevalidate`,
+                        },
+                    ],
+                },
             },
         },
     ],

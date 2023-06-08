@@ -22,7 +22,7 @@ export const tradeTypesContent: SmartNavContent[] = [
                 alt: 'Dtrader trading platform',
             },
             content: '_t_A whole new trading experience on a powerful yet easy to use platform._t_',
-            title: '_t_deriv Trader_t_',
+            title: '_t_Deriv Trader_t_',
             url: { type: 'internal', to: '/dtrader/' },
         },
         visibility: {
@@ -94,7 +94,7 @@ export const tradingPlatformsContent: SmartNavContent[] = [
                 alt: 'Deriv MT5 trading platform',
             },
             content: '_t_Trade on Deriv MT5, the all-in-one CFD trading platform._t_',
-            title: '_t_deriv MT5_t_',
+            title: '_t_Deriv MT5_t_',
             url: ({ is_ppc_redirect }) => ({
                 type: 'internal',
                 to: is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/',
@@ -111,7 +111,7 @@ export const tradingPlatformsContent: SmartNavContent[] = [
                 alt: 'Deriv X trading paltform',
             },
             content: '_t_A highly customisable and easy-to-use CFD trading platform._t_',
-            title: '_t_deriv X_t_',
+            title: '_t_Deriv X_t_',
             url: { type: 'internal', to: '/derivx/' },
         },
         visibility: {
@@ -128,7 +128,7 @@ export const tradingPlatformsContent: SmartNavContent[] = [
             },
             content:
                 '_t_Trade on global markets from anywhere with our mobile-first CFD trading platform._t_',
-            title: '_t_deriv EZ_t_',
+            title: '_t_Deriv EZ_t_',
             url: { type: 'internal', to: '/derivez/' },
         },
         visibility: {
@@ -160,7 +160,7 @@ export const tradingPlatformsContent: SmartNavContent[] = [
                 alt: 'Deriv trader trading platform',
             },
             content: '_t_A whole new trading experience on a powerful yet easy to use platform._t_',
-            title: '_t_deriv Trader_t_',
+            title: '_t_Deriv Trader_t_',
             url: { type: 'internal', to: '/dtrader/' },
         },
         visibility: {
@@ -196,7 +196,7 @@ export const noTitleSection: SmartNavContent[] = [
                 alt: 'Dtrader trading platform',
             },
             content: '_t_A whole new trading experience on a powerful yet easy to use platform._t_',
-            title: '_t_deriv Trader_t_',
+            title: '_t_Deriv Trader_t_',
             url: { type: 'internal', to: '/dtrader/' },
         },
         visibility: {
@@ -206,14 +206,14 @@ export const noTitleSection: SmartNavContent[] = [
     {
         id: 1,
         data: {
-            aria_label: 'deriv GO',
+            aria_label: 'Deriv GO',
             icon: {
                 src: DerivGo,
                 alt: 'Deriv GO mobile trading app',
             },
             content:
                 '_t_Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app._t_',
-            title: '_t_deriv GO_t_',
+            title: '_t_Deriv GO_t_',
 
             url: { type: 'internal', to: '/deriv-go/' },
         },
@@ -230,7 +230,7 @@ export const noTitleSection: SmartNavContent[] = [
                 alt: 'Deriv Bot Automated trading',
             },
             content: '_t_Automated trading at your fingertips. No coding needed._t_',
-            title: '_t_deriv Bot_t_',
+            title: '_t_Deriv Bot_t_',
 
             url: { type: 'internal', to: '/dbot/' },
         },

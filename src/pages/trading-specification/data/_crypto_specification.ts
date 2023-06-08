@@ -29,6 +29,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'ADAUSD',
+                swf_icon: true,
                 instrument: 'ADA/USD',
             },
             contract_size: 1,
@@ -45,6 +46,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'ALGORAND',
+                swf_icon: true,
                 instrument: 'ALG/USD',
             },
             contract_size: 1,
@@ -61,6 +63,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'AVALANCHE',
+                swf_icon: true,
                 instrument: 'AVA/USD',
             },
             contract_size: 1,
@@ -77,6 +80,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'BAT',
+                swf_icon: true,
                 instrument: 'BAT/USD',
             },
             contract_size: 1,
@@ -93,6 +97,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'BCHNEW',
+                swf_icon: true,
                 instrument: 'BCH/USD',
             },
             contract_size: 1,
@@ -109,6 +114,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'BNBUSD',
+                swf_icon: true,
                 instrument: 'BNB/USD',
             },
             contract_size: 1,
@@ -125,6 +131,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'BTCETH',
+                swf_icon: true,
                 instrument: 'BTC/ETH',
             },
             contract_size: 1,
@@ -141,6 +148,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'BTCLTC',
+                swf_icon: true,
                 instrument: 'BTC/LTC',
             },
             contract_size: 1,
@@ -158,6 +166,7 @@ const crypto_specification: TSpecification = {
             instrument: {
                 symbol: 'BTCUSD',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'BTC/USD',
             },
             contract_size: 1,
@@ -174,6 +183,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'DOGUSD',
+                swf_icon: true,
                 instrument: 'DOG/USD',
             },
             contract_size: 1,
@@ -190,6 +200,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'DOTUSD',
+                swf_icon: true,
                 instrument: 'DOT/USD',
             },
             contract_size: 1,
@@ -206,6 +217,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'DSHUSD1',
+                swf_icon: true,
                 instrument: 'DSH/USD',
             },
             contract_size: 1,
@@ -222,6 +234,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'EOSUSD1',
+                swf_icon: true,
                 instrument: 'EOS/USD',
             },
             contract_size: 1,
@@ -238,6 +251,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'ETCUSD',
+                swf_icon: true,
                 instrument: 'ETC/USD',
             },
             contract_size: 1,
@@ -255,6 +269,7 @@ const crypto_specification: TSpecification = {
             instrument: {
                 symbol: 'ETHUSD',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'ETH/USD',
             },
             contract_size: 1,
@@ -271,6 +286,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'FILUSD',
+                swf_icon: true,
                 instrument: 'FIL/USD',
             },
             contract_size: 1,
@@ -287,6 +303,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'IOTUSD',
+                swf_icon: true,
                 instrument: 'IOT/USD',
             },
             contract_size: 1,
@@ -303,6 +320,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'LNKUSD',
+                swf_icon: true,
                 instrument: 'LNK/USD',
             },
             contract_size: 1,
@@ -319,6 +337,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'LTCUSD',
+                swf_icon: true,
                 instrument: 'LTC/USD',
             },
             contract_size: 1,
@@ -335,6 +354,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'MKRUSD',
+                swf_icon: true,
                 instrument: 'MKR/USD',
             },
             contract_size: 1,
@@ -351,6 +371,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'MTCUSD',
+                swf_icon: true,
                 instrument: 'MTC/USD',
             },
             contract_size: 1,
@@ -367,6 +388,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'NEOUSD',
+                swf_icon: true,
                 instrument: 'NEO/USD',
             },
             contract_size: 1,
@@ -383,6 +405,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'OMGUSD',
+                swf_icon: true,
                 instrument: 'OMG/USD',
             },
             contract_size: 1,
@@ -399,6 +422,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'SOLUSD',
+                swf_icon: true,
                 instrument: 'SOL/USD',
             },
             contract_size: 1,
@@ -415,6 +439,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'TRXUSD',
+                swf_icon: true,
                 instrument: 'TRX/USD',
             },
             contract_size: 1,
@@ -431,6 +456,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'UNIUSD',
+                swf_icon: true,
                 instrument: 'UNI/USD',
             },
             contract_size: 1,
@@ -447,6 +473,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'XLMUSD',
+                swf_icon: true,
                 instrument: 'XLM/USD',
             },
             contract_size: 1,
@@ -463,6 +490,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'XMRUSD',
+                swf_icon: true,
                 instrument: 'XMR/USD',
             },
             contract_size: 1,
@@ -479,6 +507,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'XRPUSD1',
+                swf_icon: true,
                 instrument: 'XRP/USD',
             },
             contract_size: 1,
@@ -495,6 +524,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'XTZUSD',
+                swf_icon: true,
                 instrument: 'XTZ/USD',
             },
             contract_size: 1,
@@ -511,6 +541,7 @@ const crypto_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'ZECUSD',
+                swf_icon: true,
                 instrument: 'ZEC/USD',
             },
             contract_size: 1,

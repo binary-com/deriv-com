@@ -1,5 +1,5 @@
 import { TQuestionsData } from './_data-types'
-import { binary_bot_url, deriv_app_url } from 'common/constants'
+import { binary_bot_url, deriv_app_url, traders_hub } from 'common/constants'
 
 const dmt5: TQuestionsData = {
     section: 'Platforms',
@@ -77,7 +77,7 @@ const dmt5: TQuestionsData = {
         },
         {
             question:
-                '_t_What are the differences between the Deriv MT5 Derived and Financial accounts?_t_',
+                '_t_What are the differences between the MT5 Derived, Financial, and Swap-free accounts?_t_',
             category: 'DMT5',
             sub_category: '_t_Accounts_t_',
             label: 'differences-of-dmt5-accounts',
@@ -85,11 +85,16 @@ const dmt5: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_The Deriv MT5 Derived account offers contracts for difference (CFDs) on derived indices. These indices include our proprietary synthetic indices as well as indices derived from the price movement of real financial markets. Selected derived indices can be traded 24/7, even on weekends and holidays, while the others are available for trade round the clock on weekdays._t_',
+                        '_t_The MT5 Derived account offers contracts for difference (CFDs) on derived indices. These indices include our proprietary synthetic indices as well as indices derived from the price movement of real financial markets. Selected derived indices can be traded 24/7, even on weekends and holidays, while the others are available for trade round the clock on weekdays._t_',
                 },
                 {
                     translation_text:
-                        '_t_The Deriv MT5 Financial account offers CFDs on forex, commodities, cryptocurrencies, stocks, and stock indices, with high leverage and variable spreads for maximum flexibility. This account offers more than 100 assets, and 24/7 trading is available on cryptocurrencies._t_',
+                        '_t_The MT5 Financial account offers CFDs on forex, commodities, cryptocurrencies, stocks, and stock indices, with high leverage and variable spreads for maximum flexibility. This account offers more than 100 assets, and 24/7 trading is available on cryptocurrencies._t_',
+                    has_margin_top: true,
+                },
+                {
+                    translation_text:
+                        '_t_The MT5 Swap-free account offers swap-free CFD trading on selected derived and financial assets. With 24/7 trading available for synthetic indices and cryptocurrencies, this account allows you to leave your positions open overnight without additional charges._t_',
                     has_margin_top: true,
                 },
             ],
@@ -376,29 +381,17 @@ const dmt5: TQuestionsData = {
             question: '_t_Do you offer swap-free Deriv MT5 accounts?_t_',
             category: 'DMT5',
             sub_category: '_t_Deposits_t_',
-            hide_for_non_eu: true,
             label: 'swap-free-Deriv-MT5-accounts',
-            answer: [{ translation_text: "_t_No, we don't._t_" }],
-        },
-        {
-            question: '_t_Do you offer swap-free Deriv MT5 accounts?_t_',
-            category: 'DMT5',
-            sub_category: '_t_Deposits_t_',
-            hide_for_eu: true,
-            label: 'swap-free-Deriv-MT5-accounts',
-            answer: [
-                {
-                    translation_text:
-                        "_t_No, we don't. But you can trade selected forex pairs without paying a swap fee. To calculate the swap fee for your trade, use our <0>Swap calculator</0>._t_",
-                    translation_components: [
-                        {
-                            key: 0,
-                            type: 'link',
-                            to: '/trader-tools/swap-calculator',
-                        },
-                    ],
-                },
-            ],
+            answer: ({ is_eu }) =>
+                is_eu
+                    ? [{ translation_text: "_t_No, we don't._t_" }]
+                    : [
+                          {
+                              translation_text:
+                                  '_t_Yes, we do. You can create a swap-free Deriv MT5 account in the <0>Trader’s hub</0>._t_',
+                              translation_components: [{ key: 0, type: 'link', to: traders_hub }],
+                          },
+                      ],
         },
         {
             question: '_t_How can I reactivate my Deriv MT5 account?_t_',

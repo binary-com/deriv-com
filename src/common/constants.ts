@@ -49,7 +49,7 @@ export const eu_urls = ['eu.deriv.com', 'staging-eu.deriv.com', 'beta-eu.deriv.c
 export const domain_full_url = `https://${getDomainUrl()}`
 export const deriv_app_id = getDomainAppID()
 export const deriv_app_url = `https://app.${getDomainUrl()}`
-export const deriv_api_url = `https://api.${getDomainUrl()}/docs`
+export const deriv_api_url = `https://api.${getDomainUrl()}`
 export const deriv_bot_app_url = `${deriv_app_url}/bot`
 export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
 export const deriv_life_url = `https://derivlife.com/`
@@ -57,6 +57,7 @@ export const academy_url = `https://academy.deriv.com/`
 export const deriv_mt5_app_url = `https://trade.mql5.com/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979`
 export const derivx_app_url = `${deriv_app_url}/derivx`
 export const smarttrader_url = `https://smarttrader.${getDomainUrl()}`
+export const traders_hub = 'https://app.deriv.com/appstore/traders-hub'
 export const binary_bot_url = `https://bot.${getDomainUrl()}`
 export const blog_url = `https://blog.${deriv_com_url}`
 export const deriv_cookie_domain = getDomainUrl()

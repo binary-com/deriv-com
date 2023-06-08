@@ -1,35 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
-import { Flex, Desktop, Mobile } from 'components/containers'
-import { QueryImage } from 'components/elements'
-import device from 'themes/device'
+import { THero } from '../_types'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 import { Localize } from 'components/localization'
-import desktop_bg from 'images/common/about/about_us_bg_desktop.png'
-import mobile_bg from 'images/common/about/about_us_bg_mobile.png'
-
-const query = graphql`
-    query {
-        about_us_logo: file(relativePath: { eq: "about/about_us_logo.png" }) {
-            ...fadeIn
-        }
-    }
-`
+import { Desktop, Flex, Mobile } from 'components/containers'
+import device from 'themes/device'
 
 type ParentWrapperProps = {
-    bg_image_desktop: string
-    bg_image_mobile: string
+    bg_image: string
 }
-
 const ParentWrapper = styled(Flex)<ParentWrapperProps>`
     width: 100%;
-    background-image: url(${(props) => props.bg_image_desktop});
+    background-image: url(${({ bg_image }) => bg_image});
     background-position: center;
     background-size: cover;
-
-    @media ${device.tabletL} {
-        background-image: url(${(props) => props.bg_image_mobile});
-    }
 `
 const ContentWrapper = styled(Flex)`
     height: auto;
@@ -39,7 +23,6 @@ const ContentWrapper = styled(Flex)`
         margin: 180px 0 145px;
     }
 `
-
 const MobileHeader = styled.h1`
     color: var(--color-white);
     text-align: center;
@@ -58,7 +41,6 @@ const MobileHeader = styled.h1`
         line-height: 1.25;
     }
 `
-
 const DesktopHeader = styled.h1`
     color: white;
     font-weight: bold;
@@ -73,48 +55,57 @@ const DesktopHeader = styled.h1`
         font-size: 140px;
     }
 `
-
 const StyledFlex = styled(Flex)`
     min-height: 400px;
     position: relative;
 `
-
-const StyledQueryImage = styled(QueryImage)`
+const StyledImage = styled.img`
     max-width: 591px;
     z-index: 2;
     position: absolute;
 `
-const StyledMobileQueryImage = styled(QueryImage)`
+const StyledMobileImage = styled.img`
     max-width: 445px;
+
+    @media (max-width: 480px) {
+        max-width: 328px;
+    }
+    @media (max-width: 360px) {
+        max-width: 300px;
+    }
 `
-const Hero = () => {
-    const data = useStaticQuery(query)
-    const title = <Localize translate_text="_t_Who we are_t_" />
+
+const Hero = ({ hero }: THero) => {
+    const { is_mobile_or_tablet } = useBreakpoints()
+    const bg_image = is_mobile_or_tablet
+        ? hero?.bg_mobile.localFile?.publicURL
+        : hero?.bg_desktop.localFile?.publicURL
 
     return (
-        <ParentWrapper bg_image_desktop={desktop_bg} bg_image_mobile={mobile_bg}>
+        <ParentWrapper bg_image={bg_image}>
             <ContentWrapper jc="center">
                 <Desktop>
                     <StyledFlex>
-                        <StyledQueryImage
-                            data={data['about_us_logo']}
-                            alt="example"
-                            width="unset"
-                            loading="eager"
+                        <StyledImage
+                            src={hero?.hero_image.localFile?.publicURL}
+                            alt="hero image desktop"
                         />
                         <Flex jc="center" p="0 32px" max_width="1440px">
-                            <DesktopHeader>{title}</DesktopHeader>
+                            <DesktopHeader>
+                                <Localize translate_text={hero?.header} />
+                            </DesktopHeader>
                         </Flex>
                     </StyledFlex>
                 </Desktop>
                 <Mobile>
                     <Flex fd="column" ai="center" p="0 16px">
-                        <StyledMobileQueryImage
-                            data={data['about_us_logo']}
-                            alt="example"
-                            width="unset"
+                        <StyledMobileImage
+                            src={hero?.hero_image.localFile?.publicURL}
+                            alt="hero image mobile"
                         />
-                        <MobileHeader>{title}</MobileHeader>
+                        <MobileHeader>
+                            <Localize translate_text={hero?.header} />
+                        </MobileHeader>
                     </Flex>
                 </Mobile>
             </ContentWrapper>

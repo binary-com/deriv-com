@@ -23,8 +23,9 @@ const TradeStepsWrapper = ({ header, data }: TradeStepsType) => {
         <Container.Fixed
             as="section"
             bgcolor="secondary"
+            padding_block="20x"
             lg={{ padding: '40x' }}
-            padding_block="40x"
+            md={{ padding_block: '40x' }}
             padding_inline="8x"
         >
             <Typography.Heading

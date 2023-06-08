@@ -9,9 +9,16 @@ import { Localize } from 'components/localization'
 const InstrumentsTable = () => {
     return (
         <Flex.Box direction="col" justify="center" className={item_container}>
-            <Typography.Paragraph weight="bold" pt="24x" pb="12x" font_family="UBUNTU">
+            <Typography.Heading
+                as="h4"
+                size="xxs"
+                weight="bold"
+                pt="24x"
+                pb="12x"
+                font_family="UBUNTU"
+            >
                 <Localize translate_text="_t_Instruments available for CFD trading_t_" />
-            </Typography.Paragraph>
+            </Typography.Heading>
             <InstrumentalTable tableContent={tableContent} />
         </Flex.Box>
     )

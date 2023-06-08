@@ -1,6 +1,6 @@
-import { TMarketNavItem } from './types'
+import { MarketTradeTypeItem } from './types'
 
-export const marketItems: TMarketNavItem[] = [
+export const marketItems: MarketTradeTypeItem[] = [
     {
         title: '_t_Forex_t_',
         link: {
@@ -28,6 +28,9 @@ export const marketItems: TMarketNavItem[] = [
         link: {
             type: 'internal',
             to: '/markets/exchange-traded-funds/',
+        },
+        visibility: {
+            is_eu: false,
         },
     },
     {

@@ -19,6 +19,9 @@
         min-block-size: 36rem;
         isolation: isolate;
     }
+    @include breakpoints(desktop) {
+        min-block-size: 60rem;
+    }
 }
 
 .image_container {

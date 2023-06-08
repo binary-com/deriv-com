@@ -42,7 +42,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
 
     const network = useNetwork()
 
-    const is_online = network.online
+    const is_online = network?.online
     const TABLE_VISIBLE_ROWS = 5
 
     const region = is_eu

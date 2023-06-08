@@ -1,10 +1,7 @@
 @use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
 
-.table_container{
-  display: flex;
-  flex-direction: column;
-}
+
 .table_row_header{
     background-color: $color-white-1;
     border-start-start-radius: 16px;

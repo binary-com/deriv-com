@@ -8,7 +8,7 @@ import {
 import type { SortingState } from '@tanstack/react-table'
 import { TAvailableLiveMarkets, TMarketData } from '../types'
 import useLiveColumns from '../use-live-columns'
-import { table_row_header, table_row_data, table_container } from './live-pricing.module.scss'
+import { table_row_header, table_row_data } from './live-pricing.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import useRegion from 'components/hooks/use-region'
 import Link from 'features/components/atoms/link'
@@ -117,33 +117,33 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
     return (
         <>
             <Flex.Box justify="center" mt="16x">
-                <table className={table_container}>
-                    <thead>
-                        {table.getHeaderGroups().map((headerGroup) => (
-                            <Flex.Box key={headerGroup.id} justify="center">
-                                <tr className={table_row_header}>
-                                    {headerGroup.headers.map((header) => (
-                                        <th key={header.id}>
-                                            {header.isPlaceholder
-                                                ? null
-                                                : flexRender(
-                                                      header.column.columnDef.header,
-                                                      header.getContext(),
-                                                  )}
-                                        </th>
-                                    ))}
-                                </tr>
-                            </Flex.Box>
-                        ))}
-                    </thead>
-                    {!markets_data.size ? (
-                        <InitialLoader
-                            style={{
-                                padding: '40px 0',
-                                marginInlineStart: '45%',
-                            }}
-                        />
-                    ) : (
+                {!markets_data.size ? (
+                    <InitialLoader
+                        style={{
+                            padding: '40px 0',
+                            marginInlineStart: '45%',
+                        }}
+                    />
+                ) : (
+                    <table>
+                        <thead>
+                            {table.getHeaderGroups().map((headerGroup) => (
+                                <Flex.Box key={headerGroup.id} justify="center">
+                                    <tr className={table_row_header}>
+                                        {headerGroup.headers.map((header) => (
+                                            <th key={header.id}>
+                                                {header.isPlaceholder
+                                                    ? null
+                                                    : flexRender(
+                                                          header.column.columnDef.header,
+                                                          header.getContext(),
+                                                      )}
+                                            </th>
+                                        ))}
+                                    </tr>
+                                </Flex.Box>
+                            ))}
+                        </thead>
                         <tbody>
                             {rows.map((row) => (
                                 <Flex.Box key={row.id} justify="center">
@@ -160,8 +160,8 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
                                 </Flex.Box>
                             ))}
                         </tbody>
-                    )}
-                </table>
+                    </table>
+                )}
             </Flex.Box>
 
             <Flex.Box justify="center" align="center" mt="18x" gap="10x">

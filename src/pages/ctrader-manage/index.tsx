@@ -51,7 +51,7 @@ const data = (page: string): ContentType => {
             title: '_t_To add an account please click on the button below_t_',
             url: {
                 type: 'non-company',
-                target: '_blank',
+                target: '_self',
                 href: 'https://app.deriv.com/appstore/traders-hub',
             },
             button_text: '_t_Add a new account_t_',

@@ -38,13 +38,15 @@ const InterestCardFlex = styled(Flex)`
 
     @media ${device.tabletL} {
         font-size: 14px;
-        width: 328px;
+        max-width: 328px;
+        width: 100%;
         height: 373px;
         margin: 24px 0;
     }
 `
 
 const InterestText = styled(Text)`
+    color: var(--color-black-9);
     @media ${device.tabletL} {
         font-size: 24px;
     }
@@ -53,7 +55,6 @@ const InterestText = styled(Text)`
 const StyledContainer = styled(Flex)`
     width: 100%;
     height: 552px;
-    background-color: var(--color-grey-25);
     margin-bottom: 5.2rem;
     flex-direction: row;
     align-items: center;
@@ -66,6 +67,7 @@ const StyledContainer = styled(Flex)`
 `
 
 const StyledHeader = styled(Header)`
+    color: var(--color-black-9);
     margin: 13.4rem 0 1.2rem;
     font-size: 48px;
     @media ${device.tabletL} {
@@ -77,7 +79,7 @@ const StyledHeader = styled(Header)`
 const StyledFlex = styled(Flex)`
     @media ${device.tabletL} {
         width: 100%;
-        min-width: 328px;
+        max-width: 328px;
         padding: 16px;
     }
 `
@@ -96,9 +98,13 @@ const StyledLinkButton = styled(LinkButton)`
     :focus {
         outline: 0;
     }
+    @media ${device.tabletL} {
+        margin: 0 auto;
+    }
 `
 
 const StyledRightText = styled(Text)`
+    color: var(--color-black-9);
     margin-bottom: 3.2rem;
 `
 
@@ -115,6 +121,8 @@ const TextWrapperFlex = styled(Flex)`
 `
 
 const StyledText = styled(Text)`
+    color: var(--color-black-9);
+
     @media ${device.tabletL} {
         font-size: 14px;
     }
@@ -146,10 +154,10 @@ const InterestFreeTrading = () => {
         <StyledContainer>
             <InterestCardFlex fd="column" ai="center" jc="center">
                 <ImageWrapper>
-                    <ImageTag src={ZeroPercent} alt="Zero percent interest" />
+                    <ImageTag src={ZeroPercent} alt="Zero Commission" />
                 </ImageWrapper>
                 <InterestText size="32px">
-                    <Localize translate_text="interest" />
+                    <Localize translate_text="Commission" />
                 </InterestText>
                 <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
                     <CheckedText>Forex</CheckedText>
@@ -164,7 +172,7 @@ const InterestFreeTrading = () => {
                     <Localize translate_text="Trade on the world markets without commission" />
                 </StyledHeader>
                 <StyledRightText>
-                    <Localize translate_text="Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected forex pairs." />
+                    <Localize translate_text="Enjoy zero commission trading on all assets." />
                 </StyledRightText>
                 <StyledLinkButton secondary external type="mt5" target="_blank">
                     <Localize translate_text="Trade without commission" />

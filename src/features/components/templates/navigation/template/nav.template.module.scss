@@ -1,0 +1,19 @@
+@import 'features/styles/theme/variables';
+
+.header_wrapper {
+    position: fixed;
+    z-index: 4;
+    inset-block-start: 0;
+}
+
+.nav_container {
+    block-size: 7rem;
+}
+
+.no_nav{
+    background-color: $color-black;
+    inline-size: 100%;
+    block-size:18.4rem;
+    top: -184px;
+    position: absolute;
+}

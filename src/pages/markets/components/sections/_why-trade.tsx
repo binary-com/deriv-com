@@ -20,7 +20,7 @@ const Item = styled(Flex)`
     }
 
     @media ${device.tabletL} {
-        max-width: 18rem;
+        max-width: 14rem;
         gap: 6px;
 
         ${Text} {
@@ -42,7 +42,7 @@ const ItemContainer = styled(Box)`
         gap: 22px;
         max-width: 40.6rem;
     }
-    @media (max-width: 336px) {
+    @media (max-width: 341px) {
         justify-content: center;
     }
 `

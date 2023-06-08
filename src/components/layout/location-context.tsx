@@ -9,7 +9,7 @@ type LocationProviderProps = {
 
 // Todo: Context is initialized with `true` which is not compatible with the actual value of the context,
 // Need to investigate and remove the initial value to correct the type.
-export const LocationContext = React.createContext(true as LocationProviderProps)
+export const LocationContext = React.createContext<LocationProviderProps>({})
 
 export const LocationProvider = ({
     children,

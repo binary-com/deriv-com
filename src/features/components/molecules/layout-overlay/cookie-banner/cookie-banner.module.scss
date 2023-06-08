@@ -1,0 +1,45 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+}
+
+.cookie_banner {
+    &_wrapper {
+        pointer-events: all;
+        inline-size: 100vw;
+        transition: translate 0.2s ease-in-out, opacity 0.2s ease-in-out;
+
+        box-shadow: 0 0 12px 0 rgba(14, 14, 14, 0.16);
+        align-self: flex-start;
+
+        @include breakpoints(tablet) {
+            max-inline-size: 40rem;
+            border-radius: 8px;
+        }
+
+        animation: fadeOut 0.2s;
+        &.visible {
+            animation: fadeIn 0.2s;
+        }
+    }
+}

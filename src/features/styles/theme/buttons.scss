@@ -1,0 +1,114 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.link-button {
+    display: flex;
+    border-radius: 1.6rem;
+    border-color: transparent;
+    padding: 10px 18px;
+    transition: all 0.25s;
+    line-height: 1;
+    min-block-size: 4rem;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    border-radius: 1.6rem;
+    border-color: transparent;
+    padding: 10px 18px;
+    transition: all 0.25s;
+    line-height: 1;
+    min-block-size: 4rem;
+    display: table-cell;
+    vertical-align: middle;
+    outline: none;
+
+    &:focus,
+    &:active {
+        outline: none;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+[dir='ltr'] .button {
+    font-family: Ubuntu, sans-serif;
+}
+[dir='rtl'] .button {
+    font-family: 'Noto Sans', sans-serif;
+}
+.button.hero,
+.link-button.hero {
+    min-block-size: 6.4rem;
+    border-radius: 2.4rem;
+    background-color: black;
+    font-size: 2rem;
+}
+.button.fluid {
+    inline-size: 100%;
+}
+
+.button:disabled {
+    pointer-events: none;
+    opacity: 0.32;
+}
+
+.button.loading {
+    inline-size: 8rem;
+    block-size: 8rem;
+    border: 10px solid $color-black;
+    border-radius: 50%;
+    animation: sweep 1s linear alternate infinite, rotates 0.8s linear infinite;
+}
+
+.button.primary,
+.link-button.primary {
+    color: $color-white;
+    background-color: $color-brand;
+
+    &:hover {
+        background-color: $color-red-6;
+    }
+}
+
+.button.primary.outlined,
+.link-button.primary.outlined {
+    border: 2px solid $color-red;
+    background-color: $color-white;
+    color: $color-brand;
+    &:hover {
+        background-color: rgba(255, 68, 79, 0.08);
+    }
+}
+
+.button.secondary,
+.link-button.secondary {
+    color: $color-black-9;
+    background-color: $color-white;
+
+    &:hover {
+        background-color: $color-grey-40;
+        color: $color-black-9;
+    }
+}
+
+.button.secondary.outlined,
+.link-button.secondary.outlined {
+    border: 1px solid $color-grey-7;
+}
+
+.button.tab {
+    background: $color-white;
+    border: 1px solid rgba(51, 51, 51, 0.1);
+    block-size: 8.4rem;
+    inline-size: 16.4rem;
+
+    @include breakpoints(tablet) {
+        inline-size: 29.4rem;
+    }
+}

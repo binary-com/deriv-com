@@ -19,12 +19,6 @@ module.exports = {
         short_name: 'FR',
         affiliate_lang: 2,
     },
-    id: {
-        path: 'id',
-        display_name: 'Indonesian',
-        short_name: 'ID',
-        affiliate_lang: 4,
-    },
     it: {
         path: 'it',
         display_name: 'Italiano',
@@ -96,12 +90,12 @@ module.exports = {
         short_name: 'KO',
         affiliate_lang: 16,
     },
-    ach: {
-        path: 'ach',
-        display_name: 'Crowdin',
-        short_name: 'CR',
-        affiliate_lang: 13,
-    },
+    // ach: {
+    //     path: 'ach',
+    //     display_name: 'Crowdin',
+    //     short_name: 'CR',
+    //     affiliate_lang: 13,
+    // },
     de: {
         path: 'de',
         display_name: 'Deutsch',

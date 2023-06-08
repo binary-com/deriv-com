@@ -2,16 +2,21 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 import Autoplay from 'embla-carousel-autoplay'
+import type { PlatformDetailsProps } from './_utils'
 import {
     getOSIcon,
-    PlatformContent,
     ImageTag,
-    TPlatformDetails,
+    PlatformContent,
     PLATFORMS_CAROUSEL_DELAY,
+    TPlatformDetails,
 } from './_utils'
-import type { PlatformDetailsProps } from './_utils'
 import { LocalizedLink } from 'components/localization'
-import { dmt5_android_url, dmt5_app_gallery, deriv_mt5_app_url } from 'common/constants'
+import {
+    deriv_mt5_app_url,
+    dmt5_android_url,
+    dmt5_app_gallery,
+    dmt5_ios_url,
+} from 'common/constants'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 import { Carousel, QueryImage, StyledLink } from 'components/elements'
@@ -28,7 +33,13 @@ const query = graphql`
         dmt5_mobile_web_browser: file(relativePath: { eq: "home/dmt5_mobile_web_browser.png" }) {
             ...fadeIn
         }
+        dmt5_mobile_app_store: file(relativePath: { eq: "home/dmt5_mobile_app_store.png" }) {
+            ...fadeIn
+        }
         platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
+            ...fadeIn
+        }
+        platforms_derivez: file(relativePath: { eq: "home/platforms_deriv-ez-logo-red.png" }) {
             ...fadeIn
         }
         platforms_mt5: file(relativePath: { eq: "home/platforms_mt5.png" }) {
@@ -200,6 +211,18 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                 <OsBadges>
                                     <AppStoreBadge
                                         external
+                                        to={deriv_mt5_app_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            data={data['dmt5_mobile_web_browser']}
+                                            alt="dmt5 web browser"
+                                        />
+                                    </AppStoreBadge>
+
+                                    <AppStoreBadge
+                                        external
                                         to={dmt5_android_url}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -211,6 +234,17 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                     </AppStoreBadge>
                                     <AppStoreBadge
                                         external
+                                        to={dmt5_ios_url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            data={data['dmt5_mobile_app_store']}
+                                            alt="dmt5 ios"
+                                        />
+                                    </AppStoreBadge>
+                                    <AppStoreBadge
+                                        external
                                         to={dmt5_app_gallery}
                                         target="_blank"
                                         rel="noopener noreferrer"
@@ -218,17 +252,6 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                         <QueryImage
                                             data={data['dmt5_mobile_app_gallery']}
                                             alt="dmt5 app gallery"
-                                        />
-                                    </AppStoreBadge>
-                                    <AppStoreBadge
-                                        external
-                                        to={deriv_mt5_app_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <QueryImage
-                                            data={data['dmt5_mobile_web_browser']}
-                                            alt="dmt5 web browser"
                                         />
                                     </AppStoreBadge>
                                 </OsBadges>

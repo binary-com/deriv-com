@@ -1,0 +1,47 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.icon-rtl {
+    @include rtl() {
+        transform: scaleX(-1);
+    }
+}
+
+.icon-small {
+    inline-size: 12px;
+    block-size: 12px;
+
+    @include breakpoints(tablet) {
+        inline-size: 16px;
+        block-size: 16px;
+    }
+}
+
+.icon-medium {
+    inline-size: 16px;
+    block-size: 16px;
+
+    @include breakpoints(tablet) {
+        inline-size: 24px;
+        block-size: 24px;
+    }
+}
+
+.icon-large {
+    inline-size: 24px;
+    block-size: 24px;
+
+    @include breakpoints(tablet) {
+        inline-size: 32px;
+        block-size: 32px;
+    }
+}
+
+.icon-xlarge {
+    inline-size: 32px;
+    block-size: 32px;
+
+    @include breakpoints(tablet) {
+        inline-size: 64px;
+        block-size: 64px;
+    }
+}

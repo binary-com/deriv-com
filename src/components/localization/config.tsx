@@ -4,6 +4,7 @@ import { initReactI18next } from 'react-i18next'
 import { str as crc32 } from 'crc-32'
 import language_config from '../../../i18n-config'
 import ns1 from '../../translations/en.json'
+import { TString } from 'types/generics'
 
 export const defaultNS = 'translations'
 export const resources = {
@@ -33,8 +34,8 @@ use(initReactI18next).init({
 
 i18n.languages = Object.keys(language_config)
 
-export const localize = (key: string, values?: { search: string }) => {
-    let actual_key = key
+export const localize = (key: TString, values?: { search: string }) => {
+    let actual_key: string = key
     if (key?.includes('_t_')) {
         // Since I know the indices I wanna remove, substring is used instead of regex
         actual_key = key.substring(3, key.length - 3)

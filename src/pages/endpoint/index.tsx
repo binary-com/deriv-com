@@ -211,6 +211,7 @@ const Endpoint = () => {
                                     placeholder={'e.g. 9999'}
                                 />
                                 <StyledInput
+                                    readOnly
                                     name="clients_country"
                                     error={errors.clients_country}
                                     value={values.clients_country}

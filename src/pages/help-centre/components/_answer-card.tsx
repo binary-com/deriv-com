@@ -37,7 +37,7 @@ const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
 
     return (
         <Wrapper>
-            <Header size="2.4rem" mb="2.4rem">
+            <Header size="2.4rem" as="p" mb="2.4rem">
                 <Localize translate_text={question} />
             </Header>
             {renderProp?.()}
@@ -50,6 +50,8 @@ const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
                     margin_top,
                     list,
                     img,
+                    color,
+                    size,
                 }) => {
                     const text =
                         is_eu && eu_translation_text ? eu_translation_text : translation_text
@@ -59,10 +61,12 @@ const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
                     return (
                         <>
                             <Header
+                                as="p"
                                 key={translation_text}
-                                size="16px"
+                                size={size ? size : '16px'}
                                 weight="normal"
                                 mt={has_margin_top ? '1.7rem' : margin_top}
+                                color={color ? color : 'var(--color-black-3)'}
                             >
                                 {translation_text && (
                                     <Localize translate_text={text} components={component} />

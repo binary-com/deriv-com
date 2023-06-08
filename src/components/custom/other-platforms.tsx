@@ -1,8 +1,8 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Flex, FlexGridContainer } from 'components/containers'
-import { Text, Card, Header, NavCard, CardLink, LocalizedLinkText } from 'components/elements'
-import { localize, LocalizedLink, Localize } from 'components/localization'
+import { Flex, FlexGridContainer, SectionContainer } from 'components/containers'
+import { Card, CardLink, Header, LocalizedLinkText, NavCard, Text } from 'components/elements'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
 import { binary_bot_url } from 'common/constants'
@@ -17,6 +17,7 @@ import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
 import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
+import DerivEZ from 'images/svg/deriv-ez/deriv-ez-logo-red.svg'
 import DBot from 'images/svg/dbot/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
@@ -409,6 +410,23 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                             to="/derivx/"
                         />
                         <NavCard
+                            aria_label="Derivez"
+                            icon={() => (
+                                <img
+                                    src={DerivEZ}
+                                    alt="Deriv EZ trading paltform"
+                                    width="32"
+                                    height="32"
+                                />
+                            )}
+                            content={
+                                <Localize translate_text="Trade on global markets from anywhere with our mobile-first CFD trading platform." />
+                            }
+                            title={<Localize translate_text="Deriv EZ" />}
+                            onClick={onClick}
+                            to="/deriv-ez/"
+                        />
+                        <NavCard
                             aria_label="SmartTrader"
                             icon={() => (
                                 <img
@@ -659,10 +677,10 @@ export const NavResources = ({ onClick }: NavResourcesProps) => (
             to="/dmt5-trading-signals/#signal-subscriber/"
         />
         <CardLink
-            icon={() => <img src={Blog} alt="academy" width="24" height="24" />}
-            title={<Localize translate_text="Academy" />}
+            icon={() => <img src={Blog} alt="blog" width="24" height="24" />}
+            title={<Localize translate_text="Blog" />}
             to=""
-            type="academy"
+            type="blog"
             external={true}
             target="_blank"
             rel="noopener noreferrer"

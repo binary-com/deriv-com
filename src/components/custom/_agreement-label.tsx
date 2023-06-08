@@ -17,14 +17,14 @@ const CheckboxSpan = styled.span`
     font-size: 14px;
     color: ${(props) => (props.color ? props.color : 'black')};
     @media ${device.tabletL} {
-        font-size: 12px;
+        font-size: 14px;
     }
 `
 const AgreementLabel = ({
     handleChangeCheckbox,
     isChecked,
     color,
-    link_text = localize('I agree to the <0>terms and conditions</0>'),
+    link_text = localize('I agree to the <0>terms and conditions.</0>'),
 }: AgreementLabelProps) => {
     // the is mounted check is used for making sure the localized link text
     // properly renders the correct domain url

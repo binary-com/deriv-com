@@ -1,19 +1,21 @@
-import React, { ReactElement } from 'react'
 import type { CSSProperties } from 'react'
+import React, { ReactElement } from 'react'
 import styled from 'styled-components'
+import DerivEZIcon from 'images/svg/deriv-ez/deriv-ez-logo-red.svg'
 import {
+    binary_bot_url,
     deriv_api_url,
     deriv_go_ios_url,
     deriv_go_playstore_url,
     derivx_android_url,
     derivx_ios_url,
     dmt5_android_url,
+    dmt5_app_gallery,
+    dmt5_ios_url,
     dmt5_linux_url,
-    smarttrader_url,
-    binary_bot_url,
     dmt5_mac_app_url,
     dmt5_windows_download_url,
-    dmt5_app_gallery,
+    smarttrader_url,
 } from 'common/constants'
 import { Header, StyledLink } from 'components/elements'
 import { Flex } from 'components/containers'
@@ -32,8 +34,8 @@ import AppStore from 'images/svg/app-download/app-store.svg'
 import GooglePlay from 'images/svg/app-download/google-play.svg'
 import Linux from 'images/svg/app-download/linux.svg'
 import APK from 'images/svg/app-download/apk.svg'
-import Windows from 'images/svg/app-download/app-store-windows.svg'
-import MacAppStore from 'images/svg/app-download/app-store-mac.svg'
+import Windows from 'images/svg/dmt5/dmt5_app_gallery_windows_exe.svg'
+import MacAppStore from 'images/svg/dmt5/dmt5_app_gallery_mac_dmg.svg'
 import AppGallery from 'images/svg/app-download/app-store-app-gallery.svg'
 
 export const PLATFORMS_CAROUSEL_DELAY = 3000
@@ -74,6 +76,19 @@ export const platform_details_row: TPlatformDetails[] = [
         },
     },
     {
+        title: 'Deriv EZ',
+        icon: DerivEZIcon,
+        image_key: 'platforms_derivez',
+        description: <Localize translate_text="Our mobile-first CFD trading platform" />,
+        learn_more_link: '/derivez/',
+        download_links: {
+            is_desktop: [
+                { type: 'app_store', url: deriv_go_ios_url },
+                { type: 'google_play', url: deriv_go_playstore_url },
+            ],
+        },
+    },
+    {
         title: 'Deriv MT5',
         icon: DMT5Icon,
         image_key: 'platforms_mt5',
@@ -86,6 +101,7 @@ export const platform_details_row: TPlatformDetails[] = [
                 { type: 'linux', url: dmt5_linux_url },
                 { type: 'browser', link_type: 'mt5' },
                 { type: 'google_play', url: dmt5_android_url },
+                { type: 'app_store', url: dmt5_ios_url },
                 { type: 'app_gallery', url: dmt5_app_gallery },
             ],
         },
@@ -174,6 +190,7 @@ export const platform_details_eu: TPlatformDetails[] = [
                 { type: 'linux', url: dmt5_linux_url },
                 { type: 'browser', link_type: 'mt5' },
                 { type: 'google_play', url: dmt5_android_url },
+                { type: 'app_store', url: dmt5_ios_url },
                 { type: 'app_gallery', url: dmt5_app_gallery },
             ],
         },

@@ -1,4 +1,3 @@
-import React from 'react'
 import { TQuestions, TQuestionsData } from './_data-types'
 import useRegion from 'components/hooks/use-region'
 
@@ -10,6 +9,7 @@ export const useFilteredQuestions = (data: TQuestions[]) => {
 }
 
 export const useFilteredCategory = (data: TQuestionsData[]) => {
-    const { is_eu } = useRegion()
-    return data.filter((item) => (is_eu ? !item.hide_for_eu : item))
+    const { is_eu, is_p2p_allowed_country } = useRegion()
+    const hide_eu_data = data.filter((item) => (is_eu ? !item.hide_for_eu : item))
+    return hide_eu_data.filter((item) => (!is_p2p_allowed_country ? !item.hide_non_p2p : item))
 }

@@ -1,20 +1,20 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { withLangDirection } from 'themes/function'
 import { TString } from 'types/generics'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex } from 'components/containers'
-import { LocalizedLink, Localize } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import {
     Accordion,
     AccordionItem,
-    NavCard,
-    Text,
     Divider,
     ImageWithDireciton,
+    NavCard,
+    Text,
 } from 'components/elements'
-import { deriv_status_page_url, binary_bot_url } from 'common/constants'
+import { binary_bot_url, deriv_status_page_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
@@ -31,6 +31,7 @@ import API from 'images/svg/menu/developers.svg'
 import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
+import DerivEZ from 'images/svg/deriv-ez/deriv-ez-logo-red.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
 import DerivGo from 'images/svg/deriv-go/deriv-go-icon.svg'
 import Forex from 'images/svg/custom/forex-nav.svg'
@@ -268,25 +269,46 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                             />
                         </Flex>
                         {is_row && (
-                            <Flex mb="2rem">
-                                <NavCard
-                                    aria_label="Derivx"
-                                    icon={() => (
-                                        <img
-                                            src={DerivX}
-                                            alt="Deriv X trading paltform"
-                                            width="32"
-                                            height="32"
-                                        />
-                                    )}
-                                    content={
-                                        <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
-                                    }
-                                    title={<Localize translate_text="Deriv X" />}
-                                    onClick={handleArrowClick}
-                                    to="/derivx/"
-                                />
-                            </Flex>
+                            <>
+                                <Flex mb="2rem">
+                                    <NavCard
+                                        aria_label="Derivx"
+                                        icon={() => (
+                                            <img
+                                                src={DerivX}
+                                                alt="Deriv X trading paltform"
+                                                width="32"
+                                                height="32"
+                                            />
+                                        )}
+                                        content={
+                                            <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
+                                        }
+                                        title={<Localize translate_text="Deriv X" />}
+                                        onClick={handleArrowClick}
+                                        to="/derivx/"
+                                    />
+                                </Flex>
+                                <Flex mb="2rem">
+                                    <NavCard
+                                        aria_label="Derivez"
+                                        icon={() => (
+                                            <img
+                                                src={DerivEZ}
+                                                alt="Deriv EZ trading paltform"
+                                                width="32"
+                                                height="32"
+                                            />
+                                        )}
+                                        content={
+                                            <Localize translate_text="Trade on global markets from anywhere with our mobile-first CFD trading platform." />
+                                        }
+                                        title={<Localize translate_text="Deriv EZ" />}
+                                        onClick={handleArrowClick}
+                                        to="/deriv-ez/"
+                                    />
+                                </Flex>
+                            </>
                         )}
 
                         <Flex mb="2rem">
@@ -634,14 +656,14 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                         <StyledLink
                             to=""
                             external
-                            type="academy"
+                            type="blog"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
                             <div>
-                                <img src={Blog} alt="academy" width="24" height="24" />
+                                <img src={Blog} alt="blog" width="24" height="24" />
                             </div>
-                            <Span>{<Localize translate_text="Academy" />}</Span>
+                            <Span>{<Localize translate_text="Blog" />}</Span>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem

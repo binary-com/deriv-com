@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
@@ -14,32 +14,49 @@ type TradingType = {
     second_subtitle?: string
 }
 
+type Spacing = 1
+
+type SpaceProps = {
+    $spacing: Spacing
+}
+
 type DTradingProps = {
     reverse?: boolean
     trading?: TradingType[]
     two_title?: boolean
+    spacing?: Spacing
+    max_width?: string
+    max_height?: string
 }
 
 type ContentProps = {
     margin_right?: string
 }
 
-type ImageWrapperProps = {
+type ImageWrapperProps = SpaceProps & {
     margin_right?: string
+    max_width?: string
+    max_height?: string
 }
 
 type RowProps = {
     flex_direction?: string
 }
 
-const StyledSection = styled(SectionContainer)`
+const StyledSection = styled(SectionContainer)<SpaceProps>`
     background-color: var(--color-white);
-    border-top: solid 1px var(--color-grey-2);
     @media ${device.tabletL} {
         padding: 1.74rem 0 4rem 0;
         border-top: unset;
         border-bottom: unset;
     }
+    ${(props) =>
+        props.$spacing === 1 &&
+        css`
+            @media ${device.tablet} {
+                padding-block-end: 0;
+            }
+        `}
 `
 
 const Content = styled.div<ContentProps>`
@@ -60,23 +77,49 @@ const Content = styled.div<ContentProps>`
 `
 
 const ImageWrapper = styled.div<ImageWrapperProps>`
-    max-width: 58.8rem;
+    max-width: ${(props) => props.max_width || '58.8rem'};
     width: 100%;
-    max-height: 30rem;
+    max-height: ${(props) => props.max_height || '30rem'};
     margin-right: ${(props) => props.margin_right};
 
     @media ${device.tabletL} {
         margin: 2rem auto;
     }
+    ${(props) =>
+        props.$spacing === 1 &&
+        css`
+            @media ${device.tablet} {
+                margin-block-end: 0;
+                max-inline-size: 65rem;
+                max-block-size: 37.7rem;
+            }
+            @media ${device.tabletS} {
+                max-inline-size: 45rem;
+                max-height: 27rem;
+            }
+            @media ${device.mobileL} {
+                max-inline-size: 41rem;
+                max-height: 24.7rem;
+            }
+            @media ${device.mobileM} {
+                max-inline-size: 35rem;
+                max-block-size: 21.5rem;
+            }
+        `}
 `
 const StyledHeader = styled(Header)`
     line-height: 1.25;
+    color: var(--color-black-9);
 
     @media ${device.tabletL} {
-        font-size: 24px;
+        font-size: 28px;
         line-height: 40px;
         margin-top: 2rem;
     }
+`
+const StyledTitle = styled(Header)`
+    font-weight: normal;
+    margin: 8px 0 0;
 `
 const Row = styled.div<RowProps>`
     flex-direction: ${(props) => props.flex_direction};
@@ -155,12 +198,28 @@ const query = graphql`
         margin: file(relativePath: { eq: "deriv-x/margin.png" }) {
             ...fadeIn
         }
+        on_go_trading: file(relativePath: { eq: "deriv-ez/on-go-trading.png" }) {
+            ...fadeIn
+        }
+        indicator: file(relativePath: { eq: "deriv-ez/indicator.png" }) {
+            ...fadeIn
+        }
+        instant_platform: file(relativePath: { eq: "deriv-ez/instant-platform.png" }) {
+            ...fadeIn
+        }
     }
 `
-const DTrading = ({ trading, reverse, two_title }: DTradingProps) => {
+const DTrading = ({
+    trading,
+    reverse,
+    two_title,
+    max_width,
+    max_height,
+    spacing,
+}: DTradingProps) => {
     const data = useStaticQuery(query)
     return (
-        <StyledSection>
+        <StyledSection $spacing={spacing}>
             <Container direction="column">
                 {trading.map((item, index) => {
                     const is_even = reverse ? (index + 1) % 2 : index % 2
@@ -177,17 +236,26 @@ const DTrading = ({ trading, reverse, two_title }: DTradingProps) => {
                                 <StyledHeader type="page-title" as="h2">
                                     {item.title}
                                 </StyledHeader>
-                                <Text>{item.subtitle}</Text>
+                                <StyledTitle as="p" type="paragraph-1">
+                                    {item.subtitle}
+                                </StyledTitle>
                                 {two_title && (
                                     <>
                                         <StyledHeader type="page-title" mt="2.4rem">
                                             {item.second_title}
                                         </StyledHeader>
-                                        <Text>{item.second_subtitle}</Text>
+                                        <StyledTitle as="p" type="paragraph-1">
+                                            {item.second_subtitle}
+                                        </StyledTitle>
                                     </>
                                 )}
                             </Content>
-                            <ImageWrapper margin_right={!is_even ? '0' : '2.4rem'}>
+                            <ImageWrapper
+                                margin_right={!is_even ? '0' : '2.4rem'}
+                                $spacing={spacing}
+                                max_width={max_width}
+                                max_height={max_height}
+                            >
                                 <QueryImage
                                     data={data[item.image_name]}
                                     alt={item.image_alt}

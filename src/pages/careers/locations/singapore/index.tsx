@@ -39,9 +39,9 @@ const Singapore = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('Singapore – Our office | Deriv')}
+                title={localize('_t_Singapore – Our office | Deriv_t_')}
                 description={localize(
-                    'Join great trading minds at Deriv in Singapore and build your career in developing online trading solutions, particularly for CFD trading.',
+                    '_t_Join great trading minds at Deriv in Singapore and build your career in developing online trading solutions, particularly for CFD trading._t_',
                 )}
             />
             <NewLocationLayout location={singapore} images={images} />

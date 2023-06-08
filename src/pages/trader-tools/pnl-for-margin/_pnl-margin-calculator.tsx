@@ -106,23 +106,23 @@ const PnlMarginCalculator = () => {
             <BreadCrumbContainer>
                 <Flex jc="flex-start" ai="center">
                     <LocalizedLinkText to="/trader-tools/" color="grey-5">
-                        {localize("Traders' tools")}
+                        <Localize translate_text="_t_Traders' tools_t_" />
                     </LocalizedLinkText>
                     <ImageWithDireciton
                         src={RightArrow}
-                        alt={localize('right arrow')}
+                        alt={localize('_t_right arrow_t_')}
                         height="16"
                         width="16"
                         style={{ margin: '0 8px' }}
                     />
-                    <Text>{localize('PnL for margin')}</Text>
+                    <Text>
+                        <Localize translate_text="_t_PnL for margin_t_" />
+                    </Text>
                 </Flex>
             </BreadCrumbContainer>
             <StyledSection direction="column">
                 <SectionSubtitle as="h3" type="sub-section-title" align="center" weight="normal">
-                    {localize(
-                        'Our profit and loss calculator for margin helps you to approximate your losses and/or gains.',
-                    )}
+                    <Localize translate_text="_t_Our profit and loss calculator for margin helps you to approximate your losses and/or gains._t_" />
                 </SectionSubtitle>
 
                 <Flex mt="80px" mb="40px" tablet={{ mt: '40px', mb: '24px' }}>
@@ -132,12 +132,12 @@ const PnlMarginCalculator = () => {
                         id="pnl-margin-tab-selector"
                     >
                         <Text size="var(--text-size-m)" align="center" className="buy">
-                            {localize('Buy')}
+                            <Localize translate_text="_t_Buy_t_" />
                         </Text>
                     </SwapTabSelector>
                     <SwapTabSelector active={tab === 'Sell'} onClick={() => onTabClick('Sell')}>
                         <Text size="var(--text-size-m)" align="center" className="sell">
-                            {localize('Sell')}
+                            <Localize translate_text="_t_Sell_t_" />
                         </Text>
                     </SwapTabSelector>
                 </Flex>
@@ -201,7 +201,6 @@ const PnlMarginCalculator = () => {
                                         getPnlMarginCommon(values, 'getTakeProfitLevelSell'),
                                     )
                                 }
-
                                 setFieldValue(
                                     'takeProfitPips',
                                     getPnlMarginCommon(values, 'getTakeProfitPip'),
@@ -257,75 +256,15 @@ const PnlMarginCalculator = () => {
                                     setFieldValue('takeProfitAmount', '', false)
                                     setFieldError('takeProfitAmount', '')
                                     setFieldTouched('takeProfitAmount', false, false)
-                                    current_input.focus()
+                                    current_input?.current?.focus()
                                 }
 
                                 const stopLossErrorHandler = (current_input) => {
                                     setFieldValue('stopLossAmount', '', false)
                                     setFieldError('stopLossAmount', '')
                                     setFieldTouched('stopLossAmount', false, false)
-                                    current_input.focus()
+                                    current_input?.current?.focus()
                                 }
-
-                                const AssetPriceInput = () => (
-                                    <Input
-                                        id="assetPrice"
-                                        type="text"
-                                        value={values.assetPrice}
-                                        label={localize('Open price of asset')}
-                                        autoComplete="off"
-                                        error={touched.assetPrice && errors.assetPrice.toString()}
-                                        onBlur={handleBlur}
-                                        data-lpignore="true"
-                                        handleError={(current_input) => {
-                                            setFieldValue('assetPrice', '', false)
-                                            setFieldError('assetPrice', '')
-                                            setFieldTouched('assetPrice', false, false)
-                                            current_input.focus()
-                                        }}
-                                        maxLength={getMaxLength(values.assetPrice, 15)}
-                                        background="white"
-                                    />
-                                )
-
-                                const StopLossAmountInput = () => (
-                                    <Input
-                                        id="assetPrice"
-                                        type="text"
-                                        value={values.stopLossAmount}
-                                        label={localize('Stop loss amount')}
-                                        autoComplete="off"
-                                        error={
-                                            touched.stopLossAmount &&
-                                            errors.stopLossAmount.toString()
-                                        }
-                                        onBlur={handleBlur}
-                                        data-lpignore="true"
-                                        handleError={stopLossErrorHandler}
-                                        maxLength={getMaxLength(values.stopLossAmount, 15)}
-                                        background="white"
-                                    />
-                                )
-
-                                const PointValueInput = () => (
-                                    <Input
-                                        id="pointValue"
-                                        type="text"
-                                        label={localize('Point value')}
-                                        autoComplete="off"
-                                        error={touched.pointValue && errors.pointValue.toString()}
-                                        onBlur={handleBlur}
-                                        data-lpignore="true"
-                                        handleError={(current_input) => {
-                                            setFieldValue('pointValue', '', false)
-                                            setFieldError('pointValue', '')
-                                            setFieldTouched('pointValue', false, false)
-                                            current_input.focus()
-                                        }}
-                                        maxLength={getMaxLength(values.pointValue, 8)}
-                                        background="white"
-                                    />
-                                )
 
                                 const takeProfitAmountChangeHandler = (value) => {
                                     setFieldValue('takeProfitAmount', value)
@@ -335,33 +274,15 @@ const PnlMarginCalculator = () => {
                                     setFieldValue('stopLossAmount', value)
                                 }
 
-                                const TakeProfitAmountInput = () => (
-                                    <Input
-                                        id="takeProfitAmount"
-                                        type="text"
-                                        label={localize('Take profit amount')}
-                                        autoComplete="off"
-                                        error={
-                                            touched.takeProfitAmount &&
-                                            errors.takeProfitAmount.toString()
-                                        }
-                                        onBlur={handleBlur}
-                                        data-lpignore="true"
-                                        handleError={takeProfitErrorHanlder}
-                                        maxLength={getMaxLength(values.takeProfitAmount, 15)}
-                                        background="white"
-                                    />
-                                )
-
                                 return (
                                     <>
-                                        <Desktop breakpoint={'tablet'}>
+                                        <Desktop breakpoint="tablet">
                                             <PnlCalculatorFormMobile>
                                                 <CalculatorHeader>
                                                     <Flex mb="24px">
                                                         <Flex fd="column" mr="24px">
                                                             <CalculatorLabel htmlFor="message">
-                                                                {localize('Stop loss pips')}
+                                                                <Localize translate_text="_t_Stop loss pips_t_" />
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
@@ -374,7 +295,7 @@ const PnlMarginCalculator = () => {
                                                         </Flex>
                                                         <Flex fd="column">
                                                             <CalculatorLabel htmlFor="message">
-                                                                {localize('Stop loss level')}
+                                                                <Localize translate_text="_t_Stop loss level_t_" />
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
@@ -390,7 +311,7 @@ const PnlMarginCalculator = () => {
                                                     <Flex>
                                                         <Flex fd="column" mr="24px">
                                                             <CalculatorLabel htmlFor="message">
-                                                                {localize('Take profit pips')}
+                                                                <Localize translate_text="_t_Take profit pips_t_" />
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
@@ -403,7 +324,7 @@ const PnlMarginCalculator = () => {
                                                         </Flex>
                                                         <Flex fd="column">
                                                             <CalculatorLabel htmlFor="message">
-                                                                {localize('Take profit level')}
+                                                                <Localize translate_text="_t_Take profit level_t_" />
                                                             </CalculatorLabel>
                                                             <PnLCalculatorOutputContainer>
                                                                 <PnLCalculatorOutputField>
@@ -419,7 +340,7 @@ const PnlMarginCalculator = () => {
 
                                                 <CalculatorBody>
                                                     <CalculatorLabel>
-                                                        {localize('Account type')}
+                                                        <Localize translate_text="_t_Account type_t_" />
                                                     </CalculatorLabel>
                                                     <Flex
                                                         mb="3rem"
@@ -432,7 +353,7 @@ const PnlMarginCalculator = () => {
                                                             onClick={pnlSyntheticHandler}
                                                         >
                                                             <Text align="center">
-                                                                {localize('Synthetic')}
+                                                                <Localize translate_text="_t_Synthetic_t_" />
                                                             </Text>
                                                         </PnlCalculatorTabItem>
                                                         <PnlCalculatorTabItem
@@ -441,7 +362,7 @@ const PnlMarginCalculator = () => {
                                                             onClick={pnlFinancialHandler}
                                                         >
                                                             <Text align="center">
-                                                                {localize('Financial')}
+                                                                <Localize translate_text="_t_Financial_t_" />
                                                             </Text>
                                                         </PnlCalculatorTabItem>
                                                     </Flex>
@@ -454,7 +375,7 @@ const PnlMarginCalculator = () => {
                                                         >
                                                             <CalculatorDropdown
                                                                 option_list={values.optionList}
-                                                                label={localize('Symbol')}
+                                                                label={localize('_t_Symbol_t_')}
                                                                 default_option={optionItemDefault}
                                                                 selected_option={values.symbol}
                                                                 id="symbol"
@@ -478,7 +399,47 @@ const PnlMarginCalculator = () => {
                                                                         )
                                                                     }}
                                                                 >
-                                                                    {PointValueInput}
+                                                                    {({ field }) => (
+                                                                        <Input
+                                                                            {...field}
+                                                                            id="pointValue"
+                                                                            type="text"
+                                                                            label={localize(
+                                                                                '_t_Point value_t_',
+                                                                            )}
+                                                                            autoComplete="off"
+                                                                            error={
+                                                                                touched.pointValue &&
+                                                                                errors?.pointValue
+                                                                            }
+                                                                            onBlur={handleBlur}
+                                                                            data-lpignore="true"
+                                                                            handleError={(
+                                                                                current_input,
+                                                                            ) => {
+                                                                                setFieldValue(
+                                                                                    'pointValue',
+                                                                                    '',
+                                                                                    false,
+                                                                                )
+                                                                                setFieldError(
+                                                                                    'pointValue',
+                                                                                    '',
+                                                                                )
+                                                                                setFieldTouched(
+                                                                                    'pointValue',
+                                                                                    false,
+                                                                                    false,
+                                                                                )
+                                                                                current_input?.current?.focus()
+                                                                            }}
+                                                                            maxLength={getMaxLength(
+                                                                                values.pointValue,
+                                                                                8,
+                                                                            )}
+                                                                            background="white"
+                                                                        />
+                                                                    )}
                                                                 </Field>
                                                             </PnLInputGroup>
                                                         </Flex>
@@ -508,7 +469,7 @@ const PnlMarginCalculator = () => {
                                                                             id="volume"
                                                                             type="text"
                                                                             label={localize(
-                                                                                'Volume',
+                                                                                '_t_Volume_t_',
                                                                             )}
                                                                             autoComplete="off"
                                                                             error={
@@ -534,7 +495,7 @@ const PnlMarginCalculator = () => {
                                                                                     false,
                                                                                     false,
                                                                                 )
-                                                                                current_input.focus()
+                                                                                current_input?.current?.focus()
                                                                             }}
                                                                             maxLength={getMaxLength(
                                                                                 values.volume,
@@ -555,7 +516,31 @@ const PnlMarginCalculator = () => {
                                                                         takeProfitAmountChangeHandler
                                                                     }
                                                                 >
-                                                                    {TakeProfitAmountInput}
+                                                                    {({ field }) => (
+                                                                        <Input
+                                                                            {...field}
+                                                                            id="takeProfitAmount"
+                                                                            type="text"
+                                                                            label={localize(
+                                                                                '_t_Take profit amount_t_',
+                                                                            )}
+                                                                            autoComplete="off"
+                                                                            error={
+                                                                                touched.takeProfitAmount &&
+                                                                                errors?.takeProfitAmount
+                                                                            }
+                                                                            onBlur={handleBlur}
+                                                                            data-lpignore="true"
+                                                                            handleError={
+                                                                                takeProfitErrorHanlder
+                                                                            }
+                                                                            maxLength={getMaxLength(
+                                                                                values.takeProfitAmount,
+                                                                                15,
+                                                                            )}
+                                                                            background="white"
+                                                                        />
+                                                                    )}
                                                                 </Field>
                                                             </PnLInputGroup>
                                                         </Flex>
@@ -579,7 +564,50 @@ const PnlMarginCalculator = () => {
                                                                         )
                                                                     }}
                                                                 >
-                                                                    {AssetPriceInput}
+                                                                    {({ field }) => (
+                                                                        <Input
+                                                                            {...field}
+                                                                            id="assetPrice"
+                                                                            type="text"
+                                                                            value={
+                                                                                values.assetPrice
+                                                                            }
+                                                                            label={localize(
+                                                                                '_t_Open price of asset_t_',
+                                                                            )}
+                                                                            autoComplete="off"
+                                                                            error={
+                                                                                touched.assetPrice &&
+                                                                                errors?.assetPrice
+                                                                            }
+                                                                            onBlur={handleBlur}
+                                                                            data-lpignore="true"
+                                                                            handleError={(
+                                                                                current_input,
+                                                                            ) => {
+                                                                                setFieldValue(
+                                                                                    'assetPrice',
+                                                                                    '',
+                                                                                    false,
+                                                                                )
+                                                                                setFieldError(
+                                                                                    'assetPrice',
+                                                                                    '',
+                                                                                )
+                                                                                setFieldTouched(
+                                                                                    'assetPrice',
+                                                                                    false,
+                                                                                    false,
+                                                                                )
+                                                                                current_input?.current?.focus()
+                                                                            }}
+                                                                            maxLength={getMaxLength(
+                                                                                values.assetPrice,
+                                                                                15,
+                                                                            )}
+                                                                            background="white"
+                                                                        />
+                                                                    )}
                                                                 </Field>
                                                             </PnLInputGroup>
                                                         </Flex>
@@ -592,7 +620,34 @@ const PnlMarginCalculator = () => {
                                                                         stopLossAmountChangeHandler
                                                                     }
                                                                 >
-                                                                    {StopLossAmountInput}
+                                                                    {({ field }) => (
+                                                                        <Input
+                                                                            {...field}
+                                                                            id="assetPrice"
+                                                                            type="text"
+                                                                            value={
+                                                                                values.stopLossAmount
+                                                                            }
+                                                                            label={localize(
+                                                                                '_t_Stop loss amount_t_',
+                                                                            )}
+                                                                            autoComplete="off"
+                                                                            error={
+                                                                                touched.stopLossAmount &&
+                                                                                errors?.stopLossAmount
+                                                                            }
+                                                                            onBlur={handleBlur}
+                                                                            data-lpignore="true"
+                                                                            handleError={
+                                                                                stopLossErrorHandler
+                                                                            }
+                                                                            maxLength={getMaxLength(
+                                                                                values.stopLossAmount,
+                                                                                15,
+                                                                            )}
+                                                                            background="white"
+                                                                        />
+                                                                    )}
                                                                 </Field>
                                                             </PnLInputGroup>
                                                         </Flex>
@@ -604,7 +659,7 @@ const PnlMarginCalculator = () => {
                                                             type="submit"
                                                             disabled={!isValid || !dirty}
                                                         >
-                                                            {localize('Calculate')}
+                                                            <Localize translate_text="_t_Calculate_t_" />
                                                         </CalculateButton>
                                                     </Flex>
                                                 </CalculatorBody>
@@ -618,7 +673,7 @@ const PnlMarginCalculator = () => {
                                                         <Flex fd="column">
                                                             <Flex fd="column" mr="24px" mb="24px">
                                                                 <CalculatorLabel htmlFor="message">
-                                                                    {localize('Stop loss pips')}
+                                                                    <Localize translate_text="_t_Stop loss pips_t_" />
                                                                 </CalculatorLabel>
                                                                 <PnLCalculatorOutputContainer>
                                                                     <PnLCalculatorOutputField>
@@ -631,7 +686,7 @@ const PnlMarginCalculator = () => {
                                                             </Flex>
                                                             <Flex fd="column" mb="24px">
                                                                 <CalculatorLabel htmlFor="message">
-                                                                    {localize('Stop loss level')}
+                                                                    <Localize translate_text="_t_Stop loss level_t_" />
                                                                 </CalculatorLabel>
                                                                 <PnLCalculatorOutputContainer>
                                                                     <PnLCalculatorOutputField>
@@ -647,7 +702,7 @@ const PnlMarginCalculator = () => {
                                                         <Flex fd="column">
                                                             <Flex fd="column" mr="24px" mb="24px">
                                                                 <CalculatorLabel htmlFor="message">
-                                                                    {localize('Take profit pips')}
+                                                                    <Localize translate_text="_t_Take profit pips_t_" />
                                                                 </CalculatorLabel>
                                                                 <PnLCalculatorOutputContainer>
                                                                     <PnLCalculatorOutputField>
@@ -660,7 +715,7 @@ const PnlMarginCalculator = () => {
                                                             </Flex>
                                                             <Flex fd="column">
                                                                 <CalculatorLabel htmlFor="message">
-                                                                    {localize('Take profit level')}
+                                                                    <Localize translate_text="_t_Take profit level_t_" />
                                                                 </CalculatorLabel>
                                                                 <PnLCalculatorOutputContainer>
                                                                     <PnLCalculatorOutputField>
@@ -677,7 +732,7 @@ const PnlMarginCalculator = () => {
 
                                                 <CalculatorBody>
                                                     <CalculatorLabel>
-                                                        {localize('Account type')}
+                                                        <Localize translate_text="_t_Account type_t_" />
                                                     </CalculatorLabel>
                                                     <Flex
                                                         mb="3rem"
@@ -690,7 +745,7 @@ const PnlMarginCalculator = () => {
                                                             onClick={pnlSyntheticHandler}
                                                         >
                                                             <Text align="center">
-                                                                {localize('Synthetic')}
+                                                                <Localize translate_text="_t_Synthetic_t_" />
                                                             </Text>
                                                         </PnlCalculatorTabItem>
                                                         <PnlCalculatorTabItem
@@ -699,13 +754,13 @@ const PnlMarginCalculator = () => {
                                                             onClick={pnlFinancialHandler}
                                                         >
                                                             <Text align="center">
-                                                                {localize('Financial')}
+                                                                <Localize translate_text="_t_Financial_t_" />
                                                             </Text>
                                                         </PnlCalculatorTabItem>
                                                     </Flex>
                                                     <CalculatorDropdown
                                                         option_list={values.optionList}
-                                                        label={localize('Symbol')}
+                                                        label={localize('_t_Symbol_t_')}
                                                         default_option={optionItemDefault}
                                                         selected_option={values.symbol}
                                                         id="symbol"
@@ -727,7 +782,7 @@ const PnlMarginCalculator = () => {
                                                                     {...field}
                                                                     id="volume"
                                                                     type="text"
-                                                                    label={localize('Volume')}
+                                                                    label={localize('_t_Volume_t_')}
                                                                     autoComplete="off"
                                                                     error={
                                                                         touched.volume &&
@@ -749,7 +804,7 @@ const PnlMarginCalculator = () => {
                                                                             false,
                                                                             false,
                                                                         )
-                                                                        current_input.focus()
+                                                                        current_input?.current?.focus()
                                                                     }}
                                                                     maxLength={getMaxLength(
                                                                         values.volume,
@@ -768,7 +823,48 @@ const PnlMarginCalculator = () => {
                                                                 setFieldValue('assetPrice', value)
                                                             }}
                                                         >
-                                                            {AssetPriceInput}
+                                                            {({ field }) => (
+                                                                <Input
+                                                                    {...field}
+                                                                    id="assetPrice"
+                                                                    type="text"
+                                                                    value={values.assetPrice}
+                                                                    label={localize(
+                                                                        '_t_Open price of asset_t_',
+                                                                    )}
+                                                                    autoComplete="off"
+                                                                    error={
+                                                                        touched.assetPrice &&
+                                                                        errors?.assetPrice
+                                                                    }
+                                                                    onBlur={handleBlur}
+                                                                    data-lpignore="true"
+                                                                    handleError={(
+                                                                        current_input,
+                                                                    ) => {
+                                                                        setFieldValue(
+                                                                            'assetPrice',
+                                                                            '',
+                                                                            false,
+                                                                        )
+                                                                        setFieldError(
+                                                                            'assetPrice',
+                                                                            '',
+                                                                        )
+                                                                        setFieldTouched(
+                                                                            'assetPrice',
+                                                                            false,
+                                                                            false,
+                                                                        )
+                                                                        current_input?.current?.focus()
+                                                                    }}
+                                                                    maxLength={getMaxLength(
+                                                                        values.assetPrice,
+                                                                        15,
+                                                                    )}
+                                                                    background="white"
+                                                                />
+                                                            )}
                                                         </Field>
                                                     </InputGroup>
                                                     <InputGroup>
@@ -779,7 +875,47 @@ const PnlMarginCalculator = () => {
                                                                 setFieldValue('pointValue', value)
                                                             }}
                                                         >
-                                                            {PointValueInput}
+                                                            {({ field }) => (
+                                                                <Input
+                                                                    {...field}
+                                                                    id="pointValue"
+                                                                    type="text"
+                                                                    label={localize(
+                                                                        '_t_Point value_t_',
+                                                                    )}
+                                                                    autoComplete="off"
+                                                                    error={
+                                                                        touched.pointValue &&
+                                                                        errors?.pointValue
+                                                                    }
+                                                                    onBlur={handleBlur}
+                                                                    data-lpignore="true"
+                                                                    handleError={(
+                                                                        current_input,
+                                                                    ) => {
+                                                                        setFieldValue(
+                                                                            'pointValue',
+                                                                            '',
+                                                                            false,
+                                                                        )
+                                                                        setFieldError(
+                                                                            'pointValue',
+                                                                            '',
+                                                                        )
+                                                                        setFieldTouched(
+                                                                            'pointValue',
+                                                                            false,
+                                                                            false,
+                                                                        )
+                                                                        current_input?.current?.focus()
+                                                                    }}
+                                                                    maxLength={getMaxLength(
+                                                                        values.pointValue,
+                                                                        8,
+                                                                    )}
+                                                                    background="white"
+                                                                />
+                                                            )}
                                                         </Field>
                                                     </InputGroup>
                                                     <InputGroup>
@@ -788,7 +924,31 @@ const PnlMarginCalculator = () => {
                                                             value={values.takeProfitAmount}
                                                             onChange={takeProfitAmountChangeHandler}
                                                         >
-                                                            {TakeProfitAmountInput}
+                                                            {({ field }) => (
+                                                                <Input
+                                                                    {...field}
+                                                                    id="takeProfitAmount"
+                                                                    type="text"
+                                                                    label={localize(
+                                                                        '_t_Take profit amount_t_',
+                                                                    )}
+                                                                    autoComplete="off"
+                                                                    error={
+                                                                        touched.takeProfitAmount &&
+                                                                        errors?.takeProfitAmount
+                                                                    }
+                                                                    onBlur={handleBlur}
+                                                                    data-lpignore="true"
+                                                                    handleError={
+                                                                        takeProfitErrorHanlder
+                                                                    }
+                                                                    maxLength={getMaxLength(
+                                                                        values.takeProfitAmount,
+                                                                        15,
+                                                                    )}
+                                                                    background="white"
+                                                                />
+                                                            )}
                                                         </Field>
                                                     </InputGroup>
                                                     <InputGroup>
@@ -797,7 +957,32 @@ const PnlMarginCalculator = () => {
                                                             value={values.stopLossAmount}
                                                             onChange={stopLossAmountChangeHandler}
                                                         >
-                                                            {StopLossAmountInput}
+                                                            {({ field }) => (
+                                                                <Input
+                                                                    {...field}
+                                                                    id="assetPrice"
+                                                                    type="text"
+                                                                    value={values.stopLossAmount}
+                                                                    label={localize(
+                                                                        '_t_Stop loss amount_t_',
+                                                                    )}
+                                                                    autoComplete="off"
+                                                                    error={
+                                                                        touched.stopLossAmount &&
+                                                                        errors?.stopLossAmount
+                                                                    }
+                                                                    onBlur={handleBlur}
+                                                                    data-lpignore="true"
+                                                                    handleError={
+                                                                        stopLossErrorHandler
+                                                                    }
+                                                                    maxLength={getMaxLength(
+                                                                        values.stopLossAmount,
+                                                                        15,
+                                                                    )}
+                                                                    background="white"
+                                                                />
+                                                            )}
                                                         </Field>
                                                     </InputGroup>
 
@@ -807,7 +992,7 @@ const PnlMarginCalculator = () => {
                                                             type="submit"
                                                             disabled={!isValid || !dirty}
                                                         >
-                                                            {localize('Calculate')}
+                                                            <Localize translate_text="_t_Calculate_t_" />
                                                         </CalculateButton>
                                                     </Flex>
                                                 </CalculatorBody>
@@ -822,57 +1007,45 @@ const PnlMarginCalculator = () => {
                     {tab === 'Buy' ? (
                         <RightContent>
                             <Header as="h3" type="section-title" mb="8px">
-                                {localize(
-                                    'How to calculate stop loss and/or take profit level and pip value',
-                                )}
+                                <Localize translate_text="_t_How to calculate stop loss and/or take profit level and pip value_t_" />
                             </Header>
 
                             <Text mb="8px">
-                                {localize(
-                                    'The stop loss and/or take profit level and pip value when buying a contract on Deriv MT5 is calculated based on the formula:',
-                                )}
+                                <Localize translate_text="_t_The stop loss and/or take profit level and pip value when buying a contract on Deriv MT5 is calculated based on the formula:_t_" />
                             </Text>
                             <Text mb="8px">
                                 <Localize
-                                    translate_text="<0>Stop loss and/or take profit level = asset price + {stop loss OR take profit amount ÷ (volume × contract size)}</0>"
+                                    translate_text="_t_<0>Stop loss and/or take profit level = asset price + {stop loss OR take profit amount ÷ (volume × contract size)}</0>_t_"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
                             <Text mb="16px">
                                 <Localize
-                                    translate_text="<0>Stop loss and/or take profit pip value = |(stop loss OR take profit level - asset price)| ÷ point value</0>"
+                                    translate_text="_t_<0>Stop loss and/or take profit pip value = |(stop loss OR take profit level - asset price)| ÷ point value</0>_t_"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
 
                             <Text mb="8px">
-                                {localize(
-                                    'The stop loss and/or take profit level helps you to manage your risk when you are buying a contract.',
-                                )}
+                                <Localize translate_text="_t_The stop loss and/or take profit level helps you to manage your risk when you are buying a contract._t_" />
                             </Text>
                             <Text mb="8px">
-                                {localize(
-                                    'For financial accounts, the stop loss and/or take profit pip value is in the quote currency for forex pairs.',
-                                )}
+                                <Localize translate_text="_t_For financial accounts, the stop loss and/or take profit pip value is in the quote currency for forex pairs._t_" />
                             </Text>
                             <Text mb="40px">
-                                {localize(
-                                    'For synthetic accounts, the stop loss and/or take profit pip value is in USD.',
-                                )}
+                                <Localize translate_text="_t_For synthetic accounts, the stop loss and/or take profit pip value is in USD._t_" />
                             </Text>
 
                             <Header as="h3" type="section-title" mb="8px">
-                                {localize('Example calculation')}
+                                <Localize translate_text="_t_Example calculation_t_" />
                             </Header>
                             <Text mb="16px">
-                                {localize(
-                                    'Let’s say you want to calculate the stop loss level and pip value when you want to buy a lot of EUR/USD priced at 1.17524 USD with a stop loss amount of 24 USD.',
-                                )}
+                                <Localize translate_text="_t_Let’s say you want to calculate the stop loss level and pip value when you want to buy a lot of EUR/USD priced at 1.17524 USD with a stop loss amount of 24 USD._t_" />
                             </Text>
 
                             <Accordion id="pnl-for-margin" has_single_state>
                                 <AccordionItem
-                                    header={localize('Stop loss level')}
+                                    header={localize('_t_Stop loss level_t_')}
                                     header_style={header_style}
                                     style={{
                                         padding: '0 0 24px 0',
@@ -880,7 +1053,7 @@ const PnlMarginCalculator = () => {
                                     plus
                                     class_name="take-profit"
                                 >
-                                    <Desktop breakpoint={'tablet'}>
+                                    <Desktop breakpoint="tablet">
                                         <StopLoss />
                                     </Desktop>
                                     <Mobile>
@@ -890,7 +1063,7 @@ const PnlMarginCalculator = () => {
                                         <StyledOl>
                                             <li>
                                                 <span>
-                                                    <Localize translate_text="The contract size is one standard lot of forex = 100,000 units." />
+                                                    <Localize translate_text="_t_The contract size is one standard lot of forex = 100,000 units._t_" />
                                                 </span>
                                             </li>
                                         </StyledOl>
@@ -898,12 +1071,12 @@ const PnlMarginCalculator = () => {
                                 </AccordionItem>
 
                                 <AccordionItem
-                                    header={localize('Stop loss pip value')}
+                                    header={localize('_t_Stop loss pip value_t_')}
                                     header_style={header_style}
                                     plus
                                     class_name="stop-loss"
                                 >
-                                    <Desktop breakpoint={'tablet'}>
+                                    <Desktop breakpoint="tablet">
                                         <PipValue />
                                     </Desktop>
                                     <Mobile>
@@ -913,9 +1086,7 @@ const PnlMarginCalculator = () => {
                                         <StyledOl>
                                             <li>
                                                 <span>
-                                                    {localize(
-                                                        'The point value is derived from the current digits of the asset. In this example, the digit is 5, so the point value is 0.00001.',
-                                                    )}
+                                                    <Localize translate_text="_t_The point value is derived from the current digits of the asset. In this example, the digit is 5, so the point value is 0.00001._t_" />
                                                 </span>
                                             </li>
                                         </StyledOl>
@@ -923,7 +1094,7 @@ const PnlMarginCalculator = () => {
 
                                     <Text mt="1.6rem">
                                         <Localize
-                                            translate_text="Your position is automatically closed when your stop loss level is at <0>1.1750</0> and when your stop loss pip value is <0>24 USD</0>."
+                                            translate_text="_t_Your position is automatically closed when your stop loss level is at <0>1.1750</0> and when your stop loss pip value is <0>24 USD</0>._t_"
                                             components={[<strong key={0} />]}
                                         />
                                     </Text>
@@ -939,7 +1110,7 @@ const PnlMarginCalculator = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        {localize('Go to Deriv MT5 dashboard')}
+                                        <Localize translate_text="_t_Go to Deriv MT5 dashboard_t_" />
                                     </StyledLinkButton>
                                 }
                             </LinkWrapper>
@@ -947,57 +1118,45 @@ const PnlMarginCalculator = () => {
                     ) : (
                         <RightContent key={tab}>
                             <Header as="h3" type="section-title" mb="8px">
-                                {localize(
-                                    'How to calculate stop loss and/or take profit level and pip value',
-                                )}
+                                <Localize translate_text="_t_How to calculate stop loss and/or take profit level and pip value_t_" />
                             </Header>
 
                             <Text mb="8px">
-                                {localize(
-                                    'The stop loss and/or take profit level and pip value when selling a contract on Deriv MT5 is calculated based on the formula:',
-                                )}
+                                <Localize translate_text="_t_The stop loss and/or take profit level and pip value when selling a contract on Deriv MT5 is calculated based on the formula:_t_" />
                             </Text>
                             <Text mb="8px">
                                 <Localize
-                                    translate_text="<0>Stop loss and/or take profit level = asset price - {stop loss OR take profit amount ÷ (volume × contract size)}</0>"
+                                    translate_text="_t_<0>Stop loss and/or take profit level = asset price - {stop loss OR take profit amount ÷ (volume × contract size)}</0>_t_"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
                             <Text mb="16px">
                                 <Localize
-                                    translate_text="<0>Stop loss and/or take profit pip value = |(stop loss OR take profit level - asset price)| ÷ point value</0>"
+                                    translate_text="_t_<0>Stop loss and/or take profit pip value = |(stop loss OR take profit level - asset price)| ÷ point value</0>_t_"
                                     components={[<strong key={0} />]}
                                 />
                             </Text>
 
                             <Text mb="8px">
-                                {localize(
-                                    'The stop loss and/or take profit level helps you to manage your risk when you are selling a contract.',
-                                )}
+                                <Localize translate_text="_t_The stop loss and/or take profit level helps you to manage your risk when you are selling a contract._t_" />
                             </Text>
                             <Text mb="8px">
-                                {localize(
-                                    'For financial accounts, the stop loss and/or take profit pip value is in the quote currency for forex pairs.',
-                                )}
+                                <Localize translate_text="_t_For financial accounts, the stop loss and/or take profit pip value is in the quote currency for forex pairs._t_" />
                             </Text>
                             <Text mb="40px">
-                                {localize(
-                                    'For synthetic accounts, the stop loss and/or take profit pip value is in USD.',
-                                )}
+                                <Localize translate_text="_t_For synthetic accounts, the stop loss and/or take profit pip value is in USD._t_" />
                             </Text>
 
                             <Header as="h3" type="section-title" mb="8px">
-                                {localize('Example calculation')}
+                                <Localize translate_text="_t_Example calculation_t_" />
                             </Header>
                             <Text mb="16px">
-                                {localize(
-                                    'Let’s say you want to calculate the take profit level and pip value when you want to sell 3 lots of Volatility 50 Index priced at 249.5961 USD with a take profit amount of 84 USD.',
-                                )}
+                                <Localize translate_text="_t_Let’s say you want to calculate the take profit level and pip value when you want to sell 3 lots of Volatility 50 Index priced at 249.5961 USD with a take profit amount of 84 USD._t_" />
                             </Text>
 
                             <Accordion id="pnl-for-margin" has_single_state>
                                 <AccordionItem
-                                    header={localize('Take profit level')}
+                                    header={localize('_t_Take profit level_t_')}
                                     header_style={header_style}
                                     style={{
                                         padding: '0 0 24px 0',
@@ -1005,7 +1164,7 @@ const PnlMarginCalculator = () => {
                                     plus
                                     class_name="take-profit"
                                 >
-                                    <Desktop breakpoint={'tablet'}>
+                                    <Desktop breakpoint="tablet">
                                         <TakeProfitLevel />
                                     </Desktop>
                                     <Mobile>
@@ -1016,7 +1175,7 @@ const PnlMarginCalculator = () => {
                                         <StyledOl>
                                             <li>
                                                 <span>
-                                                    <Localize translate_text="The contract size is one standard lot of Volatility 50 Index = 1." />
+                                                    <Localize translate_text="_t_The contract size is one standard lot of Volatility 50 Index = 1._t_" />
                                                 </span>
                                             </li>
                                         </StyledOl>
@@ -1024,11 +1183,11 @@ const PnlMarginCalculator = () => {
                                 </AccordionItem>
 
                                 <AccordionItem
-                                    header={localize('Take profit pip value')}
+                                    header={localize('_t_Take profit pip value_t_')}
                                     header_style={header_style}
                                     plus
                                 >
-                                    <Desktop breakpoint={'tablet'}>
+                                    <Desktop breakpoint="tablet">
                                         <ProfitPipValue />
                                     </Desktop>
                                     <Mobile>
@@ -1038,9 +1197,7 @@ const PnlMarginCalculator = () => {
                                         <StyledOl>
                                             <li>
                                                 <span>
-                                                    {localize(
-                                                        'The point value is derived from the current digits of the asset. In this example, the digit is 4, so the point value is 0.0001.',
-                                                    )}
+                                                    <Localize translate_text="_t_The point value is derived from the current digits of the asset. In this example, the digit is 4, so the point value is 0.0001._t_" />
                                                 </span>
                                             </li>
                                         </StyledOl>
@@ -1048,7 +1205,7 @@ const PnlMarginCalculator = () => {
 
                                     <Text mt="1.6rem">
                                         <Localize
-                                            translate_text="Your position is automatically closed when your take profit level is at <0>221.5961</0> and the pip value is <0>280,000 USD</0>."
+                                            translate_text="_t_Your position is automatically closed when your take profit level is at <0>221.5961</0> and the pip value is <0>280,000 USD</0>._t_"
                                             components={[<strong key={0} />]}
                                         />
                                     </Text>
@@ -1064,7 +1221,7 @@ const PnlMarginCalculator = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                     >
-                                        {localize('Go to Deriv MT5 dashboard')}
+                                        <Localize translate_text="_t_Go to Deriv MT5 dashboard_t_" />
                                     </StyledLinkButton>
                                 }
                             </LinkWrapper>

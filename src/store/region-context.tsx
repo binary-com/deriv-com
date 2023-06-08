@@ -1,6 +1,5 @@
 import React, { useState, useEffect, createContext, ReactNode } from 'react'
 import {
-    isEuCountry,
     eu_countries,
     latam_countries,
     african_countries,
@@ -15,6 +14,7 @@ import {
     isTestlink,
     isEuDomain,
     queryParams,
+    validate_p2p_country,
 } from 'common/utility'
 import { TRegion } from 'types/generics'
 
@@ -79,7 +79,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         const is_dev = isLocalhost() || isTestlink()
         if (website_status) {
             const { clients_country, p2p_config } = website_status
-            setP2PAllowedCountry(!!p2p_config)
+            setP2PAllowedCountry(validate_p2p_country(p2p_config))
             //QA testing purposes
             if (qa_url_region) {
                 p2p_countries.includes(qa_url_region)

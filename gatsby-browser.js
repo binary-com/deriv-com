@@ -1,18 +1,17 @@
 import React from 'react'
 import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
-import { isProduction, isLive } from './src/common/websocket/config'
+import { isLive, isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
 import {
+    addScript,
     getClientInformation,
     getDomain,
     getLanguage,
-    addScript,
     updateURLAsPerUserLanguage,
 } from 'common/utility'
-import { pushwoosh_app_code } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
 import './static/css/ubuntu.css'
@@ -61,7 +60,7 @@ const pushwooshInit = (push_woosh) => {
         'init',
         {
             logLevel: 'error', // or info or debug
-            applicationCode: pushwoosh_app_code,
+            applicationCode: 'DD293-35A19',
             safariWebsitePushID: 'web.com.deriv',
             defaultNotificationTitle: 'Deriv.com',
             defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
@@ -77,8 +76,9 @@ const pushwooshInit = (push_woosh) => {
                         push_woosh.subscribe()
                     }
                 })
-                // eslint-disable-next-line no-empty
-            } catch {}
+            } catch (error) {
+                console.log(error.message)
+            }
 
             sendTags(api)
         },

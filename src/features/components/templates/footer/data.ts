@@ -47,7 +47,7 @@ const aboutUsLinks: SmartFooterLink[] = [
     {
         id: 6,
         data: {
-            text: '_t_deriv life_t_',
+            text: '_t_Deriv life_t_',
             url: { type: 'company', url_name: 'derivlife' },
         },
     },
@@ -108,6 +108,9 @@ const marketsLinks: SmartFooterLink[] = [
             text: '_t_ETF_t_',
             url: { type: 'internal', to: '/markets/exchange-traded-funds/' },
         },
+        visibility: {
+            is_row: true,
+        },
     },
     {
         id: 4,
@@ -129,7 +132,7 @@ const platformsLinks: SmartFooterLink[] = [
     {
         id: 0,
         data: {
-            text: '_t_deriv MT5_t_',
+            text: '_t_Deriv MT5_t_',
             url: ({ is_ppc_redirect }) => ({
                 type: 'internal',
                 to: is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/',
@@ -139,7 +142,7 @@ const platformsLinks: SmartFooterLink[] = [
     {
         id: 1,
         data: {
-            text: '_t_deriv X_t_',
+            text: '_t_Deriv X_t_',
             url: { type: 'internal', to: '/derivx/' },
         },
         visibility: {
@@ -149,7 +152,7 @@ const platformsLinks: SmartFooterLink[] = [
     {
         id: 2,
         data: {
-            text: '_t_deriv EZ_t_',
+            text: '_t_Deriv EZ_t_',
             url: { type: 'internal', to: '/derivez/' },
         },
         visibility: {
@@ -159,7 +162,7 @@ const platformsLinks: SmartFooterLink[] = [
     {
         id: 3,
         data: {
-            text: '_t_deriv GO_t_',
+            text: '_t_Deriv GO_t_',
             url: { type: 'internal', to: '/deriv-go/' },
         },
         visibility: {
@@ -169,7 +172,7 @@ const platformsLinks: SmartFooterLink[] = [
     {
         id: 4,
         data: {
-            text: '_t_deriv Trader_t_',
+            text: '_t_Deriv Trader_t_',
             url: { type: 'internal', to: '/dtrader/' },
         },
     },
@@ -186,7 +189,7 @@ const platformsLinks: SmartFooterLink[] = [
     {
         id: 6,
         data: {
-            text: '_t_deriv Bot_t_',
+            text: '_t_Deriv Bot_t_',
             url: { type: 'internal', to: '/dbot/' },
         },
         visibility: {
@@ -295,7 +298,7 @@ const supportLinks: SmartFooterLink[] = [
     {
         id: 4,
         data: {
-            text: '_t_Blog_t_',
+            text: '_t_Deriv Blog_t_',
             url: { type: 'company', url_name: 'academy' },
         },
     },

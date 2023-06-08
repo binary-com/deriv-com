@@ -29,7 +29,7 @@ const PlatformImageSlider = ({ items, setSwiper, connectedSwiper }: PlatformMain
             dir={get_lang_direction()}
             modules={[Controller, EffectFade, Autoplay, Pagination]}
             autoplay={{
-                delay: 3000,
+                delay: 4000,
             }}
             className={platform_images_swiper}
             pagination={{
@@ -49,8 +49,8 @@ const PlatformImageSlider = ({ items, setSwiper, connectedSwiper }: PlatformMain
                 },
             }}
         >
-            {items.map(({ id, data }) => (
-                <SwiperSlide key={id}>
+            {items.map(({ id, data }, index) => (
+                <SwiperSlide key={id} data-swiper-autoplay={index === 0 ? '5000' : '4000'}>
                     <PlatformImageItem item={data} />
                 </SwiperSlide>
             ))}

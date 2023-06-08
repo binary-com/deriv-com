@@ -5,7 +5,7 @@ import dclsx from 'features/utils/dclsx'
 import { generateHeadingSize } from 'features/styles/utils'
 
 interface HeadingProps extends BaseTypographyProps<HeadingTagOptions> {
-    size: THeadingSize
+    size?: THeadingSize
 }
 
 const Heading = ({ size = 'medium', weight, className, as = 'h1', ...rest }: HeadingProps) => {

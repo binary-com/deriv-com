@@ -17,7 +17,7 @@ const TradesAvailableWrapper = ({ item }: TradesAvailableWrapperProps) => {
     const [current_tab, setCurrentTab] = useState('_t_CFDs_t_')
 
     return (
-        <Flex.Box direction="col" gap="20x" align="center" justify="center">
+        <Flex.Box direction="col" gap="10x" md={{ gap: '20x' }} align="center" justify="center">
             <TabMenu
                 tab_names={[item.trade_name]}
                 current_tab={current_tab}
@@ -34,17 +34,17 @@ const TradesAvailableWrapper = ({ item }: TradesAvailableWrapperProps) => {
                     <Typography.Paragraph align="center">
                         <Localize translate_text={item.trade_description_1} />
                     </Typography.Paragraph>
-                    <Typography.Paragraph align="center" pt="12x">
+                    <Typography.Paragraph align="center" pt="8x">
                         <Localize translate_text={item.trade_description_2} />
                     </Typography.Paragraph>
                     <Flex.Box
                         direction="col"
-                        md={{ direction: 'row' }}
+                        pt="6x"
+                        md={{ direction: 'row', pt: '24x' }}
                         gap="12x"
                         justify="center"
-                        pt="24x"
                     >
-                        <Typography.Paragraph pt="3x" align="center" font_family="UBUNTU">
+                        <Typography.Paragraph pt="2x" align="center" font_family="UBUNTU">
                             <Localize translate_text="_t_Available on_t_" />
                         </Typography.Paragraph>
                         <Flex.Box direction="row" gap="12x" justify="center">

@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect, useState } from 'react'
+import React, { useMemo } from 'react'
 import {
     flexRender,
     getCoreRowModel,
@@ -6,7 +6,7 @@ import {
     useReactTable,
 } from '@tanstack/react-table'
 import type { SortingState } from '@tanstack/react-table'
-import { TAvailableLiveMarkets, TMarketData } from '../types'
+import { TAvailableLiveMarkets } from '../types'
 import useLiveColumns from '../use-live-columns'
 import { table_row_header, table_row_data } from './live-pricing.module.scss'
 import Flex from 'features/components/atoms/flex-box'
@@ -21,40 +21,25 @@ export type TLiveMarketTableProps = {
 }
 
 const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) => {
-    const [error, pricingData] = usePricingFeed()
+    const [error, rawMarketsData] = usePricingFeed()
 
-    const rawMarketsData = pricingData
     const TABLE_VISIBLE_ROWS = 5
-    const [markets_data, setMarketsData] = useState(() => {
-        const temp = new Map<TAvailableLiveMarkets, TMarketData[]>()
-        return temp
-    })
 
     const [sorting, setSorting] = React.useState<SortingState>([])
 
-    const updateData = useMemo(() => {
-        return () => {
-            if (rawMarketsData) {
-                const stocks = rawMarketsData['stocks']
-                const indices = rawMarketsData['indices']
-                const stocks_indices = Object.assign(stocks, indices)
-                const res = { ...rawMarketsData, indices: { ...stocks_indices } }
+    const markets_data = useMemo(() => {
+        if (rawMarketsData) {
+            const stocks = rawMarketsData['stocks']
+            const indices = rawMarketsData['indices']
+            const stocks_indices = { ...stocks, ...indices }
+            const res = { ...rawMarketsData, indices: stocks_indices }
 
-                Object.keys(res).map((item) => {
-                    if (item === selected_market) {
-                        const selected_market_data = res[item]
-                        const result = Object.values(selected_market_data)
-                        setMarketsData(result)
-                    }
-                })
+            if (res[selected_market]) {
+                return Object.values(res[selected_market])
             }
-            return undefined
         }
+        return []
     }, [rawMarketsData, selected_market])
-
-    useEffect(() => {
-        updateData()
-    }, [updateData])
 
     const columns = useLiveColumns()
 

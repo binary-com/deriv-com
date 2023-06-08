@@ -98,7 +98,7 @@ const available_markets = [
         description: (
             <Localize translate_text="_t_ETFs allow you to diversify your portfolio with various assets that track bonds, commodities, and indices, without the high cost of owning the underlying assets._t_" />
         ),
-        learn_more_path: '/markets/stock/',
+        learn_more_path: 'markets/exchange-traded-funds/',
     },
     {
         name: 'Cryptocurrencies',

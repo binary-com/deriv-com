@@ -143,7 +143,7 @@ const platformsLinks: SmartFooterLink[] = [
         id: 2,
         data: {
             text: '_t_deriv EZ_t_',
-            url: { type: 'internal', to: '/derivez/' },
+            url: { type: 'internal', to: '/deriv-ez/' },
         },
         visibility: {
             is_row: true,

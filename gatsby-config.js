@@ -46,12 +46,6 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
-        // [TODO] Enable this when we have a proper setup to enable both caching and pushwoosh service workers together, Otherwise it will cause one of them stop working.
-        //     resolve: `gatsby-plugin-offline`,
-        //     options: {
-        //         // precachePages: [`/`],
-        //     },
-        // },
         {
             resolve: 'gatsby-plugin-sass',
             options: {
@@ -97,7 +91,7 @@ module.exports = {
                     // Configure cache options here
                     cacheFolder: '.cache/caches/gatsby-plugin-sharp',
                     maxMemory: 500000000,
-                },
+                  },
             },
         },
         `gatsby-plugin-image`,
@@ -372,6 +366,24 @@ module.exports = {
                 apiURL: 'https://chief-skinny-instrument.strapiapp.com',
                 accessToken: process.env.STRAPI_TOKEN,
                 collectionTypes: strapi_config,
+            },
+        },
+        {
+            resolve: `gatsby-plugin-offline`,
+            options: {
+                precachePages: [`/`],
+                workboxConfig: {
+                    runtimeCaching: [
+                        {
+                            urlPattern: /\.(png|jpe?g|svg|gif|webp|ico|woff2?|ttf|otf|css|scss)$/,
+                            handler: `StaleWhileRevalidate`,
+                        },
+                        {
+                            urlPattern: /^.*$/,
+                            handler: `StaleWhileRevalidate`,
+                        },
+                    ],
+                },
             },
         },
     ],

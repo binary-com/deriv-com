@@ -128,7 +128,6 @@ export const mga_link_url =
 export const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.dp2p'
 export const p2p_applestore_url = 'https://apps.apple.com/us/app/deriv-dp2p/id1506901451'
 export const p2p_huawei_appgallery_url = 'https://appgallery.huawei.com/#/app/C103844755'
-export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.eu'
 export const zoho_jobs_url = 'https://deriv.zohorecruit.eu/jobs/'

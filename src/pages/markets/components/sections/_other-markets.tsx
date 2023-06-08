@@ -26,7 +26,6 @@ type MarketType = {
 type MarketsType = {
     derived: MarketType
     forex: MarketType
-    etfs: MarketType
     stock_indices: MarketType
     commodities: MarketType
     cryptocurrencies: MarketType
@@ -76,15 +75,6 @@ const markets_type: MarketsType = {
         ),
         to: '/markets/stock/',
         id: 'marketstockothermarkets',
-    },
-    etfs: {
-        icon: () => <img src={ETFs} alt="ETFs" width="44" height="44" />,
-        title: <Localize translate_text="_t_Exchange-traded funds (ETFs)_t_" />,
-        content: (
-            <Localize translate_text="_t_ETFs allow you to diversify your portfolio with various assets that track bonds, commodities, and indices, without the high cost of owning the underlying assets._t_" />
-        ),
-        to: '/markets/exchange-traded-funds/',
-        id: 'marketetfsothermarkets',
     },
     commodities: {
         icon: () => <img src={Commodities} alt="Commodities" width="44" height="44" />,
@@ -303,16 +293,7 @@ const StyledCarousel = styled.div`
 const OtherMarkets = ({ except }: OtherMarketsProps) => {
     const { is_eu } = useRegion()
 
-    const markets = [
-        '',
-        'forex',
-        'derived',
-        'stock_indices',
-        'etfs',
-        'cryptocurrencies',
-        'commodities',
-        '',
-    ]
+    const markets = ['', 'forex', 'derived', 'stock_indices', 'cryptocurrencies', 'commodities', '']
 
     const eu_markets = [
         '',

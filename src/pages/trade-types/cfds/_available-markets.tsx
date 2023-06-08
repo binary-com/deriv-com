@@ -50,7 +50,7 @@ const StyledDescription = styled(Text)`
 `
 
 const StyledCard = styled(Card)`
-    max-block-size: 30.2rem;
+    max-block-size: 33rem;
 `
 
 const available_markets = [

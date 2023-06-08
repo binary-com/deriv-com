@@ -4,7 +4,7 @@ import { getDatabase, ref, onValue } from 'firebase/database'
 import { firebaseConfig } from 'common/constants'
 import useRegion from 'components/hooks/use-region'
 
-const useFetchFirebaseData = () => {
+const usePricingFeed = () => {
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
     const { is_eu } = useRegion()
@@ -13,7 +13,7 @@ const useFetchFirebaseData = () => {
         const app = initializeApp(firebaseConfig)
         const db = getDatabase(app)
 
-        const commoditiesRef = is_eu ? ref(db, 'eu/market') : ref(db, 'row/market')
+        const commoditiesRef = ref(db, is_eu ? 'eu/market' : 'row/market')
         const unsubscribe = onValue(
             commoditiesRef,
             (snapshot) => {
@@ -27,7 +27,7 @@ const useFetchFirebaseData = () => {
         return unsubscribe
     }, [is_eu])
 
-    return { data, error }
+    return [error, data]
 }
 
-export default useFetchFirebaseData
+export default usePricingFeed

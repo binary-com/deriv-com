@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useMemo, useEffect, useState } from 'react'
 import {
     flexRender,
     getCoreRowModel,
@@ -12,7 +12,8 @@ import { table_row_header, table_row_data } from './live-pricing.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Link from 'features/components/atoms/link'
 import { Localize } from 'components/localization'
-import useFetchFirebaseData from 'components/hooks/use-firebase-fetch-data'
+import usePricingFeed from 'components/hooks/use-pricing-feed'
+import Typography from 'features/components/atoms/typography'
 
 export type TLiveMarketTableProps = {
     selected_market: TAvailableLiveMarkets
@@ -20,9 +21,9 @@ export type TLiveMarketTableProps = {
 }
 
 const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) => {
-    const firebaseData = useFetchFirebaseData()
+    const [error, pricingData] = usePricingFeed()
 
-    const rawMarketsData = firebaseData.data
+    const rawMarketsData = pricingData
     const TABLE_VISIBLE_ROWS = 5
     const [markets_data, setMarketsData] = useState(() => {
         const temp = new Map<TAvailableLiveMarkets, TMarketData[]>()
@@ -31,20 +32,23 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
 
     const [sorting, setSorting] = React.useState<SortingState>([])
 
-    const updateData = useCallback(() => {
-        if (rawMarketsData) {
-            const stocks = rawMarketsData['stocks']
-            const indices = rawMarketsData['indices']
-            const stocks_indices = Object.assign(stocks, indices)
-            const res = { ...rawMarketsData, indices: { ...stocks_indices } }
+    const updateData = useMemo(() => {
+        return () => {
+            if (rawMarketsData) {
+                const stocks = rawMarketsData['stocks']
+                const indices = rawMarketsData['indices']
+                const stocks_indices = Object.assign(stocks, indices)
+                const res = { ...rawMarketsData, indices: { ...stocks_indices } }
 
-            Object.keys(res).map((item) => {
-                if (item == selected_market) {
-                    const selected_market_data = res[item]
-                    const result = Object.values(selected_market_data)
-                    setMarketsData(result)
-                }
-            })
+                Object.keys(res).map((item) => {
+                    if (item === selected_market) {
+                        const selected_market_data = res[item]
+                        const result = Object.values(selected_market_data)
+                        setMarketsData(result)
+                    }
+                })
+            }
+            return undefined
         }
     }, [rawMarketsData, selected_market])
 
@@ -67,6 +71,21 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
 
     const rows = table.getRowModel().rows.slice(0, TABLE_VISIBLE_ROWS)
 
+    if (error) {
+        return (
+            <Flex.Box justify="center" mt="5x">
+                <Typography.Paragraph
+                    align="left"
+                    padding_block="3x"
+                    padding_inline="6x"
+                    font_family="UBUNTU"
+                    textcolor="brand"
+                >
+                    There was an error fetching the live pricing data
+                </Typography.Paragraph>
+            </Flex.Box>
+        )
+    }
     return (
         <>
             <Flex.Box justify="center" mt="16x">

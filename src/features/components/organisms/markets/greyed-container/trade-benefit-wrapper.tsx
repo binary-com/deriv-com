@@ -22,8 +22,8 @@ const TradeBenefitWrapper = ({ data, header }: TradeBenefitWrapperProps) => {
             lg={{ padding: '40x' }}
         >
             <Typography.Heading
-                as="h1"
-                size="small"
+                as="h2"
+                size="large"
                 align="center"
                 textcolor="inverted"
                 padding_inline="40x"

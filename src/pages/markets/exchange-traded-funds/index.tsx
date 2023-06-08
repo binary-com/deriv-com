@@ -11,9 +11,9 @@ const StocksAndIndicesPage = () => (
     <Layout type="noNav">
         <SEO
             description={localize(
-                '_t_Trade global stocks and stock market indices on Deriv. Enjoy our competitively priced equities even outside regular hours of major stock markets._t_',
+                '_t_Trade ETFs on Deriv and diversify your portfolio with assets that track bonds, commodities, and indices, without needing to own the underlying assets._t_',
             )}
-            title={localize('_t_Stock market | Indices trading | Deriv_t_')}
+            title={localize('_t_Exchange-traded funds | ETF trading | Deriv_t_')}
         />
         <MarketNav />
         <ETFMarket />

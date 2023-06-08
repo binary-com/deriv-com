@@ -9,8 +9,8 @@ const TradeTypes = () => {
     return (
         <Flex.Box container="fluid" direction="col" justify="center" align="center">
             <Typography.Heading
-                as="h3"
-                size="small"
+                as="h2"
+                size="large"
                 align="center"
                 padding="20x"
                 lg={{ padding_block: '20x' }}

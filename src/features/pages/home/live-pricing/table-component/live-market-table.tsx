@@ -137,13 +137,13 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
                         ))}
                     </thead>
                     {!markets_data.size ? (
-                        <tbody>
+                        <Flex.Box justify="center">
                             <InitialLoader
                                 style={{
                                     padding: '40px 0',
                                 }}
                             />
-                        </tbody>
+                        </Flex.Box>
                     ) : (
                         <tbody>
                             {rows.map((row) => (

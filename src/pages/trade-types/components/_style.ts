@@ -93,7 +93,7 @@ const Card = styled.article`
     background-color: var(--color-white);
     height: 36rem;
     padding: 24px 24px;
-    max-width: 30.2rem;
+    max-width: 31rem;
 
     @media (max-width: 680px) {
         padding: 16px 16px 36px;

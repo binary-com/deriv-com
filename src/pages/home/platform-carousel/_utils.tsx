@@ -80,7 +80,7 @@ export const platform_details_row: TPlatformDetails[] = [
         icon: DerivEZIcon,
         image_key: 'platforms_derivez',
         description: <Localize translate_text="Our mobile-first CFD trading platform" />,
-        learn_more_link: '/derivez/',
+        learn_more_link: '/deriv-ez/',
         download_links: {
             is_desktop: [
                 { type: 'app_store', url: deriv_go_ios_url },

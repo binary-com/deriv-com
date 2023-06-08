@@ -19,6 +19,7 @@ import MinorOptionsPairs from './_minor-options-pairs'
 import RangeBreak from './_range-break'
 import MicroPairs from './_micro-pairs'
 import StepIndices from './_step-indices'
+import DexIndices from './_dex-indices'
 import VolatilityIndices from './_volatility-indices'
 import VolatilityIndicesEU from './_volatility-indices-eu'
 import AmericanIndices from './_american-indices'
@@ -64,6 +65,7 @@ export {
     RangeBreak,
     MicroPairs,
     StepIndices,
+    DexIndices,
     VolatilityIndices,
     VolatilityIndicesEU,
     AmericanIndices,

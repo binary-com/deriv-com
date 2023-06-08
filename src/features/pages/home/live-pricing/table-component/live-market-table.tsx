@@ -8,7 +8,7 @@ import {
 import type { SortingState } from '@tanstack/react-table'
 import { TAvailableLiveMarkets, TMarketData } from '../types'
 import useLiveColumns from '../use-live-columns'
-import { table_row_header, table_row_data } from './live-pricing.module.scss'
+import { table_row_header, table_row_data, table_container } from './live-pricing.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import useRegion from 'components/hooks/use-region'
 import Link from 'features/components/atoms/link'
@@ -117,7 +117,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
     return (
         <>
             <Flex.Box justify="center" mt="16x">
-                <table>
+                <table className={table_container}>
                     <thead>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <Flex.Box key={headerGroup.id} justify="center">
@@ -137,13 +137,12 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
                         ))}
                     </thead>
                     {!markets_data.size ? (
-                        <Flex.Box justify="center">
-                            <InitialLoader
-                                style={{
-                                    padding: '40px 0',
-                                }}
-                            />
-                        </Flex.Box>
+                        <InitialLoader
+                            style={{
+                                padding: '40px 0',
+                                marginInlineStart: '45%',
+                            }}
+                        />
                     ) : (
                         <tbody>
                             {rows.map((row) => (

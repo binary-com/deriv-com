@@ -1,44 +1,47 @@
 import React from 'react'
 import {
-    CrashBoom,
-    CrashBoomEU,
-    CryptocurrenciesCFDs,
-    Energy,
-    ExoticPairs,
-    MajorPairs,
-    Metals,
-    MinorPairs,
-    RangeBreak,
-    MicroPairs,
-    BasketIndicesCfds,
-    BasketIndicesCommodities,
-    StepIndices,
-    VolatilityIndices,
-    VolatilityIndicesEU,
     AmericanIndices,
     AmericanStocks,
     AsianIndices,
-    EuropeanIndices,
-    JumpIndices,
+    BasketIndicesCfds,
+    BasketIndicesCommodities,
+    CrashBoom,
+    CrashBoomEU,
+    CryptocurrenciesCFDs,
     DerivedCFDs,
+    DexIndices,
+    Energy,
+    EuropeanIndices,
+    ExoticPairs,
+    JumpIndices,
+    MajorPairs,
+    Metals,
+    MicroPairs,
+    MinorPairs,
+    RangeBreak,
+    StepIndices,
+    VolatilityIndices,
+    VolatilityIndicesEU,
 } from '../../instruments/_submarkets'
 import {
+    AmericasDetails,
+    AsianIndicesDetails,
     BasketCommoditiesDetails,
     BasketFXDetails,
     CrashBoomDetails,
     CrashBoomDetailsEU,
     DerivedCFDsDetails,
+    DexIndicesDetails,
+    EuropeanIndicesDetails,
+    JumpIndicesDetails,
     RangeBreakIndicesDetails,
     StepIndicesDetails,
     VolatilityIndicesDetails,
     VolatilityIndicesDetailsEU,
-    AmericasDetails,
-    AsianIndicesDetails,
-    EuropeanIndicesDetails,
-    JumpIndicesDetails,
 } from './_details'
 import type { MarketInstrumentsElement } from 'pages/markets/components/sections/_market_instruments'
 import { Localize } from 'components/localization'
+import { Desktop } from 'components/containers'
 
 export const commodities_cfds: MarketInstrumentsElement = {
     markets_list: {
@@ -118,6 +121,12 @@ export const synthetic_cfds: MarketInstrumentsElement = {
     },
     content: [
         {
+            id: 'dex-indices',
+            title: <Localize translate_text="_t_DEX indices_t_" />,
+            component: <DexIndices />,
+            details: <DexIndicesDetails />,
+        },
+        {
             id: 'volatility-indices',
             title: <Localize translate_text="Volatility indices" />,
             component: <VolatilityIndices />,
@@ -183,7 +192,14 @@ export const stock_cfds: MarketInstrumentsElement = {
         {
             id: 'american-indices',
             title: (
-                <Localize translate_text="American<0></0>indices" components={[<br key={0} />]} />
+                <Localize
+                    translate_text="American <0></0>indices"
+                    components={[
+                        <Desktop key={0}>
+                            <br />
+                        </Desktop>,
+                    ]}
+                />
             ),
             component: <AmericanIndices />,
             details: <AmericasDetails />,
@@ -195,7 +211,16 @@ export const stock_cfds: MarketInstrumentsElement = {
         },
         {
             id: 'asian-indices',
-            title: <Localize translate_text="Asian<0></0>indices" components={[<br key={0} />]} />,
+            title: (
+                <Localize
+                    translate_text="Asian <0></0>indices"
+                    components={[
+                        <Desktop key={0}>
+                            <br />
+                        </Desktop>,
+                    ]}
+                />
+            ),
             component: <AsianIndices />,
             details: <AsianIndicesDetails />,
             col: 3,
@@ -207,7 +232,14 @@ export const stock_cfds: MarketInstrumentsElement = {
         {
             id: 'european-indices',
             title: (
-                <Localize translate_text="European<0></0>indices" components={[<br key={0} />]} />
+                <Localize
+                    translate_text="European <0></0>indices"
+                    components={[
+                        <Desktop key={0}>
+                            <br />
+                        </Desktop>,
+                    ]}
+                />
             ),
             component: <EuropeanIndices />,
             details: <EuropeanIndicesDetails />,

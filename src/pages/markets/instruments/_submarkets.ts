@@ -19,6 +19,7 @@ import MinorOptionsPairs from './_minor-options-pairs'
 import RangeBreak from './_range-break'
 import MicroPairs from './_micro-pairs'
 import StepIndices from './_step-indices'
+import DexIndices from './_dex-indices'
 import VolatilityIndices from './_volatility-indices'
 import VolatilityIndicesEU from './_volatility-indices-eu'
 import AmericanIndices from './_american-indices'
@@ -30,6 +31,7 @@ import DerivedCFDs from './_derived-cfds'
 import CryptocurrenciesCFDs from './_cryptocurrencies-cfds'
 import CryptocurrenciesTradeType from './_cryptocurrencies-trade-type'
 import JumpIndices from './_jump_indices'
+import AccumulatorsIndices from './_accumulators-indices'
 import SwapFreePairs from './_swap-free-pairs'
 import SymbolsMapper from './_symbols_mapper'
 import ContinuousIndicesOptions from './_continuous-indices_options'
@@ -51,6 +53,7 @@ export {
     DerivedCFDs,
     Energy,
     EnergyOptions,
+    AccumulatorsIndices,
     Europe,
     ExoticPairs,
     JumpIndices,
@@ -62,6 +65,7 @@ export {
     RangeBreak,
     MicroPairs,
     StepIndices,
+    DexIndices,
     VolatilityIndices,
     VolatilityIndicesEU,
     AmericanIndices,

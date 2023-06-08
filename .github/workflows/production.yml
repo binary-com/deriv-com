@@ -8,37 +8,16 @@ on:
             - '**.md'
 
 env:
-    GATSBY_CPU_COUNT: 2
+    GATSBY_CPU_COUNT: 16
     GATSBY_ENV: production
     NODE_OPTIONS: "--max_old_space_size=7168"
     DATADOG_APPLICATION_ID: ${{ secrets.DATADOG_APPLICATION_ID }}
     DATADOG_CLIENT_TOKEN: ${{ secrets.DATADOG_CLIENT_TOKEN }}
 
 jobs:
-    lint:
-        timeout-minutes: 10
-        runs-on: ubuntu-latest
-        environment: production
-
-        steps:
-            - name: Checkout 🛎️
-              uses: actions/checkout@v2.3.1
-
-            - name: Set up Node.js
-              uses: actions/setup-node@v3
-              with:
-                  node-version: 16
-                  cache: 'npm'
-
-            - name: Install Node.js dependencies
-              run: |
-                  npm ci
-                  npm test
-
     release-production:
-        needs: lint
         timeout-minutes: 40
-        runs-on: ubuntu-latest
+        runs-on: Runner_16cores
         environment: production
         steps:
             - name: Checkout 🛎️

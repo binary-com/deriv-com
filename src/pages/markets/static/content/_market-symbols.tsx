@@ -528,6 +528,11 @@ export const metals_options: MarketSymbol[] = [
     },
 ]
 
+export const dex_indices = [
+    { src: icons.DEX900UP, text: <Localize translate_text="_t_DEX 900UP_t_" /> },
+    { src: icons.DEX900DN, text: <Localize translate_text="_t_DEX 900DN_t_" /> },
+]
+
 export const range_break: MarketSymbol[] = [
     {
         src: icons.RANGEBREAK100New,

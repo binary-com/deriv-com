@@ -49,7 +49,7 @@ export const eu_urls = ['eu.deriv.com', 'staging-eu.deriv.com', 'beta-eu.deriv.c
 export const domain_full_url = `https://${getDomainUrl()}`
 export const deriv_app_id = getDomainAppID()
 export const deriv_app_url = `https://app.${getDomainUrl()}`
-export const deriv_api_url = `https://api.${getDomainUrl()}/docs`
+export const deriv_api_url = `https://api.${getDomainUrl()}`
 export const deriv_bot_app_url = `${deriv_app_url}/bot`
 export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
 export const deriv_life_url = `https://derivlife.com/`
@@ -160,7 +160,7 @@ export const live_chat_key = 'live_chat_redirection'
 export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const youtube_url = 'https://www.youtube.com/@deriv'
-export const fallback_loss_percent = 75
+export const loss_percent = 73
 
 export const cookie_key = 'browser_update_alert_modal_shown'
 export const browsers_minimum_required_version = {

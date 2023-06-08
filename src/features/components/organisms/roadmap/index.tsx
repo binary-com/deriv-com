@@ -41,7 +41,7 @@ const Roadmap = ({ data }: RoadmapProps) => {
                         className={iframe}
                     ></Box>
                     <LinkButton.Secondary
-                        url={{ type: 'non-company', href: data.link }}
+                        url={{ type: 'non-company', href: data.link, target: '_blank' }}
                         outlined
                         mt="20x"
                     >

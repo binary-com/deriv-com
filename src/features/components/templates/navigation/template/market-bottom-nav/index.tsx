@@ -11,7 +11,7 @@ const MarketBottomNav = () => {
     return (
         <div className={container}>
             {visible_items.map((item) => (
-                <BottomNavItem key={item.title} item={item} />
+                <BottomNavItem key={item.id} item={item.data} />
             ))}
         </div>
     )

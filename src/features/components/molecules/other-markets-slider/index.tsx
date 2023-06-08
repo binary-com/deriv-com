@@ -9,16 +9,19 @@ import Typography from 'features/components/atoms/typography'
 import Card from 'features/components/atoms/card'
 import './other-markets-slider.scss'
 import Container from 'features/components/atoms/container'
+import useRegion from 'components/hooks/use-region'
 
 export type OtherMarketSliderProps = {
     current_market: MarketPageType
 }
 
 const OtherMarketsSlider = ({ current_market }: OtherMarketSliderProps) => {
+    const { is_eu } = useRegion()
     const slider_items = useDynamicVisibleContent({
         content: other_markets_items,
         config: {
             current_market: (market_page) => market_page !== current_market,
+            is_eu: (item_is_eu) => item_is_eu === undefined || is_eu === item_is_eu,
         },
     })
 

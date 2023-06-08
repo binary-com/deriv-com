@@ -114,22 +114,6 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                         </Flex>
                                     </StyledLocalizedLink>
                                 ) : null}
-                                {/* Commented until we release cTrader
-                                {selectedEtfsTab ? (
-                                    <StyledLocalizedLink>
-                                        <Flex direction="row">
-                                            <img
-                                                src={Ctrader}
-                                                alt="Deriv cTrader"
-                                                width="24"
-                                                height="24"
-                                            />
-                                            <StyledHeader type="paragraph-1" as="h2" width="auto">
-                                                <Localize translate_text={deriv_ctrader} />
-                                            </StyledHeader>
-                                        </Flex>
-                                    </StyledLocalizedLink>
-                                ) : null} */}
                             </FlexContainer>
                         </>
                     ) : (

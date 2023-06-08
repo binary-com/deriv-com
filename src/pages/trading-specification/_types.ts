@@ -4,6 +4,7 @@ export type TAvailableLiveMarkets =
     | 'forex'
     | 'derived'
     | 'stocks'
+    | 'etfs'
     | 'cryptocurrency'
     | 'commodities'
 
@@ -22,8 +23,8 @@ export type THeaders = {
     target_spread: number
     max_effective_leverage: string | number
     margin_requirement: string | number
-    swap_long: number
-    swap_short: number
+    swap_long: string | number
+    swap_short: string | number
     trading_hours: string
 }
 export type TDLHeaders = {
@@ -35,7 +36,7 @@ export type TDLHeaders = {
 export type TSpecification = {
     market: string
     data: THeaders[]
-    eu_data: THeaders[]
+    eu_data?: THeaders[]
     dl_data?: TDLHeaders[]
     dl_title?: TString
 }

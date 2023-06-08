@@ -23,7 +23,7 @@ const BannerText = ({ item }: HomepageBannerProps) => {
             padding="8x"
             md={{ align: 'start', justify: 'start', pt: '32x', padding: '0x' }}
         >
-            <Typography.Heading as="h1" size="medium" pb="4x" pt="13x" align="center">
+            <Typography.Heading as="h1" size="medium" pb="4x" pt="32x" align="center">
                 <Localize translate_text={item.title} />
             </Typography.Heading>
 

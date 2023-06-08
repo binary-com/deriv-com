@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import { SectionContainer, Flex, Box } from 'components/containers'
+import { Box, Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import Button from 'components/custom/_button'
 import device from 'themes/device'
@@ -21,7 +21,8 @@ type FullWidthMultiColumnProps = {
 }
 
 const Item = styled(Flex)`
-    width: auto;
+    max-width: 22rem;
+    width: 100%;
 
     img {
         width: 48px;
@@ -91,10 +92,6 @@ const StyledTitle = styled(Header)`
     color: white;
     text-align: center;
 
-    @media ${device.laptopM} {
-        width: 220px;
-    }
-
     @media ${device.tablet} {
         max-width: 90vw;
         font-weight: 700;
@@ -127,9 +124,6 @@ const StyledTextContent = styled.div<FullWidthMultiColumnProps>`
     font-family: 'IBM Plex Sans', sans-serif;
     margin-bottom: 1.6rem;
 
-    @media ${device.laptopL} {
-        width: 161px;
-    }
     @media ${device.tabletL} {
         font-size: 14px;
         margin-top: 0;

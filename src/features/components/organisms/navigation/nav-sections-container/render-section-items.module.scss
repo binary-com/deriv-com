@@ -13,6 +13,7 @@
             border-block-end: none;
             border-inline-end: none;
             &:first-child {
+                border-block-end: none;
                 border-inline-end: 1px solid $color-grey-8;
             }
         }

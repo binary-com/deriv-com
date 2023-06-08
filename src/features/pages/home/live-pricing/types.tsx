@@ -1,3 +1,4 @@
+import { LinkUrlType } from 'features/types'
 import { TString } from 'types/generics'
 
 export type TMarketData = {
@@ -8,6 +9,14 @@ export type TMarketData = {
     spread: number
     symbol: string
     shortcode: string
+}
+
+export type MarketResponseType = {
+    market: {
+        [key in TAvailableLiveMarkets]: {
+            [key: string]: TMarketData
+        }
+    }
 }
 
 export type TMarketDataResponse = {
@@ -22,6 +31,7 @@ export type TAvailableLiveMarkets =
     | 'indices'
     | 'cryptocurrency'
     | 'commodities'
+    | 'stocks'
 
 export type TMarketButtons = {
     src: string
@@ -29,5 +39,5 @@ export type TMarketButtons = {
     button_text: string
     market_name: TAvailableLiveMarkets
     market_description: TString
-    to: string
+    url: LinkUrlType
 }

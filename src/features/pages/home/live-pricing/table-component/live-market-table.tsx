@@ -6,24 +6,25 @@ import {
     useReactTable,
 } from '@tanstack/react-table'
 import type { SortingState } from '@tanstack/react-table'
-import { TAvailableLiveMarkets, TMarketData } from '../types'
+import { MarketResponseType, TAvailableLiveMarkets, TMarketData } from '../types'
 import useLiveColumns from '../use-live-columns'
 import { table_row_header, table_row_data } from './live-pricing.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import useRegion from 'components/hooks/use-region'
 import Link from 'features/components/atoms/link'
 import { Localize } from 'components/localization'
+import { LinkUrlType } from 'features/types'
 
 export type TLiveMarketTableProps = {
     selected_market: TAvailableLiveMarkets
-    link_to: string
+    link: LinkUrlType
 }
 
-const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) => {
+const LiveMarketTable = ({ selected_market, link }: TLiveMarketTableProps) => {
     const { is_eu } = useRegion()
     const [initial_loaded, setInitialLoaded] = useState(false)
 
-    const [rawMarketsData, setRawMarketsData] = useState()
+    const [rawMarketsData, setRawMarketsData] = useState<MarketResponseType>()
     const TABLE_VISIBLE_ROWS = 5
     const [markets_data, setMarketsData] = useState(() => {
         const temp = new Map<TAvailableLiveMarkets, TMarketData[]>()
@@ -41,7 +42,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
 
     const getData = useCallback(async () => {
         const rawResponse = await fetch(region)
-        const response = await rawResponse.json()
+        const response = (await rawResponse.json()) as MarketResponseType
         setRawMarketsData(response)
     }, [region])
 
@@ -61,13 +62,19 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
             const stocks = rawMarketsData.market['stocks']
             const indices = rawMarketsData.market['indices']
             const stocks_indices = Object.assign(stocks, indices)
-            const res = { ...rawMarketsData.market, indices: { ...stocks_indices } }
+            const res = {
+                ...rawMarketsData.market,
+                indices: { ...stocks_indices },
+            }
 
             Object.keys(res).map((item) => {
                 if (item == selected_market) {
-                    const selected_market_data = res[item]
+                    const selected_market_data = res[item as TAvailableLiveMarkets]
                     const result = Object.values(selected_market_data)
-                    setMarketsData(result)
+                    setMarketsData((prevState) => {
+                        prevState.set(item, result)
+                        return prevState
+                    })
                 }
             })
         }
@@ -80,7 +87,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
     const columns = useLiveColumns()
 
     const table = useReactTable({
-        data: markets_data,
+        data: markets_data.get(selected_market) ?? [],
         columns,
         state: {
             sorting,
@@ -98,43 +105,36 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
                 <table>
                     <thead>
                         {table.getHeaderGroups().map((headerGroup) => (
-                            <Flex.Box key={headerGroup.id} justify="center">
-                                <tr className={table_row_header}>
-                                    {headerGroup.headers.map((header) => (
-                                        <th key={header.id}>
-                                            {header.isPlaceholder
-                                                ? null
-                                                : flexRender(
-                                                      header.column.columnDef.header,
-                                                      header.getContext(),
-                                                  )}
-                                        </th>
-                                    ))}
-                                </tr>
-                            </Flex.Box>
+                            <tr className={table_row_header} key={headerGroup.id}>
+                                {headerGroup.headers.map((header) => (
+                                    <th key={header.id}>
+                                        {header.isPlaceholder
+                                            ? null
+                                            : flexRender(
+                                                  header.column.columnDef.header,
+                                                  header.getContext(),
+                                              )}
+                                    </th>
+                                ))}
+                            </tr>
                         ))}
                     </thead>
                     <tbody>
                         {rows.map((row) => (
-                            <Flex.Box key={row.id} justify="center">
-                                <tr className={table_row_data}>
-                                    {row.getVisibleCells().map((cell) => (
-                                        <td key={cell.id}>
-                                            {flexRender(
-                                                cell.column.columnDef.cell,
-                                                cell.getContext(),
-                                            )}
-                                        </td>
-                                    ))}
-                                </tr>
-                            </Flex.Box>
+                            <tr className={table_row_data} key={row.id}>
+                                {row.getVisibleCells().map((cell) => (
+                                    <td key={cell.id}>
+                                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                    </td>
+                                ))}
+                            </tr>
                         ))}
                     </tbody>
                 </table>
             </Flex.Box>
 
             <Flex.Box justify="center" align="center" mt="18x" gap="10x">
-                <Link url={{ type: 'internal', to: link_to }} font_family="UBUNTU" size="medium">
+                <Link url={link} font_family="UBUNTU" size="medium">
                     <Localize translate_text="_t_View all >_t_"></Localize>
                 </Link>
             </Flex.Box>

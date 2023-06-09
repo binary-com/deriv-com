@@ -23,7 +23,7 @@ const TradeBenefitWrapper = ({ data, header }: TradeBenefitWrapperProps) => {
         >
             <Typography.Heading
                 as="h2"
-                size="large"
+                size="small"
                 align="center"
                 textcolor="inverted"
                 padding_inline="40x"

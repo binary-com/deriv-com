@@ -30,7 +30,7 @@ const TradeStepsWrapper = ({ header, data }: TradeStepsType) => {
         >
             <Typography.Heading
                 as="h2"
-                size="large"
+                size="small"
                 align="center"
                 pb="12x"
                 lg={{ padding: '20x' }}

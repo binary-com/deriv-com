@@ -266,7 +266,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                 {is_row ? (
                     <>
                         {dl_icon && getStyledImg('24px', dl, 'dl')}
-                        {/* {swf_icon && getStyledImg('30px', swf, 'swf')} */}
+                        {swf_icon && getStyledImg('30px', swf, 'swf')}
                     </>
                 ) : null}
                 {show_popUp && (

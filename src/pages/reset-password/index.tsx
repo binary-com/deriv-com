@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Formik, Form } from 'formik'
 import Layout from 'components/layout/layout'
@@ -75,6 +75,9 @@ const ResetPassword = () => {
             })
             .catch((error) => {
                 console.log(error)
+                if (error.msg_type === 'verify_email') {
+                    const errorString = error.message.split(':')
+                }
             })
     }
 

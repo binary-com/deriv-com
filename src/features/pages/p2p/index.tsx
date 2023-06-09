@@ -13,9 +13,7 @@ import { SEO } from 'components/containers'
 import { localize } from 'components/localization'
 import MainNav from 'features/components/templates/navigation/main-nav'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import useRegion from 'components/hooks/use-region'
-import useWebsiteStatus from 'components/hooks/use-website-status'
 import InitialLoader from 'components/elements/dot-loader'
 import PageNotFound from 'features/pages/404'
 
@@ -23,11 +21,8 @@ const Footer = loadable(() => import('features/components/templates/footer'))
 
 const DP2PPage = () => {
     useOpenLiveChat(true)
-    const [is_mounted] = usePageLoaded() // needed to fix the second Hero-component during page's loadin
-    const { is_p2p_allowed_country } = useRegion()
-    const { website_status } = useWebsiteStatus()
-    const clients_country = website_status?.clients_country
-    if (clients_country !== undefined) {
+    const { is_p2p_allowed_country, is_p2p_loading } = useRegion()
+    if (!is_p2p_loading) {
         if (is_p2p_allowed_country) {
             return (
                 <Layout>
@@ -41,17 +36,13 @@ const DP2PPage = () => {
                         has_organization_schema
                     />
                     <MainNav />
-                    {is_mounted && (
-                        <>
-                            <DP2Hero />
-                            <DP2Numbers />
-                            <DP2P />
-                            <DP2Steps />
-                            <DP2Availability />
-                            <DP2Banner data={banner_data} />
-                            <Roadmap data={portalData} />
-                        </>
-                    )}
+                    <DP2Hero />
+                    <DP2Numbers />
+                    <DP2P />
+                    <DP2Steps />
+                    <DP2Availability />
+                    <DP2Banner data={banner_data} />
+                    <Roadmap data={portalData} />
                     <Footer />
                 </Layout>
             )

@@ -1,10 +1,16 @@
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import { Flex, Container, Desktop, Mobile } from 'components/containers'
-import { Header, QueryImage, ImageWrapper } from 'components/elements'
+import {
+    Header,
+    QueryImage,
+    ImageWrapper,
+    BackgroundImageWrapper,
+    StaticImageWrapper,
+} from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import { Background } from 'components/elements/background-image'
 import { Button } from 'components/form'
 import device, { size } from 'themes/device'
 import { mobileOSDetect } from 'common/os-detect'
@@ -17,10 +23,6 @@ import {
 } from 'common/constants'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
-const BackgroundWrapper = styled(Background)`
-    height: 100%;
-    width: 100%;
-`
 const AppButton = styled(LocalizedLink)`
     margin-right: 8px;
     padding: 0;
@@ -73,7 +75,6 @@ const ImgWrapper = styled.div`
         max-height: 292px;
     }
 `
-
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 60.5rem;
@@ -90,7 +91,6 @@ const InformationWrapper = styled(Flex)`
         padding: 0;
     }
 `
-
 const HeroContent = styled(Flex)`
     flex-direction: row-reverse;
     justify-content: flex-start;
@@ -179,17 +179,6 @@ const StyledHeader = styled(Header)`
 
 const query = graphql`
     query {
-        p2p_hero_background: file(relativePath: { eq: "p2p/p2p_hero_background.png" }) {
-            ...fadeIn
-        }
-        p2p_hero_background_rtl: file(relativePath: { eq: "p2p/p2p_hero_background_rtl.png" }) {
-            ...fadeIn
-        }
-        p2p_hero_background_mobile: file(
-            relativePath: { eq: "p2p/p2p_hero_background_mobile.png" }
-        ) {
-            ...fadeIn
-        }
         p2p_hero_img: file(relativePath: { eq: "p2p/p2p_hero_img.png" }) {
             ...fadeIn
         }
@@ -217,9 +206,30 @@ const Hero = () => {
     const is_rtl = useIsRtl()
     const background = useMemo(() => {
         if (is_tabletL) {
-            return data['p2p_hero_background_mobile']
+            return (
+                <StaticImage
+                    src="../../../images/common/p2p/p2p_hero_background_mobile.png"
+                    alt={localize('_t_p2p_t_')}
+                    formats={['avif', 'webp', 'auto']}
+                    style={{ width: '100%' }}
+                />
+            )
         } else {
-            return is_rtl ? data['p2p_hero_background_rtl'] : data['p2p_hero_background']
+            return is_rtl ? (
+                <StaticImage
+                    src="../../../images/common/p2p/p2p_hero_background_rtl.png"
+                    alt={localize('_t_p2p_t_')}
+                    formats={['avif', 'webp', 'auto']}
+                    style={{ width: '100%' }}
+                />
+            ) : (
+                <StaticImage
+                    src="../../../images/common/p2p/p2p_hero_background.png"
+                    alt={localize('_t_p2p_t_')}
+                    formats={['avif', 'webp', 'auto']}
+                    style={{ width: '100%' }}
+                />
+            )
         }
     }, [data, is_rtl, is_tabletL])
 
@@ -234,8 +244,10 @@ const Hero = () => {
 
         window.open(link, '_blank')
     }
+
     return (
-        <BackgroundWrapper data={background}>
+        <BackgroundImageWrapper>
+            <StaticImageWrapper>{background}</StaticImageWrapper>
             <Wrapper>
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader as="h1">
@@ -323,7 +335,7 @@ const Hero = () => {
                     />
                 </ImgWrapper>
             </Wrapper>
-        </BackgroundWrapper>
+        </BackgroundImageWrapper>
     )
 }
 

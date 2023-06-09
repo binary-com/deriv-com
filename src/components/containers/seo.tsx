@@ -8,17 +8,18 @@ import { eu_urls } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.png'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 
-const non_localized_links = ['/blog', '/bug-bounty', '/careers']
-
-type SiteMetadataType = {
-    siteMetadata?: {
-        author?: string
-        description?: string
-        siteUrl?: string
-        title?: string
+type TQueries = {
+    site?: {
+        siteMetadata?: {
+            author?: string
+            description?: string
+            siteUrl?: string
+            title?: string
+        }
     }
 }
-type MetaAttributesType = {
+
+type TMetaAttributes = {
     og_title?: string
     og_description?: string
     og_type?: string
@@ -27,20 +28,19 @@ type MetaAttributesType = {
     og_img_height?: string
 }
 
-type SeoProps = {
+type TSeo = {
     description?: string
     has_organization_schema?: boolean
-    meta?: { name: string; content: string | keyof MetaAttributesType }
-    meta_attributes?: MetaAttributesType
+    meta?: { name: string; content: string | keyof TMetaAttributes }
+    meta_attributes?: TMetaAttributes
     no_index?: boolean
     title?: string
 }
-type QueriesType = {
-    site?: SiteMetadataType
-}
 
+const non_localized_links = ['/blog', '/bug-bounty', '/careers']
 const languages = Object.keys(language_config)
 languages.push('x-default')
+
 const SEO = ({
     description,
     meta,
@@ -48,8 +48,8 @@ const SEO = ({
     no_index,
     has_organization_schema,
     meta_attributes,
-}: SeoProps) => {
-    const queries: QueriesType = useStaticQuery(
+}: TSeo) => {
+    const queries: TQueries = useStaticQuery(
         graphql`
             query {
                 site {
@@ -70,8 +70,10 @@ const SEO = ({
     const { locale: lang, pathname } = React.useContext(LocaleContext)
     const formatted_lang = lang.replace('_', '-')
     const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`
-    const default_og_title = localize('Online trading with Deriv | Simple. Flexible. Reliable.')
-    const default_og_description = localize('Trading platforms designed with you in mind.')
+    const default_og_title = localize(
+        '_t_Online trading with Deriv | Simple. Flexible. Reliable._t_',
+    )
+    const default_og_description = localize('_t_Trading platforms designed with you in mind._t_')
 
     // To block eu.deriv.com domain for search engines
     const block_eu = isBrowser() && eu_urls.includes(window.location.hostname)
@@ -113,8 +115,85 @@ const SEO = ({
     }
 
     const lang_direction = useLangDirection()
-
     const is_non_localized = non_localized_links.some((link) => current_page.includes(link))
+    const meta_data = [
+        {
+            name: 'description',
+            content: metaDescription,
+        },
+        {
+            name: 'google',
+            content: 'notranslate',
+        },
+        {
+            property: 'og:title',
+            content: meta_attributes?.og_title || default_og_title,
+        },
+        {
+            property: 'og:site_name',
+            content: title,
+        },
+        {
+            property: 'og:description',
+            content: meta_attributes?.og_description || default_og_description,
+        },
+        {
+            property: 'og:type',
+            content: meta_attributes?.og_type || 'website',
+        },
+        {
+            property: 'og:locale',
+            content: lang,
+        },
+        {
+            property: 'og:image',
+            content: meta_attributes?.og_img || TradingImage,
+        },
+        {
+            property: 'og:image:width',
+            content: meta_attributes?.og_img_width || '600',
+        },
+        {
+            property: 'og:image:height',
+            content: meta_attributes?.og_img_height || '315',
+        },
+        {
+            name: 'twitter:card',
+            content: 'summary',
+        },
+        {
+            name: 'twitter:creator',
+            content: queries.site.siteMetadata.author,
+        },
+        {
+            name: 'twitter:title',
+            content: title,
+        },
+        {
+            name: 'twitter:description',
+            content: metaDescription,
+        },
+        {
+            name: 'format-detection',
+            content: 'telephone=no',
+        },
+        {
+            name: 'yandex-verification',
+            content: '4ddb94bbff872c63',
+        },
+        {
+            name: 'referrer',
+            content: 'origin',
+        },
+        {
+            name: 'version',
+            content: process.env.GATSBY_DERIV_VERSION,
+        },
+        block_eu ? { name: 'robots', content: 'noindex, nofollow' } : {},
+        ...(no_index || no_index_staging || is_ach_page
+            ? [{ name: 'robots', content: 'noindex' }]
+            : []),
+    ].concat(meta || [])
 
     return (
         <Helmet
@@ -126,94 +205,7 @@ const SEO = ({
             }}
             title={title}
             defer={false}
-            meta={[
-                {
-                    name: 'description',
-                    content: metaDescription,
-                },
-                {
-                    name: 'google',
-                    content: 'notranslate',
-                },
-                {
-                    property: 'og:title',
-                    content: meta_attributes?.og_title || default_og_title,
-                },
-                {
-                    property: 'og:site_name',
-                    content: title,
-                },
-                {
-                    property: 'og:description',
-                    content: meta_attributes?.og_description || default_og_description,
-                },
-                {
-                    property: 'og:type',
-                    content: meta_attributes?.og_type || 'website',
-                },
-                {
-                    property: 'og:locale',
-                    content: lang,
-                },
-                {
-                    property: 'og:image',
-                    content: meta_attributes?.og_img || TradingImage,
-                },
-                {
-                    property: 'og:image:width',
-                    content: meta_attributes?.og_img_width || '600',
-                },
-                {
-                    property: 'og:image:height',
-                    content: meta_attributes?.og_img_height || '315',
-                },
-                {
-                    name: 'twitter:card',
-                    content: 'summary',
-                },
-                {
-                    name: 'twitter:creator',
-                    content: queries.site.siteMetadata.author,
-                },
-                {
-                    name: 'twitter:title',
-                    content: title,
-                },
-                {
-                    name: 'twitter:description',
-                    content: metaDescription,
-                },
-                {
-                    name: 'format-detection',
-                    content: 'telephone=no',
-                },
-                {
-                    name: 'yandex-verification',
-                    content: '4ddb94bbff872c63',
-                },
-                {
-                    name: 'referrer',
-                    content: 'origin',
-                },
-                {
-                    name: 'version',
-                    content: process.env.GATSBY_DERIV_VERSION,
-                },
-                block_eu
-                    ? {
-                          name: 'robots',
-                          content: 'noindex, nofollow',
-                      }
-                    : {},
-                ...(no_index || no_index_staging || is_ach_page
-                    ? [
-                          {
-                              name: 'robots',
-                              content: 'noindex',
-                          },
-                      ]
-                    : []),
-            ].concat(meta)}
+            meta={meta_data}
         >
             {has_organization_schema && (
                 <script type="application/ld+json">{JSON.stringify(organization_schema)}</script>
@@ -239,10 +231,6 @@ const SEO = ({
                     })}
         </Helmet>
     )
-}
-
-SEO.defaultProps = {
-    meta: [],
 }
 
 export default SEO

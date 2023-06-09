@@ -1,17 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
+import { StaticImage } from 'gatsby-plugin-image'
 import { Flex, Container } from 'components/containers'
-import { Header } from 'components/elements'
+import { Header, BackgroundImageWrapper, StaticImageWrapper } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
-const BackgroundWrapper = styled(Background)`
-    background-size: cover;
-    background-position: bottom right;
+const Wrapper = styled(Container)`
+    justify-content: flex-start;
+
     @media ${device.desktopL} {
         height: 73rem;
     }
@@ -26,6 +25,10 @@ const BackgroundWrapper = styled(Background)`
     }
     @media ${device.tabletS} {
         height: 105rem;
+        margin-left: 0;
+        padding: 2.1rem 16px 0;
+        flex-direction: column-reverse;
+        justify-content: center;
     }
     @media ${device.mobileL} {
         height: 95rem;
@@ -38,19 +41,11 @@ const BackgroundWrapper = styled(Background)`
     }
 `
 
-const Wrapper = styled(Container)`
-    @media ${device.tabletS} {
-        margin-left: 0;
-        padding: 2.1rem 16px 0;
-        flex-direction: column-reverse;
-        justify-content: center;
-    }
-`
-
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 71rem;
     z-index: 1;
+    justify-content: flex-start;
 
     @media ${device.tabletL} {
         max-width: 55rem;
@@ -79,6 +74,7 @@ const HeroContent = styled(Flex)`
         }
     }
 `
+
 const StyledHeader = styled(Header)`
     color: var(--color-black-3);
     display: flex;
@@ -114,34 +110,41 @@ const TryButton = styled(LinkButton)`
     }
 `
 
-const query = graphql`
-    query {
-        p2p_hero_background: file(relativePath: { eq: "landing/weekend.png" }) {
-            ...fadeIn
-        }
-        p2p_hero_background_mobile: file(relativePath: { eq: "landing/weekend-m.png" }) {
-            ...fadeIn
-        }
-    }
-`
-
 const Hero = () => {
-    const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
-    const background = is_mobile ? data['p2p_hero_background_mobile'] : data['p2p_hero_background']
 
     return (
-        <BackgroundWrapper data={background}>
-            <Wrapper p="4rem 0 0" justify="space-between" height="unset">
-                <InformationWrapper height="unset" direction="column">
+        <BackgroundImageWrapper>
+            <StaticImageWrapper>
+                {is_mobile ? (
+                    <StaticImage
+                        src="../../../../images/common/landing/weekend-m.png"
+                        alt={localize('_t_weekend trading_t_')}
+                        objectFit="cover"
+                        formats={['avif', 'webp', 'auto']}
+                        objectPosition="bottom right"
+                        loading="eager"
+                    />
+                ) : (
+                    <StaticImage
+                        src="../../../../images/common/landing/weekend.png"
+                        alt={localize('_t_weekend trading_t_')}
+                        objectFit="cover"
+                        formats={['avif', 'webp', 'auto']}
+                        objectPosition="bottom right"
+                        loading="eager"
+                    />
+                )}
+            </StaticImageWrapper>
+
+            <Wrapper p="4rem 0 0">
+                <InformationWrapper direction="column">
                     <StyledHeader type="hero">
                         {localize('Ride the trends even on weekends')}
                     </StyledHeader>
                     <HeroContent direction="column" jc="flex-start">
                         <Header as="h2" type="subtitle-1">
-                            {
-                                <Localize translate_text="Trade even when most financial markets are closed" />
-                            }
+                            <Localize translate_text="Trade even when most financial markets are closed" />
                         </Header>
                     </HeroContent>
                     <TryButton
@@ -149,13 +152,13 @@ const Hero = () => {
                         rel="noopener noreferrer nofollow"
                         type="submit"
                         secondary
-                        to={'/signup/'}
+                        to="/signup/"
                     >
                         {localize('Get trading')}
                     </TryButton>
                 </InformationWrapper>
             </Wrapper>
-        </BackgroundWrapper>
+        </BackgroundImageWrapper>
     )
 }
 

@@ -24,6 +24,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSAUS200',
+                swf_icon: true,
                 instrument: 'Australia 200',
             },
             contract_size: 1,
@@ -41,6 +42,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSNETHERLANDS25',
+                swf_icon: true,
                 instrument: 'Netherlands 25',
             },
             contract_size: 1,
@@ -57,6 +59,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSEUROPE50',
+                swf_icon: true,
                 instrument: 'Europe 50',
             },
             contract_size: 1,
@@ -73,6 +76,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSFRANCE40',
+                swf_icon: true,
                 instrument: 'France 40',
             },
             contract_size: 1,
@@ -89,6 +93,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSGERMANY40',
+                swf_icon: true,
                 instrument: 'Germany 40',
             },
             contract_size: 1,
@@ -105,6 +110,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSJAPAN225',
+                swf_icon: true,
                 instrument: 'Japan 225',
             },
             contract_size: 1,
@@ -122,6 +128,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSSPAIN35',
+                swf_icon: true,
                 instrument: 'Spain 35',
             },
             contract_size: 1,
@@ -138,6 +145,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSUK100',
+                swf_icon: true,
                 instrument: 'UK 100',
             },
             contract_size: 1,
@@ -156,6 +164,7 @@ const stocks_specification: TSpecification = {
             instrument: {
                 symbol: 'STOCKSUS500',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'US 500',
             },
             contract_size: 1,
@@ -174,6 +183,7 @@ const stocks_specification: TSpecification = {
             instrument: {
                 symbol: 'STOCKSUSTECH100',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'US Tech 100',
             },
             contract_size: 1,
@@ -192,6 +202,7 @@ const stocks_specification: TSpecification = {
             instrument: {
                 symbol: 'STOCKSWALLSTREET30',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'Wall Street 30',
             },
             contract_size: 1,
@@ -209,6 +220,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSAIRLINESGROUP',
+                swf_icon: true,
                 instrument: 'American Airlines Group Inc',
             },
             contract_size: 1,
@@ -225,6 +237,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSAPPLE',
+                swf_icon: true,
                 instrument: 'Apple Inc',
             },
             contract_size: 1,
@@ -241,6 +254,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSAIRBNB',
+                swf_icon: true,
                 instrument: 'Airbnb Inc',
             },
             contract_size: 1,
@@ -257,6 +271,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSADIDASSALOMON',
+                swf_icon: true,
                 instrument: 'Adidas Salomon',
             },
             contract_size: 1,
@@ -273,6 +288,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSAMERICANINTERNATIONAL',
+                swf_icon: true,
                 instrument: 'American International Group',
             },
             contract_size: 1,
@@ -289,6 +305,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSAIRBUSSE',
+                swf_icon: true,
                 instrument: 'Airbus SE',
             },
             contract_size: 1,
@@ -305,6 +322,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSAIRFRANCE',
+                swf_icon: true,
                 instrument: 'Air France KLM SA',
             },
             contract_size: 1,
@@ -321,6 +339,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSADVANCEDMICRODEVICES',
+                swf_icon: true,
                 instrument: 'Advanced Micro Devices Inc',
             },
             contract_size: 1,
@@ -337,6 +356,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSAMAZON',
+                swf_icon: true,
                 instrument: 'Amazon.com Inc',
             },
             contract_size: 1,
@@ -353,6 +373,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSBOEING',
+                swf_icon: true,
                 instrument: 'Boeing',
             },
             contract_size: 1,
@@ -369,6 +390,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSALIBABAGROUP',
+                swf_icon: true,
                 instrument: 'Alibaba Group Holding Ltd',
             },
             contract_size: 1,
@@ -385,6 +407,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSBANKOFAMERICA',
+                swf_icon: true,
                 instrument: 'Bank of America',
             },
             contract_size: 1,
@@ -401,6 +424,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSBAYERAG',
+                swf_icon: true,
                 instrument: 'Bayer AG',
             },
             contract_size: 1,
@@ -417,6 +441,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSBIOGEN',
+                swf_icon: true,
                 instrument: 'Biogen Inc.',
             },
             contract_size: 1,
@@ -433,6 +458,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSBMW',
+                swf_icon: true,
                 instrument: 'BMW',
             },
             contract_size: 1,
@@ -449,6 +475,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSCITIGROUP',
+                swf_icon: true,
                 instrument: 'Citigroup',
             },
             contract_size: 1,
@@ -465,6 +492,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSCONTINENTAL',
+                swf_icon: true,
                 instrument: 'Continental AG',
             },
             contract_size: 1,
@@ -481,6 +509,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSSALESFORCE',
+                swf_icon: true,
                 instrument: 'Salesforce.com Inc',
             },
             contract_size: 1,
@@ -497,6 +526,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSCISCO',
+                swf_icon: true,
                 instrument: 'Cisco Systems',
             },
             contract_size: 1,
@@ -513,6 +543,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSDELTAAIRLINES',
+                swf_icon: true,
                 instrument: 'Delta Air Lines',
             },
             contract_size: 1,
@@ -529,6 +560,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSDEUTSCHEBANK',
+                swf_icon: true,
                 instrument: 'Deutsche Bank AG',
             },
             contract_size: 1,
@@ -545,6 +577,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSWALTDISNEY',
+                swf_icon: true,
                 instrument: 'Walt Disney Company',
             },
             contract_size: 1,
@@ -561,6 +594,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSEBAY',
+                swf_icon: true,
                 instrument: 'eBay Inc',
             },
             contract_size: 1,
@@ -577,6 +611,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSFACEBOOK',
+                swf_icon: true,
                 instrument: 'Meta Platforms Inc',
             },
             contract_size: 1,
@@ -593,6 +628,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSFEDEX',
+                swf_icon: true,
                 instrument: 'Fedex',
             },
             contract_size: 1,
@@ -609,6 +645,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSFOX',
+                swf_icon: true,
                 instrument: 'Fox Corporation B',
             },
             contract_size: 1,
@@ -625,6 +662,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSGENERALMOTORSCOMP',
+                swf_icon: true,
                 instrument: 'General Motors Company',
             },
             contract_size: 1,
@@ -641,6 +679,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSALPHABET',
+                swf_icon: true,
                 instrument: 'Alphabet Inc Class C',
             },
             contract_size: 1,
@@ -657,6 +696,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSGOLDMANSACHS',
+                swf_icon: true,
                 instrument: 'Goldman Sachs Group',
             },
             contract_size: 1,
@@ -673,6 +713,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSHOME',
+                swf_icon: true,
                 instrument: 'Home Depot Inc',
             },
             contract_size: 1,
@@ -689,6 +730,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSHPINC',
+                swf_icon: true,
                 instrument: 'HP Inc',
             },
             contract_size: 1,
@@ -705,6 +747,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSIBM',
+                swf_icon: true,
                 instrument: 'IBM',
             },
             contract_size: 1,
@@ -721,6 +764,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSINTEL',
+                swf_icon: true,
                 instrument: 'Intel',
             },
             contract_size: 1,
@@ -737,6 +781,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSJOHNSONJOHNSON',
+                swf_icon: true,
                 instrument: 'Johnson & Johnson',
             },
             contract_size: 1,
@@ -753,6 +798,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSJPMORGANCHASE',
+                swf_icon: true,
                 instrument: 'JP Morgan Chase',
             },
             contract_size: 1,
@@ -769,6 +815,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSCOCACOLA',
+                swf_icon: true,
                 instrument: 'Coca-Cola',
             },
             contract_size: 1,
@@ -785,6 +832,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSLUFTHANSA',
+                swf_icon: true,
                 instrument: 'Lufthansa AG',
             },
             contract_size: 1,
@@ -801,6 +849,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSMASTERCARDINC',
+                swf_icon: true,
                 instrument: 'Mastercard Inc',
             },
             contract_size: 1,
@@ -817,6 +866,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSMCDONALDS',
+                swf_icon: true,
                 instrument: 'McDonalds',
             },
             contract_size: 1,
@@ -833,6 +883,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSMODERNA',
+                swf_icon: true,
                 instrument: 'Moderna Inc.',
             },
             contract_size: 1,
@@ -849,6 +900,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSMICROSOFT',
+                swf_icon: true,
                 instrument: 'Microsoft Corporation',
             },
             contract_size: 1,
@@ -865,6 +917,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSNETFLIX',
+                swf_icon: true,
                 instrument: 'Netflix Inc',
             },
             contract_size: 1,
@@ -881,6 +934,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSNIKE',
+                swf_icon: true,
                 instrument: 'Nike',
             },
             contract_size: 1,
@@ -897,6 +951,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSNVIDIA',
+                swf_icon: true,
                 instrument: 'NVIDIA Corp',
             },
             contract_size: 1,
@@ -913,6 +968,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSPEPSICO',
+                swf_icon: true,
                 instrument: 'PepsiCo Inc',
             },
             contract_size: 1,
@@ -929,6 +985,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSPFIZER',
+                swf_icon: true,
                 instrument: 'Pfizer',
             },
             contract_size: 1,
@@ -945,6 +1002,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSPROCTERGAMBLE',
+                swf_icon: true,
                 instrument: 'Procter & Gamble',
             },
             contract_size: 1,
@@ -961,6 +1019,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSPORSCHE',
+                swf_icon: true,
                 instrument: 'Porsche Automobil Holding SE',
             },
             contract_size: 1,
@@ -977,6 +1036,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSPUMA',
+                swf_icon: true,
                 instrument: 'Puma SE',
             },
             contract_size: 1,
@@ -993,6 +1053,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSPAYPAL',
+                swf_icon: true,
                 instrument: 'Paypal',
             },
             contract_size: 1,
@@ -1009,6 +1070,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSSONY',
+                swf_icon: true,
                 instrument: 'Sony Corporation',
             },
             contract_size: 1,
@@ -1025,6 +1087,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSTEVAPHARMACEUTICAL',
+                swf_icon: true,
                 instrument: 'Teva Pharmaceutical Inds',
             },
             contract_size: 1,
@@ -1041,6 +1104,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSTESLA',
+                swf_icon: true,
                 instrument: 'Tesla Inc',
             },
             contract_size: 1,
@@ -1057,6 +1121,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSUBER',
+                swf_icon: true,
                 instrument: 'Uber Technologies Inc',
             },
             contract_size: 1,
@@ -1073,6 +1138,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSVISA',
+                swf_icon: true,
                 instrument: 'Visa',
             },
             contract_size: 1,
@@ -1089,6 +1155,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSWALMART',
+                swf_icon: true,
                 instrument: 'Wal-Mart Stores Inc',
             },
             contract_size: 1,
@@ -1105,6 +1172,7 @@ const stocks_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'STOCKSZOOM',
+                swf_icon: true,
                 instrument: 'Zoom Video Communications Inc',
             },
             contract_size: 1,

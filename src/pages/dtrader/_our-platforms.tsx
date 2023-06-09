@@ -30,7 +30,7 @@ const OurPlatforms = () => {
             icon: ezIcon,
             heading: 'Deriv EZ',
             paragraph: '_t_Our mobile-first CFD trading platform._t_',
-            link: '/derivez/',
+            link: '/deriv-ez/',
         },
         {
             icon: dbIcon,

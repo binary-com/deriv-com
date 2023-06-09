@@ -35,6 +35,9 @@ const sendTags = (api) => {
     }
     api.getTags()
         .then((result) => {
+            if (!result || !result.result) {
+                return null
+            }
             if (
                 !result.result['Login ID'] ||
                 !result.result['Site Language'] ||

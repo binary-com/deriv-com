@@ -21,7 +21,7 @@ export type TLiveMarketTableProps = {
     link_to: string
 }
 
-const Loader = (
+const LoaderView = (
     <Flex.Box justify="center">
         <InitialLoader
             style={{
@@ -81,7 +81,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
 
     const rows = table.getRowModel().rows.slice(0, TABLE_VISIBLE_ROWS)
 
-    if (!rawMarketsData) return Loader
+    if (!rawMarketsData) return LoaderView
     if (error) return ErrorView
 
     return (

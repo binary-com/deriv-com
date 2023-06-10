@@ -8,7 +8,7 @@ import {
 import type { SortingState } from '@tanstack/react-table'
 import { TAvailableLiveMarkets } from '../types'
 import useLiveColumns from '../use-live-columns'
-import { table_row_header, table_row_data } from './live-pricing.module.scss'
+import * as styles from './live-pricing.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Link from 'features/components/atoms/link'
 import { Localize } from 'components/localization'
@@ -91,7 +91,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
                     <thead>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <Flex.Box key={headerGroup.id} justify="center">
-                                <tr className={table_row_header}>
+                                <tr className={styles.table_row_header}>
                                     {headerGroup.headers.map((header) => (
                                         <th key={header.id}>
                                             {header.isPlaceholder
@@ -109,7 +109,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
                     <tbody>
                         {rows.map((row) => (
                             <Flex.Box key={row.id} justify="center">
-                                <tr className={table_row_data}>
+                                <tr className={styles.table_row_data}>
                                     {row.getVisibleCells().map((cell) => (
                                         <td key={cell.id}>
                                             {flexRender(

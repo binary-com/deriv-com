@@ -14,11 +14,36 @@ import Link from 'features/components/atoms/link'
 import { Localize } from 'components/localization'
 import usePricingFeed from 'components/hooks/use-pricing-feed'
 import Typography from 'features/components/atoms/typography'
+import InitialLoader from 'components/elements/dot-loader'
 
 export type TLiveMarketTableProps = {
     selected_market: TAvailableLiveMarkets
     link_to: string
 }
+
+const Loader = (
+    <Flex.Box justify="center">
+        <InitialLoader
+            style={{
+                padding: '40px 0',
+                marginInlineStart: '45%',
+            }}
+        />
+    </Flex.Box>
+)
+const ErrorView = (
+    <Flex.Box justify="center" mt="5x">
+        <Typography.Paragraph
+            align="left"
+            padding_block="3x"
+            padding_inline="6x"
+            font_family="UBUNTU"
+            textcolor="brand"
+        >
+            <Localize translate_text="_t_There was an error fetching the live pricing data_t_"></Localize>
+        </Typography.Paragraph>
+    </Flex.Box>
+)
 
 const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) => {
     const [error, rawMarketsData] = usePricingFeed()
@@ -56,21 +81,9 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
 
     const rows = table.getRowModel().rows.slice(0, TABLE_VISIBLE_ROWS)
 
-    if (error) {
-        return (
-            <Flex.Box justify="center" mt="5x">
-                <Typography.Paragraph
-                    align="left"
-                    padding_block="3x"
-                    padding_inline="6x"
-                    font_family="UBUNTU"
-                    textcolor="brand"
-                >
-                    There was an error fetching the live pricing data
-                </Typography.Paragraph>
-            </Flex.Box>
-        )
-    }
+    if (!rawMarketsData) return Loader
+    if (error) return ErrorView
+
     return (
         <>
             <Flex.Box justify="center" mt="16x">

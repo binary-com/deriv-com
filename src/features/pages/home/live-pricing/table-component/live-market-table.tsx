@@ -47,9 +47,7 @@ const ErrorView = (
 
 const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) => {
     const [error, rawMarketsData] = usePricingFeed()
-
     const TABLE_VISIBLE_ROWS = 5
-
     const [sorting, setSorting] = React.useState<SortingState>([])
 
     const markets_data = useMemo(() => {
@@ -67,7 +65,6 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
     }, [rawMarketsData, selected_market])
 
     const columns = useLiveColumns()
-
     const table = useReactTable({
         data: markets_data,
         columns,

@@ -1,17 +1,6 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
 import Signup, { Appearances } from 'components/custom/signup'
-import Layout from 'components/layout/layout'
-import { localize } from 'components/localization'
-import { SEO } from 'components/containers'
-
-const Wrapper = styled.section`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-`
+import CtraderWrapper from 'components/custom/_ctrader-wrapper'
 
 const CtraderSignup = () => {
     const [submit_state, setSubmitState] = useState('')
@@ -26,24 +15,16 @@ const CtraderSignup = () => {
     }
 
     return (
-        <Layout type="static" margin_top={'0'}>
-            <SEO
-                title={localize('_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_')}
-                description={localize(
-                    '_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_',
-                )}
+        <CtraderWrapper>
+            <Signup
+                appearance={Appearances.cTrader}
+                bgColor="grey-14"
+                onSubmit={updateSubmitState}
+                submit_state={submit_state}
+                email={email}
+                autofocus={true}
             />
-            <Wrapper>
-                <Signup
-                    appearance={Appearances.cTrader}
-                    bgColor="grey-14"
-                    onSubmit={updateSubmitState}
-                    submit_state={submit_state}
-                    email={email}
-                    autofocus={true}
-                />
-            </Wrapper>
-        </Layout>
+        </CtraderWrapper>
     )
 }
 

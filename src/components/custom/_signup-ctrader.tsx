@@ -2,12 +2,10 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import AgreementLabel from './_agreement-label'
 import { Input, Button } from 'components/form'
-import { Header, LinkText, Text } from 'components/elements'
+import { Header, LinkText, LocalizedLinkText, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
-import Logo from 'images/svg/ctrader/logo.svg'
-import Watermark from 'images/svg/ctrader/watermark.svg'
 
 type SignupCtraderProps = {
     autofocus?: boolean
@@ -27,41 +25,23 @@ const SignupContent = styled.div`
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
-    padding: 4rem;
+    padding: 6rem;
     background-color: var(--color-white);
     border-radius: 0.6rem;
-    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
 
-    @media ${device.tablet} {
-        width: 53rem;
-    }
     @media ${device.mobileL} {
         width: 100%;
-        padding: 6rem 2rem;
-    }
-`
-const StyledHeader = styled(Header)`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.6rem;
-
-    @media ${device.tabletL} {
-        margin-bottom: 3rem;
+        padding: 0;
     }
 `
 
 const SubTitle = styled(Text)`
-    padding: 2rem 0;
+    padding: 1.5rem 0;
 `
 
 const InputGroup = styled.div`
     position: relative;
     width: 100%;
-
-    @media ${device.mobileL} {
-        margin: 25px 0 16px 0;
-    }
 `
 const EmailButton = styled(Button)<{ isChecked?: boolean }>`
     width: 100%;
@@ -73,10 +53,6 @@ const EmailButton = styled(Button)<{ isChecked?: boolean }>`
 
     @media ${device.tabletL} {
         margin-top: 24px;
-    }
-
-    @media ${device.mobileL} {
-        font-size: 1.75rem;
     }
 `
 const LoginText = styled(Text)`
@@ -92,6 +68,10 @@ const LoginText = styled(Text)`
 `
 const StyledLinkText = styled(LinkText)`
     font-size: ${(props) => props.size || '14px'};
+`
+
+const Title = styled.h2`
+    font-size: 24px;
 `
 
 const SignupCtrader = ({
@@ -113,10 +93,7 @@ const SignupCtrader = ({
 
     return (
         <SignupContent>
-            <StyledHeader as="h4" type="sub-section-title" mb="0.8rem">
-                <img src={Logo} alt="ctrader" width="43" height="43" />
-                <img src={Watermark} alt="deriv-ctrader" width="160" height="22" />
-            </StyledHeader>
+            <Title>Let’s start!</Title>
             <SubTitle>
                 <Localize translate_text="_t_Enter your email address to begin_t_" />
             </SubTitle>
@@ -152,7 +129,20 @@ const SignupCtrader = ({
                 <Localize translate_text="_t_Create demo account_t_" />
             </EmailButton>
             <Header as="p" type="small" weight="400" color="grey-5" mt="0.8rem" mb="2rem">
-                <Localize translate_text="_t_By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s Security and privacy._t_" />
+                <Localize
+                    translate_text="_t_By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>._t_"
+                    components={[
+                        <LocalizedLinkText
+                            key={0}
+                            to={`/tnc${is_eu ? '/eu' : ''}/security-and-privacy.pdf`}
+                            size="1.2rem"
+                            color="red"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                            external
+                        />,
+                    ]}
+                />
             </Header>
             <LoginText mt="3.75rem" mb={is_eu ? '100px' : '0'}>
                 <Localize translate_text="_t_Already have an account?_t_" />

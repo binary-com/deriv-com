@@ -53,7 +53,6 @@ module.exports = {
             options: {
                 siteUrl: `${site_url}`,
                 // noQueryString: true,
-                stripQueryString: false,
             },
         },
         'gatsby-plugin-styled-components',

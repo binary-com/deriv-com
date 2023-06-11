@@ -76,7 +76,7 @@ const ResetPassword = () => {
     }
 
     return (
-        <Layout type="static" margin_top="0">
+        <Layout type="static" padding_top={0}>
             <SEO
                 title={localize('Reset password | Deriv')}
                 description={localize(

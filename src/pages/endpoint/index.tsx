@@ -140,7 +140,7 @@ const Endpoint = () => {
     }
 
     return (
-        <Layout type="static" margin_top={'0'}>
+        <Layout type="static" padding_top={0}>
             <SEO title="Endpoint" description="Change deriv API endpoint." no_index />
             <StyledContainer justify="center" align="center" direction="column">
                 <Header as="h2" type="page-title" align="center" mt="80px">

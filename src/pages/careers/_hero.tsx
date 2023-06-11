@@ -78,7 +78,7 @@ const Hero = () => {
     const { has_mounted } = React.useContext(LocationContext)
 
     return (
-        <BackgroundImageWrapper>
+        <BackgroundImageWrapper dark_background>
             <StaticImageWrapper>
                 <StaticImage
                     src="../../images/common/careers/career-landing-screen.jpg"

@@ -48,7 +48,7 @@ type HeaderDataProps = {
 
 const Hero = (header_data: HeaderDataProps) => {
     return (
-        <BackgroundImageWrapper>
+        <BackgroundImageWrapper dark_background>
             <StaticImageWrapper>{header_data.data.background}</StaticImageWrapper>
             <StyledContainer>
                 <StyledHeader align="center" as="h1" type="display-title">

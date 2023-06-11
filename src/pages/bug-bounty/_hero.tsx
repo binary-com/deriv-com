@@ -26,7 +26,7 @@ const Hero = () => {
     const [is_mobile] = useBrowserResize()
 
     return (
-        <BackgroundImageWrapper>
+        <BackgroundImageWrapper dark_background>
             <StaticImageWrapper>
                 {is_mobile ? (
                     <StaticImage

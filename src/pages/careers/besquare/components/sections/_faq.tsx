@@ -5,6 +5,7 @@ import {
     AccordionWrapper,
     ContentContainer,
     ImageWrapper,
+    Link,
     QuestionAnswerContainer,
     Section,
     TextContainer,
@@ -60,6 +61,11 @@ const FAQ = () => {
                                             </TextWrapper>
                                             <TextWrapper max_width={['948px', '500px', '290px']}>
                                                 {question.subtitle}
+                                                {question.link && (
+                                                    <Link href={question.link.href}>
+                                                        {question.link.text}
+                                                    </Link>
+                                                )}
                                             </TextWrapper>
                                         </QuestionAnswerContainer>
                                     ))}

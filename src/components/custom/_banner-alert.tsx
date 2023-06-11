@@ -156,14 +156,12 @@ const BannerAlert: FC<TProps> = ({ bannerType }) => {
     }, [cookie.should_show, is_visible])
 
     //outdated browser banner
-    useEffect(
-        () =>
-            bannerTypes.outdatedBrowserBanner === bannerType &&
+    useEffect(() => {
+        bannerTypes.outdatedBrowserBanner === bannerType &&
             is_outdated &&
             !cookie_browser_update.get(cookie_key) &&
-            setIsVisible(true),
-        [is_outdated],
-    )
+            setIsVisible(true)
+    }, [is_outdated])
 
     const handlePositive = () => {
         const expiration_date = Date.now() + 14 * 86400 * 1000 // 2 weeks later (1209600000 ms)

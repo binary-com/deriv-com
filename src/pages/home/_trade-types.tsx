@@ -16,11 +16,12 @@ import device from 'themes/device'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import useRegion from 'components/hooks/use-region'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
+import { TString } from 'types/generics'
 
 type TradeTypesProps = {
     class_name: string
     image_url: string
-    image_alt: ReactElement
+    image_alt: TString
     header: ReactElement
     desc: ReactElement
     link: string
@@ -63,7 +64,7 @@ const items_details_row: TradeTypesProps[] = [
     {
         class_name: 'cfds',
         image_url: 'trade_type_cfds',
-        image_alt: <Localize translate_text="CFDs" />,
+        image_alt: '_t_CFDs_t_',
         header: <Localize translate_text="CFDs" />,
         desc: (
             <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
@@ -75,7 +76,7 @@ const items_details_row: TradeTypesProps[] = [
     {
         class_name: 'multipliers',
         image_url: 'trade_type_multipliers',
-        image_alt: <Localize translate_text="Multipliers" />,
+        image_alt: '_t_Multipliers_t_',
         header: <Localize translate_text="Multipliers" />,
         desc: (
             <Localize translate_text="Multiply potential profit without risking more than your initial stake." />
@@ -87,7 +88,7 @@ const items_details_row: TradeTypesProps[] = [
     {
         class_name: 'options',
         image_url: 'trade_type_digitaloptions',
-        image_alt: <Localize translate_text="Options" />,
+        image_alt: '_t_Options_t_',
         header: <Localize translate_text="Options" />,
         desc: (
             <Localize translate_text="Earn a range of payouts by correctly predicting market movements." />
@@ -102,7 +103,7 @@ const items_details_eu: TradeTypesProps[] = [
     {
         class_name: 'cfds',
         image_url: 'trade_type_cfds_eu',
-        image_alt: <Localize translate_text="CFDs" />,
+        image_alt: '_t_CFDs_t_',
         header: <Localize translate_text="CFDs" />,
         desc: (
             <Localize translate_text="Trade with leverage and low spreads for better returns on successful trades." />
@@ -114,7 +115,7 @@ const items_details_eu: TradeTypesProps[] = [
     {
         class_name: 'multipliers',
         image_url: 'trade_type_multipliers_eu',
-        image_alt: <Localize translate_text="Multipliers" />,
+        image_alt: '_t_Multipliers_t_',
         header: <Localize translate_text="Multipliers" />,
         desc: (
             <Localize translate_text="Multiply your potential profit without risking more than your stake." />
@@ -249,7 +250,7 @@ const TradeItems = ({ items_details }: TradeItemsProps): ReactElement => {
             <ImageWrapper mb="24px">
                 <QueryImage
                     data={data[items_details.image_url]}
-                    alt={items_details.image_alt}
+                    alt={localize(items_details.image_alt)}
                     width="100%"
                     onMouseOver={() => setDetailsVisibility(true)}
                     onMouseOut={() => setDetailsVisibility(false)}

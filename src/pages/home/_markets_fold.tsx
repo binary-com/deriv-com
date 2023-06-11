@@ -3,13 +3,14 @@ import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
-import { LocalizedLink, Localize } from 'components/localization'
+import { LocalizedLink, Localize, localize } from 'components/localization'
 import { Carousel, CarouselProps, Header, QueryImage, Text } from 'components/elements'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { useWindowSize } from 'components/hooks/use-window-size'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
+import { TString } from 'types/generics'
 
 type CarouselItemContainerProps = {
     gradient_start: string
@@ -89,6 +90,7 @@ const market_data = [
             <Localize translate_text="Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day." />
         ),
         img_name: 'market_forex',
+        img_alt: '_t_Forex_t_',
         to: '/markets/forex/',
         gradient_start: '#661B20',
         gradient_end: '#190708',
@@ -99,6 +101,7 @@ const market_data = [
             <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
         ),
         img_name: 'market_derived',
+        img_alt: '_t_Derived_t_',
         to: '/markets/synthetic/',
         gradient_start: '#20403A',
         gradient_end: '#08100E',
@@ -109,6 +112,7 @@ const market_data = [
             <Localize translate_text="Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market." />
         ),
         img_name: 'market_stocks_indices',
+        img_alt: '_t_Stocks & indices_t_',
         to: '/markets/stock/',
         gradient_start: '#2A2040',
         gradient_end: '#0A0810',
@@ -119,6 +123,7 @@ const market_data = [
             <Localize translate_text="Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet." />
         ),
         img_name: 'market_crypto',
+        img_alt: '_t_Cryptocurrencies_t_',
         to: '/markets/cryptocurrencies/',
         gradient_start: '#664407',
         gradient_end: '#191102',
@@ -129,11 +134,13 @@ const market_data = [
             <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
         ),
         img_name: 'market_commodities',
+        img_alt: '_t_Commodities_t_',
         to: '/markets/commodities/',
         gradient_start: '#183046',
         gradient_end: '#060C11',
     },
 ]
+
 const market_data_eu = [
     {
         header: <Localize translate_text="Forex" />,
@@ -141,6 +148,7 @@ const market_data_eu = [
             <Localize translate_text="Take part in the world’s largest financial market where more than $5 trillion worth of currencies are bought and sold each day." />
         ),
         img_name: 'market_forex',
+        img_alt: '_t_Forex_t_',
         to: '/markets/forex/',
         gradient_start: '#661B20',
         gradient_end: '#190708',
@@ -151,6 +159,7 @@ const market_data_eu = [
             <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
         ),
         img_name: 'market_derived',
+        img_alt: '_t_Derived_t_',
         to: '/markets/synthetic/',
         gradient_start: '#20403A',
         gradient_end: '#08100E',
@@ -161,6 +170,7 @@ const market_data_eu = [
             <Localize translate_text="Trade share price movements of big brands and predict broader market trends with indices that measure the overall performance of a market." />
         ),
         img_name: 'market_stocks_indices',
+        img_alt: '_t_Stocks & indices_t_',
         to: '/markets/stock/',
         gradient_start: '#2A2040',
         gradient_end: '#0A0810',
@@ -171,6 +181,7 @@ const market_data_eu = [
             <Localize translate_text="Trade on the rising and falling prices of the most popular cryptocurrencies without the need to own a digital wallet." />
         ),
         img_name: 'market_crypto',
+        img_alt: '_t_Cryptocurrencies_t_',
         to: '/markets/cryptocurrencies/',
         gradient_start: '#664407',
         gradient_end: '#191102',
@@ -181,6 +192,7 @@ const market_data_eu = [
             <Localize translate_text="Trade the price movements of natural resources that are central to the world’s economy and make the most of the market action." />
         ),
         img_name: 'market_commodities',
+        img_alt: '_t_Commodities_t_',
         to: '/markets/commodities/',
         gradient_start: '#183046',
         gradient_end: '#060C11',
@@ -215,6 +227,7 @@ const query = graphql`
 
 type CarouselItemProps = {
     header: ReactElement
+    img_alt: TString
     description: ReactElement
     image: ImageDataLike
     is_mobile: boolean
@@ -231,6 +244,7 @@ const CarouselItem = ({
     gradient_start,
     gradient_end,
     url,
+    img_alt,
 }: CarouselItemProps) => {
     const [is_not_big_screen] = useBrowserResize(1979)
     const [is_hovered, setHovered] = useState(false)
@@ -263,14 +277,14 @@ const CarouselItem = ({
                             </StyledDescription>
                             <CarouselItemImageDesktop
                                 data={image}
-                                alt={header}
+                                alt={localize(img_alt)}
                                 loading="eager"
                                 $hovered={is_hovered}
                             />
                         </>
                     </Desktop>
                     <Mobile>
-                        <CarouselItemImageMobile data={image} alt={header} />
+                        <CarouselItemImageMobile data={image} alt={localize(img_alt)} />
                     </Mobile>
                 </CarouselItemContainer>
             </StyledLink>
@@ -343,12 +357,14 @@ const MarketsFold = () => {
                                     gradient_start,
                                     gradient_end,
                                     to,
+                                    img_alt,
                                 } = market
 
                                 return (
                                     <CarouselItem
                                         key={index}
                                         header={header}
+                                        img_alt={img_alt as TString}
                                         description={description}
                                         is_mobile={is_mobile}
                                         image={data[img_name]}

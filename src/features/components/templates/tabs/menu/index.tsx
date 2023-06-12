@@ -35,11 +35,12 @@ const TabMenu = ({ class_name, tab_names, current_tab, icon, setCurrentTab }: Ta
                                 {icon && <Image src={icon} width="24px" height="24px" />}
                             </FlexBox.Box>
                         )}
+
                         <Typography.Paragraph
                             size="large"
-                            textcolor={`${tab_name == current_tab ? 'brand' : 'primary'}`}
+                            font_family="UBUNTU"
+                            textcolor={tab_name === current_tab ? 'brand' : 'light'}
                         >
-                            {' '}
                             <Localize translate_text={tab_name} />
                         </Typography.Paragraph>
                     </Tab.MenuItem>

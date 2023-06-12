@@ -123,6 +123,28 @@ const HeroHeader = styled(Header)`
     }
 `
 
+const QRCodeWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+
+    ${Header} {
+        font-size: 20px;
+        font-weight: 200;
+        color: var(--color-white);
+        width: 230px;
+        padding-left: 15px;
+        max-width: 100%;
+    }
+    @media (max-width: 1315px) {
+        font-size: 4.8rem;
+    }
+    @media ${device.tablet} {
+        font-size: 40px;
+        line-height: 50px;
+    }
+`
+
 const LottieWrapper = styled.div`
     width: 100%;
     max-width: 58rem;
@@ -363,17 +385,17 @@ const DHero = ({
                 </HeroContent>
                 <Desktop>
                     <HeroContent>
-                        <HeroHeader>
+                        <QRCodeWrapper>
                             <QueryImage
                                 data={data['qr_code']}
-                                alt={'play store'}
+                                alt="play store"
                                 width="108px"
                                 height="108px"
                             />
                             <Header as="h2" width="50%">
-                                {<Localize translate_text="Scan the QR code to download Deriv X" />}
+                                <Localize translate_text="Scan the QR code to download Deriv X" />
                             </Header>
-                        </HeroHeader>
+                        </QRCodeWrapper>
                     </HeroContent>
 
                     <Flex

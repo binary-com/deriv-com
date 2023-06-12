@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import { Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
+import { Flex, Desktop, Mobile } from 'components/containers'
 import { Carousel, CarouselProps, Header, ImageWithDireciton, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
@@ -22,6 +22,7 @@ type MarketType = {
     to: string
     id: string
 }
+
 type MarketsType = {
     derived: MarketType
     forex: MarketType
@@ -29,48 +30,52 @@ type MarketsType = {
     commodities: MarketType
     cryptocurrencies: MarketType
 }
+
 type CardProps = {
     market: string
 }
+
 type OtherMarketsProps = {
     except: string
 }
+
 type LearnMoreProps = {
     visibility: string
 }
+
 const markets_type: MarketsType = {
     forex: {
         icon: () => <img src={Forex} alt="Forex" width="44" height="44" />,
-        title: <Localize translate_text="Forex" />,
+        title: <Localize translate_text="_t_Forex_t_" />,
         content: (
-            <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
+            <Localize translate_text="_t_Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market._t_" />
         ),
         content_eu: (
-            <Localize translate_text="Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market." />
+            <Localize translate_text="_t_Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market._t_" />
         ),
         to: '/markets/forex/',
         id: 'marketforexothermarkets',
     },
     derived: {
         icon: () => <img src={DerivedFX} alt="Synthetic indices" width="44" height="44" />,
-        title: <Localize translate_text="Derived" />,
+        title: <Localize translate_text="_t_Derived_t_" />,
         content: (
-            <Localize translate_text="Derived trading gives you a chance to make a profit from correctly predicting the price movement of instruments that mimic characteristics of financial markets or are derived from them." />
+            <Localize translate_text="_t_Derived trading gives you a chance to make a profit from correctly predicting the price movement of instruments that mimic characteristics of financial markets or are derived from them._t_" />
         ),
         content_eu: (
-            <Localize translate_text="Derived trading gives you a chance to make a profit from correctly predicting the price movement of instruments that mimic characteristics of financial markets." />
+            <Localize translate_text="_t_Derived trading gives you a chance to make a profit from correctly predicting the price movement of instruments that mimic characteristics of financial markets._t_" />
         ),
         to: '/markets/derived-fx/',
         id: 'marketderivedothermarkets',
     },
     stock_indices: {
         icon: () => <img src={StockIndices} alt="Stocks & indices" width="44" height="44" />,
-        title: <Localize translate_text="Stocks & indices" />,
+        title: <Localize translate_text="_t_Stocks & indices_t_" />,
         content: (
-            <Localize translate_text="Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets." />
+            <Localize translate_text="_t_Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets._t_" />
         ),
         content_eu: (
-            <Localize translate_text="Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets." />
+            <Localize translate_text="_t_Stocks & indices trading allows you to profit from the price movements in a market without buying the underlying assets._t_" />
         ),
         to: '/markets/stock/',
         id: 'marketstockothermarkets',
@@ -78,12 +83,12 @@ const markets_type: MarketsType = {
 
     commodities: {
         icon: () => <img src={Commodities} alt="Commodities" width="44" height="44" />,
-        title: <Localize translate_text="Commodities" />,
+        title: <Localize translate_text="_t_Commodities_t_" />,
         content: (
-            <Localize translate_text="Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil." />
+            <Localize translate_text="_t_Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil._t_" />
         ),
         content_eu: (
-            <Localize translate_text="Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil." />
+            <Localize translate_text="_t_Commodities trading on Deriv lets you profit from correctly predicting the market movement on precious metals and crude oil._t_" />
         ),
         to: '/markets/commodities/',
         id: 'marketcommoditiesothermarket',
@@ -91,12 +96,12 @@ const markets_type: MarketsType = {
 
     cryptocurrencies: {
         icon: () => <img src={Cryptocurrencies} alt="Cryptocurrencies" width="44" height="44" />,
-        title: <Localize translate_text="Cryptocurrencies" />,
+        title: <Localize translate_text="_t_Cryptocurrencies_t_" />,
         content: (
-            <Localize translate_text="Crypto trading gives you an opportunity to benefit from correctly predicting the price movements of cryptocurrencies without buying them." />
+            <Localize translate_text="_t_Crypto trading gives you an opportunity to benefit from correctly predicting the price movements of cryptocurrencies without buying them._t_" />
         ),
         content_eu: (
-            <Localize translate_text="Crypto trading gives you an opportunity to benefit from correctly predicting the price movements of cryptocurrencies without buying them." />
+            <Localize translate_text="_t_Crypto trading gives you an opportunity to benefit from correctly predicting the price movements of cryptocurrencies without buying them._t_" />
         ),
         to: '/markets/cryptocurrencies/',
         id: 'marketcryptocurrenciesothermarket',
@@ -174,7 +179,6 @@ const MobileCardWrapper = styled(Flex)`
         }
     }
 `
-
 const StyledFlex = styled(Flex)`
     min-width: 282px;
     border-radius: 16px;
@@ -251,12 +255,12 @@ const MobileCard = ({ market }: CardProps) => {
         </MobileCardWrapper>
     )
 }
+
 const MarketsWrapper = styled(Flex)`
     flex-direction: column;
     padding: 0 0 80px 0;
     max-width: 100%;
 `
-
 const StyledHeader = styled(Header)`
     padding: auto;
     text-align: center;
@@ -282,7 +286,6 @@ const MobileCardContainer = styled(Flex)`
         margin-inline: auto;
     }
 `
-
 const StyledCarousel = styled.div`
     height: 40rem;
     @media ${device.tabletL} {
@@ -343,9 +346,9 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                 <MarketsWrapper tablet_jc="center">
                     <StyledCarousel>
                         <Carousel has_autoplay autoplay_interval={4000} {...settings}>
-                            {filteredMarkets.map((market) =>
+                            {filteredMarkets.map((market, index) =>
                                 market === '' ? (
-                                    <div key={market}></div>
+                                    <div key={market + index}></div>
                                 ) : (
                                     <Card market={market} key={market} />
                                 ),
@@ -357,9 +360,9 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
             <Mobile>
                 <StyledCarousel>
                     <MobileCardContainer direction="column">
-                        {filteredMarkets.map((market) =>
+                        {filteredMarkets.map((market, index) =>
                             except === market || market === '' ? null : (
-                                <MobileCard market={market} key={market} />
+                                <MobileCard market={market} key={market + index} />
                             ),
                         )}
                     </MobileCardContainer>

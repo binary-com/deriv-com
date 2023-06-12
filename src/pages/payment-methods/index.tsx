@@ -204,7 +204,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
     }
     return (
         <>
-            {payment_method_data.map((pdata) => {
+            {payment_method_data.map((pdata, index) => {
                 const styles = is_mobile
                     ? {
                           padding: '0 16px 0',
@@ -233,9 +233,8 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                     return null
                 } else
                     return (
-                        <Accordion has_single_state>
+                        <Accordion has_single_state key={pdata.class_name + index}>
                             <AccordionItem
-                                key={pdata.class_name}
                                 content_style={content_style}
                                 header_style={header_style}
                                 style={styles}

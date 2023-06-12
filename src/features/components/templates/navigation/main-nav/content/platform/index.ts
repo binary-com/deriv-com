@@ -129,7 +129,7 @@ export const tradingPlatformsContent: SmartNavContent[] = [
             content:
                 '_t_Trade on global markets from anywhere with our mobile-first CFD trading platform._t_',
             title: '_t_Deriv EZ_t_',
-            url: { type: 'internal', to: '/derivez/' },
+            url: { type: 'internal', to: '/deriv-ez/' },
         },
         visibility: {
             is_row: true,

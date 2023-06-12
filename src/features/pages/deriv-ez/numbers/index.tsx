@@ -48,7 +48,11 @@ const Numbers = () => {
                             }
                         />
                     </Typography.Paragraph>
-                    <Typography.Paragraph align={'center'} weight={'normal'}>
+                    <Typography.Paragraph
+                        align={'center'}
+                        weight={'normal'}
+                        lg={{ padding_inline: '40x' }}
+                    >
                         <Localize
                             translate_text={
                                 '_t_Trade on Deriv EZ and access a wide variety of assets in forex, stocks and indices, commodities, cryptocurrencies, and derived indices._t_'

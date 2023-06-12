@@ -1,3 +1,4 @@
+const path = require('path');
 const language_config = require(`./i18n-config.js`)
 const plugin = require('./src/features/styles/postcss-plugin/plugin')
 const isBrowser = typeof window !== 'undefined'
@@ -351,7 +352,7 @@ module.exports = {
                 precachePages: [`/`],
                 workboxConfig: {
                     importScripts: [
-                        './static/pushwoosh-service-worker.js',
+                        path.resolve(__dirname, 'static/pushwoosh-service-worker.js'),
                     ],
                     runtimeCaching: [
                         {

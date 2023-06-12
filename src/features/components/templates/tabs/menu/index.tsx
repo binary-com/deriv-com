@@ -4,6 +4,7 @@ import FlexBox from 'features/components/atoms/flex-box'
 import Tab from 'features/components/atoms/tab'
 import { TString } from 'types/generics'
 import Image from 'features/components/atoms/image'
+import Typography from 'features/components/atoms/typography'
 
 export type TabMenuProps = {
     class_name?: string
@@ -35,7 +36,13 @@ const TabMenu = ({ class_name, tab_names, current_tab, icon, setCurrentTab }: Ta
                             </FlexBox.Box>
                         )}
 
-                        <Localize translate_text={tab_name} />
+                        <Typography.Paragraph
+                            size="large"
+                            font_family="UBUNTU"
+                            textcolor={tab_name === current_tab ? 'brand' : 'light'}
+                        >
+                            <Localize translate_text={tab_name} />
+                        </Typography.Paragraph>
                     </Tab.MenuItem>
                 )
             })}

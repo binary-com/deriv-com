@@ -52,6 +52,7 @@ type MarketsCarouselProps = {
 const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
     const lang_direction = useLangDirection()
     const { is_mobile_or_tablet, is_large_tablet } = useBreakpoints()
+    console.log(is_mobile_or_tablet)
 
     const carousel_props: CarouselProps = {
         options: {
@@ -67,11 +68,6 @@ const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
             width: is_mobile_or_tablet ? '100%' : '90%',
             position: 'relative',
             margin: '0 auto',
-        },
-        slide_style: {
-            flex: is_large_tablet ? '0 0 50%' : is_mobile_or_tablet ? '0 0 100%' : '0 0 33.33%',
-            position: 'relative',
-            margin: is_mobile_or_tablet ? '2rem 0' : '4rem 0',
         },
         chevron_style: {
             chevron_color: 'black-9',

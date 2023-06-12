@@ -20,6 +20,10 @@ type StyledChevronType = {
     color?: string // 'red' | 'custom' | 'black' | color
 }
 
+type StyledSlideType = {
+    new_style?: boolean
+}
+
 export const Embla = styled.div`
     position: relative;
     overflow: hidden;
@@ -169,4 +173,22 @@ export const ChevronRight = styled(StyledChevron)`
 `
 export const ChevronLeft = styled(StyledChevron)`
     left: 0;
+`
+export const StyledSlide = styled.div<StyledSlideType>`
+    position: relative;
+    flex: 0 0 33.33%;
+    margin: 4rem 0px;
+    @media ${device.laptopM} {
+        flex: 0 0 50%;
+    }
+    @media ${device.tabletL} {
+        flex: 0 0 100%;
+        margin: 2rem 0px;
+    }
+    ${({ new_style }) =>
+        new_style &&
+        css`
+            margin-right: 0;
+            padding-right: 0;
+        `}
 `

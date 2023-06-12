@@ -12,6 +12,7 @@ import {
     ChevronLeft,
     NavigationContainer,
     StyledDot,
+    StyledSlide,
 } from './carousel-style'
 import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
 import { useIsRtl } from 'components/hooks/use-isrtl'
@@ -126,7 +127,6 @@ export const Carousel = ({
     navigation_style,
     options,
     plugins,
-    slide_style,
     slide_inner_width,
     vertical_container,
     view_port,
@@ -215,14 +215,12 @@ export const Carousel = ({
                                 }
                                 const new_style =
                                     last_slide_no_spacing && idx === children.length - 1
-                                        ? { ...slide_style, marginRight: 0, paddingRight: 0 }
-                                        : slide_style
                                 return (
-                                    <div style={new_style}>
+                                    <StyledSlide new_style={new_style}>
                                         <EmblaSlideInner width={slide_inner_width}>
                                             {child}
                                         </EmblaSlideInner>
-                                    </div>
+                                    </StyledSlide>
                                 )
                             })}
                         </EmblaContainer>

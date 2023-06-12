@@ -1236,6 +1236,7 @@
   "1558114971": "Low severity issues expose an extremely limited amount of data. They may violate an expectation of how something is intended to work, but without privilege escalation or the ability to trigger unintended behaviour. For example:",
   "1559136143": "No, we don't offer cryptocurrencies on DBot.",
   "1559712313": "Commodity trades available on Deriv",
+  "1560657333": "The information presented on this page is solely for educational purposes and has been provided by Acuity and Signal Centre. Since this information falls outside the scope of our responsibility, we cannot be held liable for any outcomes or consequences that may arise from using Acuity and Signal Centre. Please note that we do not offer financial, investment, or trading advice.",
   "1562241070": "All favourite markets and more",
   "1563919822": "You'll get daily commission payouts in your MT5 Synthetic account.",
   "1565220133": "you reside in the UK, or",

@@ -2,6 +2,7 @@ import React from 'react'
 import loadable from '@loadable/component'
 import AcuityFeatureGuide from './acuity-feature-guide'
 import WelcomeBannerAcuity from './welcome-banner-acuity'
+import AcuityDisclaimer from './acuity-disclaimer'
 import MainNav from 'features/components/templates/navigation/main-nav'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
@@ -22,6 +23,7 @@ const Acuity = () => {
             <AcuityTradeTools />
             <AcuityFeatureGuide />
             <WelcomeBannerAcuity />
+            <AcuityDisclaimer />
             <Footer />
         </Layout>
     )

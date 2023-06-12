@@ -13,10 +13,9 @@ const DerivEZHero = () => {
     return (
         <TradeHeroContainer
             container={'fixed'}
+            direction={'col-reverse'}
             justify={'center'}
             align={'center'}
-            direction={'col-reverse'}
-            mt={'20x'}
             md={{ direction: 'row' }}
         >
             <FlexBox.Box
@@ -49,12 +48,7 @@ const DerivEZHero = () => {
                     <Localize translate_text="_t_CFDs trading platform_t_" />
                 </Typography.Heading>
             </FlexBox.Box>
-            <FlexBox.Item
-                align_self={'center'}
-                pt={'40x'}
-                md={{ pt: '0x', ml: '17x' }}
-                style={{ zIndex: '1' }}
-            >
+            <FlexBox.Item align_self={'center'} md={{ ml: '17x' }}>
                 {is_mobile_or_tablet ? hero_images['hero_mobile'] : hero_images['hero']}
             </FlexBox.Item>
         </TradeHeroContainer>

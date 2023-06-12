@@ -72,7 +72,6 @@ export type ExternalURLNames =
     | 'academy'
     | 'tnc_security'
     | 'tnd_clients'
-    | 'ctrader'
 
 export type LinkTarget = '_self' | '_blank' | '_parent' | '_top'
 

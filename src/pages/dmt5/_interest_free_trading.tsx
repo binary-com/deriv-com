@@ -4,6 +4,7 @@ import { Flex } from 'components/containers'
 import { CardStyle, Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
 import Checkmark from 'images/svg/dmt5/checkmark.svg'
 import ZeroPercent from 'images/svg/dmt5/zero_percent.svg'
 import device from 'themes/device'
@@ -38,13 +39,15 @@ const InterestCardFlex = styled(Flex)`
 
     @media ${device.tabletL} {
         font-size: 14px;
-        width: 328px;
+        max-width: 328px;
+        width: 100%;
         height: 373px;
         margin: 24px 0;
     }
 `
 
 const InterestText = styled(Text)`
+    color: var(--color-black-9);
     @media ${device.tabletL} {
         font-size: 24px;
     }
@@ -53,7 +56,6 @@ const InterestText = styled(Text)`
 const StyledContainer = styled(Flex)`
     width: 100%;
     height: 552px;
-    background-color: var(--color-grey-25);
     margin-bottom: 5.2rem;
     flex-direction: row;
     align-items: center;
@@ -66,6 +68,7 @@ const StyledContainer = styled(Flex)`
 `
 
 const StyledHeader = styled(Header)`
+    color: var(--color-black-9);
     margin: 13.4rem 0 1.2rem;
     font-size: 48px;
     @media ${device.tabletL} {
@@ -77,7 +80,7 @@ const StyledHeader = styled(Header)`
 const StyledFlex = styled(Flex)`
     @media ${device.tabletL} {
         width: 100%;
-        min-width: 328px;
+        max-width: 328px;
         padding: 16px;
     }
 `
@@ -96,9 +99,13 @@ const StyledLinkButton = styled(LinkButton)`
     :focus {
         outline: 0;
     }
+    @media ${device.tabletL} {
+        margin: 0 auto;
+    }
 `
 
 const StyledRightText = styled(Text)`
+    color: var(--color-black-9);
     margin-bottom: 3.2rem;
 `
 
@@ -115,6 +122,8 @@ const TextWrapperFlex = styled(Flex)`
 `
 
 const StyledText = styled(Text)`
+    color: var(--color-black-9);
+
     @media ${device.tabletL} {
         font-size: 14px;
     }
@@ -142,14 +151,18 @@ const CheckedText = ({ children }: CheckedTextProps) => (
 )
 
 const InterestFreeTrading = () => {
+    const { is_eu } = useRegion()
+    const commission = is_eu
+        ? '_t_Enjoy zero commission trading on all assets._t_'
+        : '_t_Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected derived and financial assets._t_'
     return (
         <StyledContainer>
             <InterestCardFlex fd="column" ai="center" jc="center">
                 <ImageWrapper>
-                    <ImageTag src={ZeroPercent} alt="Zero Commission" />
+                    <ImageTag src={ZeroPercent} alt="_t_Zero percent interest_t_" />
                 </ImageWrapper>
                 <InterestText size="32px">
-                    <Localize translate_text="Commission" />
+                    <Localize translate_text="_t_interest_t_" />
                 </InterestText>
                 <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
                     <CheckedText>Forex</CheckedText>
@@ -161,13 +174,13 @@ const InterestFreeTrading = () => {
             </InterestCardFlex>
             <StyledFlex fd="column" jc="flex-start" height="100%" width="51.4rem">
                 <StyledHeader as="h2" lh="1.25">
-                    <Localize translate_text="Trade on the world markets without commission" />
+                    <Localize translate_text="_t_Trade on the world markets without commission_t_" />
                 </StyledHeader>
                 <StyledRightText>
-                    <Localize translate_text="Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected forex pairs." />
+                    <Localize translate_text={commission} />
                 </StyledRightText>
                 <StyledLinkButton secondary external type="mt5" target="_blank">
-                    <Localize translate_text="Trade without commission" />
+                    <Localize translate_text="_t_Trade without commission_t_" />
                 </StyledLinkButton>
             </StyledFlex>
         </StyledContainer>

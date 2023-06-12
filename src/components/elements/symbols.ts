@@ -39,6 +39,8 @@ import CRASH300EU from 'images/svg/symbols/crash-eu-crash-300.svg'
 import BTCUSD from 'images/svg/symbols/btc-usd.svg'
 import BTCETH from 'images/svg/symbols/btc-eth.svg'
 import C from 'images/svg/symbols/c.svg'
+import DEX900UP from 'images/svg/symbols/dex-900up.svg'
+import DEX900DN from 'images/svg/symbols/dex-900dn.svg'
 import CADCHF from 'images/svg/symbols/cad-chf.svg'
 import CADJPY from 'images/svg/symbols/cad-jpy.svg'
 import CARDANO from 'images/svg/symbols/cardano.svg'
@@ -77,7 +79,6 @@ import EURHKD from 'images/svg/symbols/eur-hkd.svg'
 import EURILS from 'images/svg/symbols/eur-ils.svg'
 import EURJPY from 'images/svg/symbols/eur-jpy.svg'
 import EURLPN from 'images/svg/symbols/eur-lpn.svg'
-import EURPLN from 'images/svg/symbols/eur-pln.svg'
 import EURMXN from 'images/svg/symbols/eur-mxn.svg'
 import EURNOK from 'images/svg/symbols/eur-nok.svg'
 import EURNZD from 'images/svg/symbols/eur-nzd.svg'
@@ -235,6 +236,7 @@ import USDMXN from 'images/svg/symbols/usd-mxn.svg'
 import USDNOK from 'images/svg/symbols/usd-nok.svg'
 import USDBRENT from 'images/svg/symbols/usd-brent.svg'
 import USDPLN from 'images/svg/symbols/usd-pln.svg'
+import EURPLN from 'images/svg/symbols/eur-pln.svg'
 import USDRUB from 'images/svg/symbols/usd-rub.svg'
 import USDSEK from 'images/svg/symbols/usd-sek.svg'
 import USDSGD from 'images/svg/symbols/usd-sgd.svg'
@@ -352,9 +354,9 @@ import VCRASHIC300 from 'images/svg/symbols/volatility-crash-300-new.svg'
 import VINDEXIC200 from 'images/svg/symbols/volatility-index-ic-200.svg'
 import VINDEXIC300 from 'images/svg/symbols/volatility-index-ic-300.svg'
 import VINDEX2001S from 'images/svg/symbols/volatility_200_1s.svg'
+import VINDEX3001S from 'images/svg/symbols/volatility_300_1s.svg'
 import VINDEX1501S from 'images/svg/symbols/volatility_150_1s.svg'
 import VINDEX2501S from 'images/svg/symbols/volatility_250_1s.svg'
-import VINDEX3001S from 'images/svg/symbols/volatility_300_1s.svg'
 import ZECUSD from 'images/svg/symbols/zec-usd.svg'
 
 export {
@@ -400,6 +402,8 @@ export {
     BTCUSD,
     BTCETH,
     C,
+    DEX900UP,
+    DEX900DN,
     CARDANO,
     CADCHF,
     CADJPY,

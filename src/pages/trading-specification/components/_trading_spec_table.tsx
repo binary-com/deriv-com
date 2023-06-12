@@ -20,7 +20,6 @@ import {
     StyledButtonPage,
     StyledPaginationContainer,
 } from './_elements'
-import AvailablePlatform from './_available-platform'
 import SearchNotFound from 'images/svg/trading-specification/search-not-found.svg'
 import RightChevron from 'images/svg/trading-specification/right-chevron.svg'
 import LeftChevron from 'images/svg/trading-specification/left-chevron.svg'
@@ -157,9 +156,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
         if (search_value.length >= 1) {
             updatedRowData = [
                 ...markets_data.filter((market) =>
-                    market.instrument.instrument
-                        .toLowerCase()
-                        .match(new RegExp(search_value.trim(), 'i')),
+                    market.instrument.instrument.toLowerCase().match(new RegExp(search_value, 'i')),
                 ),
             ]
             setFilteredData(updatedRowData)
@@ -174,8 +171,6 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
 
     return (
         <>
-            <AvailablePlatform />
-
             <TableContainer>
                 <StyledFlex>
                     <SearchForm onSubmit={handleSubmit}>
@@ -206,7 +201,6 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                             </TableRow>
                         ))}
                     </thead>
-
                     <tbody>
                         {table.getRowModel().rows.map((row) => (
                             <TableRow key={row.id}>
@@ -224,7 +218,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                         <img src={SearchNotFound} />
                         <Header type="paragraph-1" weight="normal" as="p" align="center">
                             <Localize
-                                translate_text="No results for <0>'{{search_value}}'</0>"
+                                translate_text="_t_No results for <0>'{{search_value}}'</0>_t_"
                                 values={{ search_value }}
                                 components={[<strong key={0} />]}
                             />
@@ -244,10 +238,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
 
                         <Flex jc="end" tablet_jc="center">
                             <StyledButton
-                                onClick={() => {
-                                    table.previousPage()
-                                    document.documentElement.scrollTop = 500
-                                }}
+                                onClick={() => table.previousPage()}
                                 disabled={!table.getCanPreviousPage()}
                             >
                                 <StyledChevron src={is_rtl ? RightChevron : LeftChevron} />
@@ -256,19 +247,13 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                                 <StyledButtonPage
                                     selected={page === table.getState().pagination.pageIndex}
                                     key={page}
-                                    onClick={() => {
-                                        table.setPageIndex(page)
-                                        document.documentElement.scrollTop = 500
-                                    }}
+                                    onClick={() => table.setPageIndex(page)}
                                 >
                                     {page + 1}
                                 </StyledButtonPage>
                             ))}
                             <StyledButton
-                                onClick={() => {
-                                    table.nextPage()
-                                    document.documentElement.scrollTop = 500
-                                }}
+                                onClick={() => table.nextPage()}
                                 disabled={!table.getCanNextPage()}
                             >
                                 <StyledChevron src={is_rtl ? LeftChevron : RightChevron} />

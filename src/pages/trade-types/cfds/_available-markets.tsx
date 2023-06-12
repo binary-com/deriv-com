@@ -8,10 +8,10 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import Forex from 'images/svg/trade-types/forex.svg'
+import Cryptocurrencies from 'images/svg/trade-types/cryptocurrencies.svg'
 import Commodities from 'images/svg/trade-types/commodities.svg'
 import Derived from 'images/svg/trade-types/derived.svg'
 import StockIndices from 'images/svg/trade-types/stock-indices.svg'
-import Cryptocurrencies from 'images/svg/trade-types/cryptocurrencies.svg'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
@@ -19,11 +19,12 @@ const MobileCardHeader = styled(Flex)`
     height: auto;
 
     @media (max-width: 680px) {
-        flex-direction: row-reverse;
+        flex-direction: column;
         justify-content: space-between;
-        align-items: center;
+        align-items: start;
 
         > img {
+            margin: 2.5rem 0;
             width: 48px;
             height: 48px;
         }
@@ -31,11 +32,25 @@ const MobileCardHeader = styled(Flex)`
 `
 const StyledText = styled(Text)`
     margin-top: 1.6rem;
+    font-size: 20px;
 
     @media (max-width: 680px) {
-        font-size: 18px;
+        font-size: 16px;
         margin-top: 0;
     }
+`
+
+const StyledDescription = styled(Text)`
+    font-size: 14px;
+    margin-bottom: 2rem;
+
+    @media (max-width: 425px) {
+        font-size: 12px;
+    }
+`
+
+const StyledCard = styled(Card)`
+    max-block-size: 30.2rem;
 `
 
 const available_markets = [
@@ -48,7 +63,7 @@ const available_markets = [
             <Localize translate_text="Access over 50 currency pairs and trade with leverage up to 1:1000 to increase your market exposure." />
         ),
         eu_description: (
-            <Localize translate_text="Access over 30+ currency pairs and trade with leverage up to 1:30 to increase your market exposure." />
+            <Localize translate_text="Access over 30 currency pairs and trade with leverage up to 1:30 to increase your market exposure." />
         ),
         learn_more_path: '/markets/forex/',
     },
@@ -58,7 +73,10 @@ const available_markets = [
         img_alt: 'derived',
         text: <Localize translate_text="Derived" />,
         description: (
-            <Localize translate_text="Enjoy trading markets and indices mimicking actual market movements, with little to no disruption from real-world events." />
+            <Localize translate_text="Enjoy trading a wide range of offerings that mimic characteristics of financial markets or are derived from them." />
+        ),
+        eu_description: (
+            <Localize translate_text="Enjoy trading a wide range of offerings that mimic characteristics of financial markets." />
         ),
         learn_more_path: '/markets/synthetic/',
     },
@@ -121,27 +139,27 @@ const AvailableMarkets = () => {
                             return (
                                 <MarketsCarousel.Item key={market.name}>
                                     <MarketsItem>
-                                        <Card>
+                                        <StyledCard>
                                             <MobileCardHeader>
                                                 <img
                                                     src={market.img_src}
                                                     alt={market.img_alt}
-                                                    width="64"
-                                                    height="64"
+                                                    width="48"
+                                                    height="48"
                                                 />
 
                                                 <StyledText weight="bold">{market.text}</StyledText>
                                             </MobileCardHeader>
-                                            <Text>
+                                            <StyledDescription>
                                                 {is_eu
                                                     ? market.eu_description || market.description
                                                     : market.description}
-                                            </Text>
+                                            </StyledDescription>
                                             <LearnMore
                                                 text={<Localize translate_text="Learn more" />}
                                                 to={market.learn_more_path}
                                             />
-                                        </Card>
+                                        </StyledCard>
                                     </MarketsItem>
                                 </MarketsCarousel.Item>
                             )
@@ -156,27 +174,27 @@ const AvailableMarkets = () => {
                             return (
                                 <MarketsCarousel.Item key={market.name}>
                                     <MarketsItem>
-                                        <Card>
+                                        <StyledCard>
                                             <MobileCardHeader>
                                                 <img
                                                     src={market.img_src}
                                                     alt={market.img_alt}
-                                                    width="64"
-                                                    height="64"
+                                                    width="48"
+                                                    height="48"
                                                 />
 
                                                 <StyledText weight="bold">{market.text}</StyledText>
                                             </MobileCardHeader>
-                                            <Text>
+                                            <StyledDescription>
                                                 {is_eu
                                                     ? market.eu_description || market.description
                                                     : market.description}
-                                            </Text>
+                                            </StyledDescription>
                                             <LearnMore
                                                 text={<Localize translate_text="Learn more" />}
                                                 to={market.learn_more_path}
                                             />
-                                        </Card>
+                                        </StyledCard>
                                     </MarketsItem>
                                 </MarketsCarousel.Item>
                             )

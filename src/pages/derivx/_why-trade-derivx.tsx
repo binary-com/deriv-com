@@ -1,13 +1,14 @@
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
 import DTrading from 'components/custom/_dtrading'
-import { SectionContainer, Container, Flex } from 'components/containers'
+import { SectionContainer, Container } from 'components/containers'
 import { Localize, localize } from 'components/localization'
-import { Header, Text } from 'components/elements/typography'
+import { Header } from 'components/elements/typography'
 import device from 'themes/device'
 import Icon24_7 from 'images/svg/deriv-x/24-7.svg'
 import IconMultipleMarketing from 'images/svg/deriv-x/multiple-marketing.svg'
 import IconNewPromising from 'images/svg/deriv-x/new-promising.svg'
+import BoxStyledGrid from 'components/custom/_box-styled-grid'
 
 type TradingType = {
     title?: ReactElement
@@ -15,42 +16,22 @@ type TradingType = {
     image_name?: string
     image_alt?: string
 }
-
-type CardType = {
-    icon?: string
-    title?: JSX.Element
-    subtitle?: JSX.Element
-    image_alt: string
-}
-
+const StyledSectionContainer = styled(SectionContainer)`
+    @media ${device.tablet} {
+        font-size: 28px;
+        padding: 40px 0;
+    }
+`
 const StyledHeader = styled(Header)`
+    margin: 0 0 80px;
+    color: var(--color-black-9);
     @media ${device.mobileL} {
         font-size: 24px;
         padding: 0 35px;
+        margin: 0 0 24px;
     }
     @media ${device.mobileM} {
         padding: 0 20px;
-    }
-`
-
-const Card = styled(Flex)`
-    flex-direction: column;
-    min-width: 200px;
-    max-width: 384px;
-    height: auto;
-    padding: 24px;
-    border-radius: 8px;
-    border: solid 1px var(--color-grey-21);
-    margin-right: 2.4rem;
-    margin-bottom: 2rem;
-    justify-content: flex-start;
-
-    :last-child {
-        margin-right: 0;
-    }
-
-    @media ${device.tablet} {
-        margin-right: unset;
     }
 `
 
@@ -89,7 +70,7 @@ const trading: TradingType[] = [
     },
 ]
 
-const card_data: CardType[] = [
+const card_data = [
     {
         icon: IconNewPromising,
         title: <Localize translate_text="New and promising" />,
@@ -110,7 +91,7 @@ const card_data: CardType[] = [
         icon: Icon24_7,
         title: <Localize translate_text="24/7 trading" />,
         subtitle: (
-            <Localize translate_text="Trade cryptocurrencies and synthetic indices anytime, even on weekends and holidays." />
+            <Localize translate_text="Trade cryptocurrencies and synthetics anytime, even on weekends and holidays." />
         ),
         image_alt: 'Trade any time of the day and week',
     },
@@ -119,34 +100,14 @@ const card_data: CardType[] = [
 const WhyTradeDerivX = () => {
     return (
         <div>
-            <SectionContainer>
+            <StyledSectionContainer>
                 <Container fd="column">
                     <StyledHeader type="page-title" align="center" as="h2">
                         {localize('Why trade with Deriv X')}
                     </StyledHeader>
-                    <Flex tablet_direction="column" tablet_ai="center" mt="40px">
-                        {card_data.map((card, index) => {
-                            return (
-                                <Card key={index}>
-                                    <div>
-                                        <img src={card.icon} alt={card.image_alt} />
-                                    </div>
-                                    <Header
-                                        width="240px"
-                                        type="sub-section-title"
-                                        mt="7px"
-                                        mb="8px"
-                                        as="h3"
-                                    >
-                                        {card.title}
-                                    </Header>
-                                    <Text>{card.subtitle}</Text>
-                                </Card>
-                            )
-                        })}
-                    </Flex>
+                    <BoxStyledGrid items={card_data} />
                 </Container>
-            </SectionContainer>
+            </StyledSectionContainer>
             <DTrading trading={trading} />
         </div>
     )

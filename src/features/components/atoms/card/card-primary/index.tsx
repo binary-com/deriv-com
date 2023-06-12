@@ -38,10 +38,7 @@ const CardPrimary = ({ header, description, icon, link, className, ...rest }: Ca
                 >
                     <Localize translate_text={header} />
                 </Typography.Paragraph>
-                <Typography.Paragraph
-                    size={is_mobile_or_tablet ? 'medium' : 'small'}
-                    md={{ mb: '10x' }}
-                >
+                <Typography.Paragraph size={is_mobile_or_tablet ? 'medium' : 'small'}>
                     <Localize translate_text={description} />
                 </Typography.Paragraph>
             </Flex.Item>

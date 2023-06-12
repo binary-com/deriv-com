@@ -178,3 +178,7 @@ export const bannerTypes = {
     cookieBanner: 'cookie-banner',
     outdatedBrowserBanner: 'outdated-browser-banner',
 }
+
+export const firebaseConfig = {
+    databaseURL: 'https://deriv-static-pricingfeed.firebaseio.com',
+}

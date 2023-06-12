@@ -348,7 +348,6 @@ module.exports = {
         {
             resolve: `gatsby-plugin-offline`,
             options: {
-                exclude: [/static\/pushwoosh-service-worker\.js$/],
                 precachePages: [`/`],
                 workboxConfig: {
                     runtimeCaching: [

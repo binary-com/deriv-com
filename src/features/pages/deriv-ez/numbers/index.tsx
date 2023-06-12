@@ -7,14 +7,19 @@ import Typography from 'features/components/atoms/typography'
 
 const Numbers = () => {
     return (
-        <FlexBox.Box direction={'col'} className={style.number_box} margin_block={'20x'}>
+        <FlexBox.Box
+            container={'fluid'}
+            direction={'col'}
+            className={style.number_box}
+            margin_block={'20x'}
+        >
             <FlexBox.Box
                 direction={'col'}
                 align={'center'}
-                md={{ direction: 'row', justify: 'around' }}
+                md={{ direction: 'row', justify: 'between' }}
             >
                 {selling_points.map((item) => (
-                    <FlexBox.Item basis={'1-3'} key={item.title} pb={'12x'}>
+                    <FlexBox.Item basis={'3-12'} key={item.title} pb={'12x'}>
                         <Typography.Heading align={'center'} md={{ mb: '4x' }}>
                             <Localize translate_text={item.title} />
                         </Typography.Heading>
@@ -30,7 +35,7 @@ const Numbers = () => {
                 margin_inline={'8x'}
                 md={{ margin_block: '40x' }}
             >
-                <FlexBox.Box direction={'col'} md={{ basis: '2-3' }}>
+                <FlexBox.Box className={style.what_have_text} direction={'col'}>
                     <Typography.Heading align={'center'}>
                         <Localize translate_text={'_t_What is Deriv EZ_t_'} />
                     </Typography.Heading>

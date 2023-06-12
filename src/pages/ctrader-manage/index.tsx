@@ -36,7 +36,7 @@ const Title = styled.h2`
     text-align: center;
     font-weight: 700;
     padding: 0 8px;
-    @media ${device.tablet} {
+    @media ${device.tabletS} {
         font-size: 18px;
     }
 `
@@ -46,7 +46,7 @@ const Paragraph = styled.p`
     line-height: 20px;
     text-align: center;
 
-    @media ${device.tablet} {
+    @media ${device.tabletS} {
         // Disable line-break in mobile
         br {
             display: none;
@@ -57,9 +57,9 @@ const Paragraph = styled.p`
 const Step = styled.p`
     font-size: 12px;
     line-height: 18px;
-    width: 192px;
+    width: 200px;
 
-    @media ${device.tablet} {
+    @media ${device.tabletS} {
         text-align: center;
         width: 328px;
     }
@@ -157,7 +157,7 @@ const data = (page: string): ContentType => {
 const CtraderManage = () => {
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const page = url_params.get('q')
-    const { is_mobile } = useBreakpoints()
+    const { is_small_mobile } = useBreakpoints()
 
     const content = data(page)
     const add_account_page = page === 'add-account' || page === 'add-more-accounts'
@@ -165,22 +165,27 @@ const CtraderManage = () => {
     return (
         <CtraderWrapper>
             {page && (
-                <Flex.Box gap={is_mobile ? '10x' : '15x'} direction="col" align="center" pt="20x">
+                <Flex.Box
+                    gap={is_small_mobile ? '10x' : '15x'}
+                    direction="col"
+                    align="center"
+                    pt="20x"
+                >
                     <Title>
                         <Localize translate_text={content.title} />
                     </Title>
                     {add_account_page && (
                         <Flex.Box
-                            direction={is_mobile ? 'col' : 'row'}
+                            direction={is_small_mobile ? 'col' : 'row'}
                             gap={'15x'}
-                            pt={is_mobile ? '5x' : '20x'}
+                            pt={is_small_mobile ? '5x' : '20x'}
                             pb="12x"
                             align="center"
                         >
                             <Image
-                                src={is_mobile ? content.image_url_mobile : content.image_url}
+                                src={is_small_mobile ? content.image_url_mobile : content.image_url}
                                 alt="traders-hub"
-                                width={is_mobile ? 197 : 325}
+                                width={is_small_mobile ? 197 : 325}
                             />
                             <Flex.Box gap={'5x'} direction="col" justify="center">
                                 {content.steps.map((step) => (

@@ -1,4 +1,5 @@
 const sizes = Object.freeze({
+    xsm: 576,
     sm: 768,
     md: 992,
     lg: 1200,
@@ -8,6 +9,7 @@ const sizes = Object.freeze({
 export type TBreakpointSize = keyof typeof sizes
 
 export const breakpoints = Object.freeze({
+    xxs: `screen and (max-width: ${sizes.xsm}px )`, // 0px - 576px
     xs: `screen and (max-width: ${sizes.sm}px )`, // 0px - 768px
     sm: `screen and (min-width: ${sizes.sm + 1}px ) and ( max-width: ${sizes.md}px )`, // 769px - 992px
     md: `screen and (min-width: ${sizes.md + 1}px ) and ( max-width: ${sizes.lg}px )`, // 993px - 1200px

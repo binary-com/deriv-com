@@ -21,7 +21,7 @@ const Content = styled.div`
     height: 70vh;
     max-width: 600px;
 
-    @media ${device.mobileL} {
+    @media ${device.tabletS} {
         padding: 28px;
     }
 `

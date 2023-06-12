@@ -26,12 +26,9 @@ const DerivEZHero = () => {
                 margin_block={'15x'}
                 md={{ ml: '0x' }}
             >
-                <FlexBox.Item
-                    className={hero_image}
-                    align_self={is_mobile_or_tablet ? 'start' : 'center'}
-                    md={{ align_self: 'start' }}
-                >
-                    {is_mobile ? hero_images['mobile_logo'] : hero_images['logo']}
+                <FlexBox.Item className={hero_image} align_self="start">
+                    <div className="visible-phone-and-tablet">{hero_images['mobile_logo']}</div>
+                    <div className="visible-larger-than-tablet">{hero_images['logo']}</div>
                 </FlexBox.Item>
                 <Typography.Heading
                     size={'xlarge'}
@@ -49,7 +46,8 @@ const DerivEZHero = () => {
                 </Typography.Heading>
             </FlexBox.Box>
             <FlexBox.Item align_self={'center'} md={{ ml: '17x' }}>
-                {is_mobile_or_tablet ? hero_images['hero_mobile'] : hero_images['hero']}
+                <div className="visible-phone-and-tablet">{hero_images['hero_mobile']}</div>
+                <div className="visible-larger-than-tablet">{hero_images['hero']}</div>
             </FlexBox.Item>
         </TradeHeroContainer>
     )

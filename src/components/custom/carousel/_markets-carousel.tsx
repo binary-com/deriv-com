@@ -51,8 +51,7 @@ type MarketsCarouselProps = {
 
 const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
     const lang_direction = useLangDirection()
-    const { is_mobile_or_tablet, is_large_tablet } = useBreakpoints()
-    console.log(is_mobile_or_tablet)
+    const { is_mobile_or_tablet } = useBreakpoints()
 
     const carousel_props: CarouselProps = {
         options: {

@@ -15,7 +15,7 @@ const Login = (() => {
     }
 
     const loginUrl = () => {
-        const server_url = localStorage.getItem('config.server_url')
+        const server_url = localStorage.getItem('config.server_url');
         const language = localStorage.getItem('i18n')?.replace('-', '_')
 
         const cookies = getCookiesFields()

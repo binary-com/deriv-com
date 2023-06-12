@@ -432,3 +432,8 @@ export const updateURLAsPerUserLanguage = () => {
         window.location.href = '/' + 'careers'
     }
 }
+
+export const validate_p2p_country = (p2p_config) => {
+    const p2p_validity = Cookies.get('is_p2p_disabled')
+    return p2p_validity ? !JSON.parse(p2p_validity) : !!p2p_config
+}

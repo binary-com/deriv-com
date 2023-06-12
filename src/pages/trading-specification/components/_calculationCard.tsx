@@ -18,13 +18,13 @@ const CalculationCard = ({ data }: DlMarketTypeProps) => {
             </Header>
 
             {data.list.map((list, index) => (
-                <>
-                    <Header key={index} type="paragraph-2" weight="normal" as="p">
+                <React.Fragment key={index}>
+                    <Header type="paragraph-2" weight="normal" as="p">
                         <Localize translate_text={list.details} components={[<strong key={0} />]} />
                     </Header>
 
                     <img src={list.icon} />
-                </>
+                </React.Fragment>
             ))}
             <Header type="paragraph-2" weight="normal" as="p">
                 <Localize translate_text={note} />

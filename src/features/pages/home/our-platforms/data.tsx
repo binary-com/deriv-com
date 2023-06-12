@@ -404,8 +404,8 @@ const platformSliderItems: SmartPlatformItem[] = [
             description:
                 '_t_Trade CFDs on forex, commodities, cryptocurrencies, stocks, stock indices, and derived indices._t_',
             url: {
-                type: 'company',
-                url_name: 'ctrader',
+                type: 'internal',
+                to: '/deriv-ctrader/',
             },
             icon: DerivcTrader,
             image_caption: {
@@ -413,7 +413,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                 components: [
                     <Link
                         key={0}
-                        url={{ type: 'company', url_name: 'ctrader' }}
+                        url={{ type: 'internal', to: '/deriv-ctrader/' }}
                         weight="bold"
                         font_family="UBUNTU"
                     />,

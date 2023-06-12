@@ -30,7 +30,7 @@ const Numbers = () => {
                 margin_inline={'8x'}
                 md={{ margin_block: '40x' }}
             >
-                <FlexBox.Box direction={'col'} md={{ basis: '2-3' }}>
+                <FlexBox.Box direction={'col'} md={{ basis: '2-3' }} lg={{ padding_inline: '40x' }}>
                     <Typography.Heading align={'center'}>
                         <Localize translate_text={'_t_What is Deriv EZ_t_'} />
                     </Typography.Heading>
@@ -48,11 +48,7 @@ const Numbers = () => {
                             }
                         />
                     </Typography.Paragraph>
-                    <Typography.Paragraph
-                        align={'center'}
-                        weight={'normal'}
-                        lg={{ padding_inline: '40x' }}
-                    >
+                    <Typography.Paragraph align={'center'} weight={'normal'}>
                         <Localize
                             translate_text={
                                 '_t_Trade on Deriv EZ and access a wide variety of assets in forex, stocks and indices, commodities, cryptocurrencies, and derived indices._t_'

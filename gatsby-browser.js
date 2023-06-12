@@ -177,6 +177,10 @@ export const onClientEntry = () => {
 }
 
 export const onRouteUpdate = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'auto',
+    })
     checkDomain()
 
     const dataLayer = window.dataLayer

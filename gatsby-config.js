@@ -350,6 +350,9 @@ module.exports = {
             options: {
                 precachePages: [`/`],
                 workboxConfig: {
+                    importScripts: [
+                        './static/pushwoosh-service-worker.js',
+                    ],
                     runtimeCaching: [
                         {
                             urlPattern: /\.(png|jpe?g|svg|gif|webp|ico|woff2?|ttf|otf|css|scss)$/,

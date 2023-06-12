@@ -1,4 +1,5 @@
-const path = require('path');
+const path = require('path')
+const { GenerateSW } = require('workbox-webpack-plugin')
 const language_config = require(`./i18n-config.js`)
 const plugin = require('./src/features/styles/postcss-plugin/plugin')
 const isBrowser = typeof window !== 'undefined'
@@ -350,10 +351,10 @@ module.exports = {
             resolve: `gatsby-plugin-offline`,
             options: {
                 precachePages: [`/`],
+                workboxPluginConfig: {
+                    exclude: [path.resolve(__dirname, 'static/pushwoosh-service-worker.js')],
+                },
                 workboxConfig: {
-                    importScripts: [
-                        path.resolve(__dirname, 'static/pushwoosh-service-worker.js'),
-                    ],
                     runtimeCaching: [
                         {
                             urlPattern: /\.(png|jpe?g|svg|gif|webp|ico|woff2?|ttf|otf|css|scss)$/,
@@ -363,6 +364,11 @@ module.exports = {
                             urlPattern: /^.*$/,
                             handler: `StaleWhileRevalidate`,
                         },
+                    ],
+                    plugins: [
+                        new GenerateSW({
+                            importScripts: ['pushwoosh-service-worker.js'],
+                        }),
                     ],
                 },
             },

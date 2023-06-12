@@ -28,6 +28,7 @@ export const eu_countries = [
     'ie',
     'im',
     'mt',
+    'gb',
 ]
 
 export const latam_countries = [

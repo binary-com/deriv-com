@@ -4,8 +4,10 @@ import { market_buttons } from './_utils'
 import { TAvailableLiveMarkets } from './_types'
 import { ContainerWrapper, MarketButton, MarketsContainer } from './_styles'
 import { Header } from 'components/elements'
+import AvailablePlatform from 'pages/trading-specification/components/_available-platform'
 import { Localize } from 'components/localization'
 import TradingSpecificationTable from 'pages/trading-specification/components/_trading_spec_table'
+import useRegion from 'components/hooks/use-region'
 
 const TabStyledHeader = styled(Header)`
     font-family: 'Ubuntu';
@@ -18,6 +20,7 @@ const MarketIcon = styled.img<{ is_selected?: boolean }>`
 `
 
 const MarketTab = () => {
+    const { is_row } = useRegion()
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
@@ -26,33 +29,35 @@ const MarketTab = () => {
     return (
         <>
             <MarketsContainer>
-                {market_buttons.map((marketItem) => (
-                    <MarketButton
-                        selected={marketItem.market_name === selected_market}
-                        key={marketItem.id}
-                        onClick={() => {
-                            onMarketButtonClick(marketItem.market_name)
-                        }}
-                    >
-                        <MarketIcon
-                            src={
-                                marketItem.market_name === selected_market
-                                    ? marketItem.selected_src
-                                    : marketItem.src
-                            }
-                        />
-                        <TabStyledHeader type="paragraph-2" as="p">
-                            <Localize translate_text={marketItem.button_text} />
-                        </TabStyledHeader>
-                    </MarketButton>
-                ))}
+                {market_buttons
+                    .filter((marketItem) => is_row || marketItem.market_name !== 'etfs')
+                    .map((marketItem) => (
+                        <MarketButton
+                            selected={marketItem.market_name === selected_market}
+                            key={marketItem.id}
+                            onClick={() => {
+                                onMarketButtonClick(marketItem.market_name)
+                            }}
+                        >
+                            <MarketIcon
+                                src={
+                                    marketItem.market_name === selected_market
+                                        ? marketItem.selected_src
+                                        : marketItem.src
+                                }
+                            />
+                            <TabStyledHeader type="paragraph-2" as="p">
+                                <Localize translate_text={marketItem.button_text} />
+                            </TabStyledHeader>
+                        </MarketButton>
+                    ))}
             </MarketsContainer>
             <ContainerWrapper>
                 {market_buttons.map(
                     (marketItem) =>
                         marketItem.market_name === selected_market && (
                             <Header
-                                key={marketItem.id}
+                                key={marketItem.market_name}
                                 type="paragraph-1"
                                 weight="normal"
                                 align="center"
@@ -63,7 +68,7 @@ const MarketTab = () => {
                         ),
                 )}
             </ContainerWrapper>
-
+            <AvailablePlatform selected_market={selected_market} />
             <TradingSpecificationTable market={selected_market} />
         </>
     )

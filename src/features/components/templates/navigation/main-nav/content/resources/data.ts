@@ -33,7 +33,7 @@ export const resourcesNavSectionContent: SmartNavContent[] = [
     {
         id: 4,
         data: {
-            title: '_t_deriv MT5 Signals_t_',
+            title: '_t_Deriv MT5 Signals_t_',
             url: { type: 'internal', to: '/dmt5-trading-signals/#signal-subscriber/' },
         },
     },
@@ -57,7 +57,7 @@ export const resourcesNavSectionContent: SmartNavContent[] = [
     {
         id: 7,
         data: {
-            title: '_t_Blog_t_',
+            title: '_t_Deriv Blog_t_',
             url: { type: 'company', url_name: 'academy', target: '_blank' },
         },
     },

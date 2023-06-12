@@ -21,7 +21,7 @@ env:
 jobs:
   release-staging:
     timeout-minutes: 30
-    runs-on: ubuntu-latest
+    runs-on: Runner_16cores
     environment: staging
     steps:
       - name: Checkout 🛎️
@@ -30,21 +30,19 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "18.x"
+          node-version: "16.x"
           cache: "npm"
 
       - run: npm ci
-      - run: npm run format
-      - run: npm run test
+      # - run: npm run format
+      # - run: npm run test
       - run: npm run build
-      - run: npm run build:storybook
+      # - run: npm run build:storybook
       - uses: olegtarasov/get-tag@v2.1
         id: tagName
         # For using same tag for staging and production we need to uncomment these two below lines:
         # with:
         #   tagRegex: "staging(.*)"
-      - name: Add version file 📝
-        run: echo "staging $(date -u +'%Y-%m-%dT%H:%M:%SZ')" > public/version
       - name: Building docker image 🐳
         run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
 

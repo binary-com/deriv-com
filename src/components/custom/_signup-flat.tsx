@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Input, Button, LinkButton } from 'components/form'
 import { Header, Text } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Container } from 'components/containers'
 import device from 'themes/device'
 // SVG
@@ -135,11 +135,11 @@ const SignupFlat = ({
                         weight="bold"
                         color={dark ? 'white' : 'black'}
                     >
-                        {localize('Join over 1 million traders worldwide')}
+                        <Localize translate_text="_t_Join over 2.5 million traders worldwide_t_" />
                     </StyledHeader>
                     <br />
                     <Text color={dark ? 'white' : 'black'}>
-                        {localize('Sign up for your demo account now.')}
+                        <Localize translate_text="_t_Sign up for your demo account now._t_" />
                     </Text>
                     <InputGroup>
                         <InputWrapper>

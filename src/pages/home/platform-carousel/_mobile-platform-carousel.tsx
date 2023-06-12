@@ -2,19 +2,19 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled, { css } from 'styled-components'
 import Autoplay from 'embla-carousel-autoplay'
+import type { PlatformDetailsProps } from './_utils'
 import {
     getOSIcon,
-    PlatformContent,
     ImageTag,
-    TPlatformDetails,
+    PlatformContent,
     PLATFORMS_CAROUSEL_DELAY,
+    TPlatformDetails,
 } from './_utils'
-import type { PlatformDetailsProps } from './_utils'
 import { LocalizedLink } from 'components/localization'
 import {
+    deriv_mt5_app_url,
     dmt5_android_url,
     dmt5_app_gallery,
-    deriv_mt5_app_url,
     dmt5_ios_url,
 } from 'common/constants'
 import device from 'themes/device'
@@ -39,7 +39,7 @@ const query = graphql`
         platforms_deriv_go: file(relativePath: { eq: "home/platforms_deriv_go.png" }) {
             ...fadeIn
         }
-        platforms_derivez: file(relativePath: { eq: "home/platforms_derivez.png" }) {
+        platforms_derivez: file(relativePath: { eq: "home/platforms_deriv-ez-logo-red.png" }) {
             ...fadeIn
         }
         platforms_mt5: file(relativePath: { eq: "home/platforms_mt5.png" }) {

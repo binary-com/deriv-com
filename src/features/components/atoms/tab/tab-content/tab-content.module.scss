@@ -1,0 +1,12 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.tab_ul {
+  cursor: pointer;
+  max-inline-size: 38.4rem;
+}
+.tab_images {
+  max-block-size: 38.5rem;
+  @include breakpoints(tablet) {
+    max-block-size: 62.5rem;
+  }
+}

@@ -119,6 +119,9 @@ export const CellIcon = styled.div`
     display: flex;
     align-items: center;
     gap: 12px;
+    @media ${device.tabletL} {
+        padding: 0 5px 0 0;
+    }
 `
 type TTableHeaderCell = {
     text?: ReactElement

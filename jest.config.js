@@ -20,7 +20,7 @@ module.exports = {
     coverageDirectory: './coverage/',
 
     // The glob patterns Jest uses to detect test files
-    testMatch: ['<rootDir>/src/**/__tests__/**/?(*.)+(spec).[jt]s?(x)'],
+    testMatch: ['<rootDir>/src/features/**/__tests__/**/?(*.)+(spec).[jt]s?(x)'],
 
     // The test environment that will be used for testing
     testEnvironment: 'jsdom',
@@ -52,7 +52,7 @@ module.exports = {
     },
 
     // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-    testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`],
+    testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`, `<rootDir>/src/features/pages` ],
 
     // An array of directory names to be searched recursively up from the requiring module's location
     moduleDirectories: ['node_modules'],

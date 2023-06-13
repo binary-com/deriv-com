@@ -81,7 +81,6 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         const is_dev = isLocalhost() || isTestlink()
         if (website_status) {
             const { clients_country, p2p_config } = website_status
-            setP2PAllowedCountry(validate_p2p_country(p2p_config))
             //QA testing purposes
             if (qa_url_region) {
                 p2p_countries.includes(qa_url_region)
@@ -89,7 +88,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                     : setP2PAllowedCountry(false)
                 setP2PLoading(false)
             } else if ('p2p_config' in website_status && p2p_config) {
-                setP2PAllowedCountry(!!p2p_config)
+                setP2PAllowedCountry(validate_p2p_country(p2p_config))
                 setP2PLoading(false)
             } else if ('p2p_config' in website_status && !p2p_config) {
                 setP2PLoading(false)

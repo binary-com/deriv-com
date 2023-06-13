@@ -3,15 +3,15 @@ import styled from 'styled-components'
 import { smarttrader_url } from 'common/constants'
 import { Flex } from 'components/containers'
 import { TString } from 'types/generics'
-import { Text, Header } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
-import SmartTrader from 'images/svg/custom/smarttrader.svg'
+import SmartTrader from 'images/svg/custom/rebranding/smarttrader-icon.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
-import DBot from 'images/svg/dbot/dbot-icon.svg'
-import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
-import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
-import DerivGo from 'images/svg/deriv-go/deriv-go-logo.svg'
+import DBot from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
+import DMT5 from 'images/svg/custom/rebranding/dmt5-icon.svg'
+import DTrader from 'images/svg/custom/rebranding/dtrader-icon.svg'
+import DerivGo from 'images/svg/custom/rebranding/deriv-go-icon.svg'
 import DerivEZ from 'images/svg/trading-specification/deriv-ez.svg'
 import useRegion from 'components/hooks/use-region'
 
@@ -169,7 +169,7 @@ const AvailablePlatforms = ({
                     </LocalizedLink>
                 )}
                 {derivez && !is_eu && (
-                    <LocalizedLink to="/derivez/">
+                    <LocalizedLink to="/deriv-ez/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DerivEZ} alt="Deriv ez" width="32" height="32" />
                             <Text ml="0.4rem">{localize('Deriv EZ')}</Text>
@@ -185,7 +185,7 @@ const AvailablePlatforms = ({
                     </LocalizedLink>
                 )}
                 {deriv_ez && (
-                    <LocalizedLink to="/derivez/">
+                    <LocalizedLink to="/deriv-ez/">
                         <StyledFlex direction="row" ai="center">
                             <embed src={DerivEZ} width="24" height="24" />
                             <Text ml="0.4rem">{localize('Deriv EZ')}</Text>

@@ -49,7 +49,7 @@ export const eu_urls = ['eu.deriv.com', 'staging-eu.deriv.com', 'beta-eu.deriv.c
 export const domain_full_url = `https://${getDomainUrl()}`
 export const deriv_app_id = getDomainAppID()
 export const deriv_app_url = `https://app.${getDomainUrl()}`
-export const deriv_api_url = `https://api.${getDomainUrl()}/docs`
+export const deriv_api_url = `https://api.${getDomainUrl()}`
 export const deriv_bot_app_url = `${deriv_app_url}/bot`
 export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
 export const deriv_life_url = `https://derivlife.com/`
@@ -57,6 +57,7 @@ export const academy_url = `https://academy.deriv.com/`
 export const deriv_mt5_app_url = `https://trade.mql5.com/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979`
 export const derivx_app_url = `${deriv_app_url}/derivx`
 export const smarttrader_url = `https://smarttrader.${getDomainUrl()}`
+export const traders_hub = 'https://app.deriv.com/appstore/traders-hub'
 export const binary_bot_url = `https://bot.${getDomainUrl()}`
 export const blog_url = `https://blog.${deriv_com_url}`
 export const deriv_cookie_domain = getDomainUrl()
@@ -121,13 +122,12 @@ export const dp2p_google_play_url =
 export const gtm_test_domain = 'deriv-com.binary.sx'
 export const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
 export const livechat_license_id = 12049137
-export const map_api_key = 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'
+export const map_api_key = 'AIzaSyBlyyUrQz3lpzIdy_ZugPQIQSE_v_6AaiM'
 export const mga_link_url =
     'https://authorisation.mga.org.mt/verification.aspx?lang=EN&company=a5fd1edc-d072-4c26-b0cd-ab3fa0f0cc40&details=1'
 export const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.dp2p'
 export const p2p_applestore_url = 'https://apps.apple.com/us/app/deriv-dp2p/id1506901451'
 export const p2p_huawei_appgallery_url = 'https://appgallery.huawei.com/#/app/C103844755'
-export const pushwoosh_app_code = 'DD293-35A19'
 export const sample_rate = 25
 export const zoho_url = 'https://deriv.zohorecruit.eu'
 export const zoho_jobs_url = 'https://deriv.zohorecruit.eu/jobs/'
@@ -177,4 +177,8 @@ export const browsers_minimum_required_version = {
 export const bannerTypes = {
     cookieBanner: 'cookie-banner',
     outdatedBrowserBanner: 'outdated-browser-banner',
+}
+
+export const firebaseConfig = {
+    databaseURL: 'https://deriv-static-pricingfeed.firebaseio.com',
 }

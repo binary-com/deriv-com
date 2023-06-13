@@ -8,6 +8,7 @@ import AnswerCard from './_answer-card'
 import { Community, DidntFindYourAnswerBanner } from './_lazy-load'
 import Layout from 'components/layout/layout'
 import { Localize, localize } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
 import { StyledLink } from 'components/elements'
 import { Container, SEO } from 'components/containers'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
@@ -28,6 +29,7 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
     const untranslate_category = getUntranslatedCategory(category)
     const filtered_questions = useFilteredQuestions(questions)
     const { is_deriv_go } = usePlatformQueryParam()
+    const { is_eu } = useRegion()
 
     return (
         <Layout>
@@ -56,7 +58,7 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
                         <AnswerCard
                             key={label}
                             question={question}
-                            answer={answer}
+                            answer={typeof answer == 'function' ? answer({ is_eu }) : answer}
                             label={label}
                             renderProp={renderProp}
                         />

@@ -2,25 +2,27 @@ import React from 'react'
 import styled from 'styled-components'
 import LearnMore from './_learn-more'
 import MarketsCarousel from './_markets-carousel'
-import { SectionContainer, Flex, Container } from 'components/containers'
+import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
-type TRenderableData = {
+export type TRenderableData = {
     icon: string
     heading: string
-    paragraph: string
+    paragraph: TString
     link: string
 }
 type TProps = {
     renderableData: TRenderableData[]
-    mainHeading: string
+    mainHeading: TString
 }
 
 const StyledSection = styled(SectionContainer)`
     @media ${device.tablet} {
         padding-block-end: 4.5rem;
+        padding-block-start: 4rem;
     }
 `
 
@@ -69,7 +71,7 @@ const StyledHeading = styled(Header)`
 const Card = styled.article`
     position: relative;
     border-radius: 16px;
-    box-shadow: 0 4px 8px 0 rgba(14, 14, 14, 0.1);
+    box-shadow: 0px 12px 16px -4px rgba(14, 14, 14, 0.08), 0px 4px 6px -2px rgba(14, 14, 14, 0.03);
     background-color: var(--color-white);
     height: 100%;
     padding: 24px 24px 0;
@@ -114,38 +116,42 @@ const SmallContainer = styled(Container)`
     }
 `
 
-const GenericCarousel: React.FC<TProps> = ({ renderableData, mainHeading }) => {
+const GenericCarousel = ({ renderableData, mainHeading }: TProps) => {
     return (
-        <StyledSection background="white" position="relative">
-            <SmallContainer direction="column" ai="flex-start">
-                <StyledHeading as="h3" type="section-title" mb="2.4rem" align="center">
-                    {localize(`_t_${mainHeading}_t_`)}
-                </StyledHeading>
-            </SmallContainer>
-            <MarketsCarousel>
-                {renderableData.map((item, index) => (
-                    <MarketsCarousel.Item key={index + 1}>
-                        <MarketsItem>
-                            <Card>
-                                <MobileCardHeader>
-                                    <img src={item.icon} width="48" height="48" />
+        <>
+            <StyledSection background="white" position="relative">
+                <SmallContainer direction="column" ai="flex-start">
+                    <StyledHeading as="h3" type="section-title" mb="2.4rem" align="center">
+                        <Localize translate_text={mainHeading} />
+                    </StyledHeading>
+                </SmallContainer>
+                <MarketsCarousel>
+                    {renderableData.map((item, index) => (
+                        <MarketsCarousel.Item key={index + 1}>
+                            <MarketsItem>
+                                <Card>
+                                    <MobileCardHeader>
+                                        <img src={item.icon} width="48" height="48" />
 
-                                    <StyledText weight="bold">
-                                        {localize(`_t_${item.heading}_t_`)}
-                                    </StyledText>
-                                </MobileCardHeader>
-                                <StyledPara>{localize(`${item.paragraph}`)}</StyledPara>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to={item.link}
-                                    in_trading_platforms
-                                />
-                            </Card>
-                        </MarketsItem>
-                    </MarketsCarousel.Item>
-                ))}
-            </MarketsCarousel>
-        </StyledSection>
+                                        <StyledText weight="bold">
+                                            {localize(`_t_${item.heading}_t_`)}
+                                        </StyledText>
+                                    </MobileCardHeader>
+                                    <StyledPara>
+                                        <Localize translate_text={item.paragraph} />
+                                    </StyledPara>
+                                    <LearnMore
+                                        text={<Localize translate_text="_t_Learn more_t_" />}
+                                        to={item.link}
+                                        in_trading_platforms
+                                    />
+                                </Card>
+                            </MarketsItem>
+                        </MarketsCarousel.Item>
+                    ))}
+                </MarketsCarousel>
+            </StyledSection>
+        </>
     )
 }
 

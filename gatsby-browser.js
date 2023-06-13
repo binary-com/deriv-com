@@ -55,6 +55,12 @@ const sendTags = (api) => {
         })
 }
 
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js') // <- your service worker url
+    });
+}
+
 const pushwooshInit = (push_woosh) => {
     push_woosh.push([
         'init',
@@ -64,6 +70,7 @@ const pushwooshInit = (push_woosh) => {
             safariWebsitePushID: 'web.com.deriv',
             defaultNotificationTitle: 'Deriv.com',
             defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
+            serviceWorkerUrl: '/sw.js', // <- your service worker url
         },
     ])
 

@@ -15,7 +15,6 @@
 }
 .number_box {
   @include breakpoints(tablet) {
-    margin-inline: 120px;
     border-bottom: 1px solid $color-grey-1;
   }
 }
@@ -26,7 +25,12 @@
 }
 .what_have_text {
   @include breakpoints(tablet) {
-    max-inline-size: 58.8rem;
+    max-inline-size: 79.2rem;
+  }
+}
+.what_is_text {
+  @include breakpoints(tablet) {
+    block-size: 31.1rem;
   }
 }
 .styled_card {

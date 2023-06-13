@@ -13,10 +13,9 @@ const DerivEZHero = () => {
     return (
         <TradeHeroContainer
             container={'fixed'}
+            direction={'col-reverse'}
             justify={'center'}
             align={'center'}
-            direction={'col-reverse'}
-            mt={'20x'}
             md={{ direction: 'row' }}
         >
             <FlexBox.Box
@@ -27,12 +26,9 @@ const DerivEZHero = () => {
                 margin_block={'15x'}
                 md={{ ml: '0x' }}
             >
-                <FlexBox.Item
-                    className={hero_image}
-                    align_self={is_mobile_or_tablet ? 'start' : 'center'}
-                    md={{ align_self: 'start' }}
-                >
-                    {is_mobile ? hero_images['mobile_logo'] : hero_images['logo']}
+                <FlexBox.Item className={hero_image} align_self="start">
+                    <div className="visible-phone-and-tablet">{hero_images['mobile_logo']}</div>
+                    <div className="visible-larger-than-tablet">{hero_images['logo']}</div>
                 </FlexBox.Item>
                 <Typography.Heading
                     size={'xlarge'}
@@ -49,13 +45,9 @@ const DerivEZHero = () => {
                     <Localize translate_text="_t_CFDs trading platform_t_" />
                 </Typography.Heading>
             </FlexBox.Box>
-            <FlexBox.Item
-                align_self={'center'}
-                pt={'40x'}
-                md={{ pt: '0x', ml: '17x' }}
-                style={{ zIndex: '1' }}
-            >
-                {is_mobile_or_tablet ? hero_images['hero_mobile'] : hero_images['hero']}
+            <FlexBox.Item align_self={'center'} md={{ ml: '17x' }}>
+                <div className="visible-phone-and-tablet">{hero_images['hero_mobile']}</div>
+                <div className="visible-larger-than-tablet">{hero_images['hero']}</div>
             </FlexBox.Item>
         </TradeHeroContainer>
     )

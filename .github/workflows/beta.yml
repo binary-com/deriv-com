@@ -12,14 +12,14 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  GATSBY_CPU_COUNT: 2
+  GATSBY_CPU_COUNT: 16
   GATSBY_ENV: production
   NODE_OPTIONS: "--max_old_space_size=7168"
 
 jobs:
   lint:
     timeout-minutes: 10
-    runs-on: ubuntu-latest
+    runs-on: Runner_16cores
     environment: production
 
     steps:

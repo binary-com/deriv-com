@@ -35,7 +35,7 @@ const Numbers = () => {
                 margin_inline={'8x'}
                 md={{ margin_block: '40x' }}
             >
-                <FlexBox.Box className={style.what_have_text} direction={'col'}>
+                <FlexBox.Box direction={'col'} md={{ basis: '2-3' }} lg={{ padding_inline: '40x' }}>
                     <Typography.Heading align={'center'}>
                         <Localize translate_text={'_t_What is Deriv EZ_t_'} />
                     </Typography.Heading>

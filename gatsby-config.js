@@ -371,7 +371,9 @@ module.exports = {
         {
             resolve: `gatsby-plugin-offline`,
             options: {
-                appendScript: require.resolve(`/pushwoosh-service-worker.js`),
+                additionalWorkboxConfig: {
+                    importScripts: ['https://cdn.pushwoosh.com/webpush/v3/pushwoosh-service-worker.js'],
+                },
                 precachePages: [`/`],
                 workboxConfig: {
                     runtimeCaching: [

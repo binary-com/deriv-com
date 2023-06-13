@@ -15,7 +15,7 @@ import { SEO } from 'components/containers'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 const Markets = () => {
-    const hash = location?.hash.slice(1)
+    const hash = window?.location?.hash.slice(1)
     const { is_eu, is_row } = useRegion()
     const { is_deriv_go } = usePlatformQueryParam()
     const [trade, setTrade] = useState(hash || 'synthetic')

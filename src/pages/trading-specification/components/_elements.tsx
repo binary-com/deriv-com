@@ -239,6 +239,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
 
     useEffect(() => {
         document.body.style.overflow = show_popUp ? 'hidden' : 'scroll'
+        document.body.style.overflow = show_popUp ? 'fixed' : 'null'
     }, [show_popUp])
 
     const openPopup = (type: TPopupType) => {

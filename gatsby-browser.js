@@ -83,7 +83,18 @@ const pushwooshInit = (push_woosh) => {
             sendTags(api)
         },
     ])
-    push_woosh.disableServiceWorker()
+    
+    if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker
+                .getRegistrations()
+                .then(registrations => {
+                    registrations.forEach(registration => {
+                        registration.unregister();
+                    });
+                });
+        });
+    }
 }
 
 export const wrapRootElement = ({ element }) => {

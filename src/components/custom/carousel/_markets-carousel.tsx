@@ -76,11 +76,6 @@ const MarketsCarousel = ({ children }: MarketsCarouselProps) => {
             height: '10px',
             bottom_offset: '0',
         },
-        navigation_css: [
-            {
-                display: is_mobile_or_tablet ? 'flex' : 'none',
-            },
-        ],
     }
 
     return (

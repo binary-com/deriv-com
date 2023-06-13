@@ -11,7 +11,6 @@ type StyledButtonWrapperProps = {
 }
 
 type NavigationContainerType = {
-    navigation_css?: FlattenSimpleInterpolation
     bottom_offset?: string | number
     height?: string
 }
@@ -143,16 +142,16 @@ export const StyledChevron = styled(Chevron)<StyledChevronType>`
 `
 
 export const NavigationContainer = styled(Flex)<NavigationContainerType>`
-    ${({ navigation_css, bottom_offset, height }) => {
-        if (navigation_css) return navigation_css
-        else
-            return css`
-                position: relative;
-                width: 100%;
-                height: ${height ?? '8px'};
-                bottom: ${bottom_offset ?? '40px'};
-            `
-    }}
+    ${({ bottom_offset, height }) => css`
+        position: relative;
+        width: 100%;
+        height: ${height ?? '8px'};
+        bottom: ${bottom_offset ?? '40px'};
+        display: none;
+        @media ${device.tabletL} {
+            display: flex;
+        }
+    `}
 `
 
 export const StyledDot = styled.div`

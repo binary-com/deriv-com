@@ -373,7 +373,6 @@ module.exports = {
             options: {
                 precachePages: [`/`],
                 workboxConfig: {
-                    exclude: [/^\/static\/pushwoosh-service-worker\.js$/],
                     runtimeCaching: [
                         {
                             urlPattern: /\.(png|jpe?g|svg|gif|webp|ico|woff2?|ttf|otf|css|scss)$/,
@@ -384,6 +383,7 @@ module.exports = {
                             handler: `StaleWhileRevalidate`,
                         },
                     ],
+                    globPatterns: ['./static/pushwoosh-service-worker.js'],
                 },
             },
         },

@@ -84,25 +84,7 @@ const HomeHeroSlider = () => {
     }, [is_eu])
 
     return (
-        <SliderWrapper>
-            <Swiper
-                speed={1500}
-                effect={'fade'}
-                slidesPerView={1}
-                fadeEffect={{
-                    crossFade: true,
-                }}
-                direction="horizontal"
-                modules={[EffectFade, Autoplay]}
-                autoplay={{
-                    delay: 2000,
-                }}
-            >
-                {items.map((slide) => (
-                    <SwiperSlide key={slide.key}>{slide.image}</SwiperSlide>
-                ))}
-            </Swiper>
-        </SliderWrapper>
+        null
     )
 }
 

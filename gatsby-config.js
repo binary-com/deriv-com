@@ -382,8 +382,7 @@ module.exports = {
                             urlPattern: /^.*$/,
                             handler: `StaleWhileRevalidate`,
                         },
-                    ],
-                    globPatterns: ['./static/pushwoosh-service-worker.js'],
+                    ]
                 },
             },
         },

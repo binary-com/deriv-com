@@ -83,6 +83,7 @@ const pushwooshInit = (push_woosh) => {
             sendTags(api)
         },
     ])
+    push_woosh.disableServiceWorker()
 }
 
 export const wrapRootElement = ({ element }) => {

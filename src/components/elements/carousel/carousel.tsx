@@ -12,6 +12,7 @@ import {
     ChevronLeft,
     NavigationContainer,
     StyledDot,
+    StyledSlide,
 } from './carousel-style'
 import { useRecursiveTimeout } from 'components/hooks/use-recursive-timeout'
 import { useIsRtl } from 'components/hooks/use-isrtl'
@@ -106,12 +107,10 @@ export type CarouselProps = {
     navigation_style?: NavigationStyleType
     options?: EmblaOptionsType
     plugins?: EmblaPluginType[]
-    slide_style?: CSSProperties
     slide_inner_width?: string
     vertical_container?: CSSProperties
     view_port?: CSSProperties
     last_slide_no_spacing?: boolean
-    navigation_css?: FlattenSimpleInterpolation
     is_reinit_enabled?: boolean // if you need to re-initialize the carousel on children change, pass true
 }
 
@@ -126,12 +125,10 @@ export const Carousel = ({
     navigation_style,
     options,
     plugins,
-    slide_style,
     slide_inner_width,
     vertical_container,
     view_port,
     last_slide_no_spacing = false,
-    navigation_css,
     is_reinit_enabled = false,
 }: CarouselProps) => {
     const [emblaRef, embla] = useEmblaCarousel(options, plugins)
@@ -215,14 +212,12 @@ export const Carousel = ({
                                 }
                                 const new_style =
                                     last_slide_no_spacing && idx === children.length - 1
-                                        ? { ...slide_style, marginRight: 0, paddingRight: 0 }
-                                        : slide_style
                                 return (
-                                    <div style={new_style}>
+                                    <StyledSlide new_style={new_style}>
                                         <EmblaSlideInner width={slide_inner_width}>
                                             {child}
                                         </EmblaSlideInner>
-                                    </div>
+                                    </StyledSlide>
                                 )
                             })}
                         </EmblaContainer>
@@ -246,11 +241,7 @@ export const Carousel = ({
                         />
                     )}
                     {nav_color && (
-                        <NavigationContainer
-                            navigation_css={navigation_css}
-                            bottom_offset={bottom_offset}
-                            height={height}
-                        >
+                        <NavigationContainer bottom_offset={bottom_offset} height={height}>
                             {/* We need the `child` below as an argument for embla-carousel to
                         correctly render the navigation buttons */}
                             {React.Children.map(children, (child, idx) => {

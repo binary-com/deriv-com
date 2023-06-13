@@ -176,7 +176,20 @@ export const onClientEntry = () => {
     updateURLAsPerUserLanguage()
 }
 
-export const onRouteUpdate = () => {
+const scrollToAnchor = (location) => {
+    // Check for location so build does not fail
+    if (location && location.hash) {
+        window.scrollTo({
+            top: window.innerHeight,
+            behavior: 'smooth',
+        })
+    }
+
+    return true
+}
+
+export const onRouteUpdate = ({ location }) => {
+    scrollToAnchor(location)
     checkDomain()
 
     const dataLayer = window.dataLayer

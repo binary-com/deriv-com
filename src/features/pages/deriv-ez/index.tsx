@@ -11,11 +11,8 @@ import Footer from 'features/components/templates/footer/'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 
 const DerivEZ = () => {
-    const { is_row } = useRegion()
-
     return (
         <Layout>
             <MainNav />
@@ -32,7 +29,7 @@ const DerivEZ = () => {
             <StartDerivEZ />
             <DerivEZAppBanner />
             {/*refactor this component below with atomic design*/}
-            {is_row && <OurPlatforms />}
+            <OurPlatforms />
             <Footer />
         </Layout>
     )

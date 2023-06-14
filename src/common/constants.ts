@@ -122,7 +122,7 @@ export const dp2p_google_play_url =
 export const gtm_test_domain = 'deriv-com.binary.sx'
 export const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
 export const livechat_license_id = 12049137
-export const map_api_key = 'AIzaSyAEha6-HeZuI95L9JWmX3m6o-AxQr_oFqU'
+export const map_api_key = 'AIzaSyBlyyUrQz3lpzIdy_ZugPQIQSE_v_6AaiM'
 export const mga_link_url =
     'https://authorisation.mga.org.mt/verification.aspx?lang=EN&company=a5fd1edc-d072-4c26-b0cd-ab3fa0f0cc40&details=1'
 export const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.dp2p'
@@ -177,4 +177,8 @@ export const browsers_minimum_required_version = {
 export const bannerTypes = {
     cookieBanner: 'cookie-banner',
     outdatedBrowserBanner: 'outdated-browser-banner',
+}
+
+export const firebaseConfig = {
+    databaseURL: 'https://deriv-static-pricingfeed.firebaseio.com',
 }

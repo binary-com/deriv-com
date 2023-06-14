@@ -162,7 +162,7 @@ const InterestFreeTrading = () => {
                     <ImageTag src={ZeroPercent} alt="_t_Zero percent interest_t_" />
                 </ImageWrapper>
                 <InterestText size="32px">
-                    <Localize translate_text="_t_interest_t_" />
+                    <Localize translate_text="_t_Commission_t_" />
                 </InterestText>
                 <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
                     <CheckedText>Forex</CheckedText>

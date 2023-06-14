@@ -2,7 +2,7 @@ import React from 'react'
 import OtherPlatforms from './other-platforms'
 import Hero from './hero'
 import Numbers from './numbers'
-//import WhatIsDerivEZ from './what-have'
+import WhatWeHave from './what-we-have'
 //import DerivEZAppBanner from './app-banner'
 import WhyTradeCTrader from './why-trade'
 import StartDerivEZ from 'features/pages/deriv-ez/how-to-start'
@@ -25,10 +25,11 @@ const DerivCTraderPage = () => {
             <Hero />
             <Numbers />
             <WhyTradeCTrader />
+            <WhatWeHave />
             <OtherPlatforms />
             {/*
             
-            <WhatIsDerivEZ />
+            <WhatWeHave />
             <StartDerivEZ />
             <DerivEZAppBanner />
            

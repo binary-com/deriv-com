@@ -54,10 +54,31 @@ const DP2Platform = ({ item }: { item: PlatformType }) => {
                         className={dclsx('text-xlarge')}
                         key={list_item.text}
                     >
-                        <Localize
-                            translate_text={list_item.text}
-                            components={list_item.components}
-                        />
+                        {list_item?.link_in_mobile ? (
+                            <>
+                                <Typography.Base as="span" className="visible-larger-than-phone">
+                                    <Localize
+                                        translate_text={list_item.text}
+                                        components={list_item.components}
+                                    />
+                                </Typography.Base>
+                                <Typography.Base
+                                    as="span"
+                                    onClick={handleExternalLink}
+                                    textcolor="brand"
+                                    className="visible-phone-only"
+                                >
+                                    <Localize translate_text={list_item.text} />
+                                </Typography.Base>
+                            </>
+                        ) : (
+                            <Typography.Base as="span">
+                                <Localize
+                                    translate_text={list_item.text}
+                                    components={list_item.components}
+                                />
+                            </Typography.Base>
+                        )}
                     </Typography.Base>
                 ))}
             </Box>

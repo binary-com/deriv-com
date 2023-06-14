@@ -53,9 +53,7 @@ const OurPlatforms = () => {
                     renderableData={carouselData}
                     mainHeading="_t_Check out our other platforms_t_"
                 />
-            ) : (
-                <></>
-            )}
+            ) : null}
         </>
     )
 }

@@ -30,7 +30,7 @@ export const apps_data: BannerType = {
             id: 0,
             data: {
                 icon: AndroidIcon,
-                text: '_t_Google Play_t_',
+                text: 'Google Play',
                 url: {
                     type: 'non-company',
                     href: deriv_go_playstore_url,
@@ -42,7 +42,7 @@ export const apps_data: BannerType = {
             id: 1,
             data: {
                 icon: AppleIcon,
-                text: '_t_App Store_t_',
+                text: 'App Store',
                 url: {
                     type: 'non-company',
                     href: deriv_go_ios_url,
@@ -54,7 +54,7 @@ export const apps_data: BannerType = {
             id: 2,
             data: {
                 icon: AppGalleryIcon,
-                text: '_t_AppGallery_t_',
+                text: 'AppGallery',
                 url: {
                     type: 'non-company',
                     href: deriv_go_huaweiappgallery_url,

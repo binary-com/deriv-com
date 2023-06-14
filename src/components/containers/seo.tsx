@@ -67,7 +67,11 @@ const SEO = ({
     const no_index_staging = process.env.GATSBY_ENV === 'staging'
     const metaDescription = description || queries.site.siteMetadata.description
     const site_url = queries.site.siteMetadata.siteUrl
-    const { locale: lang, pathname } = React.useContext(LocaleContext)
+
+    const { locale, pathname: myPath } = React.useContext(LocaleContext) || {}
+    const lang = locale || 'en'
+    const pathname = myPath || ''
+
     const formatted_lang = lang.replace('_', '-')
     const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`
     const default_og_title = localize(

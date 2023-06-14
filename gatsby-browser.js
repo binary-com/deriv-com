@@ -1,12 +1,14 @@
 import React from 'react'
 import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
-import { isLive, isProduction } from './src/common/websocket/config'
+import { isLive, isProduction} from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
 import {
     addScript,
+    formatDate,
+    formatTime,
     getClientInformation,
     getDomain,
     getLanguage,
@@ -131,15 +133,30 @@ export const onInitialClientRender = () => {
     }
 }
 
+const isStaging = process.env.GATSBY_ENV === 'staging';
+let dataDogVersion = '';
+let dataDogEnv = '';
+let serviceName = '';
+
+if (isProduction) {
+    serviceName = 'deriv.com';
+    dataDogVersion = `deriv-app-${process.env.GIT_TAG_NAME}`;
+    dataDogEnv = 'production';
+} else if ( isStaging ) {
+    serviceName = 'staging.deriv.com';
+    dataDogVersion = `deriv-app-staging-v${formatDate(new Date(), 'YYYYMMDD')}-${formatTime(Date.now(), 'HH:mm')}`;
+    dataDogEnv = 'staging';
+}
+
 export const onClientEntry = () => {
     //datadog
     const dd_options = {
         clientToken: 'pub08554ab30284600af157441bfb0fa923',
         applicationId: '5c8975a3-ec86-4a64-8a3a-e6888fdde082',
         site: 'datadoghq.com',
-        service: 'deriv.com',
-        env: 'production',
-        version: '1.0.6',
+        service: serviceName,
+        env: dataDogEnv,
+        version: dataDogVersion,
         sessionSampleRate: 10,
         sessionReplaySampleRate: 10,
         trackResources: true,

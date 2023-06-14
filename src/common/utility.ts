@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { navigate } from 'gatsby'
 import Cookies from 'js-cookie'
 import extend from 'extend'
+import moment from 'moment'
 import language_config from '../../i18n-config'
 import {
     deriv_cookie_domain,
@@ -13,6 +14,33 @@ import {
     eu_domains,
 } from './constants'
 import { localize } from 'components/localization'
+
+export const epochToMoment = (epoch: number) => moment.unix(epoch).utc()
+export const toMoment = (value?: moment.MomentInput): moment.Moment => {
+    if (!value) return moment().utc() // returns 'now' moment object
+    if (
+        value instanceof moment &&
+        (value as moment.Moment).isValid() &&
+        (value as moment.Moment).isUTC()
+    )
+        return value as moment.Moment // returns if already a moment object
+    if (typeof value === 'number') return epochToMoment(value) // returns epochToMoment() if not a date
+
+    if (/invalid/i.test(moment(value).toString())) {
+        const today_moment = moment()
+        const days_in_month = today_moment.utc().daysInMonth()
+        const value_as_number = moment.utc(value, 'DD MMM YYYY').valueOf() / (1000 * 60 * 60 * 24)
+        return value_as_number > days_in_month
+            ? moment.utc(today_moment.add(value as string | number, 'd'), 'DD MMM YYYY')
+            : moment.utc(value, 'DD MMM YYYY') // returns target date
+    }
+    return moment.utc(value)
+}
+export const formatDate = (date?: moment.MomentInput, date_format = 'YYYY-MM-DD') =>
+    toMoment(date).format(date_format)
+
+export const formatTime = (epoch: number | string, time_format = 'HH:mm:ss [GMT]') =>
+    toMoment(epoch).format(time_format)
 
 export const trimSpaces = (value: string): string => value?.trim()
 

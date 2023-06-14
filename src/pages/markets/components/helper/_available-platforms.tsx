@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { smarttrader_url } from 'common/constants'
 import { Flex } from 'components/containers'
 import { TString } from 'types/generics'
-import { Text, Header } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import SmartTrader from 'images/svg/custom/rebranding/smarttrader-icon.svg'
@@ -169,7 +169,7 @@ const AvailablePlatforms = ({
                     </LocalizedLink>
                 )}
                 {derivez && !is_eu && (
-                    <LocalizedLink to="/derivez/">
+                    <LocalizedLink to="/deriv-ez/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DerivEZ} alt="Deriv ez" width="32" height="32" />
                             <Text ml="0.4rem">{localize('Deriv EZ')}</Text>
@@ -185,7 +185,7 @@ const AvailablePlatforms = ({
                     </LocalizedLink>
                 )}
                 {deriv_ez && (
-                    <LocalizedLink to="/derivez/">
+                    <LocalizedLink to="/deriv-ez/">
                         <StyledFlex direction="row" ai="center">
                             <embed src={DerivEZ} width="24" height="24" />
                             <Text ml="0.4rem">{localize('Deriv EZ')}</Text>

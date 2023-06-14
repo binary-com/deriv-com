@@ -41,13 +41,7 @@ const submit_schema = yup.object({
         .string()
         .required('_t_Password is requried_t_')
         .matches(validation_regex.password, { message: '_t_Password is not valid_t_' }),
-    residence: yup
-        .object({
-            name: yup.string(),
-            display_name: yup.string(),
-            symbol: yup.string(),
-        })
-        .required('_t_Residence is requried_t_'),
+    residence: yup.string().required('_t_Residence is requried_t_'),
     verification_code: yup.string().required('_t_Verification code is requried_t_'),
 })
 

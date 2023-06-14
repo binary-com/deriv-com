@@ -74,12 +74,18 @@ const CtraderSignupSuccess = () => {
         handleSubmit,
         clearErrors,
         setValue,
+        control,
     } = submitForm
     const values = watch()
     console.log(values)
     console.log(submitForm)
+    console.log(isValid)
 
-    const isButtonDisabled = values.verification_code === '' || values.password === '' || !isValid
+    const isButtonDisabled =
+        values.verification_code === '' ||
+        values.password === '' ||
+        values.residence === '' ||
+        !isValid
 
     const clearCode = () => {
         setVerificationCode('')
@@ -208,9 +214,9 @@ const CtraderSignupSuccess = () => {
                     {residence_list.length > 0 && (
                         <Controller
                             name="residence"
-                            render={({ field }) => (
+                            control={control}
+                            render={({ field: { onChange, value } }) => (
                                 <DropdownSearch
-                                    {...field}
                                     id="residence"
                                     key="residence"
                                     label={localize('_t_Residence_t_')}
@@ -222,9 +228,9 @@ const CtraderSignupSuccess = () => {
                                         market: '',
                                     }}
                                     items={residence_list}
-                                    // onChange={handleResidenceChange}
+                                    onChange={(e) => onChange(e.symbol)}
                                     error={residence_error_message}
-                                    selected_item={residence}
+                                    selected_item={value}
                                     disabled={residence_list.length < 1}
                                 />
                             )}

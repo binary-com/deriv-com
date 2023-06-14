@@ -99,7 +99,7 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
                                 <Localize translate_text={data.scan_box.heading_one} />
                             </Typography.Paragraph>
                             <Typography.Heading size={'xxs'} textcolor={'white'}>
-                                <Localize translate_text={data.scan_box.heading_two} />
+                                {data.scan_box.heading_two}
                             </Typography.Heading>
                         </FlexBox.Box>
                     </FlexBox.Box>

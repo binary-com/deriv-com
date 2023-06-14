@@ -28,12 +28,11 @@ const DP2PPage = () => {
                 <Layout>
                     <SEO
                         title={localize(
-                            '_t_Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv_t_',
+                            '_t_Deriv P2P – peer-to-peer deposit and withdrawal service_t_',
                         )}
                         description={localize(
-                            '_t_Deriv: an online trading platform available 24/7 with a wide selection of derivatives._t_',
+                            '_t_With Deriv P2P your deposits and withdrawals are easy, fast, and efficient. Access now via the desktop or mobile app._t_',
                         )}
-                        has_organization_schema
                     />
                     <MainNav />
                     <DP2Hero />

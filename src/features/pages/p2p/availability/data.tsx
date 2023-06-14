@@ -73,6 +73,7 @@ export const platforms: SmartPlatform[] = [
             list: [
                 {
                     text: '_t_Download Deriv P2P._t_',
+                    link_in_mobile: true,
                 },
                 {
                     text: '_t_Register for Deriv P2P by logging into your Deriv account in the app._t_',

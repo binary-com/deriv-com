@@ -5,6 +5,7 @@ import { TSmartContent, TString } from 'types/generics'
 type Paragraph = {
     text: TString
     components?: ReactElement[]
+    link_in_mobile?: true
 }
 
 export type PlatformType = {

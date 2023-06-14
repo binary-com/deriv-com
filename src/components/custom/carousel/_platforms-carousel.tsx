@@ -22,6 +22,7 @@ type TProps = {
 const StyledSection = styled(SectionContainer)`
     @media ${device.tablet} {
         padding-block-end: 4.5rem;
+        padding-block-start: 4rem;
     }
 `
 

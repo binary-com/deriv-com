@@ -1,6 +1,6 @@
 import React from 'react'
 import * as styles from './nav-card.module.scss'
-import { Localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import { TString } from 'types/generics'
 import useBreakpoints from 'components/hooks/use-breakpoints'
@@ -15,17 +15,9 @@ interface INavigationCardProps {
     onClick?: () => void
     url: LinkUrlType
     icon_src?: string
-    icon_alt?: string
 }
 
-const NavigationCard = ({
-    onClick,
-    url,
-    title,
-    content,
-    icon_src,
-    icon_alt,
-}: INavigationCardProps) => {
+const NavigationCard = ({ onClick, url, title, content, icon_src }: INavigationCardProps) => {
     const { is_mobile_or_tablet } = useBreakpoints()
 
     return (
@@ -35,7 +27,7 @@ const NavigationCard = ({
                     [styles.nav_card_no_icon]: !icon_src,
                 })}
             >
-                {icon_src && <Icon size="large" src={icon_src} alt={icon_alt} />}
+                {icon_src && <Icon size="large" src={icon_src} alt={localize(title)} />}
                 <Typography.Heading
                     size={'xxs'}
                     as="h2"

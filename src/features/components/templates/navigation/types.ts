@@ -17,7 +17,6 @@ export type NavConfig = {
 export type NavColumn = {
     icon?: {
         src: string
-        alt: string
     }
     content?: TString | ((config: Partial<NavConfig>) => TString)
     title: TString

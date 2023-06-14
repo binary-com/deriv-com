@@ -16,7 +16,6 @@ export const marketSectionContent: SmartNavSectionColumns[] = [
                         aria_label: 'Forex',
                         icon: {
                             src: Forex,
-                            alt: 'Forex',
                         },
                         content:
                             '_t_Trade the world’s largest financial market with popular forex pairs._t_',
@@ -30,7 +29,6 @@ export const marketSectionContent: SmartNavSectionColumns[] = [
                         aria_label: 'Derived',
                         icon: {
                             src: DerivedFX,
-                            alt: 'Synthetic indices',
                         },
                         content: ({ is_eu }) => {
                             return is_eu
@@ -47,7 +45,6 @@ export const marketSectionContent: SmartNavSectionColumns[] = [
                         aria_label: 'Stocks & indices',
                         icon: {
                             src: StockIndices,
-                            alt: 'Stocks & indices',
                         },
                         content:
                             '_t_Predict broader market trends and diversify your risk with stocks & indices._t_',
@@ -70,7 +67,6 @@ export const marketSectionContent: SmartNavSectionColumns[] = [
                         aria_label: 'Cryptocurrencies',
                         icon: {
                             src: Cryptocurrencies,
-                            alt: 'Cryptocurrencies',
                         },
                         content:
                             '_t_Trade with leverage on the price movement of popular crypto-fiat pairs._t_',
@@ -84,7 +80,6 @@ export const marketSectionContent: SmartNavSectionColumns[] = [
                         aria_label: 'Commodities',
                         icon: {
                             src: Commodities,
-                            alt: 'Commodities',
                         },
                         content:
                             "_t_Trade natural resources that are central to the world's economy._t_",

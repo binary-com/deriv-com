@@ -10,6 +10,7 @@ const OurPlatforms = () => {
     const [is_loaded, setLoaded] = useState(false)
 
     useEffect(() => {
+        // added force rerendering because whole page is on new approach and only this component is on old approach. Need to refactor
         setLoaded(true)
     }, [])
 

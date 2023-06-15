@@ -410,8 +410,13 @@ export const updateURLAsPerUserLanguage = () => {
     const has_language_in_url = first_path in language_config
     const is_careers = paths.includes('careers')
 
-    if (has_language_in_url) {
-        setCookiesWithDomain('user_language', first_path)
+    // Start -  temporary fix of PT redirection
+    if (Cookies.get('user_language') === 'pt') {
+        setCookiesWithDomain('user_language', 'en')
+    }
+
+    if (window.location.href.indexOf('/pt/') > -1) {
+        window.location.href = window.location.href.replace('/pt/', '/')
     }
     const user_language = Cookies.get('user_language') || 'en'
 

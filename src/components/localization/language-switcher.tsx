@@ -16,7 +16,7 @@ type LanguageSwitchProps = {
 
 const languages = Object.keys(language_config)
 
-const disabled_lang = ['ach', 'pt']
+const disabled_lang = ['ach']
 
 const LanguageSwitch = ({ i18n, is_high_nav, is_security }: LanguageSwitchProps) => {
     const [language, setLanguage] = React.useState(i18n.language)

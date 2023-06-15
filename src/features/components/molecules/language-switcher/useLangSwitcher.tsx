@@ -25,7 +25,7 @@ const supported_languages = Object.keys(language_config)
 const disabled_lang = ['ach']
 
 const languages: TLanguageObject[] = supported_languages.map((langItem) => {
-    if (disabled_lang.includes(langItem) && isProduction()) return
+    if (disabled_lang.includes(langItem) && isProduction()) return undefined
 
     const { display_name, path } = language_config[langItem]
     const to = `/${path}/`

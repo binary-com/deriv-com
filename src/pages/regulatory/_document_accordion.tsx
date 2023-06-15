@@ -113,7 +113,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
     }
 
     const selected_language = locale.locale.language || 'en'
-    const supported_languages = ['es', 'it', 'pl', 'pt']
+    const supported_languages = ['es', 'it', 'pl']
 
     const is_supported_language = (language: string) => supported_languages.includes(language)
 

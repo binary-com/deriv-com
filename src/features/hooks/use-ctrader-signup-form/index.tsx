@@ -9,6 +9,7 @@ import { validation_regex } from 'common/validation'
 import apiManager from 'common/websocket'
 import { useCheckExistingAccount } from 'components/hooks/use-check-existing-account'
 import { isBrowser } from 'common/utility'
+import { eu_countries } from 'common/country-base'
 
 const getVerifyEmailRequest = (formatted_email: string) => {
     // TODO: this getJSON seems incorrect, we have to check it out, I don't know how this cookie is being populated
@@ -40,9 +41,19 @@ const submit_schema = yup.object({
     password: yup
         .string()
         .required('_t_Password is requried_t_')
-        .matches(validation_regex.password, { message: '_t_Password is not valid_t_' }),
-    residence: yup.string().required('_t_Residence is requried_t_'),
-    verification_code: yup.string().required('_t_Verification code is requried_t_'),
+        .matches(validation_regex.password, {
+            message:
+                '_t_Password should be more than 8 characters including 1 uppercase and 1 number_t_',
+        }),
+    residence: yup
+        .string()
+        .notOneOf(eu_countries, '_t_Ctrader is not available in Europe_t_')
+        .required('_t_Residence is requried_t_'),
+    verification_code: yup
+        .string()
+        .required('_t_Verification code is requried_t_')
+        .min(8, '_t_Must be exactly 8 digits_t_')
+        .max(8, '_t_Must be exactly 8 digits_t_'),
 })
 
 type EmailFormData = yup.InferType<typeof email_schema>

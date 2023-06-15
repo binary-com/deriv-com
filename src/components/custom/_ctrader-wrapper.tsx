@@ -14,11 +14,7 @@ const Nav = styled.div`
 `
 
 const Content = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: auto;
-    height: 70vh;
     max-width: 600px;
 
     @media ${device.tabletS} {

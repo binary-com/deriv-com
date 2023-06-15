@@ -3,12 +3,12 @@
 .text_input {
     &_container {
         position: relative;
-        &.error{
-            & > input{
+        &.error {
+            & > input {
                 border: 1px solid $color-brand;
             }
             label {
-                color:$color-brand;
+                color: $color-brand;
             }
         }
         & > input {
@@ -37,7 +37,7 @@
                 inset-block-start: -12px;
             }
         }
-        .cross_icon{
+        .cross_icon {
             position: absolute;
             inset-inline-end: 0.8rem;
             inset-block-start: 1.2rem;
@@ -60,7 +60,7 @@
 
     &_error {
         position: absolute;
-        inset-block-end: -2.1rem;
         inset-inline-start: 15px;
+        display: inline-block;
     }
 }

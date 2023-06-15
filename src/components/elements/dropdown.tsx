@@ -374,6 +374,7 @@ export type DropdownProps = {
     option_list?: ItemsType[]
     selected_option?: OptionOrSelectedType
     selected_item?: SelectedType
+    value?: string
     disabled?: boolean
     autocomplete?: string
     mb?: string

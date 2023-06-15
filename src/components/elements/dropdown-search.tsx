@@ -50,13 +50,13 @@ const DropdownInput = styled.input<DropdownInputProps>`
         outline: none;
     }
 
-    @media ${device.tabletL} {
+    /* @media ${device.tabletL} {
         font-size: 1.75rem;
     }
 
     @media ${device.mobileL} {
         font-size: 1.5rem;
-    }
+    } */
 `
 
 const DropdownSearch = ({
@@ -67,6 +67,7 @@ const DropdownSearch = ({
     label,
     onChange,
     selected_item,
+    value,
     ...props
 }: DropdownProps) => {
     const [input_value, setInputValue] = useState('')
@@ -118,7 +119,11 @@ const DropdownSearch = ({
                 {...props}
             >
                 <Flex ai="center">
-                    <StyledLabel active={is_open || (!is_open && selected_item)}>
+                    <StyledLabel
+                        active={
+                            is_open || (!is_open && selected_item) || (!is_open && value !== '')
+                        }
+                    >
                         {label}
                     </StyledLabel>
                     <DropdownInput

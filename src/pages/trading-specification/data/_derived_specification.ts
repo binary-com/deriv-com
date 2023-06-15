@@ -641,15 +641,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Boom 300 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
-            minimum_size: 0.1,
-            minimum_spread: 0.022,
-            target_spread: 0.024,
+            base_currency: "USD",
+            minimum_size: 1,
+            minimum_spread: 0.121,
+            target_spread: 0.123,
             max_effective_leverage: 5,
-            margin_requirement: 20.0,
+            margin_requirement: 20.00,
             swap_long: -0.08,
             swap_short: -0.08,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -657,15 +657,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Crash 300 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
-            minimum_size: 0.1,
-            minimum_spread: 0.221,
-            target_spread: 0.243,
+            base_currency: "USD",
+            minimum_size: 0.5,
+            minimum_spread: 0.151,
+            target_spread: 0.159,
             max_effective_leverage: 5,
-            margin_requirement: 20.0,
+            margin_requirement: 20.00,
             swap_long: -0.08,
             swap_short: -0.08,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -673,15 +673,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 150 (1s) Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.001,
             minimum_spread: 44.83,
             target_spread: 44.83,
             max_effective_leverage: 5,
-            margin_requirement: 20.0,
+            margin_requirement: 20.00,
             swap_long: -0.0416,
             swap_short: -0.0416,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -689,16 +689,16 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 250 (1s) Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.001,
             minimum_spread: 61.15,
             target_spread: 61.15,
             max_effective_leverage: 5,
-            margin_requirement: 20.0,
+            margin_requirement: 20.00,
             swap_long: -0.0694,
             swap_short: -0.0694,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
-        },
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
+        }
     ],
 }
 export default derived_specification

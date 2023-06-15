@@ -13,7 +13,6 @@ import { SimpleStepContentElement } from '../../static/content/_simple_step_cont
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'
-import Button from 'components/custom/_button'
 import useRegion from 'components/hooks/use-region'
 import { Localize, localize } from 'components/localization'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'

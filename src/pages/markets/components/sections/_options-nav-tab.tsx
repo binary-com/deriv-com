@@ -120,7 +120,6 @@ const tab_list_options: TabList[] = [
 
 const OptionsNavTab = ({ route_from }: OptionsNavTabProps) => {
     const ref = useRef(null)
-    const [active_tab, SetActiveTab] = useState('Options')
 
     return (
         <TabsContainer>

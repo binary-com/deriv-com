@@ -17,9 +17,6 @@ env:
   NODE_OPTIONS: "--max_old_space_size=7168"
   DATADOG_APPLICATION_ID: ${{ secrets.DATADOG_APPLICATION_ID }}
   DATADOG_CLIENT_TOKEN: ${{ secrets.DATADOG_CLIENT_TOKEN }}
-  STRAPI_BUILD: false
-  STRAPI_PREVIEW: false
-  STRAPI_TOKEN: ${{ secrets.STRAPI_TOKEN }}
 
 jobs:
   release-staging:

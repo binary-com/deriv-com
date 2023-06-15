@@ -82,7 +82,7 @@ module.exports = {
                     // Configure cache options here
                     cacheFolder: '.cache/caches/gatsby-plugin-sharp',
                     maxMemory: 500000000,
-                  },
+                },
             },
         },
         `gatsby-plugin-image`,
@@ -121,6 +121,8 @@ module.exports = {
                     '/**/endpoint',
                     '/signup-success',
                     '/**/signup-success',
+                    '/ctrader-signup',
+                    '/ctrader-manage/**',
                 ],
                 query: `
                 {

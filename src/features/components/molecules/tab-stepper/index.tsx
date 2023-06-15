@@ -6,7 +6,7 @@ const TabStepper = ({ items, onTabClick, tab }: StepperTabTypes) => {
     return (
         <>
             <Tab.Switcher tab={tab} onTabClick={onTabClick} />
-            <Tab.Content items={items} tab={tab} onTabClick={onTabClick} />
+            <Tab.Content items={items} onTabClick={onTabClick} />
         </>
     )
 }

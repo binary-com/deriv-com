@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react'
 import React, { ReactElement } from 'react'
 import styled from 'styled-components'
-import DerivEZIcon from 'images/svg/deriv-ez/deriv-ez-logo-red.svg'
+import DerivEZIcon from 'images/svg/trading-platforms/deriv-ez/deriv-ez-logo-red.svg'
 import {
     binary_bot_url,
     deriv_api_url,

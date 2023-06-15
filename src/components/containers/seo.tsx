@@ -1,12 +1,13 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
 import { isBrowser } from 'common/utility'
 import { eu_urls } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.png'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
+import { TString } from 'types/generics'
 
 const non_localized_links = ['/blog', '/bug-bounty', '/careers']
 
@@ -27,13 +28,13 @@ type MetaAttributesType = {
     og_img_height?: string
 }
 
-type SeoProps = {
-    description?: string
+export type SeoProps = {
+    title?: string | TString
+    description?: string | TString
     has_organization_schema?: boolean
     meta?: { name: string; content: string | keyof MetaAttributesType }
     meta_attributes?: MetaAttributesType
     no_index?: boolean
-    title?: string
 }
 type QueriesType = {
     site?: SiteMetadataType

@@ -1,0 +1,12 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.what_have_wrapper {
+  @include breakpoints(tablet) {
+    block-size: 31.1rem;
+  }
+}
+.what_have_text {
+  @include breakpoints(tablet) {
+    max-inline-size: 79.2rem;
+  }
+}

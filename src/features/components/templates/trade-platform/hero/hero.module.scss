@@ -1,0 +1,14 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.hero_wrapper {
+  max-inline-size: 38.1rem;
+  @include breakpoints(tablet) {
+    max-inline-size: 63.2rem;
+  }
+}
+.hero_image {
+  max-block-size: 31rem;
+  @include breakpoints(tablet) {
+    max-block-size: 64.1rem;
+  }
+}

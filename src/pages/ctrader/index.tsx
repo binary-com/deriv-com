@@ -1,14 +1,14 @@
 import React from 'react'
 import PageNotFound from '../404'
-import DerivEZ from 'features/pages/deriv-ez'
+import CTrader from 'features/pages/ctrader'
 import useRegion from 'components/hooks/use-region'
 
-const DerivEZPage = () => {
+const CTraderPage = () => {
     const { is_row } = useRegion()
     if (is_row) {
-        return <DerivEZ />
+        return <CTrader />
     }
     return <PageNotFound />
 }
 
-export default DerivEZPage
+export default CTraderPage

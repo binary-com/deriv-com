@@ -75,19 +75,8 @@ export const besquare_signup_url =
 export const binary_url = 'https://binary.com'
 export const brand_name = 'Deriv'
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
-export const deriv_app_languages = ['id', 'pt', 'es', 'ru', 'fr']
-export const smart_trader_languages = [
-    'es',
-    'fr',
-    'id',
-    'it',
-    'pl',
-    'pt',
-    'ru',
-    'vi',
-    'zh_cn',
-    'zh_tw',
-]
+export const deriv_app_languages = ['id', 'es', 'ru', 'fr']
+export const smart_trader_languages = ['es', 'fr', 'id', 'it', 'pl', 'ru', 'vi', 'zh_cn', 'zh_tw']
 export const deriv_status_page_url = 'https://deriv.statuspage.io'
 export const derivx_ios_url = 'https://apps.apple.com/us/app/deriv-x/id1563337503'
 export const derivx_android_url = 'https://play.google.com/store/apps/details?id=com.deriv.dx'

@@ -2,8 +2,12 @@ import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import Image from 'features/components/atoms/image'
 import DerivCTraderLogo from 'images/svg/deriv-ctrader/deriv-ctrader-logo.svg'
+import { DerivCfdContentType } from 'features/components/molecules/deriv-cfd-hero/types'
 
-export const hero_images = {
+export const hero_content_data: DerivCfdContentType = {
+    main_title: '_t_A feature-rich_t_',
+    secondary_title: '_t_CFD trading_t_',
+    sub_title: '_t_platform_t_',
     hero: (
         <StaticImage
             src="../../../../images/common/deriv-ctrader/hero-desktop.png"

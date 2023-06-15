@@ -1,9 +1,10 @@
 import React from 'react'
+import Hero from '../../components/molecules/deriv-cfd-hero'
 import OurPlatforms from './deprecated-other-platforms'
-import Hero from './hero'
 import Numbers from './numbers'
 import WhatIsDerivEZ from './what-have'
 import DerivEZAppBanner from './app-banner'
+import { hero_content_data } from './hero/data'
 import WhyTradeEZ from 'features/pages/deriv-ez/why-trade'
 import StartDerivEZ from 'features/pages/deriv-ez/how-to-start'
 import MainNav from 'features/components/templates/navigation/main-nav'
@@ -22,7 +23,7 @@ const DerivEZ = () => {
                 )}
                 description={localize('_t_Deriv EZ – a CFD trading platform | Deriv_t_')}
             />
-            <Hero />
+            <Hero contentData={hero_content_data} />
             <Numbers />
             <WhyTradeEZ />
             <WhatIsDerivEZ />

@@ -22,24 +22,22 @@ type i18nLangConfigObject = {
 }
 
 const supported_languages = Object.keys(language_config)
-const disabled_lang = ['ach']
+const disabled_lang = ['ach', 'pt']
 
-const languages: TLanguageObject[] = supported_languages
-    .filter((lang) => ['pt'].includes(lang))
-    .map((langItem) => {
-        if (disabled_lang.includes(langItem) && isProduction()) return
+const languages: TLanguageObject[] = supported_languages.map((langItem) => {
+    if (disabled_lang.includes(langItem) && isProduction()) return
 
-        const { display_name, path } = language_config[langItem]
-        const to = `/${path}/`
-        const text = display_name
+    const { display_name, path } = language_config[langItem]
+    const to = `/${path}/`
+    const text = display_name
 
-        return {
-            key: langItem,
-            url: to,
-            display_name: text,
-            path,
-        }
-    })
+    return {
+        key: langItem,
+        url: to,
+        display_name: text,
+        path,
+    }
+})
 
 const useLangSwitcher = () => {
     const { i18n } = useTranslation()

@@ -3,7 +3,6 @@ import { graphql, useStaticQuery, navigate } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import { getLanguage } from '../../common/utility'
-import CtraderCheckEmail from './_ctrader-check-email'
 import CtraderSignupSuccess from './_ctrader-signup-success'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { Flex } from 'components/containers'
@@ -272,9 +271,6 @@ const Signup = (props: SignupProps) => {
         )
     }
 
-    if (props.submit_state === 'ctrader-check-email') {
-        return <CtraderCheckEmail handleSuccess={handleCtraderSuccess} email={email} />
-    }
     if (props.submit_state === 'ctrader-success') {
         return <CtraderSignupSuccess email={email} />
     }

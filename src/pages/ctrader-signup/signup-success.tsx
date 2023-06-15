@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Controller } from 'react-hook-form'
+import { form_style, input_style } from './ctrader-form.module.scss'
 import { localize, Localize } from 'components/localization'
 import { DropdownSearch, Header, StyledLink, Text } from 'components/elements'
 import EmailIcon from 'images/svg/check-email/email.svg'
@@ -12,7 +13,6 @@ import Flex from 'features/components/atoms/flex-box'
 import useCtraderSignupForm from 'features/hooks/use-ctrader-signup-form'
 import Input from 'features/components/atoms/input'
 import { TString } from 'types/generics'
-import CtraderCheckEmail from 'components/custom/_ctrader-check-email'
 
 const EmailLink = styled(StyledLink)`
     display: table;
@@ -24,7 +24,7 @@ const EmailLink = styled(StyledLink)`
 `
 
 const SubmitButton = styled(Button)`
-    margin: 1rem auto;
+    margin: auto;
     cursor: pointer;
     width: 80px;
     height: 40px;
@@ -37,16 +37,25 @@ const SubmitButton = styled(Button)`
     font-weight: bold;
 `
 
+const ContinueButton = styled(Button)`
+    margin: 1rem auto;
+    cursor: pointer;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    background-color: #ff444f;
+    color: #ffffff;
+    font-size: 14;
+    font-weight: bold;
+    text-align: center;
+`
+
 const CtraderSignupSuccess = () => {
     const [residence_list] = useResidenceList()
     const [loading, setLoading] = useState(false)
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const email = url_params.get('email')
     const [show_check_email, setShowCheckEmail] = useState(true)
-
-    const showCheckEmailHandler = () => {
-        setShowCheckEmail(false)
-    }
 
     const { submitForm, onSubmit } = useCtraderSignupForm()
 
@@ -69,29 +78,41 @@ const CtraderSignupSuccess = () => {
 
     return (
         <CtraderWrapper>
-            {show_check_email ? (
-                <CtraderCheckEmail handleSuccess={showCheckEmailHandler} email={email} />
-            ) : (
-                <Flex.Box
-                    as="form"
-                    justify="center"
-                    align="center"
-                    direction="col"
-                    onSubmit={handleSubmit(onSubmit)}
-                    gap="12x"
-                >
-                    <Header as="h3" type="section-title" align="center" weight="bold" mb="2rem">
-                        <Localize translate_text="_t_Check your email_t_" />
-                    </Header>
-                    <img src={EmailIcon} alt="email" width="128px" height="128px" />
-                    <Text align="center" pt="20px" pb="20px">
-                        <Localize
-                            translate_text="_t_Please enter the 8 character verification code that was sent to {{email}} to activate your account._t_"
-                            values={{ email }}
-                        />
-                    </Text>
-                    <div>
+            <Flex.Box
+                as="form"
+                justify="center"
+                align="center"
+                direction="col"
+                gap="10x"
+                onSubmit={handleSubmit(onSubmit)}
+                className={form_style}
+            >
+                <Header as="h3" type="section-title" align="center" weight="bold" mb="2rem">
+                    <Localize translate_text="_t_Check your email_t_" />
+                </Header>
+                <img src={EmailIcon} alt="email" width="128px" height="128px" />
+                {show_check_email ? (
+                    <>
+                        <Text align="center" pt="20px" pb="20px">
+                            <Localize
+                                translate_text="_t_Verification code was sent to {{email}}. If you have received the code please continue. If you didn't receive the code please make sure you didn't have any account already._t_"
+                                values={{ email }}
+                            />
+                        </Text>
+                        <ContinueButton onClick={() => setShowCheckEmail(false)}>
+                            Continue
+                        </ContinueButton>
+                    </>
+                ) : (
+                    <>
+                        <Text align="center" pt="20px" pb="20px">
+                            <Localize
+                                translate_text="_t_Please enter the 8 character verification code that was sent to {{email}} to activate your account._t_"
+                                values={{ email }}
+                            />
+                        </Text>
                         <Input.Text
+                            className={input_style}
                             autoComplete="none"
                             autoCapitalize="none"
                             id="verification_code"
@@ -106,6 +127,7 @@ const CtraderSignupSuccess = () => {
                             {...register('verification_code')}
                         />
                         <Input.Text
+                            className={input_style}
                             type="password"
                             autoComplete="none"
                             autoCapitalize="none"
@@ -150,19 +172,19 @@ const CtraderSignupSuccess = () => {
                                 )}
                             />
                         )}
-                    </div>
-                    <SubmitButton
-                        onClick={() => setLoading(true)}
-                        type="submit"
-                        disabled={isButtonDisabled}
-                    >
-                        {loading ? 'Loading' : 'Submit'}
-                    </SubmitButton>
-                    <EmailLink to="/check-email/" align="center">
-                        <Localize translate_text="_t_Didn't receive the code?_t_" />
-                    </EmailLink>
-                </Flex.Box>
-            )}
+                        <SubmitButton
+                            onClick={() => setLoading(true)}
+                            type="submit"
+                            disabled={isButtonDisabled}
+                        >
+                            {loading ? 'Loading' : 'Submit'}
+                        </SubmitButton>
+                    </>
+                )}
+                <EmailLink to="/check-email/" align="center">
+                    <Localize translate_text="_t_Didn't receive the code?_t_" />
+                </EmailLink>
+            </Flex.Box>
         </CtraderWrapper>
     )
 }

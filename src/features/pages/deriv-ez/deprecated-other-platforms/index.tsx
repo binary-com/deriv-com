@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import dxIcon from 'images/svg/deriv-ez/dx-icon.svg'
 import dtIcon from 'images/svg/deriv-ez/dt-icon.svg'
 import dmt5Icon from 'images/svg/deriv-ez/dmt5-icon.svg'
@@ -7,6 +7,13 @@ import dbIcon from 'images/svg/deriv-ez/db-icon.svg'
 import GenericCarousel, { TRenderableData } from 'components/custom/carousel/_platforms-carousel'
 
 const OurPlatforms = () => {
+    const [is_loaded, setLoaded] = useState(false)
+
+    useEffect(() => {
+        // added force rerendering because whole page is on new approach and only this component is on old approach. Need to refactor
+        setLoaded(true)
+    }, [])
+
     const carouselData: TRenderableData[] = [
         {
             icon: dmt5Icon,
@@ -41,10 +48,12 @@ const OurPlatforms = () => {
     ]
     return (
         <>
-            <GenericCarousel
-                renderableData={carouselData}
-                mainHeading="_t_Check out our other platforms_t_"
-            />
+            {is_loaded ? (
+                <GenericCarousel
+                    renderableData={carouselData}
+                    mainHeading="_t_Check out our other platforms_t_"
+                />
+            ) : null}
         </>
     )
 }

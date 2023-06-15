@@ -139,11 +139,11 @@ let dataDogEnv = '';
 let serviceName = '';
 
 if (isProduction) {
-    serviceName = 'deriv.com';
+    serviceName = 'deriv-com';
     dataDogVersion = `deriv-app-${process.env.GIT_TAG_NAME}`;
     dataDogEnv = 'production';
 } else if ( isStaging ) {
-    serviceName = 'staging.deriv.com';
+    serviceName = 'staging.deriv-com';
     dataDogVersion = `deriv-app-staging-v${formatDate(new Date(), 'YYYYMMDD')}-${formatTime(Date.now(), 'HH:mm')}`;
     dataDogEnv = 'staging';
 }

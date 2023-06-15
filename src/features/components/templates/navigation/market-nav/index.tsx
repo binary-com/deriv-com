@@ -12,18 +12,22 @@ import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param
 const MarketNav = () => {
     const { is_deriv_go } = usePlatformQueryParam()
 
-    return is_deriv_go ? null : (
-        <NavTemplate
-            render_bottom_nav={() => <MarketBottomNav />}
-            renderLogo={() => (
-                <Link url={{ type: 'internal', to: '/' }}>
-                    <Image src={LogoImage} className={market_nav_logo} />
-                </Link>
+    return (
+        <>
+            {is_deriv_go ? null : (
+                <NavTemplate
+                    render_bottom_nav={() => <MarketBottomNav />}
+                    renderLogo={() => (
+                        <Link url={{ type: 'internal', to: '/' }}>
+                            <Image src={LogoImage} className={market_nav_logo} />
+                        </Link>
+                    )}
+                    items={mainItems}
+                >
+                    <MainNavButtons />
+                </NavTemplate>
             )}
-            items={mainItems}
-        >
-            <MainNavButtons />
-        </NavTemplate>
+        </>
     )
 }
 

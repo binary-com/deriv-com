@@ -351,5 +351,24 @@ module.exports = {
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
             },
         },
+        {
+            resolve: `gatsby-plugin-offline`,
+            options: {
+                appendScript: require.resolve(`./src/pushwoosh-service-worker.js`),
+                precachePages: [`/`],
+                workboxConfig: {
+                    runtimeCaching: [
+                        {
+                            urlPattern: /\.(png|jpe?g|svg|gif|webp|ico|woff2?|ttf|otf|css|scss)$/,
+                            handler: `StaleWhileRevalidate`,
+                        },
+                        {
+                            urlPattern: /^.*$/,
+                            handler: `StaleWhileRevalidate`,
+                        },
+                    ]
+                },
+            },
+        },
     ],
 }

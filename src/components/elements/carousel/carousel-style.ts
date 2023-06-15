@@ -11,16 +11,13 @@ type StyledButtonWrapperProps = {
 }
 
 type NavigationContainerType = {
+    navigation_css?: FlattenSimpleInterpolation
     bottom_offset?: string | number
     height?: string
 }
 
 type StyledChevronType = {
     color?: string // 'red' | 'custom' | 'black' | color
-}
-
-type StyledSlideType = {
-    new_style?: boolean
 }
 
 export const Embla = styled.div`
@@ -142,16 +139,16 @@ export const StyledChevron = styled(Chevron)<StyledChevronType>`
 `
 
 export const NavigationContainer = styled(Flex)<NavigationContainerType>`
-    ${({ bottom_offset, height }) => css`
-        position: relative;
-        width: 100%;
-        height: ${height ?? '8px'};
-        bottom: ${bottom_offset ?? '40px'};
-        display: none;
-        @media ${device.tabletL} {
-            display: flex;
-        }
-    `}
+    ${({ navigation_css, bottom_offset, height }) => {
+        if (navigation_css) return navigation_css
+        else
+            return css`
+                position: relative;
+                width: 100%;
+                height: ${height ?? '8px'};
+                bottom: ${bottom_offset ?? '40px'};
+            `
+    }}
 `
 
 export const StyledDot = styled.div`
@@ -172,22 +169,4 @@ export const ChevronRight = styled(StyledChevron)`
 `
 export const ChevronLeft = styled(StyledChevron)`
     left: 0;
-`
-export const StyledSlide = styled.div<StyledSlideType>`
-    position: relative;
-    flex: 0 0 33.33%;
-    margin: 4rem 0px;
-    @media ${device.laptopM} {
-        flex: 0 0 50%;
-    }
-    @media ${device.tabletL} {
-        flex: 0 0 100%;
-        margin: 2rem 0px;
-    }
-    ${({ new_style }) =>
-        new_style &&
-        css`
-            margin-right: 0;
-            padding-right: 0;
-        `}
 `

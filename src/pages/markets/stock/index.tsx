@@ -5,16 +5,9 @@ import { simple_step_content_stock } from '../static/content/_stock'
 import SignupPublic from 'features/components/templates/signup/with-banner'
 import Layout from 'components/layout/layout'
 import { localize, WithIntl } from 'components/localization'
-import { SEO } from 'components/containers'
 
 const StocksAndIndicesPage = () => (
     <Layout type="noNav">
-        <SEO
-            description={localize(
-                'Trade global stocks and stock market indices on Deriv. Enjoy our competitively priced equities even outside regular hours of major stock markets.',
-            )}
-            title={localize('Stock market | Indices trading | Deriv')}
-        />
         <DerivedFXHero
             title={localize('Stocks & indices')}
             description={localize(

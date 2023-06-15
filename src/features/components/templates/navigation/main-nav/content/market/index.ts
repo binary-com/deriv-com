@@ -3,6 +3,7 @@ import Commodities from 'images/svg/custom/rebranding/commodities-icon.svg'
 import Cryptocurrencies from 'images/svg/custom/rebranding/cryptocurrencies-icon.svg'
 import DerivedFX from 'images/svg/custom/rebranding/derived-fx-icon.svg'
 import Forex from 'images/svg/custom/rebranding/forex-icon.svg'
+import ETF from 'images/svg/custom/rebranding/etf-icon.svg'
 import StockIndices from 'images/svg/custom/rebranding/stock-indices-icon.svg'
 
 export const marketSectionContent: SmartNavSectionColumns[] = [
@@ -64,6 +65,19 @@ export const marketSectionContent: SmartNavSectionColumns[] = [
                 {
                     id: 3,
                     data: {
+                        aria_label: 'Commodities',
+                        icon: {
+                            src: Commodities,
+                        },
+                        content:
+                            "_t_Trade natural resources that are central to the world's economy._t_",
+                        title: '_t_Commodities_t_',
+                        url: { type: 'internal', to: '/markets/commodities/' },
+                    },
+                },
+                {
+                    id: 4,
+                    data: {
                         aria_label: 'Cryptocurrencies',
                         icon: {
                             src: Cryptocurrencies,
@@ -75,16 +89,19 @@ export const marketSectionContent: SmartNavSectionColumns[] = [
                     },
                 },
                 {
-                    id: 4,
+                    id: 3,
                     data: {
-                        aria_label: 'Commodities',
+                        aria_label: 'Exchange-traded funds (ETFs)',
                         icon: {
-                            src: Commodities,
+                            src: ETF,
                         },
                         content:
-                            "_t_Trade natural resources that are central to the world's economy._t_",
-                        title: '_t_Commodities_t_',
-                        url: { type: 'internal', to: '/markets/commodities/' },
+                            '_t_Diversify your portfolio and enjoy low-cost intraday trading with ETFs._t_',
+                        title: '_t_Exchange-traded funds (ETFs)_t_',
+                        url: { type: 'internal', to: '/markets/exchange-traded-funds/' },
+                    },
+                    visibility: {
+                        is_row: true,
                     },
                 },
             ],

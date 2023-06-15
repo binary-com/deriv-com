@@ -193,8 +193,6 @@ exports.onCreatePage = ({ page, actions }) => {
 
         if (is_default) {
             const en_path = `/en${localized_path.slice(0, -1)}`
-            const pt_path = `/pt${localized_path.slice(0, -1)}`
-
             createRedirect({
                 fromPath: en_path,
                 toPath: localized_path,
@@ -203,19 +201,6 @@ exports.onCreatePage = ({ page, actions }) => {
             })
             createRedirect({
                 fromPath: `${en_path}/`,
-                toPath: localized_path,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-
-            createRedirect({
-                fromPath: pt_path,
-                toPath: localized_path,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `${pt_path}/`,
                 toPath: localized_path,
                 redirectInBrowser: true,
                 isPermanent: true,

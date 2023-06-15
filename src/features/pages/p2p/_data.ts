@@ -10,16 +10,16 @@ import {
 } from 'common/constants'
 import P2PImage from 'images/svg/p2p/deriv_p2p.svg'
 import p2pQrImage from 'images/svg/p2p/p2p_qr.svg'
-import type { BannerType } from 'features/components/organisms/banner/blade-shape-banner/types'
+import type { BannerType } from 'features/components/templates/banners/blade-shape-banner/types'
 import type { RoadmapType } from 'features/components/organisms/roadmap'
 
 export const banner_data: BannerType = {
     information: {
-        img_src: P2PImage,
+        icon: P2PImage,
         heading: '_t_Make hassle-free deposits and withdrawals today_t_',
     },
-    scanbox: {
-        img_src: p2pQrImage,
+    scan_box: {
+        icon: p2pQrImage,
         heading_one: '_t_Scan to download Deriv P2P_t_',
         heading_two: '_t_Android, iOS, and Huawei_t_',
     },
@@ -27,8 +27,8 @@ export const banner_data: BannerType = {
         {
             id: 0,
             data: {
-                icon_src: GPlayIcon,
-                text: '_t_Google Play_t_',
+                icon: GPlayIcon,
+                text: 'Google Play',
                 url: {
                     type: 'non-company',
                     href: p2p_playstore_url,
@@ -39,8 +39,8 @@ export const banner_data: BannerType = {
         {
             id: 1,
             data: {
-                icon_src: AppStoreIcon,
-                text: '_t_App Store_t_',
+                icon: AppStoreIcon,
+                text: 'App Store',
                 url: {
                     type: 'non-company',
                     href: p2p_applestore_url,
@@ -51,8 +51,8 @@ export const banner_data: BannerType = {
         {
             id: 2,
             data: {
-                icon_src: AppGalleryIcon,
-                text: '_t_AppGallery_t_',
+                icon: AppGalleryIcon,
+                text: 'AppGallery',
                 url: {
                     type: 'non-company',
                     href: p2p_huawei_appgallery_url,
@@ -63,8 +63,8 @@ export const banner_data: BannerType = {
         {
             id: 3,
             data: {
-                icon_src: WebBrowserIcon,
-                text: '_t_Web Browser_t_',
+                icon: WebBrowserIcon,
+                text: 'Web Browser',
                 smallText: '_t_Use it on your_t_',
                 url: {
                     type: 'non-company',

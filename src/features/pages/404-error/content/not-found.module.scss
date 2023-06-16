@@ -1,0 +1,17 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.not_found {
+    block-size: 80svh;
+    padding-top: 8rem;
+}
+.sub_header {
+    @include breakpoints(tablet) {
+        max-inline-size: 59.1rem;
+    }
+}
+.image_logo {
+    width: 28.6rem;
+    @include breakpoints(tablet) {
+        width: 40rem;
+    }
+}

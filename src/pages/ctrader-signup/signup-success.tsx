@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Controller } from 'react-hook-form'
-import { form_style, input_style, dropdown_style } from './ctrader-form.module.scss'
+import {
+    form_style,
+    input_style,
+    dropdown_style,
+    paragraph_style,
+} from './ctrader-form.module.scss'
 import { localize, Localize } from 'components/localization'
 import { DropdownSearch } from 'components/elements'
 import EmailIcon from 'images/svg/check-email/email.svg'
@@ -65,7 +70,7 @@ const CtraderSignupSuccess = () => {
                 <img src={EmailIcon} alt="email" width="128px" height="128px" />
                 {show_check_email ? (
                     <>
-                        <Typography.Paragraph align="center">
+                        <Typography.Paragraph className={paragraph_style} align="center">
                             <Localize
                                 translate_text="_t_Verification code was sent to {{email}}. If you have received the code please continue. If you didn't receive the code please make sure you didn't have any account already._t_"
                                 values={{ email }}
@@ -77,7 +82,7 @@ const CtraderSignupSuccess = () => {
                     </>
                 ) : (
                     <>
-                        <Typography.Paragraph align="center">
+                        <Typography.Paragraph className={paragraph_style} align="center">
                             <Localize
                                 translate_text="_t_Please enter the 8 character verification code that was sent to {{email}} to activate your account._t_"
                                 values={{ email }}

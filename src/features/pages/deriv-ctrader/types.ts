@@ -10,12 +10,9 @@ export type SellingPointsTypes = {
     title: TString
     subtitle: TString
 }
-export type AcuityFeaturesTypes = {
+export type FeaturesTypes = {
     id: number
     image: ReactElement
     title?: TString
     subtitle?: TString
-    info_title?: TString
-    system_url?: string
-    button_text?: TString
 }

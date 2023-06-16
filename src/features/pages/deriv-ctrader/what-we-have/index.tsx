@@ -6,45 +6,39 @@ import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 
 const WhatIsDerivEZ = () => {
+    const mobile_flex_direction = 'col-reverse'
     return (
-        <FlexBox.Box
-            container={'fluid'}
-            direction={'col'}
-            padding_inline={'8x'}
-            pt={'20x'}
-            md={{ padding_inline: '0x', padding_block: '40x' }}
-        >
-            {content_data.map((content, index) => {
+        <FlexBox.Box container="fluid" direction={'col'} mt={'20x'} md={{ mt: '40x' }}>
+            {content_data.map((feature, index) => {
                 return (
                     <FlexBox.Box
-                        className={what_have_wrapper}
-                        key={content.id}
-                        direction={'col'}
-                        margin_block={'10x'}
-                        justify={'around'}
-                        align={'center'}
+                        key={feature.id}
+                        direction={mobile_flex_direction}
+                        justify={'center'}
+                        align="center"
                         md={{
-                            direction: index % 2 == 0 ? 'row' : 'row-reverse',
+                            direction: index == 0 || index % 2 == 0 ? 'row' : 'row-reverse',
+                            justify: 'between',
                         }}
                     >
-                        <FlexBox.Box
-                            direction={'col'}
-                            justify={'center'}
-                            style={{ width: '58.8rem' }}
-                        >
-                            <Typography.Heading mb={'6x'} align="left" textcolor="primary">
-                                <Localize translate_text={content.title} />
-                            </Typography.Heading>
-                            <Typography.Paragraph
-                                className={what_have_text}
-                                align={'left'}
-                                mb={'12x'}
-                                md={{ mb: '0x' }}
-                            >
-                                <Localize translate_text={content.subtitle} />
+                        <FlexBox.Box direction={'col'} md={{ basis: '5-12' }}>
+                            {feature?.title ? (
+                                <Typography.Heading mb={'8x'} size="large" textcolor="primary">
+                                    <Localize translate_text={feature?.title} />
+                                </Typography.Heading>
+                            ) : null}
+
+                            <Typography.Paragraph>
+                                <Localize translate_text={feature?.subtitle} />
                             </Typography.Paragraph>
                         </FlexBox.Box>
-                        {content.image}
+                        <FlexBox.Box
+                            margin_inline={'24x'}
+                            margin_block={'14x'}
+                            md={{ basis: '5-12', margin: '10x' }}
+                        >
+                            {feature?.image}
+                        </FlexBox.Box>
                     </FlexBox.Box>
                 )
             })}

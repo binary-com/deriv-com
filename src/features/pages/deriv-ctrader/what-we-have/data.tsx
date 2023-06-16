@@ -1,8 +1,8 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import { AcuityFeaturesTypes } from '../types'
+import { FeaturesTypes } from '../types'
 
-export const content_data: AcuityFeaturesTypes[] = [
+export const content_data: FeaturesTypes[] = [
     {
         id: 0,
         title: '_t_An intuitive interface_t_',
@@ -12,7 +12,6 @@ export const content_data: AcuityFeaturesTypes[] = [
             <StaticImage
                 src="../../../../images/common/deriv-ctrader/intuitive-platform.png"
                 alt="An intuitive interface"
-                width={420}
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
                 quality={100}
@@ -30,8 +29,6 @@ export const content_data: AcuityFeaturesTypes[] = [
             <StaticImage
                 src="../../../../images/common/deriv-ctrader/favourite-assets.png"
                 alt="All your favourite assets"
-                width={310}
-                height={420}
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
                 quality={100}
@@ -49,8 +46,6 @@ export const content_data: AcuityFeaturesTypes[] = [
             <StaticImage
                 src="../../../../images/common/deriv-ctrader/trade-margins.png"
                 alt="Trade margins"
-                width={310}
-                height={420}
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
                 quality={100}

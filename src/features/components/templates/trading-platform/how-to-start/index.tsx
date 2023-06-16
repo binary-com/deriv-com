@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { TradingPlatformStartProps } from '../types'
-import TabStepper from 'features/components/molecules/tab-stepper'
+import TabStepper from 'features/components/templates/tabs/stepper'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const TradingPlatformHowToStart = ({

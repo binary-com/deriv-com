@@ -1,6 +1,6 @@
 import React from 'react'
-import OurPlatforms from './deprecated-other-platforms'
 import Hero from './hero'
+import OurPlatforms from './deprecated-other-platforms'
 import Numbers from './numbers'
 import WhatIsDerivEZ from './what-have'
 import DerivEZAppBanner from './app-banner'

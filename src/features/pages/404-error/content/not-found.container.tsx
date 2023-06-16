@@ -17,9 +17,10 @@ const NotFoundContainer = () => {
                 justify={'center'}
                 align={'center'}
                 padding_inline="20x"
+                pt="40x"
             >
                 <Typography.Heading
-                    as="h1"
+                    as="h3"
                     size={'large'}
                     textcolor={'black'}
                     pb="20x"
@@ -34,7 +35,7 @@ const NotFoundContainer = () => {
                 />
 
                 <Typography.Heading
-                    as="h1"
+                    as="h3"
                     size={'large'}
                     textcolor={'black'}
                     align="center"

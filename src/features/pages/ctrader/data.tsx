@@ -10,7 +10,7 @@ import {
     TradingPlatformTextType,
     TradingPlatformWhatHaveProps,
     TradingPlatformWhyTradeProps,
-} from 'features/components/templates/trade-platform/types'
+} from 'features/components/templates/trading-platform/types'
 import { OtherPlatformsProps } from 'features/components/templates/card-carousel/other-platforms/types'
 import { TString } from 'types/generics'
 import CTraderLogo from 'images/svg/trading-platforms/ctrader/ctrader-logo.svg'

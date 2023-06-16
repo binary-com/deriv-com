@@ -8,7 +8,7 @@ import {
     TradingPlatformOther,
     TradingPlatformWhatHave,
     TradingPlatformWhyTrade,
-} from 'features/components/templates/trade-platform'
+} from 'features/components/templates/trading-platform'
 import MainNav from 'features/components/templates/navigation/main-nav'
 import Footer from 'features/components/templates/footer/'
 import Layout from 'features/components/templates/layout'

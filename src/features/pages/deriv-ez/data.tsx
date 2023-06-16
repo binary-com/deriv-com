@@ -11,7 +11,7 @@ import {
     TradingPlatformTextType,
     TradingPlatformWhatHaveProps,
     TradingPlatformWhyTradeProps,
-} from 'features/components/templates/trade-platform/types'
+} from 'features/components/templates/trading-platform/types'
 import { BannerType } from 'features/components/templates/banners/blade-shape-banner/types'
 import { OtherPlatformsProps } from 'features/components/templates/card-carousel/other-platforms/types'
 import { TString } from 'types/generics'

@@ -3,8 +3,8 @@
 .not_found {
     padding-top: 12rem;
     @include breakpoints(tablet) {
-        padding-top: 18.6rem;
-        block-size: 100vh;
+        padding-top: 8.6rem;
+        block-size: 90svh;
     }
 }
 .sub_header {

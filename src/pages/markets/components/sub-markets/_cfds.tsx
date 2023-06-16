@@ -47,7 +47,7 @@ const CFDs = ({ market_content, market_tab_name }: CFDProps) => {
                     {is_eu ? (
                         <AvailablePlatforms dmt5 />
                     ) : (
-                        <AvailablePlatforms dmt5 derivx deriv_ez />
+                        <AvailablePlatforms dmt5 derivx deriv_ez deriv_ctrader />
                     )}
                 </Descriptions>
 

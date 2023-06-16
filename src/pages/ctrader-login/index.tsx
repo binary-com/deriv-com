@@ -1,20 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { StringParam, useQueryParam } from 'use-query-params'
-import styled from 'styled-components'
-import Layout from 'components/layout/layout'
 import { useCheckExistingAccount } from 'components/hooks/use-check-existing-account'
 import { isBrowser } from 'common/utility'
 import apiManager from 'common/websocket'
 import Loading from 'features/components/atoms/loading'
-
-const ErrorMessage = styled.h3`
-    font-size: 20px;
-    text-align: center;
-`
+import CtraderWrapper from 'components/custom/_ctrader-wrapper'
+import Typography from 'features/components/atoms/typography'
 
 const CtraderLogin = () => {
     const [token] = useQueryParam('token1', StringParam)
-    // API_TOKEN Sample: a1-tzAF6PBTnHkOH97ooBdSYvY26oFSm
     const { has_account, service_token } = useCheckExistingAccount('ctrader', token)
     const [error, setError] = useState('')
     const [submit_status, setSubmitStatus] = useState('')
@@ -25,12 +19,6 @@ const CtraderLogin = () => {
         }
     }
 
-    // if (has_account === false) {
-    //     if (isBrowser()) {
-    //         window.location.href = 'https://oauth.deriv.com/oauth2/authorize?app_id=12345'
-    //     }
-    // }
-
     useEffect(() => {
         if (has_account === false) {
             apiManager
@@ -40,12 +28,11 @@ const CtraderLogin = () => {
                     market_type: 'all',
                     platform: 'ctrader',
                 })
-                .then((response) => {
-                    if (response.error) {
-                        setError(response.error.message)
-                    } else {
-                        setSubmitStatus('ctrader-account-created')
-                    }
+                .then(() => {
+                    setSubmitStatus('ctrader-account-created')
+                })
+                .catch((reason) => {
+                    setError(reason.error.message)
                 })
         }
     }, [has_account])
@@ -57,13 +44,8 @@ const CtraderLogin = () => {
                     service_token: 1,
                     service: 'ctrader',
                 })
-                .then((response) => {
-                    if (response.error) {
-                        setError(response.error.message)
-                    } else {
-                        // setServiceToken(response.service_token.ctrader.token)
-                        setSubmitStatus('success')
-                    }
+                .then(() => {
+                    // useCheckExistingAccount will handle login at this step
                 })
                 .catch((reason) => {
                     setError(reason.error.message)
@@ -72,10 +54,10 @@ const CtraderLogin = () => {
     }, [submit_status])
 
     return (
-        <Layout type="static" margin_top={35}>
+        <CtraderWrapper>
             {!error && <Loading />}
-            {error && <ErrorMessage>{error}</ErrorMessage>}
-        </Layout>
+            {error && <Typography.Heading size="small">{error}</Typography.Heading>}
+        </CtraderWrapper>
     )
 }
 

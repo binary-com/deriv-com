@@ -3,7 +3,6 @@ import { graphql, useStaticQuery, navigate } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import { getLanguage } from '../../common/utility'
-import CtraderSignupSuccess from './_ctrader-signup-success'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { Flex } from 'components/containers'
 import Login, { TSocialProvider } from 'common/login'
@@ -206,10 +205,6 @@ const Signup = (props: SignupProps) => {
         Login.redirectToLogin()
     }
 
-    const handleCtraderSuccess = () => {
-        props.onSubmit('ctrader-success', email)
-    }
-
     const renderSwitch = (param) => {
         const parameters = {
             autofocus: props.autofocus,
@@ -269,10 +264,6 @@ const Signup = (props: SignupProps) => {
                 </EmailLink>
             </ResponseWrapper>
         )
-    }
-
-    if (props.submit_state === 'ctrader-success') {
-        return <CtraderSignupSuccess email={email} />
     }
 
     return (

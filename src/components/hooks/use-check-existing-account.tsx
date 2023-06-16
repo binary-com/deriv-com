@@ -16,15 +16,14 @@ export const useCheckExistingAccount = (platform: string, token: string) => {
                     authorize: token,
                 })
                 .then((response) => {
-                    if (response.error) {
-                        setAccountError(response.error)
-                    } else {
-                        setEmail(response.authorize.email)
-                        setAuthorized(true)
-                    }
+                    setEmail(response.authorize.email)
+                    setAuthorized(true)
+                })
+                .catch((reason) => {
+                    setAccountError(reason.error.message)
                 })
         } else {
-            setAccountError('Token in URL is required as token2= ')
+            setAccountError('Token in URL is required as token1= ')
         }
     }, [token])
 
@@ -36,15 +35,16 @@ export const useCheckExistingAccount = (platform: string, token: string) => {
                     platform,
                 })
                 .then((response) => {
-                    if (!response.error) {
+                    if (response.error) {
                         if (response.trading_platform_accounts.length > 0) {
                             setHasAccount(true)
                             setLoading(false)
-                        } else {
-                            setHasAccount(false)
-                            setLoading(false)
                         }
                     }
+                })
+                .catch((reason) => {
+                    setLoading(false)
+                    setAccountError(reason.error.message)
                 })
         }
     }, [authorized, platform])
@@ -57,11 +57,10 @@ export const useCheckExistingAccount = (platform: string, token: string) => {
                     service: platform,
                 })
                 .then((response) => {
-                    if (response.error) {
-                        setAccountError(response.error.message)
-                    } else {
-                        setServiceToken(response.service_token[platform].token)
-                    }
+                    setServiceToken(response.service_token[platform].token)
+                })
+                .catch((reason) => {
+                    setAccountError(reason.error.message)
                 })
         }
     }, [has_account, platform])

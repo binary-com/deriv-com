@@ -5,10 +5,10 @@ import Button from 'features/components/atoms/button'
 import { localize, Localize } from 'components/localization'
 import Input from 'features/components/atoms/input'
 import Link from 'features/components/atoms/link'
-import useCtraderSignupForm from 'features/hooks/use-ctrader-signup-form'
+import useCtraderEmailForm from 'features/hooks/use-ctrader-email-form'
 
 const SignUpCtraderForm = () => {
-    const { onEnterEmail, enterEmailForm } = useCtraderSignupForm()
+    const { onEnterEmail, enterEmailForm } = useCtraderEmailForm()
 
     const {
         register,

@@ -121,6 +121,7 @@ module.exports = {
                     '/**/endpoint',
                     '/signup-success',
                     '/**/signup-success',
+                    '/ctrader-login',
                     '/ctrader-signup',
                     '/ctrader-manage/**',
                 ],

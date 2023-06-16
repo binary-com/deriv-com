@@ -17,7 +17,6 @@ const NotFoundContainer = () => {
                 justify={'center'}
                 align={'center'}
                 padding_inline="20x"
-                pt="40x"
             >
                 <Typography.Heading
                     as="h3"

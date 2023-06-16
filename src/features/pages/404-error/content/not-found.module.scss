@@ -1,9 +1,10 @@
 @use 'features/styles/theme/theme-mixins' as *;
 
 .not_found {
-    block-size: 100vh;
+    padding-top: 12rem;
     @include breakpoints(tablet) {
         padding-top: 18.6rem;
+        block-size: 100vh;
     }
 }
 .sub_header {

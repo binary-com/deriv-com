@@ -1,0 +1,16 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.nav_style {
+    height: 80px;
+    margin: auto;
+    margin-bottom: 5rem;
+}
+
+.content_style {
+    margin: auto;
+    max-width: 600px;
+
+    @include breakpoints(tablet) {
+        padding: 28px;
+    }
+}

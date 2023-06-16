@@ -1,63 +1,26 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, { useEffect, useState } from 'react'
 import { Controller } from 'react-hook-form'
 import { form_style, input_style } from './ctrader-form.module.scss'
 import { localize, Localize } from 'components/localization'
-import { DropdownSearch, Header, StyledLink, Text } from 'components/elements'
+import { DropdownSearch } from 'components/elements'
 import EmailIcon from 'images/svg/check-email/email.svg'
-import { Button } from 'components/form'
 import { useResidenceList } from 'components/hooks/use-residence-list'
 import { isBrowser } from 'common/utility'
 import CtraderWrapper from 'components/custom/_ctrader-wrapper'
 import Flex from 'features/components/atoms/flex-box'
-import useCtraderSignupForm from 'features/hooks/use-ctrader-signup-form'
 import Input from 'features/components/atoms/input'
 import { TString } from 'types/generics'
-
-const EmailLink = styled(StyledLink)`
-    display: table;
-    font-size: 1.4rem;
-    margin-top: 1.8rem;
-    text-decoration: underline;
-    width: 100%;
-    text-align: center;
-`
-
-const SubmitButton = styled(Button)`
-    margin: auto;
-    cursor: pointer;
-    width: 80px;
-    height: 40px;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 16px;
-    background-color: #ff444f;
-    color: #ffffff;
-    font-size: 14;
-    font-weight: bold;
-`
-
-const ContinueButton = styled(Button)`
-    margin: 1rem auto;
-    cursor: pointer;
-    height: 40px;
-    border: none;
-    border-radius: 4px;
-    background-color: #ff444f;
-    color: #ffffff;
-    font-size: 14;
-    font-weight: bold;
-    text-align: center;
-`
+import Typography from 'features/components/atoms/typography'
+import Button from 'features/components/atoms/button'
+import Link from 'features/components/atoms/link'
+import useCtraderSubmitForm from 'features/hooks/use-ctrader-submit-form'
 
 const CtraderSignupSuccess = () => {
+    const [show_check_email, setShowCheckEmail] = useState(true)
     const [residence_list] = useResidenceList()
-    const [loading, setLoading] = useState(false)
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const email = url_params.get('email')
-    const [show_check_email, setShowCheckEmail] = useState(true)
-
-    const { submitForm, onSubmit } = useCtraderSignupForm()
+    const { submitForm, onSubmit } = useCtraderSubmitForm()
 
     const {
         register,
@@ -66,9 +29,18 @@ const CtraderSignupSuccess = () => {
         handleSubmit,
         clearErrors,
         setValue,
+        setError,
         control,
     } = submitForm
     const values = watch()
+
+    useEffect(() => {
+        const response_error = errors.root?.serverError
+        if (response_error?.type === 'InvalidToken') {
+            clearErrors()
+            setError('verification_code', { message: response_error.message })
+        }
+    }, [clearErrors, errors.root?.serverError, setError])
 
     const isButtonDisabled =
         values.verification_code === '' ||
@@ -87,30 +59,30 @@ const CtraderSignupSuccess = () => {
                 onSubmit={handleSubmit(onSubmit)}
                 className={form_style}
             >
-                <Header as="h3" type="section-title" align="center" weight="bold" mb="2rem">
+                <Typography.Heading as="h3" size="small" align="center" weight="bold">
                     <Localize translate_text="_t_Check your email_t_" />
-                </Header>
+                </Typography.Heading>
                 <img src={EmailIcon} alt="email" width="128px" height="128px" />
                 {show_check_email ? (
                     <>
-                        <Text align="center" pt="20px" pb="20px">
+                        <Typography.Paragraph align="center">
                             <Localize
                                 translate_text="_t_Verification code was sent to {{email}}. If you have received the code please continue. If you didn't receive the code please make sure you didn't have any account already._t_"
                                 values={{ email }}
                             />
-                        </Text>
-                        <ContinueButton onClick={() => setShowCheckEmail(false)}>
-                            Continue
-                        </ContinueButton>
+                        </Typography.Paragraph>
+                        <Button.Primary onClick={() => setShowCheckEmail(false)}>
+                            <Localize translate_text="_t_Continue_t_" />
+                        </Button.Primary>
                     </>
                 ) : (
                     <>
-                        <Text align="center" pt="20px" pb="20px">
+                        <Typography.Paragraph align="center">
                             <Localize
                                 translate_text="_t_Please enter the 8 character verification code that was sent to {{email}} to activate your account._t_"
                                 values={{ email }}
                             />
-                        </Text>
+                        </Typography.Paragraph>
                         <Input.Text
                             className={input_style}
                             autoComplete="none"
@@ -172,18 +144,18 @@ const CtraderSignupSuccess = () => {
                                 )}
                             />
                         )}
-                        <SubmitButton
-                            onClick={() => setLoading(true)}
-                            type="submit"
-                            disabled={isButtonDisabled}
-                        >
-                            {loading ? 'Loading' : 'Submit'}
-                        </SubmitButton>
+                        <Button.Primary type="submit" disabled={isButtonDisabled}>
+                            <Localize translate_text="_t_Submit_t_" />
+                        </Button.Primary>
                     </>
                 )}
-                <EmailLink to="/check-email/" align="center">
-                    <Localize translate_text="_t_Didn't receive the code?_t_" />
-                </EmailLink>
+                <Link
+                    url={{ type: 'internal', to: '/check-email/' }}
+                    textcolor="brand"
+                    size="medium"
+                >
+                    <Localize translate_text="_t_Didn't receive your email?_t_" />
+                </Link>
             </Flex.Box>
         </CtraderWrapper>
     )

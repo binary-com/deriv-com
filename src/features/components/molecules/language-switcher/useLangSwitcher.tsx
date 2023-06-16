@@ -23,7 +23,7 @@ type i18nLangConfigObject = {
 }
 
 const supported_languages = Object.keys(language_config)
-const disabled_lang = ['ach']
+const disabled_lang = ['ach', 'pt']
 
 const languages: TLanguageObject[] = supported_languages.map((langItem) => {
     if (disabled_lang.includes(langItem) && isProduction()) return

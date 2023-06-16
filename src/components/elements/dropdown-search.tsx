@@ -49,14 +49,6 @@ const DropdownInput = styled.input<DropdownInputProps>`
     &:focus {
         outline: none;
     }
-
-    /* @media ${device.tabletL} {
-        font-size: 1.75rem;
-    }
-
-    @media ${device.mobileL} {
-        font-size: 1.5rem;
-    } */
 `
 
 const DropdownSearch = ({

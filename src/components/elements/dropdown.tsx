@@ -114,10 +114,10 @@ export const DropdownContainer = styled.ul<DropdownContainerProps>`
     ${(props) => {
         if (props.error)
             return css`
-                border-color: var(--color-red-1) !important;
+                border-color: #ff444f !important;
 
                 label {
-                    color: var(--color-red-1) !important;
+                    color: #ff444f !important;
                 }
             `
 
@@ -250,13 +250,13 @@ export const StyledLabel = styled.label<DropdownStyledProps>`
     height: 2rem;
     transition: 0.25s ease transform;
     transform: translateZ(0);
-    padding: 0 0.4rem;
+    padding: 0 0.8rem;
 
     ${(props) =>
         props.active &&
         css`
             color: var(--color-grey-5);
-            transform: translate(-0.6rem, -2.2rem) scale(0.7);
+            transform: translate(0, -2rem);
         `}
 `
 
@@ -265,7 +265,7 @@ const ErrorMessages = styled(Text)`
     padding-left: 0.8rem;
     font-size: 1.2rem;
     min-height: 16px;
-    color: var(--color-red-1);
+    color: #ff444f;
 `
 
 const ContractSizeWrapper = styled(Text)`

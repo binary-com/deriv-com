@@ -45,7 +45,7 @@ const CtraderLogin = () => {
                     service: 'ctrader',
                 })
                 .then(() => {
-                    // useCheckExistingAccount will handle login at this step
+                    // useCheckExistingAccount will handle login and redirection in this step
                 })
                 .catch((reason) => {
                     setError(reason.error.message)

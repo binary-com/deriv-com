@@ -115,7 +115,7 @@ const DropdownSearch = ({
                 ref={dropdown_ref}
                 has_short_name={has_short_name}
                 error={error}
-                mb="12px"
+                mb={props.mb || '12px'}
                 {...props}
             >
                 <Flex ai="center">

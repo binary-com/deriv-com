@@ -5,4 +5,15 @@
 
 .input_style {
     width: 100%;
+
+    label {
+        color: var(--color-grey-5);
+        font-size: 14px;
+    }
+}
+
+.dropdown_style {
+    label {
+        font-size: 14px;
+    }
 }

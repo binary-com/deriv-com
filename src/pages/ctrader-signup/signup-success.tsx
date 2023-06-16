@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Controller } from 'react-hook-form'
-import { form_style, input_style } from './ctrader-form.module.scss'
+import { form_style, input_style, dropdown_style } from './ctrader-form.module.scss'
 import { localize, Localize } from 'components/localization'
 import { DropdownSearch } from 'components/elements'
 import EmailIcon from 'images/svg/check-email/email.svg'
@@ -121,6 +121,8 @@ const CtraderSignupSuccess = () => {
                                 control={control}
                                 render={({ field: { onChange, value } }) => (
                                     <DropdownSearch
+                                        className={dropdown_style}
+                                        mb="-5px"
                                         id="residence"
                                         key="residence"
                                         label={localize('_t_Residence_t_')}

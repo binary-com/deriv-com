@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { graphql, useStaticQuery, navigate } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
 import { getLanguage } from '../../common/utility'
@@ -10,10 +10,7 @@ import validation from 'common/validation'
 import SignupDefault from 'components/custom/_signup-default'
 import SignupFlat from 'components/custom/_signup-flat'
 import SignupNew from 'components/custom/_signup-new'
-import SignupCtrader from 'components/custom/_signup-ctrader'
 import SignupPublic from 'components/custom/_signup-public'
-import { Header, QueryImage, StyledLink } from 'components/elements'
-import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 import apiManager from 'common/websocket'
 
@@ -31,33 +28,12 @@ type FormProps = {
     bgColor?: string
 }
 
-const EmailLink = styled(StyledLink)`
-    display: table;
-    font-size: 14px;
-    margin-top: 1.8rem;
-    text-decoration: underline;
-    width: 100%;
-    text-align: center;
-`
-
 const Form = styled.form<FormProps>`
     height: 100%;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
 
     @media ${device.mobileL} {
         width: 100%;
-    }
-`
-const ResponseWrapper = styled(Flex)`
-    justify-content: center;
-    max-width: 24rem;
-    margin: 0 auto;
-    flex-direction: column;
-    padding: 2rem 1rem;
-    gap: 12px;
-    margin-top: -100px;
-    @media ${device.mobileL} {
-        max-width: 40rem;
     }
 `
 
@@ -68,18 +44,9 @@ export const Appearances = {
     lightFlat: 'lightFlat',
     public: 'public',
     newSignup: 'newSignup',
-    cTrader: 'cTrader',
 }
-const query = graphql`
-    query {
-        view_email: file(relativePath: { eq: "sign-up/response-email.png" }) {
-            ...fadeIn
-        }
-    }
-`
 
 const Signup = (props: SignupProps) => {
-    const data = useStaticQuery(query)
     const [email, setEmail] = useState('')
     const [is_submitting, setSubmitting] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
@@ -139,45 +106,21 @@ const Signup = (props: SignupProps) => {
 
         const verify_email_req = getVerifyEmailRequest(formatted_email)
 
-        if (props.appearance === 'cTrader') {
-            if (submit_status === 'signup-success') {
-                props.onSubmit(submit_status, email)
-            }
-            apiManager
-                .augmentedSend('verify_email', {
-                    verify_email: email,
-                    type: 'account_opening',
-                })
-                .then((response) => {
-                    setSubmitting(false)
-                    if (response.error) {
-                        setSubmitStatus('error')
-                        setSubmitErrorMsg(response.error.message)
-                        handleValidation(formatted_email)
-                    } else {
-                        setSubmitStatus('ctrader-check-email')
-                        if (props.onSubmit) {
-                            props.onSubmit(submit_status || 'ctrader-check-email', email)
-                        }
+        apiManager
+            .augmentedSend('verify_email', { ...verify_email_req, type: 'account_opening' })
+            .then((response) => {
+                setSubmitting(false)
+                if (response.error) {
+                    setSubmitStatus('error')
+                    setSubmitErrorMsg(response.error.message)
+                    handleValidation(formatted_email)
+                } else {
+                    setSubmitStatus('success')
+                    if (props.onSubmit) {
+                        props.onSubmit(submit_status || 'success', email)
                     }
-                })
-        } else {
-            apiManager
-                .augmentedSend('verify_email', { ...verify_email_req, type: 'account_opening' })
-                .then((response) => {
-                    setSubmitting(false)
-                    if (response.error) {
-                        setSubmitStatus('error')
-                        setSubmitErrorMsg(response.error.message)
-                        handleValidation(formatted_email)
-                    } else {
-                        setSubmitStatus('success')
-                        if (props.onSubmit) {
-                            props.onSubmit(submit_status || 'success', email)
-                        }
-                    }
-                })
-        }
+                }
+            })
 
         if (props.appearance === 'public') {
             const success_default_link = `signup-success?email=${email}`
@@ -222,8 +165,6 @@ const Signup = (props: SignupProps) => {
         switch (param) {
             case Appearances.newSignup:
                 return <SignupNew {...parameters}></SignupNew>
-            case Appearances.cTrader:
-                return <SignupCtrader {...parameters}></SignupCtrader>
             case Appearances.public:
                 return <SignupPublic {...parameters}></SignupPublic>
             case Appearances.lightFlat:
@@ -237,33 +178,6 @@ const Signup = (props: SignupProps) => {
             default:
                 return <SignupDefault {...parameters}></SignupDefault>
         }
-    }
-
-    if (props.submit_state === 'success') {
-        return (
-            <ResponseWrapper>
-                <Header as="p" type="subtitle-1" align="center" weight="700">
-                    {localize('Check your email')}
-                </Header>
-                <Flex jc="center" height="128px">
-                    <QueryImage
-                        data={data.view_email}
-                        alt="Email image"
-                        height="128px"
-                        width="128px"
-                    />
-                </Flex>
-                <Header type="paragraph-1" weight="normal" align="center">
-                    <Localize
-                        translate_text="We've sent a message to {{email}} with a link to activate your account."
-                        values={{ email: props.email }}
-                    />
-                </Header>
-                <EmailLink to="/check-email/" align="center">
-                    {localize("Didn't receive your email?")}
-                </EmailLink>
-            </ResponseWrapper>
-        )
     }
 
     return (

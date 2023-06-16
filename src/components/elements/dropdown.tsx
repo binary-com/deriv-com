@@ -130,7 +130,7 @@ export const DropdownContainer = styled.ul<DropdownContainerProps>`
 const StyledDiv = styled.div`
     position: relative;
     width: 100%;
-    top: -30px;
+    top: -12px;
 `
 
 const DropdownSelected = styled.li<DropdownSelectedProps>`
@@ -333,9 +333,11 @@ export const BottomLabel = ({
 }: Pick<DropdownProps, 'error' | 'contractSize'>) => {
     return (
         <StyledDiv>
-            <ErrorMessages lh="1.4" align="start">
-                {error}
-            </ErrorMessages>
+            {error && (
+                <ErrorMessages lh="1.4" align="start">
+                    {error}
+                </ErrorMessages>
+            )}
 
             {contractSize && (
                 <ContractSizeWrapper lh="1.4" align="start">

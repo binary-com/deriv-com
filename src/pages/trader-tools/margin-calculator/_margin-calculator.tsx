@@ -208,6 +208,7 @@ const MarginCalculator = () => {
                                             </Flex>
                                             <DropdownSearch
                                                 id="symbol"
+                                                mb="12px"
                                                 key={tab}
                                                 contractSize={values.contractSize}
                                                 default_item={optionItemDefault}

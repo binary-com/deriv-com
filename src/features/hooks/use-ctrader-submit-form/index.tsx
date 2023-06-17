@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { validation_regex } from 'common/validation'
 import apiManager from 'common/websocket'
-import { useCheckExistingAccount } from 'components/hooks/use-check-existing-account'
+import { useSigninAndSignup } from 'components/hooks/use-signin-and-signup'
 import { isBrowser } from 'common/utility'
 import { eu_countries } from 'common/country-base'
 
@@ -30,16 +30,19 @@ const submit_schema = yup.object({
 type SubmitFormData = yup.InferType<typeof submit_schema>
 
 const useCtraderSubmitForm = () => {
-    const [account_created, setAccountCreated] = useState(false)
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const affiliate_token = url_params.get('partnerId')
     const [token, setToken] = useState('')
-    const { has_account } = useCheckExistingAccount('ctrader', token)
+    const { loading, create_account_error } = useSigninAndSignup('ctrader', token)
 
     const submitForm = useForm<SubmitFormData>({
         mode: 'onChange',
         resolver: yupResolver(submit_schema),
     })
+
+    if (create_account_error) {
+        submitForm.setError('root.serverError', create_account_error)
+    }
 
     const onSubmit = ({ password, residence, verification_code }: SubmitFormData) => {
         apiManager
@@ -61,51 +64,10 @@ const useCtraderSubmitForm = () => {
             })
     }
 
-    useEffect(() => {
-        if (has_account !== null) {
-            apiManager
-                .augmentedSend('trading_platform_new_account', {
-                    trading_platform_new_account: 1,
-                    account_type: 'demo',
-                    market_type: 'all',
-                    platform: 'ctrader',
-                })
-                .then(() => {
-                    setAccountCreated(true)
-                })
-                .catch((reason) => {
-                    submitForm.setError('root.serverError', {
-                        type: reason.error.code,
-                        message: reason.error.message,
-                    })
-                })
-        }
-    }, [has_account, submitForm])
-
-    useEffect(() => {
-        if (account_created) {
-            apiManager
-                .augmentedSend('service_token', {
-                    service_token: 1,
-                    service: 'ctrader',
-                })
-                .then((response) => {
-                    if (isBrowser()) {
-                        window.location.href = `https://id-ct-uat.deriv.com/brokeroauth/success?token=${response.service_token.ctrader.token}`
-                    }
-                })
-                .catch((reason) => {
-                    submitForm.setError('root.serverError', {
-                        type: reason.error.code,
-                        message: reason.error.message,
-                    })
-                })
-        }
-    }, [account_created, submitForm])
-
     return {
         submitForm,
         onSubmit,
+        loading,
     }
 }
 

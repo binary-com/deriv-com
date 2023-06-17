@@ -19,13 +19,14 @@ import Typography from 'features/components/atoms/typography'
 import Button from 'features/components/atoms/button'
 import Link from 'features/components/atoms/link'
 import useCtraderSubmitForm from 'features/hooks/use-ctrader-submit-form'
+import Layout from 'features/components/templates/layout'
 
 const CtraderSignupSuccess = () => {
     const [show_check_email, setShowCheckEmail] = useState(true)
     const [residence_list] = useResidenceList()
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const email = url_params.get('email')
-    const { submitForm, onSubmit } = useCtraderSubmitForm()
+    const { submitForm, onSubmit, loading } = useCtraderSubmitForm()
 
     const {
         register,
@@ -38,6 +39,7 @@ const CtraderSignupSuccess = () => {
         control,
     } = submitForm
     const values = watch()
+    console.log(loading)
 
     useEffect(() => {
         const response_error = errors.root?.serverError
@@ -51,120 +53,127 @@ const CtraderSignupSuccess = () => {
         values.verification_code === '' ||
         values.password === '' ||
         values.residence === '' ||
-        !isValid
+        !isValid ||
+        loading
 
     return (
-        <CtraderWrapper>
-            <Flex.Box
-                as="form"
-                justify="center"
-                align="center"
-                direction="col"
-                gap="10x"
-                onSubmit={handleSubmit(onSubmit)}
-                className={form_style}
-            >
-                <Typography.Heading as="h3" size="small" align="center" weight="bold">
-                    <Localize translate_text="_t_Check your email_t_" />
-                </Typography.Heading>
-                <img src={EmailIcon} alt="email" width="128px" height="128px" />
-                {show_check_email ? (
-                    <>
-                        <Typography.Paragraph className={paragraph_style} align="center">
-                            <Localize
-                                translate_text="_t_Verification code was sent to {{email}}. If you have received the code please continue. If you didn't receive the code please make sure you didn't have any account already._t_"
-                                values={{ email }}
-                            />
-                        </Typography.Paragraph>
-                        <Button.Primary onClick={() => setShowCheckEmail(false)}>
-                            <Localize translate_text="_t_Continue_t_" />
-                        </Button.Primary>
-                    </>
-                ) : (
-                    <>
-                        <Typography.Paragraph className={paragraph_style} align="center">
-                            <Localize
-                                translate_text="_t_Please enter the 8 character verification code that was sent to {{email}} to activate your account._t_"
-                                values={{ email }}
-                            />
-                        </Typography.Paragraph>
-                        <Input.Text
-                            className={input_style}
-                            autoComplete="none"
-                            autoCapitalize="none"
-                            id="verification_code"
-                            label={'_t_Verification code_t_'}
-                            clearErrors={clearErrors}
-                            setValue={setValue}
-                            error={
-                                errors?.verification_code?.message
-                                    ? localize(errors?.verification_code?.message as TString)
-                                    : null
-                            }
-                            {...register('verification_code')}
-                        />
-                        <Input.Text
-                            className={input_style}
-                            type="password"
-                            autoComplete="none"
-                            autoCapitalize="none"
-                            id="password"
-                            label={'_t_Password_t_'}
-                            clearErrors={clearErrors}
-                            setValue={setValue}
-                            error={
-                                errors?.password?.message
-                                    ? localize(errors?.password?.message as TString)
-                                    : null
-                            }
-                            {...register('password')}
-                        />
-                        {residence_list.length > 0 && (
-                            <Controller
-                                name="residence"
-                                defaultValue={''}
-                                control={control}
-                                render={({ field: { onChange, value } }) => (
-                                    <DropdownSearch
-                                        className={dropdown_style}
-                                        mb="-5px"
-                                        id="residence"
-                                        key="residence"
-                                        label={localize('_t_Residence_t_')}
-                                        default_item={{
-                                            name: 'default',
-                                            display_name: '',
-                                            key: '14',
-                                            icon: '',
-                                            market: '',
-                                        }}
-                                        items={residence_list}
-                                        onChange={(e) => onChange(e.symbol)}
-                                        error={
-                                            errors?.residence?.message
-                                                ? localize(errors?.residence?.message as TString)
-                                                : null
-                                        }
-                                        value={value}
-                                        disabled={residence_list.length < 1}
-                                    />
-                                )}
-                            />
-                        )}
-                        <Button.Primary type="submit" disabled={isButtonDisabled}>
-                            <Localize translate_text="_t_Submit_t_" />
-                        </Button.Primary>
-                    </>
-                )}
-                <Link
-                    url={{ type: 'internal', to: '/check-email/' }}
-                    textcolor="brand"
-                    size="medium"
+        <Layout>
+            <CtraderWrapper>
+                <Flex.Box
+                    as="form"
+                    justify="center"
+                    align="center"
+                    direction="col"
+                    gap="10x"
+                    onSubmit={handleSubmit(onSubmit)}
+                    className={form_style}
                 >
-                    <Localize translate_text="_t_Didn't receive your email?_t_" />
-                </Link>
-            </Flex.Box>
-        </CtraderWrapper>
+                    <Typography.Heading as="h3" size="small" align="center" weight="bold">
+                        <Localize translate_text="_t_Check your email_t_" />
+                    </Typography.Heading>
+                    <img src={EmailIcon} alt="email" width="128px" height="128px" />
+                    {show_check_email ? (
+                        <>
+                            <Typography.Paragraph className={paragraph_style} align="center">
+                                <Localize
+                                    translate_text="_t_Verification code was sent to {{email}}. If you have received the code please continue. If you didn't receive the code please make sure you didn't have any account already._t_"
+                                    values={{ email }}
+                                />
+                            </Typography.Paragraph>
+                            <Button.Primary onClick={() => setShowCheckEmail(false)}>
+                                <Localize translate_text="_t_Continue_t_" />
+                            </Button.Primary>
+                        </>
+                    ) : (
+                        <>
+                            <Typography.Paragraph className={paragraph_style} align="center">
+                                <Localize
+                                    translate_text="_t_Please enter the 8 character verification code that was sent to {{email}} to activate your account._t_"
+                                    values={{ email }}
+                                />
+                            </Typography.Paragraph>
+                            <Input.Text
+                                className={input_style}
+                                autoComplete="none"
+                                autoCapitalize="none"
+                                id="verification_code"
+                                label={'_t_Verification code_t_'}
+                                clearErrors={clearErrors}
+                                setValue={setValue}
+                                error={
+                                    errors?.verification_code?.message
+                                        ? localize(errors?.verification_code?.message as TString)
+                                        : null
+                                }
+                                {...register('verification_code')}
+                            />
+                            <Input.Text
+                                className={input_style}
+                                type="password"
+                                autoComplete="none"
+                                autoCapitalize="none"
+                                id="password"
+                                label={'_t_Password_t_'}
+                                clearErrors={clearErrors}
+                                setValue={setValue}
+                                error={
+                                    errors?.password?.message
+                                        ? localize(errors?.password?.message as TString)
+                                        : null
+                                }
+                                {...register('password')}
+                            />
+                            {residence_list.length > 0 && (
+                                <Controller
+                                    name="residence"
+                                    defaultValue={''}
+                                    control={control}
+                                    render={({ field: { onChange, value } }) => (
+                                        <DropdownSearch
+                                            className={dropdown_style}
+                                            mb="-5px"
+                                            id="residence"
+                                            key="residence"
+                                            label={localize('_t_Residence_t_')}
+                                            default_item={{
+                                                name: 'default',
+                                                display_name: '',
+                                                key: '14',
+                                                icon: '',
+                                                market: '',
+                                            }}
+                                            items={residence_list}
+                                            onChange={(e) => onChange(e.symbol)}
+                                            error={
+                                                errors?.residence?.message
+                                                    ? localize(
+                                                          errors?.residence?.message as TString,
+                                                      )
+                                                    : null
+                                            }
+                                            value={value}
+                                            disabled={residence_list.length < 1}
+                                        />
+                                    )}
+                                />
+                            )}
+                            <Button.Primary type="submit" disabled={isButtonDisabled}>
+                                <Localize
+                                    translate_text={loading ? '_t_Loading_t_' : '_t_Submit_t_'}
+                                />
+                            </Button.Primary>
+                        </>
+                    )}
+                    <Link
+                        url={{ type: 'internal', to: '/check-email/' }}
+                        textcolor="brand"
+                        size="medium"
+                    >
+                        <Localize translate_text="_t_Didn't receive your email?_t_" />
+                    </Link>
+                </Flex.Box>
+            </CtraderWrapper>
+        </Layout>
     )
 }
 

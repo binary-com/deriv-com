@@ -14,7 +14,6 @@ import {
     ToggleListVisibilityType,
     useDropdown,
 } from 'components/hooks/use-dropdown'
-import device from 'themes/device'
 import { Flex } from 'components/containers'
 
 type DropdownInputProps = {

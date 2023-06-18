@@ -10,11 +10,13 @@ import Typography from 'features/components/atoms/typography'
 import Button from 'features/components/atoms/button'
 import Link from 'features/components/atoms/link'
 import Layout from 'features/components/templates/layout'
+import { useResidenceList } from 'components/hooks/use-residence-list'
 
-const CtraderSignupSuccess = () => {
+const SignupSuccess = () => {
     const [show_check_email, setShowCheckEmail] = useState(true)
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const email = url_params.get('email')
+    const [residence_list] = useResidenceList()
 
     return (
         <Layout>
@@ -44,7 +46,7 @@ const CtraderSignupSuccess = () => {
                             </Button.Primary>
                         </>
                     ) : (
-                        <SignupSuccessForm email={email} />
+                        <SignupSuccessForm residence_list={residence_list} email={email} />
                     )}
                     <Link
                         url={{ type: 'internal', to: '/check-email/' }}
@@ -59,4 +61,4 @@ const CtraderSignupSuccess = () => {
     )
 }
 
-export default CtraderSignupSuccess
+export default SignupSuccess

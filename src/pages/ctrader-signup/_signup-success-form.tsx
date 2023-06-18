@@ -10,14 +10,18 @@ import { localize, Localize } from 'components/localization'
 import { DropdownSearch } from 'components/elements'
 import Input from 'features/components/atoms/input'
 import { TString } from 'types/generics'
-import { useResidenceList } from 'components/hooks/use-residence-list'
 import useCtraderSubmitForm from 'features/hooks/use-ctrader-submit-form'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import Button from 'features/components/atoms/button'
+import { ResidenceType } from 'components/hooks/use-residence-list'
 
-const SignupSuccessForm = ({ email }: { email: string }) => {
-    const [residence_list] = useResidenceList()
+type SignupSuccessFormProps = {
+    email: string
+    residence_list: ResidenceType[]
+}
+
+const SignupSuccessForm = ({ email, residence_list }: SignupSuccessFormProps) => {
     const { submitForm, onSubmit, loading } = useCtraderSubmitForm()
 
     const {

@@ -5,7 +5,7 @@ export const validation_regex = {
     url: /^[\w|\-|.]+$/,
     alphabetic: /^[a-zA-Z]+$/,
     number: /^\d+$/,
-    password: /^(?=.*[a-z])(?=.*[0-9])(?=.*[A-Z])[ -~]{8,25}$/,
+    password: /^(?=.*[a-z])(?=.*\d)(?=.*[A-Z])[ -~]{8,25}$/,
 }
 
 type TValidationHandler = (input: string, message?: string) => string | null

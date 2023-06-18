@@ -351,5 +351,15 @@ module.exports = {
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
             },
         },
+        {
+            resolve: `gatsby-plugin-subfont`,
+            options: {
+              silent: true,
+              fallbacks: false,
+              inlineFonts: true,
+              subset: true,
+              optimizeForSpeed: true,
+            },
+        },
     ],
 }

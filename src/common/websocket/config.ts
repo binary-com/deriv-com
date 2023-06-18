@@ -67,7 +67,7 @@ const production_app_id_array =
 const prod_app_id = production_app_id_array[0]?.app_id
 const isStaging = () => isBrowser() && domain_config.staging.hostname === window.location.hostname
 const isBeta = () => isBrowser() && domain_config.beta.hostname === window.location.hostname
-const isLive = () => isProduction() || isStaging() || isBeta
+const isLive = () => isProduction() || isStaging() || isBeta()
 const isLocalHost = () => isBrowser() && domain_config.local.hostname === window.location.hostname
 
 const getAppId = (): null | number | string => {

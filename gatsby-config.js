@@ -357,6 +357,11 @@ module.exports = {
                             urlPattern: /^.*$/,
                             handler: `NetworkFirst`,
                         },
+                        {
+                            // Google Fonts CSS (doesn't end in .css so we need to specify it)
+                            urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
+                            handler: `StaleWhileRevalidate`,
+                        },
                     ]
                 },
             },

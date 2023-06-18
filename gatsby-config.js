@@ -357,6 +357,8 @@ module.exports = {
               silent: true,
               fallbacks: false,
               inlineFonts: true,
+              subset: true,
+              optimizeForSpeed: true,
             },
         },
     ],

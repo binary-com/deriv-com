@@ -11,7 +11,7 @@ export const number_items: SmartNumberItem[] = [
     {
         id: 1,
         data: {
-            header: '_t_12M+ USD_t_',
+            header: '_t_100M+ USD_t_',
             description: '_t_exchanged to date_t_',
         },
     },

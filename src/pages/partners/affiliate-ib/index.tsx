@@ -156,7 +156,7 @@ const why_partner_with_us_items: WhyUsType = [
 
 const AffiliateIb = () => {
     return (
-        <Layout type="partners" margin_top={10}>
+        <Layout type="partners" padding_top={10}>
             <SEO
                 title={localize(
                     '_t_Affiliate and IB programmes | Partnership programmes | Deriv_t_',

@@ -8,7 +8,6 @@ import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import MarketNav from 'features/components/templates/navigation/market-nav'
 import { handleGetTrading } from 'components/custom/utils'
 
@@ -201,8 +200,6 @@ export const DerivedFXHero = ({
 }: MarketProps) => {
     const [is_logged_in] = useAuthCheck()
     const handleSignup = useHandleSignup()
-    const { is_deriv_go } = usePlatformQueryParam()
-
     const is_rtl = useIsRtl()
 
     return (

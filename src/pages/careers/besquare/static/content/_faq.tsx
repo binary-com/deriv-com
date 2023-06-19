@@ -45,21 +45,19 @@ export default [
             },
             {
                 title: 'I still have questions about this programme. How can I contact you?',
-                subtitle: (
-                    <p>
-                        You can contact us for general enquiries at{' '}
-                        <Link href="mailto:info@besquare.my">info@besquare.my</Link>.
-                    </p>
-                ),
+                subtitle: `You can contact us for general enquiries at `,
+                link: {
+                    href: 'mailto:info@besquare.my',
+                    text: 'info@besquare.my',
+                },
             },
             {
                 title: 'How can I find out about my application status?',
-                subtitle: (
-                    <p>
-                        To find out about your application status, email us at{' '}
-                        <Link href="mailto:apply@besquare.my">apply@besquare.my</Link>.
-                    </p>
-                ),
+                subtitle: `To find out about your application status, email us at `,
+                link: {
+                    href: 'mailto:apply@besquare.my',
+                    text: 'apply@besquare.my',
+                },
             },
         ],
     },

@@ -54,12 +54,11 @@ module.exports = {
                 ],
             },
         },
-        'gatsby-plugin-react-helmet',
         {
-            resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+            resolve: 'gatsby-plugin-canonical-urls',
             options: {
                 siteUrl: `${site_url}`,
-                noQueryString: true,
+                // noQueryString: true,
             },
         },
         'gatsby-plugin-styled-components',
@@ -82,7 +81,7 @@ module.exports = {
                     // Configure cache options here
                     cacheFolder: '.cache/caches/gatsby-plugin-sharp',
                     maxMemory: 500000000,
-                  },
+                },
             },
         },
         `gatsby-plugin-image`,
@@ -294,14 +293,7 @@ module.exports = {
                 //   ],
             },
         },
-        {
-            resolve: 'gatsby-plugin-svgr',
-            options: {
-                rule: {
-                    include: /svg/, // See below to configure properly
-                },
-            },
-        },
+        'gatsby-plugin-svgr',
         {
             resolve: 'gatsby-plugin-eslint',
             options: {
@@ -317,14 +309,7 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: [
-                            '/404/',
-                            '/homepage/',
-                            '/landing/',
-                            '/endpoint/',
-                            '/livechat/',
-                            '/storybook/',
-                        ],
+                        disallow: ['/404/', '/homepage/', '/landing/', '/endpoint/', '/livechat/'],
                     },
                 ],
             },

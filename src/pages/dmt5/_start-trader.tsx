@@ -216,7 +216,7 @@ const StartTrader = () => {
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'demo_step1_mobile' : 'demo_step1']}
-                        alt={<Localize translate_text="Sign up for a free" />}
+                        alt={localize('_t_Sign up for a free_t_')}
                     />
                 ),
             },
@@ -227,7 +227,7 @@ const StartTrader = () => {
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'demo_step2_mobile' : 'demo_step2']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
@@ -238,7 +238,7 @@ const StartTrader = () => {
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'demo_step3_mobile' : 'demo_step3']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
@@ -268,7 +268,7 @@ const StartTrader = () => {
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step1_mobile' : 'real_step1']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
@@ -277,7 +277,7 @@ const StartTrader = () => {
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step2_mobile' : 'real_step2']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
@@ -288,7 +288,7 @@ const StartTrader = () => {
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step3_mobile' : 'real_step3']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
@@ -299,7 +299,7 @@ const StartTrader = () => {
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step4_mobile' : 'real_step4']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
@@ -329,7 +329,7 @@ const StartTrader = () => {
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'demo_step1_mobile_eu' : 'demo_step1_eu']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
@@ -338,7 +338,7 @@ const StartTrader = () => {
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'demo_step2_mobile_eu' : 'demo_step2_eu']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
@@ -349,7 +349,7 @@ const StartTrader = () => {
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'demo_step3_mobile_eu' : 'demo_step3_eu']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
@@ -379,7 +379,7 @@ const StartTrader = () => {
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step1_mobile_eu' : 'real_step1_eu']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
@@ -388,7 +388,7 @@ const StartTrader = () => {
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step2_mobile_eu' : 'real_step2_eu']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
@@ -397,7 +397,7 @@ const StartTrader = () => {
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step3_mobile_eu' : 'real_step3_eu']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
@@ -408,7 +408,7 @@ const StartTrader = () => {
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step4_mobile_eu' : 'real_step4_eu']}
-                        alt={<Localize translate_text="Trading" />}
+                        alt={localize('_t_Trading_t_')}
                     />
                 ),
             },

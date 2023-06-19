@@ -19,7 +19,7 @@ const meta_attributes: MetaAttributesType = {
 
 const Partner = () => {
     return (
-        <Layout type="partners" margin_top={10} no_login_signup>
+        <Layout type="partners" padding_top={10} no_login_signup>
             <SEO
                 title={localize('_t_Be our partner | Partnership programmes | Deriv_t_')}
                 description={localize(

@@ -4,9 +4,7 @@ import { ContentWrapper, Descriptions, StyledText } from '../../static/style/_ma
 import MarketInstruments from '../sections/_market_instruments'
 import type { MarketInstrumentsElement } from 'pages/markets/components/sections/_market_instruments'
 import { SectionContainer } from 'components/containers'
-import { Text } from 'components/elements'
 import { localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 
 type AccumulatorsProps = {
     market_content: MarketInstrumentsElement

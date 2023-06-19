@@ -41,7 +41,6 @@ import {
 } from './_details'
 import type { MarketInstrumentsElement } from 'pages/markets/components/sections/_market_instruments'
 import { Localize } from 'components/localization'
-import { Desktop } from 'components/containers'
 
 export const commodities_cfds: MarketInstrumentsElement = {
     markets_list: {
@@ -192,15 +191,9 @@ export const stock_cfds: MarketInstrumentsElement = {
         {
             id: 'american-indices',
             title: (
-                <Localize
-                    translate_text="American <0></0>indices"
-                    components={[
-                        <Desktop key={0}>
-                            <br />
-                        </Desktop>,
-                    ]}
-                />
+                <Localize translate_text="American <0></0>indices" components={[<br key={0} />]} />
             ),
+            mobile_title: <Localize translate_text="American indices" />,
             component: <AmericanIndices />,
             details: <AmericasDetails />,
             col: 3,
@@ -211,16 +204,8 @@ export const stock_cfds: MarketInstrumentsElement = {
         },
         {
             id: 'asian-indices',
-            title: (
-                <Localize
-                    translate_text="Asian <0></0>indices"
-                    components={[
-                        <Desktop key={0}>
-                            <br />
-                        </Desktop>,
-                    ]}
-                />
-            ),
+            title: <Localize translate_text="Asian <0></0>indices" components={[<br key={0} />]} />,
+            mobile_title: <Localize translate_text="Asian indices" />,
             component: <AsianIndices />,
             details: <AsianIndicesDetails />,
             col: 3,
@@ -231,16 +216,8 @@ export const stock_cfds: MarketInstrumentsElement = {
         },
         {
             id: 'european-indices',
-            title: (
-                <Localize
-                    translate_text="European <0></0>indices"
-                    components={[
-                        <Desktop key={0}>
-                            <br />
-                        </Desktop>,
-                    ]}
-                />
-            ),
+            title: <Localize translate_text="European indices" components={[<br key={0} />]} />,
+            mobile_title: <Localize translate_text="European indices" />,
             component: <EuropeanIndices />,
             details: <EuropeanIndicesDetails />,
             col: 3,

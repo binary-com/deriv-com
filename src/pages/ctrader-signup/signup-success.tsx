@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { form_style, paragraph_style } from './ctrader-form.module.scss'
 import SignupSuccessForm from './_signup-success-form'
-import { Localize } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import EmailIcon from 'images/svg/check-email/email.svg'
 import { isBrowser } from 'common/utility'
 import CtraderWrapper from 'components/custom/_ctrader-wrapper'
@@ -61,4 +61,4 @@ const SignupSuccess = () => {
     )
 }
 
-export default SignupSuccess
+export default WithIntl()(SignupSuccess)

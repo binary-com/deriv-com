@@ -2,7 +2,7 @@ import React from 'react'
 import { form_style } from './ctrader-form.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
-import { Localize } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import Link from 'features/components/atoms/link'
 import useRegion from 'components/hooks/use-region'
 import useBreakpoints from 'components/hooks/use-breakpoints'
@@ -53,4 +53,4 @@ const SignUpFormContainer = () => {
     )
 }
 
-export default SignUpFormContainer
+export default WithIntl()(SignUpFormContainer)

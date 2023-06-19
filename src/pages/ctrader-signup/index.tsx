@@ -22,7 +22,7 @@ const SignUpFormContainer = () => {
             <CtraderWrapper>
                 <Flex.Box className={form_style} direction="col" gap="8x">
                     <Typography.Heading size={is_mobile_or_tablet ? 'small' : 'xs'}>
-                        <Localize translate_text="_t_Let's Begin_t_" />
+                        <Localize translate_text="_t_Let's start_t_" />
                     </Typography.Heading>
                     <Typography.Paragraph size={is_mobile_or_tablet ? 'large' : 'medium'}>
                         <Localize translate_text="_t_Enter your email address to begin_t_" />
@@ -42,6 +42,22 @@ const SignUpFormContainer = () => {
                                         target: '_blank',
                                         type: 'non-company',
                                         href: security_pdf_link,
+                                    }}
+                                />,
+                            ]}
+                        />
+                    </Typography.Paragraph>
+                    <Typography.Paragraph textcolor="secondary" align="center">
+                        <Localize
+                            translate_text="_t_Already have an account? <0>Log in</0>_t_"
+                            components={[
+                                <Link
+                                    textcolor="brand"
+                                    key={0}
+                                    url={{
+                                        target: '_blank',
+                                        type: 'non-company',
+                                        href: 'https://qa126.deriv.dev/oauth2/authorize?app_id=16929&l=en&brand=deriv&date_first_contact=2023-06-19&signup_device=desktop&utm_source=https://deriv-com-git-fork-mohammad-hashemi-deriv-ebooks-404.binary.sx/&platform=',
                                     }}
                                 />,
                             ]}

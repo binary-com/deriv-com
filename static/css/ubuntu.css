@@ -2,6 +2,7 @@
     font-family: 'Ubuntu';
     src:url('../fonts/Ubuntu-Regular.woff2') format('woff2 supports variations'),
         url('../fonts/Ubuntu-Regular.woff2') format('woff2-variations');
+    font-display: swap;
     font-weight: 100 400;
 }
 
@@ -9,6 +10,7 @@
     font-family: 'Ubuntu';
     src:url('../fonts/Ubuntu-Bold.woff2') format('woff2 supports variations'),
         url('../fonts/Ubuntu-Bold.woff2') format('woff2-variations');
+    font-display: swap;
     font-weight: 800;
 }
 
@@ -16,6 +18,7 @@
     font-family: 'Ubuntu';
     src:url('../fonts/Ubuntu-Light.woff2') format('woff2 supports variations'),
         url('../fonts/Ubuntu-Light.woff2') format('woff2-variations');
+    font-display: swap;
     font-weight: 200;
 }
 
@@ -23,5 +26,6 @@
     font-family: 'Ubuntu';
     src:url('../fonts/Ubuntu-Medium.woff2') format('woff2 supports variations'),
         url('../fonts/Ubuntu-Medium.woff2') format('woff2-variations');
+    font-display: swap;
     font-weight: 500;
 }

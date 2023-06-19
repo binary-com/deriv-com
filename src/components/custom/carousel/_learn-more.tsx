@@ -1,18 +1,18 @@
-import React, { ReactNode } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
 import { Text, ImageWithDireciton } from 'components/elements'
-import { LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 type LearnMoreProps = {
-    text: string | ReactNode
+    text: TString
     to: string
     in_trading_platforms?: boolean
 }
 
-const Wrapper = styled.div<LearnMoreProps>`
+const Wrapper = styled.div<{ in_trading_platforms?: boolean }>`
     position: absolute;
     left: ${(props) => (props.in_trading_platforms ? '9rem' : '0')};
     bottom: -2rem;
@@ -44,6 +44,7 @@ const Link = styled(LocalizedLink)`
         text-decoration: underline;
     }
 `
+
 const LinkTitle = styled(Text)`
     font-family: Ubuntu, sans-serif;
 `
@@ -54,7 +55,7 @@ const LearnMore = ({ text, to, in_trading_platforms }: LearnMoreProps) => {
             <Link to={to}>
                 <Item>
                     <LinkTitle mr="0.8rem" weight="bold" color="red">
-                        {text}
+                        <Localize translate_text={text} />
                     </LinkTitle>
                     <ImageWithDireciton src={Arrow} alt="arrow right" />
                 </Item>

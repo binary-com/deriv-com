@@ -4,8 +4,8 @@ import { Localize } from 'components/localization'
 import { TString } from 'types/generics'
 import device from 'themes/device'
 
-type TProps = {
-    label: TString | string
+type TButton = {
+    label: TString
     onClick?: VoidFunction
     primary?: boolean
     secondary?: boolean
@@ -18,9 +18,9 @@ type TProps = {
     className?: string
 }
 
-type TLabelProps = Omit<TProps, 'label' | 'onClick'>
+type TLabelProps = Omit<TButton, 'label' | 'onClick'>
 
-type TContainerProps = Omit<TProps, 'label'>
+type TContainerProps = Omit<TButton, 'label'>
 
 const Label = styled.span<TLabelProps>`
     font-family: Ubuntu, sans-serif;
@@ -83,7 +83,8 @@ const Container = styled.div<TContainerProps>`
         ${({ mobileFullWidth }) => (mobileFullWidth ? 'width: 100%' : '')};
     }
 `
-const Button: React.FC<TProps> = ({
+
+const Button = ({
     label,
     onClick,
     primary = false,
@@ -95,7 +96,7 @@ const Button: React.FC<TProps> = ({
     disabled = false,
     id,
     className,
-}) => {
+}: TButton) => {
     return (
         <Container
             onClick={onClick}
@@ -121,4 +122,5 @@ const Button: React.FC<TProps> = ({
         </Container>
     )
 }
+
 export default Button

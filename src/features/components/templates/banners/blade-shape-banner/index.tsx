@@ -128,7 +128,7 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
                                         size={'large'}
                                         weight={'bold'}
                                     >
-                                        <Localize translate_text={item.data.text} />
+                                        {item.data.text}
                                     </Typography.Paragraph>
                                 </Link>
                             </Flex.Box>

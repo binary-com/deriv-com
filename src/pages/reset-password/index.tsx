@@ -35,19 +35,8 @@ const StyledButton = styled(Button)`
     margin: 0.8rem 0.4rem;
 `
 
-const resetValidation = (values: EmailType) => {
-    const errors: ErrorType = {}
-    const email = trimSpaces(values.email)
-    const email_error = validation.required(email) || validation.email(email)
-
-    if (email_error) {
-        errors.email = email_error
-    }
-
-    return errors
-}
-
 const ResetPassword = () => {
+    const [apiError, setApiError] = useState('')
     const initialValues: EmailType = { email: '' }
 
     const resetSubmission = (values: EmailType, actions) => {
@@ -76,9 +65,23 @@ const ResetPassword = () => {
             .catch((error) => {
                 console.log(error)
                 if (error.msg_type === 'verify_email') {
-                    const errorString = error.message.split(':')
+                    const errorString = error.error.message.split(':')
+                    setApiError(errorString[0])
+                    console.log('errorString', errorString)
                 }
             })
+    }
+
+    const resetValidation = (values: EmailType) => {
+        const errors: ErrorType = {}
+        const email = trimSpaces(values.email)
+        const email_error = validation.required(email) || validation.email(email)
+        setApiError('')
+        if (email_error) {
+            errors.email = email_error
+        }
+
+        return errors
     }
 
     return (
@@ -139,7 +142,7 @@ const ResetPassword = () => {
                                 />
                             </InputGroup>
                             <Text align="center" color="red">
-                                {status.error}
+                                {apiError ? apiError : status.error}
                             </Text>
                             <Text align="center" color="green">
                                 {status.success}

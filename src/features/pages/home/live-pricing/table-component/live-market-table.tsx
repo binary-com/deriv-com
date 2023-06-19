@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import React, { useMemo } from 'react'
 import {
     flexRender,
     getCoreRowModel,
@@ -6,79 +6,65 @@ import {
     useReactTable,
 } from '@tanstack/react-table'
 import type { SortingState } from '@tanstack/react-table'
-import { TAvailableLiveMarkets, TMarketData } from '../types'
+import { TAvailableLiveMarkets } from '../types'
 import useLiveColumns from '../use-live-columns'
-import { table_row_header, table_row_data } from './live-pricing.module.scss'
+import * as styles from './live-pricing.module.scss'
 import Flex from 'features/components/atoms/flex-box'
-import useRegion from 'components/hooks/use-region'
 import Link from 'features/components/atoms/link'
 import { Localize } from 'components/localization'
+import usePricingFeed from 'components/hooks/use-pricing-feed'
+import Typography from 'features/components/atoms/typography'
+import InitialLoader from 'components/elements/dot-loader'
 
 export type TLiveMarketTableProps = {
     selected_market: TAvailableLiveMarkets
     link_to: string
 }
 
+const LoaderView = (
+    <Flex.Box justify="center">
+        <InitialLoader
+            style={{
+                padding: '40px 0',
+                marginInlineStart: '45%',
+            }}
+        />
+    </Flex.Box>
+)
+const ErrorView = (
+    <Flex.Box justify="center" mt="5x">
+        <Typography.Paragraph
+            align="left"
+            padding_block="3x"
+            padding_inline="6x"
+            font_family="UBUNTU"
+            textcolor="brand"
+        >
+            <Localize translate_text="_t_There was an error fetching the live pricing data_t_"></Localize>
+        </Typography.Paragraph>
+    </Flex.Box>
+)
+
 const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) => {
-    const { is_eu } = useRegion()
-    const [initial_loaded, setInitialLoaded] = useState(false)
-
-    const [rawMarketsData, setRawMarketsData] = useState()
+    const [error, rawMarketsData] = usePricingFeed()
     const TABLE_VISIBLE_ROWS = 5
-    const [markets_data, setMarketsData] = useState(() => {
-        const temp = new Map<TAvailableLiveMarkets, TMarketData[]>()
-        return temp
-    })
-    const intervalRef = useRef(null)
-
     const [sorting, setSorting] = React.useState<SortingState>([])
 
-    const region = useMemo(() => {
-        return is_eu
-            ? 'https://deriv-static-pricingfeed.firebaseio.com/eu.json'
-            : 'https://deriv-static-pricingfeed.firebaseio.com/row.json'
-    }, [is_eu])
-
-    const getData = useCallback(async () => {
-        const rawResponse = await fetch(region)
-        const response = await rawResponse.json()
-        setRawMarketsData(response)
-    }, [region])
-
-    useEffect(() => {
-        if (!initial_loaded) {
-            getData()
-            setInitialLoaded(true)
-        }
-        intervalRef.current = setInterval(getData, 10000)
-        return () => {
-            clearInterval(intervalRef.current)
-        }
-    }, [getData, initial_loaded])
-
-    const updateData = useCallback(() => {
+    const markets_data = useMemo(() => {
         if (rawMarketsData) {
-            const stocks = rawMarketsData.market['stocks']
-            const indices = rawMarketsData.market['indices']
-            const stocks_indices = Object.assign(stocks, indices)
-            const res = { ...rawMarketsData.market, indices: { ...stocks_indices } }
+            const stocks = rawMarketsData['stocks']
+            const indices = rawMarketsData['indices']
+            const stocks_indices = { ...stocks, ...indices }
+            const res = { ...rawMarketsData, indices: stocks_indices }
 
-            Object.keys(res).map((item) => {
-                if (item == selected_market) {
-                    const selected_market_data = res[item]
-                    const result = Object.values(selected_market_data)
-                    setMarketsData(result)
-                }
-            })
+            if (res[selected_market]) {
+                return Object.values(res[selected_market])
+            }
         }
+        return []
     }, [rawMarketsData, selected_market])
 
-    useEffect(() => {
-        updateData()
-    }, [updateData])
-
     const columns = useLiveColumns()
-
     const table = useReactTable({
         data: markets_data,
         columns,
@@ -92,6 +78,9 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
 
     const rows = table.getRowModel().rows.slice(0, TABLE_VISIBLE_ROWS)
 
+    if (!rawMarketsData) return LoaderView
+    if (error) return ErrorView
+
     return (
         <>
             <Flex.Box justify="center" mt="16x">
@@ -99,7 +88,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
                     <thead>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <Flex.Box key={headerGroup.id} justify="center">
-                                <tr className={table_row_header}>
+                                <tr className={styles.table_row_header}>
                                     {headerGroup.headers.map((header) => (
                                         <th key={header.id}>
                                             {header.isPlaceholder
@@ -117,7 +106,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
                     <tbody>
                         {rows.map((row) => (
                             <Flex.Box key={row.id} justify="center">
-                                <tr className={table_row_data}>
+                                <tr className={styles.table_row_data}>
                                     {row.getVisibleCells().map((cell) => (
                                         <td key={cell.id}>
                                             {flexRender(

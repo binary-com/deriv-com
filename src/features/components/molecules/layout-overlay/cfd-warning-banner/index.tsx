@@ -1,9 +1,8 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import { cfd_banner_container } from './cfd-warning-banner.module.scss'
 import { Localize } from 'components/localization'
 import Container from 'features/components/atoms/container'
-import { fallback_loss_percent } from 'common/constants'
+import { loss_percent } from 'common/constants'
 import Typography from 'features/components/atoms/typography'
 import useRegion from 'components/hooks/use-region'
 import usePpc from 'features/hooks/use-ppc'
@@ -11,14 +10,6 @@ import usePpc from 'features/hooks/use-ppc'
 const CfdWarningBanner = () => {
     const { is_ppc } = usePpc()
     const { is_eu, is_cpa_plan } = useRegion()
-    const data = useStaticQuery(graphql`
-        query {
-            strapiCfdWarningBanner {
-                loss_percent
-            }
-        }
-    `)
-    const loss_percent = data?.strapiCfdWarningBanner?.loss_percent ?? fallback_loss_percent
 
     if (is_ppc || is_eu || is_cpa_plan) {
         return (

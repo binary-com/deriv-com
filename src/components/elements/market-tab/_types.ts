@@ -1,7 +1,10 @@
+import { TString } from 'types/generics'
+
 export type TAvailableLiveMarkets =
     | 'forex'
     | 'derived'
     | 'indices'
+    | 'etfs'
     | 'cryptocurrency'
     | 'commodities'
 

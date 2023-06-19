@@ -410,11 +410,19 @@ export const updateURLAsPerUserLanguage = () => {
     const has_language_in_url = first_path in language_config
     const is_careers = paths.includes('careers')
 
+    // Start -  temporary fix of PT redirection
+    if (Cookies.get('user_language') === 'pt') {
+        setCookiesWithDomain('user_language', 'en')
+    }
+
+    if (window.location.href.indexOf('/pt/') > -1) {
+        window.location.href = window.location.href.replace('/pt/', '/')
+    }
+    // End - temporary fix of PT redirection
     if (has_language_in_url) {
         setCookiesWithDomain('user_language', first_path)
     }
     const user_language = Cookies.get('user_language') || 'en'
-
     const language = has_language_in_url ? first_path : user_language
 
     if (!has_language_in_url && user_language === 'en') return
@@ -425,10 +433,14 @@ export const updateURLAsPerUserLanguage = () => {
             ? paths.map((item) => (item === first_path ? language : item)).join('/')
             : language + paths.join('/')
         const new_url = updated_url + current_hash
-
         window.location.href = '/' + new_url
     } else {
         if (!has_language_in_url) return
         window.location.href = '/' + 'careers'
     }
+}
+
+export const validate_p2p_country = (p2p_config) => {
+    const p2p_validity = Cookies.get('is_p2p_disabled')
+    return p2p_validity ? !JSON.parse(p2p_validity) : !!p2p_config
 }

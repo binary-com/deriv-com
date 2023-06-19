@@ -428,11 +428,9 @@ export const updateURLAsPerUserLanguage = () => {
 
     if (!has_language_in_url && user_language === 'en') return
     if (first_path === user_language) return
-    if (first_path !== user_language) {
+    if (has_language_in_url && first_path !== user_language) {
         Cookies.remove('user_language')
-        has_language_in_url
-            ? setCookiesWithDomain('user_language', language)
-            : setCookiesWithDomain('user_language', 'en')
+        setCookiesWithDomain('user_language', language)
         return
     }
 

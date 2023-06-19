@@ -122,7 +122,7 @@ const trading_platform_what_have: TradingPlatformWhatHaveProps = [
             '_t_Access your Deriv EZ trades effortlessly on the Deriv GO mobile app. No extra apps to download, no extra passwords to remember._t_',
         image: (
             <StaticImage
-                src="../../../images/common/deriv-ez/on-go-trading.png"
+                src="../../../images/common/trading-platforms/deriv-ez/on-go-trading.png"
                 alt="Deriv GO trading app"
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
@@ -139,7 +139,7 @@ const trading_platform_what_have: TradingPlatformWhatHaveProps = [
             '_t_Take advantage of more than 50 trading indicators and tools to make informed decisions._t_',
         image: (
             <StaticImage
-                src="../../../images/common/deriv-ez/indicator.png"
+                src="../../../images/common/trading-platforms/deriv-ez/indicator.png"
                 alt="Trading indicators and tools"
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
@@ -156,7 +156,7 @@ const trading_platform_what_have: TradingPlatformWhatHaveProps = [
             '_t_Start trading immediately, with no additional login ID or password to fill in. Don’t miss out on market opportunities._t_',
         image: (
             <StaticImage
-                src="../../../images/common/deriv-ez/instant-platform.png"
+                src="../../../images/common/trading-platforms/deriv-ez/instant-platform.png"
                 alt="Deriv EZ account creation"
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
@@ -274,7 +274,71 @@ const demo: TradingPlatformStepperViewType = [
         image: how_to_start_images['step6'],
     },
 ]
+const demo_mobile: TradingPlatformStepperViewType = [
+    {
+        title: '_t_Get the <0>Deriv GO</0> app._t_',
+        component: (
+            <Link
+                textcolor="brand"
+                key={0}
+                url={{
+                    type: 'internal',
+                    to: '/deriv-go',
+                }}
+            />
+        ),
+        image: how_to_start_images['step1'],
+    },
+    {
+        title: '_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_',
+        image: how_to_start_images['step2'],
+    },
+    {
+        title: '_t_Add a Deriv EZ demo account._t_',
+        image: how_to_start_images['step3-demo'],
+    },
+    {
+        title: '_t_Start trading on the Deriv GO mobile app._t_',
+        image: how_to_start_images['step6'],
+    },
+]
 const real: TradingPlatformStepperViewType = [
+    {
+        title: '_t_Get the <0>Deriv GO</0> app._t_',
+        component: (
+            <Link
+                textcolor="brand"
+                key={0}
+                url={{
+                    type: 'internal',
+                    to: '/deriv-go',
+                }}
+            />
+        ),
+        image: how_to_start_images['step1'],
+    },
+    {
+        title: '_t_Create or sign in to your demo Deriv account._t_',
+        image: how_to_start_images['step2'],
+    },
+    {
+        title: '_t_Create a Deriv real account._t_',
+        image: how_to_start_images['step3'],
+    },
+    {
+        title: '_t_Create a Deriv EZ real account._t_',
+        image: how_to_start_images['step4'],
+    },
+    {
+        title: '_t_Fund your account._t_',
+        image: how_to_start_images['step5'],
+    },
+    {
+        title: '_t_Start trading on the Deriv GO mobile app._t_',
+        image: how_to_start_images['step6'],
+    },
+]
+const real_mobile: TradingPlatformStepperViewType = [
     {
         title: '_t_Get the <0>Deriv GO</0> app._t_',
         component: (
@@ -312,6 +376,8 @@ const real: TradingPlatformStepperViewType = [
 ]
 const trading_platform_start: TradingPlatformStartProps = {
     demo,
+    demo_mobile,
+    real_mobile,
     real,
 }
 const trading_platform_banner: BannerType = {

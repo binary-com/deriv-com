@@ -343,11 +343,11 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                             components={[
                                 <StyledLocalizedLink
                                     key={0}
+                                    as="a"
                                     href="/tnc/security-and-privacy.pdf"
                                     size="1.2rem"
                                     color="red"
                                     rel="noopener noreferrer"
-                                    target="_blank"
                                 />,
                             ]}
                         />

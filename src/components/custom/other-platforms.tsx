@@ -1,8 +1,8 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Flex, FlexGridContainer } from 'components/containers'
-import { Text, Card, Header, NavCard, CardLink, LocalizedLinkText } from 'components/elements'
-import { localize, LocalizedLink, Localize } from 'components/localization'
+import { Flex, FlexGridContainer, SectionContainer } from 'components/containers'
+import { Card, CardLink, Header, LocalizedLinkText, NavCard, Text } from 'components/elements'
+import { localize, Localize, LocalizedLink } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
 import { binary_bot_url } from 'common/constants'
@@ -17,7 +17,7 @@ import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
 import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
-import DerivEZ from 'images/svg/deriv-ez/derivez-logo-black.svg'
+import DerivEZ from 'images/svg/deriv-ez/deriv-ez-logo-red.svg'
 import DBot from 'images/svg/dbot/dbot-icon.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
@@ -424,7 +424,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                             }
                             title={<Localize translate_text="Deriv EZ" />}
                             onClick={onClick}
-                            to="/derivez/"
+                            to="/deriv-ez/"
                         />
                         <NavCard
                             aria_label="SmartTrader"

@@ -31,12 +31,12 @@ module.exports = {
         short_name: 'PL',
         affiliate_lang: 5,
     },
-    pt: {
-        path: 'pt',
-        display_name: 'Português',
-        short_name: 'PT',
-        affiliate_lang: 9,
-    },
+    // pt: {
+    //     path: 'pt',
+    //     display_name: 'Português',
+    //     short_name: 'PT',
+    //     affiliate_lang: 9,
+    // },
     ru: {
         path: 'ru',
         display_name: 'Русский',

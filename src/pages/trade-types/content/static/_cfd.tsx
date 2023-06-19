@@ -29,10 +29,7 @@ export const cfd_content: TCFD[] = [
     },
     {
         title: '_t_All your favourite markets_t_',
-        text: ({ is_eu }) =>
-            is_eu
-                ? '_t_Trade on all popular markets plus our proprietary synthetic indices that are available 24/7._t_'
-                : '_t_Trade on financial markets plus our proprietary synthetics that are available 24/7._t_',
+        text: '_t_Trade on financial markets plus our proprietary synthetics that are available 24/7._t_',
         src: Favourite,
         alt: '_t_All your favourite markets_t_',
     },

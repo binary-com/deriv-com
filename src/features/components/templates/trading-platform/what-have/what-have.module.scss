@@ -5,9 +5,9 @@
     block-size: 31.1rem;
   }
 }
-.what_have_text {
-  max-inline-size: 51.1rem;
+.flex_items{
   @include breakpoints(tablet) {
-    max-inline-size: 51.1rem;
+    inline-size: 49%;
+    justify-content: center;
   }
 }

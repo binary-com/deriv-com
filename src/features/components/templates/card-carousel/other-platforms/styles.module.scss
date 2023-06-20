@@ -1,14 +1,9 @@
 @use 'features/styles/theme/theme-mixins' as *;
 .swiper_wrapper {
-  //padding: 20px !important;
-}
-.swiper_container{
   block-size: 20rem;
   
-}
-.swiper_button_next_unique{
-  margin-left: 3.5rem;
-}
-.swiper_button_prev_unique{
-  margin-left: 7.5rem;
+  @include breakpoints(tablet) {
+    margin-bottom: 8rem;
+  }
+
 }

@@ -23,32 +23,16 @@ type CardCarouselType = {
 const CardCarousel = ({ renderable_data, main_heading }: CardCarouselType) => {
     return (
         <Container.Fluid className={swiper_container}>
-            <Typography.Heading align={'center'}>
+            <Typography.Heading align={'center'} mt="40x">
                 <Localize translate_text={main_heading} />
             </Typography.Heading>
-            <Flex.Box direction="row">
+            <Flex.Box direction="row" mt="40x" mb="40x">
                 <Swiper
                     style={{
                         '--swiper-navigation-color': 'primary',
                         '--swiper-navigation-size': '16px',
                     }}
-                    injectStyles={[
-                        `
-                          .swiper_button_next_unique,
-                          .swiper_button_prev_unique {
-                            background-color: white;
-                            padding: 8px 16px;
-                            border-radius: 100%;
-                            border: 2px solid black;
-                            color: red;
-                          }
-                         
-                      `,
-                    ]}
-                    navigation={{
-                        nextEl: '.swiper_button_next_unique',
-                        prevEl: '.swiper_button_prev_unique',
-                    }}
+                    navigation={true}
                     spaceBetween={30}
                     slidesPerView={3}
                     modules={[Navigation]}

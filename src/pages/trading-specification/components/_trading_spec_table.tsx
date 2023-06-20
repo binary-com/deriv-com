@@ -20,7 +20,6 @@ import {
     StyledButtonPage,
     StyledPaginationContainer,
 } from './_elements'
-import AvailablePlatform from './_available-platform'
 import SearchNotFound from 'images/svg/trading-specification/search-not-found.svg'
 import RightChevron from 'images/svg/trading-specification/right-chevron.svg'
 import LeftChevron from 'images/svg/trading-specification/left-chevron.svg'
@@ -172,8 +171,6 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
 
     return (
         <>
-            <AvailablePlatform />
-
             <TableContainer>
                 <StyledFlex>
                     <SearchForm onSubmit={handleSubmit}>
@@ -221,7 +218,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
                         <img src={SearchNotFound} />
                         <Header type="paragraph-1" weight="normal" as="p" align="center">
                             <Localize
-                                translate_text="No results for <0>'{{search_value}}'</0>"
+                                translate_text="_t_No results for <0>'{{search_value}}'</0>_t_"
                                 values={{ search_value }}
                                 components={[<strong key={0} />]}
                             />

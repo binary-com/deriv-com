@@ -30,6 +30,7 @@ const forex_specification: TSpecification = {
             instrument: {
                 symbol: 'AUDJPY',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'AUD/JPY',
             },
             contract_size: 100000,
@@ -47,6 +48,7 @@ const forex_specification: TSpecification = {
             instrument: {
                 symbol: 'AUDUSD',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'AUD/USD',
             },
             contract_size: 100000,
@@ -64,6 +66,7 @@ const forex_specification: TSpecification = {
             instrument: {
                 symbol: 'EURAUD',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'EUR/AUD',
             },
             contract_size: 100000,
@@ -81,6 +84,7 @@ const forex_specification: TSpecification = {
             instrument: {
                 symbol: 'EURCAD',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'EUR/CAD',
             },
             contract_size: 100000,
@@ -98,6 +102,7 @@ const forex_specification: TSpecification = {
             instrument: {
                 symbol: 'EURCHF',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'EUR/CHF',
             },
             contract_size: 100000,
@@ -115,6 +120,7 @@ const forex_specification: TSpecification = {
             instrument: {
                 symbol: 'EURGBP',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'EUR/GBP',
             },
             contract_size: 100000,
@@ -132,6 +138,7 @@ const forex_specification: TSpecification = {
             instrument: {
                 symbol: 'EURJPY',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'EUR/JPY',
             },
             contract_size: 100000,
@@ -149,6 +156,7 @@ const forex_specification: TSpecification = {
             instrument: {
                 symbol: 'EURUSD',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'EUR/USD',
             },
             contract_size: 100000,
@@ -166,6 +174,7 @@ const forex_specification: TSpecification = {
             instrument: {
                 symbol: 'GBPAUD',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'GBP/AUD',
             },
             contract_size: 100000,
@@ -183,6 +192,7 @@ const forex_specification: TSpecification = {
             instrument: {
                 symbol: 'GBPJPY',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'GBP/JPY',
             },
             contract_size: 100000,
@@ -200,6 +210,7 @@ const forex_specification: TSpecification = {
             instrument: {
                 symbol: 'GBPUSD',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'GBP/USD',
             },
             contract_size: 100000,
@@ -217,6 +228,7 @@ const forex_specification: TSpecification = {
             instrument: {
                 symbol: 'USDCAD',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'USD/CAD',
             },
             contract_size: 100000,
@@ -234,6 +246,7 @@ const forex_specification: TSpecification = {
             instrument: {
                 symbol: 'USDCHF',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'USD/CHF',
             },
             contract_size: 100000,
@@ -251,6 +264,7 @@ const forex_specification: TSpecification = {
             instrument: {
                 symbol: 'USDJPY',
                 dl_icon: true,
+                swf_icon: true,
                 instrument: 'USD/JPY',
             },
             contract_size: 100000,
@@ -267,6 +281,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'AUDCAD',
+                swf_icon: true,
                 instrument: 'AUD/CAD',
             },
             contract_size: 100000,
@@ -283,6 +298,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'AUDCHF',
+                swf_icon: true,
                 instrument: 'AUD/CHF',
             },
             contract_size: 100000,
@@ -298,23 +314,8 @@ const forex_specification: TSpecification = {
         },
         {
             instrument: {
-                symbol: 'CHFJPY',
-                instrument: 'CHF/JPY',
-            },
-            contract_size: 100000,
-            base_currency: 'CHF',
-            minimum_size: 0.01,
-            minimum_spread: 0.01,
-            target_spread: 0.021,
-            max_effective_leverage: 1000,
-            margin_requirement: 0.1,
-            swap_long: -0.02,
-            swap_short: -5.8,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT',
-        },
-        {
-            instrument: {
                 symbol: 'AUDNZD',
+                swf_icon: true,
                 instrument: 'AUD/NZD',
             },
             contract_size: 100000,
@@ -331,6 +332,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'CADCHF',
+                swf_icon: true,
                 instrument: 'CAD/CHF',
             },
             contract_size: 100000,
@@ -347,6 +349,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'CADJPY',
+                swf_icon: true,
                 instrument: 'CAD/JPY',
             },
             contract_size: 100000,
@@ -362,7 +365,25 @@ const forex_specification: TSpecification = {
         },
         {
             instrument: {
+                symbol: 'CHFJPY',
+                swf_icon: true,
+                instrument: 'CHF/JPY',
+            },
+            contract_size: 100000,
+            base_currency: 'CHF',
+            minimum_size: 0.01,
+            minimum_spread: 0.01,
+            target_spread: 0.021,
+            max_effective_leverage: 1000,
+            margin_requirement: 0.1,
+            swap_long: -0.02,
+            swap_short: -5.8,
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT',
+        },
+        {
+            instrument: {
                 symbol: 'EURNOK',
+                swf_icon: true,
                 instrument: 'EUR/NOK',
             },
             contract_size: 100000,
@@ -379,6 +400,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'EURNZD',
+                swf_icon: true,
                 instrument: 'EUR/NZD',
             },
             contract_size: 100000,
@@ -395,6 +417,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'EURPLN',
+                swf_icon: true,
                 instrument: 'EUR/PLN',
             },
             contract_size: 100000,
@@ -411,6 +434,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'EURSEK',
+                swf_icon: true,
                 instrument: 'EUR/SEK',
             },
             contract_size: 100000,
@@ -427,6 +451,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'GBPCAD',
+                swf_icon: true,
                 instrument: 'GBP/CAD',
             },
             contract_size: 100000,
@@ -443,6 +468,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'GBPCHF',
+                swf_icon: true,
                 instrument: 'GBP/CHF',
             },
             contract_size: 100000,
@@ -459,6 +485,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'GBPNOK',
+                swf_icon: true,
                 instrument: 'GBP/NOK',
             },
             contract_size: 100000,
@@ -475,6 +502,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'GBPNZD',
+                swf_icon: true,
                 instrument: 'GBP/NZD',
             },
             contract_size: 100000,
@@ -491,6 +519,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'GBPSEK',
+                swf_icon: true,
                 instrument: 'GBP/SEK',
             },
             contract_size: 100000,
@@ -507,6 +536,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'NZDCAD',
+                swf_icon: true,
                 instrument: 'NZD/CAD',
             },
             contract_size: 100000,
@@ -523,6 +553,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'NZDJPY',
+                swf_icon: true,
                 instrument: 'NZD/JPY',
             },
             contract_size: 100000,
@@ -539,6 +570,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'NZDUSD',
+                swf_icon: true,
                 instrument: 'NZD/USD',
             },
             contract_size: 100000,
@@ -555,6 +587,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'USDCNH',
+                swf_icon: true,
                 instrument: 'USD/CNH',
             },
             contract_size: 100000,
@@ -571,6 +604,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'USDMXN',
+                swf_icon: true,
                 instrument: 'USD/MXN',
             },
             contract_size: 100000,
@@ -587,6 +621,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'USDNOK',
+                swf_icon: true,
                 instrument: 'USD/NOK',
             },
             contract_size: 100000,
@@ -603,6 +638,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'USDPLN',
+                swf_icon: true,
                 instrument: 'USD/PLN',
             },
             contract_size: 100000,
@@ -619,6 +655,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'USDSEK',
+                swf_icon: true,
                 instrument: 'USD/SEK',
             },
             contract_size: 100000,
@@ -635,6 +672,7 @@ const forex_specification: TSpecification = {
         {
             instrument: {
                 symbol: 'USDZAR',
+                swf_icon: true,
                 instrument: 'USD/ZAR',
             },
             contract_size: 100000,

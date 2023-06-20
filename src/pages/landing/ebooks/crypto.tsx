@@ -50,7 +50,7 @@ const query = graphql`
 `
 
 const StocksEbook = ({ language }: StocksEbookProps) => {
-    const ebook_languages = ['es', 'pt', 'fr']
+    const ebook_languages = ['es', 'fr']
     const ebook_image = ebook_languages.includes(language) ? `_${language}` : ''
 
     const data = useStaticQuery(query)

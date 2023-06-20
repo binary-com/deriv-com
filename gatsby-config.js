@@ -278,19 +278,10 @@ module.exports = {
                         type: `image/png`,
                     },
                 ],
+                cache_busting_mode: 'none',
                 gcm_sender_id: '370236002280',
                 gcm_user_visible_only: true,
                 crossOrigin: `use-credentials`,
-                // TODO: add translations and support for language routes e.g:
-                // localize: [
-                //     {
-                //       start_url: '/de/',
-                //       lang: 'de',
-                //       name: 'Die coole Anwendung',
-                //       short_name: 'Coole Anwendung',
-                //       description: 'Die Anwendung macht coole Dinge und macht Ihr Leben besser.',
-                //     },
-                //   ],
             },
         },
         'gatsby-plugin-svgr',
@@ -334,6 +325,30 @@ module.exports = {
             options: {
                 analyzerMode: 'disabled',
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
+            },
+        },
+        {
+            resolve: `gatsby-plugin-offline`,
+            options: {
+                appendScript: require.resolve(`./static/pushwoosh-service-worker.js`),
+                precachePages: [`/`],
+                workboxConfig: {
+                    runtimeCaching: [
+                        {
+                            urlPattern: /\.(png|jpe?g|svg|gif|webp|ico|woff2?|ttf|otf|css|scss)$/,
+                            handler: `StaleWhileRevalidate`,
+                        },
+                        {
+                            urlPattern: /^.*$/,
+                            handler: `NetworkFirst`,
+                        },
+                        {
+                            // Google Fonts CSS (doesn't end in .css so we need to specify it)
+                            urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
+                            handler: `StaleWhileRevalidate`,
+                        },
+                    ]
+                },
             },
         },
     ],

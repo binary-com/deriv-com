@@ -3,7 +3,7 @@ import NotAvailableImage from 'images/svg/no_page_found.svg'
 
 export const not_available_image: ImageItem = {
     src: NotAvailableImage,
-    alt: 'Page not found',
+    alt: '_t_Page not found_t_',
 }
 export const button_link: ButtonLink = {
     text: '_t_Go home_t_',

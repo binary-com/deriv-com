@@ -12,7 +12,7 @@ type ButtonLink = {
 
 type ImageItem = {
     src: string
-    alt: string
+    alt: TString
 }
 
 export { InfoItem, ButtonLink, ImageItem }

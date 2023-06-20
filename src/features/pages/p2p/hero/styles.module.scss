@@ -1,0 +1,20 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.wrapper {
+    @include breakpoints(tablet){
+        block-size: 100%;
+        position: absolute;
+        right: 0;
+    } 
+}
+.image_style {
+    @include breakpoints(tablet){
+        max-inline-size: 500px;
+    }
+    @include breakpoints(laptop){
+        max-inline-size: 650px;
+    }
+    @include breakpoints(desktop){
+        max-inline-size: 800px;
+    }
+}

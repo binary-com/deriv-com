@@ -17,17 +17,18 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
             className={styles.banner_section}
             as={'section'}
             bgcolor={'black'}
-            padding_block={'32x'}
-            padding_inline={'8x'}
-            md={{ padding_inline: '0x', padding_block: '0x' }}
+            pt="32x"
+            pb="35x"
+            md={{ padding_block: '30x' }}
+            lg={{ padding_block: '40x' }}
         >
             <Flex.Box
                 container={'fluid'}
                 direction={'col'}
                 justify={'between'}
-                md={{ direction: 'row' }}
+                md={{ direction: 'row', align: 'center' }}
             >
-                <Flex.Box direction={'col'} align={'center'} md={{ basis: '3-6' }}>
+                <Flex.Box direction={'col'} align={'center'} basis="full" md={{ basis: '7-12' }}>
                     <FlexBox.Box
                         direction={'col'}
                         align={'center'}
@@ -79,61 +80,70 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
                         </FlexBox.Box>
                     </FlexBox.Box>
                 </Flex.Box>
-                <Flex.Box direction={'col'} align={'center'} md={{ align: 'start' }}>
-                    <FlexBox.Box
-                        className={styles.qr_box}
-                        align={'center'}
-                        padding={'12x'}
-                        mb={'12x'}
-                        mt={'20x'}
-                        md={{ mt: '0x' }}
-                    >
-                        <Image
-                            src={data.scan_box.icon}
-                            alt={'_t_qr code_t_'}
-                            width={64}
-                            height={64}
-                        />
-                        <FlexBox.Box direction={'col'}>
-                            <Typography.Paragraph textcolor={'white'}>
-                                <Localize translate_text={data.scan_box.heading_one} />
-                            </Typography.Paragraph>
-                            <Typography.Heading size={'xxs'} textcolor={'white'}>
-                                <Localize translate_text={data.scan_box.heading_two} />
-                            </Typography.Heading>
+                <Flex.Box
+                    direction={'col'}
+                    align={'center'}
+                    basis="full"
+                    padding_block="10x"
+                    md={{ basis: '5-12', align: 'end' }}
+                >
+                    <div className={styles.download_col}>
+                        <FlexBox.Box
+                            className={styles.qr_box}
+                            align={'center'}
+                            padding={'12x'}
+                            mb={'12x'}
+                            mt={'20x'}
+                            gap="8x"
+                            md={{ mt: '0x' }}
+                        >
+                            <Image
+                                src={data.scan_box.icon}
+                                alt={'_t_qr code_t_'}
+                                width={64}
+                                height={64}
+                            />
+                            <FlexBox.Box direction={'col'}>
+                                <Typography.Paragraph textcolor={'white'}>
+                                    <Localize translate_text={data.scan_box.heading_one} />
+                                </Typography.Paragraph>
+                                <Typography.Heading size={'xxs'} textcolor={'white'}>
+                                    <Localize translate_text={data.scan_box.heading_two} />
+                                </Typography.Heading>
+                            </FlexBox.Box>
                         </FlexBox.Box>
-                    </FlexBox.Box>
-                    <Flex.Box wrap={'wrap'} justify={'start'} pl={'12x'}>
-                        {data.os_apps.map((item) => (
-                            <Flex.Box
-                                key={item.id}
-                                align={'center'}
-                                padding_block={'8x'}
-                                basis={'6-12'}
-                            >
-                                <Image
-                                    src={item.data.icon}
-                                    alt={item.data.text}
-                                    width={is_mobile ? 24 : 32}
-                                    height={is_mobile ? 24 : 32}
-                                />
-                                <Link pl={'3x'} url={item.data.url} no_hover>
-                                    {item?.data.smallText && (
-                                        <Typography.Paragraph textcolor={'white'} size={'xxs'}>
-                                            <Localize translate_text={item.data.smallText} />
+                        <Flex.Box wrap={'wrap'} justify={'start'} pl={'12x'}>
+                            {data.os_apps.map((item) => (
+                                <Flex.Box
+                                    key={item.id}
+                                    align={'center'}
+                                    padding_block={'8x'}
+                                    basis={'6-12'}
+                                >
+                                    <Image
+                                        src={item.data.icon}
+                                        alt={item.data.text}
+                                        width={is_mobile ? 24 : 32}
+                                        height={is_mobile ? 24 : 32}
+                                    />
+                                    <Link pl={'3x'} url={item.data.url} no_hover>
+                                        {item?.data.smallText && (
+                                            <Typography.Paragraph textcolor={'white'} size={'xxs'}>
+                                                <Localize translate_text={item.data.smallText} />
+                                            </Typography.Paragraph>
+                                        )}
+                                        <Typography.Paragraph
+                                            textcolor={'white'}
+                                            size={'large'}
+                                            weight={'bold'}
+                                        >
+                                            {item.data.text}
                                         </Typography.Paragraph>
-                                    )}
-                                    <Typography.Paragraph
-                                        textcolor={'white'}
-                                        size={'large'}
-                                        weight={'bold'}
-                                    >
-                                        {item.data.text}
-                                    </Typography.Paragraph>
-                                </Link>
-                            </Flex.Box>
-                        ))}
-                    </Flex.Box>
+                                    </Link>
+                                </Flex.Box>
+                            ))}
+                        </Flex.Box>
+                    </div>
                 </Flex.Box>
             </Flex.Box>
         </Container.Fixed>

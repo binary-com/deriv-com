@@ -10,6 +10,7 @@ import Cryptocurrencies from 'images/svg/markets/cryptocurrencies-new.svg'
 import Forex from 'images/svg/markets/forex-new.svg'
 import StockIndices from 'images/svg/markets/stock-new.svg'
 import DerivedFX from 'images/svg/markets/derived-fx.svg'
+import ETFs from 'images/svg/markets/etfs.svg'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
@@ -75,7 +76,6 @@ const markets_type: MarketsType = {
         to: '/markets/stock/',
         id: 'marketstockothermarkets',
     },
-
     commodities: {
         icon: () => <img src={Commodities} alt="Commodities" width="44" height="44" />,
         title: <Localize translate_text="Commodities" />,

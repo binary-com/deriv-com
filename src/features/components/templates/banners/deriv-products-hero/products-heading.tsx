@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React from 'react'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import { TString } from 'types/generics'

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React from 'react'
 import { DerivProductContentType } from './types'
 import { hero_desktop_image } from './deriv-products-hero.module.scss'
 import FlexBox from 'features/components/atoms/flex-box'

@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import HeroMainButton from './products-signup'
 import FlexBox from 'features/components/atoms/flex-box'
 

@@ -1,0 +1,34 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.p2p_hero {
+    position: relative;
+
+    @include breakpoints(tablet) {
+        min-block-size: 60rem;
+    }
+    @include breakpoints(laptop){
+        min-block-size: 82rem;
+    }
+    @include breakpoints(desktop) {
+        min-block-size: 100svh;
+    }
+
+    &::before {
+        content: ' ';
+        position: absolute;
+        block-size: 65%;
+        inline-size: 100%;
+        background-color: $color-brand;
+        inset-block-start: 0;
+        clip-path: polygon(0 0, 100% 0, 100% 60%, 0% 40%);
+
+        @include breakpoints(tablet) {
+            inset-block-end: unset;
+            inset-inline-end: 0;
+            block-size: 100%;
+            inline-size: 43%;
+            clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+    }
+}

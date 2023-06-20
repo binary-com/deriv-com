@@ -20,19 +20,6 @@ export const tradeTypesItems: SmartTradeTypeItem[] = [
     {
         id: 1,
         data: {
-            title: '_t_Multipliers_t_',
-            description:
-                '_t_Multiply your potential profit without risking more than your stake._t_',
-            url: {
-                type: 'internal',
-                to: '/trade-types/multiplier/',
-            },
-            icon_src: MultipliersHomeIcon,
-        },
-    },
-    {
-        id: 2,
-        data: {
             title: '_t_Options_t_',
             description: '_t_Earn a range of payouts by correctly predicting market movements._t_',
             url: {
@@ -43,6 +30,19 @@ export const tradeTypesItems: SmartTradeTypeItem[] = [
         },
         visibility: {
             is_eu: false,
+        },
+    },
+    {
+        id: 2,
+        data: {
+            title: '_t_Multipliers_t_',
+            description:
+                '_t_Multiply your potential profit without risking more than your stake._t_',
+            url: {
+                type: 'internal',
+                to: '/trade-types/multiplier/',
+            },
+            icon_src: MultipliersHomeIcon,
         },
     },
 ]

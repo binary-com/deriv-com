@@ -10,10 +10,10 @@
     block-size: 7rem;
 }
 
-.no_nav{
+.no_nav {
     background-color: $color-black;
     inline-size: 100%;
-    block-size:18.4rem;
-    top: -184px;
+    block-size: 18.4rem;
+    inset-block-start: -184px;
     position: absolute;
 }

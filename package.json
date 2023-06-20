@@ -26,6 +26,7 @@
         "embla-carousel-react": "^6.0.2",
         "eslint-import-resolver-node": "^0.3.6",
         "extend": "^3.0.2",
+        "firebase": "^9.22.1",
         "formik": "^2.2.9",
         "gatsby": "^4.24.0",
         "gatsby-background-image": "^1.6.0",

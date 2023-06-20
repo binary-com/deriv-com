@@ -134,15 +134,11 @@ export const onInitialClientRender = () => {
 }
 
 const isStaging = process.env.GATSBY_ENV === 'staging';
-let dataDogVersion = '';
-let dataDogEnv = '';
-let serviceName = '';
+let dataDogVersion = 'production';
+let dataDogEnv =  `deriv-com-${process.env.GIT_TAG_NAME}`;
+let serviceName = 'deriv-com';
 
-if (isProduction) {
-    serviceName = 'deriv-com';
-    dataDogVersion = `deriv-com-${process.env.GIT_TAG_NAME}`;
-    dataDogEnv = 'production';
-} else if ( isStaging ) {
+ if ( isStaging ) {
     serviceName = 'staging.deriv-com';
     dataDogVersion = `deriv-com-staging-v${formatDate(new Date(), 'YYYYMMDD')}-${formatTime(Date.now(), 'HH:mm')}`;
     dataDogEnv = 'staging';

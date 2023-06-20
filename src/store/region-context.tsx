@@ -5,6 +5,7 @@ import {
     african_countries,
     cpa_plan_countries,
     p2p_countries,
+    not_available_appgallery_countries,
 } from 'common/country-base'
 import useWebsiteStatus from 'components/hooks/use-website-status'
 import {
@@ -33,7 +34,8 @@ type RegionContextType = Record<
     | 'is_latam'
     | 'is_row'
     | 'is_dev'
-    | 'is_africa',
+    | 'is_africa'
+    | 'is_appgallery_supported',
     boolean
 > & { user_country: string }
 
@@ -54,6 +56,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         is_africa: false,
     })
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
+    const [is_appgallery_supported, setAppgallerySupported] = useState(false)
     const [is_p2p_loading, setP2PLoading] = useState(true)
     const [user_country, setUserCountry] = useState(null)
 
@@ -92,6 +95,11 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                 setP2PLoading(false)
             } else if ('p2p_config' in website_status && !p2p_config) {
                 setP2PLoading(false)
+            }
+            if (qa_url_region) {
+                not_available_appgallery_countries.includes(qa_url_region)
+                    ? setAppgallerySupported(false)
+                    : setAppgallerySupported(true)
             }
             setUserCountry(clients_country)
             setRegion({
@@ -135,6 +143,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                 is_africa,
                 is_row,
                 is_dev,
+                is_appgallery_supported,
             }}
         >
             {children}

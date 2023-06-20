@@ -4,7 +4,7 @@ import * as styles from './not-found.module.scss'
 import Typography from 'features/components/atoms/typography'
 import FlexBox from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import LinkButton from 'features/components/atoms/link-button'
 import Container from 'features/components/atoms/container'
 
@@ -29,7 +29,7 @@ const NotFoundContainer = () => {
                 </Typography.Heading>
                 <Image
                     src={not_available_image.src}
-                    alt={not_available_image.alt}
+                    alt={localize(not_available_image.alt)}
                     className={styles.image_logo}
                 />
 

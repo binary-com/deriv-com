@@ -6,6 +6,7 @@ import language_config from '../../../../../i18n-config'
 import { nonENLangUrlReplace, setCookiesWithDomain } from 'common/utility'
 import { isProduction } from 'common/websocket/config'
 import { useClientInformation } from 'components/hooks/use-client-information'
+import apiManager from 'common/websocket'
 
 type TLanguageObject = {
     key: string
@@ -23,7 +24,7 @@ type i18nLangConfigObject = {
 }
 
 const supported_languages = Object.keys(language_config)
-const disabled_lang = ['ach']
+const disabled_lang = ['ach', 'pt']
 
 const languages: TLanguageObject[] = supported_languages.map((langItem) => {
     if (disabled_lang.includes(langItem) && isProduction()) return
@@ -72,15 +73,18 @@ const useLangSwitcher = () => {
     const onSwitchLanguage = (url: string) => {
         const current_lang = language || 'en'
         const path = url === '/en/' ? '/' : url
+        const selected_language = url.replaceAll(/\//g, '')
+        const selected_language_code = selected_language.replaceAll('-', '_')
 
         if (`/${current_lang}/` !== url) {
             const current_path = window.location.pathname
             const current_hash = window.location.hash
-            const destination_path = `${path}${
+            const destination_lang =
                 current_lang === 'en'
                     ? current_path.replace(/\//u, '')
                     : nonENLangUrlReplace(current_path)
-            }${current_hash}`
+
+            const destination_path = `${path}${destination_lang}${current_hash}`
             setCookiesWithDomain('user_language', url.replace(/\//g, ''))
 
             if (path === '/ach/') {
@@ -92,7 +96,9 @@ const useLangSwitcher = () => {
                 or just /about/
                 or just /
             */
-                navigate(destination_path, { state: { hrerfLang: path } })
+
+                apiManager.reset(selected_language_code)
+                navigate(destination_path, { state: { hrefLang: path } })
             }
         }
     }

@@ -3,7 +3,9 @@
 
 .hero_wrapper {
     max-inline-size: 38.1rem;
+    padding-block-start: 35.4rem;
     @include breakpoints(tablet) {
+        padding-block-start: 0;
         max-inline-size: 63.2rem;
     }
 }
@@ -11,6 +13,18 @@
     max-block-size: 31rem;
     @include breakpoints(tablet) {
         max-block-size: 64.1rem;
+    }
+}
+.hero_big_image {
+    position: absolute;
+    top: 80px;
+    right: -95px;
+
+    @include breakpoints(tablet) {
+        right: -240px;
+    }
+    @include breakpoints(desktop) {
+        right: -30px;
     }
 }
 .number_box {
@@ -25,7 +39,7 @@
 }
 .what_have_text {
     @include breakpoints(tablet) {
-        max-inline-size: 79.2rem;
+        max-inline-size: 51.1rem;
     }
 }
 .what_is_text {

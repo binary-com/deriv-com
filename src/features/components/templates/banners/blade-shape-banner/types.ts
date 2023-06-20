@@ -19,6 +19,7 @@ export type QRScanBoxType = {
     icon: string
     heading_one: TString
     heading_two: TString
+    url?: LinkUrlType
 }
 type OsAppConfig = {
     is_eu: boolean
@@ -29,6 +30,7 @@ export type BannerType = {
     information: InformationType
     scan_box: QRScanBoxType
     extra_info?: ExtraInfoType
+    traders_hub_info: QRScanBoxType
     os_apps: SmartOsApp[]
 }
 export type RoadmapType = {

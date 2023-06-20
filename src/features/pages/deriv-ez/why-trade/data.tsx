@@ -21,7 +21,7 @@ export const card_data: DerivEzCardTypes[] = [
     {
         title: '_t_All your favourite assets, one platform_t_',
         subtitle:
-            '_t_Access over 150 assets in multiple markets simultaneously on one platform._t_',
+            '_t_Access over 190 assets in multiple markets simultaneously on one platform._t_',
         icon: <Image src={FavouriteAssets} height={48} alt={'_t_Favourite assets_t_'} />,
     },
 ]

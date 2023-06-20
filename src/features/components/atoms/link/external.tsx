@@ -25,6 +25,7 @@ const product_links: ProductLinksType = {
     dbot: ({ language, url }) => getDerivAppLocalizedURL(localized_link_url['dbot'], language, url),
     deriv_app: ({ language, url }) =>
         getDerivAppLocalizedURL(localized_link_url['deriv_app'], language, url),
+    deriv_app_login: () => localized_link_url['deriv_app_login'],
     mt5: ({ language, url }) => getDerivAppLocalizedURL(localized_link_url['mt5'], language, url),
     derivx: ({ language, url }) =>
         getDerivAppLocalizedURL(localized_link_url['derivx'], language, url),

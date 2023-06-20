@@ -18,25 +18,24 @@ const WhatIsDerivEZ = () => {
                 return (
                     <FlexBox.Box
                         className={what_have_wrapper}
-                        key={content.id}
+                        key={content.title}
                         direction={'col'}
                         margin_block={'10x'}
-                        justify={'around'}
+                        justify={'between'}
                         align={'center'}
                         md={{
                             direction: index % 2 == 0 ? 'row' : 'row-reverse',
                         }}
                     >
-                        <FlexBox.Box direction={'col'} justify={'center'}>
+                        <FlexBox.Box
+                            className={what_have_text}
+                            direction={'col'}
+                            justify={'center'}
+                        >
                             <Typography.Heading mb={'6x'} align="left" textcolor="primary">
                                 <Localize translate_text={content.title} />
                             </Typography.Heading>
-                            <Typography.Paragraph
-                                className={what_have_text}
-                                align={'left'}
-                                mb={'12x'}
-                                md={{ mb: '0x' }}
-                            >
+                            <Typography.Paragraph align={'left'} mb={'12x'} md={{ mb: '0x' }}>
                                 <Localize translate_text={content.subtitle} />
                             </Typography.Paragraph>
                         </FlexBox.Box>

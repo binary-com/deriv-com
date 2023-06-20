@@ -26,8 +26,9 @@ const TabContent = ({ items: initial_tems, direction = 'row' }: Omit<StepperTabT
         >
             <FlexBox.Box
                 className={tab_images}
-                margin_inline={'40x'}
-                md={{ margin_block: '12x', margin_inline: '0x' }}
+                mr={'0x'}
+                pr={'0x'}
+                md={{ margin_block: '12x', mr: '40x', pr: '8x' }}
             >
                 {items[selected]?.image}
             </FlexBox.Box>
@@ -51,7 +52,7 @@ const TabContent = ({ items: initial_tems, direction = 'row' }: Omit<StepperTabT
                                     {`${index + 1}. `}
                                     <Localize
                                         translate_text={item.title}
-                                        components={[item?.component]}
+                                        components={item?.component}
                                     />
                                 </Typography.Paragraph>
                             </Box>

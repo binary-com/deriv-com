@@ -57,6 +57,7 @@ export type ExternalURLNames =
     | 'affiliate_sign_up'
     | 'dbot'
     | 'deriv_app'
+    | 'deriv_app_login'
     | 'mt5'
     | 'derivx'
     | 'binary'

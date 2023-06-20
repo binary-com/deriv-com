@@ -1,6 +1,7 @@
 import AppleIcon from 'images/svg/apple-icon.svg'
 import AppGalleryIcon from 'images/svg/appGallery-icon.svg'
 import AndroidIcon from 'images/svg/android-icon.svg'
+import WebIcon from 'images/svg/web.svg'
 import derivEZLogo from 'images/svg/deriv-ez/deriv-ez-logo-red.svg'
 import derivEZQR from 'images/svg/deriv-ez/derivez-qr.svg'
 import InfoIcon from 'images/svg/info-icon.svg'
@@ -8,6 +9,7 @@ import {
     deriv_go_huaweiappgallery_url,
     deriv_go_ios_url,
     deriv_go_playstore_url,
+    traders_hub,
 } from 'common/constants'
 import { BannerType } from 'features/components/templates/banners/blade-shape-banner/types'
 
@@ -22,8 +24,18 @@ export const apps_data: BannerType = {
         heading_two: '_t_Android, iOS & Huawei_t_',
     },
     extra_info: {
-        where: '_t_Deriv EZ is available on <0>Deriv GO.<0>_t_',
+        where: '_t_Deriv EZ is also available on <0>Deriv GO.<0>_t_',
         icon: InfoIcon,
+    },
+    traders_hub_info: {
+        icon: WebIcon,
+        heading_one: "_t_Via Trader's Hub_t_",
+        heading_two: '_t_Web browser_t_',
+        url: {
+            type: 'non-company',
+            href: traders_hub,
+            target: '_blank',
+        },
     },
     os_apps: [
         {

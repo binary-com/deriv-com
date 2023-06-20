@@ -2,11 +2,11 @@
 @import 'features/styles/theme/variables';
 
 .hero_wrapper {
-    max-inline-size: 38.1rem;
+    max-inline-size: 32.7rem;
     padding-block-start: 35.4rem;
     @include breakpoints(tablet) {
         padding-block-start: 0;
-        max-inline-size: 63.2rem;
+        max-inline-size: 55.5rem;
     }
 }
 .hero_image {

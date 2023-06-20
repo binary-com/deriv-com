@@ -35,11 +35,7 @@ const DerivEZHero = () => {
                         pt={'4x'}
                         md={{ pt: '8x' }}
                     >
-                        <Localize translate_text="_t_An intuitive,_t_" />
-                        <br />
-                        <Localize translate_text="_t_easy-to-get-started_t_" />
-                        <br />
-                        <Localize translate_text="_t_CFDs trading platform_t_" />
+                        <Localize translate_text="_t_An intuitive CFD trading platform for desktop and mobile_t_" />
                     </Typography.Heading>
                 </FlexBox.Box>
                 <FlexBox.Item className={hero_big_image} align_self={'center'}>

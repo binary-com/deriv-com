@@ -4,8 +4,6 @@ import { Localize } from 'components/localization'
 import LinkButton from 'features/components/atoms/link-button'
 import CtraderWrapper from 'components/custom/_ctrader-wrapper'
 import Flex from 'features/components/atoms/flex-box'
-import useBreakpoints from 'components/hooks/use-breakpoints'
-import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
 import Layout from 'features/components/templates/layout'
 
@@ -18,13 +16,12 @@ const CtraderManage = ({
     button_url,
     button_text,
 }: CtraderManageProps) => {
-    const { is_small_mobile } = useBreakpoints()
-
     return (
         <Layout>
             <CtraderWrapper>
                 <Flex.Box
-                    gap={is_small_mobile ? '10x' : '15x'}
+                    gap="10x"
+                    md={{ gap: '15x' }}
                     direction="col"
                     justify="center"
                     align="center"
@@ -34,18 +31,9 @@ const CtraderManage = ({
                         <Localize translate_text={title} />
                     </Typography.Heading>
                     {steps && (
-                        <Flex.Box
-                            direction={is_small_mobile ? 'col' : 'row'}
-                            gap={'15x'}
-                            pt={is_small_mobile ? '5x' : '20x'}
-                            pb="12x"
-                            align="center"
-                        >
-                            <Image
-                                src={is_small_mobile ? image_url_mobile : image_url}
-                                alt="traders-hub"
-                                width={is_small_mobile ? 197 : 325}
-                            />
+                        <Flex.Box direction="row" gap={'15x'} padding="10x" align="center">
+                            <div className="visible-phone-only">{image_url_mobile}</div>
+                            <div className="visible-larger-than-phone">{image_url}</div>
                             <Flex.Box gap={'5x'} direction="col" justify="center">
                                 {steps.map((step) => (
                                     <Typography.Paragraph key={step.id}>

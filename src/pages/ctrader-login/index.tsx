@@ -14,11 +14,12 @@ const CtraderLogin = () => {
     return (
         <Layout>
             <CtraderWrapper>
-                {!account_error && <Loading />}
-                {account_error && (
-                    <Typography.Heading size="xs" align="center">
+                {account_error ? (
+                    <Typography.Heading size="small" pt="40x">
                         {account_error}
                     </Typography.Heading>
+                ) : (
+                    <Loading />
                 )}
             </CtraderWrapper>
         </Layout>

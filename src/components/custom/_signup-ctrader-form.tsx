@@ -20,7 +20,7 @@ const SignUpCtraderForm = () => {
     } = enterEmailForm
     const values = watch()
 
-    const isButtonDisabled = values.email === '' || !values.terms || !isValid || isSubmitting
+    const is_button_disabled = values.email === '' || !values.terms || !isValid || isSubmitting
 
     return (
         <Flex.Box as="form" direction="col" onSubmit={handleSubmit(onEnterEmail)} gap="8x">
@@ -53,7 +53,7 @@ const SignUpCtraderForm = () => {
                     />
                 </Input.Checkbox>
             </Flex.Item>
-            <Button.Primary fluid disabled={isButtonDisabled}>
+            <Button.Primary fluid disabled={is_button_disabled}>
                 <Localize translate_text="_t_Create demo account_t_" />
             </Button.Primary>
         </Flex.Box>

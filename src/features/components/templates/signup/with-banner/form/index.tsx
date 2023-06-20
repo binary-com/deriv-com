@@ -23,7 +23,7 @@ const SignupPublicForm = () => {
     } = signUpForm
     const values = watch()
 
-    const isButtonDisabled = values.email === '' || !values.terms || !isValid
+    const is_button_disabled = values.email === '' || !values.terms || !isValid
 
     return (
         <Flex.Box
@@ -79,7 +79,7 @@ const SignupPublicForm = () => {
                         />
                     </Flex.Item>
                     <Flex.Item shrink="0" grow="1">
-                        <Button.Primary fluid disabled={isButtonDisabled}>
+                        <Button.Primary fluid disabled={is_button_disabled}>
                             <Localize translate_text="_t_Sign up_t_" />
                         </Button.Primary>
                     </Flex.Item>

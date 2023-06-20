@@ -114,10 +114,10 @@ export const DropdownContainer = styled.ul<DropdownContainerProps>`
     ${(props) => {
         if (props.error)
             return css`
-                border-color: #ff444f !important;
+                border-color: var(--color-red) !important;
 
                 label {
-                    color: #ff444f !important;
+                    color: var(--color-red) !important;
                 }
             `
 
@@ -265,7 +265,7 @@ const ErrorMessages = styled(Text)`
     padding-left: 0.8rem;
     font-size: 1.2rem;
     min-height: 16px;
-    color: #ff444f;
+    color: var(--color-red);
 `
 
 const ContractSizeWrapper = styled(Text)`

@@ -7,7 +7,6 @@ type BreakpointsProviderProps = {
 }
 
 type TUseBreakpoints = Record<
-    | 'is_small_mobile'
     | 'is_mobile'
     | 'is_tablet'
     | 'is_mobile_or_tablet'
@@ -21,7 +20,6 @@ type TUseBreakpoints = Record<
 export const BreakpointsContext = createContext<TUseBreakpoints>(null)
 
 export const BreakpointsProvider = ({ children }: BreakpointsProviderProps) => {
-    const is_small_mobile = useMediaQuery(breakpoints.xxs)
     const is_mobile = useMediaQuery(breakpoints.xs)
     const is_tablet = useMediaQuery(breakpoints.sm)
     const is_large_tablet = useMediaQuery(breakpoints.md)
@@ -33,7 +31,6 @@ export const BreakpointsProvider = ({ children }: BreakpointsProviderProps) => {
     return (
         <BreakpointsContext.Provider
             value={{
-                is_small_mobile,
                 is_mobile,
                 is_tablet,
                 is_large_tablet,

@@ -36,7 +36,7 @@ type EmailFormData = yup.InferType<typeof email_schema>
 
 const useCtraderEmailForm = () => {
     const enterEmailForm = useForm<EmailFormData>({
-        mode: 'onChange',
+        mode: 'all',
         resolver: yupResolver(email_schema),
     })
 

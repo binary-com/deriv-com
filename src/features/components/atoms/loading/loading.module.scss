@@ -1,5 +1,7 @@
-$spinner: #ff444f;
-$background: white;
+@import 'features/styles/theme/variables';
+
+$spinner: $color-red;
+$background: $color-white;
 $size: 5rem;
 
 html {

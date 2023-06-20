@@ -36,7 +36,7 @@ const useCtraderSubmitForm = () => {
     const { loading, create_account_error } = useSigninAndSignup('ctrader', token)
 
     const submitForm = useForm<SubmitFormData>({
-        mode: 'onChange',
+        mode: 'all',
         resolver: yupResolver(submit_schema),
     })
 

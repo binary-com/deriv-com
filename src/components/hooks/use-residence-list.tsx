@@ -1,28 +1,29 @@
-import { useEffect, useMemo, useState } from 'react'
-import apiManager from 'common/websocket'
+import { useEffect, useMemo } from 'react'
+import useWS from './useWS'
 
 export type ResidenceType = {
     text: string
     value: string
 }
 
+const formatResidenceList = (residences) => {
+    if (!residences.length) {
+        return []
+    }
+    return residences?.map(({ text: display_name, text: name, value: symbol }) => ({
+        name,
+        display_name,
+        symbol,
+    }))
+}
+
 export const useResidenceList = () => {
-    const [data, setData] = useState([])
+    const { send, data } = useWS('residence_list')
 
     useEffect(() => {
-        apiManager.augmentedSend('residence_list').then((response) => {
-            setData(response.residence_list)
-        })
-    }, [])
+        send()
+    }, [send])
 
-    const formatResidenceList = (residences) => {
-        return residences?.map(({ text: display_name, text: name, value: symbol }) => ({
-            name,
-            display_name,
-            symbol,
-        }))
-    }
-
-    const residence_list = useMemo(() => formatResidenceList(data), [data])
+    const residence_list = useMemo(() => formatResidenceList(data || []), [data])
     return [residence_list]
 }

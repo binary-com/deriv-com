@@ -4,6 +4,7 @@ import AddMoreAccountsImage from 'images/common/ctrader/add-more-accounts.png'
 import AddAccountMobileImage from 'images/common/ctrader/add-account-mobile.png'
 import { TString } from 'types/generics'
 import { LinkUrlType } from 'features/types'
+import Image from 'features/components/atoms/image'
 
 type ParagraphType = {
     id?: number
@@ -17,8 +18,8 @@ export type CtraderManageProps = {
     title: TString
     paragraph: ParagraphType
     steps?: ParagraphType[]
-    image_url?: string
-    image_url_mobile?: string
+    image_url?: JSX.Element
+    image_url_mobile?: JSX.Element
     button_url: LinkUrlType
     button_text: TString
 }
@@ -31,8 +32,10 @@ export const ctrader_manage_data: CtraderManageDataType = {
             target: '_blank',
             href: 'https://app.deriv.com/appstore/traders-hub',
         },
-        image_url: AddAccountImage,
-        image_url_mobile: AddAccountMobileImage,
+        image_url: <Image src={AddAccountImage} width={325} alt={'_t_Add account image_t_'} />,
+        image_url_mobile: (
+            <Image src={AddAccountMobileImage} height={197} alt={'_t_Add account image_t_'} />
+        ),
         steps: [
             {
                 id: 1,
@@ -52,8 +55,10 @@ export const ctrader_manage_data: CtraderManageDataType = {
     },
     add_more_accounts: {
         title: '_t_Create more trading accounts_t_',
-        image_url: AddMoreAccountsImage,
-        image_url_mobile: AddAccountMobileImage,
+        image_url: <Image src={AddMoreAccountsImage} width={325} alt={'_t_Add account image_t_'} />,
+        image_url_mobile: (
+            <Image src={AddAccountMobileImage} height={197} alt={'_t_Add account image_t_'} />
+        ),
         steps: [
             {
                 id: 1,
@@ -94,7 +99,7 @@ export const ctrader_manage_data: CtraderManageDataType = {
         button_url: {
             type: 'non-company',
             target: '_blank',
-            href: 'https://app.deriv.com/account/cloing-account',
+            href: 'https://app.deriv.com/account/closing-account',
         },
         paragraph: {
             text: '_t_Your cTrader account is linked to your Deriv account. <0/>Please click the button to proceed with <1>deleting your Deriv account</1>._t_',

@@ -44,7 +44,7 @@ const SignupSuccessForm = ({ email, residence_list }: SignupSuccessFormProps) =>
         }
     }, [clearErrors, errors.root?.serverError, setError])
 
-    const isButtonDisabled =
+    const is_button_disabled =
         values.verification_code === '' ||
         values.password === '' ||
         values.residence === '' ||
@@ -98,7 +98,7 @@ const SignupSuccessForm = ({ email, residence_list }: SignupSuccessFormProps) =>
                 }
                 {...register('password')}
             />
-            {residence_list.length > 0 && (
+            {residence_list.length ? (
                 <Controller
                     name="residence"
                     defaultValue={''}
@@ -129,8 +129,8 @@ const SignupSuccessForm = ({ email, residence_list }: SignupSuccessFormProps) =>
                         />
                     )}
                 />
-            )}
-            <Button.Primary type="submit" disabled={isButtonDisabled}>
+            ) : null}
+            <Button.Primary type="submit" disabled={is_button_disabled}>
                 <Localize translate_text={loading ? '_t_Loading_t_' : '_t_Submit_t_'} />
             </Button.Primary>
         </Flex.Box>

@@ -11,6 +11,7 @@ import Button from 'features/components/atoms/button'
 import Link from 'features/components/atoms/link'
 import Layout from 'features/components/templates/layout'
 import { useResidenceList } from 'components/hooks/use-residence-list'
+import Image from 'features/components/atoms/image'
 
 const SignupSuccess = () => {
     const [show_check_email, setShowCheckEmail] = useState(true)
@@ -29,10 +30,10 @@ const SignupSuccess = () => {
                     gap="15x"
                     className={form_style}
                 >
-                    <Typography.Heading as="h3" size="small" align="center" weight="bold">
+                    <Typography.Heading as="h3" size="small" align="center">
                         <Localize translate_text="_t_Check your email_t_" />
                     </Typography.Heading>
-                    <img src={EmailIcon} alt="email" width="128px" height="128px" />
+                    <Image src={EmailIcon} alt="email" width="128px" height="128px" />
                     {show_check_email ? (
                         <>
                             <Typography.Paragraph className={paragraph_style} align="center">

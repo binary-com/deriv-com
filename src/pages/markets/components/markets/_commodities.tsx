@@ -14,9 +14,9 @@ import Flex from 'features/components/atoms/flex-box'
 import { Localize, localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
+import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 
 type CommoditiesProps = {
     simple_step_content: SimpleStepContentElement[]
@@ -93,7 +93,7 @@ const Commodities = ({ simple_step_content }: CommoditiesProps) => {
                 content={simple_step_content}
                 sign_up
             />
-            <OtherMarkets except="commodities" />
+            <OtherMarketsSlider current_market="commodities" />
         </>
     )
 }

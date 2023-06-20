@@ -1,6 +1,6 @@
 import React from 'react'
 import PageNotFound from '../404'
-import CTrader from 'features/pages/ctrader'
+import CTrader from 'features/pages/deriv-ctrader'
 import useRegion from 'components/hooks/use-region'
 
 const CTraderPage = () => {

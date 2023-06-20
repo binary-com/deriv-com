@@ -6,6 +6,7 @@
   }
 }
 .what_have_text {
+  max-inline-size: 51.1rem;
   @include breakpoints(tablet) {
     max-inline-size: 51.1rem;
   }

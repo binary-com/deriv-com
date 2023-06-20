@@ -1,5 +1,7 @@
 import React from 'react'
 import { ctrader_data } from './data'
+import CTraderTradeDescription from './trade-description'
+import CTraderNumbers from './numbers'
 import {
     TradingPlatformHowToStart,
     TradingPlatformNumbers,
@@ -12,7 +14,7 @@ import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 
-const CTrader = () => {
+const DerivCTrader = () => {
     const {
         trading_platform_hero,
         trading_platform_numbers,
@@ -32,7 +34,10 @@ const CTrader = () => {
             />
             {/*need provide new*/}
             {/*<TradingPlatformHero trading_platform_hero={trading_platform_hero} />*/}
-            <TradingPlatformNumbers trading_platform_numbers={trading_platform_numbers} />
+            {/*<TradingPlatformNumbers trading_platform_numbers={trading_platform_numbers} />*/}
+            <CTraderNumbers />
+            <CTraderTradeDescription />
+
             <TradingPlatformWhyTrade trading_platform_why_trade={trading_platform_why_trade} />
             <TradingPlatformWhatHave trading_platform_what_have={trading_platform_what_have} />
             <TradingPlatformHowToStart trading_platform_start={trading_platform_start} />
@@ -43,4 +48,4 @@ const CTrader = () => {
     )
 }
 
-export default WithIntl()(CTrader)
+export default WithIntl()(DerivCTrader)

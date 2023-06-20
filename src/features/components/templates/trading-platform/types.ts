@@ -16,6 +16,9 @@ export type TradingPlatformPHeroProps = {
 }
 export type TradingPlatformNumbersProps = {
     selling_points: TradingPlatformTextType[]
+
+}
+export type TradingPlatformDescriptionProps = {
     what_is_description: TradingPlatformTextType
 }
 export type TradingPlatformWhatHaveProps = {
@@ -44,6 +47,7 @@ export type TradingPlatformOtherProps = {
 export type TradingPlatformDataType = {
     trading_platform_hero: TradingPlatformPHeroProps
     trading_platform_numbers: TradingPlatformNumbersProps
+    trading_platform_description: TradingPlatformDescriptionProps
     trading_platform_why_trade: TradingPlatformWhyTradeProps
     trading_platform_what_have: TradingPlatformWhatHaveProps
     trading_platform_start: TradingPlatformStartProps

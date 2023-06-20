@@ -17,10 +17,10 @@ const DerivEZ = () => {
         <Layout>
             <MainNav />
             <SEO
-                title={localize(
+                title={localize('_t_Deriv EZ – a CFD trading platform | Deriv_t_')}
+                description={localize(
                     '_t_Deriv EZ is our intuitive CFD trading platform where you can trade forex, commodities, stocks & indices, cryptocurrencies, and derived indices._t_',
                 )}
-                description={localize('_t_Deriv EZ – a CFD trading platform | Deriv_t_')}
             />
             <Hero />
             <Numbers />

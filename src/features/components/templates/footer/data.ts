@@ -180,7 +180,7 @@ const platformsLinks: SmartFooterLink[] = [
         id: 5,
         data: {
             text: '_t_SmartTrader_t_',
-            url: { type: 'company', url_name: 'smart_trader' },
+            url: { type: 'company', url_name: 'smart_trader', target: '_blank' },
         },
         visibility: {
             is_row: true,
@@ -200,7 +200,7 @@ const platformsLinks: SmartFooterLink[] = [
         id: 7,
         data: {
             text: '_t_Binary Bot_t_',
-            url: { type: 'non-company', href: binary_bot_url },
+            url: { type: 'company', url_name: 'binary_bot', target: '_blank' },
         },
         visibility: {
             is_row: true,

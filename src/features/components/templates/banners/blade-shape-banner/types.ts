@@ -7,7 +7,7 @@ export type InformationType = {
 }
 export type OsAppType = {
     icon: string
-    text: TString
+    text: string
     url: LinkUrlType
     smallText?: TString
 }

@@ -31,6 +31,12 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
+        // [TODO] Enable this when we have a proper setup to enable both caching and pushwoosh service workers together, Otherwise it will cause one of them stop working.
+        //     resolve: `gatsby-plugin-offline`,
+        //     options: {
+        //         // precachePages: [`/`],
+        //     },
+        // },
         {
             resolve: 'gatsby-plugin-sass',
             options: {
@@ -273,19 +279,10 @@ module.exports = {
                         type: `image/png`,
                     },
                 ],
+                cache_busting_mode: 'none',
                 gcm_sender_id: '370236002280',
                 gcm_user_visible_only: true,
                 crossOrigin: `use-credentials`,
-                // TODO: add translations and support for language routes e.g:
-                // localize: [
-                //     {
-                //       start_url: '/de/',
-                //       lang: 'de',
-                //       name: 'Die coole Anwendung',
-                //       short_name: 'Coole Anwendung',
-                //       description: 'Die Anwendung macht coole Dinge und macht Ihr Leben besser.',
-                //     },
-                //   ],
             },
         },
         {
@@ -348,6 +345,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-offline`,
             options: {
+                appendScript: require.resolve(`./static/pushwoosh-service-worker.js`),
                 precachePages: [`/`],
                 workboxConfig: {
                     runtimeCaching: [
@@ -357,9 +355,14 @@ module.exports = {
                         },
                         {
                             urlPattern: /^.*$/,
+                            handler: `NetworkFirst`,
+                        },
+                        {
+                            // Google Fonts CSS (doesn't end in .css so we need to specify it)
+                            urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
                             handler: `StaleWhileRevalidate`,
                         },
-                    ],
+                    ]
                 },
             },
         },

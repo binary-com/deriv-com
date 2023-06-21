@@ -237,8 +237,9 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const [popup_type, setPopupType] = useState<TPopupType>()
 
     useEffect(() => {
+        document.body.style.minHeight = '100vh'
+        document.body.style.minHeight = '-webkit-fill-available'
         document.body.style.overflow = show_popUp ? 'hidden' : 'scroll'
-        document.body.style.position = show_popUp ? 'relative' : ''
     }, [show_popUp])
 
     const openPopup = (type: TPopupType) => {

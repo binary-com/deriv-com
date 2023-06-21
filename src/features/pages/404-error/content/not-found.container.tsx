@@ -44,9 +44,11 @@ const NotFoundContainer = () => {
                 >
                     <Localize translate_text={info_items.sub_header} />
                 </Typography.Heading>
-                <LinkButton.Primary url={button_link.url} hero>
-                    <Localize translate_text={button_link.text} />
-                </LinkButton.Primary>
+                <FlexBox.Item pb="36x" md={{ pb: '23x' }}>
+                    <LinkButton.Primary url={button_link.url} hero>
+                        <Localize translate_text={button_link.text} />
+                    </LinkButton.Primary>
+                </FlexBox.Item>
             </FlexBox.Box>
         </Container.Fluid>
     )

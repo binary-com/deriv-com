@@ -6,7 +6,7 @@ export const not_available_image: IconProps = {
     alt: '_t_Page not found_t_',
 }
 export const button_link: LinkType = {
-    text: '_t_Go home_t_',
+    text: '_t_Return to homepage_t_',
     url: { type: 'internal', to: '/' },
 }
 export const info_items: InfoItemType = {

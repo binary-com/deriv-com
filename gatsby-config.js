@@ -82,7 +82,7 @@ module.exports = {
                     // Configure cache options here
                     cacheFolder: '.cache/caches/gatsby-plugin-sharp',
                     maxMemory: 500000000,
-                  },
+                },
             },
         },
         `gatsby-plugin-image`,
@@ -93,6 +93,7 @@ module.exports = {
                     '/404',
                     '/**/404.html',
                     '/**/404',
+                    '/bug-bounty',
                     '/check-email',
                     '/**/check-email',
                     '/reset-password',
@@ -362,7 +363,7 @@ module.exports = {
                             urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
                             handler: `StaleWhileRevalidate`,
                         },
-                    ]
+                    ],
                 },
             },
         },

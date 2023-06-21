@@ -14,10 +14,10 @@ export type TradingPlatformPHeroProps = {
     logo: ReactElement
     logo_mobile: ReactElement
 }
-export type TradingPlatformNumbersProps = {
-    selling_points: TradingPlatformTextType[]
+// export type TradingPlatformNumbersProps = {
+//     selling_points: TradingPlatformTextType[]
 
-}
+// }
 export type TradingPlatformDescriptionProps = {
     what_is_description: TradingPlatformTextType
 }

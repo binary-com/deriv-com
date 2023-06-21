@@ -10,9 +10,6 @@ import { Localize } from 'components/localization'
 const TabSwitcher = ({ tab, onTabClick }: Omit<StepperTabTypes, 'items'>) => {
     return (
         <FlexBoxContainer direction={'col'} align={'center'} justify={'center'} pt={'20x'}>
-            <Typography.Heading align={'center'} mb={'20x'}>
-                <Localize translate_text={'_t_How to get started with a Deriv EZ account_t_'} />
-            </Typography.Heading>
             <FlexBox.Box justify={'center'}>
                 <TabButton
                     className={

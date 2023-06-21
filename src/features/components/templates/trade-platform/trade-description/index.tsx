@@ -12,12 +12,7 @@ interface TradingPlatformDescriptionProps {
 }
 const TradeDescription = ({ title, subtitle }: TradingPlatformDescriptionProps) => {
     return (
-        <Container.Fluid
-            className={number_box}
-            margin_block={'20x'}
-            margin_inline={'8x'}
-            md={{ margin_block: '40x' }}
-        >
+        <Container.Fluid margin_block={'20x'} margin_inline={'8x'} md={{ margin_block: '40x' }}>
             <FlexBox.Box direction={'col'} className={description_section}>
                 <Typography.Heading align={'center'}>
                     <Localize translate_text={title} />

@@ -85,7 +85,7 @@ const ResetPassword = () => {
                 no_index
             />
             <StyledContainer justify="center" align="center" direction="column">
-                <Header as="h2" type="page-title" align="center" mt="80px">
+                <Header as="h2" type="page-title" align="center" mt="10px">
                     {localize('Reset password')}
                 </Header>
                 <Header

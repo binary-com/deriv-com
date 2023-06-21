@@ -7,11 +7,13 @@
         min-block-size: 90svh;
     }
 }
+
 .sub_header {
     @include breakpoints(tablet) {
         max-inline-size: 59.1rem;
     }
 }
+
 .image_logo {
     inline-size: 28.6rem;
     @include breakpoints(tablet) {

@@ -18,10 +18,10 @@ import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'
 import { Localize, localize } from 'components/localization'
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 import useRegion from 'components/hooks/use-region'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 
 type StockIndicesProps = {
     simple_step_content: SimpleStepContentElement[]
@@ -107,7 +107,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 content={simple_step_content}
                 sign_up
             />
-            {!is_deriv_go && <OtherMarkets except="derived" />}
+            {!is_deriv_go && <OtherMarketsSlider current_market="synthetic" />}
         </div>
     )
 }

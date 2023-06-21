@@ -15,10 +15,10 @@ import { localize, Localize } from 'components/localization'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import useRegion from 'components/hooks/use-region'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 
 type StockIndicesProps = {
     simple_step_content: SimpleStepContentElement[]
@@ -92,7 +92,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 content={simple_step_content}
                 sign_up
             />
-            <OtherMarkets except="stock_indices" />
+            <OtherMarketsSlider current_market="stock" />
         </div>
     )
 }

@@ -115,7 +115,7 @@ const useLiveColumns = () => {
                             size={is_mobile ? 'small' : 'medium'}
                             md={{ align: 'left' }}
                         >
-                            <Localize translate_text="_t_Daily % Change_t_" />
+                            <Localize translate_text="_t_Daily % change_t_" />
                         </Typography.Paragraph>
                     </Flex.Box>
                 ),

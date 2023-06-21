@@ -4,11 +4,6 @@
 .banner_section {
   position: relative;
   isolation: isolate;
-
-  @include breakpoints(tablet) {
-    padding-inline: 12rem;
-    padding-block: 13.4rem;
-  }
   &:before {
     background: $color-black-10;
     clip-path: polygon(0 0,100% 0,100% 100%,0 78%);

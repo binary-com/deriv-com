@@ -34,7 +34,7 @@ const DropdownInput = styled.input<DropdownInputProps>`
     border: none;
     white-space: nowrap;
     overflow: hidden;
-    padding: 0 1rem;
+    padding: 0 2rem;
     font-size: var(--text-size-xs);
     display: flex;
     align-items: center;

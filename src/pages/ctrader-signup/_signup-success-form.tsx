@@ -57,7 +57,7 @@ const SignupSuccessForm = ({ email, residence_list }: SignupSuccessFormProps) =>
             justify="center"
             align="center"
             direction="col"
-            gap="10x"
+            gap="8x"
             className={form_style}
             onSubmit={handleSubmit(onSubmit)}
         >

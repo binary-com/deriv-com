@@ -18,7 +18,7 @@ const SignUpFormContainer = () => {
         <Layout>
             <CtraderWrapper>
                 <Flex.Box className={form_style} direction="col" gap="8x">
-                    <Typography.Heading size="small">
+                    <Typography.Heading size="small" pt="25x">
                         <Localize translate_text="_t_Let's start_t_" />
                     </Typography.Heading>
                     <Typography.Paragraph size="medium">

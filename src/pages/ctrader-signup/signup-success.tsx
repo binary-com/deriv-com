@@ -27,7 +27,7 @@ const SignupSuccess = () => {
                     justify="center"
                     align="center"
                     direction="col"
-                    gap="15x"
+                    gap="7x"
                     className={form_style}
                 >
                     <Typography.Heading as="h3" size="small" align="center">

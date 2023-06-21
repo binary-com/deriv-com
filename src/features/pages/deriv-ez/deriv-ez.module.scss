@@ -18,13 +18,22 @@
 .hero_big_image {
     position: absolute;
     top: 80px;
-    right: -95px;
+    right: -75px;
 
     @include breakpoints(tablet) {
-        right: -240px;
+        right: -435px;
+    }
+    @include breakpoints(laptop) {
+        right: -300px;
     }
     @include breakpoints(desktop) {
-        right: -30px;
+        right: -215px;
+    }
+}
+.hero_button {
+    @include breakpoints(tablet) {
+        white-space: nowrap;
+        inline-size: 20.5rem;
     }
 }
 .number_box {

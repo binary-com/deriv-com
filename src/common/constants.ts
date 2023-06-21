@@ -133,6 +133,7 @@ export const localized_link_url = Object.freeze({
     api: deriv_api_url,
     dbot: deriv_bot_app_url,
     deriv_app: deriv_app_url,
+    deriv_app_login,
     mt5: deriv_mt5_app_url,
     smart_trader: smarttrader_url,
     zoho: zoho_url,

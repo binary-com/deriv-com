@@ -1,11 +1,11 @@
 import React from 'react'
-import { TMarketNavItem } from './types'
+import { TMarketNavItemType } from './types'
 import Flex from 'features/components/atoms/flex-box'
 import Link from 'features/components/atoms/link'
 import { Localize } from 'components/localization'
 
 interface IBottomNavItemProps {
-    item: TMarketNavItem
+    item: TMarketNavItemType
 }
 
 const BottomNavItem = ({ item }: IBottomNavItemProps) => {

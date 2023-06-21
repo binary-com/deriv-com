@@ -12,10 +12,8 @@
         justify-content: center;
         align-items: center;
 
-        padding: 0.8rem;
-
         min-block-size: 5rem;
-        min-inline-size: 26rem;
+        min-inline-size: 28rem;
 
         cursor: pointer;
         white-space: pre-line;
@@ -24,6 +22,7 @@
             inline-size: 28rem;
             grid-column-gap: 1.6rem;
             grid-row-gap: 0.8rem;
+            padding: 0.8rem;
         }
 
         &:hover {

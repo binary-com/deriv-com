@@ -1,0 +1,19 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.instrumental_wrapper {
+    border: 1px solid $color-grey-6;
+    flex-direction: column;
+
+    @include breakpoints(tablet) {
+        flex-direction: row;
+    }
+
+    .instrumental_left_item {
+        border-bottom: 1px solid $color-grey-6;
+        @include breakpoints(tablet) {
+            border-right: 1px solid $color-grey-6;
+            border-bottom: none;
+        }
+    }
+}

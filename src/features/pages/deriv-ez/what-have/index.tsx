@@ -39,7 +39,7 @@ const WhatIsDerivEZ = () => {
                                 <Localize translate_text={content.subtitle} />
                             </Typography.Paragraph>
                         </FlexBox.Box>
-                        {content.image}
+                        <FlexBox.Item>{content.image}</FlexBox.Item>
                     </FlexBox.Box>
                 )
             })}

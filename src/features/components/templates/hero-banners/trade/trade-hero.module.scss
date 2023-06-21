@@ -3,6 +3,7 @@
 
 .trade_hero {
     position: relative;
+    overflow: hidden;
 
     @include breakpoints(tablet) {
         min-block-size: 82.2rem;

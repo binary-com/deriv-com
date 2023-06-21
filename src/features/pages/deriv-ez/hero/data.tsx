@@ -12,9 +12,8 @@ export const hero_images = {
             quality={100}
             formats={['avif', 'webp', 'auto']}
             height={606}
-            width={765}
             objectFit="contain"
-            placeholder="none"
+            placeholder="blurred"
         />
     ),
     hero_mobile: (
@@ -27,7 +26,7 @@ export const hero_images = {
             height={238}
             width={379}
             objectFit="contain"
-            placeholder="none"
+            placeholder="blurred"
         />
     ),
     logo: <Image src={DerivEzLogo} height={64} alt={'_t_Deriv EZ logo_t_'} />,

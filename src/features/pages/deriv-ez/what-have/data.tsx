@@ -14,7 +14,8 @@ export const content_data: AcuityFeaturesTypes[] = [
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
                 quality={100}
-                placeholder="none"
+                height={311}
+                placeholder="blurred"
             />
         ),
     },
@@ -30,7 +31,8 @@ export const content_data: AcuityFeaturesTypes[] = [
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
                 quality={100}
-                placeholder="none"
+                height={311}
+                placeholder="blurred"
             />
         ),
     },
@@ -46,7 +48,8 @@ export const content_data: AcuityFeaturesTypes[] = [
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
                 quality={100}
-                placeholder="none"
+                height={311}
+                placeholder="blurred"
             />
         ),
     },

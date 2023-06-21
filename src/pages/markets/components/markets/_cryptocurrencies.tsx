@@ -18,10 +18,10 @@ import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 
 type CryptocurrenciesProps = {
     simple_step_content: SimpleStepContentElement[]
@@ -109,7 +109,7 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                 content={simple_step_content}
                 sign_up
             />
-            {!is_deriv_go && <OtherMarkets except="cryptocurrencies" />}
+            {!is_deriv_go && <OtherMarketsSlider current_market="cryptocurrencies" />}
         </>
     )
 }

@@ -1,15 +1,17 @@
 import React from 'react'
-import { TradingPlatformWhyTradeProps } from '../types'
+import { CardDataType } from '../types'
 import { why_trade_card } from './why-trade.module.scss'
 import Typography from 'features/components/atoms/typography'
 import FlexBox from 'features/components/atoms/flex-box'
 import { Localize } from 'components/localization'
+import { TString } from 'types/generics'
 
-const TradingPlatformWhyTrade = ({
-    trading_platform_why_trade,
-}: {
-    trading_platform_why_trade: TradingPlatformWhyTradeProps
-}) => {
+export type TradingPlatformWhyTradeProps = {
+    title?: TString
+    card_data: CardDataType[]
+}
+
+const TradingPlatformWhyTrade = ({ title, card_data }: TradingPlatformWhyTradeProps) => {
     return (
         <FlexBox.Box
             direction={'col'}
@@ -18,14 +20,14 @@ const TradingPlatformWhyTrade = ({
             md={{ justify: 'center', margin_block: '40x' }}
         >
             <Typography.Heading align={'center'}>
-                <Localize translate_text={trading_platform_why_trade['title']} />
+                <Localize translate_text={title} />
             </Typography.Heading>
             <FlexBox.Box
                 direction={'col'}
                 align={'center'}
                 md={{ direction: 'row', justify: 'center', mt: '20x' }}
             >
-                {trading_platform_why_trade['card_data'].map((card) => {
+                {card_data.map((card) => {
                     return (
                         <FlexBox.Box
                             key={card.title}

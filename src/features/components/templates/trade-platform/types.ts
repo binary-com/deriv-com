@@ -23,10 +23,13 @@ export type TradingPlatformWhatHaveProps = {
     title?: TString
     subtitle?: TString
 }[]
-export type TradingPlatformWhyTradeProps = {
+
+export type TradingPlatformCardDataType = {
     title?: TString
-    card_data: { title?: TString; subtitle?: TString; icon: ReactElement }[]
+    subtitle?: TString
+    icon: ReactElement
 }
+
 export type TradingPlatformStepperViewType = React.ComponentProps<typeof StepperView>['items']
 export type TradingPlatformStartProps = {
     demo: TradingPlatformStepperViewType

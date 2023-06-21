@@ -105,12 +105,22 @@ const marketsLinks: SmartFooterLink[] = [
     {
         id: 3,
         data: {
+            text: '_t_ETF_t_',
+            url: { type: 'internal', to: '/markets/exchange-traded-funds/' },
+        },
+        visibility: {
+            is_row: true,
+        },
+    },
+    {
+        id: 4,
+        data: {
             text: '_t_Cryptocurrencies_t_',
             url: { type: 'internal', to: '/markets/cryptocurrencies/' },
         },
     },
     {
-        id: 4,
+        id: 5,
         data: {
             text: '_t_Commodities_t_',
             url: { type: 'internal', to: '/markets/commodities/' },
@@ -170,7 +180,7 @@ const platformsLinks: SmartFooterLink[] = [
         id: 5,
         data: {
             text: '_t_SmartTrader_t_',
-            url: { type: 'company', url_name: 'smart_trader' },
+            url: { type: 'company', url_name: 'smart_trader', target: '_blank' },
         },
         visibility: {
             is_row: true,
@@ -190,7 +200,7 @@ const platformsLinks: SmartFooterLink[] = [
         id: 7,
         data: {
             text: '_t_Binary Bot_t_',
-            url: { type: 'non-company', href: binary_bot_url },
+            url: { type: 'company', url_name: 'binary_bot', target: '_blank' },
         },
         visibility: {
             is_row: true,

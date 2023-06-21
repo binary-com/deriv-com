@@ -1,15 +1,15 @@
 import React from 'react'
-import { TradingPlatformWhatHaveProps } from '../types'
+import { TradingPlatformWhatHaveData } from '../types'
 import { what_have_wrapper, flex_items } from './what-have.module.scss'
 import FlexBox from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 
-const TradingPlatformWhatHave = ({
-    trading_platform_what_have,
-}: {
-    trading_platform_what_have: TradingPlatformWhatHaveProps
-}) => {
+export type TradingPlatformWhatHaveProps = {
+    items: TradingPlatformWhatHaveData[]
+}
+
+const TradingPlatformWhatHave = ({ items }: TradingPlatformWhatHaveProps) => {
     return (
         <FlexBox.Box
             container={'fluid'}
@@ -18,7 +18,7 @@ const TradingPlatformWhatHave = ({
             pt={'20x'}
             md={{ padding_inline: '0x', padding_block: '40x' }}
         >
-            {trading_platform_what_have.map((content, index) => {
+            {items.map((content, index) => {
                 return (
                     <FlexBox.Box
                         className={what_have_wrapper}

@@ -17,12 +17,13 @@ export type TradingPlatformPHeroProps = {
 export type TradingPlatformDescriptionProps = {
     what_is_description: TradingPlatformTextType
 }
-export type TradingPlatformWhatHaveProps = {
+
+export type TradingPlatformWhatHaveData = {
     id: number
     image: ReactElement
     title?: TString
     subtitle?: TString
-}[]
+}
 
 export type TradingPlatformCardDataType = {
     title?: TString
@@ -46,8 +47,6 @@ export type TradingPlatformOtherProps = {
 export type TradingPlatformDataType = {
     trading_platform_hero: TradingPlatformPHeroProps
     trading_platform_description: TradingPlatformDescriptionProps
-    trading_platform_why_trade: TradingPlatformWhyTradeProps
-    trading_platform_what_have: TradingPlatformWhatHaveProps
     trading_platform_start: TradingPlatformStartProps
     trading_platform_banner?: BannerType
     trading_platform_other: TradingPlatformOtherProps

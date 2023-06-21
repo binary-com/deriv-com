@@ -1,5 +1,5 @@
 import React from 'react'
-import { CardDataType } from '../types'
+import { TradingPlatformCardDataType } from '../types'
 import { why_trade_card } from './why-trade.module.scss'
 import Typography from 'features/components/atoms/typography'
 import FlexBox from 'features/components/atoms/flex-box'
@@ -8,7 +8,7 @@ import { TString } from 'types/generics'
 
 export type TradingPlatformWhyTradeProps = {
     title?: TString
-    card_data: CardDataType[]
+    card_data: TradingPlatformCardDataType[]
 }
 
 const TradingPlatformWhyTrade = ({ title, card_data }: TradingPlatformWhyTradeProps) => {

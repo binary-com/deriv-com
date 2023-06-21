@@ -36,7 +36,7 @@ const StyledButton = styled(Button)`
 `
 
 const ResetPassword = () => {
-    const [apiError, setApiError] = useState('')
+    const [apiError, setApiError] = useState<string | null>('')
     const initialValues: EmailType = { email: '' }
 
     const resetSubmission = (values: EmailType, actions) => {

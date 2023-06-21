@@ -31,13 +31,12 @@
 }
 
 .main_item_active {
-    block-size: 14rem;
+    block-size: 100%;
     opacity: 1;
 
     @include breakpoints(tablet) {
         border-block-end: 6px solid red;
         border-radius: 8px;
-        block-size: 100%;
         box-shadow: 0px 16px 20px rgba(131, 131, 131, 0.15), 0px 0px 20px rgba(131, 131, 131, 0.15);
     }
 }

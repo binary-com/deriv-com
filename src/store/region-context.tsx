@@ -5,6 +5,7 @@ import {
     african_countries,
     cpa_plan_countries,
     p2p_countries,
+    not_available_appgallery_countries,
 } from 'common/country-base'
 import useWebsiteStatus from 'components/hooks/use-website-status'
 import {
@@ -24,6 +25,7 @@ type RegionProviderProps = {
 
 type RegionContextType = Record<
     | 'is_p2p_allowed_country'
+    | 'is_p2p_loading'
     | 'is_region_loading'
     | 'is_eu_location'
     | 'is_eu'
@@ -32,7 +34,8 @@ type RegionContextType = Record<
     | 'is_latam'
     | 'is_row'
     | 'is_dev'
-    | 'is_africa',
+    | 'is_africa'
+    | 'is_appgallery_supported',
     boolean
 > & { user_country: string }
 
@@ -53,6 +56,8 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         is_africa: false,
     })
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
+    const [is_appgallery_supported, setAppgallerySupported] = useState(false)
+    const [is_p2p_loading, setP2PLoading] = useState(true)
     const [user_country, setUserCountry] = useState(null)
 
     const user_ip_country = website_status?.clients_country || ''
@@ -79,12 +84,22 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         const is_dev = isLocalhost() || isTestlink()
         if (website_status) {
             const { clients_country, p2p_config } = website_status
-            setP2PAllowedCountry(validate_p2p_country(p2p_config))
             //QA testing purposes
             if (qa_url_region) {
                 p2p_countries.includes(qa_url_region)
                     ? setP2PAllowedCountry(true)
                     : setP2PAllowedCountry(false)
+                setP2PLoading(false)
+            } else if ('p2p_config' in website_status && p2p_config) {
+                setP2PAllowedCountry(validate_p2p_country(p2p_config))
+                setP2PLoading(false)
+            } else if ('p2p_config' in website_status && !p2p_config) {
+                setP2PLoading(false)
+            }
+            if (qa_url_region) {
+                not_available_appgallery_countries.includes(qa_url_region)
+                    ? setAppgallerySupported(false)
+                    : setAppgallerySupported(true)
             }
             setUserCountry(clients_country)
             setRegion({
@@ -117,6 +132,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         <RegionContext.Provider
             value={{
                 is_p2p_allowed_country,
+                is_p2p_loading,
                 user_country,
                 is_region_loading,
                 is_eu_location,
@@ -127,6 +143,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                 is_africa,
                 is_row,
                 is_dev,
+                is_appgallery_supported,
             }}
         >
             {children}

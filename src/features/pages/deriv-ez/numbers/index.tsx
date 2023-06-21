@@ -42,21 +42,7 @@ const Numbers = () => {
                     <Typography.Paragraph align={'center'} mt={'8x'} weight={'normal'}>
                         <Localize
                             translate_text={
-                                '_t_Deriv EZ is a user-friendly CFDs trading platform that offers instant access to all your favourite assets._t_'
-                            }
-                        />
-                    </Typography.Paragraph>
-                    <Typography.Paragraph align={'center'} weight={'normal'}>
-                        <Localize
-                            translate_text={
-                                '_t_There is no additional account ID or password to remember, so you can fully focus on your trading._t_'
-                            }
-                        />
-                    </Typography.Paragraph>
-                    <Typography.Paragraph align={'center'} weight={'normal'}>
-                        <Localize
-                            translate_text={
-                                '_t_Trade on Deriv EZ and access a wide variety of assets in forex, stocks and indices, commodities, cryptocurrencies, and derived indices._t_'
+                                '_t_Deriv EZ is a CFD trading platform that offers instant access to all your favourite assets on desktop and mobile. It’s easy to get started on Deriv EZ; no extra account ID or password is needed. Enjoy multi-asset CFD trading on forex, stocks and indices, commodities, cryptocurrencies, and derived indices._t_'
                             }
                         />
                     </Typography.Paragraph>

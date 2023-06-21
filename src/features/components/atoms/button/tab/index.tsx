@@ -8,7 +8,7 @@ export interface PrimaryButtonProps extends Omit<BaseButtonProps, 'bgcolor' | 't
 
 const TabButton = ({
     textsize = 'small',
-    textweight = 'bold',
+    textweight,
     className,
     outlined,
     ...rest

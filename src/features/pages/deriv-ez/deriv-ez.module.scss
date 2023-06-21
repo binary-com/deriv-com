@@ -66,6 +66,6 @@
 }
 .item_description {
     @include breakpoints(tablet) {
-        padding-inline: 22rem;
+        max-inline-size: 79.2rem;
     }
 }

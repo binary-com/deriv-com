@@ -6,16 +6,12 @@
     border-color: transparent;
     background-color: transparent;
     text-align: center;
-    font-size: 1.4rem;
-    font-family: Ubuntu, sans-serif;
+    border-radius: unset;
     transition: all 0.25s;
     white-space: nowrap;
-    padding: 1rem 3.2rem;
+    padding: 2.4rem 1.6rem;
     @include breakpoints(tablet) {
-        font-size: 2rem;
-        min-inline-size: 20rem;
-        min-block-size: 6.4rem;
-        padding: 1.7rem 2rem;
+        padding: 2.4rem 3.8rem;
     }
 }
 

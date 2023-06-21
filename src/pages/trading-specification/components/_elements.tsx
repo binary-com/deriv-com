@@ -11,7 +11,6 @@ import * as icons from 'components/elements/symbols'
 import useRegion from 'components/hooks/use-region'
 import dl from 'images/svg/trading-specification/dl.svg'
 import swf from 'images/svg/trading-specification/swf.svg'
-import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 export const TableContainer = styled.div`
     display: grid;
@@ -239,6 +238,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
 
     useEffect(() => {
         document.body.style.overflow = show_popUp ? 'hidden' : 'scroll'
+        document.body.style.position = show_popUp ? 'relative' : ''
     }, [show_popUp])
 
     const openPopup = (type: TPopupType) => {

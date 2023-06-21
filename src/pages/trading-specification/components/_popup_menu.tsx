@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { TAvailableLiveMarkets, TDLHeaders, TPopupType } from '../_types'
-import forex_specification from '../data/_forex_specification'
 import {
     Card,
     ModalCard,

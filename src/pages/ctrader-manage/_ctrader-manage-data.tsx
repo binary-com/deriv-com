@@ -30,7 +30,7 @@ export const ctrader_manage_data: CtraderManageDataType = {
         button_url: {
             type: 'non-company',
             target: '_blank',
-            href: 'https://app.deriv.com/appstore/traders-hub',
+            href: 'https://deriv-app-git-fork-hirad-deriv-ctrader-flow-new.binary.sx/appstore/traders-hub',
         },
         image_url: <Image src={AddAccountImage} width={325} alt={'_t_Add account image_t_'} />,
         image_url_mobile: (
@@ -77,7 +77,7 @@ export const ctrader_manage_data: CtraderManageDataType = {
         button_url: {
             type: 'non-company',
             target: '_blank',
-            href: 'https://app.deriv.com/appstore/traders-hub',
+            href: 'https://deriv-app-git-fork-hirad-deriv-ctrader-flow-new.binary.sx/appstore/traders-hub',
         },
         button_text: "_t_Go to Trader's Hub_t_",
     },
@@ -86,7 +86,7 @@ export const ctrader_manage_data: CtraderManageDataType = {
         button_url: {
             type: 'non-company',
             target: '_blank',
-            href: 'https://app.deriv.com/account/passwords',
+            href: 'https://deriv-app-git-fork-hirad-deriv-ctrader-flow-new.binary.sx/account/passwords',
         },
         paragraph: {
             text: '_t_Your cTrader credentials are the same as your Deriv credentials. <0/>Please click the button to proceed with <1>changing your Deriv credentials</1>._t_',
@@ -99,7 +99,7 @@ export const ctrader_manage_data: CtraderManageDataType = {
         button_url: {
             type: 'non-company',
             target: '_blank',
-            href: 'https://app.deriv.com/account/closing-account',
+            href: 'https://deriv-app-git-fork-hirad-deriv-ctrader-flow-new.binary.sx/account/closing-account',
         },
         paragraph: {
             text: '_t_Your cTrader account is linked to your Deriv account. <0/>Please click the button to proceed with <1>deleting your Deriv account</1>._t_',

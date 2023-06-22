@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { smarttrader_url } from 'common/constants'
+import DerivcTrader from 'images/svg/trading-platforms/ctrader/ctrader-main-logo.svg'
 import { Flex } from 'components/containers'
 import { TString } from 'types/generics'
 import { Header, Text } from 'components/elements'
@@ -21,6 +22,7 @@ type AvailablePlatformsProps = {
     dtrader?: boolean
     dbot?: boolean
     smarttrader?: boolean
+    deriv_ctrader?: boolean
     derivx?: boolean
     deriv_ez?: boolean
     derivez?: boolean
@@ -104,6 +106,7 @@ const AvailablePlatforms = ({
     smarttrader,
     derivx,
     derivez,
+    deriv_ctrader,
     flex_direction,
     tablet_direction,
     m_top,
@@ -189,6 +192,14 @@ const AvailablePlatforms = ({
                         <StyledFlex direction="row" ai="center">
                             <embed src={DerivEZ} width="24" height="24" />
                             <Text ml="0.4rem">{localize('Deriv EZ')}</Text>
+                        </StyledFlex>
+                    </LocalizedLink>
+                )}
+                {deriv_ctrader && (
+                    <LocalizedLink to="/deriv-ctrader/">
+                        <StyledFlex direction="row" ai="center">
+                            <embed src={DerivcTrader} width="24" height="24" />
+                            <Text ml="0.4rem">{localize('_t_Deriv cTrader_t_')}</Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}

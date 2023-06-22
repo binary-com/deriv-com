@@ -10,9 +10,11 @@ export const deriv_ez_images = {
             alt="trading platform trading app"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={50}
+            quality={100}
+            width={650}
+            height={386}
             objectFit="contain"
-            placeholder="none"
+            placeholder="blurred"
         />
     ),
     step2: (
@@ -21,9 +23,11 @@ export const deriv_ez_images = {
             alt="trading platform app create free demo account"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={50}
+            quality={100}
+            width={650}
+            height={386}
             objectFit="contain"
-            placeholder="none"
+            placeholder="blurred"
         />
     ),
     'step2-demo': (
@@ -32,9 +36,11 @@ export const deriv_ez_images = {
             alt="traders hub demo account for trading"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={50}
+            quality={100}
+            width={650}
+            height={386}
             objectFit="contain"
-            placeholder="none"
+            placeholder="blurred"
         />
     ),
     step3: (
@@ -43,9 +49,11 @@ export const deriv_ez_images = {
             alt="traders hub real account for trading"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={50}
+            quality={100}
+            width={650}
+            height={386}
             objectFit="contain"
-            placeholder="none"
+            placeholder="blurred"
         />
     ),
     step4: (
@@ -54,9 +62,11 @@ export const deriv_ez_images = {
             alt="trading platform chart trading"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={50}
+            quality={100}
+            width={650}
+            height={386}
             objectFit="contain"
-            placeholder="none"
+            placeholder="blurred"
         />
     ),
 }
@@ -67,9 +77,9 @@ export const deriv_ez_images_mobile = {
             alt="trading platform trading app"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={50}
+            quality={100}
             objectFit="contain"
-            placeholder="none"
+            placeholder="blurred"
         />
     ),
     step2: (
@@ -78,20 +88,9 @@ export const deriv_ez_images_mobile = {
             alt="trading platform app create free demo account"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={50}
+            quality={100}
             objectFit="contain"
-            placeholder="none"
-        />
-    ),
-    'step2-demo': (
-        <StaticImage
-            src="../../../../images/common/trading-platforms/deriv-ez/step-2-mobile-demo.png"
-            alt="traders hub demo account for trading"
-            loading="eager"
-            formats={['avif', 'webp', 'auto']}
-            quality={50}
-            objectFit="contain"
-            placeholder="none"
+            placeholder="blurred"
         />
     ),
     step3: (
@@ -100,9 +99,9 @@ export const deriv_ez_images_mobile = {
             alt="traders hub real account for trading"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={50}
+            quality={100}
             objectFit="contain"
-            placeholder="none"
+            placeholder="blurred"
         />
     ),
     step4: (
@@ -111,9 +110,9 @@ export const deriv_ez_images_mobile = {
             alt="trading platform chart trading"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={50}
+            quality={100}
             objectFit="contain"
-            placeholder="none"
+            placeholder="blurred"
         />
     ),
 }
@@ -145,7 +144,7 @@ const demo: DemoRealProps = [
     },
     {
         title: '_t_Add a Deriv EZ demo account._t_',
-        image: deriv_ez_images['step2'],
+        image: deriv_ez_images['step2-demo'],
     },
     {
         title: '_t_Start trading via the web terminal or the Deriv GO mobile app._t_',
@@ -178,7 +177,7 @@ const demo_mobile: DemoRealProps = [
     },
     {
         title: '_t_Add a Deriv EZ demo account._t_',
-        image: deriv_ez_images_mobile['step2-demo'],
+        image: deriv_ez_images_mobile['step3'],
     },
     {
         title: '_t_Start trading via the web terminal or the Deriv GO mobile app._t_',

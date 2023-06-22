@@ -11,6 +11,6 @@ export const selling_points: SellingPointsTypes[] = [
     },
     {
         title: '_t_24/7_t_',
-        subtitle: '_t_trading_t_',
+        subtitle: '_t_trading on desktop and mobile_t_',
     },
 ]

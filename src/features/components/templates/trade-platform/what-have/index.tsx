@@ -31,7 +31,7 @@ const TradingPlatformWhatHave = ({ items }: TradingPlatformWhatHaveProps) => {
                         }}
                     >
                         <FlexBox.Box direction={'col'} justify={'center'} className={flex_items}>
-                            <Typography.Heading mb={'6x'} align="left" textcolor="primary">
+                            <Typography.Heading mb={'6x'} align="left" textcolor="primary" mr="5x">
                                 <Localize translate_text={content.title} />
                             </Typography.Heading>
                             <Typography.Paragraph align={'left'} mb={'12x'} md={{ mb: '0x' }}>

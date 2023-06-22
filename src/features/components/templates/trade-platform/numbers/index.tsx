@@ -10,7 +10,12 @@ export type TradingPlatformNumbersProps = {
 
 const TradingPlatformNumbers = ({ selling_points }: TradingPlatformNumbersProps) => {
     return (
-        <FlexBox.Box container={'fluid'} direction={'col'} margin_block={'20x'}>
+        <FlexBox.Box
+            container={'fluid'}
+            direction={'col'}
+            md={{ margin_block: '20x' }}
+            margin_block={'10x'}
+        >
             <FlexBox.Box
                 direction={'col'}
                 align={'center'}

@@ -8,7 +8,7 @@ export const hero_content_data: DerivProductContentType = {
     main_title: ['_t_A feature-rich_t_', '_t_CFD trading_t_', '_t_platform_t_'],
     hero: (
         <StaticImage
-            src="../../../../images/common/deriv-ctrader/hero-desktop.png"
+            src="../../../../images/common/trading-platforms/ctrader/ctrader-hero.png"
             alt="Deriv ctrader online trading platform"
             loading="eager"
             quality={100}
@@ -19,7 +19,7 @@ export const hero_content_data: DerivProductContentType = {
     ),
     hero_mobile: (
         <StaticImage
-            src="../../../../images/common/deriv-ctrader/hero-mobile.png"
+            src="../../../../images/common/trading-platforms/ctrader/ctrader-hero-mobile-new-2.png"
             alt="Deriv ctrader online trading platform"
             loading="eager"
             quality={100}

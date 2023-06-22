@@ -6,7 +6,7 @@ import { TradingPlatformStepperViewType } from 'features/components/templates/tr
 const how_to_start_images = {
     step1: (
         <StaticImage
-            src="../../../images/common/trading-platforms/ctrader/step-1.png"
+            src="../../../../images/common/trading-platforms/ctrader/step-1.png"
             alt="step"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
@@ -17,7 +17,7 @@ const how_to_start_images = {
     ),
     step2: (
         <StaticImage
-            src="../../../images/common/trading-platforms/ctrader/step-2.png"
+            src="../../../../images/common/trading-platforms/ctrader/step-2.png"
             alt="step"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
@@ -28,7 +28,7 @@ const how_to_start_images = {
     ),
     step3: (
         <StaticImage
-            src="../../../images/common/trading-platforms/ctrader/step-3.png"
+            src="../../../../images/common/trading-platforms/ctrader/step-3.png"
             alt="step"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
@@ -39,7 +39,7 @@ const how_to_start_images = {
     ),
     'step2-demo': (
         <StaticImage
-            src="../../../images/common/trading-platforms/ctrader/step-2-demo.png"
+            src="../../../../images/common/trading-platforms/ctrader/step-2-demo.png"
             alt="step"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
@@ -50,7 +50,7 @@ const how_to_start_images = {
     ),
     'step3-demo': (
         <StaticImage
-            src="../../../images/common/trading-platforms/ctrader/step-3-demo.png"
+            src="../../../../images/common/trading-platforms/ctrader/step-3-demo.png"
             alt="step"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
@@ -63,7 +63,7 @@ const how_to_start_images = {
 const how_to_start_images_mobile = {
     step1: (
         <StaticImage
-            src="../../../images/common/trading-platforms/ctrader/mobile-step-1.png"
+            src="../../../../images/common/trading-platforms/ctrader/mobile-step-1.png"
             alt="step"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
@@ -74,7 +74,7 @@ const how_to_start_images_mobile = {
     ),
     step2: (
         <StaticImage
-            src="../../../images/common/trading-platforms/ctrader/mobile-step-2.png"
+            src="../../../../images/common/trading-platforms/ctrader/mobile-step-2.png"
             alt="step"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
@@ -85,7 +85,7 @@ const how_to_start_images_mobile = {
     ),
     step3: (
         <StaticImage
-            src="../../../images/common/trading-platforms/ctrader/mobile-step-3.png"
+            src="../../../../images/common/trading-platforms/ctrader/mobile-step-3.png"
             alt="step"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
@@ -96,7 +96,7 @@ const how_to_start_images_mobile = {
     ),
     'step2-demo': (
         <StaticImage
-            src="../../../images/common/trading-platforms/ctrader/mobile-step-2-demo.png"
+            src="../../../../images/common/trading-platforms/ctrader/mobile-step-2-demo.png"
             alt="step"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
@@ -107,7 +107,7 @@ const how_to_start_images_mobile = {
     ),
     'step3-demo': (
         <StaticImage
-            src="../../../images/common/trading-platforms/ctrader/mobile-step-3-demo.png"
+            src="../../../../images/common/trading-platforms/ctrader/mobile-step-3-demo.png"
             alt="step"
             loading="eager"
             formats={['avif', 'webp', 'auto']}

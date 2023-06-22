@@ -27,13 +27,12 @@ const TradingPlatformHowToStart = ({
         setTab(chosen_tab)
     }
     const new_items = useMemo(() => {
-        return tab === 'real'
-            ? is_mobile_or_tablet
-                ? real_mobile
-                : real
-            : is_mobile_or_tablet
-            ? demo_mobile
-            : demo
+        switch (tab) {
+            case 'real':
+                return is_mobile_or_tablet ? real_mobile : real
+            case 'demo':
+                return is_mobile_or_tablet ? demo_mobile : demo
+        }
     }, [demo, demo_mobile, is_mobile_or_tablet, real, real_mobile, tab])
 
     useEffect(() => {

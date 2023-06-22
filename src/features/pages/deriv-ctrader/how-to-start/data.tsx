@@ -126,8 +126,9 @@ export const demo: TradingPlatformStepperViewType = [
                 textcolor="brand"
                 key={0}
                 url={{
-                    type: 'internal',
-                    to: '/',
+                    type: 'company',
+                    url_name: 'deriv_app_login',
+                    target: '_blank',
                 }}
             />,
             <Link
@@ -135,7 +136,7 @@ export const demo: TradingPlatformStepperViewType = [
                 key={1}
                 url={{
                     type: 'internal',
-                    to: '/',
+                    to: '/signup',
                 }}
             />,
         ],
@@ -158,8 +159,9 @@ export const demo_mobile: TradingPlatformStepperViewType = [
                 textcolor="brand"
                 key={0}
                 url={{
-                    type: 'internal',
-                    to: '/',
+                    type: 'company',
+                    url_name: 'deriv_app_login',
+                    target: '_blank',
                 }}
             />,
             <Link
@@ -167,7 +169,7 @@ export const demo_mobile: TradingPlatformStepperViewType = [
                 key={1}
                 url={{
                     type: 'internal',
-                    to: '/',
+                    to: '/signup',
                 }}
             />,
         ],
@@ -190,8 +192,9 @@ export const real: TradingPlatformStepperViewType = [
                 textcolor="brand"
                 key={0}
                 url={{
-                    type: 'internal',
-                    to: '/',
+                    type: 'company',
+                    url_name: 'deriv_app_login',
+                    target: '_blank',
                 }}
             />,
             <Link
@@ -199,7 +202,7 @@ export const real: TradingPlatformStepperViewType = [
                 key={1}
                 url={{
                     type: 'internal',
-                    to: '/',
+                    to: '/signup',
                 }}
             />,
         ],
@@ -222,8 +225,9 @@ export const real_mobile: TradingPlatformStepperViewType = [
                 textcolor="brand"
                 key={0}
                 url={{
-                    type: 'internal',
-                    to: '/',
+                    type: 'company',
+                    url_name: 'deriv_app_login',
+                    target: '_blank',
                 }}
             />,
             <Link
@@ -231,7 +235,7 @@ export const real_mobile: TradingPlatformStepperViewType = [
                 key={1}
                 url={{
                     type: 'internal',
-                    to: '/',
+                    to: '/signup',
                 }}
             />,
         ],

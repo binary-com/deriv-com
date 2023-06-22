@@ -8,6 +8,7 @@ import CTraderLogo from 'images/svg/trading-platforms/ctrader/ctrader-main-logo.
 import derivEZQR from 'images/svg/trading-platforms/deriv-ez/derivez-qr.svg'
 import AndroidIcon from 'images/svg/android-icon.svg'
 import AppleIcon from 'images/svg/apple-icon.svg'
+import BrowserIcon from 'images/svg/browser-icon.svg'
 import AppGalleryIcon from 'images/svg/appGallery-icon.svg'
 
 export const trading_platform_banner: BannerType = {
@@ -37,6 +38,18 @@ export const trading_platform_banner: BannerType = {
         {
             id: 1,
             data: {
+                icon: BrowserIcon,
+                text: 'Web browser',
+                url: {
+                    type: 'non-company',
+                    href: deriv_go_huaweiappgallery_url,
+                    target: '_blank',
+                },
+            },
+        },
+        {
+            id: 2,
+            data: {
                 icon: AppleIcon,
                 text: 'App Store',
                 url: {
@@ -46,8 +59,9 @@ export const trading_platform_banner: BannerType = {
                 },
             },
         },
+
         {
-            id: 2,
+            id: 3,
             data: {
                 icon: AppGalleryIcon,
                 text: 'AppGallery',

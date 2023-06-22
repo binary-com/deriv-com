@@ -130,6 +130,7 @@ export const localized_link_url = Object.freeze({
     blog: blog_url,
     community: community_url,
     derivx: derivx_app_url,
+    deriv_app_login,
     api: deriv_api_url,
     dbot: deriv_bot_app_url,
     deriv_app: deriv_app_url,

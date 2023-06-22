@@ -51,7 +51,7 @@ const TabContent = ({ items: initial_tems, direction = 'row' }: Omit<StepperTabT
                                     {`${index + 1}. `}
                                     <Localize
                                         translate_text={item.title}
-                                        components={[item?.component]}
+                                        components={item?.component}
                                     />
                                 </Typography.Paragraph>
                             </Box>

@@ -19,13 +19,15 @@ const TradingPlatformHowToStart = ({
     real,
     real_mobile,
 }: TradingPlatformStartProps) => {
-    const [tab, setTab] = useState<TabType>('demo')
+    const [tab, setTab] = useState('demo')
     const { is_mobile_or_tablet } = useBreakpoints()
-    const [items, setItems] = useState<TabItemTypes[]>([])
+    const default_item = is_mobile_or_tablet ? demo_mobile : demo
+    const [items, setItems] = useState<TabItemTypes[]>(default_item)
 
     const onTabClick = useCallback(
         (chosen_tab: TabType) => {
             setTab(chosen_tab)
+
             if (chosen_tab === 'real') {
                 if (is_mobile_or_tablet) {
                     setItems(real_mobile)

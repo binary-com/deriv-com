@@ -4,7 +4,7 @@ import { TString } from 'types/generics'
 
 export type TabItemTypes = {
     title: TString
-    component?: React.ReactElement | React.ReactElement[]
+    component?: React.ReactElement[]
     image: React.ReactElement
     alt?: string
 }

@@ -12,7 +12,8 @@
         max-block-size: 64.1rem;
     }
 }
-.hero_desktop_image {
+.hero_image_wrapper {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     @include breakpoints(tablet) {
         margin-inline-start: auto;
     }

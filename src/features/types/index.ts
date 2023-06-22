@@ -127,6 +127,9 @@ export type TFlexBasis = InferSide<ClassNames, 'flex-basis'>
 export type TContainerType = InferSide<ClassNames, 'container'>
 export type TVisible = InferSide<ClassNames, 'visible'>
 
+//clipath banner color
+export type TClipPathBannerColor = InferSide<ClassNames, 'clip-path-product'>
+
 export interface ClassProps {
     margin?: TSpacingSize
     ml?: TSpacingSize

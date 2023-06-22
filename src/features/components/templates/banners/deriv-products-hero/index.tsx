@@ -20,6 +20,7 @@ const DerivProductHero = ({ contentData }: DerivProductHeroType) => {
             className={hero_main_wrapper}
             align="center"
             md={{ direction: 'row' }}
+            clipPathBackgroundColor="ctrade"
         >
             <FlexBox.Box
                 className={hero_wrapper}

@@ -15,7 +15,7 @@
         position: absolute;
         block-size: 100%;
         inline-size: 100%;
-        background-color: $color-brand;
+        background-color: var(--clip-path-background-color, $color-brand);
         inset-block-end: 0;
         clip-path: polygon(0 0, 100% 0, 100% 50%, 0 41%);
 

@@ -10,7 +10,7 @@ const how_to_start_images = {
             alt="step"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={50}
+            quality={100}
             objectFit="contain"
             placeholder="none"
         />
@@ -21,7 +21,7 @@ const how_to_start_images = {
             alt="step"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={50}
+            quality={100}
             objectFit="contain"
             placeholder="none"
         />
@@ -32,7 +32,7 @@ const how_to_start_images = {
             alt="step"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={50}
+            quality={100}
             objectFit="contain"
             placeholder="none"
         />
@@ -43,7 +43,7 @@ const how_to_start_images = {
             alt="step"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={50}
+            quality={100}
             objectFit="contain"
             placeholder="none"
         />
@@ -54,7 +54,7 @@ const how_to_start_images = {
             alt="step"
             loading="eager"
             formats={['avif', 'webp', 'auto']}
-            quality={50}
+            quality={100}
             objectFit="contain"
             placeholder="none"
         />

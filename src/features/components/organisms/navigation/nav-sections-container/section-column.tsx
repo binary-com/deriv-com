@@ -8,6 +8,7 @@ import { Localize } from 'components/localization'
 import usePpc from 'features/hooks/use-ppc'
 import useRegion from 'components/hooks/use-region'
 import useVisibleContent from 'components/hooks/use-visible-content'
+import dclsx from 'features/utils/dclsx'
 
 interface NavSectionColumnProps {
     item: SmartNavSectionColumns
@@ -35,18 +36,22 @@ const NavSectionColumn = ({ item }: NavSectionColumnProps) => {
                 gap="5x"
                 padding_block="4x"
                 padding_inline="5x"
-                className={styles.section_items_container}
+                className={dclsx({
+                    [styles.section_items_container]: !item.data.no_divider,
+                })}
             >
-                <Typography.Paragraph
-                    className={styles.section_items_title}
-                    textcolor="secondary"
-                    align="left"
-                    font_family="UBUNTU"
-                    mb="2x"
-                    visible={!item.data.title ? 'larger-than-tablet' : undefined}
-                >
-                    {item.data.title ? <Localize translate_text={item.data.title} /> : ''}
-                </Typography.Paragraph>
+                {!item.data.no_title && (
+                    <Typography.Paragraph
+                        className={styles.section_items_title}
+                        textcolor="secondary"
+                        align="left"
+                        font_family="UBUNTU"
+                        mb="2x"
+                        visible={!item.data.title ? 'larger-than-tablet' : undefined}
+                    >
+                        {item.data.title ? <Localize translate_text={item.data.title} /> : ''}
+                    </Typography.Paragraph>
+                )}
                 <NavCardItems items={content} />
             </Flex.Box>
         )

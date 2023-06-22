@@ -1,6 +1,7 @@
 import MT5 from 'images/common/markets/mt5.svg'
 import DerivX from 'images/common/markets/derivx.svg'
 import { TradeType } from 'features/components/organisms/markets/trade-tab/types'
+import DerivcTrader from 'images/svg/trading-platforms/ctrader/ctrader-main-logo.svg'
 
 export const trade_types: TradeType[] = [
     {
@@ -24,6 +25,14 @@ export const trade_types: TradeType[] = [
                 link: {
                     type: 'internal',
                     to: '/derivx',
+                },
+            },
+            {
+                icon: DerivcTrader,
+                name: '_t_Deriv cTrader_t_',
+                link: {
+                    type: 'internal',
+                    to: '/deriv-ctrader',
                 },
             },
         ],

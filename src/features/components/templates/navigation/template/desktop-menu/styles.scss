@@ -75,6 +75,10 @@
     inset-block-start: 7rem;
     justify-content: center;
     inset-inline-end: 0;
+    @media screen and (max-height: 820px) {
+        block-size: 90vh;
+        overflow: scroll;
+    }
 
     @include breakpoints(laptop) {
         position: absolute;

@@ -237,10 +237,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const [popup_type, setPopupType] = useState<TPopupType>()
 
     useEffect(() => {
-        window.scrollBy({ top: 500, behavior: 'smooth' })
-        window.scrollBy({ top: -500, behavior: 'smooth' })
         document.body.style.overflow = show_popUp ? 'hidden' : 'unset'
-        // document.body.style.pointerEvents = show_popUp ? 'none' : 'auto'
     }, [show_popUp])
 
     const openPopup = (type: TPopupType) => {
@@ -363,6 +360,7 @@ export const Background = styled.div`
     background-color: var(--color-black);
     opacity: 0.4;
     z-index: 10;
+    pointer-events: none;
 `
 export const DLTableContainer = styled.div`
     display: grid;

@@ -312,6 +312,21 @@ exports.onCreatePage = ({ page, actions }) => {
             })
         }
 
+        if (is_bug_bounty) {
+            createRedirect({
+                fromPath: `/${lang}/bug-bounty`,
+                toPath: `https://hackerone.com/deriv?type=team`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/bug-bounty/`,
+                toPath: `https://hackerone.com/deriv?type=team`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
         if (is_cfds) {
             createRedirect({
                 fromPath: `/${lang}/trade-types/margin/`,
@@ -326,6 +341,7 @@ exports.onCreatePage = ({ page, actions }) => {
                 isPermanent: true,
             })
         }
+
         if (is_deriv_ez) {
             createRedirect({
                 fromPath: `/${lang}/derivez/`,

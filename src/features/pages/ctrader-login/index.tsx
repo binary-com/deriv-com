@@ -5,7 +5,6 @@ import Loading from 'features/components/atoms/loading'
 import CtraderWrapper from 'features/components/templates/ctrader/_ctrader-wrapper'
 import Typography from 'features/components/atoms/typography'
 import Layout from 'features/components/templates/layout'
-import { WithIntl } from 'components/localization'
 
 const CtraderLogin = () => {
     const [token] = useQueryParam('token1', StringParam)
@@ -26,4 +25,4 @@ const CtraderLogin = () => {
     )
 }
 
-export default WithIntl()(CtraderLogin)
+export default CtraderLogin

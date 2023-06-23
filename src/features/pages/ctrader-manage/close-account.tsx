@@ -1,7 +1,6 @@
 import React from 'react'
 import { ctrader_manage_data } from './_ctrader-manage-data'
 import CtraderManage from './_ctrader-manage'
-import { WithIntl } from 'components/localization'
 
 const CloseAccount = () => {
     const { title, button_url, paragraph, button_text } = ctrader_manage_data.close_account
@@ -14,4 +13,4 @@ const CloseAccount = () => {
         />
     )
 }
-export default WithIntl()(CloseAccount)
+export default CloseAccount

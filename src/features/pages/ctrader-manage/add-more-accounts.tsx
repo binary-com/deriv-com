@@ -1,7 +1,6 @@
 import React from 'react'
 import { ctrader_manage_data } from './_ctrader-manage-data'
 import CtraderManage from './_ctrader-manage'
-import { WithIntl } from 'components/localization'
 
 const AddMoreAccounts = () => {
     const { title, button_url, image_url, image_url_mobile, steps, paragraph, button_text } =
@@ -18,4 +17,4 @@ const AddMoreAccounts = () => {
         />
     )
 }
-export default WithIntl()(AddMoreAccounts)
+export default AddMoreAccounts

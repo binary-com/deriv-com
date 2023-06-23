@@ -3,9 +3,6 @@
 .public_signup_banner_container {
     position: relative;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     & > a {
         z-index: 1;

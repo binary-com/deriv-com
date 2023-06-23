@@ -2,6 +2,7 @@ import React from 'react'
 import PageNotFound from '../404'
 import DerivCTrader from 'features/pages/deriv-ctrader'
 import useRegion from 'components/hooks/use-region'
+import { WithIntl } from 'components/localization'
 
 const CTraderPage = () => {
     const { is_row } = useRegion()
@@ -11,4 +12,4 @@ const CTraderPage = () => {
     return <PageNotFound />
 }
 
-export default CTraderPage
+export default WithIntl()(CTraderPage)

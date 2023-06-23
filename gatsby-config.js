@@ -94,6 +94,7 @@ module.exports = {
                     '/**/404.html',
                     '/**/404',
                     '/bug-bounty',
+                    '/**/bug-bounty',
                     '/check-email',
                     '/**/check-email',
                     '/reset-password',

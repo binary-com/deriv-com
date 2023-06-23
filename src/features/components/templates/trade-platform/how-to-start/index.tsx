@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { TradingPlatformStepperViewType } from '../types'
 import TabStepper from 'features/components/templates/tabs/stepper'
 import useBreakpoints from 'components/hooks/use-breakpoints'
@@ -21,29 +21,23 @@ const TradingPlatformHowToStart = ({
 }: TradingPlatformStartProps) => {
     const [tab, setTab] = useState('demo')
     const { is_mobile_or_tablet } = useBreakpoints()
-    const default_item = is_mobile_or_tablet ? demo_mobile : demo
-    const [items, setItems] = useState<TabItemTypes[]>(default_item)
+    const [items, setItems] = useState<TabItemTypes[]>(is_mobile_or_tablet ? demo_mobile : demo)
 
-    const onTabClick = useCallback(
-        (chosen_tab: TabType) => {
-            setTab(chosen_tab)
+    const onTabClick = (chosen_tab: TabType) => {
+        setTab(chosen_tab)
+    }
+    const new_items = useMemo(() => {
+        switch (tab) {
+            case 'real':
+                return is_mobile_or_tablet ? real_mobile : real
+            case 'demo':
+                return is_mobile_or_tablet ? demo_mobile : demo
+        }
+    }, [demo, demo_mobile, is_mobile_or_tablet, real, real_mobile, tab])
 
-            if (chosen_tab === 'real') {
-                if (is_mobile_or_tablet) {
-                    setItems(real_mobile)
-                } else {
-                    setItems(real)
-                }
-            } else {
-                if (is_mobile_or_tablet) {
-                    setItems(demo_mobile)
-                } else {
-                    setItems(demo)
-                }
-            }
-        },
-        [demo, demo_mobile, is_mobile_or_tablet, real, real_mobile],
-    )
+    useEffect(() => {
+        setItems(new_items)
+    }, [new_items])
 
     return <TabStepper tab={tab} onTabClick={onTabClick} items={items} />
 }

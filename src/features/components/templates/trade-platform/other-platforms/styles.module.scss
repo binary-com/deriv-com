@@ -1,0 +1,28 @@
+.slider_wrapper {
+    max-width: 96.5rem;
+    margin-inline: auto;
+    position: relative;
+    --swiper-pagination-bottom: 0;
+    --swiper-pagination-color: #ff444f;
+}
+.swiper_slide {
+    height: auto !important;
+}
+.slider_button {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.slider_button_prev{
+    left: -32px;
+    &:disabled {
+        opacity: 0.5;
+        cursor: default;
+    }
+}
+.slider_button_next{
+    right: -32px;
+}

@@ -6,9 +6,7 @@ export interface BasicCardType {
     description: TString
 }
 
-export interface CardType {
-    header: TString
-    description: TString
+export interface CardType extends BasicCardType {
     icon?: string
     link?: LinkUrlType
 }

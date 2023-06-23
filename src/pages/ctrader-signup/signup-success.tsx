@@ -50,7 +50,7 @@ const SignupSuccess = () => {
                         <SignupSuccessForm residence_list={residence_list} email={email} />
                     )}
                     <Link
-                        url={{ type: 'internal', to: '/check-email/' }}
+                        url={{ type: 'internal', to: '/ctrader-check-email/' }}
                         textcolor="brand"
                         size="medium"
                     >

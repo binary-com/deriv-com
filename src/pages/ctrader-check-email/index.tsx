@@ -1,8 +1,7 @@
 import React from 'react'
 import { WithIntl } from 'components/localization'
-import CtraderCheckEmailContainer from 'features/pages/ctrader-check-email'
+import CtraderCheckEmail from 'features/pages/ctrader-check-email'
 
-const CtraderCheckEmail = () => {
-    return <CtraderCheckEmailContainer />
-}
-export default WithIntl()(CtraderCheckEmail)
+const CtraderCheckEmailPage = () => <CtraderCheckEmail />
+
+export default WithIntl()(CtraderCheckEmailPage)

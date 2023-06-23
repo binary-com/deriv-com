@@ -6,9 +6,9 @@ import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
-import CtraderWrapper from 'components/custom/_ctrader-wrapper'
+import CtraderWrapper from 'features/components/templates/ctrader/_ctrader-wrapper'
 
-const CtraderCheckEmailContainer = () => {
+const CtraderCheckEmail = () => {
     return (
         <Layout hide_layout_overlay>
             <CtraderWrapper>
@@ -42,4 +42,4 @@ const CtraderCheckEmailContainer = () => {
     )
 }
 
-export default CtraderCheckEmailContainer
+export default CtraderCheckEmail

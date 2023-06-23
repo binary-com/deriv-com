@@ -1,17 +1,7 @@
 import React from 'react'
-import { ctrader_manage_data } from './_ctrader-manage-data'
-import CtraderManage from 'components/custom/_ctrader-manage'
 import { WithIntl } from 'components/localization'
+import CloseAccount from 'features/pages/ctrader-manage/close-account'
 
-const CloseAccount = () => {
-    const { title, button_url, paragraph, button_text } = ctrader_manage_data.close_account
-    return (
-        <CtraderManage
-            title={title}
-            button_url={button_url}
-            paragraph={paragraph}
-            button_text={button_text}
-        />
-    )
-}
-export default WithIntl()(CloseAccount)
+const CloseAccountPage = () => <CloseAccount />
+
+export default WithIntl()(CloseAccountPage)

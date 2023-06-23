@@ -10,7 +10,7 @@ import Typography from 'features/components/atoms/typography'
 import Button from 'features/components/atoms/button'
 import Link from 'features/components/atoms/link'
 import Layout from 'features/components/templates/layout'
-import { useResidenceList } from 'components/hooks/use-residence-list'
+import { useResidenceList } from 'features/hooks/use-residence-list'
 import Image from 'features/components/atoms/image'
 
 const SignupSuccess = () => {

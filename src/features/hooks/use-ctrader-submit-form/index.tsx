@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { validation_regex } from 'common/validation'
 import apiManager from 'common/websocket'
-import { useSigninAndSignup } from 'components/hooks/use-signin-and-signup'
+import { useSigninAndSignup } from 'features/hooks/use-signin-and-signup'
 import { isBrowser } from 'common/utility'
 import { eu_countries } from 'common/country-base'
 

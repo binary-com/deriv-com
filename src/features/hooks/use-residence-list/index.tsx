@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from 'react'
-import useWS from './useWS'
+import useWS from '../../../components/hooks/useWS'
 
 export type ResidenceType = {
     text: string

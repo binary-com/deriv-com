@@ -14,7 +14,7 @@ import useCtraderSubmitForm from 'features/hooks/use-ctrader-submit-form'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import Button from 'features/components/atoms/button'
-import { ResidenceType } from 'components/hooks/use-residence-list'
+import { ResidenceType } from 'features/hooks/use-residence-list'
 
 type SignupSuccessFormProps = {
     email: string

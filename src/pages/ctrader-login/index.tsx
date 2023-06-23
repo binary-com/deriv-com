@@ -12,7 +12,7 @@ const CtraderLogin = () => {
     const { account_error } = useSigninAndSignup('ctrader', token)
 
     return (
-        <Layout>
+        <Layout hide_layout_overlay>
             <CtraderWrapper>
                 {account_error ? (
                     <Typography.Heading size="small" pt="40x">

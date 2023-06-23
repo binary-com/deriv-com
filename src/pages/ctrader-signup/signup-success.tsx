@@ -20,7 +20,7 @@ const SignupSuccess = () => {
     const [residence_list] = useResidenceList()
 
     return (
-        <Layout>
+        <Layout hide_layout_overlay>
             <CtraderWrapper>
                 <Flex.Box
                     as="div"

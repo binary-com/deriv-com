@@ -17,7 +17,7 @@ const CtraderManage = ({
     button_text,
 }: CtraderManageProps) => {
     return (
-        <Layout>
+        <Layout hide_layout_overlay>
             <CtraderWrapper>
                 <Flex.Box
                     gap="10x"
@@ -25,9 +25,8 @@ const CtraderManage = ({
                     direction="col"
                     justify="center"
                     align="center"
-                    pt="20x"
                 >
-                    <Typography.Heading size="xs" align="center">
+                    <Typography.Heading size="small" align="center">
                         <Localize translate_text={title} />
                     </Typography.Heading>
                     {steps && (

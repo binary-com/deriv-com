@@ -33,7 +33,7 @@ const TradingPlatformHowToStart = ({
             case 'demo':
                 return is_mobile_or_tablet ? demo_mobile : demo
         }
-    }, [demo, demo_mobile, is_mobile_or_tablet, real, real_mobile, tab])
+    }, [is_mobile_or_tablet, tab])
 
     useEffect(() => {
         setItems(new_items)

@@ -64,8 +64,8 @@ const DerivEZHero = () => {
                     )}
                 </FlexBox.Box>
                 <FlexBox.Item className={hero_big_image} align_self={'center'}>
-                    <div className="visible-phone-and-tablet">{hero_images['hero_mobile']}</div>
-                    <div className="visible-larger-than-tablet">{hero_images['hero']}</div>
+                    <div className="visible-phone-and-tablet">{hero_images.hero_mobile}</div>
+                    <div className="visible-larger-than-tablet">{hero_images.hero}</div>
                 </FlexBox.Item>
             </FlexBox.Box>
         </TradeHeroContainer>

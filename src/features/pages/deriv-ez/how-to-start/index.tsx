@@ -10,18 +10,12 @@ const StartDerivEZ = () => {
     const onTabClick = (chosenTab: 'demo' | 'real') => {
         setTab(chosenTab)
     }
+    console.log(is_mobile_or_tablet)
+    const tab_items = is_mobile_or_tablet
+        ? trading_platform_start[`${tab}_mobile`]
+        : trading_platform_start[tab]
 
-    return (
-        <TabStepper
-            tab={tab}
-            onTabClick={onTabClick}
-            items={
-                is_mobile_or_tablet
-                    ? trading_platform_start[`${tab}_mobile`]
-                    : trading_platform_start[tab]
-            }
-        />
-    )
+    return <TabStepper tab={tab} onTabClick={onTabClick} items={tab_items} />
 }
 
 export default StartDerivEZ

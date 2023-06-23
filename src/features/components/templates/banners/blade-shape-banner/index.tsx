@@ -2,7 +2,6 @@ import React from 'react'
 import * as styles from './blade-shape-banner.module.scss'
 import { BannerType } from './types'
 import Container from 'features/components/atoms/container'
-import Flex from 'features/components/atoms/flex-box'
 import FlexBox from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
@@ -99,7 +98,7 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
                                 />
                                 <FlexBox.Box
                                     direction={'col'}
-                                    align={'center'}
+                                    align={'start'}
                                     ml={'8x'}
                                     md={{ ml: '12x' }}
                                 >

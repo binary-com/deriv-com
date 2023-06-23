@@ -19,21 +19,38 @@
     position: absolute;
     top: 80px;
     right: -75px;
+    @include rtl() {
+        position: absolute;
+        top: 100px;
+    }
 
     @include breakpoints(tablet) {
         right: -435px;
+        @include rtl() {
+            position: relative;
+            top: 20px;
+            right: 10px;
+        }
     }
     @include breakpoints(laptop) {
         right: -300px;
+        @include rtl() {
+            top: 200px;
+            right: 0;
+        }
     }
     @include breakpoints(desktop) {
         right: -215px;
+        @include rtl() {
+            position: absolute;
+            right: 60%;
+        }
     }
 }
 .hero_button {
     @include breakpoints(tablet) {
         white-space: nowrap;
-        inline-size: 20.5rem;
+        inline-size: fit-content;
     }
 }
 .number_box {

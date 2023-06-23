@@ -18,6 +18,7 @@ import Image from 'features/components/atoms/image'
 import RightArrowIcon from 'images/svg/chevron-right.svg'
 import LeftArrowIcon from 'images/svg//chevron-left.svg'
 import Card from 'features/components/atoms/card'
+import { FlexBoxProps } from 'features/components/atoms/flex-box/box'
 
 export type RenderableDataType = {
     icon: string
@@ -25,14 +26,14 @@ export type RenderableDataType = {
     paragraph: TString
     link: LinkUrlType
 }
-type PropsType = {
+interface PropsType extends FlexBoxProps<'section'> {
     renderableData: RenderableDataType[]
     heading: TString
 }
 
-const PlatformsCarousel = ({ heading, renderableData }: PropsType) => {
+const PlatformsCarousel = ({ heading, renderableData, ...rest }: PropsType) => {
     return (
-        <Container.Fixed as="section" padding_block="20x" md={{ padding_block: '40x' }}>
+        <Container.Fixed as="section" padding_block="20x" md={{ padding_block: '40x' }} {...rest}>
             <Container.Fluid>
                 <Typography.Heading as="h2" align="center" size="large" mb="8x" md={{ mb: '40x' }}>
                     <Localize translate_text={heading} />

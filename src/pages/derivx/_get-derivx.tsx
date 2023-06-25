@@ -13,6 +13,7 @@ import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import useRegion from 'components/hooks/use-region'
 import {
     derivx_android_url,
     derivx_huawei_url,
@@ -49,22 +50,24 @@ const Wrapper = styled.div`
         margin-top: -3rem;
     }
 `
-const items = [
-    { text: 'Google Play', icon: AndroidIcon, link: derivx_android_url },
-    { text: 'App Store', icon: AppleIcon, link: derivx_ios_url },
-    { text: 'AppGallery', icon: AppGalleryIcon, link: derivx_huawei_url },
-    {
-        text: 'Web Browser',
-        icon: BrowserIcon,
-        link: derivx_app_url,
-        smallText: '_t_Use it on your_t_',
-    },
-]
 
 const DerivXGetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
-
+    const { is_appgallery_supported } = useRegion()
+    const items = [
+        { text: 'Google Play', icon: AndroidIcon, link: derivx_android_url },
+        { text: 'App Store', icon: AppleIcon, link: derivx_ios_url },
+        ...(is_appgallery_supported
+            ? [{ text: 'AppGallery', icon: AppGalleryIcon, link: derivx_huawei_url }]
+            : []),
+        {
+            text: 'Web Browser',
+            icon: BrowserIcon,
+            link: derivx_app_url,
+            smallText: '_t_Use it on your_t_',
+        },
+    ]
     return (
         <Wrapper>
             <MultiWidthColumn

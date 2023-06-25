@@ -1,0 +1,8 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.item_container {
+    @include breakpoints(tablet) {
+        max-inline-size: 80rem;
+        margin-inline: auto;
+    }
+}

@@ -7,11 +7,10 @@ import { faq_schema } from './_faq-schema'
 import PremiumPaymentAgent from './_premium_payment_agent'
 import PageNotFound from 'pages/404'
 import Layout from 'components/layout/layout'
-import { SEO } from 'components/containers'
+import { SEO, MetaAttributesType } from 'components/containers'
 import { Divider } from 'components/elements'
-import { WithIntl, localize } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
-import { MetaAttributesType } from 'types/page.types'
 
 const YourControl = Loadable(() => import('./_your-control'))
 const WhoCanApply = Loadable(() => import('./_who-can-apply'))
@@ -19,10 +18,9 @@ const Faq = Loadable(() => import('./_faq'))
 const P2PBanner = Loadable(() => import('./_p2p_banner'))
 
 const meta_attributes: MetaAttributesType = {
-    og_title: localize('_t_Payment agents | Partners | Deriv_t_'),
-    og_description: localize(
+    og_title: '_t_Payment agents | Partners | Deriv_t_',
+    og_description:
         '_t_Know all the details about how you can become the payment agent on Deriv. Send us an email to apply!_t_',
-    ),
 }
 
 const PaymentAgent = () => {
@@ -31,10 +29,8 @@ const PaymentAgent = () => {
     return (
         <>
             <SEO
-                title={localize('_t_Payment agents | Partnership programmes | Deriv_t_')}
-                description={localize(
-                    '_t_Find out how to become a payment agent on Deriv to expand your client base and earn extra revenue._t_',
-                )}
+                title="_t_Payment agents | Partnership programmes | Deriv_t_"
+                description="_t_Find out how to become a payment agent on Deriv to expand your client base and earn extra revenue._t_"
                 meta_attributes={meta_attributes}
             />
             {is_row ? (

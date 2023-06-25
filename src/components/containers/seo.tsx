@@ -20,7 +20,7 @@ type SiteMetadataType = {
     }
 }
 
-type MetaAttributesType = {
+export type MetaAttributesType = {
     og_title?: TString
     og_description?: TString
     og_type?: string

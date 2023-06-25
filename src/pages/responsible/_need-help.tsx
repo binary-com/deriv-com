@@ -8,37 +8,43 @@ import Underage from 'images/svg/responsible/underage.svg'
 import UnderageMobile from 'images/svg/responsible/underage-mobile.svg'
 import Filtering from 'images/svg/responsible/filtering-controls.svg'
 import FilteringMobile from 'images/svg/responsible/filtering-controls-mobile.svg'
+import { TString } from 'types/generics'
 
 type HelpContentType = {
-    header: React.ReactElement
-    text: React.ReactElement
+    header: TString
+    text: TString
     icon: React.ReactElement
     icon_mobile: React.ReactElement
-    link?: string
-    text2?: string
-}[]
+}
 
-const help_content: HelpContentType = [
+const help_content: HelpContentType[] = [
     {
-        header: <Localize translate_text="Underage gambling" />,
-        text: (
-            <Text pb="1rem">
-                <Localize translate_text="Clients must be aware that underage gambling is an offence. Deriv.com does not support gambling by those who are underaged. If a client, upon age verification, is proven to be underaged, they will be deprived of any winnings and only deposits made shall be refunded." />
-            </Text>
+        header: '_t_Underage gambling_t_',
+        text: '_t_Clients must be aware that underage gambling is an offence. Deriv.com does not support gambling by those who are underaged. If a client, upon age verification, is proven to be underaged, they will be deprived of any winnings and only deposits made shall be refunded._t_',
+        icon: <img src={Underage} alt={localize('_t_underage_t_')} width="160" height="64" />,
+        icon_mobile: (
+            <img src={UnderageMobile} alt={localize('_t_underage_t_')} width="32" height="32" />
         ),
-        icon: <img src={Underage} alt="underage" width="160" height="64" />,
-        icon_mobile: <img src={UnderageMobile} alt="underage" width="32" height="32" />,
     },
-
     {
-        header: <Localize translate_text="Filtering controls" />,
-        text: (
-            <Text pb="1rem">
-                <Localize translate_text="Our site can be filtered using a number of filtering systems available on the market which could be used to restrict one's access to our site." />
-            </Text>
+        header: '_t_Filtering controls_t_',
+        text: "_t_Our site can be filtered using a number of filtering systems available on the market which could be used to restrict one's access to our site._t_",
+        icon: (
+            <img
+                src={Filtering}
+                alt={localize('_t_filtering controls_t_')}
+                width="160"
+                height="64"
+            />
         ),
-        icon: <img src={Filtering} alt="filtering controls" width="160" height="64" />,
-        icon_mobile: <img src={FilteringMobile} alt="filtering controls" width="32" height="32" />,
+        icon_mobile: (
+            <img
+                src={FilteringMobile}
+                alt={localize('_t_filtering controls_t_')}
+                width="32"
+                height="32"
+            />
+        ),
     },
 ]
 
@@ -58,7 +64,6 @@ const StyledFlex = styled(Flex)`
         }
     }
 `
-
 const ClientCard = styled.article`
     margin: 2rem;
     background-color: var(--color-white);
@@ -89,14 +94,6 @@ const ClientCard = styled.article`
         }
     }
 `
-
-const LinkText = styled(Text)`
-    @media ${device.tabletL} {
-        display: flex;
-        justify-content: center;
-    }
-`
-
 const LogoWrapper = styled.div`
     width: auto;
 `
@@ -106,34 +103,30 @@ const NeedHelp = () => {
         <SectionContainer>
             <Container direction="column">
                 <Header mb="2rem" align="center" as="h2" type="page-title">
-                    {localize('Need more help?')}
+                    <Localize translate_text="_t_Need more help?_t_" />
                 </Header>
             </Container>
             <StyledFlex wrap="wrap">
-                {help_content.map((item, idx) => {
+                {help_content.map(({ header, icon, icon_mobile, text }) => {
                     return (
-                        <ClientCard key={idx}>
+                        <ClientCard key={text}>
                             <Flex pb="0.8rem" ai="flex-end">
                                 <Header
                                     as="h4"
                                     type="sub-section-title"
                                     style={{ lineHeight: 1.5 }}
                                 >
-                                    {item.header}
+                                    <Localize translate_text={header} />
                                 </Header>
                                 <LogoWrapper>
-                                    <Desktop>{item.icon}</Desktop>
-                                    <Mobile>{item.icon_mobile}</Mobile>
+                                    <Desktop>{icon}</Desktop>
+                                    <Mobile>{icon_mobile}</Mobile>
                                 </LogoWrapper>
                             </Flex>
-                            {item.text}
-                            <Text>{item.text2}</Text>
-                            <LinkText
-                                tabletL={{ ml: 'auto', mr: 'auto' }}
-                                pt={idx == 0 ? '4.5rem' : ''}
-                            >
-                                {item.link}
-                            </LinkText>
+
+                            <Text pb="1rem">
+                                <Localize translate_text={text} />
+                            </Text>
                         </ClientCard>
                     )
                 })}

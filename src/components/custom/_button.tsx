@@ -5,7 +5,7 @@ import { TString } from 'types/generics'
 import device from 'themes/device'
 
 type TButton = {
-    label: TString
+    label: TString | string
     onClick?: VoidFunction
     primary?: boolean
     secondary?: boolean
@@ -117,7 +117,7 @@ const Button = ({
                 outline={outline}
                 hero={hero}
             >
-                <Localize translate_text={label} />
+                {label.includes('_t_') ? <Localize translate_text={label as TString} /> : label}
             </Label>
         </Container>
     )

@@ -3,6 +3,7 @@ import { StyledGrid, StyledContainer, IconWrapper, GridCol, Cta } from './_terms
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import { getLanguage } from 'common/utility'
+import { TString } from 'types/generics'
 // Icons
 import General from 'images/svg/terms/business-general-tc.svg'
 import Partners from 'images/svg/terms/business-partners-tc.svg'
@@ -17,25 +18,27 @@ import useRegion from 'components/hooks/use-region'
 
 type ColProps = {
     Icon: string
-    content: string | JSX.Element
-    title: string
-    link_title: string
-    url: string | (() => void)
+    content: TString
+    title: TString
+    link_title: TString
+    url: string
 }
 
 const Col = ({ Icon, content, link_title, title, url }: ColProps) => (
     <GridCol>
         <IconWrapper>
-            <img src={Icon} alt={title} />
+            <img src={Icon} alt={localize(title)} />
         </IconWrapper>
         <Header as="h4" type="sub-section-title">
-            {title}
+            <Localize translate_text={title} />
         </Header>
-        <Text lh="1.55">{content}</Text>
+        <Text lh="1.55">
+            <Localize translate_text={content} />
+        </Text>
         <Cta>
-            <img src={PDF} alt="pdf icon black" />
+            <img src={PDF} alt={localize('_t_pdf icon black_t_')} />
             <a href={url} target="_blank" rel="noopener noreferrer">
-                {link_title}
+                <Localize translate_text={link_title} />
             </a>
         </Cta>
     </GridCol>
@@ -46,15 +49,14 @@ const PartnersGuidePdf = () => {
     const supported_languages = ['fr', 'id', 'ru', 'es', 'vi']
     const pdf_lang = supported_languages.includes(language) ? language : 'english'
     const url = `/tnc/business-partners-guide-${pdf_lang}.pdf`
+
     return (
         <Col
             Icon={IG}
-            title={localize('Important Guidelines')}
-            content={
-                <Localize translate_text="_t_Do's and don’ts for partners when promoting our products and services_t_" />
-            }
+            title="_t_Important Guidelines_t_"
+            content="_t_Do's and don’ts for partners when promoting our products and services_t_"
             url={url}
-            link_title={localize('Partners Guide')}
+            link_title="_t_Partners Guide_t_"
         />
     )
 }
@@ -73,55 +75,50 @@ const BusinessGrid = () => {
             >
                 <Col
                     Icon={General}
-                    title={localize('General terms of use')}
-                    content={localize(
-                        'Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents',
-                    )}
+                    title="_t_General terms of use_t_"
+                    content="_t_Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents_t_"
                     url="/tnc/business-partners-general-terms.pdf"
-                    link_title={localize('General terms of use')}
+                    link_title="_t_General terms of use_t_"
                 />
                 <Col
                     Icon={Partners}
-                    title={localize('Affiliates & introducing brokers (IBs)')}
-                    content={localize(
-                        'Additional terms for our affiliates and introducing brokers',
-                    )}
+                    title="_t_Affiliates & introducing brokers (IBs)_t_"
+                    content="_t_Additional terms for our affiliates and introducing brokers_t_"
                     url={
                         is_row
                             ? '/tnc/business-partners-affiliates-and-introducing-brokers-row.pdf'
                             : '/tnc/business-partners-affiliates-and-introducing-brokers-eu.pdf'
                     }
-                    link_title={localize('Affiliates & introducing brokers (IBs)')}
+                    link_title="_t_Affiliates & introducing brokers (IBs)_t_"
                 />
 
                 <PartnersGuidePdf />
                 {is_row && (
                     <Col
                         Icon={PA}
-                        title={localize('Payment agents')}
-                        content={localize('Additional terms for our payment agents')}
+                        title="_t_Payment agents_t_"
+                        content="_t_Additional terms for our payment agents_t_"
                         url="/tnc/business-partners-payment-agents.pdf"
-                        link_title={localize('Payment agents')}
+                        link_title="_t_Payment agents_t_"
                     />
                 )}
                 <Col
                     Icon={is_row ? APIROW : API}
-                    title={localize('API users')}
-                    content={localize('Additional terms for our API users')}
+                    title="_t_API users_t_"
+                    content="_t_Additional terms for our API users_t_"
                     url="/tnc/business-partners-api-user.pdf"
-                    link_title={localize('API users')}
+                    link_title="_t_API users_t_"
                 />
                 <Col
                     Icon={is_row ? BugBountyRow : BugBounty}
-                    title={localize('Bug Bounty Program')}
-                    content={localize(
-                        'Additional terms for participants in our Bug Bounty Program',
-                    )}
+                    title="_t_Bug Bounty Program_t_"
+                    content="_t_Additional terms for participants in our Bug Bounty Program_t_"
                     url="/tnc/business-partners-bug-bounty.pdf"
-                    link_title={localize('Bug Bounty Program')}
+                    link_title="_t_Bug Bounty Program_t_"
                 />
             </StyledGrid>
         </StyledContainer>
     )
 }
+
 export default BusinessGrid

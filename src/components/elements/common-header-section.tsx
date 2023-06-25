@@ -63,6 +63,7 @@ const StyledSubtitle = styled.p<CommonHeaderSectionProps>`
     line-height: ${(props) =>
         props.line_height_subtitle ? props.line_height_subtitle : props.line_height};
 `
+
 const CommonHeaderSection = ({
     title,
     subtitle,

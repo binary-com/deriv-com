@@ -68,34 +68,32 @@ const EdgeFlex = styled(Flex)`
 `
 
 const RTS27_28 = () => (
-    <>
-        <EdgeFlex>
-            <FlexText
-                color="red"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/regulatory/RTS28-2022.pdf"
-                m="1.6rem 2.4rem"
-            >
-                <img src={PDFIcon} alt="pdf icon black" />
-                <span>
-                    <Localize translate_text="_t_RTS28 2022_t_" />
-                </span>
-            </FlexText>
-            <FlexText
-                color="red"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/regulatory/RTS28-2021.pdf"
-                m="1.6rem 2.4rem"
-            >
-                <img src={PDFIcon} alt="pdf icon black" />
-                <span>
-                    <Localize translate_text="_t_RTS28 2021_t_" />
-                </span>
-            </FlexText>
-        </EdgeFlex>
-    </>
+    <EdgeFlex>
+        <FlexText
+            color="red"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="/regulatory/RTS28-2022.pdf"
+            m="1.6rem 2.4rem"
+        >
+            <img src={PDFIcon} alt={localize('_t_pdf icon black_t_')} />
+            <span>
+                <Localize translate_text="_t_RTS28 2022_t_" />
+            </span>
+        </FlexText>
+        <FlexText
+            color="red"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="/regulatory/RTS28-2021.pdf"
+            m="1.6rem 2.4rem"
+        >
+            <img src={PDFIcon} alt={localize('_t_pdf icon black_t_')} />
+            <span>
+                <Localize translate_text="_t_RTS28 2021_t_" />
+            </span>
+        </FlexText>
+    </EdgeFlex>
 )
 
 const DocumentAccordion = (locale: DocumentAccordionProps) => {

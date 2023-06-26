@@ -1,5 +1,11 @@
 import React from 'react'
-import { hero_big_image, hero_button, hero_image, hero_wrapper } from '../deriv-ez.module.scss'
+import {
+    hero_big_image,
+    hero_button,
+    hero_content,
+    hero_image,
+    hero_wrapper,
+} from '../deriv-ez.module.scss'
 import { hero_images } from './data'
 import FlexBox from 'features/components/atoms/flex-box'
 import Button from 'features/components/atoms/button'
@@ -9,9 +15,11 @@ import { Localize } from 'components/localization'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/custom/utils'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const DerivEZHero = () => {
     const [is_logged_in] = useAuthCheck()
+    const is_rtl = useIsRtl()
     const handleSignup = useHandleSignup()
 
     return (
@@ -22,17 +30,17 @@ const DerivEZHero = () => {
             align={'center'}
             md={{ direction: 'row' }}
         >
-            <FlexBox.Box container={'fluid'} justify={'center'} md={{ justify: 'start' }}>
+            <FlexBox.Box className={hero_wrapper} container={'fluid'} justify={'center'}>
                 <FlexBox.Box
-                    className={hero_wrapper}
+                    className={hero_content}
                     direction={'col'}
                     ml={'8x'}
                     margin_block={'15x'}
-                    md={{ ml: '0x' }}
+                    md={{ ml: '0x', margin_block: '35x' }}
                 >
                     <FlexBox.Item className={hero_image} align_self="start">
-                        <div className="visible-phone-and-tablet">{hero_images['mobile_logo']}</div>
-                        <div className="visible-larger-than-tablet">{hero_images['logo']}</div>
+                        <div className="visible-phone-and-tablet">{hero_images.mobile_logo}</div>
+                        <div className="visible-larger-than-tablet">{hero_images.logo}</div>
                     </FlexBox.Item>
                     <Typography.Heading
                         size={'xlarge'}

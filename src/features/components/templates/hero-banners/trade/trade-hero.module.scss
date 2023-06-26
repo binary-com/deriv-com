@@ -17,9 +17,7 @@
         background-color: $color-brand;
         inset-block-end: 0;
         clip-path: polygon(0 28%, 100% 38%, 100% 0, 0 0);
-        @include rtl() {
-            clip-path: polygon(0 28%, 100% 38%, 100% 0, 0 0);
-        }
+
 
         @include breakpoints(tablet) {
             min-block-size: 82.2rem;
@@ -27,7 +25,7 @@
             inline-size: 40%;
             clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
             @include rtl() {
-                clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%);
+                position: unset;
             }
         }
     }

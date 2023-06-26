@@ -45,7 +45,6 @@ const HomeHero = () => {
     return (
         <ProductHeroContainer
             container="fixed"
-            style={{ direction: 'ltr' }}
             pt="40x"
             md={{
                 justify: 'center',

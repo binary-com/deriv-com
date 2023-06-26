@@ -8,7 +8,6 @@ const DP2Hero = () => {
     return (
         <DP2HeroContainer
             container="fixed"
-            style={{ direction: 'ltr' }}
             pt="35x"
             pb="15x"
             md={{

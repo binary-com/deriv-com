@@ -3,6 +3,7 @@
 
 .product_hero {
     position: relative;
+    direction: ltr;
 
     @include breakpoints(tablet) {
         min-block-size: 70rem;

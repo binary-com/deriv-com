@@ -4,6 +4,7 @@
 .trade_hero {
     position: relative;
     padding-block-start: 8rem;
+    direction: ltr;
 
     @include breakpoints(tablet) {
         min-block-size: 82.2rem;

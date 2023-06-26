@@ -180,7 +180,7 @@ const scrollToAnchor = (location) => {
     if(location.hash){
         const elem = document.querySelector(location.hash);
         if(elem){
-            elem?.scrollIntoView({ behavior: "smooth" })
+            elem.scrollIntoView({ behavior: "smooth" })
         } else {
             window.scrollTo(0, 0)
         }

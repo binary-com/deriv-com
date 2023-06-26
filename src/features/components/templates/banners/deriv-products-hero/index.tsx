@@ -15,8 +15,8 @@ interface DerivProductHeroType {
 const DerivProductHero = ({ contentData }: DerivProductHeroType) => {
     return (
         <TradeHeroContainer
-            direction={'col-reverse'}
             container={'fixed'}
+            direction={'col-reverse'}
             className={hero_main_wrapper}
             align="center"
             md={{ direction: 'row' }}

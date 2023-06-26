@@ -179,11 +179,7 @@ export const onClientEntry = () => {
 const scrollToAnchor = (location) => {
     if (location.hash) {
         const elem = document.querySelector(location.hash)
-        if (elem) {
-            elem.scrollIntoView({ behavior: 'smooth' })
-        } else {
-            window.scrollTo(0, 0)
-        }
+        elem?.scrollIntoView({ behavior: 'smooth' }) || window.scrollTo(0, 0)
     }
     return true
 }

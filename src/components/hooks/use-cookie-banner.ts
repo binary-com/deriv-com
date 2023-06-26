@@ -39,15 +39,8 @@ export const useCookieBanner = () => {
 
             if (allow_tracking) {
                 if (document.readyState === 'complete') {
-                    setTimeout(() => {
-                        setGTMData({ event: 'allow_tracking' })
-                    }, 2000)
-                } else {
-                    window.onload = () => {
-                        window.setTimeout(() => {
-                            setGTMData({ event: 'allow_tracking' })
-                        }, 2000)
-                    }
+                    setGTMData({ event: 'allow_tracking' })
+                    console.log('==> allow_tracking Done')
                 }
             }
             window.addEventListener('done_loading', function () {

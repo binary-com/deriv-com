@@ -14,27 +14,51 @@ interface DerivProductHeroType {
 
 const DerivProductHero = ({ contentData }: DerivProductHeroType) => {
     return (
-        <TradeHeroContainer
-            container={'fixed'}
-            direction={'col-reverse'}
-            className={hero_main_wrapper}
-            align="center"
-            md={{ direction: 'row' }}
-        >
-            <FlexBox.Box
-                className={hero_wrapper}
-                direction={'col'}
-                justify={'center'}
-                margin_block={'15x'}
-                margin_inline="15x"
-                md={{ margin_inline: '8x' }}
+        <>
+            <TradeHeroContainer
+                visible="larger-than-tablet"
+                container={'fixed'}
+                className={hero_main_wrapper}
+                align="center"
+                style={{ direction: 'ltr' }}
             >
-                <ProductsLogoAndText contentData={contentData} />
-                <ProductsHeading title={contentData.main_title} />
-                <ProductsButtons feature_buttons={contentData.feature_buttons} />
-            </FlexBox.Box>
-            <ProductsBanner contentData={contentData} />
-        </TradeHeroContainer>
+                <FlexBox.Box
+                    className={hero_wrapper}
+                    direction={'col'}
+                    justify={'center'}
+                    margin_block={'15x'}
+                    margin_inline="15x"
+                    md={{ margin_inline: '8x' }}
+                >
+                    <ProductsLogoAndText contentData={contentData} />
+                    <ProductsHeading title={contentData.main_title} />
+                    <ProductsButtons feature_buttons={contentData.feature_buttons} />
+                </FlexBox.Box>
+                <ProductsBanner contentData={contentData} />
+            </TradeHeroContainer>
+            <TradeHeroContainer
+                visible="phone-and-tablet"
+                container={'fixed'}
+                direction={'col-reverse'}
+                className={hero_main_wrapper}
+                align="center"
+                style={{ direction: 'ltr' }}
+            >
+                <FlexBox.Box
+                    className={hero_wrapper}
+                    direction={'col'}
+                    justify={'center'}
+                    margin_block={'15x'}
+                    margin_inline="15x"
+                    md={{ margin_inline: '8x' }}
+                >
+                    <ProductsLogoAndText contentData={contentData} />
+                    <ProductsHeading title={contentData.main_title} />
+                    <ProductsButtons feature_buttons={contentData.feature_buttons} />
+                </FlexBox.Box>
+                <ProductsBanner contentData={contentData} />
+            </TradeHeroContainer>
+        </>
     )
 }
 export default DerivProductHero

@@ -24,9 +24,6 @@
             inset-inline-end: 0;
             inline-size: 40%;
             clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
-            @include rtl() {
-                clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%);
-            }
         }
     }
 }

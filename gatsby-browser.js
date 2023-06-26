@@ -177,10 +177,10 @@ export const onClientEntry = () => {
 }
 
 const scrollToAnchor = (location) => {
-    if(location.hash){
-        const elem = document.querySelector(location.hash);
-        if(elem){
-            elem.scrollIntoView({ behavior: "smooth" })
+    if (location.hash) {
+        const elem = document.querySelector(location.hash)
+        if (elem) {
+            elem.scrollIntoView({ behavior: 'smooth' })
         } else {
             window.scrollTo(0, 0)
         }
@@ -188,7 +188,7 @@ const scrollToAnchor = (location) => {
     return true
 }
 
-export const onRouteUpdate = ({location}) => {
+export const onRouteUpdate = ({ location }) => {
     scrollToAnchor(location)
     checkDomain()
 

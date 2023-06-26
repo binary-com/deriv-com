@@ -1,6 +1,5 @@
 import { createColumnHelper } from '@tanstack/react-table'
 import React, { useMemo } from 'react'
-import { table_header_cell } from './table-component/live-pricing.module.scss'
 import { TMarketData } from './types'
 import SymbolIcon from './table-component/symbol-icon'
 import Flex from 'features/components/atoms/flex-box'
@@ -16,7 +15,7 @@ const useLiveColumns = () => {
         return [
             liveMarketColumnHelper.accessor('shortcode', {
                 header: () => (
-                    <Flex.Box className={table_header_cell}>
+                    <Flex.Box>
                         <Typography.Paragraph
                             align="left"
                             weight="bold"
@@ -28,15 +27,15 @@ const useLiveColumns = () => {
                     </Flex.Box>
                 ),
                 cell: (info) => (
-                    <Flex.Box className={table_header_cell}>
+                    <Flex.Box>
                         <SymbolIcon icon_src={info.getValue()} />
                     </Flex.Box>
                 ),
             }),
             liveMarketColumnHelper.accessor('symbol', {
-                header: () => <Flex.Box className={table_header_cell}></Flex.Box>,
+                header: () => <Flex.Box></Flex.Box>,
                 cell: (info) => (
-                    <Flex.Box className={table_header_cell}>
+                    <Flex.Box>
                         <Typography.Paragraph size={is_mobile ? 'small' : 'medium'}>
                             {info.getValue()}
                         </Typography.Paragraph>
@@ -45,7 +44,7 @@ const useLiveColumns = () => {
             }),
             liveMarketColumnHelper.accessor('bid', {
                 header: () => (
-                    <Flex.Box className={table_header_cell}>
+                    <Flex.Box>
                         <Typography.Paragraph
                             align="left"
                             weight="bold"
@@ -57,7 +56,7 @@ const useLiveColumns = () => {
                     </Flex.Box>
                 ),
                 cell: (info) => (
-                    <Flex.Box className={table_header_cell}>
+                    <Flex.Box>
                         <Typography.Paragraph size={is_mobile ? 'small' : 'medium'}>
                             {info.getValue()}
                         </Typography.Paragraph>
@@ -66,7 +65,7 @@ const useLiveColumns = () => {
             }),
             liveMarketColumnHelper.accessor('ask', {
                 header: () => (
-                    <Flex.Box className={table_header_cell}>
+                    <Flex.Box>
                         <Typography.Paragraph
                             align="left"
                             weight="bold"
@@ -78,7 +77,7 @@ const useLiveColumns = () => {
                     </Flex.Box>
                 ),
                 cell: (info) => (
-                    <Flex.Box className={table_header_cell}>
+                    <Flex.Box>
                         <Typography.Paragraph size={is_mobile ? 'small' : 'medium'}>
                             {info.getValue()}
                         </Typography.Paragraph>
@@ -87,7 +86,7 @@ const useLiveColumns = () => {
             }),
             liveMarketColumnHelper.accessor('spread', {
                 header: () => (
-                    <Flex.Box className={table_header_cell}>
+                    <Flex.Box>
                         <Typography.Paragraph
                             align="left"
                             weight="bold"
@@ -99,7 +98,7 @@ const useLiveColumns = () => {
                     </Flex.Box>
                 ),
                 cell: (info) => (
-                    <Flex.Box className={table_header_cell}>
+                    <Flex.Box>
                         <Typography.Paragraph size={is_mobile ? 'small' : 'medium'}>
                             {info.getValue()}
                         </Typography.Paragraph>
@@ -108,7 +107,7 @@ const useLiveColumns = () => {
             }),
             liveMarketColumnHelper.accessor('day_percentage_change', {
                 header: () => (
-                    <Flex.Box className={table_header_cell}>
+                    <Flex.Box>
                         <Typography.Paragraph
                             weight="bold"
                             font_family="UBUNTU"
@@ -131,7 +130,7 @@ const useLiveColumns = () => {
                             : info.getValue()
 
                     return (
-                        <Flex.Box className={table_header_cell}>
+                        <Flex.Box>
                             <Typography.Paragraph
                                 size={is_mobile ? 'small' : 'medium'}
                                 font_family="UBUNTU"

@@ -6,6 +6,7 @@ import { FlexBoxProps } from '../../flex-box/box'
 import { CardType } from '../type'
 import { Localize } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
+import Image from 'features/components/atoms/image'
 
 export interface CardPrimaryProps extends FlexBoxProps<'div'>, CardType {}
 

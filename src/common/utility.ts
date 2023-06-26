@@ -411,13 +411,13 @@ export const updateURLAsPerUserLanguage = () => {
     const is_careers = paths.includes('careers')
 
     // Start -  temporary fix of PT redirection
-    if (Cookies.get('user_language') === 'pt') {
-        setCookiesWithDomain('user_language', 'en')
-    }
+    // if (Cookies.get('user_language') === 'pt') {
+    //     setCookiesWithDomain('user_language', 'en')
+    // }
 
-    if (window.location.href.indexOf('/pt/') > -1) {
-        window.location.href = window.location.href.replace('/pt/', '/')
-    }
+    // if (window.location.href.indexOf('/pt/') > -1) {
+    //     window.location.href = window.location.href.replace('/pt/', '/')
+    // }
     // End - temporary fix of PT redirection
     if (has_language_in_url) {
         setCookiesWithDomain('user_language', first_path)

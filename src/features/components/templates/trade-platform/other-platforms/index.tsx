@@ -20,18 +20,20 @@ import LeftArrowIcon from 'images/svg//chevron-left.svg'
 import Card from 'features/components/atoms/card'
 import { FlexBoxProps } from 'features/components/atoms/flex-box/box'
 
-export type RenderableDataType = {
+export type PlatformType = {
+    id: number
     icon: string
     heading: TString
     paragraph: TString
     link: LinkUrlType
 }
+
 interface PropsType extends FlexBoxProps<'section'> {
-    renderableData: RenderableDataType[]
+    data: PlatformType[]
     heading: TString
 }
 
-const PlatformsCarousel = ({ heading, renderableData, ...rest }: PropsType) => {
+const PlatformsCarousel = ({ heading, data, ...rest }: PropsType) => {
     return (
         <Container.Fixed as="section" padding_block="20x" md={{ padding_block: '40x' }} {...rest}>
             <Container.Fluid>
@@ -67,8 +69,8 @@ const PlatformsCarousel = ({ heading, renderableData, ...rest }: PropsType) => {
                             'padding-inline-5x padding-bottom-15x md-padding-bottom-10x',
                         )}
                     >
-                        {renderableData.map((slide, i) => (
-                            <SwiperSlide key={i} className={swiper_slide}>
+                        {data.map((slide) => (
+                            <SwiperSlide key={slide.id} className={swiper_slide}>
                                 <Card.Primary
                                     header={slide.heading}
                                     description={slide.paragraph}

@@ -40,13 +40,8 @@ export const useCookieBanner = () => {
             if (allow_tracking) {
                 if (document.readyState === 'complete') {
                     setGTMData({ event: 'allow_tracking' })
-                    console.log('==> allow_tracking Done')
                 }
             }
-            window.addEventListener('done_loading', function () {
-                // Google Tag Manager has been loaded
-                console.log('==> done_loading')
-            })
         }
     }, [is_eu, gtm_data, has_dataLayer, is_region_loading, setGTMData, tracking_status_cookie])
 

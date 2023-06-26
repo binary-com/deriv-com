@@ -160,7 +160,11 @@ export const onClientEntry = () => {
     window.DD_RUM.onReady(function () {
         window.DD_RUM.startSessionReplayRecording()
     })
-
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
     const push_woosh = new Pushwoosh()
     if (isLive()) {
         pushwooshInit(push_woosh)

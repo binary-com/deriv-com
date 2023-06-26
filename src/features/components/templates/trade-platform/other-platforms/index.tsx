@@ -8,25 +8,17 @@ import {
     slider_button_prev,
     slider_button_next,
 } from './styles.module.scss'
+import { PlatformType } from './types'
+import PlatformCard from './platform-card'
 import Container from 'features/components/atoms/container'
 import { TString } from 'types/generics'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
-import { LinkUrlType } from 'features/types'
 import dclsx from 'features/utils/dclsx'
 import Image from 'features/components/atoms/image'
 import RightArrowIcon from 'images/svg/chevron-right.svg'
 import LeftArrowIcon from 'images/svg//chevron-left.svg'
-import Card from 'features/components/atoms/card'
 import { FlexBoxProps } from 'features/components/atoms/flex-box/box'
-
-export type PlatformType = {
-    id: number
-    icon: string
-    heading: TString
-    paragraph: TString
-    link: LinkUrlType
-}
 
 interface PropsType extends FlexBoxProps<'section'> {
     data: PlatformType[]
@@ -71,9 +63,9 @@ const PlatformsCarousel = ({ heading, data, ...rest }: PropsType) => {
                     >
                         {data.map((slide) => (
                             <SwiperSlide key={slide.id} className={swiper_slide}>
-                                <Card.Primary
-                                    header={slide.heading}
-                                    description={slide.paragraph}
+                                <PlatformCard
+                                    heading={slide.heading}
+                                    paragraph={slide.paragraph}
                                     icon={slide.icon}
                                     link={slide.link}
                                 />

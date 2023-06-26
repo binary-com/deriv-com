@@ -239,6 +239,8 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     useEffect(() => {
         document.body.style.overflow = show_popUp ? 'hidden' : 'unset'
         document.body.style.height = show_popUp ? '100svh' : ''
+        document.body.style.touchAction = show_popUp ? 'none' : ''
+        document.body.style.pointerEvents = show_popUp ? 'none' : ''
     }, [show_popUp])
 
     const openPopup = (type: TPopupType) => {
@@ -347,6 +349,8 @@ export const ModalCard = styled.div`
     gap: 12px;
     max-height: 80vh;
     overflow: auto;
+    touch-action: auto;
+    pointer-events: auto;
     @media ${device.tabletS} {
         width: 80%;
     }

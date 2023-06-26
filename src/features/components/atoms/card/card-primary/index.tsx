@@ -23,7 +23,7 @@ const CardPrimary = ({ header, description, icon, link, className, ...rest }: Ca
             {...rest}
         >
             {icon && (
-                <img
+                <Image
                     src={icon}
                     width={44}
                     height={44}

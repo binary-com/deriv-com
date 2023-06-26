@@ -237,9 +237,8 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const [popup_type, setPopupType] = useState<TPopupType>()
 
     useEffect(() => {
+        document.body.style.height = show_popUp ? `${window.innerHeight + 60}px` : ''
         document.body.style.overflow = show_popUp ? 'hidden' : 'unset'
-        document.body.style.pointerEvents = show_popUp ? 'none' : 'auto'
-        document.body.style.touchAction = show_popUp ? 'none' : 'auto'
     }, [show_popUp])
 
     const openPopup = (type: TPopupType) => {
@@ -348,8 +347,6 @@ export const ModalCard = styled.div`
     gap: 12px;
     max-height: 80vh;
     overflow: auto;
-    pointer-events: auto;
-    touch-action: auto;
     @media ${device.tabletS} {
         width: 80%;
     }
@@ -363,8 +360,6 @@ export const Background = styled.div`
     background-color: var(--color-black);
     opacity: 0.4;
     z-index: 10;
-    pointer-events: none;
-    touch-action: none;
 `
 export const DLTableContainer = styled.div`
     display: grid;

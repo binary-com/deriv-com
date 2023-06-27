@@ -238,8 +238,9 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
 
     useEffect(() => {
         document.body.style.overflow = show_popUp ? 'hidden' : 'unset'
+        document.body.style.position = show_popUp ? 'fixed' : ''
         document.getElementsByTagName('html')[0].style.overflow = show_popUp ? 'hidden' : 'unset'
-        document.getElementsByTagName('html')[0].style.height = show_popUp ? '100lvh' : ''
+        document.getElementsByTagName('html')[0].style.position = show_popUp ? 'fixed' : ''
     }, [show_popUp])
 
     const openPopup = (type: TPopupType) => {
@@ -348,8 +349,6 @@ export const ModalCard = styled.div`
     gap: 12px;
     max-height: 80vh;
     overflow: auto;
-    touch-action: auto;
-    pointer-events: auto;
     @media ${device.tabletS} {
         width: 80%;
     }

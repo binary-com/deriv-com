@@ -66,7 +66,7 @@ const PlatformsCarousel = ({ heading, data, ...rest }: PropsType) => {
                                 <PlatformCard
                                     heading={slide.heading}
                                     paragraph={slide.paragraph}
-                                    icon={slide.icon}
+                                   platformItems={slide}
                                     link={slide.link}
                                 />
                             </SwiperSlide>

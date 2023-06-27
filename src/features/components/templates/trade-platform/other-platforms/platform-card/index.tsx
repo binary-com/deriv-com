@@ -9,7 +9,11 @@ import Typography from 'features/components/atoms/typography'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import dclsx from 'features/utils/dclsx'
 
-const PlatformCard = ({ icon, heading, paragraph, link }: Omit<PlatformType, 'id'>) => {
+type PlatformProps = {
+    data: Omit<PlatformType, 'id'>
+}
+
+const PlatformCard = ({ data: { icon, heading, paragraph, link } }: PlatformProps) => {
     return (
         <Flex.Box
             direction="col"
@@ -33,6 +37,7 @@ const PlatformCard = ({ icon, heading, paragraph, link }: Omit<PlatformType, 'id
                 textcolor="brand"
                 padding_block="4x"
                 padding_inline="8x"
+                size="small"
             >
                 <Localize translate_text="_t_Learn more_t_" />
                 <Image

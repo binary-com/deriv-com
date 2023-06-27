@@ -58,17 +58,12 @@ const PlatformsCarousel = ({ heading, data, ...rest }: PropsType) => {
                             },
                         }}
                         className={dclsx(
-                            'padding-inline-5x padding-bottom-15x md-padding-bottom-10x',
+                            'padding-inline-5x padding-bottom-20x md-padding-bottom-10x',
                         )}
                     >
                         {data.map((slide) => (
                             <SwiperSlide key={slide.id} className={swiper_slide}>
-                                <PlatformCard
-                                    heading={slide.heading}
-                                    paragraph={slide.paragraph}
-                                   platformItems={slide}
-                                    link={slide.link}
-                                />
+                                <PlatformCard data={slide} />
                             </SwiperSlide>
                         ))}
                     </Swiper>

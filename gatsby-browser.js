@@ -176,16 +176,7 @@ export const onClientEntry = () => {
     updateURLAsPerUserLanguage()
 }
 
-const scrollToAnchor = (location) => {
-    if (location.hash) {
-        const elem = document.querySelector(location.hash)
-        elem?.scrollIntoView({ behavior: 'smooth' }) || window.scrollTo(0, 0)
-    }
-    return true
-}
-
-export const onRouteUpdate = ({ location }) => {
-    scrollToAnchor(location)
+export const onRouteUpdate = () => {
     checkDomain()
 
     const dataLayer = window.dataLayer

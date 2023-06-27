@@ -235,14 +235,19 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const { symbol, instrument: text, dl_icon, swf_icon } = data
     const [show_popUp, setShowPopUp] = useState(false)
     const [popup_type, setPopupType] = useState<TPopupType>()
+    const [scrollY, setScrollY] = useState<number>()
 
     useEffect(() => {
-        document.body.style.overflow = show_popUp ? 'hidden' : 'unset'
         document.body.style.position = show_popUp ? 'fixed' : ''
+        if (!show_popUp && scrollY) {
+            window.scrollTo({ top: scrollY, behavior: 'smooth' })
+        }
+        document.body.style.overflow = show_popUp ? 'hidden' : 'unset'
         document.body.style.width = show_popUp ? '100%' : ''
     }, [show_popUp])
 
-    const openPopup = (type: TPopupType) => {
+    const openPopup = (type: TPopupType, e: any) => {
+        setScrollY(e.pageY - e.clientY)
         setPopupType(type)
         setShowPopUp(true)
     }
@@ -253,8 +258,8 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
                 src={icon}
                 width={width}
                 height="24px"
-                onClick={() => {
-                    openPopup(type)
+                onClick={(e) => {
+                    openPopup(type, e)
                 }}
             />
         )

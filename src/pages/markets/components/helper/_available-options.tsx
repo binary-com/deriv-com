@@ -1,15 +1,17 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Flex, Box } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
+import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
 
 type AvailableOptionsProps = {
-    content: ReactElement
+    title?: TString
+    content: TString
     mobile_pt?: string
     remove_title?: boolean
     svg: string
-    title?: ReactElement
 }
 
 const StyledFlex = styled(Flex)<{ mobile_pt: string }>`
@@ -19,7 +21,6 @@ const StyledFlex = styled(Flex)<{ mobile_pt: string }>`
         padding-top: ${({ mobile_pt }) => (mobile_pt ? mobile_pt : '')};
     }
 `
-
 const StyledText = styled(Text)`
     @media ${device.tabletL} {
         font-size: 14px;
@@ -47,13 +48,17 @@ const AvailableOptions = ({
         <StyledFlex mobile_pt={mobile_pt}>
             {!remove_title && (
                 <Box mb="0.8rem" height="2.4rem">
-                    <StyledText weight="bold">{title ? title : null}</StyledText>
+                    <StyledText weight="bold">
+                        {title && <Localize translate_text={title} />}
+                    </StyledText>
                 </Box>
             )}
             <Flex jc="flex-start">
                 <Icon src={svg} />
                 <Box max_width="28.8rem">
-                    <StyledText>{content}</StyledText>
+                    <StyledText>
+                        <Localize translate_text={content} />
+                    </StyledText>
                 </Box>
             </Flex>
         </StyledFlex>

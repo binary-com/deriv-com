@@ -4,52 +4,39 @@ import AvailableTrades from '../helper/_available-trades'
 import synthetic_content from '../../static/content/_synthetic'
 import { synthetic_cfds, synthetic_cfds_eu } from '../../static/content/_cfds'
 import { synthetic_multiplier, synthetic_multiplier_eu } from '../../static/content/_multipliers'
-import { accumulators } from '../../static/content/_accumulators'
 import { synthetic_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
-import Accumulators from '../sub-markets/_accumulators'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
-import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
 import { TradeDetails } from '../sections/_trade-details'
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'
 import { Localize, localize } from 'components/localization'
-const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 import useRegion from 'components/hooks/use-region'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
+import { TSimpleStepContent } from 'pages/markets/static/content/types'
+
+const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 
 type StockIndicesProps = {
-    simple_step_content: SimpleStepContentElement[]
+    simple_step_content: TSimpleStepContent[]
 }
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     const { is_eu } = useRegion()
-    const { is_deriv_go, is_accumulators_released } = usePlatformQueryParam()
+    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <div>
-            <TradeDetails
-                description={
-                    <Localize translate_text="Deriv’s proprietary synthetics simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks." />
-                }
-            />
+            <TradeDetails description="_t_Deriv’s proprietary synthetics simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks._t_" />
             <AvailableTrades
-                CFDs={
-                    <CFDs
-                        market_content={is_eu ? synthetic_cfds_eu : synthetic_cfds}
-                        market_tab_name={'synthetic-indices'}
-                    />
-                }
+                CFDs={<CFDs market_content={is_eu ? synthetic_cfds_eu : synthetic_cfds} />}
                 DigitalOptions={
-                    <DigitalOptions
-                        market_name={localize('synthetics')}
-                        options_list={synthetic_options}
-                    />
+                    <DigitalOptions market_name="synthetics" options_list={synthetic_options} />
                 }
                 Multipliers={
                     <Multipliers
@@ -57,10 +44,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                         market_content={is_eu ? synthetic_multiplier_eu : synthetic_multiplier}
                     />
                 }
-                Accumulators={
-                    is_accumulators_released ? <Accumulators market_content={accumulators} /> : null
-                }
-                display_title={<Localize translate_text="Synthetics trades available on Deriv" />}
+                display_title="_t_Synthetics trades available on Deriv_t_"
             />
             <Flex.Box
                 direction="col"
@@ -84,26 +68,17 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                     <Localize translate_text="_t_Check trading specs_t_" />
                 </LinkButton.Primary>
             </Flex.Box>
-            <FullWidthMultiColumn
-                description={
-                    <Localize translate_text="Deriv’s proprietary synthetics simulate real-world market movements. Backed by a cryptographically secure random number generator, these indices are available to trade 24/7 and are unaffected by regular market hours, global events, or market and liquidity risks." />
-                }
-                header={<Localize translate_text="Why trade synthetics on Deriv" />}
-            >
-                {synthetic_content.map((content, index) => (
+            <FullWidthMultiColumn header="_t_Why trade synthetics on Deriv_t_">
+                {synthetic_content.map(({ alt, src, text }) => (
                     <StyledBox
-                        key={index}
-                        text={content.text}
-                        icon={
-                            <img width="48px" height="48px" src={content.src} alt={content.alt} />
-                        }
+                        key={text}
+                        text={text}
+                        icon={<img width="48px" height="48px" src={src} alt={localize(alt)} />}
                     />
                 ))}
             </FullWidthMultiColumn>
             <SimpleSteps
-                header={
-                    <Localize translate_text="Start trading synthetics on Deriv in 3 simple steps" />
-                }
+                header="_t_Start trading synthetics on Deriv in 3 simple steps_t_"
                 content={simple_step_content}
                 sign_up
             />

@@ -1,62 +1,50 @@
-import React from 'react'
-import { Localize } from 'components/localization'
+import { TMarket, TSimpleStepContent } from './types'
 import FriendlySupport from 'images/svg/markets/forex/smart.svg'
 import MetalAndOil from 'images/svg/markets/precious-metals-and-oils-new.svg'
 import NoCommission from 'images/svg/markets/no-commission-new.svg'
 import ResponsiveWebsite from 'images/svg/markets/forex/responsive.svg'
 import VariableSpreads from 'images/svg/markets/variable-spreads-new.svg'
 
-export type CommoditiesContent = {
-    src: string
-    text: React.ReactNode
-    alt: string
-}
-
-export const simple_step_content_commodities = [
+export const simple_step_content_commodities: TSimpleStepContent[] = [
     {
-        header: <Localize translate_text="Practise" />,
-        text: (
-            <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
-        ),
+        header: '_t_Practise_t_',
+        text: '_t_Open a demo account and practise with an unlimited amount of virtual funds._t_',
     },
     {
-        header: <Localize translate_text="Trade" />,
-        text: (
-            <Localize translate_text="Open a real account, make a deposit, and start trading commodities and other markets. " />
-        ),
+        header: '_t_Trade_t_',
+        text: '_t_Open a real account, make a deposit, and start trading commodities and other markets. _t_',
     },
     {
-        header: <Localize translate_text="Withdraw" />,
-        text: (
-            <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
-        ),
+        header: '_t_Withdraw_t_',
+        text: '_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_',
     },
 ]
-const commodities: CommoditiesContent[] = [
+
+const commodities: TMarket[] = [
     {
         src: VariableSpreads,
-        alt: 'Fixed and variable',
-        text: <Localize translate_text="Competitive fixed and variable spreads" />,
+        alt: '_t_Fixed and variable_t_',
+        text: '_t_Competitive fixed and variable spreads_t_',
     },
     {
         src: NoCommission,
-        alt: 'No commission',
-        text: <Localize translate_text="No commission on any commodity contract" />,
+        alt: '_t_No commission_t_',
+        text: '_t_No commission on any commodity contract_t_',
     },
     {
         src: MetalAndOil,
-        alt: 'Trading platform',
-        text: <Localize translate_text="All four precious metals and crude oil available" />,
+        alt: '_t_Trading platform_t_',
+        text: '_t_All four precious metals and crude oil available_t_',
     },
     {
         src: ResponsiveWebsite,
-        alt: 'Easy platform',
-        text: <Localize translate_text="Easy-to-use platforms, superior charts" />,
+        alt: '_t_Easy platform_t_',
+        text: '_t_Easy-to-use platforms, superior charts_t_',
     },
     {
         src: FriendlySupport,
-        alt: 'Customer help',
-        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        alt: '_t_Customer help_t_',
+        text: '_t_Smart and friendly support, 7 days a week_t_',
     },
 ]
 

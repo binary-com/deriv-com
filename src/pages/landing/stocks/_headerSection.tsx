@@ -8,7 +8,7 @@ import StocksHeaderOverlayBelowSectionBg from 'images/svg/stock-indices/stocksHe
 import StocksHeaderBelowSection from 'images/svg/stock-indices/stocksHeaderBelowSection.svg'
 import stocksHeaderBelowSectionM from 'images/svg/stock-indices/stocksHeaderBelowSection-m.svg'
 import device from 'themes/device'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 
@@ -262,20 +262,18 @@ const HeaderSection = () => {
                     <TopHeaderTextDiv>
                         <TopTextWrapper>
                             <StyledHeader color="white" type="main-landing-title">
-                                {localize('Stocks, unlocked')}
+                                <Localize translate_text="_t_Stocks, unlocked_t_" />
                             </StyledHeader>
                             <StyledHeaderSmall
                                 color="white"
                                 type="sub-section-title"
                                 weight="normal"
                             >
-                                {localize(
-                                    'Trade global stocks and stock indices now on our Deriv MT5 platform',
-                                )}
+                                <Localize translate_text="_t_Trade global stocks and stock indices now on our Deriv MT5 platform_t_" />
                             </StyledHeaderSmall>
                             <BtnDiv>
-                                <StyledLinkButton type="submit" secondary to={'/landing/signup/'}>
-                                    {localize('Create a demo account')}
+                                <StyledLinkButton type="submit" secondary to="/landing/signup/">
+                                    <Localize translate_text="_t_Create a demo account_t_" />
                                 </StyledLinkButton>
                             </BtnDiv>
                         </TopTextWrapper>
@@ -285,7 +283,7 @@ const HeaderSection = () => {
                             <DesktopImageWrapper>
                                 <QueryImage
                                     data={data['mainHeaderImage']}
-                                    alt="deriv platform"
+                                    alt={localize('_t_deriv platform_t_')}
                                     width="100%"
                                     loading="eager"
                                 />
@@ -293,7 +291,7 @@ const HeaderSection = () => {
                             <MobileImageWrapper>
                                 <QueryImage
                                     data={data['mainHeaderImageMobile']}
-                                    alt="deriv platform mobile"
+                                    alt={localize('_t_deriv platform mobile_t_')}
                                     width="100%"
                                 />
                             </MobileImageWrapper>
@@ -301,12 +299,15 @@ const HeaderSection = () => {
                     </TopHeaderBgDiv>
                 </TopHeaderWrapper>
                 <Desktop>
-                    <BackgroundPattern src={StocksHeaderOverlayBg} alt="background pattern" />
+                    <BackgroundPattern
+                        src={StocksHeaderOverlayBg}
+                        alt={localize('_t_background pattern_t_')}
+                    />
                 </Desktop>
                 <Mobile>
                     <BackgroundPattern
                         src={StocksHeaderOverlayBgMobile}
-                        alt="background pattern mobile"
+                        alt={localize('_t_background pattern mobile_t_')}
                     />
                 </Mobile>
             </HeaderWrapper>
@@ -316,30 +317,28 @@ const HeaderSection = () => {
                         <Desktop>
                             <SectionBannerImg
                                 src={StocksHeaderBelowSection}
-                                alt="stocks favorite brand"
+                                alt={localize('_t_stocks favorite brand_t_')}
                             />
                         </Desktop>
                         <Mobile>
                             <SectionBannerImg
                                 src={stocksHeaderBelowSectionM}
-                                alt="stocks favorite brand"
+                                alt={localize('_t_stocks favorite brand_t_')}
                             />
                         </Mobile>
                     </SectionImgDiv>
                 </SectionImgWrapper>
                 <SectionTextWrapper>
                     <SectionStyledHeader type="display-title" mb="24px">
-                        {localize('Spot your favourite brand?')}
+                        <Localize translate_text="_t_Spot your favourite brand?_t_" />
                     </SectionStyledHeader>
                     <SectionStyledHeaderSmall type="sub-section-title" weight="normal">
-                        {localize(
-                            'Facebook. Tesla. Zoom. McDonald’s. Trade on the global household names you see every day on our Deriv MT5 platform. We’ve got all your favourite brands in tech, finance, retail, plus more.',
-                        )}
+                        <Localize translate_text="_t_Facebook. Tesla. Zoom. McDonald’s. Trade on the global household names you see every day on our Deriv MT5 platform. We’ve got all your favourite brands in tech, finance, retail, plus more._t_" />
                     </SectionStyledHeaderSmall>
 
                     <BackgroundPatternSection
                         src={StocksHeaderOverlayBelowSectionBg}
-                        alt="background pattern section"
+                        alt={localize('_t_background pattern section_t_')}
                     />
                 </SectionTextWrapper>
             </SectionWrapper>

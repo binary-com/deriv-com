@@ -1,4 +1,4 @@
-import React, { ReactElement, useRef } from 'react'
+import React, { useRef } from 'react'
 import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
@@ -6,15 +6,7 @@ import { Localize, LocalizedLink } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
-
-type NavTabProps = {
-    route_from: string
-    route_offset: number
-}
-
-type TabButtonProps = {
-    selected?: boolean
-}
+import { TNavTab, TTabButton, TTabList } from 'pages/markets/static/content/types'
 
 const TabsContainer = styled(Flex)`
     justify-content: center;
@@ -43,8 +35,7 @@ const TabList = styled.div`
         }
     }
 `
-
-const TabButton = styled.button<TabButtonProps>`
+const TabButton = styled.button<TTabButton>`
     z-index: 2;
     height: auto;
     padding: 16px 24px;
@@ -80,7 +71,7 @@ const TabButton = styled.button<TabButtonProps>`
         padding: 24px 12px;
     }
 `
-const TextWrapper = styled(Text)<TabButtonProps>`
+const TextWrapper = styled(Text)<TTabButton>`
     text-align: center;
     font-size: var(--text-size-m);
     color: #999999;
@@ -102,38 +93,33 @@ const StyledLink = styled(LocalizedLink)`
     }
 `
 
-type TabList = {
-    title: ReactElement
-    tab_name: string
-    route_to: string
-}
-const tab_list: TabList[] = [
+const tab_list: TTabList[] = [
     {
-        title: <Localize translate_text="Synthetics" />,
+        title: '_t_Synthetics_t_',
         tab_name: 'synthetic',
         route_to: '/markets/synthetic/#synthetic',
     },
     {
-        title: <Localize translate_text="Baskets" />,
+        title: '_t_Baskets_t_',
         tab_name: 'basket-indices',
         route_to: '/markets/basket-indices/#basket-indices',
     },
     {
-        title: <Localize translate_text="Derived FX" />,
+        title: '_t_Derived FX_t_',
         tab_name: 'derived-fx',
         route_to: '/markets/derived-fx/#derived-fx',
     },
 ]
 
-const tab_list_eu: TabList[] = [
+const tab_list_eu: TTabList[] = [
     {
-        title: <Localize translate_text="Synthetics" />,
+        title: '_t_Synthetics_t_',
         tab_name: 'synthetic',
         route_to: '/markets/synthetic/#synthetic',
     },
 ]
 
-const NavTab = ({ route_from }: NavTabProps) => {
+const NavTab = ({ route_from }: TNavTab) => {
     const { is_eu } = useRegion()
     const ref = useRef(null)
     const { is_deriv_go } = usePlatformQueryParam()
@@ -142,11 +128,13 @@ const NavTab = ({ route_from }: NavTabProps) => {
         <TabsContainer>
             {!is_deriv_go && (
                 <TabList ref={ref}>
-                    {(is_eu ? tab_list_eu : tab_list).map((item) => {
+                    {(is_eu ? tab_list_eu : tab_list).map(({ route_to, tab_name, title }) => {
                         return (
-                            <StyledLink to={item.route_to} key={item.tab_name}>
-                                <TabButton selected={route_from == item.tab_name}>
-                                    <TextWrapper>{item.title}</TextWrapper>
+                            <StyledLink to={route_to} key={tab_name}>
+                                <TabButton selected={route_from == tab_name}>
+                                    <TextWrapper>
+                                        <Localize translate_text={title} />
+                                    </TextWrapper>
                                 </TabButton>
                             </StyledLink>
                         )

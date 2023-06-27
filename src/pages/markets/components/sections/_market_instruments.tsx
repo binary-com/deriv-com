@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react'
+import React from 'react'
 import MarketsAccordion from '../helper/_markets_accordion'
 import {
     Col,
@@ -10,127 +10,103 @@ import {
     Title,
 } from '../../static/style/_markets-style'
 import { useBrowserResize } from '../../../../components/hooks/use-browser-resize'
-type Contentelement = {
-    id: string
-    component?: ReactElement
-    mobile_title?: ReactElement
-    title?: ReactElement
-    details?: ReactNode
-    col?: number
-    tablet_col?: number
-    mobile_col?: number
-    padding?: string
-    flex?: boolean
-    gap?: string
-    gap_mobile?: string
-    custom_index?: number
-    mobile_template?: true
-}
+import { TMarketInstruments } from 'pages/markets/static/content/types'
+import { Localize } from 'components/localization'
 
-export type MarketInstrumentsElement = {
-    markets_list?: {
-        col?: number
-        tablet_col?: number
-        mobile_col?: number
-    }
-    content?: Contentelement[]
-    has_global_accordion?: boolean
-    template?: number
-}
-export type MarketInstrumentsProps = {
-    market_content: MarketInstrumentsElement
-}
-const MarketInstruments = ({ market_content }: MarketInstrumentsProps) => {
+const MarketInstruments = ({
+    market_content: { content, has_global_accordion, markets_list, template },
+}: TMarketInstruments) => {
     const [is_mobile] = useBrowserResize()
+
     return (
         <MarketsWrapper>
-            {market_content.content?.map((content) =>
-                market_content.has_global_accordion || content.details ? (
-                    <MarketsAccordion
-                        id={content.id}
-                        key={content.id}
-                        renderTitle={() => (
-                            <Row is_accordion_row={true}>
-                                {market_content.template == 2 ? (
-                                    <>
-                                        <Col full_width={true}>
-                                            {is_mobile && content.mobile_title ? (
-                                                <Title>{content.mobile_title}</Title>
-                                            ) : (
-                                                <Title>{content.title}</Title>
-                                            )}
-                                        </Col>
+            {content?.map(
+                ({
+                    component,
+                    title,
+                    col,
+                    details,
+                    gap,
+                    gap_mobile,
+                    id,
+                    mobile_col,
+                    mobile_template,
+                    mobile_title,
+                    padding,
+                    tablet_col,
+                    title_components,
+                }) =>
+                    has_global_accordion || details ? (
+                        <MarketsAccordion
+                            key={title}
+                            id={id}
+                            renderTitle={() => (
+                                <Row is_accordion_row>
+                                    <Col full_width={template == 2 || template == 3}>
+                                        <Title>
+                                            <Localize
+                                                translate_text={
+                                                    is_mobile && mobile_title ? mobile_title : title
+                                                }
+                                                components={title_components}
+                                            />
+                                        </Title>
+                                    </Col>
+
+                                    {template == 2 ? (
                                         <LatestMarketsList
-                                            has_right_border={true}
-                                            col={content.col}
-                                            tablet_col={content.tablet_col}
-                                            mobile_col={content.mobile_col}
-                                            padding={content.padding}
-                                            gap={content.gap}
-                                            gap_mobile={content.gap_mobile}
+                                            has_right_border
+                                            col={col}
+                                            tablet_col={tablet_col}
+                                            mobile_col={mobile_col}
+                                            padding={padding}
+                                            gap={gap}
+                                            gap_mobile={gap_mobile}
                                         >
-                                            {content.component}
+                                            {component}
                                         </LatestMarketsList>
-                                    </>
-                                ) : market_content.template == 3 ? (
-                                    <>
-                                        <Col full_width={true}>
-                                            {is_mobile && content.mobile_title ? (
-                                                <Title>{content.mobile_title}</Title>
-                                            ) : (
-                                                <Title>{content.title}</Title>
-                                            )}
-                                        </Col>
-                                        <DerivedMarketsList>{content.component}</DerivedMarketsList>
-                                    </>
-                                ) : (
-                                    <>
-                                        <Col>
-                                            {is_mobile && content.mobile_title ? (
-                                                <Title>{content.mobile_title}</Title>
-                                            ) : (
-                                                <Title>{content.title}</Title>
-                                            )}
-                                        </Col>
-                                        <MarketsList has_right_border={true}>
-                                            {content.component}
-                                        </MarketsList>
-                                    </>
-                                )}
-                            </Row>
-                        )}
-                    >
-                        {content.details}
-                    </MarketsAccordion>
-                ) : (
-                    <Row id={content.id} key={content.id} mobile_template={content.mobile_template}>
-                        <Col mobile_template={content.mobile_template}>
-                            {is_mobile && content.mobile_title ? (
-                                <Title>{content.mobile_title}</Title>
-                            ) : (
-                                <Title>{content.title}</Title>
+                                    ) : template == 3 ? (
+                                        <DerivedMarketsList>{component}</DerivedMarketsList>
+                                    ) : (
+                                        <MarketsList has_right_border>{component}</MarketsList>
+                                    )}
+                                </Row>
                             )}
-                        </Col>
-                        {market_content.template == 2 ? (
-                            <LatestMarketsList
-                                col={content.col}
-                                tablet_col={content.tablet_col}
-                                mobile_col={content.mobile_col}
-                                padding={content.padding}
-                                gap={content.gap}
-                                mobile_template={content.mobile_template}
-                                gap_mobile={content.gap_mobile}
-                                {...market_content.markets_list}
-                            >
-                                {content.component}
-                            </LatestMarketsList>
-                        ) : (
-                            <MarketsList {...market_content.markets_list} gap="16px">
-                                {content.component}
-                            </MarketsList>
-                        )}
-                    </Row>
-                ),
+                        >
+                            {details}
+                        </MarketsAccordion>
+                    ) : (
+                        <Row key={title} id={id} mobile_template={mobile_template}>
+                            <Col mobile_template={mobile_template}>
+                                <Title>
+                                    <Localize
+                                        translate_text={
+                                            is_mobile && mobile_title ? mobile_title : title
+                                        }
+                                        components={title_components}
+                                    />
+                                </Title>
+                            </Col>
+                            {template == 2 ? (
+                                <LatestMarketsList
+                                    col={col}
+                                    tablet_col={tablet_col}
+                                    mobile_col={mobile_col}
+                                    padding={padding}
+                                    gap={gap}
+                                    mobile_template={mobile_template}
+                                    gap_mobile={gap_mobile}
+                                    {...markets_list}
+                                >
+                                    {component}
+                                </LatestMarketsList>
+                            ) : (
+                                <MarketsList {...markets_list} gap="16px">
+                                    {component}
+                                </MarketsList>
+                            )}
+                        </Row>
+                    ),
             )}
         </MarketsWrapper>
     )

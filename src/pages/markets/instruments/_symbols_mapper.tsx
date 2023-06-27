@@ -1,8 +1,8 @@
 import React from 'react'
 import Symbol from '../components/helper/_symbol'
-import type { MarketSymbol } from '../static/content/_market-symbols'
+import { TMarketSymbol } from '../static/content/types'
 
-const SymbolsMapper = (market_symbols: MarketSymbol[]) => {
+const SymbolsMapper = (market_symbols: TMarketSymbol[]) => {
     return (
         <>
             {market_symbols.map((symbol, index) => (

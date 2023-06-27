@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import device, { size } from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { isIndexEven } from 'common/utility'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { ContentType, StyledProps } from 'pages/landing/_types'
@@ -38,7 +38,6 @@ const Content = styled.div<StyledProps>`
         margin: 0 auto;
     }
 `
-
 const ImageWrapper = styled.div<StyledProps>`
     max-width: 47.1rem;
     width: 100%;
@@ -107,41 +106,60 @@ const ImageTextSwitching = ({ P2P, reverse }: ImageTextSwitchingProps) => {
                     mb="1rem"
                     weight="bold"
                 >
-                    {localize('Trade the markets that never sleep')}
+                    <Localize translate_text="_t_Trade the markets that never sleep_t_" />
                 </StyledText>
 
-                {P2P.map((item, index) => {
-                    const is_even = isIndexEven(index, reverse)
-                    return (
-                        <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
-                            <Content margin_right={!is_even ? '12.6rem' : '0'}>
-                                <StyledHeader type="heading-3" mb="1rem">
-                                    {item.title}
-                                </StyledHeader>
-                                {is_tabletL ? (
-                                    <>
-                                        <Text pb="2rem">{item.subtitle_mobile1}</Text>
-                                        <Text>{item.subtitle_mobile2}</Text>
-                                    </>
-                                ) : (
-                                    <>
-                                        <Text size="var(--text-size-m)" pb="2rem">
-                                            {item.subtitle1}
-                                        </Text>
-                                        <Text size="var(--text-size-m)">{item.subtitle2}</Text>
-                                    </>
-                                )}
-                            </Content>
-                            <ImageWrapper margin_right={!is_even ? '0' : '12.6rem'}>
-                                <QueryImage
-                                    data={data[item.image_name]}
-                                    alt={item.image_alt}
-                                    width="100%"
-                                />
-                            </ImageWrapper>
-                        </Row>
-                    )
-                })}
+                {P2P.map(
+                    (
+                        {
+                            title,
+                            subtitle_mobile1,
+                            subtitle_mobile2,
+                            subtitle1,
+                            subtitle2,
+                            image_name,
+                            image_alt,
+                        },
+                        index,
+                    ) => {
+                        const is_even = isIndexEven(index, reverse)
+                        return (
+                            <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={title}>
+                                <Content margin_right={!is_even ? '12.6rem' : '0'}>
+                                    <StyledHeader type="heading-3" mb="1rem">
+                                        <Localize translate_text={title} />
+                                    </StyledHeader>
+                                    {is_tabletL ? (
+                                        <>
+                                            <Text pb="2rem">
+                                                <Localize translate_text={subtitle_mobile1} />
+                                            </Text>
+                                            <Text>
+                                                <Localize translate_text={subtitle_mobile2} />
+                                            </Text>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <Text size="var(--text-size-m)" pb="2rem">
+                                                <Localize translate_text={subtitle1} />
+                                            </Text>
+                                            <Text size="var(--text-size-m)">
+                                                <Localize translate_text={subtitle2} />
+                                            </Text>
+                                        </>
+                                    )}
+                                </Content>
+                                <ImageWrapper margin_right={!is_even ? '0' : '12.6rem'}>
+                                    <QueryImage
+                                        data={data[image_name]}
+                                        alt={localize(image_alt)}
+                                        width="100%"
+                                    />
+                                </ImageWrapper>
+                            </Row>
+                        )
+                    },
+                )}
             </StyledContainer>
         </StyledSection>
     )

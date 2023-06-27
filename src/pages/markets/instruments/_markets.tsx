@@ -34,9 +34,7 @@ import useRegion from 'components/hooks/use-region'
 
 export const AmericanIndices = () => <Symbol instruments_type={stocks_american_indices} />
 
-export const AmericanStocks = () => {
-    return <Symbol instruments_type={american_stocks} />
-}
+export const AmericanStocks = () => <Symbol instruments_type={american_stocks} />
 
 export const Americas = () => <Symbol instruments_type={americas} />
 

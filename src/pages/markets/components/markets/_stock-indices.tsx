@@ -7,7 +7,6 @@ import { stock_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
-import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'
@@ -16,37 +15,31 @@ import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn
 import useRegion from 'components/hooks/use-region'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
+import { TSimpleStepContent } from 'pages/markets/static/content/types'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 
 type StockIndicesProps = {
-    simple_step_content: SimpleStepContentElement[]
+    simple_step_content: TSimpleStepContent[]
 }
 
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     const { is_eu } = useRegion()
     const [is_mobile] = useBrowserResize()
 
-    simple_step_content[1].text = is_eu ? (
-        <Localize translate_text="Open a real account, make a deposit, and start trading stocks, stock indices, and other markets." />
-    ) : (
-        <Localize translate_text="Open a real account, make a deposit, and start trading stocks, indices and other markets." />
-    )
+    simple_step_content[1].text = is_eu
+        ? '_t_Open a real account, make a deposit, and start trading stocks, stock indices, and other markets._t_'
+        : '_t_Open a real account, make a deposit, and start trading stocks, indices and other markets._t_'
 
     return (
         <div>
             <AvailableTrades
-                CFDs={<CFDs market_tab_name={'stock-indices'} market_content={stock_cfds} />}
+                CFDs={<CFDs market_content={stock_cfds} />}
                 DigitalOptions={
-                    <DigitalOptions
-                        market_name={localize('stocks & indices')}
-                        options_list={stock_options}
-                    />
+                    <DigitalOptions market_name="stocks & indices" options_list={stock_options} />
                 }
-                display_title={
-                    <Localize translate_text="Stocks & indices trades available on Deriv" />
-                }
+                display_title="_t_Stocks & indices trades available on Deriv_t_"
             />
             <Flex.Box
                 direction="col"
@@ -71,24 +64,20 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 </LinkButton.Primary>
             </Flex.Box>
             <FullWidthMultiColumn
-                header={<Localize translate_text="Why trade stocks & indices on Deriv" />}
+                header="_t_Why trade stocks & indices on Deriv_t_"
                 subtext_width="180px"
                 header_width={is_mobile ? '186px' : '996px'}
             >
-                {stock_content.map((content, index) => (
+                {stock_content.map(({ alt, src, text }) => (
                     <StyledBox
-                        key={index}
-                        text={content.text}
-                        icon={
-                            <img width="48px" height="48px" src={content.src} alt={content.alt} />
-                        }
+                        key={text}
+                        text={text}
+                        icon={<img width="48px" height="48px" src={src} alt={localize(alt)} />}
                     />
                 ))}
             </FullWidthMultiColumn>
             <SimpleSteps
-                header={
-                    <Localize translate_text="Start trading stocks & indices on Deriv in 3 simple steps" />
-                }
+                header="_t_Start trading stocks & indices on Deriv in 3 simple steps_t_"
                 content={simple_step_content}
                 sign_up
             />

@@ -5,30 +5,28 @@ import { derived_content } from '../../static/content/_derived'
 import { derived_fx_cfds } from '../../static/content/_cfds'
 import CFDs from '../sub-markets/_cfds'
 import { StyledBox } from '../../static/style/_markets-style'
-import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
 import { TradeDetails } from '../sections/_trade-details'
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
+import { TSimpleStepContent } from 'pages/markets/static/content/types'
+
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 
 type DerivedProps = {
-    simple_step_content: SimpleStepContentElement[]
+    simple_step_content: TSimpleStepContent[]
 }
+
 const Derived = ({ simple_step_content }: DerivedProps) => {
     return (
         <>
-            <TradeDetails
-                description={
-                    <Localize translate_text="Derived FX gives you the opportunity to trade on simulated assets based on major forex pairs at the volatility of your choice. Our advanced algorithms track real-world currency prices and dampen the fluctuations caused by market sentiment and unexpected news events." />
-                }
-            />
+            <TradeDetails description="_t_Derived FX gives you the opportunity to trade on simulated assets based on major forex pairs at the volatility of your choice. Our advanced algorithms track real-world currency prices and dampen the fluctuations caused by market sentiment and unexpected news events._t_" />
             <AvailableTrades
-                CFDs={<CFDs market_content={derived_fx_cfds} market_tab_name={'derived-fx'} />}
-                display_title={<Localize translate_text="Derived FX trades available on Deriv" />}
+                CFDs={<CFDs market_content={derived_fx_cfds} />}
+                display_title="_t_Derived FX trades available on Deriv_t_"
             />
             <Flex.Box
                 direction="col"
@@ -52,25 +50,20 @@ const Derived = ({ simple_step_content }: DerivedProps) => {
                     <Localize translate_text="_t_Check trading specs_t_" />
                 </LinkButton.Primary>
             </Flex.Box>
-            <FullWidthMultiColumn
-                header={<Localize translate_text="Why trade derived FX on Deriv" />}
-            >
-                {derived_content.map((content, index) => (
+            <FullWidthMultiColumn header="_t_Why trade derived FX on Deriv_t_">
+                {derived_content.map(({ alt, src, text }) => (
                     <StyledBox
-                        key={index}
-                        text={content.text}
-                        icon={<img width="48px" height="48px" src={content.src} alt="" />}
+                        key={text}
+                        text={text}
+                        icon={<img width="48px" height="48px" src={src} alt={localize(alt)} />}
                     />
                 ))}
             </FullWidthMultiColumn>
             <SimpleSteps
-                header={
-                    <Localize translate_text="Start trading derived FX on Deriv in 3 simple steps" />
-                }
+                header="_t_Start trading derived FX on Deriv in 3 simple steps_t_"
                 content={simple_step_content}
                 sign_up
             />
-            {/* <OtherMarkets except="derived" /> */}
             <OtherMarketsSlider current_market="synthetic" />
         </>
     )

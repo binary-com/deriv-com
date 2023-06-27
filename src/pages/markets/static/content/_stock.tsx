@@ -1,63 +1,51 @@
-import React from 'react'
-import { Localize } from 'components/localization'
+import { TMarket, TSimpleStepContent } from './types'
 import ExtendedTime from 'images/svg/stock-indices/stocks-extented-time.svg'
 import FriendlySupport from 'images/svg/markets/forex/smart.svg'
 import MinimalCapital from 'images/svg/stock-indices/stocks-minimum-capital.svg'
 import ResponsiveWebsite from 'images/svg/markets/forex/platforms.svg'
 import WithdrawIcon from 'images/svg/stock-indices/deposit-and-withdrawal-new.svg'
 
-type Stock = {
-    src: string
-    text: React.ReactNode
-    alt: string
-}
-
-export const simple_step_content_stock = [
+export const simple_step_content_stock: TSimpleStepContent[] = [
     {
-        header: <Localize translate_text="Practise" />,
-        text: (
-            <Localize translate_text="Open a demo account and practise with an unlimited amount of virtual funds." />
-        ),
+        header: '_t_Practise_t_',
+        text: '_t_Open a demo account and practise with an unlimited amount of virtual funds._t_',
     },
     {
-        header: <Localize translate_text="Trade" />,
-        text: (
-            <Localize translate_text="Open a real account, make a deposit, and start trading stocks & indices and other markets." />
-        ),
+        header: '_t_Trade_t_',
+        text: '_t_Open a real account, make a deposit, and start trading stocks & indices and other markets._t_',
     },
     {
-        header: <Localize translate_text="Withdraw" />,
-        text: (
-            <Localize translate_text="Conveniently withdraw your funds through any of our supported withdrawal methods." />
-        ),
+        header: '_t_Withdraw_t_',
+        text: '_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_',
     },
 ]
 
-const stocks: Stock[] = [
+const stocks: TMarket[] = [
     {
         src: MinimalCapital,
-        alt: 'Low capital',
-        text: <Localize translate_text="Minimal capital requirements, limited risk" />,
+        alt: '_t_Low capital_t_',
+        text: '_t_Minimal capital requirements, limited risk_t_',
     },
     {
         src: ExtendedTime,
-        alt: 'Time to trade',
-        text: <Localize translate_text="Extended trading time, up to 18 hours a day" />,
+        alt: '_t_Time to trade_t_',
+        text: '_t_Extended trading time, up to 18 hours a day_t_',
     },
     {
         src: WithdrawIcon,
-        alt: 'Easy deposits and withdrawals',
-        text: <Localize translate_text="Fast and secure deposit and withdrawal options" />,
+        alt: '_t_Easy deposits and withdrawals_t_',
+        text: '_t_Fast and secure deposit and withdrawal options_t_',
     },
     {
         src: ResponsiveWebsite,
-        alt: 'Simple trading platforms',
-        text: <Localize translate_text="Responsive, easy-to-use platforms" />,
+        alt: '_t_Simple trading platforms_t_',
+        text: '_t_Responsive, easy-to-use platforms_t_',
     },
     {
         src: FriendlySupport,
-        alt: 'Smart support team',
-        text: <Localize translate_text="Smart and friendly support, 7 days a week" />,
+        alt: '_t_Smart support team_t_',
+        text: '_t_Smart and friendly support, 7 days a week_t_',
     },
 ]
+
 export default stocks

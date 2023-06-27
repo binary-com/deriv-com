@@ -9,7 +9,6 @@ import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
 import { StyledBox } from '../../static/style/_markets-style'
-import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'
@@ -17,13 +16,15 @@ import useRegion from 'components/hooks/use-region'
 import { Localize, localize } from 'components/localization'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
+import { TSimpleStepContent } from 'pages/markets/static/content/types'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 
 type ForexProps = {
-    simple_step_content: SimpleStepContentElement[]
+    simple_step_content: TSimpleStepContent[]
 }
+
 const Forex = ({ simple_step_content }: ForexProps) => {
     const { is_row, is_eu } = useRegion()
 
@@ -32,18 +33,12 @@ const Forex = ({ simple_step_content }: ForexProps) => {
             <AvailableTrades
                 CFDs={<CFDs market_content={is_eu ? forex_cfds_eu : forex_cfds} />}
                 DigitalOptions={
-                    is_row && (
-                        <DigitalOptions
-                            market_name={localize('forex')}
-                            options_list={forex_options}
-                        />
-                    )
+                    is_row && <DigitalOptions market_name="forex" options_list={forex_options} />
                 }
                 Multipliers={
                     <Multipliers market_content={is_eu ? forex_multiplier_eu : forex_multiplier} />
                 }
-                // name="Forex"
-                display_title={<Localize translate_text="Forex trades available on Deriv" />}
+                display_title="_t_Forex trades available on Deriv_t_"
             />
             <Flex.Box
                 direction="col"
@@ -68,27 +63,19 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                     <Localize translate_text="_t_Check trading specs_t_" />
                 </LinkButton.Primary>
             </Flex.Box>
-            <FullWidthMultiColumn
-                gap="2rem"
-                header={<Localize translate_text="Why trade forex on Deriv" />}
-            >
-                {(is_eu ? forex_content_eu : forex_content).map((content, index) => (
+            <FullWidthMultiColumn gap="2rem" header="_t_Why trade forex on Deriv_t_">
+                {(is_eu ? forex_content_eu : forex_content).map(({ alt, src, text }) => (
                     <StyledBox
-                        key={index}
-                        text={content.text}
-                        icon={
-                            <img width="48px" height="48px" src={content.src} alt={content.alt} />
-                        }
+                        key={text}
+                        text={text}
+                        icon={<img width="48px" height="48px" src={src} alt={localize(alt)} />}
                     />
                 ))}
             </FullWidthMultiColumn>
             <SimpleSteps
-                header={
-                    <Localize translate_text="Start trading forex on Deriv in 3 simple steps" />
-                }
+                header="_t_Start trading forex on Deriv in 3 simple steps_t_"
                 content={simple_step_content}
             />
-
             <OtherMarketsSlider current_market="forex" />
         </>
     )

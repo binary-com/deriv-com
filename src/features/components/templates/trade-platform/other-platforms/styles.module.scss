@@ -15,13 +15,13 @@
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-}
-.slider_button_prev{
-    left: -32px;
     &:disabled {
         opacity: 0.5;
         cursor: default;
     }
+}
+.slider_button_prev{
+    left: -32px;
 }
 .slider_button_next{
     right: -32px;

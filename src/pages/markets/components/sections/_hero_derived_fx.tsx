@@ -64,7 +64,7 @@ const StyledHeader = styled.h1<ContainerProps>`
     font-size: 48px;
     color: var(--color-black-9);
     width: 39vw;
-    text-align: ${(props) => (props.is_rtl ? 'end' : 'start')};
+    text-align: start;
     margin-bottom: 1rem;
 
     @media ${device.laptopM} {
@@ -126,14 +126,13 @@ const StyledContainer = styled(Container)`
     }
 `
 
-const ContentWrapperStyle = styled.div<{ is_rtl: boolean }>`
+const ContentWrapperStyle = styled.div`
     flex: 1;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     display: flex;
     max-width: 40%;
-    direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
     @media ${device.tabletL} {
         max-width: 100%;
     }

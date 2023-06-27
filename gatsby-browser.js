@@ -67,7 +67,7 @@ const pushwooshInit = (push_woosh) => {
             safariWebsitePushID: 'web.com.deriv',
             defaultNotificationTitle: 'Deriv.com',
             defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
-            serviceWorkerUrl: '/sw.js?cache_clean=' + new Date().getTime(),
+            serviceWorkerUrl: '/sw.js'
         },
     ])
 

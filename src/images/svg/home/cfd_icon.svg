@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Linear" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #414652;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <g id="Trade_types" data-name="Trade types">
+    <g id="_96px" data-name="96px">
+      <g id="Layer_457_copy_12" data-name="Layer 457 copy 12">
+        <rect class="cls-1" x="8.96" y="34.03" width="79.9" height="22.83" rx="4" ry="4" transform="translate(-10.09 14.21) rotate(-15)"/>
+        <path class="cls-1" d="M59.95,73.75c1.49,2.69-.49,5.99-3.56,5.94l-7.48-.13-7.48-.13c-3.08-.05-4.95-3.42-3.36-6.06l3.85-6.42,3.85-6.42c1.58-2.64,5.43-2.58,6.93,.12l3.63,6.54,3.63,6.54Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

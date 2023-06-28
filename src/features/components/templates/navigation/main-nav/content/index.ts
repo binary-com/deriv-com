@@ -19,7 +19,7 @@ export const mainItems: NavItems = [
         id: 1,
         data: {
             title: '_t_Markets_t_',
-            type: 'single-column',
+            type: 'multi-column',
             content: marketSectionContent,
         },
     },

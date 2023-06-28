@@ -77,7 +77,11 @@ const BusinessGrid = () => {
                     Icon={General}
                     title="_t_General terms of use_t_"
                     content="_t_Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents_t_"
-                    url="/tnc/business-partners-general-terms.pdf"
+                    url={
+                        is_row
+                            ? '/tnc/business-partners-general-terms.pdf'
+                            : '/tnc/business-partners-general-terms-eu.pdf'
+                    }
                     link_title="_t_General terms of use_t_"
                 />
                 <Col
@@ -106,14 +110,22 @@ const BusinessGrid = () => {
                     Icon={is_row ? APIROW : API}
                     title="_t_API users_t_"
                     content="_t_Additional terms for our API users_t_"
-                    url="/tnc/business-partners-api-user.pdf"
+                    url={
+                        is_row
+                            ? '/tnc/business-partners-api-user.pdf'
+                            : '/tnc/business-partners-api-user-eu.pdf'
+                    }
                     link_title="_t_API users_t_"
                 />
                 <Col
                     Icon={is_row ? BugBountyRow : BugBounty}
                     title="_t_Bug Bounty Program_t_"
                     content="_t_Additional terms for participants in our Bug Bounty Program_t_"
-                    url="/tnc/business-partners-bug-bounty.pdf"
+                    url={
+                        is_row
+                            ? '/tnc/business-partners-bug-bounty.pdf'
+                            : '/tnc/business-partners-bug-bounty-eu.pdf'
+                    }
                     link_title="_t_Bug Bounty Program_t_"
                 />
             </StyledGrid>

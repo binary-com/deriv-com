@@ -279,7 +279,6 @@ module.exports = {
                         type: `image/png`,
                     },
                 ],
-                cache_busting_mode: 'none',
                 gcm_sender_id: '370236002280',
                 gcm_user_visible_only: true,
                 crossOrigin: `use-credentials`,
@@ -342,29 +341,6 @@ module.exports = {
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
             },
         },
-        {
-            resolve: `gatsby-plugin-offline`,
-            options: {
-                appendScript: require.resolve(`./src/pushwoosh-service-worker.js`),
-                precachePages: [`/`],
-                workboxConfig: {
-                    runtimeCaching: [
-                        {
-                            urlPattern: /\.(png|jpe?g|svg|gif|webp|ico|woff2?|ttf|otf|css|scss)$/,
-                            handler: `StaleWhileRevalidate`,
-                        },
-                        {
-                            urlPattern: /^.*$/,
-                            handler: `NetworkFirst`,
-                        },
-                        {
-                            // Google Fonts CSS (doesn't end in .css so we need to specify it)
-                            urlPattern: /^https?:\/\/fonts\.googleapis\.com\/css/,
-                            handler: `StaleWhileRevalidate`,
-                        },
-                    ]
-                },
-            },
-        },
+        `gatsby-plugin-remove-serviceworker`
     ],
 }

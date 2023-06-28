@@ -37,12 +37,8 @@ export const useCookieBanner = () => {
 
             if (is_eu && !tracking_status) setShouldShow(true)
 
-            if (allow_tracking) {
-                window.onload = () => {
-                    window.setTimeout(() => {
-                        setGTMData({ event: 'allow_tracking' })
-                    }, 2000)
-                }
+            if (allow_tracking && document.readyState === 'complete') {
+                setGTMData({ event: 'allow_tracking' })
             }
         }
     }, [is_eu, gtm_data, has_dataLayer, is_region_loading, setGTMData, tracking_status_cookie])

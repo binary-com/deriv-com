@@ -156,7 +156,7 @@ const columns: ColProps[] = [
         content: '_t_Additional terms and restrictions for Deriv clients in certain countries_t_',
         eu_links: [
             {
-                url: '/tnc/deriv-investments-(europe)-limited.pdf',
+                url: '/tnc/deriv-investments-(europe)-limited-eu.pdf',
                 title: '_t_Deriv Investments (Europe) Limited_t_',
             },
         ],

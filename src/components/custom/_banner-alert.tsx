@@ -39,6 +39,7 @@ const Wrapper = styled.div<{
     width: string
     minHeight: string
     tabHeight: string
+    is_rtl: boolean
 }>`
     pointer-events: all;
     width: ${({ width = 400 }) => width}px;
@@ -50,7 +51,7 @@ const Wrapper = styled.div<{
     background-color: var(--color-white);
     margin: 0 2.4rem 2.4rem 2.4rem;
     animation: ${({ visible }) => (visible ? 'fadeIn' : 'fadeOut')} 0.2s;
-    align-self: flex-start;
+    align-self: ${({ is_rtl }) => (is_rtl ? 'flex-end' : 'flex-start')};
     position: absolute;
     bottom: 7.5rem;
 
@@ -182,6 +183,7 @@ const BannerAlert = ({ bannerType }: TProps) => {
                 width={cookieBannerProps.width}
                 minHeight={cookieBannerProps.minHeight}
                 tabHeight={mainTabHeight}
+                is_rtl={is_rtl}
             >
                 <StyledText>
                     <Localize translate_text="_t_Cookies help us to give you a better experience and personalised content on our site. _t_" />
@@ -208,6 +210,7 @@ const BannerAlert = ({ bannerType }: TProps) => {
                     width={BrowserBannerProps.width}
                     minHeight={BrowserBannerProps.minHeight}
                     tabHeight={mainTabHeight}
+                    is_rtl={is_rtl}
                 >
                     <StyledText>
                         <Localize translate_text="_t_Update your browser to get the best Deriv experience_t_" />
@@ -225,6 +228,7 @@ const BannerAlert = ({ bannerType }: TProps) => {
                         width={cookieBannerProps.width}
                         minHeight={cookieBannerProps.minHeight}
                         tabHeight={subTabHeight}
+                        is_rtl={is_rtl}
                     ></Wrapper>
                 ) : null}
             </OverlayContainer>

@@ -28,7 +28,7 @@ const DesktopMenu = ({ has_centered_items }: IDesktopNavbarProps) => {
         >
             <NavigationMenu.List className="navigation_list">
                 {drop_items.map((item) => (
-                    <NavDesktopItem key={item.id} item={item} />
+                    <NavDesktopItem key={item.id} item={item} active={active} />
                 ))}
                 {link_items.map((item) => (
                     <NavigationMenu.Item key={item.id} value={item.data.title} asChild>

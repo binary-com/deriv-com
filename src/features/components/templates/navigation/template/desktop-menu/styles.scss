@@ -44,6 +44,8 @@
         padding: 2.4rem 0.8rem;
         animation-duration: 250ms;
         animation-timing-function: ease;
+    }
+    &_scrollable_menu {
         @media screen and (max-height: 700px) {
             block-size: 100vh;
             padding-block-end: 10rem;

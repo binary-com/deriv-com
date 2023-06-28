@@ -28,7 +28,7 @@
         "extend": "^3.0.2",
         "firebase": "^9.22.1",
         "formik": "^2.2.9",
-        "gatsby": "^4.24.0",
+        "gatsby": "^4.25.7",
         "gatsby-background-image": "^1.6.0",
         "gatsby-plugin-anchor-links": "^1.2.1",
         "gatsby-plugin-google-tagmanager": "^4.24.0",

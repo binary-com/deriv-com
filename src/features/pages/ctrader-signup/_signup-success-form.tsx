@@ -36,10 +36,6 @@ const SignupSuccessForm = ({ email, residence_list }: SignupSuccessFormProps) =>
     } = submitForm
     const values = watch()
 
-    const verification_code_error: TString = `_t_${errors?.verification_code?.message}_t_`
-    const password_error: TString = `_t_${errors?.password?.message}_t_`
-    const residence_error: TString = `_t_${errors?.residence?.message}_t_`
-
     useEffect(() => {
         const response_error = errors.root?.serverError
         if (response_error?.type === 'InvalidToken') {
@@ -79,7 +75,11 @@ const SignupSuccessForm = ({ email, residence_list }: SignupSuccessFormProps) =>
                 label={'_t_Verification code_t_'}
                 clearErrors={clearErrors}
                 setValue={setValue}
-                error={verification_code_error}
+                error={
+                    errors?.verification_code?.message
+                        ? localize(errors?.verification_code?.message as TString)
+                        : null
+                }
                 {...register('verification_code')}
             />
             <Input.Text
@@ -91,7 +91,11 @@ const SignupSuccessForm = ({ email, residence_list }: SignupSuccessFormProps) =>
                 label={'_t_Password_t_'}
                 clearErrors={clearErrors}
                 setValue={setValue}
-                error={password_error}
+                error={
+                    errors?.password?.message
+                        ? localize(errors?.password?.message as TString)
+                        : null
+                }
                 {...register('password')}
             />
             {residence_list.length ? (
@@ -115,7 +119,11 @@ const SignupSuccessForm = ({ email, residence_list }: SignupSuccessFormProps) =>
                             }}
                             items={residence_list}
                             onChange={(e) => onChange(e.symbol)}
-                            error={residence_error}
+                            error={
+                                errors?.residence?.message
+                                    ? localize(errors?.residence?.message as TString)
+                                    : null
+                            }
                             value={value}
                             disabled={residence_list.length < 1}
                         />

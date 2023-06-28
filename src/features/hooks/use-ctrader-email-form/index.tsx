@@ -6,6 +6,7 @@ import { navigate } from 'gatsby'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { validation_regex } from 'common/validation'
 import apiManager from 'common/websocket'
+import { isBrowser } from 'common/utility'
 
 const getVerifyEmailRequest = (formatted_email: string) => {
     const affiliate_token = Cookies.getJSON('affiliate_tracking')
@@ -42,6 +43,8 @@ const useCtraderEmailForm = () => {
 
     const onEnterEmail = ({ email }: EmailFormData) => {
         const formatted_email = getVerifyEmailRequest(email)
+        const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
+        const partner_id = url_params.get('partnerId')
 
         apiManager
             .augmentedSend('verify_email', {
@@ -49,7 +52,8 @@ const useCtraderEmailForm = () => {
                 type: 'account_opening',
             })
             .then(() => {
-                const success_default_link = `signup-success?email=${email}`
+                const partner_id_query_param = partner_id ? `&partnerId=${partner_id}` : ''
+                const success_default_link = `signup-success?email=${email}${partner_id_query_param}`
                 navigate(success_default_link, { replace: true })
             })
             .catch((reason) => {

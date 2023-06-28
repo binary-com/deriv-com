@@ -3,7 +3,7 @@
     font-style: normal;
     font-display: swap;
 	src: url('../fonts/IBMPlexSansVar-Roman.woff2') format('woff2 supports variations');
-	font-weight: 100 700;
+	font-weight: 100;
 }
 
 @font-face {

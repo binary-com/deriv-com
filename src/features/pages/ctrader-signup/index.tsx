@@ -50,7 +50,7 @@ const SignUpFormContainer = () => {
                                     key={0}
                                     url={{
                                         type: 'non-company',
-                                        href: 'https://qa126.deriv.dev/oauth2/authorize?app_id=16929&l=en&brand=deriv&date_first_contact=2023-06-19&signup_device=desktop&utm_source=https://deriv-com-git-fork-mohammad-hashemi-deriv-ebooks-404.binary.sx/&platform=',
+                                        href: 'https://qa126.deriv.dev/oauth2/authorize?app_id=36218&source=web&theme=dark&lang=en&firstLogin=false',
                                     }}
                                 />,
                             ]}

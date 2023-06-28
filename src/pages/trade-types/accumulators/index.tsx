@@ -75,7 +75,7 @@ const Accumulators = () => {
                         title_font_size="6.4rem"
                     />
                 </Hero>
-                <OptionsNavTab route_from="accumulators" route_offset={650} />
+                <OptionsNavTab route_from="accumulators" />
                 <WhatAreAccumulators />
                 <HowAccumulatorsWork />
                 <AccumulatorsToTrade />

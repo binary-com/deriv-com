@@ -64,7 +64,7 @@ const available_markets: TAvailableMarkets[] = [
         description:
             '_t_Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market._t_',
         eu_description:
-            '_t__t_Speculate on the price movements of major forex pairs and increase your profit potential without losing more than your stake._t__t_',
+            '_t_Speculate on the price movements of major forex pairs and increase your profit potential without losing more than your stake._t_',
         learn_more_path: '/markets/forex/',
     },
     {

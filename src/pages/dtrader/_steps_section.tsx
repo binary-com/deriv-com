@@ -84,35 +84,36 @@ const DtraderEasySteps = () => {
     const stepsData: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: () => <Localize translate_text="Select an asset" />,
+                title: () => '_t_Select an asset_t_',
                 image: () => (
                     <QueryImage
                         data={data[is_row ? 'step_1' : 'step_1_eu']}
-                        alt={<Localize translate_text="Select an asset" />}
+                        alt={localize('_t_Select an asset_t_')}
                     />
                 ),
             },
             {
-                title: () => <Localize translate_text="Monitor the chart" />,
+                title: () => '_t_Monitor the chart_t_',
                 image: () => (
                     <QueryImage
                         data={data[is_row ? 'step_2' : 'step_2_eu']}
-                        alt={<Localize translate_text="Monitor the chart" />}
+                        alt={localize('_t_Monitor the chart_t_')}
                     />
                 ),
             },
             {
-                title: () => <Localize translate_text="Place a trade" />,
+                title: () => '_t_Place a trade_t_',
                 image: () => (
                     <QueryImage
                         data={data[is_row ? 'step_3' : 'step_3_eu']}
-                        alt={<Localize translate_text="Place a trade" />}
+                        alt={localize('_t_Place a trade_t_')}
                     />
                 ),
             },
         ],
         [data, is_row],
     )
+
     return (
         <StyledSection>
             <Container justify="center" direction="column" ai="flex-start">
@@ -141,7 +142,7 @@ const DtraderEasySteps = () => {
                                 target="_blank"
                                 rel="noopener noreferrer nofollow"
                             >
-                                {localize('Go to live demo')}
+                                <Localize translate_text="_t_Go to live demo_t_" />
                             </GoToLiveDemo>
                         </GotoLiveWrapper>
                     )}

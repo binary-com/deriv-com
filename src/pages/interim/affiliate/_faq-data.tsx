@@ -36,7 +36,7 @@ const MaxWidth = styled.div`
 const WhyRebrand = () => (
     <MaxWidth>
         <Text>
-            <Localize translate_text="_t_After 20 years in the market, we feel that it’s time to renew our commitment to clients. The rebranding strengthens our resolve to serve clients with simple, flexible, and reliable online trading solutions._t__t_" />
+            <Localize translate_text="_t_After 20 years in the market, we feel that it’s time to renew our commitment to clients. The rebranding strengthens our resolve to serve clients with simple, flexible, and reliable online trading solutions._t_" />
         </Text>
     </MaxWidth>
 )

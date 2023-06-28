@@ -7,10 +7,12 @@ import device, { SizeType } from 'themes/device'
 import { ReactComponent as Info } from 'images/svg/trade-types/info2.svg'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
 
 type ChildProps = {
     label: TString
     description: TString
+    description_components?: React.ReactElement[]
 }
 
 type TabButtonType = {
@@ -32,8 +34,11 @@ type TabsProps = {
     is_reverse?: boolean
     max_width?: SizeType
     tab_break?: string
-    notice_content?: ReactElement
-    children?: Array<ReactElement<PropsWithChildren<ChildProps>>> | ReactNode
+    notice_content?: TString
+    notice_content_components?: React.ReactElement[]
+    children?:
+        | Array<ReactElement<PropsWithChildren<ChildProps>>>
+        | ReactElement<PropsWithChildren<ChildProps>>
 }
 
 const TabContent = styled.div`
@@ -155,6 +160,7 @@ const Tabs = ({
     max_width,
     has_notice,
     notice_content,
+    notice_content_components,
 }: TabsProps) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
     const selectTab = (tabIndex) => {
@@ -169,7 +175,7 @@ const Tabs = ({
                 <TabList className="side-tab__list" role="tablist" is_reverse={is_reverse}>
                     {React.Children.map(children, (child, index) => {
                         const {
-                            props: { label, description },
+                            props: { label, description, description_components },
                         } = child
                         return (
                             <>
@@ -186,6 +192,7 @@ const Tabs = ({
                                     />
                                     <CommonHeaderSection
                                         subtitle={description}
+                                        subtitle_components={description_components}
                                         subtitle_font_size={is_mobile ? '14px' : '16px'}
                                         margin_subtitle="0.8rem 0 0 0"
                                         line_height={is_mobile ? '20px' : '24px'}
@@ -204,7 +211,14 @@ const Tabs = ({
                 {has_notice && (
                     <NoticeWrapper>
                         <StyledInfo />
-                        <StyledText>{notice_content}</StyledText>
+                        <StyledText>
+                            {notice_content && (
+                                <Localize
+                                    translate_text={notice_content}
+                                    components={notice_content_components}
+                                />
+                            )}
+                        </StyledText>
                     </NoticeWrapper>
                 )}
             </TabListWrapper>

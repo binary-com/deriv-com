@@ -15,7 +15,7 @@ export type TRenderableData = {
     link: string
 }
 
-type TProps = {
+type TGenericCarousel = {
     renderableData: TRenderableData[]
     mainHeading: TString
 }
@@ -115,7 +115,7 @@ const SmallContainer = styled(Container)`
     }
 `
 
-const GenericCarousel = ({ renderableData, mainHeading }: TProps) => {
+const GenericCarousel = ({ renderableData, mainHeading }: TGenericCarousel) => {
     return (
         <StyledSection background="white" position="relative">
             <SmallContainer direction="column" ai="flex-start">
@@ -124,23 +124,18 @@ const GenericCarousel = ({ renderableData, mainHeading }: TProps) => {
                 </StyledHeading>
             </SmallContainer>
             <MarketsCarousel>
-                {renderableData.map((item, index) => (
-                    <MarketsCarousel.Item key={index + 1}>
+                {renderableData.map(({ heading, icon, link, paragraph }) => (
+                    <MarketsCarousel.Item key={paragraph}>
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img src={item.icon} width="48" height="48" />
-
-                                    <StyledText weight="bold">{item.heading}</StyledText>
+                                    <img src={icon} width="48" height="48" />
+                                    <StyledText weight="bold">{heading}</StyledText>
                                 </MobileCardHeader>
                                 <StyledPara>
-                                    <Localize translate_text={item.paragraph} />
+                                    <Localize translate_text={paragraph} />
                                 </StyledPara>
-                                <LearnMore
-                                    text="_t_Learn more_t_"
-                                    to={item.link}
-                                    in_trading_platforms
-                                />
+                                <LearnMore text="_t_Learn more_t_" to={link} in_trading_platforms />
                             </Card>
                         </MarketsItem>
                     </MarketsCarousel.Item>

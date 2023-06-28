@@ -8,7 +8,7 @@ import Layout from 'components/layout/layout'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { Text, Header, Divider, Accordion, AccordionItem, DotLoader } from 'components/elements'
 import { SEO, SectionContainer, Container, MetaAttributesType } from 'components/containers'
-import { WithIntl, Localize, localize } from 'components/localization'
+import { WithIntl, Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import useWS from 'components/hooks/useWS'
@@ -238,7 +238,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                                 header_style={header_style}
                                 style={styles}
                                 parent_style={parent_style}
-                                header={localize(pdata.name)}
+                                header={pdata.name}
                                 class_name={pdata.class_name}
                             >
                                 <DesktopWrapper>

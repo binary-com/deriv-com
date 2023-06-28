@@ -38,9 +38,9 @@ export const multipliers_content: multipliers_content[] = [
         alt: '_t_Secure, responsive platform_t_',
         item_title: '_t_Secure, responsive platform_t_',
         item_title_eu: '_t_Secure, responsive platform_t_',
-        text: '_t__t_Enjoy trading on a secure, intuitive platform built for new and expert traders._t__t_',
+        text: '_t_Enjoy trading on a secure, intuitive platform built for new and expert traders._t_',
         text_eu:
-            '_t__t_Enjoy trading on a secure, intuitive platform built for new and expert traders._t__t_',
+            '_t_Enjoy trading on a secure, intuitive platform built for new and expert traders._t_',
     },
     {
         src: FriendlySupport,

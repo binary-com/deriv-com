@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { CardStyle, Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import Checkmark from 'images/svg/dmt5/checkmark.svg'
 import ZeroPercent from 'images/svg/dmt5/zero_percent.svg'
@@ -143,7 +143,7 @@ const CheckedText = ({ children }: CheckedTextProps) => (
         <Flex jc="flex-start" ai="center">
             <StyledImg src={Checkmark} alt="Check mark" width="24" height="24" />
             <StyledText size="16px" weight="bold">
-                <Localize translate_text={children} />
+                {children}
             </StyledText>
         </Flex>
         <Separator />
@@ -155,11 +155,12 @@ const InterestFreeTrading = () => {
     const commission = is_eu
         ? '_t_Enjoy zero commission trading on all assets._t_'
         : '_t_Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected derived and financial assets._t_'
+
     return (
         <StyledContainer>
             <InterestCardFlex fd="column" ai="center" jc="center">
                 <ImageWrapper>
-                    <ImageTag src={ZeroPercent} alt="_t_Zero percent interest_t_" />
+                    <ImageTag src={ZeroPercent} alt={localize('_t_Zero percent interest_t_')} />
                 </ImageWrapper>
                 <InterestText size="32px">
                     <Localize translate_text="_t_Commission_t_" />

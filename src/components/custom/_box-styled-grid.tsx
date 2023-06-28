@@ -7,7 +7,7 @@ import { Flex } from 'components/containers'
 import { TString } from 'types/generics'
 import { Localize, localize } from 'components/localization'
 
-type TItem = {
+type TBoxStyledGridItem = {
     icon: string
     title: TString
     subtitle: TString
@@ -15,7 +15,7 @@ type TItem = {
 }
 
 type TBoxStyledGrid = {
-    items: TItem[]
+    items: TBoxStyledGridItem[]
     containerWidth?: string
     boxsPerRow?: string
 }

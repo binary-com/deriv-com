@@ -6,15 +6,15 @@ import Flex from 'components/containers/flex'
 import device from 'themes/device'
 import { TString } from 'types/generics'
 
-type TItem = {
-    text: TString
+export type TDownloadColumnItem = {
+    text: string
     icon: string
     link: string
     smallText?: TString
 }
 
 type TDownloadColumn = {
-    items?: TItem[]
+    items?: TDownloadColumnItem[]
     QRImage?: string
     QRHeading1?: TString
     QRHeading2?: TString
@@ -111,7 +111,7 @@ const DownloadColumn = ({ items, QRImage, QRHeading1, QRHeading2, is_rtl }: TDow
                                         </StyledItemSmallText>
                                     )}
                                     <StyledItemText as="p" weight="700">
-                                        <Localize translate_text={text} />
+                                        {text}
                                     </StyledItemText>
                                 </AppButton>
                             </StyledItems>

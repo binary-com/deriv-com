@@ -7,6 +7,7 @@ import { Localize } from 'components/localization'
 type CommonHeaderSectionProps = {
     title?: TString
     subtitle?: TString
+    subtitle_components?: React.ReactElement[]
     padding?: string
     bgcolor?: string
     title_font_size?: string
@@ -67,6 +68,7 @@ const StyledSubtitle = styled.p<CommonHeaderSectionProps>`
 const CommonHeaderSection = ({
     title,
     subtitle,
+    subtitle_components,
     padding,
     margin_subtitle,
     margin_title,
@@ -122,7 +124,7 @@ const CommonHeaderSection = ({
                         font_weight_subtitle={font_weight_subtitle}
                         font_family_subtitle={font_family_subtitle}
                     >
-                        <Localize translate_text={subtitle} />
+                        <Localize translate_text={subtitle} components={subtitle_components} />
                     </StyledSubtitle>
                 )}
             </Flex>

@@ -122,7 +122,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
     return (
         <Accordion has_single_state id="kid">
             <AccordionItem
-                header={localize('_t_Financial disclosure report_t_')}
+                header="_t_Financial disclosure report_t_"
                 content_style={content_style}
                 header_style={header_style}
                 style={item_style}
@@ -147,7 +147,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 </Flex>
             </AccordionItem>
             <AccordionItem
-                header={localize('_t_Key information documents_t_')}
+                header="_t_Key information documents_t_"
                 content_style={content_style}
                 header_style={header_style}
                 style={item_style}
@@ -182,7 +182,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 </Flex>
             </AccordionItem>
             <AccordionItem
-                header={localize('_t_RTS_t_')}
+                header="_t_RTS_t_"
                 content_style={content_style}
                 header_style={header_style}
                 style={item_style}

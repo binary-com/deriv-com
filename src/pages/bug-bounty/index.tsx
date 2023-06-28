@@ -5,15 +5,13 @@ import AboutDeriv from './_about-deriv'
 import Scope from './_scope'
 import OutOfScope from './_out_of_scope'
 import Layout from 'components/layout/layout'
-import { SEO } from 'components/containers'
+import { MetaAttributesType, SEO } from 'components/containers'
 import { WithIntl, localize } from 'components/localization'
-import { MetaAttributesType } from 'types/page.types'
 
 const meta_attributes: MetaAttributesType = {
-    og_title: localize('_t_Bug bounty program | Trading platform and apps security | Deriv_t_'),
-    og_description: localize(
+    og_title: '_t_Bug bounty program | Trading platform and apps security | Deriv_t_',
+    og_description:
         '_t_Report bugs on Deriv or our third-party trading platforms and apps and get rewarded based on the impact and severity of the error you have reported._t_',
-    ),
 }
 
 const Security = () => {

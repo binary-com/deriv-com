@@ -4,13 +4,14 @@ import { Localize } from 'components/localization'
 import device from 'themes/device'
 import { TString } from 'types/generics'
 
-type TItem = {
+type TStepperViewItem = {
     title: () => TString
+    title_components?: () => React.ReactElement[]
     image: () => JSX.Element
 }
 
 type TStepperView = {
-    items: TItem[]
+    items: TStepperViewItem[]
     default_step?: number
     onStepChanged?: (step: number) => void
     renderFooter?: () => JSX.Element
@@ -116,7 +117,10 @@ const StepperView = ({
                             onClick={() => setSelected(index)}
                         >
                             {`${index + 1}. `}
-                            <Localize translate_text={item.title()} />
+                            <Localize
+                                translate_text={item.title()}
+                                components={item.title_components()}
+                            />
                         </li>
                     ))}
                 </UlStyle>

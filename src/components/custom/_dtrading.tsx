@@ -7,7 +7,7 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { TString } from 'types/generics'
 import { Localize, localize } from 'components/localization'
 
-type TradingType = {
+export type TradingType = {
     title: TString
     subtitle: TString
     image_name: string

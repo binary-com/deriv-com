@@ -10,7 +10,7 @@ export const button_link: TButtonLink = {
     url: { type: 'internal', to: '/' },
 }
 export const info_items: TInfoItem = {
-    header: '_t_Testing: We couldn’t find that page_t_',
+    header: '_t_We couldn’t find that page_t_',
     sub_header:
-        '_t_Testing :It may not be available in your country, or maybe a broken link has brought you here._t_',
+        '_t_It may not be available in your country, or maybe a broken link has brought you here._t_',
 }

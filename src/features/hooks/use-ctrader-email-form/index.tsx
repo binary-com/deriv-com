@@ -54,7 +54,7 @@ const useCtraderEmailForm = () => {
             .then(() => {
                 const partner_id_query_param = partner_id ? `&partnerId=${partner_id}` : ''
                 const success_default_link = `signup-success?email=${email}${partner_id_query_param}`
-                navigate(success_default_link, { replace: true })
+                navigate(success_default_link)
             })
             .catch((reason) => {
                 enterEmailForm.setError('email', {

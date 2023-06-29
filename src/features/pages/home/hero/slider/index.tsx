@@ -19,6 +19,7 @@ const HomeHeroSlider = () => {
                         alt="person-hero-3"
                         formats={['avif', 'webp', 'auto']}
                         placeholder="none"
+                        loading="eager"
                         quality={75}
                     />
                 ),
@@ -31,6 +32,7 @@ const HomeHeroSlider = () => {
                         src="../../../../../images/common/home/hero_4.png"
                         alt="person-hero-4"
                         formats={['avif', 'webp', 'auto']}
+                        loading="eager"
                         placeholder="none"
                     />
                 ),
@@ -60,6 +62,7 @@ const HomeHeroSlider = () => {
                             alt="person-hero-1"
                             formats={['avif', 'webp', 'auto']}
                             quality={50}
+                            loading="eager"
                             placeholder="none"
                         />
                     ),
@@ -75,6 +78,7 @@ const HomeHeroSlider = () => {
                         alt="person-hero-1"
                         formats={['avif', 'webp', 'auto']}
                         quality={50}
+                        loading="eager"
                         placeholder="none"
                     />
                 ),

@@ -190,7 +190,7 @@ const Faq = () => {
                 <Localize translate_text="_t_Deriv IB Programme_t_" />
             </FaqSubHeader>
             <StyledAccordionWrapper id="faq-list-2">
-                <Accordion has_single_state is_faq>
+                <Accordion has_single_state>
                     {faq_content.deriv_ib.map((item) => {
                         return (
                             <AccordionItem

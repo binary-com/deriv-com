@@ -148,7 +148,11 @@ const DBanner = ({
     return (
         <Flex position="relative">
             <ImageWrapper ai="center">
-                <QueryImage data={data['deriv_platform']} alt={localize(image_alt)} width="100%" />
+                <QueryImage
+                    data={data['deriv_platform']}
+                    alt={localize(image_alt || title)}
+                    width="100%"
+                />
             </ImageWrapper>
             <Wrapper>
                 <TextWrapper>

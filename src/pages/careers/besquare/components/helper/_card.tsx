@@ -98,7 +98,7 @@ const Card = ({ card_content, custom_icon, has_list, style, title_component }: C
             />
             {title_component}
             <TextWrapper {...text_wrapper}>{card_content.text}</TextWrapper>
-            {has_list && getCurrentDropdownComponent(slugify(card_content.text))}
+            {has_list && getCurrentDropdownComponent(slugify(card_content.text.toString()))}
         </CardWrapper>
     )
 }

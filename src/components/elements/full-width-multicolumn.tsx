@@ -202,7 +202,7 @@ export const FullWidthMultiColumn = ({
                     lh="1.25"
                     weight="400"
                 >
-                    <Localize translate_text={sub_header} />
+                    {sub_header && <Localize translate_text={sub_header} />}
                 </StyledSubHeader>
                 {items.map((group, i) => (
                     <ItemContainer max-width="48.6rem" width="100%" key={i} gap={gap}>

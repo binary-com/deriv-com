@@ -97,11 +97,10 @@ const available_markets: TAvailableMarkets[] = [
     {
         name: 'ETFs',
         img_src: ETFs,
-        img_alt: 'ETFs',
-        text: <Localize translate_text="Exchange-traded funds (ETFs)" />,
-        description: (
-            <Localize translate_text="_t_ETFs allow you to diversify your portfolio with various assets that track bonds, commodities, and indices, without the high cost of owning the underlying assets._t_" />
-        ),
+        img_alt: '_t_ETFs_t_',
+        text: '_t_Exchange-traded funds (ETFs)_t_',
+        description:
+            '_t_ETFs allow you to diversify your portfolio with various assets that track bonds, commodities, and indices, without the high cost of owning the underlying assets._t_',
         learn_more_path: '/markets/exchange-traded-funds/',
     },
     {

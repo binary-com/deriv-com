@@ -31,7 +31,7 @@ const Markets = () => {
                 is_derived_eu={is_eu ? true : false}
                 is_derived_row={is_row ? true : false}
             />
-            <NavTab route_from="synthetic" route_offset={50} />
+            <NavTab route_from="synthetic" />
             <SyntheticIndices simple_step_content={simple_step_content_synthetic} />
             {!is_deriv_go && <SignupPublic />}
         </Layout>

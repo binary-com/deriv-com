@@ -4,24 +4,24 @@ import { Title } from '../../static/style/_common'
 import join_us from '../../static/content/_join-us'
 import Card from '../helper/_card'
 
-const JoinUs = () => {
-    const style = {
-        card_wrapper: {
-            grid_template_columns: ['64px 296px', '64px 296px', '48px auto'],
-            grid_column_gap: ['24px', '8px'],
-            grid_row_gap: ['0', '8px'],
-        },
-        icon_wrapper: {
-            img_width: ['64px', '48px'],
-            img_height: ['64px', '48px'],
-        },
-        text_wrapper: {
-            max_width: ['296px', '272px'],
-            margin: '0 auto',
-            width: 'auto',
-        },
-    }
+const style = {
+    card_wrapper: {
+        grid_template_columns: ['64px 296px', '64px 296px', '48px auto'],
+        grid_column_gap: ['24px', '8px'],
+        grid_row_gap: ['0', '8px'],
+    },
+    icon_wrapper: {
+        img_width: ['64px', '48px'],
+        img_height: ['64px', '48px'],
+    },
+    text_wrapper: {
+        max_width: ['296px', '272px'],
+        margin: '0 auto',
+        width: 'auto',
+    },
+}
 
+const JoinUs = () => {
     return (
         <ContentContainer>
             <Title

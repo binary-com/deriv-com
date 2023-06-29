@@ -20,12 +20,7 @@ const EuropeanIndices = () => {
             {is_eu && (
                 <>
                     {stocks_european_indices_eu_endpoint.map((symbol, index) => (
-                        <Symbol
-                            key={symbol.text && index}
-                            src={symbol.src}
-                            text={symbol.text}
-                            eu={symbol.eu}
-                        />
+                        <Symbol key={symbol.text && index} src={symbol.src} text={symbol.text} />
                     ))}
                 </>
             )}

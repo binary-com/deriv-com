@@ -27,7 +27,7 @@ const DerivedFxPage = () => {
                 description={is_eu ? description_eu : description_row}
                 is_derived_row={is_row ? true : false}
             />
-            <NavTab route_from="derived-fx" route_offset={500} />
+            <NavTab route_from="derived-fx" />
             <Derived simple_step_content={simple_step_derived_fx} />
             <SignupPublic />
         </Layout>

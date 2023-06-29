@@ -68,7 +68,7 @@ const SEO = ({
 
     const no_index_staging = process.env.GATSBY_ENV === 'staging'
     const metaDescription =
-        (description.includes('_t_') ? localize(description as TString) : description) ||
+        (description?.includes('_t_') ? localize(description as TString) : description) ||
         queries.site.siteMetadata.description
     const site_url = queries.site.siteMetadata.siteUrl
     const { locale: lang, pathname } = React.useContext(LocaleContext)

@@ -19,7 +19,7 @@ const HomeHeroSlider = () => {
                         alt="person-hero-3"
                         formats={['avif', 'webp', 'auto']}
                         placeholder="none"
-                        loading="eager"
+                        loading="lazy"
                         quality={75}
                     />
                 ),
@@ -32,7 +32,7 @@ const HomeHeroSlider = () => {
                         src="../../../../../images/common/home/hero_4.png"
                         alt="person-hero-4"
                         formats={['avif', 'webp', 'auto']}
-                        loading="eager"
+                        loading="lazy"
                         placeholder="none"
                     />
                 ),
@@ -48,7 +48,7 @@ const HomeHeroSlider = () => {
                             src="../../../../../images/common/home/hero_2.png"
                             alt="person-hero-2"
                             formats={['avif', 'webp', 'auto']}
-                            loading="eager"
+                            loading="lazy"
                             placeholder="none"
                         />
                     ),
@@ -62,7 +62,7 @@ const HomeHeroSlider = () => {
                             alt="person-hero-1"
                             formats={['avif', 'webp', 'auto']}
                             quality={50}
-                            loading="eager"
+                            loading="lazy"
                             placeholder="none"
                         />
                     ),
@@ -78,7 +78,7 @@ const HomeHeroSlider = () => {
                         alt="person-hero-1"
                         formats={['avif', 'webp', 'auto']}
                         quality={50}
-                        loading="eager"
+                        loading="lazy"
                         placeholder="none"
                     />
                 ),

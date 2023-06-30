@@ -6,7 +6,7 @@ import { SectionContainer } from 'components/containers'
 import { Text } from 'components/elements'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
-import { TMarketContent } from 'pages/markets/static/content/types'
+import { TMarketContent } from 'pages/markets/static/content/_types'
 
 type MultipliersProps = {
     market_content: TMarketContent

@@ -39,7 +39,7 @@ import {
     VolatilityIndicesDetails,
     VolatilityIndicesDetailsEU,
 } from './_details'
-import { TMarketContent } from './types'
+import { TMarketContent } from './_types'
 
 export const commodities_cfds: TMarketContent = {
     markets_list: {

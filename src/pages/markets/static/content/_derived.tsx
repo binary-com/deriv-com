@@ -1,5 +1,5 @@
 import React from 'react'
-import { TMarket, TSimpleStepContent } from './types'
+import { TMarket, TSimpleStepContent } from './_types'
 import { localize } from 'components/localization'
 import RealWorld from 'images/svg/markets/real-world.svg'
 import TightSpreads from 'images/svg/markets/tight-spread-new.svg'

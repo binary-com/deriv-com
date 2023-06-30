@@ -23,7 +23,7 @@ import {
     EuropeDetails,
     JumpIndicesDetails,
 } from './_details'
-import { TMarketContent } from './types'
+import { TMarketContent } from './_types'
 import Asians from 'images/svg/options/asians.svg'
 import CloseLow from 'images/svg/options/close-low.svg'
 import EbEo from 'images/svg/options/eb-eo.svg'

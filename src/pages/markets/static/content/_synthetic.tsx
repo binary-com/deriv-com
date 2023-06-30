@@ -1,4 +1,4 @@
-import { TMarket, TSimpleStepContent } from './types'
+import { TMarket, TSimpleStepContent } from './_types'
 import ExclusiveTradeType from 'images/svg/markets/exclusive-trade-types-another.svg'
 import MarketandRisk from 'images/svg/markets/market-and-risk-new.svg'
 import SevenTrading from 'images/svg/jump-indices/jump-indices-24-7-trading.svg'

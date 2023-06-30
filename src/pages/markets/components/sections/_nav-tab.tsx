@@ -6,7 +6,7 @@ import { Localize, LocalizedLink } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
-import { TNavTab, TTabButton, TTabList } from 'pages/markets/static/content/types'
+import { TNavTab, TTabButton, TTabList } from 'pages/markets/static/content/_types'
 
 const TabsContainer = styled(Flex)`
     justify-content: center;

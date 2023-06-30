@@ -10,7 +10,7 @@ import { Appearances } from 'components/custom/signup'
 import PractiseIcon from 'images/svg/markets/aim.svg'
 import TradeIcon from 'images/svg/markets/trade.svg'
 import WithdrawIcon from 'images/svg/markets/withdraw.svg'
-import { TSimpleStepContent } from 'pages/markets/static/content/types'
+import { TSimpleStepContent } from 'pages/markets/static/content/_types'
 
 const simple_step_content: TSimpleStepContent[] = [
     {

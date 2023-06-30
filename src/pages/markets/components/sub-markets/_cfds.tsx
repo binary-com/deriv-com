@@ -8,7 +8,7 @@ import { Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import { Header } from 'components/elements'
-import { TMarketContent } from 'pages/markets/static/content/types'
+import { TMarketContent } from 'pages/markets/static/content/_types'
 
 type CFDProps = {
     market_content: TMarketContent

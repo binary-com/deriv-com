@@ -1,4 +1,4 @@
-import { TMarket, TSimpleStepContent } from './types'
+import { TMarket, TSimpleStepContent } from './_types'
 import ExtendedTime from 'images/svg/stock-indices/stocks-extented-time.svg'
 import FriendlySupport from 'images/svg/markets/forex/smart.svg'
 import MinimalCapital from 'images/svg/stock-indices/stocks-minimum-capital.svg'

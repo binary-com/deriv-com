@@ -4,7 +4,7 @@ import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
-import { TNavTab, TTabButton, TTabList } from 'pages/markets/static/content/types'
+import { TNavTab, TTabButton, TTabList } from 'pages/markets/static/content/_types'
 
 const TabsContainer = styled(Flex)`
     justify-content: center;

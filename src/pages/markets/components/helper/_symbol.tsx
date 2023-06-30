@@ -2,7 +2,7 @@
 import React from 'react'
 import { SymbolContainer, SymbolText } from '../../static/style/_markets-style'
 import { Text } from 'components/elements'
-import { TMarketSymbol } from 'pages/markets/static/content/types'
+import { TMarketSymbol } from 'pages/markets/static/content/_types'
 import { Localize, localize } from 'components/localization'
 import { TString } from 'types/generics'
 

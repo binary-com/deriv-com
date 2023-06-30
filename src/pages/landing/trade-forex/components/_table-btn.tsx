@@ -7,7 +7,7 @@ import { Container, SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import { LinkButton } from 'components/form'
-import { TMarketContent } from 'pages/markets/static/content/types'
+import { TMarketContent } from 'pages/markets/static/content/_types'
 import { TString } from 'types/generics'
 
 const StyledSection = styled(SectionContainer)`

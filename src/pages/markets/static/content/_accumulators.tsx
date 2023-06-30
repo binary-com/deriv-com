@@ -1,7 +1,7 @@
 import React from 'react'
 import { CrashBoom, JumpIndices, AccumulatorsIndices } from '../../instruments/_submarkets'
 import { CrashBoomDetails, JumpIndicesDetails, ContinuousIndicesDetails } from './_details'
-import { TMarketContent } from './types'
+import { TMarketContent } from './_types'
 
 export const accumulators: TMarketContent = {
     has_global_accordion: true,

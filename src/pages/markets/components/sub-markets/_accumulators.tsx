@@ -4,7 +4,7 @@ import { ContentWrapper, Descriptions, StyledText } from '../../static/style/_ma
 import MarketInstruments from '../sections/_market_instruments'
 import { SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
-import { TMarketContent } from 'pages/markets/static/content/types'
+import { TMarketContent } from 'pages/markets/static/content/_types'
 
 type AccumulatorsProps = {
     market_content: TMarketContent

@@ -1,4 +1,4 @@
-import { TMarketSymbol } from './types'
+import { TMarketSymbol } from './_types'
 import * as icons from 'components/elements/symbols'
 
 export const americas: TMarketSymbol[] = [

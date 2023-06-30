@@ -1,4 +1,4 @@
-import { TSimpleStepContent } from './types'
+import { TSimpleStepContent } from './_types'
 
 export const simple_step_content_cryptocurrencies: TSimpleStepContent[] = [
     {

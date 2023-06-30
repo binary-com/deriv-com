@@ -18,7 +18,7 @@ import useRegion from 'components/hooks/use-region'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
-import { TSimpleStepContent } from 'pages/markets/static/content/types'
+import { TSimpleStepContent } from 'pages/markets/static/content/_types'
 
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 

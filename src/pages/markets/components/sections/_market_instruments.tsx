@@ -10,7 +10,7 @@ import {
     Title,
 } from '../../static/style/_markets-style'
 import { useBrowserResize } from '../../../../components/hooks/use-browser-resize'
-import { TMarketInstruments } from 'pages/markets/static/content/types'
+import { TMarketInstruments } from 'pages/markets/static/content/_types'
 import { Localize } from 'components/localization'
 
 const MarketInstruments = ({

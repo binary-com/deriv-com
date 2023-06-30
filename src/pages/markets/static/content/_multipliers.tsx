@@ -22,7 +22,7 @@ import {
     StepIndicesDetails,
     VolatilityIndicesDetailsEU,
 } from './_details'
-import { TMarketContent } from './types'
+import { TMarketContent } from './_types'
 
 export const forex_multiplier_eu: TMarketContent = {
     markets_list: {

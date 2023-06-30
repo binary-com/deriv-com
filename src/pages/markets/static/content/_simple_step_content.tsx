@@ -1,5 +1,5 @@
 import React from 'react'
-import { TSimpleStepContent } from './types'
+import { TSimpleStepContent } from './_types'
 import { localize } from 'components/localization'
 import PractiseIcon from 'images/svg/markets/aim-new.svg'
 import TradeIcon from 'images/svg/markets/trade-new.svg'

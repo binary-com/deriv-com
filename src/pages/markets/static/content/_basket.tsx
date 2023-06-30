@@ -1,4 +1,4 @@
-import { TMarket, TSimpleStepContent } from './types'
+import { TMarket, TSimpleStepContent } from './_types'
 import Baskets from 'images/svg/stock-indices/baskets.svg'
 import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'

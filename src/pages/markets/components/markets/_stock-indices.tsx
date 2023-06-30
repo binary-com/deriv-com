@@ -15,7 +15,7 @@ import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn
 import useRegion from 'components/hooks/use-region'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
-import { TSimpleStepContent } from 'pages/markets/static/content/types'
+import { TSimpleStepContent } from 'pages/markets/static/content/_types'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))

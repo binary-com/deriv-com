@@ -1,4 +1,4 @@
-import { TMarket, TSimpleStepContent } from './types'
+import { TMarket, TSimpleStepContent } from './_types'
 import FriendlySupport from 'images/svg/markets/forex/smart.svg'
 import MetalAndOil from 'images/svg/markets/precious-metals-and-oils-new.svg'
 import NoCommission from 'images/svg/markets/no-commission-new.svg'

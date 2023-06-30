@@ -8,7 +8,7 @@ import { Localize } from 'components/localization'
 import { Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { TString } from 'types/generics'
-import { TMarketContent } from 'pages/markets/static/content/types'
+import { TMarketContent } from 'pages/markets/static/content/_types'
 
 type TablebtnProps = {
     btnlabel: TString

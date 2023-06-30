@@ -1,11 +1,17 @@
 import React from 'react'
 import { trade_item } from './style.module.scss'
-import { TradeItemType } from './type'
 import { Localize } from 'components/localization'
 import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
 import Flex from 'features/components/atoms/flex-box'
 import { FlexBoxProps } from 'features/components/atoms/flex-box/box'
+import { TString } from 'types/generics'
+
+export type TradeItemType = {
+    icon_src: string
+    heading: TString
+    description: TString
+}
 
 type TradeItemProps = FlexBoxProps<'div'> & {
     data: TradeItemType

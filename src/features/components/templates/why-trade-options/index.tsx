@@ -4,8 +4,24 @@ import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Button from 'features/components/atoms/button'
 import Flex from 'features/components/atoms/flex-box'
+import TradeItem, { TradeItemType } from 'features/components/molecules/trade-item'
+import { TString } from 'types/generics'
+import { LinkUrlType } from 'features/types'
+import LinkButton from 'features/components/atoms/link-button'
 
-const WhyTradeOptions = () => {
+type WhyTradeOptionsProps = {
+    data: {
+        heading: TString
+        heading2: TString
+        button: {
+            text: TString
+            url: LinkUrlType
+        }
+        items: TradeItemType[]
+    }
+}
+
+const WhyTradeOptions = ({ data }: WhyTradeOptionsProps) => {
     return (
         <Container.Fixed as="section" bgcolor="black" padding_block="40x">
             <Container.Fluid>
@@ -16,16 +32,20 @@ const WhyTradeOptions = () => {
                     size="small"
                     mb="20x"
                 >
-                    <Localize translate_text="_t_Why trade options on Deriv_t_" />
+                    <Localize translate_text={data.heading} />
                 </Typography.Heading>
-
-                <Flex.Box direction="col" align="center">
+                <Flex.Box gap="20x" wrap="wrap" justify="center">
+                    {data.items.map((item) => {
+                        <TradeItem key={item.heading} data={item} />
+                    })}
+                </Flex.Box>
+                <Flex.Box direction="col" align="center" mt="20x">
                     <Typography.Heading as="h4" textcolor="inverted" size="xxs" mb="8x">
-                        <Localize translate_text="_t_Don't have a Deriv account yet?_t_" />
+                        <Localize translate_text={data.heading2} />
                     </Typography.Heading>
-                    <Button.Primary textsize="medium">
-                        <Localize translate_text="_t_Create free demo account_t_" />
-                    </Button.Primary>
+                    <LinkButton.Primary url={data.button.url}>
+                        <Localize translate_text={data.button.text} />
+                    </LinkButton.Primary>
                 </Flex.Box>
             </Container.Fluid>
         </Container.Fixed>

@@ -22,13 +22,20 @@ const TradeItem = ({ data, ...rest }: TradeItemProps) => {
         <Flex.Box
             direction="col"
             align="center"
-            basis="3-12"
             grow="1"
+            md={{ basis: '3-12' }}
             className={trade_item}
             {...rest}
         >
             <Image src={data.icon_src} width={48} height={48} />
-            <Typography.Heading as="h3" size="xxs" textcolor="inverted" mt="8x" mb="4x">
+            <Typography.Heading
+                as="h3"
+                align="center"
+                size="xxs"
+                textcolor="inverted"
+                mt="8x"
+                mb="4x"
+            >
                 <Localize translate_text={data.heading} />
             </Typography.Heading>
             <Typography.Paragraph

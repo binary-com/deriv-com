@@ -9,16 +9,18 @@ import { TString } from 'types/generics'
 import { LinkUrlType } from 'features/types'
 import LinkButton from 'features/components/atoms/link-button'
 
-type WhyTradeOptionsProps = {
-    data: {
-        heading: TString
-        heading2: TString
-        button: {
-            text: TString
-            url: LinkUrlType
-        }
-        items: TradeItemType[]
+export type WhyTradeOptionsType = {
+    heading: TString
+    heading2: TString
+    button: {
+        text: TString
+        url: LinkUrlType
     }
+    items: TradeItemType[]
+}
+
+type WhyTradeOptionsProps = {
+    data: WhyTradeOptionsType
 }
 
 const WhyTradeOptions = ({ data }: WhyTradeOptionsProps) => {
@@ -35,9 +37,9 @@ const WhyTradeOptions = ({ data }: WhyTradeOptionsProps) => {
                     <Localize translate_text={data.heading} />
                 </Typography.Heading>
                 <Flex.Box gap="20x" wrap="wrap" justify="center">
-                    {data.items.map((item) => {
+                    {data.items.map((item) => (
                         <TradeItem key={item.heading} data={item} />
-                    })}
+                    ))}
                 </Flex.Box>
                 <Flex.Box direction="col" align="center" mt="20x">
                     <Typography.Heading as="h4" textcolor="inverted" size="xxs" mb="8x">

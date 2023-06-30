@@ -1,3 +1,7 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
 .trade_item {
-    max-inline-size: 33%;
+    @include breakpoints(tablet){
+        max-inline-size: 33%;
+    }
 }

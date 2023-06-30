@@ -16,7 +16,7 @@ import Image from 'features/components/atoms/image'
 const SignupSuccess = () => {
     const [show_check_email, setShowCheckEmail] = useState(true)
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
-    const email = url_params.get('email').replaceAll(' ', '+')
+    const email = url_params.get('email')?.replaceAll(' ', '+')
     const [residence_list] = useResidenceList()
 
     return (

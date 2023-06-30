@@ -1,6 +1,6 @@
 import React from 'react'
 import { WithIntl } from 'components/localization'
-import PageNotFound from 'features/pages/404'
+import PageNotFound from 'features/pages/404-error'
 
 const NotFound = () => {
     return <PageNotFound />

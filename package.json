@@ -34,7 +34,7 @@
         "gatsby-plugin-google-tagmanager": "^5.10.0",
         "gatsby-plugin-image": "3.10.0",
         "gatsby-plugin-manifest": "^5.10.0",
-        "gatsby-plugin-offline": "^6.10.0",
+        "gatsby-plugin-remove-serviceworker": "^1.0.0",
         "gatsby-plugin-robots-txt": "^1.8.0",
         "gatsby-plugin-sass": "^6.10.0",
         "gatsby-plugin-sharp": "^5.10.0",

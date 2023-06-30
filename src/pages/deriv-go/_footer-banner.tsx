@@ -82,7 +82,11 @@ const DerivGoGetApp = () => {
             <DownloadColumn
                 QRImage={derivGoQR}
                 QRHeading1="_t_Scan to download_t_"
-                QRHeading2="Android & Huawei"
+                QRHeading2={
+                    is_appgallery_supported
+                        ? '_t_Android, iOS, and Huawei_t_'
+                        : '_t_Android and iOS_t_'
+                }
                 items={items}
                 is_rtl={is_rtl}
             />

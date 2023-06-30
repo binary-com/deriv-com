@@ -1,0 +1,41 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.hero_wrapper {
+    max-inline-size: 38.1rem;
+    @include breakpoints(tablet) {
+        max-inline-size: 63.2rem;
+    }
+}
+.hero_image {
+    max-block-size: 31rem;
+    @include breakpoints(tablet) {
+        max-block-size: 64.1rem;
+    }
+}
+.hero_desktop_image {
+    @include breakpoints(tablet) {
+        margin-inline-start: auto;
+    }
+}
+
+.hero_main_wrapper {
+    padding-inline-start: 0;
+
+    @include breakpoints(tablet) {
+        padding-inline-start: 5rem;
+    }
+
+    @include breakpoints(laptop) {
+        padding-inline-start: 10.08rem;
+    }
+
+    @include breakpoints(desktop) {
+        padding-inline-start: 20rem;
+    }
+}
+.hero_main_btn {
+    inline-size: 100%;
+    @include breakpoints(tablet) {
+        inline-size: auto;
+    }
+}

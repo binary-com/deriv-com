@@ -1,0 +1,15 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.trade_type_hero {
+    min-block-size: 58rem;
+    position: relative;
+    @include breakpoints(tablet) {
+        min-block-size: 48rem;
+    }
+}
+.trade_type_hero_img {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}

@@ -257,7 +257,7 @@ export const Title = styled(Text)`
 
     @media ${device.tabletL} {
         margin: 16px 0;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 14px;
     }
 `

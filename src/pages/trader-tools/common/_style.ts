@@ -582,7 +582,7 @@ export const FormulaHighlight = styled(Flex)`
     background-color: white;
     align-items: center;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     justify-content: ${(props) => (props.jc ? props.jc : 'center')};
     padding-right: ${(props) => (props.pr ? props.pr : '0')};
     padding-left: ${(props) => (props.pl ? props.pl : '0')};
@@ -595,7 +595,7 @@ export const FormulaHighlightForPnlMultiplier = styled(Flex)`
     background-color: white;
     align-items: center;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     justify-content: ${(props) => (props.jc ? props.jc : 'center')};
     padding-right: ${(props) => (props.pr ? props.pr : '0')};
 `
@@ -610,7 +610,7 @@ export const FormulaHighlightMobile = styled(Flex)<{ fs?: string; syn_mobile?: b
     background-color: white;
     justify-content: ${(props) => (props.jc ? props.jc : 'center')};
     align-items: center;
-    font-weight: 600;
+    font-weight: 700;
     flex-direction: ${(props) => (props.syn_mobile ? 'column' : '')};
     font-size: ${(props) => (props.fs ? props.fs : '16px')};
     padding: 0;
@@ -834,7 +834,7 @@ export const PointerHorizontalStickMobile = styled.div<PointerStickType>`
 export const PointerText = styled.div<PointerTextType>`
     margin-top: 0;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--color-blue-5);
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
 `
@@ -843,7 +843,7 @@ export const PointerTextMobile = styled.div<PointerTextType>`
     margin-top: 3px;
     margin-bottom: 3px;
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
-    font-weight: 600;
+    font-weight: 700;
     color: var(--color-blue-5);
     font-size: 14px;
     @media ${device.mobileS} {
@@ -854,7 +854,7 @@ export const PointerTextMobilePnlMultiplier = styled.div<PointerTextType>`
     margin-top: 3px;
     margin-bottom: 3px;
     margin-left: ${(props) => (props.ml ? props.ml : '0')};
-    font-weight: 600;
+    font-weight: 700;
     color: var(--color-blue-5);
     font-size: 13px;
     @media ${device.mobileM} {

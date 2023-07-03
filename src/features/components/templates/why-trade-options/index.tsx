@@ -19,11 +19,7 @@ export type WhyTradeOptionsType = {
     items: TradeItemType[]
 }
 
-type WhyTradeOptionsProps = {
-    data: WhyTradeOptionsType
-}
-
-const WhyTradeOptions = ({ data }: WhyTradeOptionsProps) => {
+const WhyTradeOptions = ({ data }: { data: WhyTradeOptionsType }) => {
     return (
         <Container.Fixed as="section" bgcolor="black" padding_block="40x">
             <Container.Fluid>

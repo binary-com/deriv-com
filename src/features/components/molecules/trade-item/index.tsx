@@ -13,7 +13,7 @@ export type TradeItemType = {
     description: TString
 }
 
-type TradeItemProps = FlexBoxProps<'div'> & {
+interface TradeItemProps extends FlexBoxProps<'div'> {
     data: TradeItemType
 }
 

@@ -91,7 +91,6 @@ module.exports = {
             options: {
                 excludes: [
                     '/404',
-                    '/**/404.html',
                     '/**/404',
                     '/check-email',
                     '/**/check-email',

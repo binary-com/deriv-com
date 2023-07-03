@@ -11,10 +11,21 @@ const ProductsBanner = ({ contentData }: ProductsBannerProps) => {
     const { hero, hero_mobile } = contentData
     return (
         <>
-            <FlexBox.Box ml={'17x'} className={hero_image_wrapper} visible="larger-than-phone">
+            <FlexBox.Box
+                ml={'17x'}
+                className={hero_image_wrapper}
+                visible="larger-than-phone"
+                radius="10x"
+            >
                 {hero}
             </FlexBox.Box>
-            <FlexBox.Box ml={'20x'} mt={'10x'} className={hero_image_wrapper} visible="phone-only">
+            <FlexBox.Box
+                ml={'20x'}
+                mt={'10x'}
+                className={hero_image_wrapper}
+                visible="phone-only"
+                radius="10x"
+            >
                 {hero_mobile}
             </FlexBox.Box>
         </>

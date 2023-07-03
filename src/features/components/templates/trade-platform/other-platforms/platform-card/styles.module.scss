@@ -1,0 +1,23 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.platform_card {
+    box-shadow: rgba(14, 14, 14, 0.08) 0px 12px 16px -4px, rgba(14, 14, 14, 0.03) 0px 4px 6px -2px;      
+    block-size: 100%;
+    position: relative;
+}
+.platform_link {
+    border-radius: 23px;
+    background: var(--color-grey-45);   
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -16px;
+    transition: opacity 0.25s ease 0s;
+    @include breakpoints(tablet){
+        opacity: 0;
+    }
+}
+
+.platform_card:hover .platform_link{
+    opacity: 1;
+}

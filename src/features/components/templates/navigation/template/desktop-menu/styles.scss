@@ -46,7 +46,7 @@
         animation-timing-function: ease;
     }
     &_scrollable_menu {
-        @media screen and (max-height: 930px) {
+        @media screen and (max-height: 975px) {
             block-size: 100vh;
             padding-block-end: 10rem;
             overflow: auto;

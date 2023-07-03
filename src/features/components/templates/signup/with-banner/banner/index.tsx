@@ -13,7 +13,7 @@ const PublicSignupBanner = () => {
         <Flex.Box
             grow="1"
             justify="center"
-            md={{ justify: 'start' }}
+            align="center"
             className={'public_signup_banner_container'}
         >
             <StaticImage

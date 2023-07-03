@@ -282,16 +282,6 @@ module.exports = {
                 gcm_sender_id: '370236002280',
                 gcm_user_visible_only: true,
                 crossOrigin: `use-credentials`,
-                // TODO: add translations and support for language routes e.g:
-                // localize: [
-                //     {
-                //       start_url: '/de/',
-                //       lang: 'de',
-                //       name: 'Die coole Anwendung',
-                //       short_name: 'Coole Anwendung',
-                //       description: 'Die Anwendung macht coole Dinge und macht Ihr Leben besser.',
-                //     },
-                //   ],
             },
         },
         {
@@ -351,5 +341,6 @@ module.exports = {
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
             },
         },
+        `gatsby-plugin-remove-serviceworker`
     ],
 }

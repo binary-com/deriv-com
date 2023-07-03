@@ -1,0 +1,18 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.step_item {
+    min-block-size: 216px;
+    box-shadow: 0px 12px 16px -4px rgba(14, 14, 14, 0.08), 0px 4px 6px -2px rgba(14, 14, 14, 0.03);
+    @include breakpoints(tablet) {
+        min-block-size: auto;
+        box-shadow: none;
+    }
+}
+.desktop_icon {
+    inline-size: 96px;
+    block-size: 96px;
+}
+.mobile_icon {
+    inline-size: 48px;
+    block-size: 48px;   
+}

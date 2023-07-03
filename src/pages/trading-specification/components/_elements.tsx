@@ -11,7 +11,6 @@ import * as icons from 'components/elements/symbols'
 import useRegion from 'components/hooks/use-region'
 import dl from 'images/svg/trading-specification/dl.svg'
 import swf from 'images/svg/trading-specification/swf.svg'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 
 export const TableContainer = styled.div`
     display: grid;
@@ -233,21 +232,21 @@ type TTableCellGroup = {
 }
 export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const { is_row } = useRegion()
-    const { is_mobile_or_tablet } = useBreakpoints()
     const { symbol, instrument: text, dl_icon, swf_icon } = data
     const [show_popUp, setShowPopUp] = useState(false)
     const [popup_type, setPopupType] = useState<TPopupType>()
     const [scrollY, setScrollY] = useState<number>()
 
     useEffect(() => {
-        if (is_mobile_or_tablet) {
-            document.body.style.position = show_popUp ? 'fixed' : ''
-            document.body.style.width = show_popUp ? '100%' : ''
-            if (!show_popUp && scrollY) {
-                window.scrollTo({ top: scrollY, behavior: 'smooth' })
-            }
+        document.body.style.position = show_popUp ? 'fixed' : ''
+        document.body.style.width = show_popUp ? '100%' : ''
+        if (!show_popUp && scrollY) {
+            window.scrollTo({ top: scrollY, behavior: 'smooth' })
         }
-        document.body.style.overflow = show_popUp ? 'hidden' : 'unset'
+        const styleTag = document.createElement('style')
+        styleTag.type = 'text/css'
+        styleTag.innerHTML = `body { overflow: ${show_popUp ? 'hidden' : 'unset'} !important; }`
+        document.body.insertAdjacentElement('beforeend', styleTag)
     }, [show_popUp])
 
     const openPopup = (type: TPopupType, e: React.MouseEvent) => {

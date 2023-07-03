@@ -15,7 +15,7 @@ import {
     isTestlink,
     isEuDomain,
     queryParams,
-    validate_p2p_country,
+    is_p2p_enabled,
 } from 'common/utility'
 import { TRegion } from 'types/generics'
 
@@ -84,16 +84,20 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         const is_dev = isLocalhost() || isTestlink()
         if (website_status) {
             const { clients_country, p2p_config } = website_status
+            if (is_p2p_enabled()) {
+                setP2PAllowedCountry(true)
+                setP2PLoading(false)
+            } else if ('p2p_config' in website_status && p2p_config) {
+                setP2PAllowedCountry(true)
+                setP2PLoading(false)
+            } else if ('p2p_config' in website_status && !p2p_config) {
+                setP2PLoading(false)
+            }
             //QA testing purposes
             if (qa_url_region) {
                 p2p_countries.includes(qa_url_region)
                     ? setP2PAllowedCountry(true)
                     : setP2PAllowedCountry(false)
-                setP2PLoading(false)
-            } else if ('p2p_config' in website_status && p2p_config) {
-                setP2PAllowedCountry(validate_p2p_country(p2p_config))
-                setP2PLoading(false)
-            } else if ('p2p_config' in website_status && !p2p_config) {
                 setP2PLoading(false)
             }
             if (qa_url_region) {

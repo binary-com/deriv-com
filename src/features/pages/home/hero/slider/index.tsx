@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, EffectFade } from 'swiper'
+import { Autoplay, EffectFade, Virtual } from 'swiper'
 import SliderWrapper from './slider-wrapper'
 import useRegion from 'components/hooks/use-region'
 
@@ -20,6 +20,7 @@ const HomeHeroSlider = () => {
                         formats={['avif', 'webp', 'auto']}
                         placeholder="none"
                         quality={75}
+                        loading="eager"
                     />
                 ),
             },
@@ -32,6 +33,7 @@ const HomeHeroSlider = () => {
                         alt="person-hero-4"
                         formats={['avif', 'webp', 'auto']}
                         placeholder="none"
+                        loading="eager"
                     />
                 ),
             },
@@ -93,13 +95,16 @@ const HomeHeroSlider = () => {
                     crossFade: true,
                 }}
                 direction="horizontal"
-                modules={[EffectFade, Autoplay]}
+                modules={[EffectFade, Autoplay, Virtual]}
                 autoplay={{
                     delay: 2000,
                 }}
+                virtual
             >
-                {items.map((slide) => (
-                    <SwiperSlide key={slide.key}>{slide.image}</SwiperSlide>
+                {items.map((slide, index) => (
+                    <SwiperSlide key={slide.key} virtualIndex={index}>
+                        {slide.image}
+                    </SwiperSlide>
                 ))}
             </Swiper>
         </SliderWrapper>

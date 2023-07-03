@@ -41,6 +41,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                     alt="deriv go"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
+                    loading="lazy"
                 />
             ),
             image_caption: {
@@ -124,6 +125,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                         alt="deriv mt5 eu"
                         formats={['avif', 'webp', 'auto']}
                         placeholder="none"
+                        loading="lazy"
                     />
                 ) : (
                     <StaticImage
@@ -132,6 +134,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                         alt="deriv mt5"
                         formats={['avif', 'webp', 'auto']}
                         placeholder="none"
+                        loading="lazy"
                     />
                 ),
         },
@@ -164,6 +167,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                     alt="deriv trader"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
+                    loading="lazy"
                 />
             ),
         },
@@ -208,6 +212,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                     alt="deriv x"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
+                    loading="lazy"
                 />
             ),
         },
@@ -249,6 +254,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                     alt="deriv ez"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
+                    loading="lazy"
                 />
             ),
         },
@@ -284,6 +290,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                     alt="deriv bot"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
+                    loading="lazy"
                 />
             ),
         },
@@ -319,6 +326,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                     alt="deriv smart trader"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
+                    loading="lazy"
                 />
             ),
         },
@@ -354,6 +362,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                     alt="binary bot"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
+                    loading="lazy"
                 />
             ),
         },
@@ -389,6 +398,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                     alt="deriv api"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
+                    loading="lazy"
                 />
             ),
         },

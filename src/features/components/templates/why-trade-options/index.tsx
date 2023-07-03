@@ -1,13 +1,12 @@
 import React from 'react'
 import Container from 'features/components/atoms/container'
 import Typography from 'features/components/atoms/typography'
-import { Localize } from 'components/localization'
-import Button from 'features/components/atoms/button'
+import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'
 import TradeItem, { TradeItemType } from 'features/components/molecules/trade-item'
+import { Localize } from 'components/localization'
 import { TString } from 'types/generics'
 import { LinkUrlType } from 'features/types'
-import LinkButton from 'features/components/atoms/link-button'
 
 export type WhyTradeOptionsType = {
     heading: TString

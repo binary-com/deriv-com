@@ -44,7 +44,7 @@ export const trading_platform_features: TradingPlatformWhatHaveData[] = [
             '_t_Useful menus where you can find out how each asset’s margin impacts your trade before placing them._t_',
         image: (
             <StaticImage
-                src="../../../../images/common/trading-platforms/ctrader/trade-margins.png"
+                src="../../../../images/common/trading-platforms/ctrader/trade-margin.png"
                 alt="Trade margins"
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}

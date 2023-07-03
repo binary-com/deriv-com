@@ -32,12 +32,12 @@ const TabContent = ({ items: initial_tems, direction = 'row' }: Omit<StepperTabT
         >
             <FlexBox.Box
                 className={tab_images}
-                margin_inline={'40x'}
+                margin_inline={'25x'}
                 md={{ margin_block: '12x', margin_inline: '0x' }}
             >
                 {items[selected]?.image}
             </FlexBox.Box>
-            <FlexBox.Box>
+            <FlexBox.Box padding="5x">
                 <Box as={'ul'}>
                     {items.map((item, index) => {
                         const is_selected = selected === index

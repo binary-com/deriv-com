@@ -9,7 +9,13 @@ import { Localize } from 'components/localization'
 
 const TabSwitcher = ({ tab, onTabClick }: Omit<StepperTabTypes, 'items'>) => {
     return (
-        <FlexBoxContainer direction={'col'} align={'center'} justify={'center'} pt={'20x'}>
+        <FlexBoxContainer
+            direction={'col'}
+            align={'center'}
+            justify={'center'}
+            pb={'20x'}
+            md={{ padding: '10x' }}
+        >
             <FlexBox.Box justify={'center'}>
                 <TabButton
                     className={

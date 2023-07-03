@@ -7,6 +7,7 @@
 .tab_images {
   max-block-size: 38.5rem;
   @include breakpoints(tablet) {
-    max-block-size: 62.5rem;
+    max-block-size: 43.4rem;
+    max-inline-size: 79.2rem;
   }
 }

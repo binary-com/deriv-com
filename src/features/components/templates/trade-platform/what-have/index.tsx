@@ -1,6 +1,6 @@
 import React from 'react'
 import { TradingPlatformWhatHaveData } from '../types'
-import { what_have_wrapper, flex_items } from './what-have.module.scss'
+import { what_have_wrapper, flex_items, image_item } from './what-have.module.scss'
 import FlexBox from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
@@ -15,7 +15,7 @@ const TradingPlatformWhatHave = ({ items }: TradingPlatformWhatHaveProps) => {
             container={'fluid'}
             direction={'col'}
             padding_inline={'8x'}
-            pt={'20x'}
+            padding_block={'20x'}
             md={{ padding_inline: '0x', padding_block: '40x' }}
         >
             {items.map((content, index) => {
@@ -38,7 +38,9 @@ const TradingPlatformWhatHave = ({ items }: TradingPlatformWhatHaveProps) => {
                                 <Localize translate_text={content.subtitle} />
                             </Typography.Paragraph>
                         </FlexBox.Box>
-                        <FlexBox.Box className={flex_items}>{content.image}</FlexBox.Box>
+                        <FlexBox.Box className={image_item} md={{ padding_inline: '40x' }}>
+                            {content.image}
+                        </FlexBox.Box>
                     </FlexBox.Box>
                 )
             })}

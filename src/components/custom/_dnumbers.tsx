@@ -13,7 +13,7 @@ export type TDNumbersItem = {
 
 type DNumbersProps = {
     items?: TDNumbersItem[]
-    justify?: string
+    justify?: 'flex-start' | 'flex-end' | 'center' | 'space-around' | 'space-evenly'
 }
 
 const NumberWrapper = styled.div`

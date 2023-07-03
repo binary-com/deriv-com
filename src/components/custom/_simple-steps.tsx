@@ -8,8 +8,14 @@ import useHandleSignup from 'components/hooks/use-handle-signup'
 import { TString } from 'types/generics'
 import { Localize } from 'components/localization'
 
+type TContent = {
+    header?: TString
+    icon?: React.ReactElement
+    text?: TString
+}
+
 type SimpleStepsProps = {
-    content?: { header?: TString; icon?: React.ReactElement; text?: TString }[]
+    content?: TContent[]
     header?: TString
 }
 
@@ -110,7 +116,7 @@ const SimpleSteps = ({ header, content }: SimpleStepsProps) => {
                 </TitleHeader>
             </Container>
             <StyledFlex wrap="wrap">
-                {content.map(({ header, icon, text }) => {
+                {content?.map(({ header, icon, text }) => {
                     return (
                         <ClientCard key={text}>
                             <Flex ai="center" height="fit-content">
@@ -119,7 +125,11 @@ const SimpleSteps = ({ header, content }: SimpleStepsProps) => {
                                 </StyledHeader>
                                 {icon}
                             </Flex>
-                            <Text>{text && <Localize translate_text={text} />}</Text>
+                            {text && (
+                                <Text>
+                                    <Localize translate_text={text} />
+                                </Text>
+                            )}
                         </ClientCard>
                     )
                 })}

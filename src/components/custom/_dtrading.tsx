@@ -218,7 +218,7 @@ const DTrading = ({ trading, reverse, max_width, max_height, spacing }: DTrading
                     const is_even = reverse ? (index + 1) % 2 : index % 2
 
                     return (
-                        <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={title}>
+                        <Row flex_direction={is_even ? 'row-reverse' : 'row'} key={title}>
                             <Content margin_right={!is_even ? '2.4rem' : '0'}>
                                 <StyledHeader type="page-title" as="h2">
                                     <Localize translate_text={title} />

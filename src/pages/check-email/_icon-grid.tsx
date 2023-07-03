@@ -80,7 +80,7 @@ const GridContent: TGridContent[] = [
 export const IconGrid = () => (
     <Grid>
         {GridContent.map(({ Icon, alt, content }) => (
-            <GridCol key={content}>
+            <GridCol key={alt}>
                 <Img src={Icon} alt={localize(alt)} />
                 <StyledText color="black-3" lh="1.55" mt="0.8rem">
                     <Localize translate_text={content} />

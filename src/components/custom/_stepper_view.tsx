@@ -119,7 +119,7 @@ const StepperView = ({
                             {`${index + 1}. `}
                             <Localize
                                 translate_text={item.title()}
-                                components={item.title_components && item.title_components()}
+                                components={item?.title_components?.()}
                             />
                         </li>
                     ))}

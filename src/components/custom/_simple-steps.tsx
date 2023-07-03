@@ -123,7 +123,7 @@ const SimpleSteps = ({ header, content }: SimpleStepsProps) => {
                                 <StyledHeader as="h3" type="sub-section-title">
                                     {header && <Localize translate_text={header} />}
                                 </StyledHeader>
-                                {icon && icon}
+                                {icon}
                             </Flex>
                             {text && (
                                 <Text>

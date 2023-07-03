@@ -45,6 +45,13 @@
         animation-duration: 250ms;
         animation-timing-function: ease;
     }
+    &_scrollable_menu {
+        @media screen and (max-height: 930px) {
+            block-size: 100vh;
+            padding-block-end: 10rem;
+            overflow: auto;
+        }
+    }
 
     &_position {
         display: flex;
@@ -75,10 +82,6 @@
     inset-block-start: 7rem;
     justify-content: center;
     inset-inline-end: 0;
-    @media screen and (max-height: 820px) {
-        block-size: 90vh;
-        overflow: scroll;
-    }
 
     @include breakpoints(laptop) {
         position: absolute;

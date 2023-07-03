@@ -14,7 +14,6 @@
 }
 .hero_image_wrapper {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    border-radius: 1.5rem;
     @include breakpoints(tablet) {
         margin-inline-start: auto;
     }

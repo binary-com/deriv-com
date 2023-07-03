@@ -46,6 +46,18 @@ exports.onCreatePage = ({ page, actions }) => {
             redirectInBrowser: true,
             isPermanent: true,
         })
+        createRedirect({
+            fromPath: `/bug-bounty/rewards/`,
+            toPath: `https://hackerone.com/deriv?type=team`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/bug-bounty/vulnerabilities-types/`,
+            toPath: `https://hackerone.com/deriv?type=team`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
     }
 
     if (is_responsible_trading) {
@@ -321,6 +333,18 @@ exports.onCreatePage = ({ page, actions }) => {
             })
             createRedirect({
                 fromPath: `/${lang}/bug-bounty/`,
+                toPath: `https://hackerone.com/deriv?type=team`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/bug-bounty/rewards/`,
+                toPath: `https://hackerone.com/deriv?type=team`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/bug-bounty/vulnerabilities-types/`,
                 toPath: `https://hackerone.com/deriv?type=team`,
                 redirectInBrowser: true,
                 isPermanent: true,

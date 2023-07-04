@@ -235,7 +235,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const { symbol, instrument: text, dl_icon, swf_icon } = data
     const [show_popUp, setShowPopUp] = useState(false)
     const [popup_type, setPopupType] = useState<TPopupType>()
-    const [scroll_y, setScroll_y] = useState(0)
+    const [scroll_y, setScrollY] = useState(0)
 
     useEffect(() => {
         document.body.style.position = show_popUp ? 'fixed' : ''
@@ -246,7 +246,7 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     }, [show_popUp])
 
     const openPopup = (type: TPopupType, e: React.MouseEvent) => {
-        setScroll_y(e.pageY - e.clientY)
+        setScrollY(e.pageY - e.clientY)
         setPopupType(type)
         setShowPopUp(true)
     }

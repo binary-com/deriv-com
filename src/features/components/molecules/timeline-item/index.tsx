@@ -20,7 +20,7 @@ interface TimelineItemProps extends FlexBoxProps<'div'> {
 
 const TimelineItem = ({ data, ...rest }: TimelineItemProps) => {
     return (
-        <Flex.Box gap="12x" pb="20x" className={timeline_item}>
+        <Flex.Box gap="12x" pb="20x" className={timeline_item} {...rest}>
             <Image
                 src={data.icon_src}
                 alt="check icon"

@@ -15,6 +15,7 @@
     }
 
     &::before {
+        @include animation();
         content: ' ';
         position: absolute;
         block-size: 65%;

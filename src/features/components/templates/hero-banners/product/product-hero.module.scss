@@ -1,6 +1,7 @@
 @use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
 
+
 .product_hero {
     position: relative;
 
@@ -13,6 +14,7 @@
     }
 
     &::before {
+        @include animation();
         content: ' ';
         position: absolute;
         block-size: 65%;
@@ -30,3 +32,4 @@
         }
     }
 }
+

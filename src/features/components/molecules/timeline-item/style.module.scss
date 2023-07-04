@@ -1,0 +1,15 @@
+.timeline_item {
+    max-inline-size: 74.4rem;
+    position: relative;
+    &:not(:last-child){
+        &::before{
+            position: absolute;
+            content: "";
+            bottom: -5px;
+            top: 8px;
+            left: 10px;
+            border-left: 2px dashed #FF444F;
+            z-index: -1;
+        }
+    }
+}

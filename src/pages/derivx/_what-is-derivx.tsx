@@ -17,11 +17,8 @@ const StyledText = styled(Header)`
     font-weight: normal;
     color: var(--color-black-9);
     max-width: 792px;
-
-    @media ${device.tabletL} {
-        font-size: 24px;
-    }
 `
+
 const StyledSectionContainer = styled(SectionContainer)`
     border-bottom: solid 1px var(--color-grey-2);
 

@@ -9,6 +9,7 @@ import { Localize } from 'components/localization'
 type AvailableOptionsProps = {
     title?: TString
     content: TString
+    content_components?: React.ReactElement[]
     mobile_pt?: string
     remove_title?: boolean
     svg: string
@@ -40,6 +41,7 @@ const Icon = styled.img`
 const AvailableOptions = ({
     title,
     content,
+    content_components,
     remove_title,
     svg,
     mobile_pt,
@@ -57,7 +59,7 @@ const AvailableOptions = ({
                 <Icon src={svg} />
                 <Box max_width="28.8rem">
                     <StyledText>
-                        <Localize translate_text={content} />
+                        <Localize translate_text={content} components={content_components} />
                     </StyledText>
                 </Box>
             </Flex>

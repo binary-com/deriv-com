@@ -38,6 +38,7 @@ const PlatformCard = ({ data: { icon, heading, paragraph, link } }: PlatformProp
                 padding_block="4x"
                 padding_inline="8x"
                 size="small"
+                weight="bold"
             >
                 <Localize translate_text="_t_Learn more_t_" />
                 <Image

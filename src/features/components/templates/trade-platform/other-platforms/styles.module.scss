@@ -1,9 +1,15 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
 .slider_wrapper {
-    max-inline-size: 96.5rem;
+    max-inline-size: 97.5rem;
     margin-inline: auto;
     position: relative;
     --swiper-pagination-bottom: 0;
     --swiper-pagination-color: #ff444f;
+    @include breakpoints(tablet){
+        max-inline-size: 107.5rem;
+    }
+
 }
 .swiper_slide {
     height: 100% !important;

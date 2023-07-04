@@ -24,10 +24,20 @@ const StartTrading = ({ data }: { data: StartTradingType }) => {
                 <Typography.Heading as="h2" textcolor="black" size="small" mb="20x">
                     <Localize translate_text={data.heading} />
                 </Typography.Heading>
-                {data.items.map((item) => (
-                    <TimelineItem key={item.heading} data={item} />
-                ))}
-                <LinkButton.Primary url={data.button.url}>
+                <div>
+                    {data.items.map((item, i) => {
+                        const isLastItem = i === data.items.length - 1
+                        return (
+                            <TimelineItem
+                                key={item.heading}
+                                data={item}
+                                pb={isLastItem ? '0x' : '20x'}
+                                isLastItem={isLastItem}
+                            />
+                        )
+                    })}
+                </div>
+                <LinkButton.Primary url={data.button.url} mt="32x">
                     <Localize translate_text={data.button.text} />
                 </LinkButton.Primary>
             </Flex.Box>

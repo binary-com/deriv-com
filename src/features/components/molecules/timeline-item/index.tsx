@@ -7,26 +7,27 @@ import Image from 'features/components/atoms/image'
 import dclsx from 'features/utils/dclsx'
 import { TString } from 'types/generics'
 import { FlexBoxProps } from 'features/components/atoms/flex-box/box'
+import checkIcon from 'images/svg/check-circle.svg'
 
 export type TimelineItemType = {
-    icon_src: string
     heading: TString
     description: TString
 }
 
 interface TimelineItemProps extends FlexBoxProps<'div'> {
     data: TimelineItemType
+    isLastItem?: boolean
 }
 
-const TimelineItem = ({ data, ...rest }: TimelineItemProps) => {
+const TimelineItem = ({ data, isLastItem, ...rest }: TimelineItemProps) => {
     return (
-        <Flex.Box gap="12x" pb="20x" className={timeline_item} {...rest}>
+        <Flex.Box gap="12x" className={timeline_item} {...rest}>
             <Image
-                src={data.icon_src}
+                src={checkIcon}
                 alt="check icon"
                 width={24}
                 height={24}
-                className={dclsx('margin-top-3x')}
+                className={dclsx(isLastItem ? 'margin-top-10x' : 'margin-top-3x')}
             />
             <div>
                 <Typography.Heading as="h3" size="xs" mb="4x">

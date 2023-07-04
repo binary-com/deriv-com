@@ -35,22 +35,26 @@ exports.onCreatePage = ({ page, actions }) => {
     createRedirect({
         fromPath: `/bug-bounty`,
         toPath: `https://hackerone.com/deriv?type=team`,
-        statusCode: 301,
+        isPermanent: true,
+        force: true
     })
     createRedirect({
         fromPath: `/bug-bounty/`,
         toPath: `https://hackerone.com/deriv?type=team`,
-        statusCode: 301,
+        isPermanent: true,
+        force: true
     })
     createRedirect({
         fromPath: `/bug-bounty/rewards/`,
         toPath: `https://hackerone.com/deriv?type=team`,
-        statusCode: 301,
+        isPermanent: true,
+        force: true
     })
     createRedirect({
         fromPath: `/bug-bounty/vulnerabilities-types/`,
         toPath: `https://hackerone.com/deriv?type=team`,
-        statusCode: 301,
+        isPermanent: true,
+        force: true
     })
 
     if (is_responsible_trading) {

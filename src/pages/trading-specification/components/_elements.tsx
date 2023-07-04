@@ -243,10 +243,6 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
         if (!show_popUp && scrollY) {
             window.scrollTo({ top: scrollY, behavior: 'smooth' })
         }
-        const styleTag = document.createElement('style')
-        styleTag.type = 'text/css'
-        styleTag.innerHTML = `body { overflow: ${show_popUp ? 'hidden' : 'unset'} !important; }`
-        document.body.insertAdjacentElement('beforeend', styleTag)
     }, [show_popUp])
 
     const openPopup = (type: TPopupType, e: React.MouseEvent) => {

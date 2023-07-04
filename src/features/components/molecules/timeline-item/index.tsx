@@ -1,5 +1,5 @@
 import React from 'react'
-import { timeline_item } from './style.module.scss'
+import { timeline_item, last_item, not_last_item } from './style.module.scss'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import Flex from 'features/components/atoms/flex-box'
@@ -21,7 +21,11 @@ interface TimelineItemProps extends FlexBoxProps<'div'> {
 
 const TimelineItem = ({ data, isLastItem, ...rest }: TimelineItemProps) => {
     return (
-        <Flex.Box gap="12x" className={timeline_item} {...rest}>
+        <Flex.Box
+            gap="12x"
+            className={dclsx(timeline_item, isLastItem ? last_item : not_last_item)}
+            {...rest}
+        >
             <Image
                 src={checkIcon}
                 alt="check icon"

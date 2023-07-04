@@ -8,16 +8,16 @@
         border-inline-start: 2px dashed #FF444F;
         z-index: -1;
     }
-    &:not(:last-child){
-        &::before{
-            bottom: -5px;
-            top: 8px;
-        }
+}
+.last_item {
+    &:before {
+        top: 1px;
+        height: 20px;
     }
-    &:last-child{
-        &:before {
-            top: 1px;
-            height: 20px;
-        }
+}
+.not_last_item {
+    &::before{
+        bottom: -5px;
+        top: 8px;
     }
 }

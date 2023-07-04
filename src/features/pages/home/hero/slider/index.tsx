@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, EffectFade } from 'swiper'
 import SliderWrapper from './slider-wrapper'
 import useRegion from 'components/hooks/use-region'
+import Slideshow from 'features/components/molecules/slide-show'
 
 const HomeHeroSlider = () => {
     const { is_eu } = useRegion()
@@ -84,24 +85,27 @@ const HomeHeroSlider = () => {
     }, [is_eu])
 
     return (
+        // <SliderWrapper>
+        //     <Swiper
+        //         speed={1500}
+        //         effect={'fade'}
+        //         slidesPerView={1}
+        //         fadeEffect={{
+        //             crossFade: true,
+        //         }}
+        //         direction="horizontal"
+        //         modules={[EffectFade, Autoplay]}
+        //         autoplay={{
+        //             delay: 2000,
+        //         }}
+        //     >
+        //         {items.map((slide) => (
+        //             <SwiperSlide key={slide.key}>{slide.image}</SwiperSlide>
+        //         ))}
+        //     </Swiper>
+        // </SliderWrapper>
         <SliderWrapper>
-            <Swiper
-                speed={1500}
-                effect={'fade'}
-                slidesPerView={1}
-                fadeEffect={{
-                    crossFade: true,
-                }}
-                direction="horizontal"
-                modules={[EffectFade, Autoplay]}
-                autoplay={{
-                    delay: 2000,
-                }}
-            >
-                {items.map((slide) => (
-                    <SwiperSlide key={slide.key}>{slide.image}</SwiperSlide>
-                ))}
-            </Swiper>
+            <Slideshow />
         </SliderWrapper>
     )
 }

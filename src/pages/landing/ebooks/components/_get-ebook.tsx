@@ -5,7 +5,7 @@ import Login, { TSocialProvider } from 'common/login'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import validation from 'common/validation'
 import { Input, Button } from 'components/form'
-import { Header, Text, LocalizedLinkText } from 'components/elements'
+import { Header, Text, LinkText } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
@@ -15,6 +15,8 @@ import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'
 import ViewEmailImage from 'images/common/sign-up/view-email.png'
 import apiManager from 'common/websocket'
+import Link from 'features/components/atoms/link'
+import useRegion from 'components/hooks/use-region'
 
 type GetEbookProps = {
     color?: string
@@ -157,7 +159,7 @@ const StyledText = styled(Text)<{ tabletFontSize?: string }>`
     }
 `
 
-const StyledLocalizedLink = styled(LocalizedLinkText)`
+const StyledLocalizedLink = styled(LinkText)`
     @media ${device.tabletL} {
         font-size: 10px;
     }
@@ -193,6 +195,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
     const [submit_status, setSubmitStatus] = React.useState('')
     const [email_error_msg, setEmailErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
+    const { is_eu } = useRegion()
 
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
@@ -281,6 +284,8 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
             })
     }
 
+    const security_pdf_link = `/tnc${is_eu ? '/eu' : ''}/security-and-privacy.pdf`
+
     return submit_status === 'success' ? (
         <ResponseWrapper>
             <EmailImage src={ViewEmailImage} alt="Email" />
@@ -341,13 +346,14 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                         <Localize
                             translate_text="By pressing “Get your free ebook now!”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>."
                             components={[
-                                <StyledLocalizedLink
+                                <Link
+                                    textcolor="brand"
                                     key={0}
-                                    as="a"
-                                    href="/tnc/security-and-privacy.pdf"
-                                    size="1.2rem"
-                                    color="red"
-                                    rel="noopener noreferrer"
+                                    url={{
+                                        target: '_blank',
+                                        type: 'non-company',
+                                        href: security_pdf_link,
+                                    }}
                                 />,
                             ]}
                         />

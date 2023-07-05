@@ -12,18 +12,13 @@ import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import useRegion from 'components/hooks/use-region'
 import {
     deriv_go_playstore_url,
     deriv_go_huaweiappgallery_url,
     deriv_go_ios_url,
 } from 'common/constants'
 import DownloadColumn from 'components/custom/_multi-width-column-download'
-
-const items = [
-    { text: 'Google Play', icon: AndroidIcon, link: deriv_go_playstore_url },
-    { text: 'App Store', icon: AppleIcon, link: deriv_go_ios_url },
-    { text: 'AppGallery', icon: AppGalleryIcon, link: deriv_go_huaweiappgallery_url },
-]
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
@@ -50,6 +45,15 @@ const TextAndButtonWrapper = styled.div`
 const DerivGoGetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
+    const { is_appgallery_supported } = useRegion()
+
+    const items = [
+        { text: 'Google Play', icon: AndroidIcon, link: deriv_go_playstore_url },
+        { text: 'App Store', icon: AppleIcon, link: deriv_go_ios_url },
+        ...(is_appgallery_supported
+            ? [{ text: 'AppGallery', icon: AppGalleryIcon, link: deriv_go_huaweiappgallery_url }]
+            : []),
+    ]
 
     return (
         <MultiWidthColumn
@@ -78,7 +82,11 @@ const DerivGoGetApp = () => {
             <DownloadColumn
                 QRImage={derivGoQR}
                 QRHeading1="_t_Scan to download_t_"
-                QRHeading2="Android & Huawei"
+                QRHeading2={
+                    is_appgallery_supported
+                        ? '_t_Android, iOS, and Huawei_t_'
+                        : '_t_Android and iOS_t_'
+                }
                 items={items}
                 is_rtl={is_rtl}
             />

@@ -11,7 +11,7 @@ export type NavConfig = {
     is_eu: boolean
     is_ppc: boolean
     is_ppc_redirect: boolean
-    is_mobile: boolean
+    is_mobile?: boolean
 }
 
 export type NavColumn = {
@@ -28,6 +28,8 @@ export type NavColumn = {
 export type NavMultiColumn = {
     title?: TString
     section: SmartNavContent[]
+    no_title?: boolean
+    no_divider?: boolean
 }
 
 export type SmartNavContent = TSmartContent<NavColumn, NavConfig>

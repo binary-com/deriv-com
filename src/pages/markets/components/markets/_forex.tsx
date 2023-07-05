@@ -13,14 +13,13 @@ import { SimpleStepContentElement } from '../../static/content/_simple_step_cont
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'
-import Button from 'components/custom/_button'
 import useRegion from 'components/hooks/use-region'
 import { Localize, localize } from 'components/localization'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
+import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 
 type ForexProps = {
     simple_step_content: SimpleStepContentElement[]
@@ -90,7 +89,7 @@ const Forex = ({ simple_step_content }: ForexProps) => {
                 content={simple_step_content}
             />
 
-            <OtherMarkets except="forex" />
+            <OtherMarketsSlider current_market="forex" />
         </>
     )
 }

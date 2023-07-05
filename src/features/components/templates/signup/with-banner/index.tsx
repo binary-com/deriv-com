@@ -15,7 +15,6 @@ const SignupPublic = () => {
             <Container.Fluid>
                 <Flex.Box
                     direction={'col-reverse'}
-                    container="fluid"
                     className={public_signup_container}
                     bgcolor="brand"
                     align="stretch"

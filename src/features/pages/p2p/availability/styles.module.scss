@@ -1,0 +1,21 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.platform_list {
+    list-style: decimal;
+}
+
+.platform_wrap {
+    position: relative;
+    @include breakpoints(tablet) {
+        &::before{
+            position: absolute;
+            content: "";
+            inline-size: 1px;
+            block-size: 100%;
+            background-color: $color-grey-17;
+            inset: 0;
+            margin-inline: auto;
+        }
+    }
+}

@@ -18,6 +18,13 @@ import './static/css/ubuntu.css'
 
 const is_browser = typeof window !== 'undefined'
 
+const bug_bounty_path = '/bug-bounty'
+const hacker_one_url = 'https://hackerone.com/deriv?type=team'
+
+if (is_browser){
+    if (window.location.pathname.includes(bug_bounty_path)) window.location.href = hacker_one_url;
+}
+
 const checkDomain = () => {
     return eval(
         decodeURIComponent(

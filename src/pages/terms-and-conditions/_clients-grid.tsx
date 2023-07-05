@@ -159,7 +159,7 @@ const IconGrid = () => {
 
             eu_links: [
                 {
-                    url: '/tnc/deriv-investments-(europe)-limited.pdf',
+                    url: '/tnc/deriv-investments-(europe)-limited-eu.pdf',
                     title: localize('Deriv Investments (Europe) Limited'),
                 },
             ],

@@ -354,7 +354,7 @@ exports.onCreatePage = ({ page, actions }) => {
                 redirectInBrowser: true,
                 isPermanent: true,
             })
-
+        }
         return current_page
     })
 }

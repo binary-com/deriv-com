@@ -8,9 +8,10 @@ import useRegion from 'components/hooks/use-region'
 import Checkmark from 'images/svg/dmt5/checkmark.svg'
 import ZeroPercent from 'images/svg/dmt5/zero_percent.svg'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
 type CheckedTextProps = {
-    children: string
+    content: TString
 }
 
 const ImageWrapper = styled.div`
@@ -138,12 +139,12 @@ const StyledImg = styled.img`
     }
 `
 
-const CheckedText = ({ children }: CheckedTextProps) => (
+const CheckedText = ({ content }: CheckedTextProps) => (
     <>
         <Flex jc="flex-start" ai="center">
             <StyledImg src={Checkmark} alt="Check mark" width="24" height="24" />
             <StyledText size="16px" weight="bold">
-                {children}
+                <Localize translate_text={content} />
             </StyledText>
         </Flex>
         <Separator />
@@ -166,11 +167,11 @@ const InterestFreeTrading = () => {
                     <Localize translate_text="_t_Commission_t_" />
                 </InterestText>
                 <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
-                    <CheckedText>Forex</CheckedText>
-                    <CheckedText>Derived</CheckedText>
-                    <CheckedText>Stocks & indices</CheckedText>
-                    <CheckedText>Cryptocurrencies</CheckedText>
-                    <CheckedText>Commodities</CheckedText>
+                    <CheckedText content="_t_Forex_t_" />
+                    <CheckedText content="_t_Derived_t_" />
+                    <CheckedText content="_t_Stocks & indices_t_" />
+                    <CheckedText content="_t_Cryptocurrencies_t_" />
+                    <CheckedText content="_t_Commodities_t_" />
                 </TextWrapperFlex>
             </InterestCardFlex>
             <StyledFlex fd="column" jc="flex-start" height="100%" width="51.4rem">

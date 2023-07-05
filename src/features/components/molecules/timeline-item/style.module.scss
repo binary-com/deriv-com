@@ -5,7 +5,7 @@
         position: absolute;
         content: "";
         left: 10px;
-        border-inline-start: 2px dashed #FF444F;
+        border-inline-start: 2px dashed $color-brand;
         z-index: -1;
     }
 }

@@ -4,6 +4,7 @@ import { SmartNavDropItems } from '../../types'
 import NavDropItems from '../nav-drop-items'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
+import useRegion from 'components/hooks/use-region'
 import dclsx from 'features/utils/dclsx'
 
 interface DesktopItemsProps {
@@ -17,8 +18,8 @@ const NavDesktopItem = ({ item, active }: DesktopItemsProps) => {
             e.preventDefault()
         }
     }
-
-    const has_scroll_menu = active === '_t_Trade_t_' || active === '_t_Markets_t_'
+    const { is_row } = useRegion()
+    const has_scroll_menu = active === '_t_Trade_t_' && is_row
 
     return (
         <NavigationMenu.Item value={item.data.title}>

@@ -12,6 +12,7 @@ import {
     getLanguage,
     updateURLAsPerUserLanguage,
 } from 'common/utility'
+import { besquare_signup_url, careers_url } from 'common/constants'
 import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
 import './static/css/ubuntu.css'
@@ -115,6 +116,9 @@ export const onInitialClientRender = () => {
             // TODO: remove this line when production ready for translation
             if (!isProduction()) LocalStore.set('i18n', 'ach')
         }
+
+        if (window.location.pathname.includes(besquare_signup_url))
+            window.location.href = careers_url
 
         const i18n = LocalStore.get('i18n')
         if (!isProduction() && i18n && i18n.match('ach')) {

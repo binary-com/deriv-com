@@ -20,23 +20,29 @@ export type WhyTradeOptionsType = {
 
 const WhyTradeOptions = ({ data }: { data: WhyTradeOptionsType }) => {
     return (
-        <Container.Fixed as="section" bgcolor="black" padding_block="40x">
+        <Container.Fixed
+            as="section"
+            bgcolor="black"
+            padding_block="20x"
+            md={{ padding_block: '40x' }}
+        >
             <Container.Fluid>
                 <Typography.Heading
                     as="h2"
                     textcolor="inverted"
                     align="center"
                     size="small"
-                    mb="20x"
+                    mb="12x"
+                    md={{ mb: '20x' }}
                 >
                     <Localize translate_text={data.heading} />
                 </Typography.Heading>
-                <Flex.Box gap="20x" wrap="wrap" justify="center">
+                <Flex.Box gap="12x" wrap="wrap" justify="center" md={{ gap: '20x' }}>
                     {data.items.map((item) => (
                         <TradeItem key={item.heading} data={item} />
                     ))}
                 </Flex.Box>
-                <Flex.Box direction="col" align="center" mt="20x">
+                <Flex.Box direction="col" align="center" mt="12x" md={{ mt: '20x' }}>
                     <Typography.Heading as="h4" textcolor="inverted" size="xxs" mb="8x">
                         <Localize translate_text={data.heading2} />
                     </Typography.Heading>

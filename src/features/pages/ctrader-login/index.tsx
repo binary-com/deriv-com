@@ -2,7 +2,7 @@ import React from 'react'
 import { StringParam, useQueryParam } from 'use-query-params'
 import { useSigninAndSignup } from 'features/hooks/use-signin-and-signup'
 import Loading from 'features/components/atoms/loading'
-import CtraderWrapper from 'features/components/templates/ctrader/_ctrader-wrapper'
+import CtraderWrapper from 'features/components/templates/ctrader/ctrader-wrapper'
 import Typography from 'features/components/atoms/typography'
 import Layout from 'features/components/templates/layout'
 

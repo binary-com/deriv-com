@@ -1,6 +1,6 @@
 import React from 'react'
-import { ctrader_manage_data } from './_ctrader-manage-data'
-import CtraderManage from './_ctrader-manage'
+import { ctrader_manage_data } from './ctrader-manage-data'
+import CtraderManage from './ctrader-manage'
 
 const CloseAccount = () => {
     const { title, button_url, paragraph, button_text } = ctrader_manage_data.close_account

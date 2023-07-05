@@ -6,7 +6,7 @@ import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
-import CtraderWrapper from 'features/components/templates/ctrader/_ctrader-wrapper'
+import CtraderWrapper from 'features/components/templates/ctrader/ctrader-wrapper'
 
 const CtraderCheckEmail = () => {
     return (

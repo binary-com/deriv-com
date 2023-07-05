@@ -57,7 +57,7 @@ export const tradeTypesContent: SmartNavContent[] = [
             },
             content: '_t_Earn a range of payouts without risking more than your initial stake._t_',
             title: '_t_Options_t_',
-            url: { type: 'internal', to: '/trade-types/options/' },
+            url: { type: 'internal', to: '/trade-types/options/digital-options/' },
         },
         visibility: {
             is_ppc: false,

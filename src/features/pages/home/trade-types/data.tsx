@@ -24,7 +24,7 @@ export const tradeTypesItems: SmartTradeTypeItem[] = [
             description: '_t_Earn a range of payouts by correctly predicting market movements._t_',
             url: {
                 type: 'internal',
-                to: '/trade-types/options/',
+                to: '/trade-types/options/digital-options/',
             },
             icon_src: OptionsHomeIcon,
         },

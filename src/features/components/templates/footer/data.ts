@@ -65,7 +65,7 @@ const tradesLinks: SmartFooterLink[] = [
         id: 1,
         data: {
             text: '_t_Options_t_',
-            url: { type: 'internal', to: '/trade-types/options/' },
+            url: { type: 'internal', to: '/trade-types/options/digital-options/' },
         },
         visibility: {
             is_row: true,

@@ -70,9 +70,7 @@ export const useSigninAndSignup = (platform: string, token: string) => {
                     setLoading(false)
                 })
         }
-    }, [has_account, platform])
 
-    useEffect(() => {
         if (has_account === true) {
             apiManager
                 .augmentedSend('service_token', {

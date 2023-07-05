@@ -1,7 +1,5 @@
 import React, { useMemo } from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay, EffectFade } from 'swiper'
 import SliderWrapper from './slider-wrapper'
 import useRegion from 'components/hooks/use-region'
 import Slideshow from 'features/components/molecules/slide-show'
@@ -19,7 +17,7 @@ const HomeHeroSlider = () => {
                         src="../../../../../images/common/home/hero_3.png"
                         alt="person-hero-3"
                         formats={['avif', 'webp', 'auto']}
-                        placeholder="none"
+                        placeholder="blurred"
                         quality={75}
                     />
                 ),
@@ -67,7 +65,7 @@ const HomeHeroSlider = () => {
                 },
             )
         } else {
-            slide_images.push({
+            slide_images.unshift({
                 key: 'hero_eu_1',
                 image: (
                     <StaticImage
@@ -76,7 +74,7 @@ const HomeHeroSlider = () => {
                         alt="person-hero-1"
                         formats={['avif', 'webp', 'auto']}
                         quality={50}
-                        placeholder="none"
+                        placeholder="blurred"
                     />
                 ),
             })
@@ -85,27 +83,8 @@ const HomeHeroSlider = () => {
     }, [is_eu])
 
     return (
-        // <SliderWrapper>
-        //     <Swiper
-        //         speed={1500}
-        //         effect={'fade'}
-        //         slidesPerView={1}
-        //         fadeEffect={{
-        //             crossFade: true,
-        //         }}
-        //         direction="horizontal"
-        //         modules={[EffectFade, Autoplay]}
-        //         autoplay={{
-        //             delay: 2000,
-        //         }}
-        //     >
-        //         {items.map((slide) => (
-        //             <SwiperSlide key={slide.key}>{slide.image}</SwiperSlide>
-        //         ))}
-        //     </Swiper>
-        // </SliderWrapper>
         <SliderWrapper>
-            <Slideshow />
+            <Slideshow items={items} />
         </SliderWrapper>
     )
 }

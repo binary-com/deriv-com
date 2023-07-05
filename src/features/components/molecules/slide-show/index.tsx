@@ -1,38 +1,40 @@
-import React, { useState, useEffect, ReactNode } from 'react'
-import Image1 from '../../../../images/common/home/hero_1.png'
-import Image2 from '../../../../images/common/home/hero_2.png'
-import Image3 from '../../../../images/common/home/hero_3.png'
-import Image4 from '../../../../images/common/home/hero_4.png'
+import React, { useState, useEffect, ReactElement } from 'react'
 import * as styles from './slide-show.module.scss'
 import dclsx from 'features/utils/dclsx'
 
-const Slideshow: React.FC = () => {
-    const images = [Image1, Image2, Image3, Image4]
+type SlideshowItemProps = {
+    key: string
+    image: ReactElement
+}
+type SlideshowItemArrayProps = {
+    items: SlideshowItemProps[]
+}
 
+const Slideshow = ({ items }: SlideshowItemArrayProps) => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
     useEffect(() => {
         const intervalId = setInterval(() => {
-            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length)
-        }, 5000) // Adjust the interval between slides here (in milliseconds)
+            setCurrentImageIndex((prevIndex) => (prevIndex + 1) % items.length)
+        }, 2000) // Adjust the interval between slides here (in milliseconds)
 
         return () => {
             clearInterval(intervalId)
         }
-    }, [images])
+    }, [items.length])
 
     return (
         <div className={dclsx(styles.slideshow)}>
-            {images.map((image, index) => (
-                <img
-                    src={image}
-                    alt={`Slide ${index + 1}`}
-                    key={index}
+            {items.map((item, index) => (
+                <div
                     className={dclsx(
                         styles.slide,
                         ` ${index === currentImageIndex ? styles.fadeIn : styles.fadeOut}`,
                     )}
-                />
+                    key={item.key}
+                >
+                    {item.image}
+                </div>
             ))}
         </div>
     )

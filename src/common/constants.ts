@@ -72,7 +72,6 @@ export const whatsapp_url = `https://wa.me/35699578341`
 export const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
 export const besquare_signup_url =
     'https://deriv.zohorecruit.eu/jobs/Careers/47807000013799423/Empty?source=CareerSite '
-export const careers_url = 'https://deriv.com/careers/'
 export const binary_url = 'https://binary.com'
 export const brand_name = 'Deriv'
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'

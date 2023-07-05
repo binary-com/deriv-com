@@ -19,9 +19,15 @@ export type StartTradingType = {
 
 const StartTrading = ({ data }: { data: StartTradingType }) => {
     return (
-        <Container.Fixed as="section" padding_block="40x">
+        <Container.Fixed as="section" padding_block="20x" md={{ padding_block: '40x' }}>
             <Flex.Box direction="col" container="fluid" align="start">
-                <Typography.Heading as="h2" textcolor="black" size="small" mb="20x">
+                <Typography.Heading
+                    as="h2"
+                    textcolor="black"
+                    size="small"
+                    mb="12x"
+                    md={{ mb: '20x' }}
+                >
                     <Localize translate_text={data.heading} />
                 </Typography.Heading>
                 {data.items.map((item, i) => {
@@ -35,7 +41,7 @@ const StartTrading = ({ data }: { data: StartTradingType }) => {
                         />
                     )
                 })}
-                <LinkButton.Primary url={data.button.url} mt="32x">
+                <LinkButton.Primary url={data.button.url} mt="12x" md={{ mt: '32x' }}>
                     <Localize translate_text={data.button.text} />
                 </LinkButton.Primary>
             </Flex.Box>

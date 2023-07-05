@@ -22,7 +22,8 @@ interface TimelineItemProps extends FlexBoxProps<'div'> {
 const TimelineItem = ({ data, isLastItem, ...rest }: TimelineItemProps) => {
     return (
         <Flex.Box
-            gap="12x"
+            gap="8x"
+            md={{ gap: '12x' }}
             className={dclsx(timeline_item, isLastItem ? last_item : not_last_item)}
             {...rest}
         >

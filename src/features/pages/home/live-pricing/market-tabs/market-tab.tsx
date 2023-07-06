@@ -26,9 +26,9 @@ const MarketTab = () => {
             >
                 {market_buttons.map((market_item) => (
                     <Flex.Box
+                        key={market_item.button_text}
                         direction="col"
                         className="tab_container"
-                        key={market_item.button_text}
                         onClick={() => {
                             onMarketButtonClick(market_item.market_name)
                             setLinkToMarketPage(market_item.to)

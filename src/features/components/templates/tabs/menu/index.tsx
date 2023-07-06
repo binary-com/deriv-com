@@ -12,7 +12,6 @@ export type TabMenuProps = {
     setCurrentTab: (name: TString) => void
     icon?: string
 }
-
 const TabMenu = ({ class_name, tab_names, current_tab, icon, setCurrentTab }: TabMenuProps) => {
     return (
         <FlexBox.Box
@@ -23,21 +22,22 @@ const TabMenu = ({ class_name, tab_names, current_tab, icon, setCurrentTab }: Ta
         >
             {tab_names.map((tab_name) => {
                 return (
-                    <Tab.MenuItem
-                        key={tab_name}
-                        selected={tab_name == current_tab}
-                        onClick={() => {
-                            setCurrentTab(tab_name)
-                        }}
-                    >
-                        {icon && (
-                            <FlexBox.Box justify="center" padding_block="6x">
-                                {icon && <Image src={icon} width="24px" height="24px" />}
-                            </FlexBox.Box>
-                        )}
+                    <React.Fragment key={tab_name}>
+                        <Tab.MenuItem
+                            selected={tab_name == current_tab}
+                            onClick={() => {
+                                setCurrentTab(tab_name)
+                            }}
+                        >
+                            {icon && (
+                                <FlexBox.Box justify="center" padding_block="6x">
+                                    {icon && <Image src={icon} width="24px" height="24px" />}
+                                </FlexBox.Box>
+                            )}
 
-                        <Localize translate_text={tab_name} />
-                    </Tab.MenuItem>
+                            <Localize translate_text={tab_name} />
+                        </Tab.MenuItem>
+                    </React.Fragment>
                 )
             })}
         </FlexBox.Box>

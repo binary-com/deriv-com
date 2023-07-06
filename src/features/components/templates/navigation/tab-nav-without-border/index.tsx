@@ -57,6 +57,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                     navigation={{ nextEl: '.swiper-button-next' }}
                 >
                     {!swiper_loading &&
+                        selected_tab_name &&
                         tab_data.map((tab_item) => (
                             <SwiperSlide key={tab_item.option_name}>
                                 <Flex.Box direction="col">

@@ -20,8 +20,11 @@ const LanguageSwitcher = () => {
     const openHandler = () => {
         // HOTFIX: Temporary solution - to be fixed in future
         setOpen((prev) => !prev)
+        const langStyle = document.getElementById('lang_scroll_style')
+        if (langStyle) return
         const styleTag = document.createElement('style')
         styleTag.type = 'text/css'
+        styleTag.id = 'lang_scroll_style'
         styleTag.innerHTML = `
             body {
                 overflow: auto !important;

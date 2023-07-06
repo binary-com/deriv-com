@@ -238,6 +238,8 @@ export const TableCellGroup = ({ data, market }: TTableCellGroup) => {
     const [popup_type, setPopupType] = useState<TPopupType>()
 
     useEffect(() => {
+        const langStyle = document.getElementById('lang_scroll_style')
+        if (langStyle && show_popUp) langStyle.remove()
         document.body.style.overflow = show_popUp ? 'hidden' : 'scroll'
     }, [show_popUp])
 

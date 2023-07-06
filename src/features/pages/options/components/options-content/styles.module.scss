@@ -1,0 +1,15 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.content_container {
+    border: 1px solid $color-grey-6;
+    border-radius: 8px;
+}
+.content_images {
+    display: grid;
+    margin-inline: auto;
+    grid-template-columns: 1fr;
+    @include breakpoints(tablet) {
+        grid-template-columns: 1fr 1fr;
+    }
+}

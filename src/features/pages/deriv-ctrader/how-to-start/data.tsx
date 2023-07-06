@@ -249,3 +249,9 @@ export const real_mobile: TradingPlatformStepperViewType = [
         image: how_to_start_images_mobile['step3'],
     },
 ]
+export const trading_platform_start = {
+    demo,
+    demo_mobile,
+    real,
+    real_mobile,
+}

@@ -1,11 +1,16 @@
-import React from 'react'
-import { demo, demo_mobile, real, real_mobile } from './data'
-import TradingPlatformHowToStart from 'features/components/templates/trade-platform/how-to-start'
+import React, { useState } from 'react'
+import { trading_platform_start } from './data'
 import FlexBoxContainer from 'features/components/atoms/flex-box/box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
+import TabStepper from 'features/components/templates/tabs/stepper'
 
 const HowToStartCTrader = () => {
+    const [tab, setTab] = useState('demo')
+
+    const onTabClick = (chosenTab: 'demo' | 'real') => {
+        setTab(chosenTab)
+    }
     return (
         <FlexBoxContainer direction={'col'} align={'center'} justify={'center'}>
             <Typography.Heading align={'center'} mb={'20x'}>
@@ -13,12 +18,17 @@ const HowToStartCTrader = () => {
                     translate_text={'_t_How to get started with a Deriv cTrader account_t_'}
                 />
             </Typography.Heading>
-            <TradingPlatformHowToStart
-                demo={demo}
-                real={real}
-                demo_mobile={demo_mobile}
-                real_mobile={real_mobile}
-            />
+
+            <div className="visible-phone-and-tablet">
+                <TabStepper
+                    tab={tab}
+                    onTabClick={onTabClick}
+                    items={trading_platform_start[`${tab}_mobile`]}
+                />
+            </div>
+            <div className="visible-larger-than-tablet">
+                <TabStepper tab={tab} onTabClick={onTabClick} items={trading_platform_start[tab]} />
+            </div>
         </FlexBoxContainer>
     )
 }

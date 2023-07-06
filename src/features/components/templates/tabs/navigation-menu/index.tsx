@@ -26,12 +26,7 @@ const NavigationTabMenu = ({
     const { button_text, to } = tab_items
     const { is_mobile } = useBreakpoints()
     return (
-        <FlexBox.Box
-            className={class_name}
-            direction={'row'}
-            justify={'start'}
-            md={{ justify: 'center' }}
-        >
+        <FlexBox.Box className={class_name} justify={'start'} md={{ justify: 'center' }}>
             <Link url={{ type: 'internal', to: to }} no_hover key={button_text}>
                 <Tab.MenuItem
                     selected={button_text == current_tab}

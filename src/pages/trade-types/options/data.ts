@@ -1,3 +1,4 @@
+import React from 'react'
 import { OptionNavigationType } from '../../../features/components/templates/navigation/tab-nav-without-border/types'
 import {
     AccumulatorslActive,

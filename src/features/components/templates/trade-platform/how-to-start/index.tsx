@@ -20,12 +20,13 @@ const TradingPlatformHowToStart = ({
     real_mobile,
 }: TradingPlatformStartProps) => {
     const [tab, setTab] = useState('demo')
-    const { is_mobile_or_tablet } = useBreakpoints()
+    const { is_mobile_or_tablet, is_mobile, is_tablet } = useBreakpoints()
     const [items, setItems] = useState<TabItemTypes[]>(is_mobile_or_tablet ? demo_mobile : demo)
 
     const onTabClick = (chosen_tab: TabType) => {
         setTab(chosen_tab)
     }
+    console.log('is_mobile_or_tablet', is_mobile_or_tablet, is_mobile || is_tablet)
     const new_items = useMemo(() => {
         switch (tab) {
             case 'real':

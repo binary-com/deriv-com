@@ -1,5 +1,5 @@
 import React from 'react'
-import { tab_data } from '../data'
+import { tab_data } from '../_data'
 import { WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import NavigationTabWithoutBorder from 'features/components/templates/navigation/tab-nav-without-border'

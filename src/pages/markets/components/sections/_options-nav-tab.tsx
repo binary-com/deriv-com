@@ -109,7 +109,7 @@ const tab_list_options: TabList[] = [
     {
         title: <Localize translate_text="Options" />,
         tab_name: 'options',
-        route_to: '/trade-types/options',
+        route_to: '/trade-types/options/digital-options/',
     },
     {
         title: <Localize translate_text="Accumulators" />,

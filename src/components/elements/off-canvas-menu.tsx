@@ -218,7 +218,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                             }
                                             title={<Localize translate_text="Options" />}
                                             onClick={handleArrowClick}
-                                            to="/trade-types/options/"
+                                            to="/trade-types/options/digital-options/"
                                         />
                                     </Flex>
                                 )}

@@ -92,7 +92,7 @@ const items_details_row: TradeTypesProps[] = [
         desc: (
             <Localize translate_text="Earn a range of payouts by correctly predicting market movements." />
         ),
-        link: '/trade-types/options/',
+        link: '/trade-types/options/digital-options/',
         link_text: <Localize translate_text="More on options" />,
         alt: 'options',
     },

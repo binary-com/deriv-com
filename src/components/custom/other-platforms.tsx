@@ -353,7 +353,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                                 }
                                 title={<Localize translate_text="Options" />}
                                 onClick={onClick}
-                                to="/trade-types/options/"
+                                to="/trade-types/options/digital-options/"
                             />
                         )}
                         <NavCard

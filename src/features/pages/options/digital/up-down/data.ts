@@ -192,14 +192,8 @@ export const upAndDownFAQ: OptionsFAQDataItem[] = [
                 type: 'text',
                 text: '_t_You can trade Up/Down options on the Deriv Trader, SmartTrader, and Deriv Bot trading platforms. They are available to trade on forex, stock indices, commodities, and derived indices._t_',
             },
-            {
-                id: 2,
-                type: 'text',
-                text: '_t_You can trade Up/Down options on the Deriv Trader, SmartTrader, and Deriv Bot trading platforms. They are available to trade on forex, stock indices, commodities, and derived indices._t_',
-            },
         ],
     },
-
     {
         id: 2,
         question: '_t_How can I open an Up/Down contract?_t_',

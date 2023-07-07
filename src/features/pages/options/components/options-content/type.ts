@@ -1,4 +1,4 @@
-import { InternalLinkType, LinkUrlType } from 'features/types'
+import { LinkUrlType } from 'features/types'
 import { TString } from 'types/generics'
 
 export interface ContentItemImage {
@@ -36,4 +36,22 @@ export interface OptionsFAQDataItem {
     question: TString
     id: number
     answers: (OptionsFAQTextItem | OptionsFAQListItem)[]
+}
+
+const faqExample: OptionsFAQDataItem = {
+    question: '_t_test_t_',
+    id: 0,
+    answers: [
+        {
+            id: 0,
+            type: 'text',
+            text: '_t_text_t_',
+        },
+        {
+            id: 1,
+            type: 'list',
+            list_title: '_t_ttile_t_',
+            list_items: ['_t_item one_t_', '_t_item two_t_'],
+        },
+    ],
 }

@@ -7,7 +7,7 @@ import Input from 'features/components/atoms/input'
 import Link from 'features/components/atoms/link'
 import useCtraderEmailForm from 'features/hooks/use-ctrader-email-form'
 
-const SignUpCtraderForm = () => {
+const CtraderEmailForm = () => {
     const { onEnterEmail, enterEmailForm } = useCtraderEmailForm()
 
     const {
@@ -60,4 +60,4 @@ const SignUpCtraderForm = () => {
     )
 }
 
-export default SignUpCtraderForm
+export default CtraderEmailForm

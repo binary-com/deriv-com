@@ -10,19 +10,19 @@ import { localize, Localize } from 'components/localization'
 import { DropdownSearch } from 'components/elements'
 import Input from 'features/components/atoms/input'
 import { TString } from 'types/generics'
-import useCtraderSubmitForm from 'features/hooks/use-ctrader-submit-form'
+import useCtraderCredentialsForm from 'features/hooks/use-ctrader-credentials-form'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import Button from 'features/components/atoms/button'
 import { ResidenceType } from 'features/hooks/use-residence-list'
 
-type SignupSuccessFormProps = {
+type CtraderCredentialsFormProps = {
     email: string
     residence_list: ResidenceType[]
 }
 
-const SignupSuccessForm = ({ email, residence_list }: SignupSuccessFormProps) => {
-    const { submitForm, onSubmit, loading } = useCtraderSubmitForm()
+const CtraderCredentialsForm = ({ email, residence_list }: CtraderCredentialsFormProps) => {
+    const { submitForm, onSubmit, loading } = useCtraderCredentialsForm()
 
     const {
         register,
@@ -136,4 +136,4 @@ const SignupSuccessForm = ({ email, residence_list }: SignupSuccessFormProps) =>
         </Flex.Box>
     )
 }
-export default SignupSuccessForm
+export default CtraderCredentialsForm

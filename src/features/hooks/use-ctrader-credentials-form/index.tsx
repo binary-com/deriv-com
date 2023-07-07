@@ -29,11 +29,11 @@ const submit_schema = yup.object({
 
 type SubmitFormData = yup.InferType<typeof submit_schema>
 
-const useCtraderSubmitForm = () => {
+const useCtraderCredentialsForm = () => {
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const affiliate_token = url_params.get('partnerId')
     const [token, setToken] = useState('')
-    const { loading, create_account_error } = useSigninAndSignup('ctrader', token)
+    const { loading, create_account_error } = useSigninAndSignup('ctrader', token, 'success')
 
     const submitForm = useForm<SubmitFormData>({
         mode: 'all',
@@ -71,4 +71,4 @@ const useCtraderSubmitForm = () => {
     }
 }
 
-export default useCtraderSubmitForm
+export default useCtraderCredentialsForm

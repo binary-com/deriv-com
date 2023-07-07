@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
+import { navigate } from 'gatsby'
 import apiManager from 'common/websocket'
 import { isBrowser } from 'common/utility'
 
-export const useSigninAndSignup = (platform: string, token: string) => {
+export const useSigninAndSignup = (platform?: string, token?: string, redirect_to = 'ctrader') => {
     const [loading, setLoading] = useState(false)
     const [has_account, setHasAccount] = useState(null)
     const [authorized, setAuthorized] = useState(false)
@@ -95,8 +96,13 @@ export const useSigninAndSignup = (platform: string, token: string) => {
                     service: platform,
                 })
                 .then((response) => {
-                    if (isBrowser()) {
+                    if (isBrowser() && redirect_to === 'ctrader') {
                         window.location.href = `https://id-ct-uat.deriv.com/brokeroauth/success?token=${response.service_token.ctrader.token}`
+                    }
+                    if (isBrowser() && redirect_to === 'success') {
+                        navigate(
+                            `/ctrader-signup/success?token=${response.service_token.ctrader.token}`,
+                        )
                     }
                 })
                 .catch((reason) => {
@@ -107,7 +113,7 @@ export const useSigninAndSignup = (platform: string, token: string) => {
                     setLoading(false)
                 })
         }
-    }, [platform, service_token])
+    }, [platform, redirect_to, service_token])
 
     return {
         loading,

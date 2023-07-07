@@ -1,13 +1,14 @@
 import React from 'react'
-import { StringParam, useQueryParam } from 'use-query-params'
 import { useSigninAndSignup } from 'features/hooks/use-signin-and-signup'
 import Loading from 'features/components/atoms/loading'
 import CtraderWrapper from 'features/components/templates/ctrader/ctrader-wrapper'
 import Typography from 'features/components/atoms/typography'
 import Layout from 'features/components/templates/layout'
+import { isBrowser } from 'common/utility'
 
 const CtraderLogin = () => {
-    const [token] = useQueryParam('token1', StringParam)
+    const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
+    const token = url_params.get('token1')
     const { account_error } = useSigninAndSignup('ctrader', token)
 
     return (

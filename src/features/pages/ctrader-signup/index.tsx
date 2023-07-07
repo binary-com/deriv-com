@@ -1,6 +1,6 @@
 import React from 'react'
 import { form_style } from './ctrader-form.module.scss'
-import SignUpCtraderForm from './signup-ctrader-form'
+import SignUpCtraderForm from './ctrader-email-form'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
@@ -9,7 +9,7 @@ import useRegion from 'components/hooks/use-region'
 import CtraderWrapper from 'features/components/templates/ctrader/ctrader-wrapper'
 import Layout from 'features/components/templates/layout'
 
-const SignUpFormContainer = () => {
+const CtraderSignup = () => {
     const { is_eu } = useRegion()
 
     const security_pdf_link = `/tnc${is_eu ? '/eu' : ''}/security-and-privacy.pdf`
@@ -62,4 +62,4 @@ const SignUpFormContainer = () => {
     )
 }
 
-export default SignUpFormContainer
+export default CtraderSignup

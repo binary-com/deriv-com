@@ -38,7 +38,7 @@ const HomePage = () => {
             <OurPlatforms />
             <ClientTestimonial />
             {is_p2p_allowed_country && <P2PBanner />}
-            <SignupPublic />
+            {/* <SignupPublic /> */}
             <Footer />
         </Layout>
     )

@@ -18,10 +18,10 @@ interface LayoutProps {
     children: ReactNode
 }
 
-if (isBrowser()) {
-    const currentLanguage = getLanguage() ?? 'en'
-    apiManager.init(currentLanguage)
-}
+// if (isBrowser()) {
+//     const currentLanguage = getLanguage() ?? 'en'
+//     apiManager.init(currentLanguage)
+// }
 
 const Layout = ({ children, is_ppc = false, is_ppc_redirect = false }: LayoutProps) => {
     const { has_platform } = usePlatformQueryParam()

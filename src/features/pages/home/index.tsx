@@ -11,10 +11,10 @@ import { SEO } from 'components/containers'
 import { localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import MainNav from 'features/components/templates/navigation/main-nav'
+import Footer from 'features/components/templates/footer'
 import SignupPublic from 'features/components/templates/signup/with-banner'
 
 const OurPlatforms = loadable(() => import('./our-platforms'))
-const Footer = loadable(() => import('features/components/templates/footer'))
 
 const HomePage = () => {
     useOpenLiveChat(true)
@@ -38,7 +38,7 @@ const HomePage = () => {
             <OurPlatforms />
             <ClientTestimonial />
             {is_p2p_allowed_country && <P2PBanner />}
-            {/* <SignupPublic /> */}
+            <SignupPublic />
             <Footer />
         </Layout>
     )

@@ -1,0 +1,23 @@
+.timeline_item {
+    max-inline-size: 74.4rem;
+    position: relative;
+    &:before {
+        position: absolute;
+        content: "";
+        left: 10px;
+        border-inline-start: 2px dashed $color-brand;
+        z-index: -1;
+    }
+}
+.last_item {
+    &:before {
+        top: 1px;
+        height: 20px;
+    }
+}
+.not_last_item {
+    &::before{
+        bottom: -5px;
+        top: 8px;
+    }
+}

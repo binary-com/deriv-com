@@ -22,8 +22,14 @@
 .tab.menu-item {
     color: $color-grey-5;
     border-bottom: 2px solid $color-grey-8;
+    &.navigation-tabs {
+        border-bottom: none;
+    }
 }
 .tab.menu-item.selected {
     color: $color-red;
     border-bottom: 2px solid $color-red;
+    &.navigation-tabs {
+        border-bottom: none;
+    }
 }

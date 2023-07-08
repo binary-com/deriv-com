@@ -42,8 +42,26 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
         setSwiperLoading(false)
     }, [pathname])
 
+    const render_main_tabs = () => {
+        return tab_data.map((tab_item) => (
+            <SwiperSlide key={tab_item.option_name}>
+                <NavigationTabMenu
+                    key={tab_item.option_name}
+                    tab_items={tab_item}
+                    current_tab={selected_tab_text}
+                    is_no_border_bottom
+                    icon={
+                        tab_item.option_name === selected_tab_name
+                            ? `${tab_item.selected_src}#${tab_item.option_name}`
+                            : `${tab_item.src}#${tab_item.option_name}`
+                    }
+                />
+            </SwiperSlide>
+        ))
+    }
+
     return (
-        <Container.Fluid>
+        <Container.Fluid mt={'20x'}>
             <Flex.Box
                 padding_block="10x"
                 md={{ justify: 'center', padding: '10x' }}
@@ -56,32 +74,9 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                     direction="horizontal"
                     navigation={{ nextEl: '.swiper-button-next' }}
                 >
-                    {!swiper_loading &&
-                        selected_tab_name &&
-                        tab_data.map((tab_item) => (
-                            <SwiperSlide key={tab_item.option_name}>
-                                <NavigationTabMenu
-                                    key={tab_item.option_name}
-                                    tab_items={tab_item}
-                                    current_tab={selected_tab_text}
-                                    is_no_border_bottom
-                                    icon={
-                                        tab_item.option_name === selected_tab_name
-                                            ? `${tab_item.selected_src}#${tab_item.option_name}`
-                                            : `${tab_item.src}#${tab_item.option_name}`
-                                    }
-                                />
-                            </SwiperSlide>
-                        ))}
+                    {!swiper_loading && selected_tab_name && render_main_tabs()}
                 </Swiper>
                 <div className="swiper-button-next">
-                    <style>
-                        {`
-            .swiper-button-next::after { 
-              display: none !important;
-            }
-          `}
-                    </style>
                     <Image src={ArrowNext} width="24px" height="24px" />
                 </div>
             </Flex.Box>
@@ -91,22 +86,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                 md={{ justify: 'center', padding: '10x' }}
                 visible="larger-than-phone"
             >
-                {selected_tab_name &&
-                    tab_data.map((tab_item) => (
-                        <Flex.Box direction="col" key={tab_item.option_name}>
-                            <NavigationTabMenu
-                                key={tab_item.option_name}
-                                tab_items={tab_item}
-                                current_tab={selected_tab_text}
-                                is_no_border_bottom
-                                icon={
-                                    tab_item.option_name === selected_tab_name
-                                        ? `${tab_item.selected_src}#${tab_item.option_name}`
-                                        : `${tab_item.src}#${tab_item.option_name}`
-                                }
-                            />
-                        </Flex.Box>
-                    ))}
+                {selected_tab_name && render_main_tabs()}
             </Flex.Box>
         </Container.Fluid>
     )

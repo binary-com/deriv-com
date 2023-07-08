@@ -15,16 +15,21 @@ const LayoutOverlay = loadable(() =>
 interface LayoutProps {
     is_ppc?: boolean
     is_ppc_redirect?: boolean
+    disable_ws?: boolean
     children: ReactNode
 }
 
-// if (isBrowser()) {
-//     const currentLanguage = getLanguage() ?? 'en'
-//     apiManager.init(currentLanguage)
-// }
-
-const Layout = ({ children, is_ppc = false, is_ppc_redirect = false }: LayoutProps) => {
+const Layout = ({
+    children,
+    is_ppc = false,
+    is_ppc_redirect = false,
+    disable_ws = false,
+}: LayoutProps) => {
     const { has_platform } = usePlatformQueryParam()
+    if (isBrowser() && !disable_ws) {
+        const currentLanguage = getLanguage() ?? 'en'
+        apiManager.init(currentLanguage)
+    }
 
     //Handle page layout when redirection from mobile app.
     if (has_platform) {

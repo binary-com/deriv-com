@@ -16,6 +16,9 @@
         min-inline-size: 20rem;
         min-block-size: 6.4rem;
         padding: 1.7rem 2rem;
+        &.navigation-tabs {
+            min-inline-size: 14rem;
+        }
     }
 }
 

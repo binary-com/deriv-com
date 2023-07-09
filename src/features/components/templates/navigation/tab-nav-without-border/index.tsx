@@ -7,10 +7,10 @@ import Container from 'features/components/atoms/container'
 import Image from 'features/components/atoms/image'
 import Flex from 'features/components/atoms/flex-box'
 import { getLocationPathname } from 'common/utility'
-import { TString } from 'types/generics'
 import ArrowNext from 'images/svg/arrow-next.svg'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import './styles.scss'
+import { isActiveLink } from 'features/components/atoms/link/internal'
 
 // Import the required Swiper modules
 SwiperCore.use([Navigation])
@@ -20,8 +20,6 @@ interface NavigationTabWithoutBorderType {
 }
 
 const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType) => {
-    const [selected_tab_name, setSelectedTabName] = useState<string | null>(null)
-    const [selected_tab_text, selectedTabText] = useState<TString | null>(null)
     const pathname = getLocationPathname()
     const [swiper_loading, setSwiperLoading] = useState(true)
     const swiperRef = useRef(null)
@@ -31,9 +29,6 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
         const selected_tab_item: OptionNavigationType = tab_data.find((option) =>
             pathname.includes(option.to),
         )
-        setSelectedTabName(selected_tab_item?.option_name || null)
-        selectedTabText(selected_tab_item?.button_text || null)
-
         if (swiperRef.current && is_mobile) {
             const active_slide_index = tab_data.findIndex(
                 (tab) => tab.option_name === selected_tab_item?.option_name,
@@ -59,17 +54,16 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                     navigation={{ nextEl: '.swiper-button-next' }}
                 >
                     {!swiper_loading &&
-                        selected_tab_name &&
                         tab_data.map((tab_item) => (
                             <SwiperSlide key={tab_item.option_name}>
                                 <Flex.Box direction="col">
                                     <NavigationTabMenu
                                         key={tab_item.option_name}
                                         tab_items={tab_item}
-                                        current_tab={selected_tab_text}
+                                        selected={isActiveLink(tab_item.to)}
                                         is_no_border_bottom
                                         icon={
-                                            tab_item.option_name === selected_tab_name
+                                            isActiveLink(tab_item.to)
                                                 ? `${tab_item.selected_src}#${tab_item.option_name}`
                                                 : `${tab_item.src}#${tab_item.option_name}`
                                         }
@@ -93,10 +87,10 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                         <NavigationTabMenu
                             key={tab_item.option_name}
                             tab_items={tab_item}
-                            current_tab={selected_tab_text}
+                            selected={isActiveLink(tab_item.to)}
                             is_no_border_bottom
                             icon={
-                                tab_item.option_name === selected_tab_name
+                                isActiveLink(tab_item.to)
                                     ? `${tab_item.selected_src}#${tab_item.option_name}`
                                     : `${tab_item.src}#${tab_item.option_name}`
                             }

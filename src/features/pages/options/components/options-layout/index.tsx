@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import AvailableOptions from '../available-options'
 import OptionsTopTab from '../options-top-tab'
 import WhatAreDigitalOptions from '../what-are-digital-options'
-import { OptionItem } from '../available-options/type'
+import { OptionNavigationType } from '../available-options/type'
 import Layout from 'features/components/templates/layout'
 import MainNav from 'features/components/templates/navigation/main-nav'
 import { TString } from 'types/generics'
@@ -11,7 +11,7 @@ import Footer from 'features/components/templates/footer'
 interface OptionsLayoutProps {
     renderSeo?: () => ReactNode
     heading: TString
-    items?: OptionItem[]
+    items?: OptionNavigationType[]
     children?: ReactNode
 }
 

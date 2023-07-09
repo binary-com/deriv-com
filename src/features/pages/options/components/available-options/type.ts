@@ -1,7 +1,9 @@
-import { InternalLinkType } from 'features/types'
 import { TString } from 'types/generics'
 
-export interface OptionItem {
-    title: TString
-    link: InternalLinkType
+export type OptionNavigationType = {
+    src?: string
+    selected_src?: string
+    button_text: TString
+    option_name: string
+    to: `/${string}`
 }

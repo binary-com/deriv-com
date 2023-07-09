@@ -1,60 +1,56 @@
-import { OptionItem } from '../available-options/type'
+import { OptionNavigationType } from '../available-options/type'
 
-export const AvailableDigitalOptionsData: OptionItem[] = [
+export const AvailableDigitalOptionsData: OptionNavigationType[] = [
     {
-        link: {
-            type: 'internal',
-            to: '/trade-types/options/digital-options/up-and-down',
-        },
-        title: '_t_Up/Down_t_',
+        to: '/trade-types/options/digital-options/up-and-down',
+        option_name: 'up-down',
+
+        button_text: '_t_Up/Down_t_',
     },
     {
-        link: {
-            type: 'internal',
-            to: '/trade-types/options/digital-options/digits',
-        },
-        title: '_t_Digits_t_',
+        to: '/trade-types/options/digital-options/digits',
+        option_name: 'digits',
+
+        button_text: '_t_Digits_t_',
     },
     {
-        link: {
-            type: 'internal',
-            to: '/trade-types/options/digital-options/in-and-out',
-        },
-        title: '_t_In/Out_t_',
+        to: '/trade-types/options/digital-options/in-and-out',
+        option_name: 'in-out',
+
+        button_text: '_t_In/Out_t_',
     },
     {
-        link: {
-            type: 'internal',
-            to: '/trade-types/options/digital-options/reset-call-put',
-        },
-        title: '_t_Reset Call/Reset Put_t_',
+        to: '/trade-types/options/digital-options/reset-call-put',
+        option_name: 'reset-call',
+
+        button_text: '_t_Reset Call/Reset Put_t_',
     },
     {
-        link: {
-            type: 'internal',
-            to: '/trade-types/options/digital-options/high-low-ticks',
-        },
-        title: '_t_High/Low Ticks_t_',
+        to: '/trade-types/options/digital-options/high-low-ticks',
+        option_name: 'high-low',
+
+        button_text: '_t_High/Low Ticks_t_',
     },
     {
-        link: {
-            type: 'internal',
-            to: '/trade-types/options/digital-options/touch-no-touch',
-        },
-        title: '_t_Touch / No Touch_t_',
+        to: '/trade-types/options/digital-options/touch-no-touch',
+        option_name: 'touch',
+
+        button_text: '_t_Touch / No Touch_t_',
     },
     {
-        link: {
-            type: 'internal',
-            to: '/trade-types/options/digital-options/asians',
-        },
-        title: '_t_Asians_t_',
+        to: '/trade-types/options/digital-options/asians',
+        option_name: 'asians',
+
+        button_text: '_t_Asians_t_',
     },
     {
-        link: {
-            type: 'internal',
-            to: '/trade-types/options/digital-options/only-ups-downs',
-        },
-        title: '_t_Only Ups/Only Downs_t_',
+        to: '/trade-types/options/digital-options/only-ups-downs',
+        option_name: 'only-up',
+        button_text: '_t_Only Ups/Only Downs_t_',
+    },
+    {
+        to: '/trade-types/options/digital-options/lookbacks',
+        button_text: '_t_Lookbacks_t_',
+        option_name: 'Look-backs',
     },
 ]

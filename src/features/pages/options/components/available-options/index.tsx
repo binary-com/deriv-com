@@ -13,8 +13,8 @@ export interface AvailableOptionsProps {
 
 const AvailableOptions = ({ heading, items }: AvailableOptionsProps) => {
     return (
-        <Flex.Box justify="center" align="center" direction="col">
-            <Typography.Heading padding_block="20x" size="small">
+        <Flex.Box justify="center" align="center" direction="col" pt="40x">
+            <Typography.Heading size="small">
                 <Localize translate_text={heading} />
             </Typography.Heading>
             <OptionsTab options_tabs={items} />

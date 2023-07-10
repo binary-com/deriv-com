@@ -10,12 +10,8 @@
     font-family: Ubuntu, sans-serif;
     transition: all 0.25s;
     white-space: nowrap;
-    padding: 1rem 3.2rem;
     @include breakpoints(tablet) {
         font-size: 2rem;
-        min-inline-size: 20rem;
-        min-block-size: 6.4rem;
-        padding: 1.7rem 2rem;
         &.navigation-tabs {
             min-inline-size: 14rem;
         }

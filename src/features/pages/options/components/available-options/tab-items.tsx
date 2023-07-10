@@ -7,6 +7,7 @@ import {
     scroll_button_right,
     is_show_left,
     is_show_right,
+    options_available_tab_item,
 } from './styles.module.scss'
 import LeftArrow from 'images/svg/arrow-previous.svg'
 import { Localize } from 'components/localization'
@@ -54,8 +55,13 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
     }
 
     return (
-        <Flex.Box container="fixed" direction="col">
-            <Flex.Box className={tab_container} container="fluid" md={{ padding_inline: '15x' }}>
+        <Flex.Box container="fixed" direction="col" padding_block="20x">
+            <Flex.Box
+                className={tab_container}
+                justify="center"
+                align="center"
+                md={{ padding_inline: '15x' }}
+            >
                 <div className={dclsx(scroll_container, 'flex')} ref={content_wrapper}>
                     {options_tabs.map((option_item, index) => (
                         <div
@@ -82,6 +88,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                                     <Tab.MenuItem
                                         key={option_item.option_name}
                                         selected={isActiveLink(option_item.to)}
+                                        className={options_available_tab_item}
                                     >
                                         <Typography.Paragraph
                                             size="medium"
@@ -108,7 +115,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                     )}
                     onClick={() => side_scroll(content_wrapper.current!, 25, 100, -10)}
                 >
-                    <Image src={LeftArrow} width="24px" height="24px" />
+                    <Image src={LeftArrow} width="36px" height="36px" />
                 </div>
                 <div
                     className={dclsx(
@@ -118,7 +125,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                     )}
                     onClick={() => side_scroll(content_wrapper.current!, 25, 100, 10)}
                 >
-                    <Image src={ArrowNext} width="24px" height="24px" />
+                    <Image src={ArrowNext} width="36px" height="36px" />
                 </div>
             </Flex.Box>
         </Flex.Box>

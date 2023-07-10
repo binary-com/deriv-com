@@ -9,7 +9,9 @@
     display: grid;
     margin-inline: auto;
     grid-template-columns: 1fr;
+    gap: 3rem;
     @include breakpoints(tablet) {
+        gap: 3.2rem;
         grid-template-columns: 1fr 1fr;
     }
 }

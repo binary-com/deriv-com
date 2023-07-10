@@ -1,8 +1,6 @@
 @use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
-.available_options {
-    // border-block-end: 1px solid gray;
-}
+
 .available_options_item {
     border-block-end: 1px solid gray;
 }
@@ -24,26 +22,27 @@
 }
 
 .scroll_buttons {
-    margin-top: 1rem;
+    margin-block-start: 1rem;
     display: block;
 }
 
 .scroll_button_left {
     position: absolute;
-    top: 50%;
-    left: 0;
+    inset-block-start: 50%;
+    inset-inline-start: 0;
     transform: translateY(-50%);
     z-index: 1;
 }
 .scroll_button_right {
     position: absolute;
-    top: 50%;
-    right: 0;
+    inset-block-start: 50%;
+    inset-inline-end: 0;
     transform: translateY(-50%);
     z-index: 1;
 }
 
 .scroll_container {
+    inline-size: 100%;
     @include breakpoints(phone) {
         overflow: hidden !important;
         white-space: nowrap;
@@ -52,4 +51,9 @@
 .is_show_left,
 .is_show_right {
     display: none;
+}
+
+.options_available_tab_item {
+    padding-inline: 1.6rem;
+    padding-block: 0.8rem;
 }

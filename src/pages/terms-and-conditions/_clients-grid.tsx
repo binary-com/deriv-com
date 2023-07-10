@@ -170,10 +170,6 @@ const IconGrid = () => {
                     title: localize('Deriv (FX) Ltd'),
                 },
                 {
-                    url: '/tnc/deriv-investments-(europe)-limited.pdf',
-                    title: localize('Deriv Investments (Europe) Limited'),
-                },
-                {
                     url: '/tnc/deriv-(bvi)-ltd.pdf',
                     title: localize('Deriv (BVI) Ltd'),
                 },

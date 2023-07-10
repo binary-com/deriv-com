@@ -56,19 +56,17 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                     {!swiper_loading &&
                         tab_data.map((tab_item) => (
                             <SwiperSlide key={tab_item.option_name}>
-                                <Flex.Box direction="col">
-                                    <NavigationTabMenu
-                                        key={tab_item.option_name}
-                                        tab_items={tab_item}
-                                        selected={isActiveLink(tab_item.to)}
-                                        is_no_border_bottom
-                                        icon={
-                                            isActiveLink(tab_item.to)
-                                                ? `${tab_item.selected_src}#${tab_item.option_name}`
-                                                : `${tab_item.src}#${tab_item.option_name}`
-                                        }
-                                    />
-                                </Flex.Box>
+                                <NavigationTabMenu
+                                    key={tab_item.option_name}
+                                    tab_items={tab_item}
+                                    selected={isActiveLink(tab_item.to)}
+                                    is_no_border_bottom
+                                    icon={
+                                        isActiveLink(tab_item.to)
+                                            ? `${tab_item.selected_src}#${tab_item.option_name}`
+                                            : `${tab_item.src}#${tab_item.option_name}`
+                                    }
+                                />
                             </SwiperSlide>
                         ))}
                 </Swiper>

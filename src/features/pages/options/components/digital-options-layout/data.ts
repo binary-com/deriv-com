@@ -14,25 +14,25 @@ export const AvailableDigitalOptionsData: OptionNavigationType[] = [
         button_text: '_t_Digits_t_',
     },
     {
-        to: '/trade-types/options/digital-options/in-and-out',
+        to: '/trade-types/options/digital-options/inout',
         option_name: 'in-out',
 
         button_text: '_t_In/Out_t_',
     },
     {
-        to: '/trade-types/options/digital-options/reset-call-put',
+        to: '/trade-types/options/digital-options/resetcallresetput',
         option_name: 'reset-call',
 
         button_text: '_t_Reset Call/Reset Put_t_',
     },
     {
-        to: '/trade-types/options/digital-options/high-low-ticks',
+        to: '/trade-types/options/digital-options/highlowticks',
         option_name: 'high-low',
 
         button_text: '_t_High/Low Ticks_t_',
     },
     {
-        to: '/trade-types/options/digital-options/touch-no-touch',
+        to: '/trade-types/options/digital-options/touchnotouch',
         option_name: 'touch',
 
         button_text: '_t_Touch / No Touch_t_',
@@ -44,7 +44,7 @@ export const AvailableDigitalOptionsData: OptionNavigationType[] = [
         button_text: '_t_Asians_t_',
     },
     {
-        to: '/trade-types/options/digital-options/only-ups-downs',
+        to: '/trade-types/options/digital-options/onlyupsonlydowns',
         option_name: 'only-up',
         button_text: '_t_Only Ups/Only Downs_t_',
     },

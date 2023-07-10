@@ -55,7 +55,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
     return (
         <Flex.Box container={'fixed'} direction="col" className={container_wrapper}>
             <Flex.Box className={tab_container} container="fluid" md={{ padding_inline: '15x' }}>
-                <div className={scroll_container} ref={content_wrapper}>
+                <div className={dclsx(scroll_container, 'flex')} ref={content_wrapper}>
                     {options_tabs.map((option_item, index) => (
                         <div
                             className={dclsx('flex', 'flex-dir-col')}

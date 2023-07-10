@@ -12,6 +12,7 @@
 }
 
 .tab_container {
+    position: relative;
     overflow: scroll;
     &::-webkit-scrollbar {
         display: none;
@@ -29,19 +30,17 @@
 
 .scroll_button_left {
     position: absolute;
-    left: 4%;
-    top: 25%;
-    @include breakpoints(laptop) {
-        left: 10%;
-    }
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 1;
 }
 .scroll_button_right {
     position: absolute;
-    right: 4%;
-    top: 25%;
-    @include breakpoints(laptop) {
-        right: 10%;
-    }
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 1;
 }
 
 .scroll_container {
@@ -49,9 +48,6 @@
         overflow: hidden !important;
         white-space: nowrap;
     }
-}
-.container_wrapper {
-    position: relative;
 }
 .is_show_left,
 .is_show_right {

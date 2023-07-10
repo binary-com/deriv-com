@@ -1,11 +1,10 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import {
     tab_container,
     scroll_container,
     scroll_button_left,
     scroll_button_right,
-    container_wrapper,
     is_show_left,
     is_show_right,
 } from './styles.module.scss'
@@ -27,6 +26,7 @@ interface OptionsTabType {
 
 const OptionsTab = ({ options_tabs }: OptionsTabType) => {
     const content_wrapper = useRef<HTMLDivElement>(null)
+    const [is_initial_load, setIsInitialLoad] = useState(true)
 
     const [first_element_ref, firstInView] = useInView({
         threshold: 0.8,
@@ -42,6 +42,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
         distance: number,
         step: number,
     ) => {
+        setIsInitialLoad(false)
         let scroll_amount = 0
         const slide_timer = setInterval(() => {
             element.scrollLeft += step
@@ -53,7 +54,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
     }
 
     return (
-        <Flex.Box container={'fixed'} direction="col" className={container_wrapper}>
+        <Flex.Box container="fixed" direction="col">
             <Flex.Box className={tab_container} container="fluid" md={{ padding_inline: '15x' }}>
                 <div className={dclsx(scroll_container, 'flex')} ref={content_wrapper}>
                     {options_tabs.map((option_item, index) => (
@@ -103,7 +104,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                     className={dclsx(
                         scroll_button_left,
                         'visible-larger-than-phone',
-                        firstInView && is_show_left,
+                        (is_initial_load || firstInView) && is_show_left,
                     )}
                     onClick={() => side_scroll(content_wrapper.current!, 25, 100, -10)}
                 >

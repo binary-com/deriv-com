@@ -82,7 +82,7 @@ module.exports = {
                     // Configure cache options here
                     cacheFolder: '.cache/caches/gatsby-plugin-sharp',
                     maxMemory: 500000000,
-                  },
+                },
             },
         },
         `gatsby-plugin-image`,
@@ -111,6 +111,9 @@ module.exports = {
                     '/homepage/**',
                     '/**/homepage',
                     '/**/homepage/**',
+                    '/besquare',
+                    '/**/besquare',
+                    '/**/besquare/**',
                     '/offline-plugin-app-shell-fallback',
                     '/**/offline-plugin-app-shell-fallback',
                     '/landing',
@@ -340,6 +343,6 @@ module.exports = {
                 analyzerMode: 'disabled',
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
             },
-        },
+        }
     ],
 }

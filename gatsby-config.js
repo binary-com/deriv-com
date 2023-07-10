@@ -341,6 +341,11 @@ module.exports = {
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
             },
         },
-        `gatsby-plugin-remove-serviceworker`
+        `gatsby-plugin-remove-serviceworker`,
+        {
+            options: {
+                appendScript: require.resolve(`./static/pushwoosh-service-worker.js`),
+            },
+        }
     ],
 }

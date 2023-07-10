@@ -114,6 +114,9 @@ module.exports = {
                     '/homepage/**',
                     '/**/homepage',
                     '/**/homepage/**',
+                    '/besquare',
+                    '/**/besquare',
+                    '/**/besquare/**',
                     '/offline-plugin-app-shell-fallback',
                     '/**/offline-plugin-app-shell-fallback',
                     '/landing',
@@ -344,6 +347,5 @@ module.exports = {
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
             },
         },
-        `gatsby-plugin-remove-serviceworker`,
     ],
 }

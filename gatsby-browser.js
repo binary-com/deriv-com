@@ -74,6 +74,7 @@ const pushwooshInit = (push_woosh) => {
             safariWebsitePushID: 'web.com.deriv',
             defaultNotificationTitle: 'Deriv.com',
             defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
+            serviceWorkerUrl: '/sw.js'
         },
     ])
 
@@ -183,20 +184,7 @@ export const onClientEntry = () => {
     updateURLAsPerUserLanguage()
 }
 
-const scrollToAnchor = (location) => {
-    // Check for location so build does not fail
-    if (location && location.hash) {
-        window.scrollTo({
-            top: window.innerHeight,
-            behavior: 'smooth',
-        })
-    }
-
-    return true
-}
-
-export const onRouteUpdate = ({ location }) => {
-    scrollToAnchor(location)
+export const onRouteUpdate = () => {
     checkDomain()
 
     const dataLayer = window.dataLayer

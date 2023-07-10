@@ -22,18 +22,18 @@ interface NavigationTabWithoutBorderType {
 const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType) => {
     const pathname = getLocationPathname()
     const [swiper_loading, setSwiperLoading] = useState(true)
-    const swiperRef = useRef(null)
+    const swiper_ref = useRef(null)
     const { is_mobile } = useBreakpoints()
 
     useEffect(() => {
         const selected_tab_item: OptionNavigationType = tab_data.find((option) =>
             pathname?.includes(option.to),
         )
-        if (swiperRef.current && is_mobile) {
+        if (swiper_ref.current && is_mobile) {
             const active_slide_index = tab_data.findIndex(
                 (tab) => tab.option_name === selected_tab_item?.option_name,
             )
-            swiperRef.current.swiper.slideTo(active_slide_index)
+            swiper_ref.current.swiper.slideTo(active_slide_index)
         }
         setSwiperLoading(false)
     }, [pathname])
@@ -47,7 +47,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                 className="swiper_wrapper_navigation"
             >
                 <Swiper
-                    ref={swiperRef}
+                    ref={swiper_ref}
                     speed={1000}
                     slidesPerView={2}
                     direction="horizontal"

@@ -27,7 +27,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
 
     useEffect(() => {
         const selected_tab_item: OptionNavigationType = tab_data.find((option) =>
-            pathname.includes(option.to),
+            pathname?.includes(option.to),
         )
         if (swiperRef.current && is_mobile) {
             const active_slide_index = tab_data.findIndex(

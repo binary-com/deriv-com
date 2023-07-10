@@ -341,5 +341,6 @@ module.exports = {
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
             },
         },
+        `gatsby-plugin-remove-serviceworker`
     ],
 }

@@ -175,7 +175,9 @@ export const scope_content: TScopeContent[] = [
             { id: 1, content: { text: '_t_Our graduate programme site: besquare.deriv.com_t_' } },
             {
                 id: 2,
-                content: { text: '_t_Our CFD trading platform by MetaQuotes: trade.mql5.com_t_' },
+                content: {
+                    text: '_t_Our CFD trading platform by MetaQuotes: metatraderweb.app_t_',
+                },
             },
             { id: 3, content: { text: '_t_Our community site: community.deriv.com_t_' } },
         ],

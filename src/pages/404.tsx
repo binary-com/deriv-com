@@ -1,9 +1,10 @@
 import React from 'react'
 import { WithIntl } from 'components/localization'
-import PageNotFound from 'features/pages/404'
+import PageNotFound from 'features/pages/404-error'
+import { isBrowser } from 'common/utility'
 
 const NotFound = () => {
-    return <PageNotFound />
+    return isBrowser() && <PageNotFound />
 }
 
 export default WithIntl()(NotFound)

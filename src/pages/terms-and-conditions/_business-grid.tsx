@@ -43,7 +43,7 @@ const Col = ({ Icon, content, link_title, title, url }: ColProps) => (
 
 const PartnersGuidePdf = () => {
     const language = getLanguage()
-    const supported_languages = ['fr', 'id', 'ru', 'es', 'vi']
+    const supported_languages = ['fr', 'ru', 'es', 'vi', 'pt']
     const pdf_lang = supported_languages.includes(language) ? language : 'english'
     const url = `/tnc/business-partners-guide-${pdf_lang}.pdf`
     return (
@@ -77,7 +77,11 @@ const BusinessGrid = () => {
                     content={localize(
                         'Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents',
                     )}
-                    url="/tnc/business-partners-general-terms.pdf"
+                    url={
+                        is_row
+                            ? '/tnc/business-partners-general-terms.pdf'
+                            : '/tnc/business-partners-general-terms-eu.pdf'
+                    }
                     link_title={localize('General terms of use')}
                 />
                 <Col
@@ -108,7 +112,11 @@ const BusinessGrid = () => {
                     Icon={is_row ? APIROW : API}
                     title={localize('API users')}
                     content={localize('Additional terms for our API users')}
-                    url="/tnc/business-partners-api-user.pdf"
+                    url={
+                        is_row
+                            ? '/tnc/business-partners-api-user.pdf'
+                            : '/tnc/business-partners-api-user-eu.pdf'
+                    }
                     link_title={localize('API users')}
                 />
                 <Col
@@ -117,7 +125,11 @@ const BusinessGrid = () => {
                     content={localize(
                         'Additional terms for participants in our Bug Bounty Program',
                     )}
-                    url="/tnc/business-partners-bug-bounty.pdf"
+                    url={
+                        is_row
+                            ? '/tnc/business-partners-bug-bounty.pdf'
+                            : '/tnc/business-partners-bug-bounty-eu.pdf'
+                    }
                     link_title={localize('Bug Bounty Program')}
                 />
             </StyledGrid>

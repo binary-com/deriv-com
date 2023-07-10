@@ -3,7 +3,6 @@ import { OptionNavigationType } from '../../navigation/tab-nav-without-border/ty
 import { Localize } from 'components/localization'
 import FlexBox from 'features/components/atoms/flex-box'
 import Tab from 'features/components/atoms/tab'
-import { TString } from 'types/generics'
 import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
 import Link from 'features/components/atoms/link'
@@ -12,14 +11,14 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 export type TabMenuProps = {
     class_name?: string
     tab_items: OptionNavigationType
-    current_tab: TString | string
+    selected: boolean
     icon?: string
     is_no_border_bottom?: boolean
 }
 const NavigationTabMenu = ({
     class_name,
     tab_items,
-    current_tab,
+    selected,
     icon,
     is_no_border_bottom = false,
 }: TabMenuProps) => {
@@ -28,18 +27,15 @@ const NavigationTabMenu = ({
     return (
         <FlexBox.Box className={class_name} justify={'start'} md={{ justify: 'center' }}>
             <Link url={{ type: 'internal', to: to }} no_hover key={button_text}>
-                <Tab.MenuItem
-                    selected={button_text == current_tab}
-                    is_no_border_bottom={is_no_border_bottom}
-                >
+                <Tab.MenuItem selected={selected} is_no_border_bottom={is_no_border_bottom}>
                     {icon && (
                         <FlexBox.Box justify="center" padding_block="6x">
-                            {icon && <Image src={icon} width="64px" height="64px" />}
+                            <Image src={icon} width="64px" height="64px" />
                         </FlexBox.Box>
                     )}
                     <Typography.Paragraph
                         size={is_mobile ? 'medium' : 'small'}
-                        textcolor={button_text === current_tab ? 'brand' : 'light-black'}
+                        textcolor={selected ? 'brand' : 'light-black'}
                     >
                         <Localize translate_text={button_text} />
                     </Typography.Paragraph>

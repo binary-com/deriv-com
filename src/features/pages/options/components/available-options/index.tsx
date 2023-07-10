@@ -1,6 +1,6 @@
 import React from 'react'
-import { OptionItem } from './type'
-import AvailableOptionsItem from './available-options.item'
+import OptionsTab from './tab-items'
+import { OptionNavigationType } from './type'
 import { TString } from 'types/generics'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
@@ -8,7 +8,7 @@ import { Localize } from 'components/localization'
 
 export interface AvailableOptionsProps {
     heading: TString
-    items?: OptionItem[]
+    items?: OptionNavigationType[]
 }
 
 const AvailableOptions = ({ heading, items }: AvailableOptionsProps) => {
@@ -17,11 +17,7 @@ const AvailableOptions = ({ heading, items }: AvailableOptionsProps) => {
             <Typography.Heading padding_block="20x" size="small">
                 <Localize translate_text={heading} />
             </Typography.Heading>
-            <Flex.Box justify="center" align="center" pt="8x">
-                {items.map((item) => (
-                    <AvailableOptionsItem key={item.title} link={item.link} title={item.title} />
-                ))}
-            </Flex.Box>
+            <OptionsTab options_tabs={items} />
         </Flex.Box>
     )
 }

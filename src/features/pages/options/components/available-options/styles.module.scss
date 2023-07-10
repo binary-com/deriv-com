@@ -1,3 +1,5 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
 .available_options {
     // border-block-end: 1px solid gray;
 }
@@ -7,4 +9,51 @@
 
 .available_options_item_active {
     border-block-end: 1px solid red;
+}
+
+.tab_container {
+    overflow: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @include breakpoints(tablet) {
+        overflow: scroll;
+    }
+}
+
+.scroll_buttons {
+    margin-top: 1rem;
+    display: block;
+}
+
+.scroll_button_left {
+    position: absolute;
+    left: 4%;
+    top: 25%;
+    @include breakpoints(laptop) {
+        left: 10%;
+    }
+}
+.scroll_button_right {
+    position: absolute;
+    right: 4%;
+    top: 25%;
+    @include breakpoints(laptop) {
+        right: 10%;
+    }
+}
+
+.scroll_container {
+    @include breakpoints(phone) {
+        overflow: hidden !important;
+        white-space: nowrap;
+    }
+}
+.container_wrapper {
+    position: relative;
+}
+.is_show_left,
+.is_show_right {
+    display: none;
 }

@@ -5,6 +5,7 @@ import { isLive, isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
+import  isServiceWorkerSupported  from './src/common/is-service-worker-supported'
 import {
     addScript,
     getClientInformation,
@@ -161,7 +162,7 @@ export const onClientEntry = () => {
     })
 
     const push_woosh = new Pushwoosh()
-    if (isLive()) {
+    if (isLive() && isServiceWorkerSupported()) {
         pushwooshInit(push_woosh)
     }
 

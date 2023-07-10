@@ -18,7 +18,10 @@ const submit_schema = yup.object({
         }),
     residence: yup
         .string()
-        .notOneOf(not_available_ctrader_countries, '_t_Ctrader is not available in your country_t_')
+        .notOneOf(
+            not_available_ctrader_countries,
+            '_t_Deriv cTrader is not available in your country_t_',
+        )
         .required('_t_Residence is requried_t_'),
     verification_code: yup
         .string()

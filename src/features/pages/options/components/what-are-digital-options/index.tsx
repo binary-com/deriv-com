@@ -2,8 +2,14 @@ import React from 'react'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
+import { TString } from 'types/generics'
 
-const WhatAreDigitalOptions = () => {
+interface WhatAreDigitalOptionsProps {
+    heading: TString
+    description: TString
+}
+
+const WhatAreDigitalOptions = ({ heading, description }: WhatAreDigitalOptionsProps) => {
     return (
         <Flex.Box
             container="fluid"
@@ -14,10 +20,10 @@ const WhatAreDigitalOptions = () => {
             gap={'8x'}
         >
             <Typography.Heading>
-                <Localize translate_text="_t_What are digital options?_t_" />
+                <Localize translate_text={heading} />
             </Typography.Heading>
             <Typography.Paragraph>
-                <Localize translate_text="_t_Digital options that allow you to predict the outcome from two possible results and earn a fixed payout if your prediction is correct._t_" />
+                <Localize translate_text={description} />
             </Typography.Paragraph>
         </Flex.Box>
     )

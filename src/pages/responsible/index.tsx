@@ -13,7 +13,6 @@ import useRegion from 'components/hooks/use-region'
 
 const TradingResponsibly = Loadable(() => import('./_trading-responsibly'))
 const TradingLimits = Loadable(() => import('./_trading-limits'))
-const NeedHelp = Loadable(() => import('./_need-help'))
 const RoleBanner = Loadable(() => import('./_banner'))
 
 const Hero = styled(Flex)<{ background_image: string }>`
@@ -77,7 +76,6 @@ const ResponsibleTrading = () => {
                 <SecureAccount />
                 <TradingResponsibly />
                 <TradingLimits />
-                {is_eu && <NeedHelp />}
                 <RoleBanner />
             </Section>
         </Layout>

@@ -9,15 +9,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Boom 1000 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.2,
-            minimum_spread: 0.125,
-            target_spread: 0.1271,
+            minimum_spread: 0.1285,
+            target_spread: 0.1306,
             max_effective_leverage: 400,
             margin_requirement: 0.25,
             swap_long: -0.0194,
             swap_short: -0.0194,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -25,15 +25,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Boom 300 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
-            minimum_size: 0.1,
-            minimum_spread: 0.022,
-            target_spread: 0.024,
+            base_currency: "USD",
+            minimum_size: 1,
+            minimum_spread: 0.121,
+            target_spread: 0.123,
             max_effective_leverage: 100,
-            margin_requirement: 1.0,
+            margin_requirement: 1,
             swap_long: -0.0833,
             swap_short: -0.0833,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -41,15 +41,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Boom 500 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.2,
-            minimum_spread: 0.089,
-            target_spread: 0.09,
+            minimum_spread: 0.093,
+            target_spread: 0.095,
             max_effective_leverage: 400,
             margin_requirement: 0.25,
             swap_long: -0.0278,
             swap_short: -0.0278,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -57,15 +57,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Crash 1000 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.2,
-            minimum_spread: 0.088,
-            target_spread: 0.0897,
+            minimum_spread: 0.1015,
+            target_spread: 0.1024,
             max_effective_leverage: 400,
             margin_requirement: 0.25,
             swap_long: -0.0194,
             swap_short: -0.0194,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -73,15 +73,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Crash 300 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
-            minimum_size: 0.05,
-            minimum_spread: 0.221,
-            target_spread: 0.243,
+            base_currency: "USD",
+            minimum_size: 0.5,
+            minimum_spread: 0.151,
+            target_spread: 0.159,
             max_effective_leverage: 100,
-            margin_requirement: 1.0,
+            margin_requirement: 1,
             swap_long: -0.0833,
             swap_short: -0.0833,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -89,15 +89,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Crash 500 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.2,
-            minimum_spread: 0.102,
-            target_spread: 0.103,
+            minimum_spread: 0.106,
+            target_spread: 0.108,
             max_effective_leverage: 400,
             margin_requirement: 0.25,
             swap_long: -0.0278,
             swap_short: -0.0278,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -106,15 +106,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Jump 10 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.01,
-            minimum_spread: 2.03,
-            target_spread: 2.05,
+            minimum_spread: 2.14,
+            target_spread: 2.16,
             max_effective_leverage: 2000,
             margin_requirement: 0.05,
             swap_long: -0.0028,
             swap_short: -0.0028,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -123,15 +123,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Jump 100 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.01,
-            minimum_spread: 0.72,
-            target_spread: 0.78,
+            minimum_spread: 0.51,
+            target_spread: 0.55,
             max_effective_leverage: 400,
             margin_requirement: 0.25,
             swap_long: -0.0278,
             swap_short: -0.0278,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -140,15 +140,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Jump 25 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.01,
-            minimum_spread: 5.71,
-            target_spread: 5.9,
+            minimum_spread: 5.39,
+            target_spread: 5.5,
             max_effective_leverage: 1000,
             margin_requirement: 0.1,
             swap_long: -0.0069,
             swap_short: -0.0069,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -157,15 +157,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Jump 50 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.01,
-            minimum_spread: 3.66,
-            target_spread: 3.88,
+            minimum_spread: 5.22,
+            target_spread: 5.7,
             max_effective_leverage: 500,
             margin_requirement: 0.2,
             swap_long: -0.0139,
             swap_short: -0.0139,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -174,15 +174,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Jump 75 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.01,
-            minimum_spread: 1.35,
-            target_spread: 1.45,
+            minimum_spread: 1,
+            target_spread: 1.07,
             max_effective_leverage: 400,
             margin_requirement: 0.25,
             swap_long: -0.0208,
             swap_short: -0.0208,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -191,15 +191,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Range Break 100 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.01,
             minimum_spread: 1,
             target_spread: 1,
-            max_effective_leverage: '-',
-            margin_requirement: '400 USD margin per lot',
+            max_effective_leverage: "-",
+            margin_requirement: "400 USD margin per lot",
             swap_long: -30,
             swap_short: -30,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -208,15 +208,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Range Break 200 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.01,
             minimum_spread: 1,
             target_spread: 1,
-            max_effective_leverage: '-',
-            margin_requirement: '800 USD margin per lot',
+            max_effective_leverage: "-",
+            margin_requirement: "800 USD margin per lot",
             swap_long: -30,
             swap_short: -30,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -225,15 +225,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Step Index',
             },
             contract_size: 10,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.1,
             minimum_spread: 0.1,
             target_spread: 0.1,
-            max_effective_leverage: '-',
-            margin_requirement: '25 USD margin per lot',
+            max_effective_leverage: "-",
+            margin_requirement: "25 USD margin per lot",
             swap_long: -0.0015,
             swap_short: -0.0015,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -242,7 +242,7 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 10 (1s) Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.2,
             minimum_spread: 0.2,
             target_spread: 0.2,
@@ -250,7 +250,7 @@ const derived_specification: TSpecification = {
             margin_requirement: 0.025,
             swap_long: -0.0028,
             swap_short: -0.0028,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -259,15 +259,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 10 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.3,
-            minimum_spread: 0.149,
-            target_spread: 0.149,
+            minimum_spread: 0.168,
+            target_spread: 0.168,
             max_effective_leverage: 4000,
             margin_requirement: 0.025,
             swap_long: -0.0028,
             swap_short: -0.0028,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -276,15 +276,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 100 (1s) Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.1,
-            minimum_spread: 0.24,
-            target_spread: 0.24,
+            minimum_spread: 0.3,
+            target_spread: 0.3,
             max_effective_leverage: 2000,
             margin_requirement: 0.05,
             swap_long: -0.0278,
             swap_short: -0.0278,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -293,15 +293,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 100 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.2,
-            minimum_spread: 1.46,
-            target_spread: 1.46,
+            minimum_spread: 0.89,
+            target_spread: 0.89,
             max_effective_leverage: 1000,
             margin_requirement: 0.1,
             swap_long: -0.0278,
             swap_short: -0.0278,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -310,7 +310,7 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 200 (1s) Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.02,
             minimum_spread: 0.01,
             target_spread: 0.01,
@@ -318,7 +318,7 @@ const derived_specification: TSpecification = {
             margin_requirement: 0.333,
             swap_long: -0.0556,
             swap_short: -0.0556,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -327,15 +327,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 25 (1s) Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.005,
-            minimum_spread: 29.02,
-            target_spread: 29.02,
+            minimum_spread: 25.66,
+            target_spread: 25.66,
             max_effective_leverage: 4000,
             margin_requirement: 0.025,
             swap_long: -0.0069,
             swap_short: -0.0069,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -344,15 +344,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 25 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.5,
-            minimum_spread: 0.109,
-            target_spread: 0.109,
+            minimum_spread: 0.128,
+            target_spread: 0.128,
             max_effective_leverage: 3000,
             margin_requirement: 0.033,
             swap_long: -0.0069,
             swap_short: -0.0069,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -361,7 +361,7 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 300 (1s) Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 1,
             minimum_spread: 0.01,
             target_spread: 0.01,
@@ -369,7 +369,7 @@ const derived_specification: TSpecification = {
             margin_requirement: 0.5,
             swap_long: -0.0833,
             swap_short: -0.0833,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -378,15 +378,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 50 (1s) Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.005,
-            minimum_spread: 78.41,
-            target_spread: 78.41,
+            minimum_spread: 91.51,
+            target_spread: 91.51,
             max_effective_leverage: 3000,
             margin_requirement: 0.033,
             swap_long: -0.0139,
             swap_short: -0.0139,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -395,15 +395,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 50 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 3,
-            minimum_spread: 0.022,
-            target_spread: 0.022,
+            minimum_spread: 0.019,
+            target_spread: 0.019,
             max_effective_leverage: 2000,
             margin_requirement: 0.05,
             swap_long: -0.0139,
             swap_short: -0.0139,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -412,15 +412,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 75 (1s) Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.005,
-            minimum_spread: 1.22,
-            target_spread: 1.22,
+            minimum_spread: 1.77,
+            target_spread: 1.77,
             max_effective_leverage: 2000,
             margin_requirement: 0.05,
             swap_long: -0.0208,
             swap_short: -0.0208,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -429,15 +429,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 75 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.001,
-            minimum_spread: 89,
-            target_spread: 89,
+            minimum_spread: 73,
+            target_spread: 73,
             max_effective_leverage: 1000,
             margin_requirement: 0.1,
             swap_long: -0.0208,
             swap_short: -0.0208,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -446,7 +446,7 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 150 (1s) Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.001,
             minimum_spread: 44.83,
             target_spread: 44.83,
@@ -454,7 +454,7 @@ const derived_specification: TSpecification = {
             margin_requirement: 0.25,
             swap_long: -0.0416,
             swap_short: -0.0416,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -463,7 +463,7 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 250 (1s) Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.001,
             minimum_spread: 61.15,
             target_spread: 61.15,
@@ -471,7 +471,7 @@ const derived_specification: TSpecification = {
             margin_requirement: 0.4,
             swap_long: -0.0694,
             swap_short: -0.0694,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -479,15 +479,15 @@ const derived_specification: TSpecification = {
                 instrument: 'AUDUSD DFX 10 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.01,
-            minimum_spread: 7.54,
-            target_spread: 8.82,
+            minimum_spread: 7.69,
+            target_spread: 8.49,
             max_effective_leverage: 500,
             margin_requirement: 0.2,
             swap_long: -0.0028,
             swap_short: -0.0028,
-            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
+            trading_hours: "Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05"
         },
         {
             instrument: {
@@ -495,15 +495,15 @@ const derived_specification: TSpecification = {
                 instrument: 'EURUSD DFX 10 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.01,
-            minimum_spread: 8.51,
-            target_spread: 9.89,
+            minimum_spread: 9.1,
+            target_spread: 10.45,
             max_effective_leverage: 500,
             margin_requirement: 0.2,
             swap_long: -0.0028,
             swap_short: -0.0028,
-            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
+            trading_hours: "Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05"
         },
         {
             instrument: {
@@ -511,15 +511,15 @@ const derived_specification: TSpecification = {
                 instrument: 'GBPUSD DFX 10 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.01,
-            minimum_spread: 8.25,
-            target_spread: 9.75,
+            minimum_spread: 8.5,
+            target_spread: 10.17,
             max_effective_leverage: 500,
             margin_requirement: 0.2,
             swap_long: -0.0028,
             swap_short: -0.0028,
-            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
+            trading_hours: "Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05"
         },
         {
             instrument: {
@@ -527,15 +527,15 @@ const derived_specification: TSpecification = {
                 instrument: 'USDCHF DFX 10 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.01,
-            minimum_spread: 8.76,
-            target_spread: 10.15,
+            minimum_spread: 9.67,
+            target_spread: 12.19,
             max_effective_leverage: 500,
             margin_requirement: 0.2,
             swap_long: -0.0028,
             swap_short: -0.0028,
-            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
+            trading_hours: "Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05"
         },
         {
             instrument: {
@@ -543,15 +543,15 @@ const derived_specification: TSpecification = {
                 instrument: 'USDJPY DFX 10 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.01,
-            minimum_spread: 12.55,
-            target_spread: 14.89,
+            minimum_spread: 13.03,
+            target_spread: 15.27,
             max_effective_leverage: 500,
             margin_requirement: 0.2,
             swap_long: -0.0028,
             swap_short: -0.0028,
-            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
+            trading_hours: "Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05"
         },
         {
             instrument: {
@@ -559,15 +559,15 @@ const derived_specification: TSpecification = {
                 instrument: 'AUD Basket',
             },
             contract_size: 100,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.01,
             minimum_spread: 0.036,
-            target_spread: 0.072,
+            target_spread: 0.071,
             max_effective_leverage: 1000,
             margin_requirement: 0.1,
             swap_long: -0.0028,
             swap_short: -0.0028,
-            trading_hours: 'Mon 00:00 - Fri 20:55 GMT',
+            trading_hours: "Mon 00:00 - Fri 20:55 GMT"
         },
         {
             instrument: {
@@ -575,15 +575,15 @@ const derived_specification: TSpecification = {
                 instrument: 'EUR Basket',
             },
             contract_size: 100,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.01,
-            minimum_spread: 0.038,
-            target_spread: 0.074,
+            minimum_spread: 0.036,
+            target_spread: 0.071,
             max_effective_leverage: 1000,
             margin_requirement: 0.1,
             swap_long: -0.0028,
             swap_short: -0.0028,
-            trading_hours: 'Mon 00:00 - Fri 20:55 GMT',
+            trading_hours: "Mon 00:00 - Fri 20:55 GMT"
         },
         {
             instrument: {
@@ -591,15 +591,15 @@ const derived_specification: TSpecification = {
                 instrument: 'GBP Basket',
             },
             contract_size: 100,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.01,
-            minimum_spread: 0.032,
-            target_spread: 0.064,
+            minimum_spread: 0.03,
+            target_spread: 0.058,
             max_effective_leverage: 1000,
             margin_requirement: 0.1,
             swap_long: -0.0028,
             swap_short: -0.0028,
-            trading_hours: 'Mon 00:00 - Fri 20:55 GMT',
+            trading_hours: "Mon 00:00 - Fri 20:55 GMT"
         },
         {
             instrument: {
@@ -607,15 +607,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Gold Basket',
             },
             contract_size: 1,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.01,
-            minimum_spread: 94.348,
-            target_spread: 114.361,
+            minimum_spread: 65.856,
+            target_spread: 83.383,
             max_effective_leverage: 200,
             margin_requirement: 0.5,
             swap_long: -0.0003,
             swap_short: -0.0003,
-            trading_hours: 'Mon 00:00 - Fri 20:55 GMT',
+            trading_hours: "Mon 00:00 - Fri 20:55 GMT"
         },
         {
             instrument: {
@@ -623,16 +623,129 @@ const derived_specification: TSpecification = {
                 instrument: 'USD Basket',
             },
             contract_size: 100,
-            base_currency: 'USD',
+            base_currency: "USD",
             minimum_size: 0.01,
-            minimum_spread: 0.034,
-            target_spread: 0.068,
+            minimum_spread: 0.03,
+            target_spread: 0.063,
             max_effective_leverage: 1000,
             margin_requirement: 0.1,
             swap_long: -0.0028,
             swap_short: -0.0028,
-            trading_hours: 'Mon 00:00 - Fri 20:55 GMT',
+            trading_hours: "Mon 00:00 - Fri 20:55 GMT"
         },
+        {
+
+            instrument: {
+                symbol: 'AUDUSD20',
+                instrument: 'AUDUSD DFX 20 Index',
+            },
+            contract_size: 1,
+            base_currency: "USD",
+            minimum_size: 0.01,
+            minimum_spread: 13.44,
+            target_spread: 15.46,
+            max_effective_leverage: 1000,
+            margin_requirement: 0.1,
+            swap_long: -0.0056,
+            swap_short: -0.0056,
+            trading_hours: "Mon 00:00 - Fri 20:55 GMT"
+        },
+        {
+            instrument: {
+                symbol: 'EURUSD20',
+                instrument: 'EURUSD DFX 20 Index',
+            },
+            contract_size: 1,
+            base_currency: "USD",
+            minimum_size: 0.01,
+            minimum_spread: 12.68,
+            target_spread: 16.2,
+            max_effective_leverage: 1000,
+            margin_requirement: 0.1,
+            swap_long: -0.0056,
+            swap_short: -0.0056,
+            trading_hours: "Mon 00:00 - Fri 20:55 GMT"
+        },
+        {
+            instrument: {
+                symbol: "GBPUSD20",
+                instrument: "GBPUSD DFX 20 Index",
+            },
+            contract_size: 1,
+            base_currency: "USD",
+            minimum_size: 0.01,
+            minimum_spread: 14.47,
+            target_spread: 18.56,
+            max_effective_leverage: 1000,
+            margin_requirement: 0.1,
+            swap_long: -0.0056,
+            swap_short: -0.0056,
+            trading_hours: "Mon 00:00 - Fri 20:55 GMT"
+        },
+        {
+            instrument: {
+                symbol: "USDCHF20",
+                instrument: "USDCHF DFX 20 Index",
+            },
+            contract_size: 1,
+            base_currency: "USD",
+            minimum_size: 0.01,
+            minimum_spread: 13.24,
+            target_spread: 17.4,
+            max_effective_leverage: 1000,
+            margin_requirement: 0.1,
+            swap_long: -0.0056,
+            swap_short: -0.0056,
+            trading_hours: "Mon 00:00 - Fri 20:55 GMT"
+        },
+        {
+            instrument: {
+                symbol: "USDJPY20",
+                instrument: "USDJPY DFX 20 Index",
+            },
+            contract_size: 1,
+            base_currency: "USD",
+            minimum_size: 0.01,
+            minimum_spread: 12.8,
+            target_spread: 15.07,
+            max_effective_leverage: 1000,
+            margin_requirement: 0.1,
+            swap_long: -0.0056,
+            swap_short: -0.0056,
+            trading_hours: "Mon 00:00 - Fri 20:55 GMT"
+        },
+        {
+            instrument: {
+                symbol: "DEX900DN",
+                instrument: "DEX 900 DOWN Index",
+            },
+            contract_size: 1,
+            base_currency: "USD",
+            minimum_size: 0.01,
+            minimum_spread: 0.6,
+            target_spread: 0.64,
+            max_effective_leverage: 1000,
+            margin_requirement: 0.1,
+            swap_long: -0.0694,
+            swap_short: -0.0694,
+            trading_hours: "Mon 00:00 - Fri 20:55 GMT"
+        },
+        {
+            instrument: {
+                symbol: "DEX900UP",
+                instrument: "DEX 900 UP Index",
+            },
+            contract_size: 1,
+            base_currency: "USD",
+            minimum_size: 0.01,
+            minimum_spread: 0.73,
+            target_spread: 0.77,
+            max_effective_leverage: 1000,
+            margin_requirement: 0.1,
+            swap_long: -0.0694,
+            swap_short: -0.0694,
+            trading_hours: "Mon 00:00 - Fri 20:55 GMT"
+        }
     ],
     eu_data: [
         {
@@ -641,15 +754,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Boom 300 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
-            minimum_size: 0.1,
-            minimum_spread: 0.022,
-            target_spread: 0.024,
+            base_currency: "USD",
+            minimum_size: 1,
+            minimum_spread: 0.116,
+            target_spread: 0.118,
             max_effective_leverage: 5,
-            margin_requirement: 20.0,
+            margin_requirement: 20.00,
             swap_long: -0.08,
             swap_short: -0.08,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -657,15 +770,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Crash 300 Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
-            minimum_size: 0.1,
-            minimum_spread: 0.221,
-            target_spread: 0.243,
+            base_currency: "USD",
+            minimum_size: 0.5,
+            minimum_spread: 0.159,
+            target_spread: 0.172,
             max_effective_leverage: 5,
-            margin_requirement: 20.0,
+            margin_requirement: 20.00,
             swap_long: -0.08,
             swap_short: -0.08,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -673,15 +786,15 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 150 (1s) Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
-            minimum_size: 0.001,
-            minimum_spread: 44.83,
-            target_spread: 44.83,
+            base_currency: "USD",
+            minimum_size: 0.005,
+            minimum_spread: 14.33,
+            target_spread: 14.33,
             max_effective_leverage: 5,
-            margin_requirement: 20.0,
-            swap_long: -0.0416,
-            swap_short: -0.0416,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
+            margin_requirement: 20.00,
+            swap_long: -0.04,
+            swap_short: -0.04,
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
         },
         {
             instrument: {
@@ -689,16 +802,16 @@ const derived_specification: TSpecification = {
                 instrument: 'Volatility 250 (1s) Index',
             },
             contract_size: 1,
-            base_currency: 'USD',
-            minimum_size: 0.001,
-            minimum_spread: 61.15,
-            target_spread: 61.15,
+            base_currency: "USD",
+            minimum_size: 0.002,
+            minimum_spread: 38.43,
+            target_spread: 38.43,
             max_effective_leverage: 5,
-            margin_requirement: 20.0,
-            swap_long: -0.0694,
-            swap_short: -0.0694,
-            trading_hours: 'Mon 00:00 - Sun 24:00 GMT',
-        },
+            margin_requirement: 20.00,
+            swap_long: -0.07,
+            swap_short: -0.07,
+            trading_hours: "Mon 00:00 - Sun 24:00 GMT"
+        }
     ],
 }
 export default derived_specification

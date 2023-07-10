@@ -6,7 +6,7 @@ import { validation_regex } from 'common/validation'
 import apiManager from 'common/websocket'
 import { useSigninAndSignup } from 'features/hooks/use-signin-and-signup'
 import { isBrowser } from 'common/utility'
-import { eu_countries } from 'common/country-base'
+import { not_available_ctrader_countries } from 'common/country-base'
 
 const submit_schema = yup.object({
     password: yup
@@ -18,7 +18,7 @@ const submit_schema = yup.object({
         }),
     residence: yup
         .string()
-        .notOneOf(eu_countries, '_t_Ctrader is not available in Europe_t_')
+        .notOneOf(not_available_ctrader_countries, '_t_Ctrader is not available in your country_t_')
         .required('_t_Residence is requried_t_'),
     verification_code: yup
         .string()

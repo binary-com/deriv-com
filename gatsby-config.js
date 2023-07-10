@@ -93,6 +93,9 @@ module.exports = {
                     '/404',
                     '/**/404.html',
                     '/**/404',
+                    '/bug-bounty',
+                    '/**/bug-bounty',
+                    '/**/bug-bounty/**/',
                     '/check-email',
                     '/**/check-email',
                     '/reset-password',
@@ -343,6 +346,6 @@ module.exports = {
                 analyzerMode: 'disabled',
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
             },
-        }
+        },
     ],
 }

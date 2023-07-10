@@ -323,6 +323,7 @@ exports.onCreatePage = ({ page, actions }) => {
                 isPermanent: true,
             })
         }
+
         if (is_deriv_ez) {
             createRedirect({
                 fromPath: `/${lang}/derivez/`,

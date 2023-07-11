@@ -3,13 +3,15 @@ import {
     OptionContentItemData,
     OptionsFAQDataItem,
 } from '../../components/options-content/type'
+import {
+    allOptionsMarkets,
+    allOptionsTradePlatforms,
+} from '../../components/available-markets-platforms/data'
 import MatchesDiffersIcon from 'images/svg/trade-types/options/digital/matches_differs_icon.svg'
 import RiseWinIcon from 'images/svg/trade-types/options/digital/matches_win.svg'
 import RiseLoseIcon from 'images/svg/trade-types/options/digital/matches_loss.svg'
 import FallWinIcon from 'images/svg/trade-types/options/digital/differs_win.svg'
 import FallLoseIcon from 'images/svg/trade-types/options/digital/differs_loss.svg'
-import DerivedIndicesIcon from 'images/svg/home/ts_derived_icon.svg'
-import DTraderIcon from 'images/svg/custom/rebranding/dtrader-icon.svg'
 
 export const digitsContentItems: OptionContentItemData[] = [
     {
@@ -79,75 +81,15 @@ export const digitsContentItems: OptionContentItemData[] = [
 ]
 
 export const digitsMarkets: OptionContentAvailability[] = [
-    {
-        icon: {
-            src: DerivedIndicesIcon,
-            alt: '_t_Derived Indices Icon_t_',
-        },
-        link: {
-            to: '/',
-            type: 'internal',
-        },
-        title: '_t_Derived Indices_t_',
-    },
-    {
-        icon: {
-            src: DerivedIndicesIcon,
-            alt: '_t_Derived Indices Icon_t_',
-        },
-        link: {
-            to: '/',
-            type: 'internal',
-        },
-        title: '_t_Forex_t_',
-    },
-    {
-        icon: {
-            src: DerivedIndicesIcon,
-            alt: '_t_Derived Indices Icon_t_',
-        },
-        link: {
-            to: '/',
-            type: 'internal',
-        },
-        title: '_t_Commodities_t_',
-    },
+    allOptionsMarkets.derived_indices,
+    allOptionsMarkets.commodities,
+    allOptionsMarkets.forex,
 ]
 
 export const digitsPlatforms: OptionContentAvailability[] = [
-    {
-        icon: {
-            src: DTraderIcon,
-            alt: '_t_Derived Indices Icon_t_',
-        },
-        link: {
-            to: '/',
-            type: 'internal',
-        },
-        title: '_t_Deriv Trader_t_',
-    },
-    {
-        icon: {
-            src: DTraderIcon,
-            alt: '_t_Derived Indices Icon_t_',
-        },
-        link: {
-            to: '/',
-            type: 'internal',
-        },
-        title: '_t_Smart Trader _t_',
-    },
-    {
-        icon: {
-            src: DTraderIcon,
-            alt: '_t_Derived Indices Icon_t_',
-        },
-        link: {
-            to: '/',
-            type: 'internal',
-        },
-        title: '_t_Derive Bot_t_',
-    },
+    allOptionsTradePlatforms.deriv_trader,
+    allOptionsTradePlatforms.deriv_bot,
+    allOptionsTradePlatforms.smart_trader,
 ]
 
 export const digitsFAQ: OptionsFAQDataItem[] = [

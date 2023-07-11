@@ -34,7 +34,7 @@ const PlatformsCarousel = ({ heading, data, ...rest }: PropsType) => {
                 </Typography.Heading>
                 <div className={dclsx('md-padding-inline-15x', slider_wrapper)}>
                     <Swiper
-                        speed={1500}
+                        speed={500}
                         slidesPerView={1}
                         spaceBetween={30}
                         modules={[Autoplay, Navigation, Pagination]}

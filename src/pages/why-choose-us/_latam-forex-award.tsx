@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { BackgroundImage, Header, QueryImage } from 'components/elements'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Flex, Desktop, Mobile } from 'components/containers'
 
 const query = graphql`
@@ -102,7 +102,7 @@ const LatamAward = () => {
                             <AwardImageWrapper>
                                 <QueryImage
                                     data={data.latam_award}
-                                    alt={'Latin America Forex Award'}
+                                    alt={localize('_t_Latin America Forex Award_t_')}
                                     width="auto"
                                     height="100%"
                                 />
@@ -133,7 +133,7 @@ const LatamAward = () => {
                     <AwardImageWrapperMobile>
                         <QueryImage
                             data={data.latam_award}
-                            alt={'Latin America Forex Award'}
+                            alt={localize('_t_Latin America Forex Award_t_')}
                             width="auto"
                             height="100%"
                         />

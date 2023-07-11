@@ -25,11 +25,4 @@ export const partnerNavSectionContent: SmartNavContent[] = [
             url: { type: 'company', url_name: 'api', target: '_blank' },
         },
     },
-    {
-        id: 3,
-        data: {
-            title: '_t_Bug bounty_t_',
-            url: { type: 'internal', to: '/bug-bounty/' },
-        },
-    },
 ]

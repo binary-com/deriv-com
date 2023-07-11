@@ -5,7 +5,7 @@ import { Flex } from 'components/containers'
 import DerivMT5 from 'images/svg/trading-specification/deriv-mt5.svg'
 import DerivX from 'images/svg/trading-specification/deriv-x.svg'
 import DerivEZ from 'images/svg/trading-specification/deriv-ez.svg'
-import { Localize, LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink, localize } from 'components/localization'
 import device from 'themes/device'
 import { Header } from 'components/elements'
 import { TString } from 'types/generics'
@@ -83,7 +83,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                             <FlexContainer>
                                 <StyledLocalizedLink to="/dmt5/">
                                     <Flex direction="row">
-                                        <img src={DerivMT5} alt="Deriv MT5" />
+                                        <img src={DerivMT5} alt={localize('_t_Deriv MT5_t_')} />
                                         <StyledHeader type="paragraph-1" as="h2" width="auto">
                                             <Localize translate_text={deriv_mt5} />
                                         </StyledHeader>
@@ -91,7 +91,12 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                 </StyledLocalizedLink>
                                 <StyledLocalizedLink to="/derivx/">
                                     <Flex direction="row">
-                                        <img src={DerivX} alt="Deriv X" width="24" height="24" />
+                                        <img
+                                            src={DerivX}
+                                            alt={localize('_t_Deriv X_t_')}
+                                            width="24"
+                                            height="24"
+                                        />
                                         <StyledHeader type="paragraph-1" as="h2" width="auto">
                                             <Localize translate_text={deriv_x} />
                                         </StyledHeader>
@@ -102,7 +107,7 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                         <Flex direction="row">
                                             <img
                                                 src={DerivEZ}
-                                                alt="Deriv EZ"
+                                                alt={localize('_t_Deriv EZ_t_')}
                                                 width="24"
                                                 height="24"
                                             />
@@ -118,7 +123,12 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                         <FlexContainer>
                             <StyledLocalizedLink to="/dmt5/">
                                 <Flex direction="row">
-                                    <img src={DerivMT5} alt="Deriv MT5" width="24" height="24" />
+                                    <img
+                                        src={DerivMT5}
+                                        alt={localize('_t_Deriv MT5_t_')}
+                                        width="24"
+                                        height="24"
+                                    />
                                     <StyledHeader
                                         weight="bold"
                                         type="paragraph-1"

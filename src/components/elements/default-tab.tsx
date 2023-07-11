@@ -7,6 +7,8 @@ import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { slugify } from 'common/utility'
 import device from 'themes/device'
+import { Localize } from 'components/localization'
+import { TString } from 'types/generics'
 
 type TabsStyledProps = {
     mobile_tab_button_underline_length?: string
@@ -117,8 +119,9 @@ const TextWrapper = styled(Header)<TextWrapperProps>`
 
 type TabPanelProps = {
     children?: ReactElement
-    label: string
+    label: TString
 }
+
 const TabPanel = ({ children }: TabPanelProps) => (
     <TabContent role="tabpanel">{children}</TabContent>
 )
@@ -204,7 +207,7 @@ const Tabs = ({
                             selected={selected_tab === index}
                             mobile_font_size={mobile_font_size}
                         >
-                            {label}
+                            <Localize translate_text={label} />
                         </TextWrapper>
                     </TabButton>
                 ))}

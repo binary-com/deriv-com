@@ -3,7 +3,7 @@ import lottie from 'lottie-web'
 import styled from 'styled-components'
 import { Container, Flex } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import device from 'themes/device'
@@ -63,7 +63,6 @@ const LeftWrapper = styled(Flex)`
         margin-top: 16px;
     }
 `
-
 const StyledHeader = styled(Header)`
     margin-bottom: 16px;
     line-height: 100px;
@@ -85,7 +84,6 @@ const BtnDiv = styled(Flex)`
     height: unset;
     justify-content: start;
 `
-
 const RigthWrapper = styled(Flex)`
     width: 60%;
     position: absolute;
@@ -145,12 +143,10 @@ const DHero = () => {
             <ParentWrapper>
                 <LeftWrapper>
                     <StyledHeader type="main-landing-title" color="white">
-                        {localize('Trade jump indices, the new synthetics with a twist')}
+                        <Localize translate_text="_t_Trade jump indices, the new synthetics with a twist_t_" />
                     </StyledHeader>
                     <StyledHeaderSmall type="sub-section-title" color="white" weight="normal">
-                        {localize(
-                            'Brand new synthetic indices are now available on DTrader and Deriv MT5',
-                        )}
+                        <Localize translate_text="_t_Brand new synthetic indices are now available on DTrader and Deriv MT5_t_" />
                     </StyledHeaderSmall>
                     <BtnDiv>
                         {is_mounted && (
@@ -163,7 +159,7 @@ const DHero = () => {
                                 secondary
                                 hero
                             >
-                                {localize('Start trading')}
+                                <Localize translate_text="_t_Start trading_t_" />
                             </StyledLinkButton>
                         )}
                     </BtnDiv>

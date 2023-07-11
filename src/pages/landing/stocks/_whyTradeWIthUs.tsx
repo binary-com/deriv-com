@@ -1,8 +1,10 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
+import { TString } from 'types/generics'
+import { Localize, localize } from 'components/localization'
 
 const SectionWrapper = styled(SectionContainer)`
     background: white;
@@ -21,7 +23,6 @@ const Wrapper = styled(Flex)`
         flex-direction: column;
     }
 `
-
 const StyledHeader = styled(Header)`
     margin-bottom: 40px;
     @media ${device.tabletL} {
@@ -29,13 +30,11 @@ const StyledHeader = styled(Header)`
         max-width: 58.8rem;
     }
 `
-
 const StyledImage = styled.img`
     margin: 0 auto 16px;
     width: 80px;
     height: 80px;
 `
-
 const StyledIconTitle = styled(Header)`
     @media ${device.tabletL} {
         font-size: 20px;
@@ -43,15 +42,15 @@ const StyledIconTitle = styled(Header)`
 `
 
 type WhyTradeWithUsProps = {
-    mainTitle: ReactElement
+    mainTitle: TString
     columnPerRow: number
     itemsArr: ItemsArrType[]
 }
 
 type ItemsArrType = {
-    title: ReactElement
+    title: TString
     icon: string
-    image_alt: string
+    image_alt: TString
 }
 
 const WhyTradeWithUs = ({ itemsArr, mainTitle, columnPerRow }: WhyTradeWithUsProps) => {
@@ -98,20 +97,20 @@ const WhyTradeWithUs = ({ itemsArr, mainTitle, columnPerRow }: WhyTradeWithUsPro
         <SectionWrapper>
             <MainContainer direction="column">
                 <StyledHeader as="h2" type="page-title" align="center">
-                    {mainTitle}
+                    <Localize translate_text={mainTitle} />
                 </StyledHeader>
                 <Wrapper>
-                    {itemsArr.map((item, index) => {
+                    {itemsArr.map(({ icon, image_alt, title }) => {
                         return (
-                            <Card direction="column" key={index} width={CardWidth}>
-                                <StyledImage src={item.icon} alt={item.image_alt} />
+                            <Card direction="column" key={title} width={CardWidth}>
+                                <StyledImage src={icon} alt={localize(image_alt)} />
                                 <StyledIconTitle
                                     as="h4"
                                     weight="normal"
                                     type="sub-section-title"
                                     align="center"
                                 >
-                                    {item.title}
+                                    <Localize translate_text={title} />
                                 </StyledIconTitle>
                             </Card>
                         )

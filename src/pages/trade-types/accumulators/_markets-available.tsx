@@ -38,112 +38,100 @@ const StyledText = styled(Text)`
 
 const MarketsAvailable = () => {
     return (
-        <>
-            <SectionContainer background="white" padding="8rem 0" position="relative">
-                <SmallContainer direction="column" ai="flex-start">
-                    <Header as="h3" type="section-title" mb="2.4rem">
-                        {localize('Markets available for options trading')}
-                    </Header>
-                </SmallContainer>
-                <MarketsCarousel>
-                    <MarketsCarousel.Item>
-                        <MarketsItem>
-                            <Card>
-                                <MobileCardHeader>
-                                    <img src={Forex} alt="Forex" width="64" height="64" />
+        <SectionContainer background="white" padding="8rem 0" position="relative">
+            <SmallContainer direction="column" ai="flex-start">
+                <Header as="h3" type="section-title" mb="2.4rem">
+                    <Localize translate_text="_t_Markets available for options trading_t_" />
+                </Header>
+            </SmallContainer>
+            <MarketsCarousel>
+                <MarketsCarousel.Item>
+                    <MarketsItem>
+                        <Card>
+                            <MobileCardHeader>
+                                <img
+                                    src={Forex}
+                                    alt={localize('_t_Forex_t_')}
+                                    width="64"
+                                    height="64"
+                                />
+                                <StyledText weight="bold">
+                                    <Localize translate_text="_t_Forex_t_" />
+                                </StyledText>
+                            </MobileCardHeader>
+                            <Text>
+                                <Localize translate_text="_t_Take part in the world’s largest financial market. Trade digital options and Call/Put Spreads on major, minor, and smart forex pairs._t_" />
+                            </Text>
+                            <LearnMore text="_t_Learn more_t_" to="/markets/forex/" />
+                        </Card>
+                    </MarketsItem>
+                </MarketsCarousel.Item>
+                <MarketsCarousel.Item>
+                    <MarketsItem>
+                        <Card>
+                            <MobileCardHeader>
+                                <img
+                                    src={Derived}
+                                    alt={localize('_t_Synthetic indices_t_')}
+                                    width="64"
+                                    height="64"
+                                />
+                                <StyledText weight="bold">
+                                    <Localize translate_text="_t_Derived_t_" />
+                                </StyledText>
+                            </MobileCardHeader>
+                            <Text>
+                                <Localize translate_text="_t_Trade digital options, lookbacks, and Call/Put Spreads 24/7 on our synthetics that are free from real-world disruptions._t_" />
+                            </Text>
+                            <LearnMore text="_t_Learn more_t_" to="/markets/synthetic/" />
+                        </Card>
+                    </MarketsItem>
+                </MarketsCarousel.Item>
+                <MarketsCarousel.Item>
+                    <MarketsItem>
+                        <Card>
+                            <MobileCardHeader>
+                                <img
+                                    src={StockIndices}
+                                    alt={localize('_t_Stocks & indices_t_')}
+                                    width="64"
+                                    height="64"
+                                />
 
-                                    <StyledText weight="bold">{localize('Forex')}</StyledText>
-                                </MobileCardHeader>
-                                <Text>
-                                    {localize(
-                                        'Take part in the world’s largest financial market. Trade digital options and Call/Put Spreads on major, minor, and smart forex pairs.',
-                                    )}
-                                </Text>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to="/markets/forex/"
+                                <StyledText weight="bold">
+                                    <Localize translate_text="_t_Stocks & indices_t_" />
+                                </StyledText>
+                            </MobileCardHeader>
+                            <Text>
+                                <Localize translate_text="_t_Trade digital options on stocks & indices and profit from the price movements in our competitively priced asset baskets._t_" />
+                            </Text>
+                            <LearnMore text="_t_Learn more_t_" to="/markets/stock/" />
+                        </Card>
+                    </MarketsItem>
+                </MarketsCarousel.Item>
+                <MarketsCarousel.Item>
+                    <MarketsItem>
+                        <Card>
+                            <MobileCardHeader>
+                                <img
+                                    src={Commodities}
+                                    alt={localize('_t_Commodities_t_')}
+                                    width="64"
+                                    height="64"
                                 />
-                            </Card>
-                        </MarketsItem>
-                    </MarketsCarousel.Item>
-                    <MarketsCarousel.Item>
-                        <MarketsItem>
-                            <Card>
-                                <MobileCardHeader>
-                                    <img
-                                        src={Derived}
-                                        alt="Synthetic indices"
-                                        width="64"
-                                        height="64"
-                                    />
-                                    <StyledText weight="bold">{localize('Derived')}</StyledText>
-                                </MobileCardHeader>
-                                <Text>
-                                    {localize(
-                                        'Trade digital options, lookbacks, and Call/Put Spreads 24/7 on our synthetics that are free from real-world disruptions.',
-                                    )}
-                                </Text>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to="/markets/synthetic/"
-                                />
-                            </Card>
-                        </MarketsItem>
-                    </MarketsCarousel.Item>
-                    <MarketsCarousel.Item>
-                        <MarketsItem>
-                            <Card>
-                                <MobileCardHeader>
-                                    <img
-                                        src={StockIndices}
-                                        alt="Stocks & indices"
-                                        width="64"
-                                        height="64"
-                                    />
-
-                                    <StyledText weight="bold">
-                                        {localize('Stocks & indices')}
-                                    </StyledText>
-                                </MobileCardHeader>
-                                <Text>
-                                    {localize(
-                                        'Trade digital options on stocks & indices and profit from the price movements in our competitively priced asset baskets.',
-                                    )}
-                                </Text>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to="/markets/stock/"
-                                />
-                            </Card>
-                        </MarketsItem>
-                    </MarketsCarousel.Item>
-                    <MarketsCarousel.Item>
-                        <MarketsItem>
-                            <Card>
-                                <MobileCardHeader>
-                                    <img
-                                        src={Commodities}
-                                        alt="Commodities"
-                                        width="64"
-                                        height="64"
-                                    />
-                                    <StyledText weight="bold">{localize('Commodities')}</StyledText>
-                                </MobileCardHeader>
-                                <Text>
-                                    {localize(
-                                        "Speculate on the price movements of the world's major commodities – silver, gold, oil, and energy.",
-                                    )}
-                                </Text>
-                                <LearnMore
-                                    text={<Localize translate_text="Learn more" />}
-                                    to="/markets/commodities/"
-                                />
-                            </Card>
-                        </MarketsItem>
-                    </MarketsCarousel.Item>
-                </MarketsCarousel>
-            </SectionContainer>
-        </>
+                                <StyledText weight="bold">
+                                    <Localize translate_text="_t_Commodities_t_" />
+                                </StyledText>
+                            </MobileCardHeader>
+                            <Text>
+                                <Localize translate_text="_t_Speculate on the price movements of the world's major commodities – silver, gold, oil, and energy._t_" />
+                            </Text>
+                            <LearnMore text="_t_Learn more_t_" to="/markets/commodities/" />
+                        </Card>
+                    </MarketsItem>
+                </MarketsCarousel.Item>
+            </MarketsCarousel>
+        </SectionContainer>
     )
 }
 

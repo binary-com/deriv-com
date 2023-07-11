@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ReactNode } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Text } from './typography'
 import Chevron from 'images/svg/custom/chevron-bottom.svg'
@@ -6,9 +6,68 @@ import ChevronThick from 'images/svg/custom/chevron-thick.svg'
 import Minus from 'images/svg/elements/minus.svg'
 import Plus from 'images/svg/elements/plus.svg'
 import device from 'themes/device'
+import { Localize, localize } from 'components/localization'
+import { TString } from 'types/generics'
+
+type HeaderStyle = {
+    marginTop?: string
+    padding?: string
+    border?: string
+    borderRadius?: string
+    boxShadow?: string
+}
+
+type ContentType = {
+    background?: string
+    boxShadow?: string
+    marginLeft?: string
+    paddingBottom?: string
+    display?: string
+}
+
+type ParentType = {
+    marginBottom?: string
+}
 
 type ArrowProps = {
     expanded?: boolean
+}
+
+type TChild = {
+    arrow_thin?: boolean
+    parent_style?: ParentType
+    header_style?: HeaderStyle
+    content_style?: ContentType
+    is_showed?: boolean
+    class_name?: string
+    header?: TString | string
+    plus?: boolean
+}
+
+type AccordionProps = {
+    id?: string
+    has_single_state?: boolean
+    nodes?: React.ReactNode
+    children?:
+        | Array<React.ReactElement<React.PropsWithChildren<TChild>>>
+        | React.ReactElement<React.PropsWithChildren<TChild>>
+}
+
+type ItemExpandedProps = AccordionProps & {
+    child_idx: number
+    child: React.ReactElement<React.PropsWithChildren<TChild>>
+}
+
+type AccordionItemProps = AccordionProps & {
+    style?: HeaderStyle | ContentType | ParentType
+    text?: TString
+    header?: TString | string
+    content_style?: ContentType
+    parent_style?: ParentType
+    header_style?: HeaderStyle
+    plus?: boolean
+    is_showed?: boolean
+    class_name?: string
 }
 
 const ThickArrow = styled.img<ArrowProps>`
@@ -17,12 +76,10 @@ const ThickArrow = styled.img<ArrowProps>`
     transition: transform 0.25s linear;
     ${(props) => (props.expanded ? 'transform: inherit;' : '')}
 `
-
 const Arrow = styled.img<ArrowProps>`
     transition: transform 0.25s linear;
     ${(props) => (props.expanded ? 'transform: rotate(-180deg);' : '')}
 `
-
 const AccordionHeader = styled.div`
     height: 56px;
     display: flex;
@@ -53,7 +110,6 @@ const AccordionHeader = styled.div`
     }
 `
 const AccordionHeaderItem = styled.div<AccordionItemProps>``
-
 const AccordionWrapper = styled.div`
     width: 100%;
     border-radius: 6px;
@@ -61,61 +117,18 @@ const AccordionWrapper = styled.div`
 `
 const TRANSITION_DURATION = 250
 
-type AccordionProps = {
-    children: ChildType | ChildType[]
-    has_single_state?: boolean
-    is_faq?: boolean
-    id?: string
-}
-
 // TODO: keyboard events and find a way to add proper focus handling
 const Accordion = ({ children, has_single_state, id }: AccordionProps) => {
     const nodes = []
-    return has_single_state ? (
-        <SingleAccordionContent id={id} nodes={nodes}>
-            {children}
-        </SingleAccordionContent>
-    ) : (
-        <AccordionContent nodes={nodes}>{children}</AccordionContent>
-    )
-}
 
-type HeaderStyle = {
-    marginTop?: string
-    padding?: string
-    border?: string
-    borderRadius?: string
-    boxShadow?: string
-}
-type ContentType = {
-    background?: string
-    boxShadow?: string
-    marginLeft?: string
-    paddingBottom?: string
-    display?: string
-}
-type ParentType = {
-    marginBottom?: string
-}
-
-type ChildType = {
-    props?: {
-        parent_style?: ParentType
-        header_style?: HeaderStyle
-        content_style?: ContentType
-        header?: string
-        plus?: boolean
-        arrow_thin?: boolean
-        is_showed?: boolean
-        class_name?: string
+    if (has_single_state) {
+        return (
+            <SingleAccordionContent id={id} nodes={nodes}>
+                {children}
+            </SingleAccordionContent>
+        )
     }
-}
-
-type ItemExpandedProps = {
-    child?: ChildType
-    child_idx?: number
-    id?: string
-    nodes?: ReactNode
+    return <AccordionContent nodes={nodes}>{children}</AccordionContent>
 }
 
 const ItemExpanded = ({ child, child_idx, nodes, id }: ItemExpandedProps) => {
@@ -136,14 +149,27 @@ const ItemExpanded = ({ child, child_idx, nodes, id }: ItemExpandedProps) => {
         else setHeight(0)
     }, [height])
 
-    const deployer = <img src={is_expanded ? Minus : Plus} alt="Minus" height="16" width="16" />
+    const deployer = (
+        <img
+            src={is_expanded ? Minus : Plus}
+            alt={is_expanded ? localize('_t_Minus_t_') : localize('_t_Plus_t_')}
+            height="16"
+            width="16"
+        />
+    )
 
     const current_arrow = child?.props.arrow_thin ? (
-        <Arrow src={Chevron} alt="Chevron" width="32" height="32" expanded={is_expanded} />
+        <Arrow
+            src={Chevron}
+            alt={localize('_t_Chevron_t_')}
+            width="32"
+            height="32"
+            expanded={is_expanded}
+        />
     ) : (
         <ThickArrow
             src={ChevronThick}
-            alt="Chevron thick"
+            alt={localize('_t_Chevron thick_t_')}
             width="32"
             height="32"
             expanded={is_expanded}
@@ -169,7 +195,13 @@ const ItemExpanded = ({ child, child_idx, nodes, id }: ItemExpandedProps) => {
                             style={child?.props.header_style}
                             className={child?.props.class_name}
                         >
-                            <Text weight="bold">{child?.props.header}</Text>
+                            <Text weight="bold">
+                                {child?.props?.header?.includes('_t_') ? (
+                                    <Localize translate_text={child.props.header as TString} />
+                                ) : (
+                                    child.props.header
+                                )}
+                            </Text>
                             <div>{child?.props.plus ? deployer : current_arrow}</div>
                         </AccordionHeader>
                         <div
@@ -189,13 +221,7 @@ const ItemExpanded = ({ child, child_idx, nodes, id }: ItemExpandedProps) => {
     )
 }
 
-type SingleAccordionContentProps = {
-    children?: ChildType | ChildType[]
-    id?: string
-    nodes?: ReactNode[]
-}
-
-const SingleAccordionContent = ({ nodes, children, id }: SingleAccordionContentProps) => {
+const SingleAccordionContent = ({ nodes, children, id }: AccordionProps) => {
     const render_nodes = React.Children.map(children, (child, child_idx) => {
         if (!React.isValidElement(child)) {
             return <></>
@@ -215,18 +241,12 @@ const SingleAccordionContent = ({ nodes, children, id }: SingleAccordionContentP
     return <>{render_nodes}</>
 }
 
-type AccordionContentProps = {
-    children?: ChildType | ChildType[]
-    has_single_state?: boolean
-    id?: string
-    nodes?: ReactNode
-}
-
-const AccordionContent = ({ children, nodes }: AccordionContentProps) => {
+const AccordionContent = ({ children, nodes }: AccordionProps) => {
     const [active_idx, setActiveIdx] = useState(-1)
 
     const toggle = (child_idx: number) => {
         const is_closed = active_idx === child_idx || child_idx === -1
+
         if (is_closed) setActiveIdx(-1)
         else {
             setActiveIdx(child_idx)
@@ -246,21 +266,29 @@ const AccordionContent = ({ children, nodes }: AccordionContentProps) => {
     const render_nodes = React.Children.map(children, (child, child_idx) => {
         const height = getHeight(child_idx)
         const is_expanded = child_idx === active_idx
-
-        const deployer = is_expanded ? (
-            <img src={Minus} alt="Minus" height="16" width="16" />
-        ) : (
-            <img src={Plus} alt="Plus" height="16" width="16" />
-        )
-
         const expanded_state = is_expanded ? true : false
 
-        const current_arrow = child?.props.arrow_thin ? (
-            <Arrow src={Chevron} alt="Chevron" width="32" height="32" expanded={expanded_state} />
+        const deployer = (
+            <img
+                src={is_expanded ? Minus : Plus}
+                alt={is_expanded ? localize('_t_Minus_t_') : localize('_t_Plus_t_')}
+                height="16"
+                width="16"
+            />
+        )
+
+        const current_arrow = child.props.arrow_thin ? (
+            <Arrow
+                src={Chevron}
+                alt={localize('_t_Chevron_t_')}
+                width="32"
+                height="32"
+                expanded={expanded_state}
+            />
         ) : (
             <ThickArrow
                 src={ChevronThick}
-                alt="Chevron thick"
+                alt={localize('_t_Chevron thick_t_')}
                 width="32"
                 height="32"
                 expanded={expanded_state}
@@ -281,7 +309,13 @@ const AccordionContent = ({ children, nodes }: AccordionContentProps) => {
                         aria-expanded={is_expanded}
                         style={child.props.header_style}
                     >
-                        <Text weight="bold">{child?.props.header}</Text>
+                        <Text weight="bold">
+                            {child?.props?.header?.includes('_t_') ? (
+                                <Localize translate_text={child.props.header as TString} />
+                            ) : (
+                                child.props.header
+                            )}
+                        </Text>
                         {child?.props.plus ? deployer : current_arrow}
                     </AccordionHeader>
                     <div
@@ -301,20 +335,6 @@ const AccordionContent = ({ children, nodes }: AccordionContentProps) => {
     })
 
     return <>{render_nodes}</>
-}
-
-type AccordionItemProps = {
-    children: ChildType | ChildType[]
-    id?: string
-    style?: HeaderStyle | ContentType | ParentType
-    content_style?: ContentType
-    parent_style?: ParentType
-    header_style?: HeaderStyle
-    header?: string | ReactNode
-    text?: string
-    plus?: boolean
-    is_showed?: boolean
-    class_name?: string
 }
 
 const AccordionItem = ({ id, text, children, style }: AccordionItemProps) => {

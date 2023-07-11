@@ -251,24 +251,20 @@ const Hero = () => {
             <Wrapper>
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader as="h1">
-                        {localize('Hassle-free deposits and withdrawals')}
+                        <Localize translate_text="_t_Hassle-free deposits and withdrawals_t_" />
                     </StyledHeader>
                     <Header size="18px" color="white" weight="200" pr="100px">
-                        {localize(
-                            'Use your local currency to make deposits into and withdrawals from your Deriv account.',
-                        )}
+                        <Localize translate_text="_t_Use your local currency to make deposits into and withdrawals from your Deriv account._t_" />
                     </Header>
                     <Desktop>
                         <HeroContent mt="15px">
                             <Header as="h2">
-                                {
-                                    <Localize translate_text="Scan the QR code to download Deriv P2P" />
-                                }
+                                <Localize translate_text="_t_Scan the QR code to download Deriv P2P_t_" />
                             </Header>
 
                             <QueryImage
                                 data={data['qr_code']}
-                                alt={'play store'}
+                                alt={localize('_t_play store_t_')}
                                 width="108px"
                                 height="108px"
                             />
@@ -277,7 +273,7 @@ const Hero = () => {
 
                     <Mobile>
                         <ButtonDerivP2P secondary onClick={handleExternalLink}>
-                            {localize('Try Deriv P2P now')}
+                            <Localize translate_text="_t_Try Deriv P2P now_t_" />
                         </ButtonDerivP2P>
                     </Mobile>
                     <Desktop>
@@ -295,7 +291,10 @@ const Hero = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <QueryImage data={data['app_store']} alt="app store logo" />
+                                <QueryImage
+                                    data={data['app_store']}
+                                    alt={localize('_t_app store logo_t_')}
+                                />
                             </AppButton>
                             <AppButton
                                 external
@@ -303,7 +302,10 @@ const Hero = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <QueryImage data={data['google_play']} alt="google play logo" />
+                                <QueryImage
+                                    data={data['google_play']}
+                                    alt={localize('_t_google play logo_t_')}
+                                />
                             </AppButton>
 
                             <AppButton
@@ -312,7 +314,10 @@ const Hero = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <QueryImage data={data['huawei_app']} alt="huawei app gallery" />
+                                <QueryImage
+                                    data={data['huawei_app']}
+                                    alt={localize('_t_huawei app gallery_t_')}
+                                />
                             </AppButton>
                             <AppButton
                                 external
@@ -320,7 +325,10 @@ const Hero = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <QueryImage data={data['web_browser']} alt="web browser logo" />
+                                <QueryImage
+                                    data={data['web_browser']}
+                                    alt={localize('_t_web browser logo_t_')}
+                                />
                             </AppButton>
                         </Flex>
                     </Desktop>
@@ -329,9 +337,9 @@ const Hero = () => {
                 <ImgWrapper>
                     <QueryImage
                         data={data['p2p_hero_img']}
-                        alt={'Deriv’s P2P mobile app'}
-                        height={'700px'}
-                        width={'576px'}
+                        alt={localize('_t_Deriv’s P2P mobile app_t_')}
+                        height="700px"
+                        width="576px"
                     />
                 </ImgWrapper>
             </Wrapper>

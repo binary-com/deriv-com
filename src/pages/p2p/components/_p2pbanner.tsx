@@ -10,14 +10,15 @@ import {
     StaticImageWrapper,
 } from 'components/elements'
 import { LinkButton, Button } from 'components/form'
-import { localize, Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import { mobileOSDetect } from 'common/os-detect'
 import { p2p_playstore_url, p2p_applestore_url } from 'common/constants'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import { TString } from 'types/generics'
 
 type P2PBannerProps = {
-    title: string
+    title: TString
 }
 
 const Wrapper = styled(Container)<{ height?: string }>`
@@ -120,7 +121,6 @@ const StyledHeader = styled(Header)`
         margin-top: 60px;
     }
 `
-
 const StyledText = styled(Text)`
     margin-bottom: 60px;
     font-size: 2.4rem;
@@ -153,10 +153,10 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
         <div>
             <StyledText>
                 <Localize
-                    translate_text="Want to learn more about Deriv P2P? Head to our <0>Help Centre</0>"
+                    translate_text="_t_Want to learn more about Deriv P2P? Head to our <0>Help Centre</0>_t_"
                     components={[
                         <LocalizedLinkText
-                            to={'/help-centre/deriv-p2p/#what-is-deriv-p2p'}
+                            to="/help-centre/deriv-p2p/#what-is-deriv-p2p"
                             size={24}
                             target="_blank"
                             color="blue"
@@ -187,7 +187,9 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
 
                     <Wrapper height="340px">
                         <InformationWrapper height="unset" direction="column">
-                            <StyledHeader as="h3">{title}</StyledHeader>
+                            <StyledHeader as="h3">
+                                <Localize translate_text={title} />
+                            </StyledHeader>
 
                             <TryButton
                                 secondary
@@ -197,7 +199,7 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {localize('Try Deriv P2P now')}
+                                <Localize translate_text="_t_Try Deriv P2P now_t_" />
                             </TryButton>
                         </InformationWrapper>
                     </Wrapper>
@@ -216,10 +218,12 @@ const P2PBanner = ({ title }: P2PBannerProps) => {
 
                     <Wrapper height="402px">
                         <InformationWrapper height="unset" direction="column">
-                            <StyledHeader as="h3">{title}</StyledHeader>
+                            <StyledHeader as="h3">
+                                <Localize translate_text={title} />
+                            </StyledHeader>
                             <Mobile>
                                 <ButtonDerivP2P secondary onClick={handleExternalLink}>
-                                    {localize('Try Deriv P2P now')}
+                                    <Localize translate_text="_t_Try Deriv P2P now_t_" />
                                 </ButtonDerivP2P>
                             </Mobile>
                         </InformationWrapper>

@@ -1,17 +1,19 @@
-import React, { ReactElement, ReactNode } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
 import { Container } from 'components/containers'
 import { Header, Text } from 'components/elements'
+import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
 
-type ItemType = {
-    title?: string | ReactNode
-    subtitle?: string | ReactElement
+export type TDNumbersItem = {
+    title: string | TString
+    subtitle: TString
 }
 
 type DNumbersProps = {
-    items?: ItemType[]
-    justify?: string
+    items?: TDNumbersItem[]
+    justify?: 'flex-start' | 'flex-end' | 'center' | 'space-around' | 'space-evenly'
 }
 
 const NumberWrapper = styled.div`
@@ -29,7 +31,6 @@ const StyledText = styled(Text)`
         margin: 12px 0;
     }
 `
-
 const StyledContainer = styled(Container)`
     direction: ltr;
     width: 100%;
@@ -50,18 +51,18 @@ const Title = styled(Header)`
 const DNumbers = ({ items, justify }: DNumbersProps) => {
     return (
         <StyledContainer justify={justify || 'space-between'}>
-            {items.map((item) => (
-                <NumberWrapper
-                    key={
-                        typeof item.subtitle === 'string'
-                            ? item.subtitle
-                            : item.subtitle.props.translate_text
-                    }
-                >
+            {items.map(({ subtitle, title }) => (
+                <NumberWrapper key={title}>
                     <Title as="p" type="page-title" align="center">
-                        {item.title}
+                        {title.includes('_t_') ? (
+                            <Localize translate_text={title as TString} />
+                        ) : (
+                            title
+                        )}
                     </Title>
-                    <StyledText align="center">{item.subtitle}</StyledText>
+                    <StyledText align="center">
+                        <Localize translate_text={subtitle} />
+                    </StyledText>
                 </NumberWrapper>
             ))}
         </StyledContainer>

@@ -7,49 +7,51 @@ import { isBrowser } from 'common/utility'
 import { eu_urls } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.png'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
+import { TString } from 'types/generics'
 
-type TQueries = {
-    site?: {
-        siteMetadata?: {
-            author?: string
-            description?: string
-            siteUrl?: string
-            title?: string
-        }
+const non_localized_links = ['/blog', '/bug-bounty', '/careers']
+
+type SiteMetadataType = {
+    siteMetadata?: {
+        author?: string
+        description?: string
+        siteUrl?: string
+        title?: string
     }
 }
 
-type TMetaAttributes = {
-    og_title?: string
-    og_description?: string
+export type MetaAttributesType = {
+    og_title?: TString | string
+    og_description?: TString | string
     og_type?: string
-    og_img?: string
     og_img_width?: string
     og_img_height?: string
+    og_img?: string
 }
 
-type TSeo = {
-    description?: string
-    has_organization_schema?: boolean
-    meta?: { name: string; content: string | keyof TMetaAttributes }
-    meta_attributes?: TMetaAttributes
+type SeoProps = {
+    title?: TString | string
+    description?: TString | string
     no_index?: boolean
-    title?: string
+    has_organization_schema?: boolean
+    meta_attributes?: MetaAttributesType
 }
 
-const non_localized_links = ['/blog', '/bug-bounty', '/careers']
+type QueriesType = {
+    site?: SiteMetadataType
+}
+
 const languages = Object.keys(language_config)
 languages.push('x-default')
 
 const SEO = ({
     description,
-    meta,
     title,
     no_index,
     has_organization_schema,
     meta_attributes,
-}: TSeo) => {
-    const queries: TQueries = useStaticQuery(
+}: SeoProps) => {
+    const queries: QueriesType = useStaticQuery(
         graphql`
             query {
                 site {
@@ -65,13 +67,11 @@ const SEO = ({
     )
 
     const no_index_staging = process.env.GATSBY_ENV === 'staging'
-    const metaDescription = description || queries.site.siteMetadata.description
+    const metaDescription =
+        (description?.includes('_t_') ? localize(description as TString) : description) ||
+        queries.site.siteMetadata.description
     const site_url = queries.site.siteMetadata.siteUrl
-
-    const { locale, pathname: myPath } = React.useContext(LocaleContext) || {}
-    const lang = locale || 'en'
-    const pathname = myPath || ''
-
+    const { locale: lang, pathname } = React.useContext(LocaleContext)
     const formatted_lang = lang.replace('_', '-')
     const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`
     const default_og_title = localize(
@@ -119,85 +119,8 @@ const SEO = ({
     }
 
     const lang_direction = useLangDirection()
+
     const is_non_localized = non_localized_links.some((link) => current_page.includes(link))
-    const meta_data = [
-        {
-            name: 'description',
-            content: metaDescription,
-        },
-        {
-            name: 'google',
-            content: 'notranslate',
-        },
-        {
-            property: 'og:title',
-            content: meta_attributes?.og_title || default_og_title,
-        },
-        {
-            property: 'og:site_name',
-            content: title,
-        },
-        {
-            property: 'og:description',
-            content: meta_attributes?.og_description || default_og_description,
-        },
-        {
-            property: 'og:type',
-            content: meta_attributes?.og_type || 'website',
-        },
-        {
-            property: 'og:locale',
-            content: lang,
-        },
-        {
-            property: 'og:image',
-            content: meta_attributes?.og_img || TradingImage,
-        },
-        {
-            property: 'og:image:width',
-            content: meta_attributes?.og_img_width || '600',
-        },
-        {
-            property: 'og:image:height',
-            content: meta_attributes?.og_img_height || '315',
-        },
-        {
-            name: 'twitter:card',
-            content: 'summary',
-        },
-        {
-            name: 'twitter:creator',
-            content: queries.site.siteMetadata.author,
-        },
-        {
-            name: 'twitter:title',
-            content: title,
-        },
-        {
-            name: 'twitter:description',
-            content: metaDescription,
-        },
-        {
-            name: 'format-detection',
-            content: 'telephone=no',
-        },
-        {
-            name: 'yandex-verification',
-            content: '4ddb94bbff872c63',
-        },
-        {
-            name: 'referrer',
-            content: 'origin',
-        },
-        {
-            name: 'version',
-            content: process.env.GATSBY_DERIV_VERSION,
-        },
-        block_eu ? { name: 'robots', content: 'noindex, nofollow' } : {},
-        ...(no_index || no_index_staging || is_ach_page
-            ? [{ name: 'robots', content: 'noindex' }]
-            : []),
-    ].concat(meta || [])
 
     return (
         <Helmet
@@ -207,9 +130,102 @@ const SEO = ({
             bodyAttributes={{
                 dir: lang_direction,
             }}
-            title={title}
+            title={title.includes('_t_') ? localize(title as TString) : title}
             defer={false}
-            meta={meta_data}
+            meta={[
+                {
+                    name: 'description',
+                    content: metaDescription,
+                },
+                {
+                    name: 'google',
+                    content: 'notranslate',
+                },
+                {
+                    property: 'og:title',
+                    content:
+                        (meta_attributes?.og_title.includes('_t_')
+                            ? localize(meta_attributes?.og_title as TString)
+                            : meta_attributes?.og_title) || default_og_title,
+                },
+                {
+                    property: 'og:site_name',
+                    content: title.includes('_t_') ? localize(title as TString) : title,
+                },
+                {
+                    property: 'og:description',
+                    content:
+                        (meta_attributes?.og_description.includes('_t_')
+                            ? localize(meta_attributes?.og_description as TString)
+                            : meta_attributes?.og_description) || default_og_description,
+                },
+                {
+                    property: 'og:type',
+                    content: meta_attributes?.og_type || 'website',
+                },
+                {
+                    property: 'og:locale',
+                    content: lang,
+                },
+                {
+                    property: 'og:image',
+                    content: meta_attributes?.og_img || TradingImage,
+                },
+                {
+                    property: 'og:image:width',
+                    content: meta_attributes?.og_img_width || '600',
+                },
+                {
+                    property: 'og:image:height',
+                    content: meta_attributes?.og_img_height || '315',
+                },
+                {
+                    name: 'twitter:card',
+                    content: 'summary',
+                },
+                {
+                    name: 'twitter:creator',
+                    content: queries.site.siteMetadata.author,
+                },
+                {
+                    name: 'twitter:title',
+                    content: title.includes('_t_') ? localize(title as TString) : title,
+                },
+                {
+                    name: 'twitter:description',
+                    content: metaDescription,
+                },
+                {
+                    name: 'format-detection',
+                    content: 'telephone=no',
+                },
+                {
+                    name: 'yandex-verification',
+                    content: '4ddb94bbff872c63',
+                },
+                {
+                    name: 'referrer',
+                    content: 'origin',
+                },
+                {
+                    name: 'version',
+                    content: process.env.GATSBY_DERIV_VERSION,
+                },
+                block_eu
+                    ? {
+                          name: 'robots',
+                          content: 'noindex, nofollow',
+                      }
+                    : {},
+                ...(no_index || no_index_staging || is_ach_page
+                    ? [
+                          {
+                              name: 'robots',
+                              content: 'noindex',
+                          },
+                      ]
+                    : []),
+            ]}
         >
             {has_organization_schema && (
                 <script type="application/ld+json">{JSON.stringify(organization_schema)}</script>

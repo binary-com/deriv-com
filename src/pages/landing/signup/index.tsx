@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Signup, { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { Localize, localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import device from 'themes/device'
 import { Header, Text } from 'components/elements'
@@ -33,13 +33,11 @@ const Content = styled.div`
         display: none;
     }
 `
-
 const Line = styled.div`
     width: 100%;
     border-bottom: 1px solid var(--color-red);
     margin-top: 4rem;
 `
-
 const StyledDiv = styled.div`
     padding: 6rem 0;
     background-color: rgba(200, 214, 215, 0.22);
@@ -48,7 +46,6 @@ const StyledDiv = styled.div`
         padding: 0;
     }
 `
-
 const StyledGraph = styled.img`
     overflow: initial;
 
@@ -68,27 +65,24 @@ const NewSignup = () => {
         setSubmitState(submitStatus)
         setEmail(email)
     }
+
     return (
         <Layout type="static" padding_top={0} is_ppc>
             <SEO
-                title={localize('Easy And Free Sign Up | Online Trading | Deriv.com')}
-                description={localize(
-                    'Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities.',
-                )}
+                title="_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_"
+                description="_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_"
                 no_index
             />
             <Wrapper>
                 {submit_state !== 'success' && (
                     <Content>
-                        <StyledGraph src={Graph} alt="graph" />
+                        <StyledGraph src={Graph} alt={localize('_t_graph_t_')} />
                         <Header mt="2.4rem" as="h3" type="section-title">
-                            {localize('Start trading with Deriv')}
+                            <Localize translate_text="_t_Start trading with Deriv_t_" />
                         </Header>
                         <br />
                         <Text>
-                            {localize(
-                                'Join over 1 million people who trade stocks, forex and other markets on Deriv.com — the award-winning broker that’s been trusted for over 20 years.',
-                            )}
+                            <Localize translate_text="_t_Join over 1 million people who trade stocks, forex and other markets on Deriv.com — the award-winning broker that’s been trusted for over 20 years._t_" />
                         </Text>
                         <Line />
                     </Content>
@@ -100,8 +94,8 @@ const NewSignup = () => {
                     onSubmit={updateSubmitState}
                     submit_state={submit_state}
                     email={email}
-                    autofocus={true}
-                    is_ppc={true}
+                    autofocus
+                    is_ppc
                 />
             </Wrapper>
             <StyledDiv />

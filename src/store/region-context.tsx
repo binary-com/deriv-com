@@ -15,7 +15,7 @@ import {
     isTestlink,
     isEuDomain,
     queryParams,
-    validate_p2p_country,
+    getP2PCookie,
 } from 'common/utility'
 import { TRegion } from 'types/generics'
 
@@ -84,18 +84,8 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         const is_dev = isLocalhost() || isTestlink()
         if (website_status) {
             const { clients_country, p2p_config } = website_status
-            //QA testing purposes
-            if (qa_url_region) {
-                p2p_countries.includes(qa_url_region)
-                    ? setP2PAllowedCountry(true)
-                    : setP2PAllowedCountry(false)
-                setP2PLoading(false)
-            } else if ('p2p_config' in website_status && p2p_config) {
-                setP2PAllowedCountry(validate_p2p_country(p2p_config))
-                setP2PLoading(false)
-            } else if ('p2p_config' in website_status && !p2p_config) {
-                setP2PLoading(false)
-            }
+            const p2p_cookie = getP2PCookie()
+            setP2P(p2p_cookie, p2p_config)
             if (qa_url_region) {
                 not_available_appgallery_countries.includes(qa_url_region)
                     ? setAppgallerySupported(false)
@@ -115,6 +105,27 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
             })
         }
     }, [residence, user_ip_country, website_status])
+
+    const setP2P = (p2p_cookie, p2p_config) => {
+        if (p2p_cookie) {
+            setP2PAllowedCountry(!JSON.parse(p2p_cookie))
+            setP2PLoading(false)
+        } else {
+            if ('p2p_config' in website_status && p2p_config) {
+                setP2PAllowedCountry(true)
+                setP2PLoading(false)
+            } else if ('p2p_config' in website_status && !p2p_config) {
+                setP2PLoading(false)
+            }
+        }
+        //QA testing purposes
+        if (qa_url_region) {
+            p2p_countries.includes(qa_url_region)
+                ? setP2PAllowedCountry(true)
+                : setP2PAllowedCountry(false)
+            setP2PLoading(false)
+        }
+    }
 
     const {
         is_region_loading,

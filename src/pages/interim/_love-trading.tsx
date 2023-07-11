@@ -9,11 +9,34 @@ import device from 'themes/device'
 import Platform from 'images/common/interim/check-interim-bg.png'
 import PlatformMobile from 'images/common/interim/interim-mobile-bg.png'
 import useRegion from 'components/hooks/use-region'
+import { Localize, localize } from 'components/localization'
+import { TString } from 'types/generics'
 
 type SectionProps = {
     image: string
     mobile_image: string
     is_eu: boolean
+}
+
+type LeftCTASectionProps = {
+    header: TString
+    button_text?: TString
+    button_url?: string
+    hide_cta?: boolean
+    cta_props?: { is_white?: boolean }
+    custom_content?: React.ReactElement
+}
+
+export type LoveTradingComponentProps = {
+    left: LeftCTASectionProps
+    right: RightCTASectionProps
+    bg_image?: string
+    bg_image_mobile?: string
+    image: string
+}
+
+type RightCTASectionProps = LeftCTASectionProps & {
+    button_props?: { type: 'dbot' | 'smart_trader' | 'mt5' }
 }
 
 const Section = styled(Box)<SectionProps>`
@@ -86,6 +109,13 @@ const FitButton = styled(LinkButton)`
     width: fit-content;
 `
 
+const StyledLeftContainer = styled(Flex)`
+    @media ${device.tabletL} {
+        height: 210px;
+        max-width: unset;
+    }
+`
+
 const query = graphql`
     query {
         affiliate: file(relativePath: { eq: "interim/affiliate.png" }) {
@@ -103,39 +133,19 @@ const query = graphql`
     }
 `
 
-const StyledLeftContainer = styled(Flex)`
-    @media ${device.tabletL} {
-        height: 210px;
-        max-width: unset;
-    }
-`
-
-type LeftCTASectionProps = {
-    header: React.ReactElement | string
-    button_url?: string
-    button_text?: React.ReactElement | string
-    hide_cta?: boolean
-    cta_props?: { is_white?: boolean }
-    custom_content?: React.ReactElement
-}
-
 const LeftCTASection = (params: LeftCTASectionProps) => {
     const { button_text, button_url, cta_props, header, hide_cta } = params
     return (
         <>
             <Header as="h3" type="section-title" mb="4rem" align="center" tabletL={{ mb: '34px' }}>
-                {header}
+                <Localize translate_text={header} />
             </Header>
             <FitButton secondary to={button_url}>
-                {button_text}
+                {button_text && <Localize translate_text={button_text} />}
             </FitButton>
             {!hide_cta && <CtaBinary {...(cta_props || {})} />}
         </>
     )
-}
-
-type RightCTASectionProps = LeftCTASectionProps & {
-    button_props?: { type: 'dbot' | 'smart_trader' | 'mt5' }
 }
 
 const RightCTASection = (params: RightCTASectionProps) => {
@@ -143,7 +153,7 @@ const RightCTASection = (params: RightCTASectionProps) => {
     return (
         <Flex width="auto" fd="column" ai="center" ml="0" max_width="38.4rem">
             <Header as="h3" color="white" type="section-title" mb="3rem" align="center">
-                {header}
+                <Localize translate_text={header} />
             </Header>
             <FitButton
                 external
@@ -153,19 +163,11 @@ const RightCTASection = (params: RightCTASectionProps) => {
                 rel="noopener noreferrer"
                 {...(button_props || {})}
             >
-                {button_text}
+                {button_text && <Localize translate_text={button_text} />}
             </FitButton>
             {!hide_cta && <CtaBinary {...(cta_props || {})} />}
         </Flex>
     )
-}
-
-type LoveTradingComponentProps = {
-    left: LeftCTASectionProps
-    right: RightCTASectionProps
-    bg_image?: string
-    bg_image_mobile?: string
-    image: string
 }
 
 export const LoveTradingComponent = ({
@@ -177,17 +179,22 @@ export const LoveTradingComponent = ({
 }: LoveTradingComponentProps) => {
     const data = useStaticQuery(query)
     const { is_eu } = useRegion()
+
     return (
         <Section p="3.2rem 0" image={bg_image} mobile_image={bg_image_mobile} is_eu={is_eu}>
             <AbsoluteWrapper>
-                <QueryImage data={data[image]} width="54rem" alt="Love trading" />
+                <QueryImage data={data[image]} width="54rem" alt={localize('_t_Love trading_t_')} />
             </AbsoluteWrapper>
             <Responsive jc="space-between" position="relative">
                 <StyledLeftContainer fd="column" ai="center" max_width="28.2rem">
                     {left.custom_content || <LeftCTASection {...left} />}
                 </StyledLeftContainer>
                 <MobileWrapper>
-                    <QueryImage data={data[image]} width="30rem" alt="Love trading" />
+                    <QueryImage
+                        data={data[image]}
+                        width="30rem"
+                        alt={localize('_t_Love trading_t_')}
+                    />
                 </MobileWrapper>
                 {right.custom_content || <RightCTASection {...right} />}
             </Responsive>

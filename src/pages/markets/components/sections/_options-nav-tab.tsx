@@ -1,18 +1,10 @@
-import React, { ReactElement, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import styled, { css } from 'styled-components'
 import { Text } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
-
-type OptionsNavTabProps = {
-    route_from: string
-    route_offset: number
-}
-
-type TabButtonProps = {
-    selected?: boolean
-}
+import { TNavTab, TTabButton, TTabList } from 'pages/markets/static/content/_types'
 
 const TabsContainer = styled(Flex)`
     justify-content: center;
@@ -40,8 +32,7 @@ const TabList = styled.div`
         }
     }
 `
-
-const TabButton = styled.button<TabButtonProps>`
+const TabButton = styled.button<TTabButton>`
     z-index: 2;
     height: auto;
     padding: 16px 24px;
@@ -77,7 +68,7 @@ const TabButton = styled.button<TabButtonProps>`
         padding: 24px 12px;
     }
 `
-const TextWrapper = styled(Text)<TabButtonProps>`
+const TextWrapper = styled(Text)<TTabButton>`
     text-align: center;
     font-size: 20px;
     color: #999999;
@@ -99,36 +90,32 @@ const StyledLink = styled(LocalizedLink)`
     }
 `
 
-type TabList = {
-    title: ReactElement
-    tab_name: string
-    route_to: string
-}
-
-const tab_list_options: TabList[] = [
+const tab_list_options: TTabList[] = [
     {
-        title: <Localize translate_text="Options" />,
+        title: '_t_Options_t_',
         tab_name: 'options',
         route_to: '/trade-types/options',
     },
     {
-        title: <Localize translate_text="Accumulators" />,
+        title: '_t_Accumulators_t_',
         tab_name: 'accumulators',
         route_to: '/trade-types/accumulators',
     },
 ]
 
-const OptionsNavTab = ({ route_from }: OptionsNavTabProps) => {
+const OptionsNavTab = ({ route_from }: TNavTab) => {
     const ref = useRef(null)
 
     return (
         <TabsContainer>
             <TabList ref={ref}>
-                {tab_list_options.map((item) => {
+                {tab_list_options.map(({ route_to, tab_name, title }) => {
                     return (
-                        <StyledLink to={item.route_to} key={item.tab_name}>
-                            <TabButton selected={route_from == item.tab_name}>
-                                <TextWrapper>{item.title}</TextWrapper>
+                        <StyledLink to={route_to} key={tab_name}>
+                            <TabButton selected={route_from == tab_name}>
+                                <TextWrapper>
+                                    <Localize translate_text={title} />
+                                </TextWrapper>
                             </TabButton>
                         </StyledLink>
                     )

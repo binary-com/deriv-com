@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Flex, Container } from 'components/containers'
-import { Header, BackgroundImageWrapper, StaticImageWrapper } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { BackgroundImageWrapper, Header, StaticImageWrapper } from 'components/elements'
+import { Localize, localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
@@ -40,7 +40,6 @@ const Wrapper = styled(Container)`
         height: 80rem;
     }
 `
-
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 71rem;
@@ -57,7 +56,6 @@ const InformationWrapper = styled(Flex)`
         padding: 0;
     }
 `
-
 const HeroContent = styled(Flex)`
     height: unset;
 
@@ -86,7 +84,6 @@ const StyledHeader = styled(Header)`
         margin-top: 0;
     }
 `
-
 const TryButton = styled(LinkButton)`
     padding: 17px 24px;
     width: min-content;
@@ -140,11 +137,11 @@ const Hero = () => {
             <Wrapper p="4rem 0 0">
                 <InformationWrapper direction="column">
                     <StyledHeader type="hero">
-                        {localize('Ride the trends even on weekends')}
+                        <Localize translate_text="_t_Ride the trends even on weekends_t_" />
                     </StyledHeader>
                     <HeroContent direction="column" jc="flex-start">
                         <Header as="h2" type="subtitle-1">
-                            <Localize translate_text="Trade even when most financial markets are closed" />
+                            <Localize translate_text="_t_Trade even when most financial markets are closed_t_" />
                         </Header>
                     </HeroContent>
                     <TryButton
@@ -154,7 +151,7 @@ const Hero = () => {
                         secondary
                         to="/signup/"
                     >
-                        {localize('Get trading')}
+                        <Localize translate_text="_t_Get trading_t_" />
                     </TryButton>
                 </InformationWrapper>
             </Wrapper>

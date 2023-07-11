@@ -4,49 +4,46 @@ import goIcon from '../../images/svg/dbot/go-icon.svg'
 import ezIcon from '../../images/svg/dbot/ez-icon.svg'
 import dxIcon from '../../images/svg/dbot/dx-icon.svg'
 import dtIcon from '../../images/svg/dbot/dt-icon.svg'
-import GenericCarousel from 'components/custom/carousel/_platforms-carousel'
+import GenericCarousel, { TRenderableData } from 'components/custom/carousel/_platforms-carousel'
 
-const carouselData = [
+const carouselData: TRenderableData[] = [
     {
         icon: mt5Icon,
         heading: 'Deriv MT5',
-        paragraph: 'The all-in-one CFD trading platform.',
+        paragraph: '_t_The all-in-one CFD trading platform._t_',
         link: '/dmt5/',
     },
     {
         icon: dtIcon,
         heading: 'Deriv Trader',
-        paragraph: 'Our flagship app for trading options and multipliers.',
+        paragraph: '_t_Our flagship app for trading options and multipliers._t_',
         link: '/dtrader/',
     },
     {
         icon: goIcon,
         heading: 'Deriv GO',
-        paragraph: 'Our best trading experience on your mobile.',
+        paragraph: '_t_Our best trading experience on your mobile._t_',
         link: '/deriv-go/',
     },
     {
         icon: dxIcon,
         heading: 'Deriv X',
-        paragraph: 'The CFD trading platform to fit your style.',
+        paragraph: '_t_The CFD trading platform to fit your style._t_',
         link: '/derivx/',
     },
     {
         icon: ezIcon,
         heading: 'Deriv EZ',
-        paragraph: 'Our mobile-first CFD trading platform.',
+        paragraph: '_t_Our mobile-first CFD trading platform._t_',
         link: '/deriv-ez/',
     },
 ]
-const OurPlatforms = () => {
-    return (
-        <>
-            <GenericCarousel
-                renderableData={carouselData}
-                mainHeading="Check out our other platforms"
-            />
-        </>
-    )
-}
+
+const OurPlatforms = () => (
+    <GenericCarousel
+        renderableData={carouselData}
+        mainHeading="_t_Check out our other platforms_t_"
+    />
+)
 
 export default OurPlatforms

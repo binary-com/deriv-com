@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { SmallContainer } from './_style'
 import { Mobile } from 'components/containers'
 import { Carousel, CarouselProps } from 'components/elements'
-import device from 'themes/device'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 const Background = styled.div`

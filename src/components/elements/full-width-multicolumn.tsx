@@ -7,17 +7,35 @@ import device from 'themes/device'
 import { TString } from 'types/generics'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { LocalizedLink } from 'components/localization/localized-link'
+import { Localize } from 'components/localization'
+
+export type TChild = {
+    text?: TString
+    item_title?: TString
+    icon: ReactElement
+    link_text?: TString
+    link?: string
+}
 
 type FullWidthMultiColumnProps = {
-    children?: ReactElement[]
-    header?: ReactElement
-    sub_header?: ReactElement
-    button_title?: ReactElement
-    button_text?: TString | string | ReactElement
+    header: TString
+    button_text?: TString
+    sub_header?: TString
+    button_title?: TString
+    button_title_element?: React.ReactElement
+    children?: Array<ReactElement<TChild>>
     multiple_row?: boolean
     header_width?: string
     subtext_width?: string
     gap?: string
+}
+
+type TStyledHeader = {
+    header_width?: string
+}
+
+type TStyledTextContent = {
+    subtext_width?: string
 }
 
 const Item = styled(Flex)`
@@ -38,7 +56,6 @@ const Item = styled(Flex)`
         }
     }
 `
-
 const ItemContainer = styled(Box)`
     display: flex;
     margin: 40px 0 2rem;
@@ -54,7 +71,7 @@ const ItemContainer = styled(Box)`
         gap: 40px;
     }
 `
-const StyledHeader = styled(Header)<FullWidthMultiColumnProps>`
+const StyledHeader = styled(Header)<TStyledHeader>`
     font-weight: 700;
     font-size: 32px;
     line-height: 40px;
@@ -112,8 +129,7 @@ const StyledButtonContent = styled(Text)`
         font-size: 14px;
     }
 `
-
-const StyledTextContent = styled.div<FullWidthMultiColumnProps>`
+const StyledTextContent = styled.div<TStyledTextContent>`
     text-align: center;
     margin-top: 1.6rem;
     color: white;
@@ -131,7 +147,6 @@ const StyledTextContent = styled.div<FullWidthMultiColumnProps>`
         margin-bottom: 0;
     }
 `
-
 const StyledSectionContainer = styled(SectionContainer)`
     padding: 55px 0;
     margin: auto;
@@ -155,6 +170,7 @@ export const FullWidthMultiColumn = ({
     sub_header,
     multiple_row,
     button_title,
+    button_title_element,
     button_text,
     gap,
     header_width,
@@ -164,6 +180,7 @@ export const FullWidthMultiColumn = ({
     const first_three_items = children.slice(0, 3)
     const last_two = children.slice(3)
     const items = multiple_row ? [first_three_items, last_two] : [children]
+
     return (
         <StyledSectionContainer>
             <Flex direction="column" max-width="99.6rem" m="0 auto" jc="space-between" ai="center">
@@ -175,7 +192,7 @@ export const FullWidthMultiColumn = ({
                     mb="0.1rem"
                     lh="1.25"
                 >
-                    {header}
+                    <Localize translate_text={header} />
                 </StyledHeader>
                 <StyledSubHeader
                     as="p"
@@ -185,7 +202,7 @@ export const FullWidthMultiColumn = ({
                     lh="1.25"
                     weight="400"
                 >
-                    {sub_header}
+                    {sub_header && <Localize translate_text={sub_header} />}
                 </StyledSubHeader>
                 {items.map((group, i) => (
                     <ItemContainer max-width="48.6rem" width="100%" key={i} gap={gap}>
@@ -194,19 +211,34 @@ export const FullWidthMultiColumn = ({
                             return (
                                 <Item key={idx} ai="center" direction="column">
                                     {icon}
-                                    {item_title && <StyledTitle>{item_title}</StyledTitle>}
+                                    {item_title && (
+                                        <StyledTitle>
+                                            <Localize translate_text={item_title} />
+                                        </StyledTitle>
+                                    )}
                                     {text && (
                                         <StyledTextContent subtext_width={subtext_width}>
-                                            {text}
+                                            <Localize translate_text={text} />
                                         </StyledTextContent>
                                     )}
-                                    {link_text && <LearnMore to={link}>{link_text}</LearnMore>}
+                                    {link_text && (
+                                        <LearnMore to={link}>
+                                            <Localize translate_text={link_text} />
+                                        </LearnMore>
+                                    )}
                                 </Item>
                             )
                         })}
                     </ItemContainer>
                 ))}
-                {button_title && <StyledButtonContent>{button_title}</StyledButtonContent>}
+                {button_title && (
+                    <StyledButtonContent>
+                        <Localize translate_text={button_title} />
+                    </StyledButtonContent>
+                )}
+                {button_title_element && (
+                    <StyledButtonContent>{button_title_element}</StyledButtonContent>
+                )}
                 {button_text && <Button onClick={handleSignup} label={button_text} primary />}
             </Flex>
         </StyledSectionContainer>

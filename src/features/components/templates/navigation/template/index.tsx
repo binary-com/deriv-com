@@ -7,11 +7,9 @@ import TopNav from './top-nav'
 import { NavProvider } from './nav-context'
 import Container from 'features/components/atoms/container'
 import useBreakpoints from 'components/hooks/use-breakpoints'
-import useVisibleContent from 'components/hooks/use-visible-content'
 import MobileMenuToggle from 'features/components/molecules/mobile-menu-toggle'
 import Flex from 'features/components/atoms/flex-box'
 import dclsx from 'features/utils/dclsx'
-import useRegion from 'components/hooks/use-region'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 
 interface NavTemplateProps extends HTMLAttributes<HTMLDivElement> {

@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Flex, Container } from 'components/containers'
-import { Header, BackgroundImageWrapper, StaticImageWrapper } from 'components/elements'
-import { localize } from 'components/localization'
+import { BackgroundImageWrapper, Header, StaticImageWrapper } from 'components/elements'
+import { Localize, localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import { HeroProps } from 'pages/landing/_types'
@@ -17,7 +17,6 @@ const Wrapper = styled(Container)`
         justify-content: center;
     }
 `
-
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 75rem;
@@ -33,7 +32,6 @@ const InformationWrapper = styled(Flex)`
         padding: 0;
     }
 `
-
 const StyledHeader = styled(Header)`
     display: flex;
 
@@ -44,7 +42,6 @@ const StyledHeader = styled(Header)`
         margin-top: 0;
     }
 `
-
 const HeroContent = styled(Flex)`
     height: unset;
 
@@ -59,7 +56,6 @@ const HeroContent = styled(Flex)`
         }
     }
 `
-
 const TryButton = styled(LinkButton)`
     padding: 17px 24px;
     width: min-content;
@@ -111,11 +107,11 @@ const Hero = ({ title, content }: HeroProps) => {
             <Wrapper p="0" justify="space-between" height="63rem">
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader mt="4rem" type="hero" color="white">
-                        {title}
+                        <Localize translate_text={title} />
                     </StyledHeader>
                     <HeroContent m="2rem 0 0" direction="column" jc="flex-start">
                         <Header as="h2" color="white" type="subtitle-1" weight="normal">
-                            {content}
+                            <Localize translate_text={content} />
                         </Header>
                     </HeroContent>
                     <TryButton
@@ -124,9 +120,9 @@ const Hero = ({ title, content }: HeroProps) => {
                         rel="noopener noreferrer nofollow"
                         type="submit"
                         secondary
-                        to={'/signup/'}
+                        to="/signup/"
                     >
-                        {localize('Start trading')}
+                        <Localize translate_text="_t_Start trading_t_" />
                     </TryButton>
                 </InformationWrapper>
             </Wrapper>

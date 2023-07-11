@@ -9,7 +9,7 @@ import DerivXGetApp from './_get-derivx'
 import OurPlatforms from './_other-apps'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { WithIntl, localize } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 
 const DerivX = () => {
@@ -25,12 +25,8 @@ const DerivX = () => {
             return (
                 <Layout>
                     <SEO
-                        title={localize(
-                            'Deriv X - a multi-asset CFD trading platform available on Deriv',
-                        )}
-                        description={localize(
-                            'Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices.',
-                        )}
+                        title="_t_Deriv X - a multi-asset CFD trading platform available on Deriv_t_"
+                        description="_t_Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices._t_"
                     />
                     <Hero />
                     <SellingPoints />
@@ -47,14 +43,10 @@ const DerivX = () => {
     }
 
     return (
-        <>
-            <SEO
-                title={localize('Deriv X - a multi-asset CFD trading platform available on Deriv')}
-                description={localize(
-                    'Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices.',
-                )}
-            />
-        </>
+        <SEO
+            title="_t_Deriv X - a multi-asset CFD trading platform available on Deriv_t_"
+            description="_t_Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices._t_"
+        />
     )
 }
 

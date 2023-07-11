@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import { BackgroundImageWrapper, Header, QueryImage, StaticImageWrapper } from 'components/elements'
+import { BackgroundImageWrapper, StaticImageWrapper, Header, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { Flex, Desktop, Mobile } from 'components/containers'
 
@@ -43,6 +43,7 @@ const AwardImageWrapper = styled.div`
         margin-top: 1%;
     }
 `
+
 const AwardImageWrapperMobile = styled.div`
     z-index: 2;
     padding: 36px 18px;

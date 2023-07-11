@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import { BackgroundImageWrapper, Header, QueryImage, StaticImageWrapper } from 'components/elements'
+import { BackgroundImageWrapper, StaticImageWrapper, Header, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { Flex, Desktop, Mobile } from 'components/containers'
 

@@ -39,22 +39,24 @@ const Hero = () => {
                             align="start"
                             lh="1.25"
                         >
-                            <Localize translate_text="Binary.com has rebranded to Deriv.com and here is everything you need to know" />
+                            <Localize translate_text="_t_Binary.com has rebranded to Deriv.com and here is everything you need to know_t_" />
                         </ResponsiveHeader>
                     </ResponsiveFlex>
                     <RightWrapper>
-                        <QueryImage width="100%" data={data['deriv']} alt={`Deriv platforms`} />
+                        <QueryImage
+                            width="100%"
+                            data={data['deriv']}
+                            alt={localize('_t_Deriv platforms_t_')}
+                        />
                     </RightWrapper>
                 </Wrap>
             </Section>
             <Container p="8rem 0" fd="column">
                 <Header as="h4" type="sub-section-title" weight="normal" align="center" mb="4rem">
-                    <Localize translate_text="You may have heard about the exciting improvements we’ve made recently to Binary.com. Yes, we’ve rebranded to Deriv.com as part of our renewed commitment to enhance your online trading experience." />
+                    <Localize translate_text="_t_You may have heard about the exciting improvements we’ve made recently to Binary.com. Yes, we’ve rebranded to Deriv.com as part of our renewed commitment to enhance your online trading experience._t_" />
                 </Header>
                 <Header as="h4" type="sub-section-title" weight="normal" align="center">
-                    {localize(
-                        'We know you may have some questions about these changes, so here are answers to shed light on our transformation. In this FAQ, we explain to you what the rebranding is about, how the rebranding transforms our service delivery, and what it means to you.',
-                    )}
+                    <Localize translate_text="_t_We know you may have some questions about these changes, so here are answers to shed light on our transformation. In this FAQ, we explain to you what the rebranding is about, how the rebranding transforms our service delivery, and what it means to you._t_" />
                 </Header>
             </Container>
         </>

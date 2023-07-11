@@ -2,18 +2,24 @@ import React from 'react'
 import styled from 'styled-components'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
-const content = [
+type TContent = {
+    header: TString
+    text: TString
+}
+
+const content: TContent[] = [
     {
-        header: <Localize translate_text="21,000+" />,
-        text: <Localize translate_text="active users" />,
+        header: '_t_21,000+_t_',
+        text: '_t_active users_t_',
     },
     {
-        header: <Localize translate_text="12M+ USD" />,
-        text: <Localize translate_text="exchanged to date" />,
+        header: '_t_12M+ USD_t_',
+        text: '_t_exchanged to date_t_',
     },
 ]
 
@@ -33,7 +39,6 @@ const Section = styled(SectionContainer)`
         padding: 40px 16px;
     }
 `
-
 const ClientCard = styled.article`
     margin-left: 2.4rem;
     margin-top: -20rem;
@@ -71,7 +76,6 @@ const ClientCard = styled.article`
         max-width: 290px;
     }
 `
-
 const StyledLinkButton = styled(LinkButton)`
     padding: 24px;
     font-size: 20px;
@@ -92,7 +96,6 @@ const StyledLinkButton = styled(LinkButton)`
         margin-top: 40px;
     }
 `
-
 const StyledHeader = styled(Header)`
     text-align: center;
     font-size: 48px;
@@ -115,34 +118,34 @@ const StyledText = styled(Text)`
 
 const Numbers = () => {
     return (
-        <>
-            <Section>
-                <Flex tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
-                    {content.map((item, idx) => {
-                        return (
-                            <ClientCard key={idx}>
-                                <Flex height="unset" ai="center" mobileL={{ mb: '8px' }}>
-                                    <StyledHeader mb="0.8rem" as="p">
-                                        {item.header}
-                                    </StyledHeader>
-                                </Flex>
-                                <StyledText>{item.text}</StyledText>
-                            </ClientCard>
-                        )
-                    })}
-                </Flex>
-                <StyledLinkButton
-                    secondary
-                    external
-                    to="/cashier/p2p"
-                    type="deriv_app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    {localize('Try Deriv P2P now')}
-                </StyledLinkButton>
-            </Section>
-        </>
+        <Section>
+            <Flex tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
+                {content.map(({ header, text }) => {
+                    return (
+                        <ClientCard key={header}>
+                            <Flex height="unset" ai="center" mobileL={{ mb: '8px' }}>
+                                <StyledHeader mb="0.8rem" as="p">
+                                    <Localize translate_text={header} />
+                                </StyledHeader>
+                            </Flex>
+                            <StyledText>
+                                <Localize translate_text={text} />
+                            </StyledText>
+                        </ClientCard>
+                    )
+                })}
+            </Flex>
+            <StyledLinkButton
+                secondary
+                external
+                to="/cashier/p2p"
+                type="deriv_app"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <Localize translate_text="_t_Try Deriv P2P now_t_" />
+            </StyledLinkButton>
+        </Section>
     )
 }
 

@@ -13,6 +13,3 @@ export const SimpleSteps = Loadable(
 export const Signup = Loadable(
     () => import(/* webpackChunkName: "signup" */ 'components/custom/signup'),
 )
-export const P2PHomeBanner = Loadable(
-    () => import(/* webpackChunkName: "p2p-home-banner" */ './_p2p_home_banner'),
-)

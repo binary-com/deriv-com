@@ -1,11 +1,11 @@
 @import 'features/styles/theme/variables';
 
-$menu_size: 30.8rem;
+$menu_size: 38.5rem;
 
 .mobile_menu {
     position: fixed;
     inset-block-start: 7rem;
-    inline-size: $menu_size;
+    inline-size: 100%;
     block-size: calc(100vh - 7rem);
     background-color: $color-white;
     opacity: 1;

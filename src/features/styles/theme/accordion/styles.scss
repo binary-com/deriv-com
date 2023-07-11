@@ -63,6 +63,7 @@
             block-size: 2.4rem;
             background: url(images/svg/elements/plus.svg) no-repeat top left;
             background-size: contain;
+            min-inline-size: 3.6rem;
         }
 
         &[data-state='open'] .accordion_icon {

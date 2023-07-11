@@ -13,7 +13,7 @@ export const tab_data: OptionNavigationType[] = [
         selected_src: DigitalActive,
         button_text: '_t_Digital options_t_',
         option_name: 'digital',
-        to: '/trade-types/options/digital-options',
+        to: '/trade-types/options/digital-options/up-and-down',
     },
     {
         src: AccumulatorslInActive,

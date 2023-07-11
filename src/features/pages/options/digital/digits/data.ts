@@ -13,6 +13,7 @@ import DTraderIcon from 'images/svg/custom/rebranding/dtrader-icon.svg'
 
 export const digitsContentItems: OptionContentItemData[] = [
     {
+        type: 'single',
         icon: {
             src: MatchesDiffersIcon,
             alt: '_t_Digits Matches/Differs_t_',
@@ -44,6 +45,7 @@ export const digitsContentItems: OptionContentItemData[] = [
         ],
     },
     {
+        type: 'single',
         icon: {
             src: MatchesDiffersIcon,
             alt: '_t_Rise/Fall Icon_t_',

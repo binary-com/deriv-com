@@ -14,12 +14,20 @@ const AvailableList = ({
     items: OptionContentAvailability[]
 }) => {
     return (
-        <Flex.Box gap="10x">
-            <Typography.Paragraph font_family="UBUNTU">
-                <Localize translate_text={title} />
-            </Typography.Paragraph>
+        <Flex.Box gap="10x" wrap="wrap" justify="center" align="center">
+            <Flex.Item grow="1" shrink="0" basis="full">
+                <Typography.Paragraph font_family="UBUNTU" align="center">
+                    <Localize translate_text={title} />
+                </Typography.Paragraph>
+            </Flex.Item>
             {items.map((marketItem) => (
-                <Flex.Box gap="2x" key={marketItem.title} justify="center" align="center">
+                <Flex.Box
+                    gap="2x"
+                    key={marketItem.title}
+                    justify="center"
+                    align="center"
+                    basis="4-12"
+                >
                     <img
                         src={marketItem.icon.src}
                         alt={marketItem.icon.alt}

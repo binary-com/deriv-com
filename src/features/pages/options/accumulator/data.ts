@@ -2,114 +2,14 @@ import {
     OptionContentAvailability,
     OptionContentItemData,
     OptionsFAQDataItem,
-} from '../../components/options-content/type'
-import RiseFallIcon from 'images/svg/trade-types/options/digital/up-down-rise-fall.svg'
+} from '../components/options-content/type'
+import { allOptionsMarkets, allOptionsTradePlatforms } from '../digital/up-down/data'
 import RiseWinIcon from 'images/svg/trade-types/options/digital/rise_win.svg'
 import RiseLoseIcon from 'images/svg/trade-types/options/digital/rise_lose.svg'
-import FallWinIcon from 'images/svg/trade-types/options/digital/fall_win.svg'
-import FallLoseIcon from 'images/svg/trade-types/options/digital/fall_lose.svg'
-// markets icons
-import ForexIcon from 'images/svg/home/ts_fx_icon.svg'
-import DerivedIndicesIcon from 'images/svg/home/ts_derived_icon.svg'
-import CommoditiesIcon from 'images/svg/home/ts_commodities_icon.svg'
-// platforms icons
-import DTraderIcon from 'images/svg/custom/rebranding/dtrader-icon.svg'
-import SmartTraderIcon from 'images/svg/custom/rebranding/smarttrader-icon.svg'
-import DerivBotIcon from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
 
-export type AllMarkets = 'forex' | 'derived_indices' | 'commodities'
-
-export type AllOptionsMarket = {
-    [key in AllMarkets]: OptionContentAvailability
-}
-
-export type AllTradePlatforms = 'deriv_trader' | 'smart_trader' | 'deriv_bot'
-
-export type AllOptionsTradePlatforms = {
-    [key in AllTradePlatforms]: OptionContentAvailability
-}
-
-export const allOptionsTradePlatforms: AllOptionsTradePlatforms = {
-    deriv_bot: {
-        icon: {
-            src: DerivBotIcon,
-            alt: '_t_Deriv Bot_t_',
-        },
-        link: {
-            type: 'internal',
-            to: '/dbot',
-        },
-        title: '_t_Deriv Bot_t_',
-    },
-    deriv_trader: {
-        icon: {
-            src: DTraderIcon,
-            alt: '_t_Deriv Trader_t_',
-        },
-        link: {
-            type: 'internal',
-            to: '/dtrader',
-        },
-        title: '_t_Deriv Trader_t_',
-    },
-    smart_trader: {
-        icon: {
-            src: SmartTraderIcon,
-            alt: '_t_Smart Trader_t_',
-        },
-        link: {
-            type: 'company',
-            url_name: 'smart_trader',
-            target: '_blank',
-        },
-        title: '_t_Smart Trader_t_',
-    },
-}
-
-export const allOptionsMarkets: AllOptionsMarket = {
-    forex: {
-        icon: {
-            src: ForexIcon,
-            alt: '_t_Forex market icon_t_',
-        },
-        link: {
-            type: 'internal',
-            to: '/markets/forex',
-        },
-        title: '_t_Forex_t_',
-    },
-    derived_indices: {
-        icon: {
-            src: DerivedIndicesIcon,
-            alt: '_t_Derived indices_t_',
-        },
-        link: {
-            type: 'internal',
-            to: '/markets/syntactic',
-        },
-        title: '_t_Derived indices_t_',
-    },
-    commodities: {
-        icon: {
-            src: CommoditiesIcon,
-            alt: '_t_Commodities_t_',
-        },
-        link: {
-            type: 'internal',
-            to: '/markets/commodities',
-        },
-        title: '_t_Commodities_t_',
-    },
-}
-
-export const upAndDownContentItems: OptionContentItemData[] = [
+export const accumulatorOptionsContentItems: OptionContentItemData[] = [
     {
         type: 'single',
-        icon: {
-            src: RiseFallIcon,
-            alt: '_t_Rise/Fall Icon_t_',
-        },
-        title: '_t_Rise/Fall_t_',
         images: [
             {
                 src: RiseWinIcon,
@@ -119,72 +19,23 @@ export const upAndDownContentItems: OptionContentItemData[] = [
                 src: RiseLoseIcon,
                 alt: '_t_Rise Lose_t_',
             },
-            {
-                src: FallWinIcon,
-                alt: '_t_Fall Win_t_',
-            },
-            {
-                src: FallLoseIcon,
-                alt: '_t_Fall Lose_t_',
-            },
         ],
         texts: [
-            '_t_Predict whether the market price will rise or fall by the end of the contract._t_',
-            "_t_If you select 'Rise', you receive the payout if the exit price is higher than the entry price._t_",
-            "_t_If you select 'Fall', you receive the payout if the exit price is lower than the entry price._t_",
-            "_t_With the 'Allow equals' option (available on selected instruments):_t_",
-            "_t_Select 'Rise' to receive the payout if the exit price is higher than or equal to the entry price._t_",
-            "_t_Select 'Fall' to receive the payout if the exit price is lower than or equal to the entry price._t_",
-            '_t_If the selected condition is not met, your stake is lost._t_',
-        ],
-    },
-    {
-        type: 'single',
-        icon: {
-            src: RiseFallIcon,
-            alt: '_t_Rise/Fall Icon_t_',
-        },
-        title: '_t_Higher/Lower_t_',
-        images: [
-            {
-                src: RiseWinIcon,
-                alt: '_t_Rise Win_t_',
-            },
-            {
-                src: RiseLoseIcon,
-                alt: '_t_Rise Lose_t_',
-            },
-            {
-                src: FallWinIcon,
-                alt: '_t_Fall Win_t_',
-            },
-            {
-                src: FallLoseIcon,
-                alt: '_t_Fall Lose_t_',
-            },
-        ],
-        texts: [
-            '_t_Predict whether the market price will be higher or lower than a price target (the barrier) at the end of the contract._t_',
-            "_t_If you select 'Higher', you receive the payout if the exit price is above the barrier._t_",
-            "_t_If you select 'Lower', you receive the payout if the exit price is below the barrier._t_",
-            '_t_If the selected condition is not met or if the exit price is equal to the barrier, your stake is lost._t_',
+            '_t_Accumulator options allow you to express your view on the range of movement of an index. With accumulators, your payout will grow exponentially as long as the current spot price remains within a predefined range from the previous spot price._t_',
+            '_t_The size of the predefined range depends on the growth rate and the chosen index when opening the contract. You can set the growth rate at 1%, 2%, 3%, 4%, or 5%. A higher growth rate means a narrower range, and vice versa._t_',
+            '_t_Your payout will grow exponentially based on the chosen growth rate for each small movement (tick) in the spot price, as long as the current spot price remains within the range. The payout can continue to grow until either the maximum number of ticks or the maximum payout is reached._t_',
+            '_t_You can manually close the contract any time before the price touches or breaches either the upper or lower range. By doing so, you will receive the current accumulated payout, which is the sum of your initial stake and profit. However, if the current spot price touches or moves outside the range, the contract is terminated, and you lose the accumulated payout._t_',
         ],
     },
 ]
 
-export const upAndDownMarkets: OptionContentAvailability[] = [
-    allOptionsMarkets.derived_indices,
-    allOptionsMarkets.forex,
-    allOptionsMarkets.commodities,
-]
+export const accumulatorMarkets: OptionContentAvailability[] = [allOptionsMarkets.derived_indices]
 
-export const upAndDownPlatforms: OptionContentAvailability[] = [
+export const accumulatorPlatforms: OptionContentAvailability[] = [
     allOptionsTradePlatforms.deriv_trader,
-    allOptionsTradePlatforms.smart_trader,
-    allOptionsTradePlatforms.deriv_bot,
 ]
 
-export const upAndDownFAQ: OptionsFAQDataItem[] = [
+export const accumulatorFAQ: OptionsFAQDataItem[] = [
     {
         id: 1,
         question: '_t_Where can I trade Up/Down options?_t_',

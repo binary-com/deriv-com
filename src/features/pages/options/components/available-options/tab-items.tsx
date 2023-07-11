@@ -56,12 +56,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
 
     return (
         <Flex.Box container="fixed" direction="col" padding_block="20x">
-            <Flex.Box
-                className={tab_container}
-                justify="center"
-                align="center"
-                md={{ padding_inline: '15x' }}
-            >
+            <Flex.Box className={tab_container} justify="center" md={{ padding_inline: '15x' }}>
                 <div className={dclsx(scroll_container, 'flex')} ref={content_wrapper}>
                     {options_tabs.map((option_item, index) => (
                         <div

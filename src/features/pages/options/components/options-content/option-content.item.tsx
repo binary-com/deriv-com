@@ -1,32 +1,13 @@
 import React from 'react'
 import { OptionContentItemData } from './type'
-import { content_images } from './styles.module.scss'
-import { Localize } from 'components/localization'
-import Flex from 'features/components/atoms/flex-box'
-import Typography from 'features/components/atoms/typography'
+import SingleOptionContentItem from './single-content-option.item'
+import SectionOptionContentItem from './section-content-option.item'
 
 const OptionContentItem = ({ item }: { item: OptionContentItemData }) => {
-    return (
-        <Flex.Box container="fluid" justify="start" align="start" direction="col">
-            <Flex.Box gap="8x" pb="8x">
-                <img src={item.icon.src} alt={item.icon.alt} />
-                <Typography.Heading size="xxs">
-                    <Localize translate_text={item.title} />
-                </Typography.Heading>
-            </Flex.Box>
-            <Flex.Box direction="col" gap="6x" pb="16x">
-                {item.texts.map((textItem) => (
-                    <Typography.Paragraph key={textItem}>
-                        <Localize translate_text={textItem} />
-                    </Typography.Paragraph>
-                ))}
-            </Flex.Box>
-            <div className={content_images}>
-                {item.images.map((imageItem) => (
-                    <img src={imageItem.src} alt={imageItem.alt} key={imageItem.alt} />
-                ))}
-            </div>
-        </Flex.Box>
+    return item.type === 'single' ? (
+        <SingleOptionContentItem item={item} />
+    ) : (
+        <SectionOptionContentItem item={item} />
     )
 }
 

@@ -2,189 +2,64 @@ import {
     OptionContentAvailability,
     OptionContentItemData,
     OptionsFAQDataItem,
-} from '../../components/options-content/type'
+} from '../components/options-content/type'
+import { allOptionsMarkets, allOptionsTradePlatforms } from '../digital/up-down/data'
 import RiseFallIcon from 'images/svg/trade-types/options/digital/up-down-rise-fall.svg'
 import RiseWinIcon from 'images/svg/trade-types/options/digital/rise_win.svg'
 import RiseLoseIcon from 'images/svg/trade-types/options/digital/rise_lose.svg'
-import FallWinIcon from 'images/svg/trade-types/options/digital/fall_win.svg'
-import FallLoseIcon from 'images/svg/trade-types/options/digital/fall_lose.svg'
-// markets icons
-import ForexIcon from 'images/svg/home/ts_fx_icon.svg'
-import DerivedIndicesIcon from 'images/svg/home/ts_derived_icon.svg'
-import CommoditiesIcon from 'images/svg/home/ts_commodities_icon.svg'
-// platforms icons
-import DTraderIcon from 'images/svg/custom/rebranding/dtrader-icon.svg'
-import SmartTraderIcon from 'images/svg/custom/rebranding/smarttrader-icon.svg'
-import DerivBotIcon from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
 
-export type AllMarkets = 'forex' | 'derived_indices' | 'commodities'
-
-export type AllOptionsMarket = {
-    [key in AllMarkets]: OptionContentAvailability
-}
-
-export type AllTradePlatforms = 'deriv_trader' | 'smart_trader' | 'deriv_bot'
-
-export type AllOptionsTradePlatforms = {
-    [key in AllTradePlatforms]: OptionContentAvailability
-}
-
-export const allOptionsTradePlatforms: AllOptionsTradePlatforms = {
-    deriv_bot: {
-        icon: {
-            src: DerivBotIcon,
-            alt: '_t_Deriv Bot_t_',
-        },
-        link: {
-            type: 'internal',
-            to: '/dbot',
-        },
-        title: '_t_Deriv Bot_t_',
-    },
-    deriv_trader: {
-        icon: {
-            src: DTraderIcon,
-            alt: '_t_Deriv Trader_t_',
-        },
-        link: {
-            type: 'internal',
-            to: '/dtrader',
-        },
-        title: '_t_Deriv Trader_t_',
-    },
-    smart_trader: {
-        icon: {
-            src: SmartTraderIcon,
-            alt: '_t_Smart Trader_t_',
-        },
-        link: {
-            type: 'company',
-            url_name: 'smart_trader',
-            target: '_blank',
-        },
-        title: '_t_Smart Trader_t_',
-    },
-}
-
-export const allOptionsMarkets: AllOptionsMarket = {
-    forex: {
-        icon: {
-            src: ForexIcon,
-            alt: '_t_Forex market icon_t_',
-        },
-        link: {
-            type: 'internal',
-            to: '/markets/forex',
-        },
-        title: '_t_Forex_t_',
-    },
-    derived_indices: {
-        icon: {
-            src: DerivedIndicesIcon,
-            alt: '_t_Derived indices_t_',
-        },
-        link: {
-            type: 'internal',
-            to: '/markets/syntactic',
-        },
-        title: '_t_Derived indices_t_',
-    },
-    commodities: {
-        icon: {
-            src: CommoditiesIcon,
-            alt: '_t_Commodities_t_',
-        },
-        link: {
-            type: 'internal',
-            to: '/markets/commodities',
-        },
-        title: '_t_Commodities_t_',
-    },
-}
-
-export const upAndDownContentItems: OptionContentItemData[] = [
+export const vanillaOptionsContentItems: OptionContentItemData[] = [
     {
-        type: 'single',
+        type: 'sections',
         icon: {
             src: RiseFallIcon,
             alt: '_t_Rise/Fall Icon_t_',
         },
         title: '_t_Rise/Fall_t_',
-        images: [
+        sections: [
             {
-                src: RiseWinIcon,
-                alt: '_t_Rise Win_t_',
+                title: '_t_Call option_t_',
+                images: [
+                    {
+                        src: RiseWinIcon,
+                        alt: '_t_Rise Win_t_',
+                    },
+                    {
+                        src: RiseLoseIcon,
+                        alt: '_t_Rise Lose_t_',
+                    },
+                ],
+                texts: [
+                    '_t_Predict whether the market price will rise or fall by the end of the contract._t_',
+                    '_t_Your net profit will depend on how much the final price is above the predetermined strike price, with the maximum potential gains growing if the price of the underlying asset rises significantly. Your losses are limited to the initial stake required to purchase the call option._t_',
+                ],
             },
             {
-                src: RiseLoseIcon,
-                alt: '_t_Rise Lose_t_',
+                title: '_t_Put option_t_',
+                images: [
+                    {
+                        src: RiseWinIcon,
+                        alt: '_t_Rise Win_t_',
+                    },
+                    {
+                        src: RiseLoseIcon,
+                        alt: '_t_Rise Lose_t_',
+                    },
+                ],
+                texts: [
+                    '_t_Predict whether the market price will rise or fall by the end of the contract._t_',
+                    '_t_Your net profit will depend on how much the final price is above the predetermined strike price, with the maximum potential gains growing if the price of the underlying asset rises significantly. Your losses are limited to the initial stake required to purchase the call option._t_',
+                ],
             },
-            {
-                src: FallWinIcon,
-                alt: '_t_Fall Win_t_',
-            },
-            {
-                src: FallLoseIcon,
-                alt: '_t_Fall Lose_t_',
-            },
-        ],
-        texts: [
-            '_t_Predict whether the market price will rise or fall by the end of the contract._t_',
-            "_t_If you select 'Rise', you receive the payout if the exit price is higher than the entry price._t_",
-            "_t_If you select 'Fall', you receive the payout if the exit price is lower than the entry price._t_",
-            "_t_With the 'Allow equals' option (available on selected instruments):_t_",
-            "_t_Select 'Rise' to receive the payout if the exit price is higher than or equal to the entry price._t_",
-            "_t_Select 'Fall' to receive the payout if the exit price is lower than or equal to the entry price._t_",
-            '_t_If the selected condition is not met, your stake is lost._t_',
-        ],
-    },
-    {
-        type: 'single',
-        icon: {
-            src: RiseFallIcon,
-            alt: '_t_Rise/Fall Icon_t_',
-        },
-        title: '_t_Higher/Lower_t_',
-        images: [
-            {
-                src: RiseWinIcon,
-                alt: '_t_Rise Win_t_',
-            },
-            {
-                src: RiseLoseIcon,
-                alt: '_t_Rise Lose_t_',
-            },
-            {
-                src: FallWinIcon,
-                alt: '_t_Fall Win_t_',
-            },
-            {
-                src: FallLoseIcon,
-                alt: '_t_Fall Lose_t_',
-            },
-        ],
-        texts: [
-            '_t_Predict whether the market price will be higher or lower than a price target (the barrier) at the end of the contract._t_',
-            "_t_If you select 'Higher', you receive the payout if the exit price is above the barrier._t_",
-            "_t_If you select 'Lower', you receive the payout if the exit price is below the barrier._t_",
-            '_t_If the selected condition is not met or if the exit price is equal to the barrier, your stake is lost._t_',
         ],
     },
 ]
 
-export const upAndDownMarkets: OptionContentAvailability[] = [
-    allOptionsMarkets.derived_indices,
-    allOptionsMarkets.forex,
-    allOptionsMarkets.commodities,
-]
+export const vanillaMarkets: OptionContentAvailability[] = [allOptionsMarkets.derived_indices]
 
-export const upAndDownPlatforms: OptionContentAvailability[] = [
-    allOptionsTradePlatforms.deriv_trader,
-    allOptionsTradePlatforms.smart_trader,
-    allOptionsTradePlatforms.deriv_bot,
-]
+export const vanillaPlatforms: OptionContentAvailability[] = [allOptionsTradePlatforms.deriv_trader]
 
-export const upAndDownFAQ: OptionsFAQDataItem[] = [
+export const vanillaFAQ: OptionsFAQDataItem[] = [
     {
         id: 1,
         question: '_t_Where can I trade Up/Down options?_t_',

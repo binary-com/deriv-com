@@ -6,11 +6,26 @@ export interface ContentItemImage {
     alt: TString
 }
 
-export interface OptionContentItemData {
-    title: TString
-    icon: ContentItemImage
+export interface OptionContentSingleItemData {
+    title?: TString
+    type: 'single'
+    icon?: ContentItemImage
     texts: TString[]
     images: ContentItemImage[]
+}
+
+export type OptionContentItemData = OptionContentSingleItemData | OptionContentSectionItemData
+
+export interface OptionContentSection {
+    title?: TString
+    texts: TString[]
+    images: ContentItemImage[]
+}
+export interface OptionContentSectionItemData {
+    title: TString
+    type: 'sections'
+    icon: ContentItemImage
+    sections: OptionContentSection[]
 }
 
 export interface OptionContentAvailability {

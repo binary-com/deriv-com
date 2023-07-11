@@ -11,8 +11,13 @@ interface OptionsFaqProps {
 
 const OptionsFaq = ({ faqs }: OptionsFaqProps) => {
     return (
-        <Flex.Box container="fluid" direction="col" justify="center" align="center">
-            <Typography.Heading padding_block="40x">
+        <Flex.Box container="fluid" direction="col" justify="center" align="center" pb="40x">
+            <Typography.Heading
+                padding_block="20x"
+                md={{
+                    padding_block: '40x',
+                }}
+            >
                 <Localize translate_text="_t_Browse our FAQ_t_" />
             </Typography.Heading>
             <Accordion.Root type="multiple">

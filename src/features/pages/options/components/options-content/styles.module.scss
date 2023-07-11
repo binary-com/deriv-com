@@ -2,16 +2,20 @@
 @import 'features/styles/theme/variables';
 
 .content_container {
-    border: 1px solid $color-grey-6;
-    border-radius: 8px;
+    @include breakpoints(tablet) {
+        border: 1px solid $color-grey-6;
+        border-radius: 8px;
+    }
 }
 .content_images {
     display: grid;
-    margin-inline: auto;
     grid-template-columns: 1fr;
     gap: 3rem;
+    inline-size: 100%;
+
     @include breakpoints(tablet) {
         gap: 3.2rem;
+        margin-inline: auto;
         grid-template-columns: 1fr 1fr;
     }
 }

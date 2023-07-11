@@ -62,7 +62,7 @@ export const vanillaPlatforms: OptionContentAvailability[] = [allOptionsTradePla
 export const vanillaFAQ: OptionsFAQDataItem[] = [
     {
         id: 1,
-        question: '_t_Where can I trade Up/Down options?_t_',
+        question: '_t_How do I place a vanilla options trade?_t_',
         answers: [
             {
                 id: 1,

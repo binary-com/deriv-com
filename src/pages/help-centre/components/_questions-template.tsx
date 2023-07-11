@@ -7,7 +7,7 @@ import SideTab from './_side-tab'
 import AnswerCard from './_answer-card'
 import { Community, DidntFindYourAnswerBanner } from './_lazy-load'
 import Layout from 'components/layout/layout'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { StyledLink } from 'components/elements'
 import { Container, SEO } from 'components/containers'
@@ -38,10 +38,8 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
     return (
         <Layout>
             <SEO
-                title={localize(
-                    `_t_Help centre | Frequently asked questions | ${untranslate_category} | Deriv_t_`,
-                )}
-                description={localize(`_t_Frequently asked questions - ${untranslate_category}_t_`)}
+                title={`_t_Help centre | Frequently asked questions | ${untranslate_category} | Deriv_t_`}
+                description={`_t_Frequently asked questions - ${untranslate_category}_t_`}
             />
             <Container align="start" justify="flex-start" direction="column">
                 <StyledLink

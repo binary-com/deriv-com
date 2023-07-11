@@ -11,23 +11,17 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { LinkButton } from 'components/form'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { Container } from 'components/containers'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
 type DHeroProps = {
-    background_alt?: string
-    background_image_name?: string
-    background_svg?: string
-    content?: string | JSX.Element
     is_live_demo?: boolean
     image_name?: string
     is_mobile?: boolean | string
-    hide_signup_login?: boolean
     join_us_for_free?: boolean
     Logo?: string
-    title?: string | JSX.Element
 }
 
 //TODO: (deriv-rebranding) to make the content section reusable .
@@ -41,7 +35,6 @@ const ImageStyle = styled.div`
         width: 100%;
     }
 `
-
 const ImageWrapper = styled.div`
     display: flex;
     padding: 64px 0;
@@ -63,7 +56,6 @@ const BannerButtonWrapper = styled.div`
         justify-content: center;
     }
 `
-
 const BackgroundStyle = styled.div`
     background-color: var(--color-white);
     flex: 1;
@@ -158,10 +150,11 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
+
 const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const { is_mobile } = useBreakpoints()
-    const { is_eu, is_row } = useRegion()
+    const { is_eu } = useRegion()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()
@@ -206,7 +199,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                                     target="_blank"
                                     rel="noopener noreferrer nofollow"
                                 >
-                                    <Localize translate_text="Go to live demo" />
+                                    <Localize translate_text="_t_Go to live demo_t_" />
                                 </GoToLiveDemo>
                             )}
                         </BannerButtonWrapper>
@@ -221,14 +214,14 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                                         src="../../images/common/dtrader/hero-image-eu.png"
                                         loading="eager"
                                         formats={['avif', 'webp', 'auto']}
-                                        alt="banner"
+                                        alt={localize('_t_banner_t_')}
                                     />
                                 ) : (
                                     <StaticImage
                                         src="../../images/common/dtrader/hero-image.png"
                                         loading="eager"
                                         formats={['avif', 'webp', 'auto']}
-                                        alt="banner"
+                                        alt={localize('_t_banner_t_')}
                                     />
                                 )}
                             </ImageStyle>

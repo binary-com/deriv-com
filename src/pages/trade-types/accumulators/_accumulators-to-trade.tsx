@@ -1,26 +1,15 @@
 import React from 'react'
-import styled from 'styled-components'
 import { SmallContainer, OptionGrid } from '../components/_style'
-import Notes from '../components/_notes'
 import { Flex, SectionContainer } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Text } from 'components/elements'
 import CommonHeaderSection from 'components/elements/common-header-section'
-import { localize, Localize } from 'components/localization'
-import device from 'themes/device'
+import { Localize, localize } from 'components/localization'
 // SVG
 import CrashBoom from 'images/svg/options/crash-boom.svg'
 import JumpIndices from 'images/svg/options/jump-indices.svg'
 import VolatilityIndices from 'images/svg/options/volatility-indices.svg'
 import useRegion from 'components/hooks/use-region'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-
-const MiddleText = styled(Text)`
-    margin-bottom: 0.8rem;
-
-    @media ${device.tabletL} {
-        margin-bottom: 1.6rem;
-    }
-`
 
 const AccumulatorsToTrade = () => {
     const { is_eu } = useRegion()
@@ -40,9 +29,7 @@ const AccumulatorsToTrade = () => {
 
                 {is_eu && (
                     <Text mt="0.8rem" color="grey-5" size="var(--text-size-xs)">
-                        {localize(
-                            'Return to player (RTP) % for lookbacks for a multiplier of 1 and 1m duration is around 87% on average.',
-                        )}
+                        <Localize translate_text="_t_Return to player (RTP) % for lookbacks for a multiplier of 1 and 1m duration is around 87% on average._t_" />
                     </Text>
                 )}
             </SmallContainer>
@@ -57,7 +44,7 @@ const IndicesGrid = () => {
         <OptionGrid>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <img src={CrashBoom} alt="rise fall" />
+                    <img src={CrashBoom} alt={localize('_t_rise fall_t_')} />
                 </div>
                 <CommonHeaderSection
                     title="_t_Crash/Boom indices_t_"
@@ -78,7 +65,7 @@ const IndicesGrid = () => {
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <img src={JumpIndices} alt="higher lower" />
+                    <img src={JumpIndices} alt={localize('_t_higher lower_t_')} />
                 </div>
                 <CommonHeaderSection
                     title="_t_Jump indices_t_"
@@ -102,7 +89,7 @@ const IndicesGrid = () => {
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <img src={VolatilityIndices} alt="higher lower" />
+                    <img src={VolatilityIndices} alt={localize('_t_higher lower_t_')} />
                 </div>
                 <CommonHeaderSection
                     title="_t_Volatility indices_t_"

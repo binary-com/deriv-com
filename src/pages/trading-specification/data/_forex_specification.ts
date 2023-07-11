@@ -34,7 +34,7 @@ const forex_specification: TSpecification = {
                 instrument: 'AUD/JPY',
             },
             contract_size: 100000,
-            base_currency: "AUD",
+            base_currency: 'AUD',
             minimum_size: 0.01,
             minimum_spread: 0.011,
             target_spread: 0.017,
@@ -42,7 +42,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -52,7 +52,7 @@ const forex_specification: TSpecification = {
                 instrument: 'AUD/USD',
             },
             contract_size: 100000,
-            base_currency: "AUD",
+            base_currency: 'AUD',
             minimum_size: 0.01,
             minimum_spread: 0.00003,
             target_spread: 0.00005,
@@ -60,7 +60,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -70,7 +70,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/AUD',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.00006,
             target_spread: 0.00015,
@@ -78,7 +78,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -88,7 +88,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/CAD',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.00006,
             target_spread: 0.00015,
@@ -96,7 +96,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -106,7 +106,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/CHF',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.00003,
             target_spread: 0.00007,
@@ -114,7 +114,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -124,7 +124,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/GBP',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.00003,
             target_spread: 0.00006,
@@ -132,7 +132,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -142,7 +142,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/JPY',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.005,
             target_spread: 0.01,
@@ -150,7 +150,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -160,7 +160,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/USD',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.00004,
             target_spread: 0.00006,
@@ -168,7 +168,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -178,7 +178,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/AUD',
             },
             contract_size: 100000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.01,
             minimum_spread: 0.00005,
             target_spread: 0.00022,
@@ -186,7 +186,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -196,7 +196,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/JPY',
             },
             contract_size: 100000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.01,
             minimum_spread: 0.005,
             target_spread: 0.014,
@@ -204,7 +204,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -214,7 +214,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/USD',
             },
             contract_size: 100000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.01,
             minimum_spread: 0.00004,
             target_spread: 0.00008,
@@ -222,7 +222,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -232,7 +232,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/CAD',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.00006,
             target_spread: 0.00012,
@@ -240,7 +240,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -250,7 +250,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/CHF',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.00003,
             target_spread: 0.00007,
@@ -258,7 +258,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -268,7 +268,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/JPY',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.004,
             target_spread: 0.009,
@@ -276,7 +276,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -285,7 +285,7 @@ const forex_specification: TSpecification = {
                 instrument: 'AUD/CAD',
             },
             contract_size: 100000,
-            base_currency: "AUD",
+            base_currency: 'AUD',
             minimum_size: 0.01,
             minimum_spread: 0.0001,
             target_spread: 0.00017,
@@ -293,7 +293,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -302,7 +302,7 @@ const forex_specification: TSpecification = {
                 instrument: 'AUD/CHF',
             },
             contract_size: 100000,
-            base_currency: "AUD",
+            base_currency: 'AUD',
             minimum_size: 0.01,
             minimum_spread: 0.00008,
             target_spread: 0.00014,
@@ -310,7 +310,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -319,7 +319,7 @@ const forex_specification: TSpecification = {
                 instrument: 'AUD/NZD',
             },
             contract_size: 100000,
-            base_currency: "AUD",
+            base_currency: 'AUD',
             minimum_size: 0.01,
             minimum_spread: 0.00011,
             target_spread: 0.00021,
@@ -327,7 +327,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -336,7 +336,7 @@ const forex_specification: TSpecification = {
                 instrument: 'CAD/CHF',
             },
             contract_size: 100000,
-            base_currency: "CAD",
+            base_currency: 'CAD',
             minimum_size: 0.01,
             minimum_spread: 0.00008,
             target_spread: 0.00015,
@@ -344,7 +344,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 3.04,
             swap_short: -7.33,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -353,7 +353,7 @@ const forex_specification: TSpecification = {
                 instrument: 'CAD/JPY',
             },
             contract_size: 100000,
-            base_currency: "CAD",
+            base_currency: 'CAD',
             minimum_size: 0.01,
             minimum_spread: 0.01,
             target_spread: 0.016,
@@ -361,7 +361,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 9.919,
             swap_short: -16.07,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -370,7 +370,7 @@ const forex_specification: TSpecification = {
                 instrument: 'CHF/JPY',
             },
             contract_size: 100000,
-            base_currency: "CHF",
+            base_currency: 'CHF',
             minimum_size: 0.01,
             minimum_spread: 0.01,
             target_spread: 0.022,
@@ -378,7 +378,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 3.434,
             swap_short: -10.302,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -387,7 +387,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/NOK',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.00046,
             target_spread: 0.00383,
@@ -395,7 +395,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: -15.3,
             swap_short: -10.3,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -404,7 +404,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/NZD',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.00008,
             target_spread: 0.00028,
@@ -412,7 +412,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -421,7 +421,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/PLN',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.00058,
             target_spread: 0.00132,
@@ -429,7 +429,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: -61.5,
             swap_short: 40.3,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -438,7 +438,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/SEK',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.00135,
             target_spread: 0.00424,
@@ -446,7 +446,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: -26.325,
             swap_short: -22.487,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -455,7 +455,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/CAD',
             },
             contract_size: 100000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.01,
             minimum_spread: 0.00011,
             target_spread: 0.00025,
@@ -463,7 +463,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: -3.5,
             swap_short: -3.4,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -472,7 +472,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/CHF',
             },
             contract_size: 100000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.01,
             minimum_spread: 0.00009,
             target_spread: 0.00026,
@@ -480,7 +480,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -489,7 +489,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/NOK',
             },
             contract_size: 100000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.01,
             minimum_spread: 0.00077,
             target_spread: 0.00603,
@@ -497,7 +497,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 20.1,
             swap_short: -72.1,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -506,7 +506,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/NZD',
             },
             contract_size: 100000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.01,
             minimum_spread: 0.00017,
             target_spread: 0.00045,
@@ -514,7 +514,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: -12.718,
             swap_short: 0.631,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -523,7 +523,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/SEK',
             },
             contract_size: 100000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.01,
             minimum_spread: 0.00155,
             target_spread: 0.00469,
@@ -531,7 +531,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 14.6,
             swap_short: -67.8,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -540,7 +540,7 @@ const forex_specification: TSpecification = {
                 instrument: 'NZD/CAD',
             },
             contract_size: 100000,
-            base_currency: "NZD",
+            base_currency: 'NZD',
             minimum_size: 0.01,
             minimum_spread: 0.00008,
             target_spread: 0.00015,
@@ -548,7 +548,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: -0.98,
             swap_short: -3.15,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -557,7 +557,7 @@ const forex_specification: TSpecification = {
                 instrument: 'NZD/JPY',
             },
             contract_size: 100000,
-            base_currency: "NZD",
+            base_currency: 'NZD',
             minimum_size: 0.01,
             minimum_spread: 0.009,
             target_spread: 0.018,
@@ -565,7 +565,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 10.085,
             swap_short: -17.047,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -574,7 +574,7 @@ const forex_specification: TSpecification = {
                 instrument: 'NZD/USD',
             },
             contract_size: 100000,
-            base_currency: "NZD",
+            base_currency: 'NZD',
             minimum_size: 0.01,
             minimum_spread: 0.00005,
             target_spread: 0.0001,
@@ -582,7 +582,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -591,7 +591,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/CNH',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.0009,
             target_spread: 0.00109,
@@ -599,7 +599,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 25.86,
             swap_short: -50.24,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -608,7 +608,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/MXN',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.0018,
             target_spread: 0.0037,
@@ -616,7 +616,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: -762.5,
             swap_short: 523.9,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -625,7 +625,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/NOK',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.00056,
             target_spread: 0.00408,
@@ -633,7 +633,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 42.8,
             swap_short: -74.7,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -642,7 +642,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/PLN',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.00049,
             target_spread: 0.00135,
@@ -650,7 +650,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: -35.65,
             swap_short: 14.832,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -659,7 +659,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/SEK',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.0012,
             target_spread: 0.00433,
@@ -667,7 +667,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 31.407,
             swap_short: -78.566,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -676,7 +676,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/ZAR',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.00185,
             target_spread: 0.00807,
@@ -684,7 +684,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: -208.283,
             swap_short: 81.506,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -692,7 +692,7 @@ const forex_specification: TSpecification = {
                 instrument: 'AUD/CAD micro',
             },
             contract_size: 1000,
-            base_currency: "AUD",
+            base_currency: 'AUD',
             minimum_size: 0.1,
             minimum_spread: 0.0001,
             target_spread: 0.00017,
@@ -700,7 +700,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -708,7 +708,7 @@ const forex_specification: TSpecification = {
                 instrument: 'AUD/CHF micro',
             },
             contract_size: 1000,
-            base_currency: "AUD",
+            base_currency: 'AUD',
             minimum_size: 0.1,
             minimum_spread: 0.00008,
             target_spread: 0.00014,
@@ -716,7 +716,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -724,7 +724,7 @@ const forex_specification: TSpecification = {
                 instrument: 'AUD/JPY micro',
             },
             contract_size: 1000,
-            base_currency: "AUD",
+            base_currency: 'AUD',
             minimum_size: 0.1,
             minimum_spread: 0.011,
             target_spread: 0.017,
@@ -732,7 +732,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -740,7 +740,7 @@ const forex_specification: TSpecification = {
                 instrument: 'AUD/NZD micro',
             },
             contract_size: 1000,
-            base_currency: "AUD",
+            base_currency: 'AUD',
             minimum_size: 0.1,
             minimum_spread: 0.00011,
             target_spread: 0.00021,
@@ -748,7 +748,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -756,7 +756,7 @@ const forex_specification: TSpecification = {
                 instrument: 'AUD/USD micro',
             },
             contract_size: 1000,
-            base_currency: "AUD",
+            base_currency: 'AUD',
             minimum_size: 0.1,
             minimum_spread: 0.00005,
             target_spread: 0.00007,
@@ -764,7 +764,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -772,7 +772,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/AUD micro',
             },
             contract_size: 1000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 0.00008,
             target_spread: 0.00017,
@@ -780,7 +780,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -788,7 +788,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/CAD micro',
             },
             contract_size: 1000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 0.00009,
             target_spread: 0.00018,
@@ -796,7 +796,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -804,7 +804,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/CHF micro',
             },
             contract_size: 1000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 0.00012,
             target_spread: 0.00016,
@@ -812,7 +812,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -820,7 +820,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/GBP micro',
             },
             contract_size: 1000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 0.00007,
             target_spread: 0.0001,
@@ -828,7 +828,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -836,7 +836,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/JPY micro',
             },
             contract_size: 1000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 0.008,
             target_spread: 0.013,
@@ -844,7 +844,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -852,7 +852,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/NZD micro',
             },
             contract_size: 1000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 0.00008,
             target_spread: 0.00028,
@@ -860,7 +860,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -868,7 +868,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/USD micro',
             },
             contract_size: 1000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 0.00006,
             target_spread: 0.00008,
@@ -876,7 +876,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -884,7 +884,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/CHF micro',
             },
             contract_size: 1000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.1,
             minimum_spread: 0.00009,
             target_spread: 0.00026,
@@ -892,7 +892,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -900,7 +900,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/JPY micro',
             },
             contract_size: 1000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.1,
             minimum_spread: 0.007,
             target_spread: 0.016,
@@ -908,7 +908,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -916,7 +916,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/USD micro',
             },
             contract_size: 1000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.1,
             minimum_spread: 0.00007,
             target_spread: 0.00011,
@@ -924,7 +924,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -932,7 +932,7 @@ const forex_specification: TSpecification = {
                 instrument: 'NZD/USD micro',
             },
             contract_size: 1000,
-            base_currency: "NZD",
+            base_currency: 'NZD',
             minimum_size: 0.1,
             minimum_spread: 0.00005,
             target_spread: 0.0001,
@@ -940,7 +940,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -948,7 +948,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/CAD micro',
             },
             contract_size: 1000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.00007,
             target_spread: 0.00013,
@@ -956,7 +956,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -964,7 +964,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/CHF micro',
             },
             contract_size: 1000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.00005,
             target_spread: 0.00009,
@@ -972,7 +972,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -980,7 +980,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/JPY micro',
             },
             contract_size: 1000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.006,
             target_spread: 0.011,
@@ -988,8 +988,8 @@ const forex_specification: TSpecification = {
             margin_requirement: 0.1,
             swap_long: 0,
             swap_short: 0,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
-        }
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+        },
     ],
     eu_data: [
         {
@@ -998,7 +998,7 @@ const forex_specification: TSpecification = {
                 instrument: 'AUD/CAD',
             },
             contract_size: 100000,
-            base_currency: "AUD",
+            base_currency: 'AUD',
             minimum_size: 0.01,
             minimum_spread: 0.0001,
             target_spread: 0.00017,
@@ -1006,7 +1006,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -3.3,
             swap_short: -0.2,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1014,7 +1014,7 @@ const forex_specification: TSpecification = {
                 instrument: 'AUD/CHF',
             },
             contract_size: 100000,
-            base_currency: "AUD",
+            base_currency: 'AUD',
             minimum_size: 0.01,
             minimum_spread: 0.00008,
             target_spread: 0.00014,
@@ -1022,7 +1022,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: 2.7,
             swap_short: -5.6,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1030,7 +1030,7 @@ const forex_specification: TSpecification = {
                 instrument: 'AUD/JPY',
             },
             contract_size: 100000,
-            base_currency: "AUD",
+            base_currency: 'AUD',
             minimum_size: 0.01,
             minimum_spread: 0.01,
             target_spread: 0.016,
@@ -1038,7 +1038,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: 7.62,
             swap_short: -12.642,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1046,7 +1046,7 @@ const forex_specification: TSpecification = {
                 instrument: 'AUD/NZD',
             },
             contract_size: 100000,
-            base_currency: "AUD",
+            base_currency: 'AUD',
             minimum_size: 0.01,
             minimum_spread: 0.00014,
             target_spread: 0.00024,
@@ -1054,7 +1054,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -6.72,
             swap_short: 0.92,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1062,7 +1062,7 @@ const forex_specification: TSpecification = {
                 instrument: 'AUD/USD',
             },
             contract_size: 100000,
-            base_currency: "AUD",
+            base_currency: 'AUD',
             minimum_size: 0.01,
             minimum_spread: 0.00003,
             target_spread: 0.00005,
@@ -1070,7 +1070,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -4,
             swap_short: 1.3,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1078,7 +1078,7 @@ const forex_specification: TSpecification = {
                 instrument: 'CAD/CHF',
             },
             contract_size: 100000,
-            base_currency: "CAD",
+            base_currency: 'CAD',
             minimum_size: 0.01,
             minimum_spread: 0.00008,
             target_spread: 0.00015,
@@ -1086,7 +1086,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: 3.04,
             swap_short: -7.33,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1094,7 +1094,7 @@ const forex_specification: TSpecification = {
                 instrument: 'CAD/JPY',
             },
             contract_size: 100000,
-            base_currency: "CAD",
+            base_currency: 'CAD',
             minimum_size: 0.01,
             minimum_spread: 0.01,
             target_spread: 0.016,
@@ -1102,7 +1102,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: 9.919,
             swap_short: -16.07,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1110,7 +1110,7 @@ const forex_specification: TSpecification = {
                 instrument: 'CHF/JPY',
             },
             contract_size: 100000,
-            base_currency: "CHF",
+            base_currency: 'CHF',
             minimum_size: 0.01,
             minimum_spread: 0.01,
             target_spread: 0.022,
@@ -1118,7 +1118,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 3.33,
             swap_long: 3.434,
             swap_short: -10.302,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1126,7 +1126,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/AUD',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.00006,
             target_spread: 0.00015,
@@ -1134,7 +1134,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -6.3,
             swap_short: 0.1,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1142,7 +1142,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/CAD',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.00006,
             target_spread: 0.00015,
@@ -1150,7 +1150,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 3.33,
             swap_long: -9.78,
             swap_short: 2.28,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1158,7 +1158,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/CHF',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.00003,
             target_spread: 0.00007,
@@ -1166,7 +1166,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 3.33,
             swap_long: 2.8,
             swap_short: -7,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1174,7 +1174,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/GBP',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.00003,
             target_spread: 0.00006,
@@ -1182,7 +1182,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 3.33,
             swap_long: -5.2,
             swap_short: 1.4,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1190,7 +1190,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/JPY',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.005,
             target_spread: 0.01,
@@ -1198,7 +1198,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 3.33,
             swap_long: 6.11,
             swap_short: -14.02,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1206,7 +1206,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/NOK',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.00101,
             target_spread: 0.00438,
@@ -1214,7 +1214,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -15.3,
             swap_short: -10.3,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1222,7 +1222,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/NZD',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.0001,
             target_spread: 0.0003,
@@ -1230,7 +1230,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -16.158,
             swap_short: 6.723,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1238,7 +1238,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/PLN',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.00058,
             target_spread: 0.00132,
@@ -1246,7 +1246,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -61.5,
             swap_short: 40.3,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1254,7 +1254,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/SEK',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.0009,
             target_spread: 0.00379,
@@ -1262,7 +1262,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -26.325,
             swap_short: -22.487,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1270,7 +1270,7 @@ const forex_specification: TSpecification = {
                 instrument: 'EUR/USD',
             },
             contract_size: 100000,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.01,
             minimum_spread: 0.00004,
             target_spread: 0.00006,
@@ -1278,7 +1278,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 3.33,
             swap_long: -8,
             swap_short: 4,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1286,7 +1286,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/AUD',
             },
             contract_size: 100000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.01,
             minimum_spread: 0.00005,
             target_spread: 0.00022,
@@ -1294,7 +1294,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -0.3,
             swap_short: -6.7,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1302,7 +1302,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/CAD',
             },
             contract_size: 100000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.01,
             minimum_spread: 0.00013,
             target_spread: 0.00027,
@@ -1310,7 +1310,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -3.5,
             swap_short: -3.4,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1318,7 +1318,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/CHF',
             },
             contract_size: 100000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.01,
             minimum_spread: 0.0001,
             target_spread: 0.00027,
@@ -1326,7 +1326,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 3.33,
             swap_long: 6.6,
             swap_short: -12.3,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1334,7 +1334,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/JPY',
             },
             contract_size: 100000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.01,
             minimum_spread: 0.005,
             target_spread: 0.014,
@@ -1342,7 +1342,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 3.33,
             swap_long: 16.393,
             swap_short: -27.425,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1350,7 +1350,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/NOK',
             },
             contract_size: 100000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.01,
             minimum_spread: 0.00121,
             target_spread: 0.00647,
@@ -1358,7 +1358,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: 20.1,
             swap_short: -72.1,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1366,7 +1366,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/NZD',
             },
             contract_size: 100000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.01,
             minimum_spread: 0.00017,
             target_spread: 0.00045,
@@ -1374,7 +1374,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -12.718,
             swap_short: 0.631,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1382,7 +1382,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/SEK',
             },
             contract_size: 100000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.01,
             minimum_spread: 0.00121,
             target_spread: 0.00435,
@@ -1390,7 +1390,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: 14.6,
             swap_short: -67.8,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1398,7 +1398,7 @@ const forex_specification: TSpecification = {
                 instrument: 'GBP/USD',
             },
             contract_size: 100000,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.01,
             minimum_spread: 0.00004,
             target_spread: 0.00008,
@@ -1406,7 +1406,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 3.33,
             swap_long: -5,
             swap_short: 0.6,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1414,7 +1414,7 @@ const forex_specification: TSpecification = {
                 instrument: 'NZD/CAD',
             },
             contract_size: 100000,
-            base_currency: "NZD",
+            base_currency: 'NZD',
             minimum_size: 0.01,
             minimum_spread: 0.0001,
             target_spread: 0.00017,
@@ -1422,7 +1422,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -0.98,
             swap_short: -3.15,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1430,7 +1430,7 @@ const forex_specification: TSpecification = {
                 instrument: 'NZD/JPY',
             },
             contract_size: 100000,
-            base_currency: "NZD",
+            base_currency: 'NZD',
             minimum_size: 0.01,
             minimum_spread: 0.009,
             target_spread: 0.018,
@@ -1438,7 +1438,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: 10.085,
             swap_short: -17.047,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1446,7 +1446,7 @@ const forex_specification: TSpecification = {
                 instrument: 'NZD/USD',
             },
             contract_size: 100000,
-            base_currency: "NZD",
+            base_currency: 'NZD',
             minimum_size: 0.01,
             minimum_spread: 0.00006,
             target_spread: 0.00011,
@@ -1454,7 +1454,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -1.34,
             swap_short: -1.51,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1462,7 +1462,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/CAD',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.00006,
             target_spread: 0.00012,
@@ -1470,7 +1470,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 3.33,
             swap_long: 0.6,
             swap_short: -5.5,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1478,7 +1478,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/CHF',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.00003,
             target_spread: 0.00007,
@@ -1486,7 +1486,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 3.33,
             swap_long: 4.44,
             swap_short: -10.12,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1494,7 +1494,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/CNH',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.0009,
             target_spread: 0.00109,
@@ -1502,7 +1502,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: 25.86,
             swap_short: -50.24,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1510,7 +1510,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/JPY',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.004,
             target_spread: 0.009,
@@ -1518,7 +1518,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 3.33,
             swap_long: 16.351,
             swap_short: -24.378,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1526,7 +1526,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/MXN',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.002,
             target_spread: 0.0039,
@@ -1534,7 +1534,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -762.5,
             swap_short: 523.9,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1542,7 +1542,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/NOK',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.0009,
             target_spread: 0.00442,
@@ -1550,7 +1550,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: 42.8,
             swap_short: -74.7,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1558,7 +1558,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/PLN',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.00049,
             target_spread: 0.00135,
@@ -1566,7 +1566,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -35.65,
             swap_short: 14.832,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1574,7 +1574,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/SEK',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.0012,
             target_spread: 0.00433,
@@ -1582,7 +1582,7 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: 31.407,
             swap_short: -78.566,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
         },
         {
             instrument: {
@@ -1590,7 +1590,7 @@ const forex_specification: TSpecification = {
                 instrument: 'USD/ZAR',
             },
             contract_size: 100000,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.0015,
             target_spread: 0.00772,
@@ -1598,8 +1598,8 @@ const forex_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -208.283,
             swap_short: 81.506,
-            trading_hours: "Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05"
-        }
+            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+        },
     ],
 }
 

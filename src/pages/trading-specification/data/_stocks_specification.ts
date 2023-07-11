@@ -28,7 +28,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Australia 200',
             },
             contract_size: 1,
-            base_currency: "AUD",
+            base_currency: 'AUD',
             minimum_size: 0.1,
             minimum_spread: 3.46,
             target_spread: 3.47,
@@ -36,7 +36,8 @@ const stocks_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -180.62,
             swap_short: 2.644,
-            trading_hours: "Sun 22:50-24:00 GMT\nMon-Thur 00:00-05:30, 06:10-20:00 22:50-24:00 GMT\nFri 00:00-05:30, 06:10-20:00 GMT"
+            trading_hours:
+                'Sun 22:50-24:00 GMT\nMon-Thur 00:00-05:30, 06:10-20:00 22:50-24:00 GMT\nFri 00:00-05:30, 06:10-20:00 GMT',
         },
         {
             instrument: {
@@ -45,7 +46,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Netherlands 25',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 0.31,
             target_spread: 0.31,
@@ -53,7 +54,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -22.652,
             swap_short: 0.269,
-            trading_hours: "Mon-Fri 06:00-20:00 GMT"
+            trading_hours: 'Mon-Fri 06:00-20:00 GMT',
         },
         {
             instrument: {
@@ -62,7 +63,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Europe 50',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 1.78,
             target_spread: 1.78,
@@ -70,7 +71,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -128.403,
             swap_short: 1.598,
-            trading_hours: "Mon-Fri 06:00-20:00 GMT"
+            trading_hours: 'Mon-Fri 06:00-20:00 GMT',
         },
         {
             instrument: {
@@ -79,7 +80,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'France 40',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 1.08,
             target_spread: 1.22,
@@ -87,7 +88,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -218.189,
             swap_short: 2.715,
-            trading_hours: "Mon-Fri 06:00-20:00 GMT"
+            trading_hours: 'Mon-Fri 06:00-20:00 GMT',
         },
         {
             instrument: {
@@ -96,7 +97,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Germany 40',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 1.4,
             target_spread: 1.43,
@@ -104,7 +105,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -314.105,
             swap_short: 20.253,
-            trading_hours: "Mon-Fri 06:00-20:00 GMT"
+            trading_hours: 'Mon-Fri 06:00-20:00 GMT',
         },
         {
             instrument: {
@@ -113,7 +114,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Japan 225',
             },
             contract_size: 1,
-            base_currency: "JPY",
+            base_currency: 'JPY',
             minimum_size: 10,
             minimum_spread: 3.5,
             target_spread: 5.74,
@@ -121,7 +122,8 @@ const stocks_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -374.135,
             swap_short: -451.978,
-            trading_hours: "Sun 22:00-24:00 GMT\nMon-Thur 00:00-21:00, 22:00-24:00 GMT\nFri 00:00-21:00 GMT"
+            trading_hours:
+                'Sun 22:00-24:00 GMT\nMon-Thur 00:00-21:00, 22:00-24:00 GMT\nFri 00:00-21:00 GMT',
         },
         {
             instrument: {
@@ -130,7 +132,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Spain 35',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 5.9,
             target_spread: 5.99,
@@ -138,7 +140,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -273.982,
             swap_short: 3.409,
-            trading_hours: "Mon-Fri 07:00-18:00 GMT"
+            trading_hours: 'Mon-Fri 07:00-18:00 GMT',
         },
         {
             instrument: {
@@ -147,7 +149,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'UK 100',
             },
             contract_size: 1,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.1,
             minimum_spread: 0.76,
             target_spread: 1.66,
@@ -155,7 +157,8 @@ const stocks_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -187.139,
             swap_short: 31.446,
-            trading_hours: "Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:00 GMT"
+            trading_hours:
+                'Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:00 GMT',
         },
         {
             instrument: {
@@ -165,7 +168,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'US 500',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.6,
             target_spread: 0.82,
@@ -173,7 +176,8 @@ const stocks_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -110.023,
             swap_short: 22.469,
-            trading_hours: "Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT"
+            trading_hours:
+                'Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT',
         },
         {
             instrument: {
@@ -183,7 +187,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'US Tech 100',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 1.26,
             target_spread: 1.52,
@@ -191,7 +195,8 @@ const stocks_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -363.306,
             swap_short: 74.195,
-            trading_hours: "Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT"
+            trading_hours:
+                'Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT',
         },
         {
             instrument: {
@@ -201,7 +206,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Wall Street 30',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 1.5,
             target_spread: 2.77,
@@ -209,7 +214,8 @@ const stocks_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -805.422,
             swap_short: 202.626,
-            trading_hours: "Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT"
+            trading_hours:
+                'Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT',
         },
         {
             instrument: {
@@ -218,7 +224,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'American Airlines Group Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.09,
             target_spread: 0.1,
@@ -226,7 +232,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -0.398,
             swap_short: 0.073,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -235,7 +241,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Apple Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.61,
             target_spread: 0.62,
@@ -243,7 +249,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -4.732,
             swap_short: 0.867,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -252,7 +258,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Airbnb Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.43,
             target_spread: 0.47,
@@ -260,7 +266,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -2.978,
             swap_short: 0.545,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -269,7 +275,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Adidas Salomon',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.96,
             target_spread: 1.01,
@@ -277,7 +283,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -3.229,
             swap_short: 0.187,
-            trading_hours: "Mon Fri 08:00 - 16:30 GMT"
+            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
             instrument: {
@@ -286,7 +292,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'American International Group',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.24,
             target_spread: 0.25,
@@ -294,7 +300,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -1.53,
             swap_short: 0.28,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -303,7 +309,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Airbus SE',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.42,
             target_spread: 0.44,
@@ -311,7 +317,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -2.561,
             swap_short: 0.148,
-            trading_hours: "Mon Fri 08:00 - 16:30 GMT"
+            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
             instrument: {
@@ -320,7 +326,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Air France KLM SA',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.06,
             target_spread: 0.06,
@@ -328,7 +334,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -0.034,
             swap_short: 0.002,
-            trading_hours: "Mon Fri 08:00 - 16:30 GMT"
+            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
             instrument: {
@@ -337,7 +343,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Advanced Micro Devices Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.49,
             target_spread: 0.51,
@@ -345,7 +351,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -3.008,
             swap_short: 0.551,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -354,7 +360,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Amazon.com Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.63,
             target_spread: 0.64,
@@ -362,7 +368,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -3.167,
             swap_short: 0.58,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -371,7 +377,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Boeing',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.82,
             target_spread: 0.98,
@@ -379,7 +385,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -5.66,
             swap_short: 1.037,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -388,7 +394,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Alibaba Group Holding Ltd',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.58,
             target_spread: 0.6,
@@ -396,7 +402,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -2.322,
             swap_short: 0.425,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -405,7 +411,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Bank of America',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.19,
             target_spread: 0.19,
@@ -413,7 +419,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -0.789,
             swap_short: 0.144,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -422,7 +428,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Bayer AG',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.21,
             target_spread: 0.22,
@@ -430,7 +436,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -1.093,
             swap_short: 0.063,
-            trading_hours: "Mon Fri 08:00 - 16:30 GMT"
+            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
             instrument: {
@@ -439,7 +445,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Biogen Inc.',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.78,
             target_spread: 1.04,
@@ -447,7 +453,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -8.328,
             swap_short: 1.525,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -456,7 +462,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'BMW',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.38,
             target_spread: 0.39,
@@ -464,7 +470,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -2.115,
             swap_short: 0.123,
-            trading_hours: "Mon Fri 08:00 - 16:30 GMT"
+            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
             instrument: {
@@ -473,7 +479,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Citigroup',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.26,
             target_spread: 0.26,
@@ -481,7 +487,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -1.269,
             swap_short: 0.232,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -490,7 +496,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Continental AG',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.37,
             target_spread: 0.4,
@@ -498,7 +504,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -1.362,
             swap_short: 0.079,
-            trading_hours: "Mon Fri 08:00 - 16:30 GMT"
+            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
             instrument: {
@@ -507,7 +513,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Salesforce.com Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.7,
             target_spread: 0.76,
@@ -515,7 +521,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -5.701,
             swap_short: 1.044,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -524,7 +530,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Cisco Systems',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.25,
             target_spread: 0.26,
@@ -532,7 +538,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -1.342,
             swap_short: 0.246,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -541,7 +547,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Delta Air Lines',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.19,
             target_spread: 0.19,
@@ -549,7 +555,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -0.996,
             swap_short: 0.182,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -558,7 +564,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Deutsche Bank AG',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.09,
             target_spread: 0.09,
@@ -566,7 +572,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -0.202,
             swap_short: 0.012,
-            trading_hours: "Mon Fri 08:00 - 16:30 GMT"
+            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
             instrument: {
@@ -575,7 +581,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Walt Disney Company',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.65,
             target_spread: 0.66,
@@ -583,7 +589,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -2.505,
             swap_short: 0.459,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -592,7 +598,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'eBay Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.26,
             target_spread: 0.27,
@@ -600,7 +606,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -1.196,
             swap_short: 0.219,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -609,7 +615,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Meta Platforms Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.32,
             target_spread: 1.37,
@@ -617,7 +623,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -6.819,
             swap_short: 1.25,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -626,7 +632,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Fedex',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.84,
             target_spread: 1.02,
@@ -634,7 +640,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -6.237,
             swap_short: 1.142,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -643,7 +649,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Fox Corporation B',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.16,
             target_spread: 0.16,
@@ -651,7 +657,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -0.797,
             swap_short: 0.146,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -660,7 +666,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'General Motors Company',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.22,
             target_spread: 0.22,
@@ -668,7 +674,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -0.922,
             swap_short: 0.169,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -677,7 +683,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Alphabet Inc Class C',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 9.51,
             target_spread: 9.52,
@@ -685,7 +691,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -3.413,
             swap_short: 0.625,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -694,7 +700,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Goldman Sachs Group',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.41,
             target_spread: 1.7,
@@ -702,7 +708,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -8.925,
             swap_short: 1.635,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -711,7 +717,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Home Depot Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.5,
             target_spread: 0.6,
@@ -719,7 +725,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -8.122,
             swap_short: 1.488,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -728,7 +734,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'HP Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.13,
             target_spread: 0.15,
@@ -736,7 +742,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -0.84,
             swap_short: 0.153,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -745,7 +751,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'IBM',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.57,
             target_spread: 0.59,
@@ -753,7 +759,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -3.489,
             swap_short: 0.639,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -762,7 +768,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Intel',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.24,
             target_spread: 0.25,
@@ -770,7 +776,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -0.819,
             swap_short: 0.15,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -779,7 +785,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Johnson & Johnson',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.66,
             target_spread: 0.69,
@@ -787,7 +793,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -4.294,
             swap_short: 0.787,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -796,7 +802,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'JP Morgan Chase',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.63,
             target_spread: 0.65,
@@ -804,7 +810,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -3.786,
             swap_short: 0.694,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -813,7 +819,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Coca-Cola',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.23,
             target_spread: 0.23,
@@ -821,7 +827,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -1.687,
             swap_short: 0.309,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -830,7 +836,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Lufthansa AG',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.06,
             target_spread: 0.06,
@@ -838,7 +844,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -0.194,
             swap_short: 0.011,
-            trading_hours: "Mon Fri 08:00 - 16:30 GMT"
+            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
             instrument: {
@@ -847,7 +853,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Mastercard Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.2,
             target_spread: 1.45,
@@ -855,7 +861,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -10.313,
             swap_short: 1.889,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -864,7 +870,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'McDonalds',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.88,
             target_spread: 0.97,
@@ -872,7 +878,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -7.859,
             swap_short: 1.44,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -881,7 +887,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Moderna Inc.',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.75,
             target_spread: 0.8,
@@ -889,7 +895,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -3.648,
             swap_short: 0.668,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -898,7 +904,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Microsoft Corporation',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.12,
             target_spread: 1.13,
@@ -906,7 +912,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -8.75,
             swap_short: 1.604,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -915,7 +921,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Netflix Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.78,
             target_spread: 1.97,
@@ -923,7 +929,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -9.927,
             swap_short: 1.817,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -932,7 +938,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Nike',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.56,
             target_spread: 0.57,
@@ -940,7 +946,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -3.015,
             swap_short: 0.552,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -949,7 +955,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'NVIDIA Corp',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.36,
             target_spread: 1.41,
@@ -957,7 +963,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -8.507,
             swap_short: 1.559,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -966,7 +972,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'PepsiCo Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.59,
             target_spread: 0.61,
@@ -974,7 +980,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -5.074,
             swap_short: 0.93,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -983,7 +989,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Pfizer',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.21,
             target_spread: 0.21,
@@ -991,7 +997,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -1.058,
             swap_short: 0.194,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1000,7 +1006,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Procter & Gamble',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.57,
             target_spread: 0.6,
@@ -1008,7 +1014,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -4.07,
             swap_short: 0.746,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1017,7 +1023,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Porsche Automobil Holding SE',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.32,
             target_spread: 0.34,
@@ -1025,7 +1031,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -1.126,
             swap_short: 0.065,
-            trading_hours: "Mon Fri 08:00 - 16:30 GMT"
+            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
             instrument: {
@@ -1034,7 +1040,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Puma SE',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.38,
             target_spread: 0.41,
@@ -1042,7 +1048,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -0.952,
             swap_short: 0.055,
-            trading_hours: "Mon Fri 08:00 - 16:30 GMT"
+            trading_hours: 'Mon Fri 08:00 - 16:30 GMT',
         },
         {
             instrument: {
@@ -1051,7 +1057,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Paypal',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.74,
             target_spread: 0.75,
@@ -1059,7 +1065,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -1.728,
             swap_short: 0.316,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1068,7 +1074,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Sony Corporation',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.54,
             target_spread: 0.59,
@@ -1076,7 +1082,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -2.604,
             swap_short: 0.477,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1085,7 +1091,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Teva Pharmaceutical Inds',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.07,
             target_spread: 0.08,
@@ -1093,7 +1099,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -0.217,
             swap_short: 0.039,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1102,7 +1108,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Tesla Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.13,
             target_spread: 1.15,
@@ -1110,7 +1116,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -5.273,
             swap_short: 0.966,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1119,7 +1125,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Uber Technologies Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.17,
             target_spread: 0.17,
@@ -1127,7 +1133,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -1.084,
             swap_short: 0.199,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1136,7 +1142,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Visa',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.77,
             target_spread: 0.83,
@@ -1144,7 +1150,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -6.182,
             swap_short: 1.132,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1153,7 +1159,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Wal-Mart Stores Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.55,
             target_spread: 0.57,
@@ -1161,7 +1167,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -4.07,
             swap_short: 0.746,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1170,7 +1176,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Zoom Video Communications Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.6,
             target_spread: 0.63,
@@ -1178,8 +1184,8 @@ const stocks_specification: TSpecification = {
             margin_requirement: 2,
             swap_long: -1.823,
             swap_short: 0.334,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
-        }
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
+        },
     ],
     eu_data: [
         {
@@ -1188,7 +1194,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Adidas Salomon',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.96,
             target_spread: 1.01,
@@ -1196,7 +1202,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -3.229,
             swap_short: 0.187,
-            trading_hours: "Mon Fri 07:00 - 15:30 GMT"
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1204,7 +1210,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Airbus SE',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.42,
             target_spread: 0.44,
@@ -1212,7 +1218,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -2.561,
             swap_short: 0.148,
-            trading_hours: "Mon Fri 07:00 - 15:30 GMT"
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1220,7 +1226,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Air France KLM SA',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.06,
             target_spread: 0.06,
@@ -1228,7 +1234,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -0.034,
             swap_short: 0.002,
-            trading_hours: "Mon Fri 07:00 - 15:30 GMT"
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1236,7 +1242,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Bayer AG',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.21,
             target_spread: 0.22,
@@ -1244,7 +1250,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -1.093,
             swap_short: 0.063,
-            trading_hours: "Mon Fri 07:00 - 15:30 GMT"
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1252,7 +1258,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'BMW',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.38,
             target_spread: 0.39,
@@ -1260,7 +1266,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -2.115,
             swap_short: 0.123,
-            trading_hours: "Mon Fri 07:00 - 15:30 GMT"
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1268,7 +1274,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Continental AG',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.37,
             target_spread: 0.4,
@@ -1276,7 +1282,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -1.362,
             swap_short: 0.079,
-            trading_hours: "Mon Fri 07:00 - 15:30 GMT"
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1284,7 +1290,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Deutsche Bank AG',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.09,
             target_spread: 0.09,
@@ -1292,7 +1298,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -0.202,
             swap_short: 0.012,
-            trading_hours: "Mon Fri 07:00 - 15:30 GMT"
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1300,7 +1306,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Lufthansa AG',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.06,
             target_spread: 0.06,
@@ -1308,7 +1314,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -0.194,
             swap_short: 0.011,
-            trading_hours: "Mon Fri 07:00 - 15:30 GMT"
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1316,7 +1322,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Porsche Automobil Holding SE',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.32,
             target_spread: 0.34,
@@ -1324,7 +1330,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -1.126,
             swap_short: 0.065,
-            trading_hours: "Mon Fri 07:00 - 15:30 GMT"
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1332,7 +1338,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Puma SE',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 1,
             minimum_spread: 0.38,
             target_spread: 0.41,
@@ -1340,7 +1346,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -0.952,
             swap_short: 0.055,
-            trading_hours: "Mon Fri 07:00 - 15:30 GMT"
+            trading_hours: 'Mon Fri 07:00 - 15:30 GMT',
         },
         {
             instrument: {
@@ -1348,7 +1354,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Australia 200',
             },
             contract_size: 1,
-            base_currency: "AUD",
+            base_currency: 'AUD',
             minimum_size: 0.1,
             minimum_spread: 3.46,
             target_spread: 3.47,
@@ -1356,7 +1362,8 @@ const stocks_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -180.62,
             swap_short: 2.644,
-            trading_hours: "Sun 22:50-24:00 GMT\nMon-Thur 00:00-05:30, 06:10-20:00 22:50-24:00 GMT\nFri 00:00-05:30, 06:10-20:00 GMT"
+            trading_hours:
+                'Sun 22:50-24:00 GMT\nMon-Thur 00:00-05:30, 06:10-20:00 22:50-24:00 GMT\nFri 00:00-05:30, 06:10-20:00 GMT',
         },
         {
             instrument: {
@@ -1364,7 +1371,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Europe 50',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 1.78,
             target_spread: 1.78,
@@ -1372,7 +1379,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -128.403,
             swap_short: 1.598,
-            trading_hours: "Mon-Fri 06:00-20:00 GMT"
+            trading_hours: 'Mon-Fri 06:00-20:00 GMT',
         },
         {
             instrument: {
@@ -1380,7 +1387,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'France 40',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 1.08,
             target_spread: 1.22,
@@ -1388,7 +1395,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -218.189,
             swap_short: 2.715,
-            trading_hours: "Mon-Fri 06:00-20:00 GMT"
+            trading_hours: 'Mon-Fri 06:00-20:00 GMT',
         },
         {
             instrument: {
@@ -1396,7 +1403,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Germany 40',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 1.4,
             target_spread: 1.43,
@@ -1404,7 +1411,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -314.105,
             swap_short: 20.253,
-            trading_hours: "Mon-Fri 06:00-20:00 GMT"
+            trading_hours: 'Mon-Fri 06:00-20:00 GMT',
         },
         {
             instrument: {
@@ -1412,7 +1419,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Japan 225',
             },
             contract_size: 1,
-            base_currency: "JPY",
+            base_currency: 'JPY',
             minimum_size: 10,
             minimum_spread: 3.5,
             target_spread: 5.74,
@@ -1420,7 +1427,8 @@ const stocks_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -374.135,
             swap_short: -451.978,
-            trading_hours: "Sun 22:00-24:00 GMT\nMon-Thur 00:00-21:00, 22:00-24:00 GMT\nFri 00:00-21:00 GMT"
+            trading_hours:
+                'Sun 22:00-24:00 GMT\nMon-Thur 00:00-21:00, 22:00-24:00 GMT\nFri 00:00-21:00 GMT',
         },
         {
             instrument: {
@@ -1428,7 +1436,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Spain 35',
             },
             contract_size: 1,
-            base_currency: "EUR",
+            base_currency: 'EUR',
             minimum_size: 0.1,
             minimum_spread: 5.9,
             target_spread: 5.99,
@@ -1436,7 +1444,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 10,
             swap_long: -273.982,
             swap_short: 3.409,
-            trading_hours: "Mon-Fri 07:00-18:00 GMT"
+            trading_hours: 'Mon-Fri 07:00-18:00 GMT',
         },
         {
             instrument: {
@@ -1444,7 +1452,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'UK 100',
             },
             contract_size: 1,
-            base_currency: "GBP",
+            base_currency: 'GBP',
             minimum_size: 0.1,
             minimum_spread: 0.76,
             target_spread: 1.66,
@@ -1452,7 +1460,8 @@ const stocks_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -187.139,
             swap_short: 31.446,
-            trading_hours: "Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:00 GMT"
+            trading_hours:
+                'Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:00 GMT',
         },
         {
             instrument: {
@@ -1460,7 +1469,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'US 500',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.6,
             target_spread: 0.82,
@@ -1468,7 +1477,8 @@ const stocks_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -110.023,
             swap_short: 22.469,
-            trading_hours: "Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT"
+            trading_hours:
+                'Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT',
         },
         {
             instrument: {
@@ -1476,7 +1486,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'US Tech 100',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 1.26,
             target_spread: 1.52,
@@ -1484,7 +1494,8 @@ const stocks_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -363.306,
             swap_short: 74.195,
-            trading_hours: "Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT"
+            trading_hours:
+                'Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT',
         },
         {
             instrument: {
@@ -1492,7 +1503,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Wall Street 30',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 1.5,
             target_spread: 2.77,
@@ -1500,7 +1511,8 @@ const stocks_specification: TSpecification = {
             margin_requirement: 5,
             swap_long: -805.422,
             swap_short: 202.626,
-            trading_hours: "Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT"
+            trading_hours:
+                'Sun 22:05-24:00 GMT\nMon-Thur 00:00-20:55, 22:05-24:00 GMT\nFri 00:00-20:55 GMT',
         },
         {
             instrument: {
@@ -1508,7 +1520,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'American Airlines Group Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.09,
             target_spread: 0.1,
@@ -1516,7 +1528,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -0.398,
             swap_short: 0.073,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1524,7 +1536,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Apple Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.61,
             target_spread: 0.62,
@@ -1532,7 +1544,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -4.732,
             swap_short: 0.867,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1540,7 +1552,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Airbnb Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.43,
             target_spread: 0.47,
@@ -1548,7 +1560,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -2.978,
             swap_short: 0.545,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1556,7 +1568,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'American International Group',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.24,
             target_spread: 0.25,
@@ -1564,7 +1576,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -1.53,
             swap_short: 0.28,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1572,7 +1584,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Advanced Micro Devices Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.49,
             target_spread: 0.51,
@@ -1580,7 +1592,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -3.008,
             swap_short: 0.551,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1588,7 +1600,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Amazon.com Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.63,
             target_spread: 0.64,
@@ -1596,7 +1608,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -3.167,
             swap_short: 0.58,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1604,7 +1616,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Boeing',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.82,
             target_spread: 0.98,
@@ -1612,7 +1624,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -5.66,
             swap_short: 1.037,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1620,7 +1632,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Alibaba Group Holding Ltd',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.58,
             target_spread: 0.6,
@@ -1628,7 +1640,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -2.322,
             swap_short: 0.425,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1636,7 +1648,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Bank of America',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.19,
             target_spread: 0.19,
@@ -1644,7 +1656,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -0.789,
             swap_short: 0.144,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1652,7 +1664,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Biogen Inc.',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.78,
             target_spread: 1.04,
@@ -1660,7 +1672,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -8.328,
             swap_short: 1.525,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1668,7 +1680,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Citigroup',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.26,
             target_spread: 0.26,
@@ -1676,7 +1688,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -1.269,
             swap_short: 0.232,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1684,7 +1696,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Salesforce.com Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.7,
             target_spread: 0.76,
@@ -1692,7 +1704,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -5.701,
             swap_short: 1.044,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1700,7 +1712,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Cisco Systems',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.25,
             target_spread: 0.26,
@@ -1708,7 +1720,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -1.342,
             swap_short: 0.246,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1716,7 +1728,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Delta Air Lines',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.19,
             target_spread: 0.19,
@@ -1724,7 +1736,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -0.996,
             swap_short: 0.182,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1732,7 +1744,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Walt Disney Company',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.65,
             target_spread: 0.66,
@@ -1740,7 +1752,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -2.505,
             swap_short: 0.459,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1748,7 +1760,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'eBay Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.26,
             target_spread: 0.27,
@@ -1756,7 +1768,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -1.196,
             swap_short: 0.219,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1764,7 +1776,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Meta Platforms Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.32,
             target_spread: 1.37,
@@ -1772,7 +1784,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -6.819,
             swap_short: 1.25,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1780,7 +1792,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Fedex',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.84,
             target_spread: 1.02,
@@ -1788,7 +1800,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -6.237,
             swap_short: 1.142,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1796,7 +1808,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Fox Corporation B',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.16,
             target_spread: 0.16,
@@ -1804,7 +1816,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -0.797,
             swap_short: 0.146,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1812,7 +1824,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'General Motors Company',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.22,
             target_spread: 0.22,
@@ -1820,7 +1832,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -0.922,
             swap_short: 0.169,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1828,7 +1840,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Alphabet Inc Class C',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 9.51,
             target_spread: 9.52,
@@ -1836,7 +1848,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -3.413,
             swap_short: 0.625,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1844,7 +1856,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Goldman Sachs Group',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.41,
             target_spread: 1.7,
@@ -1852,7 +1864,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -8.925,
             swap_short: 1.635,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1860,7 +1872,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Home Depot Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.5,
             target_spread: 0.6,
@@ -1868,7 +1880,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -8.122,
             swap_short: 1.488,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1876,7 +1888,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'HP Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.13,
             target_spread: 0.15,
@@ -1884,7 +1896,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -0.84,
             swap_short: 0.153,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1892,7 +1904,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'IBM',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.57,
             target_spread: 0.59,
@@ -1900,7 +1912,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -3.489,
             swap_short: 0.639,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1908,7 +1920,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Intel',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.24,
             target_spread: 0.25,
@@ -1916,7 +1928,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -0.819,
             swap_short: 0.15,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1924,7 +1936,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Jonhson & Johnson',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.66,
             target_spread: 0.69,
@@ -1932,7 +1944,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -4.294,
             swap_short: 0.787,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1940,7 +1952,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'JP Morgan Chase',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.63,
             target_spread: 0.65,
@@ -1948,7 +1960,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -3.786,
             swap_short: 0.694,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1956,7 +1968,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Coca-Cola',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.23,
             target_spread: 0.23,
@@ -1964,7 +1976,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -1.687,
             swap_short: 0.309,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1972,7 +1984,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Mastercard Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.2,
             target_spread: 1.45,
@@ -1980,7 +1992,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -10.313,
             swap_short: 1.889,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -1988,7 +2000,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'McDonalds',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.88,
             target_spread: 0.97,
@@ -1996,7 +2008,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -7.859,
             swap_short: 1.44,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2004,7 +2016,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Moderna Inc.',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.75,
             target_spread: 0.8,
@@ -2012,7 +2024,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -3.648,
             swap_short: 0.668,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2020,7 +2032,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Microsoft Corporation',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.12,
             target_spread: 1.13,
@@ -2028,7 +2040,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -8.75,
             swap_short: 1.604,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2036,7 +2048,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Netflix Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.78,
             target_spread: 1.97,
@@ -2044,7 +2056,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -9.927,
             swap_short: 1.817,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2052,7 +2064,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Nike',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.56,
             target_spread: 0.57,
@@ -2060,7 +2072,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -3.015,
             swap_short: 0.552,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2068,7 +2080,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'NVIDIA Corp',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.36,
             target_spread: 1.41,
@@ -2076,7 +2088,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -8.507,
             swap_short: 1.559,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2084,7 +2096,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'PepsiCo Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.59,
             target_spread: 0.61,
@@ -2092,7 +2104,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -5.074,
             swap_short: 0.93,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2100,7 +2112,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Pfizer',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.21,
             target_spread: 0.21,
@@ -2108,7 +2120,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -1.058,
             swap_short: 0.194,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2116,7 +2128,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Procter & Gamble',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.57,
             target_spread: 0.6,
@@ -2124,7 +2136,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -4.07,
             swap_short: 0.746,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2132,7 +2144,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Paypal',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.74,
             target_spread: 0.75,
@@ -2140,7 +2152,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -1.728,
             swap_short: 0.316,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2148,7 +2160,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Sony Corporation',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.54,
             target_spread: 0.59,
@@ -2156,7 +2168,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -2.604,
             swap_short: 0.477,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2164,7 +2176,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Teva Pharmaceutical Inds',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.07,
             target_spread: 0.08,
@@ -2172,7 +2184,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -0.217,
             swap_short: 0.039,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2180,7 +2192,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Tesla Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 1.13,
             target_spread: 1.15,
@@ -2188,7 +2200,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -5.273,
             swap_short: 0.966,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2196,7 +2208,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Uber Technologies Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.17,
             target_spread: 0.17,
@@ -2204,7 +2216,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -1.084,
             swap_short: 0.199,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2212,7 +2224,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Visa',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.77,
             target_spread: 0.83,
@@ -2220,7 +2232,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -6.182,
             swap_short: 1.132,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2228,7 +2240,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Wal-Mart Stores Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.55,
             target_spread: 0.57,
@@ -2236,7 +2248,7 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -4.07,
             swap_short: 0.746,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
         },
         {
             instrument: {
@@ -2244,7 +2256,7 @@ const stocks_specification: TSpecification = {
                 instrument: 'Zoom Video Communications Inc',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.6,
             target_spread: 0.63,
@@ -2252,8 +2264,8 @@ const stocks_specification: TSpecification = {
             margin_requirement: 0.67,
             swap_long: -1.823,
             swap_short: 0.334,
-            trading_hours: "Mon-Fri 13:30-20:00 GMT"
-        }
+            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
+        },
     ],
 }
 export default stocks_specification

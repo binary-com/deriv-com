@@ -105,16 +105,20 @@ const ImageText = ({
                     className="intro-forex"
                     width={`${imageWidth}px`}
                     src={introImage}
-                    alt="Generic placeholder image"
+                    alt={localize('_t_Generic placeholder image_t_')}
                 />
                 <MediaBody>
                     <Header as="h3" className="intro-text">
-                        {localize('Introduction')}
+                        <Localize translate_text="_t_Introduction_t_" />
                     </Header>
                     <Text className="intro-desc" mb="20px">
-                        {introPara}
+                        <Localize translate_text={introPara} />
                     </Text>
-                    {subPara && <Text className="intro-desc">{subPara}</Text>}
+                    {subPara && (
+                        <Text className="intro-desc">
+                            <Localize translate_text={subPara} />
+                        </Text>
+                    )}
                     {introList && (
                         <>
                             <Header
@@ -126,13 +130,16 @@ const ImageText = ({
                                 mb="20px"
                                 mt="30px"
                             >
-                                {localize('In this book you’ll learn:')}
+                                <Localize translate_text="_t_In this book you’ll learn:_t_" />
                             </Header>
                             <MediaItemList>
-                                {introList?.map((point, index) => {
+                                {introList?.map((point) => {
                                     return (
-                                        <Li key={index}>
-                                            <img src={checkIcon} alt="Check Icon" />
+                                        <Li key={point}>
+                                            <img
+                                                src={checkIcon}
+                                                alt={localize('_t_Check Icon_t_')}
+                                            />
                                             <Localize translate_text={point} />
                                         </Li>
                                     )

@@ -156,8 +156,8 @@ const UnsubscribePage = () => {
     return (
         <Layout>
             <SEO
-                title={localize('_t_Unsubscribe | Emails | Deriv_t_')}
-                description={localize('_t_Unsubscribe from Deriv emails._t_')}
+                title="_t_Unsubscribe | Emails | Deriv_t_"
+                description="_t_Unsubscribe from Deriv emails._t_"
             />
             <>
                 {loading ? (
@@ -168,7 +168,12 @@ const UnsubscribePage = () => {
                     <UnsubscribeWrapper>
                         {data && !error ? (
                             <SuccessCard>
-                                <img src={CheckIcon} alt="success" width={48} height={48} />
+                                <img
+                                    src={CheckIcon}
+                                    alt={localize('_t_success_t_')}
+                                    width={48}
+                                    height={48}
+                                />
                                 <Localize translate_text="_t_Unsubscribed successfully_t_" />
                             </SuccessCard>
                         ) : (

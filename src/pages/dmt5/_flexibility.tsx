@@ -128,13 +128,8 @@ const StyledText = styled(Text)`
 
 const Flexibility = () => {
     const { is_eu } = useRegion()
-
     const chosen_content = is_eu ? eucontent : content
-    const title = is_eu ? (
-        <Localize translate_text={'_t_Flexibility with multiple markets_t_'} />
-    ) : (
-        <Localize translate_text={'_t_Focused accounts for a focused strategy_t_'} />
-    )
+
     return (
         <Section>
             <StyledMainHeader
@@ -145,7 +140,13 @@ const Flexibility = () => {
                 type="page-title"
                 mb="4rem"
             >
-                {title}
+                <Localize
+                    translate_text={
+                        is_eu
+                            ? '_t_Flexibility with multiple markets_t_'
+                            : '_t_Focused accounts for a focused strategy_t_'
+                    }
+                />
             </StyledMainHeader>
             <Flex mb="4rem" tablet_direction="column" tablet_ai="center" tablet={{ m: '0' }}>
                 {chosen_content.map((item, idx) => {

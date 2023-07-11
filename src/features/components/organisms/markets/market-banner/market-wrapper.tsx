@@ -19,6 +19,7 @@ const MarketWrapper = ({ item }: { item: HomepageBannerType }) => {
                 direction="row"
                 justify="start"
                 align="start"
+                dir="ltr"
             >
                 <BannerText item={item} />
                 <div className={image_container}>{item.image_tablet}</div>

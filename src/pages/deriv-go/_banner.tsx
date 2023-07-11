@@ -101,11 +101,13 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
+
 const DHero = () => {
     const { is_large_tablet, is_mobile, is_tablet } = useBreakpoints()
     const handleSignup = useHandleSignup()
     const [is_logged_in] = useAuthCheck()
     const is_rtl = useIsRtl()
+
     return (
         <BackgroundStyle>
             <StyledContainer jc="flex-start">

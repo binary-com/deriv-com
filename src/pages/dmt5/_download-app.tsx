@@ -26,11 +26,11 @@ import {
     dmt5_app_gallery_url,
     dmt5_ios_url,
 } from 'common/constants'
-import DownloadColumn from 'components/custom/_multi-width-column-download'
+import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
 import { Flex } from 'components/containers'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 
-const items = [
+const items: TDownloadColumnItem[] = [
     { text: 'Google Play', icon: AndroidIcon, link: dmt5_android_url },
     { text: 'App Store', icon: AppleIcon, link: dmt5_ios_url },
     { text: 'AppGallery', icon: AppGalleryIcon, link: dmt5_app_gallery_url },
@@ -79,6 +79,7 @@ const StyledInfoIcon = styled.img`
     width: 24px;
     height: 24px;
 `
+
 const DerivMT5GetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
@@ -94,7 +95,12 @@ const DerivMT5GetApp = () => {
             mobilePadding="40px 0 10px"
         >
             <ContentWrapper is_rtl={is_rtl}>
-                <img src={dmt5Logo} alt="Deriv MT5 logo" width="64px" height="64px" />
+                <img
+                    src={dmt5Logo}
+                    alt={localize('_t_Deriv MT5 logo_t_')}
+                    width="64px"
+                    height="64px"
+                />
                 <TextAndButtonWrapper>
                     <CommonHeaderSection
                         title="_t_Get trading with Deriv MT5_t_"
@@ -109,7 +115,7 @@ const DerivMT5GetApp = () => {
                         <StyledInfoIcon src={InfoIcon} />
                         <InfoText>
                             <Localize
-                                translate_text="For mobile app sign-ups, set the broker code to <0>Deriv limited.<0>"
+                                translate_text="_t_For mobile app sign-ups, set the broker code to <0>Deriv limited.<0>_t_"
                                 components={[<strong key={0} />]}
                             />
                         </InfoText>
@@ -120,7 +126,7 @@ const DerivMT5GetApp = () => {
                 is_rtl={is_rtl}
                 QRImage={dmt5QR}
                 QRHeading1="_t_Scan to download_t_"
-                QRHeading2="Android, Apple & Huawei"
+                QRHeading2="_t_Android, Apple & Huawei_t_"
                 items={items}
             />
         </MultiWidthColumn>

@@ -1,13 +1,11 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
 import { SmallContainer } from '../components/_style'
 import SideTab from '../components/_tabs'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import { SectionContainer, Container } from 'components/containers'
-import { Header } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { localize } from 'components/localization'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 const StyledContainer = styled(Container)`
@@ -93,14 +91,12 @@ const HowAccumulatorsWork = () => {
                 />
                 <SideTab>
                     <SideTab.Panel
-                        label={<Localize translate_text="1. Market" />}
-                        description={
-                            <Localize translate_text="Choose an asset from the list of markets." />
-                        }
+                        label="_t_1. Market_t_"
+                        description="_t_Choose an asset from the list of markets._t_"
                     >
                         <StaticImage
                             src="../../../images/common/trade-types/accumulators-market.png"
-                            alt="accumulators market"
+                            alt={localize('_t_accumulators market_t_')}
                             loading="eager"
                             formats={['avif', 'webp', 'auto']}
                             quality={30}
@@ -109,14 +105,12 @@ const HowAccumulatorsWork = () => {
                         />
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="2. Trade type" />}
-                        description={
-                            <Localize translate_text="Choose accumulators from the list of trade types" />
-                        }
+                        label="_t_2. Trade type_t_"
+                        description="_t_Choose accumulators from the list of trade types_t_"
                     >
                         <StaticImage
                             src="../../../images/common/trade-types/accumulators-trade-type.png"
-                            alt="accumulators trade type"
+                            alt={localize('_t_accumulators trade type_t_')}
                             loading="eager"
                             formats={['avif', 'webp', 'auto']}
                             quality={30}
@@ -125,14 +119,12 @@ const HowAccumulatorsWork = () => {
                         />
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="3. Growth percentage" />}
-                        description={
-                            <Localize translate_text="Select the growth rate of your choice. Your potential profit will grow by this percentage at every tick throughout your contract duration." />
-                        }
+                        label="_t_3. Growth percentage_t_"
+                        description="_t_Select the growth rate of your choice. Your potential profit will grow by this percentage at every tick throughout your contract duration._t_"
                     >
                         <StaticImage
                             src="../../../images/common/trade-types/accumulators-duration.png"
-                            alt="accumulators duration"
+                            alt={localize('_t_accumulators duration_t_')}
                             loading="eager"
                             formats={['avif', 'webp', 'auto']}
                             quality={30}
@@ -141,14 +133,12 @@ const HowAccumulatorsWork = () => {
                         />
                     </SideTab.Panel>
                     <SideTab.Panel
-                        label={<Localize translate_text="4. Stake" />}
-                        description={
-                            <Localize translate_text="Enter the amount you wish to trade with." />
-                        }
+                        label="_t_4. Stake_t_"
+                        description="_t_Enter the amount you wish to trade with._t_"
                     >
                         <StaticImage
                             src="../../../images/common/trade-types/accumulators-stake.png"
-                            alt="accumulators stake"
+                            alt={localize('_t_accumulators stake_t_')}
                             loading="eager"
                             formats={['avif', 'webp', 'auto']}
                             quality={30}
@@ -166,14 +156,12 @@ const HowAccumulatorsWork = () => {
                 />
                 <SideTab is_reverse>
                     <SideTab.Panel
-                        label={<Localize translate_text="5. Take profit" />}
-                        description={
-                            <Localize translate_text="This feature allows you to set the level of profit that you are comfortable with when the market moves in your favour. Once the amount is reached, your position will be closed automatically and your earnings will be deposited into your Deriv account." />
-                        }
+                        label="_t_5. Take profit_t_"
+                        description="_t_This feature allows you to set the level of profit that you are comfortable with when the market moves in your favour. Once the amount is reached, your position will be closed automatically and your earnings will be deposited into your Deriv account._t_"
                     >
                         <StaticImage
                             src="../../../images/common/trade-types/accumulators-take-profit.png"
-                            alt="accumulators take profit"
+                            alt={localize('_t_accumulators take profit_t_')}
                             loading="eager"
                             formats={['avif', 'webp', 'auto']}
                             quality={30}
@@ -191,14 +179,12 @@ const HowAccumulatorsWork = () => {
                 />
                 <SideTab>
                     <SideTab.Panel
-                        label={<Localize translate_text="6. Trade" />}
-                        description={
-                            <Localize translate_text="_t_Click the Buy button to open your trade._t_" />
-                        }
+                        label="_t_6. Trade_t_"
+                        description="_t_Click the Buy button to open your trade._t_"
                     >
                         <StaticImage
                             src="../../../images/common/trade-types/accumulators-trade.png"
-                            alt="accumulators take profit"
+                            alt={localize('_t_accumulators take profit_t_')}
                             loading="eager"
                             formats={['avif', 'webp', 'auto']}
                             quality={30}

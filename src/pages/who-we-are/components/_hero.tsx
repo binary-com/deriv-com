@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Desktop, Mobile } from 'components/containers'
 import { QueryImage } from 'components/elements'
 import device from 'themes/device'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import desktop_bg from 'images/common/about/about_us_bg_desktop.png'
 import mobile_bg from 'images/common/about/about_us_bg_mobile.png'
 
@@ -98,7 +98,7 @@ const Hero = () => {
                     <StyledFlex>
                         <StyledQueryImage
                             data={data['about_us_logo']}
-                            alt="example"
+                            alt={localize('_t_example_t_')}
                             width="unset"
                             loading="eager"
                         />
@@ -111,7 +111,7 @@ const Hero = () => {
                     <Flex fd="column" ai="center" p="0 16px">
                         <StyledMobileQueryImage
                             data={data['about_us_logo']}
-                            alt="example"
+                            alt={localize('_t_example_t_')}
                             width="unset"
                         />
                         <MobileHeader>{title}</MobileHeader>

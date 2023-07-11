@@ -41,6 +41,7 @@ const card_data: TItem[] = [
         image_alt: '_t_licensed and regulated_t_',
     },
 ]
+
 const non_eu_card_data: TItem[] = [
     {
         icon: SwapFree,
@@ -75,12 +76,13 @@ const StyledHeader = styled(Header)`
         margin-bottom: 24px;
     }
 `
+
 const WhyTrader = () => {
     const { is_eu } = useRegion()
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
-                <Localize translate_text={'_t_Why trade with Deriv MT5_t_'} />
+                <Localize translate_text="_t_Why trade with Deriv MT5_t_" />
             </StyledHeader>
             <CardContainer>
                 <BoxStyledFlex

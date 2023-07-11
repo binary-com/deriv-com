@@ -8,12 +8,14 @@ import Button from 'features/components/atoms/button'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/custom/utils'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 interface HomepageBannerProps {
     item: HomepageBannerType
 }
 
 const BannerText = ({ item }: HomepageBannerProps) => {
     const [is_logged_in] = useAuthCheck()
+    const is_rtl = useIsRtl()
     const handleSignup = useHandleSignup()
     return (
         <Flex.Box
@@ -21,9 +23,17 @@ const BannerText = ({ item }: HomepageBannerProps) => {
             className={item_box}
             align="center"
             padding="8x"
+            dir={is_rtl ? 'rtl' : 'ltr'}
             md={{ align: 'start', justify: 'start', pt: '32x', padding: '0x' }}
         >
-            <Typography.Heading as="h1" size="medium" pb="4x" pt="32x" align="center">
+            <Typography.Heading
+                as="h1"
+                size="medium"
+                pb="4x"
+                pt="32x"
+                align="center"
+                md={{ align: 'left' }}
+            >
                 <Localize translate_text={item.title} />
             </Typography.Heading>
 

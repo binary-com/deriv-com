@@ -1,10 +1,12 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { StyledProps } from 'pages/landing/_types'
+import { TString } from 'types/generics'
+import { Localize, localize } from 'components/localization'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-grey-30);
@@ -16,7 +18,6 @@ const MainWrapper = styled(Container)`
         width: 100%;
     }
 `
-
 const Content = styled(Flex)<StyledProps>`
     width: 60%;
     flex-direction: column;
@@ -39,7 +40,6 @@ const Content = styled(Flex)<StyledProps>`
         margin: 0 auto;
     }
 `
-
 const ImageWrapper = styled.div<StyledProps>`
     display: flex;
     width: 40%;
@@ -135,10 +135,10 @@ type ParallelogramProps = {
 }
 
 type TradingType = {
-    title: ReactElement
-    subtitle: ReactElement
+    title: TString
+    subtitle: TString
     image_name: string
-    image_alt: string
+    image_alt: TString
 }
 
 const Parallelogram = ({ trading, reverse }: ParallelogramProps) => {
@@ -146,19 +146,23 @@ const Parallelogram = ({ trading, reverse }: ParallelogramProps) => {
     return (
         <StyledSection>
             <MainWrapper fd="column">
-                {trading.map((item, index) => {
+                {trading.map(({ image_alt, image_name, subtitle, title }, index) => {
                     const is_even = reverse ? (index + 1) % 2 : index % 2
                     return (
-                        <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={index}>
+                        <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={title}>
                             <Content>
-                                <StyledHeader type="display-title">{item.title}</StyledHeader>
-                                <Text>{item.subtitle}</Text>
+                                <StyledHeader type="display-title">
+                                    <Localize translate_text={title} />
+                                </StyledHeader>
+                                <Text>
+                                    <Localize translate_text={subtitle} />
+                                </Text>
                             </Content>
-                            {item.image_name && (
+                            {image_name && (
                                 <ImageWrapper margin_right={!is_even ? '0' : '2.4rem'}>
                                     <QueryImage
-                                        data={data[item.image_name]}
-                                        alt={item.image_alt}
+                                        data={data[image_name]}
+                                        alt={localize(image_alt)}
                                         width="100%"
                                     />
                                 </ImageWrapper>

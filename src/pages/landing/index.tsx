@@ -1,71 +1,53 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { Markets, WhatOurClientsSay, SimpleSteps, Signup } from '../home/_lazy-load'
 import Hero from '../home/_hero'
 import Trade from '../home/_trade'
 import TradeTheWayYouLike from '../home/_trade-the-way-you-like'
 import { Desktop, Mobile, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { WithIntl, Localize, localize } from 'components/localization'
+import { WithIntl, localize } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 import PractiseIcon from 'images/svg/markets/aim.svg'
 import TradeIcon from 'images/svg/markets/trade.svg'
 import WithdrawIcon from 'images/svg/markets/withdraw.svg'
+import { TSimpleStepContent } from 'pages/markets/static/content/_types'
 
-type SimpleStepContentTypes = {
-    header: ReactElement
-    text: ReactElement
-    icon: ReactElement
-}
-
-const simple_step_content: SimpleStepContentTypes[] = [
+const simple_step_content: TSimpleStepContent[] = [
     {
-        header: <Localize translate_text="Practise" />,
-        text: (
-            <Localize translate_text="Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds." />
-        ),
-        icon: <img src={PractiseIcon} alt="Practise" width="32" height="32" />,
+        header: '_t_Practise_t_',
+        text: '_t_Open a demo account and start trading for free. Practise with an unlimited amount of virtual funds._t_',
+        icon: <img src={PractiseIcon} alt={localize('_t_Practise_t_')} width="32" height="32" />,
     },
     {
-        header: <Localize translate_text="Trade" />,
-        text: (
-            <Localize translate_text="Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more." />
-        ),
-        icon: <img src={TradeIcon} alt="Trade" width="32" height="28" />,
+        header: '_t_Trade_t_',
+        text: '_t_Open a real account, make a deposit, and start trading for real. Trade forex, indices, commodities, and more._t_',
+        icon: <img src={TradeIcon} alt={localize('_t_Trade_t_')} width="32" height="28" />,
     },
     {
-        header: <Localize translate_text="Withdraw" />,
-        text: (
-            <Localize translate_text="Get your funds quickly and easily. We support a variety of withdrawal options." />
-        ),
-        icon: <img src={WithdrawIcon} alt="Withdraw" width="32" height="32" />,
+        header: '_t_Withdraw_t_',
+        text: '_t_Get your funds quickly and easily. We support a variety of withdrawal options._t_',
+        icon: <img src={WithdrawIcon} alt={localize('_t_Withdraw_t_')} width="32" height="32" />,
     },
 ]
+
 const Home = () => {
     return (
-        <Layout is_ppc_redirect={true} is_ppc={true}>
+        <Layout is_ppc_redirect is_ppc>
             <SEO
-                title={localize(
-                    'Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv',
-                )}
-                description={localize(
-                    'Deriv - An online trading platform that offers a wide selection of derivatives to trade on',
-                )}
+                title="_t_Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv_t_"
+                description="_t_Deriv - An online trading platform that offers a wide selection of derivatives to trade on_t_"
                 has_organization_schema
                 no_index
             />
-            <Hero is_ppc={true} />
+            <Hero is_ppc />
             <Desktop>
-                <Trade is_ppc_redirect={true} />
+                <Trade is_ppc_redirect />
             </Desktop>
             <Mobile>
-                <TradeTheWayYouLike is_ppc_redirect={true} />
+                <TradeTheWayYouLike is_ppc_redirect />
             </Mobile>
-            <Markets is_ppc={true} />
-            <SimpleSteps
-                content={simple_step_content}
-                header={<Localize translate_text="3 simple steps" />}
-                sign_up={true}
-            />
+            <Markets is_ppc />
+            <SimpleSteps content={simple_step_content} header="_t_3 simple steps_t_" sign_up />
             <WhatOurClientsSay />
             <Signup appearance={Appearances.public} />
         </Layout>

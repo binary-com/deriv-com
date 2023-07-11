@@ -263,7 +263,7 @@ const StartTrader = () => {
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step2_mobile' : 'real_step2']}
-                        alt="_t_Deriv MT5 demo account_t_"
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },

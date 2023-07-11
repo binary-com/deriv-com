@@ -13,6 +13,7 @@ export type TabMenuProps = {
     setCurrentTab: (name: TString) => void
     icon?: string
 }
+
 const TabMenu = ({ class_name, tab_names, current_tab, icon, setCurrentTab }: TabMenuProps) => {
     return (
         <FlexBox.Box

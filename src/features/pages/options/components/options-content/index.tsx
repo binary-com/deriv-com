@@ -15,11 +15,14 @@ const OptionsContent = ({ items }: OptionsContentProps) => {
             container="fixed"
             justify="center"
             align="center"
-            gap="40x"
+            gap="20x"
             className={content_container}
-            pt="12x"
-            pb="24x"
-            style={{ maxInlineSize: '100rem', marginInline: 'auto' }}
+            pt="6x"
+            pb="12x"
+            md={{
+                pt: '12x',
+                pb: '24x',
+            }}
         >
             {items.map((contentItem) => (
                 <OptionContentItem item={contentItem} key={contentItem.title} />

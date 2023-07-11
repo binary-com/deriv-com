@@ -10,11 +10,13 @@
 .content_images {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 1.6rem;
     inline-size: 100%;
+    max-inline-size: 100rem;
+    margin-inline: auto;
 
     @include breakpoints(tablet) {
-        gap: 3.2rem;
+        gap: 2.4rem;
         margin-inline: auto;
         grid-template-columns: 1fr 1fr;
     }

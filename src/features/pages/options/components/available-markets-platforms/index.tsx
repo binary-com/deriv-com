@@ -10,7 +10,16 @@ export interface AvailableMarketPlatforms {
 
 const AvailableMarketPlatforms = ({ markets, platforms }: AvailableMarketPlatforms) => {
     return (
-        <Flex.Box direction="col" justify="center" align="center" gap="12x" padding_block="20x">
+        <Flex.Box
+            direction="col"
+            justify="center"
+            align="center"
+            gap="12x"
+            padding_block="10x"
+            md={{
+                padding_block: '20x',
+            }}
+        >
             <AvailableList items={markets} title={'_t_Markets available_t_'} />
             <AvailableList items={platforms} title={'_t_Trade on_t_'} />
         </Flex.Box>

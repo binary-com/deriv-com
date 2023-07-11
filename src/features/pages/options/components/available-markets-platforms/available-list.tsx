@@ -14,8 +14,15 @@ const AvailableList = ({
     items: OptionContentAvailability[]
 }) => {
     return (
-        <Flex.Box gap="10x" wrap="wrap" justify="center" align="center">
-            <Flex.Item grow="1" shrink="0" basis="full">
+        <Flex.Box gap="10x" wrap="wrap" md={{ wrap: 'nowrap' }} justify="center" align="center">
+            <Flex.Item
+                grow="1"
+                shrink="0"
+                basis="full"
+                md={{
+                    basis: 'auto',
+                }}
+            >
                 <Typography.Paragraph font_family="UBUNTU" align="center">
                     <Localize translate_text={title} />
                 </Typography.Paragraph>
@@ -26,7 +33,12 @@ const AvailableList = ({
                     key={marketItem.title}
                     justify="center"
                     align="center"
-                    basis="4-12"
+                    grow="1"
+                    shrink="1"
+                    basis="2-5"
+                    md={{
+                        basis: 'auto',
+                    }}
                 >
                     <img
                         src={marketItem.icon.src}

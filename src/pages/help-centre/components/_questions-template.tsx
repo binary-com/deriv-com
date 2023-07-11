@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { TQuestionsData } from '../data/_data-types'
 import { useFilteredQuestions } from '../data/_hooks'
@@ -30,6 +30,10 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
     const filtered_questions = useFilteredQuestions(questions)
     const { is_deriv_go } = usePlatformQueryParam()
     const { is_eu } = useRegion()
+
+    React.useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <Layout>

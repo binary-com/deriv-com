@@ -39,7 +39,7 @@ type TStyledTextContent = {
 }
 
 const Item = styled(Flex)`
-    max-width: 22rem;
+    max-width: 17rem;
     width: 100%;
 
     img {
@@ -133,7 +133,7 @@ const StyledTextContent = styled.div<TStyledTextContent>`
     text-align: center;
     margin-top: 1.6rem;
     color: white;
-    width: ${(props) => (props.subtext_width ? props.subtext_width : '231px')};
+    width: ${(props) => (props.subtext_width ? props.subtext_width : '170px')};
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;

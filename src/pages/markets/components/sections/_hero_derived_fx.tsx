@@ -62,10 +62,10 @@ const MarketSubHeader = styled.div`
 const StyledHeader = styled.h1<ContainerProps>`
     font-size: 48px;
     color: var(--color-black-9);
-    width: 39vw;
+    width: 22vw;
+    text-wrap: nowrap;
     text-align: ${(props) => (props.is_rtl ? 'end' : 'start')};
     margin-bottom: 1rem;
-
     @media ${device.laptopM} {
         font-size: 28px;
     }
@@ -123,14 +123,14 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
-const ContentWrapperStyle = styled.div<{ is_rtl: boolean }>`
+
+const ContentWrapperStyle = styled.div`
     flex: 1;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     display: flex;
     max-width: 40%;
-    direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
     @media ${device.tabletL} {
         max-width: 100%;
     }
@@ -202,7 +202,7 @@ export const DerivedFXHero = ({
             <MarketNav />
             <BackgroundStyle>
                 <StyledContainer jc="flex-start">
-                    <ContentWrapperStyle is_rtl={is_rtl}>
+                    <ContentWrapperStyle>
                         <Content>
                             <StyledHeader is_rtl={is_rtl}>
                                 <Localize translate_text={title} />

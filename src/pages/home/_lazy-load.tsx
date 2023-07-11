@@ -1,9 +1,6 @@
 import Loadable from '@loadable/component'
 
 export const Markets = Loadable(() => import(/* webpackChunkName: "markets" */ './_markets'))
-export const OurPlatforms = Loadable(
-    () => import(/* webpackChunkName: "our-platforms" */ './_our_platforms'),
-)
 export const WhatOurClientsSay = Loadable(
     () => import(/* webpackChunkName: "what-our-clients-say" */ './_what-our-clients-say'),
 )

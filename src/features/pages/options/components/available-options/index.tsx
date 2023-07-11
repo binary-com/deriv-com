@@ -15,11 +15,10 @@ const AvailableOptions = ({ heading, items }: AvailableOptionsProps) => {
     return (
         <Flex.Box
             justify="center"
+            container="fluid"
             align="center"
             direction="col"
-            padding_inline="4x"
             md={{
-                padding_inline: '0x',
                 pt: '40x',
             }}
         >

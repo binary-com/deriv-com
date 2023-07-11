@@ -2,6 +2,9 @@
 @import 'features/styles/theme/variables';
 
 .content_container {
+    max-inline-size: 100rem;
+    margin-inline: auto;
+
     @include breakpoints(tablet) {
         border: 1px solid $color-grey-6;
         border-radius: 8px;

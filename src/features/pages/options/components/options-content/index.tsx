@@ -12,7 +12,6 @@ const OptionsContent = ({ items }: OptionsContentProps) => {
     return (
         <Flex.Box
             direction="col"
-            container="fixed"
             justify="center"
             align="center"
             gap="20x"

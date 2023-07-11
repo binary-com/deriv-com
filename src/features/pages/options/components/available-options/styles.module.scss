@@ -42,11 +42,11 @@
 }
 
 .scroll_container {
-    inline-size: 90vw;
+    max-inline-size: 100vw;
     @include breakpoints(phone) {
         overflow: hidden !important;
         white-space: nowrap;
-        justify-content: center;
+        justify-content: start;
     }
 }
 .is_show_left,

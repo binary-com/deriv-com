@@ -77,6 +77,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
 
             <Flex.Box
                 padding_block="10x"
+                justify="around"
                 md={{ justify: 'center', padding: '10x' }}
                 visible="larger-than-phone"
             >

@@ -59,7 +59,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                                 <NavigationTabMenu
                                     key={tab_item.option_name}
                                     tab_items={tab_item}
-                                    selected={isActiveLink(tab_item.to)}
+                                    selected={isActiveLink(tab_item.to, tab_item?.active_path)}
                                     is_no_border_bottom
                                     icon={
                                         isActiveLink(tab_item.to)
@@ -85,10 +85,10 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                         <NavigationTabMenu
                             key={tab_item.option_name}
                             tab_items={tab_item}
-                            selected={isActiveLink(tab_item.to)}
+                            selected={isActiveLink(tab_item.to, tab_item?.active_path)}
                             is_no_border_bottom
                             icon={
-                                isActiveLink(tab_item.to)
+                                isActiveLink(tab_item.to, tab_item?.active_path)
                                     ? `${tab_item.selected_src}#${tab_item.option_name}`
                                     : `${tab_item.src}#${tab_item.option_name}`
                             }

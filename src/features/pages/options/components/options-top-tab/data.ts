@@ -12,6 +12,7 @@ export const tab_data: OptionNavigationType[] = [
         src: DigitalnActive,
         selected_src: DigitalActive,
         button_text: '_t_Digital options_t_',
+        active_path: ['/trade-types/options/digital-options/'],
         option_name: 'digital',
         to: '/trade-types/options/digital-options/up-and-down',
     },

@@ -42,7 +42,7 @@
 }
 
 .scroll_container {
-    inline-size: 100vw;
+    inline-size: 90vw;
     @include breakpoints(phone) {
         overflow: hidden !important;
         white-space: nowrap;

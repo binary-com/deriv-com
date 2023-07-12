@@ -36,7 +36,7 @@ const DigitalOptions = ({ market_name, market_type, options_list }: DigitalOptio
                         <AvailablePlatforms dtrader dbot smarttrader tablet_direction="column" />
                     )}
                 </Descriptions>
-                <StyledText font_size="16px" weight="bold" mt="4.0rem">
+                <StyledText font_size="16px" weight="bold" mt="2.0rem">
                     <Localize
                         translate_text="_t_Options trades available on {{market_name}}_t_"
                         values={{ market_name }}

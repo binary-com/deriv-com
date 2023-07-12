@@ -37,6 +37,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
         }
         setSwiperLoading(false)
     }, [pathname])
+    tab_data.map((tab_item) => console.log(isActiveLink(tab_item.to), tab_item, pathname, 'www'))
 
     return (
         <Container.Fluid mt={'20x'}>

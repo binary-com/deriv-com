@@ -1,0 +1,26 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.content_container {
+    max-inline-size: 100rem;
+    margin-inline: auto;
+
+    @include breakpoints(tablet) {
+        border: 1px solid $color-grey-6;
+        border-radius: 8px;
+    }
+}
+.content_images {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+    inline-size: 100%;
+    max-inline-size: 100rem;
+    margin-inline: auto;
+
+    @include breakpoints(tablet) {
+        gap: 2.4rem;
+        margin-inline: auto;
+        grid-template-columns: 1fr 1fr;
+    }
+}

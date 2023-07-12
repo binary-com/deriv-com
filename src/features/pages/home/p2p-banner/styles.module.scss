@@ -21,6 +21,11 @@
         margin-inline-start: 0;
         inset-inline-start: 0;
     }
+    @media only screen and (min-width: 1920px) {
+        --cotainer-outside: calc(100vw - 123.2rem);
+        --left: calc(var(--cotainer-outside) / 2);
+        left: calc(var(--left) * .75);
+    }
 }
 
 .p2p_qr_container {

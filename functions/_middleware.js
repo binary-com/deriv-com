@@ -1,5 +1,5 @@
 const cookieName = "a/a-test-cookie"
-const newHomepagePathName = "dtv=a"
+const Variant1SearchParam = "dtv=a"
 const throttle = 50 // 50% of traffic
 
 const abTest = async ({ request, next, env }) => {
@@ -12,23 +12,23 @@ const abTest = async ({ request, next, env }) => {
 
     const cookie = request.headers.get("cookie")
 
-    // client is in the `new` test
-    if (cookie && cookie.includes(`${cookieName}=new`)) {
-        url.search = newHomepagePathName
+    // client is in the `variant_1` test
+    if (cookie && cookie.includes(`${cookieName}=variant_1`)) {
+        url.search = Variant1SearchParam
         return env.ASSETS.fetch(url)
     }
 
     // client is in the `old` test
-    if (cookie && cookie.includes(`${cookieName}=current`)) {
+    if (cookie && cookie.includes(`${cookieName}=control`)) {
         return next()
     }
 
     // client is not in a test
     const percentage = Math.floor(Math.random() * 100)
-    const version = percentage < throttle ? 'new' : 'current';
+    const version = percentage < throttle ? 'variant_1' : 'control';
 
-    if (version === 'new') {
-        url.search = newHomepagePathName
+    if (version === 'variant_1') {
+        url.search = Variant1SearchParam
     }
 
     const asset = await env.ASSETS.fetch(url)

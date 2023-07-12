@@ -1,5 +1,5 @@
 const cookieName = "a/a-test-cookie"
-const newHomepagePathName = "?dtv=a"
+const newHomepagePathName = "dtv=a"
 const throttle = 50 // 50% of traffic
 
 const abTest = async ({ request, next, env }) => {
@@ -14,7 +14,7 @@ const abTest = async ({ request, next, env }) => {
 
     // client is in the `new` test
     if (cookie && cookie.includes(`${cookieName}=new`)) {
-        url.pathname = newHomepagePathName
+        url.search = newHomepagePathName
         return env.ASSETS.fetch(url)
     }
 
@@ -28,7 +28,7 @@ const abTest = async ({ request, next, env }) => {
     const version = percentage < throttle ? 'new' : 'current';
 
     if (version === 'new') {
-        url.pathname = newHomepagePathName
+        url.search = newHomepagePathName
     }
 
     const asset = await env.ASSETS.fetch(url)

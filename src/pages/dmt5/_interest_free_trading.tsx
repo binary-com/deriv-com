@@ -155,7 +155,7 @@ const InterestFreeTrading = () => {
     const { is_eu } = useRegion()
     const commission = is_eu
         ? '_t_Enjoy zero commission trading on all assets._t_'
-        : '_t_Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected derived and financial assets._t_'
+        : '_t_Enjoy zero commission trading on all assets. Plus, pay no swap charges on overnight positions for selected derived indices and financial assets._t_'
 
     return (
         <StyledContainer>
@@ -168,7 +168,7 @@ const InterestFreeTrading = () => {
                 </InterestText>
                 <TextWrapperFlex fd="column" jc="flex-start" ai="flex-start">
                     <CheckedText content="_t_Forex_t_" />
-                    <CheckedText content="_t_Derived_t_" />
+                    <CheckedText content="_t_Derived indices_t_" />
                     <CheckedText content="_t_Stocks & indices_t_" />
                     <CheckedText content="_t_Cryptocurrencies_t_" />
                     <CheckedText content="_t_Commodities_t_" />

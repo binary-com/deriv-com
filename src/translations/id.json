@@ -3070,7 +3070,7 @@
   "-75787346": "<0>Satu tik</0> dihasilkan <0>setiap dua detik</0> untuk indeks volatilitas <0>10, 25, 50, 75, dan 100</0>.",
   "-257478628": "<0>Satu tik</0> dihasilkan <0>setiap detik</0> untuk indeks volatilitas 10 (1s), 25 (1s), 50 (1s), 75 (1s), dan 100 (1s)</0>.",
   "-1710299665": "Indeks ini sesuai dengan pasar simulasi di mana harga aset naik atau turun berhubung berita peristiwa. Lompatan kecil cukup sering terjadi. Namun, lonjakan atau penurunan besar sesekali terjadi rata-rata <0>setiap 15 menit</0>.",
-  "-534567212": "<0>DEX900UP</0> sering mengalami penurunan kecil dan lonjakan besar yang kadang-kadang terjadi <0>setiap 900 detik</0> rata-rata.",
+  "-629202751": "<0>DEX900UP</0> sering mengalami lonjakan kecil dan penurunan besar yang kadang-kadang terjadi rata-rata <0>setiap 900 detik</0>.",
   "-204483278": "Pada indeks ini, terdapat rata-rata satu penurunan harga (crash) atau satu lonjakan harga (boom) yang dapat terjadi pada setiap <0>300, 500, atau 1,000 rangkaian tik</0>.",
   "-690460725": "Indeks berikut mereplikasi pasar dengan tren <0>bullish dan bearish</0> menggunakan volatilitas konstan. Indeks Bull Market dan Bear Market dimulai dari 00:00 GMT setiap harinya, mereplikasi masing-masing pasar bullish dan bearish.",
   "-2075222222": "<0>Netherlands 25</0> mengikuti kinerja saham dari daftar 25 perusahaan teratas di Belanda.",

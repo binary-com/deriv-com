@@ -3070,7 +3070,7 @@
   "-75787346": "<0>Bir tik</0><0> her iki saniyede bir </0>volatilite endeksleri <0>10, 25, 50, 75 ve 100 </0> için üretilir.",
   "-257478628": "<0>Bir tik</0> volatilite endeksleri <0>10 (1s), 25 (1s), 50 (1s), 75 (1s) ve 100 (1S)</0> için <0>her saniye</0> üretilir.",
   "-1710299665": "Bu endeksler, haber olayları nedeniyle varlık fiyatlarının yükseldiği veya düştüğü simüle edilmiş pazarlara karşılık gelir. Küçük sıçramalar oldukça sıktır. Bununla birlikte, ara sıra majör çıkışlar veya düşüşler ortalama <0>her 15 dakikada</0> bir meydana gelir.",
-  "-534567212": "<0>DEX900UP</0> 'ta sık sık küçük düşüşler ve ortalama <0>her 900 saniyede</0> bir meydana gelen büyük artışlar görülmektedir.",
+  "-629202751": "<0>DEX900DN</0>, ortalama <0> her 900 saniyede</0> bir meydana gelen, sık küçük düşüşlere ve  majör ani çıkışlara sahiptir.",
   "-204483278": "Bu endekslerle, <0>300, 500, veya 1,000 tik serisi</0> içinde meydana gelen fiyatlarda ortalama bir düşüş (crash) veya bir ani artış (boom) vardır.",
   "-690460725": "Bu endeksler piyasaları <0>bullish ve bearish trendler</0> ile sürekli volatilite ile taklit eder. Bull Piyasası ve Bear Piyasası endeksleri sırasıyla bullish ve bearish piyasalarını tekrarlıyarak her gün GMT 00:00'da başlar.",
   "-2075222222": "<0>Hollanda 25</0>, Hollanda'da en çok işlem gören 25 şirketin stok performansını takip ediyor.",

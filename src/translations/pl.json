@@ -3070,7 +3070,7 @@
   "-75787346": "<0>Jeden tick</0> jest generowany <0>co dwie sekundy</0> w przypadku wskaźników zmienności <0>10, 25, 50, 75, i 100</0>.",
   "-257478628": "<0>Jeden tick</0> jest generowany <0>co sekundę</0> w przypadku wskaźników zmienności <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), i 100 (1s)</0>.",
   "-1710299665": "Indeksy te odpowiadają symulowanym rynkom, na których ceny aktywów gwałtownie rosną lub spadają z powodu wydarzeń informacyjnych. Małe skoki są dość częste. Jednak sporadyczne duże skoki lub spadki występują średnio <0>co 15 minut.</0>",
-  "-534567212": "<0>DEX900UP</0> ma częste małe spadki i duże skoki, które czasami występują średnio <0>co 900 sekund</0>.",
+  "-629202751": "<0>DEX900UP</0> ma częste małe skoki i duże spadki, które czasami występują średnio <0>co 900 sekund</0>.",
   "-204483278": " W przypadku tych wskaźników średnio występuje jeden spadek (crash) lub jeden wzrost (boom) cen w <0>serii 300, 500 lub 1,000 ticków</0>.",
   "-690460725": "Te wskaźniki imitują rynki o <0>tendencji wzrostowej lub spadkowej</0> o stałej zmienności. Wskaźniki Rynek byka i Rynek niedźwiedzia są aktywne od 00:00 GMT każdego dnia i imitują odpowiednio rynek o tendencji wzrostowej (rynek byka) i rynek o tendencji spadkowej (rynek niedźwiedzia).",
   "-2075222222": "<0>Netherlands 25</0> śledzi zachowanie akcji 25 najpopularniejszych spółek w Holandii.",

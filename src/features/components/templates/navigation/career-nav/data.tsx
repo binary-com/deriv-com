@@ -23,17 +23,6 @@ const career_nav_items: NavItems = [
             },
         },
     },
-    {
-        id: 2,
-        data: {
-            type: 'single-item',
-            title: '_t_BeSquare_t_',
-            content: {
-                type: 'internal',
-                to: '/careers/besquare/',
-            },
-        },
-    },
 ]
 
 export default career_nav_items

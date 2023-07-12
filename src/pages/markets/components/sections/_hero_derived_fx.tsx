@@ -3,14 +3,14 @@ import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Container } from 'components/containers'
 import Button from 'components/custom/_button'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import MarketNav from 'features/components/templates/navigation/market-nav'
 import { handleGetTrading } from 'components/custom/utils'
+import { TString } from 'types/generics'
 
 type ContainerProps = {
     isDerivGo?: boolean
@@ -18,8 +18,8 @@ type ContainerProps = {
 }
 
 type MarketProps = {
-    title: string
-    description: string
+    title: TString
+    description: TString
     is_forex?: boolean
     is_derived_row?: boolean
     is_derived_eu?: boolean
@@ -41,7 +41,6 @@ type BackgroundWrapperProps = {
 const StyledButton = styled.div<BackgroundWrapperProps>`
     margin-top: 1rem;
 `
-
 const MarketSubHeader = styled.div`
     font-size: 16px;
     width: 22vw;
@@ -63,10 +62,10 @@ const MarketSubHeader = styled.div`
 const StyledHeader = styled.h1<ContainerProps>`
     font-size: 48px;
     color: var(--color-black-9);
-    width: 39vw;
+    width: 22vw;
+    text-wrap: nowrap;
     text-align: ${(props) => (props.is_rtl ? 'end' : 'start')};
     margin-bottom: 1rem;
-
     @media ${device.laptopM} {
         font-size: 28px;
     }
@@ -79,7 +78,6 @@ const StyledHeader = styled.h1<ContainerProps>`
         margin-top: 0;
     }
 `
-
 const BackgroundStyle = styled.div`
     background-color: var(--color-white);
     flex: 1;
@@ -126,14 +124,13 @@ const StyledContainer = styled(Container)`
     }
 `
 
-const ContentWrapperStyle = styled.div<{ is_rtl: boolean }>`
+const ContentWrapperStyle = styled.div`
     flex: 1;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     display: flex;
     max-width: 40%;
-    direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
     @media ${device.tabletL} {
         max-width: 100%;
     }
@@ -151,7 +148,6 @@ const Content = styled.div`
         align-items: center;
     }
 `
-
 const HeroImageWrapper = styled.div`
     width: 60%;
     position: absolute;
@@ -169,7 +165,6 @@ const HeroImageWrapper = styled.div`
         position: relative;
     }
 `
-
 const ImageWrapper = styled.div`
     display: flex;
     padding: 64px 0;
@@ -178,7 +173,6 @@ const ImageWrapper = styled.div`
     align-self: center;
     flex: 1 1 0%;
 `
-
 const ImageStyle = styled.div`
     z-index: 1;
     max-width: fit-content;
@@ -201,8 +195,6 @@ export const DerivedFXHero = ({
 }: MarketProps) => {
     const [is_logged_in] = useAuthCheck()
     const handleSignup = useHandleSignup()
-    const { is_deriv_go } = usePlatformQueryParam()
-
     const is_rtl = useIsRtl()
 
     return (
@@ -210,7 +202,7 @@ export const DerivedFXHero = ({
             <MarketNav />
             <BackgroundStyle>
                 <StyledContainer jc="flex-start">
-                    <ContentWrapperStyle is_rtl={is_rtl}>
+                    <ContentWrapperStyle>
                         <Content>
                             <StyledHeader is_rtl={is_rtl}>
                                 <Localize translate_text={title} />
@@ -243,7 +235,7 @@ export const DerivedFXHero = ({
                                         src="../../../../images/common/markets/hero-forex.png"
                                         loading="eager"
                                         formats={['avif', 'webp', 'auto']}
-                                        alt="banner"
+                                        alt={localize('_t_banner_t_')}
                                         placeholder="blurred"
                                     />
                                 ) : null}
@@ -252,7 +244,7 @@ export const DerivedFXHero = ({
                                         src="../../../../images/common/markets/derived-row.png"
                                         loading="eager"
                                         formats={['avif', 'webp', 'auto']}
-                                        alt="banner"
+                                        alt={localize('_t_banner_t_')}
                                         placeholder="blurred"
                                     />
                                 ) : null}
@@ -261,7 +253,7 @@ export const DerivedFXHero = ({
                                         src="../../../../images/common/markets/derived-eu.png"
                                         loading="eager"
                                         formats={['avif', 'webp', 'auto']}
-                                        alt="banner"
+                                        alt={localize('_t_banner_t_')}
                                         placeholder="blurred"
                                     />
                                 ) : null}
@@ -270,7 +262,7 @@ export const DerivedFXHero = ({
                                         src="../../../../images/common/markets/stocks-and-indices.png"
                                         loading="eager"
                                         formats={['avif', 'webp', 'auto']}
-                                        alt="banner"
+                                        alt={localize('_t_banner_t_')}
                                         placeholder="blurred"
                                     />
                                 ) : null}
@@ -279,7 +271,7 @@ export const DerivedFXHero = ({
                                         src="../../../../images/common/markets/cryptocurrencies.png"
                                         loading="eager"
                                         formats={['avif', 'webp', 'auto']}
-                                        alt="banner"
+                                        alt={localize('_t_banner_t_')}
                                         placeholder="blurred"
                                     />
                                 ) : null}
@@ -288,7 +280,7 @@ export const DerivedFXHero = ({
                                         src="../../../../images/common/markets/commodities.png"
                                         loading="eager"
                                         formats={['avif', 'webp', 'auto']}
-                                        alt="banner"
+                                        alt={localize('_t_banner_t_')}
                                         placeholder="blurred"
                                     />
                                 ) : null}

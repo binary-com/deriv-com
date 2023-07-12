@@ -256,4 +256,5 @@ const secondCalculatedFormula: CalculatedFormulaType = {
         },
     ],
 }
+
 export default MinimumVolume

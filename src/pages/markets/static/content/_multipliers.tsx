@@ -1,4 +1,4 @@
-import React, { ReactElement, ReactNode } from 'react'
+import React from 'react'
 import {
     BasketIndicesCfds,
     BasketIndicesCommodities,
@@ -22,28 +22,9 @@ import {
     StepIndicesDetails,
     VolatilityIndicesDetailsEU,
 } from './_details'
-import { Localize } from 'components/localization'
+import { TMarketContent } from './_types'
 
-type Option = {
-    id: string
-    title: ReactElement
-    component: ReactElement
-    mobile_title?: ReactElement
-    details?: ReactNode
-}
-
-export type ForexAndBasketMultiplier = {
-    markets_list: {
-        col: number
-        tablet_col: number
-        mobile_col: number
-    }
-    eu_content?: ReactElement[]
-    content: Option[]
-    template?: number
-}
-
-export const forex_multiplier_eu = {
+export const forex_multiplier_eu: TMarketContent = {
     markets_list: {
         col: 4,
         tablet_col: 3,
@@ -51,35 +32,13 @@ export const forex_multiplier_eu = {
     },
     content: [
         {
-            title: <Localize translate_text="Major pairs" />,
+            title: '_t_Major pairs_t_',
             component: <MajorPairs />,
         },
     ],
 }
 
-export type SyntheticMultiplier = {
-    has_global_accordion: boolean
-    markets_list: {
-        col: number
-        tablet_col: number
-    }
-    content: Option[]
-    eu_content?: ReactElement[]
-    template?: number
-}
-export type CryptoMultiplier = {
-    has_global_accordion: boolean
-    template?: number
-    markets_list: {
-        col: number
-        tablet_col: number
-        mobile_col: number
-    }
-    eu_content?: ReactElement[]
-    content: Option[]
-}
-
-export const forex_multiplier: ForexAndBasketMultiplier = {
+export const forex_multiplier: TMarketContent = {
     markets_list: {
         col: 5,
         tablet_col: 3,
@@ -88,12 +47,13 @@ export const forex_multiplier: ForexAndBasketMultiplier = {
     content: [
         {
             id: 'major-pairs',
-            title: <Localize translate_text="Major pairs" />,
+            title: '_t_Major pairs_t_',
             component: <MajorPairs />,
         },
     ],
 }
-export const basket_multiplier: ForexAndBasketMultiplier = {
+
+export const basket_multiplier: TMarketContent = {
     markets_list: {
         col: 5,
         tablet_col: 4,
@@ -103,20 +63,20 @@ export const basket_multiplier: ForexAndBasketMultiplier = {
     content: [
         {
             id: 'commodities-basket',
-            title: <Localize translate_text="Commodities Basket" />,
+            title: '_t_Commodities Basket_t_',
             component: <BasketIndicesCommodities />,
             details: <BasketCommoditiesDetails />,
         },
         {
             id: 'forex-basket',
-            title: <Localize translate_text="Forex Basket" />,
+            title: '_t_Forex Basket_t_',
             component: <BasketIndicesCfds />,
             details: <BasketFXDetails />,
         },
     ],
 }
 
-export const synthetic_multiplier: SyntheticMultiplier = {
+export const synthetic_multiplier: TMarketContent = {
     has_global_accordion: true,
     markets_list: {
         col: 3,
@@ -125,39 +85,36 @@ export const synthetic_multiplier: SyntheticMultiplier = {
     content: [
         {
             id: 'continuous-indices',
-            title: <Localize translate_text="Continuous indices" />,
+            title: '_t_Continuous indices_t_',
             component: <ContinuousIndices />,
             details: <ContinuousIndicesDetails />,
         },
         {
             id: 'crash-boom',
-            title: <Localize translate_text="Crash/Boom" />,
-            mobile_title: <Localize translate_text="Crash/Boom" />,
+            title: '_t_Crash/Boom_t_',
+            mobile_title: '_t_Crash/Boom_t_',
             component: <CrashBoomMultipliers />,
             details: <CrashBoomMultipliersDetails />,
         },
         {
             id: 'jump-indices',
-            title: <Localize translate_text="Jump indices" />,
+            title: '_t_Jump indices_t_',
             component: <JumpIndices />,
             details: <JumpIndicesDetails />,
         },
         {
             id: 'step-indices',
-            title: <Localize translate_text="Step indices" />,
+            title: '_t_Step indices_t_',
             component: <StepIndices />,
             details: <StepIndicesDetails />,
         },
     ],
     eu_content: [
-        <Localize
-            key={0}
-            translate_text="Return to player for mulitplier options is in the range of 95.0-99.9% for all indices on an average. Using a different multiplier or duration may affect the RTP."
-        />,
+        '_t_Return to player for mulitplier options is in the range of 95.0-99.9% for all indices on an average. Using a different multiplier or duration may affect the RTP._t_',
     ],
 }
 
-export const synthetic_multiplier_eu: SyntheticMultiplier = {
+export const synthetic_multiplier_eu: TMarketContent = {
     has_global_accordion: true,
     markets_list: {
         col: 3,
@@ -166,23 +123,22 @@ export const synthetic_multiplier_eu: SyntheticMultiplier = {
     template: 3,
     content: [
         {
-            title: <Localize translate_text="Volatility indices" />,
+            title: '_t_Volatility indices_t_',
             id: 'continuous-indices',
-            title: <Localize translate_text="Continuous indices" />,
             component: <VolatilityIndicesEU />,
             details: <VolatilityIndicesDetailsEU />,
         },
         {
             id: 'crash-boom',
-            title: <Localize translate_text="Crash/Boom" />,
-            mobile_title: <Localize translate_text="Crash/Boom" />,
+            title: '_t_Crash/Boom_t_',
+            mobile_title: '_t_Crash/Boom_t_',
             component: <CrashBoomEU />,
             details: <CrashBoomDetailsEU />,
         },
     ],
 }
 
-export const crypto_multiplier: CryptoMultiplier = {
+export const crypto_multiplier: TMarketContent = {
     markets_list: {
         col: 4,
         tablet_col: 4,
@@ -193,7 +149,7 @@ export const crypto_multiplier: CryptoMultiplier = {
     content: [
         {
             id: 'crypto-pairs',
-            title: <Localize translate_text="Crypto pairs" />,
+            title: '_t_Crypto pairs_t_',
             component: <CryptocurrenciesMultipliers />,
             details: <CryptocurrenciesDetails />,
         },

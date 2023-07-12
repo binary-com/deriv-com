@@ -39,6 +39,7 @@ const TextAndButtonWrapper = styled.div`
         align-items: center;
     }
 `
+
 const DtraderGetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const handleSignup = useHandleSignup()

@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { BackgroundImage, Header, QueryImage } from 'components/elements'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Flex, Desktop, Mobile } from 'components/containers'
 
 const query = graphql`
@@ -50,6 +50,7 @@ const AwardImageWrapper = styled.div`
         margin-top: 1%;
     }
 `
+
 const AwardImageWrapperMobile = styled.div`
     z-index: 2;
     padding: 36px 18px;
@@ -110,7 +111,7 @@ const AfricaAward = () => {
                             <AwardImageWrapper>
                                 <QueryImage
                                     data={data.africa_award}
-                                    alt={'Africa Forex Award'}
+                                    alt={localize('_t_Africa Forex Award_t_')}
                                     width="auto"
                                     height="100%"
                                 />
@@ -141,7 +142,7 @@ const AfricaAward = () => {
                     <AwardImageWrapperMobile>
                         <QueryImage
                             data={data.africa_award}
-                            alt={'Africa Forex Award'}
+                            alt={localize('_t_Africa Forex Award_t_')}
                             width="auto"
                             height="100%"
                         />

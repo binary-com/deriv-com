@@ -1,17 +1,17 @@
-import {
-    OptionContentAvailability,
-    OptionContentItemData,
-    OptionsFAQDataItem,
-} from '../../components/options-content/type'
-import {
-    allOptionsMarkets,
-    allOptionsTradePlatforms,
-} from '../../components/available-markets-platforms/data'
 import RiseFallIcon from 'images/svg/trade-types/options/digital/up-down-rise-fall.svg'
 import RiseWinIcon from 'images/svg/trade-types/options/digital/rise_win.svg'
 import RiseLoseIcon from 'images/svg/trade-types/options/digital/rise_lose.svg'
 import FallWinIcon from 'images/svg/trade-types/options/digital/fall_win.svg'
 import FallLoseIcon from 'images/svg/trade-types/options/digital/fall_lose.svg'
+import {
+    OptionContentAvailability,
+    OptionContentItemData,
+    OptionsFAQDataItem,
+} from 'features/components/templates/options-content/type'
+import {
+    allOptionsMarkets,
+    allOptionsTradePlatforms,
+} from 'features/components/organisms/available-markets-platforms/data'
 
 export const upAndDownContentItems: OptionContentItemData[] = [
     {

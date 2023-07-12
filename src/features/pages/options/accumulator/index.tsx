@@ -1,8 +1,4 @@
 import React from 'react'
-import AvailableMarketPlatforms from '../components/available-markets-platforms'
-import OptionsContent from '../components/options-content'
-import OptionsFaq from '../components/options-faq'
-import OptionsLayout from '../components/options-layout'
 import {
     accumulatorFAQ,
     accumulatorMarkets,
@@ -11,6 +7,10 @@ import {
 } from './data'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
+import OptionsLayout from 'features/components/templates/options-layout'
+import OptionsContent from 'features/components/templates/options-content'
+import AvailableMarketPlatforms from 'features/components/organisms/available-markets-platforms'
+import OptionsFaq from 'features/components/templates/options-faq'
 
 const AccumulatorsOptions = () => {
     return (

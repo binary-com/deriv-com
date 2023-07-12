@@ -1,9 +1,9 @@
 import React from 'react'
-import AvailableMarketPlatforms from '../components/available-markets-platforms'
-import OptionsContent from '../components/options-content'
-import OptionsFaq from '../components/options-faq'
-import OptionsLayout from '../components/options-layout'
 import { vanillaFAQ, vanillaMarkets, vanillaOptionsContentItems, vanillaPlatforms } from './data'
+import AvailableMarketPlatforms from 'features/components/organisms/available-markets-platforms'
+import OptionsContent from 'features/components/templates/options-content'
+import OptionsFaq from 'features/components/templates/options-faq'
+import OptionsLayout from 'features/components/templates/options-layout'
 
 const VanillaOptions = () => {
     return (

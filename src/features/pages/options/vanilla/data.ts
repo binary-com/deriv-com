@@ -1,39 +1,41 @@
+import CallPutIcon from 'images/svg/trade-types/options/vanilla/vanilla_call_put.svg'
+import CallPayout from 'images/svg/trade-types/options/vanilla/call_payout.svg'
+import CallNoPayout from 'images/svg/trade-types/options/vanilla/call_no_payout.svg'
+import PutPayout from 'images/svg/trade-types/options/vanilla/put_payout.svg'
+import PutNoPayout from 'images/svg/trade-types/options/vanilla/put_no_payout.svg'
 import {
     OptionContentAvailability,
     OptionContentItemData,
     OptionsFAQDataItem,
-} from '../components/options-content/type'
+} from 'features/components/templates/options-content/type'
 import {
     allOptionsMarkets,
     allOptionsTradePlatforms,
-} from '../components/available-markets-platforms/data'
-import RiseFallIcon from 'images/svg/trade-types/options/digital/up-down-rise-fall.svg'
-import RiseWinIcon from 'images/svg/trade-types/options/digital/rise_win.svg'
-import RiseLoseIcon from 'images/svg/trade-types/options/digital/rise_lose.svg'
+} from 'features/components/organisms/available-markets-platforms/data'
 
 export const vanillaOptionsContentItems: OptionContentItemData[] = [
     {
         type: 'sections',
         icon: {
-            src: RiseFallIcon,
-            alt: '_t_Rise/Fall Icon_t_',
+            src: CallPutIcon,
+            alt: '_t_Call/Put Icon_t_',
         },
-        title: '_t_Rise/Fall_t_',
+        title: '_t_Call/Put Icon_t_',
         sections: [
             {
                 title: '_t_Call option_t_',
                 images: [
                     {
-                        src: RiseWinIcon,
+                        src: CallPayout,
                         alt: '_t_Rise Win_t_',
                     },
                     {
-                        src: RiseLoseIcon,
+                        src: CallNoPayout,
                         alt: '_t_Rise Lose_t_',
                     },
                 ],
                 texts: [
-                    '_t_Predict whether the market price will rise or fall by the end of the contract._t_',
+                    "_t_You will receive a payout at the contract's expiry if the final price is higher than the strike price (which is determined at the beginning of the contract period). If the final price is at or below the strike price, you will lose your initial stake (premium)._t_",
                     '_t_Your net profit will depend on how much the final price is above the predetermined strike price, with the maximum potential gains growing if the price of the underlying asset rises significantly. Your losses are limited to the initial stake required to purchase the call option._t_',
                 ],
             },
@@ -41,17 +43,17 @@ export const vanillaOptionsContentItems: OptionContentItemData[] = [
                 title: '_t_Put option_t_',
                 images: [
                     {
-                        src: RiseWinIcon,
-                        alt: '_t_Rise Win_t_',
+                        src: PutPayout,
+                        alt: '_t_Put payout_t_',
                     },
                     {
-                        src: RiseLoseIcon,
-                        alt: '_t_Rise Lose_t_',
+                        src: PutNoPayout,
+                        alt: '_t_Put no payout_t_',
                     },
                 ],
                 texts: [
-                    '_t_Predict whether the market price will rise or fall by the end of the contract._t_',
-                    '_t_Your net profit will depend on how much the final price is above the predetermined strike price, with the maximum potential gains growing if the price of the underlying asset rises significantly. Your losses are limited to the initial stake required to purchase the call option._t_',
+                    "_t_You will receive a payout at the contract's expiry if the final price is lower than the strike price (which is determined at the beginning of the contract period). If the final price is at or above the strike price, you will lose your initial stake (premium)._t_",
+                    '_t_Your net profit will depend on how much the final price is below the predetermined strike price, with the maximum potential gains growing if the price of the underlying asset falls significantly. Your losses are limited to the initial stake required to purchase the put option._t_',
                 ],
             },
         ],
@@ -69,181 +71,138 @@ export const vanillaFAQ: OptionsFAQDataItem[] = [
         answers: [
             {
                 id: 1,
-                type: 'text',
-                text: '_t_You can trade Up/Down options on the Deriv Trader, SmartTrader, and Deriv Bot trading platforms. They are available to trade on forex, stock indices, commodities, and derived indices._t_',
+                type: 'list',
+                list_title: '_t_To place a vanilla options contract, you’ll need to:_t_',
+                list_items: [
+                    '_t_- Select the underlying asset you want to trade._t_',
+                    '_t_- Determine your contract duration or end time._t_',
+                    '_t_- Predict the asset’s price movement by choosing Call or Put._t_',
+                    '_t_- Select your preferred strike price_t_',
+                    '_t_- Enter your stake._t_',
+                    '_t_- Purchase the contract_t_',
+                ],
             },
         ],
     },
     {
         id: 2,
-        question: '_t_How can I open an Up/Down contract?_t_',
+        question: '_t_Can I buy and sell vanilla options?_t_',
         answers: [
             {
-                type: 'list',
+                type: 'text',
                 id: 1,
-                list_title: "_t_To open a Up/Down contract, you'll need to:_t_",
-                list_items: [
-                    '_t_- Select your preferred market and trading asset._t_',
-                    '_t_- Choose the type of Up/Down option you want to trade (Rise/Fall; Rise Equals/Falls Equals; Higher/Lower)._t_',
-                    '_t_- Set other optional contract parameters._t_',
-                    '_t_- Choose the contract duration._t_',
-                    '_t_- Enter your stake or preferred potential payout amount._t_',
-                    '_t_- Open your contract._t_',
-                ],
+                text: '_t_Currently, you can only buy vanilla call and put options on Deriv._t_',
             },
         ],
     },
     {
         id: 3,
-        question: '_t_What are Up/Down options?_t_',
+        question: '_t_How are vanilla options contracts settled?_t_',
         answers: [
             {
                 id: 1,
                 type: 'text',
-                text: '_t_Up/Down options are divided into two types:_t_',
+                text: '_t_When you purchase a contract, you’ll pay a stake (also known as an option premium). This is the cost of entering a vanilla options trade._t_',
             },
             {
                 id: 2,
                 type: 'text',
-                text: "_t_Rise/Fall contracts, where you make a market prediction on whether your contract's exit price has risen or fallen by the end of the contract period. If you trade with the Allows Equals requirement, you're predicting that the contract's exit price can also be equal to the entry price._t_",
+                text: '_t_If your market predictions are right within the contract period, you will receive a payout that is equivalent to the asset’s movement when the contract ends (or upon early termination)._t_',
             },
             {
                 id: 3,
                 type: 'text',
-                text: "_t_Higher/Lower contracts, where you set a barrier before opening your contract and make a market prediction on whether the underlying asset's price is higher or lower than the predetermined barrier at the end of the contract period._t_",
+                text: '_t_If you decide to manually terminate the trade early (before the contract’s expiry), you will be charged an additional exit fee. Please note that it is not possible to terminate a contract with less than 15 seconds before expiry._t_',
             },
         ],
     },
     {
         id: 4,
-        question: '_t_Can I close an open position before expiry?_t_',
+        question: '_t_What is payout per point?_t_',
         answers: [
             {
                 id: 1,
                 type: 'text',
-                text: '_t_Yes, you can close an open Ups/Downs position before its expiry regardless of trade duration._t_',
+                text: '_t_Payout per point indicates the payout you will receive for each point above or below the strike price (which is selected before you enter the contract) within the contract period. This amount will depend on your stake._t_',
             },
             {
                 id: 2,
                 type: 'text',
-                text: '_t_However, it is important to note that the availability of early exit may vary depending on the specific trade type. Some trade types may have restrictions or it may only be available within a certain timeframe._t_',
+                text: "_t_For Call options, payout per point indicates the amount of payout you’ll gain for each point above the predetermined strike price, at the contract's expiry._t_",
+            },
+            {
+                id: 3,
+                type: 'text',
+                text: "_t_For Put options, payout per point indicates the amount of payout you’ll gain for each point below the predetermined strike price, at the contract's expiry._t_",
+            },
+            {
+                id: 4,
+                type: 'text',
+                text: "_t_Please note that this payout does not equal to potential profit. You'll only earn potential profit once the payout amount exceeds your stake amount._t_",
             },
         ],
     },
     {
         id: 5,
-        question:
-            '_t_Can I select the duration or expiry time for Rise/Fall and Higher/Lower trades?_t_',
+        question: '_t_Where can I trade vanilla options on Deriv?_t_',
         answers: [
             {
                 id: 1,
                 type: 'text',
-                text: "_t_Yes, both trade types allow you to choose the trade duration or expiry time. You'll just need to select the timeframe within which you expect the asset's price to move in your predicted direction._t_",
-            },
-            {
-                id: 2,
-                type: 'text',
-                text: '_t_For Rise/Fall, contract durations range from 1 tick and 365 days._t_',
-            },
-            {
-                id: 3,
-                type: 'text',
-                text: '_t_For Higher/Lower, contract durations range from 5 ticks to 365 days._t_',
+                text: '_t_You can trade vanilla options on Deriv Trader. They are offered on volatility indices._t_',
             },
         ],
     },
     {
         id: 6,
-        question: '_t_Can I enter multiple Up/Down contracts at the same time?_t_',
+        question: '_t_Can I open multiple vanilla options contracts at the same time?_t_',
         answers: [
             {
                 id: 1,
                 type: 'text',
-                text: "_t_Yes, you can enter multiple contracts at the same time. If you open multiple contract simultaneously, you'll get to diversify your trading portfolio and take advantage of various market opportunities._t_",
-            },
-            {
-                id: 2,
-                type: 'text',
-                text: '_t_Do note that the specific rules and limitations on the number of contracts you can enter simultaneously may vary depending on trade type. Some may have restrictions on the number of contracts you can open, while others may have other specific conditions that may allow for greater flexibility._t_',
+                text: '_t_Yes, you can open multiple vanilla options contracts at the same time, depending on your options trading strategies._t_',
             },
         ],
     },
     {
         id: 7,
-        question: '_t_How can I know my potential payout for a Rise/Fall or Higher/Lower trade?_t_',
+        question: '_t_Are vanilla options available on Deriv Bot?_t_',
         answers: [
             {
                 id: 1,
                 type: 'text',
-                text: '_t_The potential payout is predetermined based on the specific details of the trade and if your market predictions are right._t_',
-            },
-            {
-                id: 2,
-                type: 'text',
-                text: '_t_For Rise/Fall contracts, potential payouts generally range from 85% to 95% of your stake._t_',
-            },
-            {
-                id: 3,
-                type: 'text',
-                text: '_t_For Higher/Lower contracts, potential payouts can range from 1% to 3,900% of your stake, depending on where the barrier is set._t_',
-            },
-            {
-                id: 4,
-                type: 'text',
-                text: '_t_The potential payout and potential loss (your initial stake) will be clearly displayed before you enter the trade._t_',
+                text: '_t_No, vanilla options are not currently available on the Deriv Bot trading platform._t_',
             },
         ],
     },
     {
         id: 8,
-        question: '_t_What is the difference between Rise/Fall and Higher/Lower contracts?_t_',
+        question: '_t_How can I delta hedge my synthetic options portfolio?_t_',
         answers: [
             {
                 id: 1,
                 type: 'text',
-                text: '_t_A Higher/Lower contract is typically a Rise/Fall contract with an adjustable barrier that can be applied before purchasing the contract. For example, in a "Higher" contract, the further away the barrier is from the current market price, the higher the potential payout and vice versa for a Lower contract._t_',
-            },
-        ],
-    },
-    {
-        id: 9,
-        question: '_t_Are Higher/Lower contracts the same as High/Low Ticks?_t_',
-        answers: [
-            {
-                id: 1,
-                type: 'text',
-                text: '_t_No, they are not the same._t_',
+                text: '_t_However, you can access the hedge ratio (lot size) for each options contract to help you manage your risk if you want to delta hedge on a CFD platform._t_',
             },
             {
                 id: 2,
                 type: 'text',
-                text: '_t_When you trade a Higher/Lower contract, you speculate on the price direction of an underlying asset over a time period._t_',
+                text: '_t_The hedge ratio refers to the number of CFD lots required to hedge an options position. It aims to reduce the directional risks associated with holding options positions. You can hedge call options that gain value when the underlying_t_',
             },
             {
                 id: 3,
                 type: 'text',
-                text: '_t_When you trade High/Low Ticks, you predict which tick is the highest within a 5-tick contract._t_',
+                text: '_t_ asset’s price increases by shorting the underlying asset, and vice versa for put options._t_',
             },
-        ],
-    },
-    {
-        id: 10,
-        question: '_t_How do I predict the price movement in a Rise/Fall or Higher/Lower trade?_t_',
-        answers: [
             {
-                id: 1,
+                id: 4,
                 type: 'text',
-                text: '_t_Traders typically analyse the underlying market and price trends to determine the likelihood of prices rising or falling over a given time period._t_',
+                text: '_t_Periodic rebalancing is usually a preferred trading strategy when looking at options contracts with expiry dates greater than 1 week._t_',
             },
             {
-                id: 2,
-                type: 'list',
-                list_title:
-                    '_t_To identify trends, you can consider a number of factors, including:_t_',
-                list_items: [
-                    '_t_- Recent price swings and market volatility_t_',
-                    '_t_- Economic news and events- Trends revealed by using technical indicators._t_',
-                ],
+                id: 5,
+                type: 'text',
+                text: '_t_Please note that hedging requires ongoing monitoring and trade rebalancing._t_',
             },
         ],
     },

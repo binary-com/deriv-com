@@ -1,8 +1,8 @@
 import React from 'react'
-import AvailableOptions from '../available-options'
 import OptionsLayout from '../options-layout'
 import { AvailableDigitalOptionsData } from './data'
 import Flex from 'features/components/atoms/flex-box'
+import AvailableOptions from 'features/components/organisms/available-options'
 
 const DigitalOptionsLayout: React.FC = ({ children }) => {
     return (

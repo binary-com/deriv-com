@@ -1,7 +1,7 @@
 import React from 'react'
-import { OptionContentAvailability } from '../options-content/type'
 import AvailableList from './available-list'
 import Flex from 'features/components/atoms/flex-box'
+import { OptionContentAvailability } from 'features/components/templates/options-content/type'
 
 export interface AvailableMarketPlatforms {
     markets: OptionContentAvailability[]

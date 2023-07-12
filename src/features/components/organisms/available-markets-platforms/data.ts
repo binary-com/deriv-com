@@ -1,5 +1,4 @@
 // markets icons
-import { OptionContentAvailability } from '../options-content/type'
 import ForexIcon from 'images/svg/home/ts_fx_icon.svg'
 import DerivedIndicesIcon from 'images/svg/home/ts_derived_icon.svg'
 import CommoditiesIcon from 'images/svg/home/ts_commodities_icon.svg'
@@ -7,6 +6,7 @@ import CommoditiesIcon from 'images/svg/home/ts_commodities_icon.svg'
 import DTraderIcon from 'images/svg/custom/rebranding/dtrader-icon.svg'
 import SmartTraderIcon from 'images/svg/custom/rebranding/smarttrader-icon.svg'
 import DerivBotIcon from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
+import { OptionContentAvailability } from 'features/components/templates/options-content/type'
 
 export type AllMarkets = 'forex' | 'derived_indices' | 'commodities'
 

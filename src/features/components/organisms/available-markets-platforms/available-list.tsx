@@ -1,10 +1,10 @@
 import React from 'react'
-import { OptionContentAvailability } from '../options-content/type'
 import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Link from 'features/components/atoms/link'
 import Typography from 'features/components/atoms/typography'
 import { TString } from 'types/generics'
+import { OptionContentAvailability } from 'features/components/templates/options-content/type'
 
 const AvailableList = ({
     items,

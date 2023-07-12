@@ -1,4 +1,4 @@
-import { OptionNavigationType } from '../available-options/type'
+import { OptionNavigationType } from '../navigation/tab-nav-without-border/types'
 
 export const AvailableDigitalOptionsData: OptionNavigationType[] = [
     {

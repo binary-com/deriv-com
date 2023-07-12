@@ -1,7 +1,5 @@
 @import 'features/styles/theme/variables';
 
-$menu_size: 38.5rem;
-
 .mobile_menu {
     position: fixed;
     inset-block-start: 7rem;
@@ -9,9 +7,9 @@ $menu_size: 38.5rem;
     block-size: calc(100vh - 7rem);
     background-color: $color-white;
     opacity: 1;
-    inset-inline-start: -$menu_size;
+    inset-inline-start: -100vh;
     overflow: scroll;
-    transition: inset-inline-start 0.5s ease 0ms;
+    transition:  0.5s ease 0ms;
     box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
     z-index: 5;
 }

@@ -44,6 +44,7 @@ const NavTemplate = ({
 
     const onMenuToggleClick = () => {
         setIsMenuOpen((prevState) => !prevState)
+        document.body.style.overflow = is_mobile_or_tablet && is_menu_open ? 'scroll' : 'hidden'
     }
 
     useOutsideClick(

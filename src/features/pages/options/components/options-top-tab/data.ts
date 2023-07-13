@@ -15,18 +15,18 @@ export const tab_data: OptionNavigationType[] = [
         option_name: 'digital',
         to: '/trade-types/options/digital-options',
     },
-    {
-        src: AccumulatorslInActive,
-        selected_src: AccumulatorslActive,
-        button_text: '_t_Accumulator options_t_',
-        option_name: 'accumulator',
-        to: '/trade-types/options/accumulator-options',
-    },
-    {
-        src: VanillaInActive,
-        selected_src: VanillaActive,
-        button_text: '_t_Vanilla options_t_',
-        option_name: 'vanilla',
-        to: '/trade-types/options/vanilla-options',
-    },
+    // {
+    //     src: AccumulatorslInActive,
+    //     selected_src: AccumulatorslActive,
+    //     button_text: '_t_Accumulator options_t_',
+    //     option_name: 'accumulator',
+    //     to: '/trade-types/options/accumulator-options',
+    // },
+    // {
+    //     src: VanillaInActive,
+    //     selected_src: VanillaActive,
+    //     button_text: '_t_Vanilla options_t_',
+    //     option_name: 'vanilla',
+    //     to: '/trade-types/options/vanilla-options',
+    // },
 ]

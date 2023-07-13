@@ -206,6 +206,7 @@ const AvailableTradesDesktop = ({
     const { is_non_eu } = useRegion()
     const params = new URLSearchParams(isBrowser() && location.search)
     const tab = params.get('tab')
+    console.log(tab, 'tab')
 
     return (
         <StyledSection>

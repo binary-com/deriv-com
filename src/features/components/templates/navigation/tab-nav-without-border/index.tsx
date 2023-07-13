@@ -60,7 +60,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                                 <SwiperSlide key={tab_item.option_name}>
                                     <NavigationTabMenu
                                         key={tab_item.option_name}
-                                        tab_items={tab_item}
+                                        tab_items={[tab_item]}
                                         selected={isActiveLink(tab_item.to)}
                                         is_no_border_bottom
                                         icon={
@@ -88,7 +88,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                         <Flex.Box direction="col" key={tab_item.option_name}>
                             <NavigationTabMenu
                                 key={tab_item.option_name}
-                                tab_items={tab_item}
+                                tab_items={[tab_item]}
                                 selected={isActiveLink(tab_item.to)}
                                 is_no_border_bottom
                                 icon={

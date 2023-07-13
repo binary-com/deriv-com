@@ -11,7 +11,7 @@ import { isActiveLink } from 'features/components/atoms/link/internal'
 
 export type TabMenuProps = {
     class_name?: string
-    tab_items: OptionNavigationType
+    tab_items: OptionNavigationType[]
     selected: boolean
     icon?: string
     is_no_border_bottom?: boolean
@@ -23,43 +23,33 @@ const NavigationTabMenu = ({
     icon,
     is_no_border_bottom = false,
 }: TabMenuProps) => {
-    const { button_text, to } = tab_items
     const { is_mobile } = useBreakpoints()
 
-    console.log(selected, to, button_text, 'www')
-    const renderTab = useMemo(() => {
-        return (
-            <FlexBox.Box className={class_name} justify={'start'} md={{ justify: 'center' }}>
-                {icon && (
-                    <FlexBox.Box justify="center" padding_block="6x">
-                        <Image src={icon} width="64px" height="64px" />
-                    </FlexBox.Box>
-                )}
-                <Typography.Paragraph
-                    size={is_mobile ? 'medium' : 'small'}
-                    textcolor={selected ? 'brand' : 'light-black'}
-                >
-                    <Localize translate_text={button_text} />
-                </Typography.Paragraph>
-                <Link url={{ type: 'internal', to: to }} no_hover key={button_text}>
-                    <Tab.MenuItem selected={selected} is_no_border_bottom={is_no_border_bottom}>
-                        {icon && (
-                            <FlexBox.Box justify="center" padding_block="6x">
-                                <Image src={icon} width="64px" height="64px" />
-                            </FlexBox.Box>
-                        )}
-                        <Typography.Paragraph
-                            size={is_mobile ? 'medium' : 'small'}
-                            textcolor={isActiveLink(to) ? 'brand' : 'light-black'}
-                        >
-                            <Localize translate_text={button_text} />
-                        </Typography.Paragraph>
-                    </Tab.MenuItem>
-                </Link>
-            </FlexBox.Box>
-        )
-    }, [tab_items, selected, icon])
-    return renderTab
+    console.log(selected, tab_items, 'www')
+
+    return (
+        <FlexBox.Box className={class_name} justify={'start'} md={{ justify: 'center' }}>
+            {tab_items.map(({ to, button_text }) => {
+                return (
+                    <Link url={{ type: 'internal', to: to }} no_hover key={button_text}>
+                        <Tab.MenuItem selected={selected} is_no_border_bottom={is_no_border_bottom}>
+                            {icon && (
+                                <FlexBox.Box justify="center" padding_block="6x">
+                                    <Image src={icon} width="64px" height="64px" />
+                                </FlexBox.Box>
+                            )}
+                            <Typography.Paragraph
+                                size={is_mobile ? 'medium' : 'small'}
+                                textcolor={selected ? 'brand' : 'light-black'}
+                            >
+                                <Localize translate_text={button_text} />
+                            </Typography.Paragraph>
+                        </Tab.MenuItem>
+                    </Link>
+                )
+            })}
+        </FlexBox.Box>
+    )
 }
 
 export default NavigationTabMenu

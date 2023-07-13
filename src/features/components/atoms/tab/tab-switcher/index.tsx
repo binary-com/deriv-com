@@ -6,6 +6,7 @@ import FlexBox from '../../flex-box'
 import FlexBoxContainer from '../../flex-box/box'
 import * as styles from './tab-switcher.module.scss'
 import { Localize } from 'components/localization'
+import dclsx from 'features/utils/dclsx'
 
 const TabSwitcher = ({ tab, onTabClick }: Omit<StepperTabTypes, 'items'>) => {
     return (
@@ -18,9 +19,10 @@ const TabSwitcher = ({ tab, onTabClick }: Omit<StepperTabTypes, 'items'>) => {
         >
             <FlexBox.Box justify={'center'}>
                 <TabButton
-                    className={
-                        tab === 'demo' ? styles.tab_switcher_active : styles.tab_switcher_unactive
-                    }
+                    className={dclsx(
+                        tab === 'demo' ? styles.tab_switcher_active : styles.tab_switcher_unactive,
+                        styles.demo_tab_button,
+                    )}
                     onClick={() => onTabClick('demo')}
                 >
                     <Typography.Paragraph size={'xlarge'} align={'center'}>
@@ -28,9 +30,10 @@ const TabSwitcher = ({ tab, onTabClick }: Omit<StepperTabTypes, 'items'>) => {
                     </Typography.Paragraph>
                 </TabButton>
                 <TabButton
-                    className={
-                        tab === 'real' ? styles.tab_switcher_active : styles.tab_switcher_unactive
-                    }
+                    className={dclsx(
+                        tab === 'real' ? styles.tab_switcher_active : styles.tab_switcher_unactive,
+                        styles.real_tab_button,
+                    )}
                     style={{ background: 'transparent' }}
                     onClick={() => onTabClick('real')}
                 >

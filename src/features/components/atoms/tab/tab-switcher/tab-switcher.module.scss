@@ -1,12 +1,21 @@
+.demo_tab_button{
+  border-radius: 16px 0 0 16px;
+}
+.real_tab_button{
+  border-radius: 0px 16px 16px 0;
+}
 .tab_switcher {
+ 
   &_active {
     font-weight: bold;
-    border-radius: 16px 0px 0px 16px;
+  
     box-shadow: 0px 24px 48px rgba(14, 14, 14, 0.18);
   }
   &_unactive {
+    
     font-weight: normal;
-    border-radius: 0px 16px 16px 0px;
+    
   }
 }
+
 

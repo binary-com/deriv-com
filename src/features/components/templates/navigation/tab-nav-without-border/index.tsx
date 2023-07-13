@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useMemo } from 'react'
 import { SwiperSlide, Swiper } from 'swiper/react'
 import SwiperCore, { Navigation } from 'swiper'
 import NavigationTabMenu from '../../tabs/navigation-menu'
@@ -39,70 +39,81 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
     }, [pathname])
     tab_data.map((tab_item) => console.log(isActiveLink(tab_item.to), tab_item, pathname, 'www'))
 
-    return (
-        <Container.Fluid mt={'20x'}>
-            <Flex.Box
-                padding_block="10x"
-                md={{ justify: 'center', padding: '10x' }}
-                visible="phone-only"
-                className="swiper_wrapper_navigation"
-            >
-                <Swiper
-                    ref={swiper_ref}
-                    speed={1000}
-                    slidesPerView={2}
-                    direction="horizontal"
-                    navigation={{ nextEl: '.swiper-button-next' }}
-                >
-                    {!swiper_loading &&
-                        tab_data.map((tab_item) => {
-                            return (
-                                <SwiperSlide key={tab_item.option_name}>
-                                    <NavigationTabMenu
-                                        key={tab_item.option_name}
-                                        tab_items={[tab_item]}
-                                        selected={isActiveLink(tab_item.to)}
-                                        is_no_border_bottom
-                                        icon={
-                                            isActiveLink(tab_item.to)
-                                                ? `${tab_item.selected_src}#${tab_item.option_name}`
-                                                : `${tab_item.src}#${tab_item.option_name}`
-                                        }
-                                    />
-                                </SwiperSlide>
-                            )
-                        })}
-                </Swiper>
-                <div className="swiper-button-next">
-                    <Image src={ArrowNext} width="24px" height="24px" />
-                </div>
-            </Flex.Box>
+    const isActiveLink = (currentPage: string, active_urls?: string[]) => {
+        const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
 
-            <Flex.Box
-                padding_block="10x"
-                md={{ justify: 'center', padding: '10x' }}
-                visible="larger-than-phone"
-            >
-                {tab_data.map((tab_item) => {
-                    return (
-                        <Flex.Box direction="col" key={tab_item.option_name}>
-                            <NavigationTabMenu
-                                key={tab_item.option_name}
-                                tab_items={[tab_item]}
-                                selected={isActiveLink(tab_item.to)}
-                                is_no_border_bottom
-                                icon={
-                                    isActiveLink(tab_item.to)
-                                        ? `${tab_item.selected_src}#${tab_item.option_name}`
-                                        : `${tab_item.src}#${tab_item.option_name}`
-                                }
-                            />
-                        </Flex.Box>
-                    )
-                })}
-            </Flex.Box>
-        </Container.Fluid>
-    )
+        return active_urls?.length
+            ? active_urls.some((url) => pathname.includes(url))
+            : pathname.includes(currentPage)
+    }
+    const render = useMemo(() => {
+        return (
+            <Container.Fluid mt={'20x'}>
+                <Flex.Box
+                    padding_block="10x"
+                    md={{ justify: 'center', padding: '10x' }}
+                    visible="phone-only"
+                    className="swiper_wrapper_navigation"
+                >
+                    <Swiper
+                        ref={swiper_ref}
+                        speed={1000}
+                        slidesPerView={2}
+                        direction="horizontal"
+                        navigation={{ nextEl: '.swiper-button-next' }}
+                    >
+                        {!swiper_loading &&
+                            tab_data.map((tab_item) => {
+                                return (
+                                    <SwiperSlide key={tab_item.option_name}>
+                                        <NavigationTabMenu
+                                            key={tab_item.option_name}
+                                            tab_items={[tab_item]}
+                                            selected={isActiveLink(tab_item.to)}
+                                            is_no_border_bottom
+                                            icon={
+                                                isActiveLink(tab_item.to)
+                                                    ? `${tab_item.selected_src}#${tab_item.option_name}`
+                                                    : `${tab_item.src}#${tab_item.option_name}`
+                                            }
+                                        />
+                                    </SwiperSlide>
+                                )
+                            })}
+                    </Swiper>
+                    <div className="swiper-button-next">
+                        <Image src={ArrowNext} width="24px" height="24px" />
+                    </div>
+                </Flex.Box>
+
+                <Flex.Box
+                    padding_block="10x"
+                    md={{ justify: 'center', padding: '10x' }}
+                    visible="larger-than-phone"
+                >
+                    {tab_data.map((tab_item) => {
+                        return (
+                            <Flex.Box direction="col" key={tab_item.option_name}>
+                                <NavigationTabMenu
+                                    key={tab_item.option_name}
+                                    tab_items={[tab_item]}
+                                    selected={isActiveLink(tab_item.to)}
+                                    is_no_border_bottom
+                                    icon={
+                                        isActiveLink(tab_item.to)
+                                            ? `${tab_item.selected_src}#${tab_item.option_name}`
+                                            : `${tab_item.src}#${tab_item.option_name}`
+                                    }
+                                />
+                            </Flex.Box>
+                        )
+                    })}
+                </Flex.Box>
+            </Container.Fluid>
+        )
+    }, [pathname])
+
+    return render
 }
 
 export default NavigationTabWithoutBorder

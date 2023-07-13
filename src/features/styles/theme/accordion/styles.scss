@@ -25,6 +25,11 @@
 
     &_item {
         overflow: hidden;
+        box-shadow: 0px 1px 2px 0px #0e0e0e0f;
+        box-shadow: 0px 1px 3px 0px #0e0e0e1a;
+    }
+    &_shadow_item {
+        margin-block-end: 2rem;
     }
 
     &_content {
@@ -53,9 +58,21 @@
             transition: transform 0.25s linear;
             transform: rotate(-180deg);
         }
+        .plus_icon {
+            inline-size: 2.4rem;
+            block-size: 2.4rem;
+            background: url(images/svg/elements/plus.svg) no-repeat top left;
+            background-size: contain;
+            min-inline-size: 3.6rem;
+        }
 
         &[data-state='open'] .accordion_icon {
             transform: rotate(0deg);
+        }
+
+        &[data-state='open'] .plus_icon {
+            background: url(images/svg/elements/minus.svg) no-repeat top left;
+            background-size: contain;
         }
 
         &:active,

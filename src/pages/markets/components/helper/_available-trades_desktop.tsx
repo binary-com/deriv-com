@@ -205,7 +205,7 @@ const AvailableTradesDesktop = ({
 }: AvailableTradesProps) => {
     const { is_non_eu } = useRegion()
     const params = new URLSearchParams(isBrowser() && location.search)
-    const tab = params.get('tab')
+    const tab = params.get('tab') || 'cfds'
 
     return (
         <StyledSection>
@@ -216,20 +216,12 @@ const AvailableTradesDesktop = ({
                 <CardWrapper position="relative" id="available-trades">
                     {CFDs && (
                         <Link to="?tab=cfds#cfds">
-                            <Card
-                                name="CFDs"
-                                display_name="_t_CFDs_t_"
-                                active_tab={tab || 'cfds'}
-                            />
+                            <Card name="CFDs" display_name="_t_CFDs_t_" active_tab={tab} />
                         </Link>
                     )}
                     {is_non_eu && DigitalOptions && (
                         <Link to="?tab=options#options">
-                            <Card
-                                name="Options"
-                                display_name="_t_Options_t_"
-                                active_tab={tab || 'cfds'}
-                            />
+                            <Card name="Options" display_name="_t_Options_t_" active_tab={tab} />
                         </Link>
                     )}
                     {Multipliers && (
@@ -237,7 +229,7 @@ const AvailableTradesDesktop = ({
                             <Card
                                 name="Multipliers"
                                 display_name="_t_Multipliers_t_"
-                                active_tab={tab || 'cfds'}
+                                active_tab={tab}
                             />
                         </Link>
                     )}

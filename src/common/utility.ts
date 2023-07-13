@@ -437,7 +437,7 @@ export const updateURLAsPerUserLanguage = () => {
     }
 }
 
-export const validate_p2p_country = (p2p_config) => {
+export const getP2PCookie = () => {
     const p2p_validity = Cookies.get('is_p2p_disabled')
-    return p2p_validity ? !JSON.parse(p2p_validity) : !!p2p_config
+    return p2p_validity
 }

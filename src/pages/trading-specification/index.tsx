@@ -6,7 +6,7 @@ import Layout from 'components/layout/layout'
 import { SectionContainer, SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import MarketTab from 'components/elements/market-tab'
-import { Localize, localize, WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 import { TString } from 'types/generics'
 import SignupPublic from 'features/components/templates/signup/with-banner'
 
@@ -20,10 +20,8 @@ const TradingSpecification = () => {
     return (
         <Layout>
             <SEO
-                title={localize('_t_Trading specifications | CFD trading | Trading with Deriv_t_')}
-                description={localize(
-                    '_t_Find Deriv’s CFD trading specifications for multiple assets in forex, derived indices, stocks and indices, cryptocurrencies, and commodities._t_',
-                )}
+                title="_t_Trading specifications | CFD trading | Trading with Deriv_t_"
+                description="_t_Find Deriv’s CFD trading specifications for multiple assets in forex, derived indices, stocks and indices, cryptocurrencies, and commodities._t_"
             />
             <SectionContainer padding={'8rem 0 0 0'}>
                 <StyledHeader type="heading-2" as="p" align="center">

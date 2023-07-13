@@ -4,19 +4,22 @@ import { Header } from 'components/elements/typography'
 import device from 'themes/device'
 import { Grid, HowItWorksItem } from 'pages/trade-types/components/_style'
 import { Flex } from 'components/containers'
+import { TString } from 'types/generics'
+import { Localize, localize } from 'components/localization'
 
-type TItem = {
+type TBoxStyledGridItem = {
     icon: string
-    title: JSX.Element
-    subtitle: JSX.Element
-    image_alt: string
+    title: TString
+    subtitle: TString
+    image_alt: TString
 }
 
-type TProps = {
-    items: TItem[]
+type TBoxStyledGrid = {
+    items: TBoxStyledGridItem[]
     containerWidth?: string
     boxsPerRow?: string
 }
+
 const StyledText = styled(Header)`
     font-size: 24px;
     color: var(--color-black-9);
@@ -41,7 +44,6 @@ const OptionGrid = styled(Grid)<{ boxsPerRow: string; containerWidth: string }>`
         grid-template-columns: 1fr;
     }
 `
-
 const OptionItems = styled(Flex)`
     flex-direction: column;
     height: auto;
@@ -60,20 +62,23 @@ const StyledSubText = styled(Header)`
         font-size: 14px;
     }
 `
-const BoxStyledGrid: React.FC<TProps> = ({ items, containerWidth, boxsPerRow = '3' }) => {
+
+const BoxStyledGrid = ({ items, containerWidth, boxsPerRow = '3' }: TBoxStyledGrid) => {
     return (
         <OptionGrid containerWidth={containerWidth} boxsPerRow={boxsPerRow}>
-            {items.map((item, index) => {
+            {items.map(({ icon, image_alt, title, subtitle }) => {
                 return (
-                    <StyledHowItWorksItem key={index}>
+                    <StyledHowItWorksItem key={title}>
                         <OptionItems>
                             <div>
-                                <img src={item.icon} alt={item.image_alt} />
+                                <img src={icon} alt={localize(image_alt)} />
                             </div>
-                            <StyledText>{item.title}</StyledText>
+                            <StyledText>
+                                <Localize translate_text={title} />
+                            </StyledText>
                         </OptionItems>
                         <StyledSubText as="p" type="paragraph-1">
-                            {item.subtitle}
+                            <Localize translate_text={subtitle} />
                         </StyledSubText>
                     </StyledHowItWorksItem>
                 )

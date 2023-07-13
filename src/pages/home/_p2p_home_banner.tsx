@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { QueryImage, ImageWrapper, Header } from 'components/elements'
 import { Desktop, Mobile, Flex } from 'components/containers'
-import { LocalizedLink, Localize } from 'components/localization'
+import { LocalizedLink, Localize, localize } from 'components/localization'
 import device, { size } from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { p2p_playstore_url, p2p_applestore_url, p2p_huawei_appgallery_url } from 'common/constants'
@@ -382,6 +382,7 @@ const AppStoreBottomBadge = styled(LocalizedLink)`
     width: 164px;
     height: 40px;
 `
+
 const P2PHomeBanner = () => {
     const data = useStaticQuery(query)
     const [is_tabletL] = useBrowserResize(size.tabletL)
@@ -399,31 +400,35 @@ const P2PHomeBanner = () => {
         <BackgroundWrapper>
             <Wrapper>
                 <ImgWrapper>
-                    <QueryImage data={background} alt={'Deriv’s P2P mobile app'} />
+                    <QueryImage data={background} alt={localize('_t_Deriv’s P2P mobile app_t_')} />
                 </ImgWrapper>
                 <InformationWrapper height="unset" direction="column">
                     <ContentWrapper>
                         <P2pLogoContainer>
                             <Desktop>
-                                <QueryImage data={data['deriv_p2p_logo']} alt="p2p logo" />
+                                <QueryImage
+                                    data={data['deriv_p2p_logo']}
+                                    alt={localize('_t_p2p logo_t_')}
+                                />
                             </Desktop>
                             <Mobile max-width="tabletL">
-                                <QueryImage data={data['deriv_p2p_mobile_logo']} alt="p2p logo" />
+                                <QueryImage
+                                    data={data['deriv_p2p_mobile_logo']}
+                                    alt={localize('_t_p2p logo_t_')}
+                                />
                             </Mobile>
                         </P2pLogoContainer>
                         <StyledHeaders as="h1" weight="500">
-                            <Localize translate_text="Hassle-free deposits and withdrawals" />
+                            <Localize translate_text="_t_Hassle-free deposits and withdrawals_t_" />
                         </StyledHeaders>
                         <HeroContent>
                             <Header as="h2">
-                                {
-                                    <Localize translate_text="Connect with fellow traders and transfer money in minutes." />
-                                }
+                                <Localize translate_text="_t_Connect with fellow traders and transfer money in minutes._t_" />
                             </Header>
                         </HeroContent>
                         <StyledButton to="/p2p/">
                             <LearnMore to="/p2p/">
-                                <Localize translate_text="Learn more >" />
+                                <Localize translate_text="_t_Learn more >_t_" />
                             </LearnMore>
                         </StyledButton>
                         <Mobile>
@@ -437,7 +442,7 @@ const P2PHomeBanner = () => {
                                     >
                                         <QueryImage
                                             data={data['p2p_apple_store']}
-                                            alt="p2p apple store"
+                                            alt={localize('_t_p2p apple store_t_')}
                                         />
                                     </AppStoreTopBadge>
                                     <AppStoreTopBadge
@@ -448,7 +453,7 @@ const P2PHomeBanner = () => {
                                     >
                                         <QueryImage
                                             data={data['p2p_google_play']}
-                                            alt="p2p google play"
+                                            alt={localize('_t_p2p google play_t_')}
                                         />
                                     </AppStoreTopBadge>
                                 </StyledTopBadge>
@@ -461,7 +466,7 @@ const P2PHomeBanner = () => {
                                     >
                                         <QueryImage
                                             data={data['p2p_app_gallery']}
-                                            alt="p2p app gallery"
+                                            alt={localize('_t_p2p app gallery_t_')}
                                         />
                                     </AppStoreBottomBadge>
                                 </StyledBottomBadge>
@@ -478,7 +483,7 @@ const P2PHomeBanner = () => {
                                     >
                                         <QueryImage
                                             data={data['p2p_apple_store']}
-                                            alt="p2p apple store"
+                                            alt={localize('_t_p2p apple store_t_')}
                                         />
                                     </AppStoreTopBadge>
                                     <AppStoreTopBadge
@@ -489,7 +494,7 @@ const P2PHomeBanner = () => {
                                     >
                                         <QueryImage
                                             data={data['p2p_google_play']}
-                                            alt="p2p google play"
+                                            alt={localize('_t_p2p google play_t_')}
                                         />
                                     </AppStoreTopBadge>
                                     <AppStoreTopBadge
@@ -500,7 +505,7 @@ const P2PHomeBanner = () => {
                                     >
                                         <QueryImage
                                             data={data['p2p_app_gallery']}
-                                            alt="p2p app gallery"
+                                            alt={localize('_t_p2p app gallery_t_')}
                                         />
                                     </AppStoreTopBadge>
                                 </StyledTopBadge>
@@ -512,12 +517,12 @@ const P2PHomeBanner = () => {
                         <QRCodeP2p>
                             <QueryImage
                                 data={data['p2p_qr_code']}
-                                alt={'play store'}
+                                alt={localize('_t_play store_t_')}
                                 width="120px"
                                 height="120px"
                             />
                             <StyledLabel>
-                                <Localize translate_text="Scan to download Deriv P2P" />
+                                <Localize translate_text="_t_Scan to download Deriv P2P_t_" />
                             </StyledLabel>
                         </QRCodeP2p>
                     </Desktop>
@@ -526,4 +531,5 @@ const P2PHomeBanner = () => {
         </BackgroundWrapper>
     )
 }
+
 export default P2PHomeBanner

@@ -89,6 +89,7 @@ export const smart_trader_languages = [
     'zh_tw',
 ]
 export const deriv_status_page_url = 'https://deriv.statuspage.io'
+export const deriv_bug_bounty_url = 'https://hackerone.com/deriv?type=team'
 export const derivx_ios_url = 'https://apps.apple.com/us/app/deriv-x/id1563337503'
 export const derivx_android_url = 'https://play.google.com/store/apps/details?id=com.deriv.dx'
 export const derivx_huawei_url = 'https://appgallery.cloud.huawei.com/ag/n/app/C104633219'
@@ -167,7 +168,7 @@ export const live_chat_key = 'live_chat_redirection'
 export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const youtube_url = 'https://www.youtube.com/@deriv'
-export const loss_percent = 73
+export const loss_percent = 72
 
 export const cookie_key = 'browser_update_alert_modal_shown'
 export const browsers_minimum_required_version = {

@@ -1,0 +1,8 @@
+.swiper-button-next {
+    &::after {
+        display: none !important;
+    }
+}
+.swiper_wrapper_navigation {
+    position: relative;
+}

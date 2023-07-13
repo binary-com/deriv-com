@@ -2,13 +2,10 @@ import React, { useState, ReactNode, useMemo } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import StepperView from 'components/custom/_stepper_view'
-import { Flex, SectionContainer, Mobile } from 'components/containers'
+import { Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
-import { Button } from 'components/form'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import { mobileOSDetect } from 'common/os-detect'
-import { derivx_android_url, derivx_ios_url } from 'common/constants'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 
 interface StartDerivXProps {
@@ -67,16 +64,6 @@ const query = graphql`
     }
 `
 
-const handleExternalLink = () => {
-    let link = ''
-    if (mobileOSDetect() === 'Android') {
-        link = derivx_android_url
-    }
-    if (mobileOSDetect() === 'iOS') {
-        link = derivx_ios_url
-    }
-    window.open(link, '_blank')
-}
 const Section = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
@@ -106,26 +93,6 @@ const realActive = css`
     ${Text} {
         font-weight: unset;
     }
-`
-
-const StyledButtonWrapper = styled(Mobile)`
-    width: 100%;
-    padding: 0 15px;
-`
-const ButtonDp2p = styled(Button)`
-    padding: 10px 16px;
-    height: 40px;
-    min-width: 25rem;
-    white-space: nowrap;
-    margin-top: 24px;
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background: #ff444f;
-    border-radius: 16px;
-    width: 100%;
 `
 const TabItem = styled.div<StartDerivXProps>`
     padding: 2.4rem 4rem;
@@ -174,35 +141,30 @@ const StartDerivX = () => {
     const demo: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: () => (
-                    <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
-                ),
+                title: () =>
+                    '_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'demo_step1_mobile' : 'demo_step1']}
-                        alt={<Localize translate_text="Deriv X demo account signup page" />}
+                        alt={localize('_t_Deriv X demo account signup page_t_')}
                     />
                 ),
             },
             {
-                title: () => <Localize translate_text="Add a Deriv X demo account." />,
+                title: () => '_t_Add a Deriv X demo account._t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'demo_step2_mobile' : 'demo_step2']}
-                        alt={
-                            <Localize translate_text="Deriv X dashboard showing demo account comparison" />
-                        }
+                        alt={localize('_t_Deriv X dashboard showing demo account comparison_t_')}
                     />
                 ),
             },
             {
-                title: () => (
-                    <Localize translate_text="Start trading on the mobile app or through your web browser." />
-                ),
+                title: () => '_t_Start trading on the mobile app or through your web browser._t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'demo_step3_mobile' : 'demo_step3']}
-                        alt={<Localize translate_text="Deriv X trading dashboard" />}
+                        alt={localize('_t_Deriv X trading dashboard_t_')}
                     />
                 ),
             },
@@ -213,42 +175,39 @@ const StartDerivX = () => {
     const real: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: () => (
-                    <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
-                ),
+                title: () =>
+                    '_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step1_mobile' : 'real_step1']}
-                        alt={<Localize translate_text="Sign in" />}
+                        alt={localize('_t_Sign in_t_')}
                     />
                 ),
             },
             {
-                title: () => <Localize translate_text="Add a Deriv real account." />,
+                title: () => '_t_Add a Deriv real account._t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step2_mobile' : 'real_step2']}
-                        alt={<Localize translate_text="real account" />}
+                        alt={localize('_t_real account_t_')}
                     />
                 ),
             },
             {
-                title: () => <Localize translate_text="Add a Deriv X real account." />,
+                title: () => '_t_Add a Deriv X real account._t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step3_mobile' : 'real_step3']}
-                        alt={<Localize translate_text="Download the app" />}
+                        alt={localize('_t_Download the app_t_')}
                     />
                 ),
             },
             {
-                title: () => (
-                    <Localize translate_text="Start trading on the mobile app or through your web browser." />
-                ),
+                title: () => '_t_Start trading on the mobile app or through your web browser._t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step4_mobile' : 'real_step4']}
-                        alt={<Localize translate_text="Trading" />}
+                        alt={localize('_t_Trading_t_')}
                     />
                 ),
             },
@@ -259,7 +218,7 @@ const StartDerivX = () => {
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
-                {localize('How to get started with a Deriv X account')}
+                <Localize translate_text="_t_How to get started with a Deriv X account_t_" />
             </StyledHeader>
             <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }} id="account-pick">
                 <TabItem
@@ -269,7 +228,7 @@ const StartDerivX = () => {
                     className="demo-account"
                 >
                     <StyledText size="var(--text-size-m)" align="center">
-                        {localize('Demo account')}
+                        <Localize translate_text="_t_Demo account_t_" />
                     </StyledText>
                 </TabItem>
                 <TabItem
@@ -279,7 +238,7 @@ const StartDerivX = () => {
                     className="real-account"
                 >
                     <StyledText size="var(--text-size-m)" align="center">
-                        {localize('Real account')}
+                        <Localize translate_text="_t_Real account_t_" />
                     </StyledText>
                 </TabItem>
             </Flex>

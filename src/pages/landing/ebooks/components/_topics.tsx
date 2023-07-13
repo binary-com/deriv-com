@@ -5,11 +5,12 @@ import { Header, Li, QueryImage } from 'components/elements'
 import checkIcon from 'images/common/ebooks/check-icon.png'
 import device from 'themes/device'
 import { localize, Localize } from 'components/localization'
+import { TString } from 'types/generics'
 
 type TopicsProps = {
-    title?: string
+    title?: TString
     topicsImage: ImageDataLike
-    topicsList: string[]
+    topicsList: TString[]
 }
 
 const FullWidth = styled.div`
@@ -100,19 +101,19 @@ const Topics = ({ title, topicsImage, topicsList }: TopicsProps) => {
                         color="var(--color-black-3)"
                         mb="20px"
                     >
-                        {title ? localize(title) : localize('Topics covered')}
+                        <Localize translate_text={title ? title : '_t_Topics covered_t_'} />
                     </Header>
-                    {topicsList?.map((topic, index) => {
+                    {topicsList?.map((topic) => {
                         return (
-                            <Li key={index} className="topic-item">
-                                <img src={checkIcon} alt="Check Icon" />
+                            <Li key={topic} className="topic-item">
+                                <img src={checkIcon} alt={localize('_t_Check Icon_t_')} />
                                 <Localize translate_text={topic} />
                             </Li>
                         )
                     })}
                 </ItemList>
                 <TopicImgWrapper className="topic-wrapper">
-                    <QueryImage data={topicsImage} alt="Forex Topics" />
+                    <QueryImage data={topicsImage} alt={localize('_t_Forex Topics_t_')} />
                 </TopicImgWrapper>
             </Wrapper>
         </FullWidth>

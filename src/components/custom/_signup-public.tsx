@@ -5,7 +5,7 @@ import AgreementLabel from './_agreement-label'
 import Login, { TSocialProvider } from 'common/login'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, QueryImage, Text, ImageWithDireciton } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Flex, Box, Container, Desktop, Mobile } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
 import useRegion from 'components/hooks/use-region'
@@ -46,6 +46,7 @@ const query = graphql`
         }
     }
 `
+
 const StyledSectionContainer = styled(Box)`
     width: 100%;
     padding-top: 80px;
@@ -345,6 +346,7 @@ const MobilePlatform = styled.div<{ is_rtl: boolean }>`
         }
     }
 `
+
 const social_button_content: SocialButtonContent[] = [
     {
         provider: 'google',
@@ -365,6 +367,7 @@ const social_button_content: SocialButtonContent[] = [
         text: 'Apple',
     },
 ]
+
 const SignupPublic = ({
     email_error_msg,
     email,
@@ -398,10 +401,10 @@ const SignupPublic = ({
                         <SignupFormWrapper>
                             <StyledFormWrapper>
                                 <StyledHeader type="section-title" width="100%">
-                                    {localize('Join over 2.5 million traders worldwide')}
+                                    <Localize translate_text="_t_Join over 2.5 million traders worldwide_t_" />
                                 </StyledHeader>
                                 <StyledHeaderText weight="normal" size="1.6rem">
-                                    {localize('Sign up for your demo account now.')}
+                                    <Localize translate_text="_t_Sign up for your demo account now._t_" />
                                 </StyledHeaderText>
                                 <InputGroup>
                                     <InputWrapper>
@@ -415,7 +418,7 @@ const SignupPublic = ({
                                             background="white"
                                             error={email_error_msg}
                                             value={email}
-                                            label={localize('Email address')}
+                                            label={localize('_t_Email address_t_')}
                                             placeholder={'Email'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
@@ -437,14 +440,16 @@ const SignupPublic = ({
                                             !email
                                         }
                                     >
-                                        {localize('Sign up')}
+                                        <Localize translate_text="_t_Sign up_t_" />
                                     </EmailButton>
                                 </InputGroup>
                                 <AgreementLabel
                                     isChecked={is_checked}
                                     handleChangeCheckbox={handleChange}
                                 />
-                                <SignInText>{localize('Or sign up with')}</SignInText>
+                                <SignInText>
+                                    <Localize translate_text="_t_Or sign up with_t_" />
+                                </SignInText>
                                 <SocialWrapper jc="unset" ai="center">
                                     {social_button_content.map(({ provider, id, img, text }) => (
                                         <SocialButton
@@ -469,7 +474,7 @@ const SignupPublic = ({
                                     (is_row && data['deriv_platform']) ||
                                     (is_eu && data['deriv_platform_eu'])
                                 }
-                                alt="forex trading on mobile"
+                                alt={localize('_t_forex trading on mobile_t_')}
                                 width="255px"
                             />
                             <LinkFlex
@@ -486,9 +491,12 @@ const SignupPublic = ({
                                     ml="6rem"
                                     position="relative"
                                 >
-                                    {localize('Get a taste of the Deriv experience')}
+                                    <Localize translate_text="_t_Get a taste of the Deriv experience_t_" />
                                 </StyledHeader>
-                                <ImageWithDireciton src={Arrow} alt="arrow desktop" />
+                                <ImageWithDireciton
+                                    src={Arrow}
+                                    alt={localize('_t_arrow desktop_t_')}
+                                />
                             </LinkFlex>
                         </BackgroundWrapper>
                     </Wrapper>
@@ -504,7 +512,7 @@ const SignupPublic = ({
                                         (is_row && data['deriv_platform']) ||
                                         (is_eu && data['deriv_platform_eu'])
                                     }
-                                    alt="forex trading on mobile"
+                                    alt={localize('_t_forex trading on mobile_t_')}
                                     width="100%"
                                 />
                             </MobilePlatform>
@@ -515,11 +523,11 @@ const SignupPublic = ({
                                 rel="noopener noreferrer nofollow"
                             >
                                 <Header size="4rem">
-                                    {localize('Get a taste of the Deriv experience')}
+                                    <Localize translate_text="_t_Get a taste of the Deriv experience_t_" />
                                 </Header>
                                 <ImageWithDireciton
                                     src={Arrow}
-                                    alt="arrow mobile"
+                                    alt={localize('_t_arrow mobile_t_')}
                                     width="32"
                                     height="33"
                                 />
@@ -528,10 +536,10 @@ const SignupPublic = ({
                         <MobileSignupFormWrapper>
                             <MobileSignupContainer>
                                 <StyledHeader type="section-title">
-                                    {localize('Join over 2.5 million traders worldwide')}
+                                    <Localize translate_text="_t_Join over 2.5 million traders worldwide_t_" />
                                 </StyledHeader>
                                 <StyledHeaderText weight="normal" size="1.6rem">
-                                    {localize('Sign up for your demo account now.')}
+                                    <Localize translate_text="_t_Sign up for your demo account now._t_" />
                                 </StyledHeaderText>
                                 <InputGroup>
                                     <InputWrapper>
@@ -549,7 +557,7 @@ const SignupPublic = ({
                                             label_color="grey-5"
                                             labelSize="4px"
                                             labelTop="1.2rem"
-                                            label={localize('Email address')}
+                                            label={localize('_t_Email address_t_')}
                                             placeholder={'example@mail.com'}
                                             handleError={clearEmail}
                                             onChange={handleInputChange}
@@ -573,7 +581,7 @@ const SignupPublic = ({
                                             !email
                                         }
                                     >
-                                        {localize('Sign up')}
+                                        <Localize translate_text="_t_Sign up_t_" />
                                     </EmailButton>
                                 </InputGroup>
                                 <AgreementLabel
@@ -582,7 +590,7 @@ const SignupPublic = ({
                                 />
                                 <MobileSocialWrapper jc="unset" ai="center">
                                     <MobileSignInText>
-                                        {localize('Or sign up with')}
+                                        <Localize translate_text="_t_Or sign up with_t_" />
                                     </MobileSignInText>
                                     <Flex>
                                         {social_button_content.map(({ provider, id, img }) => (

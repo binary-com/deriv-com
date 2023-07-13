@@ -239,7 +239,7 @@ const AffiliateSignup = () => {
 
     const { data, send } = useWS('residence_list')
     useEffect(() => {
-        send()
+        send({})
     }, [send])
 
     useEffect(() => {

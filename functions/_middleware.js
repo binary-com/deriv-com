@@ -1,4 +1,4 @@
-const cookieName = "a/a-test-cookie"
+const cookieName = "aa-test-cookie"
 const Variant1SearchParam = "dtv=a"
 const throttle = 50 // 50% of traffic
 

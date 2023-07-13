@@ -25,7 +25,7 @@ const NavigationTabMenu = ({
     const { button_text, to } = tab_items
     const { is_mobile } = useBreakpoints()
 
-    console.log(selected, to, button_text, 'www')
+    console.log(selected, to, button_text, icon, 'www')
     const renderTab = useMemo(() => {
         return (
             <FlexBox.Box className={class_name} justify={'start'} md={{ justify: 'center' }}>

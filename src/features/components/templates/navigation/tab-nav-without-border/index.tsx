@@ -55,21 +55,23 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                     navigation={{ nextEl: '.swiper-button-next' }}
                 >
                     {!swiper_loading &&
-                        tab_data.map((tab_item) => (
-                            <SwiperSlide key={tab_item.option_name}>
-                                <NavigationTabMenu
-                                    key={tab_item.option_name}
-                                    tab_items={tab_item}
-                                    selected={isActiveLink(tab_item.to)}
-                                    is_no_border_bottom
-                                    icon={
-                                        isActiveLink(tab_item.to)
-                                            ? `${tab_item.selected_src}#${tab_item.option_name}`
-                                            : `${tab_item.src}#${tab_item.option_name}`
-                                    }
-                                />
-                            </SwiperSlide>
-                        ))}
+                        tab_data.map((tab_item) => {
+                            return (
+                                <SwiperSlide key={tab_item.option_name}>
+                                    <NavigationTabMenu
+                                        key={tab_item.option_name}
+                                        tab_items={tab_item}
+                                        selected={isActiveLink(tab_item.to)}
+                                        is_no_border_bottom
+                                        icon={
+                                            isActiveLink(tab_item.to)
+                                                ? `${tab_item.selected_src}#${tab_item.option_name}`
+                                                : `${tab_item.src}#${tab_item.option_name}`
+                                        }
+                                    />
+                                </SwiperSlide>
+                            )
+                        })}
                 </Swiper>
                 <div className="swiper-button-next">
                     <Image src={ArrowNext} width="24px" height="24px" />

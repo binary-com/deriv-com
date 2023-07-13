@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import ReCAPTCHA from 'react-google-recaptcha'
+import { residence_list } from './residence-list'
 import AccountType from './components/_account-type'
 import AccountDetails from './components/_account-details'
 import PhoneNumber from './components/_phone_number'
@@ -12,7 +13,6 @@ import { Container } from 'components/containers'
 import { Button } from 'components/form'
 import Wizard, { Background } from 'pages/signup-affiliates/components/wizard'
 import { Header, LinkText, LocalizedLinkText } from 'components/elements'
-import useWS from 'components/hooks/useWS'
 import validation from 'common/validation'
 import Login from 'common/login'
 import { getCookiesFields, getCookiesObject, getDataObjFromCookies } from 'common/cookies'
@@ -190,7 +190,7 @@ const steps = [
 ]
 const AffiliateSignup = () => {
     const [email, setEmail] = useState('')
-    const [residence_list, setResidenceList] = useState([])
+    const [country_list, setCountryList] = useState(residence_list)
     const [is_submitted, setSubmitted] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
     const [submit_error_msg, setSubmitErrorMsg] = useState('')
@@ -234,26 +234,24 @@ const AffiliateSignup = () => {
             is_partner_checked: false,
         },
     })
-
-    console.log(residence_list)
-
-    const { data, send } = useWS('residence_list')
-    useEffect(() => {
-        send({})
-    }, [send])
-
-    useEffect(() => {
-        if (typeof data !== undefined) {
-            const country_list = data?.map(({ text, value }) => {
-                return {
-                    name: text,
-                    display_name: text,
-                    value: value,
-                }
-            })
-            setResidenceList(country_list)
-        }
-    }, [data])
+    // doesn't work in vercel due serverlsess features
+    // const { data, send } = useWS('residence_list')
+    // useEffect(() => {
+    //     send({})
+    // }, [send])
+    //
+    // useEffect(() => {
+    //     if (data) {
+    //         const country_list = data?.map(({ text, value }) => {
+    //             return {
+    //                 name: text,
+    //                 display_name: text,
+    //                 value: value,
+    //             }
+    //         })
+    //         setCountryList(country_list)
+    //     }
+    // }, [data])
 
     const updateAffiliateValues = (value, type) => {
         switch (type) {
@@ -509,7 +507,7 @@ const AffiliateSignup = () => {
                                 }}
                             />
                             <AccountDetails
-                                residence_list={residence_list}
+                                country_list={country_list}
                                 affiliate_address_data={affiliate_account.address_details}
                                 updateData={(value) => {
                                     updateAffiliateValues(value, 'account-details')

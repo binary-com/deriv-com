@@ -12,7 +12,7 @@ type CountryType = {
     value: string
 }
 type AccountDetailsProps = {
-    residence_list: CountryType[]
+    country_list: CountryType[]
     updateData: (e) => void
     onValidate: (e) => void
     affiliate_address_data: {
@@ -44,7 +44,7 @@ const InputWrapper = styled.div`
 `
 
 const AccountDetails = ({
-    residence_list,
+    country_list,
     updateData,
     affiliate_address_data,
     onValidate,
@@ -96,7 +96,7 @@ const AccountDetails = ({
             required: true,
             error: country_error_msg,
             value: country,
-            list: residence_list,
+            list: country_list,
             value_set: setCountry,
         },
         {

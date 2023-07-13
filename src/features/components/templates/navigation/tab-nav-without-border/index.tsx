@@ -37,7 +37,6 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
         }
         setSwiperLoading(false)
     }, [pathname])
-    tab_data.map((tab_item) => console.log(isActiveLink(tab_item.to), tab_item, pathname, 'www'))
 
     const isActiveLink = (currentPage: string, active_urls?: string[]) => {
         const pathname = typeof window !== 'undefined' ? window.location.pathname : ''

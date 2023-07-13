@@ -22,7 +22,7 @@ export const AvailableDigitalOptionsData: OptionNavigationType[] = [
         button_text: '_t_Reset Call/Reset Put_t_',
     },
     {
-        to: '/trade-types/options/digital-options/highlowticks',
+        to: '/trade-types/options/digital-options/high-low-ticks',
         option_name: 'high-low',
         button_text: '_t_High/Low Ticks_t_',
     },

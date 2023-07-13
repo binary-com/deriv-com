@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import residence_list from '../residence-list'
 import AffiliateInput from '../utils/_affiliate-input'
 import validation from '../validations/_validations'
 import { DropdownSearch } from 'components/elements'
@@ -12,7 +13,7 @@ type CountryType = {
     value: string
 }
 type AccountDetailsProps = {
-    country_list: CountryType[]
+    residence_list: CountryType[]
     updateData: (e) => void
     onValidate: (e) => void
     affiliate_address_data: {
@@ -44,7 +45,6 @@ const InputWrapper = styled.div`
 `
 
 const AccountDetails = ({
-    country_list,
     updateData,
     affiliate_address_data,
     onValidate,
@@ -96,7 +96,7 @@ const AccountDetails = ({
             required: true,
             error: country_error_msg,
             value: country,
-            list: country_list,
+            list: residence_list,
             value_set: setCountry,
         },
         {

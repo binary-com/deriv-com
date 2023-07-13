@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import ReCAPTCHA from 'react-google-recaptcha'
-import residence_list from './residence-list'
 import AccountType from './components/_account-type'
 import AccountDetails from './components/_account-details'
 import PhoneNumber from './components/_phone_number'
@@ -190,7 +189,6 @@ const steps = [
 ]
 const AffiliateSignup = () => {
     const [email, setEmail] = useState('')
-    const [country_list, setCountryList] = useState(residence_list)
     const [is_submitted, setSubmitted] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
     const [submit_error_msg, setSubmitErrorMsg] = useState('')
@@ -205,7 +203,7 @@ const AffiliateSignup = () => {
             plan: '',
         },
         address_details: {
-            country: '',
+            country: {},
             state: '',
             city: '',
             street: '',
@@ -507,7 +505,6 @@ const AffiliateSignup = () => {
                                 }}
                             />
                             <AccountDetails
-                                country_list={country_list}
                                 affiliate_address_data={affiliate_account.address_details}
                                 updateData={(value) => {
                                     updateAffiliateValues(value, 'account-details')

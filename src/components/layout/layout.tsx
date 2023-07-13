@@ -23,12 +23,10 @@ import { bannerTypes } from 'common/constants'
 
 type LayoutProps = {
     children: ReactNode
-    interim_type?: 'affiliate' | 'dbot' | 'deriv' | 'dmt5' | 'faq'
     is_ppc?: boolean
     is_ppc_redirect?: boolean
     margin_top?: number | string
     type?: string
-    no_login_signup?: boolean
 }
 
 type MainType = {
@@ -83,11 +81,9 @@ const Navs = {
 
 const Layout = ({
     children,
-    interim_type,
     is_ppc = false,
     is_ppc_redirect = false,
     margin_top = '',
-    no_login_signup = false,
     type = 'default',
 }: LayoutProps) => {
     const [is_mounted] = usePageLoaded()

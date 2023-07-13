@@ -40,7 +40,6 @@ const ImageStyle = styled.div`
         width: 80%;
     }
 `
-
 const ImageWrapper = styled.div`
     display: flex;
     padding: 64px 0;
@@ -62,7 +61,6 @@ const BannerButtonWrapper = styled.div`
         justify-content: center;
     }
 `
-
 const BackgroundStyle = styled.div`
     background-color: var(--color-white);
     flex: 1;
@@ -158,6 +156,7 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
+
 const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
     const getLinkType = () => (image_name === 'dbot' ? 'dbot' : 'deriv_app')
     const { is_mobile } = useBreakpoints()
@@ -205,7 +204,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
                                     target="_blank"
                                     rel="noopener noreferrer nofollow"
                                 >
-                                    <Localize translate_text="Go to live demo" />
+                                    <Localize translate_text="_t_Go to live demo_t_" />
                                 </GoToLiveDemo>
                             )}
                         </BannerButtonWrapper>

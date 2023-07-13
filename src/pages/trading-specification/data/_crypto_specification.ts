@@ -33,7 +33,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'ADA/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 100,
             minimum_spread: 0.00042,
             target_spread: 0.00057,
@@ -41,7 +41,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -50,7 +50,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'ALG/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 500,
             minimum_spread: 0.0003,
             target_spread: 0.0005,
@@ -58,7 +58,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -67,7 +67,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'AVA/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.5,
             minimum_spread: 0.03,
             target_spread: 0.05,
@@ -75,7 +75,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.07,
             swap_short: -0.07,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -84,7 +84,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'BAT/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 500,
             minimum_spread: 0.00027,
             target_spread: 0.00036,
@@ -92,7 +92,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -101,7 +101,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'BCH/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.682,
             target_spread: 0.714,
@@ -109,7 +109,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.05,
             swap_short: -0.05,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -118,7 +118,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'BNB/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.262,
             target_spread: 0.29,
@@ -126,7 +126,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.06,
             swap_short: -0.06,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -135,7 +135,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'BTC/ETH',
             },
             contract_size: 1,
-            base_currency: "ETH",
+            base_currency: 'ETH',
             minimum_size: 0.01,
             minimum_spread: 0.04135,
             target_spread: 0.04233,
@@ -143,7 +143,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.06,
             swap_short: -0.06,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -152,7 +152,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'BTC/LTC',
             },
             contract_size: 1,
-            base_currency: "LTC",
+            base_currency: 'LTC',
             minimum_size: 0.01,
             minimum_spread: 0.13576,
             target_spread: 0.22495,
@@ -160,7 +160,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.06,
             swap_short: -0.06,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -170,7 +170,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'BTC/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 22.806,
             target_spread: 23.238,
@@ -178,7 +178,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.06,
             swap_short: -0.06,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -187,7 +187,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'DOG/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1500,
             minimum_spread: 0.00009,
             target_spread: 0.00013,
@@ -195,7 +195,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -204,7 +204,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'DOT/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.005,
             target_spread: 0.008,
@@ -212,7 +212,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -221,7 +221,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'DSH/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.044,
             target_spread: 0.06,
@@ -229,7 +229,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.06,
             swap_short: -0.06,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -238,7 +238,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'EOS/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 100,
             minimum_spread: 0.00172,
             target_spread: 0.003,
@@ -246,7 +246,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.07,
             swap_short: -0.07,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -255,7 +255,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'ETC/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.018,
             target_spread: 0.023,
@@ -263,7 +263,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -273,7 +273,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'ETH/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 1.85152,
             target_spread: 1.89362,
@@ -281,7 +281,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -290,7 +290,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'FIL/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.03,
             target_spread: 0.04,
@@ -298,7 +298,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -307,7 +307,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'IOT/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 500,
             minimum_spread: 0.0003,
             target_spread: 0.0007,
@@ -315,7 +315,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -324,7 +324,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'LNK/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.006,
             target_spread: 0.007,
@@ -332,7 +332,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -341,7 +341,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'LTC/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.22495,
             target_spread: 0.24213,
@@ -349,7 +349,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.06,
             swap_short: -0.06,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -358,7 +358,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'MKR/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.62,
             target_spread: 0.81,
@@ -366,7 +366,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -375,7 +375,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'MTC/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 100,
             minimum_spread: 0.00083,
             target_spread: 0.00095,
@@ -383,7 +383,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -392,7 +392,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'NEO/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.03,
             target_spread: 0.05,
@@ -400,7 +400,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -409,7 +409,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'OMG/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 10,
             minimum_spread: 0.003,
             target_spread: 0.005,
@@ -417,7 +417,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -426,7 +426,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'SOL/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.5,
             minimum_spread: 0.018,
             target_spread: 0.024,
@@ -434,7 +434,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -443,7 +443,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'TRX/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1500,
             minimum_spread: 0.00011,
             target_spread: 0.0002,
@@ -451,7 +451,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.06,
             swap_short: -0.06,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -460,7 +460,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'UNI/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.0051,
             target_spread: 0.0069,
@@ -468,7 +468,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -477,7 +477,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'XLM/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1000,
             minimum_spread: 0.00011,
             target_spread: 0.00015,
@@ -485,7 +485,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.03,
             swap_short: -0.03,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -494,7 +494,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'XMR/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.132,
             target_spread: 0.267,
@@ -502,7 +502,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -511,7 +511,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'XRP/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 500,
             minimum_spread: 0.0005,
             target_spread: 0.0009,
@@ -519,7 +519,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -528,7 +528,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'XTZ/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 10,
             minimum_spread: 0.00273,
             target_spread: 0.00462,
@@ -536,7 +536,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -545,7 +545,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'ZEC/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.038,
             target_spread: 0.05,
@@ -553,8 +553,8 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
-        }
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
     ],
     eu_data: [
         {
@@ -563,15 +563,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'ADA/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 100,
             minimum_spread: 0.00042,
             target_spread: 0.00057,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -579,15 +579,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'ALG/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 500,
             minimum_spread: 0.0003,
             target_spread: 0.0005,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -595,15 +595,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'AVA/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.5,
             minimum_spread: 0.03,
             target_spread: 0.05,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.07,
             swap_short: -0.07,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -611,15 +611,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'BAT/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 500,
             minimum_spread: 0.00027,
             target_spread: 0.00036,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -627,15 +627,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'BCH/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.682,
             target_spread: 0.714,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.05,
             swap_short: -0.05,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -643,15 +643,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'BNB/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.262,
             target_spread: 0.29,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.06,
             swap_short: -0.06,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -659,15 +659,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'BTC/ETH',
             },
             contract_size: 1,
-            base_currency: "ETH",
+            base_currency: 'ETH',
             minimum_size: 0.01,
             minimum_spread: 0.04135,
             target_spread: 0.04233,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.06,
             swap_short: -0.06,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -675,15 +675,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'BTC/LTC',
             },
             contract_size: 1,
-            base_currency: "LTC",
+            base_currency: 'LTC',
             minimum_size: 0.01,
             minimum_spread: 0.84805,
             target_spread: 0.92296,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.06,
             swap_short: -0.06,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -691,15 +691,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'BTC/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 22.806,
             target_spread: 23.238,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.06,
             swap_short: -0.06,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -707,15 +707,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'DOG/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1500,
             minimum_spread: 0.00009,
             target_spread: 0.00013,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -723,15 +723,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'DOT/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.005,
             target_spread: 0.008,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -739,15 +739,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'DSH/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.044,
             target_spread: 0.06,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.06,
             swap_short: -0.06,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -755,15 +755,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'EOS/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 100,
             minimum_spread: 0.00172,
             target_spread: 0.003,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.07,
             swap_short: -0.07,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -771,15 +771,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'ETC/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.018,
             target_spread: 0.023,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -787,15 +787,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'ETH/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 1.85152,
             target_spread: 1.89362,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -803,15 +803,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'FIL/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.03,
             target_spread: 0.04,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -819,15 +819,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'IOT/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 500,
             minimum_spread: 0.0003,
             target_spread: 0.0007,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -835,15 +835,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'LNK/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.006,
             target_spread: 0.007,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -851,15 +851,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'LTC/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.22495,
             target_spread: 0.24213,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.06,
             swap_short: -0.06,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -867,15 +867,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'MKR/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.01,
             minimum_spread: 0.62,
             target_spread: 0.81,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -883,15 +883,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'MTC/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 100,
             minimum_spread: 0.00083,
             target_spread: 0.00095,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -899,15 +899,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'NEO/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.03,
             target_spread: 0.05,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -915,15 +915,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'OMG/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 10,
             minimum_spread: 0.003,
             target_spread: 0.005,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -931,15 +931,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'SOL/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.5,
             minimum_spread: 0.018,
             target_spread: 0.024,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -947,15 +947,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'TRX/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1500,
             minimum_spread: 0.00011,
             target_spread: 0.0002,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.06,
             swap_short: -0.06,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -963,15 +963,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'UNI/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1,
             minimum_spread: 0.0051,
             target_spread: 0.0069,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -979,15 +979,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'XLM/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 1000,
             minimum_spread: 0.00011,
             target_spread: 0.00015,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.03,
             swap_short: -0.03,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -995,15 +995,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'XMR/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.132,
             target_spread: 0.267,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -1011,15 +1011,15 @@ const crypto_specification: TSpecification = {
                 instrument: 'XRP/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 500,
             minimum_spread: 0.0005,
             target_spread: 0.0009,
             max_effective_leverage: 2,
-            margin_requirement: 50.00,
+            margin_requirement: 50.0,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -1027,7 +1027,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'XTZ/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 10,
             minimum_spread: 0.00273,
             target_spread: 0.00462,
@@ -1035,7 +1035,7 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1.67,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
+            trading_hours: 'Sun 00:00 - Sat 23:59',
         },
         {
             instrument: {
@@ -1043,7 +1043,7 @@ const crypto_specification: TSpecification = {
                 instrument: 'ZEC/USD',
             },
             contract_size: 1,
-            base_currency: "USD",
+            base_currency: 'USD',
             minimum_size: 0.1,
             minimum_spread: 0.038,
             target_spread: 0.05,
@@ -1051,8 +1051,8 @@ const crypto_specification: TSpecification = {
             margin_requirement: 1.67,
             swap_long: -0.04,
             swap_short: -0.04,
-            trading_hours: "Sun 00:00 - Sat 23:59"
-        }
-    ]
+            trading_hours: 'Sun 00:00 - Sat 23:59',
+        },
+    ],
 }
 export default crypto_specification

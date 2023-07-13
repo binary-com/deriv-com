@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import device from 'themes/device'
 import { GridContainer, CssGrid, CssGridColumn } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { Localize, LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink, localize } from 'components/localization'
 import { TString } from 'types/generics'
 // Icons
 import ProvenTrackRecord from 'images/svg/choose/wd-proven-track-record.svg'
@@ -13,6 +13,13 @@ import Risk from 'images/svg/choose/wd-risk.svg'
 import Help from 'images/svg/choose/wd-help.svg'
 import Safety from 'images/svg/choose/wd-your-safety.svg'
 import CustomerFirst from 'images/svg/choose/wd-customer-first-trading.svg'
+
+type ColProps = {
+    Icon: string
+    content: TString
+    content_components?: ReactElement[]
+    title: TString
+}
 
 const GridCol = styled(CssGridColumn)`
     width: 100%;
@@ -57,16 +64,10 @@ const Container = styled.div`
         }
     }
 `
-type ColProps = {
-    Icon: string
-    content: TString
-    content_components?: ReactElement[]
-    title: TString
-}
 
 const Col = ({ Icon, content, content_components, title }: ColProps) => (
     <GridCol>
-        <img src={Icon} alt={title} />
+        <img src={Icon} alt={localize(title)} />
         <Container>
             <StyledHeader as="h4" type="sub-section-title">
                 <Localize translate_text={title} />
@@ -77,6 +78,7 @@ const Col = ({ Icon, content, content_components, title }: ColProps) => (
         </Container>
     </GridCol>
 )
+
 const GridWrapper = styled(CssGrid)`
     @media (max-width: 1400px) {
         grid-column-gap: 5rem;

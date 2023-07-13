@@ -383,8 +383,8 @@ const deriv_p2p: TQuestionsData = {
                     translation_components: [{ key: 0, type: 'strong' }],
                 },
                 {
-                    translation_text: `_t_<0>Note:</0> You’ll only be able to create ads once your account has been verified. 
-                        To learn more about verifying your account, see <1>How do I verify my account?</1>_t_`,
+                    translation_text:
+                        '_t_<0>Note:</0> You’ll only be able to create ads once your account has been verified. To learn more about verifying your account, see <1>How do I verify my account?</1>_t_',
                     has_margin_top: true,
                     translation_components: [
                         { key: 0, type: 'strong' },
@@ -801,13 +801,13 @@ const deriv_p2p: TQuestionsData = {
             label: 'why-my-ads-disappeared',
             answer: [
                 {
-                    translation_text: `_t_This may be because your ads were inactive and may have been deleted. If your ad doesn't receive a response 
-                        within the first 3 days, it'll be marked inactive. After 90 days of inactivity, it will be deleted permanently._t_`,
+                    translation_text:
+                        "_t_This may be because your ads were inactive and may have been deleted. If your ad doesn't receive a response within the first 3 days, it'll be marked inactive. After 90 days of inactivity, it will be deleted permanently._t_",
                     has_margin_top: true,
                 },
                 {
-                    translation_text: `_t_To prevent this, check your ads regularly. If they've been deactivated, 
-                    you can reactivate them by hitting <0>Activate</0> on the <0>My ads</0> page._t_`,
+                    translation_text:
+                        "_t_To prevent this, check your ads regularly. If they've been deactivated, you can reactivate them by hitting <0>Activate</0> on the <0>My ads</0> page._t_",
                     has_margin_top: true,
                     translation_components: [
                         {
@@ -895,8 +895,8 @@ const deriv_p2p: TQuestionsData = {
                     translation_components: [{ key: 0, type: 'strong' }],
                 },
                 {
-                    translation_text: `_t_Rating a great experience lets you show your appreciation towards your trade partners. They’ll be encouraged to maintain 
-                        their excellent standards upon receiving your positive ratings. Your ratings and recommendations will also help other Deriv P2P users find reliable trade partners._t_`,
+                    translation_text:
+                        '_t_Rating a great experience lets you show your appreciation towards your trade partners. They’ll be encouraged to maintain their excellent standards upon receiving your positive ratings. Your ratings and recommendations will also help other Deriv P2P users find reliable trade partners._t_',
                     has_margin_top: true,
                 },
             ],

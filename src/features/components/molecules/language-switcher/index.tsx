@@ -17,29 +17,12 @@ const LanguageSwitcher = () => {
         }
     }, [open, is_menu_open, onCloseMenu])
 
-    const openHandler = () => {
-        // HOTFIX: Temporary solution - to be fixed in future
-        setOpen((prev) => !prev)
-        const lang_style = document.getElementById('lang_scroll_style')
-        if (lang_style) return
-        const styleTag = document.createElement('style')
-        styleTag.type = 'text/css'
-        styleTag.id = 'lang_scroll_style'
-        styleTag.innerHTML = `
-            body {
-                overflow: auto !important;
-                margin-right: 0 !important;
-            }
-        `
-        document.body.insertAdjacentElement('beforeend', styleTag)
-    }
-
     return (
         <DropdownMenu.Root
             modal={true}
             dir={get_lang_direction()}
             open={open}
-            onOpenChange={openHandler}
+            onOpenChange={setOpen}
         >
             <DropdownMenu.Trigger asChild>
                 <div className={styles.trigger}>

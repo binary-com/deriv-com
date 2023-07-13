@@ -214,7 +214,9 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/deriv-ctrader/">
                         <StyledFlex direction="row" ai="center">
                             <embed src={DerivcTrader} width="24" height="24" />
-                            <Text ml="0.4rem">{localize('_t_Deriv cTrader_t_')}</Text>
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_Deriv cTrader_t_" />
+                            </Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}

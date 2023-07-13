@@ -43,7 +43,7 @@ const CFDs = ({ market_content }: CFDProps) => {
                         <Localize translate_text={second_text} />
                     </StyledText>
 
-                    <AvailablePlatforms dmt5 derivx={!is_eu} deriv_ez={!is_eu} />
+                    <AvailablePlatforms dmt5 derivx={!is_eu} deriv_ez={!is_eu} deriv_ctrader />
                 </Descriptions>
 
                 <StyledHeader as="h3" size="16px">

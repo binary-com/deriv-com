@@ -1,15 +1,16 @@
 import { BannerType } from 'features/components/templates/banners/blade-shape-banner/types'
 import {
-    deriv_go_huaweiappgallery_url,
-    deriv_go_ios_url,
-    deriv_go_playstore_url,
+    ctrader_google_play_url,
+    ctrader_app_store_url,
+    ctrader_web_browser_url,
+    ctrader_windows_url,
 } from 'common/constants'
 import CTraderLogo from 'images/svg/trading-platforms/ctrader/ctrader-main-logo.svg'
-import derivEZQR from 'images/svg/trading-platforms/deriv-ez/derivez-qr.svg'
+import derivCTraderQR from 'images/svg/trading-platforms/ctrader/ctrader-qr-code.svg'
 import AndroidIcon from 'images/svg/android-icon.svg'
 import AppleIcon from 'images/svg/apple-icon.svg'
 import BrowserIcon from 'images/svg/browser-icon.svg'
-import AppGalleryIcon from 'images/svg/appGallery-icon.svg'
+import WindowsIcon from 'images/svg/windows-icon.svg'
 
 export const trading_platform_banner: BannerType = {
     information: {
@@ -17,9 +18,9 @@ export const trading_platform_banner: BannerType = {
         heading: '_t_Get trading with Deriv cTrader_t_',
     },
     scan_box: {
-        icon: derivEZQR,
+        icon: derivCTraderQR,
         heading_one: '_t_Scan to download Deriv cTrader_t_',
-        heading_two: 'Android, IOS & Huawei',
+        heading_two: 'Android & ios',
     },
 
     os_apps: [
@@ -30,7 +31,7 @@ export const trading_platform_banner: BannerType = {
                 text: 'Google Play',
                 url: {
                     type: 'non-company',
-                    href: deriv_go_playstore_url,
+                    href: ctrader_google_play_url,
                     target: '_blank',
                 },
             },
@@ -42,7 +43,7 @@ export const trading_platform_banner: BannerType = {
                 text: 'Web browser',
                 url: {
                     type: 'non-company',
-                    href: deriv_go_huaweiappgallery_url,
+                    href: ctrader_web_browser_url,
                     target: '_blank',
                 },
             },
@@ -50,24 +51,23 @@ export const trading_platform_banner: BannerType = {
         {
             id: 2,
             data: {
-                icon: AppleIcon,
-                text: 'App Store',
+                icon: WindowsIcon,
+                text: 'Windows',
                 url: {
                     type: 'non-company',
-                    href: deriv_go_ios_url,
+                    href: ctrader_windows_url,
                     target: '_blank',
                 },
             },
         },
-
         {
             id: 3,
             data: {
-                icon: AppGalleryIcon,
-                text: 'AppGallery',
+                icon: AppleIcon,
+                text: 'App Store',
                 url: {
                     type: 'non-company',
-                    href: deriv_go_huaweiappgallery_url,
+                    href: ctrader_app_store_url,
                     target: '_blank',
                 },
             },

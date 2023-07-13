@@ -119,6 +119,12 @@ export const dmt5_windows_url =
     'https://download.mql5.com/cdn/web/deriv.limited/mt5/deriv5setup.exe'
 export const dp2p_google_play_url =
     'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
+//to be updated with ctrader url later
+export const ctrader_google_play_url = 'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
+export const ctrader_app_store_url = 'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
+
+export const ctrader_web_browser_url = 'ct.deriv.com'
+export const ctrader_windows_url = 'https://getctrader.com/deriv/ctrader-deriv-setup.exe'
 export const gtm_test_domain = 'deriv-com.binary.sx'
 export const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
 export const livechat_license_id = 12049137

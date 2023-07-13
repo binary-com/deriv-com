@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import ReCAPTCHA from 'react-google-recaptcha'
-import { residence_list } from './residence-list'
+import residence_list from './residence-list'
 import AccountType from './components/_account-type'
 import AccountDetails from './components/_account-details'
 import PhoneNumber from './components/_phone_number'

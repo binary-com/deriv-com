@@ -1,4 +1,4 @@
-export const residence_list = [
+const residence_list = [
     { name: 'Afghanistan', display_name: 'Afghanistan', value: 'af' },
     { name: 'Aland Islands', display_name: 'Aland Islands', value: 'ax' },
     { name: 'Albania', display_name: 'Albania', value: 'al' },
@@ -261,3 +261,5 @@ export const residence_list = [
     { name: 'Zambia', display_name: 'Zambia', value: 'zm' },
     { name: 'Zimbabwe', display_name: 'Zimbabwe', value: 'zw' },
 ]
+
+export default residence_list

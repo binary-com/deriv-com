@@ -8,19 +8,17 @@ import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { isBrowser } from 'common/utility'
-import { TString } from 'types/generics'
 
 type CardProps = {
     active_tab: string
-    display_name: TString
+    display_name: ReactElement
     name: string
 }
-
 type AvailableTradesProps = {
     CFDs: ReactElement
     DigitalOptions?: ReactElement
     Multipliers?: ReactElement
-    display_title: TString
+    display_title: ReactElement
 }
 
 type CardContainerProps = {
@@ -37,6 +35,7 @@ const StyledSection = styled(SectionContainer)`
         margin-bottom: 0;
     }
 `
+
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         max-width: 326px;
@@ -44,6 +43,7 @@ const StyledHeader = styled(Header)`
         margin: 0 auto;
     }
 `
+
 const StyledContainer = styled(Container)`
     margin-top: 9.6rem;
 
@@ -52,6 +52,7 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
+
 const CardWrapper = styled(Flex)`
     max-width: 99.6rem;
     justify-content: center;
@@ -70,6 +71,7 @@ const CardWrapper = styled(Flex)`
         z-index: 1;
     }
 `
+
 const CardContainer = styled(Flex)<CardContainerProps>`
     position: relative;
     width: fit-content;
@@ -151,6 +153,7 @@ const CardContainer = styled(Flex)<CardContainerProps>`
         }}
     }
 `
+
 const ContentWrapper = styled.div`
     width: 100%;
     max-width: 99.6rem;
@@ -163,6 +166,7 @@ const ContentWrapper = styled.div`
         box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
     }
 `
+
 const CardHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 1.75rem;
@@ -171,6 +175,7 @@ const CardHeader = styled(Header)`
         font-size: 1.5rem;
     }
 `
+
 const Link = styled(AnchorLink)`
     text-decoration: none;
 `
@@ -190,7 +195,7 @@ const Card = ({ display_name, active_tab, name }: CardProps) => {
                 {name === 'Options'}
                 {name === 'Multipliers'}
                 <CardHeader as="h4" width="auto">
-                    <Localize translate_text={display_name} />
+                    {display_name}
                 </CardHeader>
             </Flex>
         </CardContainer>
@@ -210,7 +215,7 @@ const AvailableTradesDesktop = ({
     return (
         <StyledSection>
             <StyledHeader as="h2" size="var(--text-size-l)" align="center">
-                <Localize translate_text={display_title} />
+                {display_title}
             </StyledHeader>
             <StyledContainer direction="column">
                 <CardWrapper position="relative" id="available-trades">
@@ -218,7 +223,7 @@ const AvailableTradesDesktop = ({
                         <Link to="?tab=cfds#cfds">
                             <Card
                                 name="CFDs"
-                                display_name="_t_CFDs_t_"
+                                display_name={<Localize translate_text="CFDs" />}
                                 active_tab={tab || 'cfds'}
                             />
                         </Link>
@@ -227,16 +232,17 @@ const AvailableTradesDesktop = ({
                         <Link to="?tab=options#options">
                             <Card
                                 name="Options"
-                                display_name="_t_Options_t_"
+                                display_name={<Localize translate_text="Options" />}
                                 active_tab={tab || 'cfds'}
                             />
                         </Link>
                     )}
+
                     {Multipliers && (
                         <Link to="?tab=multipliers#multipliers">
                             <Card
                                 name="Multipliers"
-                                display_name="_t_Multipliers_t_"
+                                display_name={<Localize translate_text="Multipliers" />}
                                 active_tab={tab || 'cfds'}
                             />
                         </Link>

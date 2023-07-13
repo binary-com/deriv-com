@@ -7,6 +7,7 @@ import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
 import Link from 'features/components/atoms/link'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import { isActiveLink } from 'features/components/atoms/link/internal'
 
 export type TabMenuProps = {
     class_name?: string
@@ -49,7 +50,7 @@ const NavigationTabMenu = ({
                         )}
                         <Typography.Paragraph
                             size={is_mobile ? 'medium' : 'small'}
-                            textcolor={selected ? 'brand' : 'light-black'}
+                            textcolor={isActiveLink(to) ? 'brand' : 'light-black'}
                         >
                             <Localize translate_text={button_text} />
                         </Typography.Paragraph>

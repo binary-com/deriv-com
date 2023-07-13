@@ -33,8 +33,7 @@ type AvailablePlatformsProps = {
 const PlatformsContainer = styled.div<AvailablePlatformsProps>`
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    width: unset;
+    justify-content: space-between;
 
     a {
         text-decoration: none;
@@ -45,33 +44,14 @@ const PlatformsContainer = styled.div<AvailablePlatformsProps>`
         height: 24px;
         margin: 0 0.3rem;
     }
-    a:last-child {
-        margin-right: 0;
-        min-width: 95px;
-    }
-    @media ${device.mobileL} {
-        display: ${(props) => (props.tablet_direction ? 'grid' : 'flex')};
-        grid-template-columns: ${(props) => (props.tablet_direction ? 'repeat(2, 1fr)' : 'auto')};
-        grid-template-rows: ${(props) => (props.tablet_direction ? 'auto auto' : 'auto')};
-        grid-gap: ${(props) => (props.tablet_direction ? '1rem' : 'unset')};
 
-        ${(props) =>
-            props.tablet_direction &&
-            `
-          a:nth-child(1) {
-            grid-column: 1 / span 1;
-            grid-row: 1 / span 1;
-          }
-          a:nth-child(2) {
-            grid-column: 2 / span 1;
-            grid-row: 1 / span 1;
-          }
-          a:nth-child(3) {
-            grid-column: 1 / span 2;
-            grid-row: 2 / span 1;
-            text-align: center;
-          }
-        `}
+    @media ${device.mobileL} {
+        display: flex;
+        width: 90%;
+        justify-content: space-around;
+        a {
+            width: 45%;
+        }
     }
 `
 const StyledText = styled(Header)`
@@ -90,6 +70,9 @@ const StyledText = styled(Header)`
 `
 const StyledFlex = styled(Flex)`
     padding: 0.8rem;
+    @media ${device.mobileL} {
+        justify-content: start;
+    }
 
     ${Text} {
         font-size: 14px;

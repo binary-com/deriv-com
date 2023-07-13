@@ -235,7 +235,7 @@ const AffiliateSignup = () => {
         },
     })
 
-    console.log(affiliate_account)
+    console.log(residence_list)
 
     const { data, send } = useWS('residence_list')
     useEffect(() => {

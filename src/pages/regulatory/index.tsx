@@ -192,7 +192,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                             <Box padding="16px 0" maxwidth="792px">
                                 <Header as="h3" type="paragraph-1" align="center" weight="normal">
                                     <Localize
-                                        translate_text="_t_Deriv Investments (Europe) Limited – W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta – is licensed in Malta (<0>licence no. IS/70156</0>) and regulated by the Malta Financial Services Authority under the Investments Services Act._t_"
+                                        translate_text="_t_Deriv Investments (Europe) Limited – W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta – is licensed in Malta (<0>licence no. IS/70156</0>) and regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union._t_"
                                         components={[
                                             <StyledLinkText
                                                 key={0}

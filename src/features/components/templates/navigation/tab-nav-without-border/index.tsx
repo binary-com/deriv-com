@@ -81,21 +81,23 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                 md={{ justify: 'center', padding: '10x' }}
                 // visible="larger-than-phone"
             >
-                {tab_data.map((tab_item) => (
-                    <Flex.Box direction="col" key={tab_item.option_name}>
-                        <NavigationTabMenu
-                            key={tab_item.option_name}
-                            tab_items={tab_item}
-                            selected={isActiveLink(tab_item.to, tab_item?.active_path)}
-                            is_no_border_bottom
-                            icon={
-                                isActiveLink(tab_item.to, tab_item?.active_path)
-                                    ? `${tab_item.selected_src}#${tab_item.option_name}`
-                                    : `${tab_item.src}#${tab_item.option_name}`
-                            }
-                        />
-                    </Flex.Box>
-                ))}
+                {tab_data.map((tab_item) => {
+                    return (
+                        <Flex.Box direction="col" key={tab_item.option_name}>
+                            <NavigationTabMenu
+                                key={tab_item.option_name}
+                                tab_items={tab_item}
+                                selected={isActiveLink(tab_item.to, tab_item?.active_path)}
+                                is_no_border_bottom
+                                icon={
+                                    isActiveLink(tab_item.to, tab_item?.active_path)
+                                        ? `${tab_item.selected_src}#${tab_item.option_name}`
+                                        : `${tab_item.src}#${tab_item.option_name}`
+                                }
+                            />
+                        </Flex.Box>
+                    )
+                })}
             </Flex.Box>
         </Container.Fluid>
     )

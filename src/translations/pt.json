@@ -3070,7 +3070,7 @@
   "-75787346": "É gerado <0>um tick</0> a <0>cada dois segundos</0> para os índices de volatilidade <0>10, 25, 50, 75 e 100</0>.",
   "-257478628": "<0>Um tick</0> é gerado a <0>cada segundo</0> para os índices de volatilidade <0>10 (1s), 25 (1s), 50 (1s), 75 (1s) e 100 (1s).</0>",
   "-1710299665": "Estes índices correspondem a mercados simulados onde os preços dos ativos sobem ou descem devido a eventos noticiosos. Os Jump pequenos são bastante frequentes. No entanto, os grandes picos ou as quedas ocasionais ocorrem a <0>cada 15 minutos</0>, em média.",
-  "-629202751": "O <0>DEX900UP</0> tem pequenos picos frequentes e grandes quedas que ocorrem ocasionalmente <0>a cada 900 segundos</0>, em média.",
+  "-534567212": "A <0>DEX900UP</0> tem pequenas quedas frequentes e grandes picos que ocorrem ocasionalmente <0>a cada 900 segundos</0>, em média.",
   "-204483278": "Com estes índices, há uma média de uma queda (crash) ou um pico (boom) nos preços que ocorrem numa <0>série de 300, 500 ou 1.000 ticks</0>.",
   "-690460725": "Estes índices reproduzem mercados com <0>tendências de alta e de baixa</0> com uma volatilidade constante. Os índices Bull Market e Bear Market começam às 00:00 GMT de cada dia, replicando mercados em alta e em baixa, respetivamente.",
   "-2075222222": "O <0>Netherlands 25</0> acompanha o desempenho das ações das 25 empresas mais negociadas na Holanda.",

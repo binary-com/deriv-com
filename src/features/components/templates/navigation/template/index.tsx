@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, ReactNode, useRef, useState } from 'react'
+import React, { HTMLAttributes, ReactNode, useEffect, useRef, useState } from 'react'
 import { NavItems } from '../types'
 import DesktopMenu from './desktop-menu'
 import * as styles from './nav.template.module.scss'
@@ -42,9 +42,21 @@ const NavTemplate = ({
 
     const { is_mobile_or_tablet } = useBreakpoints()
 
+    const handleScroll = () => {
+        if (is_menu_open && is_mobile_or_tablet) {
+            document.body.style.overflow = 'hidden'
+            document.body.style.position = 'fixed'
+        } else {
+            document.body.style.overflow = 'scroll'
+            document.body.style.position = ''
+        }
+    }
+    useEffect(() => {
+        handleScroll()
+    }, [is_menu_open])
+
     const onMenuToggleClick = () => {
         setIsMenuOpen((prevState) => !prevState)
-        document.body.style.overflow = is_mobile_or_tablet && is_menu_open ? 'scroll' : 'hidden'
     }
 
     useOutsideClick(

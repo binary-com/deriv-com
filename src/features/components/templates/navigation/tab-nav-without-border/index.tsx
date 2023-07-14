@@ -25,10 +25,15 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
     const swiper_ref = useRef(null)
     const { is_mobile } = useBreakpoints()
 
+    const [selected_tab_name, setSelectedTabName] = useState<string | null>(null)
+    const [selected_tab_text, selectedTabText] = useState<TString | null>(null)
+
     useEffect(() => {
         const selected_tab_item: OptionNavigationType = tab_data.find((option) =>
             pathname?.includes(option.to),
         )
+        setSelectedTabName(selected_tab_item?.option_name || null)
+        selectedTabText(selected_tab_item?.button_text || null)
         if (swiper_ref.current && is_mobile) {
             const active_slide_index = tab_data.findIndex(
                 (tab) => tab.option_name === selected_tab_item?.option_name,
@@ -87,10 +92,10 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                             <NavigationTabMenu
                                 key={tab_item.option_name}
                                 tab_items={tab_item}
-                                selected={isActiveLink(tab_item.to, tab_item?.active_path)}
+                                selected={tab_item.option_name === selected_tab_name}
                                 is_no_border_bottom
                                 icon={
-                                    isActiveLink(tab_item.to, tab_item?.active_path)
+                                    tab_item.option_name === selected_tab_name
                                         ? `${tab_item.selected_src}#${tab_item.option_name}`
                                         : `${tab_item.src}#${tab_item.option_name}`
                                 }

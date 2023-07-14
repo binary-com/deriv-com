@@ -437,7 +437,7 @@ const SwapCalculator = () => {
 
                                 <Accordion id="swap-calculator" has_single_state>
                                     <AccordionItem
-                                        header={localize('_t_Swap charge_t_')}
+                                        header="_t_Swap charge_t_"
                                         header_style={header_style}
                                         style={item_style}
                                         plus
@@ -683,7 +683,7 @@ const SwapCalculator = () => {
 
                                 <Accordion id="swap-calculator" has_single_state>
                                     <AccordionItem
-                                        header={localize('_t_Swap charge_t_')}
+                                        header="_t_Swap charge_t_"
                                         header_style={header_style}
                                         style={item_style}
                                         plus

@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Header, QueryImage } from 'components/elements'
 import device from 'themes/device'
 
@@ -24,6 +24,7 @@ const query = graphql`
         }
     }
 `
+
 const Container = styled.section`
     width: 100%;
     display: flex;
@@ -85,6 +86,7 @@ const Dmt5Video = () => {
         if (incoming_step == current_step) return
         setStep(incoming_step)
     }
+
     return (
         <Container>
             <TabsWrapper>
@@ -98,7 +100,7 @@ const Dmt5Video = () => {
                         current_step={current_step}
                         onClick={() => clickHandler('step_1')}
                     >
-                        {localize('1. Sign up with Deriv')}
+                        <Localize translate_text="_t_1. Sign up with Deriv_t_" />
                     </Step>
                 </Tab>
                 <Tab>
@@ -111,7 +113,7 @@ const Dmt5Video = () => {
                         current_step={current_step}
                         onClick={() => clickHandler('step_2')}
                     >
-                        {localize('2. Create a DMT5 account')}
+                        <Localize translate_text="_t_2. Create a DMT5 account_t_" />
                     </Step>
                 </Tab>
                 <Tab>
@@ -124,18 +126,19 @@ const Dmt5Video = () => {
                         current_step={current_step}
                         onClick={() => clickHandler('step_3')}
                     >
-                        {localize('3. Fund your account')}
+                        <Localize translate_text="_t_3. Fund your account_t_" />
                     </Step>
                 </Tab>
             </TabsWrapper>
             <VideoWrapper>
                 <QueryImage
                     data={data[current_step]}
-                    alt={localize(`DMT5 - ${current_step}`)}
+                    alt={localize(`_t_DMT5 - ${current_step}_t_`)}
                     width="100%"
                 />
             </VideoWrapper>
         </Container>
     )
 }
+
 export default Dmt5Video

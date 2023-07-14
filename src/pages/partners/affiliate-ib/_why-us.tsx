@@ -7,10 +7,6 @@ import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import { TString } from 'types/generics'
 
-type TextType = {
-    props: { translate_text: string }
-}
-
 export type WhyUsType = {
     title: TString
     subtitle: TString

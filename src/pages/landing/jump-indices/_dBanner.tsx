@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 
 const SectionWrapper = styled(SectionContainer)`
@@ -25,9 +25,7 @@ const DBanner = () => {
         <SectionWrapper>
             <Flex>
                 <StyledHeader type="section-title" weight="normal">
-                    {localize(
-                        'Trade synthetics with our new jump indices and take advantage of the constant volatility with a twist — price jumps.',
-                    )}
+                    <Localize translate_text="_t_Trade synthetics with our new jump indices and take advantage of the constant volatility with a twist — price jumps._t_" />
                 </StyledHeader>
             </Flex>
         </SectionWrapper>

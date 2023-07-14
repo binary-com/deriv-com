@@ -28,6 +28,7 @@ type TPopUpMenuProps = {
     popup_type: TPopupType
     toggle: (event: React.MouseEvent<HTMLElement>) => void
 }
+
 const how_it_is_calculated: TString = '_t_How it’s calculated_t_'
 const back: TString = '_t_Back_t_'
 const dl_description: TString =

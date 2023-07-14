@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useMemo } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import StepperView from 'components/custom/_stepper_view'
 import { Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
-import device, { size } from 'themes/device'
-import { isBrowser } from 'common/utility'
+import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import useRegion from 'components/hooks/use-region'
@@ -105,6 +104,7 @@ const query = graphql`
         }
     }
 `
+
 const Section = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
@@ -128,7 +128,6 @@ const demoActive = css`
         font-weight: bold;
     }
 `
-
 const realActive = css`
     box-shadow: unset;
 
@@ -136,7 +135,6 @@ const realActive = css`
         font-weight: unset;
     }
 `
-
 const TabItem = styled.div<TabProps>`
     padding: 2.4rem 4rem;
     width: fit-content;
@@ -176,6 +174,7 @@ const StyledLocalizedLink = styled(LocalizedLink)<{ id?: string }>`
         text-decoration: underline;
     }
 `
+
 const StartTrader = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
 
@@ -187,7 +186,6 @@ const StartTrader = () => {
     }
 
     const handleLogin = useHandleLogin()
-
     const handleSignup = useHandleSignup()
 
     const { is_eu } = useRegion()
@@ -197,48 +195,41 @@ const StartTrader = () => {
     const row_demo: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: () => (
-                    <Localize
+                title: () => '_t_Sign up for a free <0>Deriv demo account</0>._t_',
+                title_components: () => [
+                    <StyledLocalizedLink
                         key={0}
-                        translate_text="Sign up for a free <0>Deriv demo account</0>."
-                        components={[
-                            <StyledLocalizedLink
-                                key={0}
-                                to=""
-                                onClick={(e) => {
-                                    e.preventDefault()
-                                    handleSignup()
-                                }}
-                            />,
-                        ]}
-                    />
-                ),
+                        to=""
+                        onClick={(e) => {
+                            e.preventDefault()
+                            handleSignup()
+                        }}
+                    />,
+                ],
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'demo_step1_mobile' : 'demo_step1']}
-                        alt={<Localize translate_text="Sign up for a free" />}
+                        alt={localize('_t_Sign up for a free_t_')}
                     />
                 ),
             },
             {
-                title: () => (
-                    <Localize translate_text="Add a Deriv MT5 demo account and choose what you want to trade." />
-                ),
+                title: () =>
+                    '_t_Add a Deriv MT5 demo account and choose what you want to trade._t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'demo_step2_mobile' : 'demo_step2']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
             {
-                title: () => (
-                    <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser." />
-                ),
+                title: () =>
+                    '_t_Practise trading from the mobile app, desktop app, or through your web browser._t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'demo_step3_mobile' : 'demo_step3']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
@@ -249,57 +240,50 @@ const StartTrader = () => {
     const row_real: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: () => (
-                    <Localize
+                title: () => '_t_Create or <0>sign in</0> to your demo Deriv account_t_',
+                title_components: () => [
+                    <StyledLocalizedLink
                         key={0}
-                        translate_text="Create or <0>sign in</0> to your demo Deriv account"
-                        components={[
-                            <StyledLocalizedLink
-                                key={0}
-                                to=""
-                                onClick={(e) => {
-                                    e.preventDefault()
-                                    handleLogin()
-                                }}
-                            />,
-                        ]}
-                    />
-                ),
+                        to=""
+                        onClick={(e) => {
+                            e.preventDefault()
+                            handleLogin()
+                        }}
+                    />,
+                ],
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step1_mobile' : 'real_step1']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
             {
-                title: () => <Localize translate_text="Create a Deriv real money account." />,
+                title: () => '_t_Create a Deriv real money account._t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step2_mobile' : 'real_step2']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt="_t_Deriv MT5 demo account_t_"
                     />
                 ),
             },
             {
-                title: () => (
-                    <Localize translate_text="Create a Deriv MT5 real money account based on your trade preference." />
-                ),
+                title: () =>
+                    '_t_Create a Deriv MT5 real money account based on your trade preference._t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step3_mobile' : 'real_step3']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
             {
-                title: () => (
-                    <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser." />
-                ),
+                title: () =>
+                    '_t_Fund your account. Start trading on the mobile app, desktop app, or web browser._t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step4_mobile' : 'real_step4']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
@@ -310,46 +294,40 @@ const StartTrader = () => {
     const eu_demo: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: () => (
-                    <Localize
+                title: () => '_t_Sign up for a free <0>Deriv demo account</0>._t_',
+                title_components: () => [
+                    <StyledLocalizedLink
                         key={0}
-                        translate_text="Sign up for a free <0>Deriv demo account</0>."
-                        components={[
-                            <StyledLocalizedLink
-                                key={0}
-                                to=""
-                                onClick={(e) => {
-                                    e.preventDefault()
-                                    handleSignup()
-                                }}
-                            />,
-                        ]}
-                    />
-                ),
+                        to=""
+                        onClick={(e) => {
+                            e.preventDefault()
+                            handleSignup()
+                        }}
+                    />,
+                ],
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'demo_step1_mobile_eu' : 'demo_step1_eu']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
             {
-                title: () => <Localize translate_text="Add a CFDs demo account." />,
+                title: () => '_t_Add a CFDs demo account._t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'demo_step2_mobile_eu' : 'demo_step2_eu']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
             {
-                title: () => (
-                    <Localize translate_text="Practise trading from the mobile app, desktop app, or through your web browser." />
-                ),
+                title: () =>
+                    '_t_Practise trading from the mobile app, desktop app, or through your web browser._t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'demo_step3_mobile_eu' : 'demo_step3_eu']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
@@ -360,68 +338,63 @@ const StartTrader = () => {
     const eu_real: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: () => (
-                    <Localize
+                title: () => '_t_Create or <0>sign in</0> to your demo Deriv account_t_',
+                title_components: () => [
+                    <StyledLocalizedLink
                         key={0}
-                        translate_text="Create or <0>sign in</0> to your demo Deriv account"
-                        components={[
-                            <StyledLocalizedLink
-                                key={0}
-                                to=""
-                                onClick={(e) => {
-                                    e.preventDefault()
-                                    handleLogin()
-                                }}
-                            />,
-                        ]}
-                    />
-                ),
+                        to=""
+                        onClick={(e) => {
+                            e.preventDefault()
+                            handleLogin()
+                        }}
+                    />,
+                ],
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step1_mobile_eu' : 'real_step1_eu']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
             {
-                title: () => <Localize translate_text="Create a real Deriv Multipliers account." />,
+                title: () => '_t_Create a real Deriv Multipliers account._t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step2_mobile_eu' : 'real_step2_eu']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
             {
-                title: () => <Localize translate_text="Create a CFDs real account." />,
+                title: () => '_t_Create a CFDs real account._t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step3_mobile_eu' : 'real_step3_eu']}
-                        alt={<Localize translate_text="Deriv MT5 demo account" />}
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
             {
-                title: () => (
-                    <Localize translate_text="Fund your account. Start trading on the mobile app, desktop app, or web browser." />
-                ),
+                title: () =>
+                    '_t_Fund your account. Start trading on the mobile app, desktop app, or web browser._t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step4_mobile_eu' : 'real_step4_eu']}
-                        alt={<Localize translate_text="Trading" />}
+                        alt={localize('_t_Trading_t_')}
                     />
                 ),
             },
         ],
         [data, is_mobile_or_tablet, handleLogin],
     )
+
     const demo = is_eu ? eu_demo : row_demo
     const real = is_eu ? eu_real : row_real
 
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
-                {localize('How to get started with a Deriv MT5 account')}
+                <Localize translate_text="_t_How to get started with a Deriv MT5 account_t_" />
             </StyledHeader>
             <Flex
                 mb={is_mobile_or_tablet ? '0' : '8rem'}
@@ -436,7 +409,7 @@ const StartTrader = () => {
                     className="demo-account"
                 >
                     <StyledText size="var(--text-size-m)" align="center">
-                        {localize('Demo account')}
+                        <Localize translate_text="_t_Demo account_t_" />
                     </StyledText>
                 </TabItem>
                 <TabItem
@@ -446,7 +419,7 @@ const StartTrader = () => {
                     className="real-account"
                 >
                     <StyledText size="var(--text-size-m)" align="center">
-                        {localize('Real account')}
+                        <Localize translate_text="_t_Real account_t_" />
                     </StyledText>
                 </TabItem>
             </Flex>

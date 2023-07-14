@@ -31,7 +31,6 @@ const Li = styled(Flex).attrs({ as: 'li' })`
         min-height: 0;
     }
 `
-
 const ResponsiveBox = styled(Box)`
     @media ${device.mobileL} {
         margin-left: 0;
@@ -44,20 +43,25 @@ const Everything = () => {
         <Box p="8rem 0" bg="var(--color-grey-8)" id="markets">
             <Container fd="column" ai="center">
                 <Header as="h3" type="section-title" align="center" mb="2rem">
-                    {localize('Deriv.com is everything you love about Binary.com, and more')}
+                    <Localize translate_text="_t_Deriv.com is everything you love about Binary.com, and more_t_" />
                 </Header>
                 <Ul jc="center" ai="center">
                     <Li>
                         <div>
-                            <img src={EasySignup} alt="easy signup" width="64" height="64" />
+                            <img
+                                src={EasySignup}
+                                alt={localize('_t_easy signup_t_')}
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
-                                {localize('No sign up required')}
+                                <Localize translate_text="_t_No sign up required_t_" />
                             </Header>
                             <Text>
                                 <Localize
-                                    translate_text="Just log in with your <0>Binary.com</0> credentials and start trading right away."
+                                    translate_text="_t_Just log in with your <0>Binary.com</0> credentials and start trading right away._t_"
                                     components={[
                                         <LocalizedLinkText
                                             id="dm-binary-login-link-2"
@@ -78,19 +82,17 @@ const Everything = () => {
                         <div>
                             <img
                                 src={SyntheticIndices}
-                                alt="Synthetic Indices"
+                                alt={localize('_t_Synthetic Indices_t_')}
                                 width="64"
                                 height="64"
                             />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
-                                {localize('Over 100+ financial instruments')}
+                                <Localize translate_text="_t_Over 100+ financial instruments_t_" />
                             </Header>
                             <Text>
-                                {localize(
-                                    'Trade what you like - forex, commodities, stock and synthetic indices.',
-                                )}
+                                <Localize translate_text="_t_Trade what you like - forex, commodities, stock and synthetic indices._t_" />
                             </Text>
                         </ResponsiveBox>
                     </Li>
@@ -98,19 +100,17 @@ const Everything = () => {
                         <div>
                             <img
                                 src={Enhanced}
-                                alt="An enhanced experience"
+                                alt={localize('_t_An enhanced experience_t_')}
                                 width="64"
                                 height="64"
                             />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
-                                {localize('An enhanced experience')}
+                                <Localize translate_text="_t_An enhanced experience_t_" />
                             </Header>
                             <Text>
-                                {localize(
-                                    'Trade confidently on a service created by the trusted online trading brand with over 20 years of experience.',
-                                )}
+                                <Localize translate_text="_t_Trade confidently on a service created by the trusted online trading brand with over 20 years of experience._t_" />
                             </Text>
                         </ResponsiveBox>
                     </Li>
@@ -118,55 +118,59 @@ const Everything = () => {
                         <div>
                             <img
                                 src={TradingPlatform}
-                                alt="trading platforms"
+                                alt={localize('_t_trading platforms_t_')}
                                 width="64"
                                 height="64"
                             />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
-                                {localize('4 trading platforms in one place')}
+                                <Localize translate_text="_t_4 trading platforms in one place_t_" />
                             </Header>
                             <Text>
-                                {localize(
-                                    'Trade the way you like on the Deriv MT5, DTrader, DBot — and the classic SmartTrader.',
-                                )}
+                                <Localize translate_text="_t_Trade the way you like on the Deriv MT5, DTrader, DBot — and the classic SmartTrader._t_" />
                             </Text>
                         </ResponsiveBox>
                     </Li>
                     <Li>
                         <div>
-                            <img src={UserFriendly} alt="User Friendly" width="64" height="64" />
+                            <img
+                                src={UserFriendly}
+                                alt={localize('_t_User Friendly_t_')}
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
-                                {localize('User-friendly, modern design')}
+                                <Localize translate_text="_t_User-friendly, modern design_t_" />
                             </Header>
                             <Text>
-                                {localize(
-                                    'Enjoy an intuitive, easy-to-use interface, even for new traders.',
-                                )}
+                                <Localize translate_text="_t_Enjoy an intuitive, easy-to-use interface, even for new traders._t_" />
                             </Text>
                         </ResponsiveBox>
                     </Li>
                     <Li>
                         <div>
-                            <img src={Support} alt="Support" width="64" height="64" />
+                            <img
+                                src={Support}
+                                alt={localize('_t_Support_t_')}
+                                width="64"
+                                height="64"
+                            />
                         </div>
                         <ResponsiveBox ml="1.6rem">
                             <Header as="h4" type="sub-section-title">
-                                {localize('Support when you need it')}
+                                <Localize translate_text="_t_Support when you need it_t_" />
                             </Header>
                             <Text>
-                                {localize(
-                                    'Get access to friendly customer support 7 days a week, an enriched Help centre, plus other helpful content.',
-                                )}
+                                <Localize translate_text="_t_Get access to friendly customer support 7 days a week, an enriched Help centre, plus other helpful content._t_" />
                             </Text>
                         </ResponsiveBox>
                     </Li>
                 </Ul>
                 <LinkButton secondary to="/" mt="2rem">
-                    {localize('Explore Deriv.com now')}
+                    <Localize translate_text="_t_Explore Deriv.com now_t_" />
                 </LinkButton>
             </Container>
         </Box>

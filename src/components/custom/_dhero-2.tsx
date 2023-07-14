@@ -13,30 +13,28 @@ import {
     derivx_huawei_url,
     derivx_app_url,
 } from 'common/constants'
+import { TString } from 'types/generics'
 
 type HeroItemsType = {
     url: string
     image: string
-    alt: string
+    alt: TString
 }
 
 type DHeroProps = {
-    background_alt?: string
-    background_image_name?: string
+    background_alt?: TString
     background_svg?: string
     background_svg2?: string
-    content?: string | JSX.Element
+    content?: TString
     d_height?: string
-    is_live_demo?: boolean
     image_name?: string
     is_mobile?: boolean
     is_ppc?: boolean
-    join_us_for_free?: boolean
     laptop_height?: string
     laptopM_height?: string
     Logo?: string
     tabletL_height?: string
-    title?: string | JSX.Element
+    title?: TString
 }
 
 const Wrapper = styled(Flex)<DHeroProps>`
@@ -102,7 +100,6 @@ const StyledHeader = styled(Header)`
         font-weight: normal;
     }
 `
-
 const HeroHeader = styled(Header)`
     ${Header} {
         font-size: 20px;
@@ -122,7 +119,6 @@ const HeroHeader = styled(Header)`
         line-height: 50px;
     }
 `
-
 const LottieWrapper = styled.div`
     width: 100%;
     max-width: 58rem;
@@ -147,7 +143,6 @@ const LottieWrapper = styled.div`
         margin-bottom: 25px;
     }
 `
-
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 56.2rem;
@@ -178,32 +173,6 @@ const InformationWrapper = styled(Flex)`
     }
     @media ${device.mobileS} {
         padding: 0 12px;
-    }
-`
-
-const query = graphql`
-    query {
-        google_play: file(relativePath: { eq: "deriv-go/google-play.png" }) {
-            ...fadeIn
-        }
-        app_store: file(relativePath: { eq: "deriv-go/app-store.png" }) {
-            ...fadeIn
-        }
-        huawei_app: file(relativePath: { eq: "deriv-go/huawei-app.png" }) {
-            ...fadeIn
-        }
-        deriv_x: file(relativePath: { eq: "deriv-x/hero-laptop.png" }) {
-            ...bannerImage
-        }
-        deriv_x_mobile: file(relativePath: { eq: "deriv-x/hero-laptop-mobile.png" }) {
-            ...bannerImage
-        }
-        qr_code: file(relativePath: { eq: "deriv-x/deriv-x-qr.png" }) {
-            ...fadeIn
-        }
-        web_browser: file(relativePath: { eq: "deriv-go/web-browser.png" }) {
-            ...fadeIn
-        }
     }
 `
 const AppButton = styled(LocalizedLink)`
@@ -241,7 +210,6 @@ const ButtonDp2p = styled(Button)`
     order: 1;
     flex-grow: 0;
 `
-
 const DLogo = styled.img`
     width: 32px !important;
     height: 32px !important;
@@ -301,11 +269,37 @@ const BackgroundSVG2 = styled.img`
     }
 `
 
+const query = graphql`
+    query {
+        google_play: file(relativePath: { eq: "deriv-go/google-play.png" }) {
+            ...fadeIn
+        }
+        app_store: file(relativePath: { eq: "deriv-go/app-store.png" }) {
+            ...fadeIn
+        }
+        huawei_app: file(relativePath: { eq: "deriv-go/huawei-app.png" }) {
+            ...fadeIn
+        }
+        deriv_x: file(relativePath: { eq: "deriv-x/hero-laptop.png" }) {
+            ...bannerImage
+        }
+        deriv_x_mobile: file(relativePath: { eq: "deriv-x/hero-laptop-mobile.png" }) {
+            ...bannerImage
+        }
+        qr_code: file(relativePath: { eq: "deriv-x/deriv-x-qr.png" }) {
+            ...fadeIn
+        }
+        web_browser: file(relativePath: { eq: "deriv-go/web-browser.png" }) {
+            ...fadeIn
+        }
+    }
+`
+
 const HeroItems: HeroItemsType[] = [
-    { url: derivx_ios_url, image: 'app_store', alt: 'app store logo' },
-    { url: derivx_android_url, image: 'google_play', alt: 'google play logo' },
-    { url: derivx_huawei_url, image: 'huawei_app', alt: 'huawei app gallery' },
-    { url: derivx_app_url, image: 'web_browser', alt: 'web browser logo' },
+    { url: derivx_ios_url, image: 'app_store', alt: '_t_app store logo_t_' },
+    { url: derivx_android_url, image: 'google_play', alt: '_t_google play logo_t_' },
+    { url: derivx_huawei_url, image: 'huawei_app', alt: '_t_huawei app gallery_t_' },
+    { url: derivx_app_url, image: 'web_browser', alt: '_t_web browser logo_t_' },
 ]
 
 const DHero = ({
@@ -337,6 +331,7 @@ const DHero = ({
 
         window.open(link, '_blank')
     }
+
     return (
         <Wrapper
             d_height={d_height}
@@ -346,19 +341,19 @@ const DHero = ({
         >
             {!is_mobile && (
                 <>
-                    <BackgroundSVG src={background_svg} alt="background svg" />
-                    <BackgroundSVG2 src={background_svg2} alt="background svg 2" />
+                    <BackgroundSVG src={background_svg} alt={localize('_t_background svg_t_')} />
+                    <BackgroundSVG2 src={background_svg2} alt={localize('_t_background svg_t_')} />
                 </>
             )}
 
             <InformationWrapper height="unset" direction="column">
                 <StyledHeader as="h4" type="sub-section-title" weight="500">
-                    <DLogo src={Logo} alt="logo" width="32" height="32" />
-                    {title}
+                    <DLogo src={Logo} alt={localize('_t_logo_t_')} width="32" height="32" />
+                    {title && <Localize translate_text={title} />}
                 </StyledHeader>
                 <HeroContent is_ppc={is_ppc}>
                     <HeroHeader as="h1" type="display-title">
-                        {content}
+                        {content && <Localize translate_text={content} />}
                     </HeroHeader>
                 </HeroContent>
                 <Desktop>
@@ -366,12 +361,12 @@ const DHero = ({
                         <HeroHeader>
                             <QueryImage
                                 data={data['qr_code']}
-                                alt={'play store'}
+                                alt={localize('_t_play store_t_')}
                                 width="108px"
                                 height="108px"
                             />
                             <Header as="h2" width="50%">
-                                {<Localize translate_text="Scan the QR code to download Deriv X" />}
+                                <Localize translate_text="_t_Scan the QR code to download Deriv X_t_" />
                             </Header>
                         </HeroHeader>
                     </HeroContent>
@@ -392,14 +387,14 @@ const DHero = ({
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                <QueryImage data={data[image]} alt={alt} />
+                                <QueryImage data={data[image]} alt={localize(alt)} />
                             </AppButton>
                         ))}
                     </Flex>
                 </Desktop>
                 <Mobile>
                     <ButtonDp2p secondary onClick={handleExternalLink}>
-                        {localize('Download Deriv X app')}
+                        <Localize translate_text="_t_Download Deriv X app_t_" />
                     </ButtonDp2p>
                 </Mobile>
             </InformationWrapper>
@@ -407,7 +402,7 @@ const DHero = ({
             <LottieWrapper>
                 <QueryImage
                     data={data[is_mobile ? image_name + '_mobile' : image_name]}
-                    alt={background_alt}
+                    alt={localize(background_alt)}
                 />
             </LottieWrapper>
         </Wrapper>

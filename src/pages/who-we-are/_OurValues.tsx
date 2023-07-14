@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { our_values } from './_data'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
@@ -64,7 +64,7 @@ const OurValues = () => {
             <StyledFlex width="820px" wrap="wrap">
                 {our_values.map(({ title, icon, text }, index) => (
                     <Card key={index} index={index} direction="column" ai="start" jc="start">
-                        <img src={icon} alt="icon" />
+                        <img src={icon} alt={localize('_t_icon_t_')} />
                         <Header as="h4" padding="24px 0 8px" size="32px" align="start" type="unset">
                             <Localize translate_text={title} />
                         </Header>

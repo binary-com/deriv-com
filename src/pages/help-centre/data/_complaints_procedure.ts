@@ -63,7 +63,7 @@ const complaints_procedure: TQuestionsData = {
                         },
                         {
                             translation_text:
-                                '_t_Type "complaint"._t_',
+                                '_t_Once you’re shown options to select from, choose “Complaints”. You can also type "complaint"._t_',
                         },
                         {
                             translation_text:

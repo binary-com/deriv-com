@@ -11,6 +11,7 @@ import ArrowNext from 'images/svg/arrow-next.svg'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import './styles.scss'
 import { isActiveLink } from 'features/components/atoms/link/internal'
+import { TString } from 'types/generics'
 
 // Import the required Swiper modules
 SwiperCore.use([Navigation])

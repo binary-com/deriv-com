@@ -1,7 +1,7 @@
 import semver from 'semver'
 import { browserName, browserVersion } from 'react-device-detect'
 
-const minimum_required_browsers_versions: Record<string, string> = {
+const minimum_required_browsers_versions = {
     Chrome: '70.0.0',
     Firefox: '44.0.0',
     Opera: '44.0.0',

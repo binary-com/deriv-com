@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Controller } from 'react-hook-form'
 import {
     form_style,
@@ -23,10 +23,11 @@ type CtraderCredentialsFormProps = {
 
 const CtraderCredentialsForm = ({ email, residence_list }: CtraderCredentialsFormProps) => {
     const { submitForm, onSubmit, loading } = useCtraderCredentialsForm()
+    const disable_button = useRef(false)
 
     const {
         register,
-        formState: { errors, isValid },
+        formState: { errors, isValid, isSubmitting },
         watch,
         handleSubmit,
         clearErrors,
@@ -35,6 +36,16 @@ const CtraderCredentialsForm = ({ email, residence_list }: CtraderCredentialsFor
         control,
     } = submitForm
     const values = watch()
+
+    useEffect(() => {
+        if (isSubmitting) {
+            disable_button.current = true
+        }
+        const timer = setTimeout(() => {
+            disable_button.current = false
+        }, 100)
+        return () => clearTimeout(timer)
+    }, [isSubmitting])
 
     useEffect(() => {
         const response_error = errors.root?.serverError
@@ -49,7 +60,7 @@ const CtraderCredentialsForm = ({ email, residence_list }: CtraderCredentialsFor
         values.password === '' ||
         values.residence === '' ||
         !isValid ||
-        loading
+        disable_button.current
 
     return (
         <Flex.Box

@@ -12,7 +12,7 @@ const CtraderEmailForm = () => {
 
     const {
         register,
-        formState: { errors, isValid, isSubmitting },
+        formState: { errors, isValid, isSubmitting, isSubmitSuccessful },
         watch,
         handleSubmit,
         clearErrors,
@@ -20,7 +20,8 @@ const CtraderEmailForm = () => {
     } = enterEmailForm
     const values = watch()
 
-    const is_button_disabled = values.email === '' || !values.terms || !isValid || isSubmitting
+    const is_button_disabled =
+        values.email === '' || !values.terms || !isValid || isSubmitting || isSubmitSuccessful
 
     return (
         <Flex.Box as="form" direction="col" onSubmit={handleSubmit(onEnterEmail)} gap="8x">

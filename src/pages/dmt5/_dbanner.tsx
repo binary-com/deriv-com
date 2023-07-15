@@ -9,14 +9,15 @@ import useHandleSignup from 'components/hooks/use-handle-signup'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleGetTrading } from 'components/custom/utils'
+import { TString } from 'types/generics'
 
 type DBannerProps = {
-    background_pattern?: string
+    image_alt: TString
+    title: TString
     data?: string
     is_ppc?: boolean
-    title?: string
-    image_alt?: string
     is_mt5?: boolean
+    background_pattern?: string
 }
 
 const Wrapper = styled(Flex)`
@@ -45,7 +46,6 @@ const Wrapper = styled(Flex)`
         padding: 0 16px 40px 16px;
     }
 `
-
 const ImageWrapper = styled(Flex)`
     position: absolute;
     width: 50rem;
@@ -72,7 +72,6 @@ const ImageWrapper = styled(Flex)`
         left: 25%;
     }
 `
-
 const TextWrapper = styled.div`
     margin: auto 0;
     @media ${device.laptopM} {
@@ -132,12 +131,13 @@ const BackgroundPattern = styled.img<{ is_rtl: boolean }>`
         max-width: unset;
     }
 `
+
 const DBanner = ({
     background_pattern = '',
     data = '',
     is_ppc = false,
-    title = '',
-    image_alt = '',
+    title,
+    image_alt,
     is_mt5 = false,
 }: DBannerProps) => {
     const handleSignup = useHandleSignup(is_ppc)
@@ -148,12 +148,16 @@ const DBanner = ({
     return (
         <Flex position="relative">
             <ImageWrapper ai="center">
-                <QueryImage data={data['deriv_platform']} alt={image_alt} width="100%" />
+                <QueryImage
+                    data={data['deriv_platform']}
+                    alt={localize(image_alt || title)}
+                    width="100%"
+                />
             </ImageWrapper>
             <Wrapper>
                 <TextWrapper>
                     <StyledHeader as="h2" color="white" size="5.6rem" mb="4rem" max_width="53rem">
-                        {title}
+                        <Localize translate_text={title} />
                     </StyledHeader>
                     {is_logged_in ? (
                         <StyledLinkButton
@@ -163,7 +167,7 @@ const DBanner = ({
                             secondary
                         >
                             <Localize
-                                translate_text="Go to {{platform_name}} dashboard"
+                                translate_text="_t_Go to {{platform_name}} dashboard_t_"
                                 values={{ platform_name }}
                             />
                         </StyledLinkButton>
@@ -174,14 +178,14 @@ const DBanner = ({
                             type="submit"
                             secondary
                         >
-                            {localize('Create free demo account')}
+                            <Localize translate_text="_t_Create free demo account_t_" />
                         </StyledLinkButton>
                     )}
                 </TextWrapper>
                 <BackgroundPattern
                     is_rtl={is_rtl}
                     src={background_pattern}
-                    alt="background pattern"
+                    alt={localize('_t_background pattern_t_')}
                 />
             </Wrapper>
         </Flex>

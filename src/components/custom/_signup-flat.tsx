@@ -25,6 +25,7 @@ type SignupFlatProps = {
 type DarkType = {
     dark?: boolean
 }
+
 const Wrapper = styled.div<DarkType>`
     padding: 3.3rem 8.5rem;
     display: flex;
@@ -57,7 +58,6 @@ const RightWrapper = styled.div`
         display: none;
     }
 `
-
 const InputWrapper = styled.div`
     width: 60%;
 
@@ -91,7 +91,6 @@ const SocialButton = styled(Button)<DarkType>`
     background-color: ${(props) => (props.dark ? 'var(--color-black)' : 'var(--color-white)')};
     border: none;
 `
-
 const StyledHeader = styled(Header)`
     width: auto;
 `
@@ -114,6 +113,7 @@ const Splitter = styled.div<DarkType>`
         display: none;
     }
 `
+
 const SignupFlat = ({
     email_error_msg,
     email,
@@ -151,7 +151,7 @@ const SignupFlat = ({
                                 type="text"
                                 error={email_error_msg}
                                 value={email}
-                                label={localize('Email address')}
+                                label={localize('_t_Email address_t_')}
                                 placeholder={'example@mail.com'}
                                 handleError={clearEmail}
                                 onChange={handleInputChange}
@@ -167,12 +167,12 @@ const SignupFlat = ({
                             secondary
                             disabled={is_submitting}
                         >
-                            {localize('Sign up')}
+                            <Localize translate_text="_t_Sign up_t_" />
                         </EmailButton>
                     </InputGroup>
                     <SocialWrapper>
                         <StyledText color={dark ? 'white' : 'black'}>
-                            {localize('or sign up with')}
+                            <Localize translate_text="_t_or sign up with_t_" />
                         </StyledText>
                         <SocialButton
                             dark={dark}
@@ -184,7 +184,12 @@ const SignupFlat = ({
                             social
                         >
                             <span>
-                                <img src={Google} alt="google" width="22" height="23" />
+                                <img
+                                    src={Google}
+                                    alt={localize('_t_google_t_')}
+                                    width="22"
+                                    height="23"
+                                />
                             </span>
                         </SocialButton>
                         <SocialButton
@@ -197,7 +202,12 @@ const SignupFlat = ({
                             social
                         >
                             <span>
-                                <img src={Facebook} alt="facebook" width="12" height="22" />
+                                <img
+                                    src={Facebook}
+                                    alt={localize('_t_facebook_t_')}
+                                    width="12"
+                                    height="22"
+                                />
                             </span>
                         </SocialButton>
                     </SocialWrapper>
@@ -210,7 +220,7 @@ const SignupFlat = ({
                         color={dark ? 'white' : 'black'}
                         weight="bold"
                     >
-                        {localize('Get a taste of the Deriv experience')}
+                        <Localize translate_text="_t_Get a taste of the Deriv experience_t_" />
                     </Text>
                     <DemoButton
                         secondary
@@ -219,7 +229,7 @@ const SignupFlat = ({
                         target="_blank"
                         rel="noopener noreferrer nofollow"
                     >
-                        {localize('See live demo')}
+                        <Localize translate_text="_t_See live demo_t_" />
                     </DemoButton>
                 </RightWrapper>
             </FormWrapper>

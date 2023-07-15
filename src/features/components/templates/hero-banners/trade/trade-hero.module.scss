@@ -17,10 +17,7 @@
         inline-size: 100%;
         background-color: $color-brand;
         inset-block-end: 0;
-        clip-path: polygon(0 28%, 100% 38%, 100% 0, 0 0);
-        @include rtl() {
-            clip-path: polygon(0 40%, 100% 60%, 100% 100%, 0% 100%);
-        }
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 0 41%);
 
         @include breakpoints(tablet) {
             min-block-size: 82.2rem;

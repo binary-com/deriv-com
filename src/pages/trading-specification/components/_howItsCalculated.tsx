@@ -16,22 +16,27 @@ import StockOneLot from 'images/svg/trading-specification/stocks_five_lot.svg'
 import Stock45Lot from 'images/svg/trading-specification/stocks_fourty_five_lot.svg'
 import Stock50Lot from 'images/svg/trading-specification/stocks_fifty_lot.svg'
 import StockTotalMargin from 'images/svg/trading-specification/stocks_total_margin.svg'
+import { TString } from 'types/generics'
 
 type TCalculationProps = {
     market: string
 }
+
 type ListType = {
-    details?: string
+    details?: TString
     icon?: string
 }[]
+
 type DlMarketType = {
-    title: string
-    description: string
+    title: TString
+    description: TString
     list: ListType
 }
+
 export type DlMarketTypeProps = {
     data: DlMarketType
 }
+
 const HowItsCalculated = ({ market }: TCalculationProps) => {
     return (
         <>
@@ -65,6 +70,7 @@ const forex_dynamic_leverage: DlMarketType = {
         },
     ],
 }
+
 const commodities_dynamic_leverage: DlMarketType = {
     title: '_t_Example of dynamic leverage calculation for metals_t_',
     description: '_t_<0>10 lots</0> traded with DL on <0>XAU/USD</0> is split between:_t_',
@@ -87,6 +93,7 @@ const commodities_dynamic_leverage: DlMarketType = {
         },
     ],
 }
+
 const crypto_dynamic_leverage: DlMarketType = {
     title: '_t_Example of dynamic leverage calculation for cryptocurrencies_t_',
     description: '_t_<0>5 lots</0> traded with DL on <0>BTC/USD</0> is split between:_t_',
@@ -109,6 +116,7 @@ const crypto_dynamic_leverage: DlMarketType = {
         },
     ],
 }
+
 const stocks_dynamic_leverage: DlMarketType = {
     title: '_t_Example of dynamic leverage calculation for stock indices_t_',
     description: '_t_<0>100 lots</0> traded with DL on <0>US Tech 100</0> is split between:_t_',

@@ -356,7 +356,7 @@ const MarginCalculator = () => {
                         </Header>
                         <Accordion id="margin-calculator" has_single_state>
                             <AccordionItem
-                                header={localize('_t_Margin required_t_')}
+                                header="_t_Margin required_t_"
                                 header_style={header_style}
                                 style={item_style}
                                 plus

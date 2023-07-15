@@ -54,7 +54,7 @@ export const deriv_bot_app_url = `${deriv_app_url}/bot`
 export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
 export const deriv_life_url = `https://derivlife.com/`
 export const academy_url = `https://academy.deriv.com/`
-export const deriv_mt5_app_url = `https://trade.mql5.com/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979`
+export const deriv_mt5_app_url = `https://metatraderweb.app/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979`
 export const derivx_app_url = `${deriv_app_url}/derivx`
 export const smarttrader_url = `https://smarttrader.${getDomainUrl()}`
 export const traders_hub = 'https://app.deriv.com/appstore/traders-hub'
@@ -76,8 +76,20 @@ export const binary_url = 'https://binary.com'
 export const brand_name = 'Deriv'
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
 export const deriv_app_languages = ['id', 'es', 'ru', 'fr']
-export const smart_trader_languages = ['es', 'fr', 'id', 'it', 'pl', 'ru', 'vi', 'zh_cn', 'zh_tw']
+export const smart_trader_languages = [
+    'es',
+    'fr',
+    'id',
+    'it',
+    'pl',
+    'pt',
+    'ru',
+    'vi',
+    'zh_cn',
+    'zh_tw',
+]
 export const deriv_status_page_url = 'https://deriv.statuspage.io'
+export const deriv_bug_bounty_url = 'https://hackerone.com/deriv?type=team'
 export const derivx_ios_url = 'https://apps.apple.com/us/app/deriv-x/id1563337503'
 export const derivx_android_url = 'https://play.google.com/store/apps/details?id=com.deriv.dx'
 export const derivx_huawei_url = 'https://appgallery.cloud.huawei.com/ag/n/app/C104633219'
@@ -85,7 +97,7 @@ export const deriv_go_playstore_url = 'https://play.google.com/store/apps/detail
 export const deriv_go_huaweiappgallery_url = 'https://appgallery.huawei.com/#/app/C103801913'
 export const deriv_go_ios_url = 'https://apps.apple.com/my/app/deriv-go/id1550561298'
 export const dmt5_web_browser_url =
-    'https://trade.mql5.com/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979'
+    'https://metatraderweb.app/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979'
 export const dmt5_windows =
     'https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe?utm_source=www.metatrader5.com&utm_campaign=download'
 export const dmt5_app_gallery_url =
@@ -149,7 +161,7 @@ export const live_chat_key = 'live_chat_redirection'
 export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const youtube_url = 'https://www.youtube.com/@deriv'
-export const loss_percent = 73
+export const loss_percent = 72
 
 export const cookie_key = 'browser_update_alert_modal_shown'
 export const browsers_minimum_required_version = {

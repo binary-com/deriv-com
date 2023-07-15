@@ -18,7 +18,8 @@ import {
     deriv_go_huaweiappgallery_url,
     deriv_go_ios_url,
 } from 'common/constants'
-import DownloadColumn from 'components/custom/_multi-width-column-download'
+import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
+import { localize } from 'components/localization'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
@@ -47,7 +48,7 @@ const DerivGoGetApp = () => {
     const is_rtl = useIsRtl()
     const { is_appgallery_supported } = useRegion()
 
-    const items = [
+    const items: TDownloadColumnItem[] = [
         { text: 'Google Play', icon: AndroidIcon, link: deriv_go_playstore_url },
         { text: 'App Store', icon: AppleIcon, link: deriv_go_ios_url },
         ...(is_appgallery_supported
@@ -66,7 +67,12 @@ const DerivGoGetApp = () => {
             secondColumnMobileMargin="8rem 0 0 0"
         >
             <ContentWrapper is_rtl={is_rtl}>
-                <img src={derivGoLogo} alt="Deriv Go logo" width="64px" height="64px" />
+                <img
+                    src={derivGoLogo}
+                    alt={localize('_t_Deriv Go logo_t_')}
+                    width="64px"
+                    height="64px"
+                />
                 <TextAndButtonWrapper>
                     <CommonHeaderSection
                         title="_t_Get trading with Deriv GO_t_"
@@ -82,7 +88,11 @@ const DerivGoGetApp = () => {
             <DownloadColumn
                 QRImage={derivGoQR}
                 QRHeading1="_t_Scan to download_t_"
-                QRHeading2="Android & Huawei"
+                QRHeading2={
+                    is_appgallery_supported
+                        ? '_t_Android, iOS, and Huawei_t_'
+                        : '_t_Android and iOS_t_'
+                }
                 items={items}
                 is_rtl={is_rtl}
             />

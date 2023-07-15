@@ -25,7 +25,6 @@ const Wrapper = styled.div`
     width: 80%;
     margin: 0 auto;
 `
-
 const InputGroup = styled.div`
     position: relative;
     width: 100%;
@@ -36,7 +35,6 @@ const EmailButton = styled(Button)`
     font-size: 1.4rem;
     margin-bottom: 2rem;
 `
-
 const SocialButton = styled(Button)`
     box-shadow: none;
     flex: inherit !important;
@@ -59,12 +57,12 @@ const LoginText = styled(Text)`
 const NoteText = styled(LoginText)`
     margin-top: 3rem;
 `
-
 const LoginLink = styled.a`
     color: var(--color-red);
     text-decoration: none;
     cursor: pointer;
 `
+
 const SignupDefault = ({
     email_error_msg,
     email,
@@ -79,7 +77,7 @@ const SignupDefault = ({
     return (
         <Wrapper>
             <Header as="h3" weight="bold">
-                {localize('Sign up for your demo account now.')}
+                <Localize translate_text="_t_Sign up for your demo account now._t_" />
             </Header>
             <InputGroup>
                 <Input
@@ -88,7 +86,7 @@ const SignupDefault = ({
                     type="text"
                     error={email_error_msg}
                     value={email}
-                    label={localize('Email address')}
+                    label={localize('_t_Email address_t_')}
                     placeholder={'example@mail.com'}
                     handleError={clearEmail}
                     onChange={handleInputChange}
@@ -104,10 +102,10 @@ const SignupDefault = ({
                 secondary
                 disabled={is_submitting}
             >
-                {localize('Create free demo account')}
+                <Localize translate_text="_t_Create free demo account_t_" />
             </EmailButton>
             <Text color="grey" align="center">
-                {localize('Or sign up with')}
+                <Localize translate_text="_t_Or sign up with_t_" />
             </Text>
             <SocialWrapper justify="space-between" gap="0" grid="2">
                 <SocialButton
@@ -119,7 +117,7 @@ const SignupDefault = ({
                     social
                 >
                     <span>
-                        <img src={Google} alt="google" width="22" height="23" />
+                        <img src={Google} alt={localize('_t_google_t_')} width="22" height="23" />
                     </span>
                 </SocialButton>
                 <SocialButton
@@ -131,20 +129,25 @@ const SignupDefault = ({
                     social
                 >
                     <span>
-                        <img src={Facebook} alt="facebook" width="12" height="22" />
+                        <img
+                            src={Facebook}
+                            alt={localize('_t_facebook_t_')}
+                            width="12"
+                            height="22"
+                        />
                     </span>
                 </SocialButton>
             </SocialWrapper>
             <LoginText>
-                {localize('Already have an account?')}
+                <Localize translate_text="_t_Already have an account?_t_" />
                 <LoginLink id="dm-default-login-button" onClick={handleLogin}>
                     {' '}
-                    {localize('Log in.')}
+                    <Localize translate_text="_t_Log in._t_" />
                 </LoginLink>
             </LoginText>
             <NoteText>
                 <Localize
-                    translate_text="Got a <0>Binary.com</0> account? You can <1>log in</1> to <0>Deriv</0> with your <0>Binary.com</0> username and password"
+                    translate_text="_t_Got a <0>Binary.com</0> account? You can <1>log in</1> to <0>Deriv</0> with your <0>Binary.com</0> username and password_t_"
                     components={[<strong key={0} />, <LoginLink key={1} onClick={handleLogin} />]}
                 />
             </NoteText>

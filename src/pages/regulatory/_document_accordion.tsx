@@ -68,34 +68,32 @@ const EdgeFlex = styled(Flex)`
 `
 
 const RTS27_28 = () => (
-    <>
-        <EdgeFlex>
-            <FlexText
-                color="red"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/regulatory/RTS28-2022.pdf"
-                m="1.6rem 2.4rem"
-            >
-                <img src={PDFIcon} alt="pdf icon black" />
-                <span>
-                    <Localize translate_text="_t_RTS28 2022_t_" />
-                </span>
-            </FlexText>
-            <FlexText
-                color="red"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/regulatory/RTS28-2021.pdf"
-                m="1.6rem 2.4rem"
-            >
-                <img src={PDFIcon} alt="pdf icon black" />
-                <span>
-                    <Localize translate_text="_t_RTS28 2021_t_" />
-                </span>
-            </FlexText>
-        </EdgeFlex>
-    </>
+    <EdgeFlex>
+        <FlexText
+            color="red"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="/regulatory/RTS28-2022.pdf"
+            m="1.6rem 2.4rem"
+        >
+            <img src={PDFIcon} alt={localize('_t_pdf icon black_t_')} />
+            <span>
+                <Localize translate_text="_t_RTS28 2022_t_" />
+            </span>
+        </FlexText>
+        <FlexText
+            color="red"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="/regulatory/RTS28-2021.pdf"
+            m="1.6rem 2.4rem"
+        >
+            <img src={PDFIcon} alt={localize('_t_pdf icon black_t_')} />
+            <span>
+                <Localize translate_text="_t_RTS28 2021_t_" />
+            </span>
+        </FlexText>
+    </EdgeFlex>
 )
 
 const DocumentAccordion = (locale: DocumentAccordionProps) => {
@@ -117,14 +115,14 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
     }
 
     const selected_language = locale.locale.language || 'en'
-    const supported_languages = ['es', 'it', 'pl']
+    const supported_languages = ['es', 'it', 'pl', 'pt']
 
     const is_supported_language = (language: string) => supported_languages.includes(language)
 
     return (
         <Accordion has_single_state id="kid">
             <AccordionItem
-                header={localize('_t_Financial disclosure report_t_')}
+                header="_t_Financial disclosure report_t_"
                 content_style={content_style}
                 header_style={header_style}
                 style={item_style}
@@ -149,7 +147,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 </Flex>
             </AccordionItem>
             <AccordionItem
-                header={localize('_t_Key information documents_t_')}
+                header="_t_Key information documents_t_"
                 content_style={content_style}
                 header_style={header_style}
                 style={item_style}
@@ -184,7 +182,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 </Flex>
             </AccordionItem>
             <AccordionItem
-                header={localize('_t_RTS_t_')}
+                header="_t_RTS_t_"
                 content_style={content_style}
                 header_style={header_style}
                 style={item_style}

@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components'
-import { ReactElement } from 'react'
 import { Box, CssGrid, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
+import { localize } from 'components/localization'
+import { TChild } from 'components/elements/full-width-multicolumn'
 
 type DescriptionsProps = {
     margin_top?: string
@@ -18,6 +19,7 @@ type MarketsListProps = {
     gap_mobile?: string
     mobile_template?: boolean
 }
+
 type OptionsRowProps = {
     is_first_child: boolean
 }
@@ -255,19 +257,11 @@ export const Title = styled(Text)`
 
     @media ${device.tabletL} {
         margin: 16px 0;
-        font-weight: 600;
+        font-weight: 700;
         font-size: 14px;
     }
 `
-type StyledBoxProps = {
-    text: React.ReactNode
-    item_title?: React.ReactNode
-    item_title_eu?: React.ReactNode
-    text_eu?: React.ReactNode
-    icon: ReactElement
-    link?: React.ReactNode
-    link_text?: React.ReactNode
-}
-export const StyledBox = styled(Box)<StyledBoxProps>`
-    content: ${({ text }) => (text ? text : '')};
+
+export const StyledBox = styled(Box)<TChild>`
+    content: ${({ text }) => (text ? localize(text) : '')};
 `

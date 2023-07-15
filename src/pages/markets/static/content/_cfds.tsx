@@ -39,11 +39,9 @@ import {
     VolatilityIndicesDetails,
     VolatilityIndicesDetailsEU,
 } from './_details'
-import type { MarketInstrumentsElement } from 'pages/markets/components/sections/_market_instruments'
-import { Localize } from 'components/localization'
-import { Desktop } from 'components/containers'
+import { TMarketContent } from './_types'
 
-export const commodities_cfds: MarketInstrumentsElement = {
+export const commodities_cfds: TMarketContent = {
     markets_list: {
         col: 3,
         mobile_col: 2,
@@ -51,18 +49,18 @@ export const commodities_cfds: MarketInstrumentsElement = {
     content: [
         {
             id: 'metals',
-            title: <Localize translate_text="Metals" />,
+            title: '_t_Metals_t_',
             component: <Metals />,
         },
         {
             id: 'energy',
-            title: <Localize translate_text="Energy" />,
+            title: '_t_Energy_t_',
             component: <Energy />,
         },
     ],
 }
 
-export const forex_cfds: MarketInstrumentsElement = {
+export const forex_cfds: TMarketContent = {
     markets_list: {
         col: 5,
         tablet_col: 3,
@@ -71,27 +69,28 @@ export const forex_cfds: MarketInstrumentsElement = {
     content: [
         {
             id: 'major-pairs',
-            title: <Localize translate_text="Major pairs" />,
+            title: '_t_Major pairs_t_',
             component: <MajorPairs />,
         },
         {
             id: 'minor-pairs',
-            title: <Localize translate_text="Minor pairs" />,
+            title: '_t_Minor pairs_t_',
             component: <MinorPairs />,
         },
         {
             id: 'exotic-pairs',
-            title: <Localize translate_text="Exotic pairs" />,
+            title: '_t_Exotic pairs_t_',
             component: <ExoticPairs />,
         },
         {
             id: 'micro-pairs',
-            title: <Localize translate_text="Micro pairs" />,
+            title: '_t_Micro pairs_t_',
             component: <MicroPairs />,
         },
     ],
 }
-export const forex_cfds_eu: MarketInstrumentsElement = {
+
+export const forex_cfds_eu: TMarketContent = {
     markets_list: {
         col: 5,
         tablet_col: 3,
@@ -100,18 +99,18 @@ export const forex_cfds_eu: MarketInstrumentsElement = {
     content: [
         {
             id: 'major-pairs',
-            title: <Localize translate_text="Major pairs" />,
+            title: '_t_Major pairs_t_',
             component: <MajorPairs />,
         },
         {
             id: 'minor-pairs',
-            title: <Localize translate_text="Minor pairs" />,
+            title: '_t_Minor pairs_t_',
             component: <MinorPairs />,
         },
     ],
 }
 
-export const synthetic_cfds: MarketInstrumentsElement = {
+export const synthetic_cfds: TMarketContent = {
     has_global_accordion: true,
     // template: 2,
     markets_list: {
@@ -122,46 +121,45 @@ export const synthetic_cfds: MarketInstrumentsElement = {
     content: [
         {
             id: 'dex-indices',
-            title: <Localize translate_text="_t_DEX indices_t_" />,
+            title: '_t_DEX indices_t_',
             component: <DexIndices />,
             details: <DexIndicesDetails />,
         },
         {
             id: 'volatility-indices',
-            title: <Localize translate_text="Volatility indices" />,
+            title: '_t_Volatility indices_t_',
             component: <VolatilityIndices />,
             details: <VolatilityIndicesDetails />,
         },
         {
             id: 'crash-boom',
-
-            title: <Localize translate_text="Crash/Boom" />,
-            mobile_title: <Localize translate_text="Crash/Boom" />,
+            title: '_t_Crash/Boom_t_',
+            mobile_title: '_t_Crash/Boom_t_',
             component: <CrashBoom />,
             details: <CrashBoomDetails />,
         },
         {
             id: 'jump-indices',
-            title: <Localize translate_text="Jump indices" />,
+            title: '_t_Jump indices_t_',
             component: <JumpIndices />,
             details: <JumpIndicesDetails />,
         },
         {
             id: 'step-indices',
-            title: <Localize translate_text="Step indices" />,
+            title: '_t_Step indices_t_',
             component: <StepIndices />,
             details: <StepIndicesDetails />,
         },
         {
             id: 'range-break-indices',
-            title: <Localize translate_text="Range break indices" />,
+            title: '_t_Range break indices_t_',
             component: <RangeBreak />,
             details: <RangeBreakIndicesDetails />,
         },
     ],
 }
 
-export const synthetic_cfds_eu: MarketInstrumentsElement = {
+export const synthetic_cfds_eu: TMarketContent = {
     has_global_accordion: true,
     template: 3,
     markets_list: {
@@ -172,35 +170,28 @@ export const synthetic_cfds_eu: MarketInstrumentsElement = {
     content: [
         {
             id: 'volatility-indices',
-            title: <Localize translate_text="Volatility indices" />,
+            title: '_t_Volatility indices_t_',
             component: <VolatilityIndicesEU />,
             details: <VolatilityIndicesDetailsEU />,
         },
         {
             id: 'crash-boom',
-            title: <Localize translate_text="Crash/Boom" />,
-            mobile_title: <Localize translate_text="Crash/Boom" />,
+            title: '_t_Crash/Boom_t_',
+            mobile_title: '_t_Crash/Boom_t_',
             component: <CrashBoomEU />,
             details: <CrashBoomDetailsEU />,
         },
     ],
 }
 
-export const stock_cfds: MarketInstrumentsElement = {
+export const stock_cfds: TMarketContent = {
     template: 2,
     content: [
         {
             id: 'american-indices',
-            title: (
-                <Localize
-                    translate_text="American <0></0>indices"
-                    components={[
-                        <Desktop key={0}>
-                            <br />
-                        </Desktop>,
-                    ]}
-                />
-            ),
+            title: '_t_American <0></0>indices_t_',
+            title_components: [<br key={0} />],
+            mobile_title: '_t_American indices_t_',
             component: <AmericanIndices />,
             details: <AmericasDetails />,
             col: 3,
@@ -211,16 +202,9 @@ export const stock_cfds: MarketInstrumentsElement = {
         },
         {
             id: 'asian-indices',
-            title: (
-                <Localize
-                    translate_text="Asian <0></0>indices"
-                    components={[
-                        <Desktop key={0}>
-                            <br />
-                        </Desktop>,
-                    ]}
-                />
-            ),
+            title: '_t_Asian <0></0>indices_t_',
+            title_components: [<br key={0} />],
+            mobile_title: '_t_Asian indices_t_',
             component: <AsianIndices />,
             details: <AsianIndicesDetails />,
             col: 3,
@@ -231,16 +215,9 @@ export const stock_cfds: MarketInstrumentsElement = {
         },
         {
             id: 'european-indices',
-            title: (
-                <Localize
-                    translate_text="European <0></0>indices"
-                    components={[
-                        <Desktop key={0}>
-                            <br />
-                        </Desktop>,
-                    ]}
-                />
-            ),
+            title: '_t_European <0></0>indices_t_',
+            title_components: [<br key={0} />],
+            mobile_title: '_t_European indices_t_',
             component: <EuropeanIndices />,
             details: <EuropeanIndicesDetails />,
             col: 3,
@@ -251,7 +228,7 @@ export const stock_cfds: MarketInstrumentsElement = {
         },
         {
             id: 'stocks',
-            title: <Localize translate_text="Stocks" />,
+            title: '_t_Stocks_t_',
             component: <AmericanStocks />,
             col: 3,
             tablet_col: 2,
@@ -264,7 +241,7 @@ export const stock_cfds: MarketInstrumentsElement = {
     ],
 }
 
-export const crypto_cfds: MarketInstrumentsElement = {
+export const crypto_cfds: TMarketContent = {
     markets_list: {
         col: 4,
         tablet_col: 2,
@@ -274,13 +251,13 @@ export const crypto_cfds: MarketInstrumentsElement = {
     content: [
         {
             id: 'crypto-pairs',
-            title: <Localize translate_text="Crypto pairs" />,
+            title: '_t_Crypto pairs_t_',
             component: <CryptocurrenciesCFDs />,
         },
     ],
 }
 
-export const basket_cfds: MarketInstrumentsElement = {
+export const basket_cfds: TMarketContent = {
     markets_list: {
         col: 4,
         tablet_col: 4,
@@ -290,19 +267,20 @@ export const basket_cfds: MarketInstrumentsElement = {
     content: [
         {
             id: 'commodities-basket',
-            title: <Localize translate_text="Commodities Basket" />,
+            title: '_t_Commodities Basket_t_',
             component: <BasketIndicesCommodities />,
             details: <BasketCommoditiesDetails />,
         },
         {
             id: 'forex-basket',
-            title: <Localize translate_text="Forex Basket" />,
+            title: '_t_Forex Basket_t_',
             component: <BasketIndicesCfds />,
             details: <BasketFXDetails />,
         },
     ],
 }
-export const derived_fx_cfds: MarketInstrumentsElement = {
+
+export const derived_fx_cfds: TMarketContent = {
     markets_list: {
         col: 2,
         tablet_col: 2,
@@ -312,7 +290,7 @@ export const derived_fx_cfds: MarketInstrumentsElement = {
     content: [
         {
             id: 'cfds-derived-fx',
-            title: <Localize translate_text="Derived FX" />,
+            title: '_t_Derived FX_t_',
             component: <DerivedCFDs />,
             details: <DerivedCFDsDetails />,
         },

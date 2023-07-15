@@ -12,6 +12,7 @@ import { handleGetTrading } from 'components/custom/utils'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import { localize } from 'components/localization'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
@@ -39,6 +40,7 @@ const TextAndButtonWrapper = styled.div`
         align-items: center;
     }
 `
+
 const DBotGetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const handleSignup = useHandleSignup()
@@ -54,7 +56,12 @@ const DBotGetApp = () => {
             mobileBackgroundImage={GetAppMobileBG}
         >
             <ContentWrapper is_rtl={is_rtl}>
-                <img src={derivBotLogo} alt="dtrader logo" width="64px" height="64px" />
+                <img
+                    src={derivBotLogo}
+                    alt={localize('_t_dtrader logo_t_')}
+                    width="64px"
+                    height="64px"
+                />
                 <TextAndButtonWrapper>
                     <CommonHeaderSection
                         title="_t_Get into the Deriv Bot experience_t_"

@@ -10,6 +10,7 @@ import { getLocationPathname } from 'common/utility'
 import ArrowNext from 'images/svg/arrow-next.svg'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import './styles.scss'
+import dclsx from 'features/utils/dclsx'
 
 // Import the required Swiper modules
 SwiperCore.use([Navigation])
@@ -47,7 +48,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                 padding_block="10x"
                 md={{ justify: 'center', padding: '10x' }}
                 visible="phone-only"
-                className="swiper_wrapper_navigation"
+                className="wrapper_navigation"
             >
                 <Swiper
                     ref={swiper_ref}
@@ -85,6 +86,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                 justify="around"
                 md={{ justify: 'center', padding: '10x' }}
                 visible="larger-than-phone"
+                className="wrapper_navigation"
             >
                 {!tabs_loading &&
                     tab_data.map((tab_item) => {

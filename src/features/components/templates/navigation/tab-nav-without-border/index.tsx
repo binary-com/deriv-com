@@ -40,7 +40,6 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
         }
         setTabsLoading(false)
     }, [pathname])
-    console.log(selected_tab_name)
 
     return (
         <Container.Fluid mt={'20x'}>

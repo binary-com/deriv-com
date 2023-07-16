@@ -20,7 +20,7 @@ interface NavigationTabWithoutBorderType {
 
 const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType) => {
     const pathname = getLocationPathname()
-    const [swiper_loading, setSwiperLoading] = useState(true)
+    const [tabs_loading, setTabsLoading] = useState(true)
     const swiper_ref = useRef(null)
     const { is_mobile } = useBreakpoints()
 
@@ -37,7 +37,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
             )
             swiper_ref.current.swiper.slideTo(active_slide_index)
         }
-        setSwiperLoading(false)
+        setTabsLoading(false)
     }, [pathname])
     console.log(selected_tab_name)
 
@@ -56,7 +56,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                     direction="horizontal"
                     navigation={{ nextEl: '.swiper-button-next' }}
                 >
-                    {!swiper_loading &&
+                    {!tabs_loading &&
                         tab_data.map((tab_item) => {
                             return (
                                 <SwiperSlide key={tab_item.option_name}>
@@ -86,21 +86,22 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                 md={{ justify: 'center', padding: '10x' }}
                 visible="larger-than-phone"
             >
-                {tab_data.map((tab_item) => {
-                    return (
-                        <NavigationTabMenu
-                            key={tab_item.option_name}
-                            tab_items={tab_item}
-                            selected={tab_item.option_name === selected_tab_name}
-                            is_no_border_bottom
-                            icon={
-                                tab_item.option_name === selected_tab_name
-                                    ? `${tab_item.selected_src}#${tab_item.option_name}`
-                                    : `${tab_item.src}#${tab_item.option_name}`
-                            }
-                        />
-                    )
-                })}
+                {!tabs_loading &&
+                    tab_data.map((tab_item) => {
+                        return (
+                            <NavigationTabMenu
+                                key={tab_item.option_name}
+                                tab_items={tab_item}
+                                selected={tab_item.option_name === selected_tab_name}
+                                is_no_border_bottom
+                                icon={
+                                    tab_item.option_name === selected_tab_name
+                                        ? `${tab_item.selected_src}#${tab_item.option_name}`
+                                        : `${tab_item.src}#${tab_item.option_name}`
+                                }
+                            />
+                        )
+                    })}
             </Flex.Box>
         </Container.Fluid>
     )

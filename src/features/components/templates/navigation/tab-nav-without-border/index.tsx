@@ -10,8 +10,7 @@ import { getLocationPathname } from 'common/utility'
 import ArrowNext from 'images/svg/arrow-next.svg'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import './styles.scss'
-import { isActiveLink } from 'features/components/atoms/link/internal'
-import { TString } from 'types/generics'
+import UseIsActiveLink from 'components/hooks/use-active-link'
 
 // Import the required Swiper modules
 SwiperCore.use([Navigation])
@@ -27,14 +26,12 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
     const { is_mobile } = useBreakpoints()
 
     const [selected_tab_name, setSelectedTabName] = useState<string | null>(null)
-    const [selected_tab_text, selectedTabText] = useState<TString | null>(null)
 
     useEffect(() => {
         const selected_tab_item: OptionNavigationType = tab_data.find((option) =>
             pathname?.includes(option.to),
         )
         setSelectedTabName(selected_tab_item?.option_name || null)
-        selectedTabText(selected_tab_item?.button_text || null)
         if (swiper_ref.current && is_mobile) {
             const active_slide_index = tab_data.findIndex(
                 (tab) => tab.option_name === selected_tab_item?.option_name,
@@ -43,6 +40,37 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
         }
         setSwiperLoading(false)
     }, [pathname])
+
+    const renderTabs = (tab_item) => {
+        const is_active = UseIsActiveLink(tab_item.to)
+        return is_mobile ? (
+            <SwiperSlide key={tab_item.option_name}>
+                <NavigationTabMenu
+                    key={tab_item.option_name}
+                    tab_items={tab_item}
+                    selected={is_active}
+                    is_no_border_bottom
+                    icon={
+                        is_active
+                            ? `${tab_item.selected_src}#${tab_item.option_name}`
+                            : `${tab_item.src}#${tab_item.option_name}`
+                    }
+                />
+            </SwiperSlide>
+        ) : (
+            <NavigationTabMenu
+                key={tab_item.option_name}
+                tab_items={tab_item}
+                selected={is_active}
+                is_no_border_bottom
+                icon={
+                    is_active
+                        ? `${tab_item.selected_src}#${tab_item.option_name}`
+                        : `${tab_item.src}#${tab_item.option_name}`
+                }
+            />
+        )
+    }
 
     return (
         <Container.Fluid mt={'20x'}>
@@ -59,24 +87,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                     direction="horizontal"
                     navigation={{ nextEl: '.swiper-button-next' }}
                 >
-                    {!swiper_loading &&
-                        tab_data.map((tab_item) => {
-                            return (
-                                <SwiperSlide key={tab_item.option_name}>
-                                    <NavigationTabMenu
-                                        key={tab_item.option_name}
-                                        tab_items={tab_item}
-                                        selected={tab_item.option_name === selected_tab_name}
-                                        is_no_border_bottom
-                                        icon={
-                                            tab_item.option_name === selected_tab_name
-                                                ? `${tab_item.selected_src}#${tab_item.option_name}`
-                                                : `${tab_item.src}#${tab_item.option_name}`
-                                        }
-                                    />
-                                </SwiperSlide>
-                            )
-                        })}
+                    {!swiper_loading && tab_data.map(renderTabs)}
                 </Swiper>
                 <div className="swiper-button-next">
                     <Image src={ArrowNext} width="24px" height="24px" />
@@ -89,23 +100,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                 md={{ justify: 'center', padding: '10x' }}
                 visible="larger-than-phone"
             >
-                {tab_data.map((tab_item) => {
-                    return (
-                        <Flex.Box direction="col" key={tab_item.option_name}>
-                            <NavigationTabMenu
-                                key={tab_item.option_name}
-                                tab_items={tab_item}
-                                selected={tab_item.option_name === selected_tab_name}
-                                is_no_border_bottom
-                                icon={
-                                    tab_item.option_name === selected_tab_name
-                                        ? `${tab_item.selected_src}#${tab_item.option_name}`
-                                        : `${tab_item.src}#${tab_item.option_name}`
-                                }
-                            />
-                        </Flex.Box>
-                    )
-                })}
+                {tab_data.map(renderTabs)}
             </Flex.Box>
         </Container.Fluid>
     )

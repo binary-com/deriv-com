@@ -3070,7 +3070,7 @@
   "-75787346": "<0>Un tick</0> es generado <0>cada dos segundos</0> en los índices de volatilidad <0>10, 25, 50, 75, y 100</0>.",
   "-257478628": "<0>Un tick</0> es generado <0>cada segundo</0> en los índices de volatilidad <0>10 (1s), 25 (1s), 50 (1s), 75 (1s), y 100 (1s)</0>.",
   "-1710299665": "Estos índices corresponden a mercados simulados en los que los precios de los activos suben o bajan debido a las noticias. Los saltos pequeños son bastante frecuentes. Sin embargo, se producen picos o caídas importantes ocasionales <0>cada 15 minutos</0> en promedio.",
-  "-629202751": "El <0>DEX900UP presenta</0> pequeños picos frecuentes y caídas importantes que, en ocasiones, se producen <0>cada 900 segundos</0> en promedio.",
+  "-534567212": "El <0>DEX900UP</0> presenta pequeñas caídas frecuentes y picos importantes que se producen ocasionalmente <0>cada 900 segundos</0> de media.",
   "-204483278": "Con estos índices, hay una media de una caída (crash) o un pico (boom) en los precios que se producen en una <0>serie de 300, 500 o 1,000 ticks</0>.",
   "-690460725": "Estos índices replican los mercados con <0>tendencias alcistas y bajistas</0> con volatilidad constante. Los índices de Mercado Toro y Mercado Oso comienzan a las 00:00 GMT cada día, replicando mercados alcistas y bajistas respectivamente. ",
   "-2075222222": "El <0>Netherlands 25</0> sigue el rendimiento de las acciones de las 25 principales compañías cotizadas en Holanda.",

@@ -43,13 +43,12 @@ const NavTemplate = ({
     const { is_mobile_or_tablet } = useBreakpoints()
 
     const handleScroll = () => {
-        if (is_menu_open && is_mobile_or_tablet) {
-            document.body.style.overflow = 'hidden'
-            document.body.style.position = 'fixed'
-        } else {
-            document.body.style.overflow = 'scroll'
-            document.body.style.position = ''
-        }
+        document.body.style.overflow = is_menu_open && is_mobile_or_tablet ? 'hidden' : 'scroll'
+        document.body.style.position = is_menu_open && is_mobile_or_tablet ? 'fixed' : ''
+        const overlay_container = document.getElementById('overlay-container')
+        overlay_container
+            ? (overlay_container.style.display = is_menu_open && is_mobile_or_tablet ? 'none' : '')
+            : null
     }
     useEffect(() => {
         handleScroll()

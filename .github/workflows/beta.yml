@@ -15,6 +15,9 @@ env:
   GATSBY_CPU_COUNT: 2
   GATSBY_ENV: production
   NODE_OPTIONS: "--max_old_space_size=7168"
+  DATADOG_APPLICATION_ID: ${{ secrets.DATADOG_APPLICATION_ID }}
+  DATADOG_CLIENT_TOKEN: ${{ secrets.DATADOG_CLIENT_TOKEN }}
+  MAP_API_KEY: ${{ secrets.MAP_API_KEY }}
 
 jobs:
   release-beta:

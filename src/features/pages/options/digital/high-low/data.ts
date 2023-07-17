@@ -13,7 +13,7 @@ import {
     allOptionsTradePlatforms,
 } from 'features/components/organisms/available-markets-platforms/data'
 
-export const upAndDownContentItems: OptionContentItemData[] = [
+export const high_and_low_content_items: OptionContentItemData[] = [
     {
         type: 'single',
         icon: {
@@ -24,19 +24,19 @@ export const upAndDownContentItems: OptionContentItemData[] = [
         images: [
             {
                 src: HighWinIcon,
-                alt: '_t_Rise Win_t_',
+                alt: '_t_High Win_t_',
             },
             {
                 src: HighLossIcon,
-                alt: '_t_Rise Lose_t_',
+                alt: '_t_High Lose_t_',
             },
             {
                 src: LowWinIcon,
-                alt: '_t_Fall Win_t_',
+                alt: '_t_Low Win_t_',
             },
             {
                 src: LowLossIcon,
-                alt: '_t_Fall Lose_t_',
+                alt: '_t_Low Lose_t_',
             },
         ],
         texts: [
@@ -48,14 +48,14 @@ export const upAndDownContentItems: OptionContentItemData[] = [
     },
 ]
 
-export const upAndDownMarkets: OptionContentAvailability[] = [allOptionsMarkets.derived_indices]
+export const high_and_low_markets: OptionContentAvailability[] = [allOptionsMarkets.derived_indices]
 
-export const upAndDownPlatforms: OptionContentAvailability[] = [
+export const high_and_low_Platforms: OptionContentAvailability[] = [
     allOptionsTradePlatforms.smart_trader,
     allOptionsTradePlatforms.deriv_bot,
 ]
 
-export const upAndDownFAQ: OptionsFAQDataItem[] = [
+export const high_and_low_faq: OptionsFAQDataItem[] = [
     {
         id: 1,
         question: '_t_Are High/Low Ticks options available on Deriv Trader?_t_',

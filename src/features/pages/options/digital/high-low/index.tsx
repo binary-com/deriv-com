@@ -1,18 +1,26 @@
 import React from 'react'
-import { upAndDownContentItems, upAndDownFAQ, upAndDownMarkets, upAndDownPlatforms } from './data'
+import {
+    high_and_low_content_items,
+    high_and_low_faq,
+    high_and_low_markets,
+    high_and_low_Platforms,
+} from './data'
 import AvailableMarketPlatforms from 'features/components/organisms/available-markets-platforms'
 import DigitalOptionsLayout from 'features/components/templates/digital-options-layout'
 import OptionsContent from 'features/components/templates/options-content'
 import OptionsFaq from 'features/components/templates/options-faq'
 
-const UpAndDownDigitalOptionsPage = () => {
+const HighAndLowDigitalOptionsPage = () => {
     return (
         <DigitalOptionsLayout>
-            <OptionsContent items={upAndDownContentItems} />
-            <AvailableMarketPlatforms markets={upAndDownMarkets} platforms={upAndDownPlatforms} />
-            <OptionsFaq faqs={upAndDownFAQ} />
+            <OptionsContent items={high_and_low_content_items} />
+            <AvailableMarketPlatforms
+                markets={high_and_low_markets}
+                platforms={high_and_low_Platforms}
+            />
+            <OptionsFaq faqs={high_and_low_faq} />
         </DigitalOptionsLayout>
     )
 }
 
-export default UpAndDownDigitalOptionsPage
+export default HighAndLowDigitalOptionsPage

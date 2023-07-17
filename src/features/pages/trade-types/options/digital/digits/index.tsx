@@ -1,7 +1,7 @@
 import React from 'react'
 import {
     digits_content_items,
-    digit_options,
+    digit_options_faq,
     digit_options_markets,
     digit_options_platforms,
 } from './data'
@@ -18,7 +18,7 @@ const DigitDigitalOptionsPage = () => {
                 markets={digit_options_markets}
                 platforms={digit_options_platforms}
             />
-            <OptionsFaq faqs={digit_options} />
+            <OptionsFaq faqs={digit_options_faq} />
         </DigitalOptionsLayout>
     )
 }

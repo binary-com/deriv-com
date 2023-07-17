@@ -8,7 +8,7 @@ import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { get_lang_direction, Localize } from 'components/localization'
 
-const HeroFeaturesCarousel = loadable(() => pMinDelay(import('./hero-features.carousel'), 3000), {
+const HeroFeaturesCarousel = loadable(() => pMinDelay(import('./custom-typewriter'), 3000), {
     fallback: (
         <div className={hero_typewriter}>
             <Typography.Heading as="h3" size="large" weight="bold" color="primary">

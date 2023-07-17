@@ -182,6 +182,13 @@ export const onClientEntry = () => {
     checkLiveChatRedirection()
 
     updateURLAsPerUserLanguage()
+
+    // CF Web Analytics
+    const cf_script = document.createElement('script');
+    cf_script.defer = true;
+    cf_script.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    cf_script.setAttribute('data-cf-beacon', '{"token": "7539f7a019e74646bc6f4ec3d332c16b"}');
+    document.body.appendChild(cf_script);
 }
 
 export const onRouteUpdate = () => {

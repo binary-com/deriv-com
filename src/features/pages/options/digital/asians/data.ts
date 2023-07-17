@@ -1,5 +1,11 @@
+import AsiansIcon from 'images/svg/trade-types/options/digital/asians-icon.svg'
+import AsianUpWinIcon from 'images/svg/trade-types/options/digital/asian-up-win.svg'
+import AsianUpLossIcon from 'images/svg/trade-types/options/digital/asian-up-loss.svg'
+import AsianDownWinIcon from 'images/svg/trade-types/options/digital/asian-down-win.svg'
+import AsianDownLossIcon from 'images/svg/trade-types/options/digital/asian-down-loss.svg'
 import {
     OptionContentAvailability,
+    OptionContentItemData,
     OptionsFAQDataItem,
 } from 'features/components/templates/options-content/type'
 import {
@@ -7,6 +13,41 @@ import {
     allOptionsTradePlatforms,
 } from 'features/components/organisms/available-markets-platforms/data'
 export const asiansMarkets: OptionContentAvailability[] = [allOptionsMarkets.derived_indices]
+
+export const asiansContentItems: OptionContentItemData[] = [
+    {
+        type: 'single',
+        icon: {
+            src: AsiansIcon,
+            alt: '_t_Asians Icon_t_',
+        },
+        title: '_t_Asians_t_',
+        images: [
+            {
+                src: AsianUpWinIcon,
+                alt: '_t_Asians Up Win_t_',
+            },
+            {
+                src: AsianUpLossIcon,
+                alt: '_t_Asians Up Lose_t_',
+            },
+            {
+                src: AsianDownWinIcon,
+                alt: '_t_Asians Down Win_t_',
+            },
+            {
+                src: AsianDownLossIcon,
+                alt: '_t_Asians Down Lose_t_',
+            },
+        ],
+        texts: [
+            '_t_Predict whether the exit price (last tick) will be higher or lower than the average of the ticks during the contract period._t_',
+            "_t_If you select 'Asian Rise', you will receive the payout if the last tick is higher than the average of all the ticks during the contract period._t_",
+            "_t_If you select 'Asian Fall', you will receive the payout if the last tick is lower than the average of all the ticks during the contract period._t_",
+            '_t_If the selected condition is not met or if the last tick is equal to the average of all the ticks, your stake is lost._t_',
+        ],
+    },
+]
 
 export const asiansPlatforms: OptionContentAvailability[] = [
     allOptionsTradePlatforms.smart_trader,

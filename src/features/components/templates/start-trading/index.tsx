@@ -27,7 +27,6 @@ const StartTrading = ({ data }: { data: StartTradingType }) => {
                     size="small"
                     mb="12x"
                     md={{ mb: '20x' }}
-                    align="left"
                 >
                     <Localize translate_text={data.heading} />
                 </Typography.Heading>

@@ -21,7 +21,7 @@ interface NavigationTabWithoutBorderType {
 
 const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType) => {
     const pathname = getLocationPathname()
-    const [tabs_loading, setTabsLoading] = useState(true)
+    const [is_tab_loading, setTabsLoading] = useState(true)
     const swiper_ref = useRef(null)
     const { is_mobile } = useBreakpoints()
     const [selected_tab_name, setSelectedTabName] = useState<string | null>(null)
@@ -55,7 +55,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                     direction="horizontal"
                     navigation={{ nextEl: '.swiper-button-next' }}
                 >
-                    {!tabs_loading &&
+                    {!is_tab_loading &&
                         tab_data.map((tab_item) => {
                             return (
                                 <SwiperSlide key={tab_item.option_name}>
@@ -86,7 +86,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                 visible="larger-than-phone"
                 className="wrapper_navigation"
             >
-                {!tabs_loading &&
+                {!is_tab_loading &&
                     tab_data.map((tab_item) => {
                         return (
                             <NavigationTabMenu

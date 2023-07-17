@@ -3,7 +3,7 @@ import { hero_typewriter } from './hero-content.module.scss'
 import dclsx from 'features/utils/dclsx'
 import { localize } from 'components/localization'
 
-const CustomTypewriter: React.FC = () => {
+const CustomTypewriter = () => {
     const textArray: string[] = useMemo(
         () => [
             localize('_t_Forex_t_'),

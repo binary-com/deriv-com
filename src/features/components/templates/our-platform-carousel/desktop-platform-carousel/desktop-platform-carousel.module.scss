@@ -1,0 +1,9 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.desktopCarousel {
+    @include breakpoints(desktop) {
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,7 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.carousel_item_wrapper{
+    width: 100%;
+    padding: 1.8rem 1.8rem 0;
+}

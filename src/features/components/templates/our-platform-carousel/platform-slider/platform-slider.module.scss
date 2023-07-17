@@ -1,0 +1,23 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.selected_zone{
+    position:absolute;
+    max-height: 152px;
+    left: 0;
+    right: 0;
+    box-shadow: rgba(131, 131, 131, 0.15) 0 16px 20px, rgba(131, 131, 131, 0.15) 0 0 20px;
+    top: calc(50% - 152px / 2);
+    z-index: 4;
+}
+.view_port{
+    position: relative;
+    user-select: none;
+}
+.slide{
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    backface-visibility: hidden;
+    margin-bottom: 40px;
+}

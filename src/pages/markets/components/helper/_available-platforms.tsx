@@ -2,9 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { smarttrader_url } from 'common/constants'
 import { Flex } from 'components/containers'
-import { TString } from 'types/generics'
 import { Header, Text } from 'components/elements'
-import { localize, LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import SmartTrader from 'images/svg/custom/rebranding/smarttrader-icon.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
@@ -94,7 +93,7 @@ const StyledFlex = styled(Flex)`
         font-size: 14px;
     }
 `
-const deriv_go_text: TString = '_t_Deriv GO_t_'
+
 const AvailablePlatforms = ({
     dmt5,
     deriv_go,
@@ -120,7 +119,7 @@ const AvailablePlatforms = ({
             ai="center"
         >
             <StyledText type="paragraph-1" weight="normal" width="auto">
-                {localize('Available on')}
+                <Localize translate_text="_t_Available on_t_" />
             </StyledText>
             <PlatformsContainer
                 flex_direction={flex_direction}
@@ -132,7 +131,9 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dmt5/">
                         <StyledFlex direction="row" ai="center">
                             <embed src={DMT5} width="24" height="24" />
-                            <Text ml="0.4rem">{localize('Deriv MT5')}</Text>
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_Deriv MT5_t_" />
+                            </Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
@@ -140,7 +141,9 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dtrader/">
                         <StyledFlex direction="row" ai="center">
                             <embed src={DTrader} width="24" height="24" />
-                            <Text ml="0.4rem">{localize('Deriv Trader')}</Text>
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_Deriv Trader_t_" />
+                            </Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
@@ -148,7 +151,9 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/dbot/">
                         <StyledFlex direction="row" ai="center">
                             <embed src={DBot} width="24" height="24" />
-                            <Text ml="0.4rem">{localize('Deriv Bot')}</Text>
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_Deriv Bot_t_" />
+                            </Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
@@ -156,7 +161,9 @@ const AvailablePlatforms = ({
                     <a href={smarttrader_url} target="_blank" rel="noopener noreferrer">
                         <StyledFlex direction="row" ai="center">
                             <embed src={SmartTrader} width="24" height="24" />
-                            <Text ml="0.4rem">{localize('SmartTrader')}</Text>
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_SmartTrader_t_" />
+                            </Text>
                         </StyledFlex>
                     </a>
                 )}
@@ -164,7 +171,9 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/derivx/">
                         <StyledFlex direction="row" ai="center">
                             <embed src={DerivX} width="25" height="25" />
-                            <Text ml="0.4rem">{localize('Deriv X')}</Text>
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_Deriv X_t_" />
+                            </Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
@@ -172,7 +181,9 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/deriv-ez/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DerivEZ} alt="Deriv ez" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('Deriv EZ')}</Text>
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_Deriv EZ_t_" />
+                            </Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
@@ -180,7 +191,9 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/deriv-go/">
                         <StyledFlex direction="row" ai="center">
                             <embed src={DerivGo} width="24" height="24" />
-                            <Text ml="0.4rem">{localize(deriv_go_text)}</Text>
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_Deriv GO_t_" />
+                            </Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
@@ -188,7 +201,9 @@ const AvailablePlatforms = ({
                     <LocalizedLink to="/deriv-ez/">
                         <StyledFlex direction="row" ai="center">
                             <embed src={DerivEZ} width="24" height="24" />
-                            <Text ml="0.4rem">{localize('Deriv EZ')}</Text>
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_Deriv EZ_t_" />
+                            </Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}

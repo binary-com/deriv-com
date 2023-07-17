@@ -4,12 +4,9 @@ import { hero_images } from './data'
 import FlexBox from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import TradeHeroContainer from 'features/components/templates/hero-banners/trade'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 import { Localize } from 'components/localization'
 
 const DerivEZHero = () => {
-    const { is_mobile, is_mobile_or_tablet } = useBreakpoints()
-
     return (
         <TradeHeroContainer
             container={'fixed'}
@@ -52,4 +49,5 @@ const DerivEZHero = () => {
         </TradeHeroContainer>
     )
 }
+
 export default DerivEZHero

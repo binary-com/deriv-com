@@ -8,12 +8,20 @@ import Typography from 'features/components/atoms/typography'
 
 export type TabMenuProps = {
     class_name?: string
+    item_className?: string
     tab_names: TString[] | string[]
     current_tab: TString | string
     setCurrentTab: (name: TString) => void
     icon?: string
 }
-const TabMenu = ({ class_name, tab_names, current_tab, icon, setCurrentTab }: TabMenuProps) => {
+const TabMenu = ({
+    class_name,
+    tab_names,
+    current_tab,
+    icon,
+    item_className,
+    setCurrentTab,
+}: TabMenuProps) => {
     return (
         <FlexBox.Box
             className={class_name}
@@ -25,6 +33,7 @@ const TabMenu = ({ class_name, tab_names, current_tab, icon, setCurrentTab }: Ta
                 return (
                     <Tab.MenuItem
                         key={tab_name}
+                        className={item_className}
                         selected={tab_name == current_tab}
                         onClick={() => {
                             setCurrentTab(tab_name)

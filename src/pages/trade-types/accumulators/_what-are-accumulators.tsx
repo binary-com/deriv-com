@@ -1,13 +1,12 @@
 import React from 'react'
-import { SmallContainer, Grid, Ul, WhyTradeItem } from '../components/_style'
+import { SmallContainer } from '../components/_style'
 import accumulator_content from '../content/static/_accumulator'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import { SectionContainer } from 'components/containers'
 import CommonHeaderSection from 'components/elements/common-header-section'
-import { Localize } from 'components/localization'
 import { StyledBox } from 'pages/markets/static/style/_markets-style'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-// Icon
+import { localize } from 'components/localization'
 
 const WhatAreAccumulators = () => {
     const [is_mobile] = useBrowserResize()
@@ -29,15 +28,15 @@ const WhatAreAccumulators = () => {
             </SectionContainer>
             <FullWidthMultiColumn
                 header_width={is_mobile ? '308px' : '1200px'}
-                header={<Localize translate_text="Why trade accumulators on Deriv" />}
-                button_title={
+                header="_t_Why trade accumulators on Deriv_t_"
+                button_title_element={
                     <CommonHeaderSection
                         title="_t_Don't have a Deriv account yet?_t_"
                         title_font_size={is_mobile ? '14px' : '16px'}
                         line_height={is_mobile ? '20px' : '24px'}
                     />
                 }
-                button_text={<Localize translate_text="Create free demo account" />}
+                button_text="_t_Create free demo account_t_"
                 multiple_row
                 gap="7rem"
             >
@@ -46,7 +45,14 @@ const WhatAreAccumulators = () => {
                         key={index}
                         item_title={content.item_title}
                         text={content.text}
-                        icon={<img width="48px" height="48px" src={content.src} alt="" />}
+                        icon={
+                            <img
+                                width="48px"
+                                height="48px"
+                                src={content.src}
+                                alt={localize(content.alt)}
+                            />
+                        }
                     ></StyledBox>
                 ))}
             </FullWidthMultiColumn>

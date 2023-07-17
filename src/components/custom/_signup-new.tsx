@@ -139,12 +139,12 @@ const LoginText = styled(Header)`
 const StyledLinkText = styled(LinkText)`
     font-size: ${(props) => props.size || '14px'};
 `
-
 const StyledLocalizedLink = styled(LocalizedLinkText)`
     @media ${device.tabletL} {
         font-size: 10px;
     }
 `
+
 const SignupNew = ({
     autofocus,
     clearEmail,
@@ -166,10 +166,10 @@ const SignupNew = ({
     return (
         <SignupContent>
             <StyledHeader as="h4" type="sub-section-title" mb="0.8rem">
-                {localize('Sign up')}
+                <Localize translate_text="_t_Sign up_t_" />
             </StyledHeader>
             <SubTitle type="paragraph-1" as="p" weight="normal">
-                {localize('Enter your email address to begin.')}
+                <Localize translate_text="_t_Enter your email address to begin._t_" />
             </SubTitle>
 
             <InputGroup>
@@ -183,7 +183,7 @@ const SignupNew = ({
                     background="white"
                     error={email_error_msg}
                     value={email}
-                    label={localize('Email')}
+                    label={localize('_t_Email_t_')}
                     placeholder={'Email'}
                     handleError={clearEmail}
                     onChange={handleInputChange}
@@ -201,11 +201,11 @@ const SignupNew = ({
                 disabled={is_submitting || !is_checked || email_error_msg !== '' || !email}
                 id="dm-new-signup"
             >
-                {localize('Create demo account')}
+                <Localize translate_text="_t_Create demo account_t_" />
             </EmailButton>
             <Header as="p" type="small" weight="400" color="grey-5" mt="0.8rem">
                 <Localize
-                    translate_text="By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy.</0>"
+                    translate_text="_t_By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy.</0>_t_"
                     components={[
                         <StyledLocalizedLink
                             key={0}
@@ -222,7 +222,7 @@ const SignupNew = ({
             <SignupWithContainer>
                 <Line />
                 <Header color="grey-5" weight="normal" align="center" as="p" type="paragraph-2">
-                    {localize('Or sign up with')}
+                    <Localize translate_text="_t_Or sign up with_t_" />
                 </Header>
                 <Line />
             </SignupWithContainer>
@@ -236,7 +236,7 @@ const SignupNew = ({
                     type="button"
                     social
                 >
-                    <img src={Google} alt="google" width="24" height="24" />
+                    <img src={Google} alt={localize('_t_google_t_')} width="24" height="24" />
                     <SocialText type="paragraph-2" as="p" align="center">
                         Google
                     </SocialText>
@@ -250,7 +250,7 @@ const SignupNew = ({
                     social
                     bg_color="var(--color-blue-15)"
                 >
-                    <img src={Facebook} alt="facebook" width="24" height="24" />
+                    <img src={Facebook} alt={localize('_t_facebook_t_')} width="24" height="24" />
                     <SocialText type="paragraph-2" color="var(--color-white)" as="p" align="center">
                         Facebook
                     </SocialText>
@@ -264,14 +264,14 @@ const SignupNew = ({
                     social
                     bg_color="var(--color-black)"
                 >
-                    <img src={Apple} alt="apple" width="24" height="24" />
+                    <img src={Apple} alt={localize('_t_apple_t_')} width="24" height="24" />
                     <SocialText type="paragraph-2" color="var(--color-white)" as="p" align="center">
                         Apple
                     </SocialText>
                 </SocialButton>
             </SocialWrapper>
             <LoginText weight="normal" type="paragraph-1">
-                {localize('Already have an account?')}
+                <Localize translate_text="_t_Already have an account?_t_" />
                 <StyledLinkText
                     id="dm-new-login-button"
                     ml="0.4rem"
@@ -279,7 +279,7 @@ const SignupNew = ({
                     color="red"
                     onClick={handleLogin}
                 >
-                    {localize('Log in')}
+                    <Localize translate_text="_t_Log in_t_" />
                 </StyledLinkText>
             </LoginText>
         </SignupContent>

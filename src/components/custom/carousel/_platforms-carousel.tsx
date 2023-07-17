@@ -4,7 +4,7 @@ import LearnMore from './_learn-more'
 import MarketsCarousel from './_markets-carousel'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import { TString } from 'types/generics'
 
@@ -14,7 +14,8 @@ export type TRenderableData = {
     paragraph: TString
     link: string
 }
-type TProps = {
+
+type TGenericCarousel = {
     renderableData: TRenderableData[]
     mainHeading: TString
 }
@@ -24,7 +25,6 @@ const StyledSection = styled(SectionContainer)`
         padding-block-end: 4.5rem;
     }
 `
-
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;
     flex-direction: column;
@@ -115,42 +115,33 @@ const SmallContainer = styled(Container)`
     }
 `
 
-const GenericCarousel = ({ renderableData, mainHeading }: TProps) => {
+const GenericCarousel = ({ renderableData, mainHeading }: TGenericCarousel) => {
     return (
-        <>
-            <StyledSection background="white" position="relative">
-                <SmallContainer direction="column" ai="flex-start">
-                    <StyledHeading as="h3" type="section-title" mb="2.4rem" align="center">
-                        <Localize translate_text={mainHeading} />
-                    </StyledHeading>
-                </SmallContainer>
-                <MarketsCarousel>
-                    {renderableData.map((item, index) => (
-                        <MarketsCarousel.Item key={index + 1}>
-                            <MarketsItem>
-                                <Card>
-                                    <MobileCardHeader>
-                                        <img src={item.icon} width="48" height="48" />
-
-                                        <StyledText weight="bold">
-                                            {localize(`_t_${item.heading}_t_`)}
-                                        </StyledText>
-                                    </MobileCardHeader>
-                                    <StyledPara>
-                                        <Localize translate_text={item.paragraph} />
-                                    </StyledPara>
-                                    <LearnMore
-                                        text={<Localize translate_text="_t_Learn more_t_" />}
-                                        to={item.link}
-                                        in_trading_platforms
-                                    />
-                                </Card>
-                            </MarketsItem>
-                        </MarketsCarousel.Item>
-                    ))}
-                </MarketsCarousel>
-            </StyledSection>
-        </>
+        <StyledSection background="white" position="relative">
+            <SmallContainer direction="column" ai="flex-start">
+                <StyledHeading as="h3" type="section-title" mb="2.4rem" align="center">
+                    <Localize translate_text={mainHeading} />
+                </StyledHeading>
+            </SmallContainer>
+            <MarketsCarousel>
+                {renderableData.map(({ heading, icon, link, paragraph }) => (
+                    <MarketsCarousel.Item key={paragraph}>
+                        <MarketsItem>
+                            <Card>
+                                <MobileCardHeader>
+                                    <img src={icon} width="48" height="48" />
+                                    <StyledText weight="bold">{heading}</StyledText>
+                                </MobileCardHeader>
+                                <StyledPara>
+                                    <Localize translate_text={paragraph} />
+                                </StyledPara>
+                                <LearnMore text="_t_Learn more_t_" to={link} in_trading_platforms />
+                            </Card>
+                        </MarketsItem>
+                    </MarketsCarousel.Item>
+                ))}
+            </MarketsCarousel>
+        </StyledSection>
     )
 }
 

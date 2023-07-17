@@ -10,8 +10,7 @@
 }
 .text_description {
     @include breakpoints(tablet) {
-        min-inline-size: 45.4rem;
-        margin-right: 7.7rem;
+        inline-size: 41.4rem;
     }
 }
 .flex_container {

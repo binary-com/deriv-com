@@ -153,4 +153,5 @@ const EUgrid = () => {
         </CssGrid>
     )
 }
+
 export default WithIntl()(EUgrid)

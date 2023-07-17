@@ -40,7 +40,6 @@ const StyledContainer = styled(Container)`
         padding-right: 0;
     }
 `
-
 const StyledHeader = styled(Header)`
     text-align: center;
     font-size: 4.8rem;
@@ -51,7 +50,6 @@ const StyledHeader = styled(Header)`
         line-height: 40px;
     }
 `
-
 const DMT5Button = styled(LinkButton)`
     margin-top: 2.4rem;
     height: 40px;

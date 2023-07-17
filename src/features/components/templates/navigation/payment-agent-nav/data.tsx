@@ -37,16 +37,5 @@ const affiliateNavItems: NavItems = [
             },
         },
     },
-    {
-        id: 3,
-        data: {
-            type: 'single-item',
-            title: '_t_Bug bounty_t_',
-            content: {
-                type: 'internal',
-                to: '/bug-bounty/',
-            },
-        },
-    },
 ]
 export default affiliateNavItems

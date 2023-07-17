@@ -13,7 +13,7 @@ import {
     allOptionsTradePlatforms,
 } from 'features/components/organisms/available-markets-platforms/data'
 
-export const upAndDownContentItems: OptionContentItemData[] = [
+export const touch_and_no_touch_content_items: OptionContentItemData[] = [
     {
         type: 'single',
         icon: {
@@ -28,7 +28,7 @@ export const upAndDownContentItems: OptionContentItemData[] = [
             },
             {
                 src: TouchLossIcon,
-                alt: '_t_Touch Lose_t_',
+                alt: '_t_Touch Loss_t_',
             },
             {
                 src: NoTouchWinIcon,
@@ -36,7 +36,7 @@ export const upAndDownContentItems: OptionContentItemData[] = [
             },
             {
                 src: NoTouchLossIcon,
-                alt: '_t_NoTouch Lose_t_',
+                alt: '_t_NoTouch Loss_t_',
             },
         ],
         texts: [
@@ -48,20 +48,20 @@ export const upAndDownContentItems: OptionContentItemData[] = [
     },
 ]
 
-export const upAndDownMarkets: OptionContentAvailability[] = [
+export const touch_no_touch_markets: OptionContentAvailability[] = [
     allOptionsMarkets.derived_indices,
     allOptionsMarkets.forex,
     allOptionsMarkets.stock_indices,
     allOptionsMarkets.commodities,
 ]
 
-export const upAndDownPlatforms: OptionContentAvailability[] = [
+export const touch_and_no_touch_platforms: OptionContentAvailability[] = [
     allOptionsTradePlatforms.deriv_trader,
     allOptionsTradePlatforms.smart_trader,
     allOptionsTradePlatforms.deriv_bot,
 ]
 
-export const upAndDownFAQ: OptionsFAQDataItem[] = [
+export const touch_and_no_touch_faq: OptionsFAQDataItem[] = [
     {
         id: 1,
         question: '_t_Where can I trade Touch/No Touch options?_t_',

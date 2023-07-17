@@ -62,7 +62,6 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
         )
         setSelectedTabName(selected_tab_item?.option_name || null)
     }, [pathname])
-    console.log(selected_tab_name, 'www')
 
     return (
         <Flex.Box direction="col" padding_block="10x" md={{ padding_block: '20x' }}>

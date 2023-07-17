@@ -20,6 +20,7 @@ const AvailableMarketPlatforms = ({ markets, platforms }: AvailableMarketPlatfor
             md={{
                 padding_block: '20x',
             }}
+            dir={get_lang_direction()}
         >
             <AvailableList items={markets} title={'_t_Markets available_t_'} />
             <AvailableList items={platforms} title={'_t_Trade on_t_'} />

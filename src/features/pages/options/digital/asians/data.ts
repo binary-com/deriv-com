@@ -1,4 +1,17 @@
-import { OptionsFAQDataItem } from 'features/components/templates/options-content/type'
+import {
+    OptionContentAvailability,
+    OptionsFAQDataItem,
+} from 'features/components/templates/options-content/type'
+import {
+    allOptionsMarkets,
+    allOptionsTradePlatforms,
+} from 'features/components/organisms/available-markets-platforms/data'
+export const asiansMarkets: OptionContentAvailability[] = [allOptionsMarkets.derived_indices]
+
+export const asiansPlatforms: OptionContentAvailability[] = [
+    allOptionsTradePlatforms.smart_trader,
+    allOptionsTradePlatforms.deriv_bot,
+]
 
 export const asiansFAQ: OptionsFAQDataItem[] = [
     {

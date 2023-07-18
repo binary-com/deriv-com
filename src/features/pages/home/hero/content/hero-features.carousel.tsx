@@ -25,3 +25,4 @@ const HeroFeaturesCarousel = () => {
 }
 
 export default HeroFeaturesCarousel
+

@@ -30,7 +30,7 @@ export const digits_content_items: OptionContentItemData[] = [
             src: DigitsMatchesDiffers,
             alt: '_t_Digits Matches/Differs_t_',
         },
-        title: '_t_Touch/No Touch_t_',
+        title: '_t_Digits Matches/Differs_t_',
         images: [
 
             {
@@ -141,11 +141,11 @@ export const digit_options_faq: OptionsFAQDataItem[] = [
         question: '_t_Which Deriv trading platforms can I use to trade Digits contracts?_t_',
         answers: [
             {
-                type: 'list',
+                type: 'text',
                 id: 1,
-                list_title:
+                text:
                     '_t_You can trade Digits contracts on the Deriv Trader, SmartTrader, and Deriv Bot trading platforms, on synthetics._t_',
-                list_items: ['_t_— forex, commodities, stock indices, and synthetics._t_'],
+
             },
         ],
     },
@@ -154,17 +154,31 @@ export const digit_options_faq: OptionsFAQDataItem[] = [
         question: '_t_What are the steps to open a Digits trade on Deriv?_t_',
         answers: [
             {
-                type: 'list',
                 id: 1,
-                list_title: "_t_Here's how to open a Touch/No Touch contract:_t_",
-                list_items: [
-                    '_t_1. Select the market and asset you want to trade_t_',
-                    '_t_2. Choose which Digits contract to open (Matches/Differs; Even/Odd; Over/Under)._t_',
-                    '_t_3. Set your preferred tick duration and last digit prediction._t_',
-                    '_t_4. Enter your stake or desired potential payout amount._t_',
-                    '_t_5. Open your Digits trade._t_',
-                ],
+                type: 'text',
+                text: '_t_1. Select the market and asset you want to trade._t_',
             },
+            {
+                id: 2,
+                type: 'text',
+                text: '_t_2. Choose which Digits contract to open (Matches/Differs; Even/Odd; Over/Under)._t_',
+            },
+            {
+                id: 3,
+                type: 'text',
+                text: '_t_3. Set your preferred tick duration and last digit prediction._t_',
+            },
+            {
+                id: 4,
+                type: 'text',
+                text: '_t_4. Enter your stake or desired potential payout amount._t_',
+            },
+            {
+                id: 5,
+                type: 'text',
+                text: '_t_5. Open your Digits trade._t_',
+            },
+
         ],
     },
     {

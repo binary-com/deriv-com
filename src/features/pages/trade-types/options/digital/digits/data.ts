@@ -85,7 +85,7 @@ export const digits_content_items: OptionContentItemData[] = [
         ],
         texts: [
             '_t_Predict whether the last digit of the exit price will be an even or odd number._t_',
-            "_t_If you select 'Even', you receive the payout if the last digit of the exit price is an even number (e.g. 2, 4, 5, 8, 0)._t_",
+            "_t_If you select 'Even', you receive the payout if the last digit of the exit price is an even number (e.g. 2, 4, 6, 8, 0)._t_",
             "_t_If you select 'Odd', you receive the payout if the last digit of the exit price is an odd number (e.g. 1, 3, 5, 7, 9)._t_",
             '_t_If the selected condition is not met, your stake is lost._t_',
         ],

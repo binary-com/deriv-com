@@ -13,11 +13,10 @@ import {
     OptionContentItemData,
     OptionsFAQDataItem,
 } from 'features/components/templates/options-content/type'
-// import {
-//     allOptionsMarkets,
-//     allOptionsTradePlatforms,
-// } from 'features/components/organisms/available-markets-platforms/data'
-// export const asiansMarkets: OptionContentAvailability[] = [allOptionsMarkets.derived_indices]
+import {
+    allOptionsMarkets,
+    allOptionsTradePlatforms,
+} from 'features/components/organisms/available-markets-platforms/data'
 
 export const inOutContentItems: OptionContentItemData[] = [
     {
@@ -86,10 +85,17 @@ export const inOutContentItems: OptionContentItemData[] = [
     },
 ]
 
-// export const asiansPlatforms: OptionContentAvailability[] = [
-//     allOptionsTradePlatforms.smart_trader,
-//     allOptionsTradePlatforms.deriv_bot,
-// ]
+export const inOutMarkets: OptionContentAvailability[] = [
+    allOptionsMarkets.derived_indices,
+    allOptionsMarkets.forex,
+    allOptionsMarkets.stock_indices,
+    allOptionsMarkets.commodities,
+]
+
+export const inOutPlatforms: OptionContentAvailability[] = [
+    allOptionsTradePlatforms.smart_trader,
+    allOptionsTradePlatforms.deriv_bot,
+]
 
 // export const asiansFAQ: OptionsFAQDataItem[] = [
 //     {

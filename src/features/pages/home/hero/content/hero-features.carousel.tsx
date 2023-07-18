@@ -1,6 +1,7 @@
 import React from 'react'
-import { hero_typewriter, text, wrapper } from './hero-content.module.scss'
+import { hero_typewriter, wrapper, text } from './hero-content.module.scss'
 import { localize } from 'components/localization'
+import Typography from 'features/components/atoms/typography'
 
 const strings = [
     'Forex',
@@ -13,13 +14,13 @@ const strings = [
 const HeroFeaturesCarousel = () => {
     return (
         <div className={hero_typewriter}>
-            <div className={text}>
+            <Typography.Heading className={text} as="h3" size="large" weight="bold" color="primary">
                 <div className={wrapper}>
                     {strings.map((string, i) => (
                         <p key={i}>{localize(`_t_${string}_t_`)}</p>
                     ))}
                 </div>
-            </div>
+            </Typography.Heading>
         </div>
     )
 }

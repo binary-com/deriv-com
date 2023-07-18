@@ -36,7 +36,7 @@ const CustomTypewriter = () => {
                 }
             },
             typing ? 100 : 50,
-        ) // Typing speed interval or removal speed interval
+        )
 
         return () => {
             clearTimeout(typingInterval)

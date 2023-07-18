@@ -1,6 +1,6 @@
 import React from 'react'
 import { hero_typewriter, wrapper, text } from './hero-content.module.scss'
-import { Localize } from 'components/localization'
+import { localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import { TString } from 'types/generics'
 
@@ -19,7 +19,7 @@ const HeroFeaturesCarousel = () => {
                 <div className={wrapper}>
                     {strings.map((string) => (
                         <p key={string}>
-                            <Localize translate_text={string} />
+                            {localize(string)}
                         </p>
                     ))}
                 </div>

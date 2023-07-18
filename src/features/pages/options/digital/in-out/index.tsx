@@ -1,5 +1,5 @@
 import React from 'react'
-// import { asiansContentItems,  /* asiansFAQ, asiansMarkets, asiansPlatforms */ } from './data'
+import { inOutContentItems /* asiansFAQ, asiansMarkets, asiansPlatforms */ } from './data'
 // import AvailableMarketPlatforms from 'features/components/organisms/available-markets-platforms'
 import DigitalOptionsLayout from 'features/components/templates/digital-options-layout'
 import OptionsContent from 'features/components/templates/options-content'
@@ -8,8 +8,7 @@ import OptionsContent from 'features/components/templates/options-content'
 const InOutDigitalOptionsPage = () => {
     return (
         <DigitalOptionsLayout>
-            In Out Content
-            {/* <OptionsContent items={asiansContentItems} /> */}
+            <OptionsContent items={inOutContentItems} />
             {/* <AvailableMarketPlatforms markets={asiansMarkets} platforms={asiansPlatforms} />
             <OptionsFaq faqs={asiansFAQ} /> */}
         </DigitalOptionsLayout>

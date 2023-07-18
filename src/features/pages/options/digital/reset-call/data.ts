@@ -113,7 +113,7 @@ export const reset_call_faq: OptionsFAQDataItem[] = [
             {
                 id: 1,
                 type: 'text',
-                text: `_t_A Reset Call/Reset Put option provides the opportunity to for the contract's entry price (also known as strike price) to be reset automatically at the midpoint of the trade duration, if the underlying asset's price moves favourably with your market prediction._t_`,
+                text: `_t_A Reset Call/Reset Put option provides the opportunity for the contract's entry price (also known as strike price) to be reset automatically at the midpoint of the trade duration, if the underlying asset's price moves favourably with your market prediction._t_`,
             },
             {
                 id: 2,

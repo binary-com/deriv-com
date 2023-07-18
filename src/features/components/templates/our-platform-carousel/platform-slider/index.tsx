@@ -6,7 +6,18 @@ import styled, { css } from 'styled-components'
 import Autoplay from 'embla-carousel-autoplay'
 import { PlatformContent, ImageTag, PLATFORMS_CAROUSEL_DELAY } from '../_utils'
 import type { TPlatformDetails } from '../_utils'
-import { selected_zone, view_port } from './platform-slider.module.scss'
+import {
+    selected_zone,
+    view_port,
+    slide,
+    scene,
+    WheelContainer,
+    slider_wrapper,
+    shadow,
+    shadow_start,
+    shadow_end,
+    box_wrapper,
+} from './platform-slider.module.scss'
 import { Box } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
@@ -32,7 +43,7 @@ const SelectedSlide = ({ selected_slide }: SelectedSlideProps) => {
         return (
             <Flex.Box className={dclsx(selected_zone)}>
                 <ImageTag src={icon} alt={title} />
-                <Flex.Box direction="col" justify="start">
+                <Flex.Box direction="col" justify="start" ml="4x">
                     {/*ml="8px"*/}
                     <PlatformContent
                         title={title}
@@ -74,22 +85,22 @@ const Shadow = styled.div<{ location: 'start' | 'end' }>`
     }}
 `
 
-const Scene = styled.div`
-    min-width: 100%;
-    height: 100%;
-    overflow: hidden;
-`
+// const Scene = styled.div`
+//     min-width: 100%;
+//     height: 100%;
+//     overflow: hidden;
+// `
 
 // const Viewport = styled(Flex)`
 
 // `
 
-const WheelContainer = styled.div`
-    height: 100px;
-    width: 96%;
-    perspective: 1000px;
-    perspective-origin: 150%;
-`
+// const WheelContainer = styled.div`
+//     height: 100px;
+//     width: 96%;
+//     perspective: 1000px;
+//     perspective-origin: 150%;
+// `
 
 const Slide = styled(Flex)<{ distance_center: number }>`
     text-align: center;
@@ -164,43 +175,38 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
 
     if (platform_details) {
         return (
-            <Box
-                width="fit-content"
-                height="640px"
-                background="rgba(249, 251, 255, 1)"
-                p="0 20px 8px"
-                m="0 auto"
-            >
-                <StyledFlex position="relative" m="0 auto" jc="unset">
-                    <Shadow location="start" />
-                    <Shadow location="end" />
+            <div className={dclsx(box_wrapper)}>
+                <Flex.Box className={dclsx(slider_wrapper)}>
+                    <div className={dclsx(shadow, shadow_start)} />
+                    <div className={dclsx(shadow, shadow_end)} />
                     <SelectedSlide
                         selected_slide={platform_details[slide_index] || platform_details[0]}
                     />
-                    <Flex ai="center" jc="unset">
-                        <Scene>
-                            <Flex.Box className={dclsx(view_port)} align="center" ref={viewportRef}>
-                                <WheelContainer>
-                                    {platform_details.map(
-                                        ({ title, icon, learn_more_link }, index) => {
-                                            return (
-                                                <Flex.Box
-                                                    distance_center={index - slide_index}
-                                                    key={learn_more_link}
-                                                    onClick={() => clickHandler(index)}
-                                                >
-                                                    <ImageTag src={icon} />
-                                                    <Header type="subtitle-1">{title}</Header>
-                                                </Flex.Box>
-                                            )
-                                        },
-                                    )}
-                                </WheelContainer>
-                            </Flex.Box>
-                        </Scene>
-                    </Flex>
-                </StyledFlex>
-            </Box>
+                    {/* <Flex.Box align="center" > */}
+                    <div className={dclsx(scene)}>
+                        <div
+                            className={dclsx(view_port, 'flex', 'align-items-center')}
+                            ref={viewportRef}
+                        >
+                            <div className={dclsx(WheelContainer)}>
+                                {platform_details.map(({ title, icon, learn_more_link }, index) => {
+                                    return (
+                                        <Flex.Box
+                                            key={learn_more_link}
+                                            onClick={() => clickHandler(index)}
+                                            className={slide}
+                                        >
+                                            <ImageTag src={icon} />
+                                            <Header type="subtitle-1">{title}</Header>
+                                        </Flex.Box>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                    </div>
+                    {/* </Flex.Box> */}
+                </Flex.Box>
+            </div>
         )
     }
     return <></>

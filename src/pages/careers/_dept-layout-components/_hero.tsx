@@ -109,12 +109,11 @@ type HeaderDataProps = {
     link: string
 }
 
-const Hero = (header_data: HeaderDataProps, link: string) => {
+const Hero = (header_data: HeaderDataProps) => {
     const data = useStaticQuery(query)
     return (
         <StyledBackGroundImage
             data={data[header_data.data.background]}
-            alt={'Deriv careers'}
             style={{
                 backgroundSize: `cover`,
                 backgroundColor: 'var(--color-black)',
@@ -138,4 +137,5 @@ const Hero = (header_data: HeaderDataProps, link: string) => {
         </StyledBackGroundImage>
     )
 }
+
 export default Hero

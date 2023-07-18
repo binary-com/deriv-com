@@ -18,10 +18,8 @@ const SignUpSuccessContainer = ({ email }: SignupProps) => {
     return (
         <Layout>
             <SEO
-                title={localize('_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_')}
-                description={localize(
-                    '_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_',
-                )}
+                title="_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_"
+                description="_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_"
             />
             <StaticNav />
             <Flex.Box

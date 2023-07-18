@@ -25,11 +25,11 @@
 
     &_item {
         overflow: hidden;
-        box-shadow: 0px 1px 2px 0px #0e0e0e0f;
-        box-shadow: 0px 1px 3px 0px #0e0e0e1a;
     }
     &_shadow_item {
         margin-block-end: 2rem;
+        box-shadow: 0px 1px 2px 0px #0e0e0e0f;
+        box-shadow: 0px 1px 3px 0px #0e0e0e1a;
     }
 
     &_content {
@@ -51,7 +51,7 @@
         align-items: center;
         inline-size: 100%;
         text-align: start;
-        padding-inline: 1rem;
+        padding-inline: 1.6rem;
         min-block-size: 5rem;
 
         .accordion_icon {

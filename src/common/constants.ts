@@ -1,3 +1,4 @@
+const MAP_API_KEY = process.env.GATSBY_MAP_API_KEY
 const isBrowser = () => typeof window !== 'undefined'
 
 export const deriv_com_url = 'deriv.com'
@@ -129,7 +130,7 @@ export const ctrader_windows_url = 'https://getctrader.com/deriv/ctrader-deriv-s
 export const gtm_test_domain = 'deriv-com.binary.sx'
 export const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
 export const livechat_license_id = 12049137
-export const map_api_key = 'AIzaSyBlyyUrQz3lpzIdy_ZugPQIQSE_v_6AaiM'
+export const map_api_key = MAP_API_KEY
 export const mga_link_url =
     'https://authorisation.mga.org.mt/verification.aspx?lang=EN&company=a5fd1edc-d072-4c26-b0cd-ab3fa0f0cc40&details=1'
 export const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.dp2p'

@@ -970,24 +970,6 @@ const deriv_p2p: TQuestionsData = {
                 },
             ],
         },
-        {
-            question: '_t_What is a block trade on Deriv P2P?_t_',
-            category: 'Deriv P2P',
-            sub_category: '_t_Transaction_t_',
-            label: 'what-is-block-trade-in-deriv-p2p',
-            answer: [
-                {
-                    translation_text:
-                        "_t_A block trade is a large transaction between 2 parties. It's a convenient way to buy and sell USD in large amounts._t_",
-                    has_margin_top: true,
-                },
-                {
-                    translation_text:
-                        '_t_Block traders are individuals who perform such transactions on Deriv P2P. They act as market makers who can help other Deriv P2P users buy or sell USD competitively._t_',
-                    has_margin_top: true,
-                },
-            ],
-        },
     ],
 }
 

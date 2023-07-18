@@ -24,3 +24,10 @@
         grid-template-columns: 1fr 1fr;
     }
 }
+
+.single_image {
+    @include breakpoints(phone) {
+        grid-template-columns: auto;
+        inline-size: 50%;
+    }
+}

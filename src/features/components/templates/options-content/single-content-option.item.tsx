@@ -1,6 +1,6 @@
 import React from 'react'
 import { OptionContentSingleItemData } from './type'
-import { content_images } from './styles.module.scss'
+import { content_images, single_image } from './styles.module.scss'
 import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
@@ -23,7 +23,7 @@ const SingleOptionContentItem = ({ item }: { item: OptionContentSingleItemData }
                     </Typography.Paragraph>
                 ))}
             </Flex.Box>
-            <div className={content_images}>
+            <div className={`${content_images} ${item.images.length < 2 ? single_image : ''}`}>
                 {item.images.map((imageItem) => (
                     <img
                         src={imageItem.src}

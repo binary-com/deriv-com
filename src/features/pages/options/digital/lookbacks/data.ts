@@ -63,7 +63,7 @@ export const lookbacks_content_items: OptionContentItemData[] = [
             },
         ],
         texts: [
-            "_t_When you purchase a 'Close-Low' contract, your Clo will be equal to the difference between the exit price and the lowest price over the duration of the contract multiplied by the multiplier._t_",
+            "_t_When you purchase a 'Close-Low' contract, your payout will be equal to the difference between the exit price and the lowest price over the duration of the contract multiplied by the multiplier._t_",
         ],
     },
 ]

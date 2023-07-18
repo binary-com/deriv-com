@@ -16,7 +16,8 @@ const WhatAreDigitalOptions = ({ heading, description }: WhatAreDigitalOptionsPr
             justify="center"
             align="center"
             direction="col"
-            padding_block="20x"
+            padding_block="12x"
+            md={{ padding_block: '20x' }}
             gap={'8x'}
             className={options_heading_section}
         >

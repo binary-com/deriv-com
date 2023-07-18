@@ -1,15 +1,15 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Localize } from 'components/localization'
 import { SectionContainer } from 'components/containers'
 import { Header } from 'components/elements/typography'
 import device from 'themes/device'
 import flex from 'components/containers/flex'
+import { TString } from 'types/generics'
 
 type SellingPointsType = {
-    id: number
-    title: string | ReactElement
-    subtitle: ReactElement
+    title: string | TString
+    subtitle: TString
 }
 
 const StyledSectionContainer = styled(SectionContainer)`
@@ -61,19 +61,16 @@ const StyledSubTitle = styled(Header)`
 
 const selling_points: SellingPointsType[] = [
     {
-        id: 1,
         title: '100+',
-        subtitle: <Localize translate_text="tradable assets" />,
+        subtitle: '_t_tradable assets_t_',
     },
     {
-        id: 2,
-        title: <Localize translate_text="Zero" />,
-        subtitle: <Localize translate_text="commission" />,
+        title: '_t_Zero_t_',
+        subtitle: '_t_commission_t_',
     },
     {
-        id: 3,
         title: '24/7',
-        subtitle: <Localize translate_text="trading" />,
+        subtitle: '_t_trading_t_',
     },
 ]
 
@@ -81,13 +78,17 @@ const SellingPoints = () => {
     return (
         <StyledSectionContainer>
             <NumberStyledContainer>
-                {selling_points.map((item) => (
-                    <NumberWrapper key={item.id}>
+                {selling_points.map(({ subtitle, title }) => (
+                    <NumberWrapper key={title}>
                         <StyledTitle as="h3" type="heading-3" align="center">
-                            {item.title}
+                            {title.includes('_t_') ? (
+                                <Localize translate_text={title as TString} />
+                            ) : (
+                                title
+                            )}
                         </StyledTitle>
                         <StyledSubTitle align="center" as="span" type="paragraph-1">
-                            {item.subtitle}
+                            <Localize translate_text={subtitle} />
                         </StyledSubTitle>
                     </NumberWrapper>
                 ))}

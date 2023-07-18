@@ -1,8 +1,8 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import DTrading from 'components/custom/_dtrading'
+import DTrading, { TradingType } from 'components/custom/_dtrading'
 import { SectionContainer, Container } from 'components/containers'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Header } from 'components/elements/typography'
 import device from 'themes/device'
 import Icon24_7 from 'images/svg/deriv-x/24-7.svg'
@@ -10,12 +10,6 @@ import IconMultipleMarketing from 'images/svg/deriv-x/multiple-marketing.svg'
 import IconNewPromising from 'images/svg/deriv-x/new-promising.svg'
 import BoxStyledGrid from 'components/custom/_box-styled-grid'
 
-type TradingType = {
-    title?: ReactElement
-    subtitle?: ReactElement
-    image_name?: string
-    image_alt?: string
-}
 const StyledSectionContainer = styled(SectionContainer)`
     @media ${device.tablet} {
         font-size: 28px;
@@ -37,63 +31,54 @@ const StyledHeader = styled(Header)`
 
 const trading: TradingType[] = [
     {
-        title: <Localize translate_text="Bespoke trading experience" />,
-        subtitle: (
-            <Localize translate_text="Easily customise your trading environment. Drag and drop widgets, create your own layouts, and get the info you need, when you need it." />
-        ),
+        title: '_t_Bespoke trading experience_t_',
+        subtitle:
+            '_t_Easily customise your trading environment. Drag and drop widgets, create your own layouts, and get the info you need, when you need it._t_',
         image_name: 'bespoke',
-        image_alt: localize('Deriv X widgets to customise your CFD trading'),
+        image_alt: '_t_Deriv X widgets to customise your CFD trading_t_',
     },
     {
-        title: <Localize translate_text="Intuitive tools" />,
-        subtitle: (
-            <Localize translate_text="Keep track of your progress with the dashboard, learn from historical trades with the journal, and create custom watchlists for your favourite assets." />
-        ),
+        title: '_t_Intuitive tools_t_',
+        subtitle:
+            '_t_Keep track of your progress with the dashboard, learn from historical trades with the journal, and create custom watchlists for your favourite assets._t_',
         image_name: 'intuitive',
-        image_alt: localize('Deriv X dashboard with tools to track your online trading'),
+        image_alt: '_t_Deriv X dashboard with tools to track your online trading_t_',
     },
     {
-        title: <Localize translate_text="Know your margin" />,
-        subtitle: (
-            <Localize translate_text="You'll always be informed of the margin impact on your account before every trade." />
-        ),
+        title: '_t_Know your margin_t_',
+        subtitle:
+            "_t_You'll always be informed of the margin impact on your account before every trade._t_",
         image_name: 'margin',
-        image_alt: localize('Know the margin impact on your CFD trading'),
+        image_alt: '_t_Know the margin impact on your CFD trading_t_',
     },
     {
-        title: <Localize translate_text="Feature-rich charts" />,
-        subtitle: (
-            <Localize translate_text="Enjoy multiple chart views, 90+ indicators, and 13 drawing tools." />
-        ),
+        title: '_t_Feature-rich charts_t_',
+        subtitle: '_t_Enjoy multiple chart views, 90+ indicators, and 13 drawing tools._t_',
         image_name: 'feature_rich',
-        image_alt: localize('Multiple charts to view your online trading'),
+        image_alt: '_t_Multiple charts to view your online trading_t_',
     },
 ]
 
-const card_data = [
+const card_data: React.ComponentProps<typeof BoxStyledGrid>['items'] = [
     {
         icon: IconNewPromising,
-        title: <Localize translate_text="New and promising" />,
-        subtitle: (
-            <Localize translate_text="Deriv X is our second CFD platform, after MT5. It’s packed with features and built to fit your trading style." />
-        ),
-        image_alt: 'New CFD trading platform',
+        title: '_t_New and promising_t_',
+        subtitle:
+            '_t_Deriv X is our second CFD platform, after MT5. It’s packed with features and built to fit your trading style._t_',
+        image_alt: '_t_New CFD trading platform_t_',
     },
     {
         icon: IconMultipleMarketing,
-        title: <Localize translate_text="Multiple markets on a single platform" />,
-        subtitle: (
-            <Localize translate_text="Trade various assets in multiple markets simultaneously." />
-        ),
-        image_alt: 'Trade on multiple markets',
+        title: '_t_Multiple markets on a single platform_t_',
+        subtitle: '_t_Trade various assets in multiple markets simultaneously._t_',
+        image_alt: '_t_Trade on multiple markets_t_',
     },
     {
         icon: Icon24_7,
-        title: <Localize translate_text="24/7 trading" />,
-        subtitle: (
-            <Localize translate_text="Trade cryptocurrencies and synthetics anytime, even on weekends and holidays." />
-        ),
-        image_alt: 'Trade any time of the day and week',
+        title: '_t_24/7 trading_t_',
+        subtitle:
+            '_t_Trade cryptocurrencies and synthetics anytime, even on weekends and holidays._t_',
+        image_alt: '_t_Trade any time of the day and week_t_',
     },
 ]
 
@@ -103,7 +88,7 @@ const WhyTradeDerivX = () => {
             <StyledSectionContainer>
                 <Container fd="column">
                     <StyledHeader type="page-title" align="center" as="h2">
-                        {localize('Why trade with Deriv X')}
+                        <Localize translate_text="_t_Why trade with Deriv X_t_" />
                     </StyledHeader>
                     <BoxStyledGrid items={card_data} />
                 </Container>

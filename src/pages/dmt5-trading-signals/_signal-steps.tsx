@@ -4,10 +4,26 @@ import styled from 'styled-components'
 import Tabs from '../trade-types/components/_tabs'
 import { Mobile, Desktop } from '../../components/containers'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
-import { Localize } from 'components/localization'
 import { QueryImage, LocalizedLinkText } from 'components/elements'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
+import { TString } from 'types/generics'
+import { localize } from 'components/localization'
+
+type TContent = {
+    header: TString
+    step_one_header: TString
+    step_one_text: TString
+    step_one_text_components?: React.ReactElement[]
+    step_one_text_eu?: TString
+    step_two_header: TString
+    step_two_text: TString
+    step_two_text_components?: React.ReactElement[]
+    step_three_header: TString
+    step_three_text: TString
+    notice: TString
+    notice_components: React.ReactElement[]
+}
 
 const Container = styled.section`
     width: 100%;
@@ -24,101 +40,80 @@ const Container = styled.section`
         margin: 0;
     }
 `
-const content = {
-    subscriber: {
-        header: <Localize translate_text="_t_How to subscribe to an MT5 signal_t_" />,
-        step_one_header: <Localize translate_text="_t_1. Click on the Signals tab_t_" />,
-        step_one_text: (
-            <Localize translate_text="_t_From your Deriv MT5 trading terminal, click on the Signals tab to view the list of signal providers._t_" />
-        ),
-        step_one_text_eu: (
-            <Localize translate_text="_t_Go to your MT5 desktop app terminal and click on the Signals tab to view the list of signal providers. Not available on the web version._t_" />
-        ),
-        step_two_header: <Localize translate_text="_t_2. Subscribe to a signal provider_t_" />,
-        step_two_text: (
-            <Localize translate_text="_t_Select the signal provider you prefer and click the Subscribe button._t_" />
-        ),
-        step_three_header: <Localize translate_text="_t_3. Configure the parameters_t_" />,
-        step_three_text: (
-            <Localize translate_text="_t_Configure your trading and risk management parameters. Then click OK to complete the process._t_" />
-        ),
-        notice: (
-            <Localize
-                components={[
-                    <strong key={0} />,
-                    <LocalizedLinkText
-                        external
-                        to="https://www.mql5.com/en/signals"
-                        color="red"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        size={16}
-                        key={1}
-                    />,
-                ]}
-                translate_text="_t_<0>Note:</0> For a wider selection of signal providers for Deriv, go to <1>MQL5 showcase page</1> and search for <0>Deriv</0> under the <0>Broker</0> server field._t_"
-            />
-        ),
-    },
-    provider: {
-        header: <Localize translate_text="_t_How to register as a signals provider_t_" />,
-        step_one_header: <Localize translate_text="_t_1.  Head to MQL5.com_t_" />,
-        step_one_text: (
-            <Localize
-                translate_text="_t_In the <0>MQL5 signals showcase page</0>, click the Create signal button._t_"
-                components={[
-                    <LocalizedLinkText
-                        external
-                        to="https://www.mql5.com/en/signals"
-                        color="red"
-                        target="_blank"
-                        size={16}
-                        key={0}
-                    />,
-                ]}
-            />
-        ),
-        step_two_header: <Localize translate_text="_t_2. Fill the broker field_t_" />,
-        step_two_text: (
-            <Localize
-                translate_text="_t_Complete the form with your Deriv MT5 account credentials. In the <0>Broker</0> field, enter your account server name: <1/> <0>- Deriv-Demo</0> if your signal is for demo accounts only <1/> <0>- Deriv-Server</0> or <0>Deriv-Server-02</0> if your signal is for real accounts only <1/>(You can find the account server name on your <2>Deriv MT5 dashboard</2>.)_t_"
-                components={[
-                    <strong key={0} />,
-                    <br key={1} />,
-                    <LocalizedLinkText
-                        external
-                        to="https://app.deriv.com/mt5"
-                        color="red"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        size={16}
-                        key={2}
-                    />,
-                ]}
-            />
-        ),
-        step_three_header: <Localize translate_text="_t_3. Fill in your details_t_" />,
-        step_three_text: (
-            <Localize translate_text="_t_Add a description and click Save to complete your registration._t_" />
-        ),
-        notice: (
-            <Localize
-                translate_text="_t_<1>Note:</1> You need to upgrade your MQL5 account to seller status to be able to add a signal. If you’ve not upgraded yet, <0>follow the steps on this page</0> to register as a seller._t_"
-                components={[
-                    <LocalizedLinkText
-                        external
-                        to="https://www.metatrader5.com/en/terminal/help/signals/signal_provider"
-                        color="red"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        size={16}
-                        key={0}
-                    />,
-                    <strong key={1} />,
-                ]}
-            />
-        ),
-    },
+
+const subscriber: TContent = {
+    header: '_t_How to subscribe to an MT5 signal_t_',
+    step_one_header: '_t_1. Click on the Signals tab_t_',
+    step_one_text:
+        '_t_From your Deriv MT5 trading terminal, click on the Signals tab to view the list of signal providers._t_',
+    step_one_text_eu:
+        '_t_Go to your MT5 desktop app terminal and click on the Signals tab to view the list of signal providers. Not available on the web version._t_',
+    step_two_header: '_t_2. Subscribe to a signal provider_t_',
+    step_two_text: '_t_Select the signal provider you prefer and click the Subscribe button._t_',
+    step_three_header: '_t_3. Configure the parameters_t_',
+    step_three_text:
+        '_t_Configure your trading and risk management parameters. Then click OK to complete the process._t_',
+    notice: '_t_<0>Note:</0> For a wider selection of signal providers for Deriv, go to <1>MQL5 showcase page</1> and search for <0>Deriv</0> under the <0>Broker</0> server field._t_',
+    notice_components: [
+        <strong key={0} />,
+        <LocalizedLinkText
+            external
+            to="https://www.mql5.com/en/signals"
+            color="red"
+            target="_blank"
+            rel="noopener noreferrer"
+            size={16}
+            key={1}
+        />,
+    ],
+}
+
+const provider: TContent = {
+    header: '_t_How to register as a signals provider_t_',
+    step_one_header: '_t_1.  Head to MQL5.com_t_',
+    step_one_text:
+        '_t_In the <0>MQL5 signals showcase page</0>, click the Create signal button._t_',
+    step_one_text_components: [
+        <LocalizedLinkText
+            external
+            to="https://www.mql5.com/en/signals"
+            color="red"
+            target="_blank"
+            size={16}
+            key={0}
+        />,
+    ],
+    step_two_header: '_t_2. Fill the broker field_t_',
+    step_two_text:
+        '_t_Complete the form with your Deriv MT5 account credentials. In the <0>Broker</0> field, enter your account server name: <1/> <0>- Deriv-Demo</0> if your signal is for demo accounts only <1/> <0>- Deriv-Server</0> or <0>Deriv-Server-02</0> if your signal is for real accounts only <1/>(You can find the account server name on your <2>Deriv MT5 dashboard</2>.)_t_',
+    step_two_text_components: [
+        <strong key={0} />,
+        <br key={1} />,
+        <LocalizedLinkText
+            external
+            to="https://app.deriv.com/mt5"
+            color="red"
+            target="_blank"
+            rel="noopener noreferrer"
+            size={16}
+            key={2}
+        />,
+    ],
+    step_three_header: '_t_3. Fill in your details_t_',
+    step_three_text: '_t_Add a description and click Save to complete your registration._t_',
+    notice: '_t_<1>Note:</1> You need to upgrade your MQL5 account to seller status to be able to add a signal. If you’ve not upgraded yet, <0>follow the steps on this page</0> to register as a seller._t_',
+    notice_components: [
+        <LocalizedLinkText
+            external
+            to="https://www.metatrader5.com/en/terminal/help/signals/signal_provider"
+            color="red"
+            target="_blank"
+            rel="noopener noreferrer"
+            size={16}
+            key={0}
+        />,
+        <strong key={1} />,
+    ],
 }
 
 const StyledTabs = styled(Tabs)`
@@ -238,60 +233,67 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                 is_reverse
                                 max_width="tabletL"
                                 has_notice
-                                notice_content={content.subscriber.notice}
+                                notice_content={subscriber.notice}
+                                notice_content_components={subscriber.notice_components}
                             >
                                 <Tabs.Panel
-                                    label={content.subscriber.step_one_header}
+                                    label={subscriber.step_one_header}
                                     description={
                                         is_eu
-                                            ? content.subscriber.step_one_text_eu
-                                            : content.subscriber.step_one_text
+                                            ? subscriber.step_one_text_eu
+                                            : subscriber.step_one_text
                                     }
+                                    description_components={subscriber.step_one_text_components}
                                 >
                                     <Desktop>
                                         <StyledQueryImage
                                             data={data['subscriber_step_1']}
-                                            alt="Trade types option market"
+                                            alt={localize('_t_Trade types option market_t_')}
                                         />
                                     </Desktop>
                                     <Mobile>
                                         <StyledQueryImage
                                             data={data['subscriber_step_1_mobile']}
-                                            alt="Trade types option market"
+                                            alt={localize('_t_Trade types option market_t_')}
                                         />
                                     </Mobile>
                                 </Tabs.Panel>
                                 <Tabs.Panel
-                                    label={content.subscriber.step_two_header}
-                                    description={content.subscriber.step_two_text}
+                                    label={subscriber.step_two_header}
+                                    description={subscriber.step_two_text}
+                                    description_components={subscriber.step_two_text_components}
                                 >
                                     <Desktop>
                                         <StyledQueryImage
                                             data={data['subscriber_step_2']}
-                                            alt="Trade types option trade type open"
+                                            alt={localize(
+                                                '_t_Trade types option trade type open_t_',
+                                            )}
                                         />
                                     </Desktop>
                                     <Mobile>
                                         <StyledQueryImage
                                             data={data['subscriber_step_2_mobile']}
-                                            alt="Trade types option trade type open"
+                                            alt={localize(
+                                                '_t_Trade types option trade type open_t_',
+                                            )}
                                         />
                                     </Mobile>
                                 </Tabs.Panel>
                                 <Tabs.Panel
-                                    label={content.subscriber.step_three_header}
-                                    description={content.subscriber.step_three_text}
+                                    label={subscriber.step_three_header}
+                                    description={subscriber.step_three_text}
                                 >
                                     <Desktop>
                                         <StyledQueryImage
                                             data={data['subscriber_step_3']}
-                                            alt="Trade types option duration"
+                                            alt={localize('_t_Trade types option duration_t_')}
                                         />
                                     </Desktop>
                                     <Mobile>
                                         <StyledQueryImage
                                             data={data['subscriber_step_3_mobile']}
-                                            alt="Trade types option duration"
+                                            alt={localize('_t_Trade types option duration_t_')}
                                         />
                                     </Mobile>
                                 </Tabs.Panel>
@@ -308,56 +310,63 @@ const SignalSteps = ({ active_tab }: SignalStepsProps) => {
                                 is_reverse
                                 max_width="tabletL"
                                 has_notice
-                                notice_content={content.provider.notice}
+                                notice_content={provider.notice}
+                                notice_content_components={provider.notice_components}
                             >
                                 <Tabs.Panel
-                                    label={content.provider.step_one_header}
-                                    description={content.provider.step_one_text}
+                                    label={provider.step_one_header}
+                                    description={provider.step_one_text}
+                                    description_components={provider.step_one_text_components}
                                 >
                                     <Desktop>
                                         <StyledQueryImage
                                             data={data['provider_step_1']}
-                                            alt="Trade types option market"
+                                            alt={localize('_t_Trade types option market_t_')}
                                         />
                                     </Desktop>
                                     <Mobile>
                                         <StyledQueryImage
                                             data={data['provider_step_1_mobile']}
-                                            alt="Trade types option market"
+                                            alt={localize('_t_Trade types option market_t_')}
                                         />
                                     </Mobile>
                                 </Tabs.Panel>
                                 <Tabs.Panel
-                                    label={content.provider.step_two_header}
-                                    description={content.provider.step_two_text}
+                                    label={provider.step_two_header}
+                                    description={provider.step_two_text}
+                                    description_components={provider.step_two_text_components}
                                 >
                                     <Desktop>
                                         <StyledQueryImage
                                             data={data['provider_step_2']}
-                                            alt="Trade types option trade type open"
+                                            alt={localize(
+                                                '_t_Trade types option trade type open_t_',
+                                            )}
                                         />
                                     </Desktop>
                                     <Mobile>
                                         <StyledQueryImage
                                             data={data['provider_step_2_mobile']}
-                                            alt="Trade types option trade type open"
+                                            alt={localize(
+                                                '_t_Trade types option trade type open_t_',
+                                            )}
                                         />
                                     </Mobile>
                                 </Tabs.Panel>
                                 <Tabs.Panel
-                                    label={content.provider.step_three_header}
-                                    description={content.provider.step_three_text}
+                                    label={provider.step_three_header}
+                                    description={provider.step_three_text}
                                 >
                                     <Desktop>
                                         <StyledQueryImage
                                             data={data['provider_step_3']}
-                                            alt="Trade types option duration"
+                                            alt={localize('_t_Trade types option duration_t_')}
                                         />
                                     </Desktop>
                                     <Mobile>
                                         <StyledQueryImage
                                             data={data['provider_step_3_mobile']}
-                                            alt="Trade types option duration"
+                                            alt={localize('_t_Trade types option duration_t_')}
                                         />
                                     </Mobile>
                                 </Tabs.Panel>

@@ -12,7 +12,6 @@ import { TString } from 'types/generics'
 const ButtonContainer = styled.div`
     margin-left: -1rem;
 `
-
 const StepperContainer = styled.div`
     margin-left: 1rem;
 `
@@ -20,6 +19,7 @@ const StepperContainer = styled.div`
 const StartTrading = () => {
     const { is_eu } = useRegion()
     const [is_mobile] = useBrowserResize()
+    const handleSignup = useHandleSignup()
 
     const CfdItems: { title: TString; subtitle: TString }[] = [
         {
@@ -41,23 +41,20 @@ const StartTrading = () => {
         },
     ]
 
-    const handleSignup = useHandleSignup()
     return (
-        <>
-            <SmallContainer direction="column" ai="flex-start">
-                <CommonHeaderSection
-                    title="_t_Start trading CFDs on Deriv_t_"
-                    title_font_size="3.2rem"
-                    margin_title={is_mobile ? '40px 0 30px 0' : '120px 0 50px 0'}
-                />
-                <StepperContainer>
-                    <StepperView items={CfdItems} />
-                </StepperContainer>
-                <ButtonContainer>
-                    <Button onClick={handleSignup} label="Create free demo account" primary />
-                </ButtonContainer>
-            </SmallContainer>
-        </>
+        <SmallContainer direction="column" ai="flex-start">
+            <CommonHeaderSection
+                title="_t_Start trading CFDs on Deriv_t_"
+                title_font_size="3.2rem"
+                margin_title={is_mobile ? '40px 0 30px 0' : '120px 0 50px 0'}
+            />
+            <StepperContainer>
+                <StepperView items={CfdItems} />
+            </StepperContainer>
+            <ButtonContainer>
+                <Button onClick={handleSignup} label="Create free demo account" primary />
+            </ButtonContainer>
+        </SmallContainer>
     )
 }
 

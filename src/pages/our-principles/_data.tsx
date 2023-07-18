@@ -1,5 +1,3 @@
-import React from 'react'
-import { Localize } from 'components/localization'
 import Reliable from 'images/svg/principles/reliable.svg'
 import Fair from 'images/svg/principles/fare.svg'
 import Transparent from 'images/svg/principles/transparent.svg'

@@ -15,6 +15,7 @@ import device from 'themes/device'
 type StyledLinkButtonProps = {
     id?: string
 }
+
 const query = graphql`
     query {
         dmt5_synthetic_calculator: file(
@@ -112,7 +113,6 @@ const CardWrappers = styled(Flex)`
         min-height: unset;
     }
 `
-
 const CardText = styled(Text)`
     margin-bottom: 16px;
 `
@@ -196,38 +196,38 @@ const BackButton = styled(Button)`
     margin-right: 0.8rem;
 `
 
+const parent_style = {
+    marginBottom: '0',
+}
+const item_style = {
+    padding: '0',
+    background: 'var(--color-white)',
+    borderRadius: '0 0 8px 8px',
+    marginBottom: '16px',
+}
+const header_style = {
+    padding: '14px 0 17px',
+    borderRadius: '0',
+    height: 'auto',
+    boxShadow: 'unset',
+    borderBottom: 'unset',
+    borderTop: '1px solid var(--color-grey-21)',
+}
+const StyledButton = styled(Button)`
+    border: none;
+    color: var(--color-red);
+    font-size: 14px;
+    background: none;
+
+    @media ${device.tabletL} {
+        font-size: 14px;
+    }
+`
+
 const DMT5Cards = ({ data }: DMT5Props) => {
     const dataImages = useStaticQuery(query)
-
-    const parent_style = {
-        marginBottom: '0',
-    }
-    const item_style = {
-        padding: '0',
-        background: 'var(--color-white)',
-        borderRadius: '0 0 8px 8px',
-        marginBottom: '16px',
-    }
-    const header_style = {
-        padding: '14px 0 17px',
-        borderRadius: '0',
-        height: 'auto',
-        boxShadow: 'unset',
-        borderBottom: 'unset',
-        borderTop: '1px solid var(--color-grey-21)',
-    }
-    const StyledButton = styled(Button)`
-        border: none;
-        color: var(--color-red);
-        font-size: 14px;
-        background: none;
-
-        @media ${device.tabletL} {
-            font-size: 14px;
-        }
-    `
-
     const [is_calculated, setCalculated] = React.useState(false)
+
     const toggleCalculated = () => {
         setCalculated(!is_calculated)
     }
@@ -248,7 +248,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                 {data.type.map((value) => (
                                     <AccordionItem
                                         key={value.class_name}
-                                        header={localize(value.title)}
+                                        header={value.title}
                                         parent_style={parent_style}
                                         style={item_style}
                                         header_style={header_style}

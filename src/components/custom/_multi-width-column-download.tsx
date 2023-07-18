@@ -1,22 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Header } from 'components/elements/typography'
-import { LocalizedLink, localize } from 'components/localization'
+import { Localize, LocalizedLink, localize } from 'components/localization'
 import Flex from 'components/containers/flex'
 import device from 'themes/device'
+import { TString } from 'types/generics'
 
-type TItem = {
+export type TDownloadColumnItem = {
     text: string
     icon: string
     link: string
-    smallText?: string
+    smallText?: TString
 }
 
-type TProps = {
-    items?: TItem[]
+type TDownloadColumn = {
+    items?: TDownloadColumnItem[]
     QRImage?: string
-    QRHeading1?: string
-    QRHeading2?: string
+    QRHeading1?: TString
+    QRHeading2?: TString
     is_rtl: boolean
 }
 
@@ -60,7 +61,6 @@ const StyledItemSmallText = styled(Header)`
     font-size: 10px;
     color: var(--color-white);
 `
-
 const StyledItems = styled.div`
     display: flex;
     align-items: center;
@@ -73,39 +73,45 @@ const StyledItemsWrapper = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 18px;
 `
-const DownloadColumn: React.FC<TProps> = ({ items, QRImage, QRHeading1, QRHeading2, is_rtl }) => {
+
+const DownloadColumn = ({ items, QRImage, QRHeading1, QRHeading2, is_rtl }: TDownloadColumn) => {
     return (
         <Flex ai="center">
             <DownloadAppWrapper is_rtl={is_rtl}>
                 <QRScanBox>
-                    <img width="64px" height="64px" src={QRImage} alt="Deriv GO QR" />
+                    <img
+                        width="64px"
+                        height="64px"
+                        src={QRImage}
+                        alt={localize('_t_Deriv GO QR_t_')}
+                    />
                     <div>
                         <StyledHeading as="p" weight="100">
-                            {localize(`${QRHeading1}`)}
+                            <Localize translate_text={QRHeading1} />
                         </StyledHeading>
                         <StyledHeading as="h5" weight="700">
-                            {localize(`${QRHeading2}`)}
+                            <Localize translate_text={QRHeading2} />
                         </StyledHeading>
                     </div>
                 </QRScanBox>
                 <DownloadAppOsLinks>
                     <StyledItemsWrapper>
-                        {items.map((item, index) => (
-                            <StyledItems key={index}>
-                                <StyledOsIcon src={item.icon} alt="OS icon" />
+                        {items.map(({ icon, link, text, smallText }) => (
+                            <StyledItems key={text}>
+                                <StyledOsIcon src={icon} alt={localize('_t_OS icon_t_')} />
                                 <AppButton
                                     external
-                                    to={item.link}
+                                    to={link}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {item?.smallText && (
+                                    {smallText && (
                                         <StyledItemSmallText as="p" weight="400">
-                                            {localize(item?.smallText)}
+                                            <Localize translate_text={smallText} />
                                         </StyledItemSmallText>
                                     )}
                                     <StyledItemText as="p" weight="700">
-                                        {item.text}
+                                        {text}
                                     </StyledItemText>
                                 </AppButton>
                             </StyledItems>

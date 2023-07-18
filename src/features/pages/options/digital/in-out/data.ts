@@ -97,82 +97,116 @@ export const inOutPlatforms: OptionContentAvailability[] = [
     allOptionsTradePlatforms.deriv_bot,
 ]
 
-// export const asiansFAQ: OptionsFAQDataItem[] = [
-//     {
-//         id: 1,
-//         question: '_t_Where can I trade Asian options?_t_',
-//         answers: [
-//             {
-//                 id: 1,
-//                 type: 'text',
-//                 text: '_t_Asian options are available on the SmartTrader and Deriv Bot trading platforms. You can trade Asian options on synthetics._t_',
-//             },
-//         ],
-//     },
-//     {
-//         id: 2,
-//         question: '_t_How can I open an Asians trade?_t_',
-//         answers: [
-//             {
-//                 id: 1,
-//                 type: 'list',
-//                 list_title: '_t_You can open an Asians trade by:_t_',
-//                 list_items: [
-//                     '_t_- Choosing your preferred instrument._t_',
-//                     '_t_- Setting the duration of your trade._t_',
-//                     '_t_- Entering your preferred stake amount or desired potential payout._t_',
-//                     '_t_- Making your market prediction._t_',
-//                 ],
-//             },
-//             {
-//                 id: 2,
-//                 type: 'text',
-//                 text: '_t_Once you have determined the above parameters, you can open an Asians trade on SmartTrader and Deriv Bot._t_',
-//             },
-//         ],
-//     },
-//     {
-//         id: 3,
-//         question: '_t_How do Asians contracts work?_t_',
-//         answers: [
-//             {
-//                 id: 1,
-//                 type: 'text',
-//                 text: "_t_Asians contracts calculate the average price of an underlying asset over a predetermined trade duration of 5 to 10 ticks. When you open an Asians trade, you'll predict whether the final price tick (the last tick) will be higher or lower than the average price throughout the contract period._t_",
-//             },
-//         ],
-//     },
-//     {
-//         id: 4,
-//         question: '_t_Can I close an Asians contract before the contract expires?_t_',
-//         answers: [
-//             {
-//                 id: 1,
-//                 type: 'text',
-//                 text: '_t_No, you cannot close an Asians contract before it expires._t_',
-//             },
-//         ],
-//     },
-//     {
-//         id: 5,
-//         question: '_t_Can I select the duration for an Asians contract?_t_',
-//         answers: [
-//             {
-//                 id: 1,
-//                 type: 'text',
-//                 text: '_t_Yes, you can choose the duration of your Asians contract anywhere between 5 and 10 ticks._t_',
-//             },
-//         ],
-//     },
-//     {
-//         id: 5,
-//         question: '_t_Can I open multiple Asians contracts simultaneously?_t_',
-//         answers: [
-//             {
-//                 id: 1,
-//                 type: 'text',
-//                 text: '_t_Yes, you can. You can open contracts with different parameters to take advantage of more market opportunities._t_',
-//             },
-//         ],
-//     },
-// ]
+export const inOutFAQ: OptionsFAQDataItem[] = [
+    {
+        id: 1,
+        question: '_t_Are In/Out options available on Deriv Trader?_t_',
+        answers: [
+            {
+                id: 1,
+                type: 'text',
+                text: '_t_No, In/Out options are only available on the SmartTrader and Deriv Bot trading platforms. They are available to trade on a range of markets such as forex, derived indices, stock indices, and commodities._t_',
+            },
+        ],
+    },
+    {
+        id: 2,
+        question: '_t_How do I place an In/Out trade on Deriv?_t_',
+        answers: [
+            {
+                id: 1,
+                type: 'list',
+                list_title: '_t_You can place an In/Out trade by:_t_',
+                list_items: [
+                    '_t_- Choosing your preferred instrument to trade._t_',
+                    '_t_- Specifying the duration of the trade_t_',
+                    '_t_- Setting the upper and lower price boundaries._t_',
+                    '_t_- Entering your stake or preferred potential payout amount._t_',
+                    '_t_- Placing the trade._t_',
+                ],
+            },
+        ],
+    },
+    {
+        id: 3,
+        question: '_t_What are In/Out contracts?_t_',
+        answers: [
+            {
+                id: 1,
+                type: 'text',
+                text: '_t_The In/Out contract types allow you to speculate whether the market price of the underlying asset stays within or goes outside of predetermined barriers during the contract period or at the end of the contract period._t_',
+            },
+        ],
+    },
+    {
+        id: 4,
+        question: '_t_Can I close In/Out options before the end of the trade duration?_t_',
+        answers: [
+            {
+                id: 1,
+                type: 'text',
+                text: "_t_No, you cannot close an In/Out options trade before the trade duration's expiry. This is because the potential payout is defined based on the contract duration, selected barrier, and stake._t_",
+            },
+        ],
+    },
+    {
+        id: 5,
+        question: '_t_Can I customise the duration of my In/Out contract?_t_',
+        answers: [
+            {
+                id: 1,
+                type: 'text',
+                text: '_t_Yes, you can choose the duration of your In/Out contract by setting a preferred duration or end time. You can set your contract from as short as 2 minutes to 365 days._t_',
+            },
+        ],
+    },
+    {
+        id: 6,
+        question:
+            '_t_Can I open multiple In/Out contracts with different parameters at the same time?_t_',
+        answers: [
+            {
+                id: 1,
+                type: 'text',
+                text: '_t_Yes, you are can open multiple In/Out contracts with different barrier limits at the same time._t_',
+            },
+        ],
+    },
+    {
+        id: 7,
+        question: '_t_What are the upper and lower price boundaries in In/Out options?_t_',
+        answers: [
+            {
+                id: 1,
+                type: 'text',
+                text: '_t_The upper and lower price boundaries in the In/Out trade type define the range within which the price of the underlying assets must either stay in or go out of for the trade to be considered won._t_',
+            },
+        ],
+    },
+    {
+        id: 8,
+        question: '_t_How are payouts calculated for In/Out options?_t_',
+        answers: [
+            {
+                id: 1,
+                type: 'list',
+                list_title: '_t_Payouts for all In/Out contracts are fixed, based on:_t_',
+                list_items: [
+                    '_t_- Trade duration_t_',
+                    '_t_- Barrier levels_t_',
+                    '_t_- Market conditions_t_',
+                ],
+            },
+            {
+                id: 2,
+                type: 'text',
+                text: '_t_For "Ends Between" trades with wider barriers, the price of the underlying asset has more room to fluctuate while still ending the contract inside the barriers. In this scenario, potential payouts are usually lower due to the higher probability of the price staying between the barriers._t_',
+            },
+            {
+                id: 3,
+                type: 'text',
+                text: '_t_With narrower barriers, the price has less room to move. So, potential payouts are often higher due to a lower probability of the price staying between the barriers._t_',
+            },
+        ],
+    },
+]

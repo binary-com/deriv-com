@@ -67,7 +67,11 @@ const production_app_id_array =
 const prod_app_id = production_app_id_array[0]?.app_id
 const isStaging = () => isBrowser() && domain_config.staging.hostname === window.location.hostname
 const isBeta = () => isBrowser() && domain_config.beta.hostname === window.location.hostname
-const isLive = () => isProduction() || isStaging() || isBeta()
+const isTestLink = () =>
+    isBrowser() &&
+    window.location.hostname ===
+        'https://deriv-com-git-fork-shayan-deriv-shayan-feq-305prevent-to-f97cd6.binary.sx/'
+const isLive = () => isProduction() || isStaging() || isBeta() || isTestLink()
 const isLocalHost = () => isBrowser() && domain_config.local.hostname === window.location.hostname
 
 const getAppId = (): null | number | string => {

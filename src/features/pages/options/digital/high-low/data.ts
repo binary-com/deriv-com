@@ -74,10 +74,12 @@ export const high_and_low_faq: OptionsFAQDataItem[] = [
             {
                 type: 'list',
                 id: 1,
-                list_title: "_t_Here's how to place a High/Low Ticks trade: _t_",
+                list_title: "_t_Here's how to place a High/Low Ticks trade:_t_",
                 list_items: [
-                    '_t_- Choose your preferred trading asset. _t_',
-                    '_t_- Predict which of the next 5 ticks will be the highest or lowest in the series.- Enter your stake or preferred potential payout amount. - Open your trade._t_',
+                    '_t_- Choose your preferred trading asset._t_',
+                    '_t_- Predict which of the next 5 ticks will be the highest or lowest in the series._t_',
+                    '_t_- Enter your stake or preferred potential payout amount._t_',
+                    '_t_- Open your trade._t_',
                 ],
             },
         ],

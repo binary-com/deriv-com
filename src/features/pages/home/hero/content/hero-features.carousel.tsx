@@ -1,32 +1,29 @@
 import React from 'react'
-import Typewriter from 'typewriter-effect'
-import { hero_typewriter } from './hero-content.module.scss'
-import dclsx from 'features/utils/dclsx'
-import { localize } from 'components/localization'
+import { hero_typewriter, wrapper, text } from './hero-content.module.scss'
+import { Localize } from 'components/localization'
+import Typography from 'features/components/atoms/typography'
+import { TString } from 'types/generics'
+
+const strings: TString[] = [
+    '_t_Forex_t_',
+    '_t_Cryptocurrencies_t_',
+    '_t_Stocks & indices_t_',
+    '_t_Commodities_t_',
+    '_t_Derived Indices_t_',
+];
 
 const HeroFeaturesCarousel = () => {
     return (
         <div className={hero_typewriter}>
-            <Typewriter
-                options={{
-                    strings: [
-                        localize('_t_Forex_t_'),
-                        localize('_t_Cryptocurrencies_t_'),
-                        localize('_t_Stocks & indices_t_'),
-                        localize('_t_Commodities_t_'),
-                        localize('_t_Derived Indices_t_'),
-                    ],
-                    autoStart: true,
-                    loop: true,
-                    wrapperClassName: dclsx(
-                        'heading',
-                        'heading-large',
-                        'typography-weight-bold',
-                        'typography-color-primary',
-                    ),
-                    cursorClassName: dclsx('heading', 'heading-large', 'typography-color-primary'),
-                }}
-            />
+            <Typography.Heading className={text} as="h3" size="large" weight="bold" color="primary">
+                <div className={wrapper}>
+                    {strings.map((string) => (
+                        <p key={string}>
+                            <Localize translate_text={string} />
+                        </p>
+                    ))}
+                </div>
+            </Typography.Heading>
         </div>
     )
 }

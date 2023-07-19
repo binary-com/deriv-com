@@ -13,13 +13,15 @@ import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import useRegion from 'components/hooks/use-region'
 import {
     derivx_android_url,
     derivx_huawei_url,
     derivx_ios_url,
     derivx_app_url,
 } from 'common/constants'
-import DownloadColumn from 'components/custom/_multi-width-column-download'
+import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
+import { localize } from 'components/localization'
 
 const ContentWrapper = styled.div<{ is_rtl: boolean }>`
     display: flex;
@@ -41,7 +43,6 @@ const TextAndButtonWrapper = styled.div`
         align-items: center;
     }
 `
-
 const Wrapper = styled.div`
     margin-top: 5rem;
 
@@ -49,21 +50,25 @@ const Wrapper = styled.div`
         margin-top: -3rem;
     }
 `
-const items = [
-    { text: 'Google Play', icon: AndroidIcon, link: derivx_android_url },
-    { text: 'App Store', icon: AppleIcon, link: derivx_ios_url },
-    { text: 'AppGallery', icon: AppGalleryIcon, link: derivx_huawei_url },
-    {
-        text: 'Web Browser',
-        icon: BrowserIcon,
-        link: derivx_app_url,
-        smallText: '_t_Use it on your_t_',
-    },
-]
 
 const DerivXGetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
+    const { is_appgallery_supported } = useRegion()
+
+    const items: TDownloadColumnItem[] = [
+        { text: 'Google Play', icon: AndroidIcon, link: derivx_android_url },
+        { text: 'App Store', icon: AppleIcon, link: derivx_ios_url },
+        ...(is_appgallery_supported
+            ? [{ text: 'AppGallery', icon: AppGalleryIcon, link: derivx_huawei_url }]
+            : []),
+        {
+            text: 'Web Browser',
+            icon: BrowserIcon,
+            link: derivx_app_url,
+            smallText: '_t_Use it on your_t_',
+        },
+    ]
 
     return (
         <Wrapper>
@@ -77,7 +82,12 @@ const DerivXGetApp = () => {
                 secondColumnMobileMargin="95px 0 0"
             >
                 <ContentWrapper is_rtl={is_rtl}>
-                    <img src={derivXLogo} alt="Deriv X logo" width="64px" height="64px" />
+                    <img
+                        src={derivXLogo}
+                        alt={localize('_t_Deriv X logo_t_')}
+                        width="64px"
+                        height="64px"
+                    />
                     <TextAndButtonWrapper>
                         <CommonHeaderSection
                             title="_t_Get trading with Deriv X_t_"
@@ -95,7 +105,11 @@ const DerivXGetApp = () => {
                     is_rtl={is_rtl}
                     QRImage={derivXQR}
                     QRHeading1="_t_Scan to download_t_"
-                    QRHeading2="Android, iOS, and Huawei"
+                    QRHeading2={
+                        is_appgallery_supported
+                            ? '_t_Android, iOS, and Huawei_t_'
+                            : '_t_Android and iOS_t_'
+                    }
                     items={items}
                 />
             </MultiWidthColumn>

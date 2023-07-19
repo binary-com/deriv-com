@@ -117,6 +117,7 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
+
 const DCommonBanner = () => {
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()

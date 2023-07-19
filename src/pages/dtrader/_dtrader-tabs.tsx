@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Header } from 'components/elements'
 import { ReactComponent as Macbook } from 'images/svg/dtrader/macbook.svg'
 import device from 'themes/device'
@@ -196,6 +196,7 @@ class DtraderTabs extends React.Component {
             ),
         })
     }
+
     render() {
         return (
             <Container>
@@ -215,7 +216,7 @@ class DtraderTabs extends React.Component {
                                 this.updatePlay()
                             }}
                         >
-                            {localize('1. Select an asset')}
+                            <Localize translate_text="_t_1. Select an asset_t_" />
                         </Step>
                     </Tab>
                     <Tab>
@@ -232,7 +233,7 @@ class DtraderTabs extends React.Component {
                                 this.updatePlay()
                             }}
                         >
-                            {localize('2. Monitor the chart')}
+                            <Localize translate_text="_t_2. Monitor the chart_t_" />
                         </Step>
                     </Tab>
                     <Tab>
@@ -249,7 +250,7 @@ class DtraderTabs extends React.Component {
                                 this.updatePlay()
                             }}
                         >
-                            {localize('3. Place a trade')}
+                            <Localize translate_text="_t_3. Place a trade_t_" />
                         </Step>
                     </Tab>
                     <GotoLiveWrapper>
@@ -260,7 +261,7 @@ class DtraderTabs extends React.Component {
                             target="_blank"
                             rel="noopener noreferrer nofollow"
                         >
-                            {localize('Go to live demo')}
+                            <Localize translate_text="_t_Go to live demo_t_" />
                         </GoToLiveDemo>
                     </GotoLiveWrapper>
                 </TabsWrapper>
@@ -281,4 +282,5 @@ class DtraderTabs extends React.Component {
         )
     }
 }
+
 export default DtraderTabs

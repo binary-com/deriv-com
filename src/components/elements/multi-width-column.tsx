@@ -101,7 +101,7 @@ const SecondColumn = styled(Column)<{ secondColumnMobileMargin: string }>`
     }
 `
 
-const MultiWidthColumn: React.FC<Props> = ({
+const MultiWidthColumn = ({
     firstColumnBackground,
     secondColumnBackground,
     firstColumnWidth,
@@ -112,7 +112,7 @@ const MultiWidthColumn: React.FC<Props> = ({
     mobilePadding,
     mobilePositionBackgroundImage,
     tabletPositionBackgroundImage,
-}) => {
+}: React.PropsWithChildren<Props>) => {
     const is_rtl = useIsRtl()
 
     return (

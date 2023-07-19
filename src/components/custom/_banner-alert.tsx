@@ -1,9 +1,9 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Button } from 'components/form'
 import { LocalizedLinkText, Header } from 'components/elements'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import { useCookieBanner } from 'components/hooks/use-cookie-banner'
 import { browsers_minimum_required_version, cookie_key, bannerTypes } from 'common/constants'
@@ -16,10 +16,12 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 type TProps = {
     bannerType: string
 }
+
 type TBannerDimensionProps = {
     width: string
     minHeight: string
 }
+
 const mainTabHeight = '14.6'
 const subTabHeight = '10.6'
 
@@ -37,6 +39,7 @@ const Wrapper = styled.div<{
     width: string
     minHeight: string
     tabHeight: string
+    is_rtl: boolean
 }>`
     pointer-events: all;
     width: ${({ width = 400 }) => width}px;
@@ -48,7 +51,7 @@ const Wrapper = styled.div<{
     background-color: var(--color-white);
     margin: 0 2.4rem 2.4rem 2.4rem;
     animation: ${({ visible }) => (visible ? 'fadeIn' : 'fadeOut')} 0.2s;
-    align-self: flex-start;
+    align-self: ${({ is_rtl }) => (is_rtl ? 'flex-end' : 'flex-start')};
     position: absolute;
     bottom: 7.5rem;
 
@@ -131,7 +134,7 @@ const OverlayContainer = styled.div<{ is_rtl: boolean }>`
     align-items: ${({ is_rtl }) => (is_rtl ? 'flex-start' : 'flex-end')};
 `
 
-const BannerAlert: FC<TProps> = ({ bannerType }) => {
+const BannerAlert = ({ bannerType }: TProps) => {
     const cookie = useCookieBanner()
     const cookie_browser_update = new CookieStorage(cookie_key)
     const [is_visible, setIsVisible] = useState(false)
@@ -180,6 +183,7 @@ const BannerAlert: FC<TProps> = ({ bannerType }) => {
                 width={cookieBannerProps.width}
                 minHeight={cookieBannerProps.minHeight}
                 tabHeight={mainTabHeight}
+                is_rtl={is_rtl}
             >
                 <StyledText>
                     <Localize translate_text="_t_Cookies help us to give you a better experience and personalised content on our site. _t_" />
@@ -192,10 +196,10 @@ const BannerAlert: FC<TProps> = ({ bannerType }) => {
                 </StyledText>
                 <Flex>
                     <StyledButton tertiary onClick={cookie.decline} mr="0.8rem">
-                        {localize("_t_Don't accept_t_")}
+                        <Localize translate_text="_t_Don't accept_t_" />
                     </StyledButton>
                     <StyledButton secondary onClick={cookie.accept}>
-                        {localize('_t_Accept_t_')}
+                        <Localize translate_text="_t_Accept_t_" />
                     </StyledButton>
                 </Flex>
             </Wrapper>
@@ -206,6 +210,7 @@ const BannerAlert: FC<TProps> = ({ bannerType }) => {
                     width={BrowserBannerProps.width}
                     minHeight={BrowserBannerProps.minHeight}
                     tabHeight={mainTabHeight}
+                    is_rtl={is_rtl}
                 >
                     <StyledText>
                         <Localize translate_text="_t_Update your browser to get the best Deriv experience_t_" />
@@ -223,6 +228,7 @@ const BannerAlert: FC<TProps> = ({ bannerType }) => {
                         width={cookieBannerProps.width}
                         minHeight={cookieBannerProps.minHeight}
                         tabHeight={subTabHeight}
+                        is_rtl={is_rtl}
                     ></Wrapper>
                 ) : null}
             </OverlayContainer>

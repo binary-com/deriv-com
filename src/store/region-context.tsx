@@ -5,6 +5,7 @@ import {
     african_countries,
     cpa_plan_countries,
     p2p_countries,
+    not_available_appgallery_countries,
 } from 'common/country-base'
 import useWebsiteStatus from 'components/hooks/use-website-status'
 import {
@@ -14,7 +15,7 @@ import {
     isTestlink,
     isEuDomain,
     queryParams,
-    validate_p2p_country,
+    getP2PCookie,
 } from 'common/utility'
 import { TRegion } from 'types/generics'
 
@@ -33,7 +34,8 @@ type RegionContextType = Record<
     | 'is_latam'
     | 'is_row'
     | 'is_dev'
-    | 'is_africa',
+    | 'is_africa'
+    | 'is_appgallery_supported',
     boolean
 > & { user_country: string }
 
@@ -54,6 +56,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         is_africa: false,
     })
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
+    const [is_appgallery_supported, setAppgallerySupported] = useState(false)
     const [is_p2p_loading, setP2PLoading] = useState(true)
     const [user_country, setUserCountry] = useState(null)
 
@@ -81,17 +84,12 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
         const is_dev = isLocalhost() || isTestlink()
         if (website_status) {
             const { clients_country, p2p_config } = website_status
-            //QA testing purposes
+            const p2p_cookie = getP2PCookie()
+            setP2P(p2p_cookie, p2p_config)
             if (qa_url_region) {
-                p2p_countries.includes(qa_url_region)
-                    ? setP2PAllowedCountry(true)
-                    : setP2PAllowedCountry(false)
-                setP2PLoading(false)
-            } else if ('p2p_config' in website_status && p2p_config) {
-                setP2PAllowedCountry(validate_p2p_country(p2p_config))
-                setP2PLoading(false)
-            } else if ('p2p_config' in website_status && !p2p_config) {
-                setP2PLoading(false)
+                not_available_appgallery_countries.includes(qa_url_region)
+                    ? setAppgallerySupported(false)
+                    : setAppgallerySupported(true)
             }
             setUserCountry(clients_country)
             setRegion({
@@ -107,6 +105,27 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
             })
         }
     }, [residence, user_ip_country, website_status])
+
+    const setP2P = (p2p_cookie, p2p_config) => {
+        if (p2p_cookie) {
+            setP2PAllowedCountry(!JSON.parse(p2p_cookie))
+            setP2PLoading(false)
+        } else {
+            if ('p2p_config' in website_status && p2p_config) {
+                setP2PAllowedCountry(true)
+                setP2PLoading(false)
+            } else if ('p2p_config' in website_status && !p2p_config) {
+                setP2PLoading(false)
+            }
+        }
+        //QA testing purposes
+        if (qa_url_region) {
+            p2p_countries.includes(qa_url_region)
+                ? setP2PAllowedCountry(true)
+                : setP2PAllowedCountry(false)
+            setP2PLoading(false)
+        }
+    }
 
     const {
         is_region_loading,
@@ -135,6 +154,7 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                 is_africa,
                 is_row,
                 is_dev,
+                is_appgallery_supported,
             }}
         >
             {children}

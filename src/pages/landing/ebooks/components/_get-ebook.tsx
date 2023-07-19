@@ -5,7 +5,7 @@ import Login, { TSocialProvider } from 'common/login'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import validation from 'common/validation'
 import { Input, Button } from 'components/form'
-import { Header, Text, LocalizedLinkText } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { Flex } from 'components/containers'
 import AgreementLabel from 'components/custom/_agreement-label'
@@ -15,6 +15,8 @@ import Facebook from 'images/svg/custom/facebook-blue.svg'
 import Google from 'images/svg/custom/google.svg'
 import ViewEmailImage from 'images/common/sign-up/view-email.png'
 import apiManager from 'common/websocket'
+import Link from 'features/components/atoms/link'
+import useRegion from 'components/hooks/use-region'
 
 type GetEbookProps = {
     color?: string
@@ -35,7 +37,6 @@ const SignupFormWrapper = styled(Flex)`
         }
     }
 `
-
 const InputWrapper = styled.div`
     width: 400px;
 
@@ -69,7 +70,6 @@ const EmailButton = styled(Button)`
         width: auto;
     }
 `
-
 const SocialButton = styled(Button)`
     width: 12.5rem;
     min-width: 116px;
@@ -128,7 +128,6 @@ const SocialButtonText = styled.div`
         }
     }
 `
-
 const SignupWithContainer = styled.div`
     display: flex;
     justify-content: space-between;
@@ -139,13 +138,11 @@ const SignupWithContainer = styled.div`
         margin-top: 2rem;
     }
 `
-
 const Line = styled.div`
     width: 130px;
     height: 1px;
     background-color: ${(props) => (props.color ? props.color : 'var(--color-grey-6)')};
 `
-
 const StyledText = styled(Text)<{ tabletFontSize?: string }>`
     color: ${(props) => (props.color ? props.color : 'var(--color-grey-6)')};
 
@@ -156,13 +153,6 @@ const StyledText = styled(Text)<{ tabletFontSize?: string }>`
         font-size: ${({ tabletFontSize }) => tabletFontSize || 'var(--text-size-xxs)'};
     }
 `
-
-const StyledLocalizedLink = styled(LocalizedLinkText)`
-    @media ${device.tabletL} {
-        font-size: 10px;
-    }
-`
-
 const ResponseWrapper = styled.div`
     justify-content: center;
     max-width: 330px;
@@ -180,7 +170,6 @@ const ResponseWrapper = styled.div`
         color: white;
     }
 `
-
 const EmailImage = styled.img`
     margin: 0 auto;
     width: 20rem;
@@ -193,6 +182,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
     const [submit_status, setSubmitStatus] = React.useState('')
     const [email_error_msg, setEmailErrorMsg] = React.useState('')
     const [submit_error_msg, setSubmitErrorMsg] = React.useState('')
+    const { is_eu } = useRegion()
 
     const handleChange = (event) => {
         setChecked(event.currentTarget.checked)
@@ -281,15 +271,17 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
             })
     }
 
+    const security_pdf_link = `/tnc${is_eu ? '/eu' : ''}/security-and-privacy.pdf`
+
     return submit_status === 'success' ? (
         <ResponseWrapper>
-            <EmailImage src={ViewEmailImage} alt="Email" />
+            <EmailImage src={ViewEmailImage} alt={localize('_t_Email_t_')} />
             <Header as="h3" type="section-title" align="center" weight="normal">
-                {localize('Check your email')}
+                <Localize translate_text="_t_Check your email_t_" />
             </Header>
             <Text align="center">
                 <Localize
-                    translate_text="We've sent a message to {{email}} with a link to activate your account."
+                    translate_text="_t_We've sent a message to {{email}} with a link to activate your account._t_"
                     values={{ email: email }}
                 />
             </Text>
@@ -310,7 +302,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                             input_background="grey-8"
                             label_focus_color="grey-7"
                             label_color="black-3"
-                            placeholder={localize('email address')}
+                            placeholder={localize('_t_email address_t_')}
                             handleError={clearEmail}
                             onChange={handleInputChange}
                             onBlur={handleValidation}
@@ -335,19 +327,20 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                             is_submitting || !is_checked || Boolean(email_error_msg) || !email
                         }
                     >
-                        {localize('Get your free ebook now!')}
+                        <Localize translate_text="_t_Get your free ebook now!_t_" />
                     </EmailButton>
                     <Header as="p" type="small" weight="regular" color="grey-5" mt="0.8rem">
                         <Localize
-                            translate_text="By pressing “Get your free ebook now!”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>."
+                            translate_text="_t_By pressing “Get your free ebook now!”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>._t_"
                             components={[
-                                <StyledLocalizedLink
+                                <Link
+                                    textcolor="brand"
                                     key={0}
-                                    as="a"
-                                    href="/tnc/security-and-privacy.pdf"
-                                    size="1.2rem"
-                                    color="red"
-                                    rel="noopener noreferrer"
+                                    url={{
+                                        target: '_blank',
+                                        type: 'non-company',
+                                        href: security_pdf_link,
+                                    }}
                                 />,
                             ]}
                         />
@@ -356,7 +349,7 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                 <SignupWithContainer>
                     <Line color={color} />
                     <StyledText color={color} align="center" tabletFontSize="12px">
-                        {localize('Or sign up with')}
+                        <Localize translate_text="_t_Or sign up with_t_" />
                     </StyledText>
                     <Line color={color} />
                 </SignupWithContainer>
@@ -376,7 +369,12 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                         type="button"
                     >
                         <SocialButtonText>
-                            <img src={Google} alt="google" width="24" height="24" />
+                            <img
+                                src={Google}
+                                alt={localize('_t_google_t_')}
+                                width="24"
+                                height="24"
+                            />
                             <span>Google</span>
                         </SocialButtonText>
                     </SocialButton>
@@ -388,7 +386,12 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                         type="button"
                     >
                         <SocialButtonText>
-                            <img src={Facebook} alt="facebook" width="24" height="24" />
+                            <img
+                                src={Facebook}
+                                alt={localize('_t_facebook_t_')}
+                                width="24"
+                                height="24"
+                            />
                             <span>Facebook</span>
                         </SocialButtonText>
                     </SocialButton>

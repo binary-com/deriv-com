@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { Popover, ArrowContainer } from 'react-tiny-popover'
 import { TAvailableLiveMarkets, TInstrumentData, TPopupType } from '../_types'
@@ -11,7 +11,22 @@ import * as icons from 'components/elements/symbols'
 import useRegion from 'components/hooks/use-region'
 import dl from 'images/svg/trading-specification/dl.svg'
 import swf from 'images/svg/trading-specification/swf.svg'
-import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
+
+type TableRowProps = {
+    bg?: string
+}
+
+type TTableHeaderCell = {
+    text: TString
+    toolTip: TString
+    infoIcon?: string
+}
+
+type TTableCell = {
+    text?: string | number
+}
 
 export const TableContainer = styled.div`
     display: grid;
@@ -40,9 +55,6 @@ export const TableData = styled.table`
         width: 100%;
     }
 `
-type TableRowProps = {
-    bg?: string
-}
 export const TableRow = styled.tr<TableRowProps>`
     border-bottom: 2px solid var(--color-grey-8);
     background: ${({ bg }) => bg};
@@ -123,15 +135,6 @@ export const CellIcon = styled.div`
         padding: 0 5px 0 0;
     }
 `
-type TTableHeaderCell = {
-    text?: ReactElement
-    infoIcon?: string
-    toolTip?: ReactElement
-}
-
-type TTableCell = {
-    text?: string | number
-}
 const StyledTableHeaderText = styled(HeaderText)`
     text-decoration: underline;
     text-decoration-style: dashed;
@@ -145,14 +148,17 @@ const StyledToolTipContainer = styled.div`
 const StyledImg = styled.img`
     cursor: pointer;
 `
+
 export const TableHeaderCell = ({ text, infoIcon, toolTip }: TTableHeaderCell) => {
     const [isInfoVisible, setIsInfoVisible] = useState(false)
     const onMouseOver = () => {
         setIsInfoVisible(true)
     }
+
     const onMouseLeave = () => {
         setIsInfoVisible(false)
     }
+
     return (
         <>
             {toolTip && (
@@ -184,7 +190,7 @@ export const TableHeaderCell = ({ text, infoIcon, toolTip }: TTableHeaderCell) =
                                     weight="normal"
                                     type="extra-small"
                                 >
-                                    {toolTip}
+                                    <Localize translate_text={toolTip} />
                                 </HeaderText>
                             </StyledToolTipContainer>
                         </ArrowContainer>
@@ -203,12 +209,13 @@ export const TableHeaderCell = ({ text, infoIcon, toolTip }: TTableHeaderCell) =
                     onMouseOver={onMouseOver}
                     onMouseLeave={onMouseLeave}
                 >
-                    {text}
+                    <Localize translate_text={text} />
                 </StyledTableHeaderText>
             </Cell>
         </>
     )
 }
+
 const StyledHeaderText = styled(HeaderText)`
     width: auto;
     @media ${device.tabletL} {

@@ -8,6 +8,7 @@ import { QueryImage, ImageWrapper } from 'components/elements'
 import device from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { TString } from 'types/generics'
+import { localize } from 'components/localization'
 
 type MouseEvent = MouseEventHandler<HTMLDivElement> &
     ((event: MouseEventHandler<HTMLDivElement>) => void)
@@ -137,7 +138,13 @@ const LeaderCard = ({ image, name, position, link }: LeaderType) => {
             width={is_mobile ? '98px' : '120px'}
             height={is_mobile ? '98px' : '120px'}
         >
-            <QueryImage width="100%" height="100%" data={image} alt="leader" loading="lazy" />
+            <QueryImage
+                width="100%"
+                height="100%"
+                data={image}
+                alt={localize('_t_leader_t_')}
+                loading="lazy"
+            />
             {is_popup_shown && <Modal name={name} position={position} link={link} />}
         </StyledImageWrapper>
     )

@@ -107,6 +107,7 @@ const DisclaimerText = styled(Header)`
         padding: 5rem 16px 0;
     }
 `
+
 const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
     const { is_eu } = useRegion()
     const specification_data = is_eu ? forex_specification.eu_data : forex_specification.data
@@ -174,7 +175,7 @@ const TradingSpecificationTable = ({ market }: TLiveMarketTableProps) => {
             <TableContainer>
                 <StyledFlex>
                     <SearchForm onSubmit={handleSubmit}>
-                        <StyledSearchIcon src={SearchIcon} alt="search-icon" />
+                        <StyledSearchIcon src={SearchIcon} alt={localize('_t_search-icon_t_')} />
                         <SearchInput
                             autoFocus
                             placeholder={localize('_t_Find Instrument_t_')}

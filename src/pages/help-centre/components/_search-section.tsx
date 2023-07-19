@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { useFilteredCategory, useFilteredQuestions } from '../data/_hooks'
 import SearchResult from './_search-result'
 import { all_questions } from './_constants'
+import TalkToUs from './_talk-to-us'
 import { Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize, localize } from 'components/localization'
@@ -169,6 +170,7 @@ const SearchSection = () => {
                             suggested_topics={searched_question}
                         />
                     )}
+                    <TalkToUs />
                 </Wrapper>
             </Container>
         </Section>

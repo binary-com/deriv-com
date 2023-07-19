@@ -76,7 +76,7 @@ export const allOptionsMarkets: AllOptionsMarket = {
         },
         link: {
             type: 'internal',
-            to: '/markets/syntactic',
+            to: '/markets/synthetic/',
         },
         title: '_t_Derived indices_t_',
     },

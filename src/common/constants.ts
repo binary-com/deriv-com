@@ -1,4 +1,4 @@
-const MAP_API_KEY = process.env.MAP_API_KEY
+const MAP_API_KEY = process.env.GATSBY_MAP_API_KEY
 const isBrowser = () => typeof window !== 'undefined'
 
 export const deriv_com_url = 'deriv.com'

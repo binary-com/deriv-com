@@ -156,7 +156,7 @@ export const onClientEntry = () => {
     //datadog
     const dd_options = {
         clientToken: process.env.DATADOG_CLIENT_TOKEN,
-        applicationId: process.env.DATADOG_APPLICATION_ID,
+        applicationId: process.env.GATSBY_DATADOG_APPLICATION_ID,
         site: 'datadoghq.com',
         service: serviceName,
         env: dataDogEnv,

@@ -42,7 +42,7 @@ export const touch_and_no_touch_content_items: OptionContentItemData[] = [
         texts: [
             '_t_Predict whether the market price will touch or not touch the chosen barrier (target) during the contract period._t_',
             "_t_If you select 'Touches', you receive the payout if the market price touches the barrier at any time during the contract period._t_",
-            "_t_If you select 'Does not Touch', you receive the payout if the market never touches the barrier at any time during the contract period._t_",
+            "_t_If you select 'No Touch', you receive the payout if the market never touches the barrier at any time during the contract period._t_",
             '_t_If the selected condition is not met, your stake is lost._t_',
         ],
     },

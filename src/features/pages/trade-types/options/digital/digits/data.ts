@@ -185,7 +185,7 @@ export const digit_options_faq: OptionsFAQDataItem[] = [
     },
     {
         id: 3,
-        question: '_t_Can I close a Digits Bet contract before the expiry time?_t_',
+        question: '_t_Can I close a Digits contract before the expiry time?_t_',
         answers: [
             {
                 id: 1,
@@ -223,7 +223,7 @@ export const digit_options_faq: OptionsFAQDataItem[] = [
     },
     {
         id: 5,
-        question: '_t_What are the contract duration ranges for Digit contract types?_t_',
+        question: '_t_What are the contract duration ranges for Digits contract types?_t_',
         answers: [
             {
                 id: 1,

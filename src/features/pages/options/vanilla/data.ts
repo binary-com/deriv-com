@@ -18,9 +18,9 @@ export const vanillaOptionsContentItems: OptionContentItemData[] = [
         type: 'sections',
         icon: {
             src: CallPutIcon,
-            alt: '_t_Call/Put Icon_t_',
+            alt: '_t_Call/Put_t_',
         },
-        title: '_t_Call/Put Icon_t_',
+        title: '_t_Call/Put_t_',
         sections: [
             {
                 title: '_t_Call option_t_',

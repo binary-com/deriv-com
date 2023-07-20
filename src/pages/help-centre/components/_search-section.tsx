@@ -162,6 +162,7 @@ const SearchSection = () => {
                             />
                         )}
                     </SearchForm>
+                    <TalkToUs />
 
                     {has_search_value && (
                         <SearchResult
@@ -170,7 +171,6 @@ const SearchSection = () => {
                             suggested_topics={searched_question}
                         />
                     )}
-                    <TalkToUs />
                 </Wrapper>
             </Container>
         </Section>

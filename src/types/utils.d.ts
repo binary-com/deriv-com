@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-unresolved
+import { SwiperOptions } from 'swiper/types'
+
 declare global {
     type KeysMatching<T, V> = {
         [K in keyof T]-?: T[K] extends V ? K : never
@@ -26,6 +29,18 @@ declare global {
         : T extends ReadonlyMap<infer KeyType, infer ValueType>
         ? ReadonlyMap<DeepPartial<KeyType>, DeepPartial<ValueType>>
         : { [K in keyof T]?: DeepPartial<T[K]> }
+}
+declare global {
+    namespace JSX {
+        interface IntrinsicElements {
+            'swiper-container': React.DetailedHTMLProps<
+                React.HTMLAttributes<HTMLElement>,
+                HTMLElement,
+                SwiperOptions
+            >
+            'swiper-slide': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>
+        }
+    }
 }
 
 export {}

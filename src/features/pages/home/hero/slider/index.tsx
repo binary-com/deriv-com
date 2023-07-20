@@ -1,10 +1,13 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo, useRef } from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, EffectFade } from 'swiper'
+// eslint-disable-next-line import/no-unresolved
+import { register } from 'swiper/element/bundle'
 import SliderWrapper from './slider-wrapper'
 import useRegion from 'components/hooks/use-region'
 
+register()
 const HomeHeroSlider = () => {
     const { is_eu } = useRegion()
 
@@ -83,25 +86,33 @@ const HomeHeroSlider = () => {
         return slide_images
     }, [is_eu])
 
+    const swiperElRef = useRef(null)
+
     return (
         <SliderWrapper>
-            <Swiper
-                speed={1500}
+            <swiper-container
+                ref={swiperElRef}
+                slides-per-view="1"
+                // navigationOptions="true"
+                // speed={1500}
                 effect={'fade'}
-                slidesPerView={1}
-                fadeEffect={{
-                    crossFade: true,
-                }}
+                // slides-per-view={1}
+                // fadeEffect={{
+                //     crossFade: true,
+                // }}
                 direction="horizontal"
-                modules={[EffectFade, Autoplay]}
-                autoplay={{
-                    delay: 2000,
-                }}
+                // modules={[EffectFade]}
+                // autoplay={{
+                //     delay: 2000,
+                // }}
+                autoplay-delay="2000"
+                // effect="slide"
+                fade-effect-cross-fade="true"
             >
                 {items.map((slide) => (
-                    <SwiperSlide key={slide.key}>{slide.image}</SwiperSlide>
+                    <swiper-slide key={slide.key}>{slide.image}</swiper-slide>
                 ))}
-            </Swiper>
+            </swiper-container>
         </SliderWrapper>
     )
 }

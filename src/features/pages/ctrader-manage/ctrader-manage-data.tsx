@@ -107,4 +107,16 @@ export const ctrader_manage_data: CtraderManageDataType = {
         },
         button_text: '_t_Delete account_t_',
     },
+    cashier: {
+        title: '_t_Almost done_t_',
+        paragraph: {
+            text: '_t_To manage your funds, please click the button bellow._t_',
+        },
+        button_text: '_t_Go to Cashier_t_',
+        button_url: {
+            type: 'non-company',
+            target: '_blank',
+            href: 'https://deriv-app-git-fork-hirad-deriv-ctrader-flow-new.binary.sx/account/cashier',
+        },
+    },
 }

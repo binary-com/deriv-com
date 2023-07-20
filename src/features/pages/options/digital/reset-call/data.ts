@@ -189,7 +189,7 @@ export const reset_call_faq: OptionsFAQDataItem[] = [
             {
                 id: 1,
                 type: 'text',
-                text: `_t_Reset Call/Reset Put contracts offer the ability to reset the strike price at a potentially more advantageous level. In this contract, your market prediction is your contract's exit price against the reset price (instead of the entry price). Reset contract types also typically offer offer a lower fixed payout percentage compared to Rise/Fall contracts._t_`,
+                text: `_t_Reset Call/Reset Put contracts offer the ability to reset the strike price at a potentially more advantageous level. In this contract, your market prediction is your contract's exit price against the reset price (instead of the entry price). Reset contract types also typically offer a lower fixed payout percentage compared to Rise/Fall contracts._t_`,
             },
             {
                 id: 2,

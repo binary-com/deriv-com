@@ -49,7 +49,8 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                 <Swiper
                     ref={swiper_ref}
                     speed={1000}
-                    slidesPerView={2}
+                    slidesPerView={3}
+                    spaceBetween={30}
                     direction="horizontal"
                     navigation={{ nextEl: '.swiper-button-next' }}
                 >

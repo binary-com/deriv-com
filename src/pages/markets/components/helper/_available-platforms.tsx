@@ -72,7 +72,7 @@ const StyledFlex = styled(Flex)`
     padding: 0.8rem;
     @media ${device.mobileL} {
         justify-content: start;
-        padding: 1.2rem;
+        padding: 0.9rem;
     }
 
     ${Text} {

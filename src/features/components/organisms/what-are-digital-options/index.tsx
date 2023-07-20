@@ -19,7 +19,7 @@ const WhatAreDigitalOptions = ({ heading, description }: WhatAreDigitalOptionsPr
             padding_block="20x"
             gap={'8x'}
         >
-            <Typography.Heading align="center">
+            <Typography.Heading align="center" as="h1">
                 <Localize translate_text={heading} />
             </Typography.Heading>
             <Typography.Paragraph align="center">

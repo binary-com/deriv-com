@@ -28,7 +28,7 @@ const WhyTradeOptions = ({ data }: { data: WhyTradeOptionsType }) => {
         >
             <Container.Fluid>
                 <Typography.Heading
-                    as="h2"
+                    as="h3"
                     textcolor="inverted"
                     align="center"
                     size="small"
@@ -43,7 +43,7 @@ const WhyTradeOptions = ({ data }: { data: WhyTradeOptionsType }) => {
                     ))}
                 </Flex.Box>
                 <Flex.Box direction="col" align="center" mt="12x" md={{ mt: '20x' }}>
-                    <Typography.Heading as="h4" textcolor="inverted" size="xxs" mb="8x">
+                    <Typography.Heading as="h5" textcolor="inverted" size="xxs" mb="8x">
                         <Localize translate_text={data.heading2} />
                     </Typography.Heading>
                     <LinkButton.Primary url={data.button.url}>

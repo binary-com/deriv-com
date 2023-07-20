@@ -29,7 +29,7 @@ const TradeItem = ({ data, ...rest }: TradeItemProps) => {
         >
             <Image src={data.icon_src} width={48} height={48} />
             <Typography.Heading
-                as="h3"
+                as="h4"
                 align="center"
                 size="xxs"
                 textcolor="inverted"

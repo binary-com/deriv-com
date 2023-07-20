@@ -264,7 +264,6 @@ If preferable to use manual deployment, you can use [gh-pages](https://pages.git
     This will be deployed to name.github.io/deriv-com/br/fix_all_the_bugs
 
 ⚠️ You have to enable pathPrefix in gatsby-config for manual deployment, otherwise, the resources will not be uploaded to the site
-
 ## FAQ
 
 -   [how to create a new page?](documents/implementation-guide.md#create-new-page)

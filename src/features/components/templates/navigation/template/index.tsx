@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, ReactNode, useRef, useState } from 'react'
+import React, { HTMLAttributes, ReactNode, useEffect, useRef, useState } from 'react'
 import { NavItems } from '../types'
 import DesktopMenu from './desktop-menu'
 import * as styles from './nav.template.module.scss'
@@ -41,6 +41,18 @@ const NavTemplate = ({
     const [is_menu_open, setIsMenuOpen] = useState(false)
 
     const { is_mobile_or_tablet } = useBreakpoints()
+
+    const handleScroll = () => {
+        document.body.style.overflow = is_menu_open && is_mobile_or_tablet ? 'hidden' : 'scroll'
+        document.body.style.position = is_menu_open && is_mobile_or_tablet ? 'fixed' : ''
+        const overlay_container = document.getElementById('overlay-container')
+        overlay_container
+            ? (overlay_container.style.display = is_menu_open && is_mobile_or_tablet ? 'none' : '')
+            : null
+    }
+    useEffect(() => {
+        handleScroll()
+    }, [is_menu_open])
 
     const onMenuToggleClick = () => {
         setIsMenuOpen((prevState) => !prevState)

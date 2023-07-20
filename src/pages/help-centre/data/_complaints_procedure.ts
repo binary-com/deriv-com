@@ -38,7 +38,7 @@ const complaints_procedure: TQuestionsData = {
                         items: [{
                             translation_text:
                                 '_t_Initiate the complaint process by clicking the provided <0>link.</0>_t_',
-                            translation_components: [{ key: 0, type: 'link', to: '/contact_us/?is_livechat_open=true' }],
+                            translation_components: [{ key: 0, type: 'link', to: 'https://direct.lc.chat/12049137/142' }],
                         }, {
                             translation_text:
                                 '_t_Respond to the questions that appear on your screen._t_',

@@ -171,6 +171,7 @@ export const onClientEntry = () => {
 
     const push_woosh = new Pushwoosh()
     if (isLive() && isServiceWorkerSupported()) {
+        console.log('service worker is registered!')
         pushwooshInit(push_woosh)
     }
 

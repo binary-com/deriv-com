@@ -37,7 +37,7 @@ export const AvailableDigitalOptionsData: OptionNavigationType[] = [
         button_text: '_t_Asians_t_',
     },
     {
-        to: '/trade-types/options/digital-options/onlyups-onlydowns',
+        to: '/trade-types/options/digital-options/only-ups-only-downs',
         option_name: 'only-up',
         button_text: '_t_Only Ups/Only Downs_t_',
     },

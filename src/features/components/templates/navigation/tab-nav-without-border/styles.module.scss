@@ -1,0 +1,10 @@
+.swiper_button_next {
+    &::after {
+        display: none !important;
+    }
+}
+.swiper_wrapper {
+    position: relative;
+    max-width: 28rem;
+    margin-inline: auto;
+}

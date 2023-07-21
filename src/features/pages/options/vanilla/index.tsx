@@ -9,7 +9,7 @@ import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
-import PageNotFound from 'features/pages/404'
+import PageNotFound from 'features/pages/404-error'
 
 const VanillaOptions = () => {
     const { is_row } = useRegion()

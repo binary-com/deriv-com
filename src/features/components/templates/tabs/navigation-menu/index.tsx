@@ -29,7 +29,13 @@ const NavigationTabMenu = ({
                 <Tab.MenuItem selected={selected} is_no_border_bottom={is_no_border_bottom}>
                     {icon && (
                         <FlexBox.Box justify="center" padding_block="6x">
-                            <Image src={icon} width="48px" height="48px" />
+                            <Image
+                                srcSet={`${icon} 48w, ${icon} 64w`}
+                                sizes="(min-width: 600px) 64px,
+                                        48px"
+                                src={icon}
+                                alt="icon"
+                            />
                         </FlexBox.Box>
                     )}
                     <Typography.Paragraph

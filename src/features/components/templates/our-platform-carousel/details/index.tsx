@@ -3,8 +3,12 @@ import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { getOSIcon } from '../_utils'
 import type { TPlatformDetails } from '../_utils'
+import { platform_images_item, platform_image_caption } from './details.module.scss'
 import { Flex } from 'components/containers'
 import { QueryImage, StyledLink } from 'components/elements'
+import Typography from 'features/components/atoms/typography'
+import { Localize } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
 
 const StyledFlex = styled(Flex)`
     display: flex;
@@ -69,20 +73,27 @@ type DetailsProps = {
 
 const Details = ({ slide, platform_details }: DetailsProps) => {
     const images = useStaticQuery(image_query)
+    const { is_eu } = useRegion()
+
     const selected_platform = platform_details && platform_details[slide]
+    const image =
+        typeof selected_platform.image === 'function'
+            ? selected_platform.image({ is_eu })
+            : selected_platform.image
 
     return (
         <Flex width="60%" fd="column" ai="center" jc="end" laptopM={{ width: '50%' }}>
             <Flex max_height="550px" mb="24px">
-                <StyledQueryImage
+                {/* <StyledQueryImage
                     height="100%"
                     data={images[selected_platform?.image_key]}
                     alt="test"
-                />
+                /> */}
+                {image}
             </Flex>
             <Flex>
                 <StyledFlex>
-                    {selected_platform?.download_links.is_desktop?.map((link, index) => {
+                    {/* {selected_platform?.download_links.is_desktop?.map((link, index) => {
                         return (
                             <DownloadLink
                                 key={link.type}
@@ -99,7 +110,19 @@ const Details = ({ slide, platform_details }: DetailsProps) => {
                                 />
                             </DownloadLink>
                         )
-                    })}
+                    })} */}
+                    {selected_platform.image_caption && (
+                        <Typography.Paragraph
+                            className={platform_image_caption}
+                            align="center"
+                            font_family="UBUNTU"
+                        >
+                            <Localize
+                                translate_text={selected_platform.image_caption.text}
+                                components={selected_platform.image_caption.components}
+                            />
+                        </Typography.Paragraph>
+                    )}
                 </StyledFlex>
             </Flex>
         </Flex>

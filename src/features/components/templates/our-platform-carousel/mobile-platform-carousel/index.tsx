@@ -10,8 +10,11 @@ import {
     PLATFORMS_CAROUSEL_DELAY,
     TPlatformDetails,
 } from '../_utils'
-import { carousel_item_wrapper } from './mobile-platform-carousel.module.scss'
-import { LocalizedLink } from 'components/localization'
+import {
+    carousel_item_wrapper,
+    platform_image_caption,
+} from './mobile-platform-carousel.module.scss'
+import { Localize, LocalizedLink } from 'components/localization'
 import {
     deriv_mt5_app_url,
     dmt5_android_url,
@@ -24,6 +27,7 @@ import { Carousel, QueryImage, StyledLink } from 'components/elements'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 import Box from 'features/components/atoms/box'
 import dclsx from 'features/utils/dclsx'
+import Typography from 'features/components/atoms/typography'
 
 const query = graphql`
     {
@@ -192,7 +196,7 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
             is_reinit_enabled={true}
         >
             {carousel_data?.map(
-                ({ image_key, title, icon, description, learn_more_link, download_links }) => {
+                ({ image_key, title, icon, description, learn_more_link, image_caption }) => {
                     return (
                         <Box className={dclsx(carousel_item_wrapper)} key={image_key}>
                             <Flex tabletL={{ mb: '56px' }}>
@@ -210,7 +214,7 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                     learn_more_link={learn_more_link}
                                 />
                             </Flex>
-                            {title === 'Deriv MT5' ? (
+                            {/* {title === 'Deriv MT5' ? (
                                 <OsBadges>
                                     <AppStoreBadge
                                         external
@@ -258,16 +262,28 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                         />
                                     </AppStoreBadge>
                                 </OsBadges>
-                            ) : (
-                                <Flex
-                                    ai="flex-start"
-                                    jc="center"
-                                    fw="wrap"
-                                    width="unset"
-                                    tabletL={{ m: '3.2rem 3.8rem' }}
-                                    mobileL={{ m: '32px 0 40px' }}
-                                >
-                                    {download_links.is_desktop.map((link) => (
+                            ) : ( */}
+                            <Flex
+                                ai="flex-start"
+                                jc="center"
+                                fw="wrap"
+                                width="unset"
+                                tabletL={{ m: '3.2rem 3.8rem' }}
+                                mobileL={{ m: '32px 0 40px' }}
+                            >
+                                {image_caption && (
+                                    <Typography.Paragraph
+                                        className={platform_image_caption}
+                                        align="center"
+                                        font_family="UBUNTU"
+                                    >
+                                        <Localize
+                                            translate_text={image_caption.text}
+                                            components={image_caption.components}
+                                        />
+                                    </Typography.Paragraph>
+                                )}
+                                {/* {download_links.is_desktop.map((link) => (
                                         <DownloadLink
                                             key={link.type}
                                             external
@@ -278,9 +294,9 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                         >
                                             <img src={getOSIcon(link.type)} alt={link.type} />
                                         </DownloadLink>
-                                    ))}
-                                </Flex>
-                            )}
+                                    ))} */}
+                            </Flex>
+                            {/* )} */}
                         </Box>
                     )
                 },

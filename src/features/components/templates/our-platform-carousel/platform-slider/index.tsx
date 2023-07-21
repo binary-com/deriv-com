@@ -192,6 +192,8 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
                                 {platform_details.map(({ title, icon, learn_more_link }, index) => {
                                     return (
                                         <Flex.Box
+                                            align="center"
+                                            justify="start"
                                             key={learn_more_link}
                                             onClick={() => clickHandler(index)}
                                             className={slide}

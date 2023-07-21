@@ -11,7 +11,7 @@
 }
 .selected_zone{
     position:absolute;
-    max-height: 152px;
+    height: 152px;
     left: 0;
     right: 0;
     box-shadow: rgba(131, 131, 131, 0.15) 0 16px 20px, rgba(131, 131, 131, 0.15) 0 0 20px;
@@ -36,6 +36,8 @@
     cursor: pointer;
     backface-visibility: hidden;
     margin-bottom: 40px;
+    inline-size: 100%;
+    block-size: 100%;
 }
 .scene{
     min-width: 100%;

@@ -28,6 +28,7 @@ import { useLangDirection } from 'components/hooks/use-lang-direction'
 import Box from 'features/components/atoms/box'
 import dclsx from 'features/utils/dclsx'
 import Typography from 'features/components/atoms/typography'
+import Image from 'features/components/atoms/image'
 
 const query = graphql`
     {
@@ -115,27 +116,29 @@ const settings = {
         width: 100%;
         height: 8px;
         @media ${device.tabletL} {
-            bottom: 228px;
+            bottom: 220px;
         }
-        @media (max-width: 660px) {
-            bottom: 268px;
-        }
-        @media (max-width: 425px) {
-            bottom: 292px;
-        }
-        @media (max-width: 375px) {
-            bottom: 304px;
-        }
-        @media (max-width: 317px) {
-            bottom: 362px;
-        }
+        // @media (max-width: 660px) {
+        //     bottom: 220px;
+        // }
+        // @media (max-width: 425px) {
+        //     bottom: 220px;
+        // }
+        // @media (max-width: 375px) {
+        //     bottom: 220px;
+        // }
+        // @media (max-width: 317px) {
+        //     bottom: 200px;
+        // }
     `,
 } as const
 
 const PlatformDetails = ({ title, icon, description, learn_more_link }: PlatformDetailsProps) => {
     return (
         <>
-            <ImageTag width="40px" height="40px" src={icon} alt="platform" />
+            {/* <ImageTag width="40px" height="40px" src={icon} alt="platform" /> */}
+            <Image src={icon} width={40} height={40} />
+
             <Flex
                 fd="column"
                 ai="flex-start"
@@ -144,6 +147,7 @@ const PlatformDetails = ({ title, icon, description, learn_more_link }: Platform
                 height="unset"
                 pt="10px"
                 mr="20px"
+                ml="20px"
                 laptopM={{ pt: '9px' }}
                 tabletL={{ width: '230px', pt: '0.5rem' }}
             >
@@ -196,15 +200,57 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
             is_reinit_enabled={true}
         >
             {carousel_data?.map(
-                ({ image_key, title, icon, description, learn_more_link, image_caption }) => {
+                ({
+                    image_key,
+                    title,
+                    icon,
+                    description,
+                    learn_more_link,
+                    image_caption,
+                    image,
+                }) => {
                     return (
                         <Box className={dclsx(carousel_item_wrapper)} key={image_key}>
                             <Flex tabletL={{ mb: '56px' }}>
-                                <MobileImage
+                                {/* <MobileImage
                                     data={data[image_key]}
                                     alt={image_key}
                                     height={'55vw'}
-                                />
+                                /> */}
+                                {image}
+                            </Flex>
+                            <Flex
+                                ai="flex-start"
+                                jc="center"
+                                fw="wrap"
+                                width="unset"
+                                tabletL={{ m: '3.2rem 3.8rem' }}
+                                mobileL={{ m: '32px 0 40px' }}
+                            >
+                                {image_caption && (
+                                    <Typography.Paragraph
+                                        className={platform_image_caption}
+                                        align="center"
+                                        font_family="UBUNTU"
+                                    >
+                                        <Localize
+                                            translate_text={image_caption.text}
+                                            components={image_caption.components}
+                                        />
+                                    </Typography.Paragraph>
+                                )}
+                                {/* {download_links.is_desktop.map((link) => (
+                                        <DownloadLink
+                                            key={link.type}
+                                            external
+                                            type={link?.link_type}
+                                            to={link?.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <img src={getOSIcon(link.type)} alt={link.type} />
+                                        </DownloadLink>
+                                    ))} */}
                             </Flex>
                             <Flex>
                                 <PlatformDetails
@@ -263,7 +309,7 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                     </AppStoreBadge>
                                 </OsBadges>
                             ) : ( */}
-                            <Flex
+                            {/* <Flex
                                 ai="flex-start"
                                 jc="center"
                                 fw="wrap"
@@ -282,8 +328,8 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                             components={image_caption.components}
                                         />
                                     </Typography.Paragraph>
-                                )}
-                                {/* {download_links.is_desktop.map((link) => (
+                                )} */}
+                            {/* {download_links.is_desktop.map((link) => (
                                         <DownloadLink
                                             key={link.type}
                                             external
@@ -295,7 +341,7 @@ const MobilePlatformCarousel = ({ carousel_data }: MobilePlatformCarouselProps) 
                                             <img src={getOSIcon(link.type)} alt={link.type} />
                                         </DownloadLink>
                                     ))} */}
-                            </Flex>
+                            {/* </Flex> */}
                             {/* )} */}
                         </Box>
                     )

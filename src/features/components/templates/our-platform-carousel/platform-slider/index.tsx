@@ -24,6 +24,9 @@ import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import dclsx from 'features/utils/dclsx'
 import Flex from 'features/components/atoms/flex-box'
+import Typography from 'features/components/atoms/typography'
+import { Localize } from 'components/localization'
+import Image from 'features/components/atoms/image'
 
 // const SelectedZone = styled(Flex)`
 //     left: 0;
@@ -41,9 +44,10 @@ const SelectedSlide = ({ selected_slide }: SelectedSlideProps) => {
     if (selected_slide) {
         const { title, icon, description, learn_more_link } = selected_slide
         return (
-            <Flex.Box className={dclsx(selected_zone)}>
-                <ImageTag src={icon} alt={title} />
-                <Flex.Box direction="col" justify="start" ml="4x">
+            <Flex.Box className={dclsx(selected_zone)} gap="8x">
+                {/* <ImageTag src={icon} alt={title} /> */}
+                <Image src={icon} width={40} height={40} />
+                <Flex.Box direction="col" justify="start">
                     {/*ml="8px"*/}
                     <PlatformContent
                         title={title}
@@ -194,12 +198,19 @@ const PlatformSlider = ({ slide_index, onSelectSlide, platform_details }: Platfo
                                         <Flex.Box
                                             align="center"
                                             justify="start"
-                                            key={learn_more_link}
+                                            key={index}
                                             onClick={() => clickHandler(index)}
-                                            className={slide}
+                                            className={dclsx(
+                                                slide,
+                                                slide_index == index ? 'activated' : 'diactivated',
+                                            )}
                                         >
-                                            <ImageTag src={icon} />
-                                            <Header type="subtitle-1">{title}</Header>
+                                            {/* <ImageTag src={icon} /> */}
+                                            <Image src={icon} width={40} height={40} />
+
+                                            <Typography.Heading as="h3" size="xxs">
+                                                <Localize translate_text={title} />
+                                            </Typography.Heading>
                                         </Flex.Box>
                                     )
                                 })}

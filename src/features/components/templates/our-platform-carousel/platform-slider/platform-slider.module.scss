@@ -4,21 +4,25 @@
 .box_wrapper{
     width: fit-content;
     height: 640px;
-    background-color: rgba(249, 251, 255, 1);
     // padding: 0 20px 8px;
     // margin: 0 auto;
 
 }
 .selected_zone{
     position:absolute;
-    height: 152px;
+    // height: 152px;
     left: 0;
     right: 0;
-    box-shadow: rgba(131, 131, 131, 0.15) 0 16px 20px, rgba(131, 131, 131, 0.15) 0 0 20px;
-    top: calc(50% - 152px / 2);
+    top: calc(50% - 18rem / 2);
     z-index: 4;
     background-color: white;
-    padding: 16px;
+    padding: 1.5rem 1rem 1rem 1rem;
+    @include breakpoints(tablet) {
+        border-block-end: 6px solid red;
+        border-radius: 8px;
+        block-size: 18rem;
+        box-shadow: 0px 16px 20px rgba(131, 131, 131, 0.15), 0px 0px 20px rgba(131, 131, 131, 0.15);
+    }
 }
 .view_port{
     position: relative;
@@ -38,6 +42,7 @@
     margin-bottom: 40px;
     inline-size: 100%;
     block-size: 100%;
+    grid-column-gap: 1rem;
 }
 .scene{
     min-width: 100%;
@@ -54,9 +59,9 @@
     position: relative;
     margin: 0 auto;
     height: 100%;
-    width: 384px;
+    width: 360px;
     @include breakpoints(desktop) {
-        width: 384px;
+        width: 360px;
     }
     // @media ${device.desktop} {
     //     width: 384px;
@@ -75,10 +80,10 @@
     background: linear-gradient(
         to top,
         rgba(249, 251, 255, 0) 0%,
-        rgba(249, 251, 255, 1) 100%
+        #fff 100%
     );
 }
 .shadow_end{
     bottom: -0.5px;
-    background: linear-gradient(rgba(249, 251, 255, 0) 0%, rgba(249, 251, 255, 1) 100%);
+    background: linear-gradient(rgba(249, 251, 255, 0) 0%, #fff 100%);
 }

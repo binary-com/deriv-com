@@ -9,8 +9,8 @@ import { TString } from 'types/generics'
 type AgreementDataType = {
     link_text: TString
     link_url?: string
-    setCheck: React.Dispatch<React.SetStateAction<boolean>>
     name: string
+    optional?: boolean
 }
 type AccountTermsProps = {
     updateData: (e) => void
@@ -49,61 +49,48 @@ const CheckBox = styled.input`
 `
 
 const AccountTerms = ({ affiliate_terms_of_use, updateData, onValidate }: AccountTermsProps) => {
-    const [non_pep_declaration, setNonPepDeclaration] = useState(false)
-    const [tnc_accepted, setTncAccepted] = useState(false)
-    const [general_terms, setGeneralTermsAccepted] = useState(false)
-    const [is_eu_checked, setEuChecked] = useState(false)
-    const [is_partner_checked, setPartnerChecked] = useState(false)
+    const [terms_of_use, setTermsOfUse] = useState(affiliate_terms_of_use)
 
     const AgreementData: AgreementDataType[] = [
         {
             link_text: '_t_I am not a PEP, and I have not been a PEP in the last 12 months._t_',
-            setCheck: setNonPepDeclaration,
             name: 'non_pep_declaration',
         },
         {
             link_text: '_t_I have read and accepted <0>Deriv’s terms and conditions</0>_t_',
-            setCheck: setTncAccepted,
             name: 'tnc_accepted',
         },
         {
             link_text:
                 '_t_I have read and accepted <0>Deriv’s general terms of use and affiliates and introducing brokers’ terms and conditions</0>_t_',
-            setCheck: setGeneralTermsAccepted,
             name: 'general_terms',
         },
         {
             link_text: '_t_Please send me information regarding your partnership program._t_',
-            setCheck: setPartnerChecked,
             name: 'is_partner_checked',
+            optional: true,
         },
         {
             link_text: '_t_I’m going to promote Deriv in the EU._t_',
-            setCheck: setEuChecked,
             name: 'is_eu_checked',
+            optional: true,
         },
     ]
 
+    const validate =
+        !!terms_of_use['non_pep_declaration'] &&
+        !!terms_of_use['tnc_accepted'] &&
+        !!terms_of_use['general_terms']
+    console.log(validate)
     useEffect(() => {
-        onValidate(
-            non_pep_declaration &&
-                tnc_accepted &&
-                general_terms &&
-                is_eu_checked &&
-                is_partner_checked,
-        )
-    }, [onValidate, affiliate_terms_of_use])
+        onValidate(validate)
+    }, [onValidate, validate])
 
     useEffect(() => {
         updateData({
-            ...affiliate_terms_of_use,
-            non_pep_declaration,
-            tnc_accepted,
-            general_terms,
-            is_eu_checked,
-            is_partner_checked,
+            terms_of_use,
         })
-    }, [non_pep_declaration, tnc_accepted, general_terms, is_eu_checked, is_partner_checked])
+    }, [terms_of_use])
 
     return (
         <MainWrapper>
@@ -121,25 +108,37 @@ const AccountTerms = ({ affiliate_terms_of_use, updateData, onValidate }: Accoun
                     }
                 />
             </Header>
-            {AgreementData.map(({ link_text, link_url, setCheck, name }, index) => {
+            {AgreementData.map(({ link_text, link_url, name, optional }, index) => {
                 return (
                     <>
-                        <Flex.Box key={name} align={'center'} pb={'8x'} md={{ pb: '8x' }}>
-                            <CheckBox type={'checkbox'} onClick={() => setCheck(true)} />
-                            <Typography.Paragraph size={'large'}>
-                                <Localize
-                                    translate_text={link_text}
-                                    components={[
-                                        <LocalizedLinkText
-                                            key={0}
-                                            target="_blank"
-                                            href="/terms-and-conditions/#clients"
-                                            rel="noopener noreferrer"
-                                            color="red"
-                                        />,
-                                    ]}
-                                />
-                            </Typography.Paragraph>
+                        <Flex.Box key={name} align={'center'} pb={'8x'}>
+                            <CheckBox
+                                type={'checkbox'}
+                                onClick={() =>
+                                    setTermsOfUse({ ...terms_of_use, [name]: !terms_of_use[name] })
+                                }
+                            />
+                            <Flex.Box direction={'col'} align={'start'}>
+                                <Typography.Paragraph size={'large'}>
+                                    <Localize
+                                        translate_text={link_text}
+                                        components={[
+                                            <LocalizedLinkText
+                                                key={0}
+                                                href="/terms-and-conditions/#clients"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                color="red"
+                                            />,
+                                        ]}
+                                    />
+                                </Typography.Paragraph>
+                                {optional && (
+                                    <Typography.Paragraph size={'small'} style={{ color: 'grey' }}>
+                                        <Localize translate_text={'_t_[Optional]_t_'} />
+                                    </Typography.Paragraph>
+                                )}
+                            </Flex.Box>
                         </Flex.Box>
                         {index !== AgreementData.length - 1 && <Line />}
                     </>

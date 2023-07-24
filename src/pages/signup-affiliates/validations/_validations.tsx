@@ -3,12 +3,11 @@ import { localize, Localize } from 'components/localization'
 /* eslint-disable */
 
 export const affiliate_validation_regex = {
-    alphabet: /^[A-Za-z '-]+$/,
-    phone: /^\+?[^\D]((-|\s)*\d)*$/,
+    latin: /[^a-zA-Za 0-9/!"?¨'_.,]/,
     password: /^(?=.*[a-z])(?=.*\d)(?=.*[A-Z])[ -~]*$/,
-    city: /[`~!@#%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
-    postal_code: /^[0-9]{5,10}$/,
-    state: /[`~!@#%^&*)(_=+[}{\]\\/";:?><,|\d]+/,
+    state: /^[a-zA-Z 0-9_.-]{0,256}$/,
+    city: /^[a-zA-Z 0-9_.-]{0,256}$/,
+    postal_code: /^[a-zA-Z 0-9_.-]{5,10}$/,
     url: /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/,
 }
 
@@ -21,161 +20,183 @@ const validation_is_lack_number = (input, min_digit) => input.length + 1 > min_d
 
 const nameValidation = (input, field_name, min_digit, max_digit) => {
     if (!input) {
-        return <Localize translate_text="{{field_name}} is required" values={{ field_name }} />
+        return (
+            <Localize translate_text="_t_{{field_name}} is required_t_" values={{ field_name }} />
+        )
     } else if (
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
-        return localize(`You should enter ${min_digit}-${max_digit} characters.`)
-    } else if (!affiliate_validation_regex.alphabet.test(input)) {
-        return localize('Only alphabet is allowed')
+        return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
+    } else if (affiliate_validation_regex.latin.test(input)) {
+        return localize('_t_Only Latin characters_t_')
     }
-    return null
 }
 
 const dateValidation = (input, field_name) => {
     if (!input) {
-        return <Localize translate_text="{{field_name}} is required" values={{ field_name }} />
+        return (
+            <Localize translate_text="_t_{{field_name}} is required_t_" values={{ field_name }} />
+        )
     }
-    return null
 }
 const textValidation = (input, field_name, min_digit, max_digit) => {
-    const length_error = localize(`You should enter ${min_digit}-${max_digit} characters.`)
+    const length_error = localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
     if (!input) {
-        return <Localize translate_text="{{field_name}} is required" values={{ field_name }} />
+        return (
+            <Localize translate_text="_t_{{field_name}} is required_t_" values={{ field_name }} />
+        )
     } else if (!validation_is_exceed_number(input, max_digit)) {
         return length_error
     } else if (!validation_is_lack_number(input, min_digit)) {
         return length_error
+    } else if (affiliate_validation_regex.latin.test(input)) {
+        return localize('_t_Only Latin characters_t_')
     }
-    return null
 }
-const phoneValidation = (input, field_name, min_digit, max_digit) => {
+const phoneValidation = (input, field_name) => {
     if (!input) {
-        return <Localize translate_text="{{field_name}} is required" values={{ field_name }} />
-    } else if (
-        !validation_is_exceed_number(input, max_digit) ||
-        !validation_is_lack_number(input, min_digit)
-    ) {
-        return localize(`You should enter ${min_digit}-${max_digit} numbers.`)
-    } else if (!affiliate_validation_regex.phone.test(input)) {
-        return localize(`Please enter a valid phone number (e.g. +15417541234)`)
+        return (
+            <Localize translate_text="_t_{{field_name}} is required_t_" values={{ field_name }} />
+        )
+    } else if (input.length !== 7) {
+        return localize(`_t_Please enter a valid phone number_t_`)
     }
-    return null
 }
 const passwordValidation = (input, field_name, min_digit, max_digit) => {
     if (!input) {
-        return <Localize translate_text="{{field_name}} is required" values={{ field_name }} />
+        return (
+            <Localize translate_text="_t_{{field_name}} is required_t_" values={{ field_name }} />
+        )
     } else if (
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
-        return localize(`You should enter ${min_digit}-${max_digit} characters.`)
+        return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
     } else if (!affiliate_validation_regex.password.test(input)) {
-        return localize(`Password should have lower and uppercase English letters with numbers.`)
+        return localize(
+            `_t_Password should have lower and uppercase English letters with numbers._t_`,
+        )
     }
     return null
 }
 const postcodeValidation = (input, field_name, min_digit, max_digit) => {
     if (!input) {
-        return <Localize translate_text="{{field_name}} is required" values={{ field_name }} />
+        return (
+            <Localize translate_text="_t_{{field_name}} is required_t_" values={{ field_name }} />
+        )
     } else if (
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
-        return localize(`You should enter ${min_digit}-${max_digit} characters.`)
+        return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
     } else if (!affiliate_validation_regex.postal_code.test(input)) {
-        return localize(`Please enter a valid postcode.`)
+        return localize(`_t_Please enter a valid postcode with Latin characters._t_`)
     }
 }
 const registrationNumberValidation = (input, field_name, min_digit, max_digit) => {
     if (!input) {
-        return <Localize translate_text="{{field_name}} is required" values={{ field_name }} />
+        return (
+            <Localize translate_text="_t_{{field_name}} is required_t_" values={{ field_name }} />
+        )
     } else if (
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
-        return localize(`You should enter ${min_digit}-${max_digit} characters.`)
+        return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
     } else if (!affiliate_validation_regex.postal_code.test(input)) {
-        return localize(`Please enter a valid company registration number.`)
+        return localize(`_t_Please enter a valid company registration number._t_`)
     }
 }
 const stateValidation = (input, field_name, min_digit, max_digit) => {
     if (!input) {
-        return <Localize translate_text="{{field_name}} is required" values={{ field_name }} />
+        return (
+            <Localize translate_text="_t_{{field_name}} is required_t_" values={{ field_name }} />
+        )
     } else if (
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
-        return localize(`You should enter ${min_digit}-${max_digit} characters.`)
+        return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
     } else if (affiliate_validation_regex.state.test(input)) {
-        return localize(`Please enter a valid state`)
+        return localize(`_t_Please enter a valid state_t_`)
+    } else if (affiliate_validation_regex.latin.test(input)) {
+        return localize('_t_Only Latin characters_t_')
     }
 }
 const cityValidation = (input, field_name, min_digit, max_digit) => {
     if (!input) {
-        return <Localize translate_text="{{field_name}} is required" values={{ field_name }} />
+        return (
+            <Localize translate_text="_t_{{field_name}} is required_t_" values={{ field_name }} />
+        )
     } else if (
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
-        return localize(`You should enter ${min_digit}-${max_digit} characters.`)
+        return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
     } else if (affiliate_validation_regex.city.test(input)) {
-        return localize(`Please enter a valid city`)
+        return localize(`_t_Please enter a valid city_t_`)
+    } else if (affiliate_validation_regex.latin.test(input)) {
+        return localize('_t_Only Latin characters_t_')
     }
 }
 const urlValidation = (input) => {
     if (!affiliate_validation_regex.url.test(input)) {
-        return localize(`Please enter a valid url`)
+        return localize(`_t_Please enter a valid url_t_`)
     }
 }
 
 const validation = {
     first_name: (input) => {
-        return nameValidation(input, localize('First Name'), 2, 50)
+        return nameValidation(input, localize('_t_First Name_t_'), 2, 50)
     },
     last_name: (input) => {
-        return nameValidation(input, localize('Last Name'), 2, 50)
+        return nameValidation(input, localize('_t_Last Name_t_'), 2, 50)
     },
     date: (input) => {
-        return dateValidation(input, localize('Date'))
+        return dateValidation(input, localize('_t_Date_t_'))
     },
     country: (input) => {
         if (!input || input.display_name === '') {
-            return localize('Country is required')
+            return localize('_t_Country is required_t_')
         }
         return null
     },
     address_line_1: (input) => {
-        return textValidation(input, localize('Address'), 2, 70)
+        return textValidation(input, localize('_t_Address_t_'), 2, 70)
     },
     address_line_2: (input) => {
-        return textValidation(input, localize('Address'), 2, 70)
+        return textValidation(input, localize('_t_Address_t_'), 2, 70)
     },
     address_city: (input) => {
-        return cityValidation(input, localize('City'), 2, 50)
+        return cityValidation(input, localize('_t_City_t_'), 2, 50)
     },
     address_state: (input) => {
-        return stateValidation(input, localize('State'), 2, 100)
+        return stateValidation(input, localize('_t_State_t_'), 2, 100)
     },
     address_postal_code: (input) => {
-        return postcodeValidation(input, localize('Postcode'), 5, 10)
+        return postcodeValidation(input, localize('_t_Postcode_t_'), 5, 10)
     },
     address_street: (input) => {
-        return postcodeValidation(input, localize('Postcode'), 5, 10)
+        return postcodeValidation(input, localize('_t_Postcode_t_'), 5, 10)
     },
     phone: (input) => {
-        return phoneValidation(input, localize('Mobile number'), 9, 35)
+        return phoneValidation(input, localize('_t_Mobile number_t_'))
     },
     password: (input) => {
-        return passwordValidation(input, localize('Password'), 6, 50)
+        return passwordValidation(input, localize('_t_Password_t_'), 6, 50)
     },
-    currency: (input) => (input ? null : localize('Currency is required')),
+    currency: (input) => (input ? null : localize('_t_Currency is required_t_')),
     company_name: (input) => {
-        return textValidation(input, localize('Company name'), 2, 70)
+        return textValidation(input, localize('_t_Company name_t_'), 2, 70)
     },
     company_registration_number: (input) => {
-        return registrationNumberValidation(input, localize('Company registeration number'), 2, 20)
+        return registrationNumberValidation(
+            input,
+            localize('_t_Company registeration number_t_'),
+            2,
+            20,
+        )
     },
     website_url: (input) => {
         return urlValidation(input)

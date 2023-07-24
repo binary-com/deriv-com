@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import ReCAPTCHA from 'react-google-recaptcha'
 import AccountType from './components/_account-type'
@@ -10,8 +10,10 @@ import PersonalDetails from './components/_account-personal-details'
 import { localize, Localize, WithIntl } from 'components/localization'
 import { Container } from 'components/containers'
 import { Button } from 'components/form'
+import { TSocketRequestCleaned } from 'common/websocket/types'
 import Wizard, { Background } from 'pages/signup-affiliates/components/wizard'
 import { Header, LinkText, LocalizedLinkText } from 'components/elements'
+import useWS from 'components/hooks/useWS'
 import validation from 'common/validation'
 import Login from 'common/login'
 import { getCookiesFields, getCookiesObject, getDataObjFromCookies } from 'common/cookies'
@@ -187,11 +189,13 @@ const steps = [
     'Personal details',
     'Terms of use',
 ]
+type UserData = TSocketRequestCleaned<'verify_email_cellxpert'>
 const AffiliateSignup = () => {
+    const [user_data, setUseData] = useState<UserData>()
     const [email, setEmail] = useState('')
-    const [is_submitted, setSubmitted] = useState(false)
     const [email_error_msg, setEmailErrorMsg] = useState('')
     const [submit_error_msg, setSubmitErrorMsg] = useState('')
+    const [captcha_status, setCaptchaStatus] = useState(false)
     const [show_wizard, setShowWizard] = useState<boolean | number>(false)
     const [is_going_well, setIsGoing] = useState(false)
 
@@ -250,6 +254,14 @@ const AffiliateSignup = () => {
     //         setCountryList(country_list)
     //     }
     // }, [data])
+
+    const { data, send } = useWS('verify_email_cellxpert')
+
+    useEffect(() => {
+        // console.log({ ...user_data })
+        send({ ...user_data })
+    }, [user_data])
+    // console.log(data)
 
     const updateAffiliateValues = (value, type) => {
         switch (type) {
@@ -316,23 +328,22 @@ const AffiliateSignup = () => {
         }
     }
 
-    const getVerifyEmailRequest = (formatted_email) => {
+    const getVerifyEmailRequest = (formatted_email): UserData => {
         const cookies = getCookiesFields()
         const cookies_objects = getCookiesObject(cookies)
         const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
-        const token = queryParams.get('t')
-        const account_status = 'partner_account_opening'
+        const token = queryParams.get('t') as string
 
         if (token && cookies_value.utm_campaign === 'CellXpert') {
             cookies_value.utm_medium = 'affiliate'
         }
 
         return {
-            verify_email: formatted_email,
-            type: account_status,
+            verify_email_cellxpert: formatted_email,
+            type: 'partner_account_opening',
             url_parameters: {
-                ...(token && { affiliate_token: token }),
-                ...(cookies_value && { ...cookies_value }),
+                affiliate_token: token,
+                ...cookies_value,
             },
         }
     }
@@ -367,18 +378,18 @@ const AffiliateSignup = () => {
 
     const handleEmailSignUp = (e) => {
         e.preventDefault()
-        setSubmitted(true)
-        const formatted_email = email.replace(/\s/g, '')
         handleValidation(email)
+        const formatted_email = email.replace(/\s/g, '')
         const has_error_email = validateEmail(formatted_email)
+
         if (has_error_email || email_error_msg) {
-            return setSubmitted(false)
+            return setShowWizard(false)
         }
-        const verify_email_req = getVerifyEmailRequest(formatted_email)
+        const verify_email = getVerifyEmailRequest(formatted_email)
+        setUseData(verify_email)
         setShowWizard(true)
     }
-    // const { data, send } = useWS('verify_email_cellxpert', )
-    // console.log(data)
+
     return (
         <div>
             <NavTemplate
@@ -463,14 +474,18 @@ const AffiliateSignup = () => {
                             />
                         </InputGroup>
                         <ImageWrapper>
-                            <ReCAPTCHA sitekey="6Ld_EwIhAAAAAI8eRUeCN9RtKzn5oKsHKKwwPaXf" />
+                            <ReCAPTCHA
+                                sitekey="6Ld_EwIhAAAAAI8eRUeCN9RtKzn5oKsHKKwwPaXf"
+                                onChange={(value) => {
+                                    setCaptchaStatus(!!value)
+                                }}
+                            />
                         </ImageWrapper>
                         <EmailButton
-                            disabled={is_submitted || !email || email_error_msg}
                             type="submit"
-                            secondary="true"
-                            id="partner-signup"
+                            secondary
                             onClick={handleEmailSignUp}
+                            disabled={!(captcha_status && email && !email_error_msg)}
                         >
                             <Localize translate_text={'_t_Create partner account_t_'} />
                         </EmailButton>
@@ -487,7 +502,7 @@ const AffiliateSignup = () => {
                             </StyledText>
                         </LoginContainer>
                     </SignUpWrapper>
-                    {is_submitted && (
+                    {show_wizard && (
                         <Wizard
                             title={localize('_t_Add an affiliate account_t_')}
                             steps_names={steps}

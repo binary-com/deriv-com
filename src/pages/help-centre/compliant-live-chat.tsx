@@ -9,7 +9,7 @@ const CompliantLiveChat = (key: any) => {
         LC_API.open_chat_window()
     }
 
-    if (!is_livechat_interactive) return <>{key?.children[0]}</>
+    if (!is_livechat_interactive && key) return <>{key?.children[0]}</>
 
     return (
         <LinkText color="red" onClick={openChatWindow}>

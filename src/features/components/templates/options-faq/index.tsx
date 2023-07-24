@@ -18,7 +18,8 @@ const OptionsFaq = ({ faqs }: OptionsFaqProps) => {
             direction="col"
             justify="center"
             align="center"
-            pb="40x"
+            pb="20x"
+            md={{ pb: '40x' }}
         >
             <Typography.Heading
                 padding_block="20x"

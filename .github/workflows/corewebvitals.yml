@@ -38,7 +38,9 @@ jobs:
         run: npm install -g @datadog/datadog-ci
 
       - name: Sync results with Datadog
-        run: datadog-ci synthetics upload --config datadog-ci.json
+        run: |
+          datadog-ci synthetics upload --config datadog-ci.json
+          datadog-ci synthetics results --config datadog-ci.json > results.json
         env:
           DATADOG_API_KEY: ${{ secrets.GATSBY_DATADOG_CLIENT_TOKEN }}
           DATADOG_APP_KEY: ${{ secrets.GATSBY_DATADOG_APPLICATION_ID }}

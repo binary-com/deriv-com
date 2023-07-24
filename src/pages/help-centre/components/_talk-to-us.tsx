@@ -38,9 +38,9 @@ const TalkToUs = () => {
 
             <StyledButton flat onClick={() => window.open(compliance_faq, '_self')}>
                 <Flex gap="8px" width="auto">
-                    <img src={ComplianceIcon} alt="Compliants procedure" />
+                    <img src={ComplianceIcon} alt="Complaints procedure" />
                     <Header type="paragraph-1" weight="normal">
-                        <Localize translate_text="_t_Compliants procedure_t_" />
+                        <Localize translate_text="_t_Complaints procedure_t_" />
                     </Header>
                 </Flex>
             </StyledButton>

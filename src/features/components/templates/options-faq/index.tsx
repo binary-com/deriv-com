@@ -12,14 +12,7 @@ interface OptionsFaqProps {
 
 const OptionsFaq = ({ faqs }: OptionsFaqProps) => {
     return (
-        <Flex.Box
-            className={wrapper}
-            container="fluid"
-            direction="col"
-            justify="center"
-            align="center"
-            pb="40x"
-        >
+        <Flex.Box className={wrapper} direction="col" justify="center" align="center" pb="40x">
             <Typography.Heading
                 padding_block="20x"
                 md={{

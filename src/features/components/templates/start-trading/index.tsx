@@ -1,4 +1,5 @@
 import React from 'react'
+import { wrapper } from './style.module.scss'
 import Container from 'features/components/atoms/container'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
@@ -20,7 +21,7 @@ export type StartTradingType = {
 const StartTrading = ({ data }: { data: StartTradingType }) => {
     return (
         <Container.Fixed as="section" padding_block="20x" md={{ padding_block: '40x' }}>
-            <Flex.Box direction="col" container="fluid" align="start">
+            <Flex.Box direction="col" container="fluid" align="start" className={wrapper}>
                 <Typography.Heading
                     as="h2"
                     textcolor="black"

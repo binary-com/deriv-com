@@ -21,7 +21,7 @@ export type StartTradingType = {
 const StartTrading = ({ data }: { data: StartTradingType }) => {
     return (
         <Container.Fixed as="section" padding_block="20x" md={{ padding_block: '40x' }}>
-            <Flex.Box direction="col" align="start" className={wrapper}>
+            <Flex.Box direction="col" container="fluid" align="start" className={wrapper}>
                 <Typography.Heading
                     as="h2"
                     textcolor="black"

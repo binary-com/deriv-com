@@ -20,7 +20,12 @@ const VanillaOptions = () => {
                 heading="_t_What are vanilla options?_t_"
                 description="_t_Vanilla options allow you to express a bullish or bearish view on an underlying asset by purchasing either a Call or a Put option. You can earn a potentially high payout if your predictions are right within a timed contract and based on market conditions._t_"
             >
-                <Typography.Heading align="center" md={{ padding_block: '20x' }} size="small">
+                <Typography.Heading
+                    align="center"
+                    pb="12x"
+                    md={{ padding_block: '20x', pb: '20x' }}
+                    size="small"
+                >
                     <Localize translate_text="_t_How do vanilla options work?_t_" />
                 </Typography.Heading>
                 <OptionsContent items={vanillaOptionsContentItems} />

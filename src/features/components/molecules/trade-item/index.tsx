@@ -6,6 +6,7 @@ import Typography from 'features/components/atoms/typography'
 import Flex from 'features/components/atoms/flex-box'
 import { FlexBoxProps } from 'features/components/atoms/flex-box/box'
 import { TString } from 'types/generics'
+import dclsx from 'features/utils/dclsx'
 
 export type TradeItemType = {
     icon_src: string
@@ -23,6 +24,7 @@ const TradeItem = ({ data, ...rest }: TradeItemProps) => {
             direction="col"
             align="center"
             grow="1"
+            padding_inline="1x"
             md={{ basis: '3-12' }}
             className={trade_item}
             {...rest}
@@ -35,11 +37,12 @@ const TradeItem = ({ data, ...rest }: TradeItemProps) => {
                 textcolor="inverted"
                 mt="8x"
                 mb="4x"
+                className={dclsx('text-medium')}
             >
                 <Localize translate_text={data.heading} />
             </Typography.Heading>
             <Typography.Paragraph
-                size="large"
+                size="medium"
                 textcolor="inverted"
                 md={{ mb: '10x' }}
                 align="center"

@@ -42,7 +42,18 @@ jobs:
         env:
           DATADOG_API_KEY: ${{ secrets.GATSBY_DATADOG_CLIENT_TOKEN }}
           DATADOG_APP_KEY: ${{ secrets.GATSBY_DATADOG_APPLICATION_ID }}
-
+      
+      - name: Post audit comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          header: Core Web Vitals Audit
+          message: |
+              ### Core Web Vitals Results
+              - Largest Contentful Paint: ${{ steps.results.outputs.lcp }}
+              - First Input Delay: ${{ steps.results.outputs.fid }}
+              - Cumulative Layout Shift: ${{ steps.results.outputs.cls }}
+      
       - name: Slack Notification 📣
         uses: 8398a7/action-slack@v3
         if: ${{ failure() }}

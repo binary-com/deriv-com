@@ -11,7 +11,7 @@ const CompliantLiveChat = (key: any) => {
 
     return (
         <LinkText color="red" onClick={openChatWindow}>
-            {key?.children[0]}
+            {key?.children?.[0]}
         </LinkText>
     )
 }

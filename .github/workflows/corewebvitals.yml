@@ -1,0 +1,86 @@
+name: Core Web Vitals Test with Datadog
+
+permissions:
+  actions: write
+  checks: write
+  contents: write
+  deployments: write
+  pull-requests: write
+  statuses: write
+
+on:
+  issue_comment:
+    types: [edited]
+
+jobs:
+  generate_audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add comment to PR
+        id: loading_comment_to_pr
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ github.event.issue.number }}
+          header: datadog
+          message: |
+            Running Core Web Vitals audit with Datadog integration...
+
+      - name: Capture Vercel preview URL
+        id: vercel_preview_url
+        uses: binary-com/vercel-preview-url-action@v1.0.5
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/checkout@v3
+
+      # Add your tests and build steps here...
+
+      - name: Send Core Web Vitals Metrics to Datadog
+        uses: DataDog/datadog-action@v2
+        with:
+          api-key: ${{ secrets.GATSBY_DATADOG_CLIENT_TOKEN }}
+          event: |
+            {
+              "title": "Core Web Vitals Audit",
+              "text": "Core Web Vitals metrics for the deployment:",
+              "tags": ["environment:production", "website:test"],
+              "alert_type": "info",
+              "aggregation_key": "core_web_vitals_audit",
+              "source_type_name": "core_web_vitals_audit"
+            }
+          properties: |
+            {
+              "ttfb": "${{ steps.extract_core_web_vitals_metrics.outputs.ttfb }}",
+              "fcp": "${{ steps.extract_core_web_vitals_metrics.outputs.fcp }}",
+              "lcp": "${{ steps.extract_core_web_vitals_metrics.outputs.lcp }}"
+            }
+
+      - name: Add Core Web Vitals Metrics to PR Comment
+        id: add_core_web_vitals_comment
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            # Create a comment with Core Web Vitals metrics and include it in the PR
+            const ttfb = ${{ steps.extract_core_web_vitals_metrics.outputs.ttfb }}
+            const fcp = ${{ steps.extract_core_web_vitals_metrics.outputs.fcp }}
+            const lcp = ${{ steps.extract_core_web_vitals_metrics.outputs.lcp }}
+
+            const comment = [
+              `🕑 Time to First Byte (TTFB): ${ttfb} ms`,
+              `🖼 First Contentful Paint (FCP): ${fcp} ms`,
+              `🎨 Largest Contentful Paint (LCP): ${lcp} ms`,
+            ].join('\n')
+
+            core.setOutput("core_web_vitals_comment", comment);
+
+      - name: Add comments to PR
+        id: comment_to_pr
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          number: ${{ github.event.issue.number }}
+          header: datadog
+          message: |
+            ${{ steps.add_core_web_vitals_comment.outputs.core_web_vitals_comment }}

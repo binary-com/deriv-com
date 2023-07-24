@@ -33,6 +33,10 @@ const VanillaOptions = () => {
                     direction="col"
                     justify="center"
                     gap="16x"
+                    md={{
+                        padding_inline: '12x',
+                        pt: '20x',
+                    }}
                     className={why_vanilla_section}
                 >
                     <Typography.Heading size="xxs">

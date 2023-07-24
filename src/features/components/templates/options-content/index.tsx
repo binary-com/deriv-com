@@ -19,8 +19,7 @@ const OptionsContent = ({ items }: OptionsContentProps) => {
             pt="6x"
             pb="12x"
             md={{
-                pt: '12x',
-                pb: '24x',
+                padding: '12x',
             }}
         >
             {items.map((contentItem) => (

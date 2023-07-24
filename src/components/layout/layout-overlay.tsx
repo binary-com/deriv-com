@@ -28,7 +28,7 @@ const LayoutOverlay = ({ is_ppc = false }: TProps) => {
     const is_rtl = useIsRtl()
 
     return (
-        <OverlayContainer is_rtl={is_rtl}>
+        <OverlayContainer is_rtl={is_rtl} id="overlay-container">
             <LiveChat />
             <WhatsApp />
             <BannerAlert bannerType={bannerTypes.cookieBanner} />

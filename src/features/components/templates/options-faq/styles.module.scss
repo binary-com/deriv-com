@@ -2,4 +2,9 @@
 
 .wrapper {
     max-inline-size: 99.6rem;
+    margin-inline: auto;
+    inline-size: 95%;
+    @include breakpoints(tablet){
+        inline-size: 90%;
+    }
 }

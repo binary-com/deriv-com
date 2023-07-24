@@ -7,7 +7,7 @@ import Typography from 'features/components/atoms/typography'
 
 const SectionOptionContentItem = ({ item }: { item: OptionContentSectionItemData }) => {
     return (
-        <Flex.Box container="fluid" justify="start" align="start" direction="col">
+        <Flex.Box justify="start" align="start" direction="col">
             <Flex.Box gap="8x">
                 {item.icon.src && <img src={item.icon.src} alt={item.icon.alt} />}
                 {item.title && (

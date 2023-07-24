@@ -1,4 +1,4 @@
-name: Core Web Vitals Test with Datadog
+name: Core Web Vitals Audit
 
 permissions:
   actions: write
@@ -9,78 +9,90 @@ permissions:
   statuses: write
 
 on:
-  issue_comment:
-    types: [edited]
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  generate_audit:
+  core_web_vitals_audit:
     runs-on: ubuntu-latest
     steps:
-      - name: Add comment to PR
-        id: loading_comment_to_pr
-        uses: marocchino/sticky-pull-request-comment@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          number: ${{ github.event.issue.number }}
-          header: datadog
-          message: |
-            Running Core Web Vitals audit with Datadog integration...
+          node-version: 14
 
-      - name: Capture Vercel preview URL
-        id: vercel_preview_url
-        uses: binary-com/vercel-preview-url-action@v1.0.5
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Core Web Vitals Audit
+        run: npm run audit
+
+      - name: Install Datadog CI
+        run: npm install -g @datadog/datadog-ci
+
+      - name: Sync results with Datadog
+        run: datadog-ci synthetics upload --config datadog-ci.json
+        env:
+          DATADOG_API_KEY: ${{ secrets.GATSBY_DATADOG_CLIENT_TOKEN }}
+          DATADOG_APP_KEY: ${{ secrets.GATSBY_DATADOG_APPLICATION_ID }}
+
+      - name: Slack Notification 📣
+        uses: 8398a7/action-slack@v3
+        if: ${{ failure() }}
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - uses: actions/checkout@v3
-
-      # Add your tests and build steps here...
-
-      - name: Send Core Web Vitals Metrics to Datadog
-        uses: DataDog/datadog-action@v2
-        with:
-          api-key: ${{ secrets.GATSBY_DATADOG_CLIENT_TOKEN }}
-          event: |
+          status: custom
+          fields: workflow,job,commit,repo
+          custom_payload: |
             {
-              "title": "Core Web Vitals Audit",
-              "text": "Core Web Vitals metrics for the deployment:",
-              "tags": ["environment:production", "website:test"],
-              "alert_type": "info",
-              "aggregation_key": "core_web_vitals_audit",
-              "source_type_name": "core_web_vitals_audit"
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "plain_text",
+                    "emoji": true,
+                    "text": "It appears that this pull request has not met the required Core Web Vitals score."
+                  }
+                },
+                {
+                  "type": "divider"
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "*User: <${{ github.event.pull_request.user.url }}|${{ github.event.pull_request.user.login }}>*\n*Link:* ${{ github.event.pull_request.html_url }}\n*Title:* ${{ github.event.pull_request.title }}\n*Status:* ${{ github.event.pull_request.state }}"
+                  },
+                  "accessory": {
+                    "type": "image",
+                    "image_url": "${{ github.event.pull_request.user.avatar_url }}",
+                    "alt_text": "${{ github.event.pull_request.user.login }}"
+                  }
+                },
+                {
+                  "type": "divider"
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "image",
+                      "image_url": "https://api.slack.com/img/blocks/bkb_template_images/notificationsWarningIcon.png",
+                      "alt_text": "notifications warning icon"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*<!subteam^S04RV6RFCTW> please check the PR*"
+                    }
+                  ]
+                }
+              ]
             }
-          properties: |
-            {
-              "ttfb": "${{ steps.extract_core_web_vitals_metrics.outputs.ttfb }}",
-              "fcp": "${{ steps.extract_core_web_vitals_metrics.outputs.fcp }}",
-              "lcp": "${{ steps.extract_core_web_vitals_metrics.outputs.lcp }}"
-            }
-
-      - name: Add Core Web Vitals Metrics to PR Comment
-        id: add_core_web_vitals_comment
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            # Create a comment with Core Web Vitals metrics and include it in the PR
-            const ttfb = ${{ steps.extract_core_web_vitals_metrics.outputs.ttfb }}
-            const fcp = ${{ steps.extract_core_web_vitals_metrics.outputs.fcp }}
-            const lcp = ${{ steps.extract_core_web_vitals_metrics.outputs.lcp }}
-
-            const comment = [
-              `🕑 Time to First Byte (TTFB): ${ttfb} ms`,
-              `🖼 First Contentful Paint (FCP): ${fcp} ms`,
-              `🎨 Largest Contentful Paint (LCP): ${lcp} ms`,
-            ].join('\n')
-
-            core.setOutput("core_web_vitals_comment", comment);
-
-      - name: Add comments to PR
-        id: comment_to_pr
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          number: ${{ github.event.issue.number }}
-          header: datadog
-          message: |
-            ${{ steps.add_core_web_vitals_comment.outputs.core_web_vitals_comment }}
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}

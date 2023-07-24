@@ -10,7 +10,6 @@ import { getLocationPathname } from 'common/utility'
 import ArrowNext from 'images/svg/arrow-next.svg'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import './styles.scss'
-import dclsx from 'features/utils/dclsx'
 
 // Import the required Swiper modules
 SwiperCore.use([Navigation])
@@ -28,7 +27,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
 
     useEffect(() => {
         const selected_tab_item: OptionNavigationType = tab_data.find((option) =>
-            pathname?.includes(option.to),
+            pathname?.includes(option.active_path),
         )
         setSelectedTabName(selected_tab_item?.option_name || null)
         if (swiper_ref.current && is_mobile) {

@@ -58,7 +58,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
 
     useEffect(() => {
         const selected_tab_item: OptionNavigationType = options_tabs.find((option) =>
-            pathname?.includes(option.to),
+            pathname?.includes(option.active_path),
         )
         setSelectedTabName(selected_tab_item?.option_name || null)
     }, [pathname])

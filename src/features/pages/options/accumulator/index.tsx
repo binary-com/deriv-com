@@ -26,6 +26,13 @@ const AccumulatorsOptions = () => {
                 heading="_t_What are accumulator options?_t_"
                 description="_t_Accumulator options allow you to predict whether the current spot price remains within a predefined range from the previous spot price._t_"
             >
+                <SEO
+                    title="_t_Accumulator options | Trade options | Deriv_t_"
+                    description="_t_Grow your potential payout at every tick with accumulator options. Accumulator trading is available on volatility indices under derived indices._t_"
+                />
+                <Helmet>
+                    <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
+                </Helmet>
                 <Typography.Heading align="center" padding_block="20x" size="small">
                     <Localize translate_text="_t_How do accumulator options work?_t_" />
                 </Typography.Heading>

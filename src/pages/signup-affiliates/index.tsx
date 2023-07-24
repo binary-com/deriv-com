@@ -485,7 +485,8 @@ const AffiliateSignup = () => {
                             type="submit"
                             secondary
                             onClick={handleEmailSignUp}
-                            disabled={!(captcha_status && email && !email_error_msg)}
+                            // disabled={!(captcha_status && email && !email_error_msg)}
+                            disabled={!(email && !email_error_msg)}
                         >
                             <Localize translate_text={'_t_Create partner account_t_'} />
                         </EmailButton>

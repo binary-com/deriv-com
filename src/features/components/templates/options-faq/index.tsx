@@ -17,6 +17,7 @@ const OptionsFaq = ({ faqs }: OptionsFaqProps) => {
                 md={{
                     padding_block: '40x',
                 }}
+                as="h2"
             >
                 <Localize translate_text="_t_Browse our FAQ_t_" />
             </Typography.Heading>

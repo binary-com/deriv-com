@@ -1,11 +1,14 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import {
     accumulatorFAQ,
     accumulatorMarkets,
     accumulatorOptionsContentItems,
     accumulatorPlatforms,
 } from './data'
+import { faq_schema } from './_faq-schema'
 import { Localize } from 'components/localization'
+import { SEO } from 'components/containers'
 import Typography from 'features/components/atoms/typography'
 import OptionsLayout from 'features/components/templates/options-layout'
 import OptionsContent from 'features/components/templates/options-content'

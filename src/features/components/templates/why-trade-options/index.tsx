@@ -30,7 +30,7 @@ const WhyTradeOptions = ({ data }: { data: WhyTradeOptionsType }) => {
         >
             <Container.Fluid className={wrapper}>
                 <Typography.Heading
-                    as="h2"
+                    as="h3"
                     textcolor="inverted"
                     align="center"
                     size="small"

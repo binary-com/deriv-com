@@ -1,5 +1,6 @@
 import React from 'react'
 import { OptionsFAQDataItem } from '../options-content/type'
+import { wrapper } from './styles.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
@@ -11,7 +12,14 @@ interface OptionsFaqProps {
 
 const OptionsFaq = ({ faqs }: OptionsFaqProps) => {
     return (
-        <Flex.Box container="fluid" direction="col" justify="center" align="center" pb="40x">
+        <Flex.Box
+            className={wrapper}
+            container="fluid"
+            direction="col"
+            justify="center"
+            align="center"
+            pb="40x"
+        >
             <Typography.Heading
                 padding_block="20x"
                 md={{
@@ -28,7 +36,7 @@ const OptionsFaq = ({ faqs }: OptionsFaqProps) => {
                         value={faqItem.question}
                         icon_type="plus"
                     >
-                        <Flex.Box padding_block="8x" direction="col" gap="4x">
+                        <Flex.Box padding_inline="7x" padding_block="12x" direction="col" gap="4x">
                             {faqItem.answers.map((answerItem) => (
                                 <Flex.Box key={answerItem.id}>
                                     {answerItem.type === 'text' ? (

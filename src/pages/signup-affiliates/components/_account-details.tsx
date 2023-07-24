@@ -72,7 +72,7 @@ const AccountDetails = ({
     }, [country, state, street, city, postal_code])
 
     const validate =
-        country &&
+        country?.name &&
         state &&
         city &&
         street &&

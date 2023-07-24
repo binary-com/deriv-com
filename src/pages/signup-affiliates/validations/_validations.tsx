@@ -3,10 +3,10 @@ import { localize, Localize } from 'components/localization'
 /* eslint-disable */
 
 export const affiliate_validation_regex = {
-    latin: /[^a-zA-Za 0-9/!"?¨'_.,]/,
+    alphabet: /^([a-zA-Z -]){2,30}$/,
+    latin: /[^a-zA-Za 0-9/!@"?¨'_.,-]/,
     password: /^(?=.*[a-z])(?=.*\d)(?=.*[A-Z])[ -~]*$/,
-    state: /^[a-zA-Z 0-9_.-]{0,256}$/,
-    city: /^[a-zA-Z 0-9_.-]{0,256}$/,
+    address: /^[a-zA-Z 0-9/_.,-]*$/,
     postal_code: /^[a-zA-Z 0-9_.-]{5,10}$/,
     url: /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/,
 }
@@ -28,8 +28,11 @@ const nameValidation = (input, field_name, min_digit, max_digit) => {
         !validation_is_lack_number(input, min_digit)
     ) {
         return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
-    } else if (affiliate_validation_regex.latin.test(input)) {
-        return localize('_t_Only Latin characters_t_')
+    } else if (
+        affiliate_validation_regex.latin.test(input) ||
+        !affiliate_validation_regex.alphabet.test(input)
+    ) {
+        return localize('_t_Only Latin and Alphabet characters_t_')
     }
 }
 
@@ -108,36 +111,27 @@ const registrationNumberValidation = (input, field_name, min_digit, max_digit) =
         return localize(`_t_Please enter a valid company registration number._t_`)
     }
 }
-const stateValidation = (input, field_name, min_digit, max_digit) => {
+const addressValidation = (input, field_name, min_digit, max_digit) => {
     if (!input) {
         return (
             <Localize translate_text="_t_{{field_name}} is required_t_" values={{ field_name }} />
         )
-    } else if (
-        !validation_is_exceed_number(input, max_digit) ||
-        !validation_is_lack_number(input, min_digit)
-    ) {
-        return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
-    } else if (affiliate_validation_regex.state.test(input)) {
-        return localize(`_t_Please enter a valid state_t_`)
-    } else if (affiliate_validation_regex.latin.test(input)) {
-        return localize('_t_Only Latin characters_t_')
     }
-}
-const cityValidation = (input, field_name, min_digit, max_digit) => {
-    if (!input) {
-        return (
-            <Localize translate_text="_t_{{field_name}} is required_t_" values={{ field_name }} />
-        )
+    if (affiliate_validation_regex.latin.test(input)) {
+        return localize('_t_Only Latin characters_t_')
     } else if (
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
         return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
-    } else if (affiliate_validation_regex.city.test(input)) {
-        return localize(`_t_Please enter a valid city_t_`)
-    } else if (affiliate_validation_regex.latin.test(input)) {
-        return localize('_t_Only Latin characters_t_')
+    } else if (!affiliate_validation_regex.address.test(input)) {
+        console.log('regex!')
+        return (
+            <Localize
+                translate_text="_t_Please enter a valid {{field_name}}_t_"
+                values={{ field_name }}
+            />
+        )
     }
 }
 const urlValidation = (input) => {
@@ -162,22 +156,16 @@ const validation = {
         }
         return null
     },
-    address_line_1: (input) => {
-        return textValidation(input, localize('_t_Address_t_'), 2, 70)
-    },
-    address_line_2: (input) => {
-        return textValidation(input, localize('_t_Address_t_'), 2, 70)
-    },
     address_city: (input) => {
-        return cityValidation(input, localize('_t_City_t_'), 2, 50)
+        return addressValidation(input, 'City', 2, 256)
     },
     address_state: (input) => {
-        return stateValidation(input, localize('_t_State_t_'), 2, 100)
-    },
-    address_postal_code: (input) => {
-        return postcodeValidation(input, localize('_t_Postcode_t_'), 5, 10)
+        return addressValidation(input, 'State', 2, 256)
     },
     address_street: (input) => {
+        return addressValidation(input, 'Street', 2, 256)
+    },
+    address_postal_code: (input) => {
         return postcodeValidation(input, localize('_t_Postcode_t_'), 5, 10)
     },
     phone: (input) => {

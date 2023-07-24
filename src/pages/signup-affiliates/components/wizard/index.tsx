@@ -48,8 +48,8 @@ export const Modal = styled.div`
 `
 
 const Wrapper = styled.div`
-    height: fit-content;
-    padding: 24px 0 10px 0;
+    block-size: fit-content;
+    padding: 24px 0 75px 0;
     overflow-x: auto;
 `
 

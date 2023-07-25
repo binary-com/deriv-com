@@ -12,17 +12,24 @@ export const useLivechat = (chat_type?: string): [boolean, TLC_API] => {
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const is_livechat_query = url_params.get('is_livechat_open')
 
-    let licence_key = '12049137'
-    if (chat_type === 'complaint') {
-        licence_key = '12049137'
-    }
+    const licence_key = '12049137'
+
     const loadLiveChatScript = (callback) => {
         const livechat_script = document.createElement('script')
-        livechat_script.innerHTML = `
+        if (chat_type === 'complaint') {
+            livechat_script.innerHTML = `
             window.__lc = window.__lc || {};
             window.__lc.license = ${licence_key};
+            window.__lc.group = 142;
             ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can’t use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
         `
+        }
+        livechat_script.innerHTML = `
+        window.__lc = window.__lc || {};
+        window.__lc.license = ${licence_key};
+        ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can’t use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+    `
+
         document.body.appendChild(livechat_script)
         if (callback) callback()
     }

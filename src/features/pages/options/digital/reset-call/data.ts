@@ -133,7 +133,7 @@ export const reset_call_faq: OptionsFAQDataItem[] = [
             {
                 id: 4,
                 type: 'text',
-                text: `_t_Your potential payout will then depend on whether the underlying asset's exit price is higher for the reset spot price (for Reset Call) or lower than the reset spot price (for Reset Put)._t_`,
+                text: `_t_Your potential payout will then depend on whether the underlying asset's exit price is higher than the reset spot price (for Reset Call) or lower than the reset spot price (for Reset Put)._t_`,
             },
             {
                 id: 5,

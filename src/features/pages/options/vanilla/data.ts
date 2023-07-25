@@ -18,9 +18,9 @@ export const vanillaOptionsContentItems: OptionContentItemData[] = [
         type: 'sections',
         icon: {
             src: CallPutIcon,
-            alt: '_t_Call/Put Icon_t_',
+            alt: '_t_Call/Put_t_',
         },
-        title: '_t_Call/Put Icon_t_',
+        title: '_t_Call/Put_t_',
         sections: [
             {
                 title: '_t_Call option_t_',
@@ -187,20 +187,16 @@ export const vanillaFAQ: OptionsFAQDataItem[] = [
             {
                 id: 2,
                 type: 'text',
-                text: '_t_The hedge ratio refers to the number of CFD lots required to hedge an options position. It aims to reduce the directional risks associated with holding options positions. You can hedge call options that gain value when the underlying_t_',
+                text: '_t_The hedge ratio refers to the number of CFD lots required to hedge an options position. It aims to reduce the directional risks associated with holding options positions. You can hedge call options that gain value when the underlying asset’s price increases by shorting the underlying asset, and vice versa for put options._t_',
             },
+
             {
                 id: 3,
-                type: 'text',
-                text: '_t_ asset’s price increases by shorting the underlying asset, and vice versa for put options._t_',
-            },
-            {
-                id: 4,
                 type: 'text',
                 text: '_t_Periodic rebalancing is usually a preferred trading strategy when looking at options contracts with expiry dates greater than 1 week._t_',
             },
             {
-                id: 5,
+                id: 4,
                 type: 'text',
                 text: '_t_Please note that hedging requires ongoing monitoring and trade rebalancing._t_',
             },

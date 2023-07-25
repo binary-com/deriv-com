@@ -7,7 +7,7 @@ import Typography from 'features/components/atoms/typography'
 
 const SingleOptionContentItem = ({ item }: { item: OptionContentSingleItemData }) => {
     return (
-        <Flex.Box container="fluid" justify="start" align="start" direction="col">
+        <Flex.Box justify="start" align="start" direction="col">
             <Flex.Box gap="8x" pb="8x">
                 {item.icon && <img src={item.icon.src} alt={item.icon.alt} />}
                 {item.title && (

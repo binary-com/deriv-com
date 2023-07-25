@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { SwiperSlide, Swiper } from 'swiper/react'
 import SwiperCore, { Navigation } from 'swiper'
 import NavigationTabMenu from '../../tabs/navigation-menu'
+import { swiper_button_next } from './styles.module.scss'
 import { OptionNavigationType } from './types'
 import Container from 'features/components/atoms/container'
 import Image from 'features/components/atoms/image'
@@ -9,7 +10,7 @@ import Flex from 'features/components/atoms/flex-box'
 import { getLocationPathname } from 'common/utility'
 import ArrowNext from 'images/svg/arrow-next.svg'
 import useBreakpoints from 'components/hooks/use-breakpoints'
-import './styles.scss'
+import dclsx from 'features/utils/dclsx'
 
 // Import the required Swiper modules
 SwiperCore.use([Navigation])
@@ -50,7 +51,8 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                 <Swiper
                     ref={swiper_ref}
                     speed={1000}
-                    slidesPerView={2}
+                    slidesPerView={3}
+                    spaceBetween={30}
                     direction="horizontal"
                     navigation={{ nextEl: '.swiper-button-next' }}
                 >
@@ -73,7 +75,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                             )
                         })}
                 </Swiper>
-                <div className="swiper-button-next">
+                <div className={dclsx('swiper-button-next', swiper_button_next)}>
                     <Image src={ArrowNext} width="24px" height="24px" />
                 </div>
             </Flex.Box>

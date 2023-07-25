@@ -155,8 +155,11 @@ const ProgressModal = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 101;
 `
 const Modal = styled.div`
+    z-index: 102;
+    opacity: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -165,7 +168,6 @@ const Modal = styled.div`
     border-radius: 8px;
     padding: 40px;
     transform: translate(-50%, -50%);
-    z-index: 100;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -191,13 +193,16 @@ const steps = [
 ]
 type UserData = TSocketRequestCleaned<'verify_email_cellxpert'>
 const AffiliateSignup = () => {
+    const [step, setStep] = useState(1)
     const [user_data, setUseData] = useState<UserData>()
     const [email, setEmail] = useState('')
     const [email_error_msg, setEmailErrorMsg] = useState('')
     const [submit_error_msg, setSubmitErrorMsg] = useState('')
     const [captcha_status, setCaptchaStatus] = useState(false)
     const [show_wizard, setShowWizard] = useState<boolean | number>(false)
-    const [is_going_well, setIsGoing] = useState(false)
+    const [signup_status, setSignupStatus] = useState<
+        'username already exist' | 'lost connection' | 'success'
+    >()
 
     const [next_btn_enabled, setNextBtnEnabled] = useState(false)
 
@@ -218,6 +223,7 @@ const AffiliateSignup = () => {
             prefix: '',
         },
         personal_details: {
+            user_name: '',
             first_name: '',
             last_name: '',
             date_birth: '',
@@ -240,7 +246,10 @@ const AffiliateSignup = () => {
     useEffect(() => {
         setAffiliateAccount({
             ...affiliate_account,
-            phone_number: { phone: '', prefix: affiliate_account.address_details.country?.prefix },
+            phone_number: {
+                ...affiliate_account.phone_number,
+                prefix: affiliate_account.address_details.country?.prefix,
+            },
         })
     }, [affiliate_account.address_details.country])
 
@@ -311,6 +320,7 @@ const AffiliateSignup = () => {
                 setAffiliateAccount({
                     ...affiliate_account,
                     personal_details: {
+                        user_name: value.user_name,
                         first_name: value.first_name,
                         last_name: value.last_name,
                         date_birth: value.date_birth,
@@ -515,66 +525,65 @@ const AffiliateSignup = () => {
                         </LoginContainer>
                     </SignUpWrapper>
                     {show_wizard && (
-                        <Wizard
-                            title={localize('_t_Add an affiliate account_t_')}
-                            steps_names={steps}
-                            enable_next_button={next_btn_enabled}
-                            setShowWizard={setShowWizard}
-                            show_wizard={show_wizard}
-                        >
-                            <AccountType
-                                card_selected={affiliate_account.account}
-                                updateData={(account) => {
-                                    updateAffiliateValues(account, 'account-type')
-                                }}
-                                onValidate={(valid) => {
-                                    setNextBtnEnabled(valid)
-                                }}
-                            />
-                            <AccountDetails
-                                affiliate_address_data={affiliate_account.address_details}
-                                updateData={(value) => {
-                                    updateAffiliateValues(value, 'account-details')
-                                }}
-                                onValidate={(valid) => {
-                                    setNextBtnEnabled(valid)
-                                }}
-                            />
-                            <PhoneNumber
-                                affiliate_phone_number={affiliate_account.phone_number}
-                                updatedData={(value) => {
-                                    updateAffiliateValues(value, 'phone-number')
-                                }}
-                                onValidate={(valid) => {
-                                    setNextBtnEnabled(valid)
-                                }}
-                            />
-                            <PersonalDetails
-                                affiliate_personal_data={affiliate_account.personal_details}
-                                is_individual={
-                                    affiliate_account.account.type === 'Individual' ? true : false
-                                }
-                                updateData={(value) => {
-                                    updateAffiliateValues(value, 'personal-details')
-                                }}
-                                onValidate={(valid) => {
-                                    setNextBtnEnabled(valid)
-                                }}
-                            />
-                            <AccountTerms
-                                affiliate_terms_of_use={affiliate_account.terms_of_use}
-                                updateData={(value) => {
-                                    updateAffiliateValues(value, 'terms-of-use')
-                                }}
-                                onValidate={(valid) => {
-                                    setNextBtnEnabled(valid)
-                                }}
-                            />
-                        </Wizard>
-                    )}
-                    {show_wizard === 0 && (
-                        <div>
-                            {is_going_well ? (
+                        <>
+                            <Wizard
+                                title={localize('_t_Add an affiliate account_t_')}
+                                steps_names={steps}
+                                step={step}
+                                setStep={setStep}
+                                setShowWizard={setShowWizard}
+                                setSignupStatus={setSignupStatus}
+                                enable_next_button={next_btn_enabled}
+                                show_wizard={show_wizard}
+                            >
+                                <AccountType
+                                    card_selected={affiliate_account.account}
+                                    updateData={(account) => {
+                                        updateAffiliateValues(account, 'account-type')
+                                    }}
+                                    onValidate={(valid) => {
+                                        setNextBtnEnabled(valid)
+                                    }}
+                                />
+                                <AccountDetails
+                                    affiliate_address_data={affiliate_account.address_details}
+                                    updateData={(value) => {
+                                        updateAffiliateValues(value, 'account-details')
+                                    }}
+                                    onValidate={(valid) => {
+                                        setNextBtnEnabled(valid)
+                                    }}
+                                />
+                                <PhoneNumber
+                                    affiliate_phone_number={affiliate_account.phone_number}
+                                    updatedData={(value) => {
+                                        updateAffiliateValues(value, 'phone-number')
+                                    }}
+                                    onValidate={(valid) => {
+                                        setNextBtnEnabled(valid)
+                                    }}
+                                />
+                                <PersonalDetails
+                                    affiliate_personal_data={affiliate_account.personal_details}
+                                    is_individual={affiliate_account.account.type === 'Individual'}
+                                    updateData={(value) => {
+                                        updateAffiliateValues(value, 'personal-details')
+                                    }}
+                                    onValidate={(valid) => {
+                                        setNextBtnEnabled(valid)
+                                    }}
+                                />
+                                <AccountTerms
+                                    affiliate_terms_of_use={affiliate_account.terms_of_use}
+                                    updateData={(value) => {
+                                        updateAffiliateValues(value, 'terms-of-use')
+                                    }}
+                                    onValidate={(valid) => {
+                                        setNextBtnEnabled(valid)
+                                    }}
+                                />
+                            </Wizard>
+                            {signup_status == 'success' && (
                                 <ProgressModal>
                                     <Modal>
                                         <ImageWrapper>
@@ -596,7 +605,8 @@ const AffiliateSignup = () => {
                                     </Modal>
                                     <Background />
                                 </ProgressModal>
-                            ) : (
+                            )}
+                            {signup_status == 'lost connection' && (
                                 <ProgressModal>
                                     <Modal>
                                         <ImageWrapper>
@@ -616,7 +626,7 @@ const AffiliateSignup = () => {
                                         <StyledButton
                                             secondary
                                             onClick={() => {
-                                                setIsGoing(true)
+                                                setSignupStatus('username already exist')
                                             }}
                                         >
                                             <Localize translate_text={'_t_Try again_t_'} />
@@ -625,7 +635,44 @@ const AffiliateSignup = () => {
                                     <Background />
                                 </ProgressModal>
                             )}
-                        </div>
+                            {signup_status == 'username already exist' && (
+                                <ProgressModal>
+                                    <Modal>
+                                        <ImageWrapper>
+                                            <img src={Failed} alt="email" width="64" height="64" />
+                                        </ImageWrapper>
+                                        <Header type="subtitle-1" align="center">
+                                            <Localize translate_text={'_t_Signup failed_t_'} />
+                                        </Header>
+                                        <Header
+                                            type="paragraph-1"
+                                            align="center"
+                                            weight="400"
+                                            pt="8px"
+                                        >
+                                            <Localize translate_text="_t_Username already exist_t_" />
+                                        </Header>
+                                        <StyledButton
+                                            secondary
+                                            onClick={() => {
+                                                setSignupStatus('')
+                                                setStep(step - 1)
+                                                setAffiliateAccount({
+                                                    ...affiliate_account,
+                                                    personal_details: {
+                                                        ...affiliate_account.personal_details,
+                                                        user_name: '',
+                                                    },
+                                                })
+                                            }}
+                                        >
+                                            <Localize translate_text={'_t_Change username_t_'} />
+                                        </StyledButton>
+                                    </Modal>
+                                    <Background />
+                                </ProgressModal>
+                            )}
+                        </>
                     )}
                 </StyledFlexWrapper>
             </AtomicContainer.Fluid>

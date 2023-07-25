@@ -6,13 +6,21 @@ import Stepper from './stepper'
 import device from 'themes/device'
 import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
 
-type WizardProps = {
-    children: React.ReactElement[]
-    show_wizard: boolean | number
-    setShowWizard: React.Dispatch<React.SetStateAction<boolean>>
-    steps_names: string[]
-    title: string
-    enable_next_button: boolean
+export type WizardProps = {
+    children?: React.ReactElement[]
+    show_wizard?: boolean | number
+    setShowWizard?: React.Dispatch<React.SetStateAction<boolean>>
+    setSignupStatus?: React.Dispatch<
+        React.SetStateAction<'username already exist' | 'lost connection' | 'success'>
+    >
+    steps_names?: string[]
+    step?: number
+    setStep?: React.Dispatch<React.SetStateAction<number>>
+    title?: string
+    enable_next_button?: boolean
+    max_step?: number
+    setEnableNext?: React.Dispatch<React.SetStateAction<boolean>>
+    disabled?: boolean
 }
 
 export const Background = styled.div`
@@ -57,11 +65,13 @@ const Wizard = ({
     children,
     show_wizard,
     setShowWizard,
+    setSignupStatus,
     steps_names,
+    step,
+    setStep,
     title,
     enable_next_button,
 }: WizardProps) => {
-    const [step, setStep] = useState(1)
     const [enable_next, setEnableNext] = useState(false)
 
     useEffect(() => {
@@ -91,7 +101,7 @@ const Wizard = ({
                     setStep={setStep}
                     max_step={children.length}
                     setEnableNext={setEnableNext}
-                    setShowWizard={setShowWizard}
+                    setSignupStatus={setSignupStatus}
                     disabled={!enable_next}
                 />
             </Modal>

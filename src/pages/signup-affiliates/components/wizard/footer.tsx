@@ -1,16 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { WizardProps } from './index'
 import Button from 'components/form/button'
 import { localize } from 'components/localization'
-
-type FooterProps = {
-    step: number
-    setStep: React.Dispatch<React.SetStateAction<number>>
-    setShowWizard: React.Dispatch<React.SetStateAction<boolean>>
-    max_step: number
-    setEnableNext: React.Dispatch<React.SetStateAction<boolean>>
-    disabled: boolean
-}
 
 const StyledFooter = styled.div`
     display: flex;
@@ -36,11 +28,11 @@ const enum ButtonType {
 const Footer = ({
     step,
     setStep,
-    setShowWizard,
+    setSignupStatus,
     max_step,
     setEnableNext,
     disabled,
-}: FooterProps) => {
+}: WizardProps) => {
     const buttonHandler = React.useCallback(
         (button_type: ButtonType): void => {
             if (button_type === ButtonType.Previous) {
@@ -57,18 +49,20 @@ const Footer = ({
     return (
         <StyledFooter>
             {step > 1 && (
-                <Button tertiary="true" onClick={() => buttonHandler(ButtonType.Previous)}>
-                    {localize('Previous')}
+                <Button tertiary onClick={() => buttonHandler(ButtonType.Previous)}>
+                    {localize('_t_Previous_t_')}
                 </Button>
             )}
             <Button
                 secondary
                 disabled={disabled}
                 onClick={() =>
-                    max_step === step ? setShowWizard(0) : buttonHandler(ButtonType.Next)
+                    max_step === step
+                        ? setSignupStatus('username already exist')
+                        : buttonHandler(ButtonType.Next)
                 }
             >
-                {max_step === step ? localize('Submit') : localize('Next')}
+                {max_step === step ? localize('_t_Submit_t_') : localize('_t_Next_t_')}
             </Button>
         </StyledFooter>
     )

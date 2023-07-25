@@ -81,14 +81,14 @@ const AccountTerms = ({ affiliate_terms_of_use, updateData, onValidate }: Accoun
         !!terms_of_use['non_pep_declaration'] &&
         !!terms_of_use['tnc_accepted'] &&
         !!terms_of_use['general_terms']
-    console.log(validate)
+
     useEffect(() => {
         onValidate(validate)
     }, [onValidate, validate])
 
     useEffect(() => {
         updateData({
-            terms_of_use,
+            ...terms_of_use,
         })
     }, [terms_of_use])
 

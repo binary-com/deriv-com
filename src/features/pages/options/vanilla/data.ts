@@ -175,31 +175,4 @@ export const vanillaFAQ: OptionsFAQDataItem[] = [
             },
         ],
     },
-    {
-        id: 8,
-        question: '_t_How can I delta hedge my synthetic options portfolio?_t_',
-        answers: [
-            {
-                id: 1,
-                type: 'text',
-                text: '_t_However, you can access the hedge ratio (lot size) for each options contract to help you manage your risk if you want to delta hedge on a CFD platform._t_',
-            },
-            {
-                id: 2,
-                type: 'text',
-                text: '_t_The hedge ratio refers to the number of CFD lots required to hedge an options position. It aims to reduce the directional risks associated with holding options positions. You can hedge call options that gain value when the underlying asset’s price increases by shorting the underlying asset, and vice versa for put options._t_',
-            },
-
-            {
-                id: 3,
-                type: 'text',
-                text: '_t_Periodic rebalancing is usually a preferred trading strategy when looking at options contracts with expiry dates greater than 1 week._t_',
-            },
-            {
-                id: 4,
-                type: 'text',
-                text: '_t_Please note that hedging requires ongoing monitoring and trade rebalancing._t_',
-            },
-        ],
-    },
 ]

@@ -16,11 +16,11 @@ export const accumulatorOptionsContentItems: OptionContentItemData[] = [
         images: [
             {
                 src: PayoutWin,
-                alt: '_t_Payout Win_t_',
+                alt: '_t_A chart illustrating an accumulators contract payout_t_',
             },
             {
                 src: PayoutKnockedOut,
-                alt: '_t_Payout Knocked-out_t_',
+                alt: '_t_A chart illustrating a terminated accumulators contract_t_',
             },
         ],
         texts: [

@@ -215,7 +215,7 @@ const AffiliateSignup = () => {
         },
         phone_number: {
             phone: '',
-            prefix: '44',
+            prefix: '',
         },
         personal_details: {
             first_name: '',
@@ -236,24 +236,35 @@ const AffiliateSignup = () => {
             is_partner_checked: false,
         },
     })
+
+    useEffect(() => {
+        setAffiliateAccount({
+            ...affiliate_account,
+            phone_number: { phone: '', prefix: affiliate_account.address_details.country?.prefix },
+        })
+    }, [affiliate_account.address_details.country])
+
     // doesn't work in vercel due serverlsess features
     // const { data, send } = useWS('residence_list')
+    // const [list, setList] = useState()
     // useEffect(() => {
     //     send({})
     // }, [send])
     //
     // useEffect(() => {
     //     if (data) {
-    //         const country_list = data?.map(({ text, value }) => {
+    //         const country_list = data?.map(({ text, value, phone_idd }) => {
     //             return {
     //                 name: text,
     //                 display_name: text,
     //                 value: value,
+    //                 prefix: phone_idd,
     //             }
     //         })
-    //         setCountryList(country_list)
+    //         setList(country_list)
     //     }
     // }, [data])
+    // console.log(JSON.stringify(list))
 
     const { data, send } = useWS('verify_email_cellxpert')
 

@@ -57,14 +57,13 @@ type PhoneNumberProps = {
 const PhoneNumber = ({ updatedData, onValidate, affiliate_phone_number }: PhoneNumberProps) => {
     const [phone, setPhone] = useState(affiliate_phone_number.phone)
     const [phone_error_msg, setPhoneErrorMsg] = useState('')
-    const [prefix, setPrefix] = useState(affiliate_phone_number.prefix)
 
     useEffect(() => {
         updatedData({
+            ...affiliate_phone_number,
             phone,
-            prefix,
         })
-    }, [phone, prefix])
+    }, [phone])
 
     // need to initialize a type of current wizard
     // in future can pass or set phone prefix
@@ -90,7 +89,9 @@ const PhoneNumber = ({ updatedData, onValidate, affiliate_phone_number }: PhoneN
 
             <CodeContainer>
                 <CodeWrapper>
-                    <CountryCode>{prefix && <span>{`+${prefix}`}</span>}</CountryCode>
+                    <CountryCode>
+                        <span>{`+${affiliate_phone_number.prefix}`}</span>
+                    </CountryCode>
                 </CodeWrapper>
 
                 <PhoneNumberInput

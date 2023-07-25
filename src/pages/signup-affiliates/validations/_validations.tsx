@@ -62,8 +62,8 @@ const phoneValidation = (input, field_name) => {
         return (
             <Localize translate_text="_t_{{field_name}} is required_t_" values={{ field_name }} />
         )
-    } else if (input.length !== 7) {
-        return localize(`_t_Please enter a valid phone number_t_`)
+    } else if (!validation_is_exceed_number(input, 9) || !validation_is_lack_number(input, 7)) {
+        return localize(`_t_You should enter 7-9 numbers._t_`)
     }
 }
 const passwordValidation = (input, field_name, min_digit, max_digit) => {

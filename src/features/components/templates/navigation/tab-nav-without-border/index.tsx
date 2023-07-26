@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { SwiperSlide, Swiper } from 'swiper/react'
 import SwiperCore, { Navigation } from 'swiper'
 import NavigationTabMenu from '../../tabs/navigation-menu'
-import { swiper_wrapper, swiper_button_next } from './styles.module.scss'
+import { swiper_wrapper, swiper_button_next, swiper_button_disabled } from './styles.module.scss'
 import { OptionNavigationType } from './types'
 import Container from 'features/components/atoms/container'
 import Image from 'features/components/atoms/image'
@@ -70,7 +70,13 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                             )
                         })}
                 </Swiper>
-                <div className={dclsx('swiper-button-next', swiper_button_next)}>
+                <div
+                    className={dclsx(
+                        'swiper-button-next',
+                        swiper_button_next,
+                        tab_data.length <= 3 && swiper_button_disabled,
+                    )}
+                >
                     <Image src={ArrowNext} width="24px" height="24px" />
                 </div>
             </Flex.Box>
@@ -78,6 +84,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
             <Flex.Box
                 padding_block="10x"
                 justify="around"
+                gap="5x"
                 md={{ justify: 'center', padding: '10x' }}
                 visible="larger-than-phone"
                 className="wrapper_navigation"

@@ -155,7 +155,7 @@ const HeroImageWrapper = styled.div`
     height: 100%;
 
     @media (min-width: 1920px) {
-        width: 50%;
+        width: 1150px;
     }
     @media (min-width: 992px) and (max-width: 1440px) {
         width: 65%;

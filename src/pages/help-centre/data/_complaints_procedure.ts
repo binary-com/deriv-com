@@ -29,7 +29,6 @@ const complaints_procedure: TQuestionsData = {
 
                 {
                     margin_top: '1rem',
-                    translation_text: '_t_<0>Option 2: Use the live chat widget</0>_t_',
                     translation_components: [{ key: 0, type: 'strong' }],
                     list: {
                         list_style: 'decimal',

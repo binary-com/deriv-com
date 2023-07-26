@@ -11,18 +11,12 @@ export type TImage = {
 
 export type TTranslationComponents = {
     key: number
-    type: 'link' | 'internal_link' | 'deriv_app_link' | 'strong' | 'click_event'
+    type: 'link' | 'internal_link' | 'deriv_app_link' | 'strong'
     to?: string
-}[]
-
-export type TClickEvents = {
-    key: number
-    action?: ReactNode
 }[]
 
 type TLocalize = {
     translation_text?: TString
-    click_event?: TClickEvents
     eu_translation_text?: TString
     translation_components?: TTranslationComponents
     img?: TImage

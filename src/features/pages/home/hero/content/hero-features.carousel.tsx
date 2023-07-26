@@ -3,6 +3,7 @@ import { hero_typewriter, wrapper, text } from './hero-content.module.scss'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import { TString } from 'types/generics'
+import dclsx from 'features/utils/dclsx'
 
 const strings: TString[] = [
     '_t_Forex_t_',
@@ -10,7 +11,7 @@ const strings: TString[] = [
     '_t_Stocks & indices_t_',
     '_t_Commodities_t_',
     '_t_Derived Indices_t_',
-];
+]
 
 const HeroFeaturesCarousel = () => {
     return (
@@ -18,7 +19,7 @@ const HeroFeaturesCarousel = () => {
             <Typography.Heading className={text} as="h3" size="large" weight="bold" color="primary">
                 <div className={wrapper}>
                     {strings.map((string) => (
-                        <p key={string}>
+                        <p key={string} className={dclsx('typography-font-UBUNTU')}>
                             <Localize translate_text={string} />
                         </p>
                     ))}

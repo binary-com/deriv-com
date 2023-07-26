@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import { TTranslationComponents } from '../data/_data-types'
-import CompliantLiveChat from '../compliant-live-chat'
 import device from 'themes/device'
 import { LocalizedLink } from 'components/localization'
 
@@ -40,7 +39,6 @@ const getComponent = (
         link: <Link key={key} to={to} target="_blank" external rel="noopener noreferrer" />,
         internal_link: <Link key={key} to={to} target="_blank" rel="noopener noreferrer" />,
         strong: <strong key={key} />,
-        click_event: <CompliantLiveChat key={key} />,
     }[type]
 }
 

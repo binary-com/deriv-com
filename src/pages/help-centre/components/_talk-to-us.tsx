@@ -7,6 +7,7 @@ import { Localize } from 'components/localization'
 import { Header } from 'components/elements/typography'
 import { useLivechat } from 'components/hooks/use-livechat'
 import { Button } from 'components/form'
+import { LocalizedLinkText } from 'components/elements'
 
 const StyledContainer = styled(Container)`
     padding-block: 2rem;
@@ -15,6 +16,11 @@ const StyledContainer = styled(Container)`
 const StyledButton = styled(Button)`
     &:hover {
         background: none;
+    }
+`
+const StyledLocalizedLinkText = styled(LocalizedLinkText)`
+    &:hover {
+        text-decoration: none;
     }
 `
 const TalkToUs = () => {
@@ -36,14 +42,14 @@ const TalkToUs = () => {
                 </Flex>
             </StyledButton>
 
-            <StyledButton flat onClick={() => window.open(compliance_faq, '_self')}>
+            <StyledLocalizedLinkText to={compliance_faq}>
                 <Flex gap="8px" width="auto">
                     <img src={ComplianceIcon} alt="Complaints procedure" />
                     <Header type="paragraph-1" weight="normal">
                         <Localize translate_text="_t_Complaints procedure_t_" />
                     </Header>
                 </Flex>
-            </StyledButton>
+            </StyledLocalizedLinkText>
         </StyledContainer>
     )
 }

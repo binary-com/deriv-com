@@ -11,6 +11,7 @@ const LayoutOverlay = () => {
     const is_rtl = useIsRtl()
     return (
         <Flex.Box
+            id="overlay-container"
             container="fixed"
             align="stretch"
             justify={'end'}
@@ -18,6 +19,7 @@ const LayoutOverlay = () => {
             className={overlay_container}
         >
             <Flex.Box
+                id="overlay-container"
                 direction="col-reverse"
                 md={{ direction: is_rtl ? 'row-reverse' : 'row' }}
                 justify="between"

@@ -57,16 +57,18 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                 <Typography.Paragraph mb="10x" textcolor="black" align="center">
                     <Localize translate_text="_t_Want to know more about CFD trading conditions for the instruments we offer?_t_" />
                 </Typography.Paragraph>
-                <LinkButton.Primary
-                    font_family="UBUNTU"
-                    aria-label="check trading specs"
-                    url={{
-                        type: 'internal',
-                        to: '/trading-specification',
-                    }}
-                >
-                    <Localize translate_text="_t_Check trading specs_t_" />
-                </LinkButton.Primary>
+                {!is_deriv_go ? (
+                    <LinkButton.Primary
+                        font_family="UBUNTU"
+                        aria-label="check trading specs"
+                        url={{
+                            type: 'internal',
+                            to: '/trading-specification',
+                        }}
+                    >
+                        <Localize translate_text="_t_Chec123k trading specs_t_" />
+                    </LinkButton.Primary>
+                ) : null}
             </Flex.Box>
             <FullWidthMultiColumn header="_t_Why trade synthetics on Deriv_t_">
                 {synthetic_content.map(({ alt, src, text }) => (

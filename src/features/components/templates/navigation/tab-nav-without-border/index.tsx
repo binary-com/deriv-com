@@ -10,6 +10,7 @@ import { getLocationPathname } from 'common/utility'
 import ArrowNext from 'images/svg/arrow-next.svg'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import './styles.scss'
+import { isActiveLink } from 'features/components/atoms/link/internal'
 
 // Import the required Swiper modules
 SwiperCore.use([Navigation])
@@ -20,23 +21,21 @@ interface NavigationTabWithoutBorderType {
 
 const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType) => {
     const pathname = getLocationPathname()
-    const [is_tab_loading, setTabsLoading] = useState(true)
+    const [swiper_loading, setSwiperLoading] = useState(true)
     const swiper_ref = useRef(null)
     const { is_mobile } = useBreakpoints()
-    const [selected_tab_name, setSelectedTabName] = useState<string | null>(null)
 
     useEffect(() => {
         const selected_tab_item: OptionNavigationType = tab_data.find((option) =>
-            pathname?.includes(option.active_path),
+            pathname?.includes(option.to),
         )
-        setSelectedTabName(selected_tab_item?.option_name || null)
         if (swiper_ref.current && is_mobile) {
             const active_slide_index = tab_data.findIndex(
                 (tab) => tab.option_name === selected_tab_item?.option_name,
             )
             swiper_ref.current.swiper.slideTo(active_slide_index)
         }
-        setTabsLoading(false)
+        setSwiperLoading(false)
     }, [pathname])
 
     return (
@@ -45,7 +44,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                 padding_block="10x"
                 md={{ justify: 'center', padding: '10x' }}
                 visible="phone-only"
-                className="wrapper_navigation"
+                className="swiper_wrapper_navigation"
             >
                 <Swiper
                     ref={swiper_ref}
@@ -54,24 +53,22 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                     direction="horizontal"
                     navigation={{ nextEl: '.swiper-button-next' }}
                 >
-                    {!is_tab_loading &&
-                        tab_data.map((tab_item) => {
-                            return (
-                                <SwiperSlide key={tab_item.option_name}>
-                                    <NavigationTabMenu
-                                        key={tab_item.option_name}
-                                        tab_items={tab_item}
-                                        selected={tab_item.option_name === selected_tab_name}
-                                        is_no_border_bottom
-                                        icon={
-                                            tab_item.option_name === selected_tab_name
-                                                ? `${tab_item.selected_src}#${tab_item.option_name}`
-                                                : `${tab_item.src}#${tab_item.option_name}`
-                                        }
-                                    />
-                                </SwiperSlide>
-                            )
-                        })}
+                    {!swiper_loading &&
+                        tab_data.map((tab_item) => (
+                            <SwiperSlide key={tab_item.option_name}>
+                                <NavigationTabMenu
+                                    key={tab_item.option_name}
+                                    tab_items={tab_item}
+                                    selected={isActiveLink(tab_item.to, tab_item?.active_path)}
+                                    is_no_border_bottom
+                                    icon={
+                                        isActiveLink(tab_item.to)
+                                            ? `${tab_item.selected_src}#${tab_item.option_name}`
+                                            : `${tab_item.src}#${tab_item.option_name}`
+                                    }
+                                />
+                            </SwiperSlide>
+                        ))}
                 </Swiper>
                 <div className="swiper-button-next">
                     <Image src={ArrowNext} width="24px" height="24px" />
@@ -83,24 +80,22 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                 justify="around"
                 md={{ justify: 'center', padding: '10x' }}
                 visible="larger-than-phone"
-                className="wrapper_navigation"
             >
-                {!is_tab_loading &&
-                    tab_data.map((tab_item) => {
-                        return (
-                            <NavigationTabMenu
-                                key={tab_item.option_name}
-                                tab_items={tab_item}
-                                selected={tab_item.option_name === selected_tab_name}
-                                is_no_border_bottom
-                                icon={
-                                    tab_item.option_name === selected_tab_name
-                                        ? `${tab_item.selected_src}#${tab_item.option_name}`
-                                        : `${tab_item.src}#${tab_item.option_name}`
-                                }
-                            />
-                        )
-                    })}
+                {tab_data.map((tab_item) => (
+                    <Flex.Box direction="col" key={tab_item.option_name}>
+                        <NavigationTabMenu
+                            key={tab_item.option_name}
+                            tab_items={tab_item}
+                            selected={isActiveLink(tab_item.to, tab_item?.active_path)}
+                            is_no_border_bottom
+                            icon={
+                                isActiveLink(tab_item.to, tab_item?.active_path)
+                                    ? `${tab_item.selected_src}#${tab_item.option_name}`
+                                    : `${tab_item.src}#${tab_item.option_name}`
+                            }
+                        />
+                    </Flex.Box>
+                ))}
             </Flex.Box>
         </Container.Fluid>
     )

@@ -213,12 +213,6 @@ const account: TQuestionsData = {
                         },
                     ],
                 },
-                {
-                    translation_text:
-                        '_t_<0>Note:</0> If you have lost access to your registered email address, we won’t be able to change it on our end. Contact your email service provider for assistance in regaining access to your email. Once you have regained access to it, follow the steps above to change your email address on Deriv._t_',
-                    has_margin_top: true,
-                    translation_components: [{ key: 0, type: 'strong' }],
-                },
             ],
         },
         {

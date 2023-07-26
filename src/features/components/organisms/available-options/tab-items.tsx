@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import {
     tab_container,
@@ -17,19 +17,17 @@ import Image from 'features/components/atoms/image'
 import Tab from 'features/components/atoms/tab'
 import Flex from 'features/components/atoms/flex-box'
 import { OptionNavigationType } from 'features/components/templates/navigation/tab-nav-without-border/types'
+import { isActiveLink } from 'features/components/atoms/link/internal'
 import dclsx from 'features/utils/dclsx'
 import ArrowNext from 'images/svg/arrow-next.svg'
-import { getLocationPathname } from 'common/utility'
 
 interface OptionsTabType {
     options_tabs: OptionNavigationType[]
 }
 
 const OptionsTab = ({ options_tabs }: OptionsTabType) => {
-    const pathname = getLocationPathname()
     const content_wrapper = useRef<HTMLDivElement>(null)
     const [is_initial_load, setIsInitialLoad] = useState(true)
-    const [selected_tab_name, setSelectedTabName] = useState<string | null>(null)
 
     const [first_element_ref, firstInView] = useInView({
         threshold: 0.8,
@@ -55,13 +53,6 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
             }
         }, speed)
     }
-
-    useEffect(() => {
-        const selected_tab_item: OptionNavigationType = options_tabs.find((option) =>
-            pathname?.includes(option.to),
-        )
-        setSelectedTabName(selected_tab_item?.option_name || null)
-    }, [pathname])
 
     return (
         <Flex.Box direction="col" padding_block="10x" md={{ padding_block: '20x' }}>
@@ -91,14 +82,14 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                                 >
                                     <Tab.MenuItem
                                         key={option_item.option_name}
-                                        selected={selected_tab_name === option_item.option_name}
+                                        selected={isActiveLink(option_item.to)}
                                         className={options_available_tab_item}
                                     >
                                         <Typography.Paragraph
                                             size="medium"
                                             font_family="UBUNTU"
                                             textcolor={
-                                                selected_tab_name === option_item.option_name
+                                                isActiveLink(option_item.to)
                                                     ? 'brand'
                                                     : 'light-black'
                                             }

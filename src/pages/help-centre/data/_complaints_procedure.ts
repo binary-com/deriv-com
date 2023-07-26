@@ -24,28 +24,9 @@ const complaints_procedure: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        "_t_We're here to ensure your concerns are addressed promptly. To register a complaint and seek assistance, you have two convenient options: _t_",
+                        '_t_To register a complaint and seek assistance, follow these easy steps_t_',
                 },
-                {
-                    margin_top: '1rem',
-                    translation_text: '_t_<0>Option 1: Use the direct link</0>_t_',
-                    translation_components: [{ key: 0, type: 'strong' }],
-                    list: {
-                        list_style: 'decimal',
-                        margin_top: '1rem',
-                        items: [
-                            {
-                                translation_text:
-                                    '_t_Initiate the complaint process by clicking the provided <0>link.</0>_t_',
-                                translation_components: [{ key: 0, type: 'click_event' }],
-                            },
-                            {
-                                translation_text:
-                                    '_t_Respond to the questions that appear on your screen._t_',
-                            },
-                        ],
-                    },
-                },
+
                 {
                     margin_top: '1rem',
                     translation_text: '_t_<0>Option 2: Use the live chat widget</0>_t_',

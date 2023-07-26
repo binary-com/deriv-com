@@ -10,6 +10,7 @@ import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import PageNotFound from 'features/pages/404-error'
+import dclsx from 'features/utils/dclsx'
 
 const VanillaOptions = () => {
     const { is_row } = useRegion()
@@ -32,17 +33,17 @@ const VanillaOptions = () => {
                 <Flex.Box
                     direction="col"
                     justify="center"
-                    gap="16x"
+                    gap="10x"
                     md={{
                         padding_inline: '12x',
                         pt: '20x',
                     }}
                     className={why_vanilla_section}
                 >
-                    <Typography.Heading size="xxs">
+                    <h4 className={dclsx('text-small')}>
                         <Localize translate_text="_t_Why traders choose vanilla options_t_" />
-                    </Typography.Heading>
-                    <Typography.Paragraph>
+                    </h4>
+                    <Typography.Paragraph size="small">
                         <Localize translate_text="_t_In addition to their simplicity to understand, the main reason traders choose to trade vanilla options is because they offer potentially high profit as they do not have a fixed payout, while losses are strictly limited to the initial stake amount._t_" />
                     </Typography.Paragraph>
                 </Flex.Box>

@@ -65,10 +65,6 @@
             min-inline-size: 3.6rem;
         }
 
-        &[data-state='open'] .accordion_icon {
-            transform: rotate(0deg);
-        }
-
         &[data-state='open'] .plus_icon {
             background: url(images/svg/elements/minus.svg) no-repeat top left;
             background-size: contain;

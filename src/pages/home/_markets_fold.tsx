@@ -264,7 +264,7 @@ const CarouselItem = ({
                             </StyledDescription>
                             <CarouselItemImageDesktop
                                 data={image}
-                                alt={header}
+                                alt={localize(header)}
                                 loading="eager"
                                 $hovered={is_hovered}
                             />

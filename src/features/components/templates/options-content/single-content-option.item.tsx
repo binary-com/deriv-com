@@ -19,7 +19,7 @@ const SingleOptionContentItem = ({ item }: { item: OptionContentSingleItemData }
             </Flex.Box>
             <Flex.Box direction="col" gap="6x" pb="16x">
                 {item.texts.map((textItem) => (
-                    <Typography.Paragraph key={textItem}>
+                    <Typography.Paragraph key={textItem} size="small">
                         <Localize translate_text={textItem} />
                     </Typography.Paragraph>
                 ))}

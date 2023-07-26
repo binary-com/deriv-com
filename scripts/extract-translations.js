@@ -41,21 +41,6 @@ const getKeyHash = string => crc32(string)
 
 const action = process.argv[2]
 
-
-const old_find_keys = (file) => {
-    const keys = [];
-    let result = old_i18n_marker.exec(file);
-    while (result != null) {        
-        const extracted = result[2] || result[4]; // If it captures `text=` then it will be index 2, else its index 4 which captures `localize`
-        // if the key contains '_t_' we skip it and let new apprach extract it.
-        if(!extracted.includes("_t_")){
-            keys.push(extracted.replace(/\\/g, ''));
-        }
-        result = old_i18n_marker.exec(file);
-    }
-    return keys;
-}
-
 const new_find_keys = (file) => {
     const keys = []
     let result = new_i18n_marker.exec(file)
@@ -94,7 +79,6 @@ function extractTranslations() {
                 try {
                     const file = fs.readFileSync(file_paths[i], 'utf8');
                     if (!file.includes(DISABLE_TRANSLATION)) {
-                        messages.push(...old_find_keys(file));
                         messages.push(...new_find_keys(file))
                     }
                 } catch (e) {

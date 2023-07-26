@@ -45,7 +45,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v2.1.2
               with:
-                  node-version: '16.x'
+                  node-version: '18.x'
             - name: Installing Crowdin     
               run: npm i -g @crowdin/cli@3.7.8
             - name: Delete Branch [${{ github.event.workflow_run.head_branch }}] 🗑️

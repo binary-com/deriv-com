@@ -1,4 +1,4 @@
-import React, { useEffect, createContext, Dispatch, ReactNode } from 'react'
+import React, { createContext, Dispatch, ReactNode, useEffect, useState } from 'react'
 import type { WebsiteStatus } from '@deriv/api-types'
 import { useCookieState } from 'components/hooks/use-cookie-state'
 import useWS from 'components/hooks/useWS'
@@ -15,19 +15,17 @@ type WebsiteStatusContextType = {
 export const WebsiteStatusContext = createContext<WebsiteStatusContextType>(null)
 
 export const WebsiteStatusProvider = ({ children }: WebsiteStatusProviderProps) => {
-    const { data, send } = useWS('website_status')
-
-    const getDateFromToday = (num_of_days: number) => {
-        const today = new Date()
-
-        return new Date(today.getFullYear(), today.getMonth(), today.getDate() + num_of_days)
-    }
-
     const WEBSITE_STATUS_COUNTRY_KEY = 'website_status'
-    const COOKIE_EXPIRY_DAYS = 7
+    const { data, send } = useWS(WEBSITE_STATUS_COUNTRY_KEY)
+    const [days_from_today, setDaysFromToday] = useState(null)
+
+    useEffect(() => {
+        const data = new Date()
+        setDaysFromToday(data.getDate() + 7)
+    }, [])
 
     const [websiteCountryStatus, setWebsiteStatus] = useCookieState(WEBSITE_STATUS_COUNTRY_KEY, {
-        expires: getDateFromToday(COOKIE_EXPIRY_DAYS),
+        expires: days_from_today,
     })
 
     useEffect(() => {

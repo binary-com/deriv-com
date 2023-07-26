@@ -59,10 +59,9 @@ const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
                         translation_components && TranslationComponents(translation_components)
 
                     return (
-                        <>
+                        <React.Fragment key={translation_text}>
                             <Header
                                 as="p"
-                                key={translation_text}
                                 size={size ? size : '16px'}
                                 weight="normal"
                                 mt={has_margin_top ? '1.7rem' : margin_top}
@@ -74,7 +73,7 @@ const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
                             </Header>
                             {img && <ImageCard {...img} />}
                             {list && <List {...list} />}
-                        </>
+                        </React.Fragment>
                     )
                 },
             )}

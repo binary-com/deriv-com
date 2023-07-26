@@ -13,6 +13,8 @@ type WrapPagesWithLocaleContextProps = {
     props: LocalseContextWrapperProps
 }
 
+Object.defineProperty(plugin, 'name', { value: 'my-stylis-plugin' })
+
 export const LocaleContext = React.createContext(null)
 
 export const LocaleContextWrapper = ({

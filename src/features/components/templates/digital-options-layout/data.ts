@@ -27,7 +27,7 @@ export const AvailableDigitalOptionsData: OptionNavigationType[] = [
         button_text: '_t_High/Low Ticks_t_',
     },
     {
-        to: '/trade-types/options/digital-options/touchnotouch',
+        to: '/trade-types/options/digital-options/touch-no-touch',
         option_name: 'touch',
         button_text: '_t_Touch / No Touch_t_',
     },

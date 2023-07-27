@@ -41,7 +41,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
     }, [pathname])
 
     return (
-        <Container.Fluid mt={'20x'}>
+        <Container.Fluid pt={'20x'}>
             <Flex.Box padding_block="10x" visible="phone-only" className={swiper_wrapper}>
                 <Swiper
                     ref={swiper_ref}

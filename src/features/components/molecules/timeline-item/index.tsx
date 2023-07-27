@@ -35,7 +35,7 @@ const TimelineItem = ({ data, isLastItem, ...rest }: TimelineItemProps) => {
                 className={dclsx(isLastItem ? 'margin-top-10x' : 'margin-top-3x')}
             />
             <div>
-                <Typography.Heading pt="4x" md={{ pt: '2x' }} as="h3" size="xs" mb="4x">
+                <Typography.Heading as="h4" size="xs" mb="4x">
                     <Localize translate_text={data.heading} />
                 </Typography.Heading>
                 <Typography.Paragraph>

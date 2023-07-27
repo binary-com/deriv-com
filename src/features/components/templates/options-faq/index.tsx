@@ -27,7 +27,7 @@ const OptionsFaq = ({ faqs }: OptionsFaqProps) => {
                 }}
                 as="h2"
             >
-                <Localize translate_text="_t_Browse our FAQ_t_" />
+                <Localize translate_text="_t_testing FAQ_t_" />
             </Typography.Heading>
             <Accordion.Root type="multiple">
                 {faqs.map((faqItem) => (

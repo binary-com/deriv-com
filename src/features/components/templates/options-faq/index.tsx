@@ -52,9 +52,13 @@ const OptionsFaq = ({ faqs }: OptionsFaqProps) => {
                                         </Typography.Paragraph>
                                     ) : (
                                         <ul>
-                                            <Typography.Paragraph>
-                                                <Localize translate_text={answerItem.list_title} />
-                                            </Typography.Paragraph>
+                                            {answerItem.list_title && (
+                                                <Typography.Paragraph>
+                                                    <Localize
+                                                        translate_text={answerItem.list_title}
+                                                    />
+                                                </Typography.Paragraph>
+                                            )}
                                             {answerItem.list_items.map((answerListItem) => (
                                                 <li key={answerListItem}>
                                                     <Typography.Paragraph>

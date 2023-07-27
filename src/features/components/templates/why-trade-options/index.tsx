@@ -28,7 +28,7 @@ const WhyTradeOptions = ({ data }: { data: WhyTradeOptionsType }) => {
             padding_block="20x"
             md={{ padding_block: '40x' }}
         >
-            <Container.Fluid className={wrapper}>
+            <Flex.Box direction="col" className={wrapper}>
                 <Typography.Heading
                     as="h3"
                     textcolor="inverted"
@@ -58,7 +58,7 @@ const WhyTradeOptions = ({ data }: { data: WhyTradeOptionsType }) => {
                         <Localize translate_text={data.button.text} />
                     </LinkButton.Primary>
                 </Flex.Box>
-            </Container.Fluid>
+            </Flex.Box>
         </Container.Fixed>
     )
 }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { OptionsFAQDataItem } from '../options-content/type'
+import { wrapper } from './styles.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize, get_lang_direction } from 'components/localization'
@@ -11,12 +12,20 @@ interface OptionsFaqProps {
 
 const OptionsFaq = ({ faqs }: OptionsFaqProps) => {
     return (
-        <Flex.Box container="fluid" direction="col" justify="center" align="center" pb="40x">
+        <Flex.Box
+            className={wrapper}
+            direction="col"
+            justify="center"
+            align="center"
+            pb="20x"
+            md={{ pb: '40x' }}
+        >
             <Typography.Heading
                 padding_block="20x"
                 md={{
                     padding_block: '40x',
                 }}
+                as="h2"
             >
                 <Localize translate_text="_t_Browse our FAQ_t_" />
             </Typography.Heading>

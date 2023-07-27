@@ -1,4 +1,5 @@
 import React from 'react'
+import { wrapper } from './style.module.scss'
 import Container from 'features/components/atoms/container'
 import Typography from 'features/components/atoms/typography'
 import { Localize, get_lang_direction } from 'components/localization'
@@ -22,7 +23,7 @@ const StartTrading = ({ data }: { data: StartTradingType }) => {
         <Container.Fixed as="section" padding_block="20x" md={{ padding_block: '40x' }}>
             <Flex.Box direction="col" container="fluid" align="start" dir={get_lang_direction()}>
                 <Typography.Heading
-                    as="h2"
+                    as="h3"
                     textcolor="black"
                     size="small"
                     mb="12x"

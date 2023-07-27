@@ -28,7 +28,7 @@ export const allOptionsTradePlatforms: AllOptionsTradePlatforms = {
         },
         link: {
             type: 'internal',
-            to: '/dbot',
+            to: '/dbot/',
         },
         title: '_t_Deriv Bot_t_',
     },
@@ -39,7 +39,7 @@ export const allOptionsTradePlatforms: AllOptionsTradePlatforms = {
         },
         link: {
             type: 'internal',
-            to: '/dtrader',
+            to: '/dtrader/',
         },
         title: '_t_Deriv Trader_t_',
     },
@@ -65,7 +65,7 @@ export const allOptionsMarkets: AllOptionsMarket = {
         },
         link: {
             type: 'internal',
-            to: '/markets/forex',
+            to: '/markets/forex/',
         },
         title: '_t_Forex_t_',
     },
@@ -76,7 +76,7 @@ export const allOptionsMarkets: AllOptionsMarket = {
         },
         link: {
             type: 'internal',
-            to: '/markets/syntactic',
+            to: '/markets/synthetic/',
         },
         title: '_t_Derived indices_t_',
     },
@@ -87,7 +87,7 @@ export const allOptionsMarkets: AllOptionsMarket = {
         },
         link: {
             type: 'internal',
-            to: '/markets/commodities',
+            to: '/markets/commodities/',
         },
         title: '_t_Commodities_t_',
     },

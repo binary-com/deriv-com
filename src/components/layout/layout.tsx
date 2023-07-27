@@ -43,7 +43,8 @@ export type ModalPayloadType = {
 }
 
 const Main = styled.main<MainType>`
-    padding-top: ${({ padding_top }) => (padding_top && `${padding_top}rem`) || '7rem'};
+    padding-top: ${({ padding_top }) =>
+        ((padding_top || padding_top === 0) && `${padding_top}rem`) || '7rem'};
     background: var(--color-white);
     height: 100%;
     position: relative;

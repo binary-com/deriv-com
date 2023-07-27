@@ -16,7 +16,6 @@ import Wizard, { Background } from 'pages/signup-affiliates/components/wizard'
 import { Header, LinkText, LocalizedLinkText } from 'components/elements'
 import useWS from 'components/hooks/useWS'
 import validation from 'common/validation'
-import Login from 'common/login'
 import { getCookiesFields, getCookiesObject, getDataObjFromCookies } from 'common/cookies'
 import { queryParams } from 'common/utility'
 import device from 'themes/device'
@@ -25,6 +24,7 @@ import { partners_nav_logo } from 'features/components/templates/navigation/paym
 import Link from 'features/components/atoms/link'
 import Image from 'features/components/atoms/image'
 import AtomicContainer from 'features/components/atoms/container'
+import Typography from 'features/components/atoms/typography'
 import LanguageSwitcher from 'features/components/molecules/language-switcher'
 import Map from 'images/svg/signup-affiliates/map.svg'
 import Success from 'images/svg/signup-affiliates/success.svg'
@@ -83,11 +83,6 @@ const EmailText = styled(LinkText)`
     font-size: 16px;
     line-height: 24px;
     padding-top: 24px;
-`
-const LoginText = styled(LinkText)`
-    text-align: center;
-    align-self: center;
-    margin-right: 5px;
 `
 const LoginContainer = styled.div`
     display: flex;
@@ -392,10 +387,6 @@ const AffiliateSignup = () => {
         setEmail('')
         setEmailErrorMsg('')
     }
-    const handleLogin = (e) => {
-        e.preventDefault()
-        Login.redirectTologin()
-    }
 
     const handleEmailSignUp = (e) => {
         e.preventDefault()
@@ -514,16 +505,22 @@ const AffiliateSignup = () => {
                             <Localize translate_text={'_t_Create partner account_t_'} />
                         </EmailButton>
                         <LoginContainer>
-                            <LoginText>
+                            <Typography.Paragraph>
                                 <Localize
                                     translate_text={
                                         '_t_Already have a Deriv affiliate account? _t_'
                                     }
                                 />
-                            </LoginText>
-                            <StyledText align="center" color="red" onClick={handleLogin}>
-                                <Localize translate_text={'_t_Log in_t_'} />
-                            </StyledText>
+                            </Typography.Paragraph>
+                            <Link
+                                url={{ type: 'company', url_name: 'affiliate_sign_in' }}
+                                align={'center'}
+                                no_hover
+                            >
+                                <Typography.Paragraph textcolor={'brand'} ml={'2x'}>
+                                    <Localize translate_text={'_t_Log in_t_'} />
+                                </Typography.Paragraph>
+                            </Link>
                         </LoginContainer>
                     </SignUpWrapper>
                     {show_wizard && (

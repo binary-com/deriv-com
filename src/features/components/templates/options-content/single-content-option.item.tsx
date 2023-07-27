@@ -4,21 +4,22 @@ import { content_images, single_image } from './styles.module.scss'
 import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
+import dclsx from 'features/utils/dclsx'
 
 const SingleOptionContentItem = ({ item }: { item: OptionContentSingleItemData }) => {
     return (
-        <Flex.Box container="fluid" justify="start" align="start" direction="col">
-            <Flex.Box gap="8x" pb="8x">
+        <Flex.Box justify="start" align="start" direction="col">
+            <Flex.Box gap="4x" pb="8x" align="center">
                 {item.icon && <img src={item.icon.src} alt={item.icon.alt} />}
                 {item.title && (
-                    <Typography.Heading size="xxs">
+                    <h4 className={dclsx('text-small')}>
                         <Localize translate_text={item.title} />
-                    </Typography.Heading>
+                    </h4>
                 )}
             </Flex.Box>
             <Flex.Box direction="col" gap="6x" pb="16x">
                 {item.texts.map((textItem) => (
-                    <Typography.Paragraph key={textItem}>
+                    <Typography.Paragraph key={textItem} size="small">
                         <Localize translate_text={textItem} />
                     </Typography.Paragraph>
                 ))}

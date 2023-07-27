@@ -15,7 +15,7 @@ export type TCertificate = {
     webkitRelativePath: string
 }
 type PersonalDataProps = {
-    user_name: string
+    username: string
     first_name: string
     last_name: string
     date_birth: Date | [Date, Date]
@@ -85,7 +85,7 @@ const PersonalDetails = ({
     updateData,
     onValidate,
 }: PersonalDetailsProps) => {
-    const [user_name, setUserName] = useState(affiliate_personal_data.user_name)
+    const [username, setUsername] = useState(affiliate_personal_data.username)
     const [first_name, setFirstName] = useState(affiliate_personal_data.first_name)
     const [last_name, setLastName] = useState(affiliate_personal_data.last_name)
     const [date_birth, setDateBirth] = useState(affiliate_personal_data.date_birth)
@@ -108,16 +108,16 @@ const PersonalDetails = ({
 
     const form_inputs = [
         {
-            id: 'user_name',
-            name: 'user_name',
+            id: 'username',
+            name: 'username',
             type: 'text',
             label: localize('_t_User name_t_'),
-            placeholder: 'User name',
+            placeholder: 'Username',
             extra_info: ' ',
             error: user_name_error_msg,
-            value: user_name,
+            value: username,
             required: true,
-            value_set: setUserName,
+            value_set: setUsername,
             error_set: setUserNameErrorMsg,
         },
         {
@@ -225,7 +225,7 @@ const PersonalDetails = ({
     ]
 
     const validate = is_individual
-        ? user_name &&
+        ? username &&
           first_name &&
           last_name &&
           date_birth &&
@@ -248,7 +248,7 @@ const PersonalDetails = ({
     useEffect(() => {
         updateData({
             ...affiliate_personal_data,
-            user_name,
+            username,
             first_name,
             last_name,
             date_birth,
@@ -259,7 +259,7 @@ const PersonalDetails = ({
             password,
         })
     }, [
-        user_name,
+        username,
         first_name,
         last_name,
         date_birth,
@@ -286,9 +286,9 @@ const PersonalDetails = ({
     const handleInput = (e) => {
         const { name, value } = e.target
         switch (name) {
-            case 'user_name': {
-                setUserName(value)
-                return setUserNameErrorMsg(validation.first_name(value))
+            case 'username': {
+                setUsername(value)
+                return setUserNameErrorMsg(validation.username(value))
             }
             case 'first_name': {
                 setFirstName(value)

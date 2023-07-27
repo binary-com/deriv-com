@@ -66,7 +66,8 @@ const AccountTerms = ({ affiliate_terms_of_use, updateData, onValidate }: Accoun
             name: 'general_terms',
         },
         {
-            link_text: '_t_Please send me information regarding your partnership program._t_',
+            link_text:
+                '_t_I consent to receive promotional materials and notifications regarding your partnership program._t_',
             name: 'is_partner_checked',
             optional: true,
         },
@@ -78,9 +79,9 @@ const AccountTerms = ({ affiliate_terms_of_use, updateData, onValidate }: Accoun
     ]
 
     const validate =
-        !!terms_of_use['non_pep_declaration'] &&
-        !!terms_of_use['tnc_accepted'] &&
-        !!terms_of_use['general_terms']
+        terms_of_use['non_pep_declaration'] &&
+        terms_of_use['tnc_accepted'] &&
+        terms_of_use['general_terms']
 
     useEffect(() => {
         onValidate(validate)
@@ -114,8 +115,12 @@ const AccountTerms = ({ affiliate_terms_of_use, updateData, onValidate }: Accoun
                         <Flex.Box key={name} align={'center'} pb={'8x'}>
                             <CheckBox
                                 type={'checkbox'}
+                                checked={terms_of_use[name]}
                                 onClick={() =>
-                                    setTermsOfUse({ ...terms_of_use, [name]: !terms_of_use[name] })
+                                    setTermsOfUse({
+                                        ...terms_of_use,
+                                        [name]: !affiliate_terms_of_use[name],
+                                    })
                                 }
                             />
                             <Flex.Box direction={'col'} align={'start'}>

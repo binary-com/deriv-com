@@ -81,7 +81,7 @@ const PhoneNumber = ({ updatedData, onValidate, affiliate_phone_number }: PhoneN
     return (
         <>
             <Header as="h2" align="center" type="paragraph-1" pb="24px" weight="normal">
-                <Localize translate_text={'_t_We will send you a one-time verification code_t_'} />
+                <Localize translate_text={'_t_Please provide your phone number_t_'} />
             </Header>
             <ImageContainer>
                 <img src={OtpVerification} width={240} height={192} />

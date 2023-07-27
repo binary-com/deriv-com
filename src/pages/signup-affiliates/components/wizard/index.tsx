@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import Footer from './footer'
 import Header from './header'
@@ -17,9 +17,9 @@ export type WizardProps = {
     step?: number
     setStep?: React.Dispatch<React.SetStateAction<number>>
     title?: string
-    enable_next_button?: boolean
     max_step?: number
-    setEnableNext?: React.Dispatch<React.SetStateAction<boolean>>
+    next_btn_enabled?: boolean
+    setNextBtnEnabled?: React.Dispatch<React.SetStateAction<boolean>>
     disabled?: boolean
 }
 
@@ -70,13 +70,12 @@ const Wizard = ({
     step,
     setStep,
     title,
-    enable_next_button,
+    next_btn_enabled,
+    setNextBtnEnabled,
 }: WizardProps) => {
-    const [enable_next, setEnableNext] = useState(false)
-
     useEffect(() => {
-        setEnableNext(enable_next_button)
-    }, [enable_next_button])
+        setNextBtnEnabled(next_btn_enabled)
+    }, [next_btn_enabled])
 
     useDebouncedEffect(
         () => (document.body.style.overflow = show_wizard ? 'hidden' : 'unset'),
@@ -100,9 +99,9 @@ const Wizard = ({
                     step={step}
                     setStep={setStep}
                     max_step={children.length}
-                    setEnableNext={setEnableNext}
+                    setNextBtnEnabled={setNextBtnEnabled}
                     setSignupStatus={setSignupStatus}
-                    disabled={!enable_next}
+                    disabled={!next_btn_enabled}
                 />
             </Modal>
             <Background />

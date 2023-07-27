@@ -3,8 +3,10 @@ import { localize, Localize } from 'components/localization'
 /* eslint-disable */
 
 export const affiliate_validation_regex = {
-    alphabet: /^([a-zA-Z -]){2,30}$/,
+    alphabet: /^([a-zA-Z0-9-]){1,30}$/,
     latin: /[^a-zA-Za 0-9/!@"?¨'_.,-]/,
+    name: /[^a-zA-Za -]/,
+    phone: /[^0-9]/,
     password: /^(?=.*[a-z])(?=.*\d)(?=.*[A-Z])[ -~]*$/,
     address: /^[a-zA-Z 0-9/_.,-]*$/,
     postal_code: /^[a-zA-Z 0-9_.-]{5,10}$/,
@@ -18,6 +20,16 @@ const validation_is_exceed_number = (input, max_digit) => {
 
 const validation_is_lack_number = (input, min_digit) => input.length + 1 > min_digit
 
+const userNameValidation = (input) => {
+    if (!input) {
+        return <Localize translate_text="_t_User name is required_t_" />
+    } else if (
+        affiliate_validation_regex.latin.test(input) ||
+        !affiliate_validation_regex.alphabet.test(input)
+    ) {
+        return localize('_t_Only Latin and Alphabet characters_t_')
+    }
+}
 const nameValidation = (input, field_name, min_digit, max_digit) => {
     if (!input) {
         return (
@@ -30,7 +42,7 @@ const nameValidation = (input, field_name, min_digit, max_digit) => {
         return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
     } else if (
         affiliate_validation_regex.latin.test(input) ||
-        !affiliate_validation_regex.alphabet.test(input)
+        affiliate_validation_regex.name.test(input)
     ) {
         return localize('_t_Only Latin and Alphabet characters_t_')
     }
@@ -62,8 +74,8 @@ const phoneValidation = (input, field_name) => {
         return (
             <Localize translate_text="_t_{{field_name}} is required_t_" values={{ field_name }} />
         )
-    } else if (!validation_is_exceed_number(input, 9) || !validation_is_lack_number(input, 7)) {
-        return localize(`_t_You should enter 7-9 numbers._t_`)
+    } else if (!validation_is_exceed_number(input, 11) || !validation_is_lack_number(input, 7)) {
+        return localize(`_t_You should enter 7-11 numbers._t_`)
     }
 }
 const passwordValidation = (input, field_name, min_digit, max_digit) => {
@@ -141,6 +153,9 @@ const urlValidation = (input) => {
 }
 
 const validation = {
+    username: (input) => {
+        return userNameValidation(input)
+    },
     first_name: (input) => {
         return nameValidation(input, localize('_t_First Name_t_'), 2, 50)
     },

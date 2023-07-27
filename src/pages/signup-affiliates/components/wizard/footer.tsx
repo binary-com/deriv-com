@@ -30,20 +30,21 @@ const Footer = ({
     setStep,
     setSignupStatus,
     max_step,
-    setEnableNext,
+    setNextBtnEnabled,
     disabled,
 }: WizardProps) => {
     const buttonHandler = React.useCallback(
         (button_type: ButtonType): void => {
             if (button_type === ButtonType.Previous) {
                 step > 1 && setStep(step - 1)
+                setNextBtnEnabled(true)
             }
             if (button_type === ButtonType.Next) {
                 step < max_step && setStep(step + 1)
-                setEnableNext(false)
+                setNextBtnEnabled(false)
             }
         },
-        [max_step, setEnableNext, setStep, step],
+        [max_step, setNextBtnEnabled, setStep, step],
     )
 
     return (

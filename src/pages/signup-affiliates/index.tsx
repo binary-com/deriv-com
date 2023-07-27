@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import ReCAPTCHA from 'react-google-recaptcha'
+import affiliate_validation from './validations/_validations'
 import AccountType from './components/_account-type'
 import AccountDetails from './components/_account-details'
 import PhoneNumber from './components/_phone_number'
@@ -164,7 +165,7 @@ const Modal = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-width: 486px;
+    min-width: 546px;
     border-radius: 8px;
     padding: 40px;
     transform: translate(-50%, -50%);
@@ -194,6 +195,7 @@ const steps = [
 type UserData = TSocketRequestCleaned<'verify_email_cellxpert'>
 const AffiliateSignup = () => {
     const [step, setStep] = useState(1)
+    const [next_btn_enabled, setNextBtnEnabled] = useState(false)
     const [user_data, setUseData] = useState<UserData>()
     const [email, setEmail] = useState('')
     const [email_error_msg, setEmailErrorMsg] = useState('')
@@ -203,8 +205,6 @@ const AffiliateSignup = () => {
     const [signup_status, setSignupStatus] = useState<
         'username already exist' | 'lost connection' | 'success'
     >()
-
-    const [next_btn_enabled, setNextBtnEnabled] = useState(false)
 
     const [affiliate_account, setAffiliateAccount] = useState({
         account: {
@@ -223,7 +223,7 @@ const AffiliateSignup = () => {
             prefix: '',
         },
         personal_details: {
-            user_name: '',
+            username: '',
             first_name: '',
             last_name: '',
             date_birth: '',
@@ -293,7 +293,7 @@ const AffiliateSignup = () => {
                 break
 
             case 'account-details':
-                setNextBtnEnabled(false)
+                // setNextBtnEnabled(false)
                 setAffiliateAccount({
                     ...affiliate_account,
                     address_details: {
@@ -306,7 +306,7 @@ const AffiliateSignup = () => {
                 })
                 break
             case 'phone-number':
-                setNextBtnEnabled(false)
+                // setNextBtnEnabled(false)
                 setAffiliateAccount({
                     ...affiliate_account,
                     phone_number: {
@@ -316,11 +316,11 @@ const AffiliateSignup = () => {
                 })
                 break
             case 'personal-details':
-                setNextBtnEnabled(false)
+                // setNextBtnEnabled(false)
                 setAffiliateAccount({
                     ...affiliate_account,
                     personal_details: {
-                        user_name: value.user_name,
+                        username: value.username,
                         first_name: value.first_name,
                         last_name: value.last_name,
                         date_birth: value.date_birth,
@@ -334,7 +334,7 @@ const AffiliateSignup = () => {
                 })
                 break
             case 'terms-of-use':
-                setNextBtnEnabled(false)
+                // setNextBtnEnabled(false)
                 setAffiliateAccount({
                     ...affiliate_account,
                     terms_of_use: {
@@ -411,8 +411,10 @@ const AffiliateSignup = () => {
         setShowWizard(true)
     }
 
+    const [username_validation, setUsernameValidation] = useState()
+
     return (
-        <div>
+        <>
             <NavTemplate
                 renderLogo={() => (
                     <Link url={{ type: 'internal', to: '/partners/' }}>
@@ -437,7 +439,7 @@ const AffiliateSignup = () => {
                             />
                         </Header>
                         <Header mb="8px" as="h3" type="heading-3">
-                            <Localize translate_text={'_t_Deriv IB Programmet_t_'} />
+                            <Localize translate_text={'_t_Deriv IB Programme_t_'} />
                         </Header>
                         <Header as="p" type="paragraph-1" weight="normal">
                             <Localize
@@ -533,7 +535,8 @@ const AffiliateSignup = () => {
                                 setStep={setStep}
                                 setShowWizard={setShowWizard}
                                 setSignupStatus={setSignupStatus}
-                                enable_next_button={next_btn_enabled}
+                                next_btn_enabled={next_btn_enabled}
+                                setNextBtnEnabled={setNextBtnEnabled}
                                 show_wizard={show_wizard}
                             >
                                 <AccountType
@@ -626,7 +629,7 @@ const AffiliateSignup = () => {
                                         <StyledButton
                                             secondary
                                             onClick={() => {
-                                                setSignupStatus('username already exist')
+                                                setSignupStatus('success')
                                             }}
                                         >
                                             <Localize translate_text={'_t_Try again_t_'} />
@@ -649,21 +652,49 @@ const AffiliateSignup = () => {
                                             align="center"
                                             weight="400"
                                             pt="8px"
+                                            pb="12px"
                                         >
-                                            <Localize translate_text="_t_Username already exist_t_" />
+                                            <Localize translate_text="_t_Username already exist. Please write new_t_" />
                                         </Header>
-                                        <StyledButton
-                                            secondary
-                                            onClick={() => {
-                                                setSignupStatus('')
-                                                setStep(step - 1)
+                                        <AffiliateInput
+                                            width={500}
+                                            type={'text'}
+                                            value={affiliate_account.personal_details.username}
+                                            error={username_validation}
+                                            border="solid 1px var(--color-grey-7)"
+                                            label_color="grey-5"
+                                            label_hover_color="grey-5"
+                                            background="white"
+                                            label={localize('_t_User name_t_')}
+                                            placeholder={'Username'}
+                                            extra_info={' '}
+                                            onChange={(e) => {
+                                                setUsernameValidation(
+                                                    affiliate_validation.username(e.target.value),
+                                                )
                                                 setAffiliateAccount({
                                                     ...affiliate_account,
                                                     personal_details: {
                                                         ...affiliate_account.personal_details,
-                                                        user_name: '',
+                                                        username: e.target.value,
                                                     },
                                                 })
+                                            }}
+                                            handleError={() => {
+                                                setAffiliateAccount({
+                                                    ...affiliate_account,
+                                                    personal_details: {
+                                                        ...affiliate_account.personal_details,
+                                                        username: '',
+                                                    },
+                                                })
+                                            }}
+                                            required
+                                        />
+                                        <StyledButton
+                                            secondary
+                                            onClick={() => {
+                                                setSignupStatus('lost connection')
                                             }}
                                         >
                                             <Localize translate_text={'_t_Change username_t_'} />
@@ -676,7 +707,7 @@ const AffiliateSignup = () => {
                     )}
                 </StyledFlexWrapper>
             </AtomicContainer.Fluid>
-        </div>
+        </>
     )
 }
 

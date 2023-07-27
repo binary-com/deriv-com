@@ -114,7 +114,6 @@ const Card = ({ icon, title, description, selected, value, onClick }: CardProps)
                                 to={'/partners/affiliate-ib/'}
                                 key={0}
                                 target="_blank"
-                                rel="noopener noreferrer"
                             />,
                         ]}
                     />

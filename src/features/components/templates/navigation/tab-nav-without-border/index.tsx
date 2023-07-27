@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import { SwiperSlide, Swiper } from 'swiper/react'
 import SwiperCore, { Navigation } from 'swiper'
 import NavigationTabMenu from '../../tabs/navigation-menu'
+import { swiper_wrapper, swiper_button_next, swiper_button_disabled } from './styles.module.scss'
 import { OptionNavigationType } from './types'
 import Container from 'features/components/atoms/container'
 import Image from 'features/components/atoms/image'
@@ -9,7 +10,6 @@ import Flex from 'features/components/atoms/flex-box'
 import { getLocationPathname } from 'common/utility'
 import ArrowNext from 'images/svg/arrow-next.svg'
 import useBreakpoints from 'components/hooks/use-breakpoints'
-import './styles.scss'
 import dclsx from 'features/utils/dclsx'
 
 // Import the required Swiper modules
@@ -28,7 +28,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
 
     useEffect(() => {
         const selected_tab_item: OptionNavigationType = tab_data.find((option) =>
-            pathname?.includes(option.to),
+            pathname?.includes(option.active_path),
         )
         setSelectedTabName(selected_tab_item?.option_name || null)
         if (swiper_ref.current && is_mobile) {
@@ -42,16 +42,12 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
 
     return (
         <Container.Fluid mt={'20x'}>
-            <Flex.Box
-                padding_block="10x"
-                md={{ justify: 'center', padding: '10x' }}
-                visible="phone-only"
-                className="wrapper_navigation"
-            >
+            <Flex.Box padding_block="10x" visible="phone-only" className={swiper_wrapper}>
                 <Swiper
                     ref={swiper_ref}
                     speed={1000}
-                    slidesPerView={2}
+                    slidesPerView={3}
+                    spaceBetween={30}
                     direction="horizontal"
                     navigation={{ nextEl: '.swiper-button-next' }}
                 >
@@ -74,7 +70,13 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                             )
                         })}
                 </Swiper>
-                <div className="swiper-button-next">
+                <div
+                    className={dclsx(
+                        'swiper-button-next',
+                        swiper_button_next,
+                        tab_data.length <= 3 && swiper_button_disabled,
+                    )}
+                >
                     <Image src={ArrowNext} width="24px" height="24px" />
                 </div>
             </Flex.Box>
@@ -82,6 +84,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
             <Flex.Box
                 padding_block="10x"
                 justify="around"
+                gap="5x"
                 md={{ justify: 'center', padding: '10x' }}
                 visible="larger-than-phone"
                 className="wrapper_navigation"

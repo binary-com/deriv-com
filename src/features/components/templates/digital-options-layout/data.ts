@@ -17,17 +17,17 @@ export const AvailableDigitalOptionsData: OptionNavigationType[] = [
         button_text: '_t_In/Out_t_',
     },
     {
-        to: '/trade-types/options/digital-options/resetcallresetput',
+        to: '/trade-types/options/digital-options/reset-call-reset-put',
         option_name: 'reset-call',
         button_text: '_t_Reset Call/Reset Put_t_',
     },
     {
-        to: '/trade-types/options/digital-options/highlowticks',
+        to: '/trade-types/options/digital-options/high-low-ticks',
         option_name: 'high-low',
         button_text: '_t_High/Low Ticks_t_',
     },
     {
-        to: '/trade-types/options/digital-options/touchnotouch',
+        to: '/trade-types/options/digital-options/touch-no-touch',
         option_name: 'touch',
         button_text: '_t_Touch / No Touch_t_',
     },

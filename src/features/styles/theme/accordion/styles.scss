@@ -23,17 +23,16 @@
         }
     }
 
-    &_item {
-        overflow: hidden;
-    }
     &_shadow_item {
         margin-block-end: 2rem;
-        box-shadow: 0px 1px 2px 0px #0e0e0e0f;
-        box-shadow: 0px 1px 3px 0px #0e0e0e1a;
+        &_trigger {
+            box-shadow: 0px 1px 2px 0px rgba(14, 14, 14, 0.06), 0px 1px 3px 0px rgba(14, 14, 14, 0.10);
+        }
     }
 
     &_content {
         padding-inline: 1rem;
+        overflow: hidden;
 
         &[data-state='open'] {
             animation: slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1);
@@ -64,10 +63,6 @@
             background: url(images/svg/elements/plus.svg) no-repeat top left;
             background-size: contain;
             min-inline-size: 3.6rem;
-        }
-
-        &[data-state='open'] .accordion_icon {
-            transform: rotate(0deg);
         }
 
         &[data-state='open'] .plus_icon {

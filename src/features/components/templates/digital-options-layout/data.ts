@@ -17,7 +17,7 @@ export const AvailableDigitalOptionsData: OptionNavigationType[] = [
         button_text: '_t_In/Out_t_',
     },
     {
-        to: '/trade-types/options/digital-options/resetcallresetput',
+        to: '/trade-types/options/digital-options/reset-call-reset-put',
         option_name: 'reset-call',
         button_text: '_t_Reset Call/Reset Put_t_',
     },

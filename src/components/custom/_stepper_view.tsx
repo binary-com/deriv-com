@@ -101,7 +101,9 @@ const StepperView = ({
         onStepChanged?.(selected)
     }, [selected, onStepChanged])
 
-    useEffect(() => setSelected(default_step), [items, default_step])
+    useEffect(() => {
+        setSelected(default_step)
+    }, [items, default_step])
 
     return (
         <Wrapper reverse={reverse} gap={gap}>

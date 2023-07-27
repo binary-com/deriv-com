@@ -25,13 +25,13 @@ type LayoutProps = {
     children: ReactNode
     is_ppc?: boolean
     is_ppc_redirect?: boolean
-    padding_top?: number
+    padding_top?: number | string
     type?: string
 }
 
 type MainType = {
     is_static?: boolean
-    padding_top?: number
+    padding_top?: number | string
 }
 
 export type ModalPayloadType = {
@@ -43,8 +43,7 @@ export type ModalPayloadType = {
 }
 
 const Main = styled.main<MainType>`
-    padding-top: ${({ padding_top }) =>
-        ((padding_top || padding_top === 0) && `${padding_top}rem`) || '7rem'};
+    padding-top: ${({ padding_top }) => (padding_top && `${padding_top}rem`) || '7rem'};
     background: var(--color-white);
     height: 100%;
     position: relative;

@@ -85,6 +85,7 @@ export const StyledLink = styled(LocalizedLink)`
 `
 const SecondPart = styled.div<{ is_disabled?: boolean }>`
     opacity: ${({ is_disabled }) => (is_disabled ? 0.32 : 1)};
+    pointer-events: ${({ is_disabled }) => is_disabled && 'none'};
 `
 
 const Card = ({ icon, title, description, selected, value, onClick }: CardProps) => {

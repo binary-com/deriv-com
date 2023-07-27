@@ -654,7 +654,7 @@ const AffiliateSignup = () => {
                                             pt="8px"
                                             pb="12px"
                                         >
-                                            <Localize translate_text="_t_Username already exist. Please write new_t_" />
+                                            <Localize translate_text="_t_Username already exists. Please enter another:_t_" />
                                         </Header>
                                         <AffiliateInput
                                             width={500}

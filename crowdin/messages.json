@@ -3481,7 +3481,7 @@
   "-26610045": "Add an affiliate account",
   "-1986150937": "Thank you for signing up",
   "-881644591": "We've having trouble signing you up right now. Please try again in 2 minutes",
-  "-364069979": "Username already exist. Please write new",
+  "-1830091000": "Username already exists. Please enter another:",
   "-260364285": "Change username",
   "-1267880283": "{{field_name}} is required",
   "-1787546919": "You should enter ${min_digit}-${max_digit} characters.",

@@ -83,7 +83,7 @@ const ResetPassword = () => {
     }
 
     return (
-        <Layout type="static" padding_top={20}>
+        <Layout type="static" padding_top={0}>
             <SEO
                 title="_t_Reset password | Deriv_t_"
                 description="_t_Forgot your Deriv password? Want to reset your password? Send us your email address and we’ll email you the instructions._t_"

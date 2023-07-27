@@ -1,4 +1,5 @@
 import React from 'react'
+import { createRoot } from 'react-dom/client'
 import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isLive, isProduction } from './src/common/websocket/config'
@@ -208,6 +209,13 @@ export const onRouteUpdate = () => {
             }),
         })
     }, 1500)
+}
+
+export const replaceHydrateFunction = () => {
+    return (element, container) => {
+        const root = createRoot(container)
+        root.render(element)
+    }
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

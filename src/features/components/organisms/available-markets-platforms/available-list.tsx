@@ -23,7 +23,12 @@ const AvailableList = ({
                     basis: 'auto',
                 }}
             >
-                <Typography.Paragraph font_family="UBUNTU" align="center">
+                <Typography.Paragraph
+                    font_family="UBUNTU"
+                    pb="20x"
+                    md={{ pb: '0x' }}
+                    align="center"
+                >
                     <Localize translate_text={title} />
                 </Typography.Paragraph>
             </Flex.Item>

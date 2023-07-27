@@ -2,6 +2,7 @@ import React from 'react'
 import AvailableList from './available-list'
 import Flex from 'features/components/atoms/flex-box'
 import { OptionContentAvailability } from 'features/components/templates/options-content/type'
+import { get_lang_direction } from 'components/localization'
 
 export interface AvailableMarketPlatforms {
     markets: OptionContentAvailability[]
@@ -19,6 +20,7 @@ const AvailableMarketPlatforms = ({ markets, platforms }: AvailableMarketPlatfor
             md={{
                 padding_block: '20x',
             }}
+            dir={get_lang_direction()}
         >
             <AvailableList items={markets} title={'_t_Markets available_t_'} />
             <AvailableList items={platforms} title={'_t_Trade on_t_'} />

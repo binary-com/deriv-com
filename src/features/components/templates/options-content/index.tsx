@@ -3,6 +3,7 @@ import { OptionContentItemData } from './type'
 import { content_container } from './styles.module.scss'
 import OptionContentItem from './option-content.item'
 import Flex from 'features/components/atoms/flex-box'
+import { get_lang_direction } from 'components/localization'
 
 export interface OptionsContentProps {
     items: OptionContentItemData[]
@@ -21,6 +22,7 @@ const OptionsContent = ({ items }: OptionsContentProps) => {
             md={{
                 padding: '12x',
             }}
+            dir={get_lang_direction()}
         >
             {items.map((contentItem) => (
                 <OptionContentItem item={contentItem} key={contentItem.title} />

@@ -46,14 +46,14 @@ export const allOptionsTradePlatforms: AllOptionsTradePlatforms = {
     smart_trader: {
         icon: {
             src: SmartTraderIcon,
-            alt: '_t_Smart Trader_t_',
+            alt: '_t_SmartTrader_t_',
         },
         link: {
             type: 'company',
             url_name: 'smart_trader',
             target: '_blank',
         },
-        title: '_t_Smart Trader_t_',
+        title: '_t_SmartTrader_t_',
     },
 }
 

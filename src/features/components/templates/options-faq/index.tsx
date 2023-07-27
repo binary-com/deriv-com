@@ -3,7 +3,7 @@ import { OptionsFAQDataItem } from '../options-content/type'
 import { wrapper } from './styles.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
-import { Localize } from 'components/localization'
+import { Localize, get_lang_direction } from 'components/localization'
 import Accordion from 'features/components/atoms/accordion'
 
 interface OptionsFaqProps {
@@ -36,8 +36,14 @@ const OptionsFaq = ({ faqs }: OptionsFaqProps) => {
                         key={faqItem.id}
                         value={faqItem.question}
                         icon_type="plus"
+                        dir={get_lang_direction()}
                     >
-                        <Flex.Box padding_inline="7x" padding_block="12x" direction="col" gap="4x">
+                        <Flex.Box
+                            padding_block="8x"
+                            direction="col"
+                            gap="4x"
+                            dir={get_lang_direction()}
+                        >
                             {faqItem.answers.map((answerItem) => (
                                 <Flex.Box key={answerItem.id}>
                                     {answerItem.type === 'text' ? (

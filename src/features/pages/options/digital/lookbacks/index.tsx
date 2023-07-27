@@ -11,7 +11,7 @@ import Flex from 'features/components/atoms/flex-box'
 const LookbacksDigitalOptionsPage = () => {
     return (
         <DigitalOptionsLayout>
-            <Flex.Box container="fluid">
+            <Flex.Box container="fluid" justify="center">
                 <Typography.Paragraph pb="20x" align="center">
                     <Localize translate_text="_t_Lookbacks allow you to earn a payout depending on the optimum high or low achieved by the market during the duration of a contract._t_" />
                 </Typography.Paragraph>

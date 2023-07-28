@@ -29,5 +29,5 @@ export {
     OverWinIcon,
     OverLossIcon,
     UnderWinIcon,
-    UnderLossIcon
+    UnderLossIcon,
 }

@@ -27,11 +27,11 @@ export const vanillaOptionsContentItems: OptionContentItemData[] = [
                 images: [
                     {
                         src: CallPayout,
-                        alt: '_t_Rise Win_t_',
+                        alt: '_t_A chart illustrating a vanilla call option trade payout_t_',
                     },
                     {
                         src: CallNoPayout,
-                        alt: '_t_Rise Lose_t_',
+                        alt: '_t_A chart illustrating a vanilla call option trade with no payout_t_',
                     },
                 ],
                 texts: [
@@ -44,11 +44,11 @@ export const vanillaOptionsContentItems: OptionContentItemData[] = [
                 images: [
                     {
                         src: PutPayout,
-                        alt: '_t_Put payout_t_',
+                        alt: '_t_A chart illustrating a vanilla put option trade payout_t_',
                     },
                     {
                         src: PutNoPayout,
-                        alt: '_t_Put no payout_t_',
+                        alt: '_t_A chart illustrating a vanilla put option trade with no payout_t_',
                     },
                 ],
                 texts: [

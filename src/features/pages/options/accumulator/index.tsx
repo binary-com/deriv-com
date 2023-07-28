@@ -33,7 +33,7 @@ const AccumulatorsOptions = () => {
                 <Helmet>
                     <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
                 </Helmet>
-                <Typography.Heading align="center" padding_block="20x" size="small">
+                <Typography.Heading as="h2" align="center" padding_block="20x" size="small">
                     <Localize translate_text="_t_How do accumulator options work?_t_" />
                 </Typography.Heading>
                 <OptionsContent items={accumulatorOptionsContentItems} />

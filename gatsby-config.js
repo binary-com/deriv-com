@@ -306,6 +306,7 @@ module.exports = {
                         userAgent: '*',
                         allow: '/',
                         disallow: ['/404/', '/homepage/', '/landing/', '/endpoint/', '/livechat/'],
+                        sitemap: 'https://deriv.com/sitemap/sitemap-index.xml',
                     },
                 ],
             },

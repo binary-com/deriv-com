@@ -13,7 +13,7 @@ import {
     OverWinIcon,
     OverLossIcon,
     UnderWinIcon,
-    UnderLossIcon
+    UnderLossIcon,
 } from './constant'
 import {
     OptionContentAvailability,
@@ -34,7 +34,6 @@ export const digits_content_items: OptionContentItemData[] = [
         },
         title: '_t_Digits Matches/Differs_t_',
         images: [
-
             {
                 src: MatchesWinIcon,
                 alt: '_t_Matches Win_t_',
@@ -67,7 +66,6 @@ export const digits_content_items: OptionContentItemData[] = [
         },
         title: '_t_Digits Even/Odd_t_',
         images: [
-
             {
                 src: EvenWinIcon,
                 alt: '_t_Even Win_t_',
@@ -100,7 +98,6 @@ export const digits_content_items: OptionContentItemData[] = [
         },
         title: '_t_Digit Over/Under_t_',
         images: [
-
             {
                 src: OverWinIcon,
                 alt: '_t_Matches Win_t_',
@@ -145,9 +142,7 @@ export const digit_options_faq: OptionsFAQDataItem[] = [
             {
                 type: 'text',
                 id: 1,
-                text:
-                    '_t_You can trade Digits contracts on the Deriv Trader, SmartTrader, and Deriv Bot trading platforms, on synthetics._t_',
-
+                text: '_t_You can trade Digits contracts on the Deriv Trader, SmartTrader, and Deriv Bot trading platforms, on synthetics._t_',
             },
         ],
     },
@@ -180,7 +175,6 @@ export const digit_options_faq: OptionsFAQDataItem[] = [
                 type: 'text',
                 text: '_t_5. Open your Digits trade._t_',
             },
-
         ],
     },
     {
@@ -196,8 +190,7 @@ export const digit_options_faq: OptionsFAQDataItem[] = [
     },
     {
         id: 4,
-        question:
-            '_t_What are Digits contracts?_t_',
+        question: '_t_What are Digits contracts?_t_',
         answers: [
             {
                 id: 1,
@@ -263,8 +256,6 @@ export const digit_options_faq: OptionsFAQDataItem[] = [
                 type: 'text',
                 text: '_t_Payouts for all potential outcomes are calculated based strictly on the probabilities of each occurring at the time the trade is placed._t_',
             },
-
         ],
     },
-
 ]

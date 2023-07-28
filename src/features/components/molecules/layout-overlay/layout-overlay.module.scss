@@ -3,7 +3,7 @@
 .overlay {
     &_container {
         position: fixed;
-        pointer-events: none;
+        pointer-events: text;
         inset: 0;
         z-index: 3;
     }

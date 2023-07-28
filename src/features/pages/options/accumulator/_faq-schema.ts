@@ -1,23 +1,6 @@
 import { localize } from 'components/localization'
+import { FaqSchemaType } from 'features/types/faq-schema'
 
-type contentType = 'FAQPage' | 'Question' | 'Answer'
-
-type AcceptedAnswerType = {
-    '@type': contentType
-    text: string
-}
-
-type MainEntityType = {
-    '@type': contentType
-    name: string
-    acceptedAnswer: AcceptedAnswerType
-}
-
-type FaqSchemaType = {
-    '@context': string
-    '@type': contentType
-    mainEntity: MainEntityType[]
-}
 export const faq_schema: FaqSchemaType = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',

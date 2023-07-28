@@ -25,13 +25,13 @@ type LayoutProps = {
     children: ReactNode
     is_ppc?: boolean
     is_ppc_redirect?: boolean
-    padding_top?: number
+    padding_top?: number | string
     type?: string
 }
 
 type MainType = {
     is_static?: boolean
-    padding_top?: number
+    padding_top?: number | string
 }
 
 export type ModalPayloadType = {

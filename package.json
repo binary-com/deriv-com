@@ -130,7 +130,8 @@
         "stylelint-processor-styled-components": "^1.10.0",
         "stylelint-webpack-plugin": "^3.1.0",
         "typescript": "^4.5.4",
-        "typescript-plugin-css-modules": "^4.2.2"
+        "typescript-plugin-css-modules": "^4.2.2",
+        "user-agent-data-types": "^0.3.1"
     },
     "keywords": [
         "deriv",

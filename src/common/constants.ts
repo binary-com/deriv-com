@@ -55,7 +55,6 @@ export const deriv_bot_app_url = `${deriv_app_url}/bot`
 export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
 export const deriv_life_url = `https://derivlife.com/`
 export const academy_url = `https://academy.deriv.com/`
-export const deriv_mt5_app_url = `https://metatraderweb.app/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979`
 export const derivx_app_url = `${deriv_app_url}/derivx`
 export const smarttrader_url = `https://smarttrader.${getDomainUrl()}`
 export const traders_hub = 'https://app.deriv.com/appstore/traders-hub'
@@ -97,8 +96,8 @@ export const derivx_huawei_url = 'https://appgallery.cloud.huawei.com/ag/n/app/C
 export const deriv_go_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.app'
 export const deriv_go_huaweiappgallery_url = 'https://appgallery.huawei.com/#/app/C103801913'
 export const deriv_go_ios_url = 'https://apps.apple.com/my/app/deriv-go/id1550561298'
-export const dmt5_web_browser_url =
-    'https://metatraderweb.app/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979'
+export const dmt5_web_browser_url = 'NEED_TO_CHANGE'
+export const deriv_mt5_app_url = 'NEED_TO_CHANGE'
 export const dmt5_windows =
     'https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe?utm_source=www.metatrader5.com&utm_campaign=download'
 export const dmt5_app_gallery_url =

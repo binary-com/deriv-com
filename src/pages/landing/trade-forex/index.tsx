@@ -8,7 +8,8 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { WithIntl } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
-import { SEO } from 'components/containers'
+import { PageDirection, SEO } from 'components/containers'
+import { TGatsbyHeadApi } from 'features/types'
 
 const IconTextRow = Loadable(() => import('./components/_icon-text-row'))
 
@@ -17,7 +18,7 @@ const TradeForex = () => {
 
     return (
         <Layout type="landing-page" is_ppc_redirect>
-            <SEO title="_t_Weekends_t_" description="_t_Ride the trends even on weekends_t_" />
+            <PageDirection />
             {is_mounted && (
                 <>
                     <Hero
@@ -39,3 +40,11 @@ const TradeForex = () => {
 }
 
 export default WithIntl()(TradeForex)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Weekends_t_"
+        description="_t_Ride the trends even on weekends_t_"
+        pageContext={pageContext}
+    />
+)

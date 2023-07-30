@@ -4,10 +4,11 @@ import HeaderSection from './components/_header-section'
 import Introduction from './components/_introduction'
 import Topics from './components/_topics'
 import Layout from 'components/layout/layout'
-import { SEO } from 'components/containers'
+import { PageDirection, SEO } from 'components/containers'
 import { WithIntl } from 'components/localization'
 import StocksIntroImage from 'images/svg/stock-indices/stocksHeaderBelowSection.svg'
 import { TString } from 'types/generics'
+import { TGatsbyHeadApi } from 'features/types'
 
 const topicsCovered: TString[] = [
     '_t_The basics of CFD trading_t_',
@@ -32,11 +33,7 @@ const StocksEbook = () => {
     const data = useStaticQuery(query)
     return (
         <Layout type="landing-page" is_ppc_redirect>
-            <SEO
-                title="_t_Stocks Ebook_t_"
-                description="_t_Trade Forex CFDs on our Deriv platform._t_"
-                no_index
-            />
+            <PageDirection />
             <HeaderSection
                 mainHeaderImage={data['stocks_ebook_img']}
                 imgWidth={557}
@@ -58,3 +55,12 @@ const StocksEbook = () => {
 }
 
 export default WithIntl()(StocksEbook)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Stocks Ebook_t_"
+        description="_t_Trade Forex CFDs on our Deriv platform._t_"
+        no_index
+        pageContext={pageContext}
+    />
+)

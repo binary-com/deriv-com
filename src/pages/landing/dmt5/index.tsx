@@ -8,12 +8,13 @@ import BackgroundPatternDMT5 from 'images/svg/dmt5/bg_banner_dmt5.svg'
 import BackgroundPatternDMT5_mobile from 'images/svg/dmt5/bg_banner_dmt5_mobile.svg'
 import Layout from 'components/layout/layout'
 import dmt5_logo from 'images/svg/dmt5/dmt5-icon.svg'
-import { SEO } from 'components/containers'
+import { PageDirection, SEO } from 'components/containers'
 import { WithIntl } from 'components/localization'
 import DMT5BG from 'images/svg/dmt5/dmt5-bg.svg'
 import DMT5BG2 from 'images/svg/dmt5/dmt5-bg2.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
+import { TGatsbyHeadApi } from 'features/types'
 
 const query = graphql`
     query {
@@ -37,11 +38,7 @@ const DMT5 = () => {
 
     return (
         <Layout is_ppc_redirect>
-            <SEO
-                title="_t_DMT5 | MetaTrader 5 | Deriv_t_"
-                description="_t_DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile._t_"
-                no_index
-            />
+            <PageDirection />
             <DHero
                 title="_t_Deriv MT5 (DMT5)_t_"
                 content="_t_Trade 24/7 on forex, stocks, synthetic indices, and commodities_t_"
@@ -79,3 +76,12 @@ const DMT5 = () => {
 }
 
 export default WithIntl()(DMT5)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_DMT5 | MetaTrader 5 | Deriv_t_"
+        description="_t_DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile._t_"
+        no_index
+        pageContext={pageContext}
+    />
+)

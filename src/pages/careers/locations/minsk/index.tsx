@@ -2,9 +2,10 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { minsk } from '../../_model/_locations/_locations'
 import { LocationLayout } from '../_location-layout'
-import { SEO } from 'components/containers'
+import { PageDirection, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
+import { TGatsbyHeadApi } from 'features/types'
 
 const query = graphql`
     query {
@@ -67,15 +68,18 @@ const Minsk = () => {
 
     return (
         <Layout type="careers">
-            <SEO
-                title={localize('_t_Minsk | Our office – Belarus | Deriv_t_')}
-                description={localize(
-                    '_t_Find your role with us by browsing Deriv job opportunities in Minsk, Belarus._t_',
-                )}
-            />
+            <PageDirection />
             <LocationLayout location={minsk} images={images} />
         </Layout>
     )
 }
 
 export default WithIntl()(Minsk)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Minsk | Our office – Belarus | Deriv_t_"
+        description="_t_Find your role with us by browsing Deriv job opportunities in Minsk, Belarus._t_"
+        pageContext={pageContext}
+    />
+)

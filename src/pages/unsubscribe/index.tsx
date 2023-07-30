@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
-import { SEO } from 'components/containers'
+import { PageDirection, SEO } from 'components/containers'
 import { Button } from 'components/form'
 import { Localize, localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
@@ -11,6 +11,7 @@ import { decode, isValid } from 'common/url-base64-functions'
 import { Header } from 'components/elements'
 import apiManager from 'common/websocket'
 import { TSocketResponseData } from 'common/websocket/types'
+import { TGatsbyHeadApi } from 'features/types'
 
 const UnsubscribeWrapper = styled.div`
     display: flex;
@@ -155,51 +156,50 @@ const UnsubscribePage = () => {
 
     return (
         <Layout>
-            <SEO
-                title="_t_Unsubscribe | Emails | Deriv_t_"
-                description="_t_Unsubscribe from Deriv emails._t_"
-            />
-            <>
-                {loading ? (
-                    <UnsubscribeWrapper>
-                        <Spinner />
-                    </UnsubscribeWrapper>
-                ) : (
-                    <UnsubscribeWrapper>
-                        {data && !error ? (
-                            <SuccessCard>
-                                <img
-                                    src={CheckIcon}
-                                    alt={localize('_t_success_t_')}
-                                    width={48}
-                                    height={48}
-                                />
-                                <Localize translate_text="_t_Unsubscribed successfully_t_" />
-                            </SuccessCard>
-                        ) : (
-                            <UnsubscribeForm>
-                                <Title type="subtitle-2">
-                                    <Localize translate_text="_t_Are you sure you want to stop receiving Deriv emails?_t_" />
-                                </Title>
-                                <ConfirmWrapper>
-                                    <ConfirmButton
-                                        onClick={UnsubscribeAPICall}
-                                        type="submit"
-                                        secondary
-                                    >
-                                        <Localize translate_text="_t_Yes_t_" />
-                                    </ConfirmButton>
-                                    <ConfirmButton onClick={onClose} type="submit" tertiary>
-                                        <Localize translate_text="_t_No_t_" />
-                                    </ConfirmButton>
-                                </ConfirmWrapper>
-                            </UnsubscribeForm>
-                        )}
-                    </UnsubscribeWrapper>
-                )}
-            </>
+            <PageDirection />
+            {loading ? (
+                <UnsubscribeWrapper>
+                    <Spinner />
+                </UnsubscribeWrapper>
+            ) : (
+                <UnsubscribeWrapper>
+                    {data && !error ? (
+                        <SuccessCard>
+                            <img
+                                src={CheckIcon}
+                                alt={localize('_t_success_t_')}
+                                width={48}
+                                height={48}
+                            />
+                            <Localize translate_text="_t_Unsubscribed successfully_t_" />
+                        </SuccessCard>
+                    ) : (
+                        <UnsubscribeForm>
+                            <Title type="subtitle-2">
+                                <Localize translate_text="_t_Are you sure you want to stop receiving Deriv emails?_t_" />
+                            </Title>
+                            <ConfirmWrapper>
+                                <ConfirmButton onClick={UnsubscribeAPICall} type="submit" secondary>
+                                    <Localize translate_text="_t_Yes_t_" />
+                                </ConfirmButton>
+                                <ConfirmButton onClick={onClose} type="submit" tertiary>
+                                    <Localize translate_text="_t_No_t_" />
+                                </ConfirmButton>
+                            </ConfirmWrapper>
+                        </UnsubscribeForm>
+                    )}
+                </UnsubscribeWrapper>
+            )}
         </Layout>
     )
 }
 
 export default WithIntl()(UnsubscribePage)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Unsubscribe | Emails | Deriv_t_"
+        description="_t_Unsubscribe from Deriv emails._t_"
+        pageContext={pageContext}
+    />
+)

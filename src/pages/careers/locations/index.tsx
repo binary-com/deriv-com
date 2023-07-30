@@ -6,11 +6,19 @@ import type { ImageDataLike } from 'gatsby-plugin-image'
 import { StyledCard } from '../_layout-components/_team-card'
 import { allContinents } from '../_model/_locations/_locations'
 import device from 'themes/device'
-import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/containers'
+import {
+    SEO,
+    SectionContainer,
+    Container,
+    Flex,
+    CssGrid,
+    PageDirection,
+} from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl, localize } from 'components/localization'
 import { Header, Text, Tabs, QueryImage } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
+import { TGatsbyHeadApi } from 'features/types'
 
 const meta_attributes = {
     og_title: localize('_t_Explore our office locations | Deriv_t_'),
@@ -314,13 +322,7 @@ const Locations = () => {
 
     return (
         <Layout type="careers" padding_top={7}>
-            <SEO
-                title={localize('_t_Explore our office locations | Deriv_t_')}
-                description={localize(
-                    '_t_Discover career opportunities at Deriv across our office locations around the globe._t_',
-                )}
-                meta_attributes={meta_attributes}
-            />
+            <PageDirection />
             <Hero />
             <StyledSectionContainer direction="column" padding="80px 16px">
                 <Header
@@ -388,3 +390,12 @@ const Locations = () => {
 }
 
 export default WithIntl()(Locations)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Explore our office locations | Deriv_t_"
+        description="_t_Discover career opportunities at Deriv across our office locations around the globe._t_"
+        meta_attributes={meta_attributes}
+        pageContext={pageContext}
+    />
+)

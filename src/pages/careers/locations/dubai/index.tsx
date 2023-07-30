@@ -3,9 +3,10 @@ import { graphql, useStaticQuery } from 'gatsby'
 import type { ImageDataLike } from 'gatsby-plugin-image'
 import { dubai } from '../../_model/_locations/_locations'
 import { LocationLayout } from '../_location-layout'
-import { SEO } from 'components/containers'
+import { PageDirection, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
+import { TGatsbyHeadApi } from 'features/types'
 
 const query = graphql`
     query {
@@ -40,15 +41,18 @@ const Dubai = () => {
 
     return (
         <Layout type="careers">
-            <SEO
-                title={localize('_t_Dubai | Our office – UAE | Deriv_t_')}
-                description={localize(
-                    '_t_Browse job opportunities available at our Dubai office. Find your role in IT, marketing, and human resources._t_',
-                )}
-            />
+            <PageDirection />
             <LocationLayout location={dubai} images={images} />
         </Layout>
     )
 }
 
 export default WithIntl()(Dubai)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Dubai | Our office – UAE | Deriv_t_"
+        description="_t_Browse job opportunities available at our Dubai office. Find your role in IT, marketing, and human resources._t_"
+        pageContext={pageContext}
+    />
+)

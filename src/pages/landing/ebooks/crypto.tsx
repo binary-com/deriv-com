@@ -7,10 +7,11 @@ import { StocksEbookProps } from './forex'
 import Hero from './components/_hero'
 import { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
-import { SEO } from 'components/containers'
+import { PageDirection, SEO } from 'components/containers'
 import { WithIntl } from 'components/localization'
 import StocksIntroImage from 'images/svg/landing/crypto-intro.svg'
 import { TString } from 'types/generics'
+import { TGatsbyHeadApi } from 'features/types'
 
 const topics_covered: TString[] = [
     '_t_Introduction to cryptocurrencies_t_',
@@ -56,12 +57,8 @@ const StocksEbook = ({ language }: StocksEbookProps) => {
 
     const data = useStaticQuery(query)
     return (
-        <Layout type="landing-page" is_ppc_redirect={true}>
-            <SEO
-                title="_t_Cryptocurrencies Ebook_t_"
-                description="_t_Trade Cryptocurrencies on our Deriv platform._t_"
-                no_index
-            />
+        <Layout type="landing-page" is_ppc_redirect>
+            <PageDirection />
             <Hero
                 authorDesc="_t_This e-book has been brought to you by a veteran online trader and New York Times bestselling author,_t_"
                 authorName="_t_Vince Stanzione._t_"
@@ -90,3 +87,12 @@ const StocksEbook = ({ language }: StocksEbookProps) => {
 }
 
 export default WithIntl()(StocksEbook)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Cryptocurrencies Ebook_t_"
+        description="_t_Trade Cryptocurrencies on our Deriv platform._t_"
+        no_index
+        pageContext={pageContext}
+    />
+)

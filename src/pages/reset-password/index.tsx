@@ -3,13 +3,14 @@ import styled from 'styled-components'
 import { Formik, Form } from 'formik'
 import Layout from 'components/layout/layout'
 import { Localize, localize, WithIntl } from 'components/localization'
-import { Container, SEO } from 'components/containers'
+import { Container, PageDirection, SEO } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Input, Button } from 'components/form'
 import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import Login from 'common/login'
 import apiManager from 'common/websocket'
+import { TGatsbyHeadApi } from 'features/types'
 
 type EmailType = { email: string }
 
@@ -84,11 +85,7 @@ const ResetPassword = () => {
 
     return (
         <Layout type="static" padding_top="0">
-            <SEO
-                title="_t_Reset password | Deriv_t_"
-                description="_t_Forgot your Deriv password? Want to reset your password? Send us your email address and we’ll email you the instructions._t_"
-                no_index
-            />
+            <PageDirection />
             <StyledContainer justify="center" align="center" direction="column">
                 <Header as="h2" type="page-title" align="center" mt="80px">
                     <Localize translate_text="_t_Reset password_t_" />
@@ -170,3 +167,12 @@ const ResetPassword = () => {
 }
 
 export default WithIntl()(ResetPassword)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Reset password | Deriv_t_"
+        description="_t_Forgot your Deriv password? Want to reset your password? Send us your email address and we’ll email you the instructions._t_"
+        no_index
+        pageContext={pageContext}
+    />
+)

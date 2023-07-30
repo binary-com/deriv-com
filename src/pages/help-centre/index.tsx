@@ -5,10 +5,11 @@ import FaqSchema from './components/_faq-schema'
 import { DidntFindYourAnswerBanner, Community } from './components/_lazy-load'
 import { getQuestionsBySection } from './components/_utility'
 import { PLATFORMS, GENERAL } from './components/_constants'
-import { SEO, Desktop, Container } from 'components/containers'
+import { SEO, Desktop, Container, PageDirection } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import { TGatsbyHeadApi } from 'features/types'
 
 const HelpCentre = () => {
     const { is_deriv_go } = usePlatformQueryParam()
@@ -17,10 +18,7 @@ const HelpCentre = () => {
 
     return (
         <Layout>
-            <SEO
-                title="_t_Help centre | Frequently asked questions | Deriv_t_"
-                description="_t_Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question._t_"
-            />
+            <PageDirection />
             <FaqSchema />
             <SearchSection />
 
@@ -38,3 +36,11 @@ const HelpCentre = () => {
 }
 
 export default WithIntl()(HelpCentre)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Help centre | Frequently asked questions | Deriv_t_"
+        description="_t_Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question._t_"
+        pageContext={pageContext}
+    />
+)

@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import { FooterBanner, HeaderSection, DTrading, Parallelogram, WhyTradeWithUs } from './_lazy-load'
 import BackgroundFooterStocksPattern from 'images/svg/stock-indices/stocks-footer-banner-overlay-shape.svg'
 import Layout from 'components/layout/layout'
-import { Desktop, Mobile, SEO } from 'components/containers'
+import { Desktop, Mobile, PageDirection, SEO } from 'components/containers'
 import { WithIntl } from 'components/localization'
 import { size } from 'themes/device'
 import useRegion from 'components/hooks/use-region'
@@ -16,6 +16,7 @@ import HighLeverageSVG from 'images/svg/stock-indices/stocks-high-leverage.svg'
 import FourtyStocksSVG from 'images/svg/stock-indices/stocks-80-analytic-objects.svg'
 import LowCapitalSVG from 'images/svg/stock-indices/stocks-minimum-capital.svg'
 import { ContentType } from 'pages/landing/_types'
+import { TGatsbyHeadApi } from 'features/types'
 
 const query = graphql`
     query {
@@ -149,11 +150,7 @@ const Stocks = () => {
 
     return (
         <Layout is_ppc_redirect>
-            <SEO
-                title="_t_Stocks_t_"
-                description="_t_Trade global stocks and stock indices now on our DMT5 platform._t_"
-                no_index
-            />
+            <PageDirection />
             <HeaderSection />
             <Desktop>
                 <DTrading trading={trading} setWidth="486px" reverse={false} contentMargin="24px" />
@@ -183,3 +180,12 @@ const Stocks = () => {
 }
 
 export default WithIntl()(Stocks)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Stocks_t_"
+        description="_t_Trade global stocks and stock indices now on our DMT5 platform._t_"
+        no_index
+        pageContext={pageContext}
+    />
+)

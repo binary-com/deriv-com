@@ -1,14 +1,15 @@
 import React from 'react'
 import { Hero, StyledHeader } from '../common/_style'
 import PnLMarginCalculatorSection from './_pnl-margin-calculator'
-import { Container, SEO } from 'components/containers'
+import { Container, PageDirection, SEO } from 'components/containers'
 import { Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
+import { TGatsbyHeadApi } from 'features/types'
 
 const PnLMarginCalculator = () => {
     return (
         <Layout>
-            <SEO title="_t_PnL Margin Calculator_t_" description="_t_PnL Margin Calculator_t_" />
+            <PageDirection />
             <Hero jc="center" ai="center">
                 <Container>
                     <StyledHeader as="h1" type="display-title" color="white" align="center">
@@ -20,4 +21,13 @@ const PnLMarginCalculator = () => {
         </Layout>
     )
 }
+
 export default WithIntl()(PnLMarginCalculator)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_PnL Margin Calculator_t_"
+        description="_t_PnL Margin Calculator_t_"
+        pageContext={pageContext}
+    />
+)

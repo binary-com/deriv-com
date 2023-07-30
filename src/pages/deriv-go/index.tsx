@@ -5,12 +5,13 @@ import Banner from './_banner'
 import OtherApps from './_other-apps'
 import WhatIsDerivGo from './_what-is-deriv-go'
 import WhyTradeDerivGo from './_why-trade-deriv-go'
-import { SEO } from 'components/containers'
+import { PageDirection, SEO } from 'components/containers'
 import Roadmap, { TPortal } from 'components/elements/roadmap'
 import useRegion from 'components/hooks/use-region'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import { ContentType } from 'pages/landing/_types'
+import { TGatsbyHeadApi } from 'features/types'
 
 const items: ContentType[] = [
     {
@@ -62,10 +63,7 @@ const DerivGo = () => {
         if (is_row) {
             return (
                 <Layout>
-                    <SEO
-                        title="_t_Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO._t_"
-                        description="_t_Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO._t_"
-                    />
+                    <PageDirection />
                     <Banner />
                     <WhatIsDerivGo />
                     <WhyTradeDerivGo />
@@ -81,12 +79,15 @@ const DerivGo = () => {
         return <PageNotFound />
     }
 
-    return (
-        <SEO
-            title="_t_Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO._t_"
-            description="_t_Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO._t_"
-        />
-    )
+    return <PageDirection />
 }
 
 export default WithIntl()(DerivGo)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO._t_"
+        description="_t_Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO._t_"
+        pageContext={pageContext}
+    />
+)

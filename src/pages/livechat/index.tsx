@@ -3,8 +3,9 @@ import styled from 'styled-components'
 import Layout from 'components/layout/layout'
 import InitialLoader from 'components/elements/dot-loader'
 import { WithIntl } from 'components/localization'
-import { SEO, Container, Mobile } from 'components/containers'
+import { SEO, Container, Mobile, PageDirection } from 'components/containers'
 import { useLivechat } from 'components/hooks/use-livechat'
+import { TGatsbyHeadApi } from 'features/types'
 
 type CoverMinimizeButtonTypes = {
     loading: boolean
@@ -49,11 +50,7 @@ const LiveChatPage = () => {
 
     return (
         <Layout type="static" padding_top={0}>
-            <SEO
-                title="_t_Live Chat_t_"
-                description="_t_This page automatically open Live Chat window_t_"
-                no_index
-            />
+            <PageDirection />
             <StyledContainer>{loading && <InitialLoader />}</StyledContainer>
             <Mobile>
                 <CoverMinimizeButton loading={loading} />
@@ -63,3 +60,12 @@ const LiveChatPage = () => {
 }
 
 export default WithIntl()(LiveChatPage)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Live Chat_t_"
+        description="_t_This page automatically open Live Chat window_t_"
+        no_index
+        pageContext={pageContext}
+    />
+)

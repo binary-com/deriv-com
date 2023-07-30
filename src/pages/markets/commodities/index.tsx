@@ -5,8 +5,9 @@ import { simple_step_content_commodities } from '../static/content/_commodities'
 import SignupPublic from 'features/components/templates/signup/with-banner'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
-import { SEO } from 'components/containers'
+import { PageDirection, SEO } from 'components/containers'
 import useRegion from 'components/hooks/use-region'
+import { TGatsbyHeadApi } from 'features/types'
 
 const CommoditiesPage = () => {
     const { is_row } = useRegion()
@@ -16,10 +17,7 @@ const CommoditiesPage = () => {
 
     return (
         <Layout type="noNav">
-            <SEO
-                description="_t_Trade the commodities market and speculate on the price movements of oil and precious metals like gold and silver. Enjoy low spreads and zero commission._t_"
-                title="_t_Commodities trading | Commodities market online trading | Deriv_t_"
-            />
+            <PageDirection />
             <DerivedFXHero
                 title="_t_Commodities_t_"
                 description={hero_description}
@@ -32,3 +30,11 @@ const CommoditiesPage = () => {
 }
 
 export default WithIntl()(CommoditiesPage)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        description="_t_Trade the commodities market and speculate on the price movements of oil and precious metals like gold and silver. Enjoy low spreads and zero commission._t_"
+        title="_t_Commodities trading | Commodities market online trading | Deriv_t_"
+        pageContext={pageContext}
+    />
+)

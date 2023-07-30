@@ -7,17 +7,18 @@ import { faq_schema } from './_faq-schema'
 import PremiumPaymentAgent from './_premium_payment_agent'
 import PageNotFound from 'pages/404'
 import Layout from 'components/layout/layout'
-import { SEO, MetaAttributesType } from 'components/containers'
+import { PageDirection, SEO, TMetaAttributes } from 'components/containers'
 import { Divider } from 'components/elements'
 import { WithIntl } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
+import { TGatsbyHeadApi } from 'features/types'
 
 const YourControl = Loadable(() => import('./_your-control'))
 const WhoCanApply = Loadable(() => import('./_who-can-apply'))
 const Faq = Loadable(() => import('./_faq'))
 const P2PBanner = Loadable(() => import('./_p2p_banner'))
 
-const meta_attributes: MetaAttributesType = {
+const meta_attributes: TMetaAttributes = {
     og_title: '_t_Payment agents | Partners | Deriv_t_',
     og_description:
         '_t_Know all the details about how you can become the payment agent on Deriv. Send us an email to apply!_t_',
@@ -28,11 +29,7 @@ const PaymentAgent = () => {
 
     return (
         <>
-            <SEO
-                title="_t_Payment agents | Partnership programmes | Deriv_t_"
-                description="_t_Find out how to become a payment agent on Deriv to expand your client base and earn extra revenue._t_"
-                meta_attributes={meta_attributes}
-            />
+            <PageDirection />
             {is_row ? (
                 <Layout type="partners" padding_top={10}>
                     <Helmet>
@@ -59,3 +56,12 @@ const PaymentAgent = () => {
 }
 
 export default WithIntl()(PaymentAgent)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Payment agents | Partnership programmes | Deriv_t_"
+        description="_t_Find out how to become a payment agent on Deriv to expand your client base and earn extra revenue._t_"
+        meta_attributes={meta_attributes}
+        pageContext={pageContext}
+    />
+)

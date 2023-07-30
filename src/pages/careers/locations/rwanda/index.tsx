@@ -2,9 +2,10 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { rwanda } from '../../_model/_locations/_locations'
 import { LocationLayout } from '../_location-layout'
-import { SEO } from 'components/containers'
+import { PageDirection, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
+import { TGatsbyHeadApi } from 'features/types'
 
 const query = graphql`
     query {
@@ -39,15 +40,18 @@ const Rwanda = () => {
 
     return (
         <Layout type="careers">
-            <SEO
-                title={localize('_t_Kigali | Our office – Rwanda | Deriv_t_')}
-                description={localize(
-                    '_t_Find your role with us by browsing Deriv job opportunities in Kigali, Rwanda._t_',
-                )}
-            />
+            <PageDirection />
             <LocationLayout location={rwanda} images={images} />
         </Layout>
     )
 }
 
 export default WithIntl()(Rwanda)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Kigali | Our office – Rwanda | Deriv_t_"
+        description="_t_Find your role with us by browsing Deriv job opportunities in Kigali, Rwanda._t_"
+        pageContext={pageContext}
+    />
+)

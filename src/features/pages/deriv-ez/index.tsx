@@ -9,17 +9,15 @@ import StartDerivEZ from 'features/pages/deriv-ez/how-to-start'
 import MainNav from 'features/components/templates/navigation/main-nav'
 import Footer from 'features/components/templates/footer/'
 import Layout from 'features/components/templates/layout'
-import { SEO } from 'components/containers'
+import { PageDirection, SEO } from 'components/containers'
 import { WithIntl } from 'components/localization'
+import { TGatsbyHeadApi } from 'features/types'
 
 const DerivEZ = () => {
     return (
         <Layout>
+            <PageDirection />
             <MainNav />
-            <SEO
-                title="_t_Deriv EZ – a CFD trading platform | Deriv_t_"
-                description="_t_Deriv EZ is our intuitive CFD trading platform where you can trade forex, commodities, stocks & indices, cryptocurrencies, and derived indices._t_"
-            />
             <Hero />
             <Numbers />
             <WhyTradeEZ />
@@ -34,3 +32,11 @@ const DerivEZ = () => {
 }
 
 export default WithIntl()(DerivEZ)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Deriv EZ – a CFD trading platform | Deriv_t_"
+        description="_t_Deriv EZ is our intuitive CFD trading platform where you can trade forex, commodities, stocks & indices, cryptocurrencies, and derived indices._t_"
+        pageContext={pageContext}
+    />
+)

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import SecureAccount from './_securing-account'
-import { SEO, SectionContainer, Container, Flex } from 'components/containers'
+import { SEO, SectionContainer, Container, Flex, PageDirection } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Header, Text } from 'components/elements'
 import { Localize, WithIntl } from 'components/localization'
@@ -10,6 +10,7 @@ import NoneEuBackground from 'images/common/responsible-trading-bg.png'
 import EuBackground from 'images/common/responsible-trading-eu-bg.png'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
+import { TGatsbyHeadApi } from 'features/types'
 
 const TradingResponsibly = Loadable(() => import('./_trading-responsibly'))
 const TradingLimits = Loadable(() => import('./_trading-limits'))
@@ -38,10 +39,7 @@ const ResponsibleTrading = () => {
 
     return (
         <Layout>
-            <SEO
-                title="_t_Secure and responsible online trading guidelines | Deriv_t_"
-                description="_t_Read our guidelines on secure and responsible trading. Understand the risks involved in online trading and how you can manage them._t_"
-            />
+            <PageDirection />
             <Section>
                 <Hero background_image={HeroBackground}>
                     <Container>
@@ -77,3 +75,11 @@ const ResponsibleTrading = () => {
 }
 
 export default WithIntl()(ResponsibleTrading)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Secure and responsible online trading guidelines | Deriv_t_"
+        description="_t_Read our guidelines on secure and responsible trading. Understand the risks involved in online trading and how you can manage them._t_"
+        pageContext={pageContext}
+    />
+)

@@ -3,13 +3,14 @@ import Loadable from '@loadable/component'
 import { Hero, SmallContainer } from '../components/_style'
 import { cfd_content, non_eu_cfd_content } from '../content/static/_cfd'
 import WhatIsCFD from './_what_is_cfd'
-import { SEO } from 'components/containers'
+import { PageDirection, SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
 import { Localize, WithIntl, localize } from 'components/localization'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import { StyledBox } from 'pages/markets/static/style/_markets-style'
 import useRegion from 'components/hooks/use-region'
+import { TGatsbyHeadApi } from 'features/types'
 
 const TradingCFDIncreases = Loadable(() => import('./_trading-cfd-increases'))
 const StartTrading = Loadable(() => import('./_start-trading'))
@@ -22,10 +23,7 @@ const CFD = () => {
 
     return (
         <Layout>
-            <SEO
-                title="_t_CFD trading | Online trading platform | Deriv_t_"
-                description="_t_Trade CFDs on multiple markets. Enjoy high leverage, tight spreads, and risk management features to amplify your potential profits and limit losses._t_"
-            />
+            <PageDirection />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>
                     <Header as="h1" type="display-title" color="red" align="center">
@@ -60,3 +58,11 @@ const CFD = () => {
 }
 
 export default WithIntl()(CFD)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_CFD trading | Online trading platform | Deriv_t_"
+        description="_t_Trade CFDs on multiple markets. Enjoy high leverage, tight spreads, and risk management features to amplify your potential profits and limit losses._t_"
+        pageContext={pageContext}
+    />
+)

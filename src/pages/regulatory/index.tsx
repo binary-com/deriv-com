@@ -12,6 +12,7 @@ import {
     Desktop,
     GridContainer,
     Mobile,
+    PageDirection,
     SectionContainer,
     SEO,
     SmallContainer,
@@ -28,6 +29,7 @@ import Deriv from 'images/common/regulatory/deriv.png'
 import TFC from 'images/common/regulatory/tfc.png'
 import SVG from 'images/svg/regulatory/svg.svg'
 import device from 'themes/device'
+import { TGatsbyHeadApi } from 'features/types'
 
 type BoxProps = {
     padding?: string
@@ -116,10 +118,7 @@ const Regulatory = (locale: RegulatoryProps) => {
 
     return (
         <Layout>
-            <SEO
-                title="_t_Licence and regulatory information | Deriv_t_"
-                description="_t_Deriv operates and offers its products and services under the Deriv Group, which has several subsidiary companies licensed in their respective jurisdictions._t_"
-            />
+            <PageDirection />
             <SectionContainer>
                 <GridContainer>
                     <ResponsiveHeader as="h1" type="display-title" align="center">
@@ -473,3 +472,11 @@ const Regulatory = (locale: RegulatoryProps) => {
 }
 
 export default WithIntl()(Regulatory)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Licence and regulatory information | Deriv_t_"
+        description="_t_Deriv operates and offers its products and services under the Deriv Group, which has several subsidiary companies licensed in their respective jurisdictions._t_"
+        pageContext={pageContext}
+    />
+)

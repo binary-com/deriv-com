@@ -4,7 +4,7 @@ import { Formik, Form } from 'formik'
 import device from 'themes/device'
 import { WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
-import { Container, SEO } from 'components/containers'
+import { Container, PageDirection, SEO } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Input, Button } from 'components/form'
 import validation from 'common/validation'
@@ -13,6 +13,7 @@ import { default_server_url } from 'common/constants'
 import { getAppId } from 'common/websocket/config'
 import { useLocalStorageState } from 'components/hooks/use-localstorage-state'
 import useWebsiteStatus from 'components/hooks/use-website-status'
+import { TGatsbyHeadApi } from 'features/types'
 
 type ValuesType = {
     server_url?: string | number
@@ -141,7 +142,7 @@ const Endpoint = () => {
 
     return (
         <Layout type="static" padding_top={0}>
-            <SEO title="_t_Endpoint_t_" description="_t_Change deriv API endpoint._t_" no_index />
+            <PageDirection />
             <StyledContainer justify="center" align="center" direction="column">
                 <Header as="h2" type="page-title" align="center" mt="80px">
                     Change API endpoint
@@ -252,3 +253,12 @@ const Endpoint = () => {
 }
 
 export default WithIntl()(Endpoint)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Endpoint_t_"
+        description="_t_Change deriv API endpoint._t_"
+        no_index
+        pageContext={pageContext}
+    />
+)

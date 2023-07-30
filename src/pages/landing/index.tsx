@@ -3,7 +3,7 @@ import { Markets, WhatOurClientsSay, SimpleSteps, Signup } from '../home/_lazy-l
 import Hero from '../home/_hero'
 import Trade from '../home/_trade'
 import TradeTheWayYouLike from '../home/_trade-the-way-you-like'
-import { Desktop, Mobile, SEO } from 'components/containers'
+import { Desktop, Mobile, PageDirection, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl, localize } from 'components/localization'
 import { Appearances } from 'components/custom/signup'
@@ -11,6 +11,7 @@ import PractiseIcon from 'images/svg/markets/aim.svg'
 import TradeIcon from 'images/svg/markets/trade.svg'
 import WithdrawIcon from 'images/svg/markets/withdraw.svg'
 import { TSimpleStepContent } from 'pages/markets/static/content/_types'
+import { TGatsbyHeadApi } from 'features/types'
 
 const simple_step_content: TSimpleStepContent[] = [
     {
@@ -33,12 +34,7 @@ const simple_step_content: TSimpleStepContent[] = [
 const Home = () => {
     return (
         <Layout is_ppc_redirect is_ppc>
-            <SEO
-                title="_t_Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv_t_"
-                description="_t_Deriv - An online trading platform that offers a wide selection of derivatives to trade on_t_"
-                has_organization_schema
-                no_index
-            />
+            <PageDirection />
             <Hero is_ppc />
             <Desktop>
                 <Trade is_ppc_redirect />
@@ -55,3 +51,13 @@ const Home = () => {
 }
 
 export default WithIntl()(Home)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv_t_"
+        description="_t_Deriv - An online trading platform that offers a wide selection of derivatives to trade on_t_"
+        has_organization_schema
+        no_index
+        pageContext={pageContext}
+    />
+)

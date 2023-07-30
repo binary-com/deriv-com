@@ -8,9 +8,10 @@ import {
     OurHiringProcess,
     JoinYourTeam,
 } from './_lazy-load'
-import { SEO } from 'components/containers'
+import { PageDirection, SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
+import { TGatsbyHeadApi } from 'features/types'
 
 const meta_attributes = {
     og_title: 'Deriv Careers | Join and grow with us',
@@ -19,11 +20,7 @@ const meta_attributes = {
 
 const Careers = () => (
     <Layout type="careers">
-        <SEO
-            title={'Deriv Careers | Join and grow with us'}
-            description={'Join our incredible team where your growth is just as important as ours.'}
-            meta_attributes={meta_attributes}
-        />
+        <PageDirection />
         <Hero />
         <WhoWeLookFor />
         <JoinYourTeam />
@@ -35,3 +32,12 @@ const Careers = () => (
 )
 
 export default WithIntl()(Careers)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="Deriv Careers | Join and grow with us"
+        description="Join our incredible team where your growth is just as important as ours."
+        meta_attributes={meta_attributes}
+        pageContext={pageContext}
+    />
+)

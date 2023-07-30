@@ -7,8 +7,9 @@ import SignupPublic from 'features/components/templates/signup/with-banner'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
-import { SEO } from 'components/containers'
+import { PageDirection, SEO } from 'components/containers'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import { TGatsbyHeadApi } from 'features/types'
 
 const Markets = () => {
     const { is_eu, is_row } = useRegion()
@@ -20,11 +21,7 @@ const Markets = () => {
 
     return (
         <Layout type="noNav">
-            <SEO
-                description="_t_Deriv's proprietary synthetics are free of market and liquidity risks. Enjoy 24/7 synthetic trading on Deriv MT5, DTrader, and our other platforms._t_"
-                title="_t_Synthetic indices | Volatility indices | Deriv_t_"
-            />
-
+            <PageDirection />
             <DerivedFXHero
                 title="_t_Derived_t_"
                 description={is_eu ? description_eu : description_row}
@@ -39,3 +36,11 @@ const Markets = () => {
 }
 
 export default WithIntl()(Markets)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        description="_t_Deriv's proprietary synthetics are free of market and liquidity risks. Enjoy 24/7 synthetic trading on Deriv MT5, DTrader, and our other platforms._t_"
+        title="_t_Synthetic indices | Volatility indices | Deriv_t_"
+        pageContext={pageContext}
+    />
+)

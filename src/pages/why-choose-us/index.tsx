@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import LatamAward from './_latam-forex-award'
 import { IconGrid } from './_icon-grid'
 import AfricaAward from './_africa-forex-award'
-import { SEO, SectionContainer, GridContainer, Flex } from 'components/containers'
+import { SEO, SectionContainer, GridContainer, Flex, PageDirection } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Divider, Header, Text } from 'components/elements'
 import { Localize, WithIntl } from 'components/localization'
@@ -11,6 +11,7 @@ import { Button } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useRegion from 'components/hooks/use-region'
+import { TGatsbyHeadApi } from 'features/types'
 
 const ResponsiveLinkButton = styled(Button)`
     @media ${device.mobileL} {
@@ -64,10 +65,7 @@ const WhyChooseUs = () => {
 
     return (
         <Layout>
-            <SEO
-                title="_t_Why choose us for your online trading | Deriv_t_"
-                description="_t_We’re steadfast in our commitment to high ethical standards. Find more reasons to know why Deriv is the choice of online traders._t_"
-            />
+            <PageDirection />
             <Section>
                 <GridContainer>
                     <ResponsiveHeader as="h1" type="display-title" align="center">
@@ -135,3 +133,11 @@ const WhyChooseUs = () => {
 }
 
 export default WithIntl()(WhyChooseUs)
+
+export const Head = ({ pageContext }: TGatsbyHeadApi) => (
+    <SEO
+        title="_t_Why choose us for your online trading | Deriv_t_"
+        description="_t_We’re steadfast in our commitment to high ethical standards. Find more reasons to know why Deriv is the choice of online traders._t_"
+        pageContext={pageContext}
+    />
+)

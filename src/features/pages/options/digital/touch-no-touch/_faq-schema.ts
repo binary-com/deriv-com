@@ -21,7 +21,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    "_t_<p>Here's how to open a Touch/No Touch contract:</p><li>Choose an instrument to trade.</li><li>Set the duration of your contract.</li><li>Set your preferred barrier.</li><li>Enter your stake or desired potential payout.</li><li>Place your trade.</li>_t_",
+                    "_t_<p>Here's how to open a Touch/No Touch contract:</p><ul><li>Choose an instrument to trade.</li><li>Set the duration of your contract.</li><li>Set your preferred barrier.</li><li>Enter your stake or desired potential payout.</li><li>Place your trade.</li></ul>_t_",
                 ),
             },
         },

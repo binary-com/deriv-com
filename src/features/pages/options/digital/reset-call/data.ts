@@ -28,35 +28,35 @@ export const reset_and_recall_content_items: OptionContentItemData[] = [
         images: [
             {
                 src: ResetCallWin,
-                alt: '_t_Reset Call Win_t_',
+                alt: '_t_A chart illustrating winning a payout if the Reset Call exit price exceeds the reset time_t_',
             },
             {
                 src: ResetLossIcon,
-                alt: '_t_Reset Call Loss_t_',
+                alt: '_t_A chart illustrating the loss of a contract if the Reset Call exit price is below the reset time_t_',
             },
             {
                 src: ResetCallWinSecondary,
-                alt: '_t_Reset Call Time Win_t_',
+                alt: '_t_A chart illustrating winning a payout if the Reset Call exit price exceeds the entry price_t_',
             },
             {
                 src: ResetCallLossSecondary,
-                alt: '_t_Reset Call Time Loss_t_',
+                alt: '_t_A chart illustrating the loss of a contract if the Reset Call exit price is below the entry price_t_',
             },
             {
                 src: ResetPutWinIcon,
-                alt: '_t_Reset Put Win_t_',
+                alt: '_t_A chart illustrating winning a payout if the Reset Put exit price is below the reset time_t_',
             },
             {
                 src: ResetPutLossIcon,
-                alt: '_t_Reset Put Loss_t_',
+                alt: '_t_A chart illustrating the loss of a contract if the Reset Put exit price exceeds the reset time_t_',
             },
             {
                 src: ResetPutWinIconSecondary,
-                alt: '_t_Reset Put Time Win_t_',
+                alt: '_t_A chart illustrating winning a payout if the Reset Put exit price exceeds the reset price_t_',
             },
             {
                 src: ResetPutLossIconSecondary,
-                alt: '_t_Reset Put Time Loss_t_',
+                alt: '_t_A chart illustrating the loss of a contract if the Reset Put exit price exceeds the entry price_t_',
             },
         ],
         texts: [

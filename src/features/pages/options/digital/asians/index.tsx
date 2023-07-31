@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { asiansContentItems, asiansFAQ, asiansMarkets, asiansPlatforms } from './data'
 import { faq_schema } from './_faq-schema'
 import { SEO } from 'components/containers'

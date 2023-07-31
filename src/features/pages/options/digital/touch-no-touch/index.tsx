@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import {
     touch_and_no_touch_content_items,
     touch_and_no_touch_faq,

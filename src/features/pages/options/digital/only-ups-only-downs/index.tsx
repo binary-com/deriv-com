@@ -1,5 +1,5 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import {
     only_ups_downs_content_items,
     only_ups_downs_markets,

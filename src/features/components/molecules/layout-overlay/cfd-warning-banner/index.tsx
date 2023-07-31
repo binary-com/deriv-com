@@ -18,7 +18,7 @@ const CfdWarningBanner = () => {
 
     if (is_ppc || is_eu || is_cpa_plan) {
         const toggleExpansion = () => {
-            setExpanded(!expanded)
+            setExpanded((prev) => !prev)
         }
 
         return (

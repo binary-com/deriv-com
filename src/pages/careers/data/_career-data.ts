@@ -1,20 +1,8 @@
-import React from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
-import { localize } from 'components/localization'
-
 const career_data = {
     back_end: [
         {
             header: {
-                background: (
-                    <StaticImage
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        src="../../../images/common/careers-2/back-end-bg.png"
-                        alt={localize('_t_backend department_t_')}
-                        style={{ opacity: '0.3' }}
-                    />
-                ),
+                background: 'back_end_bg',
                 title: 'Back-end Development',
                 subtitle:
                     'Our department takes care of everything that happens behind the scenes when users perform actions on our website and platforms. Our teams work on back-end operations, trading, blockchain development, quality assurance, as well as payments. We work with the latest technologies in an environment that challenges us to do our best work.',
@@ -63,18 +51,11 @@ const career_data = {
             },
         },
     ],
+
     marketing: [
         {
             header: {
-                background: (
-                    <StaticImage
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        src="../../../images/common/careers-2/marketing-bg.png"
-                        alt={localize('_t_marketing department_t_')}
-                        style={{ opacity: '0.3' }}
-                    />
-                ),
+                background: 'marketing_bg',
                 title: 'Marketing & Global Partnerships',
                 subtitle:
                     'Our department is split into various teams — from content creation and digital outreach to paid acquisition and affiliate marketing support. We create campaigns and distribute all of our marketing communications with the goal to expand our business. Spanning across all our offices, we’re here to support, educate, and inform clients and prospects about trading.',
@@ -123,18 +104,11 @@ const career_data = {
             },
         },
     ],
+
     security: [
         {
             header: {
-                background: (
-                    <StaticImage
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        src="../../../images/common/careers-2/security-bg.png"
-                        alt={localize('_t_security department_t_')}
-                        style={{ opacity: '0.3' }}
-                    />
-                ),
+                background: 'security_bg',
                 title: 'Cyber Security & IT',
                 subtitle:
                     'Whether you join our project management, IT operation, or delivery excellence teams, you’ll have plenty of opportunities to demonstrate your obsession with efficiency, organisation, and teamwork.',
@@ -183,18 +157,11 @@ const career_data = {
             },
         },
     ],
+
     cs: [
         {
             header: {
-                background: (
-                    <StaticImage
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        src="../../../images/common/careers-2/cs-bg.png"
-                        alt={localize('_t_customer support department_t_')}
-                        style={{ opacity: '0.3' }}
-                    />
-                ),
+                background: 'cs_bg',
                 title: 'Customer Support',
                 subtitle:
                     'As part of our customer support department, you will be the voice of our business, interacting with more than 2 million of our users worldwide. We combine our love for our company, our clients, and solving problems to provide customer service that’s so good, our clients can’t stop thanking us. You’ll answer questions, provide guidance, and make their day just a little bit better with your top-notch service.',
@@ -243,18 +210,11 @@ const career_data = {
             },
         },
     ],
+
     people_management: [
         {
             header: {
-                background: (
-                    <StaticImage
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        src="../../../images/common/careers-2/human-resources-bg.png"
-                        alt={localize('_t_human resources department_t_')}
-                        style={{ opacity: '0.3' }}
-                    />
-                ),
+                background: 'human_resources_bg',
                 title: 'Human Resources',
                 subtitle:
                     'We bring in the go-getters; from the inspiring leaders to the ambitious grads. We link the best people with the right opportunities and support them in every way to help them grow in their professional careers at Deriv.',
@@ -303,18 +263,11 @@ const career_data = {
             },
         },
     ],
+
     product: [
         {
             header: {
-                background: (
-                    <StaticImage
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        src="../../../images/common/careers-2/product-bg.png"
-                        alt={localize('_t_product department_t_')}
-                        style={{ opacity: '0.3' }}
-                    />
-                ),
+                background: 'product_bg',
                 title: 'Product Design & UX',
                 subtitle:
                     'A big part of what draws millions of clients to us is the experience they have with our products and platforms. That’s our forte. We’re a bunch of researchers, designers, and problem-solvers whose job is to turn user challenges into opportunities, and ideas into products that work beautifully.  We’re about ensuring we are offering the best experience a trader can have.',
@@ -361,18 +314,11 @@ const career_data = {
             },
         },
     ],
+
     compliance: [
         {
             header: {
-                background: (
-                    <StaticImage
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        src="../../../images/common/careers-2/compliance-bg.png"
-                        alt={localize('_t_compliance department_t_')}
-                        style={{ opacity: '0.3' }}
-                    />
-                ),
+                background: 'compliance_bg',
                 title: 'Legal & Compliance',
                 subtitle:
                     'We’re the department that makes sure trading on Deriv is safe and seamless for our clients. With constant product development and over 2 million users worldwide — and growing — this is no small job.',
@@ -421,18 +367,11 @@ const career_data = {
             },
         },
     ],
+
     finance: [
         {
             header: {
-                background: (
-                    <StaticImage
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        src="../../../images/common/careers-2/finance-bg.png"
-                        alt={localize('_t_finance department_t_')}
-                        style={{ opacity: '0.3' }}
-                    />
-                ),
+                background: 'finance_bg',
                 title: 'Finance & Accounts',
                 subtitle:
                     'In charge of managing the company’s financial and accounting health to ensure sustainable business growth, we are the department that’s always on the money! We control operational costs, pay the bills, and mitigate financial risks — making sure Deriv can continue to grow for our employees and our clients.',
@@ -479,18 +418,11 @@ const career_data = {
             },
         },
     ],
+
     payments: [
         {
             header: {
-                background: (
-                    <StaticImage
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        src="../../../images/common/careers-2/payments-bg.png"
-                        alt={localize('_t_payments department_t_')}
-                        style={{ opacity: '0.3' }}
-                    />
-                ),
+                background: 'payments_bg',
                 title: 'Payment Solutions & Integration',
                 subtitle:
                     'Our main function is to help our customers trade easily using a payment method of their choice. Our job can be described as "client funding facilitators" — meaning we provide the necessary tools to the clients to be able to fund their accounts and to be able to withdraw their returns.',
@@ -517,18 +449,11 @@ const career_data = {
             },
         },
     ],
+
     front_end: [
         {
             header: {
-                background: (
-                    <StaticImage
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        src="../../../images/common/careers-2/front-end-bg.png"
-                        alt={localize('_t_frontend department_t_')}
-                        style={{ opacity: '0.3' }}
-                    />
-                ),
+                background: 'front_end_bg',
                 title: 'Front-end Development',
                 subtitle:
                     'We’re tasked with building the client side of our web applications. We translate UI/UX design wireframes into a user-centric web experience, combining creativity and practicality to provide users with the best experience.',
@@ -577,18 +502,11 @@ const career_data = {
             },
         },
     ],
+
     trading_operations: [
         {
             header: {
-                background: (
-                    <StaticImage
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        src="../../../images/common/careers-2/trading-operations-bg.png"
-                        alt={localize('_t_trading operations department_t_')}
-                        style={{ opacity: '0.3' }}
-                    />
-                ),
+                background: 'trading_operations_bg',
                 title: 'Trading Operations',
                 subtitle:
                     'Our department develops the underlying risk and pricing models that drive our products and enable customers to trade on our platforms. We are central to the profitability and success of the company, and strive to continuously make our platforms better for our clients.',
@@ -640,18 +558,11 @@ const career_data = {
             },
         },
     ],
+
     software_testing: [
         {
             header: {
-                background: (
-                    <StaticImage
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        src="../../../images/common/careers-2/software-testing-bg.png"
-                        alt={localize('_t_software testing department_t_')}
-                        style={{ opacity: '0.3' }}
-                    />
-                ),
+                background: 'software_testing_bg',
                 title: 'Software Testing',
                 subtitle:
                     'We are a team of engineers who prepare and execute high-quality tests to refine our wide range of products and services. By joining our department, you will help to look after the quality, usability, and stability of our websites and trading platforms to deliver a world-class experience to our end users.',
@@ -695,18 +606,11 @@ const career_data = {
             },
         },
     ],
+
     business_excellence: [
         {
             header: {
-                background: (
-                    <StaticImage
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        src="../../../images/common/careers-2/business-excellence-bg.png"
-                        alt={localize('_t_business excellence department_t_')}
-                        style={{ opacity: '0.3' }}
-                    />
-                ),
+                background: 'business_excellence_bg',
                 title: 'Business Excellence',
                 subtitle:
                     'Our mission is to improve company-wide performance by helping teams optimise their processes and resources. We analyse team operations across departments and develop and implement plans that eliminate redundancies, streamline work, improve communication, and manage risks.',
@@ -745,18 +649,11 @@ const career_data = {
             },
         },
     ],
+
     internal_audit: [
         {
             header: {
-                background: (
-                    <StaticImage
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        src="../../../images/common/careers-2/internal-audit-bg.png"
-                        alt={localize('_t_internal audit department_t_')}
-                        style={{ opacity: '0.3' }}
-                    />
-                ),
+                background: 'internal_audit_bg',
                 title: 'Internal Audit',
                 subtitle:
                     'Our role is to provide independent evaluations of the company to reduce risk and improve operations. Our superpower is objectivity — it allows us to collaborate with teams to develop and implement innovative approaches to key issues affecting the business.',
@@ -800,18 +697,11 @@ const career_data = {
             },
         },
     ],
+
     pm: [
         {
             header: {
-                background: (
-                    <StaticImage
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        src="../../../images/common/careers-2/pm-bg.png"
-                        alt={localize('_t_project management department_t_')}
-                        style={{ opacity: '0.3' }}
-                    />
-                ),
+                background: 'pm_bg',
                 title: 'Project Management',
                 subtitle:
                     "All Deriv projects involve teams in multiple locations. Completing projects according to expectations entails skilled juggling of everyone's schedules and responsibilities. Our department embraces this challenge — we do whatever it takes to ensure projects are completed in a timely, efficient manner.",
@@ -843,15 +733,7 @@ const career_data = {
     business_intelligence: [
         {
             header: {
-                background: (
-                    <StaticImage
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        src="../../../images/common/careers-2/business-intelligence-bg.png"
-                        alt={localize('_t_business intelligence department_t_')}
-                        style={{ opacity: '0.3' }}
-                    />
-                ),
+                background: 'business_intelligence_bg',
                 title: 'Business Intelligence',
                 subtitle:
                     'Our team leads the organisation in cultivating a data-driven culture as our company moves towards the future. We collect meaningful data and analytics to drive smart marketing decisions, optimise our business, and increase profitability.',

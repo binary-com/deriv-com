@@ -41,7 +41,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
     }, [pathname])
 
     return (
-        <Container.Fluid mt={'20x'}>
+        <Container.Fluid pt={'20x'}>
             <Flex.Box padding_block="10x" visible="phone-only" className={swiper_wrapper}>
                 <Swiper
                     ref={swiper_ref}
@@ -80,7 +80,6 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                     <Image src={ArrowNext} width="24px" height="24px" />
                 </div>
             </Flex.Box>
-
             <Flex.Box
                 padding_block="10x"
                 justify="around"
@@ -89,22 +88,21 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                 visible="larger-than-phone"
                 className="wrapper_navigation"
             >
-                {!is_tab_loading &&
-                    tab_data.map((tab_item) => {
-                        return (
-                            <NavigationTabMenu
-                                key={tab_item.option_name}
-                                tab_items={tab_item}
-                                selected={tab_item.option_name === selected_tab_name}
-                                is_no_border_bottom
-                                icon={
-                                    tab_item.option_name === selected_tab_name
-                                        ? `${tab_item.selected_src}#${tab_item.option_name}`
-                                        : `${tab_item.src}#${tab_item.option_name}`
-                                }
-                            />
-                        )
-                    })}
+                {tab_data.map((tab_item) => {
+                    return (
+                        <NavigationTabMenu
+                            key={tab_item.option_name}
+                            tab_items={tab_item}
+                            selected={tab_item.option_name === selected_tab_name}
+                            is_no_border_bottom
+                            icon={
+                                tab_item.option_name === selected_tab_name
+                                    ? `${tab_item.selected_src}#${tab_item.option_name}`
+                                    : `${tab_item.src}#${tab_item.option_name}`
+                            }
+                        />
+                    )
+                })}
             </Flex.Box>
         </Container.Fluid>
     )

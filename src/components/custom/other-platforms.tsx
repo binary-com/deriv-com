@@ -454,7 +454,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                             external
                             target="_blank"
                             onClick={onClick}
-                            otherlinkprops={{ rel: 'noopener noreferrer' }}
+                            otherLinkProps={{ rel: 'noopener noreferrer' }}
                         />
                     </>
                 )}
@@ -511,7 +511,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                             external
                             target="_blank"
                             onClick={onClick}
-                            otherlinkprops={{ rel: 'noopener noreferrer' }}
+                            otherLinkProps={{ rel: 'noopener noreferrer' }}
                         />
                     </Flex>
                 </>

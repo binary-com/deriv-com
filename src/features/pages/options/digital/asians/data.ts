@@ -25,19 +25,19 @@ export const asiansContentItems: OptionContentItemData[] = [
         images: [
             {
                 src: AsianUpWinIcon,
-                alt: '_t_Asians Up Win_t_',
+                alt: '_t_A chart illustrating a winning Asian Up trade type contract_t_',
             },
             {
                 src: AsianUpLossIcon,
-                alt: '_t_Asians Up Lose_t_',
+                alt: '_t_A chart illustrating a losing Asian Up trade type contract_t_',
             },
             {
                 src: AsianDownWinIcon,
-                alt: '_t_Asians Down Win_t_',
+                alt: '_t_A chart illustrating a winning Asian Down trade type contract_t_',
             },
             {
                 src: AsianDownLossIcon,
-                alt: '_t_Asians Down Lose_t_',
+                alt: '_t_A chart illustrating a losing Asian Down trade type contract_t_',
             },
         ],
         texts: [
@@ -122,7 +122,7 @@ export const asiansFAQ: OptionsFAQDataItem[] = [
         ],
     },
     {
-        id: 5,
+        id: 6,
         question: '_t_Can I open multiple Asians contracts simultaneously?_t_',
         answers: [
             {

@@ -94,7 +94,7 @@ const CfdWarningBanner = () => {
                                         target="_blank"
                                         url={{
                                             type: 'non-company',
-                                            href: '/tnc/risk-disclosure.pdf',
+                                            href: '/tnc/eu/risk-disclosure.pdf',
                                         }}
                                     />,
                                 ]}

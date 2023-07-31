@@ -1,12 +1,23 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StaticImage } from 'gatsby-plugin-image'
+import { graphql, useStaticQuery } from 'gatsby'
 import { desktop_pins, mobile_pins, our_offices_count } from './_data'
 import MapPin from './components/map-pin'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { SectionContainer, CssGrid, Desktop, Mobile, Flex } from 'components/containers'
-import { Header, Text, BackgroundImageWrapper, StaticImageWrapper } from 'components/elements'
+import { Header, Text, BackgroundImage } from 'components/elements'
 import device from 'themes/device'
+
+const query = graphql`
+    query {
+        earth: file(relativePath: { eq: "who-we-are/earth.png" }) {
+            ...fadeIn
+        }
+        earth_mobile: file(relativePath: { eq: "who-we-are/earth-mobile.png" }) {
+            ...fadeIn
+        }
+    }
+`
 
 const StyledSectionContainer = styled(SectionContainer)`
     display: flex;
@@ -62,14 +73,13 @@ const NumberText = styled(Text)`
     }
 `
 
-const StyledFlex = styled(Flex)`
-    height: unset;
-`
-
-const MapWrapper = styled.div`
+const MapImage = styled(BackgroundImage)`
+    position: relative;
     width: 840px;
     overflow: auto;
     height: 414px;
+    background-color: transparent;
+    background-size: cover;
     direction: ltr;
 
     @media ${device.tabletL} {
@@ -84,7 +94,13 @@ const MapWrapper = styled.div`
     }
 `
 
+const StyledFlex = styled(Flex)`
+    height: unset;
+`
+
 const OurOffices = () => {
+    const data = useStaticQuery(query)
+
     return (
         <StyledSectionContainer padding="0 16px 120px" background="var(--color-white)">
             <StyledHeader as="h2" size="32px" align="center" type="page-title">
@@ -93,38 +109,18 @@ const OurOffices = () => {
 
             <Flex>
                 <Desktop>
-                    <BackgroundImageWrapper>
-                        <StaticImageWrapper>
-                            <StaticImage
-                                src="../../images/common/who-we-are/earth.png"
-                                alt={localize('_t_Map view_t_')}
-                                objectFit="cover"
-                                formats={['avif', 'webp', 'auto']}
-                            />
-                        </StaticImageWrapper>
-                        <MapWrapper>
-                            {desktop_pins.map((pin, idx) => (
-                                <MapPin key={idx} {...pin} />
-                            ))}
-                        </MapWrapper>
-                    </BackgroundImageWrapper>
+                    <MapImage data={data['earth']}>
+                        {desktop_pins.map((pin, idx) => (
+                            <MapPin key={idx} {...pin} />
+                        ))}
+                    </MapImage>
                 </Desktop>
                 <Mobile>
-                    <BackgroundImageWrapper>
-                        <StaticImageWrapper>
-                            <StaticImage
-                                src="../../images/common/who-we-are/earth-mobile.png"
-                                alt={localize('_t_Map view_t_')}
-                                objectFit="cover"
-                                formats={['avif', 'webp', 'auto']}
-                            />
-                        </StaticImageWrapper>
-                        <MapWrapper>
-                            {mobile_pins.map((pin, idx) => (
-                                <MapPin key={idx} {...pin} />
-                            ))}
-                        </MapWrapper>
-                    </BackgroundImageWrapper>
+                    <MapImage data={data['earth_mobile']}>
+                        {mobile_pins.map((pin, idx) => (
+                            <MapPin key={idx} {...pin} />
+                        ))}
+                    </MapImage>
                 </Mobile>
             </Flex>
 

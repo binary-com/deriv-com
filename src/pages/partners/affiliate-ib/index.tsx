@@ -154,7 +154,7 @@ const why_partner_with_us_items: WhyUsType = [
 
 const AffiliateIb = () => {
     return (
-        <Layout type="partners" padding_top={10}>
+        <Layout type="partners" margin_top={10}>
             <SEO
                 title="_t_Affiliate and IB programmes | Partnership programmes | Deriv_t_"
                 description="_t_Join the Deriv affiliate partnership programme and introducing broker (IB) programme to earn commissions from various income opportunities._t_"

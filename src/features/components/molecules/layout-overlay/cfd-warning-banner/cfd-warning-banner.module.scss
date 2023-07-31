@@ -3,14 +3,28 @@
     align-items: end;
 }
 
-.arrowIcon {
-    transform: rotate(0deg);
-    transition: transform 0.3s ease;
-    padding-inline-end: 16px;
-  }
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
 
-  .arrowIconExpanded {
-    transition: transform 0.3s ease;
-    transform: rotate(180deg);
-    padding-inline-start: 16px;
-  }
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.arrowIcon,
+.arrowIconExpanded {
+  transition: transform 0.3s ease;
+  padding-inline: 16px;
+}
+
+.arrowIconExpanded {
+  transform: rotate(180deg);
+  animation: fadeIn 0.3s ease;
+}
+
+.arrowIcon {
+  transform: rotate(0deg);
+  animation: fadeOut 0.3s ease;
+}

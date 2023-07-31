@@ -21,7 +21,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    `_t_Here's how to place a High/Low Ticks trade: - Choose your preferred trading asset. - Predict which of the next 5 ticks will be the highest or lowest in the series.- Enter your stake or preferred potential payout amount. - Open your trade._t_`,
+                    `_t_<p>Here's how to place a High/Low Ticks trade: </p><ul><li>- Choose your preferred trading asset. </li><li>- Predict which of the next 5 ticks will be the highest or lowest in the series. </li><li>- Enter your stake or preferred potential payout amount. </li><li>- Open your trade.</li></ul>_t_`,
                 ),
             },
         },
@@ -75,9 +75,9 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    `_t_No, these are two different contract types.
-                    With High/Low Ticks, you predict which of the 5 ticks within the trade duration will be the highest or lowest.
-                    With Higher/Lower, you predict the overall price direction of a trading instrument over a specified time period._t_`,
+                    `_t_<p>No, these are two different contract types.</p>
+                    <p>With High/Low Ticks, you predict which of the 5 ticks within the trade duration will be the highest or lowest.</p>
+                    <p>With Higher/Lower, you predict the overall price direction of a trading instrument over a specified time period.</p>_t_`,
                 ),
             },
         },

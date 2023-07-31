@@ -24,24 +24,24 @@ export const touch_and_no_touch_content_items: OptionContentItemData[] = [
         images: [
             {
                 src: TouchWinIcon,
-                alt: '_t_Touch Win_t_',
+                alt: '_t_A chart illustrating a winning Touch trade type contract_t_',
             },
             {
                 src: TouchLossIcon,
-                alt: '_t_Touch Loss_t_',
+                alt: '_t_A chart illustrating a losing Touch trade type contract’_t_',
             },
             {
                 src: NoTouchWinIcon,
-                alt: '_t_NoTouch Win_t_',
+                alt: '_t_A chart illustrating a winning No Touch trade type contract’_t_',
             },
             {
                 src: NoTouchLossIcon,
-                alt: '_t_NoTouch Loss_t_',
+                alt: '_t_A chart illustrating a losing No Touch trade type contract_t_',
             },
         ],
         texts: [
             '_t_Predict whether the market price will touch or not touch the chosen barrier (target) during the contract period._t_',
-            "_t_If you select 'Touches', you receive the payout if the market price touches the barrier at any time during the contract period._t_",
+            "_t_If you select 'Touch', you receive the payout if the market price touches the barrier at any time during the contract period._t_",
             "_t_If you select 'No Touch', you receive the payout if the market never touches the barrier at any time during the contract period._t_",
             '_t_If the selected condition is not met, your stake is lost._t_',
         ],
@@ -67,11 +67,9 @@ export const touch_and_no_touch_faq: OptionsFAQDataItem[] = [
         question: '_t_Where can I trade Touch/No Touch options?_t_',
         answers: [
             {
-                type: 'list',
                 id: 1,
-                list_title:
-                    '_t_You can trade Touch/No Touch options on the Deriv Trader, SmartTrader, and Deriv Bot trading platforms. They are available on multiple markets_t_',
-                list_items: ['_t_— forex, commodities, stock indices, and synthetics._t_'],
+                type: 'text',
+                text: '_t_You can trade Touch/No Touch options on the Deriv Trader, SmartTrader, and Deriv Bot trading platforms. They are available on multiple markets — forex, commodities, stock indices, and synthetics._t_',
             },
         ],
     },

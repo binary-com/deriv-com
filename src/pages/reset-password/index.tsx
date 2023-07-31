@@ -10,6 +10,7 @@ import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import Login from 'common/login'
 import apiManager from 'common/websocket'
+import device from 'themes/device'
 
 type EmailType = { email: string }
 
@@ -29,8 +30,10 @@ const ButtonContainer = styled.div`
 const InputGroup = styled.div`
     width: 40rem;
     margin: 0 auto 3.4rem;
+    @media ${device.tabletL} {
+        width: auto;
+    }
 `
-
 const StyledButton = styled(Button)`
     margin: 0.8rem 0.4rem;
 `
@@ -130,6 +133,7 @@ const ResetPassword = () => {
                                     onBlur={handleBlur}
                                     autoComplete="off"
                                     type="text"
+                                    radius="4px"
                                     label={localize('_t_Email_t_')}
                                     background="white"
                                     placeholder="example@email.com"

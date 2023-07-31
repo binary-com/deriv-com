@@ -8,6 +8,12 @@
     max-width: 28rem;
     margin-inline: auto;
 }
+.swiper_slide {
+    width: 25% !important;
+}
 .swiper_button_disabled{
     display: none;
+}
+.swiper_height {
+    min-block-size: 111px;
 }

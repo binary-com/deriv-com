@@ -25,8 +25,9 @@ const AvailableList = ({
             >
                 <Typography.Paragraph
                     font_family="UBUNTU"
-                    pb="20x"
-                    md={{ pb: '0x' }}
+                    pt="12x"
+                    pb="4x"
+                    md={{ pb: '0x', pt: '0x' }}
                     align="center"
                 >
                     <Localize translate_text={title} />

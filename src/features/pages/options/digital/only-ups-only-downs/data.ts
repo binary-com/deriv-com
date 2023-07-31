@@ -30,19 +30,19 @@ export const only_ups_downs_content_items: OptionContentItemData[] = [
         images: [
             {
                 src: OnlyUpsWin,
-                alt: '_t_Only Ups Win_t_',
+                alt: '_t_A chart illustrating a winning Only Ups trade type contract_t_',
             },
             {
                 src: OnlyUpsLoss,
-                alt: '_t_Only Ups Loss_t_',
+                alt: '_t_A chart illustrating a losing Only Ups trade type contract_t_',
             },
             {
                 src: OnlyDownsWin,
-                alt: '_t_Only Downs Win_t_',
+                alt: '_t_A chart illustrating a winning Only Downs trade type contract_t_',
             },
             {
                 src: OnlyDownsLoss,
-                alt: '_t_Only Downs Loss_t_',
+                alt: '_t_A chart illustrating a losing Only Downs trade type contract_t_',
             },
         ],
     },

@@ -2,7 +2,13 @@ import React, { useEffect, useState, useRef } from 'react'
 import { SwiperSlide, Swiper } from 'swiper/react'
 import SwiperCore, { Navigation } from 'swiper'
 import NavigationTabMenu from '../../tabs/navigation-menu'
-import { swiper_wrapper, swiper_button_next, swiper_button_disabled } from './styles.module.scss'
+import {
+    swiper_wrapper,
+    swiper_button_next,
+    swiper_button_disabled,
+    swiper_height,
+    swiper_slide,
+} from './styles.module.scss'
 import { OptionNavigationType } from './types'
 import Container from 'features/components/atoms/container'
 import Image from 'features/components/atoms/image'
@@ -21,7 +27,6 @@ interface NavigationTabWithoutBorderType {
 
 const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType) => {
     const pathname = getLocationPathname()
-    const [is_tab_loading, setTabsLoading] = useState(true)
     const swiper_ref = useRef(null)
     const { is_mobile } = useBreakpoints()
     const [selected_tab_name, setSelectedTabName] = useState<string | null>(null)
@@ -37,11 +42,10 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
             )
             swiper_ref.current.swiper.slideTo(active_slide_index)
         }
-        setTabsLoading(false)
     }, [pathname])
 
     return (
-        <Container.Fluid mt={'20x'}>
+        <Container.Fluid pt={'20x'}>
             <Flex.Box padding_block="10x" visible="phone-only" className={swiper_wrapper}>
                 <Swiper
                     ref={swiper_ref}
@@ -50,25 +54,25 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                     spaceBetween={30}
                     direction="horizontal"
                     navigation={{ nextEl: '.swiper-button-next' }}
+                    className={swiper_height}
                 >
-                    {!is_tab_loading &&
-                        tab_data.map((tab_item) => {
-                            return (
-                                <SwiperSlide key={tab_item.option_name}>
-                                    <NavigationTabMenu
-                                        key={tab_item.option_name}
-                                        tab_items={tab_item}
-                                        selected={tab_item.option_name === selected_tab_name}
-                                        is_no_border_bottom
-                                        icon={
-                                            tab_item.option_name === selected_tab_name
-                                                ? `${tab_item.selected_src}#${tab_item.option_name}`
-                                                : `${tab_item.src}#${tab_item.option_name}`
-                                        }
-                                    />
-                                </SwiperSlide>
-                            )
-                        })}
+                    {tab_data.map((tab_item) => {
+                        return (
+                            <SwiperSlide key={tab_item.option_name} className={swiper_slide}>
+                                <NavigationTabMenu
+                                    key={tab_item.option_name}
+                                    tab_items={tab_item}
+                                    selected={tab_item.option_name === selected_tab_name}
+                                    is_no_border_bottom
+                                    icon={
+                                        tab_item.option_name === selected_tab_name
+                                            ? `${tab_item.selected_src}#${tab_item.option_name}`
+                                            : `${tab_item.src}#${tab_item.option_name}`
+                                    }
+                                />
+                            </SwiperSlide>
+                        )
+                    })}
                 </Swiper>
                 <div
                     className={dclsx(
@@ -80,7 +84,6 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                     <Image src={ArrowNext} width="24px" height="24px" />
                 </div>
             </Flex.Box>
-
             <Flex.Box
                 padding_block="10x"
                 justify="around"
@@ -89,22 +92,21 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                 visible="larger-than-phone"
                 className="wrapper_navigation"
             >
-                {!is_tab_loading &&
-                    tab_data.map((tab_item) => {
-                        return (
-                            <NavigationTabMenu
-                                key={tab_item.option_name}
-                                tab_items={tab_item}
-                                selected={tab_item.option_name === selected_tab_name}
-                                is_no_border_bottom
-                                icon={
-                                    tab_item.option_name === selected_tab_name
-                                        ? `${tab_item.selected_src}#${tab_item.option_name}`
-                                        : `${tab_item.src}#${tab_item.option_name}`
-                                }
-                            />
-                        )
-                    })}
+                {tab_data.map((tab_item) => {
+                    return (
+                        <NavigationTabMenu
+                            key={tab_item.option_name}
+                            tab_items={tab_item}
+                            selected={tab_item.option_name === selected_tab_name}
+                            is_no_border_bottom
+                            icon={
+                                tab_item.option_name === selected_tab_name
+                                    ? `${tab_item.selected_src}#${tab_item.option_name}`
+                                    : `${tab_item.src}#${tab_item.option_name}`
+                            }
+                        />
+                    )
+                })}
             </Flex.Box>
         </Container.Fluid>
     )

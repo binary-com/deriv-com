@@ -11,7 +11,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    '_t_<p>To place a vanilla options contract, you’ll need to:</p><li>Select the underlying asset you want to trade.</li><li>Determine your contract duration or end time.</li><li>Predict the asset’s price movement by choosing Call or Put.</li><li>Select your preferred strike price</li><li>Enter your stake.</li><li>Purchase the contract</li>_t_',
+                    '_t_<p>To place a vanilla options contract, you’ll need to:</p><ul><li>Select the underlying asset you want to trade.</li><li>Determine your contract duration or end time.</li><li>Predict the asset’s price movement by choosing Call or Put.</li><li>Select your preferred strike price</li><li>Enter your stake.</li><li>Purchase the contract</li></ul>_t_',
                 ),
             },
         },

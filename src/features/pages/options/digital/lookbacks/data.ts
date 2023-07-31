@@ -25,7 +25,7 @@ export const lookbacks_content_items: OptionContentItemData[] = [
         images: [
             {
                 src: HighClose,
-                alt: '_t_High-Close_t_',
+                alt: '_t_A chart illustrating a High-Close contract_t_',
             },
         ],
         texts: [
@@ -42,7 +42,7 @@ export const lookbacks_content_items: OptionContentItemData[] = [
         images: [
             {
                 src: HighLow,
-                alt: '_t_High-Low_t_',
+                alt: '_t_A chart illustrating a High-Low contract_t_',
             },
         ],
         texts: [
@@ -59,7 +59,7 @@ export const lookbacks_content_items: OptionContentItemData[] = [
         images: [
             {
                 src: CloseLow,
-                alt: '_t_Close-Low_t_',
+                alt: '_t_A chart illustrating a Close-Low contract_t_',
             },
         ],
         texts: [

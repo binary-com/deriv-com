@@ -43,7 +43,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    `_t_No, you cannot close an In/Out options trade before the trade duration's expiry. This is because the potential payout is defined based on the contract duration, selected barrier, and stake._t_`,
+                    "_t_No, you cannot close an In/Out options trade before the trade duration's expiry. This is because the potential payout is defined based on the contract duration, selected barrier, and stake._t_",
                 ),
             },
         },
@@ -77,7 +77,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    `_t_The upper and lower price boundaries in the In/Out trade type define the range within which the price of the underlying assets must either stay in or go out of for the trade to be considered won._t_`,
+                    '_t_The upper and lower price boundaries in the In/Out trade type define the range within which the price of the underlying assets must either stay in or go out of for the trade to be considered won._t_',
                 ),
             },
         },
@@ -87,9 +87,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    `_t_<p>Payouts for all In/Out contracts are fixed, based on:</p><ul><li> - Trade duration</li><li> - Barrier levels</li><li>- Market conditions</li></ul>
-                   <p> For "Ends Between" trades with wider barriers, the price of the underlying asset has more room to fluctuate while still ending the contract inside the barriers. In this scenario, potential payouts are usually lower due to the higher probability of the price staying between the barriers.</p>
-                    <p>With narrower barriers, the price has less room to move. So, potential payouts are often higher due to a lower probability of the price staying between the barriers.</p>_t_`,
+                    '_t_<p>Payouts for all In/Out contracts are fixed, based on:</p><ul><li> - Trade duration</li><li> - Barrier levels</li><li>- Market conditions</li></ul><p> For "Ends Between" trades with wider barriers, the price of the underlying asset has more room to fluctuate while still ending the contract inside the barriers. In this scenario, potential payouts are usually lower due to the higher probability of the price staying between the barriers.</p><p>With narrower barriers, the price has less room to move. So, potential payouts are often higher due to a lower probability of the price staying between the barriers.</p>_t_',
                 ),
             },
         },

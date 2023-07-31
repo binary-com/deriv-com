@@ -21,7 +21,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    '_t_<p>You can place an In/Out trade by: </p><ul><li>- Choosing your preferred instrument to trade. </li><li>- Specifying the duration of the trade </li><li>- Setting the upper and lower price boundaries. </li><li>- Entering your stake or preferred potential payout amount. </li><li>- Placing the trade.</li></ul>_t_',
+                    '_t_<p>You can place an In/Out trade by: </p><ul><li>Choosing your preferred instrument to trade. </li><li>Specifying the duration of the trade </li><li>Setting the upper and lower price boundaries.</li><li>Entering your stake or preferred potential payout amount.</li><li>Placing the trade.</li></ul>_t_',
                 ),
             },
         },
@@ -87,7 +87,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    '_t_<p>Payouts for all In/Out contracts are fixed, based on:</p><ul><li> - Trade duration</li><li> - Barrier levels</li><li>- Market conditions</li></ul><p> For "Ends Between" trades with wider barriers, the price of the underlying asset has more room to fluctuate while still ending the contract inside the barriers. In this scenario, potential payouts are usually lower due to the higher probability of the price staying between the barriers.</p><p>With narrower barriers, the price has less room to move. So, potential payouts are often higher due to a lower probability of the price staying between the barriers.</p>_t_',
+                    '_t_<p>Payouts for all In/Out contracts are fixed, based on:</p><ul><li>Trade duration</li><li>Barrier levels</li><li>Market conditions</li></ul><p> For "Ends Between" trades with wider barriers, the price of the underlying asset has more room to fluctuate while still ending the contract inside the barriers. In this scenario, potential payouts are usually lower due to the higher probability of the price staying between the barriers.</p><p>With narrower barriers, the price has less room to move. So, potential payouts are often higher due to a lower probability of the price staying between the barriers.</p>_t_',
                 ),
             },
         },

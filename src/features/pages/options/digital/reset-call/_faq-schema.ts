@@ -23,7 +23,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    "_t_<p>To open a Reset Call/Reset Put contract, you'll need to:</p><ul><li>- Select your preferred trading asset.</li><li>- Specify the trade duration.</li><li>- Enter your stake amount or desired potential payout amount.</li><li>- Select the price direction based on your market predictions.</li><li>- Open your contract.</li></ul>_t_",
+                    "_t_<p>To open a Reset Call/Reset Put contract, you'll need to:</p><ul><li>Select your preferred trading asset.</li><li>Specify the trade duration.</li><li>Enter your stake amount or desired potential payout amount.</li><li>Select the price direction based on your market predictions.</li><li>Open your contract.</li></ul>_t_",
                 ),
             },
         },

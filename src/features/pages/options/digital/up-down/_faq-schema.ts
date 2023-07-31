@@ -21,7 +21,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    "_t_<p>To open a Up/Down contract, you'll need to:</p> <ul><li>- Select your preferred market and trading asset.</li><li>- Choose the type of Up/Down option you want to trade (Rise/Fall; Rise Equals/Falls Equals; Higher/Lower).</li><li>- Set other optional contract parameters.</li><li>- Choose the contract duration.</li><li>- Enter your stake or preferred potential payout amount.</li><li>- Open your contract.</li></ul>_t_",
+                    "_t_<p>To open a Up/Down contract, you'll need to:</p> <ul><li> Select your preferred market and trading asset.</li><li>Choose the type of Up/Down option you want to trade (Rise/Fall; Rise Equals/Falls Equals; Higher/Lower).</li><li>Set other optional contract parameters.</li><li> Choose the contract duration.</li><li> Enter your stake or preferred potential payout amount.</li><li> Open your contract.</li></ul>_t_",
                 ),
             },
         },
@@ -109,7 +109,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    '_t_<p>Traders typically analyse the underlying market and price trends to determine the likelihood of prices rising or falling over a given time period.</p><p>To identify trends, you can consider a number of factors, including:</p><ul><li> - Recent price swings and market volatility</li><li> - Economic news and events</li><li> - Trends revealed by using technical indicators.</li></ul>_t_',
+                    '_t_<p>Traders typically analyse the underlying market and price trends to determine the likelihood of prices rising or falling over a given time period.</p><p>To identify trends, you can consider a number of factors, including:</p><ul><li>Recent price swings and market volatility</li><li>Economic news and events</li><li>Trends revealed by using technical indicators.</li></ul>_t_',
                 ),
             },
         },

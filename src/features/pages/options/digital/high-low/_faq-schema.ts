@@ -21,7 +21,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    "_t_<p>Here's how to place a High/Low Ticks trade: </p><ul><li>- Choose your preferred trading asset. </li><li>- Predict which of the next 5 ticks will be the highest or lowest in the series. </li><li>- Enter your stake or preferred potential payout amount. </li><li>- Open your trade.</li></ul>_t_",
+                    "_t_<p>Here's how to place a High/Low Ticks trade:</p><ul><li>Choose your preferred trading asset.</li><li>Predict which of the next 5 ticks will be the highest or lowest in the series.</li><li>Enter your stake or preferred potential payout amount.</li><li>Open your trade.</li></ul>_t_",
                 ),
             },
         },

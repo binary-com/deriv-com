@@ -23,7 +23,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    '_t_<ol><li>Select the market and asset you want to trade. </li><li>Choose which Digits contract to open (Matches/Differs; Even/Odd; Over/Under). </li><li>Set your preferred tick duration and last digit prediction. </li><li>Enter your stake or desired potential payout amount. </li><li>Open your Digits trade.</li></ol>_t_',
+                    '_t_<ol><li>Select the market and asset you want to trade.</li><li>Choose which Digits contract to open (Matches/Differs; Even/Odd; Over/Under).</li><li>Set your preferred tick duration and last digit prediction.</li><li>Enter your stake or desired potential payout amount. </li><li>Open your Digits trade.</li></ol>_t_',
                 ),
             },
         },

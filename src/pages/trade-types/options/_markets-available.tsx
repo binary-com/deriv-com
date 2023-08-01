@@ -91,7 +91,7 @@ const MarketsAvailable = () => {
                                     height="48"
                                 />
                                 <StyledText weight="bold">
-                                    <Localize translate_text="_t_Derived_t_" />
+                                    <Localize translate_text="_t_Derived indices_t_" />
                                 </StyledText>
                             </MobileCardHeader>
                             <StyledDescription>

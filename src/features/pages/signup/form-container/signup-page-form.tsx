@@ -12,7 +12,7 @@ const SignUpPageForm = () => {
 
     const {
         register,
-        formState: { errors, isValid },
+        formState: { errors, isValid, isSubmitting, isSubmitSuccessful },
         watch,
         handleSubmit,
         clearErrors,
@@ -20,7 +20,8 @@ const SignUpPageForm = () => {
     } = signUpForm
     const values = watch()
 
-    const isButtonDisabled = values.email === '' || !values.terms || !isValid
+    const isButtonDisabled =
+        values.email === '' || !values.terms || !isValid || isSubmitting || isSubmitSuccessful
 
     return (
         <Flex.Box as="form" direction="col" onSubmit={handleSubmit(onSignup)} gap="8x">

@@ -41,7 +41,6 @@ const platformSliderItems: SmartPlatformItem[] = [
                     alt="deriv go"
                     formats={['avif', 'png']}
                     placeholder="none"
-                    breakpoints={[767]}
                 />
             ),
             image_caption: {
@@ -125,7 +124,6 @@ const platformSliderItems: SmartPlatformItem[] = [
                         alt="deriv mt5 eu"
                         formats={['avif', 'png']}
                         placeholder="none"
-                        breakpoints={[767]}
                     />
                 ) : (
                     <StaticImage
@@ -134,7 +132,6 @@ const platformSliderItems: SmartPlatformItem[] = [
                         alt="deriv mt5"
                         formats={['avif', 'png']}
                         placeholder="none"
-                        breakpoints={[767]}
                     />
                 ),
         },
@@ -167,7 +164,6 @@ const platformSliderItems: SmartPlatformItem[] = [
                     alt="deriv trader"
                     formats={['avif', 'png']}
                     placeholder="none"
-                    breakpoints={[767]}
                 />
             ),
         },
@@ -212,7 +208,6 @@ const platformSliderItems: SmartPlatformItem[] = [
                     alt="deriv x"
                     formats={['avif', 'png']}
                     placeholder="none"
-                    breakpoints={[767]}
                 />
             ),
         },
@@ -254,7 +249,6 @@ const platformSliderItems: SmartPlatformItem[] = [
                     alt="deriv ez"
                     formats={['avif', 'png']}
                     placeholder="none"
-                    breakpoints={[767]}
                 />
             ),
         },
@@ -290,7 +284,6 @@ const platformSliderItems: SmartPlatformItem[] = [
                     alt="deriv bot"
                     formats={['avif', 'png']}
                     placeholder="none"
-                    breakpoints={[767]}
                 />
             ),
         },
@@ -326,7 +319,6 @@ const platformSliderItems: SmartPlatformItem[] = [
                     alt="deriv smart trader"
                     formats={['avif', 'png']}
                     placeholder="none"
-                    breakpoints={[767]}
                 />
             ),
         },
@@ -362,7 +354,6 @@ const platformSliderItems: SmartPlatformItem[] = [
                     alt="binary bot"
                     formats={['avif', 'png']}
                     placeholder="none"
-                    breakpoints={[767]}
                 />
             ),
         },
@@ -398,7 +389,6 @@ const platformSliderItems: SmartPlatformItem[] = [
                     alt="deriv api"
                     formats={['avif', 'png']}
                     placeholder="none"
-                    breakpoints={[767]}
                 />
             ),
         },

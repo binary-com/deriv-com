@@ -19,7 +19,6 @@ const HomeHeroSlider = () => {
                         formats={['avif', 'png']}
                         placeholder="blurred"
                         quality={75}
-                        breakpoints={[767]}
                     />
                 ),
             },
@@ -32,7 +31,6 @@ const HomeHeroSlider = () => {
                         alt="person-hero-4"
                         formats={['avif', 'png']}
                         placeholder="blurred"
-                        breakpoints={[767]}
                     />
                 ),
             },
@@ -49,7 +47,6 @@ const HomeHeroSlider = () => {
                             formats={['avif', 'png']}
                             loading="eager"
                             placeholder="blurred"
-                            breakpoints={[767]}
                         />
                     ),
                 },
@@ -63,7 +60,6 @@ const HomeHeroSlider = () => {
                             formats={['avif', 'png']}
                             quality={50}
                             placeholder="blurred"
-                            breakpoints={[767]}
                         />
                     ),
                 },
@@ -79,7 +75,6 @@ const HomeHeroSlider = () => {
                         formats={['avif', 'png']}
                         quality={50}
                         placeholder="blurred"
-                        breakpoints={[767]}
                     />
                 ),
             })

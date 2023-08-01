@@ -39,10 +39,12 @@ const OptionsFaq = ({ faqs }: OptionsFaqProps) => {
                         dir={get_lang_direction()}
                     >
                         <Flex.Box
+                            padding_inline="3x"
                             padding_block="8x"
                             direction="col"
                             gap="4x"
                             dir={get_lang_direction()}
+                            md={{ padding_inline: '7x', padding_block: '12x' }}
                         >
                             {faqItem.answers.map((answerItem) => (
                                 <Flex.Box key={answerItem.id}>

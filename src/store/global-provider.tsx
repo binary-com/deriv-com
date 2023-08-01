@@ -12,11 +12,14 @@ type GlobalProviderProps = { children: React.ReactNode }
 let growthbook
 if (typeof window !== 'undefined') {
     import('@deriv/analytics').then(({ RudderStack }) => {
-        RudderStack.init()
+        const anonymousId = RudderStack.getAnonymousId()
         growthbook = new GrowthBook({
             apiHost: 'https://cdn.growthbook.io',
             clientKey: 'sdk-0aHHaxKhwn0bP1HE',
             enableDevMode: true,
+            attributes: {
+                id: anonymousId,
+            },
             trackingCallback: (experiment, result) => {
                 RudderStack.track('Experiment Viewed', {
                     experimentId: experiment.key,
@@ -24,7 +27,9 @@ if (typeof window !== 'undefined') {
                 })
             },
         })
-        growthbook.loadFeatures({ autoRefresh: true })
+        growthbook.loadFeatures({
+            autoRefresh: true,
+        })
 
         const language = getLanguage()
         const domain = getDomain()

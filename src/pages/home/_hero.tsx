@@ -10,7 +10,7 @@ import { Button } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import useRegion from 'components/hooks/use-region'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { TString } from 'types/generics'
 import { handleGetTrading } from 'components/custom/utils'
@@ -81,7 +81,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                 <Box>
                     <StaticImage
                         src="../../images/common/home/hero_bg.png"
-                        alt={localize('_t_world map_t_')}
+                        alt="world map"
                         loading="eager"
                         formats={['avif', 'webp', 'auto']}
                         quality={26}

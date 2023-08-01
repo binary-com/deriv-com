@@ -29,19 +29,19 @@ export const inOutContentItems: OptionContentItemData[] = [
         images: [
             {
                 src: EndsBetweenWinIcon,
-                alt: '_t_Ends Between Win_t_',
+                alt: '_t_A chart illustrating a winning Ends Between trade type contract_t_',
             },
             {
                 src: EndsBetweenLossIcon,
-                alt: '_t_Ends Between Loss_t_',
+                alt: '_t_A chart illustrating a losing Ends Between trade type contract_t_',
             },
             {
                 src: EndsOutsideWinIcon,
-                alt: '_t_Ends Outside Win_t_',
+                alt: '_t_A chart illustrating a winning Ends Outside trade type contract_t_',
             },
             {
                 src: EndsoutsideLossIcon,
-                alt: '_t_Ends Outside Loss_t_',
+                alt: '_t_A chart illustrating a losing Ends Outside trade type contract_t_',
             },
         ],
         texts: [
@@ -61,19 +61,19 @@ export const inOutContentItems: OptionContentItemData[] = [
         images: [
             {
                 src: StaysBetweenWinIcon,
-                alt: '_t_Ends Between Win_t_',
+                alt: '_t_A chart illustrating a winning Stays Between trade type contract_t_',
             },
             {
                 src: StaysBetweenLossIcon,
-                alt: '_t_Ends Between Loss_t_',
+                alt: '_t_A chart illustrating a losing Stays Between trade type contract_t_',
             },
             {
                 src: GoesOutsideWinIcon,
-                alt: '_t_Ends Outside Win_t_',
+                alt: '_t_A chart illustrating a winning Goes Outside trade type contract_t_',
             },
             {
                 src: GoesOutsideLossIcon,
-                alt: '_t_Ends Outside Loss_t_',
+                alt: '_t_A chart illustrating a losing Goes Outside trade type contract_t_',
             },
         ],
         texts: [

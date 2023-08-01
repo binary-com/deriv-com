@@ -16,9 +16,10 @@ const HomeHeroSlider = () => {
                         objectFit="fill"
                         src="../../../../../images/common/home/hero_3.png"
                         alt="person-hero-3"
-                        formats={['avif', 'webp']}
+                        formats={['avif', 'auto']}
                         placeholder="blurred"
                         quality={75}
+                        breakpoints={[767, 1920]}
                     />
                 ),
             },
@@ -29,14 +30,15 @@ const HomeHeroSlider = () => {
                         objectFit="fill"
                         src="../../../../../images/common/home/hero_4.png"
                         alt="person-hero-4"
-                        formats={['avif', 'webp']}
+                        formats={['avif', 'auto']}
                         placeholder="blurred"
+                        breakpoints={[767, 1920]}
                     />
                 ),
             },
         ]
         if (!is_eu) {
-            slide_images.push(
+            slide_images.unshift(
                 {
                     key: 'hero2',
                     image: (
@@ -44,9 +46,10 @@ const HomeHeroSlider = () => {
                             objectFit="fill"
                             src="../../../../../images/common/home/hero_2.png"
                             alt="person-hero-2"
-                            formats={['avif', 'webp']}
+                            formats={['avif', 'auto']}
                             loading="eager"
                             placeholder="blurred"
+                            breakpoints={[767, 1920]}
                         />
                     ),
                 },
@@ -57,24 +60,26 @@ const HomeHeroSlider = () => {
                             objectFit="fill"
                             src="../../../../../images/common/home/hero_1.png"
                             alt="person-hero-1"
-                            formats={['avif', 'webp']}
+                            formats={['avif', 'auto']}
                             quality={50}
                             placeholder="blurred"
+                            breakpoints={[767, 1920]}
                         />
                     ),
                 },
             )
         } else {
-            slide_images.push({
+            slide_images.unshift({
                 key: 'hero_eu_1',
                 image: (
                     <StaticImage
                         objectFit="fill"
                         src="../../../../../images/common/home/eu_hero_person_5.png"
                         alt="person-hero-1"
-                        formats={['avif', 'webp']}
+                        formats={['avif', 'auto']}
                         quality={50}
                         placeholder="blurred"
+                        breakpoints={[767, 1920]}
                     />
                 ),
             })

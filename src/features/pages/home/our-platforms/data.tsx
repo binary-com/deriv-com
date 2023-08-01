@@ -39,8 +39,9 @@ const platformSliderItems: SmartPlatformItem[] = [
                     objectFit="contain"
                     src="../../../../images/common/home/rebranding/platform_deriv_go.png"
                     alt="deriv go"
-                    formats={['avif', 'webp']}
+                    formats={['avif', 'auto']}
                     placeholder="none"
+                    breakpoints={[767, 1920]}
                 />
             ),
             image_caption: {
@@ -122,16 +123,18 @@ const platformSliderItems: SmartPlatformItem[] = [
                         objectFit="contain"
                         src="../../../../images/common/home/rebranding/platform_mt5_eu.png"
                         alt="deriv mt5 eu"
-                        formats={['avif', 'webp']}
+                        formats={['avif', 'auto']}
                         placeholder="none"
+                        breakpoints={[767, 1920]}
                     />
                 ) : (
                     <StaticImage
                         objectFit="contain"
                         src="../../../../images/common/home/rebranding/platform_mt5.png"
                         alt="deriv mt5"
-                        formats={['avif', 'webp']}
+                        formats={['avif', 'auto']}
                         placeholder="none"
+                        breakpoints={[767, 1920]}
                     />
                 ),
         },
@@ -162,8 +165,9 @@ const platformSliderItems: SmartPlatformItem[] = [
                     objectFit="contain"
                     src="../../../../images/common/home/rebranding/platform_deriv_trader.png"
                     alt="deriv trader"
-                    formats={['avif', 'webp']}
+                    formats={['avif', 'auto']}
                     placeholder="none"
+                    breakpoints={[767, 1920]}
                 />
             ),
         },
@@ -206,8 +210,9 @@ const platformSliderItems: SmartPlatformItem[] = [
                     objectFit="contain"
                     src="../../../../images/common/home/rebranding/platform_derivx.png"
                     alt="deriv x"
-                    formats={['avif', 'webp']}
+                    formats={['avif', 'auto']}
                     placeholder="none"
+                    breakpoints={[767, 1920]}
                 />
             ),
         },
@@ -247,8 +252,9 @@ const platformSliderItems: SmartPlatformItem[] = [
                     objectFit="contain"
                     src="../../../../images/common/home/rebranding/platform_deriv_ez.png"
                     alt="deriv ez"
-                    formats={['avif', 'webp']}
+                    formats={['avif', 'auto']}
                     placeholder="none"
+                    breakpoints={[767, 1920]}
                 />
             ),
         },
@@ -282,8 +288,9 @@ const platformSliderItems: SmartPlatformItem[] = [
                     objectFit="contain"
                     src="../../../../images/common/home/rebranding/platform_deriv_bot.png"
                     alt="deriv bot"
-                    formats={['avif', 'webp']}
+                    formats={['avif', 'auto']}
                     placeholder="none"
+                    breakpoints={[767, 1920]}
                 />
             ),
         },
@@ -317,8 +324,9 @@ const platformSliderItems: SmartPlatformItem[] = [
                     objectFit="contain"
                     src="../../../../images/common/home/rebranding/platform_smart_trader.png"
                     alt="deriv smart trader"
-                    formats={['avif', 'webp']}
+                    formats={['avif', 'auto']}
                     placeholder="none"
+                    breakpoints={[767, 1920]}
                 />
             ),
         },
@@ -352,8 +360,9 @@ const platformSliderItems: SmartPlatformItem[] = [
                     objectFit="contain"
                     src="../../../../images/common/home/rebranding/platform_binary_bot.png"
                     alt="binary bot"
-                    formats={['avif', 'webp']}
+                    formats={['avif', 'auto']}
                     placeholder="none"
+                    breakpoints={[767, 1920]}
                 />
             ),
         },
@@ -387,8 +396,9 @@ const platformSliderItems: SmartPlatformItem[] = [
                     objectFit="contain"
                     src="../../../../images/common/home/rebranding/platform_deriv_api.png"
                     alt="deriv api"
-                    formats={['avif', 'webp']}
+                    formats={['avif', 'auto']}
                     placeholder="none"
+                    breakpoints={[767, 1920]}
                 />
             ),
         },

@@ -24,19 +24,19 @@ export const high_and_low_content_items: OptionContentItemData[] = [
         images: [
             {
                 src: HighWinIcon,
-                alt: '_t_High Win_t_',
+                alt: '_t_A chart illustrating a winning High Ticks trade type contract_t_',
             },
             {
                 src: HighLossIcon,
-                alt: '_t_High Lose_t_',
+                alt: '_t_A chart illustrating a losing High Ticks trade type contract_t_',
             },
             {
                 src: LowWinIcon,
-                alt: '_t_Low Win_t_',
+                alt: '_t_A chart illustrating a winning Low Ticks trade type contract_t_',
             },
             {
                 src: LowLossIcon,
-                alt: '_t_Low Lose_t_',
+                alt: '_t_A chart illustrating a losing Low Ticks trade type contract_t_',
             },
         ],
         texts: [

@@ -36,19 +36,19 @@ export const digits_content_items: OptionContentItemData[] = [
         images: [
             {
                 src: MatchesWinIcon,
-                alt: '_t_Matches Win_t_',
+                alt: '_t_A chart illustrating a winning Matches trade type contract_t_',
             },
             {
                 src: MatchesLossIcon,
-                alt: '_t_Matches Loss_t_',
+                alt: '_t_A chart illustrating a losing Matches trade type contract_t_',
             },
             {
                 src: DiffersWinIcon,
-                alt: '_t_Differs Win_t_',
+                alt: '_t_A chart illustrating a winning Differs trade type contract_t_',
             },
             {
                 src: DiffersLossIcon,
-                alt: '_t_Differs Loss_t_',
+                alt: '_t_A chart illustrating a losing Differs trade type contract_t_',
             },
         ],
         texts: [
@@ -68,19 +68,19 @@ export const digits_content_items: OptionContentItemData[] = [
         images: [
             {
                 src: EvenWinIcon,
-                alt: '_t_Even Win_t_',
+                alt: '_t_A chart illustrating a winning Even trade type contract_t_',
             },
             {
                 src: EvenLossIcon,
-                alt: '_t_Even Loss_t_',
+                alt: '_t_A chart illustrating a losing Even trade type contract_t_',
             },
             {
                 src: OddWinIcon,
-                alt: '_t_Odd Win_t_',
+                alt: '_t_A chart illustrating a winning Odd trade type contract_t_',
             },
             {
                 src: OddLossIcon,
-                alt: '_t_Odd Loss_t_',
+                alt: '_t_A chart illustrating a losing Odd trade type contract_t_',
             },
         ],
         texts: [
@@ -100,19 +100,19 @@ export const digits_content_items: OptionContentItemData[] = [
         images: [
             {
                 src: OverWinIcon,
-                alt: '_t_Matches Win_t_',
+                alt: '_t_A chart illustrating a winning Over trade type contract_t_',
             },
             {
                 src: OverLossIcon,
-                alt: '_t_Matches Loss_t_',
+                alt: '_t_A chart illustrating a losing Over trade type contract_t_',
             },
             {
                 src: UnderWinIcon,
-                alt: '_t_Differs Win_t_',
+                alt: '_t_A chart illustrating a winning Under trade type contract_t_',
             },
             {
                 src: UnderLossIcon,
-                alt: '_t_Differs Loss_t_',
+                alt: '_t_A chart illustrating a losing Under trade type contract_t_',
             },
         ],
         texts: [

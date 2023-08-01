@@ -24,19 +24,19 @@ export const upAndDownContentItems: OptionContentItemData[] = [
         images: [
             {
                 src: RiseWinIcon,
-                alt: '_t_Rise Win_t_',
+                alt: '_t_A chart illustrating a winning Rise trade type contract_t_',
             },
             {
                 src: RiseLoseIcon,
-                alt: '_t_Rise Lose_t_',
+                alt: '_t_A chart illustrating a losing Rise trade type contract_t_',
             },
             {
                 src: FallWinIcon,
-                alt: '_t_Fall Win_t_',
+                alt: '_t_A chart illustrating a winning Fall trade type contract_t_',
             },
             {
                 src: FallLoseIcon,
-                alt: '_t_Fall Lose_t_',
+                alt: '_t_A chart illustrating a losing Fall trade type contract_t_',
             },
         ],
         texts: [
@@ -59,19 +59,19 @@ export const upAndDownContentItems: OptionContentItemData[] = [
         images: [
             {
                 src: RiseWinIcon,
-                alt: '_t_Rise Win_t_',
+                alt: '_t_A chart illustrating a winning Higher trade type contract_t_',
             },
             {
                 src: RiseLoseIcon,
-                alt: '_t_Rise Lose_t_',
+                alt: '_t_A chart illustrating a losing Higher trade type contract_t_',
             },
             {
                 src: FallWinIcon,
-                alt: '_t_Fall Win_t_',
+                alt: '_t_A chart illustrating a winning Lower trade type contract’_t_',
             },
             {
                 src: FallLoseIcon,
-                alt: '_t_Fall Lose_t_',
+                alt: '_t_A chart illustrating a losing Lower trade type contract_t_',
             },
         ],
         texts: [

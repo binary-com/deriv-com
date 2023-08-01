@@ -16,10 +16,10 @@ const HomeHeroSlider = () => {
                         objectFit="fill"
                         src="../../../../../images/common/home/hero_3.png"
                         alt="person-hero-3"
-                        formats={['avif', 'auto']}
+                        formats={['avif', 'png']}
                         placeholder="blurred"
                         quality={75}
-                        breakpoints={[767, 1920]}
+                        breakpoints={[767]}
                     />
                 ),
             },
@@ -30,9 +30,9 @@ const HomeHeroSlider = () => {
                         objectFit="fill"
                         src="../../../../../images/common/home/hero_4.png"
                         alt="person-hero-4"
-                        formats={['avif', 'auto']}
+                        formats={['avif', 'png']}
                         placeholder="blurred"
-                        breakpoints={[767, 1920]}
+                        breakpoints={[767]}
                     />
                 ),
             },
@@ -46,10 +46,10 @@ const HomeHeroSlider = () => {
                             objectFit="fill"
                             src="../../../../../images/common/home/hero_2.png"
                             alt="person-hero-2"
-                            formats={['avif', 'auto']}
+                            formats={['avif', 'png']}
                             loading="eager"
                             placeholder="blurred"
-                            breakpoints={[767, 1920]}
+                            breakpoints={[767]}
                         />
                     ),
                 },
@@ -60,10 +60,10 @@ const HomeHeroSlider = () => {
                             objectFit="fill"
                             src="../../../../../images/common/home/hero_1.png"
                             alt="person-hero-1"
-                            formats={['avif', 'auto']}
+                            formats={['avif', 'png']}
                             quality={50}
                             placeholder="blurred"
-                            breakpoints={[767, 1920]}
+                            breakpoints={[767]}
                         />
                     ),
                 },
@@ -76,10 +76,10 @@ const HomeHeroSlider = () => {
                         objectFit="fill"
                         src="../../../../../images/common/home/eu_hero_person_5.png"
                         alt="person-hero-1"
-                        formats={['avif', 'auto']}
+                        formats={['avif', 'png']}
                         quality={50}
                         placeholder="blurred"
-                        breakpoints={[767, 1920]}
+                        breakpoints={[767]}
                     />
                 ),
             })

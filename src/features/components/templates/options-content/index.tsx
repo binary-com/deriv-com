@@ -16,7 +16,6 @@ const OptionsContent = ({ items }: OptionsContentProps) => {
             justify="center"
             gap="20x"
             className={content_container}
-            pt="6x"
             pb="12x"
             md={{
                 padding: '12x',

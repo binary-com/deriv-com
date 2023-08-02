@@ -25,7 +25,6 @@
 #  - This configuration works in conjunction with the protected branch settings that require all changes to be made via pull requests with at least one approval.
 #  - This approval can come from an appropriate codeowner, or any repo collaborator (person with write access) if the PR is authored by a codeowner.
 #  - Each codeowners team must have write access to the repo, otherwise their reviews won't count.
-#
 #  In the case of emergency, the repo administrators can bypass this requirement.
 
 
@@ -38,6 +37,10 @@
 #  habib-deriv
 #  prince-deriv
 #  yashim-deriv
+#  mohsen-deriv
+#  mohammad-hashemi-deriv
+#  mitra-deriv
+#  fasihali-deriv
 
 ######################################################################################################
 #
@@ -57,24 +60,13 @@
 # (in case no pattern matches a path in a PR - this should be treated as a bug and result in adding the path to CODEOWNERS)
 # ==============================================================
 
-*                                                               @habib-deriv @prince-deriv @mohsen-deriv @mohammad-hashemi-deriv @mitra-deriv @fasihali-deriv @nikitk-deriv
-
-
-
-# ==============================================================
-#  deriv-com/translations
-# ==============================================================
-
-/src/translations/*                                             @habib-deriv @prince-deriv
-/crowdin/*                                                      @habib-deriv @prince-deriv
-/scripts/*                                                      @habib-deriv @prince-deriv
+*                                                            @habib-deriv @prince-deriv @mohsen-deriv @mohammad-hashemi-deriv @mitra-deriv @fasihali-deriv @nikitk-deriv
 
 
 # ==============================================================
 #  deriv-com/config
 # ==============================================================
 
-/*                                                              @habib-deriv @yashim-deriv @prince-deriv
 /.github/**/*                                                   @habib-deriv @yashim-deriv @prince-deriv
 /.husky/*                                                       @habib-deriv @yashim-deriv @prince-deriv
 
@@ -86,6 +78,7 @@
 /src/common/**/*                                                @habib-deriv @yashim-deriv @prince-deriv
 /src/components/**/*                                            @habib-deriv @yashim-deriv @prince-deriv
 /src/themes/**/*                                                @habib-deriv @yashim-deriv @prince-deriv
+/src/features/**/*                                                @habib-deriv @prince-deriv @mitra-deriv @fasih-deriv
 
 
 # ==============================================================
@@ -103,4 +96,17 @@
 #  deriv-com/pages
 # ==============================================================
 
-/src/pages/**/*                                                 @habib-deriv @yashim-deriv @prince-deriv
+/src/pages/**/*                                                 @habib-deriv @yashim-deriv @prince-deriv @fasihali-deriv @mitra-deriv
+
+# ==============================================================
+#  deriv-com/translations
+# ==============================================================
+
+/src/pages/**/*                                                 @habib-deriv @yashim-deriv @prince-deriv @mitra-deriv
+
+# ==============================================================
+#  deriv-com/storybooks.d.ts
+# ==============================================================
+
+/storybooks.d.ts
+@prince-deriv @habib-deriv

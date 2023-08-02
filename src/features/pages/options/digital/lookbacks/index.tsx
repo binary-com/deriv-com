@@ -22,7 +22,7 @@ const LookbacksDigitalOptionsPage = () => {
                 <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
             </Helmet>
             <Flex.Box container="fluid" justify="center">
-                <Typography.Paragraph pb="20x" align="center">
+                <Typography.Paragraph pb="20x" pt="15x" align="center" md={{ pt: '0x' }}>
                     <Localize translate_text="_t_Lookbacks allow you to earn a payout depending on the optimum high or low achieved by the market during the duration of a contract._t_" />
                 </Typography.Paragraph>
             </Flex.Box>

@@ -16,6 +16,7 @@ import AvailableMarketPlatforms from 'features/components/organisms/available-ma
 import OptionsFaq from 'features/components/templates/options-faq'
 import useRegion from 'components/hooks/use-region'
 import PageNotFound from 'features/pages/404-error'
+import Flex from 'features/components/atoms/flex-box'
 
 const AccumulatorsOptions = () => {
     const { is_row } = useRegion()
@@ -37,10 +38,12 @@ const AccumulatorsOptions = () => {
                     <Localize translate_text="_t_How do accumulator options work?_t_" />
                 </Typography.Heading>
                 <OptionsContent items={accumulatorOptionsContentItems} />
-                <AvailableMarketPlatforms
-                    markets={accumulatorMarkets}
-                    platforms={accumulatorPlatforms}
-                />
+                <Flex.Box justify="center" align="center" direction="col">
+                    <AvailableMarketPlatforms
+                        markets={accumulatorMarkets}
+                        platforms={accumulatorPlatforms}
+                    />
+                </Flex.Box>
                 <OptionsFaq faqs={accumulatorFAQ} />
             </OptionsLayout>
         )

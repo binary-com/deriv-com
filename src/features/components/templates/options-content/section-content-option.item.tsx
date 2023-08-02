@@ -1,7 +1,7 @@
 import React from 'react'
 import { OptionContentSectionItemData } from './type'
 import { content_images } from './styles.module.scss'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import dclsx from 'features/utils/dclsx'
@@ -10,7 +10,7 @@ const SectionOptionContentItem = ({ item }: { item: OptionContentSectionItemData
     return (
         <Flex.Box justify="start" align="start" direction="col">
             <Flex.Box gap="4x" align="center">
-                {item.icon.src && <img src={item.icon.src} alt={item.icon.alt} />}
+                {item.icon.src && <img src={item.icon.src} alt={localize(item.icon.alt)} />}
                 {item.title && (
                     <h4 className={dclsx('text-small')}>
                         <Localize translate_text={item.title} />
@@ -31,7 +31,11 @@ const SectionOptionContentItem = ({ item }: { item: OptionContentSectionItemData
                     </Flex.Box>
                     <div className={content_images}>
                         {sectionItem.images.map((imageItem) => (
-                            <img src={imageItem.src} alt={imageItem.alt} key={imageItem.alt} />
+                            <img
+                                src={imageItem.src}
+                                alt={localize(imageItem.alt)}
+                                key={imageItem.alt}
+                            />
                         ))}
                     </div>
                 </Flex.Box>

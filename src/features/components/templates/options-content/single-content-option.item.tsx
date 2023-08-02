@@ -1,7 +1,7 @@
 import React from 'react'
 import { OptionContentSingleItemData } from './type'
 import { content_images, single_image } from './styles.module.scss'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import dclsx from 'features/utils/dclsx'
@@ -10,7 +10,7 @@ const SingleOptionContentItem = ({ item }: { item: OptionContentSingleItemData }
     return (
         <Flex.Box justify="start" align="start" direction="col">
             <Flex.Box gap="4x" pb="8x" align="center">
-                {item.icon && <img src={item.icon.src} alt={item.icon.alt} />}
+                {item.icon && <img src={item.icon.src} alt={localize(item.icon.alt)} />}
                 {item.title && (
                     <h4 className={dclsx('text-small')}>
                         <Localize translate_text={item.title} />
@@ -28,7 +28,7 @@ const SingleOptionContentItem = ({ item }: { item: OptionContentSingleItemData }
                 {item.images.map((imageItem) => (
                     <img
                         src={imageItem.src}
-                        alt={imageItem.alt}
+                        alt={localize(imageItem.alt)}
                         key={imageItem.alt}
                         width="100%"
                         height="100%"

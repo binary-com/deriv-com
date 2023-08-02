@@ -13,7 +13,7 @@ const useLiveColumns = () => {
     const { is_mobile } = useBreakpoints()
     const columns = useMemo(() => {
         return [
-            liveMarketColumnHelper.accessor('shortcode', {
+            liveMarketColumnHelper.accessor('code', {
                 header: () => (
                     <Flex.Box>
                         <Typography.Paragraph
@@ -32,7 +32,7 @@ const useLiveColumns = () => {
                     </Flex.Box>
                 ),
             }),
-            liveMarketColumnHelper.accessor('symbol', {
+            liveMarketColumnHelper.accessor('sym', {
                 header: () => <Flex.Box></Flex.Box>,
                 cell: (info) => (
                     <Flex.Box>
@@ -84,7 +84,7 @@ const useLiveColumns = () => {
                     </Flex.Box>
                 ),
             }),
-            liveMarketColumnHelper.accessor('spread', {
+            liveMarketColumnHelper.accessor('sprd', {
                 header: () => (
                     <Flex.Box>
                         <Typography.Paragraph
@@ -105,7 +105,7 @@ const useLiveColumns = () => {
                     </Flex.Box>
                 ),
             }),
-            liveMarketColumnHelper.accessor('day_percentage_change', {
+            liveMarketColumnHelper.accessor('chng', {
                 header: () => (
                     <Flex.Box>
                         <Typography.Paragraph

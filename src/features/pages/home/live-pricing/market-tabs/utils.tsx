@@ -15,7 +15,7 @@ export const market_buttons: TMarketButtons[] = [
         src: Forex,
         selected_src: SelectedForex,
         button_text: 'Forex',
-        market_name: 'forex',
+        market_name: 'fx',
         market_description:
             '_t_Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events._t_',
         to: '/markets/forex/',
@@ -24,7 +24,7 @@ export const market_buttons: TMarketButtons[] = [
         src: Derived,
         selected_src: SelectedDerived,
         button_text: 'Derived indices',
-        market_name: 'derived',
+        market_name: 'der',
         market_description:
             '_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX, and baskets._t_',
         to: '/markets/synthetic/',
@@ -33,7 +33,7 @@ export const market_buttons: TMarketButtons[] = [
         src: Stocks,
         selected_src: SelectedStocks,
         button_text: 'Stocks & indices',
-        market_name: 'indices',
+        market_name: 'ind',
         market_description:
             '_t_Trade global stocks of your favourite household brands and international stock market indices on Deriv. Expand your trading opportunities with access to a wide range of stocks and indices at competitive prices, and the convenience to trade indices beyond standard market hours._t_',
         to: '/markets/stock/',
@@ -42,7 +42,7 @@ export const market_buttons: TMarketButtons[] = [
         src: Crypto,
         selected_src: SelectedCrypto,
         button_text: 'Cryptocurrencies',
-        market_name: 'cryptocurrency',
+        market_name: 'cry',
         market_description:
             "_t_Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of world's most popular cryptocurrencies._t_",
         to: '/markets/cryptocurrencies/',
@@ -51,7 +51,7 @@ export const market_buttons: TMarketButtons[] = [
         src: Commodities,
         selected_src: SelectedCommodities,
         button_text: 'Commodities',
-        market_name: 'commodities',
+        market_name: 'com',
         market_description:
             '_t_Speculate on the price movements of silver, gold, oil and more. Profit from the price difference when the market moves in the direction that you have predicted._t_',
         to: '/markets/commodities/',

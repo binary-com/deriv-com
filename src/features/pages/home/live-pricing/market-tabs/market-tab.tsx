@@ -10,7 +10,7 @@ import Flex from 'features/components/atoms/flex-box'
 import TabMenu from 'features/components/templates/tabs/menu'
 
 const MarketTab = () => {
-    const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
+    const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('fx')
     const [tab_name, setTabName] = useState('Forex')
     const [linkToMarketPage, setLinkToMarketPage] = useState('/markets/forex/')
     const onMarketButtonClick = (selected) => {

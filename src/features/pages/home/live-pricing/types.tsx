@@ -3,11 +3,11 @@ import { TString } from 'types/generics'
 export type TMarketData = {
     ask: number
     bid: number
-    day_percentage_change: number
-    market: string
-    spread: number
-    symbol: string
-    shortcode: string
+    chng: number
+    mkt: string
+    sprd: number
+    sym: string
+    code: string
 }
 
 export type TMarketDataResponse = {
@@ -16,12 +16,7 @@ export type TMarketDataResponse = {
     req_id: number
 }
 
-export type TAvailableLiveMarkets =
-    | 'forex'
-    | 'derived'
-    | 'indices'
-    | 'cryptocurrency'
-    | 'commodities'
+export type TAvailableLiveMarkets = 'fx' | 'der' | 'ind' | 'cry' | 'com'
 
 export type TMarketButtons = {
     src: string

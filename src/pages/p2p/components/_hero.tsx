@@ -1,16 +1,10 @@
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
 import { Flex, Container, Desktop, Mobile } from 'components/containers'
-import {
-    Header,
-    QueryImage,
-    ImageWrapper,
-    BackgroundImageWrapper,
-    StaticImageWrapper,
-} from 'components/elements'
+import { Header, QueryImage, ImageWrapper } from 'components/elements'
 import { localize, Localize, LocalizedLink } from 'components/localization'
+import { Background } from 'components/elements/background-image'
 import { Button } from 'components/form'
 import device, { size } from 'themes/device'
 import { mobileOSDetect } from 'common/os-detect'
@@ -23,6 +17,10 @@ import {
 } from 'common/constants'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
+const BackgroundWrapper = styled(Background)`
+    height: 100%;
+    width: 100%;
+`
 const AppButton = styled(LocalizedLink)`
     margin-right: 8px;
     padding: 0;
@@ -179,6 +177,17 @@ const StyledHeader = styled(Header)`
 
 const query = graphql`
     query {
+        p2p_hero_background: file(relativePath: { eq: "p2p/p2p_hero_background.png" }) {
+            ...fadeIn
+        }
+        p2p_hero_background_rtl: file(relativePath: { eq: "p2p/p2p_hero_background_rtl.png" }) {
+            ...fadeIn
+        }
+        p2p_hero_background_mobile: file(
+            relativePath: { eq: "p2p/p2p_hero_background_mobile.png" }
+        ) {
+            ...fadeIn
+        }
         p2p_hero_img: file(relativePath: { eq: "p2p/p2p_hero_img.png" }) {
             ...fadeIn
         }
@@ -206,30 +215,9 @@ const Hero = () => {
     const is_rtl = useIsRtl()
     const background = useMemo(() => {
         if (is_tabletL) {
-            return (
-                <StaticImage
-                    src="../../../images/common/p2p/p2p_hero_background_mobile.png"
-                    alt={localize('_t_p2p_t_')}
-                    formats={['avif', 'webp', 'auto']}
-                    style={{ width: '100%' }}
-                />
-            )
+            return data['p2p_hero_background_mobile']
         } else {
-            return is_rtl ? (
-                <StaticImage
-                    src="../../../images/common/p2p/p2p_hero_background_rtl.png"
-                    alt={localize('_t_p2p_t_')}
-                    formats={['avif', 'webp', 'auto']}
-                    style={{ width: '100%' }}
-                />
-            ) : (
-                <StaticImage
-                    src="../../../images/common/p2p/p2p_hero_background.png"
-                    alt={localize('_t_p2p_t_')}
-                    formats={['avif', 'webp', 'auto']}
-                    style={{ width: '100%' }}
-                />
-            )
+            return is_rtl ? data['p2p_hero_background_rtl'] : data['p2p_hero_background']
         }
     }, [data, is_rtl, is_tabletL])
 
@@ -246,8 +234,7 @@ const Hero = () => {
     }
 
     return (
-        <BackgroundImageWrapper>
-            <StaticImageWrapper>{background}</StaticImageWrapper>
+        <BackgroundWrapper data={background}>
             <Wrapper>
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader as="h1">
@@ -343,7 +330,7 @@ const Hero = () => {
                     />
                 </ImgWrapper>
             </Wrapper>
-        </BackgroundImageWrapper>
+        </BackgroundWrapper>
     )
 }
 

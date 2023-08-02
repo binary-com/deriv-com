@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, useLayoutEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import {
     tab_container,
@@ -38,6 +38,11 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
     const [last_element_ref, lastInView] = useInView({
         threshold: 0.8,
     })
+    const {
+        ref: active_element_ref,
+        inView: activeInView,
+        entry,
+    } = useInView({ threshold: 1, triggerOnce: true })
 
     const side_scroll = (
         element: HTMLDivElement,
@@ -61,7 +66,26 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
             pathname?.includes(option.to),
         )
         setSelectedTabName(selected_tab_item?.option_name || null)
-    }, [pathname])
+    }, [pathname, entry])
+
+    useEffect(() => {
+        if (!activeInView && entry) {
+            side_scroll(content_wrapper.current, 25, entry.boundingClientRect.left, 10)
+        }
+    }, [entry])
+
+    const clickHandler = (e) => {
+        const target = e.currentTarget
+        localStorage.setItem('next_item_position', String(target.offsetLeft + target.clientWidth))
+    }
+
+    useLayoutEffect(() => {
+        const item_position = +localStorage.getItem('next_item_position')
+        if (content_wrapper.current.clientWidth < item_position) {
+            content_wrapper.current.scrollLeft = item_position
+        }
+        localStorage.removeItem('next_item_position')
+    }, [])
 
     return (
         <Flex.Box direction="col" padding_block="10x" md={{ padding_block: '20x' }}>
@@ -79,15 +103,24 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                                     : null
                             }
                         >
-                            <Flex.Box
-                                direction={'row'}
-                                justify={'start'}
-                                md={{ justify: 'center' }}
+                            <div
+                                className={dclsx(
+                                    'flex',
+                                    'row',
+                                    'justify-start',
+                                    'md-justify-start',
+                                )}
+                                ref={
+                                    selected_tab_name === option_item.option_name
+                                        ? active_element_ref
+                                        : null
+                                }
                             >
                                 <Link
                                     url={{ type: 'internal', to: option_item.to }}
                                     no_hover
                                     key={option_item.button_text}
+                                    onClick={clickHandler}
                                 >
                                     <Tab.MenuItem
                                         key={option_item.option_name}
@@ -107,7 +140,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                                         </Typography.Paragraph>
                                     </Tab.MenuItem>
                                 </Link>
-                            </Flex.Box>
+                            </div>
                         </div>
                     ))}
                 </div>

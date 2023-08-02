@@ -65,6 +65,7 @@ const Internal = ({
     link_target,
     link_rel,
     active_urls,
+    onClick,
 }: InternalProps) => {
     let rawLocale = 'en'
     if (isBrowser()) {
@@ -122,6 +123,8 @@ const Internal = ({
                     'typography-color-brand': is_active,
                 },
             )}
+            // @ts-expect-error Need to use the right prop type for the Link component instead of using prop type of `LinkProps`.
+            onClick={onClick}
         >
             {children}
         </Link>

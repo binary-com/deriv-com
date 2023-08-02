@@ -6,6 +6,7 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header } from 'components/elements/typography'
 import device from 'themes/device'
 import flex from 'components/containers/flex'
+import { TString } from 'types/generics'
 
 const StyledSectionContainer = styled(SectionContainer)`
     border-bottom: solid 1px var(--color-grey-2);
@@ -73,25 +74,28 @@ const StyledText = styled(Header)`
 
 const items: ContentType[] = [
     {
-        id: 0,
-        title: <Localize translate_text="Up to x1000" />,
-        subtitle: <Localize translate_text="potential profit" />,
+        title: '_t_Up to x1000_t_',
+        subtitle: '_t_potential profit_t_',
     },
-    { id: 3, title: 'USD 1', subtitle: <Localize translate_text="minimum stake" /> },
-    { id: 1, title: '24/7', subtitle: <Localize translate_text="trading" /> },
+    { title: 'USD 1', subtitle: '_t_minimum stake_t_' },
+    { title: '24/7', subtitle: '_t_trading_t_' },
 ]
 
 const WhatIsDerivGo = () => {
     return (
         <StyledSectionContainer>
             <NumberStyledContainer>
-                {items.map((item) => (
-                    <NumberWrapper key={item.id}>
+                {items.map(({ title, subtitle }) => (
+                    <NumberWrapper key={title}>
                         <StyledTitle as="h3" type="heading-3" align="center">
-                            {item.title}
+                            {title.includes('_t_') ? (
+                                <Localize translate_text={title as TString} />
+                            ) : (
+                                title
+                            )}
                         </StyledTitle>
                         <StyledSubTitle align="center" as="span" type="paragraph-1">
-                            {item.subtitle}
+                            <Localize translate_text={subtitle} />
                         </StyledSubTitle>
                     </NumberWrapper>
                 ))}
@@ -99,10 +103,10 @@ const WhatIsDerivGo = () => {
             <Container>
                 <Flex width="1202px" fd="column" ai="center" jc="center">
                     <StyledHeader as="h2" type="heading-2" align="center">
-                        <Localize translate_text="What is Deriv GO" />
+                        <Localize translate_text="_t_What is Deriv GO_t_" />
                     </StyledHeader>
                     <StyledText mt="16px" align="center" as="p" type="paragraph-1">
-                        <Localize translate_text="Deriv GO is our mobile app optimised for trading multipliers on the go. Trade on forex, derived indices, and cryptocurrencies, and maximise your potential profit without risking more than your stake." />
+                        <Localize translate_text="_t_Deriv GO is our mobile app optimised for trading multipliers on the go. Trade on forex, derived indices, and cryptocurrencies, and maximise your potential profit without risking more than your stake._t_" />
                     </StyledText>
                 </Flex>
             </Container>

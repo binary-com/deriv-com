@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Header } from 'components/elements'
 import { SectionContainer } from 'components/containers'
-import { localize, Localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 
@@ -18,7 +18,6 @@ const Section = styled(SectionContainer)`
         padding: 40px 16px;
     }
 `
-
 const StyledHeader = styled(Header)`
     color: var(--color-black-9);
     @media ${device.tablet} {
@@ -42,14 +41,16 @@ const WhatIsTrader = () => {
     return (
         <Section>
             <StyledHeader align="center" mb="1.2rem" as="h2" type="page-title">
-                {localize('What is Deriv MT5')}
+                <Localize translate_text="_t_What is Deriv MT5_t_" />
             </StyledHeader>
             <StyledText max_width="80.2rem" align="center" as="p" type="paragraph-1">
-                {is_eu ? (
-                    <Localize translate_text="Deriv MT5 gives you access to multiple asset classes – forex, stocks & indices, cryptocurrencies, commodities, and derived indices – on a single platform. With exclusive access to innovative assets, Deriv brings the MT5 experience to a superior level for both new and experienced traders." />
-                ) : (
-                    <Localize translate_text="_t_Deriv MT5 gives you access to multiple asset classes – forex, stocks & indices, cryptocurrencies, commodities, exchange-traded funds, and derived — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders._t_" />
-                )}
+                <Localize
+                    translate_text={
+                        is_eu
+                            ? '_t_Deriv MT5 gives you access to multiple asset classes – forex, stocks & indices, cryptocurrencies, commodities, and derived indices – on a single platform. With exclusive access to innovative assets, Deriv brings the MT5 experience to a superior level for both new and experienced traders._t_'
+                            : '_t_Deriv MT5 gives you access to multiple asset classes – forex, stocks & indices, cryptocurrencies, commodities, exchange-traded funds, and derived indices — on a single platform. With exclusive access to innovative trade types, Deriv brings the MT5 experience to a superior level for both new and experienced traders._t_'
+                    }
+                />
             </StyledText>
         </Section>
     )

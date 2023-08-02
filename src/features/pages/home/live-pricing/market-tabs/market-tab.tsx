@@ -2,12 +2,11 @@ import React, { useState } from 'react'
 import { TAvailableLiveMarkets } from '../types'
 import LiveMarketTable from '../table-component/live-market-table'
 import { market_buttons } from './utils'
-import { tab_container } from './tab-style.module.scss'
+import { tab_container, markets_menu_tab_item } from './tab-style.module.scss'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import Container from 'features/components/atoms/container'
 import Flex from 'features/components/atoms/flex-box'
-import Image from 'features/components/atoms/image'
 import TabMenu from 'features/components/templates/tabs/menu'
 
 const MarketTab = () => {
@@ -36,6 +35,7 @@ const MarketTab = () => {
                             }}
                         >
                             <TabMenu
+                                item_className={markets_menu_tab_item}
                                 tab_names={[market_item.button_text]}
                                 key={market_item.button_text}
                                 current_tab={tab_name}

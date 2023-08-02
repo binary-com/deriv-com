@@ -1,16 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
 import { array_wrapper, heading, box, heading_countries } from '../_premium_agent.module.scss'
 import { TString } from 'types/generics'
-import Container from 'features/components/atoms/container'
 import { Localize } from 'components/localization'
-import { Header } from 'components/elements'
 import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
 import FlexBox from 'features/components/atoms/flex-box'
 import useScreenSize from 'components/hooks/use-screen-size'
 import Botswana from 'images/svg/flags/botswana.svg'
-import Brazil from 'images/svg/flags/brazil.svg'
 import India from 'images/svg/flags/india.svg'
 import Kenya from 'images/svg/flags/kenya.svg'
 import Nigeria from 'images/svg/flags/nigeria.svg'
@@ -25,7 +21,6 @@ type CountryProps = {
 }
 
 const countries: CountryProps[] = [
-    { name: '_t_Brazil_t_', flag: Brazil },
     { name: '_t_Botswana_t_', flag: Botswana },
     { name: '_t_India_t_', flag: India },
     { name: '_t_Kenya_t_', flag: Kenya },

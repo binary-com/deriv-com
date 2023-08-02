@@ -15,7 +15,7 @@ const SignupPublicForm = () => {
 
     const {
         register,
-        formState: { errors, isValid },
+        formState: { errors, isValid, isSubmitting, isSubmitSuccessful },
         watch,
         clearErrors,
         setValue,
@@ -23,7 +23,8 @@ const SignupPublicForm = () => {
     } = signUpForm
     const values = watch()
 
-    const isButtonDisabled = values.email === '' || !values.terms || !isValid
+    const isButtonDisabled =
+        values.email === '' || !values.terms || !isValid || isSubmitting || isSubmitSuccessful
 
     return (
         <Flex.Box

@@ -10,8 +10,8 @@ import { ContentType, StyledProps } from 'pages/landing/_types'
 
 type ImageTextSwitchingProps = {
     reverse: boolean
-    two_title?: boolean
 }
+
 const StyledSection = styled(SectionContainer)`
     @media ${device.tabletL} {
         padding: 40px 16px;
@@ -45,7 +45,6 @@ const Content = styled.div<StyledProps>`
         margin: 0 auto;
     }
 `
-
 const ImageWrapper = styled.div<StyledProps>`
     width: 40%;
     margin-right: ${(props) => props.margin_right};
@@ -101,62 +100,37 @@ const query = graphql`
 
 const stepContent: ContentType[] = [
     {
-        title: <Localize translate_text="Step 1" />,
-        subtitle1: (
-            <Localize
-                translate_text="Log in or sign up for a Deriv account.<0 />"
-                components={[<br key={0} />]}
-            />
-        ),
-        subtitle_mobile1: (
-            <Localize
-                translate_text="Log in or sign up for a Deriv account.<0 />"
-                components={[<br key={0} />]}
-            />
-        ),
-
+        title: '_t_Step 1_t_',
+        subtitle1: '_t_Log in or sign up for a Deriv account.<0 />_t_',
+        subtitle1_components: [<br key={0} />],
+        subtitle_mobile1: '_t_Log in or sign up for a Deriv account.<0 />_t_',
+        subtitle_mobile1_components: [<br key={0} />],
         image_name: 'login',
-        image_alt: localize('Login'),
+        image_alt: '_t_Login_t_',
     },
     {
-        title: <Localize translate_text="Step 2" />,
-        subtitle1: (
-            <Localize
-                translate_text="Add a Deriv MT5 Financial real account.<0 />"
-                components={[<br key={0} />]}
-            />
-        ),
-        subtitle_mobile1: (
-            <Localize
-                translate_text="Add a Deriv MT5 Financial real account.<0 />"
-                components={[<br key={0} />]}
-            />
-        ),
-
+        title: '_t_Step 2_t_',
+        subtitle1: '_t_Add a Deriv MT5 Financial real account.<0 />_t_',
+        subtitle1_components: [<br key={0} />],
+        subtitle_mobile1: '_t_Add a Deriv MT5 Financial real account.<0 />_t_',
+        subtitle_mobile1_components: [<br key={0} />],
         image_name: 'dmt5_acc',
-        image_alt: localize('DMT5 account'),
+        image_alt: '_t_DMT5 account_t_',
     },
     {
-        title: <Localize translate_text="Step 3" />,
-        subtitle1: (
-            <Localize
-                translate_text="Log in to Deriv MT5, select an asset, and start trading.<0 />"
-                components={[<br key={0} />]}
-            />
-        ),
-        subtitle_mobile1: (
-            <Localize
-                translate_text="Log in to Deriv MT5, select an asset, and start trading.<0 />"
-                components={[<br key={0} />]}
-            />
-        ),
-
+        title: '_t_Step 3_t_',
+        subtitle1: '_t_Log in to Deriv MT5, select an asset, and start trading.<0 />_t_',
+        subtitle1_components: [<br key={0} />],
+        subtitle_mobile1: '_t_Log in to Deriv MT5, select an asset, and start trading.<0 />_t_',
+        subtitle_mobile1_components: [<br key={0} />],
         image_name: 'dmt5_login',
-        image_alt: localize('DMT5 login'),
+        image_alt: '_t_DMT5 login_t_',
     },
 ]
-const ImageTextSwitching = ({ reverse, two_title }: ImageTextSwitchingProps) => {
+
+const ImageTextSwitching = ({ reverse }: ImageTextSwitchingProps) => {
     const data = useStaticQuery(query)
+
     return (
         <StyledSection background="var(--color-white)" padding="10rem 0">
             <StyledContainer direction="column">
@@ -167,40 +141,37 @@ const ImageTextSwitching = ({ reverse, two_title }: ImageTextSwitchingProps) => 
                     mb="1rem"
                     weight="bold"
                 >
-                    {localize('Trade forex with ultra-low spreads in 3 simple steps:')}
+                    <Localize translate_text="_t_Trade forex with ultra-low spreads in 3 simple steps:_t_" />
                 </StyledText>
 
-                {stepContent.map((item, index) => {
-                    const is_even = isIndexEven(index, reverse)
-                    return (
-                        <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={`key-${index}`}>
-                            <Content margin_right={!is_even ? '12.6rem' : '0'}>
-                                <StyledHeader type="heading-3" mb="1rem">
-                                    {item.title}
-                                </StyledHeader>
-                                <Desktop>
-                                    <Text size="var(--text-size-m)" pb="2rem">
-                                        {item.subtitle1}
-                                    </Text>
-                                </Desktop>
-                                <Mobile>
-                                    <Text pb="2rem">{item.subtitle_mobile1}</Text>
-                                </Mobile>
-                                {two_title && (
-                                    <>
-                                        <StyledHeader type="heading-3">
-                                            {item.second_title}
-                                        </StyledHeader>
-                                        <Text>{item.second_subtitle1}</Text>
-                                    </>
-                                )}
-                            </Content>
-                            <ImageWrapper margin_right={!is_even ? '0' : '12.6rem'}>
-                                <QueryImage data={data[item.image_name]} alt={item.image_alt} />
-                            </ImageWrapper>
-                        </Row>
-                    )
-                })}
+                {stepContent.map(
+                    ({ title, subtitle1, subtitle_mobile1, image_name, image_alt }, index) => {
+                        const is_even = isIndexEven(index, reverse)
+
+                        return (
+                            <Row flex_direction={!is_even ? 'row' : 'row-reverse'} key={title}>
+                                <Content margin_right={!is_even ? '12.6rem' : '0'}>
+                                    <StyledHeader type="heading-3" mb="1rem">
+                                        <Localize translate_text={title} />
+                                    </StyledHeader>
+                                    <Desktop>
+                                        <Text size="var(--text-size-m)" pb="2rem">
+                                            <Localize translate_text={subtitle1} />
+                                        </Text>
+                                    </Desktop>
+                                    <Mobile>
+                                        <Text pb="2rem">
+                                            <Localize translate_text={subtitle_mobile1} />
+                                        </Text>
+                                    </Mobile>
+                                </Content>
+                                <ImageWrapper margin_right={!is_even ? '0' : '12.6rem'}>
+                                    <QueryImage data={data[image_name]} alt={localize(image_alt)} />
+                                </ImageWrapper>
+                            </Row>
+                        )
+                    },
+                )}
             </StyledContainer>
         </StyledSection>
     )

@@ -13,6 +13,7 @@ import payment_agent from '../data/_payment-agent'
 import security from '../data/_security'
 import trading from '../data/_trading'
 import deriv_ez from '../data/_deriv-ez'
+import complaints_procedure from '../data/_complaints_procedure'
 
 export const GENERAL = 'General'
 export const PLATFORMS = 'Platforms'
@@ -21,6 +22,7 @@ export const all_questions = [
     trading,
     deposits_and_withdrawals,
     security,
+    complaints_procedure,
     affiliate_programme,
     ib_programme,
     about_deriv,

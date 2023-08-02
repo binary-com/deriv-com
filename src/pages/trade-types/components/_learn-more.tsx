@@ -1,9 +1,14 @@
-import React, { ReactNode } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import styled from 'styled-components'
 import { Text, ImageWithDireciton } from 'components/elements'
-import { LocalizedLink } from 'components/localization'
+import { Localize, LocalizedLink, localize } from 'components/localization'
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
+import { TString } from 'types/generics'
+
+type LearnMoreProps = {
+    text: TString
+    to: string
+}
 
 const Wrapper = styled.div`
     position: absolute;
@@ -13,7 +18,6 @@ const Wrapper = styled.div`
     opacity: 1;
     transition: opacity 0.25s;
 `
-
 const Item = styled.div`
     display: flex;
     align-items: center;
@@ -27,7 +31,6 @@ const Item = styled.div`
         margin-left: -0.9rem;
     }
 `
-
 const Link = styled(LocalizedLink)`
     text-decoration: none;
     color: var(--color-red);
@@ -36,10 +39,6 @@ const Link = styled(LocalizedLink)`
         text-decoration: underline;
     }
 `
-type LearnMoreProps = {
-    text: string | ReactNode
-    to: string
-}
 const StyledLink = styled(Text)`
     font-size: 14px;
 
@@ -54,18 +53,13 @@ const LearnMore = ({ text, to }: LearnMoreProps) => {
             <Link to={to}>
                 <Item>
                     <StyledLink mr="0.8rem" weight="normal" color="red">
-                        {text}
+                        <Localize translate_text={text} />
                     </StyledLink>
-                    <ImageWithDireciton src={Arrow} alt="arrow right" />
+                    <ImageWithDireciton src={Arrow} alt={localize('_t_arrow right_t_')} />
                 </Item>
             </Link>
         </Wrapper>
     )
-}
-
-LearnMore.propTypes = {
-    text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-    to: PropTypes.string,
 }
 
 export default LearnMore

@@ -1,10 +1,14 @@
 @use 'features/styles/theme/theme-mixins' as *;
 
 .overlay {
-    &_container {
+    &_container, &_container_eu {
         position: fixed;
         pointer-events: none;
         inset: 0;
         z-index: 3;
+    }
+
+    &_container_eu {
+        bottom: 14rem;
     }
 }

@@ -11,16 +11,16 @@ import Typography from 'features/components/atoms/typography'
 import useRegion from 'components/hooks/use-region'
 import usePpc from 'features/hooks/use-ppc'
 
-const CfdWarningBanner = () => {
+type CfdWarningBannerProps = {
+    expanded: boolean
+    toggleExpansion: () => void
+}
+
+const CfdWarningBanner = ({ expanded, toggleExpansion }: CfdWarningBannerProps) => {
     const { is_ppc } = usePpc()
     const { is_eu, is_cpa_plan } = useRegion()
-    const [expanded, setExpanded] = useState(false)
 
     if (is_ppc || is_eu || is_cpa_plan) {
-        const toggleExpansion = () => {
-            setExpanded((prev) => !prev)
-        }
-
         return (
             <>
                 <Flex.Box

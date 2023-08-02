@@ -1,14 +1,19 @@
 import React from 'react'
-import { overlay_container } from './layout-overlay.module.scss'
+import { overlay_container, overlay_container_eu } from './layout-overlay.module.scss'
 import LiveChatButton from './live-chat-button'
 import WhatsappButton from './whats-app-button'
 import CookieBanner from './cookie-banner'
-import CfdWarningBanner from './cfd-warning-banner'
 import Flex from 'features/components/atoms/flex-box'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import useRegion from 'components/hooks/use-region'
 
-const LayoutOverlay = () => {
+type LayoutOverlayProps = {
+    expanded: boolean
+}
+const LayoutOverlay = ({ expanded }: LayoutOverlayProps) => {
     const is_rtl = useIsRtl()
+    const { is_eu } = useRegion()
+
     return (
         <Flex.Box
             id="overlay-container"
@@ -16,11 +21,14 @@ const LayoutOverlay = () => {
             align="stretch"
             justify={'end'}
             direction="col"
-            className={overlay_container}
+            mb={expanded ? '40x' : '0x'}
+            className={is_eu ? overlay_container_eu : overlay_container}
         >
             <Flex.Box
                 id="overlay-container"
                 direction="col-reverse"
+                mb={expanded ? '40x' : '0x'}
+                pb={expanded ? '10x' : '0x'}
                 md={{ direction: is_rtl ? 'row-reverse' : 'row' }}
                 justify="between"
                 align="end"
@@ -33,7 +41,6 @@ const LayoutOverlay = () => {
                     <WhatsappButton />
                 </Flex.Box>
             </Flex.Box>
-            <CfdWarningBanner />
         </Flex.Box>
     )
 }

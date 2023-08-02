@@ -17,7 +17,6 @@
     grid-template-columns: 1fr;
     gap: 1.6rem;
     max-inline-size: 100rem;
-    margin-inline: auto;
 
     @include breakpoints(phone) {
         gap: 2.4rem;

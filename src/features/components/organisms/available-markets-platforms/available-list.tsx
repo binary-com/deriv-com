@@ -1,4 +1,5 @@
 import React from 'react'
+import { available_wrapper } from './styles.module.scss'
 import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Link from 'features/components/atoms/link'
@@ -14,7 +15,14 @@ const AvailableList = ({
     items: OptionContentAvailability[]
 }) => {
     return (
-        <Flex.Box gap="10x" wrap="wrap" md={{ wrap: 'nowrap' }} justify="center" align="center">
+        <Flex.Box
+            gap="14x"
+            wrap="wrap"
+            className={available_wrapper}
+            md={{ wrap: 'nowrap' }}
+            justify="center"
+            align="center"
+        >
             <Flex.Item
                 grow="1"
                 shrink="0"

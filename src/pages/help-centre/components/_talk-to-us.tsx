@@ -8,12 +8,19 @@ import { Header } from 'components/elements/typography'
 import { useLivechat } from 'components/hooks/use-livechat'
 import { Button } from 'components/form'
 import { LocalizedLinkText } from 'components/elements'
+import device from 'themes/device'
 
 const StyledContainer = styled(Container)`
     padding-block: 2rem;
+    gap: 2.4rem;
+
+    @media ${device.tablet} {
+        gap: 0.8rem;
+    }
 `
 
 const StyledButton = styled(Button)`
+    padding: 0 !important;
     &:hover {
         background: none;
     }
@@ -27,7 +34,7 @@ const TalkToUs = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
     const compliance_faq = '/help-centre/complaints-procedure/#what-is-complaint'
     return (
-        <StyledContainer gap="20px" margin="auto">
+        <StyledContainer margin="auto">
             <StyledButton
                 flat
                 onClick={() => {

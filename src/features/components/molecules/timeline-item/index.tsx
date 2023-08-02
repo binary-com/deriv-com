@@ -27,7 +27,13 @@ const TimelineItem = ({ data, isLastItem, ...rest }: TimelineItemProps) => {
             className={dclsx(timeline_item, isLastItem ? last_item : not_last_item)}
             {...rest}
         >
-            <Image src={checkIcon} alt="check icon" width={24} height={24} />
+            <Image
+                src={checkIcon}
+                alt="check icon"
+                width={24}
+                height={24}
+                className={dclsx('lg-margin-top-3x')}
+            />
             <div>
                 <Typography.Heading as="h4" size="xs" mb="4x">
                     <Localize translate_text={data.heading} />

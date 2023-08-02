@@ -1,4 +1,3 @@
-@use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
 
 .timeline_item {
@@ -10,11 +9,6 @@
         inset-inline-start: 10px;
         border-inline-start: 2px dashed $color-brand;
         z-index: -1;
-    }
-    img {
-        @include breakpoints(laptop) {
-            margin-top: 0.6rem;
-        }
     }
 }
 .last_item {

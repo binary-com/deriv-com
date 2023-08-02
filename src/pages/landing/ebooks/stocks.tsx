@@ -34,8 +34,7 @@ const StocksEbook = () => {
 
     const introMain = {
         control: '_t_Learn to trade Stock derivatives the smart way_t_',
-        'new-title': '_t_Up your derivatives trading game!_t_',
-        'all-caps': '_t_TRADE TODAY!_t_',
+        'new-title': '_t_Learn to trade Stock derivatives the smart way_t_',
     }[ebookStocksHeadingTest]
 
     const data = useStaticQuery(query)

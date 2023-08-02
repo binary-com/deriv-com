@@ -58,7 +58,12 @@ const VanillaOptions = () => {
                         <Localize translate_text="_t_In addition to their simplicity to understand, the main reason traders choose to trade vanilla options is because they offer potentially high profit as they do not have a fixed payout, while losses are strictly limited to the initial stake amount._t_" />
                     </Typography.Paragraph>
                 </Flex.Box>
-                <AvailableMarketPlatforms markets={vanillaMarkets} platforms={vanillaPlatforms} />
+                <Flex.Box justify="center" align="center" direction="col">
+                    <AvailableMarketPlatforms
+                        markets={vanillaMarkets}
+                        platforms={vanillaPlatforms}
+                    />
+                </Flex.Box>
                 <OptionsFaq faqs={vanillaFAQ} />
             </OptionsLayout>
         )

@@ -23,7 +23,7 @@ const OptionsFaq = ({ faqs }: OptionsFaqProps) => {
             <Typography.Heading
                 padding_block="20x"
                 md={{
-                    padding_block: '40x',
+                    padding_block: '15x',
                 }}
                 as="h2"
             >

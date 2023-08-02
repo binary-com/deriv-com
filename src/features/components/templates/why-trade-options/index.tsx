@@ -54,7 +54,7 @@ const WhyTradeOptions = ({ data }: { data: WhyTradeOptionsType }) => {
                     >
                         <Localize translate_text={data.heading2} />
                     </Typography.Heading>
-                    <LinkButton.Primary url={data.button.url}>
+                    <LinkButton.Primary font_family="UBUNTU" url={data.button.url}>
                         <Localize translate_text={data.button.text} />
                     </LinkButton.Primary>
                 </Flex.Box>

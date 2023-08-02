@@ -22,16 +22,18 @@ const HeroFeaturesCarousel = loadable(() => pMinDelay(import('./hero-features.ca
 const HomeHeroContent = () => {
     const ebookStocksHeadingTest = useFeatureValue('homepage', 'control')
 
-    const heading = {
-        control: 'Get the widest range of markets, trades and platforms',
-        'new-title': 'Get the widest range of markets, trades and platforms',
-    }[ebookStocksHeadingTest]
+    const headings = {
+        control: '_t_Get the widest range of markets, trades and platforms_t_',
+        'new-title': '_t_Get the widest range of markets, trades and platforms_t_',
+    }
+
+    const heading = headings[ebookStocksHeadingTest] || headings.control
 
     return (
         <Flex.Box justify="start" direction="col" align="start" gap="4x" dir={get_lang_direction()}>
             <HeroHeaderItems />
             <Typography.Heading as="h2" size={'xs'} weight="normal" className={hero_content_title}>
-                <Localize translate_text={`_t_${heading}_t_`} />
+                <Localize translate_text={heading} />
             </Typography.Heading>
             <HeroFeaturesCarousel />
             <HeroCtaButton />

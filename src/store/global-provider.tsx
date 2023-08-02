@@ -6,6 +6,7 @@ import { RegionProvider } from './region-context'
 import { WebsiteStatusProvider } from './website-status-context'
 import { MediaContextProvider } from 'themes/media'
 import { getClientInformation, getDomain, getLanguage } from 'common/utility'
+import { growthbook_client_key } from 'common/constants'
 
 type GlobalProviderProps = { children: React.ReactNode }
 
@@ -15,7 +16,7 @@ if (typeof window !== 'undefined') {
         const anonymousId = RudderStack.getAnonymousId()
         growthbook = new GrowthBook({
             apiHost: 'https://cdn.growthbook.io',
-            clientKey: 'sdk-0aHHaxKhwn0bP1HE',
+            clientKey: growthbook_client_key,
             enableDevMode: true,
             attributes: {
                 id: anonymousId,

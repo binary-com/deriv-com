@@ -2,7 +2,6 @@ import React from 'react'
 import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isLive, isProduction } from './src/common/websocket/config'
-import  isServiceWorkerSupported  from './src/common/is-service-worker-supported'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
@@ -170,7 +169,7 @@ export const onClientEntry = () => {
     })
 
     const push_woosh = new Pushwoosh()
-    if (isLive() && isServiceWorkerSupported()) {
+    if (isLive()) {
         pushwooshInit(push_woosh)
     }
 

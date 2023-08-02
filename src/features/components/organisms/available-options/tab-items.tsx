@@ -70,7 +70,8 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
 
     useEffect(() => {
         if (!activeInView && entry) {
-            side_scroll(content_wrapper.current, 25, entry.boundingClientRect.left, 10)
+            setIsInitialLoad(false)
+            content_wrapper.current.scrollLeft = entry.boundingClientRect.left
         }
     }, [entry])
 

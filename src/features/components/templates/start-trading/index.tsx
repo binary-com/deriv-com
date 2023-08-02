@@ -42,7 +42,12 @@ const StartTrading = ({ data }: { data: StartTradingType }) => {
                         />
                     )
                 })}
-                <LinkButton.Primary url={data.button.url} mt="12x" md={{ mt: '32x' }}>
+                <LinkButton.Primary
+                    font_family="UBUNTU"
+                    url={data.button.url}
+                    mt="12x"
+                    md={{ mt: '32x' }}
+                >
                     <Localize translate_text={data.button.text} />
                 </LinkButton.Primary>
             </Flex.Box>

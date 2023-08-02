@@ -16,7 +16,7 @@ const AvailableList = ({
 }) => {
     return (
         <Flex.Box
-            gap="14x"
+            gap="12x"
             wrap="wrap"
             className={available_wrapper}
             md={{ wrap: 'nowrap' }}
@@ -60,7 +60,12 @@ const AvailableList = ({
                         width="24"
                         height="24"
                     />
-                    <Link url={marketItem.link} key={marketItem.title} size="medium">
+                    <Link
+                        url={marketItem.link}
+                        key={marketItem.title}
+                        size="medium"
+                        font_family="UBUNTU"
+                    >
                         <Localize translate_text={marketItem.title} />
                     </Link>
                 </Flex.Box>

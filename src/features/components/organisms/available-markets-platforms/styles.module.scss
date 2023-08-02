@@ -2,7 +2,7 @@
 @import 'features/styles/theme/variables';
 
 .available_wrapper {
-    inline-size: 75%;
+    inline-size: 80%;
     @include breakpoints(phone) {
         inline-size: 100%;
     }

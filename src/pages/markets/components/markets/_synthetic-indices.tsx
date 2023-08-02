@@ -66,7 +66,7 @@ const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
                             to: '/trading-specification',
                         }}
                     >
-                        <Localize translate_text="_t_Chec123k trading specs_t_" />
+                        <Localize translate_text="_t_Check trading specs_t_" />
                     </LinkButton.Primary>
                 ) : null}
             </Flex.Box>

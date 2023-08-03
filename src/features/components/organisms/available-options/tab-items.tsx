@@ -88,14 +88,21 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
         // If page load onClick
         const item_position = +sessionStorage.getItem('next_item_position')
         content_wrapper.current.scrollLeft = item_position
+        sessionStorage.removeItem('next_item_position')
     }, [])
 
     useEffect(() => {
         // If page load from URL
-        const item_position = sessionStorage.getItem('next_item_position')
-        if (!activeInView && entry && item_position === null) {
-            content_wrapper.current.scrollLeft = entry.boundingClientRect.left
+        function checkPageLoadSource() {
+            const referrer = document.referrer
+            if (referrer === '') {
+                if (!activeInView && entry) {
+                    content_wrapper.current.scrollLeft = entry.boundingClientRect.left
+                }
+            }
         }
+        window.addEventListener('load', checkPageLoadSource)
+        return () => window.removeEventListener('load', checkPageLoadSource)
     }, [entry])
 
     return (

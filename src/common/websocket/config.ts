@@ -70,7 +70,7 @@ const isBeta = () => isBrowser() && domain_config.beta.hostname === window.locat
 const isTestLink = () =>
     isBrowser() &&
     window.location.hostname ===
-        'deriv-com-git-fork-shayan-deriv-shayan-feq-305prevent-to-f97cd6.binary.sx/'
+        'deriv-com-git-fork-shayan-deriv-shayan-feq-305prevent-to-f97cd6.binary.sx'
 const isLive = () => isProduction() || isStaging() || isBeta() || isTestLink()
 const isLocalHost = () => isBrowser() && domain_config.local.hostname === window.location.hostname
 

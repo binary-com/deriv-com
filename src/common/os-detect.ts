@@ -4,23 +4,30 @@
  * @see https://wicg.github.io/ua-client-hints/
  * @returns {Promise<UADataValues | null>} Promise with detailed data or null if not supported
  * **/
-const getUserAgentData = async () => {
+const getUserAgentData = () => {
+    let user_agent_data: UADataValues = null
     if ('userAgentData' in navigator) {
-        const user_agent_data = await navigator.userAgentData.getHighEntropyValues([
-            'architecture',
-            'bitness',
-            'model',
-            'platform',
-            'platformVersion',
-            'fullVersionList',
-            'wow64',
-        ])
-        return user_agent_data
+        navigator.userAgentData
+            .getHighEntropyValues([
+                'architecture',
+                'bitness',
+                'model',
+                'platform',
+                'platformVersion',
+                'fullVersionList',
+                'wow64',
+            ])
+            .then((ua_data) => {
+                user_agent_data = ua_data
+            })
+            .catch(() => {
+                user_agent_data = null
+            })
     }
-    return null
+    return user_agent_data
 }
-export const isMobile = async () => {
-    const user_agent_data = await getUserAgentData()
+export const isMobile = () => {
+    const user_agent_data = getUserAgentData()
     return user_agent_data
         ? user_agent_data.mobile
         : /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)

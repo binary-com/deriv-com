@@ -99,7 +99,7 @@ export const allOptionsMarkets: AllOptionsMarket = {
         },
         link: {
             type: 'internal',
-            to: '/markets/stock',
+            to: '/markets/stock/',
         },
         title: '_t_Stock & indices_t_',
     },

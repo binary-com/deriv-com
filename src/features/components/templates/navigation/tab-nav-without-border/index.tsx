@@ -51,7 +51,6 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                     ref={swiper_ref}
                     speed={1000}
                     slidesPerView={3}
-                    spaceBetween={30}
                     direction="horizontal"
                     navigation={{ nextEl: '.swiper-button-next' }}
                     className={swiper_height}
@@ -60,7 +59,6 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
                         return (
                             <SwiperSlide key={tab_item.option_name} className={swiper_slide}>
                                 <NavigationTabMenu
-                                    key={tab_item.option_name}
                                     tab_items={tab_item}
                                     selected={tab_item.option_name === selected_tab_name}
                                     is_no_border_bottom

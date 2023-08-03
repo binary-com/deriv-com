@@ -14,7 +14,7 @@ export const marketItems: MarketTradeTypeItem[] = [
     {
         id: 1,
         data: {
-            title: '_t_Derived_t_',
+            title: '_t_Derived indices_t_',
             link: {
                 type: 'internal',
                 to: '/markets/synthetic/',

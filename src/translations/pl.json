@@ -4109,8 +4109,6 @@
   "-1813951531": "Jeśli wybierzesz „Niższy”, zdobędziesz wypłatę, gdy punkt wyjściowy będzie znacząco niższy niż limit.",
   "-1350745673": "Jeśli punkt wyjściowy jest równy limitowi, nie zdobywasz wypłaty.",
   "-82471581": "eb eo",
-  "-920739960": "Jeśli wybierzesz „Zakończy się pomiędzy”, zdobędziesz wypłatę, gdy punkt wyjściowy będzie znacząco wyższy niż dolny limit oraz znacząco niższy niż górny limit.",
-  "-1039129655": "Jeśli wybierzesz „Zakończy się poza”, zdobędziesz wypłatę, gdy punkt wyjściowy jest albo znacząco wyższy niż górny limit, albo znacząco niższy niż dolny limit.",
   "-907391200": "Jeśli wybierzesz „Pozostanie pomiędzy”, zdobędziesz wypłatę, gdy cena rynkowa pozostanie pomiędzy (nie osiągnie) górnego limitu ani dolnego limitu w żadnym momencie w czasie trwania kontraktu.",
   "-248048003": "Jeśli wybierzesz „Przekroczy”, zdobędziesz wypłatę, gdy cena rynkowa osiągnie albo górny limit, albo dolny limit w dowolnym momencie podczas okresu kontraktu.",
   "-972537755": "Jeśli wybierzesz „Zgadza się”, zdobędziesz wypłatę, gdy ostatnia cyfra ostatniego najmniejszego przyrostu ceny będzie taka sama jak Twoje przewidywania.",

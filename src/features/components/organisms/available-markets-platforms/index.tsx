@@ -33,7 +33,7 @@ const AvailableMarketPlatforms = ({ markets, platforms }: AvailableMarketPlatfor
                 gap="12x"
                 padding_block="4x"
                 md={{
-                    padding_block: '20x',
+                    padding_block: '0x',
                     gap: '24x',
                 }}
                 dir={get_lang_direction()}

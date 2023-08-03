@@ -63,8 +63,17 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
         setSelectedTabName(selected_tab_item?.option_name || null)
     }, [pathname])
 
-    const clickHandler = () => {
-        localStorage.setItem('next_item_position', String(content_wrapper.current.scrollLeft))
+    const clickHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+        const item_position = e.currentTarget.offsetLeft + e.currentTarget.offsetWidth / 2
+        const screen_position =
+            content_wrapper.current.scrollLeft + content_wrapper.current.clientWidth
+        let next_position = 0
+        if (item_position > screen_position || item_position < content_wrapper.current.scrollLeft) {
+            next_position = e.currentTarget.offsetLeft
+        } else {
+            next_position = content_wrapper.current.scrollLeft
+        }
+        localStorage.setItem('next_item_position', String(next_position))
     }
 
     useLayoutEffect(() => {

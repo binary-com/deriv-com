@@ -1,3 +1,6 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
 .accordion_root {
     inline-size: 100%;
 }
@@ -26,7 +29,8 @@
     &_shadow_item {
         margin-block-end: 2rem;
         &_trigger {
-            box-shadow: 0px 1px 2px 0px rgba(14, 14, 14, 0.06), 0px 1px 3px 0px rgba(14, 14, 14, 0.10);
+            box-shadow: 0px 1px 2px 0px rgba(14, 14, 14, 0.06),
+                0px 1px 3px 0px rgba(14, 14, 14, 0.1);
         }
     }
 
@@ -58,11 +62,16 @@
             transform: rotate(-180deg);
         }
         .plus_icon {
-            inline-size: 2.4rem;
-            block-size: 2.4rem;
+            inline-size: 1.6rem;
+            block-size: 1.6rem;
             background: url(images/svg/elements/plus.svg) no-repeat top left;
             background-size: contain;
             min-inline-size: 3.6rem;
+
+            @include breakpoints(phone) {
+                inline-size: 2.4rem;
+                block-size: 2.4rem;
+            }
         }
 
         &[data-state='open'] .plus_icon {

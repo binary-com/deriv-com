@@ -68,7 +68,7 @@ export const mainItems: NavItems = [
     {
         id: 5,
         data: {
-            title: '_t_Partner_t_',
+            title: '_t_Partners_t_',
             type: 'single-column',
             content: partnerNavSectionContent,
         },

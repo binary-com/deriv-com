@@ -11,7 +11,7 @@ type SlideshowItemArrayProps = {
 }
 
 const Slideshow = ({ items }: SlideshowItemArrayProps) => {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0)
+    const [current_image_index, setCurrentImageIndex] = useState(0)
 
     useEffect(() => {
         const intervalId = setInterval(() => {
@@ -29,7 +29,7 @@ const Slideshow = ({ items }: SlideshowItemArrayProps) => {
                 <div
                     className={dclsx(
                         styles.slide,
-                        ` ${index === currentImageIndex ? styles.fadeIn : styles.fadeOut}`,
+                        ` ${index === current_image_index ? styles.fadeIn : styles.fadeOut}`,
                     )}
                     key={item.key}
                 >

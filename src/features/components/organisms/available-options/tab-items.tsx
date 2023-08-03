@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useLayoutEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import {
     tab_container,
@@ -76,7 +76,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
         localStorage.setItem('next_item_position', String(next_position))
     }
 
-    useLayoutEffect(() => {
+    useEffect(() => {
         const item_position = +localStorage.getItem('next_item_position')
         content_wrapper.current.scrollLeft = item_position
         localStorage.removeItem('next_item_position')

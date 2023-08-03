@@ -3,11 +3,11 @@ import { browserName, browserVersion } from 'react-device-detect'
 
 const minimum_required_browsers_versions = {
     Chrome: '70.0.0',
-    Firefox: '44.0.0',
+    Firefox: '55.0.0',
     Opera: '44.0.0',
     Yandex: '19.0.0',
     Safari: '11.1.0',
-    Edge: '17.0.0',
+    Edge: '80.0.0',
     MobileSafari: '11.3.0',
     SamsungBrowser: '9.0.0',
     UCBrowser: '13.0.0',

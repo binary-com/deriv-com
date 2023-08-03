@@ -1,5 +1,5 @@
 import React from 'react'
-import PageNotFound from 'features/pages/404'
+import PageNotFound from 'features/pages/404-error'
 import InitialLoader from 'components/elements/dot-loader'
 
 interface ProtectedRouteProps {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { available_wrapper } from './styles.module.scss'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Link from 'features/components/atoms/link'
 import Typography from 'features/components/atoms/typography'
@@ -56,7 +56,7 @@ const AvailableList = ({
                 >
                     <img
                         src={marketItem.icon.src}
-                        alt={marketItem.icon.alt}
+                        alt={localize(marketItem.icon.alt)}
                         width="24"
                         height="24"
                     />

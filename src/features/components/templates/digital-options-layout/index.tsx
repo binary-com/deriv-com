@@ -4,7 +4,7 @@ import { AvailableDigitalOptionsData } from './data'
 import Flex from 'features/components/atoms/flex-box'
 import AvailableOptions from 'features/components/organisms/available-options'
 
-const DigitalOptionsLayout = ({ children }: React.PropsWithChildren) => {
+const DigitalOptionsLayout = ({ children }: React.PropsWithChildren<unknown>) => {
     return (
         <OptionsLayout
             heading="_t_What are digital options?_t_"

@@ -17,9 +17,9 @@ export const start_trading_data: StartTradingType = {
     },
     items: [
         {
-            heading: '_t_Practice_t_',
+            heading: '_t_Practise_t_',
             description:
-                '_t_Open a demo account and get unlimited virtual funds to practice on our platforms — Deriv Trader, SmartTrader, and Deriv Bot._t_',
+                '_t_Open a demo account and get unlimited virtual funds to practise on our platforms — Deriv Trader, SmartTrader, and Deriv Bot._t_',
         },
         {
             heading: '_t_Trade_t_',

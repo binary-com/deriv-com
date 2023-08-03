@@ -16,7 +16,7 @@ const AvailableMarketPlatforms = ({ markets, platforms }: AvailableMarketPlatfor
             justify="center"
             align="center"
             gap="12x"
-            padding_block="10x"
+            padding_block="4x"
             md={{
                 padding_block: '20x',
                 gap: '24x',

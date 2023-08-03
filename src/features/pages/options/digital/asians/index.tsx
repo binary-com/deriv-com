@@ -7,22 +7,29 @@ import AvailableMarketPlatforms from 'features/components/organisms/available-ma
 import DigitalOptionsLayout from 'features/components/templates/digital-options-layout'
 import OptionsContent from 'features/components/templates/options-content'
 import OptionsFaq from 'features/components/templates/options-faq'
+import useRegion from 'components/hooks/use-region'
+import PageNotFound from 'features/pages/404-error'
 
 const AsiansDigitalOptionsPage = () => {
-    return (
-        <DigitalOptionsLayout>
-            <SEO
-                title="_t_Asians | Digital options contract | Deriv_t_"
-                description="_t_Open a digital options contract with an Asians trade type on Deriv’s trading platforms and earn payouts with accurate market predictions._t_"
-            />
-            <Helmet>
-                <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-            </Helmet>
-            <OptionsContent items={asiansContentItems} />
-            <AvailableMarketPlatforms markets={asiansMarkets} platforms={asiansPlatforms} />
-            <OptionsFaq faqs={asiansFAQ} />
-        </DigitalOptionsLayout>
-    )
+    const { is_row } = useRegion()
+
+    if (is_row) {
+        return (
+            <DigitalOptionsLayout>
+                <SEO
+                    title="_t_Asians | Digital options contract | Deriv_t_"
+                    description="_t_Open a digital options contract with an Asians trade type on Deriv’s trading platforms and earn payouts with accurate market predictions._t_"
+                />
+                <Helmet>
+                    <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
+                </Helmet>
+                <OptionsContent items={asiansContentItems} />
+                <AvailableMarketPlatforms markets={asiansMarkets} platforms={asiansPlatforms} />
+                <OptionsFaq faqs={asiansFAQ} />
+            </DigitalOptionsLayout>
+        )
+    }
+    return <PageNotFound />
 }
 
 export default AsiansDigitalOptionsPage

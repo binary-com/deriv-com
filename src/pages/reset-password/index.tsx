@@ -83,14 +83,14 @@ const ResetPassword = () => {
     }
 
     return (
-        <Layout type="static" padding_top={0}>
+        <Layout type="static" margin_top="0">
             <SEO
                 title="_t_Reset password | Deriv_t_"
                 description="_t_Forgot your Deriv password? Want to reset your password? Send us your email address and we’ll email you the instructions._t_"
                 no_index
             />
             <StyledContainer justify="center" align="center" direction="column">
-                <Header as="h2" type="page-title" align="center" mt="10px">
+                <Header as="h2" type="page-title" align="center" mt="80px">
                     <Localize translate_text="_t_Reset password_t_" />
                 </Header>
                 <Header

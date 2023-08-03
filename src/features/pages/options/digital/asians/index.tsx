@@ -11,9 +11,9 @@ import useRegion from 'components/hooks/use-region'
 import PageNotFound from 'features/pages/404-error'
 
 const AsiansDigitalOptionsPage = () => {
-    const { is_row } = useRegion()
+    const { is_row, is_region_loading } = useRegion()
 
-    if (is_row) {
+    if (is_row && !is_region_loading) {
         return (
             <DigitalOptionsLayout>
                 <SEO

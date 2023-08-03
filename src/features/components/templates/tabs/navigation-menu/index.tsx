@@ -1,7 +1,7 @@
 import React from 'react'
 import { OptionNavigationType } from '../../navigation/tab-nav-without-border/types'
 import { text } from './styles.module.scss'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import FlexBox from 'features/components/atoms/flex-box'
 import Tab from 'features/components/atoms/tab'
 import Image from 'features/components/atoms/image'
@@ -34,7 +34,7 @@ const NavigationTabMenu = ({
                                 sizes="(min-width: 600px) 64px,
                                         48px"
                                 src={icon}
-                                alt="icon"
+                                alt={localize('_t_icon_t_')}
                             />
                         </FlexBox.Box>
                     )}

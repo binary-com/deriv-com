@@ -272,4 +272,3 @@ If preferable to use manual deployment, you can use [gh-pages](https://pages.git
 -   [Where to put my new component?](documents/file-structures.md)
 
 ⚠️ If you have more questions to add, please open a PR to add your question in FAQ section. The Answer will be on the PR reviews
-

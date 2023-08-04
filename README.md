@@ -234,7 +234,6 @@ Example of release steps
     ```sh
     git push upstream production_V20200806_0
     ```
-
 ## Test link deployment
 
 There are two types of test link deployment preview:

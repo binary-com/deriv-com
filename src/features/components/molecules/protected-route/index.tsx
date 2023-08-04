@@ -4,23 +4,12 @@ import InitialLoader from 'components/elements/dot-loader'
 
 interface ProtectedRouteProps {
     condition: boolean
-    component: React.ComponentType<any>
+    component: React.ReactNode
     is_loading: boolean
 }
 
-const ProtectedRoute = ({
-    condition,
-    component: Component,
-    is_loading = false,
-    ...restProps // Any additional props to be passed to the component
-}: ProtectedRouteProps) => {
-    return is_loading ? (
-        <InitialLoader />
-    ) : condition ? (
-        <Component {...restProps} />
-    ) : (
-        <PageNotFound />
-    )
+const ProtectedRoute = ({ condition, component, is_loading = false }: ProtectedRouteProps) => {
+    return is_loading ? <InitialLoader /> : condition ? <>{component}</> : <PageNotFound />
 }
 
 export default ProtectedRoute

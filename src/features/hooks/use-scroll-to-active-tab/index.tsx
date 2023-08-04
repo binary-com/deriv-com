@@ -1,12 +1,7 @@
-import { useEffect, useLayoutEffect, MouseEvent } from 'react'
-import { useInView } from 'react-intersection-observer'
+import { MouseEvent, useRef, useLayoutEffect } from 'react'
 
 const useScrollToActiveTab = <T extends HTMLElement, U extends HTMLElement>(wrapper: T) => {
-    const {
-        ref: active_element_ref,
-        inView: activeInView,
-        entry,
-    } = useInView({ threshold: 1, triggerOnce: true })
+    const active_element_ref = useRef<U>(null)
 
     const clickOnActiveElement = (e: MouseEvent<U>) => {
         const item_position = e.currentTarget.offsetLeft + e.currentTarget.offsetWidth / 2
@@ -22,25 +17,24 @@ const useScrollToActiveTab = <T extends HTMLElement, U extends HTMLElement>(wrap
         sessionStorage.setItem('next_item_position', String(next_position))
     }
 
-    useEffect(() => {
-        // If page load onClick
-        if (wrapper) {
-            const item_position = +sessionStorage.getItem('next_item_position')
-            wrapper.scrollLeft = item_position
-            sessionStorage.removeItem('next_item_position')
-        }
-    }, [wrapper])
-
     useLayoutEffect(() => {
-        // If page load from URL
-        function pageLoad() {
-            if (!activeInView && entry) {
-                wrapper.scrollLeft = entry.boundingClientRect.left
+        const item_position = +sessionStorage.getItem('next_item_position')
+        if (wrapper) {
+            if (item_position) {
+                // If page load onClick
+                wrapper.scrollLeft = item_position
+                sessionStorage.removeItem('next_item_position')
+            } else {
+                // If page load from URL
+                const active_element = active_element_ref?.current
+                const screen_position = wrapper.scrollLeft + wrapper.clientWidth
+                const item_position = active_element.offsetLeft + active_element.offsetWidth
+                if (item_position > screen_position) {
+                    wrapper.scrollLeft = active_element.offsetLeft
+                }
             }
         }
-        window.addEventListener('load', pageLoad)
-        return () => window.removeEventListener('load', pageLoad)
-    }, [entry])
+    }, [wrapper])
 
     return { active_element_ref, clickOnActiveElement }
 }

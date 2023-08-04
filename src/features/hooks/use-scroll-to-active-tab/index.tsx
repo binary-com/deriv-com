@@ -33,14 +33,13 @@ const useScrollToActiveTab = <T extends HTMLElement, U extends HTMLElement>(wrap
 
     React.useLayoutEffect(() => {
         // If page load from URL
-        function checkPageLoadSource() {
-            const referrer = document.referrer
-            if (referrer === '' && !activeInView && entry) {
+        function pageLoad() {
+            if (!activeInView && entry) {
                 wrapper.scrollLeft = entry.boundingClientRect.left
             }
         }
-        window.addEventListener('load', checkPageLoadSource)
-        return () => window.removeEventListener('load', checkPageLoadSource)
+        window.addEventListener('load', pageLoad)
+        return () => window.removeEventListener('load', pageLoad)
     }, [entry])
 
     return { active_element_ref, clickOnActiveElement }

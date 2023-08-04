@@ -1,7 +1,6 @@
 import React from 'react'
 import Loadable from '@loadable/component'
 import styled from 'styled-components'
-import CFDWarningBanner from './cfd-warning-banner'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import BannerAlert from 'components/custom/_banner-alert'
 import { bannerTypes } from 'common/constants'
@@ -32,7 +31,6 @@ const LayoutOverlay = ({ is_ppc = false }: TProps) => {
             <LiveChat />
             <WhatsApp />
             <BannerAlert bannerType={bannerTypes.cookieBanner} />
-            <CFDWarningBanner is_ppc={is_ppc} />
         </OverlayContainer>
     )
 }

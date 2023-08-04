@@ -22,7 +22,7 @@ if (typeof window !== 'undefined') {
                 id: anonymousId,
             },
             trackingCallback: (experiment, result) => {
-                RudderStack.track('Experiment Viewed', {
+                RudderStack.track('experiment_viewed', {
                     experimentId: experiment.key,
                     variationId: result.variationId,
                 })

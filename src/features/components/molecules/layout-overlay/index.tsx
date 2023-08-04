@@ -6,6 +6,11 @@ import CookieBanner from './cookie-banner'
 import CfdWarningBanner from './cfd-warning-banner'
 import Flex from 'features/components/atoms/flex-box'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import { getLocationPathname } from 'common/utility'
+
+const isHomePage = () => {
+    return getLocationPathname() === '/'
+}
 
 const LayoutOverlay = () => {
     const is_rtl = useIsRtl()
@@ -33,7 +38,7 @@ const LayoutOverlay = () => {
                     <WhatsappButton />
                 </Flex.Box>
             </Flex.Box>
-            <CfdWarningBanner />
+            {isHomePage() && <CfdWarningBanner />}
         </Flex.Box>
     )
 }

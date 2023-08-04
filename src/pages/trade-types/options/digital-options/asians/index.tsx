@@ -8,7 +8,7 @@ const DigitalOptionsAsians = () => {
     const { is_row, is_region_loading } = useRegion()
     return (
         <ProtectedRoute
-            is_page_available={is_row}
+            is_page_visible={is_row}
             component={<AsiansDigitalOptionsPage />}
             is_loading={is_region_loading}
         />

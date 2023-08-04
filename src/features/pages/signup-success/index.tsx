@@ -1,7 +1,7 @@
 import React from 'react'
 import { signup_success_wrapper, signup_success_description } from './signup-success.module.scss'
 import { SEO } from 'components/containers'
-import Layout from 'features/components/templates/layout'
+import Layout from 'components/layout/layout'
 import StaticNav from 'features/components/templates/navigation/static-nav'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
@@ -16,7 +16,7 @@ type SignupProps = {
 
 const SignUpSuccessContainer = ({ email }: SignupProps) => {
     return (
-        <Layout>
+        <Layout show_footer={false}>
             <SEO
                 title="_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_"
                 description="_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_"

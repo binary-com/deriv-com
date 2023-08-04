@@ -1,4 +1,4 @@
-import React, { useEffect, MouseEvent } from 'react'
+import { useEffect, useLayoutEffect, MouseEvent } from 'react'
 import { useInView } from 'react-intersection-observer'
 
 const useScrollToActiveTab = <T extends HTMLElement, U extends HTMLElement>(wrapper: T) => {
@@ -31,7 +31,7 @@ const useScrollToActiveTab = <T extends HTMLElement, U extends HTMLElement>(wrap
         }
     }, [wrapper])
 
-    React.useLayoutEffect(() => {
+    useLayoutEffect(() => {
         // If page load from URL
         function pageLoad() {
             if (!activeInView && entry) {

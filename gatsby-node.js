@@ -165,7 +165,7 @@ exports.onCreatePage = ({ page, actions }) => {
         })
         createRedirect({
             fromPath: `/trade-types/option`,
-            toPath: `/trade-types/cfds/`,
+            toPath: `/trade-types/options/digital-options/up-and-down/`,
             redirectInBrowser: true,
             isPermanent: true,
         })

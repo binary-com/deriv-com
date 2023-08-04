@@ -20,6 +20,7 @@ import { OptionNavigationType } from 'features/components/templates/navigation/t
 import dclsx from 'features/utils/dclsx'
 import ArrowNext from 'images/svg/arrow-next.svg'
 import { getLocationPathname } from 'common/utility'
+import useScrollToActiveTab from 'features/hooks/use-scroll-to-active-tab'
 
 interface OptionsTabType {
     options_tabs: OptionNavigationType[]
@@ -39,11 +40,10 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
         threshold: 0.8,
     })
 
-    const {
-        ref: active_element_ref,
-        inView: activeInView,
-        entry,
-    } = useInView({ threshold: 1, triggerOnce: true })
+    const { active_element_ref, clickOnActiveElement } = useScrollToActiveTab<
+        HTMLDivElement,
+        HTMLDivElement
+    >(content_wrapper.current)
 
     const side_scroll = (
         element: HTMLDivElement,
@@ -62,48 +62,12 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
         }, speed)
     }
 
-    const clickHandler = (e: React.MouseEvent<HTMLDivElement>) => {
-        const item_position = e.currentTarget.offsetLeft + e.currentTarget.offsetWidth / 2
-        const screen_position =
-            content_wrapper.current.scrollLeft + content_wrapper.current.clientWidth
-        let next_position = 0
-
-        // Check if the item is at least half visible in the container
-        if (item_position > screen_position || item_position < content_wrapper.current.scrollLeft) {
-            next_position = e.currentTarget.offsetLeft
-        } else {
-            next_position = content_wrapper.current.scrollLeft
-        }
-        sessionStorage.setItem('next_item_position', String(next_position))
-    }
-
     useEffect(() => {
         const selected_tab_item: OptionNavigationType = options_tabs.find((option) =>
             pathname?.includes(option.to),
         )
         setSelectedTabName(selected_tab_item?.option_name || null)
     }, [pathname])
-
-    useEffect(() => {
-        // If page load onClick
-        const item_position = +sessionStorage.getItem('next_item_position')
-        content_wrapper.current.scrollLeft = item_position
-        sessionStorage.removeItem('next_item_position')
-    }, [])
-
-    useEffect(() => {
-        // If page load from URL
-        function checkPageLoadSource() {
-            const referrer = document.referrer
-            if (referrer === '') {
-                if (!activeInView && entry) {
-                    content_wrapper.current.scrollLeft = entry.boundingClientRect.left
-                }
-            }
-        }
-        window.addEventListener('load', checkPageLoadSource)
-        return () => window.removeEventListener('load', checkPageLoadSource)
-    }, [entry])
 
     return (
         <Flex.Box direction="col" padding_block="10x" md={{ padding_block: '20x' }}>
@@ -133,7 +97,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                                         ? active_element_ref
                                         : null
                                 }
-                                onClick={clickHandler}
+                                onClick={clickOnActiveElement}
                             >
                                 <Link
                                     url={{ type: 'internal', to: option_item.to }}

@@ -4,7 +4,7 @@ import { browserName, browserVersion } from 'react-device-detect'
 const minimum_required_browsers_versions = {
     Chrome: '70.0.0',
     Firefox: '55.0.0',
-    Opera: '44.0.0',
+    Opera: '46.0.0',
     Yandex: '19.0.0',
     Safari: '11.1.0',
     Edge: '80.0.0',
@@ -27,9 +27,9 @@ const isServiceWorkerSupported = () => {
 
     // if the browser is in the list , check if the version is greater than the minimum required
     if (minimum_required_browsers_version)
-        return semver.gt(user_browser_version, minimum_required_browsers_version)
+        // return semver.gt(user_browser_version, minimum_required_browsers_version)
 
-    return true
+        return true
 }
 
 export default isServiceWorkerSupported

@@ -27,9 +27,9 @@ const isServiceWorkerSupported = () => {
 
     // if the browser is in the list , check if the version is greater than the minimum required
     if (minimum_required_browsers_version)
-        // return semver.gt(user_browser_version, minimum_required_browsers_version)
+        return semver.gt(user_browser_version, minimum_required_browsers_version)
 
-        return true
+    return true
 }
 
 export default isServiceWorkerSupported

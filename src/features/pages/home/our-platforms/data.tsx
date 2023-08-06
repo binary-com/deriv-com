@@ -361,41 +361,6 @@ const platformSliderItems: SmartPlatformItem[] = [
             is_eu: false,
         },
     },
-    {
-        id: 8,
-        data: {
-            title: '_t_API_t_',
-            description: '_t_Build your own apps with our API._t_',
-            url: {
-                type: 'company',
-                url_name: 'api',
-            },
-            icon: APIIcon,
-            image_caption: {
-                text: '_t_Available on <0>web browser</0>_t_',
-                components: [
-                    <Link
-                        key={0}
-                        url={{ type: 'company', url_name: 'api' }}
-                        weight="bold"
-                        font_family="UBUNTU"
-                    />,
-                ],
-            },
-            image: (
-                <StaticImage
-                    objectFit="contain"
-                    src="../../../../images/common/home/rebranding/platform_deriv_api.png"
-                    alt="deriv api"
-                    formats={['avif', 'webp', 'auto']}
-                    placeholder="none"
-                />
-            ),
-        },
-        visibility: {
-            is_eu: false,
-        },
-    },
 ]
 
 export default platformSliderItems

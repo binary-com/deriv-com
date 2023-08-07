@@ -8,14 +8,18 @@ import useRegion from 'components/hooks/use-region'
 
 const DigitalOptions = () => {
     const { is_row, is_region_loading } = useRegion()
-    const canonicalUrl = isBrowser()
-        ? `${window.location.origin}/trade-types/options/digital-options/up-and-down`
-        : ''
 
     return (
         <>
             <Helmet>
-                <link rel="canonical" href={canonicalUrl} />
+                <link
+                    rel="canonical"
+                    href={
+                        isBrowser()
+                            ? `${window.location.origin}/trade-types/options/digital-options/up-and-down`
+                            : ''
+                    }
+                />
             </Helmet>
             <ProtectedRoute
                 is_page_visible={is_row}

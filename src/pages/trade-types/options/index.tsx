@@ -4,25 +4,25 @@ import styled from 'styled-components'
 import { Hero } from '../components/_style'
 import PageNotFound from '../../404'
 import WhatAreTheOptions from './_what-are-options'
-import { SEO, SmallContainer } from 'components/containers'
+import { SEO, SmallContainer, MetaAttributesType } from 'components/containers'
 import Layout from 'components/layout/layout'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import Button from 'components/custom/_button'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import { StepperView } from 'components/elements'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { TString } from 'types/generics'
+
 const HowOptionsWorks = Loadable(() => import('./_how-options-works'))
 const OptionsToTrade = Loadable(() => import('./_options-to-trade'))
 const MarketsAvailable = Loadable(() => import('./_markets-available'))
-import { TString } from 'types/generics'
 
-const meta_attributes = {
-    og_title: localize('Options trading | Trading types | Deriv'),
-    og_description: localize(
-        'Learn about options trading on Deriv. Earn payouts by correctly predicting price movements without needing to buy the underlying assets.',
-    ),
+const meta_attributes: MetaAttributesType = {
+    og_title: '_t_Options trading | Trading types | Deriv_t_',
+    og_description:
+        '_t_Learn about options trading on Deriv. Earn payouts by correctly predicting price movements without needing to buy the underlying assets._t_',
 }
 
 const ButtonContainer = styled.div`
@@ -63,10 +63,8 @@ const Options = () => {
         return is_row ? (
             <Layout>
                 <SEO
-                    title={localize('Options trading | Trade digital options on Deriv')}
-                    description={localize(
-                        'Explore what are options on Deriv. Learn how to start trading options with forex, synthetics, stocks & indices, and baskets.',
-                    )}
+                    title="_t_Options trading | Trade digital options on Deriv_t_"
+                    description="_t_Explore what are options on Deriv. Learn how to start trading options with forex, synthetics, stocks & indices, and baskets._t_"
                     meta_attributes={meta_attributes}
                 />
                 <Hero jc="center" ai="center">
@@ -98,14 +96,10 @@ const Options = () => {
     }
 
     return (
-        <>
-            <SEO
-                title={localize('Options trading | Trade types | Deriv')}
-                description={localize(
-                    'Learn about options trading on Deriv. Earn payouts by correctly predicting price movements in forex, synthetic indices, and other popular financial markets.',
-                )}
-            />
-        </>
+        <SEO
+            title="_t_Options trading | Trade types | Deriv_t_"
+            description="_t_Learn about options trading on Deriv. Earn payouts by correctly predicting price movements in forex, synthetic indices, and other popular financial markets._t_"
+        />
     )
 }
 

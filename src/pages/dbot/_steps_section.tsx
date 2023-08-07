@@ -29,6 +29,7 @@ const query = graphql`
         }
     }
 `
+
 const GoToLiveDemo = styled(LinkButton)`
     border: 2px solid var(--color-red);
     font-weight: bold;
@@ -54,59 +55,44 @@ const GotoLiveWrapper = styled.div`
 
 const DBotEasySteps = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
-
     const data = useStaticQuery(query)
 
     const stepsData: React.ComponentProps<typeof StepperView>['items'] = useMemo(
         () => [
             {
-                title: () => <Localize translate_text="Select an asset" />,
+                title: () => '_t_Select an asset_t_',
                 image: () => (
-                    <QueryImage
-                        data={data['step_1']}
-                        alt={<Localize translate_text="Select an asset" />}
-                    />
+                    <QueryImage data={data['step_1']} alt={localize('_t_Select an asset_t_')} />
                 ),
             },
             {
-                title: () => <Localize translate_text="Set the purchase conditions" />,
+                title: () => '_t_Set the purchase conditions_t_',
                 image: () => (
-                    <QueryImage
-                        data={data['step_2']}
-                        alt={<Localize translate_text="purchase conditions" />}
-                    />
+                    <QueryImage data={data['step_2']} alt={localize('_t_purchase conditions_t_')} />
                 ),
             },
             {
-                title: () => <Localize translate_text="Set the restart conditions" />,
+                title: () => '_t_Set the restart conditions_t_',
                 image: () => (
-                    <QueryImage
-                        data={data['step_3']}
-                        alt={<Localize translate_text="restart conditions" />}
-                    />
+                    <QueryImage data={data['step_3']} alt={localize('_t_restart conditions_t_')} />
                 ),
             },
             {
-                title: () => <Localize translate_text="Run the bot" />,
+                title: () => '_t_Run the bot_t_',
                 image: () => (
-                    <QueryImage
-                        data={data['step_4']}
-                        alt={<Localize translate_text="Run the bot" />}
-                    />
+                    <QueryImage data={data['step_4']} alt={localize('_t_Run the bot_t_')} />
                 ),
             },
             {
-                title: () => <Localize translate_text="Check the profit" />,
+                title: () => '_t_Check the profit_t_',
                 image: () => (
-                    <QueryImage
-                        data={data['step_5']}
-                        alt={<Localize translate_text="Check the profit" />}
-                    />
+                    <QueryImage data={data['step_5']} alt={localize('_t_Check the profit_t_')} />
                 ),
             },
         ],
         [data],
     )
+
     return (
         <SectionContainer>
             <Container justify="center" direction="column" ai="flex-start">
@@ -138,7 +124,7 @@ const DBotEasySteps = () => {
                                 target="_blank"
                                 rel="noopener noreferrer nofollow"
                             >
-                                {localize('Go to live demo')}
+                                <Localize translate_text="_t_Go to live demo_t_" />
                             </GoToLiveDemo>
                         </GotoLiveWrapper>
                     )}

@@ -23,19 +23,17 @@ const query = graphql`
 const Hero = ({ children }: HeroProps) => {
     const hero_img = useStaticQuery(query)
     return (
-        <>
-            <BackgroundImage
-                data={hero_img.image}
-                style={{
-                    height: '80rem',
-                    width: '100%',
-                }}
-            >
-                <StyeldContainer direction="column" justify="center" align="center">
-                    {children}
-                </StyeldContainer>
-            </BackgroundImage>
-        </>
+        <BackgroundImage
+            data={hero_img.image}
+            style={{
+                height: '80rem',
+                width: '100%',
+            }}
+        >
+            <StyeldContainer direction="column" justify="center" align="center">
+                {children}
+            </StyeldContainer>
+        </BackgroundImage>
     )
 }
 

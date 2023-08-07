@@ -10,7 +10,7 @@ import {
 } from './_faq-data'
 import device from 'themes/device'
 import { SectionContainer } from 'components/containers'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/partners/dot-pattern.svg'
 import { TString } from 'types/generics'
@@ -167,7 +167,7 @@ const Faq = () => {
                         return (
                             <AccordionItem
                                 key={item.class_name}
-                                header={localize(item.header)}
+                                header={item.header}
                                 parent_style={parent_style}
                                 header_style={header_style}
                                 style={item_style}
@@ -190,12 +190,12 @@ const Faq = () => {
                 <Localize translate_text="_t_Deriv IB Programme_t_" />
             </FaqSubHeader>
             <StyledAccordionWrapper id="faq-list-2">
-                <Accordion has_single_state is_faq>
+                <Accordion has_single_state>
                     {faq_content.deriv_ib.map((item) => {
                         return (
                             <AccordionItem
                                 key={item.class_name}
-                                header={localize(item.header)}
+                                header={item.header}
                                 parent_style={parent_style}
                                 header_style={header_style}
                                 style={item_style}

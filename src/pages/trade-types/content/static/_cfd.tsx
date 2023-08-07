@@ -1,4 +1,3 @@
-import React from 'react'
 import FriendlySupport from 'images/svg/markets/forex/smart.svg'
 import Tight from 'images/svg/markets/forex/tight.svg'
 import Favourite from 'images/svg/markets/forex/favourite.svg'
@@ -8,14 +7,14 @@ import SwapFree from 'images/svg/markets/forex/swap-free.svg'
 import { TRegion, TString } from 'types/generics'
 
 type TCFD = {
-    text: TString | ((config: Partial<TRegion>) => string)
+    text: TString | ((config: Partial<TRegion>) => TString)
+    title: TString | ((config: Partial<TRegion>) => TString)
     text_eu?: TString
-    title: TString | ((config: Partial<TRegion>) => string)
     title_eu?: TString
-
     src: string
     alt: TString
 }
+
 export const cfd_content: TCFD[] = [
     {
         title: ({ is_eu }) =>
@@ -29,10 +28,7 @@ export const cfd_content: TCFD[] = [
     },
     {
         title: '_t_All your favourite markets_t_',
-        text: ({ is_eu }) =>
-            is_eu
-                ? '_t_Trade on all popular markets plus our proprietary synthetic indices that are available 24/7._t_'
-                : '_t_Trade on financial markets plus our proprietary synthetic indices that are available 24/7._t_',
+        text: '_t_Trade on financial markets plus our proprietary synthetics that are available 24/7._t_',
         src: Favourite,
         alt: '_t_All your favourite markets_t_',
     },
@@ -55,6 +51,7 @@ export const cfd_content: TCFD[] = [
         alt: '_t_Instant access_t_',
     },
 ]
+
 export const non_eu_cfd_content: TCFD[] = [
     {
         title: '_t_Swap-free MT5 account_t_',

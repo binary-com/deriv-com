@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import { SectionContainer, Flex, Container } from 'components/containers'
@@ -8,17 +8,19 @@ import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { isBrowser } from 'common/utility'
+import { TString } from 'types/generics'
 
 type CardProps = {
     active_tab: string
-    display_name: ReactElement
+    display_name: TString
     name: string
 }
+
 type AvailableTradesProps = {
     CFDs: ReactElement
     DigitalOptions?: ReactElement
     Multipliers?: ReactElement
-    display_title: ReactElement
+    display_title: TString
 }
 
 type CardContainerProps = {
@@ -35,7 +37,6 @@ const StyledSection = styled(SectionContainer)`
         margin-bottom: 0;
     }
 `
-
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         max-width: 326px;
@@ -43,7 +44,6 @@ const StyledHeader = styled(Header)`
         margin: 0 auto;
     }
 `
-
 const StyledContainer = styled(Container)`
     margin-top: 9.6rem;
 
@@ -52,7 +52,6 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
-
 const CardWrapper = styled(Flex)`
     max-width: 99.6rem;
     justify-content: center;
@@ -71,7 +70,6 @@ const CardWrapper = styled(Flex)`
         z-index: 1;
     }
 `
-
 const CardContainer = styled(Flex)<CardContainerProps>`
     position: relative;
     width: fit-content;
@@ -105,7 +103,7 @@ const CardContainer = styled(Flex)<CardContainerProps>`
             border-bottom: ${(props) =>
                 props.active_tab === props.name.toLocaleLowerCase()
                     ? '2px solid var(--color-red)'
-                    : '2px solid var(--color-black-3    )'};
+                    : '2px solid var(--color-black-3)'};
 
             @media (min-width: 320px) and (max-width: 992px) {
                 width: 30vw;
@@ -153,7 +151,6 @@ const CardContainer = styled(Flex)<CardContainerProps>`
         }}
     }
 `
-
 const ContentWrapper = styled.div`
     width: 100%;
     max-width: 99.6rem;
@@ -166,7 +163,6 @@ const ContentWrapper = styled.div`
         box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.1);
     }
 `
-
 const CardHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 1.75rem;
@@ -175,7 +171,6 @@ const CardHeader = styled(Header)`
         font-size: 1.5rem;
     }
 `
-
 const Link = styled(AnchorLink)`
     text-decoration: none;
 `
@@ -191,11 +186,8 @@ const Card = ({ display_name, active_tab, name }: CardProps) => {
             is_rtl={is_rtl}
         >
             <Flex height="fit-content" jc="flex-start" ai="center" style={{ overflow: 'visible' }}>
-                {name === 'CFDs'}
-                {name === 'Options'}
-                {name === 'Multipliers'}
                 <CardHeader as="h4" width="auto">
-                    {display_name}
+                    <Localize translate_text={display_name} />
                 </CardHeader>
             </Flex>
         </CardContainer>
@@ -210,40 +202,34 @@ const AvailableTradesDesktop = ({
 }: AvailableTradesProps) => {
     const { is_non_eu } = useRegion()
     const params = new URLSearchParams(isBrowser() && location.search)
-    const tab = params.get('tab')
+    const [tab, setTab] = useState('cfds')
+    useEffect(() => {
+        setTab(params.get('tab') || 'cfds')
+    }, [params])
 
     return (
         <StyledSection>
             <StyledHeader as="h2" size="var(--text-size-l)" align="center">
-                {display_title}
+                <Localize translate_text={display_title} />
             </StyledHeader>
             <StyledContainer direction="column">
                 <CardWrapper position="relative" id="available-trades">
                     {CFDs && (
                         <Link to="?tab=cfds#cfds">
-                            <Card
-                                name="CFDs"
-                                display_name={<Localize translate_text="CFDs" />}
-                                active_tab={tab || 'cfds'}
-                            />
+                            <Card name="CFDs" display_name="_t_CFDs_t_" active_tab={tab} />
                         </Link>
                     )}
                     {is_non_eu && DigitalOptions && (
                         <Link to="?tab=options#options">
-                            <Card
-                                name="Options"
-                                display_name={<Localize translate_text="Options" />}
-                                active_tab={tab || 'cfds'}
-                            />
+                            <Card name="Options" display_name="_t_Options_t_" active_tab={tab} />
                         </Link>
                     )}
-
                     {Multipliers && (
                         <Link to="?tab=multipliers#multipliers">
                             <Card
                                 name="Multipliers"
-                                display_name={<Localize translate_text="Multipliers" />}
-                                active_tab={tab || 'cfds'}
+                                display_name="_t_Multipliers_t_"
+                                active_tab={tab}
                             />
                         </Link>
                     )}

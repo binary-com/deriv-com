@@ -1,3 +1,4 @@
+const MAP_API_KEY = process.env.GATSBY_MAP_API_KEY
 const isBrowser = () => typeof window !== 'undefined'
 
 export const deriv_com_url = 'deriv.com'
@@ -54,7 +55,6 @@ export const deriv_bot_app_url = `${deriv_app_url}/bot`
 export const deriv_dp2p_app_url = `${deriv_app_url}/cashier/p2p`
 export const deriv_life_url = `https://derivlife.com/`
 export const academy_url = `https://academy.deriv.com/`
-export const deriv_mt5_app_url = `https://trade.mql5.com/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979`
 export const derivx_app_url = `${deriv_app_url}/derivx`
 export const smarttrader_url = `https://smarttrader.${getDomainUrl()}`
 export const traders_hub = 'https://app.deriv.com/appstore/traders-hub'
@@ -75,7 +75,7 @@ export const besquare_signup_url =
 export const binary_url = 'https://binary.com'
 export const brand_name = 'Deriv'
 export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
-export const deriv_app_languages = ['id', 'pt', 'es', 'ru', 'fr']
+export const deriv_app_languages = ['id', 'es', 'ru', 'fr']
 export const smart_trader_languages = [
     'es',
     'fr',
@@ -89,6 +89,7 @@ export const smart_trader_languages = [
     'zh_tw',
 ]
 export const deriv_status_page_url = 'https://deriv.statuspage.io'
+export const deriv_bug_bounty_url = 'https://hackerone.com/deriv?type=team'
 export const derivx_ios_url = 'https://apps.apple.com/us/app/deriv-x/id1563337503'
 export const derivx_android_url = 'https://play.google.com/store/apps/details?id=com.deriv.dx'
 export const derivx_huawei_url = 'https://appgallery.cloud.huawei.com/ag/n/app/C104633219'
@@ -96,15 +97,17 @@ export const deriv_go_playstore_url = 'https://play.google.com/store/apps/detail
 export const deriv_go_huaweiappgallery_url = 'https://appgallery.huawei.com/#/app/C103801913'
 export const deriv_go_ios_url = 'https://apps.apple.com/my/app/deriv-go/id1550561298'
 export const dmt5_web_browser_url =
-    'https://trade.mql5.com/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979'
+    'https://metatraderweb.app/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979'
+export const deriv_mt5_app_url =
+    'https://metatraderweb.app/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979'
 export const dmt5_windows =
-    'https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe?utm_source=www.metatrader5.com&utm_campaign=download'
+    'https://download.mql5.com/cdn/web/deriv.holdings.guernsey/mt5/deriv5setup.exe'
 export const dmt5_app_gallery_url =
     'https://download.mql5.com/cdn/mobile/mt5/android/app-gallery?hl=en&utm_source=www.metatrader5.com&utm_campaign=install.metaquotes'
 export const dmt5_ios_url =
-    'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
+    'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server,Deriv-Server-02'
 export const dmt5_android_url =
-    'https://download.mql5.com/cdn/mobile/mt5/android?server=Deriv-Demo,Deriv-Server'
+    'https://download.mql5.com/cdn/mobile/mt5/android?server=Deriv-Demo,Deriv-Server,Deriv-Server-02'
 export const dmt5_linux_url =
     'https://www.metatrader5.com/en/terminal/help/start_advanced/install_linux'
 export const dmt5_macos_url =
@@ -122,7 +125,7 @@ export const dp2p_google_play_url =
 export const gtm_test_domain = 'deriv-com.binary.sx'
 export const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
 export const livechat_license_id = 12049137
-export const map_api_key = 'AIzaSyBlyyUrQz3lpzIdy_ZugPQIQSE_v_6AaiM'
+export const map_api_key = MAP_API_KEY
 export const mga_link_url =
     'https://authorisation.mga.org.mt/verification.aspx?lang=EN&company=a5fd1edc-d072-4c26-b0cd-ab3fa0f0cc40&details=1'
 export const p2p_playstore_url = 'https://play.google.com/store/apps/details?id=com.deriv.dp2p'
@@ -160,7 +163,7 @@ export const live_chat_key = 'live_chat_redirection'
 export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const youtube_url = 'https://www.youtube.com/@deriv'
-export const loss_percent = 73
+export const loss_percent = 72
 
 export const cookie_key = 'browser_update_alert_modal_shown'
 export const browsers_minimum_required_version = {

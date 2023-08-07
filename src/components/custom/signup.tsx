@@ -12,7 +12,7 @@ import SignupFlat from 'components/custom/_signup-flat'
 import SignupNew from 'components/custom/_signup-new'
 import SignupPublic from 'components/custom/_signup-public'
 import { Header, QueryImage, StyledLink } from 'components/elements'
-import { localize, Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import apiManager from 'common/websocket'
 
@@ -38,7 +38,6 @@ const EmailLink = styled(StyledLink)`
     width: 100%;
     text-align: center;
 `
-
 const Form = styled.form<FormProps>`
     height: 100%;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
@@ -69,6 +68,7 @@ export const Appearances = {
     public: 'public',
     newSignup: 'newSignup',
 }
+
 const query = graphql`
     query {
         view_email: file(relativePath: { eq: "sign-up/response-email.png" }) {
@@ -181,6 +181,7 @@ const Signup = (props: SignupProps) => {
         setEmail('')
         setEmailErrorMsg('')
     }
+
     const handleSocialSignup = (e) => {
         e.preventDefault()
 
@@ -228,19 +229,24 @@ const Signup = (props: SignupProps) => {
     return props.submit_state === 'success' ? (
         <ResponseWrapper>
             <Header as="p" type="subtitle-1" align="center" weight="700">
-                {localize('Check your email')}
+                <Localize translate_text="_t_Check your email_t_" />
             </Header>
             <Flex jc="center" height="128px">
-                <QueryImage data={data.view_email} alt="Email image" height="128px" width="128px" />
+                <QueryImage
+                    data={data.view_email}
+                    alt={localize('_t_Email image_t_')}
+                    height="128px"
+                    width="128px"
+                />
             </Flex>
             <Header type="paragraph-1" weight="normal" align="center">
                 <Localize
-                    translate_text="We've sent a message to {{email}} with a link to activate your account."
+                    translate_text="_t_We've sent a message to {{email}} with a link to activate your account._t_"
                     values={{ email: props.email }}
                 />
             </Header>
             <EmailLink to="/check-email/" align="center">
-                {localize("Didn't receive your email?")}
+                <Localize translate_text="_t_Didn't receive your email?_t_" />
             </EmailLink>
         </ResponseWrapper>
     ) : (

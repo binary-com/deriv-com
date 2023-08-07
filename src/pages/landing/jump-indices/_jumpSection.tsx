@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import device from 'themes/device'
 import JumpSVG from 'images/svg/jump-indices/jump-indices-imagery.svg'
 
@@ -14,7 +14,6 @@ const MainWrapper = styled(Flex)`
         padding: 0 16px 40px;
     }
 `
-
 const ParentWrapper = styled(Flex)`
     justify-content: space-between;
     align-items: center;
@@ -50,7 +49,6 @@ const RightWrapper = styled(Flex)`
         max-width: 58.8rem;
     }
 `
-
 const StyledHeader = styled(Header)`
     margin-bottom: 8px;
     @media ${device.tabletL} {
@@ -87,11 +85,11 @@ const JumpSection = () => {
         <MainWrapper>
             <ParentWrapper>
                 <LeftWrapper>
-                    <StyledHeader type="section-title">{localize('Jumps')}</StyledHeader>
+                    <StyledHeader type="section-title">
+                        <Localize translate_text="_t_Jumps_t_" />
+                    </StyledHeader>
                     <StyledHeaderSmall type="sub-section-title" weight="normal">
-                        {localize(
-                            'Experience equal probability of an upward or downward price jump every 20 minutes on average.',
-                        )}
+                        <Localize translate_text="_t_Experience equal probability of an upward or downward price jump every 20 minutes on average._t_" />
                     </StyledHeaderSmall>
                 </LeftWrapper>
                 <RightWrapper>

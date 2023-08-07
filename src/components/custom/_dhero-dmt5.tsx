@@ -13,6 +13,7 @@ import useRegion from 'components/hooks/use-region'
 import Button from 'components/custom/_button'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { Container } from 'components/containers'
+import { localize } from 'components/localization'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
@@ -45,7 +46,6 @@ const BannerButtonWrapper = styled.div`
         justify-content: center;
     }
 `
-
 const BackgroundStyle = styled.div`
     background-color: var(--color-white);
     flex: 1;
@@ -120,6 +120,7 @@ const StyledContainer = styled(Container)`
         width: 100%;
     }
 `
+
 const DCommonBanner = () => {
     const { is_mobile } = useBreakpoints()
     const handleSignup = useHandleSignup()
@@ -174,14 +175,14 @@ const DCommonBanner = () => {
                                         src="../../images/common/dmt5/banner_image_eu.png"
                                         loading="eager"
                                         formats={['avif', 'webp', 'auto']}
-                                        alt="banner"
+                                        alt={localize('_t_banner_t_')}
                                     />
                                 ) : (
                                     <StaticImage
                                         src="../../images/common/dmt5/banner_image_row.png"
                                         loading="eager"
                                         formats={['avif', 'webp', 'auto']}
-                                        alt="banner"
+                                        alt={localize('_t_banner_t_')}
                                     />
                                 )}
                             </ImageStyle>

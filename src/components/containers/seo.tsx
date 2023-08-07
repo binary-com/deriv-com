@@ -5,8 +5,9 @@ import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
 import { isBrowser } from 'common/utility'
 import { eu_urls } from 'common/constants'
-import TradingImage from 'images/common/og_deriv.png'
+import TradingImage from 'images/common/og_deriv.jpg'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
+import { TString } from 'types/generics'
 
 const non_localized_links = ['/blog', '/bug-bounty', '/careers']
 
@@ -18,32 +19,33 @@ type SiteMetadataType = {
         title?: string
     }
 }
-type MetaAttributesType = {
-    og_title?: string
-    og_description?: string
+
+export type MetaAttributesType = {
+    og_title?: TString | string
+    og_description?: TString | string
     og_type?: string
-    og_img?: string
     og_img_width?: string
     og_img_height?: string
+    og_img?: string
 }
 
 type SeoProps = {
-    description?: string
-    has_organization_schema?: boolean
-    meta?: { name: string; content: string | keyof MetaAttributesType }
-    meta_attributes?: MetaAttributesType
+    title?: TString | string
+    description?: TString | string
     no_index?: boolean
-    title?: string
+    has_organization_schema?: boolean
+    meta_attributes?: MetaAttributesType
 }
+
 type QueriesType = {
     site?: SiteMetadataType
 }
 
 const languages = Object.keys(language_config)
 languages.push('x-default')
+
 const SEO = ({
     description,
-    meta,
     title,
     no_index,
     has_organization_schema,
@@ -65,13 +67,17 @@ const SEO = ({
     )
 
     const no_index_staging = process.env.GATSBY_ENV === 'staging'
-    const metaDescription = description || queries.site.siteMetadata.description
+    const metaDescription =
+        (description?.includes('_t_') ? localize(description as TString) : description) ||
+        queries.site.siteMetadata.description
     const site_url = queries.site.siteMetadata.siteUrl
     const { locale: lang, pathname } = React.useContext(LocaleContext)
     const formatted_lang = lang.replace('_', '-')
     const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`
-    const default_og_title = localize('Online trading with Deriv | Simple. Flexible. Reliable.')
-    const default_og_description = localize('Trading platforms designed with you in mind.')
+    const default_og_title = localize(
+        '_t_Online trading with Deriv | Simple. Flexible. Reliable._t_',
+    )
+    const default_og_description = localize('_t_Trading platforms designed with you in mind._t_')
 
     // To block eu.deriv.com domain for search engines
     const block_eu = isBrowser() && eu_urls.includes(window.location.hostname)
@@ -124,7 +130,7 @@ const SEO = ({
             bodyAttributes={{
                 dir: lang_direction,
             }}
-            title={title}
+            title={title.includes('_t_') ? localize(title as TString) : title}
             defer={false}
             meta={[
                 {
@@ -137,15 +143,21 @@ const SEO = ({
                 },
                 {
                     property: 'og:title',
-                    content: meta_attributes?.og_title || default_og_title,
+                    content:
+                        (meta_attributes?.og_title.includes('_t_')
+                            ? localize(meta_attributes?.og_title as TString)
+                            : meta_attributes?.og_title) || default_og_title,
                 },
                 {
                     property: 'og:site_name',
-                    content: title,
+                    content: title.includes('_t_') ? localize(title as TString) : title,
                 },
                 {
                     property: 'og:description',
-                    content: meta_attributes?.og_description || default_og_description,
+                    content:
+                        (meta_attributes?.og_description.includes('_t_')
+                            ? localize(meta_attributes?.og_description as TString)
+                            : meta_attributes?.og_description) || default_og_description,
                 },
                 {
                     property: 'og:type',
@@ -177,7 +189,7 @@ const SEO = ({
                 },
                 {
                     name: 'twitter:title',
-                    content: title,
+                    content: title.includes('_t_') ? localize(title as TString) : title,
                 },
                 {
                     name: 'twitter:description',
@@ -213,7 +225,7 @@ const SEO = ({
                           },
                       ]
                     : []),
-            ].concat(meta)}
+            ]}
         >
             {has_organization_schema && (
                 <script type="application/ld+json">{JSON.stringify(organization_schema)}</script>
@@ -239,10 +251,6 @@ const SEO = ({
                     })}
         </Helmet>
     )
-}
-
-SEO.defaultProps = {
-    meta: [],
 }
 
 export default SEO

@@ -6,7 +6,6 @@ import { crypto_multiplier } from '../../static/content/_multipliers'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import { StyledBox } from '../../static/style/_markets-style'
-import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
 import { localize, Localize } from 'components/localization'
 import TightSpread from 'images/svg/markets/tight-spread-new.svg'
 import CryptoPairs from 'images/svg/markets/crypto-pairs-new.svg'
@@ -18,45 +17,40 @@ import LinkButton from 'features/components/atoms/link-button'
 import Flex from 'features/components/atoms/flex-box'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
+import { TMarket, TSimpleStepContent } from 'pages/markets/static/content/_types'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 
 type CryptocurrenciesProps = {
-    simple_step_content: SimpleStepContentElement[]
-}
-
-type CryptoContent = {
-    src: string
-    text: string
-    alt: string
+    simple_step_content: TSimpleStepContent[]
 }
 
 const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
     const { is_eu } = useRegion()
     const { is_deriv_go } = usePlatformQueryParam()
 
-    const crypto_content: CryptoContent[] = [
+    const crypto_content: TMarket[] = [
         {
             src: Leverage,
-            text: is_eu ? localize('1:2 leverage') : localize('1:100 leverage'),
-            alt: '1 to 100 leverage',
+            text: is_eu ? '_t_1:2 leverage_t_' : '_t_1:100 leverage_t_',
+            alt: '_t_1 to 100 leverage_t_',
         },
         {
             src: TightSpread,
-            text: localize('Tight spreads'),
-            alt: 'tight spreads',
+            text: '_t_Tight spreads_t_',
+            alt: '_t_tight spreads_t_',
         },
         {
             src: CryptoPairs,
-            text: localize('30+ crypto pairs'),
-            alt: 'Crypto currency pairs',
+            text: '_t_30+ crypto pairs_t_',
+            alt: '_t_Crypto currency pairs_t_',
         },
         {
             src: ZeroCommission,
-            text: localize('Zero commission'),
-            alt: 'zero commission',
+            text: '_t_Zero commission_t_',
+            alt: '_t_zero commission_t_',
         },
     ]
 
@@ -64,10 +58,8 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
         <>
             <AvailableTrades
                 CFDs={<CFDs market_content={crypto_cfds} />}
-                Multipliers={<Multipliers market_content={crypto_multiplier} is_crypto={true} />}
-                display_title={
-                    <Localize translate_text="Cryptocurrency trades available on Deriv" />
-                }
+                Multipliers={<Multipliers market_content={crypto_multiplier} is_crypto />}
+                display_title="_t_Cryptocurrency trades available on Deriv_t_"
             />
             <Flex.Box
                 direction="col"
@@ -91,25 +83,21 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
                     <Localize translate_text="_t_Check trading specs_t_" />
                 </LinkButton.Primary>
             </Flex.Box>
-            <FullWidthMultiColumn
-                header={<Localize translate_text="Why trade cryptocurrencies on Deriv" />}
-            >
-                {crypto_content.map((content, index) => (
+            <FullWidthMultiColumn header="_t_Why trade cryptocurrencies on Deriv_t_">
+                {crypto_content.map(({ alt, src, text }) => (
                     <StyledBox
-                        key={index}
-                        text={content.text}
-                        icon={<img width="48px" height="48px" src={content.src} alt="" />}
+                        key={text}
+                        text={text}
+                        icon={<img width="48px" height="48px" src={src} alt={localize(alt)} />}
                     ></StyledBox>
                 ))}
             </FullWidthMultiColumn>
             <SimpleSteps
-                header={
-                    <Localize translate_text="Start trading cryptocurrencies on Deriv in 3 simple steps" />
-                }
+                header="_t_Start trading cryptocurrencies on Deriv in 3 simple steps_t_"
                 content={simple_step_content}
                 sign_up
             />
-            {!is_deriv_go && <OtherMarkets except="cryptocurrencies" />}
+            {!is_deriv_go && <OtherMarketsSlider current_market="cryptocurrencies" />}
         </>
     )
 }

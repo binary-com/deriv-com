@@ -23,12 +23,11 @@ import { bannerTypes } from 'common/constants'
 
 type LayoutProps = {
     children: ReactNode
-    interim_type?: 'affiliate' | 'dbot' | 'deriv' | 'dmt5' | 'faq'
     is_ppc?: boolean
     is_ppc_redirect?: boolean
     margin_top?: number | string
     type?: string
-    no_login_signup?: boolean
+    show_footer?: boolean
 }
 
 type MainType = {
@@ -83,12 +82,11 @@ const Navs = {
 
 const Layout = ({
     children,
-    interim_type,
     is_ppc = false,
     is_ppc_redirect = false,
     margin_top = '',
-    no_login_signup = false,
     type = 'default',
+    show_footer = true,
 }: LayoutProps) => {
     const [is_mounted] = usePageLoaded()
     const [show_modal, toggleModal, closeModal] = useModal()
@@ -131,7 +129,7 @@ const Layout = ({
                     <LayoutOverlay is_ppc={is_ppc} />
                 </div>
             </LocationProvider>
-            <RebrandingFooter />
+            {show_footer && <RebrandingFooter />}
         </PpcProvider>
     )
 }

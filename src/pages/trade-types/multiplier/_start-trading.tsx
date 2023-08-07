@@ -1,12 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
-import Timeline from '../components/_timeline'
 import { SmallContainer } from '../components/_style'
-import { SectionContainer } from 'components/containers'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import { StepperView } from 'components/elements'
 import Button from 'components/custom/_button'
-import Pattern from 'images/common/trade-types/pattern-section-small.png'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { TString } from 'types/generics'
 

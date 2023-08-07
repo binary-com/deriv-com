@@ -1,42 +1,33 @@
-//TODO: refactor this component to always use instruments_type
 import React from 'react'
 import { SymbolContainer, SymbolText } from '../../static/style/_markets-style'
+import type { MarketSymbol } from '../../static/content/_market-symbols'
 import { Text } from 'components/elements'
-import { TMarketSymbol } from 'pages/markets/static/content/_types'
-import { Localize, localize } from 'components/localization'
-import { TString } from 'types/generics'
+import LazySymbol from 'components/elements/lazy-symbol'
 
-type SymbolProps = {
-    text?: TString
-    src?: string
-    instruments_type?: TMarketSymbol[]
-}
-
+//TODO: refactor this component to always use instruments_type
+type SymbolProps = MarketSymbol & { instruments_type?: MarketSymbol[] }
 const Symbol = ({ instruments_type, src, text }: SymbolProps) => {
-    const is_derived_fx = text?.includes('DFX')
-
+    const is_derived_fx = text?.props.translate_text.includes('DFX')
     return (
         <React.Fragment>
             {instruments_type ? (
                 <React.Fragment>
-                    {instruments_type.map(({ src, text }) => (
-                        <SymbolContainer key={text}>
-                            <img src={src} alt={localize('_t_symbol_t_')} />
-                            <Text>
-                                <Localize translate_text={text} />
-                            </Text>
+                    {instruments_type.map((symbol, index) => (
+                        <SymbolContainer key={index}>
+                            <LazySymbol name={symbol.src} />
+                            <Text>{symbol.text}</Text>
                         </SymbolContainer>
                     ))}
                 </React.Fragment>
             ) : (
                 <SymbolContainer>
-                    {src && <img src={src} alt={localize('_t_symbol_t_')} />}
+                    <LazySymbol name={src} />
                     {is_derived_fx ? (
-                        <SymbolText type="paragraph-2">
-                            {text && <Localize translate_text={text} />}
+                        <SymbolText as="div" type="paragraph-2">
+                            {text}
                         </SymbolText>
                     ) : (
-                        <Text>{text && <Localize translate_text={text} />}</Text>
+                        <Text>{text}</Text>
                     )}
                 </SymbolContainer>
             )}
@@ -44,4 +35,4 @@ const Symbol = ({ instruments_type, src, text }: SymbolProps) => {
     )
 }
 
-export default Symbol
+export default React.memo(Symbol)

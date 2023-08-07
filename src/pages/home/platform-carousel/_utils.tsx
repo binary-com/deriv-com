@@ -25,7 +25,7 @@ import DTraderIcon from 'images/svg/dtrader/dtrader-icon.svg'
 import DMT5Icon from 'images/svg/dmt5/dmt5-icon.svg'
 import DerivGOIcon from 'images/svg/deriv-go/deriv-go-logo.svg'
 import DerivXIcon from 'images/svg/deriv-x/derivx-logo.svg'
-import DBotIcon from 'images/svg/dbot/dbot-icon.svg'
+import { DbotIcon } from 'images/svg/dbot'
 import BinaryBotIcon from 'images/svg/binarybot-icon.svg'
 import SmartTraderIcon from 'images/svg/custom/smarttrader.svg'
 import APIIcon from 'images/svg/api-logo.svg'
@@ -144,7 +144,7 @@ export const platform_details_row: TPlatformDetails[] = [
     },
     {
         title: 'DBot',
-        icon: DBotIcon,
+        icon: DbotIcon,
         image_key: 'platforms_dbot',
         description: '_t_Automate your trading. No coding required._t_',
         learn_more_link: '/dbot/',

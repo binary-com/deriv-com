@@ -20,6 +20,7 @@ export const apps_data: BannerType = {
         icon: derivEZQR,
         heading_one: '_t_Scan to download Deriv GO_t_',
         heading_two: '_t_Android, iOS & Huawei_t_',
+        heading_three: '_t_Android and iOS_t_',
     },
     extra_info: {
         where: '_t_Deriv EZ is available on <0>Deriv GO.<0>_t_',

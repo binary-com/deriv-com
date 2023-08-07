@@ -16,7 +16,7 @@ const HomeHeroSlider = () => {
                         objectFit="fill"
                         src="../../../../../images/common/home/hero_3.png"
                         alt="person-hero-3"
-                        formats={['avif', 'png']}
+                        formats={['avif', 'auto']}
                         placeholder="blurred"
                         quality={75}
                     />
@@ -29,7 +29,7 @@ const HomeHeroSlider = () => {
                         objectFit="fill"
                         src="../../../../../images/common/home/hero_4.png"
                         alt="person-hero-4"
-                        formats={['avif', 'png']}
+                        formats={['avif', 'auto']}
                         placeholder="blurred"
                     />
                 ),
@@ -44,7 +44,7 @@ const HomeHeroSlider = () => {
                             objectFit="fill"
                             src="../../../../../images/common/home/hero_2.png"
                             alt="person-hero-2"
-                            formats={['avif', 'png']}
+                            formats={['avif', 'auto']}
                             loading="eager"
                             placeholder="blurred"
                         />
@@ -57,7 +57,7 @@ const HomeHeroSlider = () => {
                             objectFit="fill"
                             src="../../../../../images/common/home/hero_1.png"
                             alt="person-hero-1"
-                            formats={['avif', 'png']}
+                            formats={['avif', 'auto']}
                             quality={50}
                             placeholder="blurred"
                         />
@@ -72,7 +72,7 @@ const HomeHeroSlider = () => {
                         objectFit="fill"
                         src="../../../../../images/common/home/eu_hero_person_5.png"
                         alt="person-hero-1"
-                        formats={['avif', 'png']}
+                        formats={['avif', 'auto']}
                         quality={50}
                         placeholder="blurred"
                     />

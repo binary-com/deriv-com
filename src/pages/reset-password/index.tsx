@@ -10,6 +10,7 @@ import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import Login from 'common/login'
 import apiManager from 'common/websocket'
+import device from 'themes/device'
 
 type EmailType = { email: string }
 
@@ -29,6 +30,9 @@ const ButtonContainer = styled.div`
 const InputGroup = styled.div`
     width: 40rem;
     margin: 0 auto 3.4rem;
+    @media ${device.tabletL} {
+        width: auto;
+    }
 `
 
 const StyledButton = styled(Button)`

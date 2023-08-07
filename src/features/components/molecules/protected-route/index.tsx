@@ -1,21 +1,28 @@
 import React from 'react'
-import PageNotFound from 'features/pages/404'
+import PageNotFound from 'features/pages/404-error'
 import InitialLoader from 'components/elements/dot-loader'
+import Layout from 'features/components/templates/layout'
 
 interface ProtectedRouteProps {
-    condition: boolean
-    params?: any
-    component: React.ComponentType<any>
+    is_page_visible: boolean
+    component: React.ReactNode
     is_loading: boolean
 }
 
 const ProtectedRoute = ({
-    condition,
-    params,
-    component: Component,
+    is_page_visible,
+    component,
     is_loading = false,
 }: ProtectedRouteProps) => {
-    return is_loading ? <InitialLoader /> : condition ? <Component {...params} /> : <PageNotFound />
+    return is_loading ? (
+        <Layout>
+            <InitialLoader />
+        </Layout>
+    ) : is_page_visible ? (
+        <>{component}</>
+    ) : (
+        <PageNotFound />
+    )
 }
 
 export default ProtectedRoute

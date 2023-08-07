@@ -1,8 +1,13 @@
 import RiseFallIcon from 'images/svg/trade-types/options/digital/up-down-rise-fall.svg'
-import RiseWinIcon from 'images/svg/trade-types/options/digital/rise_win.svg'
-import RiseLoseIcon from 'images/svg/trade-types/options/digital/rise_lose.svg'
-import FallWinIcon from 'images/svg/trade-types/options/digital/fall_win.svg'
-import FallLoseIcon from 'images/svg/trade-types/options/digital/fall_lose.svg'
+import RiseWinImg from 'images/svg/trade-types/options/digital/rise_win.svg'
+import RiseLoseImg from 'images/svg/trade-types/options/digital/rise_lose.svg'
+import FallWinImg from 'images/svg/trade-types/options/digital/fall_win.svg'
+import FallLoseImg from 'images/svg/trade-types/options/digital/fall_lose.svg'
+import HightLowerIcon from 'images/svg/trade-types/options/digital/up-down-higher-lower.svg'
+import HigherWinImg from 'images/svg/trade-types/options/digital/higher_win.svg'
+import HigherLossImg from 'images/svg/trade-types/options/digital/higher_loss.svg'
+import LowerWinImg from 'images/svg/trade-types/options/digital/lower_win.svg'
+import LowerLossImg from 'images/svg/trade-types/options/digital/lower_loss.svg'
 import {
     OptionContentAvailability,
     OptionContentItemData,
@@ -23,19 +28,19 @@ export const upAndDownContentItems: OptionContentItemData[] = [
         title: '_t_Rise/Fall_t_',
         images: [
             {
-                src: RiseWinIcon,
+                src: RiseWinImg,
                 alt: '_t_A chart illustrating a winning Rise trade type contract_t_',
             },
             {
-                src: RiseLoseIcon,
+                src: RiseLoseImg,
                 alt: '_t_A chart illustrating a losing Rise trade type contract_t_',
             },
             {
-                src: FallWinIcon,
+                src: FallWinImg,
                 alt: '_t_A chart illustrating a winning Fall trade type contract_t_',
             },
             {
-                src: FallLoseIcon,
+                src: FallLoseImg,
                 alt: '_t_A chart illustrating a losing Fall trade type contract_t_',
             },
         ],
@@ -52,25 +57,25 @@ export const upAndDownContentItems: OptionContentItemData[] = [
     {
         type: 'single',
         icon: {
-            src: RiseFallIcon,
-            alt: '_t_Rise/Fall Icon_t_',
+            src: HightLowerIcon,
+            alt: '_t_Higher/Lower Icon_t_',
         },
         title: '_t_Higher/Lower_t_',
         images: [
             {
-                src: RiseWinIcon,
+                src: HigherWinImg,
                 alt: '_t_A chart illustrating a winning Higher trade type contract_t_',
             },
             {
-                src: RiseLoseIcon,
+                src: HigherLossImg,
                 alt: '_t_A chart illustrating a losing Higher trade type contract_t_',
             },
             {
-                src: FallWinIcon,
+                src: LowerWinImg,
                 alt: '_t_A chart illustrating a winning Lower trade type contract’_t_',
             },
             {
-                src: FallLoseIcon,
+                src: LowerLossImg,
                 alt: '_t_A chart illustrating a losing Lower trade type contract_t_',
             },
         ],

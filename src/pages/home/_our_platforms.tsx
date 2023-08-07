@@ -35,7 +35,7 @@ const OurPlatforms = () => {
                     >
                         <Localize
                             translate_text="_t_Choose from {{platforms_no}} powerful platforms — each designed with your needs in mind._t_"
-                            values={{ platforms_no: is_row ? '9' : '2' }}
+                            values={{ platforms_no: is_row ? '8' : '2' }}
                         />
                     </Header>
                 </Flex>

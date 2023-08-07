@@ -339,6 +339,21 @@ exports.onCreatePage = ({ page, actions }) => {
             })
         }
 
+        if (is_options) {
+            createRedirect({
+                fromPath: `/${lang}/trade-types/options/`,
+                toPath: `/${lang}/trade-types/options/digital-options/up-and-down/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/trade-types/options`,
+                toPath: `/${lang}/trade-types/options/digital-options/up-and-down/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
         if (is_deriv_ez) {
             createRedirect({
                 fromPath: `/${lang}/derivez/`,

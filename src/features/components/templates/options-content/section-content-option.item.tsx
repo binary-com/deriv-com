@@ -30,8 +30,12 @@ const SectionOptionContentItem = ({ item }: { item: OptionContentSectionItemData
                         ))}
                     </Flex.Box>
                     <div className={content_images}>
-                        {sectionItem.images.map(({ src, alt }) => (
-                            <img src={src} alt={localize(alt)} key={alt} />
+                        {sectionItem.images.map((imageItem) => (
+                            <img
+                                src={imageItem.src}
+                                alt={localize(imageItem.alt)}
+                                key={imageItem.alt}
+                            />
                         ))}
                     </div>
                 </Flex.Box>

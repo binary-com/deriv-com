@@ -25,8 +25,14 @@ const SingleOptionContentItem = ({ item }: { item: OptionContentSingleItemData }
                 ))}
             </Flex.Box>
             <div className={`${content_images} ${item.images.length < 2 ? single_image : ''}`}>
-                {item.images.map(({ src, alt }) => (
-                    <img src={src} alt={localize(alt)} key={alt} width="100%" height="100%" />
+                {item.images.map((imageItem) => (
+                    <img
+                        src={imageItem.src}
+                        alt={localize(imageItem.alt)}
+                        key={imageItem.alt}
+                        width="100%"
+                        height="100%"
+                    />
                 ))}
             </div>
         </Flex.Box>

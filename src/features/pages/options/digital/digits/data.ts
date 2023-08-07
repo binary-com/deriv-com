@@ -96,7 +96,7 @@ export const digits_content_items: OptionContentItemData[] = [
             src: DigitsOverUnder,
             alt: '_t_Digit Over/Under_t_',
         },
-        title: '_t_Digit Over/Under_t_',
+        title: '_t_Digits Over/Under_t_',
         images: [
             {
                 src: OverWinIcon,

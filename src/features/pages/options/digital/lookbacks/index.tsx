@@ -10,37 +10,27 @@ import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import { SEO } from 'components/containers'
-import useRegion from 'components/hooks/use-region'
-import PageNotFound from 'features/pages/404-error'
 
 const LookbacksDigitalOptionsPage = () => {
-    const { is_row } = useRegion()
-
-    if (is_row) {
-        return (
-            <DigitalOptionsLayout>
-                <SEO
-                    title="_t_Lookbacks | Digital options contract | Deriv_t_"
-                    description="_t_Open a digital options contract with a Lookbacks trade type on Deriv’s trading platforms and earn payouts with accurate market predictions._t_"
-                />
-                <Helmet>
-                    <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-                </Helmet>
-                <Flex.Box container="fluid" justify="center">
-                    <Typography.Paragraph pb="20x" pt="15x" align="center" md={{ pt: '0x' }}>
-                        <Localize translate_text="_t_Lookbacks allow you to earn a payout depending on the optimum high or low achieved by the market during the duration of a contract._t_" />
-                    </Typography.Paragraph>
-                </Flex.Box>
-                <OptionsContent items={lookbacks_content_items} />
-                <AvailableMarketPlatforms
-                    markets={lookbacksMarkets}
-                    platforms={lookbacksPlatforms}
-                />
-                <OptionsFaq faqs={lookbacksFAQ} />
-            </DigitalOptionsLayout>
-        )
-    }
-    return <PageNotFound />
+    return (
+        <DigitalOptionsLayout>
+            <SEO
+                title="_t_Lookbacks | Digital options contract | Deriv_t_"
+                description="_t_Open a digital options contract with a Lookbacks trade type on Deriv’s trading platforms and earn payouts with accurate market predictions._t_"
+            />
+            <Helmet>
+                <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
+            </Helmet>
+            <Flex.Box container="fluid" justify="center">
+                <Typography.Paragraph pb="20x" pt="15x" align="center" md={{ pt: '0x' }}>
+                    <Localize translate_text="_t_Lookbacks allow you to earn a payout depending on the optimum high or low achieved by the market during the duration of a contract._t_" />
+                </Typography.Paragraph>
+            </Flex.Box>
+            <OptionsContent items={lookbacks_content_items} />
+            <AvailableMarketPlatforms markets={lookbacksMarkets} platforms={lookbacksPlatforms} />
+            <OptionsFaq faqs={lookbacksFAQ} />
+        </DigitalOptionsLayout>
+    )
 }
 
 export default LookbacksDigitalOptionsPage

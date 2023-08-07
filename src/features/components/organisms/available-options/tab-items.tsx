@@ -20,6 +20,7 @@ import { OptionNavigationType } from 'features/components/templates/navigation/t
 import dclsx from 'features/utils/dclsx'
 import ArrowNext from 'images/svg/arrow-next.svg'
 import { getLocationPathname } from 'common/utility'
+import useScrollToActiveTab from 'features/hooks/use-scroll-to-active-tab'
 
 interface OptionsTabType {
     options_tabs: OptionNavigationType[]
@@ -38,6 +39,11 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
     const [last_element_ref, lastInView] = useInView({
         threshold: 0.8,
     })
+
+    const { active_element_ref, clickOnActiveElement } = useScrollToActiveTab<
+        HTMLDivElement,
+        HTMLDivElement
+    >(content_wrapper.current)
 
     const side_scroll = (
         element: HTMLDivElement,
@@ -79,10 +85,19 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                                     : null
                             }
                         >
-                            <Flex.Box
-                                direction={'row'}
-                                justify={'start'}
-                                md={{ justify: 'center' }}
+                            <div
+                                className={dclsx(
+                                    'flex',
+                                    'row',
+                                    'justify-start',
+                                    'md-justify-start',
+                                )}
+                                ref={
+                                    selected_tab_name === option_item.option_name
+                                        ? active_element_ref
+                                        : null
+                                }
+                                onClick={clickOnActiveElement}
                             >
                                 <Link
                                     url={{ type: 'internal', to: option_item.to }}
@@ -107,7 +122,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                                         </Typography.Paragraph>
                                     </Tab.MenuItem>
                                 </Link>
-                            </Flex.Box>
+                            </div>
                         </div>
                     ))}
                 </div>

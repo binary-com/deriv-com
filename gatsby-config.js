@@ -54,12 +54,11 @@ module.exports = {
                 ],
             },
         },
-        'gatsby-plugin-react-helmet',
         {
-            resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+            resolve: 'gatsby-plugin-canonical-urls',
             options: {
                 siteUrl: `${site_url}`,
-                noQueryString: true,
+                // noQueryString: true,
             },
         },
         'gatsby-plugin-styled-components',
@@ -313,14 +312,7 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: [
-                            '/404/',
-                            '/homepage/',
-                            '/landing/',
-                            '/endpoint/',
-                            '/livechat/',
-                            '/storybook/',
-                        ],
+                        disallow: ['/404/', '/homepage/', '/landing/', '/endpoint/', '/livechat/'],
                     },
                 ],
             },

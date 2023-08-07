@@ -16,7 +16,7 @@ type SignupProps = {
 
 const SignUpSuccessContainer = ({ email }: SignupProps) => {
     return (
-        <Layout show_footer={false}>
+        <Layout>
             <SEO
                 title="_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_"
                 description="_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_"

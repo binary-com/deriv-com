@@ -4,7 +4,7 @@ import { WithIntl } from 'components/localization'
 import UpAndDownDigitalOptionsPage from 'features/pages/options/digital/up-down'
 
 const DigitalOptions = () => {
-    const canonicalUrl = '/trade-types/options/digital-options/up-and-down'
+    const canonicalUrl = `${window.location.origin}/trade-types/options/digital-options/up-and-down`
 
     return (
         <>

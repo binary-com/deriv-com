@@ -32,7 +32,6 @@ const useScrollToActiveTab = <T extends HTMLElement, U extends HTMLElement>(wrap
                 if (active_item_position > screen_position) {
                     wrapper.scrollLeft = active_element.offsetLeft
                 }
-                console.log('==>', active_element.offsetLeft)
                 if (active_element.offsetLeft < 0) {
                     wrapper.scrollLeft = active_element.offsetLeft - active_element.offsetWidth
                 }

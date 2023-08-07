@@ -70,8 +70,6 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
         setSelectedTabName(selected_tab_item?.option_name || null)
     }, [pathname])
 
-    console.log('==>', { firstInView, lastInView })
-
     return (
         <Flex.Box direction="col" padding_block="10x" md={{ padding_block: '20x' }}>
             <Flex.Box className={tab_container} justify="center">

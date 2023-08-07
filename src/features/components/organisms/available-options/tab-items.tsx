@@ -10,7 +10,7 @@ import {
     options_available_tab_item,
 } from './styles.module.scss'
 import LeftArrow from 'images/svg/arrow-previous.svg'
-import { Localize } from 'components/localization'
+import { Localize, get_lang_direction } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import Link from 'features/components/atoms/link'
 import Image from 'features/components/atoms/image'
@@ -28,6 +28,7 @@ interface OptionsTabType {
 
 const OptionsTab = ({ options_tabs }: OptionsTabType) => {
     const pathname = getLocationPathname()
+    const direction = get_lang_direction()
     const content_wrapper = useRef<HTMLDivElement>(null)
     const [is_initial_load, setIsInitialLoad] = useState(true)
     const [selected_tab_name, setSelectedTabName] = useState<string | null>(null)
@@ -68,6 +69,8 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
         )
         setSelectedTabName(selected_tab_item?.option_name || null)
     }, [pathname])
+
+    console.log('==>', { firstInView, lastInView })
 
     return (
         <Flex.Box direction="col" padding_block="10x" md={{ padding_block: '20x' }}>
@@ -133,6 +136,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                         (is_initial_load || firstInView) && is_show_left,
                     )}
                     onClick={() => side_scroll(content_wrapper.current!, 25, 100, -10)}
+                    dir={get_lang_direction()}
                 >
                     <Image src={LeftArrow} width="36px" height="36px" />
                 </div>
@@ -143,6 +147,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                         lastInView && is_show_right,
                     )}
                     onClick={() => side_scroll(content_wrapper.current!, 25, 100, 10)}
+                    dir={get_lang_direction()}
                 >
                     <Image src={ArrowNext} width="36px" height="36px" />
                 </div>

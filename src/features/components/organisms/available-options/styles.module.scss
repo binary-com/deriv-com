@@ -24,6 +24,10 @@
     inset-inline-start: 0;
     transform: translateY(-50%);
     z-index: 1;
+    &[dir="rtl"] {
+        inset-inline-start: auto;
+        inset-inline-end: 0;
+    }
 }
 .scroll_button_right {
     position: absolute;
@@ -31,6 +35,10 @@
     inset-inline-end: 0;
     transform: translateY(-50%);
     z-index: 1;
+    &[dir="rtl"] {
+        inset-inline-start: 0;
+        inset-inline-end: auto;
+    }
 }
 
 .scroll_container {

@@ -168,7 +168,7 @@ export const inOutFAQ: OptionsFAQDataItem[] = [
             {
                 id: 1,
                 type: 'text',
-                text: '_t_Yes, you are can open multiple In/Out contracts with different barrier limits at the same time._t_',
+                text: '_t_Yes, you can open multiple In/Out contracts with different barrier limits at the same time._t_',
             },
         ],
     },

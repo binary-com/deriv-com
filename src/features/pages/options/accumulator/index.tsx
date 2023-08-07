@@ -44,7 +44,7 @@ const AccumulatorsOptions = () => {
                     markets={accumulatorMarkets}
                     platforms={accumulatorPlatforms}
                 />
-                <Typography.Paragraph mt="12x">
+                <Typography.Paragraph font_family="UBUNTU" mt="20x">
                     <Localize translate_text="_t_Currently available on demo accounts only_t_" />
                 </Typography.Paragraph>
             </Flex.Box>

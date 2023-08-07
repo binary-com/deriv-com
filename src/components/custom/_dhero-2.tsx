@@ -298,7 +298,7 @@ const query = graphql`
 const HeroItems: HeroItemsType[] = [
     { url: derivx_ios_url, image: 'app_store', alt: '_t_app store logo_t_' },
     { url: derivx_android_url, image: 'google_play', alt: '_t_google play logo_t_' },
-    { url: derivx_huawei_url, image: 'huawei_app', alt: '_t_huawei app gallery_t_' },
+    { url: derivx_huawei_url, image: 'huawei_app', alt: '_t_Huawei AppGallery_t_' },
     { url: derivx_app_url, image: 'web_browser', alt: '_t_web browser logo_t_' },
 ]
 

@@ -2,10 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { SmallContainer } from '../components/_style'
-import { StyledLinkButton } from './_trading-cfd-increases'
+import { LinkButton } from 'components/form'
+import Button from 'components/custom/_button'
 import { SectionContainer, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 
 const query = graphql`
@@ -22,13 +23,29 @@ const query = graphql`
         }
     }
 `
+
 const ImageWrapper = styled.div`
     width: 100%;
-`
 
+    @media ${device.tablet} {
+        max-width: 90%;
+        margin: 0 auto;
+        text-align: center;
+    }
+`
 const StyledSectionContainer = styled(SectionContainer)`
     @media ${device.tabletL} {
         padding-bottom: 0;
+    }
+`
+const StyledButton = styled(LinkButton)`
+    margin-left: -2.2rem;
+    margin-top: 1rem;
+
+    @media ${device.tabletL} {
+        margin-top: -1rem;
+        margin-bottom: 1.6rem;
+        margin-left: -2.8rem;
     }
 `
 
@@ -39,45 +56,42 @@ const MindWhenTrading = () => {
         <StyledSectionContainer background="white" padding="0 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
                 <Header as="h3" type="section-title" mb="2rem">
-                    {localize('Things to keep in mind when trading CFDs')}
+                    <Localize translate_text="_t_Things to keep in mind when trading CFDs_t_" />
                 </Header>
                 <Text as="h4" size="var(--text-size-m)" weight="bold" mb="0.8rem">
-                    {localize('CFDs are traded on margin')}
+                    <Localize translate_text="_t_CFDs are traded on margin_t_" />
                 </Text>
                 <Text mb="3.2rem">
-                    {localize(
-                        'The term ‘margin’ refers to the deposit needed to open a leveraged position, which is a position larger than your capital investment and leads to increased market exposure.',
-                    )}
+                    <Localize translate_text="_t_The term ‘margin’ refers to the deposit needed to open a leveraged position, which is a position larger than your capital investment and leads to increased market exposure._t_" />
                 </Text>
             </SmallContainer>
-            <Desktop breakpoint={'bp680'}>
+            <Desktop breakpoint="bp680">
                 <SmallContainer direction="column" ai="flex-start">
                     <ImageWrapper>
                         <QueryImage
                             data={data['margin_relationship_piechart']}
-                            alt="Pie chart explaining relation between margin and leverage"
+                            alt={localize(
+                                '_t_Pie chart explaining relation between margin and leverage_t_',
+                            )}
                         />
                     </ImageWrapper>
                 </SmallContainer>
             </Desktop>
-            <Mobile breakpoint={'bp680'}>
+            <Mobile breakpoint="bp680">
                 <ImageWrapper>
                     <QueryImage
                         data={data['margin_mobile_relationship_piechart']}
-                        alt="Trade types margin market"
+                        alt={localize('_t_Trade types margin market_t_')}
                     />
                 </ImageWrapper>
             </Mobile>
             <SmallContainer direction="column" ai="flex-start">
                 <Text mt="3.2rem">
-                    {localize(
-                        'Use our margin calculator to calculate the margin required to increase your market exposure (the market value of your position) on Deriv’s CFD trading platforms.',
-                    )}
+                    <Localize translate_text="_t_Use our margin calculator to calculate the margin required to increase your market exposure (the market value of your position) on Deriv’s CFD trading platforms._t_" />
                 </Text>
-
-                <StyledLinkButton mt="4rem" secondary to="/trader-tools/margin-calculator/">
-                    {localize('Margin calculator')}
-                </StyledLinkButton>
+                <StyledButton to="/trader-tools/margin-calculator/">
+                    <Button label="Margin calculator" primary />
+                </StyledButton>
             </SmallContainer>
         </StyledSectionContainer>
     )

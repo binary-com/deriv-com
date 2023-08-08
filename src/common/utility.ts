@@ -408,6 +408,8 @@ export const updateURLAsPerUserLanguage = () => {
     const paths = current_path.split('/')
     const first_path = paths[1]
     const has_language_in_url = first_path in language_config
+    const is_careers = paths.includes('careers')
+
     if (has_language_in_url) {
         setCookiesWithDomain('user_language', first_path)
     }
@@ -417,11 +419,25 @@ export const updateURLAsPerUserLanguage = () => {
 
     if (!has_language_in_url && user_language === 'en') return
     if (first_path === user_language) return
+    if (has_language_in_url && first_path !== user_language) {
+        Cookies.remove('user_language')
+        setCookiesWithDomain('user_language', language)
+        return
+    }
 
-    const updated_url = has_language_in_url
-        ? paths.map((item) => (item === first_path ? language : item)).join('/')
-        : language + paths.join('/')
-    const new_url = updated_url + current_hash
+    if (!is_careers) {
+        const updated_url = has_language_in_url
+            ? paths.map((item) => (item === first_path ? language : item)).join('/')
+            : language + paths.join('/')
+        const new_url = updated_url + current_hash
+        window.location.href = '/' + new_url
+    } else {
+        if (!has_language_in_url) return
+        window.location.href = '/' + 'careers'
+    }
+}
 
-    window.location.href = '/' + new_url
+export const getP2PCookie = () => {
+    const p2p_validity = Cookies.get('is_p2p_disabled')
+    return p2p_validity
 }

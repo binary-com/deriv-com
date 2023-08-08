@@ -1,30 +1,32 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Checkbox, LocalizedLinkText } from 'components/elements'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import device from 'themes/device'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import { TString } from 'types/generics'
 
 type AgreementLabelProps = {
     color?: string
     handleChangeCheckbox: (event) => void
     isChecked?: boolean
-    link_text?: string
+    link_text?: TString
 }
 
 const CheckboxSpan = styled.span`
     font-size: 14px;
     color: ${(props) => (props.color ? props.color : 'black')};
     @media ${device.tabletL} {
-        font-size: 12px;
+        font-size: 14px;
     }
 `
+
 const AgreementLabel = ({
     handleChangeCheckbox,
     isChecked,
     color,
-    link_text = localize('I agree to the <0>terms and conditions</0>'),
+    link_text = '_t_I agree to the <0>terms and conditions.</0>_t_',
 }: AgreementLabelProps) => {
     // the is mounted check is used for making sure the localized link text
     // properly renders the correct domain url

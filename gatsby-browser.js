@@ -1,14 +1,20 @@
 import React from 'react'
 import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
-import { isProduction, isLive } from './src/common/websocket/config'
+import { isLive, isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
-import { getClientInformation, getDomain, getLanguage, addScript, updateURLAsPerUserLanguage } from 'common/utility'
-import { pushwoosh_app_code } from 'common/constants'
+import {
+    addScript,
+    getClientInformation,
+    getDomain,
+    getLanguage,
+    updateURLAsPerUserLanguage,
+} from 'common/utility'
 import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
+import './static/css/ubuntu.css'
 
 const is_browser = typeof window !== 'undefined'
 
@@ -20,6 +26,13 @@ const checkDomain = () => {
     )
 }
 
+const bug_bounty_path = '/bug-bounty'
+const hacker_one_url = 'https://hackerone.com/deriv?type=team'
+
+if (is_browser) {
+    if (window.location.pathname.includes(bug_bounty_path)) window.location.href = hacker_one_url
+}
+
 const sendTags = (api) => {
     const language = LocalStore.get('i18n') || ''
     const domain = getDomain()
@@ -29,6 +42,9 @@ const sendTags = (api) => {
     }
     api.getTags()
         .then((result) => {
+            if (!result || !result.result) {
+                return null
+            }
             if (
                 !result.result['Login ID'] ||
                 !result.result['Site Language'] ||
@@ -54,10 +70,11 @@ const pushwooshInit = (push_woosh) => {
         'init',
         {
             logLevel: 'error', // or info or debug
-            applicationCode: pushwoosh_app_code,
+            applicationCode: 'DD293-35A19',
             safariWebsitePushID: 'web.com.deriv',
             defaultNotificationTitle: 'Deriv.com',
             defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
+            serviceWorkerUrl: '/sw.js'
         },
     ])
 
@@ -70,8 +87,9 @@ const pushwooshInit = (push_woosh) => {
                         push_woosh.subscribe()
                     }
                 })
-                // eslint-disable-next-line no-empty
-            } catch {}
+            } catch (error) {
+                console.log(error.message)
+            }
 
             sendTags(api)
         },
@@ -122,6 +140,34 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
+    //datadog
+    const dd_options = {
+        clientToken: 'pub08554ab30284600af157441bfb0fa923',
+        applicationId: '5c8975a3-ec86-4a64-8a3a-e6888fdde082',
+        site: 'datadoghq.com',
+        service: 'deriv.com',
+        env: 'production',
+        version: '1.0.6',
+        sessionSampleRate: 10,
+        sessionReplaySampleRate: 10,
+        trackResources: true,
+        trackLongTasks: true,
+        trackUserInteractions: true,
+        trackFrustrations: true,
+        enableExperimentalFeatures: ['clickmap'],
+        defaultPrivacyLevel: 'mask-user-input',
+    }
+    const dd_script = document.createElement('script')
+    dd_script.type = 'text/javascript'
+    dd_script.text = `!function(e,a,t,n,s){e=e[s]=e[s]||{q:[],onReady:function(a){e.q.push(a)}},(s=a.createElement(t)).async=1,s.src=n,(n=a.getElementsByTagName(t)[0]).parentNode.insertBefore(s,n)}(window,document,"script","https://www.datadoghq-browser-agent.com/us1/v4/datadog-rum.js","DD_RUM"),window.DD_RUM.onReady(function(){window.DD_RUM.init(${JSON.stringify(
+        dd_options,
+    )})});`
+    document.head.appendChild(dd_script)
+    // Start session replay recording
+    window.DD_RUM.onReady(function () {
+        window.DD_RUM.startSessionReplayRecording()
+    })
+
     const push_woosh = new Pushwoosh()
     if (isLive()) {
         pushwooshInit(push_woosh)
@@ -136,7 +182,6 @@ export const onClientEntry = () => {
     checkLiveChatRedirection()
 
     updateURLAsPerUserLanguage()
-
 }
 
 export const onRouteUpdate = () => {

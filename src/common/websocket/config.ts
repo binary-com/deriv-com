@@ -32,10 +32,22 @@ export const domain_config = {
             hostname: 'eu.deriv.com',
             app_id: deriv_com_app_id,
         },
+        {
+            hostname: 'beta.deriv.com',
+            app_id: deriv_com_app_id,
+        },
+        {
+            hostname: 'beta-eu.deriv.com',
+            app_id: deriv_com_app_id,
+        },
     ],
     staging: {
         hostname: 'staging.deriv.com',
         app_id: 16303,
+    },
+    beta: {
+        hostname: 'beta.deriv.com',
+        app_id: deriv_com_app_id,
     },
     test: {
         app_id: 11780,
@@ -54,7 +66,8 @@ const production_app_id_array =
     domain_config.production.filter((prod) => prod.hostname === window.location.hostname)
 const prod_app_id = production_app_id_array[0]?.app_id
 const isStaging = () => isBrowser() && domain_config.staging.hostname === window.location.hostname
-const isLive = () => isProduction() || isStaging()
+const isBeta = () => isBrowser() && domain_config.beta.hostname === window.location.hostname
+const isLive = () => isProduction() || isStaging() || isBeta()
 const isLocalHost = () => isBrowser() && domain_config.local.hostname === window.location.hostname
 
 const getAppId = (): null | number | string => {
@@ -67,6 +80,9 @@ const getAppId = (): null | number | string => {
         } else if (isStaging()) {
             window.localStorage.removeItem('config.default_app_id')
             app_id = domain_config.staging.app_id
+        } else if (isBeta()) {
+            window.localStorage.removeItem('config.default_app_id')
+            app_id = domain_config.beta.app_id
         } else if (user_app_id.length) {
             window.localStorage.setItem('config.default_app_id', user_app_id) // it's being used in endpoint chrome extension - please do not remove
             app_id = user_app_id

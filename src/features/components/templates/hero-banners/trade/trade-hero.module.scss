@@ -1,0 +1,32 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.trade_hero {
+    position: relative;
+    padding-block-start: 8rem;
+
+    @include breakpoints(tablet) {
+        min-block-size: 82.2rem;
+        padding-block-start: 8.8rem;
+    }
+
+    &::before {
+        content: ' ';
+        position: absolute;
+        block-size: 100%;
+        inline-size: 100%;
+        background-color: $color-brand;
+        inset-block-end: 0;
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 0 41%);
+
+        @include breakpoints(tablet) {
+            min-block-size: 82.2rem;
+            inset-inline-end: 0;
+            inline-size: 40%;
+            clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+            @include rtl() {
+                clip-path: polygon(0 0, 85% 0, 100% 100%, 0% 100%);
+            }
+        }
+    }
+}

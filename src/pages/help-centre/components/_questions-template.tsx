@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { TQuestionsData } from '../data/_data-types'
 import { useFilteredQuestions } from '../data/_hooks'
@@ -7,7 +7,8 @@ import SideTab from './_side-tab'
 import AnswerCard from './_answer-card'
 import { Community, DidntFindYourAnswerBanner } from './_lazy-load'
 import Layout from 'components/layout/layout'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
 import { StyledLink } from 'components/elements'
 import { Container, SEO } from 'components/containers'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
@@ -28,14 +29,17 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
     const untranslate_category = getUntranslatedCategory(category)
     const filtered_questions = useFilteredQuestions(questions)
     const { is_deriv_go } = usePlatformQueryParam()
+    const { is_eu } = useRegion()
+
+    React.useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <Layout>
             <SEO
-                title={localize(
-                    `Help centre | Frequently asked questions | ${untranslate_category} | Deriv`,
-                )}
-                description={localize(`Frequently asked questions - ${untranslate_category}`)}
+                title={`_t_Help centre | Frequently asked questions | ${untranslate_category} | Deriv_t_`}
+                description={`_t_Frequently asked questions - ${untranslate_category}_t_`}
             />
             <Container align="start" justify="flex-start" direction="column">
                 <StyledLink
@@ -48,7 +52,7 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
                     arrow_margin="1rem"
                     margin="4rem 0 0"
                 >
-                    <Localize translate_text="Back" />
+                    <Localize translate_text="_t_Back_t_" />
                 </StyledLink>
 
                 <SideTab data={filtered_questions} tab_header={category}>
@@ -56,7 +60,7 @@ const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {
                         <AnswerCard
                             key={label}
                             question={question}
-                            answer={answer}
+                            answer={typeof answer == 'function' ? answer({ is_eu }) : answer}
                             label={label}
                             renderProp={renderProp}
                         />

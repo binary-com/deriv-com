@@ -35,9 +35,9 @@ const Vanuatu = () => {
     return (
         <Layout type="careers">
             <SEO
-                title={localize('Vanuatu – Our office | Deriv')}
+                title={localize('_t_Vanuatu – Our office | Deriv_t_')}
                 description={localize(
-                    'View current job openings at Deriv’s new office in Port Vila, Vanuatu, and get a chance to have a rewarding career ahead.',
+                    '_t_View current job openings at Deriv’s new office in Port Vila, Vanuatu, and get a chance to have a rewarding career ahead._t_',
                 )}
             />
             <NewLocationLayout location={vanuatu} images={images} />

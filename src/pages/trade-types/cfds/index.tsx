@@ -1,37 +1,58 @@
 import React from 'react'
 import Loadable from '@loadable/component'
-import { SmallContainer, Hero } from '../components/_style'
+import { Hero, SmallContainer } from '../components/_style'
+import { cfd_content, non_eu_cfd_content } from '../content/static/_cfd'
 import WhatIsCFD from './_what_is_cfd'
 import { SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
-const WhyTradeCFD = Loadable(() => import('./_why-trade-cfd'))
+import { Localize, WithIntl, localize } from 'components/localization'
+import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
+import { StyledBox } from 'pages/markets/static/style/_markets-style'
+import useRegion from 'components/hooks/use-region'
+
 const TradingCFDIncreases = Loadable(() => import('./_trading-cfd-increases'))
 const StartTrading = Loadable(() => import('./_start-trading'))
 const ThingsToKeep = Loadable(() => import('./_mind-when-trading'))
 const AvailableMarkets = Loadable(() => import('./_available-markets'))
 
 const CFD = () => {
+    const { is_eu } = useRegion()
+    const content = is_eu ? cfd_content : cfd_content.concat(non_eu_cfd_content)
+
     return (
         <Layout>
             <SEO
-                title={localize('CFD trading | Online trading platform | Deriv')}
-                description={localize(
-                    'Trade CFDs on multiple markets. Enjoy high leverage, tight spreads, and risk management features to amplify your potential profits and limit losses.',
-                )}
+                title="_t_CFD trading | Online trading platform | Deriv_t_"
+                description="_t_Trade CFDs on multiple markets. Enjoy high leverage, tight spreads, and risk management features to amplify your potential profits and limit losses._t_"
             />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>
-                    <Header as="h1" type="display-title" color="white" align="center">
-                        {localize('CFD trading')}
+                    <Header as="h1" type="display-title" color="red" align="center">
+                        <Localize translate_text="_t_CFD trading_t_" />
                     </Header>
                 </SmallContainer>
             </Hero>
             <WhatIsCFD />
             <ThingsToKeep />
             <TradingCFDIncreases />
-            <WhyTradeCFD />
+
+            <FullWidthMultiColumn
+                header="_t_Why trade CFDs on Deriv_t_"
+                button_title="_t_Don't have a Deriv account yet?_t_"
+                button_text="_t_Create free demo account_t_"
+                multiple_row
+            >
+                {content.map(({ alt, src, text, title }) => (
+                    <StyledBox
+                        key={alt}
+                        item_title={typeof title === 'function' ? title({ is_eu }) : title}
+                        text={typeof text === 'function' ? text({ is_eu }) : text}
+                        icon={<img width="48px" height="48px" src={src} alt={localize(alt)} />}
+                    />
+                ))}
+            </FullWidthMultiColumn>
+
             <StartTrading />
             <AvailableMarkets />
         </Layout>

@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react'
 import styled, { css } from 'styled-components'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
+// TO-DO (DERIV-REBRANDING) Replace this component with StepperView.
+
 const Checkmark = styled.span<{ is_rtl: boolean }>`
     display: inline-block;
     width: 22px;

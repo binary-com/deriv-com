@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { General, AccountManagement } from './_faq-data'
 import { SectionContainer } from 'components/containers'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
-import DotPattern from 'images/svg/partners/dot-pattern.svg'
 import device from 'themes/device'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import useRegion from 'components/hooks/use-region'
 
 const AccordionWrapper = styled.div`
@@ -22,17 +22,7 @@ const AccordionWrapper = styled.div`
 const RelativeContainer = styled(SectionContainer)`
     position: relative;
     overflow: hidden;
-`
-
-const TopLeftDot = styled.img`
-    position: absolute;
-    top: 4px;
-    left: 0;
-`
-const BottomRightDot = styled.img`
-    position: absolute;
-    bottom: 16px;
-    right: 0;
+    padding-bottom: 8rem;
 `
 
 const Faq = () => {
@@ -49,36 +39,42 @@ const Faq = () => {
         border: 'none',
     }
     const { is_p2p_allowed_country } = useRegion()
+    const [is_mobile] = useBrowserResize()
+
     return (
         <RelativeContainer padding={is_p2p_allowed_country ? '5rem 0' : '0 0 5rem'}>
-            <Header as="h2" size="3.6rem" mb="3.2rem" align="center">
-                {localize('FAQs')}
+            <Header
+                as="h2"
+                size="3.6rem"
+                mb="3.2rem"
+                mt={is_mobile ? '4rem' : '8rem'}
+                align="center"
+            >
+                <Localize translate_text="_t_FAQs_t_" />
             </Header>
             <AccordionWrapper id="payment-agent-faq-list">
                 <Accordion has_single_state>
                     <AccordionItem
-                        header={localize('General')}
+                        header="_t_General_t_"
                         parent_style={parent_style}
                         style={item_style}
                         header_style={header_style}
                         plus
                         class_name="general"
                     >
-                        {<General />}
+                        <General />
                     </AccordionItem>
                     <AccordionItem
-                        header={localize('Account management')}
+                        header="_t_Account management_t_"
                         style={item_style}
                         header_style={header_style}
                         plus
                         class_name="account-management"
                     >
-                        {<AccountManagement />}
+                        <AccountManagement />
                     </AccordionItem>
                 </Accordion>
             </AccordionWrapper>
-            <TopLeftDot src={DotPattern} />
-            <BottomRightDot src={DotPattern} />
         </RelativeContainer>
     )
 }

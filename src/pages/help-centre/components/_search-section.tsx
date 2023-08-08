@@ -2,9 +2,9 @@ import React, { useMemo, useState } from 'react'
 import { matchSorter } from 'match-sorter'
 import styled from 'styled-components'
 import { useFilteredCategory, useFilteredQuestions } from '../data/_hooks'
-import { TTranslatedQuestionsData } from '../data/_data-types'
 import SearchResult from './_search-result'
 import { all_questions } from './_constants'
+import TalkToUs from './_talk-to-us'
 import { Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize, localize } from 'components/localization'
@@ -97,17 +97,17 @@ const SearchSection = () => {
         setSearchValue(sanitize(e.target.value))
     }
 
-    const translated_all_questions: TTranslatedQuestionsData[] = useMemo(
+    const translated_all_questions = useMemo(
         () =>
             all_questions.map((section) => {
                 return {
                     ...section,
-                    category: localize(section.category),
+                    category: section.category,
                     questions: section.questions.map((question) => {
                         return {
                             ...question,
-                            sub_category: localize(question.sub_category),
-                            question: localize(question.question),
+                            sub_category: question.sub_category,
+                            question: question.question,
                         }
                     }),
                 }
@@ -141,7 +141,7 @@ const SearchSection = () => {
             <Container align="start" justify="flex-start" direction="column">
                 <Wrapper>
                     <ResponsiveHeader as="h1" type="heading-1" mb="4rem">
-                        <Localize translate_text="How can we help?" />
+                        <Localize translate_text="_t_How can we help?_t_" />
                     </ResponsiveHeader>
 
                     <SearchForm onSubmit={handleSubmit}>
@@ -162,6 +162,7 @@ const SearchSection = () => {
                             />
                         )}
                     </SearchForm>
+                    <TalkToUs />
 
                     {has_search_value && (
                         <SearchResult

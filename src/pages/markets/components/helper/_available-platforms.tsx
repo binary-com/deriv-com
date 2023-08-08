@@ -2,17 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import { smarttrader_url } from 'common/constants'
 import { Flex } from 'components/containers'
-import { TString } from 'types/generics'
-import { Text, Header } from 'components/elements'
-import { localize, LocalizedLink } from 'components/localization'
+import { Header, Text } from 'components/elements'
+import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
-import DBot from 'images/svg/dbot/dbot-icon.svg'
-import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
-import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
-import SmartTrader from 'images/svg/custom/smarttrader.svg'
+import SmartTrader from 'images/svg/custom/rebranding/smarttrader-icon.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
-import DerivEZ from 'images/svg/deriv-ez/derivez-logo-black.svg'
-import DerivGo from 'images/svg/custom/deriv-go.svg'
+import DBot from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
+import DMT5 from 'images/svg/custom/rebranding/dmt5-icon.svg'
+import DTrader from 'images/svg/custom/rebranding/dtrader-icon.svg'
+import DerivGo from 'images/svg/custom/rebranding/deriv-go-icon.svg'
+import DerivEZ from 'images/svg/trading-specification/deriv-ez.svg'
 import useRegion from 'components/hooks/use-region'
 
 type AvailablePlatformsProps = {
@@ -22,13 +21,16 @@ type AvailablePlatformsProps = {
     dbot?: boolean
     smarttrader?: boolean
     derivx?: boolean
+    deriv_ez?: boolean
     derivez?: boolean
     flex_direction?: string
     tablet_direction?: string
     m_top?: string
 }
 
-const PlatformsContainer = styled(Flex)`
+const PlatformsContainer = styled.div<AvailablePlatformsProps>`
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     width: unset;
 
@@ -45,8 +47,29 @@ const PlatformsContainer = styled(Flex)`
         margin-right: 0;
         min-width: 95px;
     }
-    @media ${device.tablet} {
-        width: ${(props) => props.width};
+    @media ${device.mobileL} {
+        display: ${(props) => (props.tablet_direction ? 'grid' : 'flex')};
+        grid-template-columns: ${(props) => (props.tablet_direction ? 'repeat(2, 1fr)' : 'auto')};
+        grid-template-rows: ${(props) => (props.tablet_direction ? 'auto auto' : 'auto')};
+        grid-gap: ${(props) => (props.tablet_direction ? '1rem' : 'unset')};
+
+        ${(props) =>
+            props.tablet_direction &&
+            `
+          a:nth-child(1) {
+            grid-column: 1 / span 1;
+            grid-row: 1 / span 1;
+          }
+          a:nth-child(2) {
+            grid-column: 2 / span 1;
+            grid-row: 1 / span 1;
+          }
+          a:nth-child(3) {
+            grid-column: 1 / span 2;
+            grid-row: 2 / span 1;
+            text-align: center;
+          }
+        `}
     }
 `
 const StyledText = styled(Header)`
@@ -64,19 +87,19 @@ const StyledText = styled(Header)`
     }
 `
 const StyledFlex = styled(Flex)`
-    background: var(--color-grey-4);
     padding: 0.8rem;
 
     ${Text} {
         font-size: 14px;
     }
 `
-const deriv_go_text: TString = '_t_Deriv Go_t_'
+
 const AvailablePlatforms = ({
     dmt5,
     deriv_go,
     dtrader,
     dbot,
+    deriv_ez,
     smarttrader,
     derivx,
     derivez,
@@ -96,65 +119,91 @@ const AvailablePlatforms = ({
             ai="center"
         >
             <StyledText type="paragraph-1" weight="normal" width="auto">
-                {localize('Available on')}
+                <Localize translate_text="_t_Available on_t_" />
             </StyledText>
             <PlatformsContainer
+                flex_direction={flex_direction}
+                tablet_direction={tablet_direction}
                 width={tablet_direction === 'column' ? '100%' : 'unset'}
                 ai="center"
             >
                 {dmt5 && (
                     <LocalizedLink to="/dmt5/">
                         <StyledFlex direction="row" ai="center">
-                            <img src={DMT5} alt="Deriv MT5 (DMT5)" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('Deriv MT5')}</Text>
+                            <embed src={DMT5} width="24" height="24" />
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_Deriv MT5_t_" />
+                            </Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
                 {dtrader && (
                     <LocalizedLink to="/dtrader/">
                         <StyledFlex direction="row" ai="center">
-                            <img src={DTrader} alt="DTrader" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('DTrader')}</Text>
+                            <embed src={DTrader} width="24" height="24" />
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_Deriv Trader_t_" />
+                            </Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
                 {dbot && (
                     <LocalizedLink to="/dbot/">
                         <StyledFlex direction="row" ai="center">
-                            <img src={DBot} alt="DBot" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('DBot')}</Text>
+                            <embed src={DBot} width="24" height="24" />
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_Deriv Bot_t_" />
+                            </Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
                 {smarttrader && (
                     <a href={smarttrader_url} target="_blank" rel="noopener noreferrer">
                         <StyledFlex direction="row" ai="center">
-                            <img src={SmartTrader} alt="SmartTrader" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('SmartTrader')}</Text>
+                            <embed src={SmartTrader} width="24" height="24" />
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_SmartTrader_t_" />
+                            </Text>
                         </StyledFlex>
                     </a>
                 )}
                 {derivx && !is_eu && (
                     <LocalizedLink to="/derivx/">
                         <StyledFlex direction="row" ai="center">
-                            <img src={DerivX} alt="Deriv X" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('Deriv X')}</Text>
+                            <embed src={DerivX} width="25" height="25" />
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_Deriv X_t_" />
+                            </Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
                 {derivez && !is_eu && (
-                    <LocalizedLink to="/derivez/">
+                    <LocalizedLink to="/deriv-ez/">
                         <StyledFlex direction="row" ai="center">
                             <img src={DerivEZ} alt="Deriv ez" width="32" height="32" />
-                            <Text ml="0.4rem">{localize('Deriv EZ')}</Text>
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_Deriv EZ_t_" />
+                            </Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}
                 {deriv_go && (
                     <LocalizedLink to="/deriv-go/">
                         <StyledFlex direction="row" ai="center">
-                            <img src={DerivGo} alt="Deriv go" width="32" height="32" />
-                            <Text ml="0.4rem">{localize(deriv_go_text)}</Text>
+                            <embed src={DerivGo} width="24" height="24" />
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_Deriv GO_t_" />
+                            </Text>
+                        </StyledFlex>
+                    </LocalizedLink>
+                )}
+                {deriv_ez && (
+                    <LocalizedLink to="/deriv-ez/">
+                        <StyledFlex direction="row" ai="center">
+                            <embed src={DerivEZ} width="24" height="24" />
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_Deriv EZ_t_" />
+                            </Text>
                         </StyledFlex>
                     </LocalizedLink>
                 )}

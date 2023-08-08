@@ -34,47 +34,38 @@ const MiddleText = styled(Text)`
 
 const OptionsToTrade = () => {
     const { is_eu } = useRegion()
+
     return (
         <SectionContainer background="white" padding="0 0 4rem">
             <SmallContainer direction="column" ai="flex-start">
                 <Header as="h2" type="page-title" mb="4rem">
-                    <Localize translate_text="Options to trade on Deriv" />
+                    <Localize translate_text="_t_Options to trade on Deriv_t_" />
                 </Header>
                 <Header as="h3" type="section-title" mb="2.4rem">
-                    <Localize translate_text="Digital options" />
+                    <Localize translate_text="_t_Digital options_t_" />
                 </Header>
                 <Header as="h4" type="sub-section-title" mb="1.6rem">
-                    <Localize translate_text="Up/Down" />
+                    <Localize translate_text="_t_Up/Down_t_" />
                 </Header>
                 <UpDownGrid />
                 <Header as="h4" type="sub-section-title" mb="1.6rem">
-                    <Localize translate_text="In/Out" />
+                    <Localize translate_text="_t_In/Out_t_" />
                 </Header>
                 <InOutGrid />
                 <Header as="h4" type="sub-section-title" mb="1.6rem">
-                    <Localize translate_text="Digits" />
+                    <Localize translate_text="_t_Digits_t_" />
                 </Header>
                 <DigitsGrid />
                 <SingleOptionsGrid />
-                <Notes
-                    text={
-                        <Localize translate_text="High Ticks/Low Ticks, Asians, Reset Call/Reset Put, Digits, and Only Ups/Only Downs are available exclusively on synthetic indices." />
-                    }
-                />
+                <Notes text="_t_High Ticks/Low Ticks, Asians, Reset Call/Reset Put, Digits, and Only Ups/Only Downs are available exclusively on synthetics._t_" />
                 <Header as="h4" type="sub-section-title" mt="4rem" mb="1.6rem">
-                    <Localize translate_text="Lookbacks" />
+                    <Localize translate_text="_t_Lookbacks_t_" />
                 </Header>
                 <LookbacksGrid />
-                <Notes
-                    text={
-                        <Localize translate_text="Lookback options are available only on synthetic indices." />
-                    }
-                />
+                <Notes text="_t_Lookback options are available only on synthetics._t_" />
                 {is_eu && (
                     <Text mt="0.8rem" color="grey-5" size="var(--text-size-xs)">
-                        {localize(
-                            'Return to player (RTP) % for lookbacks for a multiplier of 1 and 1m duration is around 87% on average.',
-                        )}
+                        <Localize translate_text="_t_Return to player (RTP) % for lookbacks for a multiplier of 1 and 1m duration is around 87% on average._t_" />
                     </Text>
                 )}
             </SmallContainer>
@@ -87,58 +78,42 @@ const UpDownGrid = () => {
         <OptionGrid>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <img src={RiseFall} alt="rise fall" />
+                    <img src={RiseFall} alt={localize('_t_rise fall_t_')} />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="Rise/Fall" />
+                    <Localize translate_text="_t_Rise/Fall_t_" />
                 </Text>
                 <MiddleText>
-                    {localize(
-                        'Predict whether the exit spot will be strictly higher or lower than the entry spot at the end of the contract period.',
-                    )}
+                    <Localize translate_text="_t_Predict whether the exit spot will be strictly higher or lower than the entry spot at the end of the contract period._t_" />
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        'If you select ‘Rise’, you win the payout if the exit spot is strictly higher than the entry spot.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Rise’, you win the payout if the exit spot is strictly higher than the entry spot._t_" />
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        'If you select ‘Fall’, you win the payout if the exit spot is strictly lower than the entry spot.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Fall’, you win the payout if the exit spot is strictly lower than the entry spot._t_" />
                 </MiddleText>
                 <Text>
-                    {localize(
-                        'If you select ‘Allow equals’, you win the payout if the exit spot is higher than or equal to the entry spot for ‘Rise’. Similarly, you win the payout if the exit spot is lower than or equal to the entry spot for ‘Fall’.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Allow equals’, you win the payout if the exit spot is higher than or equal to the entry spot for ‘Rise’. Similarly, you win the payout if the exit spot is lower than or equal to the entry spot for ‘Fall’._t_" />
                 </Text>
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <img src={HigherLower} alt="higher lower" />
+                    <img src={HigherLower} alt={localize('_t_higher lower_t_')} />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="Higher/Lower" />
+                    <Localize translate_text="_t_Higher/Lower_t_" />
                 </Text>
                 <MiddleText>
-                    {localize(
-                        'Predict whether the exit spot will be higher or lower than a price target (the barrier) at the end of the contract period.',
-                    )}
+                    <Localize translate_text="_t_Predict whether the exit spot will be higher or lower than a price target (the barrier) at the end of the contract period._t_" />
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        'If you select ‘Higher’, you win the payout if the exit spot is strictly higher than the barrier.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Higher’, you win the payout if the exit spot is strictly higher than the barrier._t_" />
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        'If you select ‘Lower’, you win the payout if the exit spot is strictly lower than the barrier.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Lower’, you win the payout if the exit spot is strictly lower than the barrier._t_" />
                 </MiddleText>
                 <Text>
-                    {localize(
-                        "If the exit spot is equal to the barrier, you don't win the payout.",
-                    )}
+                    <Localize translate_text="_t_If the exit spot is equal to the barrier, you don't win the payout._t_" />
                 </Text>
             </Flex>
         </OptionGrid>
@@ -150,54 +125,40 @@ const InOutGrid = () => {
         <OptionGrid>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <img src={EbEo} alt="eb eo" />
+                    <img src={EbEo} alt={localize('_t_eb eo_t_')} />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="Ends Between/Ends Outside" />
+                    <Localize translate_text="_t_Ends Between/Ends Outside_t_" />
                 </Text>
 
                 <MiddleText>
-                    {localize(
-                        'Predict whether the exit spot will be inside or outside two price targets at the end of the contract period.',
-                    )}
+                    <Localize translate_text="_t_Predict whether the exit spot will be inside or outside two price targets at the end of the contract period._t_" />
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        'If you select ‘Ends Between’, you win the payout if the exit spot is strictly higher than the low barrier and lower than the high barrier.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Ends Between’, you win the payout if the exit spot is strictly higher than the low barrier and lower than the high barrier._t_" />
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        'If you select ‘Ends Outside’, you win the payout if the exit spot is either strictly higher than the high barrier, or strictly lower than the low barrier.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Ends Outside’, you win the payout if the exit spot is either strictly higher than the high barrier, or strictly lower than the low barrier._t_" />
                 </MiddleText>
                 <Text>
-                    {localize(
-                        "If the exit spot is equal to either the low barrier or the high barrier, you don't win the payout.",
-                    )}
+                    <Localize translate_text="_t_If the exit spot is equal to either the low barrier or the high barrier, you don't win the payout._t_" />
                 </Text>
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <img src={SbGo} alt="sb go" />
+                    <img src={SbGo} alt={localize('_t_sb go_t_')} />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="Stays Between/Goes Outside" />
+                    <Localize translate_text="_t_Stays Between/Goes Outside_t_" />
                 </Text>
                 <MiddleText>
-                    {localize(
-                        'Predict whether the market will stay inside or go outside two price targets at any time during the contract period.',
-                    )}
+                    <Localize translate_text="_t_Predict whether the market will stay inside or go outside two price targets at any time during the contract period._t_" />
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        'If you select ‘Stays Between’, you win the payout if the market stays between (does not touch). either the high barrier or the low barrier at any time during the contract period.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Stays Between’, you win the payout if the market stays between (does not touch) either the high barrier or the low barrier at any time during the contract period._t_" />
                 </MiddleText>
                 <Text>
-                    {localize(
-                        'If you select ‘Goes Outside’, you win the payout if the market touches either the high barrier or the low barrier at any time during the contract period.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Goes Outside’, you win the payout if the market touches either the high barrier or the low barrier at any time during the contract period._t_" />
                 </Text>
             </Flex>
         </OptionGrid>
@@ -209,71 +170,53 @@ const DigitsGrid = () => {
         <OptionGrid>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <img src={MatchDiffers} alt="matches differs" />
+                    <img src={MatchDiffers} alt={localize('_t_matches differs_t_')} />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="Matches/Differs" />
+                    <Localize translate_text="_t_Matches/Differs_t_" />
                 </Text>
                 <MiddleText>
-                    {localize(
-                        'Predict what number will be the last digit of the last tick of a contract.',
-                    )}
+                    <Localize translate_text="_t_Predict what number will be the last digit of the last tick of a contract._t_" />
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        'If you select ‘Matches’, you will win the payout if the last digit of the last tick is the same as your prediction.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Matches’, you will win the payout if the last digit of the last tick is the same as your prediction._t_" />
                 </MiddleText>
                 <Text>
-                    {localize(
-                        'If you select ‘Differs’, you will win the payout if the last digit of the last tick is not the same as your prediction.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Differs’, you will win the payout if the last digit of the last tick is not the same as your prediction._t_" />
                 </Text>
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <img src={EvenOdd} alt="even odd" />
+                    <img src={EvenOdd} alt={localize('_t_even odd_t_')} />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="Even/Odd" />
+                    <Localize translate_text="_t_Even/Odd_t_" />
                 </Text>
                 <MiddleText>
-                    {localize(
-                        'Predict whether the last digit of the last tick of a contract will be an even number or an odd number.',
-                    )}
+                    <Localize translate_text="_t_Predict whether the last digit of the last tick of a contract will be an even number or an odd number._t_" />
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        'If you select ‘Even’, you will win the payout if the last digit of the last tick is an even number (i.e. 2, 4, 6, 8, or 0).',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Even’, you will win the payout if the last digit of the last tick is an even number (i.e. 2, 4, 6, 8, or 0)._t_" />
                 </MiddleText>
                 <Text>
-                    {localize(
-                        'If you select ‘Odd’, you will win the payout if the last digit of the last tick is an odd number (i.e. 1, 3, 5, 7, or 9).',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Odd’, you will win the payout if the last digit of the last tick is an odd number (i.e. 1, 3, 5, 7, or 9)._t_" />
                 </Text>
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <img src={OverUnder} alt="over under" />
+                    <img src={OverUnder} alt={localize('_t_over under_t_')} />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="Over/Under" />
+                    <Localize translate_text="_t_Over/Under_t_" />
                 </Text>
                 <MiddleText>
-                    {localize(
-                        'Predict whether the last digit of the last tick of a contract will be higher or lower than a specific number.',
-                    )}
+                    <Localize translate_text="_t_Predict whether the last digit of the last tick of a contract will be higher or lower than a specific number._t_" />
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        'If you select ‘Over’, you will win the payout if the last digit of the last tick is greater than your prediction.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Over’, you will win the payout if the last digit of the last tick is greater than your prediction._t_" />
                 </MiddleText>
                 <Text>
-                    {localize(
-                        'If you select ‘Under’, you will win the payout if the last digit of the last tick is less than your prediction.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Under’, you will win the payout if the last digit of the last tick is less than your prediction._t_" />
                 </Text>
             </Flex>
         </OptionGrid>
@@ -285,127 +228,93 @@ const SingleOptionsGrid = () => {
         <OptionGridSecondary>
             <Flex fd="column" jc="flex-start" height="auto">
                 <Header as="h4" type="sub-section-title" mb="1.6rem">
-                    <Localize translate_text="Reset Call/Reset Put" />
+                    <Localize translate_text="_t_Reset Call/Reset Put_t_" />
                 </Header>
                 <div>
-                    <img src={RcRp} alt="rc rp" />
+                    <img src={RcRp} alt={localize('_t_rc rp_t_')} />
                 </div>
                 <MiddleText mt="1.6rem">
-                    {localize(
-                        'Predict whether the exit spot will be higher or lower than either the entry spot or the spot at reset time.',
-                    )}
+                    <Localize translate_text="_t_Predict whether the exit spot will be higher or lower than either the entry spot or the spot at reset time._t_" />
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        'If you select ‘Reset-Call’, you win the payout if the exit spot is strictly higher than either the entry spot or the spot at reset time.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Reset-Call’, you win the payout if the exit spot is strictly higher than either the entry spot or the spot at reset time._t_" />
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        'If you select ‘Reset-Put’, you win the payout if the exit spot is strictly lower than either the entry spot or the spot at reset time.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Reset-Put’, you win the payout if the exit spot is strictly lower than either the entry spot or the spot at reset time._t_" />
                 </MiddleText>
                 <Text>
-                    {localize(
-                        "If the exit spot is equal to the barrier or the new barrier (if a reset occurs), you don't win the payout.",
-                    )}
+                    <Localize translate_text="_t_If the exit spot is equal to the barrier or the new barrier (if a reset occurs), you don't win the payout._t_" />
                 </Text>
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <Header as="h4" type="sub-section-title" mb="1.6rem">
-                    <Localize translate_text="High/Low Ticks" />
+                    <Localize translate_text="_t_High/Low Ticks_t_" />
                 </Header>
                 <div>
-                    <img src={HighLowTicks} alt="hl ticks" />
+                    <img src={HighLowTicks} alt={localize('_t_hl ticks_t_')} />
                 </div>
                 <MiddleText mt="1.6rem">
-                    {localize(
-                        'Predict which will be the highest or the lowest tick in a series of five ticks.',
-                    )}
+                    <Localize translate_text="_t_Predict which will be the highest or the lowest tick in a series of five ticks._t_" />
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        'If you select ‘High Tick’, you win the payout if the selected tick is the highest among the next five ticks.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘High Tick’, you win the payout if the selected tick is the highest among the next five ticks._t_" />
                 </MiddleText>
                 <Text>
-                    {localize(
-                        'If you select ‘Low Tick’, you win the payout if the selected tick is the lowest among the next five ticks.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Low Tick’, you win the payout if the selected tick is the lowest among the next five ticks._t_" />
                 </Text>
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <Header as="h4" type="sub-section-title" mb="1.6rem">
-                    <Localize translate_text="Touch/No Touch" />
+                    <Localize translate_text="_t_Touch/No Touch_t_" />
                 </Header>
                 <div>
-                    <img src={TnT} alt="tnt" />
+                    <img src={TnT} alt={localize('_t_tnt_t_')} />
                 </div>
                 <MiddleText mt="1.6rem">
-                    {localize(
-                        'Predict whether the market will touch or not touch a target at any time during the contract period.',
-                    )}
+                    <Localize translate_text="_t_Predict whether the market will touch or not touch a target at any time during the contract period._t_" />
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        'If you select ‘Touches’, you win the payout if the market touches the barrier at any time during the contract period.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Touch’, you win the payout if the market touches the barrier at any time during the contract period._t_" />
                 </MiddleText>
                 <Text>
-                    {localize(
-                        'If you select ‘Does Not Touch’, you win the payout if the market never touches the barrier at any time during the contract period.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘No Touch’, you win the payout if the market never touches the barrier at any time during the contract period._t_" />
                 </Text>
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <Header as="h4" type="sub-section-title" mb="1.6rem">
-                    <Localize translate_text="Asians" />
+                    <Localize translate_text="_t_Asians_t_" />
                 </Header>
                 <div>
-                    <img src={Asians} alt="asians" />
+                    <img src={Asians} alt={localize('_t_asians_t_')} />
                 </div>
                 <MiddleText mt="1.6rem">
-                    {localize(
-                        'Predict whether the exit spot (last tick) will be higher or lower than than the average of the ticks at the end of the contract period.',
-                    )}
+                    <Localize translate_text="_t_Predict whether the exit spot (last tick) will be higher or lower than than the average of the ticks at the end of the contract period._t_" />
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        'If you select ‘Asian Rise’, you will win the payout if the last tick is higher than the average of the ticks.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Asian Rise’, you will win the payout if the last tick is higher than the average of the ticks._t_" />
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        'If you select ‘Asian Fall’, you will win the payout if the last tick is lower than the average of the ticks.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Asian Fall’, you will win the payout if the last tick is lower than the average of the ticks._t_" />
                 </MiddleText>
                 <Text>
-                    {localize(
-                        "If the last tick is equal to the average of the ticks, you don't win the payout.",
-                    )}
+                    <Localize translate_text="_t_If the last tick is equal to the average of the ticks, you don't win the payout._t_" />
                 </Text>
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <Header as="h4" type="sub-section-title" mb="1.6rem">
-                    <Localize translate_text="Only Ups/Only Downs" />
+                    <Localize translate_text="_t_Only Ups/Only Downs_t_" />
                 </Header>
                 <div>
-                    <img src={OuOd} alt="ou od" />
+                    <img src={OuOd} alt={localize('_t_ou od_t_')} />
                 </div>
                 <MiddleText mt="1.6rem">
-                    {localize(
-                        'Predict whether consecutive ticks will rise or fall successively after the entry spot.',
-                    )}
+                    <Localize translate_text="_t_Predict whether consecutive ticks will rise or fall successively after the entry spot._t_" />
                 </MiddleText>
                 <MiddleText>
-                    {localize(
-                        'If you select ‘Only Ups’, you win the payout if consecutive ticks rise successively after the entry spot. No payout if any tick falls or is equal to any of the previous ticks.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Only Ups’, you win the payout if consecutive ticks rise successively after the entry spot. No payout if any tick falls or is equal to any of the previous ticks._t_" />
                 </MiddleText>
                 <Text>
-                    {localize(
-                        'If you select ‘Only Downs’, you win the payout if consecutive ticks fall successively after the entry spot. No payout if any tick rises or is equal to any of the previous ticks.',
-                    )}
+                    <Localize translate_text="_t_If you select ‘Only Downs’, you win the payout if consecutive ticks fall successively after the entry spot. No payout if any tick rises or is equal to any of the previous ticks._t_" />
                 </Text>
             </Flex>
         </OptionGridSecondary>
@@ -417,41 +326,35 @@ const LookbacksGrid = () => {
         <OptionGrid>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <img src={HighClose} alt="high close" />
+                    <img src={HighClose} alt={localize('_t_high close_t_')} />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="High-Close" />
+                    <Localize translate_text="_t_High-Close_t_" />
                 </Text>
                 <Text>
-                    {localize(
-                        'When you purchase a ‘High-Close’ contract, your win or loss will be equal to the multiplier times the difference between the high and the close over the duration of the contract.',
-                    )}
+                    <Localize translate_text="_t_When you purchase a ‘High-Close’ contract, your win or loss will be equal to the multiplier times the difference between the high and the close over the duration of the contract._t_" />
                 </Text>
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <img src={CloseLow} alt="close low" />
+                    <img src={CloseLow} alt={localize('_t_close low_t_')} />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="Close-Low" />
+                    <Localize translate_text="_t_Close-Low_t_" />
                 </Text>
                 <Text>
-                    {localize(
-                        'When you purchase a ‘Close-Low’ contract, your win or loss will be equal to the multiplier times the difference between the close and the low over the duration of the contract.',
-                    )}
+                    <Localize translate_text="_t_When you purchase a ‘Close-Low’ contract, your win or loss will be equal to the multiplier times the difference between the close and the low over the duration of the contract._t_" />
                 </Text>
             </Flex>
             <Flex fd="column" jc="flex-start" height="auto">
                 <div>
-                    <img src={HighLow} alt="high low" />
+                    <img src={HighLow} alt={localize('_t_high low_t_')} />
                 </div>
                 <Text weight="bold" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="High-Low" />
+                    <Localize translate_text="_t_High-Low_t_" />
                 </Text>
                 <Text>
-                    {localize(
-                        'When you purchase a ‘High-Low’ contract, your win or loss will be equal to the multiplier times the difference between the high and the low over the duration of the contract.',
-                    )}
+                    <Localize translate_text="_t_When you purchase a ‘High-Low’ contract, your win or loss will be equal to the multiplier times the difference between the high and the low over the duration of the contract._t_" />
                 </Text>
             </Flex>
         </OptionGrid>

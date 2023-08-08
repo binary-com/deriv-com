@@ -1,0 +1,37 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.banner_section {
+  position: relative;
+  isolation: isolate;
+  &:before {
+    background: $color-black-10;
+    clip-path: polygon(0 0,100% 0,100% 100%,0 78%);
+    inset: 0 0 50% 0;
+    position: absolute;
+    content: "";
+    z-index: -1;
+    @include breakpoints(tablet) {
+      clip-path: polygon(0 0,90% 0,100% 100%,0 100%);
+      inset: 0 42% 0 0;
+    }
+  }
+}
+.heading_box {
+  inline-size: 32.8rem;
+  @include breakpoints(laptop) {
+    inline-size: 61rem;
+  }
+}
+.qr_box {
+  border: 0.5px solid var(--color-white);
+  border-radius: 24px;
+  inline-size: 32.8rem;
+  @include breakpoints(tablet) {
+    inline-size: 38.4rem;
+  }
+}
+
+.download_col {
+  max-inline-size: 38.5rem;
+}

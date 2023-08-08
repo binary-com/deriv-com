@@ -1,20 +1,20 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { withLangDirection } from 'themes/function'
 import { TString } from 'types/generics'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { useOutsideClick } from 'components/hooks/use-outside-click'
 import { Flex } from 'components/containers'
-import { LocalizedLink, Localize } from 'components/localization'
+import { Localize, LocalizedLink, localize } from 'components/localization'
 import {
     Accordion,
     AccordionItem,
-    NavCard,
-    Text,
     Divider,
     ImageWithDireciton,
+    NavCard,
+    Text,
 } from 'components/elements'
-import { deriv_status_page_url, binary_bot_url } from 'common/constants'
+import { binary_bot_url, deriv_status_page_url } from 'common/constants'
 // SVG
 import AffiliateIb from 'images/svg/menu/affiliate-ib.svg'
 import Blog from 'images/svg/custom/blog-nav.svg'
@@ -31,7 +31,7 @@ import API from 'images/svg/menu/developers.svg'
 import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
-import DerivEZ from 'images/svg/deriv-ez/derivez-logo-black.svg'
+import DerivEZ from 'images/svg/deriv-ez/deriv-ez-logo-red.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
 import DerivGo from 'images/svg/deriv-go/deriv-go-icon.svg'
 import Forex from 'images/svg/custom/forex-nav.svg'
@@ -173,30 +173,28 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
             <OffCanvasMenuContainer>
                 <Accordion>
                     <AccordionItem
-                        header={<Localize translate_text="Trade" />}
+                        header="_t_Trade_t_"
                         header_style={header_style}
                         style={content_style}
                     >
                         {!props.is_ppc && (
                             <>
                                 <Text color="grey-5" mb="8px" size="14px">
-                                    {<Localize translate_text="Trade types" />}
+                                    <Localize translate_text="_t_Trade types_t_" />
                                 </Text>
                                 <Flex mb="2rem">
                                     <NavCard
                                         aria_label="CFDs"
-                                        icon={() => (
+                                        Icon={() => (
                                             <img
                                                 src={CFD}
-                                                alt="CFDs trade type"
+                                                alt={localize('_t_CFDs trade type_t_')}
                                                 width="32"
                                                 height="32"
                                             />
                                         )}
-                                        content={
-                                            <Localize translate_text="Trade with leverage and tight spreads for better returns on successful trades." />
-                                        }
-                                        title={<Localize translate_text="CFDs" />}
+                                        content="_t_Trade with leverage and tight spreads for better returns on successful trades._t_"
+                                        title="_t_CFDs_t_"
                                         onClick={handleArrowClick}
                                         to="/trade-types/cfds/"
                                     />
@@ -205,18 +203,16 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                     <Flex mb="2rem">
                                         <NavCard
                                             aria_label="Options"
-                                            icon={() => (
+                                            Icon={() => (
                                                 <img
                                                     src={Options}
-                                                    alt="Options trade type"
+                                                    alt={localize('_t_Options trade type_t_')}
                                                     width="32"
                                                     height="32"
                                                 />
                                             )}
-                                            content={
-                                                <Localize translate_text="Earn a range of payouts without risking more than your initial stake." />
-                                            }
-                                            title={<Localize translate_text="Options" />}
+                                            content="_t_Earn a range of payouts without risking more than your initial stake._t_"
+                                            title="_t_Options_t_"
                                             onClick={handleArrowClick}
                                             to="/trade-types/options/"
                                         />
@@ -225,45 +221,39 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 <Flex mb="2rem">
                                     <NavCard
                                         aria_label="Multipliers"
-                                        icon={() => (
+                                        Icon={() => (
                                             <img
                                                 src={Multipliers}
-                                                alt="Multipliers trade type"
+                                                alt={localize('_t_Multipliers trade type_t_')}
                                                 width="32"
                                                 height="32"
                                             />
                                         )}
-                                        content={
-                                            <Localize translate_text="Get the upside of CFDs without the downside of losing more than your stake." />
-                                        }
-                                        title={<Localize translate_text="Multipliers" />}
+                                        content="_t_Get the upside of CFDs without the downside of losing more than your stake._t_"
+                                        title="_t_Multipliers_t_"
                                         onClick={handleArrowClick}
                                         to="/trade-types/multiplier/"
                                     />
                                 </Flex>
                             </>
                         )}
-
                         <Divider m="16px 0" width="100%" height="1px" color="grey-8" />
-
                         <Text color="grey-5" mb="8px" size="14px">
-                            {<Localize translate_text="Trading platforms" />}
+                            <Localize translate_text="_t_Trading platforms_t_" />
                         </Text>
                         <Flex mb="2rem">
                             <NavCard
                                 aria_label="DMT5"
-                                icon={() => (
+                                Icon={() => (
                                     <img
                                         src={DMT5}
-                                        alt="Deriv MT5 trading platform"
+                                        alt={localize('_t_Deriv MT5 trading platform_t_')}
                                         width="32"
                                         height="32"
                                     />
                                 )}
-                                content={
-                                    <Localize translate_text="Trade on Deriv MT5, the all-in-one CFD trading platform." />
-                                }
-                                title={<Localize translate_text="Deriv MT5" />}
+                                content="_t_Trade on Deriv MT5, the all-in-one CFD trading platform._t_"
+                                title="_t_Deriv MT5_t_"
                                 onClick={handleArrowClick}
                                 to={props.is_ppc_redirect ? '/landing/dmt5/' : '/dmt5/'}
                             />
@@ -273,18 +263,16 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 <Flex mb="2rem">
                                     <NavCard
                                         aria_label="Derivx"
-                                        icon={() => (
+                                        Icon={() => (
                                             <img
                                                 src={DerivX}
-                                                alt="Deriv X trading paltform"
+                                                alt={localize('_t_Deriv X trading paltform_t_')}
                                                 width="32"
                                                 height="32"
                                             />
                                         )}
-                                        content={
-                                            <Localize translate_text="A highly customisable and easy-to-use CFD trading platform." />
-                                        }
-                                        title={<Localize translate_text="Deriv X" />}
+                                        content="_t_A highly customisable and easy-to-use CFD trading platform._t_"
+                                        title="_t_Deriv X_t_"
                                         onClick={handleArrowClick}
                                         to="/derivx/"
                                     />
@@ -292,40 +280,35 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 <Flex mb="2rem">
                                     <NavCard
                                         aria_label="Derivez"
-                                        icon={() => (
+                                        Icon={() => (
                                             <img
                                                 src={DerivEZ}
-                                                alt="Deriv EZ trading paltform"
+                                                alt={localize('_t_Deriv EZ trading paltform_t_')}
                                                 width="32"
                                                 height="32"
                                             />
                                         )}
-                                        content={
-                                            <Localize translate_text="Trade on global markets from anywhere with our mobile-first CFD trading platform." />
-                                        }
-                                        title={<Localize translate_text="Deriv EZ" />}
+                                        content="_t_Trade on global markets from anywhere with our mobile-first CFD trading platform._t_"
+                                        title="_t_Deriv EZ_t_"
                                         onClick={handleArrowClick}
-                                        to="/derivez/"
+                                        to="/deriv-ez/"
                                     />
                                 </Flex>
                             </>
                         )}
-
                         <Flex mb="2rem">
                             <NavCard
                                 aria_label="DTrader"
-                                icon={() => (
+                                Icon={() => (
                                     <img
                                         src={DTrader}
-                                        alt="Dtrader trading platform"
+                                        alt={localize('_t_Dtrader trading platform_t_')}
                                         width="32"
                                         height="32"
                                     />
                                 )}
-                                content={
-                                    <Localize translate_text="A whole new trading experience on a powerful yet easy to use platform." />
-                                }
-                                title={<Localize translate_text="DTrader" />}
+                                content="_t_A whole new trading experience on a powerful yet easy to use platform._t_"
+                                title="_t_DTrader_t_"
                                 onClick={handleArrowClick}
                                 to="/dtrader/"
                             />
@@ -335,18 +318,16 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 <Flex mb="2rem">
                                     <NavCard
                                         aria_label="Deriv GO"
-                                        icon={() => (
+                                        Icon={() => (
                                             <img
                                                 src={DerivGo}
-                                                alt="Deriv GO mobile trading app"
+                                                alt={localize('_t_Deriv GO mobile trading app_t_')}
                                                 width="32"
                                                 height="32"
                                             />
                                         )}
-                                        content={
-                                            <Localize translate_text="Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app." />
-                                        }
-                                        title={<Localize translate_text="Deriv GO" />}
+                                        content="_t_Trade multipliers on forex, cryptocurrencies, and synthetic indices with our mobile app._t_"
+                                        title="_t_Deriv GO_t_"
                                         onClick={handleArrowClick}
                                         to="/deriv-go/"
                                     />
@@ -354,18 +335,16 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 <Flex mb="2rem">
                                     <NavCard
                                         aria_label="SmartTrader"
-                                        icon={() => (
+                                        Icon={() => (
                                             <img
                                                 src={Smarttrader}
-                                                alt="SmartTrader trading platform"
+                                                alt={localize('_t_SmartTrader trading platform_t_')}
                                                 width="32"
                                                 height="32"
                                             />
                                         )}
-                                        content={
-                                            <Localize translate_text="Trade the world’s markets with our popular user-friendly platform." />
-                                        }
-                                        title={<Localize translate_text="SmartTrader" />}
+                                        content="_t_Trade the world’s markets with our popular user-friendly platform._t_"
+                                        title="_t_SmartTrader_t_"
                                         onClick={handleArrowClick}
                                         to="trading"
                                         type="smart_trader"
@@ -377,18 +356,16 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 <Flex mb="2rem">
                                     <NavCard
                                         aria_label="DBot"
-                                        icon={() => (
+                                        Icon={() => (
                                             <img
                                                 src={DBot}
-                                                alt="Dbot for auto trading"
+                                                alt={localize('_t_Dbot for auto trading_t_')}
                                                 width="32"
                                                 height="32"
                                             />
                                         )}
-                                        content={
-                                            <Localize translate_text="Automated trading at your fingertips. No coding needed." />
-                                        }
-                                        title={<Localize translate_text="DBot" />}
+                                        content="_t_Automated trading at your fingertips. No coding needed._t_"
+                                        title="_t_DBot_t_"
                                         onClick={handleArrowClick}
                                         to="/dbot/"
                                     />
@@ -396,18 +373,18 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 <Flex mb="2rem">
                                     <NavCard
                                         aria_label="BinaryBot"
-                                        icon={() => (
+                                        Icon={() => (
                                             <img
                                                 src={BinaryBot}
-                                                alt="Binary bot for creating trading bot"
+                                                alt={localize(
+                                                    '_t_Binary bot for creating trading bot_t_',
+                                                )}
                                                 width="32"
                                                 height="32"
                                             />
                                         )}
-                                        content={
-                                            <Localize translate_text='Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users.' />
-                                        }
-                                        title={<Localize translate_text="Binary Bot" />}
+                                        content='_t_Our classic "drag-and-drop" tool for creating trading bots, featuring pop-up trading charts, for advanced users._t_'
+                                        title="_t_Binary Bot_t_"
                                         onClick={handleArrowClick}
                                         to={binary_bot_url}
                                         external
@@ -419,18 +396,23 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                         )}
                     </AccordionItem>
                     <AccordionItem
-                        header={<Localize translate_text="Markets" />}
+                        header="_t_Markets_t_"
                         header_style={header_style}
                         style={content_style}
                     >
                         <Flex mb="3.2rem">
                             <NavCard
                                 aria_label="Forex"
-                                icon={() => <img src={Forex} alt="Forex" width="32" height="32" />}
-                                content={
-                                    <Localize translate_text="Trade the world’s largest financial market with popular forex pairs." />
-                                }
-                                title={<Localize translate_text="Forex" />}
+                                Icon={() => (
+                                    <img
+                                        src={Forex}
+                                        alt={localize('_t_Forex_t_')}
+                                        width="32"
+                                        height="32"
+                                    />
+                                )}
+                                content="_t_Trade the world’s largest financial market with popular forex pairs._t_"
+                                title="_t_Forex_t_"
                                 onClick={handleArrowClick}
                                 to="/markets/forex/"
                             />
@@ -438,22 +420,16 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                         <Flex mb="3.2rem">
                             <NavCard
                                 aria_label="Derived"
-                                icon={() => (
+                                Icon={() => (
                                     <img
                                         src={DerivedFX}
-                                        alt="Synthetic indices"
+                                        alt={localize('_t_Synthetic indices_t_')}
                                         width="32"
                                         height="32"
                                     />
                                 )}
-                                content={
-                                    is_row ? (
-                                        <Localize translate_text={derived_text_row} />
-                                    ) : (
-                                        <Localize translate_text={derived_text_eu} />
-                                    )
-                                }
-                                title={<Localize translate_text="Derived" />}
+                                content={is_row ? derived_text_row : derived_text_eu}
+                                title="_t_Derived_t_"
                                 onClick={handleArrowClick}
                                 to="/markets/synthetic/"
                             />
@@ -461,18 +437,16 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                         <Flex mb="3.2rem">
                             <NavCard
                                 aria_label="Stocks & indices"
-                                icon={() => (
+                                Icon={() => (
                                     <img
                                         src={StockIndices}
-                                        alt="Stocks & indices"
+                                        alt={localize('_t_Stocks & indices_t_')}
                                         width="32"
                                         height="32"
                                     />
                                 )}
-                                content={
-                                    <Localize translate_text="Predict broader market trends and diversify your risk with stocks & indices." />
-                                }
-                                title={<Localize translate_text="Stocks & indices" />}
+                                content="_t_Predict broader market trends and diversify your risk with stocks & indices._t_"
+                                title="_t_Stocks & indices_t_"
                                 onClick={handleArrowClick}
                                 to="/markets/stock/"
                             />
@@ -480,18 +454,16 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                         <Flex mb="3.2rem">
                             <NavCard
                                 aria_label="Cryptocurrencies"
-                                icon={() => (
+                                Icon={() => (
                                     <img
                                         src={Cryptocurrencies}
-                                        alt="Cryptocurrencies"
+                                        alt={localize('_t_Cryptocurrencies_t_')}
                                         width="32"
                                         height="32"
                                     />
                                 )}
-                                content={
-                                    <Localize translate_text="Trade with leverage on the price movement of popular crypto-fiat pairs." />
-                                }
-                                title={<Localize translate_text="Cryptocurrencies" />}
+                                content="_t_Trade with leverage on the price movement of popular crypto-fiat pairs._t_"
+                                title="_t_Cryptocurrencies_t_"
                                 onClick={handleArrowClick}
                                 to="/markets/cryptocurrencies/"
                             />
@@ -499,74 +471,114 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                         <Flex>
                             <NavCard
                                 aria_label="Commodities"
-                                icon={() => (
+                                Icon={() => (
                                     <img
                                         src={Commodities}
-                                        alt="Commodities"
+                                        alt={localize('_t_Commodities_t_')}
                                         width="32"
                                         height="32"
                                     />
                                 )}
-                                content={
-                                    <Localize translate_text="Trade natural resources that are central to the world's economy." />
-                                }
-                                title={<Localize translate_text="Commodities" />}
+                                content="_t_Trade natural resources that are central to the world's economy._t_"
+                                title="_t_Commodities_t_"
                                 onClick={handleArrowClick}
                                 to="/markets/commodities/"
                             />
                         </Flex>
                     </AccordionItem>
                     <AccordionItem
-                        header={<Localize translate_text="About us" />}
+                        header="_t_About us_t_"
                         header_style={header_style}
                         style={content_style}
                     >
                         <StyledLink to="/who-we-are/" onClick={handleArrowClick}>
                             <div>
-                                <img src={Story} alt="who we are" width="24" height="24" />
+                                <img
+                                    src={Story}
+                                    alt={localize('_t_who we are_t_')}
+                                    width="24"
+                                    height="24"
+                                />
                             </div>
-                            <span>{<Localize translate_text="Who we are" />}</span>
+                            <span>
+                                <Localize translate_text="_t_Who we are_t_" />
+                            </span>
                         </StyledLink>
                         <StyledLink to="/partners/" onClick={handleArrowClick}>
                             <div>
-                                <img src={Partner} alt="partners" width="24" height="24" />
+                                <img
+                                    src={Partner}
+                                    alt={localize('_t_partners_t_')}
+                                    width="24"
+                                    height="24"
+                                />
                             </div>
-                            <span>{<Localize translate_text="Partnership programmes" />}</span>
+                            <span>
+                                <Localize translate_text="_t_Partnership programmes_t_" />
+                            </span>
                         </StyledLink>
                         <StyledLink to="/why-choose-us/" onClick={handleArrowClick}>
                             <div>
-                                <img src={Choose} alt="why choose us" width="24" height="24" />
+                                <img
+                                    src={Choose}
+                                    alt={localize('_t_why choose us_t_')}
+                                    width="24"
+                                    height="24"
+                                />
                             </div>
-                            <span>{<Localize translate_text="Why choose us" />}</span>
+                            <span>
+                                <Localize translate_text="_t_Why choose us_t_" />
+                            </span>
                         </StyledLink>
                         <StyledLink to="/contact_us/" onClick={handleArrowClick}>
                             <div>
-                                <img src={Contact} alt="contact us" width="24" height="24" />
+                                <img
+                                    src={Contact}
+                                    alt={localize('_t_contact us_t_')}
+                                    width="24"
+                                    height="24"
+                                />
                             </div>
-                            <span>{<Localize translate_text="Contact us" />}</span>
+                            <span>
+                                <Localize translate_text="_t_Contact us_t_" />
+                            </span>
                         </StyledLink>
                         <StyledLink to="/careers/" onClick={handleArrowClick}>
                             <div>
-                                <img src={Career} alt="careers" width="24" height="24" />
+                                <img
+                                    src={Career}
+                                    alt={localize('_t_careers_t_')}
+                                    width="24"
+                                    height="24"
+                                />
                             </div>
-                            <Span>{<Localize translate_text="Careers" />}</Span>
+                            <Span>
+                                <Localize translate_text="_t_Careers_t_" />
+                            </Span>
                         </StyledLink>
                         <StyledLink
                             to=""
-                            external={true}
+                            external
                             type="derivlife"
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={handleArrowClick}
                         >
                             <div>
-                                <img src={DerivLife} alt="Deriv life" width="24" height="24" />
+                                <img
+                                    src={DerivLife}
+                                    alt={localize('_t_Deriv life_t_')}
+                                    width="24"
+                                    height="24"
+                                />
                             </div>
-                            <Span>{<Localize translate_text="Deriv life" />}</Span>
+                            <Span>
+                                <Localize translate_text="_t_Deriv life_t_" />
+                            </Span>
                             <SpanSvg>
                                 <ImageWithDireciton
                                     src={Diagonal}
-                                    alt="Diagonal"
+                                    alt={localize('_t_Diagonal_t_')}
                                     width="16"
                                     height="16"
                                 />
@@ -574,15 +586,22 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem
-                        header={<Localize translate_text="Resources" />}
+                        header="_t_Resources_t_"
                         header_style={header_style}
                         style={content_style}
                     >
                         <StyledLink to="/help-centre/" onClick={handleArrowClick}>
                             <div>
-                                <img src={Help} alt="help centre" width="24" height="24" />
+                                <img
+                                    src={Help}
+                                    alt={localize('_t_help centre_t_')}
+                                    width="24"
+                                    height="24"
+                                />
                             </div>
-                            <span>{<Localize translate_text="Help centre" />}</span>
+                            <span>
+                                <Localize translate_text="_t_Help centre_t_" />
+                            </span>
                         </StyledLink>
                         <StyledLink
                             to=""
@@ -593,13 +612,20 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                             onClick={handleArrowClick}
                         >
                             <div>
-                                <img src={Community} alt="community" width="24" height="24" />
+                                <img
+                                    src={Community}
+                                    alt={localize('_t_community_t_')}
+                                    width="24"
+                                    height="24"
+                                />
                             </div>
-                            <Span>{<Localize translate_text="Community" />}</Span>
+                            <Span>
+                                <Localize translate_text="_t_Community_t_" />
+                            </Span>
                             <SpanSvg>
                                 <ImageWithDireciton
                                     src={Diagonal}
-                                    alt="Diagonal"
+                                    alt={localize('_t_Diagonal_t_')}
                                     width="16"
                                     height="16"
                                 />
@@ -607,15 +633,29 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                         </StyledLink>
                         <StyledLink to="/trader-tools/" onClick={handleArrowClick}>
                             <div>
-                                <img src={Trade} alt="trader tools" width="24" height="24" />
+                                <img
+                                    src={Trade}
+                                    alt={localize('_t_trader tools_t_')}
+                                    width="24"
+                                    height="24"
+                                />
                             </div>
-                            <span>{<Localize translate_text="Traders’ tools" />}</span>
+                            <span>
+                                <Localize translate_text="_t_Traders’ tools_t_" />
+                            </span>
                         </StyledLink>
                         <StyledLink to="/payment-methods/" onClick={handleArrowClick}>
                             <div>
-                                <img src={Payment} alt="payment methods" width="24" height="24" />
+                                <img
+                                    src={Payment}
+                                    alt={localize('_t_payment methods_t_')}
+                                    width="24"
+                                    height="24"
+                                />
                             </div>
-                            <span>{<Localize translate_text="Payment methods" />}</span>
+                            <span>
+                                <Localize translate_text="_t_Payment methods_t_" />
+                            </span>
                         </StyledLink>
                         <StyledLink
                             to="/dmt5-trading-signals/#signal-subscriber/"
@@ -625,13 +665,15 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 <SvgWrapper>
                                     <img
                                         src={Signals}
-                                        alt="signal-subscriber"
+                                        alt={localize('_t_signal-subscriber_t_')}
                                         width="24"
                                         height="24"
                                     />
                                 </SvgWrapper>
                             </div>
-                            <span>{<Localize translate_text="Deriv MT5 signals" />}</span>
+                            <span>
+                                <Localize translate_text="_t_Deriv MT5 signals_t_" />
+                            </span>
                         </StyledLink>
                         <StyledLink
                             to={deriv_status_page_url}
@@ -641,13 +683,20 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                             onClick={handleArrowClick}
                         >
                             <div>
-                                <img src={Status} alt="status" width="24" height="24" />
+                                <img
+                                    src={Status}
+                                    alt={localize('_t_status_t_')}
+                                    width="24"
+                                    height="24"
+                                />
                             </div>
-                            <Span>{<Localize translate_text="Status page" />}</Span>
+                            <Span>
+                                <Localize translate_text="_t_Status page_t_" />
+                            </Span>
                             <SpanSvg>
                                 <ImageWithDireciton
                                     src={Diagonal}
-                                    alt="Diagonal"
+                                    alt={localize('_t_Diagonal_t_')}
                                     width="16"
                                     height="16"
                                 />
@@ -661,13 +710,20 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                             rel="noopener noreferrer"
                         >
                             <div>
-                                <img src={Blog} alt="blog" width="24" height="24" />
+                                <img
+                                    src={Blog}
+                                    alt={localize('_t_blog_t_')}
+                                    width="24"
+                                    height="24"
+                                />
                             </div>
-                            <Span>{<Localize translate_text="Blog" />}</Span>
+                            <Span>
+                                <Localize translate_text="_t_Blog_t_" />
+                            </Span>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem
-                        header={<Localize translate_text="Legal" />}
+                        header="_t_Legal_t_"
                         header_style={header_style}
                         style={content_style}
                     >
@@ -675,40 +731,44 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                             <div>
                                 <img
                                     src={Regulatory}
-                                    alt="regulatory information"
-                                    width="24"
-                                    height="24"
-                                />
-                            </div>
-                            <span>{<Localize translate_text="Regulatory information" />}</span>
-                        </StyledLink>
-                        <StyledLink to="/terms-and-conditions/#clients" onClick={handleArrowClick}>
-                            <div>
-                                <img
-                                    src={Terms}
-                                    alt="terms and conditions"
-                                    width="24"
-                                    height="24"
-                                />
-                            </div>
-                            <span>{<Localize translate_text="Terms and conditions" />}</span>
-                        </StyledLink>
-                        <StyledLink to="/responsible/" onClick={handleArrowClick}>
-                            <div>
-                                <img
-                                    src={SecureTrading}
-                                    alt="secure and responsible trading"
+                                    alt={localize('_t_regulatory information_t_')}
                                     width="24"
                                     height="24"
                                 />
                             </div>
                             <span>
-                                {<Localize translate_text="Secure and responsible trading" />}
+                                <Localize translate_text="_t_Regulatory information_t_" />
+                            </span>
+                        </StyledLink>
+                        <StyledLink to="/terms-and-conditions/#clients" onClick={handleArrowClick}>
+                            <div>
+                                <img
+                                    src={Terms}
+                                    alt={localize('_t_terms and conditions_t_')}
+                                    width="24"
+                                    height="24"
+                                />
+                            </div>
+                            <span>
+                                <Localize translate_text="_t_Terms and conditions_t_" />
+                            </span>
+                        </StyledLink>
+                        <StyledLink to="/responsible/" onClick={handleArrowClick}>
+                            <div>
+                                <img
+                                    src={SecureTrading}
+                                    alt={localize('_t_secure and responsible trading_t_')}
+                                    width="24"
+                                    height="24"
+                                />
+                            </div>
+                            <span>
+                                <Localize translate_text="_t_Secure and responsible trading_t_" />
                             </span>
                         </StyledLink>
                     </AccordionItem>
                     <AccordionItem
-                        header={<Localize translate_text="Partner" />}
+                        header="_t_Partner_t_"
                         header_style={header_style}
                         style={content_style}
                     >
@@ -716,24 +776,28 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                             <div>
                                 <img
                                     src={AffiliateIb}
-                                    alt="affiliates and IBs"
+                                    alt={localize('_t_affiliates and IBs_t_')}
                                     width="32"
                                     height="32"
                                 />
                             </div>
-                            <span>{<Localize translate_text="Affiliates and IBs" />}</span>
+                            <span>
+                                <Localize translate_text="_t_Affiliates and IBs_t_" />
+                            </span>
                         </StyledLink>
                         {is_row && (
                             <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
                                 <div>
                                     <img
                                         src={PaymentAgent}
-                                        alt="payment agents"
+                                        alt={localize('_t_payment agents_t_')}
                                         width="32"
                                         height="32"
                                     />
                                 </div>
-                                <span>{<Localize translate_text="Payment agents" />}</span>
+                                <span>
+                                    <Localize translate_text="_t_Payment agents_t_" />
+                                </span>
                             </StyledLink>
                         )}
                         <StyledLink
@@ -745,15 +809,24 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                             onClick={handleArrowClick}
                         >
                             <div>
-                                <img src={API} alt="API" width="32" height="32" />
+                                <img src={API} alt={localize('_t_API_t_')} width="32" height="32" />
                             </div>
-                            <span>{<Localize translate_text="API" />}</span>
+                            <span>
+                                <Localize translate_text="_t_API_t_" />
+                            </span>
                         </StyledLink>
                         <StyledLink to="/bug-bounty/" onClick={handleArrowClick}>
                             <div>
-                                <img src={BugBounty} alt="bug bounty" width="32" height="32" />
+                                <img
+                                    src={BugBounty}
+                                    alt={localize('_t_bug bounty_t_')}
+                                    width="32"
+                                    height="32"
+                                />
                             </div>
-                            <span>{<Localize translate_text="bug bounty" />}</span>
+                            <span>
+                                <Localize translate_text="_t_bug bounty_t_" />
+                            </span>
                         </StyledLink>
                     </AccordionItem>
                 </Accordion>
@@ -799,16 +872,30 @@ export const OffCanvasMenuPartner = (props: OffCanvasMenuPartnerProps) => {
             <OffCanvasMenuContainer>
                 <StyledLink to="/partners/affiliate-ib/" onClick={handleArrowClick}>
                     <div>
-                        <img src={AffiliateIb} alt="affiliate ib" width="32" height="32" />
+                        <img
+                            src={AffiliateIb}
+                            alt={localize('_t_affiliate ib_t_')}
+                            width="32"
+                            height="32"
+                        />
                     </div>
-                    <span>{<Localize translate_text="Affiliates and IBs" />}</span>
+                    <span>
+                        <Localize translate_text="_t_Affiliates and IBs_t_" />
+                    </span>
                 </StyledLink>
                 {is_row && (
                     <StyledLink to="/partners/payment-agent/" onClick={handleArrowClick}>
                         <div>
-                            <img src={PaymentAgent} alt="payment agents" width="32" height="32" />
+                            <img
+                                src={PaymentAgent}
+                                alt={localize('_t_payment agents_t_')}
+                                width="32"
+                                height="32"
+                            />
                         </div>
-                        <span>{<Localize translate_text="Payment agents" />}</span>
+                        <span>
+                            <Localize translate_text="_t_Payment agents_t_" />
+                        </span>
                     </StyledLink>
                 )}
                 <StyledLink
@@ -820,15 +907,24 @@ export const OffCanvasMenuPartner = (props: OffCanvasMenuPartnerProps) => {
                     onClick={handleArrowClick}
                 >
                     <div>
-                        <img src={API} alt="API" width="32" height="32" />
+                        <img src={API} alt={localize('_t_API_t_')} width="32" height="32" />
                     </div>
-                    <span>{<Localize translate_text="API" />}</span>
+                    <span>
+                        <Localize translate_text="_t_API_t_" />
+                    </span>
                 </StyledLink>
                 <StyledLink to="/bug-bounty/" onClick={handleArrowClick}>
                     <div>
-                        <img src={BugBounty} alt="bug bounty" width="32" height="32" />
+                        <img
+                            src={BugBounty}
+                            alt={localize('_t_bug bounty_t_')}
+                            width="32"
+                            height="32"
+                        />
                     </div>
-                    <span>{<Localize translate_text="Bug bounty" />}</span>
+                    <span>
+                        <Localize translate_text="_t_Bug bounty_t_" />
+                    </span>
                 </StyledLink>
             </OffCanvasMenuContainer>
         </OffCanvasMenuSecondary>

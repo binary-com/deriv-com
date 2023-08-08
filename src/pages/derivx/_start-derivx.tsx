@@ -1,27 +1,17 @@
-import React, { useState, useEffect, useCallback, ReactElement, ReactNode } from 'react'
+import React, { useState, ReactNode, useMemo } from 'react'
 import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
-import SideTab from '../dmt5/components/_side-tab'
-import { Flex, SectionContainer, Mobile } from 'components/containers'
+import StepperView from 'components/custom/_stepper_view'
+import { Flex, SectionContainer } from 'components/containers'
 import { Header, QueryImage, Text } from 'components/elements'
-import { Button } from 'components/form'
 import { localize, Localize } from 'components/localization'
-import device, { size } from 'themes/device'
-import { isBrowser } from 'common/utility'
-import { mobileOSDetect } from 'common/os-detect'
-import { derivx_android_url, derivx_ios_url } from 'common/constants'
+import device from 'themes/device'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
 interface StartDerivXProps {
     children?: ReactNode
     active?: boolean
     mobile_padding?: string
-}
-
-type RealOrDemoShowType = {
-    class_name: string
-    description: ReactElement
-    image_data: string
-    image_alt: string
 }
 
 const query = graphql`
@@ -74,72 +64,6 @@ const query = graphql`
     }
 `
 
-const demo: RealOrDemoShowType[] = [
-    {
-        class_name: 'sign-in',
-        description: (
-            <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
-        ),
-        image_data: 'demo_step1',
-        image_alt: localize('Deriv X demo account signup page'),
-    },
-    {
-        class_name: 'add-account',
-        description: <Localize translate_text="Add a Deriv X demo account." />,
-        image_data: 'demo_step2',
-        image_alt: localize('Deriv X dashboard showing demo account comparison'),
-    },
-    {
-        class_name: 'start-trading',
-        description: (
-            <Localize translate_text="Start trading on the mobile app or through your web browser." />
-        ),
-        image_data: 'demo_step3',
-        image_alt: localize('Deriv X trading dashboard'),
-    },
-]
-
-const real: RealOrDemoShowType[] = [
-    {
-        class_name: 'sign-in',
-        description: (
-            <Localize translate_text="Sign in to your Deriv account. If you don’t have one, sign up for free." />
-        ),
-        image_data: 'real_step1',
-        image_alt: 'real_step1',
-    },
-    {
-        class_name: 'add-account',
-        description: <Localize translate_text="Add a Deriv real account." />,
-        image_data: 'real_step2',
-        image_alt: 'real_step2',
-    },
-    {
-        class_name: 'add-derivx-account',
-        description: <Localize translate_text="Add a Deriv X real account." />,
-        image_data: 'real_step3',
-        image_alt: 'real_step3',
-    },
-    {
-        class_name: 'start-trading',
-        description: (
-            <Localize translate_text="Start trading on the mobile app or through your web browser." />
-        ),
-        image_data: 'real_step4',
-        image_alt: 'real_step4',
-    },
-]
-
-const handleExternalLink = () => {
-    let link = ''
-    if (mobileOSDetect() === 'Android') {
-        link = derivx_android_url
-    }
-    if (mobileOSDetect() === 'iOS') {
-        link = derivx_ios_url
-    }
-    window.open(link, '_blank')
-}
 const Section = styled(SectionContainer)`
     display: flex;
     flex-direction: column;
@@ -153,28 +77,6 @@ const Section = styled(SectionContainer)`
     @media ${device.tabletS} {
         padding: 40px 0;
         height: auto;
-    }
-`
-const ImageWrapper = styled.div`
-    max-width: 79.2rem;
-    width: 100%;
-    height: 43.4rem;
-    position: relative;
-    margin: -3.2rem auto;
-
-    div {
-        width: 100%;
-    }
-    @media ${device.tabletS} {
-        max-width: 576px;
-        width: 100%;
-        margin: 0 0 24px;
-        height: unset;
-
-        div {
-            max-width: 576px;
-            width: 100%;
-        }
     }
 `
 const demoActive = css`
@@ -192,20 +94,6 @@ const realActive = css`
         font-weight: unset;
     }
 `
-const ButtonDp2p = styled(Button)`
-    padding: 10px 16px;
-    height: 40px;
-    min-width: 25rem;
-    white-space: nowrap;
-    margin-top: 24px;
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background: #ff444f;
-    border-radius: 4px;
-`
 const TabItem = styled.div<StartDerivXProps>`
     padding: 2.4rem 4rem;
     width: fit-content;
@@ -215,7 +103,7 @@ const TabItem = styled.div<StartDerivXProps>`
     cursor: pointer;
     ${(props) => (props.active ? demoActive : realActive)}
 
-    @media ${device.tabletS} {
+    @media ${device.tablet} {
         padding: 17px 20px;
     }
     @media ${device.mobileL} {
@@ -225,6 +113,7 @@ const TabItem = styled.div<StartDerivXProps>`
     }
 `
 const StyledHeader = styled(Header)`
+    color: var(--color-black-9);
     @media ${device.mobileL} {
         font-size: 24px;
         margin-bottom: 24px;
@@ -232,37 +121,104 @@ const StyledHeader = styled(Header)`
     }
 `
 const StyledText = styled(Text)`
+    font-family: Ubuntu, sans-serif;
+
     @media ${device.mobileL} {
         font-size: 16px;
     }
 `
 
 const StartDerivX = () => {
-    const [is_mobile, setMobile] = useState(false)
-    const handleResizeWindow = useCallback(() => {
-        setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
-    }, [setMobile])
-
-    useEffect(() => {
-        handleResizeWindow()
-        window.addEventListener('resize', handleResizeWindow)
-
-        return () => {
-            window.removeEventListener('resize', handleResizeWindow)
-        }
-    }, [handleResizeWindow])
-
     const data = useStaticQuery(query)
+    const { is_mobile_or_tablet } = useBreakpoints()
+
     const [tab, setTab] = useState('demo')
 
     const onTabClick = (chosenTab: string) => {
         setTab(chosenTab)
     }
 
+    const demo: React.ComponentProps<typeof StepperView>['items'] = useMemo(
+        () => [
+            {
+                title: () =>
+                    '_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_',
+                image: () => (
+                    <QueryImage
+                        data={data[is_mobile_or_tablet ? 'demo_step1_mobile' : 'demo_step1']}
+                        alt={localize('_t_Deriv X demo account signup page_t_')}
+                    />
+                ),
+            },
+            {
+                title: () => '_t_Add a Deriv X demo account._t_',
+                image: () => (
+                    <QueryImage
+                        data={data[is_mobile_or_tablet ? 'demo_step2_mobile' : 'demo_step2']}
+                        alt={localize('_t_Deriv X dashboard showing demo account comparison_t_')}
+                    />
+                ),
+            },
+            {
+                title: () => '_t_Start trading on the mobile app or through your web browser._t_',
+                image: () => (
+                    <QueryImage
+                        data={data[is_mobile_or_tablet ? 'demo_step3_mobile' : 'demo_step3']}
+                        alt={localize('_t_Deriv X trading dashboard_t_')}
+                    />
+                ),
+            },
+        ],
+        [data, is_mobile_or_tablet],
+    )
+
+    const real: React.ComponentProps<typeof StepperView>['items'] = useMemo(
+        () => [
+            {
+                title: () =>
+                    '_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_',
+                image: () => (
+                    <QueryImage
+                        data={data[is_mobile_or_tablet ? 'real_step1_mobile' : 'real_step1']}
+                        alt={localize('_t_Sign in_t_')}
+                    />
+                ),
+            },
+            {
+                title: () => '_t_Add a Deriv real account._t_',
+                image: () => (
+                    <QueryImage
+                        data={data[is_mobile_or_tablet ? 'real_step2_mobile' : 'real_step2']}
+                        alt={localize('_t_real account_t_')}
+                    />
+                ),
+            },
+            {
+                title: () => '_t_Add a Deriv X real account._t_',
+                image: () => (
+                    <QueryImage
+                        data={data[is_mobile_or_tablet ? 'real_step3_mobile' : 'real_step3']}
+                        alt={localize('_t_Download the app_t_')}
+                    />
+                ),
+            },
+            {
+                title: () => '_t_Start trading on the mobile app or through your web browser._t_',
+                image: () => (
+                    <QueryImage
+                        data={data[is_mobile_or_tablet ? 'real_step4_mobile' : 'real_step4']}
+                        alt={localize('_t_Trading_t_')}
+                    />
+                ),
+            },
+        ],
+        [data, is_mobile_or_tablet],
+    )
+
     return (
         <Section>
             <StyledHeader align="center" mb="4rem" as="h2" type="page-title">
-                {localize('How to get started with a Deriv X account')}
+                <Localize translate_text="_t_How to get started with a Deriv X account_t_" />
             </StyledHeader>
             <Flex mb="8rem" p="0 16px" tablet={{ mb: '32px', height: 'unset' }} id="account-pick">
                 <TabItem
@@ -272,54 +228,24 @@ const StartDerivX = () => {
                     className="demo-account"
                 >
                     <StyledText size="var(--text-size-m)" align="center">
-                        {localize('Demo account')}
+                        <Localize translate_text="_t_Demo account_t_" />
                     </StyledText>
                 </TabItem>
                 <TabItem
-                    mobile_padding="12px 24px"
+                    mobile_padding="21px 12px"
                     active={tab === 'real'}
                     onClick={() => onTabClick('real')}
                     className="real-account"
                 >
                     <StyledText size="var(--text-size-m)" align="center">
-                        {localize('Real money account')}
+                        <Localize translate_text="_t_Real account_t_" />
                     </StyledText>
                 </TabItem>
             </Flex>
 
             <Flex max_width="1200px">
-                <SideTab parent_tab={tab} has_qr_code={true}>
-                    {(tab === 'demo' ? demo : real).map((currentTab) => {
-                        return (
-                            <SideTab.Panel
-                                key={currentTab.class_name}
-                                label=""
-                                description={currentTab.description}
-                                mobile_item_width="35rem"
-                                class_name={currentTab.class_name}
-                            >
-                                <ImageWrapper>
-                                    <QueryImage
-                                        data={
-                                            data[
-                                                is_mobile
-                                                    ? `${currentTab.image_data}_mobile`
-                                                    : currentTab.image_data
-                                            ]
-                                        }
-                                        alt={currentTab.image_alt}
-                                    />
-                                </ImageWrapper>
-                            </SideTab.Panel>
-                        )
-                    })}
-                </SideTab>
+                <StepperView items={tab === 'demo' ? demo : real} contentWidth="385px" />
             </Flex>
-            <Mobile>
-                <ButtonDp2p secondary onClick={handleExternalLink}>
-                    {localize('Download Deriv X app')}
-                </ButtonDp2p>
-            </Mobile>
         </Section>
     )
 }

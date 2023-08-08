@@ -95,12 +95,12 @@ module.exports = {
         display_name: 'සිංහල',
         short_name: 'SI',
     },
-    ach: {
-        path: 'ach',
-        display_name: 'Crowdin',
-        short_name: 'CR',
-        affiliate_lang: 13,
-    },
+    // ach: {
+    //     path: 'ach',
+    //     display_name: 'Crowdin',
+    //     short_name: 'CR',
+    //     affiliate_lang: 13,
+    // },
     de: {
         path: 'de',
         display_name: 'Deutsch',

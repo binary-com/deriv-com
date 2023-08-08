@@ -1,8 +1,7 @@
 import React from 'react'
-import Proptypes from 'prop-types'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import { Box, Flex, SectionContainer, Desktop, Mobile } from 'components/containers'
+import { Box, Flex, SectionContainer, Desktop, Mobile, Container } from 'components/containers'
 import { Carousel, CarouselProps, Header, LinkText, QueryImage, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { Localize, localize } from 'components/localization'
@@ -15,10 +14,10 @@ type CalculatorProps = {
     children?: React.ReactNode
     key?: number
     index?: number
-    name: React.ReactElement
-    text: React.ReactElement
+    name: TString
+    text: TString
     image_name: string
-    image_alt_name: string
+    image_alt: TString
     button_text: TString
     link: string
 }
@@ -33,14 +32,31 @@ const query = graphql`
         ) {
             ...fadeIn
         }
+        eu_margin_calculator: file(relativePath: { eq: "dmt5/eu-dmt5-margin-calculator.png" }) {
+            ...fadeIn
+        }
+        eu_margin_calculator_mobile: file(
+            relativePath: { eq: "dmt5/eu-dmt5-margin-calculator-mobile.png" }
+        ) {
+            ...fadeIn
+        }
         swap_calculator: file(relativePath: { eq: "dmt5/dmt5-swap-calculator.png" }) {
             ...fadeIn
         }
         swap_calculator_mobile: file(relativePath: { eq: "dmt5/dmt5-swap-calculator-mobile.png" }) {
             ...fadeIn
         }
+        eu_swap_calculator: file(relativePath: { eq: "dmt5/eu-dmt5-swap-calculator.png" }) {
+            ...fadeIn
+        }
+        eu_swap_calculator_mobile: file(
+            relativePath: { eq: "dmt5/eu-dmt5-swap-calculator-mobile.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
+
 const CardContainer = styled(Flex)`
     max-width: 588px;
     @media ${device.tabletL} {
@@ -51,7 +67,6 @@ const CardContainer = styled(Flex)`
 const ImageWrapper = styled.div`
     display: flex;
     width: 392px;
-    height: 386px;
     object-fit: contain;
     margin-bottom: 2.4rem;
 
@@ -59,7 +74,6 @@ const ImageWrapper = styled.div`
         align-items: center;
         justify-content: center;
         width: 232px;
-        height: 229px;
 
         div {
             max-width: 232px;
@@ -71,6 +85,8 @@ const ImageWrapper = styled.div`
 
 const MainHeader = styled(Header)`
     margin: 0 0 12px;
+    color: var(--color-black-9);
+
     @media ${device.tabletL} {
         font-size: 28px;
         margin-bottom: 24px;
@@ -81,7 +97,7 @@ const MainHeader = styled(Header)`
 
 const SubHeader = styled(Header)`
     font-size: 24px;
-    color: var(--color-black-3);
+    color: var(--color-black-9);
     @media ${device.tabletL} {
         font-size: 20px;
         margin-bottom: 8px;
@@ -89,11 +105,9 @@ const SubHeader = styled(Header)`
 `
 
 const StyledBox = styled(Box)`
-    max-width: 508px;
-    margin: 11.9rem 4rem 0 16rem;
     @media ${device.tabletL} {
         max-width: 100%;
-        margin: 40px 16px 24px;
+        margin: 0 16px 0;
     }
 `
 
@@ -128,6 +142,9 @@ const StyledLinkButton = styled(LinkButton)`
     height: 40px;
     width: auto;
     min-width: 210px;
+    color: var(--color-black-9);
+    border-radius: 16px;
+
     @media ${device.tabletL} {
         padding: 10px 15px;
     }
@@ -141,49 +158,67 @@ const StyledLinkButton = styled(LinkButton)`
     }
 `
 
-const StyledFlexContainer = styled(Flex)`
-    width: 100%;
-    flex-wrap: nowrap;
-    border: 1px solid var(--color-grey-34);
-    @media ${device.tabletL} {
-        flex-wrap: wrap;
-        border: none;
-    }
-`
-
 const StyledFlex = styled(Flex)<{ has_color?: boolean }>`
     width: 50%;
     min-height: 694px;
     margin-right: 2.4rem;
-    background-color: ${({ has_color }) => (has_color ? 'var(--color-grey-25)' : 'inherit')};
+    background-color: inherit;
+    align-items: center;
+    justify-content: center;
     @media ${device.tabletL} {
         width: 100%;
-        min-height: 340px;
+        min-height: auto;
         margin-right: 0;
+    }
+`
+const StyledSectionContainer = styled(SectionContainer)`
+    padding: 4rem 0;
+    @media ${device.tabletL} {
+        padding: 2rem 0;
+    }
+`
+
+const StyledContainer = styled(Container)`
+    @media ${device.tabletL} {
+        flex-direction: column;
     }
 `
 
 const CalculatorCard = ({
     button_text,
-    image_alt_name = '',
+    image_alt,
     image_name = '',
     link = '',
     name,
     text,
 }: CalculatorProps) => {
     const data = useStaticQuery(query)
+    const { is_eu } = useRegion()
+
     return (
         <StyledCardContainer>
             <SubHeader as="h3" align="center">
-                {name}
+                <Localize translate_text={name} />
             </SubHeader>
-            <CardText align="center">{text}</CardText>
+            <CardText align="center">
+                <Localize translate_text={text} />
+            </CardText>
             <ImageWrapper>
                 <Desktop>
-                    <QueryImage data={data[image_name]} alt={image_alt_name} />
+                    <QueryImage
+                        data={is_eu ? data['eu_' + image_name] : data[image_name]}
+                        alt={localize(image_alt)}
+                    />
                 </Desktop>
                 <Mobile>
-                    <QueryImage data={data[image_name + '_mobile']} alt={image_alt_name} />
+                    <QueryImage
+                        data={
+                            is_eu
+                                ? data['eu_' + image_name + '_mobile']
+                                : data[image_name + '_mobile']
+                        }
+                        alt={localize(image_alt)}
+                    />
                 </Mobile>
             </ImageWrapper>
             <StyledLinkButton tertiary to={link}>
@@ -193,36 +228,22 @@ const CalculatorCard = ({
     )
 }
 
-CalculatorCard.propTypes = {
-    button_text: Proptypes.string,
-    image_alt_name: Proptypes.string,
-    image_name: Proptypes.string,
-    is_mobile: Proptypes.bool,
-    link: Proptypes.string,
-    name: Proptypes.string,
-    text: Proptypes.string,
-}
-
 const calculators: CalculatorProps[] = [
     {
         index: 0,
-        name: <Localize translate_text="Margin calculator" />,
-        text: (
-            <Localize translate_text="Calculate the margin you need to open and hold your positions with our margin calculator." />
-        ),
+        name: '_t_Margin calculator_t_',
+        text: '_t_Calculate the margin you need to open and hold your positions with our margin calculator._t_',
         image_name: 'margin_calculator',
-        image_alt_name: localize('DMT5 margin trading calculator'),
+        image_alt: '_t_DMT5 margin trading calculator_t_',
         button_text: '_t_Try our margin calculator_t_',
         link: '/trader-tools/margin-calculator/',
     },
     {
         index: 1,
-        name: <Localize translate_text="Swap calculator" />,
-        text: (
-            <Localize translate_text="Calculate your swap fee and know exactly what you are expected to pay or will earn for maintaining an overnight contract." />
-        ),
+        name: '_t_Swap calculator_t_',
+        text: '_t_Calculate your swap fee and know exactly what you are expected to pay or will earn for maintaining an overnight contract._t_',
         image_name: 'swap_calculator',
-        image_alt_name: localize('DMT5 swap trading calculator'),
+        image_alt: '_t_DMT5 swap trading calculator_t_',
         button_text: '_t_Try our swap calculator_t_',
         link: '/trader-tools/swap-calculator/',
     },
@@ -249,61 +270,52 @@ const MarginCalculator = () => {
         },
         navigation_style: {
             nav_color: 'red',
+            bottom_offset: '0',
         },
     }
 
     const { is_eu } = useRegion()
+
     return (
-        <SectionContainer>
-            <StyledFlexContainer>
-                <StyledFlex
-                    ai="center"
-                    jc="flex-start"
-                    tablet_jc="center"
-                    fd="column"
-                    wrap="wrap"
-                    has_color
-                >
+        <StyledSectionContainer>
+            <StyledContainer>
+                <StyledFlex ai="center" jc="flex-start" tablet_jc="center" fd="column" wrap="wrap">
                     <StyledBox max_width="100%">
                         <MainHeader as="h2" type="page-title" lh="1.25" align="start">
-                            <Localize translate_text="Take control of your trades on Deriv MT5" />
+                            <Localize translate_text="_t_Take control of your trades on Deriv MT5_t_" />
                         </MainHeader>
                         <StyledText>
                             {is_eu && (
-                                <>
-                                    <Localize
-                                        translate_text="Explore <0>CFDs</0> on Deriv MT5 and enjoy low spreads to increase your returns when the market moves in your favour."
-                                        components={[
-                                            <LinkText
-                                                color="red"
-                                                key={0}
-                                                target="_blank"
-                                                href="/trade-types/cfds/"
-                                                rel="noopener noreferrer"
-                                            />,
-                                        ]}
-                                    />
-                                </>
+                                <Localize
+                                    translate_text="_t_Explore <0>CFDs</0> on Deriv MT5 and enjoy low spreads to increase your returns when the market moves in your favour._t_"
+                                    components={[
+                                        <LinkText
+                                            color="red"
+                                            key={0}
+                                            target="_blank"
+                                            href="/trade-types/cfds/"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
                             )}
                             {!is_eu && (
-                                <>
-                                    <Localize
-                                        translate_text="Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour."
-                                        components={[
-                                            <LinkText
-                                                color="red"
-                                                key={0}
-                                                target="_blank"
-                                                href="/trade-types/cfds/"
-                                                rel="noopener noreferrer"
-                                            />,
-                                        ]}
-                                    />
-                                </>
+                                <Localize
+                                    translate_text="_t_Explore <0>CFDs</0> on Deriv MT5, and enjoy high leverage and low spreads to increase your returns when the market moves in your favour._t_"
+                                    components={[
+                                        <LinkText
+                                            color="red"
+                                            key={0}
+                                            target="_blank"
+                                            href="/trade-types/cfds/"
+                                            rel="noopener noreferrer"
+                                        />,
+                                    ]}
+                                />
                             )}
                         </StyledText>
                         <StyledText>
-                            <Localize translate_text="With the calculators and numerous analytical tools available on the Deriv MT5 platform, you’ll be able to manage your capital and trading positions better." />
+                            <Localize translate_text="_t_With the calculators and numerous analytical tools available on the Deriv MT5 platform, you’ll be able to manage your capital and trading positions better._t_" />
                         </StyledText>
                     </StyledBox>
                 </StyledFlex>
@@ -313,7 +325,7 @@ const MarginCalculator = () => {
                     tablet_jc="center"
                     wrap="wrap"
                     ml="2.4rem"
-                    tabletL={{ ml: '0px', pt: '24px', pl: '16px', pr: '16px' }}
+                    tabletL={{ ml: '0px', pl: '16px', pr: '16px' }}
                 >
                     <CardContainer>
                         <Carousel {...settings}>
@@ -322,7 +334,7 @@ const MarginCalculator = () => {
                                     key={calculator.index}
                                     name={calculator.name}
                                     image_name={calculator.image_name}
-                                    image_alt_name={calculator.image_alt_name}
+                                    image_alt={calculator.image_alt}
                                     text={calculator.text}
                                     link={calculator.link}
                                     button_text={calculator.button_text}
@@ -331,8 +343,8 @@ const MarginCalculator = () => {
                         </Carousel>
                     </CardContainer>
                 </StyledFlex>
-            </StyledFlexContainer>
-        </SectionContainer>
+            </StyledContainer>
+        </StyledSectionContainer>
     )
 }
 

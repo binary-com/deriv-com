@@ -1,0 +1,23 @@
+@import 'features/styles/theme/variables';
+
+.mobile_menu {
+    position: fixed;
+    inset-block-start: 7rem;
+    inline-size: 100%;
+    block-size: calc(100vh - 7rem);
+    background-color: $color-white;
+    opacity: 1;
+    inset-inline-start: -100vh;
+    overflow: scroll;
+    transition:  0.5s ease 0ms;
+    box-shadow: 0 16px 20px 0 rgba(0, 0, 0, 0.1);
+    z-index: 5;
+}
+
+.mobile_menu_top_nav {
+    inset-block-start: 10rem;
+}
+
+.visible_nav_menu {
+    inset-inline-start: 0;
+}

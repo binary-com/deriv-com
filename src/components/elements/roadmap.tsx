@@ -1,10 +1,21 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import { SectionContainer, Container, Flex } from 'components/containers'
-import { Header, Text } from 'components/elements/typography'
+import { Header } from 'components/elements/typography'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
+import { TString } from 'types/generics'
+
+export type TPortal = {
+    paragraph?: TString
+    frame?: string
+    link?: string
+}
+
+type RoadmapProps = {
+    portal?: TPortal
+}
 
 const StyledSectionContainer = styled(SectionContainer)`
     border-top: solid 1px var(--color-grey-2);
@@ -15,16 +26,18 @@ const StyledSectionContainer = styled(SectionContainer)`
         padding-top: 40px;
     }
 `
-
 const StyledHeader = styled(Header)`
+    color: var(--color-black-9);
+
     @media ${device.tabletL} {
         font-size: 32px;
     }
 `
-const StyledText = styled(Text)`
+const StyledText = styled(Header)`
     max-width: 1044px;
     padding-top: 8px;
-    font-size: 32px;
+    font-weight: normal;
+    color: var(--color-black-9);
 
     @media ${device.tabletL} {
         font-size: 24px;
@@ -57,46 +70,33 @@ const StyledFrame = styled.div`
     }
 `
 const StyledButton = styled(LinkButton)`
+    border-radius: 16px;
     margin-top: 40px;
     position: relative;
     max-width: 120px;
     z-index: 3;
 `
 
-type RoadmapProps = {
-    portal?: {
-        paragraph?: string | ReactElement
-        frame?: string
-        link?: string
-    }
-}
-const Roadmap = ({ portal }: RoadmapProps) => {
+const Roadmap = ({ portal: { frame, link, paragraph } }: RoadmapProps) => {
     return (
         <StyledSectionContainer>
             <Container>
                 <Flex width="1202px" fd="column" ai="center" jc="center">
                     <StyledHeader as="h2" type="heading-2" align="center">
-                        <Localize translate_text="What’s next?" />
+                        <Localize translate_text="_t_What’s next?_t_" />
                     </StyledHeader>
-                    <StyledText mt="16px" align="center">
-                        {portal.paragraph}
+                    <StyledText mt="16px" align="center" as="p" type="heading-3">
+                        <Localize translate_text={paragraph} />
                     </StyledText>
                 </Flex>
             </Container>
-            <>
-                <StyledFrame>
-                    <iframe src={portal.frame} frameBorder="0" height="100%" width="100%"></iframe>
-                    <StyledButton
-                        tertiary
-                        external
-                        to={portal.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        {localize('Go to portal')}
-                    </StyledButton>
-                </StyledFrame>
-            </>
+
+            <StyledFrame>
+                <iframe src={frame} frameBorder="0" height="100%" width="100%"></iframe>
+                <StyledButton tertiary external to={link} target="_blank" rel="noopener noreferrer">
+                    <Localize translate_text="_t_Go to portal_t_" />
+                </StyledButton>
+            </StyledFrame>
         </StyledSectionContainer>
     )
 }

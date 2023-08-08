@@ -15,6 +15,7 @@ export type TDerivApi = {
     send: (...requestData: unknown[]) => Promise<unknown>
     subscribe: (...requestData: unknown[]) => Observable<object>
     authorize: (requestData: AuthorizeRequest) => Promise<AuthorizeResponse>
+    disconnect: () => void
 }
 
 const PING_INTERVAL = 30000
@@ -23,6 +24,7 @@ export class ApiManager {
     private socket: WebSocket
     public derivApi: TDerivApi
     private pingInterval: NodeJS.Timer
+    private ready: boolean
 
     public static instance: ApiManager
     public static getInstance() {
@@ -33,16 +35,19 @@ export class ApiManager {
     }
 
     public init(lang?: string) {
-        if (!this.socket) {
-            const language = lang === 'ach' ? getCrowdin() : lang?.replace('-', '_')
-            const socket_url = getSocketURL()
-            const app_id = getAppId()
-            const websocket_connection_url = `${socket_url}?app_id=${app_id}&l=${language}&brand=${brand_name.toLowerCase()}`
+        if (!this.ready) {
+            if (!this.socket) {
+                const language = lang === 'ach' ? getCrowdin() : lang?.replace('-', '_')
+                const socket_url = getSocketURL()
+                const app_id = getAppId()
+                const websocket_connection_url = `${socket_url}?app_id=${app_id}&l=${language}&brand=${brand_name.toLowerCase()}`
 
-            this.socket = new WebSocket(websocket_connection_url)
+                this.socket = new WebSocket(websocket_connection_url)
+            }
+            this.derivApi = new DerivAPIBasic({ connection: this.socket })
+            this.registerKeepAlive()
+            this.ready = true
         }
-        this.derivApi = new DerivAPIBasic({ connection: this.socket })
-        this.registerKeepAlive()
     }
 
     public augmentedSend<T extends TSocketEndpointNames>(
@@ -84,12 +89,17 @@ export class ApiManager {
         })
     }
 
-    public reset(appId: string, url: string, registerKeepAlive = false) {
-        this.socket = new WebSocket(`wss://${url}/websockets/v3?app_id=${appId}`)
+    public reset(language: string) {
+        const socket_url = getSocketURL()
+        const app_id = getAppId()
+        const websocket_connection_url = `${socket_url}?app_id=${app_id}&l=${language}&brand=${brand_name.toLowerCase()}`
+
+        this.derivApi.disconnect()
+        this.socket.close()
+
+        this.socket = new WebSocket(websocket_connection_url)
         this.derivApi = new DerivAPIBasic({ connection: this.socket })
-        if (registerKeepAlive) {
-            this.registerKeepAlive()
-        }
+        this.registerKeepAlive()
     }
 }
 let apiManager: ApiManager

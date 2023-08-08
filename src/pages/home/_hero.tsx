@@ -5,7 +5,6 @@ import VerticalCarousel from './_vertical-carousel'
 import PlatformSlideshow from './_platform-slideshow'
 import { contents, contents_ppc, header_items } from './_data'
 import useAuthCheck from 'components/hooks/use-auth-check'
-import { handleGetTrading } from 'components/layout/nav/util/nav-methods'
 import device from 'themes/device'
 import { Button } from 'components/form'
 import { Container, Box, Flex } from 'components/containers'
@@ -14,6 +13,7 @@ import useRegion from 'components/hooks/use-region'
 import { Localize } from 'components/localization'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { TString } from 'types/generics'
+import { handleGetTrading } from 'components/custom/utils'
 
 type HeroProps = {
     is_ppc?: boolean
@@ -135,10 +135,10 @@ const Hero = ({ is_ppc }: HeroProps) => {
                             weight="normal"
                         >
                             {is_eu && (
-                                <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
+                                <Localize translate_text="_t_Trade forex, stocks & indices, cryptocurrencies, commodities, and derived._t_" />
                             )}
                             {is_row && (
-                                <Localize translate_text="Trade forex, stocks & indices, cryptocurrencies, commodities, and derived." />
+                                <Localize translate_text="_t_Trade forex, stocks & indices, cryptocurrencies, commodities, and derived._t_" />
                             )}
                         </Header>
                         <VerticalCarousel contents={is_ppc ? contents_ppc : contents} />
@@ -150,7 +150,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                         id="dm-hero-signup"
                                         secondary
                                     >
-                                        <Localize translate_text="Get Trading" />
+                                        <Localize translate_text="_t_Get Trading_t_" />
                                     </HeroButton>
                                 ) : (
                                     <HeroButton
@@ -159,7 +159,7 @@ const Hero = ({ is_ppc }: HeroProps) => {
                                         id="dm-hero-signup"
                                         secondary
                                     >
-                                        <Localize translate_text="Create free demo account" />
+                                        <Localize translate_text="_t_Create free demo account_t_" />
                                     </HeroButton>
                                 ))}
                         </Box>

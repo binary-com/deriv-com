@@ -1,23 +1,29 @@
-import React, { ReactElement } from 'react'
-import styled from 'styled-components'
+import React from 'react'
+import styled, { css } from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
+import { TString } from 'types/generics'
+import { Localize, localize } from 'components/localization'
 
-type TradingType = {
-    title?: ReactElement | string
-    subtitle?: ReactElement | string
-    image_name?: string
-    image_alt?: string
-    second_title?: string
-    second_subtitle?: string
+export type TradingType = {
+    title: TString
+    subtitle: TString
+    image_name: string
+    image_alt: TString
+}
+
+type Spacing = 1
+
+type SpaceProps = {
+    $spacing: Spacing
 }
 
 type DTradingProps = {
     reverse?: boolean
     trading?: TradingType[]
-    two_title?: boolean
+    spacing?: Spacing
     max_width?: string
     max_height?: string
 }
@@ -26,7 +32,7 @@ type ContentProps = {
     margin_right?: string
 }
 
-type ImageWrapperProps = {
+type ImageWrapperProps = SpaceProps & {
     margin_right?: string
     max_width?: string
     max_height?: string
@@ -36,16 +42,21 @@ type RowProps = {
     flex_direction?: string
 }
 
-const StyledSection = styled(SectionContainer)`
+const StyledSection = styled(SectionContainer)<SpaceProps>`
     background-color: var(--color-white);
-    border-top: solid 1px var(--color-grey-2);
     @media ${device.tabletL} {
         padding: 1.74rem 0 4rem 0;
         border-top: unset;
         border-bottom: unset;
     }
+    ${(props) =>
+        props.$spacing === 1 &&
+        css`
+            @media ${device.tablet} {
+                padding-block-end: 0;
+            }
+        `}
 `
-
 const Content = styled.div<ContentProps>`
     width: 100%;
     max-width: 58.8rem;
@@ -62,7 +73,6 @@ const Content = styled.div<ContentProps>`
         margin: 0 auto;
     }
 `
-
 const ImageWrapper = styled.div<ImageWrapperProps>`
     max-width: ${(props) => props.max_width || '58.8rem'};
     width: 100%;
@@ -72,15 +82,41 @@ const ImageWrapper = styled.div<ImageWrapperProps>`
     @media ${device.tabletL} {
         margin: 2rem auto;
     }
+    ${(props) =>
+        props.$spacing === 1 &&
+        css`
+            @media ${device.tablet} {
+                margin-block-end: 0;
+                max-inline-size: 65rem;
+                max-block-size: 37.7rem;
+            }
+            @media ${device.tabletS} {
+                max-inline-size: 45rem;
+                max-height: 27rem;
+            }
+            @media ${device.mobileL} {
+                max-inline-size: 41rem;
+                max-height: 24.7rem;
+            }
+            @media ${device.mobileM} {
+                max-inline-size: 35rem;
+                max-block-size: 21.5rem;
+            }
+        `}
 `
 const StyledHeader = styled(Header)`
     line-height: 1.25;
+    color: var(--color-black-9);
 
     @media ${device.tabletL} {
-        font-size: 24px;
+        font-size: 28px;
         line-height: 40px;
         margin-top: 2rem;
     }
+`
+const StyledTitle = styled(Header)`
+    font-weight: normal;
+    margin: 8px 0 0;
 `
 const Row = styled.div<RowProps>`
     flex-direction: ${(props) => props.flex_direction};
@@ -96,6 +132,7 @@ const Row = styled.div<RowProps>`
         flex-direction: column;
     }
 `
+
 const query = graphql`
     query {
         dbot_strategy: file(relativePath: { eq: "dbot/dbot-strategy.png" }) {
@@ -170,44 +207,35 @@ const query = graphql`
         }
     }
 `
-const DTrading = ({ trading, reverse, two_title, max_width, max_height }: DTradingProps) => {
+
+const DTrading = ({ trading, reverse, max_width, max_height, spacing }: DTradingProps) => {
     const data = useStaticQuery(query)
+
     return (
-        <StyledSection>
+        <StyledSection $spacing={spacing}>
             <Container direction="column">
-                {trading.map((item, index) => {
+                {trading.map(({ image_alt, image_name, subtitle, title }, index) => {
                     const is_even = reverse ? (index + 1) % 2 : index % 2
+
                     return (
-                        <Row
-                            flex_direction={!is_even ? 'row' : 'row-reverse'}
-                            key={
-                                typeof item.title === 'string'
-                                    ? item.title
-                                    : item.title.props.translate_text
-                            }
-                        >
+                        <Row flex_direction={is_even ? 'row-reverse' : 'row'} key={title}>
                             <Content margin_right={!is_even ? '2.4rem' : '0'}>
                                 <StyledHeader type="page-title" as="h2">
-                                    {item.title}
+                                    <Localize translate_text={title} />
                                 </StyledHeader>
-                                <Text>{item.subtitle}</Text>
-                                {two_title && (
-                                    <>
-                                        <StyledHeader type="page-title" mt="2.4rem">
-                                            {item.second_title}
-                                        </StyledHeader>
-                                        <Text>{item.second_subtitle}</Text>
-                                    </>
-                                )}
+                                <StyledTitle as="p" type="paragraph-1">
+                                    <Localize translate_text={subtitle} />
+                                </StyledTitle>
                             </Content>
                             <ImageWrapper
                                 margin_right={!is_even ? '0' : '2.4rem'}
+                                $spacing={spacing}
                                 max_width={max_width}
                                 max_height={max_height}
                             >
                                 <QueryImage
-                                    data={data[item.image_name]}
-                                    alt={item.image_alt}
+                                    data={data[image_name]}
+                                    alt={localize(image_alt)}
                                     width="100%"
                                 />
                             </ImageWrapper>

@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { BackgroundImage, Header, QueryImage } from 'components/elements'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Flex, Desktop, Mobile } from 'components/containers'
 
 const query = graphql`
@@ -50,6 +50,7 @@ const AwardImageWrapper = styled.div`
         margin-top: 1%;
     }
 `
+
 const AwardImageWrapperMobile = styled.div`
     z-index: 2;
     padding: 36px 18px;
@@ -105,12 +106,12 @@ const AfricaAward = () => {
                     >
                         <Flex style={{ maxHeight: '360px' }} ai="center" jc="space-evenly">
                             <StyledHeader type="heading-2" align="left" color="white">
-                                {<Localize translate_text="Best Forex Broker Africa" />}
+                                <Localize translate_text="_t_Best Forex Broker Africa_t_" />
                             </StyledHeader>
                             <AwardImageWrapper>
                                 <QueryImage
                                     data={data.africa_award}
-                                    alt={'Africa Forex Award'}
+                                    alt={localize('_t_Africa Forex Award_t_')}
                                     width="auto"
                                     height="100%"
                                 />
@@ -134,14 +135,14 @@ const AfricaAward = () => {
                         }}
                     >
                         <StyledHeaderMobile type="heading-2" align="center" color="white">
-                            {<Localize translate_text="Best Forex Broker Africa" />}
+                            <Localize translate_text="_t_Best Forex Broker Africa_t_" />
                         </StyledHeaderMobile>
                         <Header as="h2" width="50%"></Header>
                     </BackgroundImage>
                     <AwardImageWrapperMobile>
                         <QueryImage
                             data={data.africa_award}
-                            alt={'Africa Forex Award'}
+                            alt={localize('_t_Africa Forex Award_t_')}
                             width="auto"
                             height="100%"
                         />

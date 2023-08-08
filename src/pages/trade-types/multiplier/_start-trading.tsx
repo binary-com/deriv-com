@@ -1,55 +1,42 @@
 import React from 'react'
-import styled from 'styled-components'
-import Timeline from '../components/_timeline'
 import { SmallContainer } from '../components/_style'
-import { SectionContainer } from 'components/containers'
-import { Header } from 'components/elements'
-import { Button } from 'components/form'
-import { localize, Localize } from 'components/localization'
-import Pattern from 'images/common/trade-types/pattern-section-small.png'
+import CommonHeaderSection from 'components/elements/common-header-section'
+import { StepperView } from 'components/elements'
+import Button from 'components/custom/_button'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { TString } from 'types/generics'
 
-const PatternContainer = styled(SectionContainer)`
-    background: url(${Pattern});
-    background-size: contain;
-`
-
-const FixTimeline = styled(Timeline)`
-    margin-left: 1.2rem;
-    margin-bottom: 5rem;
-`
+const MultipliersItems: { title: TString; subtitle: TString }[] = [
+    {
+        title: '_t_Practise_t_',
+        subtitle:
+            '_t_Open a demo account on Deriv and practise with an unlimited amount of virtual funds on our award-winning platforms._t_',
+    },
+    {
+        title: '_t_Trade_t_',
+        subtitle:
+            '_t_Open a real account, make a deposit, and start trading multipliers for real._t_',
+    },
+    {
+        title: '_t_Withdraw_t_',
+        subtitle:
+            '_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_',
+    },
+]
 
 const StartTrading = () => {
     const handleSignup = useHandleSignup()
 
     return (
-        <PatternContainer background="white" padding="4rem 0">
-            <SmallContainer direction="column" ai="flex-start">
-                <Header as="h3" size="3.2rem" mb="4rem">
-                    {localize('Start trading multipliers on Deriv')}
-                </Header>
-                <FixTimeline>
-                    <FixTimeline.Item title={<Localize translate_text="Practise" />}>
-                        {localize(
-                            'Open a demo account on Deriv and practise with an unlimited amount of virtual funds on our award-winning platforms.',
-                        )}
-                    </FixTimeline.Item>
-                    <FixTimeline.Item title={<Localize translate_text="Trade" />}>
-                        {localize(
-                            'Open a real account, make a deposit, and start trading multipliers for real.',
-                        )}
-                    </FixTimeline.Item>
-                    <FixTimeline.Item title={<Localize translate_text="Withdraw" />}>
-                        {localize(
-                            'Conveniently withdraw your funds through any of our supported withdrawal methods.',
-                        )}
-                    </FixTimeline.Item>
-                </FixTimeline>
-                <Button onClick={handleSignup} id="dm-multipliers-signup-2" secondary>
-                    {localize('Create free demo account')}
-                </Button>
-            </SmallContainer>
-        </PatternContainer>
+        <SmallContainer direction="column" ai="flex-start">
+            <CommonHeaderSection
+                title="_t_Start trading multipliers on Deriv_t_"
+                title_font_size="3.2rem"
+                margin_title="15rem 0 7rem 0"
+            />
+            <StepperView items={MultipliersItems} />
+            <Button onClick={handleSignup} label="Create free demo account" primary />
+        </SmallContainer>
     )
 }
 

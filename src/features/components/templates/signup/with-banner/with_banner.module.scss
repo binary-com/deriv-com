@@ -1,0 +1,15 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.public_signup_container {
+    inline-size: 100%;
+    border-radius: 16px;
+
+    @include breakpoints(phone) {
+        min-block-size: 36rem;
+        max-width: 65%;
+        margin: 0 auto;
+    }
+    @include breakpoints(tablet) {
+        max-width: 100%;
+    }
+}

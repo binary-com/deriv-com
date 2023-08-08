@@ -1,0 +1,24 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.section_items {
+    &_container {
+        border-inline-end: none;
+        border-block-end: none;
+        &:first-child {
+            border-block-end: 1px solid $color-grey-8;
+        }
+
+        @include breakpoints(tablet) {
+            border-block-end: none;
+            border-inline-end: none;
+            &:first-child {
+                border-inline-end: 1px solid $color-grey-8;
+            }
+        }
+    }
+
+    &_title {
+        min-block-size: 3rem;
+    }
+}

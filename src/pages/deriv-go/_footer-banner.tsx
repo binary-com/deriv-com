@@ -1,177 +1,103 @@
-import React, { useEffect, useState } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import React from 'react'
 import styled from 'styled-components'
-import { Flex, Container, Desktop, Mobile } from 'components/containers'
+import derivGoLogo from '../../images/svg/deriv-go/derivGo.svg'
+import derivGoQR from '../../images/svg/deriv-go/derivGoQR.svg'
+import GrayAngle30 from '../../images/common/gray-angle.png'
+import AppleIcon from '../../images/svg/apple-icon.svg'
+import AppGalleryIcon from '../../images/svg/appGallery-icon.svg'
+import AndroidIcon from '../../images/svg/android-icon.svg'
+import GetAppMobileBG from '../../images/common/dtrader/getAppMobileBG.jpg'
+import CommonHeaderSection from 'components/elements/common-header-section'
+import MultiWidthColumn from 'components/elements/multi-width-column'
+import device from 'themes/device'
+import { useIsRtl } from 'components/hooks/use-isrtl'
+import useBreakpoints from 'components/hooks/use-breakpoints'
+import useRegion from 'components/hooks/use-region'
+import {
+    deriv_go_playstore_url,
+    deriv_go_huaweiappgallery_url,
+    deriv_go_ios_url,
+} from 'common/constants'
+import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
 import { localize } from 'components/localization'
-import { Header, QueryImage } from 'components/elements'
-import device, { size } from 'themes/device'
-import { Button } from 'components/form'
-import BannerBg from 'images/common/deriv-go/banner.png'
-import BannerMobileBg from 'images/common/deriv-go/banner-m.png'
-import { isBrowser } from 'common/utility'
-import { mobileOSDetect } from 'common/os-detect'
-import { deriv_go_playstore_url, deriv_go_ios_url } from 'common/constants'
 
-const query = graphql`
-    query {
-        footer_banner: file(relativePath: { eq: "deriv-go/footer-banner.png" }) {
-            ...fadeIn
-        }
-        footer_banner_m: file(relativePath: { eq: "deriv-go/footer-banner-mobile.png" }) {
-            ...fadeIn
-        }
-        google_play: file(relativePath: { eq: "deriv-go/google-play.png" }) {
-            ...fadeIn
-        }
-        app_store: file(relativePath: { eq: "deriv-go/app-store.png" }) {
-            ...fadeIn
-        }
-        huawei_app: file(relativePath: { eq: "deriv-go/huawei-app.png" }) {
-            ...fadeIn
-        }
-        qr_code: file(relativePath: { eq: "deriv-go/deriv_go_all_appstores.png" }) {
-            ...fadeIn
-        }
-    }
-`
-
-const BackgroundWrapper = styled(Flex)`
-    background: url(${BannerBg});
-    background-repeat: round;
-    border-radius: 12px;
-    position: relative;
-    min-height: 38.3rem;
-
+const ContentWrapper = styled.div<{ is_rtl: boolean }>`
+    display: flex;
+    gap: 16px;
+    flex: 1;
+    z-index: 2;
+    direction: ${(props) => (props.is_rtl ? 'rtl' : 'ltr')};
     @media ${device.tabletL} {
-        background: url(${BannerMobileBg});
-        flex-direction: column-reverse;
-    }
-`
-const ButtonDerivGO = styled(Button)`
-    padding: 1.5rem 1.6rem;
-    height: 40px;
-    white-space: nowrap;
-    margin: 20px 0;
-    margin-right: 25px;
-`
-const BannerWrapper = styled(Flex)`
-    width: 50%;
-    align-self: flex-end;
-
-    & .footerimg-wrapper {
-        width: 80%;
-        @media ${device.tabletL} {
-            padding-top: 120px;
-            width: 65%;
-        }
-        @media ${device.mobileL} {
-            width: 250px;
-            height: 321px;
-            padding-top: 106px;
-        }
-    }
-    @media ${device.tabletL} {
-        width: 100%;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
     }
 `
-const StyledHeader = styled(Header)`
+const TextAndButtonWrapper = styled.div`
     @media ${device.tabletL} {
-        text-align: center;
-    }
-`
-const StyledSubTitle = styled(Header)`
-    margin-top: 16px;
-    @media ${device.tabletL} {
-        margin-top: 8px;
-        text-align: center;
+        width: 328px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 `
 
-const handleExternalLink = () => {
-    let link = deriv_go_playstore_url
-    if (mobileOSDetect() === 'Android') {
-        link = deriv_go_playstore_url
-    }
-    if (mobileOSDetect() === 'iOS') {
-        link = deriv_go_ios_url
-    }
-    window.open(link, '_blank')
-}
+const DerivGoGetApp = () => {
+    const { is_mobile_or_tablet } = useBreakpoints()
+    const is_rtl = useIsRtl()
+    const { is_appgallery_supported } = useRegion()
 
-const FooterBanner = () => {
-    const data = useStaticQuery(query)
-    const [is_mobile, setMobile] = useState(false)
-
-    useEffect(() => {
-        const handleResizeWindow = () =>
-            setMobile(isBrowser() ? window.screen.width <= size.tablet : false)
-        handleResizeWindow()
-        window.addEventListener('resize', handleResizeWindow)
-
-        return () => {
-            window.removeEventListener('resize', handleResizeWindow)
-        }
-    }, [is_mobile])
+    const items: TDownloadColumnItem[] = [
+        { text: 'Google Play', icon: AndroidIcon, link: deriv_go_playstore_url },
+        { text: 'App Store', icon: AppleIcon, link: deriv_go_ios_url },
+        ...(is_appgallery_supported
+            ? [{ text: 'AppGallery', icon: AppGalleryIcon, link: deriv_go_huaweiappgallery_url }]
+            : []),
+    ]
 
     return (
-        <Container
-            pt="60px"
-            pb="80px"
-            tablet_direction="column"
-            tabletL={{ height: 'auto', pb: '30px' }}
+        <MultiWidthColumn
+            firstColumnBackground="#4C515C"
+            secondColumnBackground={GrayAngle30}
+            firstColumnWidth="55%"
+            secondColumnWidth="45%"
+            mobilePadding="50px 0"
+            mobileBackgroundImage={GetAppMobileBG}
+            secondColumnMobileMargin="8rem 0 0 0"
         >
-            <BackgroundWrapper ai="center">
-                <BannerWrapper jc="start">
-                    <QueryImage
-                        data={data[is_mobile ? 'footer_banner_m' : 'footer_banner']}
-                        alt="Trading forex and synthetic indices on Deriv GO"
-                        className="footerimg-wrapper"
+            <ContentWrapper is_rtl={is_rtl}>
+                <img
+                    src={derivGoLogo}
+                    alt={localize('_t_Deriv Go logo_t_')}
+                    width="64px"
+                    height="64px"
+                />
+                <TextAndButtonWrapper>
+                    <CommonHeaderSection
+                        title="_t_Get trading with Deriv GO_t_"
+                        title_font_size={is_mobile_or_tablet ? '32px' : '64px'}
+                        align_title={is_mobile_or_tablet ? 'center' : is_rtl ? 'right' : 'left'}
+                        width="100%"
+                        font_family_title="Ubuntu"
+                        color="#fff"
+                        margin_title="0 0 18px"
                     />
-                </BannerWrapper>
-                <Flex
-                    fd="column"
-                    ai="center"
-                    jc="center"
-                    width="424px"
-                    tabletL={{ max_width: '100%', mt: '40px' }}
-                >
-                    <StyledHeader as="h3" color="white" type="heading-3">
-                        {localize('Start trading on the go')}
-                    </StyledHeader>
-                    <StyledSubTitle color="white" type="subtitle-2" weight="lighter">
-                        {localize(
-                            'Download the app today and trade multipliers anytime, anywhere you want.',
-                        )}
-                    </StyledSubTitle>
-                    <Flex
-                        mt="40px"
-                        jc="start"
-                        tablet_fw="wrap"
-                        tablet_jc="center"
-                        tabletL={{ m: '24px 8px 0 32px' }}
-                    >
-                        <Desktop>
-                            <QueryImage
-                                data={data['qr_code']}
-                                alt={'play store'}
-                                width="108px"
-                                height="108px"
-                            />
-                            <StyledSubTitle color="white" type="subtitle-2" weight="lighter">
-                                {localize('Scan the QR code to download Deriv GO')}
-                            </StyledSubTitle>
-                        </Desktop>
-                        <Mobile>
-                            <ButtonDerivGO secondary onClick={handleExternalLink}>
-                                {localize('Download Deriv GO')}
-                            </ButtonDerivGO>
-                        </Mobile>
-                    </Flex>
-                </Flex>
-            </BackgroundWrapper>
-        </Container>
+                </TextAndButtonWrapper>
+            </ContentWrapper>
+            <DownloadColumn
+                QRImage={derivGoQR}
+                QRHeading1="_t_Scan to download_t_"
+                QRHeading2={
+                    is_appgallery_supported
+                        ? '_t_Android, iOS, and Huawei_t_'
+                        : '_t_Android and iOS_t_'
+                }
+                items={items}
+                is_rtl={is_rtl}
+            />
+        </MultiWidthColumn>
     )
 }
 
-export default FooterBanner
+export default DerivGoGetApp

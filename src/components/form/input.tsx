@@ -60,9 +60,10 @@ const InputWrapper = styled.div<InputWrapperProps>`
     /* prettier-ignore */
     width: 100%;
     border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
-    border-radius: 4px;
+    border-radius: 16px;
     @media ${device.tabletL} {
         height: 5rem;
+        border-radius: 4px;
     }
 
     &:hover {
@@ -72,10 +73,6 @@ const InputWrapper = styled.div<InputWrapperProps>`
             color: ${({ label_hover_color }) =>
                 label_hover_color ? `var(--color-${label_hover_color})` : 'var(--color-black-3)'};
         }
-    }
-    &:focus-within {
-        border-color: ${({ focus_border }) =>
-            focus_border ? `var(--color-${focus_border})` : 'var(--color-green)'};
     }
 
     ${(props) =>
@@ -116,23 +113,24 @@ const StyledError = styled.img`
 `
 
 const StyledInput = styled.input<StyledInputProps>`
-    background: ${({ input_background }) =>
-        input_background ? `var(--color-${input_background})` : 'none'};
     color: ${({ inputColor }) =>
         inputColor ? `var(--color-${inputColor})` : 'var(--color-black)'};
     font-size: var(--text-size-s);
     padding: 1rem 1rem 1rem 0.8rem;
     height: ${(props) => props.height || '40px'};
-    width: 100%;
+    width: 98%;
     display: block;
     border: none;
-    border-radius: 4px;
+    border-radius: 16px;
     @media ${device.tabletL} {
+        margin: 0 8px;
+        width: 95%;
         height: 100%;
+        border-radius: 15px;
 
         & ~ label {
             font-size: 1.75rem;
-            top: 1.5rem;
+            top: 1.95rem;
         }
     }
     @media ${device.mobileL} {
@@ -140,7 +138,6 @@ const StyledInput = styled.input<StyledInputProps>`
 
         & ~ label {
             font-size: 1.5rem;
-            top: 1.75rem;
         }
     }
 
@@ -154,8 +151,6 @@ const StyledInput = styled.input<StyledInputProps>`
 
         & ~ label {
             transform: translate(-0.6rem, -2rem) scale(0.7);
-            color: ${({ label_focus_color }) =>
-                label_focus_color ? `var(--color-${label_focus_color})` : 'var(--color-green)'};
             background-color: ${({ background }) =>
                 background ? `var(--color-${background})` : 'var(--color-grey-1)'};
 
@@ -179,7 +174,7 @@ const StyledInput = styled.input<StyledInputProps>`
             css<ValidProps>`
                 & ~ label {
                     transform: translate(-0.6rem, -2rem) scale(0.7);
-                    color: var(--color-black-3);
+                    color: var(--color-grey-5);
                     background-color: ${({ background }) =>
                         background ? `var(--color-${background})` : 'var(--color-grey-1)'};
 
@@ -192,7 +187,7 @@ const StyledInput = styled.input<StyledInputProps>`
 `
 
 const ErrorMessages = styled(Text)`
-    padding-left: 0.8rem;
+    padding: 6px;
     font-size: 1.2rem;
     min-height: 16px;
     color: var(--color-red-1);
@@ -205,10 +200,10 @@ const StyledLabel = styled.label<StyledLabelProps>`
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
-    top: 1.4rem;
+    top: 1.52rem;
     transition: 0.25s ease transform;
     transform: translateZ(0);
-    padding: 0 0.4rem;
+    padding: 0 0.45rem;
     background: none;
 `
 

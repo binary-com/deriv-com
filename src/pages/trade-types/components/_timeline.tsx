@@ -1,9 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { PropsWithChildren, ReactElement } from 'react'
 import styled from 'styled-components'
 import { Text, Header } from 'components/elements'
 import Checklist from 'images/svg/trade-types/checklist-red.svg'
 import device from 'themes/device'
+import { Localize, localize } from 'components/localization'
+import { TString } from 'types/generics'
+
+type TItem = PropsWithChildren<{ title?: TString }>
+type TTimeline = {
+    children: Array<ReactElement<TItem>>
+}
 
 const StyledItem = styled.div`
     display: flex;
@@ -26,15 +32,16 @@ const Oval = styled.img`
     position: absolute;
     left: -10px;
 `
-const Timeline = ({ children, ...props }) => {
+
+const Timeline = ({ children }: TTimeline) => {
     return (
-        <div {...props}>
+        <div>
             {children.map((child, idx) => (
                 <StyledItem key={idx}>
-                    <Oval src={Checklist} alt="checklist" />
+                    <Oval src={Checklist} alt={localize('_t_checklist_t_')} />
                     <Container>
                         <Header mb="0.8rem" mt="-5px" as="h4" size="2.4rem">
-                            {child.props.title}
+                            {child.props.title && <Localize translate_text={child.props.title} />}
                         </Header>
                         <Text>{child}</Text>
                     </Container>
@@ -43,15 +50,9 @@ const Timeline = ({ children, ...props }) => {
         </div>
     )
 }
-const Item = ({ children, ...props }) => <span {...props}>{children}</span>
+
+const Item = ({ children }: TItem) => <span>{children}</span>
 
 Timeline.Item = Item
-
-Item.propTypes = {
-    children: PropTypes.node,
-}
-Timeline.propTypes = {
-    children: PropTypes.node,
-}
 
 export default Timeline

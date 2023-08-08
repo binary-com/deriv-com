@@ -16,6 +16,7 @@ exports.onCreatePage = ({ page, actions }) => {
     const is_p2p = /responsible/g.test(page.path)
     const who_we_are = /who-we-are/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
+    const is_deriv_ez = /deriv-ez/g.test(page.path)
 
     if (is_careers) {
         createRedirect({
@@ -27,6 +28,18 @@ exports.onCreatePage = ({ page, actions }) => {
         createRedirect({
             fromPath: `/careers/people-management/`,
             toPath: `/careers/human-resources/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/careers/besquare/`,
+            toPath: `/careers/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/careers/besquare`,
+            toPath: `/careers/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -138,6 +151,21 @@ exports.onCreatePage = ({ page, actions }) => {
         createRedirect({
             fromPath: `/trade-types/margin`,
             toPath: `/trade-types/cfds/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+    }
+
+    if (is_deriv_ez) {
+        createRedirect({
+            fromPath: `/derivez/`,
+            toPath: `/deriv-ez/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/derivez`,
+            toPath: `/deriv-ez/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -291,6 +319,21 @@ exports.onCreatePage = ({ page, actions }) => {
             createRedirect({
                 fromPath: `/${lang}/trade-types/margin`,
                 toPath: `/${lang}/trade-types/cfds/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
+        if (is_deriv_ez) {
+            createRedirect({
+                fromPath: `/${lang}/derivez/`,
+                toPath: `/${lang}/deriv-ez/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/derivez`,
+                toPath: `/${lang}/deriv-ez/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

@@ -1,13 +1,18 @@
-import React, { ReactNode, ReactElement } from 'react'
+import React, { ReactNode, ReactElement, PropsWithChildren } from 'react'
 import styled, { css } from 'styled-components'
 import { Flex, Desktop, Mobile } from 'components/containers'
 import { Text } from 'components/elements'
+import CommonHeaderSection from 'components/elements/common-header-section'
 import device, { SizeType } from 'themes/device'
 import { ReactComponent as Info } from 'images/svg/trade-types/info2.svg'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
 
 type ChildProps = {
-    label?: JSX.Element
-    description?: JSX.Element
+    label: TString
+    description: TString
+    description_components?: React.ReactElement[]
 }
 
 type TabButtonType = {
@@ -29,14 +34,17 @@ type TabsProps = {
     is_reverse?: boolean
     max_width?: SizeType
     tab_break?: string
-    children?: ReactElement | ReactElement[]
+    notice_content?: TString
+    notice_content_components?: React.ReactElement[]
+    children?:
+        | Array<ReactElement<PropsWithChildren<ChildProps>>>
+        | ReactElement<PropsWithChildren<ChildProps>>
 }
 
 const TabContent = styled.div`
     flex: 1;
     width: 100%;
 `
-
 const TabButton = styled.div<TabButtonType>`
     position: relative;
     z-index: 2;
@@ -44,6 +52,7 @@ const TabButton = styled.div<TabButtonType>`
     flex-direction: column;
     padding-left: 1.6rem;
     margin-bottom: 1.6rem;
+    margin-top: 1.6rem;
     cursor: pointer;
 
     &::before {
@@ -60,19 +69,19 @@ const TabButton = styled.div<TabButtonType>`
         margin-bottom: 0;
     }
 `
-
 const right = css`
     margin-right: 2.4rem;
 `
 const left = css`
     margin-left: 2.4rem;
 `
-
 const TabList = styled.div<TabListType>`
     max-width: 100%;
-    ${(props) => (props.is_reverse ? left : right)}
-`
 
+    @media (min-width: 1024px) {
+        ${(props) => (props.is_reverse ? left : right)}
+    }
+`
 const TabListWrapper = styled.div`
     max-width: 28.2rem;
     display: flex;
@@ -83,17 +92,14 @@ const TabListWrapper = styled.div`
         margin: 0;
     }
 `
-
 const Content = styled.div`
     flex: 1;
     width: 100%;
 `
-
 const DesktopWrapper = styled(Desktop)`
     flex: 1;
     width: 100%;
 `
-
 const MobileWrapper = styled(Mobile)`
     @media ${device.tabletS} {
         margin-top: 1.6rem;
@@ -108,7 +114,6 @@ const MobileWrapper = styled(Mobile)`
         margin-bottom: 0;
     }
 `
-
 const NoticeWrapper = styled(Flex)`
     width: 100%;
     margin: 3.2rem 0 0 2.2rem;
@@ -119,7 +124,6 @@ const NoticeWrapper = styled(Flex)`
         justify-content: flex-start;
     }
 `
-
 const StyledInfo = styled(Info)`
     margin-right: 8px;
     margin-top: 4px;
@@ -149,18 +153,21 @@ const TabPanel = ({ children, className }: TabPanelProps) => (
     </TabContent>
 )
 
-const Tabs = <T extends object>({
+const Tabs = ({
     children,
     is_reverse,
     className,
     max_width,
     has_notice,
     notice_content,
-}: TabsProps & { notice_content?: T }) => {
+    notice_content_components,
+}: TabsProps) => {
     const [selected_tab, setSelectedTab] = React.useState(0)
     const selectTab = (tabIndex) => {
         setSelectedTab(tabIndex)
     }
+
+    const [is_mobile] = useBrowserResize()
 
     return (
         <Flex className={className} ai="flex-start" direction={is_reverse ? 'row-reverse' : 'row'}>
@@ -168,7 +175,7 @@ const Tabs = <T extends object>({
                 <TabList className="side-tab__list" role="tablist" is_reverse={is_reverse}>
                     {React.Children.map(children, (child, index) => {
                         const {
-                            props: { label, description },
+                            props: { label, description, description_components },
                         } = child
                         return (
                             <>
@@ -179,12 +186,17 @@ const Tabs = <T extends object>({
                                     aria-selected={selected_tab === index ? 'true' : 'false'}
                                     onClick={() => selectTab(index)}
                                 >
-                                    <Text className="side-tab__label" weight="bold">
-                                        {label}
-                                    </Text>
-                                    <Text className="side-tab__description" mt="0.8rem">
-                                        {description}
-                                    </Text>
+                                    <CommonHeaderSection
+                                        title={label}
+                                        title_font_size={is_mobile ? '14px' : '16px'}
+                                    />
+                                    <CommonHeaderSection
+                                        subtitle={description}
+                                        subtitle_components={description_components}
+                                        subtitle_font_size={is_mobile ? '14px' : '16px'}
+                                        margin_subtitle="0.8rem 0 0 0"
+                                        line_height={is_mobile ? '20px' : '24px'}
+                                    />
                                 </TabButton>
                                 <MobileWrapper
                                     className="side-tab__mobile"
@@ -199,7 +211,14 @@ const Tabs = <T extends object>({
                 {has_notice && (
                     <NoticeWrapper>
                         <StyledInfo />
-                        <StyledText>{notice_content}</StyledText>
+                        <StyledText>
+                            {notice_content && (
+                                <Localize
+                                    translate_text={notice_content}
+                                    components={notice_content_components}
+                                />
+                            )}
+                        </StyledText>
                     </NoticeWrapper>
                 )}
             </TabListWrapper>

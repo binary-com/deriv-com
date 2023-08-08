@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import { BackgroundImage, Header, QueryImage } from 'components/elements'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Flex, Desktop, Mobile } from 'components/containers'
 
 const query = graphql`
@@ -97,12 +97,12 @@ const LatamAward = () => {
                     >
                         <Flex style={{ maxHeight: '360px' }} ai="center" jc="space-evenly">
                             <StyledHeader type="heading-2" align="left" color="white">
-                                {<Localize translate_text="Best Forex Broker Latin America" />}
+                                <Localize translate_text="_t_Best Forex Broker Latin America_t_" />
                             </StyledHeader>
                             <AwardImageWrapper>
                                 <QueryImage
                                     data={data.latam_award}
-                                    alt={'Latin America Forex Award'}
+                                    alt={localize('_t_Latin America Forex Award_t_')}
                                     width="auto"
                                     height="100%"
                                 />
@@ -126,14 +126,14 @@ const LatamAward = () => {
                         }}
                     >
                         <StyledHeaderMobile type="heading-2" align="center" color="white">
-                            {<Localize translate_text="Best Forex Broker Latin America" />}
+                            <Localize translate_text="_t_Best Forex Broker Latin America_t_" />
                         </StyledHeaderMobile>
                         <Header as="h2" width="50%"></Header>
                     </BackgroundImage>
                     <AwardImageWrapperMobile>
                         <QueryImage
                             data={data.latam_award}
-                            alt={'Latin America Forex Award'}
+                            alt={localize('_t_Latin America Forex Award_t_')}
                             width="auto"
                             height="100%"
                         />

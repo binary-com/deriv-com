@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PartnerVideo from './partner-video.mp4'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Container } from 'components/containers'
 import { Header } from 'components/elements'
 import { useLazyVideo } from 'components/hooks/use-lazy-video'
@@ -45,7 +45,7 @@ const Hero = () => {
         <StyledHero>
             <StyledVideo
                 className="lazy"
-                title={localize('deriv.app platform video')}
+                title={localize('_t_deriv.app platform video_t_')}
                 width="100%"
                 height="100%"
                 autoPlay
@@ -58,10 +58,10 @@ const Hero = () => {
             <Content>
                 <Container direction="column" height="100%">
                     <Header as="h1" type="display-title" color="white" align="center">
-                        {localize('Deriv partnership programmes')}
+                        <Localize translate_text="_t_Deriv partnership programmes_t_" />
                     </Header>
                     <Header as="h3" color="white" align="center" type="section-title" weight="400">
-                        {localize('Partner with a trusted online trading provider.')}
+                        <Localize translate_text="_t_Partner with a trusted online trading provider._t_" />
                     </Header>
                 </Container>
             </Content>

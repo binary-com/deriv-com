@@ -1,13 +1,15 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { SectionContainer, Flex, Box } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
+import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
 
 type WhyTradeProps = {
-    children?: ReactElement[]
-    header?: ReactElement
-    description?: ReactElement
+    children?: React.ReactElement[]
+    header?: TString
+    description?: TString
 }
 
 const Item = styled(Flex)`
@@ -20,7 +22,7 @@ const Item = styled(Flex)`
     }
 
     @media ${device.tabletL} {
-        max-width: 18rem;
+        max-width: 14rem;
         gap: 6px;
 
         ${Text} {
@@ -28,7 +30,6 @@ const Item = styled(Flex)`
         }
     }
 `
-
 const ItemContainer = styled(Box)`
     display: flex;
     margin: 40px 0 32px;
@@ -88,30 +89,28 @@ const StyledTextContent = styled(Text)`
     }
 `
 
-export const WhyTrade = ({ children, header, description }: WhyTradeProps) => {
-    return (
-        <StyledSection>
-            <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
-                <StyledText>{description}</StyledText>
-                <div>
-                    <StyledHeader as="h2" type="section-title" align="center" mb="1.2rem" lh="1.25">
-                        {header}
-                    </StyledHeader>
-                </div>
-                <ItemContainer max_width="48.6rem" width="100%">
-                    {children.map((child, idx) => {
-                        {
-                            const { text, icon } = child.props
-                            return (
-                                <Item key={idx} ai="center" direction="column">
-                                    {icon}
-                                    {<StyledTextContent>{text}</StyledTextContent>}
-                                </Item>
-                            )
-                        }
-                    })}
-                </ItemContainer>
-            </Flex>
-        </StyledSection>
-    )
-}
+export const WhyTrade = ({ children, header, description }: WhyTradeProps) => (
+    <StyledSection>
+        <Flex direction="column" max_width="99.6rem" m="0 auto" jc="space-between" ai="center">
+            <StyledText>{description && <Localize translate_text={description} />}</StyledText>
+            <div>
+                <StyledHeader as="h2" type="section-title" align="center" mb="1.2rem" lh="1.25">
+                    {header && <Localize translate_text={header} />}
+                </StyledHeader>
+            </div>
+            <ItemContainer max_width="48.6rem" width="100%">
+                {children.map((child, idx) => {
+                    {
+                        const { text, icon } = child.props
+                        return (
+                            <Item key={idx} ai="center" direction="column">
+                                {icon}
+                                <StyledTextContent>{text}</StyledTextContent>
+                            </Item>
+                        )
+                    }
+                })}
+            </ItemContainer>
+        </Flex>
+    </StyledSection>
+)

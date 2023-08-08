@@ -1,11 +1,8 @@
 import React from 'react'
 import Loadable from '@loadable/component'
 import PageNotFound from '../../../404'
-import { WhyTrade } from '../sections/_why-trade'
 import AvailableTrades from '../helper/_available-trades'
 import { basket_indices_content, basket_indices_content_eu } from '../../static/content/_basket'
-import type { BasketIndicesContent } from '../../static/content/_basket'
-import { SimpleStepContentElement } from '../../static/content/_simple_step_content'
 import { StyledBox } from '../../static/style/_markets-style'
 import { basket_cfds } from '../../static/content/_cfds'
 import { basket_multiplier } from '../../static/content/_multipliers'
@@ -13,62 +10,88 @@ import { basket_options } from '../../static/content/_digital-options'
 import CFDs from '../sub-markets/_cfds'
 import Multipliers from '../sub-markets/_multipliers'
 import DigitalOptions from '../sub-markets/_digital-options'
+import { TradeDetails } from '../sections/_trade-details'
 import { Localize, localize } from 'components/localization'
+import Typography from 'features/components/atoms/typography'
+import LinkButton from 'features/components/atoms/link-button'
+import Flex from 'features/components/atoms/flex-box'
 import useRegion from 'components/hooks/use-region'
+import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
+import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
+import { TSimpleStepContent } from 'pages/markets/static/content/_types'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
-const OtherMarkets = Loadable(() => import('../sections/_other-markets'))
 
 type BasketIndicesProps = {
-    simple_step_content: SimpleStepContentElement[]
+    simple_step_content: TSimpleStepContent[]
 }
+
 const BasketIndices = ({ simple_step_content }: BasketIndicesProps) => {
     const { is_eu, is_row } = useRegion()
     return (
         <>
             {is_row && (
                 <>
-                    <WhyTrade
-                        description={
-                            <Localize translate_text="Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility." />
-                        }
-                        header={<Localize translate_text="Why trade basket indices on Deriv" />}
-                    >
-                        {(!is_eu ? basket_indices_content : basket_indices_content_eu).map(
-                            (content: BasketIndicesContent, index) => (
-                                <StyledBox
-                                    key={index}
-                                    text={content.text}
-                                    icon={<img src={content.src} alt={content.alt} />}
-                                />
-                            ),
-                        )}
-                    </WhyTrade>
+                    <TradeDetails description="_t_Trade your favourite currency against a basket of major currencies and benefit from reduced risk and volatility._t_" />
                     <AvailableTrades
-                        CFDs={
-                            <CFDs market_content={basket_cfds} market_tab_name={'basket-indices'} />
-                        }
+                        CFDs={<CFDs market_content={basket_cfds} />}
                         DigitalOptions={
                             <DigitalOptions
                                 market_type="basket-indices"
-                                market_name={localize('basket indices')}
+                                market_name="basket indices"
                                 options_list={basket_options}
                             />
                         }
                         Multipliers={<Multipliers market_content={basket_multiplier} />}
-                        display_title={
-                            <Localize translate_text="Basket indices trades  available on Deriv" />
-                        }
+                        display_title="_t_Baskets trades  available on Deriv_t_"
                     />
+                    <Flex.Box
+                        direction="col"
+                        container="fluid"
+                        justify="center"
+                        align="center"
+                        pb="10x"
+                        md={{ pb: '40x', mb: '20x' }}
+                    >
+                        <Typography.Paragraph mb="10x" textcolor="black" align="center">
+                            <Localize translate_text="_t_Want to know more about CFD trading conditions for the instruments we offer?_t_" />
+                        </Typography.Paragraph>
+                        <LinkButton.Primary
+                            font_family="UBUNTU"
+                            aria-label="check trading specs"
+                            url={{
+                                type: 'internal',
+                                to: '/trading-specification',
+                            }}
+                        >
+                            <Localize translate_text="_t_Check trading specs_t_" />
+                        </LinkButton.Primary>
+                    </Flex.Box>
+                    <FullWidthMultiColumn header="_t_Why trade baskets on Deriv_t_">
+                        {(!is_eu ? basket_indices_content : basket_indices_content_eu).map(
+                            ({ alt, src, text }) => (
+                                <StyledBox
+                                    key={text}
+                                    text={text}
+                                    icon={
+                                        <img
+                                            width="48px"
+                                            height="48px"
+                                            src={src}
+                                            alt={localize(alt)}
+                                        />
+                                    }
+                                />
+                            ),
+                        )}
+                    </FullWidthMultiColumn>
                     <SimpleSteps
-                        header={
-                            <Localize translate_text="Start trading basket indices on Deriv in 3 simple steps" />
-                        }
+                        header="_t_Start trading baskets on Deriv in 3 simple steps_t_"
                         content={simple_step_content}
                         sign_up
                     />
-                    <OtherMarkets except="derived" />
+                    <OtherMarketsSlider current_market="synthetic" />
                 </>
             )}
             {is_eu && <PageNotFound />}

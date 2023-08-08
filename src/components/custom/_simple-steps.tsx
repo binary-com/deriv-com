@@ -1,20 +1,22 @@
-import React, { ReactElement, ReactNode } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { localize } from 'components/localization'
-import { Button } from 'components/form'
+import Button from './_button'
 import { Header, Text } from 'components/elements'
-import { Container, SectionContainer, Flex, Desktop, Mobile } from 'components/containers'
+import { Container, SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
-import Pattern from 'images/svg/custom/pattern.svg'
-import PatternMobile from 'images/svg/custom/pattern-mobile.svg'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import useAuthCheck from 'components/hooks/use-auth-check'
-import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import { TString } from 'types/generics'
+import { Localize } from 'components/localization'
+
+type TContent = {
+    header?: TString
+    icon?: React.ReactElement
+    text?: TString
+}
 
 type SimpleStepsProps = {
-    content?: { header?: ReactNode; icon?: HTMLImageElement; text?: ReactElement }[]
-    header?: string
-    sign_up?: boolean
+    content?: TContent[]
+    header?: TString
 }
 
 type ClientCardProps = {
@@ -23,6 +25,7 @@ type ClientCardProps = {
 
 const StyledSection = styled(SectionContainer)`
     position: relative;
+    background-color: #f9fbff;
 
     ${Container} {
         ${Header} {
@@ -58,14 +61,12 @@ const StyledHeader = styled(Header)`
         font-size: 16px;
     }
 `
-
 const TitleHeader = styled(Header)`
     @media ${device.tabletL} {
         font-size: 24px;
         line-height: 1.5;
     }
 `
-
 const ClientCard = styled.article<ClientCardProps>`
     margin: 0 0 0 2rem;
     background-color: var(--color-white);
@@ -91,93 +92,51 @@ const ClientCard = styled.article<ClientCardProps>`
         padding: 24px;
 
         ${Text} {
-            font-size: 2rem;
+            font-size: 1.4rem;
         }
         ${Flex} {
             padding-bottom: 8px;
         }
     }
 `
-const BackgroundPattern = styled.img`
-    z-index: 0;
-    position: absolute;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    right: 0;
-    bottom: 0;
-`
-const MobileBackgroundPattern = styled.img`
-    z-index: 0;
-    position: absolute;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-`
-
 const LinkButtonWrapper = styled(Flex)`
     margin-top: 32px;
     text-align: center;
     justify-content: center;
 `
 
-const StyledLinkButton = styled(Button)`
-    height: 40px;
-    width: auto;
-    border-radius: 4px;
-    position: relative;
-    white-space: nowrap;
-`
-
-const SimpleSteps = ({ header, content, sign_up }: SimpleStepsProps) => {
+const SimpleSteps = ({ header, content }: SimpleStepsProps) => {
     const handleSignup = useHandleSignup()
-    const [is_logged_in] = useAuthCheck()
-    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <StyledSection>
-            <Desktop>
-                <BackgroundPattern src={Pattern} alt="pattern" />
-            </Desktop>
-            <Mobile>
-                <MobileBackgroundPattern src={PatternMobile} alt="pattern mobile" />
-            </Mobile>
             <Container direction="column">
                 <TitleHeader align="center" as="h2" type="section-title">
-                    {header}
+                    {header && <Localize translate_text={header} />}
                 </TitleHeader>
             </Container>
             <StyledFlex wrap="wrap">
-                {content.map((item, idx) => {
+                {content?.map(({ header, icon, text }) => {
                     return (
-                        <ClientCard
-                            key={
-                                typeof item.text === 'string'
-                                    ? item.text
-                                    : item.text.props.translate_text
-                            }
-                        >
+                        <ClientCard key={text}>
                             <Flex ai="center" height="fit-content">
                                 <StyledHeader as="h3" type="sub-section-title">
-                                    {item.header}
+                                    {header && <Localize translate_text={header} />}
                                 </StyledHeader>
-                                {item.icon}
+                                {icon}
                             </Flex>
-                            <Text>{item.text}</Text>
+                            {text && (
+                                <Text>
+                                    <Localize translate_text={text} />
+                                </Text>
+                            )}
                         </ClientCard>
                     )
                 })}
             </StyledFlex>
-            {sign_up && !is_logged_in && !is_deriv_go && (
-                <LinkButtonWrapper>
-                    <StyledLinkButton id="dm-steps-signup" secondary onClick={handleSignup}>
-                        {localize('Sign up now')}
-                    </StyledLinkButton>
-                </LinkButtonWrapper>
-            )}
+            <LinkButtonWrapper>
+                <Button label="_t_Sign up now_t_" onClick={handleSignup} primary />
+            </LinkButtonWrapper>
         </StyledSection>
     )
 }

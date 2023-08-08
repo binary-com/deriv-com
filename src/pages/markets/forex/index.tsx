@@ -2,27 +2,24 @@ import React from 'react'
 import Forex from '../components/markets/_forex'
 import { DerivedFXHero } from '../components/sections/_hero_derived_fx'
 import { simple_step_content_forex } from '../static/content/_forex'
-import Signup, { Appearances } from 'components/custom/signup'
+import SignupPublic from 'features/components/templates/signup/with-banner'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 
 const ForexPage = () => (
     <Layout type="noNav">
         <SEO
-            description={localize(
-                "Trade forex on Deriv's intuitive online trading platforms and get access to a wide range of major, minor, and exotic currency pairs.",
-            )}
-            title={localize('Forex online trading platforms | Forex trading demo account | Deriv')}
+            description="_t_Trade forex on Deriv's intuitive online trading platforms and get access to a wide range of major, minor, and exotic currency pairs._t_"
+            title="_t_Forex online trading platforms | Forex trading demo account | Deriv_t_"
         />
         <DerivedFXHero
-            title="Forex"
-            description={localize(
-                'Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events.',
-            )}
+            title="_t_Forex_t_"
+            description="_t_Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events._t_"
+            is_forex
         />
         <Forex simple_step_content={simple_step_content_forex} />
-        <Signup appearance={Appearances.public} />
+        <SignupPublic />
     </Layout>
 )
 

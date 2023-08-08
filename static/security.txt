@@ -1,0 +1,3 @@
+Contact: https://hackerone.com/deriv?type=team
+Canonical: https://deriv.com/security.txt
+Expires: 2030-06-05

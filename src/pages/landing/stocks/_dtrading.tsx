@@ -1,10 +1,12 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import device from 'themes/device'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { StyledProps } from 'pages/landing/_types'
+import { TString } from 'types/generics'
+import { Localize, localize } from 'components/localization'
 
 const StyledSection = styled(SectionContainer)`
     background-color: var(--color-white);
@@ -53,7 +55,6 @@ const MobileImageWrapper = styled(Container)`
         width: 100%;
     }
 `
-
 const ImageWrapper = styled(Flex)<StyledProps>`
     width: ${(props) => props.width};
     margin-right: ${(props) => props.margin_right};
@@ -77,7 +78,6 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
 `
-
 const Row = styled.div<StyledProps>`
     flex-direction: ${(props) => props.flex_direction};
     width: 100%;
@@ -161,10 +161,10 @@ type DTradingProps = {
 }
 
 type TradingType = {
-    title: ReactElement
-    subtitle: ReactElement
+    title: TString
+    subtitle: TString
     image_name: string
-    image_alt: string
+    image_alt: TString
     image_name_mobile?: string
 }
 
@@ -174,51 +174,63 @@ const DTrading = ({ contentMargin, trading, reverse, setWidth }: DTradingProps) 
     return (
         <StyledSection>
             <Wrapper fd="column" ai="center">
-                {trading.map((item, index) => {
-                    const is_even = reverse ? (index + 1) % 2 : index % 2
-                    return (
-                        <Row
-                            flex_direction={!is_even ? 'row' : 'row-reverse'}
-                            flex_direction_mobile={!is_even ? 'column' : 'column-reverse'}
-                            key={index}
-                        >
-                            <Content
-                                margin_right={!is_even ? contentMargin : '0'}
-                                margin_left={!is_even ? '0' : contentMargin}
+                {trading.map(
+                    ({ image_alt, image_name, subtitle, title, image_name_mobile }, index) => {
+                        const is_even = reverse ? (index + 1) % 2 : index % 2
+                        return (
+                            <Row
+                                flex_direction={!is_even ? 'row' : 'row-reverse'}
+                                flex_direction_mobile={!is_even ? 'column' : 'column-reverse'}
+                                key={index}
                             >
-                                <StyledHeader type="display-title">{item.title}</StyledHeader>
-                                <Text>{item.subtitle}</Text>
-                            </Content>
-                            {item.image_name_mobile && (
-                                <ImageWrapper width={setWidth ? setWidth : '448px;'} ai="center">
-                                    <DesktopImageWrapper>
+                                <Content
+                                    margin_right={!is_even ? contentMargin : '0'}
+                                    margin_left={!is_even ? '0' : contentMargin}
+                                >
+                                    <StyledHeader type="display-title">
+                                        <Localize translate_text={title} />
+                                    </StyledHeader>
+                                    <Text>
+                                        <Localize translate_text={subtitle} />
+                                    </Text>
+                                </Content>
+                                {image_name_mobile && (
+                                    <ImageWrapper
+                                        width={setWidth ? setWidth : '448px;'}
+                                        ai="center"
+                                    >
+                                        <DesktopImageWrapper>
+                                            <QueryImage
+                                                data={data[image_name]}
+                                                alt={localize(image_alt)}
+                                                width="100%"
+                                            />
+                                        </DesktopImageWrapper>
+                                        <MobileImageWrapper>
+                                            <QueryImage
+                                                data={data[image_name_mobile]}
+                                                alt={localize(image_alt)}
+                                                width="100%"
+                                            />
+                                        </MobileImageWrapper>
+                                    </ImageWrapper>
+                                )}
+                                {!image_name_mobile && (
+                                    <ImageWrapper
+                                        width={setWidth ? setWidth : '448px;'}
+                                        ai="center"
+                                    >
                                         <QueryImage
-                                            data={data[item.image_name]}
-                                            alt={item.image_alt}
+                                            data={data[image_name]}
+                                            alt={localize(image_alt)}
                                             width="100%"
                                         />
-                                    </DesktopImageWrapper>
-                                    <MobileImageWrapper>
-                                        <QueryImage
-                                            data={data[item.image_name_mobile]}
-                                            alt={item.image_alt}
-                                            width="100%"
-                                        />
-                                    </MobileImageWrapper>
-                                </ImageWrapper>
-                            )}
-                            {!item.image_name_mobile && (
-                                <ImageWrapper width={setWidth ? setWidth : '448px;'} ai="center">
-                                    <QueryImage
-                                        data={data[item.image_name]}
-                                        alt={item.image_alt}
-                                        width="100%"
-                                    />
-                                </ImageWrapper>
-                            )}
-                        </Row>
-                    )
-                })}
+                                    </ImageWrapper>
+                                )}
+                            </Row>
+                        )
+                    },
+                )}
             </Wrapper>
         </StyledSection>
     )

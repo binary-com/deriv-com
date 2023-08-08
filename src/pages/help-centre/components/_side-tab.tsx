@@ -65,7 +65,7 @@ const TabContent = styled.div`
 
 const SideTab = ({ children, tab_header, data }: SideTabType) => {
     const [is_menu, setMenu] = useState(false)
-    const show_content = !is_menu || getWindowWidth() >= size.tabletL
+    const show_content = !is_menu || Number(getWindowWidth()) >= size.tabletL
 
     return (
         <Wrapper>

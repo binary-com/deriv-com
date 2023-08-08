@@ -314,7 +314,7 @@ const Locations = () => {
     }
 
     return (
-        <Layout type="careers" margin_top={7}>
+        <Layout type="careers" padding_top="7">
             <Hero />
             <StyledSectionContainer direction="column" padding="80px 16px">
                 <Header

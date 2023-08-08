@@ -9,9 +9,6 @@ import { TGatsbyHead } from 'features/types'
 
 const query = graphql`
     query {
-        labuan: file(relativePath: { eq: "careers/labuan.jpg" }) {
-            ...backgroundImage
-        }
         living_in_labuan: file(relativePath: { eq: "careers/living_in_labuan.png" }) {
             ...fadeIn
         }

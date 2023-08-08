@@ -68,7 +68,7 @@ const NewSignup = () => {
     }
 
     return (
-        <Layout type="static" margin_top="0" is_ppc>
+        <Layout type="static" padding_top="0" is_ppc>
             <Wrapper>
                 {submit_state !== 'success' && (
                     <Content>

@@ -49,7 +49,7 @@ const LiveChatPage = () => {
     }, [is_livechat_interactive])
 
     return (
-        <Layout type="static" margin_top="0">
+        <Layout type="static" padding_top="0">
             <StyledContainer>{loading && <InitialLoader />}</StyledContainer>
             <Mobile>
                 <CoverMinimizeButton loading={loading} />

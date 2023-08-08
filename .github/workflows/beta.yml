@@ -15,6 +15,9 @@ env:
   GATSBY_CPU_COUNT: 2
   GATSBY_ENV: production
   NODE_OPTIONS: "--max_old_space_size=7168"
+  DATADOG_APPLICATION_ID: ${{ secrets.DATADOG_APPLICATION_ID }}
+  DATADOG_CLIENT_TOKEN: ${{ secrets.DATADOG_CLIENT_TOKEN }}
+  GATSBY_MAP_API_KEY: ${{ secrets.GATSBY_MAP_API_KEY }}
 
 jobs:
   release-beta:
@@ -28,7 +31,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "18.x"
+          node-version: "16.x"
           cache: "npm"
 
       - run: npm ci

@@ -3,6 +3,7 @@
         display: none !important;
     }
 }
-.swiper_wrapper_navigation {
+.wrapper_navigation {
     position: relative;
+    min-block-size: 15rem;
 }

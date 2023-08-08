@@ -15,7 +15,7 @@ const SignupPublicForm = () => {
 
     const {
         register,
-        formState: { errors, isValid },
+        formState: { errors, isValid, isSubmitting, isSubmitSuccessful },
         watch,
         clearErrors,
         setValue,
@@ -23,7 +23,8 @@ const SignupPublicForm = () => {
     } = signUpForm
     const values = watch()
 
-    const is_button_disabled = values.email === '' || !values.terms || !isValid
+    const is_button_disabled =
+        values.email === '' || !values.terms || !isValid || isSubmitting || isSubmitSuccessful
 
     return (
         <Flex.Box
@@ -55,7 +56,7 @@ const SignupPublicForm = () => {
                 </Typography.Paragraph>
                 <Flex.Box
                     direction="col"
-                    gap={'8x'}
+                    gap={'12x'}
                     md={{
                         direction: 'row',
                         justify: 'between',

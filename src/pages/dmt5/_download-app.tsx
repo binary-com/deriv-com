@@ -115,7 +115,7 @@ const DerivMT5GetApp = () => {
                         <StyledInfoIcon src={InfoIcon} />
                         <InfoText>
                             <Localize
-                                translate_text="_t_For mobile app sign-ups, set the broker code to <0>Deriv limited.<0>_t_"
+                                translate_text="_t_For mobile app sign-ups, set the broker code to <0>Deriv Holdings (Guernsey) Limited.<0>_t_"
                                 components={[<strong key={0} />]}
                             />
                         </InfoText>

@@ -77,10 +77,9 @@ module.exports = {
                 base64Width: 20,
                 stripMetadata: true,
                 defaultQuality: 50,
-                caching: true,
                 cacheOptions: {
                     // Configure cache options here
-                    cacheFolder: 'gatsby-plugin-sharp',
+                    cacheFolder: '.cache/caches/gatsby-plugin-sharp',
                     maxMemory: 500000000,
                 },
             },

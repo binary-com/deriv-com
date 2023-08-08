@@ -34,7 +34,7 @@ const PaymentAgent = () => {
                 meta_attributes={meta_attributes}
             />
             {is_row ? (
-                <Layout type="partners" padding_top={10}>
+                <Layout type="partners" margin_top={10}>
                     <Helmet>
                         <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
                     </Helmet>

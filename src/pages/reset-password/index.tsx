@@ -10,6 +10,7 @@ import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import Login from 'common/login'
 import apiManager from 'common/websocket'
+import device from 'themes/device'
 
 type EmailType = { email: string }
 
@@ -29,6 +30,9 @@ const ButtonContainer = styled.div`
 const InputGroup = styled.div`
     width: 40rem;
     margin: 0 auto 3.4rem;
+    @media ${device.tabletL} {
+        width: auto;
+    }
 `
 
 const StyledButton = styled(Button)`
@@ -83,14 +87,14 @@ const ResetPassword = () => {
     }
 
     return (
-        <Layout type="static" padding_top={0}>
+        <Layout type="static" margin_top="0">
             <SEO
                 title="_t_Reset password | Deriv_t_"
                 description="_t_Forgot your Deriv password? Want to reset your password? Send us your email address and we’ll email you the instructions._t_"
                 no_index
             />
             <StyledContainer justify="center" align="center" direction="column">
-                <Header as="h2" type="page-title" align="center" mt="10px">
+                <Header as="h2" type="page-title" align="center" mt="80px">
                     <Localize translate_text="_t_Reset password_t_" />
                 </Header>
                 <Header

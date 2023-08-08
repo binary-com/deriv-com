@@ -18,7 +18,7 @@ const meta_attributes: MetaAttributesType = {
 
 const Partner = () => {
     return (
-        <Layout type="partners" padding_top={10}>
+        <Layout type="partners" margin_top={10}>
             <SEO
                 title="_t_Be our partner | Partnership programmes | Deriv_t_"
                 description="_t_Explore Deriv’s partnership programmes and team up with a trusted online trading broker to earn extra income._t_"

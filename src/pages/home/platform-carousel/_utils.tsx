@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react'
 import React from 'react'
 import styled from 'styled-components'
-import DerivEZIcon from 'images/svg/deriv-ez/deriv-ez-logo-red.svg'
+import { DerivEzLogoRed } from 'images/svg/deriv-ez'
 import {
     binary_bot_url,
     deriv_api_url,
@@ -89,7 +89,7 @@ export const platform_details_row: TPlatformDetails[] = [
     },
     {
         title: 'Deriv EZ',
-        icon: DerivEZIcon,
+        icon: DerivEzLogoRed,
         image_key: 'platforms_derivez',
         description: '_t_Our mobile-first CFD trading platform_t_',
         learn_more_link: '/deriv-ez/',

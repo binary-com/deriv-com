@@ -10,6 +10,7 @@ import { WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import useRegion from 'components/hooks/use-region'
+import { TGatsbyHead } from 'features/types'
 
 const ExchangeSteps = Loadable(() => import('./components/_exchange-steps'))
 const P2PBanner = Loadable(() => import('./components/_p2pbanner'))
@@ -59,11 +60,6 @@ const DP2PHome = () => {
         if (is_p2p_allowed_country) {
             return (
                 <Layout>
-                    <SEO
-                        title="_t_Deriv P2P – peer-to-peer deposit and withdrawal service_t_"
-                        description="_t_With Deriv P2P your deposits and withdrawals are easy, fast, and efficient. Access now via the desktop or mobile app._t_"
-                    />
-
                     {is_mounted && (
                         <>
                             <Hero />
@@ -89,3 +85,11 @@ const DP2PHome = () => {
 }
 
 export default WithIntl()(DP2PHome)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Deriv P2P – peer-to-peer deposit and withdrawal service_t_"
+        description="_t_With Deriv P2P your deposits and withdrawals are easy, fast, and efficient. Access now via the desktop or mobile app._t_"
+        pageContext={pageContext}
+    />
+)

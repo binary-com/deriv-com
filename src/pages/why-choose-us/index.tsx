@@ -11,6 +11,7 @@ import { Button } from 'components/form'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useRegion from 'components/hooks/use-region'
+import { TGatsbyHead } from 'features/types'
 
 const ResponsiveLinkButton = styled(Button)`
     @media ${device.mobileL} {
@@ -64,10 +65,6 @@ const WhyChooseUs = () => {
 
     return (
         <Layout>
-            <SEO
-                title="_t_Why choose us for your online trading | Deriv_t_"
-                description="_t_We’re steadfast in our commitment to high ethical standards. Find more reasons to know why Deriv is the choice of online traders._t_"
-            />
             <Section>
                 <GridContainer>
                     <ResponsiveHeader as="h1" type="display-title" align="center">
@@ -135,3 +132,11 @@ const WhyChooseUs = () => {
 }
 
 export default WithIntl()(WhyChooseUs)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Why choose us for your online trading | Deriv_t_"
+        description="_t_We’re steadfast in our commitment to high ethical standards. Find more reasons to know why Deriv is the choice of online traders._t_"
+        pageContext={pageContext}
+    />
+)

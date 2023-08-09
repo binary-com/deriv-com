@@ -196,20 +196,3 @@ const SEO = ({
 }
 
 export default SEO
-
-// export const PageDirection = () => {
-//     const lang_direction = useLangDirection()
-//     const { locale } = React.useContext(LocaleContext)
-//     const formatted_lang = locale.replace('_', '-')
-
-//     return (
-//         <Helmet
-//             htmlAttributes={{
-//                 lang: formatted_lang,
-//             }}
-//             bodyAttributes={{
-//                 dir: lang_direction,
-//             }}
-//         ></Helmet>
-//     )
-// }

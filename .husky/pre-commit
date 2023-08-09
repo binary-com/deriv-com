@@ -3,4 +3,5 @@
 
 npm run pre-commit-translate
 npm run pre-commit-lint
+npm run image:scan
 

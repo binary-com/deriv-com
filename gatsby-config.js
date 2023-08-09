@@ -73,9 +73,9 @@ module.exports = {
         {
             resolve: `gatsby-plugin-sharp`,
             options: {
-                traceSVG: {
-                    color: "#ff0000",
-                    turnPolicy: "majority",
+                tracedSVGOptions: {
+                    color: '#f00',
+                    turnPolicy: 'TURNPOLICY_MAJORITY',
                 },
                 failOnError: true,
                 base64Width: 20,
@@ -347,3 +347,4 @@ module.exports = {
         },
     ],
 }
+ 

@@ -4,7 +4,7 @@ import { getClientInformation, getDomain, getLanguage } from 'common/utility'
 import { growthbook_client_key } from 'common/constants'
 
 const DerivGrowthBookProvider = ({ children }: { children: React.ReactNode }) => {
-    const growthbook = useRef<GrowthBook>();
+    const growthbook = useRef<GrowthBook>()
     useEffect(() => {
         import('@deriv/analytics').then(({ RudderStack }) => {
             const anonymousId = RudderStack.getAnonymousId()
@@ -36,7 +36,7 @@ const DerivGrowthBookProvider = ({ children }: { children: React.ReactNode }) =>
                 })
             }
         })
-    }, []);
+    }, [])
 
     return <GrowthBookProvider growthbook={growthbook.current}>{children}</GrowthBookProvider>
 }

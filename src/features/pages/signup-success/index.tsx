@@ -1,7 +1,7 @@
 import React from 'react'
 import { signup_success_wrapper, signup_success_description } from './signup-success.module.scss'
 import { SEO } from 'components/containers'
-import Layout from 'components/layout/layout'
+import Layout from 'features/components/templates/layout'
 import StaticNav from 'features/components/templates/navigation/static-nav'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
@@ -17,7 +17,7 @@ type SignupProps = {
 
 const SignUpSuccessContainer = ({ email }: SignupProps) => {
     return (
-        <Layout show_footer={false}>
+        <Layout>
             <StaticNav />
             <Flex.Box
                 container="fluid"

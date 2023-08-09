@@ -2,7 +2,7 @@ import React from 'react'
 import { signup_wrapper } from './signup.module.scss'
 import SignUpContent from './signup.content'
 import SignUpFormContainer from './form-container'
-import Layout from 'components/layout/layout'
+import Layout from 'features/components/templates/layout'
 import StaticNav from 'features/components/templates/navigation/static-nav'
 import { SEO } from 'components/containers'
 import Flex from 'features/components/atoms/flex-box'
@@ -10,7 +10,7 @@ import { TGatsbyHead } from 'features/types'
 
 const SignUp = () => {
     return (
-        <Layout show_footer={false}>
+        <Layout>
             <StaticNav />
             <Flex.Box
                 container="fluid"

@@ -1,0 +1,20 @@
+.swiper_button_next {
+    &::after {
+        display: none !important;
+    }
+}
+.swiper_wrapper {
+    position: relative;
+    max-width: 28rem;
+    margin-inline: auto;
+}
+.swiper_slide {
+    width: 33% !important;
+    padding-inline: 10px;
+}
+.swiper_button_disabled{
+    display: none;
+}
+.swiper_height {
+    min-block-size: 111px;
+}

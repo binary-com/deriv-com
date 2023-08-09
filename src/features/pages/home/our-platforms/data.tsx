@@ -8,7 +8,6 @@ import DerivXIcon from 'images/svg/custom/rebranding/deriv-x-icon.svg'
 import DBotIcon from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
 import BinaryBotIcon from 'images/svg/custom/rebranding/binarybot-icon.svg'
 import SmartTraderIcon from 'images/svg/custom/rebranding/smarttrader-icon.svg'
-import APIIcon from 'images/svg/custom/rebranding/deriv-api-icon.svg'
 import DerivEzIcon from 'images/svg/custom/rebranding/deriv-ez-icon.svg'
 import Link from 'features/components/atoms/link'
 import {

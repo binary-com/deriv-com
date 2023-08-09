@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import styled from 'styled-components'
 import { Formik, Form } from 'formik'
 import device from 'themes/device'
@@ -140,7 +140,7 @@ const Endpoint = () => {
     }
 
     return (
-        <Layout type="static" padding_top={0}>
+        <Layout type="static" margin_top={'0'}>
             <SEO title="_t_Endpoint_t_" description="_t_Change deriv API endpoint._t_" no_index />
             <StyledContainer justify="center" align="center" direction="column">
                 <Header as="h2" type="page-title" align="center" mt="80px">

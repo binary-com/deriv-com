@@ -1,7 +1,5 @@
-import { ReactElement } from 'react'
-
 export type HeaderProps = {
-    background: ReactElement
+    background: string
     title: string
     subtitle: string
 }

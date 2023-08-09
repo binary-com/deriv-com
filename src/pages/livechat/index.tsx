@@ -48,7 +48,7 @@ const LiveChatPage = () => {
     }, [is_livechat_interactive])
 
     return (
-        <Layout type="static" padding_top={0}>
+        <Layout type="static" margin_top="0">
             <SEO
                 title="_t_Live Chat_t_"
                 description="_t_This page automatically open Live Chat window_t_"

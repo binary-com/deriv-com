@@ -27,6 +27,7 @@ type LayoutProps = {
     is_ppc_redirect?: boolean
     margin_top?: number | string
     type?: string
+    show_footer?: boolean
 }
 
 type MainType = {
@@ -88,6 +89,7 @@ const Layout = ({
     is_ppc_redirect = false,
     margin_top = '',
     type = 'default',
+    show_footer = true,
 }: LayoutProps) => {
     const [is_mounted] = usePageLoaded()
     const [show_modal, toggleModal, closeModal] = useModal()
@@ -130,7 +132,7 @@ const Layout = ({
                     <LayoutOverlay is_ppc={is_ppc} />
                 </div>
             </LocationProvider>
-            <RebrandingFooter />
+            {show_footer && <RebrandingFooter />}
         </PpcProvider>
     )
 }

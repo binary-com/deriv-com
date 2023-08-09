@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
 import { isBrowser } from 'common/utility'
-import { eu_urls } from 'common/constants'
+import { eu_urls, hreflangLinks } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.jpg'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 import { TString } from 'types/generics'
@@ -86,13 +86,19 @@ const SEO = ({
     let current_page = ''
     let organization_schema = {}
 
+    const languagesToRemove = site_url.includes('eu.deriv.com')
+        ? ['th', 'vi', 'ko']
+        : ['it', 'pl', 'de'];
+
+    const filteredLanguages = languages.filter(lang => !languagesToRemove.includes(lang));
+
     if (locale_pathname) {
         const path_array = locale_pathname.split('/')
         const current_lang = path_array[1]
         const check_lang = current_lang.replace('-', '_')
         current_page = locale_pathname
 
-        if (languages.includes(check_lang)) {
+        if (filteredLanguages.includes(check_lang)) {
             path_array.splice(1, 1)
             current_page = path_array.join('/')
         }
@@ -232,7 +238,7 @@ const SEO = ({
             )}
 
             {!is_non_localized &&
-                languages
+                filteredLanguages
                     .filter((l) => l !== 'ach' && l)
                     .map((locale) => {
                         const replaced_local = locale.replace('_', '-')
@@ -249,6 +255,15 @@ const SEO = ({
                             />
                         )
                     })}
+
+            {hreflangLinks.map(link => (
+                <link
+                    key={link.hreflang}
+                    rel={link.rel}
+                    href={link.href}
+                    hrefLang={link.hreflang}
+                />
+            ))}
         </Helmet>
     )
 }

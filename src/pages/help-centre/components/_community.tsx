@@ -40,13 +40,12 @@ const Community = () => {
 
     return (
         <SectionContainer
-            padding="4rem"
             background="var(--color-white)"
             style={{ borderTop: '1px solid var(--color-grey-8)' }}
         >
             <Container>
                 <Flex tablet_direction="column" tablet_ai="center" max_width="92rem">
-                    <QueryImage alt="community" data={data['community']} width="41rem" />
+                    <QueryImage alt="community" data={data['community']} />
                     <StyledFlex tablet_ai="center" ml="5rem" direction="column">
                         <StyledHeader mt="1rem" as="h3" type="section-title">
                             <Localize translate_text="_t_Have a question?_t_" />

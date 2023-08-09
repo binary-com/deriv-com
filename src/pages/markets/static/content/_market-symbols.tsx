@@ -524,8 +524,12 @@ export const metals_options: TMarketSymbol[] = [
 ]
 
 export const dex_indices: TMarketSymbol[] = [
+    { src: icons.DEX600UP, text: '_t_DEX 600UP_t_' },
     { src: icons.DEX900UP, text: '_t_DEX 900UP_t_' },
+    { src: icons.DEX1500UP, text: '_t_DEX 1500UP_t_' },
+    { src: icons.DEX600DN, text: '_t_DEX 600DN_t_' },
     { src: icons.DEX900DN, text: '_t_DEX 900DN_t_' },
+    { src: icons.DEX1500DN, text: '_t_DEX 1500DN_t_' },
 ]
 
 export const range_break: TMarketSymbol[] = [

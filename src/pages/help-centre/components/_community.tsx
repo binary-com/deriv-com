@@ -40,6 +40,7 @@ const Community = () => {
 
     return (
         <SectionContainer
+            padding="3rem 0"
             background="var(--color-white)"
             style={{ borderTop: '1px solid var(--color-grey-8)' }}
         >

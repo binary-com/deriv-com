@@ -8,13 +8,19 @@ import Button from 'features/components/atoms/button'
 import { Localize } from 'components/localization'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { handleRedirectToTradersHub } from 'components/custom/utils'
+import { useFeatureFlag } from 'components/hooks/useFeatureFlag'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import LinkButton from 'features/components/atoms/link-button'
 
 const LivePricing = () => {
     const [is_logged_in] = useAuthCheck()
     const handleLogin = useHandleLogin()
+    const newFeatureEnabled = useFeatureFlag('newFeature')
 
+    if (newFeatureEnabled) {
+        console.log('new feature enabled')
+        return <h1>new feature enabled</h1>
+    }
     return (
         <Container.Fixed as="section" pt="16x" pb="16x" md={{ padding_block: '40x' }}>
             <MarketTab />

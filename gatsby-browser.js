@@ -1,10 +1,12 @@
 import React from 'react'
 import { Pushwoosh } from 'web-push-notifications'
+import { PageContext } from './src/config/PageContext';
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isLive, isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
+import { featureFlags } from './src/config/featureFlags';
 import {
     addScript,
     getClientInformation,
@@ -97,8 +99,14 @@ const pushwooshInit = (push_woosh) => {
 }
 
 export const wrapRootElement = ({ element }) => {
-    return <GlobalProvider>{element}</GlobalProvider>
-}
+    return (
+      <GlobalProvider>
+        <PageContext.Provider value={{ featureFlags }}>
+          {element}
+        </PageContext.Provider>
+      </GlobalProvider>
+    );
+  };
 
 export const onInitialClientRender = () => {
     if (is_browser) {

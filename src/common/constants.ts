@@ -186,7 +186,7 @@ export const firebaseConfig = {
     databaseURL: 'https://deriv-static-pricingfeed.firebaseio.com',
 }
 
-export const hreflangDerivLinks = [
+export const hreflang_codes = [
     { rel: 'alternate', href: 'https://deriv.com/', hreflang: 'x-default' },
     { rel: 'alternate', href: 'https://deriv.com/', hreflang: 'en' },
     { rel: 'alternate', href: 'https://deriv.com/', hreflang: 'en-NG' },
@@ -225,7 +225,7 @@ export const hreflangDerivLinks = [
     { rel: 'alternate', href: 'https://deriv.com/de/', hreflang: 'de-CH' },
 ];
 
-export const hreflangEuLinks = [
+export const hreflang_codes_eu = [
     { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en' },
     { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-IE' },
     { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-BG' },

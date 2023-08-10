@@ -83,7 +83,7 @@ jobs:
               id: publish-to-pages
               run: |
                   echo "Installing Wrangler CLI"
-                  npm i -g wrangler
+                  npm i -g wrangler@3.5.0
 
                   echo "Deploying build to Cloudflare Pages"
                   directory='public'

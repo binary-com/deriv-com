@@ -74,6 +74,7 @@ module.exports = {
         {
             resolve: `gatsby-plugin-sharp`,
             options: {
+                shouldProcess: !process.env.GATSBY_SHARP_PROCCESS === false,
                 failOnError: true,
                 base64Width: 20,
                 stripMetadata: true,

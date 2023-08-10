@@ -19,7 +19,7 @@ const LazySymbol = ({ alt = 'symbol', name, width = '24', height = '24' }: TLazy
         loadSource()
     }, [])
 
-    return <img src={src} alt={alt} width={width} height={height} />
+    return <img src={src} alt={alt} width={width} height={height} loading="lazy" />
 }
 
 export default React.memo(LazySymbol)

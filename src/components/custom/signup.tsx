@@ -99,20 +99,6 @@ const Signup = (props: SignupProps) => {
         return error_message
     }
 
-    // this method is used to prevent DOM XSS invulnerability by removing HTML DOM elements in the email input
-    function escapeHtml(str: string) {
-        return str.replaceAll(/[&<>"'\/]/g, c => {
-            switch (c) {
-                case '&':
-                case '<':
-                case '>':
-                case '"':
-                case "'":
-                    return ''
-            }
-        });
-    }
-
     const handleValidation = (param) => {
         const message = typeof param === 'object' ? param.target.value : param
         setEmailErrorMsg(validateEmail(message.replace(/\s/g, '')))
@@ -120,8 +106,8 @@ const Signup = (props: SignupProps) => {
 
     const handleInputChange = (e) => {
         const { value } = e.target
-        setEmail(escapeHtml(value))
-        handleValidation(escapeHtml(value))
+        setEmail(value)
+        handleValidation(value)
     }
 
     const getVerifyEmailRequest = (formatted_email) => {
@@ -197,32 +183,32 @@ const Signup = (props: SignupProps) => {
     const renderSwitch = (param) => {
         const parameters = {
             autofocus: props.autofocus,
-            clearEmail,
-            email,
-            email_error_msg,
-            handleInputChange,
-            handleLogin,
-            handleSocialSignup,
-            handleValidation,
+            clearEmail: clearEmail,
+            email: email,
+            email_error_msg: email_error_msg,
+            handleInputChange: handleInputChange,
+            handleLogin: handleLogin,
+            handleSocialSignup: handleSocialSignup,
+            handleValidation: handleValidation,
             is_ppc: props.is_ppc,
-            is_submitting,
+            is_submitting: is_submitting,
         }
 
         switch (param) {
             case Appearances.newSignup:
-                return <SignupNew {...parameters} />
+                return <SignupNew {...parameters}></SignupNew>
             case Appearances.public:
-                return <SignupPublic {...parameters} />
+                return <SignupPublic {...parameters}></SignupPublic>
             case Appearances.lightFlat:
             case Appearances.darkFlat:
                 return param == Appearances.darkFlat ? (
-                    <SignupFlat dark {...parameters} />
+                    <SignupFlat dark {...parameters}></SignupFlat>
                 ) : (
-                    <SignupFlat {...parameters} />
+                    <SignupFlat {...parameters}></SignupFlat>
                 )
             case Appearances.default:
             default:
-                return <SignupDefault {...parameters} />
+                return <SignupDefault {...parameters}></SignupDefault>
         }
     }
 

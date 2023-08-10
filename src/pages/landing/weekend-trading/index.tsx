@@ -7,6 +7,7 @@ import { WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { ContentType } from 'pages/landing/_types'
+import { TGatsbyHead } from 'features/types'
 
 const IconTextRow = Loadable(() => import('./components/_icon-text-row'))
 
@@ -46,7 +47,6 @@ const DP2P_CONTENT: ContentType[] = [
 const WeekenLP = () => {
     return (
         <Layout type="landing-page" is_ppc_redirect>
-            <SEO title="_t_Weekends_t_" description="_t_Ride the trends even on weekends_t_" />
             <Hero />
             <IconTextRow />
             <ImageTextSwitching reverse P2P={DP2P_CONTENT} />
@@ -59,3 +59,11 @@ const WeekenLP = () => {
 }
 
 export default WithIntl()(WeekenLP)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Weekends_t_"
+        description="_t_Ride the trends even on weekends_t_"
+        pageContext={pageContext}
+    />
+)

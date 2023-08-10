@@ -9,15 +9,11 @@ import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import Footer from 'features/components/templates/footer'
+import { TGatsbyHead } from 'features/types'
 
 const CheckEmailContainer = () => {
     return (
         <Layout>
-            <SEO
-                title="_t_Check your email_t_"
-                description="_t_Didn't receive an email from us? Here's what could've happened._t_"
-                no_index
-            />
             <MainNav />
             <Flex.Box
                 justify="center"
@@ -50,3 +46,12 @@ const CheckEmailContainer = () => {
 }
 
 export default CheckEmailContainer
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Check your email_t_"
+        description="_t_Didn't receive an email from us? Here's what could've happened._t_"
+        no_index
+        pageContext={pageContext}
+    />
+)

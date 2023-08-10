@@ -3,17 +3,18 @@ import Loadable from '@loadable/component'
 import DtraderEasySteps from './_steps_section'
 import DtraderGetApps from './_get-app-section'
 import OurPlatforms from './_our-platforms'
-import { SEO, MetaAttributesType } from 'components/containers'
+import { SEO, TMetaAttributes } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import DHero from 'components/custom/_dhero'
 import DNumber, { TDNumbersItem } from 'components/custom/_dnumbers'
 import useRegion from 'components/hooks/use-region'
 import { TradingType } from 'components/custom/_dtrading'
+import { TGatsbyHead } from 'features/types'
 
 const DTrading = Loadable(() => import('components/custom/_dtrading'))
 
-const meta_attributes: MetaAttributesType = {
+const meta_attributes: TMetaAttributes = {
     og_title: '_t_DTrader | Online Trading Platform | Deriv.com_t_',
     og_description:
         '_t_DTrader keeps online trading simple, allowing you to trade forex, indices, commodities and synthetic indices._t_',
@@ -91,39 +92,35 @@ const Dtrader = () => {
 
     if (is_loaded) {
         return (
-            <>
-                <SEO
-                    title="_t_DTrader | Online trading platform | Deriv_t_"
-                    description="_t_DTrader keeps online trading simple. Trade forex, commodities, stock indices, cryptocurrencies, and Deriv’s synthetic indices._t_"
-                    meta_attributes={meta_attributes}
+            <Layout>
+                <DHero
+                    join_us_for_free
+                    is_live_demo
+                    image_name={is_eu ? 'dtrader_eu' : 'dtrader'}
                 />
-                <Layout>
-                    <DHero
-                        join_us_for_free
-                        is_live_demo
-                        image_name={is_eu ? 'dtrader_eu' : 'dtrader'}
-                    />
-                    {is_row && <DNumber items={items} justify="space-around" />}
-                    {is_eu && <DNumber items={itemsEU} justify="space-around" />}
+                {is_row && <DNumber items={items} justify="space-around" />}
+                {is_eu && <DNumber items={itemsEU} justify="space-around" />}
 
-                    <DtraderEasySteps />
-                    {is_row && <DTrading trading={trading} spacing={1} />}
-                    {is_eu && <DTrading trading={trading_eu} spacing={1} />}
+                <DtraderEasySteps />
+                {is_row && <DTrading trading={trading} spacing={1} />}
+                {is_eu && <DTrading trading={trading_eu} spacing={1} />}
 
-                    <DtraderGetApps />
-                    {is_row && <OurPlatforms />}
-                </Layout>
-            </>
+                <DtraderGetApps />
+                {is_row && <OurPlatforms />}
+            </Layout>
         )
     }
 
-    return (
-        <SEO
-            title="_t_DTrader | Online trading platform | Deriv_t_"
-            description="_t_DTrader keeps online trading simple. Trade forex, commodities, stock indices, cryptocurrencies, and Deriv’s synthetic indices._t_"
-            meta_attributes={meta_attributes}
-        />
-    )
+    return <React.Fragment></React.Fragment>
 }
 
 export default WithIntl()(Dtrader)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_DTrader | Online trading platform | Deriv_t_"
+        description="_t_DTrader keeps online trading simple. Trade forex, commodities, stock indices, cryptocurrencies, and Deriv’s synthetic indices._t_"
+        meta_attributes={meta_attributes}
+        pageContext={pageContext}
+    />
+)

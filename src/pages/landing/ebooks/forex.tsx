@@ -8,6 +8,7 @@ import { SEO } from 'components/containers'
 import { WithIntl } from 'components/localization'
 import introForexEbook from 'images/common/ebooks/introduction-forex-ebook.png'
 import { TString } from 'types/generics'
+import { TGatsbyHead } from 'features/types'
 
 export type StocksEbookProps = {
     language: string
@@ -58,11 +59,6 @@ const ForexEbook = (props: StocksEbookProps) => {
 
     return (
         <Layout type="landing-page" is_ppc_redirect>
-            <SEO
-                title="_t_Forex Ebook_t_"
-                description="_t_Trade Forex CFDs on our Deriv platform._t_"
-                no_index
-            />
             <HeaderSection
                 mainHeaderImage={data[`forex_ebook_img_${lng}`]}
                 imgWidth={601}
@@ -87,3 +83,12 @@ const ForexEbook = (props: StocksEbookProps) => {
 }
 
 export default WithIntl()(ForexEbook)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Forex Ebook_t_"
+        description="_t_Trade Forex CFDs on our Deriv platform._t_"
+        no_index
+        pageContext={pageContext}
+    />
+)

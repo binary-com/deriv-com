@@ -1,0 +1,118 @@
+name: Build to Cloudflare Pages
+
+permissions:
+    actions: read
+    contents: read
+
+on:
+    pull_request:
+        types: [opened, synchronize]
+
+env:
+    NODE_OPTIONS: '--max-old-space-size=8192'
+    CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    CLOUDFLARE_ACCOUNT_ID: ${{ secrets.ACCOUNT_ID }}
+
+concurrency:
+    group: cloudflare-pages-build-${{ github.head_ref }}
+    cancel-in-progress: true
+
+jobs:
+    build_to_cloudflare_pages:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout to repo
+              uses: actions/checkout@v3
+              with:
+                  ref: ${{ github.event.pull_request.head.sha }}
+
+            - name: Setup node
+              uses: actions/setup-node@v2
+
+            - name: Generate build status comment
+              id: build_status_comment
+              uses: actions/github-script@v3
+              with:
+                  script: |
+                      const preview_url = "https://" + "${{ github.head_ref }}" + ".deriv-com.pages.dev"
+                      const comment = [
+                        '## Cloudflare Pages Preview link',
+                        '| Name | Result |',
+                        '| :--- | :------ |',
+                        `| **Build status**  | In progress ⏳ |`,
+                        `| **Preview URL**  | [Visit Preview](${preview_url}) |`,
+                        ''
+                      ].join('\n')
+                      core.setOutput("comment", comment);
+
+            - name: Update build status comment
+              uses: marocchino/sticky-pull-request-comment@v2
+              with:
+                  only_update: true
+                  header: Cloudflare Pages Preview Comment
+                  number: ${{github.event.issue.number}}
+                  message: ${{steps.build_status_comment.outputs.comment}}
+
+            - name: Get build output from master cache
+              uses: actions/cache/restore@v3
+              with:
+                  key: master-cache-public
+                  restore-keys: |
+                      master-cache-public-replica
+                  path: |
+                      .cache
+                      public
+
+            - name: Get cached dependencies
+              id: cache-npm
+              uses: actions/cache/restore@v3
+              with:
+                  path: node_modules
+                  key: npm-${{ hashFiles('**/package-lock.json') }}
+
+            - name: Install dependencies
+              if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+              run: npm ci
+
+            - name: Build project
+              id: build-project
+              run: npm run build
+
+            - name: Publish to Cloudflare Pages
+              id: publish-to-pages
+              run: |
+                  echo "Installing Wrangler CLI"
+                  npm i -g wrangler
+
+                  echo "Deploying build to Cloudflare Pages"
+                  directory='public'
+                  projectName='deriv-com'
+                  branch=$GITHUB_HEAD_REF
+
+                  preview_url=$(wrangler pages deploy $directory --project-name=$projectName --branch=$branch > log.txt 2>&1; echo $?)
+                  echo "------"
+                  cat log.txt
+
+                  echo "preview_url=https://$branch.deriv-com.pages.dev" > "$GITHUB_OUTPUT"
+
+            - name: Retrieve Cloudflare Pages Preview URL
+              id: cloudflare_pages_preview_url
+              uses: actions/github-script@v3
+              with:
+                  script: |
+                      const preview_url = "${{ steps.publish-to-pages.outputs.preview_url }}"
+                      const comment = [
+                        '| Name | Result |',
+                        '| :--- | :------ |',
+                        `| **Build status**  | Completed ✅ |`,
+                        `| **Preview URL**  | [Visit Preview](${preview_url}) |`,
+                        ''
+                      ].join('\n')
+                      core.setOutput("comment", comment);
+
+            - name: Post Cloudflare Pages Preview comment
+              uses: marocchino/sticky-pull-request-comment@v2
+              with:
+                  header: Cloudflare Pages Preview Comment
+                  number: ${{github.event.issue.number}}
+                  message: ${{steps.cloudflare_pages_preview_url.outputs.comment}}

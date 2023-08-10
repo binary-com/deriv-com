@@ -94,8 +94,9 @@ jobs:
                   echo "------"
                   cat log.txt
 
+                  branchName=$(echo $branch | sed 's/[\/_]/-/g')
                   if grep -q "Deployment complete" log.txt; then
-                    echo "preview_url=https://$branch.deriv-com-playground.pages.dev" > "$GITHUB_OUTPUT"
+                    echo "preview_url=https://$branchName.deriv-com-playground.pages.dev" > "$GITHUB_OUTPUT"
                   else
                     exit 1
                   fi

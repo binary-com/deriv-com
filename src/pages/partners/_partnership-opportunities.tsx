@@ -7,16 +7,20 @@ import { Container, SectionContainer, Flex } from 'components/containers'
 import { ReactComponent as PartnerAffiliate } from 'images/svg/partners/partner-affiliate.svg'
 import { ReactComponent as PartnerPaymentAgent } from 'images/svg/partners/partner-payment-agent.svg'
 import { ReactComponent as DeveloperProgramme } from 'images/svg/partners/developer-programme.svg'
+import { ReactComponent as PartnerDerivPrime } from 'images/svg/partners/deriv-prime.svg'
 import useRegion from 'components/hooks/use-region'
 
-type ClientCardProps = { first?: boolean; second?: boolean; third?: boolean }
+type ClientCardProps = { first?: boolean; second?: boolean; third?: boolean; fourth?: boolean }
 
+const StyledHeader = styled(Header)`
+    font-family: 'IBM Plex Sans', sans-serif !important;
+`
 const ClientCard = styled(LocalizedLink)<ClientCardProps>`
     ${CardStyle}
     text-decoration: none;
-    max-width: 38.4rem;
+    max-width: 28.2rem;
     padding: 3.2rem;
-    min-height: 23.7rem;
+    min-height: 25.2rem;
     position: relative;
     overflow: hidden;
     transition: transform 0.3s;
@@ -38,8 +42,8 @@ const ClientCard = styled(LocalizedLink)<ClientCardProps>`
         ${(props) => {
             if (props.first) {
                 return css`
-                    svg > g > path:first-child {
-                        fill: var(--color-red);
+                    path {
+                        stroke: var(--color-red);
                     }
                 `
             }
@@ -63,6 +67,13 @@ const ClientCard = styled(LocalizedLink)<ClientCardProps>`
                     }
                 `
             }
+            if (props.fourth) {
+                return css`
+                    svg > g > path:first-child {
+                        fill: var(--color-red);
+                    }
+                `
+            }
         }}
     }
     @media (max-width: 633px) {
@@ -79,27 +90,38 @@ const PartnershipOpportunities = () => {
                 </Header>
             </Container>
             <Flex wrap="wrap">
-                <ClientCard to="/partners/affiliate-ib/" first>
+                <ClientCard to="/partners/deriv-prime/" first>
                     <Flex ai="center" height="auto" mb="0.8rem">
-                        <Header as="h4" size="var(--text-size-sm)">
-                            <Localize translate_text="_t_Affiliate and IB programmes_t_" />
-                        </Header>
+                        <StyledHeader as="h4" size="var(--text-size-m)">
+                            <Localize translate_text="_t_Deriv Prime_t_" />
+                        </StyledHeader>
+                        <PartnerDerivPrime />
+                    </Flex>
+                    <Text>
+                        <Localize translate_text="_t_Specialised institutional and prime brokerage solution for the world's most popular financial assets, has zero set-up costs, and is easy to integrate._t_" />
+                    </Text>
+                </ClientCard>
+                <ClientCard to="/partners/affiliate-ib/" fourth>
+                    <Flex ai="center" height="auto" mb="0.8rem">
+                        <StyledHeader as="h4" size="var(--text-size-m)">
+                            <Localize translate_text="_t_Affiliate and IBs_t_" />
+                        </StyledHeader>
                         <PartnerAffiliate />
                     </Flex>
                     <Text>
-                        <Localize translate_text="_t_Enjoy the flexibility to choose from a variety of affiliate and introducing broker programmes. Earn 45% commission from promoting our trading platforms or enjoy turnover-based commissions._t_" />
+                        <Localize translate_text="_t_For marketers, influencers and introducing brokers to monetise their network. Earn competitive commissions and get access to high-quality promotional materials._t_" />
                     </Text>
                 </ClientCard>
                 {is_row && (
                     <ClientCard to="/partners/payment-agent/" second>
                         <Flex ai="center" height="auto" mb="0.8rem">
-                            <Header as="h4" size="var(--text-size-sm)">
-                                <Localize translate_text="_t_Payment agent programme_t_" />
-                            </Header>
+                            <StyledHeader as="h4" size="var(--text-size-m)">
+                                <Localize translate_text="_t_Payment agents_t_" />
+                            </StyledHeader>
                             <PartnerPaymentAgent />
                         </Flex>
                         <Text>
-                            <Localize translate_text="_t_Expand your client base by helping the traders who are looking for ways to fund their accounts through local bank wires and e-payment methods._t_" />
+                            <Localize translate_text="_t_Expand your client base by helping traders fund their accounts through local bank wires and e-payments. Facilitate and earn from every transaction._t_" />
                         </Text>
                     </ClientCard>
                 )}
@@ -112,13 +134,13 @@ const PartnershipOpportunities = () => {
                     third
                 >
                     <Flex ai="center" height="auto" mb="0.8rem">
-                        <Header as="h4" size="var(--text-size-sm)">
+                        <StyledHeader as="h4" size="var(--text-size-m)">
                             <Localize translate_text="_t_API_t_" />
-                        </Header>
+                        </StyledHeader>
                         <DeveloperProgramme />
                     </Flex>
                     <Text>
-                        <Localize translate_text="_t_Launch your trading app powered by our APIs. Get up to 5% in markup earnings from every trade your clients make on your app._t_" />
+                        <Localize translate_text="_t_Leverage Deriv’s technology to launch your own trading app. Deliver an enhanced trading experience to your clients and earn from every trade executed on your app._t_" />
                     </Text>
                 </ClientCard>
             </Flex>

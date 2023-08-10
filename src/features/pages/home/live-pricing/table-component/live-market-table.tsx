@@ -64,7 +64,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
         return []
     }, [rawMarketsData, selected_market])
 
-    const columns = useLiveColumns()
+    const columns = useLiveColumns(selected_market)
     const table = useReactTable({
         data: markets_data,
         columns,

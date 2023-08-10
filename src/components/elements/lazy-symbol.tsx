@@ -4,8 +4,11 @@ import icons from 'components/elements/symbols'
 type TLazySymbolProps = {
     // name: keyof typeof icons
     name: string
+    width?: string
+    height?: string
+    alt?: string
 }
-const LazySymbol = ({ name }: TLazySymbolProps) => {
+const LazySymbol = ({ alt = 'symbol', name, width = '24', height = '24' }: TLazySymbolProps) => {
     const [src, setSrc] = React.useState('')
 
     React.useEffect(() => {
@@ -16,7 +19,7 @@ const LazySymbol = ({ name }: TLazySymbolProps) => {
         loadSource()
     }, [])
 
-    return <img src={src} alt="symbol" width="24" height="24" />
+    return <img src={src} alt={alt} width={width} height={height} />
 }
 
 export default React.memo(LazySymbol)

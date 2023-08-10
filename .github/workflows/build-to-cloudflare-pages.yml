@@ -98,6 +98,7 @@ jobs:
                     echo "preview_url=https://$branch.deriv-com-playground.pages.dev" > "$GITHUB_OUTPUT"
                   else
                     exit 1
+                  fi
 
             - name: Retrieve Cloudflare Pages Preview URL
               id: cloudflare_pages_preview_url

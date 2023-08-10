@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
 import { isBrowser } from 'common/utility'
-import { eu_urls, hreflang_codes, hreflang_codes_eu } from 'common/constants'
+import { eu_urls, hreflang_codes_row, hreflang_codes_eu } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.jpg'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 import { TString } from 'types/generics'
@@ -86,9 +86,9 @@ const SEO = ({
     let current_page = ''
     let organization_schema = {}
 
-    const hreflang_links = site_url.includes('eu.deriv.com')
+    const hreflang_codes = site_url.includes('eu.deriv.com')
         ? hreflang_codes_eu
-        : hreflang_codes;
+        : hreflang_codes_row;
 
     if (locale_pathname) {
         const path_array = locale_pathname.split('/')
@@ -254,7 +254,7 @@ const SEO = ({
                         )
                     })}
 
-            {hreflang_links.map(link => (
+            {hreflang_codes.map(link => (
                 <link
                     key={link.hreflang}
                     rel={link.rel}

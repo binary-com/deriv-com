@@ -3,6 +3,7 @@ name: Build to Cloudflare Pages
 permissions:
     actions: read
     contents: read
+    pull-requests: write
 
 on:
     pull_request:

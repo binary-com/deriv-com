@@ -1,25 +1,32 @@
 import React from 'react'
+import { hero_wrapper, container } from './styles.module.scss'
 import { Localize } from 'components/localization'
-import Button from 'features/components/atoms/button'
 import Container from 'features/components/atoms/container'
 import LinkButton from 'features/components/atoms/link-button'
 import Typography from 'features/components/atoms/typography'
+import Flex from 'features/components/atoms/flex-box'
 
 const Hero = () => {
     return (
-        <Container.Fixed>
-            <Container.Fluid>
-                <Typography.Heading>
+        <Flex.Box
+            bgcolor="black"
+            container="fixed"
+            as="section"
+            align="center"
+            className={hero_wrapper}
+        >
+            <Flex.Box direction="col" align="center" className={container}>
+                <Typography.Heading align="center" size="xlarge" textcolor="white">
                     <Localize translate_text="_t_Global liquidity for all_t_" />
                 </Typography.Heading>
-                <Typography.Paragraph>
+                <Typography.Paragraph align="center" textcolor="white" size="large">
                     <Localize translate_text="_t_Deep, reliable liquidity with fast execution for professionals, seasoned institutions, start-ups, and more_t_" />
                 </Typography.Paragraph>
-                <LinkButton.Primary url={{ href: '#contact', type: 'non-company' }}>
+                <LinkButton.Primary url={{ href: '#contact', type: 'non-company' }} hero mt="12x">
                     <Localize translate_text="_t_Contact us_t_" />
                 </LinkButton.Primary>
-            </Container.Fluid>
-        </Container.Fixed>
+            </Flex.Box>
+        </Flex.Box>
     )
 }
 

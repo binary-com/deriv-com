@@ -73,14 +73,15 @@ module.exports = {
         {
             resolve: `gatsby-plugin-sharp`,
             options: {
-                tracedSVGOptions: {
-                    color: '#f00',
-                    turnPolicy: 'TURNPOLICY_MAJORITY',
-                },
                 failOnError: true,
                 base64Width: 20,
                 stripMetadata: true,
                 defaultQuality: 50,
+                cacheOptions: {
+                    // Configure cache options here
+                    cacheFolder: '.cache/caches/gatsby-plugin-sharp',
+                    maxMemory: 500000000,
+                },
             },
         },
         `gatsby-plugin-image`,
@@ -347,4 +348,3 @@ module.exports = {
         },
     ],
 }
- 

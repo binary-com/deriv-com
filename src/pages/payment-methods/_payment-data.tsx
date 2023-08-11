@@ -31,19 +31,24 @@ import {
     Skrill1Tap,
     SticPay,
     Chipper,
+    Eps,
+    GiroPay,
+    Przelewy24,
+    RapidTransfer,
+    Ideals,
+    Bitcoin,
+    Ethereum,
+    Litecoin,
+    UsdCoin,
+    Tether,
 } from 'images/svg/payment-methods'
 //temp
 import Paytrust from 'images/svg/payment-methods/payment-paytrust.svg'
 import Fasapay from 'images/svg/payment-methods/payment-fasapay.svg'
 import Webmoney from 'images/svg/payment-methods/payment-webmoney.svg'
 import PaysafeCard from 'images/svg/payment-methods/payment-paysafe.svg'
-import Bitcoin from 'images/svg/payment-methods/payment-bitcoin.svg'
-import Ethereum from 'images/svg/payment-methods/payment-ethereum.svg'
-import Litecoin from 'images/svg/payment-methods/payment-litecoin.svg'
-import Tether from 'images/svg/payment-methods/payment-tether.svg'
 import DragonPhoenix from 'images/svg/payment-methods/payment-dragon-phoenix.svg'
 import NganLuong from 'images/svg/payment-methods/payment-ngan-luong.svg'
-import UsdCoin from 'images/svg/payment-methods/payment-usd-coin.svg'
 import Changelly from 'images/svg/payment-methods/payment-changelly.svg'
 import Xanpool from 'images/svg/payment-methods/payment-xanpool.svg'
 import Banxa from 'images/svg/payment-methods/payment-banxa.svg'
@@ -55,10 +60,6 @@ import Boleto from 'images/svg/payment-methods/payment-boleto.svg'
 import Beyonic from 'images/svg/payment-methods/payment-beyonic.svg'
 import OneForYou from 'images/svg/payment-methods/payment-one-for-you.svg'
 import Dp2p from 'images/svg/payment-methods/payment-dp2p.svg'
-import Eps from 'images/svg/payment-methods/payment-eps.svg'
-import GiroPay from 'images/svg/payment-methods/payment-giropay.svg'
-import Przelewy from 'images/svg/payment-methods/payment-przelewy.svg'
-import RapidTransfer from 'images/svg/payment-methods/payment-rapidtransfer.svg'
 
 type LocaleType = { language?: string }
 
@@ -312,6 +313,7 @@ const payment_data: PaymentDataProps[] = [
     },
     {
         name: '_t_E-wallets_t_',
+        note: '_t_Not all payment methods are available in your country. Kindly check your cashier for further information._t_',
         is_row: true,
         data: [
             {
@@ -440,111 +442,15 @@ const payment_data: PaymentDataProps[] = [
                 description: '_t_Make instant deposits using crypto to your fiat account._t_',
                 name: 'chipper',
             },
-
-            {
-                method: <StyledIcon src={Webmoney} alt="Webmoney" />,
-                currencies: 'USD EUR',
-                min_max_deposit: '_t_5 - 3,000_t_',
-                min_max_withdrawal: '_t_5 - 5,000_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 working day_t_',
-                description:
-                    '_t_A complete payment service with over 30 million clients, 10,000  daily signups, and is supported by more than 100,000 merchants._t_',
-                url: 'https://www.wmtransfer.com/',
-                name: 'webmoney',
-                reference: 'webmoney-payment-method.pdf',
-            },
-            {
-                method: <StyledIcon src={PaysafeCard} alt="PaysafeCard" />,
-                currencies: 'USD EUR AUD GBP',
-                min_max_deposit: '_t_5 - 1,000_t_',
-                min_max_withdrawal: '_t_5 - 750_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 working day_t_',
-                description:
-                    '_t_A convenient payment service that doesn’t need a bank account or credit card. Accepted by thousands of merchants worldwide._t_',
-                url: 'https://www.paysafecard.com/',
-                name: 'paysafe',
-            },
-            {
-                method: <StyledIcon src={Boleto} alt="Boleto" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_10 - 500_t_',
-                min_max_withdrawal: '_t_Not applicable_t_',
-                deposit_time: '_t_2 - 3 working days_t_',
-                withdrawal_time: '_t_Not applicable_t_',
-                description:
-                    '_t_Use this popular invoice-based payment method to deposit if you don’t have a bank account or credit card. This option is accessible through Skrill._t_',
-                name: 'boleto-bancário',
-            },
-            {
-                method: <StyledIcon src={OnlineNaira} alt="OnlineNaira" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_10 - 1,000_t_',
-                min_max_withdrawal: '_t_10 - 10,000_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 - 2 working days_t_',
-                description:
-                    '_t_Make fast and secure deposits and withdrawals with this mobile-friendly solution for clients in Nigeria._t_',
-                url: 'https://www.onlinenaira.com/',
-                name: 'onlinenaira',
-            },
-            {
-                method: <StyledIcon src={Trustly} alt="Trustly" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: '_t_10 - 100_t_',
-                min_max_withdrawal: '_t_Will be available soon_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_Will be available soon_t_',
-                description:
-                    '_t_Enjoy fast, smooth, and secure deposits and withdrawals with Trustly._t_',
-                url: 'https://www.trustly.net/',
-                name: 'trustly',
-            },
-            {
-                method: <StyledIcon src={Beyonic} alt="Beyonic" />,
-                currencies: 'UGX TZS',
-                min_max_deposit: '_t_5 - 1,000_t_',
-                min_max_withdrawal: '_t_5 - 1,000_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 - 2 working days_t_',
-                description:
-                    '_t_Make deposits easily using your mobile. For clients in Uganda and Tanzania._t_',
-                url: 'https://beyonic.com/',
-                name: 'beyonic',
-            },
-            {
-                method: <StyledIcon src={OneForYou} alt="OneForYou" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_10 - 1,000_t_',
-                min_max_withdrawal: '_t_Not applicable_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_Not applicable_t_',
-                description:
-                    '_t_Make deposits easily with cash voucher payment solution for South Africa._t_',
-                name: 'oneforyou',
-            },
-            {
-                method: <StyledIcon src={Advcash} alt="Advcash" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_5 - 1,000_t_',
-                min_max_withdrawal: '_t_Will be available soon_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_Will be available soon_t_',
-                description:
-                    '_t_Enjoy fast, smooth, and secure deposits and withdrawals with AdvCash._t_',
-                name: 'advcash',
-            },
         ],
     },
-
     {
         name: '_t_Credit & debit cards_t_',
         note: '_t_Withdrawals may take up to 15 working days to reflect on your card._t_',
         is_eu: true,
         data: [
             {
-                method: <StyledIcon src={Visa} alt="Visa" />,
+                method: <StyledIcon src={Visa} alt="visa" />,
                 currencies: 'USD, EUR, GBP',
                 min_max_deposit: '_t_10 - 5,000_t_',
                 min_max_withdrawal: '_t_10 - 10,000_t_',
@@ -555,7 +461,7 @@ const payment_data: PaymentDataProps[] = [
                 name: 'visa',
             },
             {
-                method: <StyledIcon src={VisaElectron} alt="Visa Electron" />,
+                method: <StyledIcon src={VisaElectron} alt="visa electron" />,
                 currencies: 'USD, EUR, GBP',
                 min_max_deposit: '_t_10 - 5,000_t_',
                 min_max_withdrawal: '_t_10 - 10,000_t_',
@@ -566,7 +472,7 @@ const payment_data: PaymentDataProps[] = [
                 name: 'VisaElectron',
             },
             {
-                method: <StyledIcon src={Maestro} alt="Maestro" />,
+                method: <StyledIcon src={Maestro} alt="maestro" />,
                 currencies: 'USD, EUR, GBP',
                 min_max_deposit: '_t_10 - 5,000_t_',
                 min_max_withdrawal: '_t_Not applicable_t_',
@@ -576,7 +482,7 @@ const payment_data: PaymentDataProps[] = [
                 name: 'maestro',
             },
             {
-                method: <StyledIcon src={MasterCard} alt="Mastercard" />,
+                method: <StyledIcon src={MasterCard} alt="mastercard" />,
                 currencies: 'USD, EUR, GBP',
                 min_max_deposit: '_t_10 - 5,000_t_',
                 min_max_withdrawal: '_t_Not applicable_t_',
@@ -591,45 +497,39 @@ const payment_data: PaymentDataProps[] = [
         name: '_t_E-wallets_t_',
         is_eu: true,
         note: '_t_Not all payment methods are available in your country. Kindly check your cashier for further information._t_',
+        class_name: 'e-wallets',
         data: [
             {
-                method: <StyledIcon src={Skrill} alt="Skrill" />,
-                currencies: 'USD EUR GBP',
+                method: <StyledIcon src={Skrill} alt="skrill" />,
+                currencies: 'USD, EUR, GBP',
                 min_max_deposit: '_t_10 - 10,000_t_',
                 min_max_withdrawal: '_t_10 - 10,000_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
-                description:
-                    '_t_Make instant and secure transactions using Skrill and earn rewards through its loyalty programme._t_',
+                description: '_t_Make instant e-wallet deposits._t_',
                 name: 'skrill',
-                url: 'https://www.skrill.com/',
             },
             {
-                method: <StyledIcon src={Neteller} alt="Neteller" />,
-                currencies: 'USD EUR GBP',
+                method: <StyledIcon src={Neteller} alt="neteller" />,
+                currencies: 'USD, EUR, GBP',
                 min_max_deposit: '_t_10 - 10,000_t_',
                 min_max_withdrawal: '_t_10 - 10,000_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
-                description:
-                    '_t_Make fast, easy transactions using Neteller and earn rewards through its loyalty programme._t_',
+                description: '_t_Make instant e-wallet deposits._t_',
                 name: 'neteller',
-                url: 'https://www.neteller.com/',
             },
             {
-                method: <StyledIcon src={Jeton} alt="Jeton" />,
+                method: <StyledIcon src={Jeton} alt="jeton" />,
                 currencies: 'EUR',
                 min_max_deposit: '_t_5 - 1,000_t_',
                 min_max_withdrawal: '_t_5 - 1,000_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
-                description:
-                    '_t_A fast and secure money transfer service. Access your money anywhere with the mobile app._t_',
-                url: 'https://www.jeton.com/',
+                description: '_t_Make instant e-wallet deposits._t_',
                 name: 'jeton',
             },
         ],
-        class_name: 'e-wallets',
     },
     {
         name: '_t_Online banking_t_',
@@ -638,47 +538,54 @@ const payment_data: PaymentDataProps[] = [
         data: [
             {
                 method: <StyledIcon src={Eps} alt="eps" />,
-                currencies: 'USD EUR GBP',
+                currencies: 'USD, EUR, GBP',
                 min_max_deposit: '_t_25 - 100_t_',
                 min_max_withdrawal: '_t_Not applicable_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_Not applicable_t_',
-                description:
-                    '_t_Make deposits and withdrawals through your local bank in real-time._t_',
-                name: 'Eps',
+                description: '_t_Make direct online transfers from your bank account._t_',
+                name: 'eps',
             },
             {
                 method: <StyledIcon src={GiroPay} alt="giropay" />,
-                currencies: 'USD EUR GBP',
+                currencies: 'USD, EUR, GBP',
                 min_max_deposit: '_t_25 - 100_t_',
                 min_max_withdrawal: '_t_Not applicable_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_Not applicable_t_',
-                description:
-                    "_t_Make safe, instant, and easy transactions via Germany's most popular payment method._t_",
+                description: '_t_Make direct online transfers from your bank account._t_',
                 name: 'Eps',
             },
             {
-                method: <StyledIcon src={Przelewy} alt="przelewy" />,
-                currencies: 'USD EUR GBP',
+                method: <StyledIcon src={Przelewy24} alt="przelewy24" />,
+                currencies: 'USD, EUR, GBP',
                 min_max_deposit: '_t_25 - 100_t_',
                 min_max_withdrawal: '_t_Not applicable_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_Not applicable_t_',
-                description:
-                    '_t_Make easy transactions via any major local banks and their mobile apps through Przelewy24._t_',
-                name: 'Przelewy',
+                description: '_t_Make easy deposits via any major local bank._t_',
+                name: 'przelewy24',
             },
             {
                 method: <StyledIcon src={RapidTransfer} alt="rapid transfer" />,
-                currencies: 'USD EUR GBP',
+                currencies: 'USD, EUR, GBP',
                 min_max_deposit: '_t_25 - 100_t_',
                 min_max_withdrawal: '_t_Not applicable_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_Not applicable_t_',
                 description:
-                    '_t_Make instant bank transfers via all major banks and earn rewards through Rapid Transfer’s loyalty program._t_',
-                name: 'Przelewy',
+                    '_t_Make instant bank transfers to all the major banks in your country._t_',
+                name: 'rapidtransfer',
+            },
+            {
+                method: <StyledIcon src={Ideals} alt="ideals" />,
+                currencies: 'USD, EUR, GBP',
+                min_max_deposit: '_t_10 - 10,000_t_',
+                min_max_withdrawal: '_t_Not applicable_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_Not applicable_t_',
+                description: '_t_Make easy deposits via any major local bank._t_',
+                name: 'rapidtransfer',
             },
         ],
     },
@@ -686,48 +593,49 @@ const payment_data: PaymentDataProps[] = [
         name: '_t_Cryptocurrencies_t_',
         is_crypto: true,
         note: '_t_The minimum amount for withdrawal will vary depending on the latest exchange rates. The figures shown here have been rounded._t_',
+        class_name: 'cryptocurrencies',
         data: [
             {
                 method: <StyledIcon src={Bitcoin} alt="Bitcoin" />,
                 currencies: 'BTC',
                 min_max_deposit: '_t_No minimum_t_',
-                min_max_withdrawal: '_t_0.0022_t_',
+                min_max_withdrawal: '_t_0.0006631_t_',
                 deposit_time: '_t_Funds available as soon as confirmed_t_',
                 withdrawal_time: '_t_Subject to internal checks_t_',
                 description:
                     '_t_Deposit and withdraw in Bitcoin, the world’s first cryptocurrency._t_',
                 name: 'BTC',
-                reference: 'bitcoin-payment-method.pdf',
+                // reference: 'bitcoin-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={Ethereum} alt="Ethereum" />,
                 currencies: 'ETH',
                 min_max_deposit: '_t_No minimum_t_',
-                min_max_withdrawal: '_t_0.013_t_',
+                min_max_withdrawal: '_t_0.02760334_t_',
                 deposit_time: '_t_Funds available as soon as confirmed_t_',
                 withdrawal_time: '_t_Subject to internal checks_t_',
                 description:
                     '_t_Deposit and withdraw in Ethereum, among the top 3 most used cryptocurrencies._t_',
                 name: 'ETH',
-                reference: 'ETH-payment-method.pdf',
+                // reference: 'ETH-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={Litecoin} alt="Litecoin" />,
                 currencies: 'LTC',
                 min_max_deposit: '_t_No minimum_t_',
-                min_max_withdrawal: '_t_0.085_t_',
+                min_max_withdrawal: '_t_0.0535087_t_',
                 deposit_time: '_t_Funds available as soon as confirmed_t_',
                 withdrawal_time: '_t_Subject to internal checks_t_',
                 description:
                     '_t_Deposit and withdraw in Litecoin, a durable cryptocurrency with fast transaction processing._t_',
                 name: 'LTC',
-                reference: 'litecoin-payment-method.pdf',
+                // reference: 'litecoin-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={UsdCoin} alt="UsdCoin" />,
                 currencies: 'USDC',
                 min_max_deposit: '_t_No minimum_t_',
-                min_max_withdrawal: '_t_25_t_',
+                min_max_withdrawal: '_t_25.03_t_',
                 deposit_time: '_t_Funds available as soon as confirmed_t_',
                 withdrawal_time: '_t_Subject to internal checks_t_',
                 description:
@@ -738,7 +646,7 @@ const payment_data: PaymentDataProps[] = [
                 method: <StyledIcon src={Tether} alt="Tether" />,
                 currencies: 'USDT',
                 min_max_deposit: '_t_No minimum_t_',
-                min_max_withdrawal: '_t_25_t_',
+                min_max_withdrawal: '_t_24.88_t_',
                 deposit_time: '_t_Funds available as soon as confirmed_t_',
                 withdrawal_time: '_t_Subject to internal checks_t_',
                 description:
@@ -746,8 +654,8 @@ const payment_data: PaymentDataProps[] = [
                 name: 'UST',
             },
         ],
-        class_name: 'cryptocurrencies',
     },
+
     {
         name: '_t_Fiat onramp - Buy crypto on popular exchanges._t_',
         is_fiat_onramp: true,

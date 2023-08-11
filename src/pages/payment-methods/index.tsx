@@ -131,6 +131,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
             )
         } else {
             if (data) {
+                console.log('data', data)
                 const filtered_payment_methods = payment_method_data.filter(
                     (payment_method) => !payment_method.is_eu,
                 )

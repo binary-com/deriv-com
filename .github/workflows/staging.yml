@@ -19,7 +19,6 @@ env:
   DATADOG_CLIENT_TOKEN: ${{ secrets.DATADOG_CLIENT_TOKEN }}
   GATSBY_MAP_API_KEY: ${{ secrets.GATSBY_MAP_API_KEY }}
 
-
 jobs:
   release-staging:
     timeout-minutes: 30

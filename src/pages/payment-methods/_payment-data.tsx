@@ -3,43 +3,57 @@ import styled from 'styled-components'
 import { Localize, LocalizedLink } from 'components/localization'
 import { TString } from 'types/generics'
 // SVG
+import {
+    Visa,
+    VisaElectron,
+    MasterCard,
+    Maestro,
+    Diners,
+    Discover,
+    LocalDeposit,
+    BankDeposit,
+    Pix,
+    Help2Pay,
+    Verve,
+    ZingPay,
+    MPesa,
+    MTN,
+    Vodafone,
+    Advcash,
+    AirTM,
+    AstroPay,
+    Jeton,
+    MiFinity,
+    Neteller,
+    PayLivre,
+    PerfectMoney,
+    Skrill,
+    Skrill1Tap,
+    SticPay,
+    Chipper,
+} from 'images/svg/payment-methods'
+//temp
 import Paytrust from 'images/svg/payment-methods/payment-paytrust.svg'
-import Visa from 'images/svg/payment-methods/payment-visa.svg'
-import VisaElectron from 'images/svg/payment-methods/payment-visa-electron.svg'
-import MasterCard from 'images/svg/payment-methods/payment-mastercard.svg'
-import Maestro from 'images/svg/payment-methods/payment-maestro.svg'
 import Fasapay from 'images/svg/payment-methods/payment-fasapay.svg'
-import PerfectMoney from 'images/svg/payment-methods/payment-perfect-money.svg'
-import Skrill from 'images/svg/payment-methods/payment-skrill.svg'
-import Neteller from 'images/svg/payment-methods/payment-neteller.svg'
 import Webmoney from 'images/svg/payment-methods/payment-webmoney.svg'
 import PaysafeCard from 'images/svg/payment-methods/payment-paysafe.svg'
-import Jeton from 'images/svg/payment-methods/payment-jeton.svg'
-import Sticpay from 'images/svg/payment-methods/payment-sticpay.svg'
-import Airtm from 'images/svg/payment-methods/payment-airtm.svg'
 import Bitcoin from 'images/svg/payment-methods/payment-bitcoin.svg'
 import Ethereum from 'images/svg/payment-methods/payment-ethereum.svg'
 import Litecoin from 'images/svg/payment-methods/payment-litecoin.svg'
 import Tether from 'images/svg/payment-methods/payment-tether.svg'
-import Help2Pay from 'images/svg/payment-methods/payment-help-pay.svg'
 import DragonPhoenix from 'images/svg/payment-methods/payment-dragon-phoenix.svg'
-import ZingPay from 'images/svg/payment-methods/payment-zing-pay.svg'
 import NganLuong from 'images/svg/payment-methods/payment-ngan-luong.svg'
-import Diners from 'images/svg/payment-methods/payment-diners.svg'
 import UsdCoin from 'images/svg/payment-methods/payment-usd-coin.svg'
 import Changelly from 'images/svg/payment-methods/payment-changelly.svg'
 import Xanpool from 'images/svg/payment-methods/payment-xanpool.svg'
 import Banxa from 'images/svg/payment-methods/payment-banxa.svg'
-import Paylivre from 'images/svg/payment-methods/payment-paylivre.svg'
 import OnlineNaira from 'images/svg/payment-methods/payment-onlinenaira.svg'
 import Trustly from 'images/svg/payment-methods/payment-trustly.svg'
 import InstantBankTransfer from 'images/svg/payment-methods/payment-instant-bank-transfer.svg'
 import JCB from 'images/svg/payment-methods/payment-jcb.svg'
 import Boleto from 'images/svg/payment-methods/payment-boleto.svg'
 import Beyonic from 'images/svg/payment-methods/payment-beyonic.svg'
-import Astropay from 'images/svg/payment-methods/payment-astropay.svg'
 import OneForYou from 'images/svg/payment-methods/payment-one-for-you.svg'
-import Advcash from 'images/svg/payment-methods/payment-advcash.svg'
 import Dp2p from 'images/svg/payment-methods/payment-dp2p.svg'
 import Eps from 'images/svg/payment-methods/payment-eps.svg'
 import GiroPay from 'images/svg/payment-methods/payment-giropay.svg'
@@ -109,123 +123,190 @@ const StyledRefLink = styled(LocalizedLink)`
 
 const payment_data: PaymentDataProps[] = [
     {
-        name: '_t_Credit/debit cards_t_',
-        note: '_t_Withdrawals may take up to 15 working days to reflect on your card. Mastercard and Maestro withdrawals are only available for UK clients._t_',
+        name: '_t_Credit & debit cards_t_',
+        note: '_t_Withdrawals may take up to 15 working days to reflect on your card._t_',
         is_row: true,
+        class_name: 'cards',
         data: [
             {
                 method: <StyledIcon src={Visa} alt="Visa" />,
-                currencies: 'USD EUR AUD GBP',
-                min_max_deposit: '_t_10 - 10,000_t_',
+                currencies: 'USD, EUR, AUD, GBP',
+                min_max_deposit: '_t_10 - 5,000_t_',
                 min_max_withdrawal: '_t_10 - 10,000_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
-                description: '_t_Deposit and withdraw using your Visa credit or debit card._t_',
+                description:
+                    '_t_Make deposits and withdrawals using your credit and debit cards._t_',
                 name: 'visa',
-                reference: 'visa-payment-method.pdf',
+                // reference: 'visa-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={VisaElectron} alt="Visa Electron" />,
-                currencies: 'USD EUR AUD GBP',
-                min_max_deposit: '_t_10 - 10,000_t_',
+                currencies: 'USD, EUR, AUD, GBP',
+                min_max_deposit: '_t_10 - 5,000_t_',
                 min_max_withdrawal: '_t_10 - 10,000_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
-                description: '_t_Deposit and withdraw using your Visa Electron card._t_',
+                description:
+                    '_t_Make deposits and withdrawals using your credit and debit cards._t_',
                 name: 'VisaElectron',
                 // reference: 'visa-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={MasterCard} alt="Mastercard" />,
-                currencies: 'USD EUR AUD GBP',
-                min_max_deposit: '_t_10 - 10,000_t_',
-                min_max_withdrawal: '_t_10 - 10,000_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 working day. Only for UK clients_t_',
-                description:
-                    '_t_Deposit and withdraw using your Mastercard credit or debit card._t_',
-                name: 'mastercard',
-                reference: 'mastercard-payment-method.pdf',
-            },
-            {
-                method: <StyledIcon src={Maestro} alt="Maestro" />,
-                currencies: 'USD EUR AUD GBP',
-                min_max_deposit: '_t_10 - 10,000_t_',
-                min_max_withdrawal: '_t_10 - 10,000_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 working day. Only for UK clients_t_',
-                description: '_t_Deposit and withdraw using your Maestro debit card._t_',
-                name: 'maestro',
-                reference: 'maestrocard-payment-method.pdf',
-            },
-            {
-                method: <StyledIcon src={Diners} alt="Diners" />,
-                currencies: 'USD EUR AUD GBP',
-                min_max_deposit: '_t_10 - 10,000_t_',
-                min_max_withdrawal: '_t_10 - 10,000_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 working day_t_',
-                description: '_t_Deposit and withdraw using your Diners credit or debit card._t_',
-                name: 'diners',
-                reference: 'diners-club-payment-method.pdf',
-            },
-            {
-                method: <StyledIcon src={JCB} alt="JCB" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_10 - 10,000_t_',
-                min_max_withdrawal: '_t_10 - 10,000_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 working day_t_',
-                description: '_t_Deposit and withdraw using your JCB credit card._t_',
-            },
-        ],
-        class_name: 'cards',
-    },
-    {
-        name: '_t_Credit/debit cards_t_',
-        note: '_t_Withdrawals may take up to 15 working days to reflect on your card._t_',
-        is_eu: true,
-        data: [
-            {
-                method: <StyledIcon src={Visa} alt="Visa" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: '_t_10 - 10,000_t_',
-                min_max_withdrawal: '_t_10 - 10,000_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 working day_t_',
-                description:
-                    '_t_Deposit and withdraw funds using your Visa credit or debit card._t_',
-                name: 'visa',
-            },
-            {
-                method: <StyledIcon src={VisaElectron} alt="Visa Electron" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: '_t_10 - 10,000_t_',
-                min_max_withdrawal: '_t_10 - 10,000_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 working day_t_',
-                description: '_t_Deposit and withdraw funds using your Visa Electron card._t_',
-                name: 'VisaElectron',
-            },
-            {
-                method: <StyledIcon src={Maestro} alt="Maestro" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: '_t_10 - 10,000_t_',
-                min_max_withdrawal: '_t_10 - 10,000_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 working day_t_',
-                description: '_t_Deposit and withdraw funds using your Maestro debit card._t_',
-                name: 'maestro',
-            },
-            {
-                method: <StyledIcon src={MasterCard} alt="Mastercard" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: '_t_10 - 10,000_t_',
+                currencies: 'USD, EUR, GBP',
+                min_max_deposit: '_t_10 - 5,000_t_',
                 min_max_withdrawal: '_t_Not applicable_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_Not applicable_t_',
-                description: '_t_Deposit funds using your Mastercard credit or debit card._t_',
+                description: '_t_Make deposits using your credit and debit cards._t_',
                 name: 'mastercard',
+                // reference: 'mastercard-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={Maestro} alt="Maestro" />,
+                currencies: 'USD, EUR, GBP',
+                min_max_deposit: '_t_10 - 5,000_t_',
+                min_max_withdrawal: '_t_Not applicable_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_Not applicable_t_',
+                description: '_t_Make deposits using your credit and debit cards._t_',
+                name: 'maestro',
+                // reference: 'maestrocard-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={Diners} alt="Diners" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_10 - 5,000_t_',
+                min_max_withdrawal: '_t_10 - 10,000_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description:
+                    '_t_Make deposits and withdrawals using your credit and debit cards._t_',
+                name: 'diners',
+                // reference: 'diners-club-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={Discover} alt="Discover" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_10 - 5,000_t_',
+                min_max_withdrawal: '_t_Not applicable_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_Not applicable_t_',
+                description:
+                    '_t_Make deposits and withdrawals using your credit and debit cards._t_',
+            },
+        ],
+    },
+    {
+        name: '_t_Online banking_t_',
+        note: '_t_Not all payment methods are available in your country. Kindly check your cashier for further information. Withdrawals may take up to 15 working days to reflect in your bank account._t_',
+        is_row: true,
+        class_name: 'online-banking',
+        data: [
+            {
+                method: <StyledIcon src={LocalDeposit} alt="local bank deposits" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_10 - 1,000_t_',
+                min_max_withdrawal: '_t_Not applicable_t_',
+                deposit_time: '_t_1 working day_t_',
+                withdrawal_time: '_t_Not applicable_t_',
+                description: '_t_Make easy deposits through your local banks._t_',
+                name: 'LocalBankDeposits',
+            },
+            {
+                method: <StyledIcon src={BankDeposit} alt="major bank deposits" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_10 - 1,000_t_',
+                min_max_withdrawal: '_t_15 - 1,000_t_',
+                deposit_time: '_t_1 working day_t_',
+                withdrawal_time: '_t_1 - 2 working days_t_',
+                description: '_t_Make easy deposits via any major bank._t_',
+                name: 'MajorBankDeposits',
+            },
+            {
+                method: <StyledIcon src={Pix} alt="pix" />,
+                currencies: 'USD, EUR, AUD, GBP',
+                min_max_deposit: '_t_10 - 1,000_t_',
+                min_max_withdrawal: '_t_10 - 1,000_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description:
+                    '_t_Make fast deposits using PIX, Brazilian banks’ most popular payment solution._t_',
+                name: 'pix',
+            },
+            {
+                method: <StyledIcon src={Help2Pay} alt="help2pay" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_15 - 5,000_t_',
+                min_max_withdrawal: '_t_15 - 10,000_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 - 2 working days_t_',
+                description:
+                    '_t_Make deposits and withdrawals through your local bank in real-time._t_',
+                name: 'Help2Pay',
+                // reference: 'help2pay-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={Verve} alt="verve" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_5 - 1,000_t_',
+                min_max_withdrawal: '_t_5 - 1,000_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description: '_t_Deposit through your local payment cards._t_',
+                name: 'verve',
+                // reference: 'dragonphoenix-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={ZingPay} alt="zingPay" />,
+                currencies: 'USD, EUR, AUD, GBP',
+                min_max_deposit: '_t_10 - 500_t_',
+                min_max_withdrawal: '_t_10 - 5,000_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 - 5 working days_t_',
+                description:
+                    '_t_Make deposits and withdrawals through your local bank in real-time._t_',
+                name: 'ZingPay',
+                // reference: 'zingpay-payment-method.pdf',
+            },
+        ],
+    },
+    {
+        name: '_t_Mobile payments_t_',
+        note: '_t_Not all payment methods are available in your country. Kindly check your cashier for further information._t_',
+        is_row: true,
+        class_name: 'mobile-payments',
+        data: [
+            {
+                method: <StyledIcon src={MPesa} alt="m-pesa" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_5 - 1,000_t_',
+                min_max_withdrawal: '_t_5 - 1,000_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description: '_t_Make fast and easy deposits through your bank account._t_',
+                name: 'MPesa',
+            },
+            {
+                method: <StyledIcon src={MTN} alt="mtn" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_5 - 1,000_t_',
+                min_max_withdrawal: '_t_5 - 1,000_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description: '_t_Make fast and easy deposits through your bank account._t_',
+                name: 'MTN',
+            },
+            {
+                method: <StyledIcon src={Vodafone} alt="vodafone" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_5 - 1,000_t_',
+                min_max_withdrawal: '_t_5 - 1,000_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description: '_t_Make fast and easy deposits through your bank account._t_',
+                name: 'Vodafone',
             },
         ],
     },
@@ -234,57 +315,132 @@ const payment_data: PaymentDataProps[] = [
         is_row: true,
         data: [
             {
-                method: <StyledIcon src={Fasapay} alt="Fasapay" />,
+                method: <StyledIcon src={Advcash} alt="advcash" />,
                 currencies: 'USD',
-                min_max_deposit: '_t_5 - 10,000_t_',
+                min_max_deposit: '_t_5 - 1,000_t_',
                 min_max_withdrawal: '_t_5 - 10,000_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
-                description:
-                    '_t_Features fast deposits and withdrawals, low fees, and downloadable transaction history._t_',
-                url: 'https://www.fasapay.com/',
-                name: 'fasapay',
-                reference: 'fasapay-payment-method.pdf',
+                description: '_t_Make instant deposits using your e-wallet._t_',
+                name: 'advcash',
+                // reference: 'fasapay-payment-method.pdf',
             },
             {
-                method: <StyledIcon src={PerfectMoney} alt="PerfectMoney" />,
-                currencies: 'USD EUR',
-                min_max_deposit: '_t_5 - 10,000_t_',
+                method: <StyledIcon src={AirTM} alt="airtm" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_5 - 2,500_t_',
+                min_max_withdrawal: '_t_5 - 2,500_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description: '_t_Make instant e-wallet deposits._t_',
+                name: 'airtm',
+                // reference: 'perfectmoney-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={AstroPay} alt="astropay" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_5 - 1,000_t_',
+                min_max_withdrawal: '_t_5 - 1,000_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description: '_t_Make instant e-wallet deposits._t_',
+                name: 'astropay',
+            },
+            {
+                method: <StyledIcon src={Jeton} alt="jeton" />,
+                currencies: 'USD, EUR, AUD, GBP',
+                min_max_deposit: '_t_5 - 1,000_t_',
                 min_max_withdrawal: '_t_5 - 10,000_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
-                description:
-                    '_t_A cheap and easy method for deposits and withdrawals. Features auto payments, annual interest, and real-time statements._t_',
-                url: 'https://perfectmoney.is/',
-                name: 'perfect money',
-                reference: 'perfectmoney-payment-method.pdf',
+                description: '_t_Make instant e-wallet deposits._t_',
+                name: 'jeton',
+                // reference: 'jeton-payment-method.pdf',
             },
             {
-                method: <StyledIcon src={Skrill} alt="Skrill" />,
-                currencies: 'USD EUR AUD GBP',
+                method: <StyledIcon src={MiFinity} alt="mifinity" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_10 - 500_t_',
+                min_max_withdrawal: '_t_10 - 10,000_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description: '_t_Make instant deposits using your e-wallet._t_',
+                name: 'mifinity',
+            },
+            {
+                method: <StyledIcon src={Neteller} alt="neteller" />,
+                currencies: 'USD, EUR, AUD, GBP',
                 min_max_deposit: '_t_10 - 10,000_t_',
                 min_max_withdrawal: '_t_10 - 10,000_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
-                description:
-                    '_t_Quick, simple to use, and available anywhere, anytime. Used by millions of clients worldwide._t_',
-                url: 'https://www.skrill.com/',
-                name: 'skrill',
-                reference: 'skrill-payment-method.pdf',
+                description: '_t_Make instant e-wallet deposits._t_',
+                name: 'neteller',
+                // reference: 'neteller-payment-method.pdf',
             },
             {
-                method: <StyledIcon src={Neteller} alt="Neteller" />,
-                currencies: 'USD EUR AUD GBP',
-                min_max_deposit: '_t_10 - 10,000_t_',
+                method: <StyledIcon src={PayLivre} alt="paylivre" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_5 - 5,000_t_',
+                min_max_withdrawal: '_t_5 - 1,000_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description: '_t_Make instant deposits using your local e-wallet._t_',
+                name: 'paylivre',
+            },
+            {
+                method: <StyledIcon src={PerfectMoney} alt="perfect money" />,
+                currencies: 'USD, EUR',
+                min_max_deposit: '_t_5 - 10,000_t_',
                 min_max_withdrawal: '_t_5 - 10,000_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
-                description:
-                    '_t_Used by over 20 million clients worldwide. Enjoy instant access, free withdrawals, and reward points that you can redeem for cash._t_',
-                url: 'https://www.neteller.com/',
-                name: 'neteller',
-                reference: 'neteller-payment-method.pdf',
+                description: '_t_Make instant e-wallet deposits._t_',
+                name: 'perfectmoney',
             },
+            {
+                method: <StyledIcon src={Skrill} alt="skrill" />,
+                currencies: 'USD, EUR, AUD, GBP',
+                min_max_deposit: '_t_10 - 10,000_t_',
+                min_max_withdrawal: '_t_10 - 10,000_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description: '_t_Make instant e-wallet deposits._t_',
+                name: 'skrill',
+                // reference: 'skrill-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={Skrill1Tap} alt="skrill1tap" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_10 - 10,000_t_',
+                min_max_withdrawal: '_t_Not applicable_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_Not applicable_t_',
+                description: '_t_Make instant deposits using your e-wallet._t_',
+                name: 'skrill1tap',
+            },
+            {
+                method: <StyledIcon src={SticPay} alt="sticpay" />,
+                currencies: 'USD, EUR, AUD, GBP',
+                min_max_deposit: '_t_5 - 10,000_t_',
+                min_max_withdrawal: '_t_5 - 10,000_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description: '_t_Make instant deposits using your e-wallet._t_',
+                name: 'sticpay',
+                // reference: 'sticpay-payment-method.pdf',
+            },
+            {
+                method: <StyledIcon src={Chipper} alt="chipper" />,
+                currencies: 'USD',
+                min_max_deposit: '_t_10 - 250_t_',
+                min_max_withdrawal: '_t_Not applicable_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_Not applicable_t_',
+                description: '_t_Make instant deposits using crypto to your fiat account._t_',
+                name: 'chipper',
+            },
+
             {
                 method: <StyledIcon src={Webmoney} alt="Webmoney" />,
                 currencies: 'USD EUR',
@@ -311,47 +467,6 @@ const payment_data: PaymentDataProps[] = [
                 name: 'paysafe',
             },
             {
-                method: <StyledIcon src={Jeton} alt="Jeton" />,
-                currencies: 'USD EUR AUD GBP',
-                min_max_deposit: '_t_5 - 1,000_t_',
-                min_max_withdrawal: '_t_5 - 1,000_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 working day_t_',
-                description:
-                    '_t_A fast and secure money transfer service. Access your money anywhere with the mobile app._t_',
-                url: 'https://www.jeton.com/',
-                name: 'jeton',
-                reference: 'jeton-payment-method.pdf',
-            },
-
-            {
-                method: <StyledIcon src={Sticpay} alt="Sticpay" />,
-                currencies: 'USD EUR GBP',
-                min_max_deposit: '_t_5 - 10,000_t_',
-                min_max_withdrawal: '_t_5 - 1,000_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 working day_t_',
-                description:
-                    '_t_An easy, cheap, and fast way to transfer money. Supported by banks and merchants worldwide._t_',
-                url: 'https://www.sticpay.com/',
-                name: 'sticpay',
-                reference: 'sticpay-payment-method.pdf',
-            },
-            {
-                method: <StyledIcon src={Airtm} alt="Airtm" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_5 - 2,500_t_',
-                min_max_withdrawal: '_t_5 - 2,500_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 working day_t_',
-                description:
-                    '_t_Easily convert your currency to USD and transfer money worldwide. Used by more than 500,000 clients in 163 countries._t_',
-                url: 'https://www.airtm.io/#/',
-                name: 'airtm',
-                reference: 'airtm-payment-method.pdf',
-            },
-
-            {
                 method: <StyledIcon src={Boleto} alt="Boleto" />,
                 currencies: 'USD',
                 min_max_deposit: '_t_10 - 500_t_',
@@ -361,19 +476,6 @@ const payment_data: PaymentDataProps[] = [
                 description:
                     '_t_Use this popular invoice-based payment method to deposit if you don’t have a bank account or credit card. This option is accessible through Skrill._t_',
                 name: 'boleto-bancário',
-            },
-            {
-                method: <StyledIcon src={Paylivre} alt="Paylivre" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_5 - 4,000_t_',
-                min_max_withdrawal: '_t_5 - 10,000_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 - 2 working days_t_',
-                description:
-                    '_t_Enjoy fast, smooth, and secure deposits and withdrawals with PayLivre._t_',
-                url: 'https://paylivre.com/',
-                name: 'paylivre',
-                reference: 'paylivre-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={OnlineNaira} alt="OnlineNaira" />,
@@ -412,16 +514,6 @@ const payment_data: PaymentDataProps[] = [
                 name: 'beyonic',
             },
             {
-                method: <StyledIcon src={Astropay} alt="Astropay" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_5 - 2,500_t_',
-                min_max_withdrawal: '_t_5 - 2,500_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 working day_t_',
-                description: '_t_Enjoy fast and secure deposits and withdrawals with Astropay._t_',
-                name: 'astropay',
-            },
-            {
                 method: <StyledIcon src={OneForYou} alt="OneForYou" />,
                 currencies: 'USD',
                 min_max_deposit: '_t_10 - 1,000_t_',
@@ -442,6 +534,56 @@ const payment_data: PaymentDataProps[] = [
                 description:
                     '_t_Enjoy fast, smooth, and secure deposits and withdrawals with AdvCash._t_',
                 name: 'advcash',
+            },
+        ],
+    },
+
+    {
+        name: '_t_Credit & debit cards_t_',
+        note: '_t_Withdrawals may take up to 15 working days to reflect on your card._t_',
+        is_eu: true,
+        data: [
+            {
+                method: <StyledIcon src={Visa} alt="Visa" />,
+                currencies: 'USD, EUR, GBP',
+                min_max_deposit: '_t_10 - 5,000_t_',
+                min_max_withdrawal: '_t_10 - 10,000_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description:
+                    '_t_Make deposits and withdrawals using your credit and debit cards._t_',
+                name: 'visa',
+            },
+            {
+                method: <StyledIcon src={VisaElectron} alt="Visa Electron" />,
+                currencies: 'USD, EUR, GBP',
+                min_max_deposit: '_t_10 - 5,000_t_',
+                min_max_withdrawal: '_t_10 - 10,000_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description:
+                    '_t_Make deposits and withdrawals using your credit and debit cards._t_',
+                name: 'VisaElectron',
+            },
+            {
+                method: <StyledIcon src={Maestro} alt="Maestro" />,
+                currencies: 'USD, EUR, GBP',
+                min_max_deposit: '_t_10 - 5,000_t_',
+                min_max_withdrawal: '_t_Not applicable_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_Not applicable_t_',
+                description: '_t_Make deposits using your credit and debit cards._t_',
+                name: 'maestro',
+            },
+            {
+                method: <StyledIcon src={MasterCard} alt="Mastercard" />,
+                currencies: 'USD, EUR, GBP',
+                min_max_deposit: '_t_10 - 5,000_t_',
+                min_max_withdrawal: '_t_Not applicable_t_',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_Not applicable_t_',
+                description: '_t_Make deposits using your credit and debit cards._t_',
+                name: 'mastercard',
             },
         ],
     },
@@ -488,83 +630,6 @@ const payment_data: PaymentDataProps[] = [
             },
         ],
         class_name: 'e-wallets',
-    },
-    {
-        name: '_t_Online banking_t_',
-        is_row: true,
-        data: [
-            {
-                method: <StyledIcon src={InstantBankTransfer} alt="instant bank transfer" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_5 - 50,000_t_',
-                min_max_withdrawal: '_t_5 - 50,000_t_',
-                deposit_time: '_t_1 working day_t_',
-                withdrawal_time: '_t_1 working day_t_',
-                description:
-                    '_t_Deposit and withdraw easily using secure and fast money transfers._t_',
-                name: 'InstantBankTransfer',
-            },
-            {
-                method: <StyledIcon src={Paytrust} alt="pay safe card" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_10 - 17,000_t_',
-                min_max_withdrawal: '_t_Not applicable_t_',
-                deposit_time: '_t_1 working day_t_',
-                withdrawal_time: '_t_Not applicable_t_',
-                description:
-                    '_t_Deposit easily with your bank account on any device. Supports major banks in China, Indonesia, South Korea, Thailand, and Vietnam._t_',
-                name: 'paytrust88',
-            },
-            {
-                method: <StyledIcon src={Help2Pay} alt="help2pay" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_15 - 10,000_t_',
-                min_max_withdrawal: '_t_Not applicable_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_Not applicable_t_',
-                description:
-                    '_t_A leading payment service in Southeast Asia that’s fast, easy, and secure._t_',
-                name: 'Help2Pay',
-                reference: 'help2pay-payment-method.pdf',
-            },
-            {
-                method: <StyledIcon src={DragonPhoenix} alt="dragon phoenix" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_10 - 10,000_t_',
-                min_max_withdrawal: '_t_Not applicable_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_Not applicable_t_',
-                description: '_t_Deposit and withdraw easily in THB, IDR, and VND._t_',
-                name: 'DragonPhoenix',
-                reference: 'dragonphoenix-payment-method.pdf',
-            },
-            {
-                method: <StyledIcon src={ZingPay} alt="zingPay" />,
-                currencies: 'USD EUR AUD GBP',
-                min_max_deposit: '_t_10 - 500_t_',
-                min_max_withdrawal: '_t_10 - 6,000_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 working day_t_',
-                description:
-                    '_t_Payments simplified. Fast and reliable way to deposit funds in your local currency._t_',
-                name: 'ZingPay',
-                reference: 'zingpay-payment-method.pdf',
-            },
-            {
-                method: <StyledIcon src={NganLuong} alt="NganLuong" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_10 - 2,500_t_',
-                min_max_withdrawal: '_t_10 - 2,500_t_',
-                deposit_time: '_t_1 working day_t_',
-                withdrawal_time: '_t_1 - 3 working days_t_',
-                description:
-                    '_t_A leading e-wallet service in Vietnam that’s easy to use, flexible, and safe. Used by thousands of merchants._t_',
-                name: 'NganLuong',
-                reference: 'nganluong-payment-method.pdf',
-                locales: ['vi'],
-            },
-        ],
-        class_name: 'online-banking',
     },
     {
         name: '_t_Online banking_t_',

@@ -12,6 +12,7 @@ const LinkText = styled(LocalizedLinkText)`
     }
 `
 //comment
+console.log('test ing')
 
 type TScopeContent = {
     id: number

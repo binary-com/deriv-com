@@ -11,7 +11,6 @@ const LinkText = styled(LocalizedLinkText)`
         font-size: 12px;
     }
 `
-//comment
 
 type TScopeContent = {
     id: number

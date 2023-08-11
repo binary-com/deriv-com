@@ -1,8 +1,10 @@
 import * as yup from 'yup'
 import Cookies from 'js-cookie'
+import { RudderStack } from '@deriv/analytics'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { navigate } from 'gatsby'
+import { isMobile } from 'react-device-detect'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { validation_regex } from 'common/validation'
 import apiManager from 'common/websocket'
@@ -47,6 +49,24 @@ const useSignupForm = () => {
     })
 
     const onSignup = ({ email }: FormData) => {
+        RudderStack.track('ce_virtual_signup_form', {
+            action: 'started',
+            form_name: isMobile
+                ? 'virtual_signup_web_mobile_default'
+                : 'virtual_signup_web_desktop_default',
+        })
+
+        console.log(`
+        'ce_virtual_signup_form', {
+            action: 'started',
+            form_name: ${
+                isMobile
+                    ? 'virtual_signup_web_mobile_default'
+                    : 'virtual_signup_web_desktop_default'
+            },
+        }
+        `)
+
         const formatted_email = getVerifyEmailRequest(email)
         apiManager
             .augmentedSend('verify_email', {
@@ -63,6 +83,22 @@ const useSignupForm = () => {
                 navigate(success_link, { replace: true })
             })
             .catch((reason) => {
+                RudderStack.track('ce_virtual_signup_form', {
+                    action: 'signup_flow_error',
+                    form_name: isMobile
+                        ? 'virtual_signup_web_mobile_default'
+                        : 'virtual_signup_web_desktop_default',
+                })
+                console.log(`
+                'ce_virtual_signup_form', {
+                    action: 'signup_flow_error',
+                    form_name: ${
+                        isMobile
+                            ? 'virtual_signup_web_mobile_default'
+                            : 'virtual_signup_web_desktop_default'
+                    },
+                }
+                `)
                 signUpForm.setError('email', {
                     message: reason.error.code,
                 })

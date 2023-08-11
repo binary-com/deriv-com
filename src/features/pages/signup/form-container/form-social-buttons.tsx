@@ -1,4 +1,6 @@
 import React from 'react'
+import { RudderStack } from '@deriv/analytics'
+import { isMobile } from 'react-device-detect'
 import { signup_login_redirect, signup_fb_btn, signup_apple_btn } from '../signup.module.scss'
 import Login from 'common/login'
 import Button from 'features/components/atoms/button'
@@ -78,6 +80,25 @@ const FormSocialButtons = () => {
                             onClick={(event) => {
                                 event.preventDefault()
                                 Login.redirectToLogin()
+
+                                RudderStack.track('ce_virtual_signup_form', {
+                                    action: 'open',
+                                    form_source: document.referrer,
+                                    form_name: isMobile
+                                        ? 'virtual_signup_web_mobile_default'
+                                        : 'virtual_signup_web_desktop_default',
+                                })
+                                console.log(`
+                                'ce_virtual_signup_form', {
+                                    action: 'open',
+                                    form_source: ${document.referrer},
+                                    form_name: ${
+                                        isMobile
+                                            ? 'virtual_signup_web_mobile_default'
+                                            : 'virtual_signup_web_desktop_default'
+                                    },
+                                }
+                                `)
                             }}
                         />,
                     ]}

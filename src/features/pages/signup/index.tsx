@@ -1,4 +1,6 @@
 import React from 'react'
+import { RudderStack } from '@deriv/analytics'
+import { isMobile } from 'react-device-detect'
 import { signup_wrapper } from './signup.module.scss'
 import SignUpContent from './signup.content'
 import SignUpFormContainer from './form-container'
@@ -8,6 +10,27 @@ import { SEO } from 'components/containers'
 import Flex from 'features/components/atoms/flex-box'
 
 const SignUp = () => {
+    React.useEffect(() => {
+        RudderStack.track('ce_virtual_signup_form', {
+            action: 'open',
+            form_source: document.referrer || window.location.host,
+            form_name: isMobile
+                ? 'virtual_signup_web_mobile_default'
+                : 'virtual_signup_web_desktop_default',
+        })
+        console.log(`
+        'ce_virtual_signup_form', {
+            action: 'open',
+            form_source: ${document.referrer || window.location.host},
+            form_name: ${
+                isMobile
+                    ? 'virtual_signup_web_mobile_default'
+                    : 'virtual_signup_web_desktop_default'
+            },
+        }
+        `)
+    }, [])
+
     return (
         <Layout show_footer={false}>
             <SEO

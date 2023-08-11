@@ -20,11 +20,6 @@ const isServiceWorkerSupported = () => {
     const user_browser_version = semver.coerce(browserVersion)?.version || '1.0.0'
     const minimum_required_browsers_version = minimum_required_browsers_versions[user_browser_name]
 
-    console.log('user_browser_name', user_browser_name)
-    console.log('user_browser_version', user_browser_version)
-    console.log('minimum_required_browsers_version', minimum_required_browsers_version)
-    console.log('====================')
-
     // if the browser is in the list , check if the version is greater than the minimum required
     if (minimum_required_browsers_version)
         return semver.gt(user_browser_version, minimum_required_browsers_version)

@@ -14,7 +14,7 @@ const CardPrimary = ({
     header,
     description,
     icon,
-    alt_icon = null,
+    alt_icon = '',
     link,
     className,
     is_coming_soon = false,

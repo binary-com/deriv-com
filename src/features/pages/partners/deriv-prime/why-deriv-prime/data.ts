@@ -1,10 +1,5 @@
 import React from 'react'
-import { TString } from 'types/generics'
-
-type CardTypes = {
-    title?: TString
-    subtitle?: TString
-}
+import { CardTypes } from './types'
 
 export const card_data: CardTypes[] = [
     {

@@ -12,4 +12,5 @@ export interface CardType {
     icon?: string
     link?: LinkUrlType
     is_coming_soon?: boolean
+    alt_icon?: TString | string
 }

@@ -14,6 +14,7 @@ const CardPrimary = ({
     header,
     description,
     icon,
+    alt_icon = null,
     link,
     className,
     is_coming_soon = false,
@@ -41,12 +42,12 @@ const CardPrimary = ({
             <Flex.Item className={dclsx(link && 'item_block')}>
                 {icon && (
                     <Flex.Box pb="11x" lg={{ pb: '8x' }}>
-                        <img src={icon} width={44} height={44} />
+                        <img src={icon} width={44} height={44} alt={alt_icon} />
                     </Flex.Box>
                 )}
-                <Typography.Paragraph as="p" size="large" pb="4x" weight="bold" font_family="IBM">
+                <Typography.Heading as="h3" size="xxs" pb="4x" weight="bold">
                     <Localize translate_text={header} />
-                </Typography.Paragraph>
+                </Typography.Heading>
                 <Typography.Paragraph size={is_mobile_or_tablet ? 'medium' : 'small'}>
                     <Localize translate_text={description} />
                 </Typography.Paragraph>

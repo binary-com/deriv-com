@@ -76,6 +76,7 @@ const OtherMarketsSlider = ({
                                     icon={data.icon}
                                     link={data?.link || null}
                                     is_coming_soon={data?.is_coming_soon}
+                                    alt_icon={data?.alt_icon || ''}
                                 />
                             </SwiperSlide>
                         )

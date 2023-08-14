@@ -10,7 +10,7 @@ export const other_markets_items_deriv_prime: SmartOtherMarketsItem[] = [
         id: 0,
         data: {
             header: '_t_Forex_t_',
-            description: '_t_Major, minor, and exoticcurrency pairs._t_',
+            description: '_t_Major, minor, and exotic currency pairs._t_',
             icon: Forex,
             alt_icon: '_t_Trade forex_t_',
         },

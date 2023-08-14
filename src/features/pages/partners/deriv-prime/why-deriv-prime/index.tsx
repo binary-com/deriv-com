@@ -3,7 +3,7 @@ import * as styles from './why-deriv-prime.module.scss'
 import { card_data } from './data'
 import Typography from 'features/components/atoms/typography'
 import FlexBox from 'features/components/atoms/flex-box'
-import { Localize , WithIntl } from 'components/localization'
+import { Localize, WithIntl } from 'components/localization'
 
 const WhyDerivPrime = () => {
     return (
@@ -47,6 +47,7 @@ const WhyDerivPrime = () => {
                                     weight={'bold'}
                                     mb={'4x'}
                                     mt={'10x'}
+                                    font_family="UBUNTU"
                                     md={{ mt: '4x' }}
                                 >
                                     <Localize translate_text={card.title} />

@@ -1,4 +1,5 @@
 import React from 'react'
+import WhyDerivPrime from './why-deriv-prime'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
 import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
@@ -12,6 +13,7 @@ const DerivPrime = () => {
                 title="_t_Liquidity solutions provider | Deriv Prime_t_"
             />
             <PaymentAgentAffiliateNav />
+            <WhyDerivPrime />
             <Footer />
         </Layout>
     )

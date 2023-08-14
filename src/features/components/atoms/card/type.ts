@@ -11,4 +11,5 @@ export interface CardType {
     description: TString
     icon?: string
     link?: LinkUrlType
+    is_coming_soon?: boolean
 }

@@ -10,7 +10,15 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 
 export interface CardPrimaryProps extends FlexBoxProps<'div'>, CardType {}
 
-const CardPrimary = ({ header, description, icon, link, className, ...rest }: CardPrimaryProps) => {
+const CardPrimary = ({
+    header,
+    description,
+    icon,
+    link,
+    className,
+    is_coming_soon = false,
+    ...rest
+}: CardPrimaryProps) => {
     const { is_mobile_or_tablet } = useBreakpoints()
 
     return (
@@ -23,19 +31,20 @@ const CardPrimary = ({ header, description, icon, link, className, ...rest }: Ca
             radius="8x"
             {...rest}
         >
-            <Flex.Item className={dclsx('item_block')}>
+            {is_coming_soon && (
+                <Flex.Box className={dclsx('coming_soon_wrapper')} justify="center" align="center">
+                    <Typography.Paragraph size={'xxs'} weight="bold" textcolor="black">
+                        <Localize translate_text={'_t_Coming soon_t_'} />
+                    </Typography.Paragraph>
+                </Flex.Box>
+            )}
+            <Flex.Item className={dclsx(link && 'item_block')}>
                 {icon && (
                     <Flex.Box pb="11x" lg={{ pb: '8x' }}>
                         <img src={icon} width={44} height={44} />
                     </Flex.Box>
                 )}
-                <Typography.Paragraph
-                    as="p"
-                    size={is_mobile_or_tablet ? 'large' : 'medium'}
-                    pb="4x"
-                    weight="bold"
-                    font_family="UBUNTU"
-                >
+                <Typography.Paragraph as="p" size="large" pb="4x" weight="bold" font_family="IBM">
                     <Localize translate_text={header} />
                 </Typography.Paragraph>
                 <Typography.Paragraph size={is_mobile_or_tablet ? 'medium' : 'small'}>

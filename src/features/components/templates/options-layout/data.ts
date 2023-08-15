@@ -17,9 +17,9 @@ export const start_trading_data: StartTradingType = {
     },
     items: [
         {
-            heading: '_t_Practice_t_',
+            heading: '_t_Practise_t_',
             description:
-                '_t_Open a demo account and get unlimited virtual funds to practice on our platforms — Deriv Trader, SmartTrader, and Deriv Bot._t_',
+                '_t_Open a demo account and get unlimited virtual funds to practise on our platforms — Deriv Trader, SmartTrader, and Deriv Bot._t_',
         },
         {
             heading: '_t_Trade_t_',
@@ -48,7 +48,7 @@ export const why_trade_options_data: WhyTradeOptionsType = {
         {
             heading: '_t_Flexible payout options_t_',
             description:
-                '_t_Know your potential profit with fixed payouts, or maximize potential profit with variable payouts if your predictions are right._t_',
+                '_t_Know your potential profit with fixed payouts, or maximise potential profit with variable payouts if your predictions are right._t_',
             icon_src: FlexibleLayoutIcon,
         },
         {
@@ -72,7 +72,7 @@ export const why_trade_options_data: WhyTradeOptionsType = {
         {
             heading: '_t_Flexible trade types with minimal capital requirements_t_',
             description:
-                '_t_Deposit as little as 5 USD to start trading and customize your trades to suit your strategy._t_',
+                '_t_Deposit as little as 5 USD to start trading and customise your trades to suit your strategy._t_',
             icon_src: FlexibleTradeTypesIcon,
         },
     ],

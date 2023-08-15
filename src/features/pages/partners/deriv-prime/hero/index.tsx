@@ -20,6 +20,8 @@ const Hero = () => {
                     src="../../../../../images/common/deriv-prime/hero.png"
                     alt="hero"
                     layout="fullWidth"
+                    loading="eager"
+                    placeholder="blurred"
                     style={{ height: '100%' }}
                 />
             </div>

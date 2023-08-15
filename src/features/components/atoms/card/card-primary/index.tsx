@@ -4,7 +4,7 @@ import Flex from '../../flex-box'
 import Link from '../../link'
 import { FlexBoxProps } from '../../flex-box/box'
 import { CardType } from '../type'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 
@@ -14,7 +14,7 @@ const CardPrimary = ({
     header,
     description,
     icon,
-    alt_icon = '',
+    alt_icon,
     link,
     className,
     is_coming_soon = false,
@@ -42,7 +42,12 @@ const CardPrimary = ({
             <Flex.Item className={dclsx(link && 'item_block')}>
                 {icon && (
                     <Flex.Box pb="11x" lg={{ pb: '8x' }}>
-                        <img src={icon} width={44} height={44} alt={alt_icon} />
+                        <img
+                            src={icon}
+                            width={44}
+                            height={44}
+                            alt={alt_icon ? localize(alt_icon) : ''}
+                        />
                     </Flex.Box>
                 )}
                 <Typography.Heading as="h3" size="xxs" pb="4x" weight="bold">

@@ -38,8 +38,8 @@ const OtherMarketsSlider = ({
         <Container.Fixed padding_block="20x" md={{ padding_block: '40x' }}>
             <Flex.Box direction="col" gap="12x">
                 <Typography.Heading
-                    as="h3"
-                    size={is_no_linkAvailable ? 'large' : 'small'}
+                    as="h2"
+                    size={is_no_linkAvailable ? 'medium' : 'small'}
                     align="center"
                     padding_inline="8x"
                     pb="10x"
@@ -76,7 +76,7 @@ const OtherMarketsSlider = ({
                                     icon={data.icon}
                                     link={data?.link || null}
                                     is_coming_soon={data?.is_coming_soon}
-                                    alt_icon={data?.alt_icon || ''}
+                                    alt_icon={data?.alt_icon}
                                 />
                             </SwiperSlide>
                         )

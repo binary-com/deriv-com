@@ -16,10 +16,20 @@
     padding: 1rem;
     top: 1.6rem;
     right: 1.6rem;
+    @include rtl() {
+        top: 1.6rem;
+        left: 1.6rem;
+        right: initial;
+    }
 
     @include breakpoints(tablet) {
         top: 2.4rem;
         right: 2.4rem;
+        @include rtl() {
+            top: 1.6rem;
+            left: 1.6rem;
+            right: initial;
+        }
     }
 }
 

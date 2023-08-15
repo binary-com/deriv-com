@@ -13,6 +13,7 @@ const Hero = () => {
             container="fixed"
             as="section"
             align="center"
+            pt="39x"
             className={hero_wrapper}
         >
             <div className={hero_img}>
@@ -25,14 +26,24 @@ const Hero = () => {
                     style={{ height: '100%' }}
                 />
             </div>
-            <Flex.Box direction="col" align="center" className={container}>
+            <Flex.Box
+                direction="col"
+                align="center"
+                padding_inline="5x"
+                className={container}
+                md={{ padding_inline: '0x' }}
+            >
                 <Typography.Heading align="center" size="xlarge" textcolor="white">
                     <Localize translate_text="_t_Global liquidity for all_t_" />
                 </Typography.Heading>
                 <Typography.Paragraph align="center" textcolor="white" size="large">
                     <Localize translate_text="_t_Deep, reliable liquidity with fast execution for professionals, seasoned institutions, start-ups, and more_t_" />
                 </Typography.Paragraph>
-                <LinkButton.Primary url={{ href: '#contact', type: 'non-company' }} hero mt="12x">
+                <LinkButton.Primary
+                    url={{ href: '#getintouch', type: 'non-company' }}
+                    hero
+                    mt="12x"
+                >
                     <Localize translate_text="_t_Contact us_t_" />
                 </LinkButton.Primary>
             </Flex.Box>

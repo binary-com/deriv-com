@@ -4,6 +4,8 @@
 
 .hero_wrapper {
     min-block-size: 76.4rem;
+    position: relative;
+    isolation: isolate;
 }
 .container {
     inline-size: 95%;
@@ -12,4 +14,10 @@
     @include breakpoints(tablet){
         inline-size: 90%;
     }
+}
+.hero_img {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
 }

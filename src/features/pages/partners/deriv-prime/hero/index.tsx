@@ -1,7 +1,7 @@
 import React from 'react'
-import { hero_wrapper, container } from './styles.module.scss'
+import { StaticImage } from 'gatsby-plugin-image'
+import { hero_wrapper, container, hero_img } from './styles.module.scss'
 import { Localize } from 'components/localization'
-import Container from 'features/components/atoms/container'
 import LinkButton from 'features/components/atoms/link-button'
 import Typography from 'features/components/atoms/typography'
 import Flex from 'features/components/atoms/flex-box'
@@ -15,6 +15,14 @@ const Hero = () => {
             align="center"
             className={hero_wrapper}
         >
+            <div className={hero_img}>
+                <StaticImage
+                    src="../../../../../images/common/deriv-prime/hero.png"
+                    alt="hero"
+                    layout="fullWidth"
+                    style={{ height: '100%' }}
+                />
+            </div>
             <Flex.Box direction="col" align="center" className={container}>
                 <Typography.Heading align="center" size="xlarge" textcolor="white">
                     <Localize translate_text="_t_Global liquidity for all_t_" />

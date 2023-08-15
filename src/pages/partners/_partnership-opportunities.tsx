@@ -8,31 +8,60 @@ import { ReactComponent as PartnerAffiliate } from 'images/svg/partners/partner-
 import { ReactComponent as PartnerPaymentAgent } from 'images/svg/partners/partner-payment-agent.svg'
 import { ReactComponent as DeveloperProgramme } from 'images/svg/partners/developer-programme.svg'
 import { ReactComponent as PartnerDerivPrime } from 'images/svg/partners/deriv-prime.svg'
+import device, { size } from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 
-type ClientCardProps = { first?: boolean; second?: boolean; third?: boolean; fourth?: boolean }
+type ClientCardProps = {
+    first?: boolean
+    second?: boolean
+    third?: boolean
+    fourth?: boolean
+    is_row?: boolean
+}
 
 const StyledHeader = styled(Header)`
     font-family: 'IBM Plex Sans', sans-serif !important;
+    font-size: var(--text-size-m);
+    @media ${device.mobileM} {
+        font-size: var(--text-size-sm);
+    }
+`
+const ClientCardWrapper = styled(Flex)`
+    flex-wrap: wrap;
+    gap: 3rem;
+    @media ${device.tabletS} {
+        gap: 1.5rem;
+    }
+`
+const StyledMainHeader = styled(Header)`
+    font-family: 'IBM Plex Sans', sans-serif !important;
+    font-size: var(--text-size-header-1);
+    @media ${device.tabletS} {
+        font-size: var(--text-size-header-2);
+    }
+`
+const StyledText = styled(Text)`
+    font-size: 16px;
+    @media ${device.tabletS} {
+        font-size: 14px;
+    }
 `
 const ClientCard = styled(LocalizedLink)<ClientCardProps>`
     ${CardStyle}
     text-decoration: none;
-    max-width: 28.2rem;
+    max-width: ${(props) => (props.is_row ? '28.2rem' : '38.4rem')};
     padding: 3.2rem;
-    min-height: 25.2rem;
+    min-height: 22rem;
     position: relative;
     overflow: hidden;
     transition: transform 0.3s;
-    margin: 0 1.2rem;
     cursor: pointer;
-
-    &:first-child {
-        margin-left: 0;
-    }
-    &:last-child {
-        margin-right: 0;
-    }
+    border-radius:0.8rem;
+}
+@media ${device.tabletS} {
+    max-width:90%;
+    min-height: 20rem;
+}
     & svg {
         width: 24px;
         height: 24px;
@@ -85,44 +114,44 @@ const PartnershipOpportunities = () => {
     return (
         <SectionContainer>
             <Container direction="column">
-                <Header align="center" size="var(--text-size-header-1)" as="h2" mb="4rem">
+                <StyledMainHeader align="center" as="h2" mb="4rem">
                     <Localize translate_text="_t_Partnership opportunities_t_" />
-                </Header>
+                </StyledMainHeader>
             </Container>
-            <Flex wrap="wrap">
-                <ClientCard to="/partners/deriv-prime/" first>
+            <ClientCardWrapper>
+                <ClientCard to="/partners/deriv-prime/" first is_row={is_row}>
                     <Flex ai="center" height="auto" mb="0.8rem">
-                        <StyledHeader as="h4" size="var(--text-size-m)">
+                        <StyledHeader as="h4">
                             <Localize translate_text="_t_Deriv Prime_t_" />
                         </StyledHeader>
                         <PartnerDerivPrime />
                     </Flex>
-                    <Text>
+                    <StyledText>
                         <Localize translate_text="_t_Specialised institutional and prime brokerage solution for the world's most popular financial assets, has zero set-up costs, and is easy to integrate._t_" />
-                    </Text>
+                    </StyledText>
                 </ClientCard>
-                <ClientCard to="/partners/affiliate-ib/" fourth>
+                <ClientCard to="/partners/affiliate-ib/" fourth is_row={is_row}>
                     <Flex ai="center" height="auto" mb="0.8rem">
-                        <StyledHeader as="h4" size="var(--text-size-m)">
+                        <StyledHeader as="h4">
                             <Localize translate_text="_t_Affiliate and IBs_t_" />
                         </StyledHeader>
                         <PartnerAffiliate />
                     </Flex>
-                    <Text>
+                    <StyledText>
                         <Localize translate_text="_t_For marketers, influencers and introducing brokers to monetise their network. Earn competitive commissions and get access to high-quality promotional materials._t_" />
-                    </Text>
+                    </StyledText>
                 </ClientCard>
                 {is_row && (
-                    <ClientCard to="/partners/payment-agent/" second>
+                    <ClientCard to="/partners/payment-agent/" second is_row={is_row}>
                         <Flex ai="center" height="auto" mb="0.8rem">
-                            <StyledHeader as="h4" size="var(--text-size-m)">
+                            <StyledHeader as="h4">
                                 <Localize translate_text="_t_Payment agents_t_" />
                             </StyledHeader>
                             <PartnerPaymentAgent />
                         </Flex>
-                        <Text>
+                        <StyledText>
                             <Localize translate_text="_t_Expand your client base by helping traders fund their accounts through local bank wires and e-payments. Facilitate and earn from every transaction._t_" />
-                        </Text>
+                        </StyledText>
                     </ClientCard>
                 )}
                 <ClientCard
@@ -132,18 +161,19 @@ const PartnershipOpportunities = () => {
                     external
                     rel="noopener noreferrer"
                     third
+                    is_row={is_row}
                 >
                     <Flex ai="center" height="auto" mb="0.8rem">
-                        <StyledHeader as="h4" size="var(--text-size-m)">
+                        <StyledHeader as="h4">
                             <Localize translate_text="_t_API_t_" />
                         </StyledHeader>
                         <DeveloperProgramme />
                     </Flex>
-                    <Text>
+                    <StyledText>
                         <Localize translate_text="_t_Leverage Deriv’s technology to launch your own trading app. Deliver an enhanced trading experience to your clients and earn from every trade executed on your app._t_" />
-                    </Text>
+                    </StyledText>
                 </ClientCard>
-            </Flex>
+            </ClientCardWrapper>
         </SectionContainer>
     )
 }

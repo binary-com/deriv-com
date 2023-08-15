@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { hero_wrapper, container, hero_img } from './styles.module.scss'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import LinkButton from 'features/components/atoms/link-button'
 import Typography from 'features/components/atoms/typography'
 import Flex from 'features/components/atoms/flex-box'
@@ -19,7 +19,9 @@ const Hero = () => {
             <div className={hero_img}>
                 <StaticImage
                     src="../../../../../images/common/deriv-prime/hero.png"
-                    alt="hero"
+                    alt={localize(
+                        '_t_A professional trader searching for a liquidity solutions provider_t_',
+                    )}
                     layout="fullWidth"
                     loading="eager"
                     placeholder="blurred"

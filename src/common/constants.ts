@@ -1,6 +1,4 @@
 const MAP_API_KEY = process.env.GATSBY_MAP_API_KEY
-const GATSBY_GROWTHBOOK_CLIENT_KEY =
-    process.env.GATSBY_GROWTHBOOK_CLIENT_KEY || 'sdk-0aHHaxKhwn0bP1HE'
 const isBrowser = () => typeof window !== 'undefined'
 
 export const deriv_com_url = 'deriv.com'
@@ -124,7 +122,6 @@ export const dmt5_windows_url =
     'https://download.mql5.com/cdn/web/deriv.limited/mt5/deriv5setup.exe'
 export const dp2p_google_play_url =
     'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
-export const growthbook_client_key = GATSBY_GROWTHBOOK_CLIENT_KEY
 export const gtm_test_domain = 'deriv-com.binary.sx'
 export const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
 export const livechat_license_id = 12049137

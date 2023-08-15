@@ -250,8 +250,8 @@ const commodities_specification: TSpecification = {
             target_spread: 7.35,
             max_effective_leverage: 10,
             margin_requirement: 10,
-            swap_long: -70.158,
-            swap_short: 53.127,
+            swap_long: -449.47,
+            swap_short: 380.48,
             trading_hours: 'Mon - Fri 00:05 - 18:00 GMT',
         },
         {

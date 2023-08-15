@@ -1,0 +1,11 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.options_heading_section {
+    max-inline-size: 79.2rem;
+    margin-inline: auto;
+    inline-size: 95%;
+
+    @include breakpoints(tablet) {
+        inline-size: 90%;
+    }
+}

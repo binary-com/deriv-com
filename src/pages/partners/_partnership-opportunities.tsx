@@ -30,7 +30,7 @@ const ClientCardWrapper = styled(Flex)`
     flex-wrap: wrap;
     gap: 3rem;
     @media ${device.tabletS} {
-        gap: 1.5rem;
+        gap: 0.8rem;
     }
 `
 const StyledMainHeader = styled(Header)`

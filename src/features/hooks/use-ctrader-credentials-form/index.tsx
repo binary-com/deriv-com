@@ -36,7 +36,7 @@ const useCtraderCredentialsForm = () => {
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const affiliate_token = url_params.get('partnerId')
     const [token, setToken] = useState('')
-    const { loading, create_account_error } = useSigninAndSignup('ctrader', token, 'success')
+    const { loading, create_account_error } = useSigninAndSignup('ctrader', token)
 
     const submitForm = useForm<SubmitFormData>({
         mode: 'all',

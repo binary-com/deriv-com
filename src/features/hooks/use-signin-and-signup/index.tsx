@@ -3,13 +3,14 @@ import { navigate } from 'gatsby'
 import apiManager from 'common/websocket'
 import { isBrowser } from 'common/utility'
 
-export const useSigninAndSignup = (platform?: string, token?: string, redirect_to = 'ctrader') => {
+export const useSigninAndSignup = (platform?: string, token?: string) => {
     const [loading, setLoading] = useState(false)
     const [has_account, setHasAccount] = useState(null)
     const [authorized, setAuthorized] = useState(false)
     const [account_error, setAccountError] = useState(null)
     const [create_account_error, setCreateAccountError] = useState(null)
     const [service_token, setServiceToken] = useState(null)
+    const [redirect_to, setRedirectTo] = useState('ctrader_platform')
 
     useEffect(() => {
         if (token) {
@@ -61,6 +62,7 @@ export const useSigninAndSignup = (platform?: string, token?: string, redirect_t
                     platform,
                 })
                 .then(() => {
+                    setRedirectTo('signup_success')
                     setHasAccount(true)
                 })
                 .catch((reason) => {
@@ -96,10 +98,10 @@ export const useSigninAndSignup = (platform?: string, token?: string, redirect_t
                     service: platform,
                 })
                 .then((response) => {
-                    if (isBrowser() && redirect_to === 'ctrader') {
+                    if (isBrowser() && redirect_to === 'ctrader_platform') {
                         window.location.href = `https://id-ct-uat.deriv.com/brokeroauth/success?token=${response.service_token.ctrader.token}`
                     }
-                    if (isBrowser() && redirect_to === 'success') {
+                    if (isBrowser() && redirect_to === 'signup_success') {
                         navigate(
                             `/ctrader-signup/success?token=${response.service_token.ctrader.token}`,
                         )

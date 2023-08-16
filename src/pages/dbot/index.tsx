@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Loadable from '@loadable/component'
-import PageNotFound from '../404'
 import DCommonBanner from './_hero'
+import PageNotFound from 'features/pages/404-error'
 import { SEO, TMetaAttributes } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'

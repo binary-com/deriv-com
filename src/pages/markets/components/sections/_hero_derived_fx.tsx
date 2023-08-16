@@ -44,7 +44,7 @@ const StyledButton = styled.div<BackgroundWrapperProps>`
 `
 const MarketSubHeader = styled.div`
     font-size: 16px;
-    width: 22vw;
+    width: 70%;
     color: var(--color-black-9);
     text-align: left;
     line-height: 24px;
@@ -63,7 +63,7 @@ const MarketSubHeader = styled.div`
 const StyledHeader = styled.h1<ContainerProps>`
     font-size: 48px;
     color: var(--color-black-9);
-    width: 22vw;
+    width: 70%;
     text-wrap: nowrap;
     text-align: ${(props) => (props.is_rtl ? 'end' : 'start')};
     margin-bottom: 1rem;

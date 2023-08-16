@@ -12,7 +12,7 @@ const ConnectivityReliabilityType = () => {
         <Container.Fixed as="section" bgcolor="inverted" padding="20x" md={{ padding: '40x' }}>
             <Flex.Box direction="col">
                 <Typography.Heading
-                    as="h1"
+                    as="h2"
                     size="large"
                     align="center"
                     textcolor="inverted"

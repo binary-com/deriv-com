@@ -13,7 +13,7 @@ interface ConnectivityReliabilityItemProps {
 const ConnectivityReliabilityItem = ({ item }: ConnectivityReliabilityItemProps) => {
     return (
         <Flex.Box direction="col" align="center" gap="4x">
-            <Image src={item.icon_src} width={48} height={48} />
+            <Image src={item.icon_src} width={48} height={48} alt={item.alt} />
             <Typography.Paragraph
                 size="medium"
                 textcolor="inverted"

@@ -4,6 +4,7 @@ export type ConnectivityTypeItemType = {
     title: TString
     description: TString
     icon_src: string
+    alt: TString
 }
 
 type ConnectivityTypeConfig = {

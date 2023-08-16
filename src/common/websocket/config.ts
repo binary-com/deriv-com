@@ -74,7 +74,7 @@ const getAppId = (): null | number | string => {
     let app_id = null
     const user_app_id = '' // you can insert Application ID of your registered application here
     if (isBrowser()) {
-        const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
+        const url_params = new URLSearchParams(window.location.search || '')
         const url_param_app_id = url_params.get('app_id')
         if (url_param_app_id) {
             window.sessionStorage.setItem('app_id', url_param_app_id)

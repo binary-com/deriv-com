@@ -68,6 +68,7 @@ const SignupPublicForm = () => {
                         <Input.Text
                             label={'_t_Email address_t_'}
                             id="email_address"
+                            formId="email"
                             autoCapitalize="none"
                             clearErrors={clearErrors}
                             setValue={setValue}

@@ -29,6 +29,7 @@ const SignUpPageForm = () => {
                 autoComplete="none"
                 autoCapitalize="none"
                 id="email_address"
+                formId="email"
                 label={'_t_Email_t_'}
                 clearErrors={clearErrors}
                 setValue={setValue}

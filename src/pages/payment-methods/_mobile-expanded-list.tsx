@@ -2,7 +2,6 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { PaymentProps } from './_payment-data'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
-import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
@@ -84,14 +83,6 @@ const ValueText = styled(Header)<{ is_rtl: boolean }>`
     @media ${device.mobileL} {
         text-align: start;
     }
-`
-const RefIcon = styled.a`
-    display: flex;
-    justify-content: flex-end;
-`
-const StyledPDF = styled.img`
-    height: 32px;
-    width: 32px;
 `
 const StyledButton = styled(Button)`
     margin-top: 8px;
@@ -309,42 +300,18 @@ const MobileExpandedList = ({
                     )}
 
                     {/* reference row */}
-                    {(payment_data?.reference || payment_data?.reference_link) && (
+                    {payment_data?.reference_link && (
                         <StyledRow jc="space-between" ai="center">
                             <StyledItemDiv>
                                 <Header as="p" type="subtitle-2">
-                                    <Localize
-                                        translate_text={
-                                            is_dp2p ? '_t_More info_t_' : '_t_Reference_t_'
-                                        }
-                                    />
+                                    <Localize translate_text="_t_More info_t_" />
                                 </Header>
                             </StyledItemDiv>
 
                             <StyledKeyDiv>
-                                <>
-                                    {payment_data.reference ? (
-                                        <RefIcon
-                                            href={`/payment-methods/${
-                                                payment_data.locales?.includes(
-                                                    locale?.locale?.language,
-                                                )
-                                                    ? locale?.locale?.language +
-                                                      '/' +
-                                                      payment_data.reference
-                                                    : payment_data.reference
-                                            }`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            <StyledPDF src={PDF} alt="PDF" />
-                                        </RefIcon>
-                                    ) : (
-                                        <StyledRefLink jc="flex-end">
-                                            {payment_data.reference_link}
-                                        </StyledRefLink>
-                                    )}
-                                </>
+                                <StyledRefLink jc="flex-end">
+                                    {payment_data.reference_link}
+                                </StyledRefLink>
                             </StyledKeyDiv>
                         </StyledRow>
                     )}

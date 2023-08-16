@@ -130,7 +130,6 @@ const payment_data: PaymentDataProps[] = [
                 description:
                     '_t_Make deposits and withdrawals using your credit and debit cards._t_',
                 name: 'visa',
-                // reference: 'visa-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={VisaElectron} alt="Visa Electron" />,
@@ -142,7 +141,6 @@ const payment_data: PaymentDataProps[] = [
                 description:
                     '_t_Make deposits and withdrawals using your credit and debit cards._t_',
                 name: 'VisaElectron',
-                // reference: 'visa-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={MasterCard} alt="Mastercard" />,
@@ -153,7 +151,6 @@ const payment_data: PaymentDataProps[] = [
                 withdrawal_time: '_t_Not applicable_t_',
                 description: '_t_Make deposits using your credit and debit cards._t_',
                 name: 'mastercard',
-                // reference: 'mastercard-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={Maestro} alt="Maestro" />,
@@ -164,7 +161,6 @@ const payment_data: PaymentDataProps[] = [
                 withdrawal_time: '_t_Not applicable_t_',
                 description: '_t_Make deposits using your credit and debit cards._t_',
                 name: 'maestro',
-                // reference: 'maestrocard-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={Diners} alt="Diners" />,
@@ -176,7 +172,6 @@ const payment_data: PaymentDataProps[] = [
                 description:
                     '_t_Make deposits and withdrawals using your credit and debit cards._t_',
                 name: 'diners',
-                // reference: 'diners-club-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={Discover} alt="Discover" />,
@@ -237,7 +232,6 @@ const payment_data: PaymentDataProps[] = [
                 description:
                     '_t_Make deposits and withdrawals through your local bank in real-time._t_',
                 name: 'Help2Pay',
-                // reference: 'help2pay-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={Verve} alt="verve" />,
@@ -248,7 +242,6 @@ const payment_data: PaymentDataProps[] = [
                 withdrawal_time: '_t_1 working day_t_',
                 description: '_t_Deposit through your local payment cards._t_',
                 name: 'verve',
-                // reference: 'dragonphoenix-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={ZingPay} alt="zingPay" />,
@@ -260,7 +253,6 @@ const payment_data: PaymentDataProps[] = [
                 description:
                     '_t_Make deposits and withdrawals through your local bank in real-time._t_',
                 name: 'ZingPay',
-                // reference: 'zingpay-payment-method.pdf',
             },
         ],
     },
@@ -316,7 +308,6 @@ const payment_data: PaymentDataProps[] = [
                 withdrawal_time: '_t_1 working day_t_',
                 description: '_t_Make instant deposits using your e-wallet._t_',
                 name: 'advcash',
-                // reference: 'fasapay-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={AirTM} alt="airtm" />,
@@ -327,7 +318,6 @@ const payment_data: PaymentDataProps[] = [
                 withdrawal_time: '_t_1 working day_t_',
                 description: '_t_Make instant e-wallet deposits._t_',
                 name: 'airtm',
-                // reference: 'perfectmoney-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={AstroPay} alt="astropay" />,
@@ -348,7 +338,6 @@ const payment_data: PaymentDataProps[] = [
                 withdrawal_time: '_t_1 working day_t_',
                 description: '_t_Make instant e-wallet deposits._t_',
                 name: 'jeton',
-                // reference: 'jeton-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={MiFinity} alt="mifinity" />,
@@ -369,7 +358,6 @@ const payment_data: PaymentDataProps[] = [
                 withdrawal_time: '_t_1 working day_t_',
                 description: '_t_Make instant e-wallet deposits._t_',
                 name: 'neteller',
-                // reference: 'neteller-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={PayLivre} alt="paylivre" />,
@@ -400,7 +388,6 @@ const payment_data: PaymentDataProps[] = [
                 withdrawal_time: '_t_1 working day_t_',
                 description: '_t_Make instant e-wallet deposits._t_',
                 name: 'skrill',
-                // reference: 'skrill-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={Skrill1Tap} alt="skrill1tap" />,
@@ -421,7 +408,6 @@ const payment_data: PaymentDataProps[] = [
                 withdrawal_time: '_t_1 working day_t_',
                 description: '_t_Make instant deposits using your e-wallet._t_',
                 name: 'sticpay',
-                // reference: 'sticpay-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={Chipper} alt="chipper" />,
@@ -596,7 +582,6 @@ const payment_data: PaymentDataProps[] = [
                 description:
                     '_t_Deposit and withdraw in Bitcoin, the world’s first cryptocurrency._t_',
                 name: 'BTC',
-                // reference: 'bitcoin-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={Ethereum} alt="Ethereum" />,
@@ -608,7 +593,6 @@ const payment_data: PaymentDataProps[] = [
                 description:
                     '_t_Deposit and withdraw in Ethereum, among the top 3 most used cryptocurrencies._t_',
                 name: 'ETH',
-                // reference: 'ETH-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={Litecoin} alt="Litecoin" />,
@@ -620,7 +604,6 @@ const payment_data: PaymentDataProps[] = [
                 description:
                     '_t_Deposit and withdraw in Litecoin, a durable cryptocurrency with fast transaction processing._t_',
                 name: 'LTC',
-                // reference: 'litecoin-payment-method.pdf',
             },
             {
                 method: <StyledIcon src={UsdCoin} alt="UsdCoin" />,

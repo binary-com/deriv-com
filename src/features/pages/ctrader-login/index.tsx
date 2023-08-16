@@ -9,14 +9,14 @@ import { isBrowser } from 'common/utility'
 const CtraderLogin = () => {
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const token = url_params.get('token1')
-    const { account_error } = useSigninAndSignup('ctrader', token)
+    const { account_error, create_account_error } = useSigninAndSignup('ctrader', token)
 
     return (
         <Layout hide_layout_overlay>
             <CtraderWrapper>
-                {account_error ? (
+                {account_error || create_account_error ? (
                     <Typography.Heading size="small" pt="40x">
-                        {account_error}
+                        {account_error || create_account_error.message}
                     </Typography.Heading>
                 ) : (
                     <Loading />

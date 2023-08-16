@@ -11,6 +11,7 @@ import useRegion from 'components/hooks/use-region'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import { ContentType } from 'pages/landing/_types'
+import { TGatsbyHead } from 'features/types'
 
 const items: ContentType[] = [
     {
@@ -62,10 +63,6 @@ const DerivGo = () => {
         if (is_row) {
             return (
                 <Layout>
-                    <SEO
-                        title="_t_Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO._t_"
-                        description="_t_Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO._t_"
-                    />
                     <Banner />
                     <WhatIsDerivGo />
                     <WhyTradeDerivGo />
@@ -81,12 +78,15 @@ const DerivGo = () => {
         return <PageNotFound />
     }
 
-    return (
-        <SEO
-            title="_t_Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO._t_"
-            description="_t_Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO._t_"
-        />
-    )
+    return <React.Fragment></React.Fragment>
 }
 
 export default WithIntl()(DerivGo)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Trade forex, synthetics, and cryptocurrencies with our app — Deriv GO._t_"
+        description="_t_Trade forex, synthetic indices, and cryptocurrencies wherever, whenever you want and maximise your potential profit with multipliers on Deriv GO._t_"
+        pageContext={pageContext}
+    />
+)

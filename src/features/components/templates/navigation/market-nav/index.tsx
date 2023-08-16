@@ -13,18 +13,21 @@ const MarketNav = () => {
     const { is_deriv_go } = usePlatformQueryParam()
 
     return (
-        <NavTemplate
-            render_bottom_nav={() => <MarketBottomNav />}
-            renderLogo={() => (
-                <Link url={{ type: 'internal', to: '/' }}>
-                    <Image src={LogoImage} className={market_nav_logo} />
-                </Link>
+        <>
+            {is_deriv_go ? null : (
+                <NavTemplate
+                    render_bottom_nav={() => <MarketBottomNav />}
+                    renderLogo={() => (
+                        <Link url={{ type: 'internal', to: '/' }}>
+                            <Image src={LogoImage} className={market_nav_logo} />
+                        </Link>
+                    )}
+                    items={mainItems}
+                >
+                    <MainNavButtons />
+                </NavTemplate>
             )}
-            items={mainItems}
-            has_deriv_go={is_deriv_go}
-        >
-            <MainNavButtons />
-        </NavTemplate>
+        </>
     )
 }
 

@@ -11,6 +11,7 @@ import PractiseIcon from 'images/svg/markets/aim.svg'
 import TradeIcon from 'images/svg/markets/trade.svg'
 import WithdrawIcon from 'images/svg/markets/withdraw.svg'
 import { TSimpleStepContent } from 'pages/markets/static/content/_types'
+import { TGatsbyHead } from 'features/types'
 
 const simple_step_content: TSimpleStepContent[] = [
     {
@@ -33,12 +34,6 @@ const simple_step_content: TSimpleStepContent[] = [
 const Home = () => {
     return (
         <Layout is_ppc_redirect is_ppc>
-            <SEO
-                title="_t_Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv_t_"
-                description="_t_Deriv - An online trading platform that offers a wide selection of derivatives to trade on_t_"
-                has_organization_schema
-                no_index
-            />
             <Hero is_ppc />
             <Desktop>
                 <Trade is_ppc_redirect />
@@ -55,3 +50,13 @@ const Home = () => {
 }
 
 export default WithIntl()(Home)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv_t_"
+        description="_t_Deriv - An online trading platform that offers a wide selection of derivatives to trade on_t_"
+        has_organization_schema
+        no_index
+        pageContext={pageContext}
+    />
+)

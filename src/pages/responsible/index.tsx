@@ -10,6 +10,7 @@ import NoneEuBackground from 'images/common/responsible-trading-bg.png'
 import EuBackground from 'images/common/responsible-trading-eu-bg.png'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
+import { TGatsbyHead } from 'features/types'
 
 const TradingResponsibly = Loadable(() => import('./_trading-responsibly'))
 const TradingLimits = Loadable(() => import('./_trading-limits'))
@@ -38,10 +39,6 @@ const ResponsibleTrading = () => {
 
     return (
         <Layout>
-            <SEO
-                title="_t_Secure and responsible online trading guidelines | Deriv_t_"
-                description="_t_Read our guidelines on secure and responsible trading. Understand the risks involved in online trading and how you can manage them._t_"
-            />
             <Section>
                 <Hero background_image={HeroBackground}>
                     <Container>
@@ -77,3 +74,11 @@ const ResponsibleTrading = () => {
 }
 
 export default WithIntl()(ResponsibleTrading)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Secure and responsible online trading guidelines | Deriv_t_"
+        description="_t_Read our guidelines on secure and responsible trading. Understand the risks involved in online trading and how you can manage them._t_"
+        pageContext={pageContext}
+    />
+)

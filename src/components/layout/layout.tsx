@@ -25,14 +25,14 @@ type LayoutProps = {
     children: ReactNode
     is_ppc?: boolean
     is_ppc_redirect?: boolean
-    margin_top?: number | string
+    padding_top?: string
     type?: string
     show_footer?: boolean
 }
 
 type MainType = {
     is_static?: boolean
-    margin_top?: number | string
+    padding_top?: string
 }
 
 export type ModalPayloadType = {
@@ -44,7 +44,7 @@ export type ModalPayloadType = {
 }
 
 const Main = styled.main<MainType>`
-    margin-top: ${(props) => (props.margin_top && `${props.margin_top}rem`) || '7rem'};
+    padding-top: ${({ padding_top }) => (padding_top && `${padding_top}rem`) || '7rem'};
     background: var(--color-white);
     height: 100%;
     position: relative;
@@ -87,7 +87,7 @@ const Layout = ({
     children,
     is_ppc = false,
     is_ppc_redirect = false,
-    margin_top = '',
+    padding_top,
     type = 'default',
     show_footer = true,
 }: LayoutProps) => {
@@ -101,7 +101,7 @@ const Layout = ({
     //Handle page layout when redirection from mobile app.
     if (has_platform) {
         return (
-            <Main margin_top={'0'} is_static={is_static}>
+            <Main padding_top="0" is_static={is_static}>
                 {children}
             </Main>
         )
@@ -115,7 +115,7 @@ const Layout = ({
                 setModalPayload={setModalPayload}
             >
                 <div className="styled-layout">
-                    <Main margin_top={margin_top} is_static={is_static}>
+                    <Main padding_top={padding_top} is_static={is_static}>
                         {children}
                     </Main>
                     <EURedirect

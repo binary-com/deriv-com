@@ -10,6 +10,7 @@ import { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { ContentType } from 'pages/landing/_types'
+import { TGatsbyHead } from 'features/types'
 
 const IconTextRow = Loadable(() => import('./components/_icon-text-row'))
 
@@ -48,7 +49,6 @@ const ForexTrading = () => {
 
     return (
         <Layout type="landing-page" is_ppc_redirect>
-            <SEO title="_t_Weekends_t_" description="_t_Ride the trends even on weekends_t_" />
             {is_mounted && (
                 <>
                     <Hero
@@ -70,3 +70,11 @@ const ForexTrading = () => {
 }
 
 export default WithIntl()(ForexTrading)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Weekends_t_"
+        description="_t_Ride the trends even on weekends_t_"
+        pageContext={pageContext}
+    />
+)

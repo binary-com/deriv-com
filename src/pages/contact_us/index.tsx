@@ -8,6 +8,7 @@ import { Header, Text } from 'components/elements'
 import { Localize, WithIntl } from 'components/localization'
 import Layout from 'components/layout/layout'
 import { SEO, SectionContainer, Container } from 'components/containers'
+import { TGatsbyHead } from 'features/types'
 
 const Offices = Loadable(() => import('./_offices'))
 const Affiliates = Loadable(() => import('./_affiliates'))
@@ -39,11 +40,6 @@ const ContactUs = () => {
 
     return (
         <Layout>
-            <SEO
-                title="_t_Contact Us | Online Trading | Deriv.com_t_"
-                description="_t_Have any query or need assistance, check out the details to call our international help desk and our email ID. Feel free to contact us anytime!_t_"
-                has_organization_schema
-            />
             <SectionContainer tablet={{ p: '40px 0' }}>
                 <HeroWrapper fd="column">
                     <Header align="center" as="h1" type="display-title">
@@ -62,3 +58,12 @@ const ContactUs = () => {
 }
 
 export default WithIntl()(ContactUs)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Contact Us | Online Trading | Deriv.com_t_"
+        description="_t_Have any query or need assistance, check out the details to call our international help desk and our email ID. Feel free to contact us anytime!_t_"
+        has_organization_schema
+        pageContext={pageContext}
+    />
+)

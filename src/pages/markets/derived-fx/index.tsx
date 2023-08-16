@@ -8,6 +8,7 @@ import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { SEO } from 'components/containers'
+import { TGatsbyHead } from 'features/types'
 
 const DerivedFxPage = () => {
     const { is_eu, is_row } = useRegion()
@@ -18,10 +19,6 @@ const DerivedFxPage = () => {
 
     return (
         <Layout type="noNav">
-            <SEO
-                description="_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX indices, and baskets._t_"
-                title="_t_Derived Fx | Derived Fx demo account | Deriv_t_"
-            />
             <DerivedFXHero
                 title="_t_Derived_t_"
                 description={is_eu ? description_eu : description_row}
@@ -35,3 +32,11 @@ const DerivedFxPage = () => {
 }
 
 export default WithIntl()(DerivedFxPage)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        description="_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX indices, and baskets._t_"
+        title="_t_Derived Fx | Derived Fx demo account | Deriv_t_"
+        pageContext={pageContext}
+    />
+)

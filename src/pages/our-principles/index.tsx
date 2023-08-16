@@ -6,6 +6,7 @@ import { Header, Text } from 'components/elements'
 import { SEO, Container, Flex, SectionContainer } from 'components/containers'
 import { Localize, WithIntl } from 'components/localization'
 import device from 'themes/device'
+import { TGatsbyHead } from 'features/types'
 
 type SeparatorInterface = {
     background: string
@@ -95,7 +96,6 @@ const StyledFlex = styled(Flex)`
 const OurPrinciples = () => {
     return (
         <Layout>
-            <SEO title="_t_Our principles | Deriv_t_" />
             <TitleSection padding="120px 0 24px 10rem">
                 <StyledContainer>
                     <Header as="h1" type="hero" align="start" mb="24px">
@@ -138,3 +138,7 @@ const OurPrinciples = () => {
 }
 
 export default WithIntl()(OurPrinciples)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO title="_t_Our principles | Deriv_t_" pageContext={pageContext} />
+)

@@ -70,8 +70,7 @@ export const scope_content: TScopeContent[] = [
             {
                 id: 0,
                 content: {
-                    text: '_t_Our GitHub repositories: <0>github.com/binary-com</0>_t_',
-                    components: [<Header key={0} type="paragraph-2" weight="normal" as="p" />],
+                    text: '_t_Our GitHub repositories: github.com/binary-com_t_',
                 },
             },
             {

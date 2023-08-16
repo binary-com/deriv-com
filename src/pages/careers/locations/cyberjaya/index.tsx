@@ -4,13 +4,11 @@ import { cyberjaya } from '../../_model/_locations/_locations'
 import { LocationLayout } from '../_location-layout'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
+import { TGatsbyHead } from 'features/types'
 
 const query = graphql`
     query {
-        cyberjaya: file(relativePath: { eq: "careers/cyberjaya.png" }) {
-            ...backgroundImage
-        }
         living_in_cyberjaya: file(relativePath: { eq: "careers/living_in_cyberjaya.png" }) {
             ...fadeIn
         }
@@ -39,15 +37,17 @@ const Cyberjaya = () => {
 
     return (
         <Layout type="careers">
-            <SEO
-                title={localize('_t_Cyberjaya | Our office – Malaysia | Deriv_t_')}
-                description={localize(
-                    '_t_Find your role with us by browsing Deriv job opportunities in Cyberjaya, Malaysia._t_',
-                )}
-            />
             <LocationLayout location={cyberjaya} images={images} />
         </Layout>
     )
 }
 
 export default WithIntl()(Cyberjaya)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Cyberjaya | Our office – Malaysia | Deriv_t_"
+        description="_t_Find your role with us by browsing Deriv job opportunities in Cyberjaya, Malaysia._t_"
+        pageContext={pageContext}
+    />
+)

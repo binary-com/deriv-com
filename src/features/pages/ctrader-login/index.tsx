@@ -15,7 +15,7 @@ const CtraderLogin = () => {
         <Layout hide_layout_overlay>
             <CtraderWrapper>
                 {account_error || create_account_error ? (
-                    <Typography.Heading size="small" pt="40x">
+                    <Typography.Heading size="small" pt="40x" align="center">
                         {account_error || create_account_error.message}
                     </Typography.Heading>
                 ) : (

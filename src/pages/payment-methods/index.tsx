@@ -401,17 +401,16 @@ const PaymentMethods = () => {
                 <Typography.Heading as="h1" textcolor="brand" size="xlarge" align="center">
                     <Localize translate_text="_t_Payment methods_t_" />
                 </Typography.Heading>
-                <Typography.Heading
-                    as="h2"
+                <Typography.Paragraph
                     textcolor="primary"
-                    size="xs"
+                    size="xlarge"
                     weight="normal"
                     align="center"
                 >
                     <Localize translate_text="_t_We support a variety of deposit and withdrawal options._t_" />
                     <br />
                     <Localize translate_text="_t_Learn more about our payment methods and how to use them._t_" />
-                </Typography.Heading>
+                </Typography.Paragraph>
             </Flex.Box>
             <PaymentMethodSection />
             {is_p2p_allowed_country && (

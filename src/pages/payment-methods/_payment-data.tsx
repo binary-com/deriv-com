@@ -51,21 +51,6 @@ import {
     Banxa,
     DP2P,
 } from 'images/svg/payment-methods'
-import Paytrust from 'images/svg/payment-methods/payment-paytrust.svg'
-import Fasapay from 'images/svg/payment-methods/payment-fasapay.svg'
-import Webmoney from 'images/svg/payment-methods/payment-webmoney.svg'
-import PaysafeCard from 'images/svg/payment-methods/payment-paysafe.svg'
-import DragonPhoenix from 'images/svg/payment-methods/payment-dragon-phoenix.svg'
-import NganLuong from 'images/svg/payment-methods/payment-ngan-luong.svg'
-import Changelly from 'images/svg/payment-methods/payment-changelly.svg'
-import Xanpool from 'images/svg/payment-methods/payment-xanpool.svg'
-import OnlineNaira from 'images/svg/payment-methods/payment-onlinenaira.svg'
-import Trustly from 'images/svg/payment-methods/payment-trustly.svg'
-import InstantBankTransfer from 'images/svg/payment-methods/payment-instant-bank-transfer.svg'
-import JCB from 'images/svg/payment-methods/payment-jcb.svg'
-import Boleto from 'images/svg/payment-methods/payment-boleto.svg'
-import Beyonic from 'images/svg/payment-methods/payment-beyonic.svg'
-import OneForYou from 'images/svg/payment-methods/payment-one-for-you.svg'
 
 type LocaleType = { language?: string }
 

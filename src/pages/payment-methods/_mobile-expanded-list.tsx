@@ -300,7 +300,9 @@ const MobileExpandedList = ({
                             </StyledItemDiv>
                             <StyledKeyDiv>
                                 <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
-                                    {payment_data.withdrawal_time}
+                                    {payment_data?.withdrawal_time && (
+                                        <Localize translate_text={payment_data.withdrawal_time} />
+                                    )}
                                 </ValueText>
                             </StyledKeyDiv>
                         </StyledRow>

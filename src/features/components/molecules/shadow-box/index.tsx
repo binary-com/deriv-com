@@ -22,7 +22,6 @@ const ShadowBox = ({ icon_URL, heading, icon_alt, ...rest }: ShadowBoxProps) => 
             grow="1"
             radius="8x"
             padding="12x"
-            mb="8x"
             className={dclsx(box_shadow)}
             direction="col"
             {...rest}

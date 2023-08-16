@@ -17,17 +17,17 @@ const WhyDerivPrime = () => {
             <FlexBox.Box
                 direction={'col'}
                 margin_block={'40x'}
-                className={styles.container}
                 md={{ justify: 'center', margin_block: '40x' }}
             >
-                <Typography.Heading align={'center'} className={styles.header}>
+                <Typography.Heading align={'center'} mb="5x" margin_inline="30x" md={{ mb: '20x' }}>
                     <Localize translate_text={'_t_Why choose Deriv Prime?_t_'} />
                 </Typography.Heading>
                 <FlexBox.Box
                     direction={'col'}
                     align={'center'}
                     wrap="wrap"
-                    md={{ direction: 'row', justify: 'center', mt: '20x' }}
+                    gap="12x"
+                    md={{ direction: 'row', justify: 'center' }}
                 >
                     {card_data.map((card) => {
                         return (
@@ -39,8 +39,7 @@ const WhyDerivPrime = () => {
                                 align={'start'}
                                 radius={'8x'}
                                 padding={'8x'}
-                                mt={'12x'}
-                                md={{ padding: '12x', mr: '12x', mt: '0x' }}
+                                md={{ padding: '12x' }}
                             >
                                 <Typography.Paragraph
                                     size={'xlarge'}

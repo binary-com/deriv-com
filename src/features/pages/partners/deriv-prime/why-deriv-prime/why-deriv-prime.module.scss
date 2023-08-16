@@ -1,13 +1,7 @@
 @use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
 
-.container {
-    inline-size: auto ;
 
-    @include breakpoints(laptop) {
-        inline-size: 124rem;
-    }
-}
 
 .header {
    margin-inline: 20%;
@@ -20,10 +14,5 @@
 
     @include breakpoints(phone) {
         inline-size: 38.9rem;
-    }
-}
-.item_description {
-    @include breakpoints(tablet) {
-        padding-inline: 22rem;
     }
 }

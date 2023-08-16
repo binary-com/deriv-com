@@ -504,4 +504,6 @@ export const not_available_ctrader_countries = [
     'us',
     'vu',
     'vi',
+    'jp',
+    'no',
 ]

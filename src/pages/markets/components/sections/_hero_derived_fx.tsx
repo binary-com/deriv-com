@@ -10,6 +10,7 @@ import useAuthCheck from 'components/hooks/use-auth-check'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import MarketNav from 'features/components/templates/navigation/market-nav'
 import { handleGetTrading } from 'components/custom/utils'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { TString } from 'types/generics'
 
 type ContainerProps = {
@@ -196,6 +197,7 @@ export const DerivedFXHero = ({
     const [is_logged_in] = useAuthCheck()
     const handleSignup = useHandleSignup()
     const is_rtl = useIsRtl()
+    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <>
@@ -211,19 +213,21 @@ export const DerivedFXHero = ({
                                 <Localize translate_text={description} />
                             </MarketSubHeader>
                             <StyledButton is_rtl={is_rtl}>
-                                {is_logged_in ? (
-                                    <Button
-                                        onClick={handleGetTrading}
-                                        label="_t_Get trading_t_"
-                                        primary
-                                    />
-                                ) : (
-                                    <Button
-                                        onClick={handleSignup}
-                                        label="_t_Create free demo account_t_"
-                                        primary
-                                    />
-                                )}
+                                {!is_deriv_go ? (
+                                    is_logged_in ? (
+                                        <Button
+                                            onClick={handleGetTrading}
+                                            label="_t_Get trading_t_"
+                                            primary
+                                        />
+                                    ) : (
+                                        <Button
+                                            onClick={handleSignup}
+                                            label="_t_Create free demo account_t_"
+                                            primary
+                                        />
+                                    )
+                                ) : null}
                             </StyledButton>
                         </Content>
                     </ContentWrapperStyle>

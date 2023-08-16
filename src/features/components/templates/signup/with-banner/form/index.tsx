@@ -56,7 +56,7 @@ const SignupPublicForm = () => {
                 </Typography.Paragraph>
                 <Flex.Box
                     direction="col"
-                    gap={'8x'}
+                    gap={'12x'}
                     md={{
                         direction: 'row',
                         justify: 'between',

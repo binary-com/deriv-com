@@ -112,7 +112,7 @@ const ClientCard = styled(LocalizedLink)<ClientCardProps>`
 const PartnershipOpportunities = () => {
     const { is_row } = useRegion()
     return (
-        <SectionContainer>
+        <SectionContainer padding="5rem 0">
             <Container direction="column">
                 <StyledMainHeader align="center" as="h2" mb="4rem">
                     <Localize translate_text="_t_Partnership opportunities_t_" />

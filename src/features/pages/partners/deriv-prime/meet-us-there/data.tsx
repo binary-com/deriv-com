@@ -1,15 +1,7 @@
-import React, { ReactElement } from 'react'
-import { TString } from 'types/generics'
+import { ExpoCardTypes } from './types'
 import DubaiExpo from 'images/common/deriv-prime/dubai_expo.png'
 import CyprusExpo from 'images/common/deriv-prime/cyprus_expo.png'
 import LondonSummit from 'images/common/deriv-prime/london_summit.png'
-
-type ExpoCardTypes = {
-    title?: TString
-    image?: string
-    date?: TString
-    link?: string
-}
 
 export const expo_cards: ExpoCardTypes[] = [
     {

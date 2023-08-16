@@ -1,38 +1,34 @@
 import React from 'react'
-import mt5Icon from '../../images/svg/dbot/mt5.svg'
-import goIcon from '../../images/svg/dbot/go-icon.svg'
-import ezIcon from '../../images/svg/dbot/ez-icon.svg'
-import dxIcon from '../../images/svg/dbot/dx-icon.svg'
-import dtIcon from '../../images/svg/dbot/dt-icon.svg'
+import { Mt5Icon, GoIcon, EzIcon, DxIcon, DtIcon } from '../../images/svg/dbot'
 import GenericCarousel, { TRenderableData } from 'components/custom/carousel/_platforms-carousel'
 
 const carouselData: TRenderableData[] = [
     {
-        icon: mt5Icon,
+        icon: Mt5Icon,
         heading: 'Deriv MT5',
         paragraph: '_t_The all-in-one CFD trading platform._t_',
         link: '/dmt5/',
     },
     {
-        icon: dtIcon,
+        icon: DtIcon,
         heading: 'Deriv Trader',
         paragraph: '_t_Our flagship app for trading options and multipliers._t_',
         link: '/dtrader/',
     },
     {
-        icon: goIcon,
+        icon: GoIcon,
         heading: 'Deriv GO',
         paragraph: '_t_Our best trading experience on your mobile._t_',
         link: '/deriv-go/',
     },
     {
-        icon: dxIcon,
+        icon: DxIcon,
         heading: 'Deriv X',
         paragraph: '_t_The CFD trading platform to fit your style._t_',
         link: '/derivx/',
     },
     {
-        icon: ezIcon,
+        icon: EzIcon,
         heading: 'Deriv EZ',
         paragraph: '_t_Our mobile-first CFD trading platform._t_',
         link: '/deriv-ez/',

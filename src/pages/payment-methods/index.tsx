@@ -13,7 +13,6 @@ import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import useWS from 'components/hooks/useWS'
 import { isBrowser } from 'common/utility'
-import { TString } from 'types/generics'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 
@@ -54,7 +53,6 @@ const Th = styled.th`
 `
 
 const StyledTable = styled.table<StyledTableType>`
-    table-layout: fixed;
     border-collapse: collapse;
     width: 110.4rem;
     margin: ${(props) => (props.has_note ? '0 auto 2.4rem' : '0 auto')};
@@ -131,7 +129,6 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
             )
         } else {
             if (data) {
-                console.log('data', data)
                 const filtered_payment_methods = payment_method_data.filter(
                     (payment_method) => !payment_method.is_eu,
                 )
@@ -231,7 +228,6 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
 
 const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
     const parse_to_integer = parseInt('2')
-    const reference_header_subtitle: TString = pd.is_dp2p ? '_t_More info_t_' : '_t_Reference_t_'
 
     return (
         <>
@@ -334,11 +330,13 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
                                         </BoldText>
                                     </Th>
                                 )}
-                                <Th>
-                                    <BoldText>
-                                        <Localize translate_text={reference_header_subtitle} />
-                                    </BoldText>
-                                </Th>
+                                {pd.is_dp2p && (
+                                    <Th>
+                                        <BoldText>
+                                            <Localize translate_text="_t_More info_t_" />
+                                        </BoldText>
+                                    </Th>
+                                )}
                                 <Th />
                             </Tr>
                         </Thead>

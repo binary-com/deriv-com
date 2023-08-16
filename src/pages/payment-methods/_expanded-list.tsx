@@ -192,28 +192,7 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                         </LtrText>
                     </Withdrawal>
                 )}
-
-                <Td>
-                    <>
-                        {payment_data.reference ? (
-                            <CenterIcon
-                                href={`/payment-methods/${
-                                    payment_data.locales?.includes(locale?.locale?.language)
-                                        ? locale?.locale?.language + '/' + payment_data.reference
-                                        : payment_data.reference
-                                }`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <StyledPDF src={PDF} alt="PDF" />
-                            </CenterIcon>
-                        ) : payment_data.reference_link ? (
-                            payment_data.reference_link
-                        ) : (
-                            <Text align="center">-</Text>
-                        )}
-                    </>
-                </Td>
+                {payment_data.reference_link && <Td>{payment_data.reference_link}</Td>}
                 {payment_data.description && (
                     <HoverTd onClick={toggleExpand}>
                         <StyledChevron src={Chevron} alt="chevron" is_expanded={is_expanded} />

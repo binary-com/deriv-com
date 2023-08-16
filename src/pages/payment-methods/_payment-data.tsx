@@ -49,8 +49,8 @@ import {
     Cardano,
     BNB,
     Banxa,
+    DP2P,
 } from 'images/svg/payment-methods'
-//temp
 import Paytrust from 'images/svg/payment-methods/payment-paytrust.svg'
 import Fasapay from 'images/svg/payment-methods/payment-fasapay.svg'
 import Webmoney from 'images/svg/payment-methods/payment-webmoney.svg'
@@ -66,7 +66,6 @@ import JCB from 'images/svg/payment-methods/payment-jcb.svg'
 import Boleto from 'images/svg/payment-methods/payment-boleto.svg'
 import Beyonic from 'images/svg/payment-methods/payment-beyonic.svg'
 import OneForYou from 'images/svg/payment-methods/payment-one-for-you.svg'
-import Dp2p from 'images/svg/payment-methods/payment-dp2p.svg'
 
 type LocaleType = { language?: string }
 
@@ -664,7 +663,7 @@ const payment_data: PaymentDataProps[] = [
     },
     {
         name: '_t_On-ramp / Off-ramp_t_',
-        is_fiat_onramp: true,
+        is_row: true,
         note: '_t_Not all payment methods are available in your country. Kindly check your cashier for further information._t_',
         class_name: 'fiat-onramp',
         data: [
@@ -796,7 +795,7 @@ const payment_data: PaymentDataProps[] = [
         note: '_t_Please contact our customer support if you wish to increase your daily deposit/withdrawal limits._t_',
         data: [
             {
-                method: <StyledIcon src={Dp2p} alt="DP2P" />,
+                method: <StyledIcon src={DP2P} alt="DP2P" />,
                 currencies: '_t_Your local currency_t_',
                 min_max_deposit: '_t_Deriv USD account_t_',
                 min_max_withdrawal: '_t_500 USD_t_',
@@ -804,7 +803,7 @@ const payment_data: PaymentDataProps[] = [
                 withdrawal_time: '_t_Max 1 hour_t_',
                 reference_link: (
                     <StyledRefLink to="/p2p/" target="_blank" rel="noopener noreferrer">
-                        <Localize translate_text="_t_Learn more_t_" />
+                        <Localize translate_text="_t_Learn more about Deriv P2P_t_" />
                     </StyledRefLink>
                 ),
                 name: 'DP2P',

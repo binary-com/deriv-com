@@ -37,6 +37,10 @@ jobs:
             - run: npm run format
             - run: npm run test
             - run: npm run build
+            - name: Remove Storybook
+              uses: JesseTG/rm@v1.0.2
+              with:
+                  path: public/storybook
 
             - uses: olegtarasov/get-tag@v2.1
               id: tagName

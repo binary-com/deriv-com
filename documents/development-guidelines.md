@@ -17,9 +17,19 @@
 
 {
     items.map(({ translation_text, translation_components }) => (
-        <>
+        <div>
             <ListItem key={translation_text} />
-        </>
+        </div>
+    ))
+}
+
+// best practice
+
+{
+    items.map(({ translation_text, translation_components }) => (
+        <div key={translation_text}>
+            <ListItem />
+        </div>
     ))
 }
 ```
@@ -56,12 +66,26 @@ Another common mistake is accidentally double quoting paragraphs, **this is inva
 **Note:** since we are using **Localize** components we are using this bad practice in many places for example we are passing a **Localize** inside our **p** element and we are passing a **div** as a component to the **Localize**
 
 ```js
-// bad practice
+// bad practice: because we are using Header as p inside p
 
 content: {
     text: '_t_Our GitHub repositories: <0>github.com/binary-com</0>_t_',
     components: [<Header key={0} type="paragraph-2" weight="normal" as="p" />],
 }
+
+<Header as="p">
+    <Localize translated_text={content.text} components={content.components} />
+</Header>
+
+// best practice
+content: {
+    text: '_t_Our GitHub repositories: <0>github.com/binary-com</0>_t_',
+    components: [<br key={0} />],
+}
+
+<Header as="p">
+    <Localize translated_text={content.text} components={content.components} />
+</Header>
 
 ```
 

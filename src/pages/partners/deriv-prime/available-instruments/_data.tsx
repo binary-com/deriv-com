@@ -46,7 +46,7 @@ export const other_markets_items_deriv_prime: SmartOtherMarketsItem[] = [
         id: 3,
         data: {
             header: '_t_Stocks & indices_t_',
-            description: '_t_Leading company stocks and topglobal indices._t_',
+            description: '_t_Leading company stocks and top global indices._t_',
             icon: Stocks,
             alt_icon: '_t_Trade stocks_t_',
             is_coming_soon: true,

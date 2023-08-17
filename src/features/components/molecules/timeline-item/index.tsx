@@ -32,10 +32,10 @@ const TimelineItem = ({ data, isLastItem, ...rest }: TimelineItemProps) => {
                 alt="check icon"
                 width={24}
                 height={24}
-                className={dclsx(isLastItem ? 'margin-top-10x' : 'margin-top-3x')}
+                className={dclsx('lg-margin-top-3x')}
             />
             <div>
-                <Typography.Heading as="h3" size="xs" mb="4x">
+                <Typography.Heading as="h4" size="xs" mb="4x">
                     <Localize translate_text={data.heading} />
                 </Typography.Heading>
                 <Typography.Paragraph>

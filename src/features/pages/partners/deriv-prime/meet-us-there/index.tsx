@@ -28,7 +28,7 @@ const MeetUsThere = () => {
                     align={'center'}
                     wrap="nowrap"
                     basis="1-3"
-                    md={{ direction: 'row', gap: '12x', justify: 'center', mt: '20x' }}
+                    md={{ direction: 'row', gap: '12x', justify: 'center', mt: '7x' }}
                 >
                     {expo_cards.map((card) => {
                         return (

@@ -13,12 +13,22 @@ type TableProps = React.ComponentProps<'table'> &
 
 const BaseTable = ({ data, className, ...rest }: TableProps) => {
     return (
-        <div className="table-responsive">
-            <table className={dclsx('table', className)} {...rest}>
+        <div className={dclsx('table-responsive', className)}>
+            <table className={dclsx('table')} {...rest}>
                 <thead>
                     <tr>
                         {Object.keys(data[0]).map((key) => (
-                            <th key={key}>
+                            <th
+                                key={key}
+                                className={dclsx(
+                                    'typography-color-black',
+                                    'typography-align-center',
+                                    'typography-font-UBUNTU',
+                                    'typography-weight-bold',
+                                    'text-small',
+                                    'padding-block-6x',
+                                )}
+                            >
                                 <Localize translate_text={key as TString} />
                             </th>
                         ))}
@@ -28,7 +38,20 @@ const BaseTable = ({ data, className, ...rest }: TableProps) => {
                     {data.map((row, i) => (
                         <tr key={i}>
                             {Object.keys(row).map((key) => {
-                                return <td key={key}>{row[key]}</td>
+                                return (
+                                    <td
+                                        key={key}
+                                        className={dclsx(
+                                            'typography-color-black',
+                                            'typography-align-center',
+                                            'typography-font-UBUNTU',
+                                            'text-small',
+                                            'padding-block-6x',
+                                        )}
+                                    >
+                                        {row[key]}
+                                    </td>
+                                )
                             })}
                         </tr>
                     ))}

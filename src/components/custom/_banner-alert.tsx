@@ -92,7 +92,6 @@ const Wrapper = styled.div<{
 const StyledButton = styled(Button)`
     @media ${device.tablet} {
         font-size: 1.4rem;
-        padding: 3px 8px;
     }
 `
 

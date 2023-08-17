@@ -27,8 +27,9 @@ const MeetUsThere = () => {
                 <FlexBox.Box
                     direction={'col'}
                     align={'center'}
-                    wrap="wrap"
-                    lg={{ direction: 'row', gap: '12x', justify: 'center', mt: '20x' }}
+                    wrap="nowrap"
+                    basis="1-3"
+                    md={{ direction: 'row', gap: '12x', justify: 'center', mt: '20x' }}
                 >
                     {expo_cards.map((card) => {
                         return (
@@ -49,7 +50,7 @@ const MeetUsThere = () => {
                                         align={'start'}
                                         radius={'8x'}
                                         mt={'12x'}
-                                        lg={{ mt: '0x' }}
+                                        md={{ mt: '0x' }}
                                     >
                                         <Image
                                             className={styles.image}

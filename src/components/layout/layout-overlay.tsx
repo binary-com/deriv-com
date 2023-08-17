@@ -8,10 +8,6 @@ import { bannerTypes } from 'common/constants'
 const LiveChat = Loadable(() => import('./livechat'))
 const WhatsApp = Loadable(() => import('./whatsapp'))
 
-type TProps = {
-    is_ppc: boolean
-}
-
 const OverlayContainer = styled.div<{ is_rtl: boolean }>`
     pointer-events: none;
     position: fixed;
@@ -23,7 +19,7 @@ const OverlayContainer = styled.div<{ is_rtl: boolean }>`
     align-items: ${({ is_rtl }) => (is_rtl ? 'flex-start' : 'flex-end')};
 `
 
-const LayoutOverlay = ({ is_ppc = false }: TProps) => {
+const LayoutOverlay = () => {
     const is_rtl = useIsRtl()
 
     return (

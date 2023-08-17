@@ -53,7 +53,6 @@ const Wrapper = styled.div<{
     animation: ${({ visible }) => (visible ? 'fadeIn' : 'fadeOut')} 0.2s;
     align-self: ${({ is_rtl }) => (is_rtl ? 'flex-end' : 'flex-start')};
     position: absolute;
-    bottom: 7.5rem;
 
     @keyframes fadeIn {
         from {
@@ -129,7 +128,6 @@ const OverlayContainer = styled.div<{ is_rtl: boolean }>`
     inset: 0;
     z-index: 999;
     display: flex;
-    flex-direction: column;
     justify-content: flex-end;
     align-items: ${({ is_rtl }) => (is_rtl ? 'flex-start' : 'flex-end')};
 `

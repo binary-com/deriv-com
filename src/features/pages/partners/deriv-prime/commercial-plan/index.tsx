@@ -47,7 +47,7 @@ const CommercialPlan = () => {
                 <Typography.Paragraph align="center" size="large" mt="8x" mb="20x">
                     <Localize translate_text="_t_We’ll help you maximise your earnings with a plan that suits your business._t_" />
                 </Typography.Paragraph>
-                <Table data={tableData} />
+                <Table.Base data={tableData} />
             </Container.Fluid>
         </Container.Fixed>
     )

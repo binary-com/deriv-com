@@ -1,38 +1,14 @@
 import React, { ReactNode } from 'react'
-import { Localize } from 'components/localization'
-import { TString } from 'types/generics'
+import BaseTable from './base'
 
-type Data = Record<string, string | ReactNode>
-
-type TableProps = {
-    data: Data[]
+type BaseTypes = {
+    Base: typeof BaseTable
 }
 
-function Table({ data }: TableProps) {
-    return (
-        <div className="table-responsive">
-            <table className="table">
-                <thead>
-                    <tr>
-                        {Object.keys(data[0]).map((key) => (
-                            <th key={key}>
-                                <Localize translate_text={key as TString} />
-                            </th>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.map((row, i) => (
-                        <tr key={i}>
-                            {Object.keys(row).map((key) => {
-                                return <td key={key}>{row[key]}</td>
-                            })}
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
-    )
+const Table: BaseTypes = ({ children }: { children: ReactNode }) => {
+    return <>{children}</>
 }
+
+Table.Base = BaseTable
 
 export default Table

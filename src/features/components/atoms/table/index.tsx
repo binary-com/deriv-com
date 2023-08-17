@@ -1,44 +1,34 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
+import { Localize } from 'components/localization'
+import { TString } from 'types/generics'
 
-const Table = () => {
+type Data = Record<string, string | ReactNode>
+
+type TableProps = {
+    data: Data[]
+}
+
+function Table({ data }: TableProps) {
     return (
         <div className="table-responsive">
             <table className="table">
                 <thead>
                     <tr>
-                        <th>Monthly volume requirement</th>
-                        <th>Fee per million</th>
+                        {Object.keys(data[0]).map((key) => (
+                            <th key={key}>
+                                <Localize translate_text={key as TString} />
+                            </th>
+                        ))}
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>0 - 3 billion</td>
-                        <td>$ 8.00</td>
-                    </tr>
-                    <tr>
-                        <td>&gt; 3 - 5 billion</td>
-                        <td>$ 7.00</td>
-                    </tr>
-                    <tr>
-                        <td>&gt; 5 - 10 billion</td>
-                        <td>$ 6.00</td>
-                    </tr>
-                    <tr>
-                        <td>&gt; 10 billion</td>
-                        <td>$ 5.00</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            0 - 15 billion <span>(Crypto)</span>
-                        </td>
-                        <td>5.5 bps / 0.055%</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            &gt; 15 billion <span>(Crypto)</span>
-                        </td>
-                        <td>5 bps / 0.05%</td>
-                    </tr>
+                    {data.map((row, i) => (
+                        <tr key={i}>
+                            {Object.keys(row).map((key) => {
+                                return <td key={key}>{row[key]}</td>
+                            })}
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>

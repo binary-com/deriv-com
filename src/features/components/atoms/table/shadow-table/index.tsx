@@ -1,11 +1,9 @@
 import React from 'react'
-import BaseTable from '../base'
+import BaseTable, { TableProps } from '../base'
 import dclsx from 'features/utils/dclsx'
 
-type ShadowTableProps = React.ComponentProps<typeof BaseTable>
-
-const ShadowTable = ({ ...rest }: ShadowTableProps) => {
-    return <BaseTable className={dclsx('table-shadow')} {...rest} />
+const ShadowTable = ({ className, ...rest }: TableProps) => {
+    return <BaseTable className={dclsx('table-shadow', 'padding-12x', className)} {...rest} />
 }
 
 export default ShadowTable

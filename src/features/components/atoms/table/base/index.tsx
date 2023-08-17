@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react'
+import Box, { BoxProps } from '../../box'
 import { Localize } from 'components/localization'
 import { TString } from 'types/generics'
 import dclsx from 'features/utils/dclsx'
@@ -6,15 +7,18 @@ import { ClassProps } from 'features/types'
 
 type Data = Record<string, string | ReactNode>
 
-type TableProps = React.ComponentProps<'table'> &
-    ClassProps & {
-        data: Data[]
-    }
+export interface TableProps extends BoxProps, ClassProps {
+    striped?: boolean
+    data: Data[]
+}
 
-const BaseTable = ({ data, className, ...rest }: TableProps) => {
+const BaseTable = ({ data, striped, className, ...rest }: TableProps) => {
     return (
-        <div className={dclsx('table-responsive', className)}>
-            <table className={dclsx('table')} {...rest}>
+        <Box
+            className={dclsx('table-responsive', { ['table-striped']: striped }, className)}
+            {...rest}
+        >
+            <table className={dclsx('table')}>
                 <thead>
                     <tr>
                         {Object.keys(data[0]).map((key) => (
@@ -57,7 +61,7 @@ const BaseTable = ({ data, className, ...rest }: TableProps) => {
                     ))}
                 </tbody>
             </table>
-        </div>
+        </Box>
     )
 }
 

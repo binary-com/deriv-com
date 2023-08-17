@@ -110,19 +110,6 @@ const trading: TQuestionsData = {
             ],
         },
         {
-            question: '_t_What are digital options?_t_',
-            category: 'Trading',
-            sub_category: '_t_Markets_t_',
-            label: 'what-are-digital-options',
-            hide_for_eu: true,
-            answer: [
-                {
-                    translation_text:
-                        "_t_Digital options allow you to predict the price movement of underlying assets without actually owning them. With digital options, you open a position based on your prediction, with a set duration that closes your position automatically. You'll earn a profit if your position is closed when the price is in your favour._t_",
-                },
-            ],
-        },
-        {
             question: '_t_How many trading platforms do you offer?_t_',
             category: 'Trading',
             sub_category: '_t_How to trade_t_',

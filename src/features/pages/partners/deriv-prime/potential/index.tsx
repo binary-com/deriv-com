@@ -10,31 +10,19 @@ import dclsx from 'features/utils/dclsx'
 import Box from 'features/components/atoms/box'
 
 const Potential = () => (
-    <Container.Fixed as="section" pt="40x" md={{ pt: '40x' }}>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <Flex.Box container="fluid" wrap="wrap" gap="20x">
+    <Container.Fixed
+        as="section"
+        padding_block="20x"
+        padding_inline="4x"
+        md={{ padding_block: '40x' }}
+    >
+        <Flex.Box
+            container="fluid"
+            wrap="wrap"
+            gap="20x"
+            direction="col-reverse"
+            md={{ direction: 'row', padding_block: '20x' }}
+        >
             <Flex.Box basis="2-5" wrap="wrap" gap="8x" grow="1">
                 {boxData.map((item) => {
                     return (
@@ -49,8 +37,7 @@ const Potential = () => (
                 })}
             </Flex.Box>
             <Flex.Item basis="2-5" grow="1">
-                {/* className={dclsx(styled_heading)} */}
-                <Typography.Heading>
+                <Typography.Heading as="h2">
                     <Localize translate_text="_t_Your potential. Our technology._t_" />
                 </Typography.Heading>
                 <Box mt="8x">

@@ -1,9 +1,9 @@
-import BrokerageFirms from 'images/svg/d-prime/brokerage_firms.svg'
-import InvestmentFunds from 'images/svg/d-prime/investment_funds.svg'
-import AssetManagers from 'images/svg/d-prime/asset_managers.svg'
-import ProfessionalTraders from 'images/svg/d-prime/professional_traders.svg'
-import FinancialInstitutions from 'images/svg/d-prime/financial_institutions.svg'
-import CorporateClients from 'images/svg/d-prime/corporate_clients.svg'
+import BrokerageFirms from 'images/svg/deriv-prime/brokerage_firms.svg'
+import InvestmentFunds from 'images/svg/deriv-prime/investment_funds.svg'
+import AssetManagers from 'images/svg/deriv-prime/asset_managers.svg'
+import ProfessionalTraders from 'images/svg/deriv-prime/professional_traders.svg'
+import FinancialInstitutions from 'images/svg/deriv-prime/financial_institutions.svg'
+import CorporateClients from 'images/svg/deriv-prime/corporate_clients.svg'
 import { BoxData } from 'features/components/molecules/shadow-box'
 
 export const boxData: BoxData[] = [

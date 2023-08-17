@@ -6,7 +6,7 @@ import MarketNav from 'features/components/templates/navigation/market-nav'
 import ETFMarket from 'features/pages/markets/etf'
 import SignupPublic from 'features/components/templates/signup/with-banner'
 import useRegion from 'components/hooks/use-region'
-import PageNotFound from 'features/pages/404'
+import PageNotFound from 'features/pages/404-error'
 
 const StocksAndIndicesPage = () => {
     const { is_row } = useRegion()

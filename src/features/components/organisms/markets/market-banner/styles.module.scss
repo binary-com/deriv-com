@@ -22,7 +22,9 @@
     @include breakpoints(desktop) {
         min-block-size: 60rem;
     }
-
+    @media only screen and (min-width: 2300px) {
+        min-block-size: 70rem;
+    }
     @media only screen and (min-width: 2500px) {
         min-block-size: 90rem;
     }

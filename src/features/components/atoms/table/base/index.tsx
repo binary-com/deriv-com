@@ -1,17 +1,20 @@
 import React, { ReactNode } from 'react'
 import { Localize } from 'components/localization'
 import { TString } from 'types/generics'
+import dclsx from 'features/utils/dclsx'
+import { ClassProps } from 'features/types'
 
 type Data = Record<string, string | ReactNode>
 
-type TableProps = {
-    data: Data[]
-}
+type TableProps = React.ComponentProps<'table'> &
+    ClassProps & {
+        data: Data[]
+    }
 
-function Table({ data }: TableProps) {
+const BaseTable = ({ data, className, ...rest }: TableProps) => {
     return (
         <div className="table-responsive">
-            <table className="table">
+            <table className={dclsx('table', className)} {...rest}>
                 <thead>
                     <tr>
                         {Object.keys(data[0]).map((key) => (
@@ -35,4 +38,4 @@ function Table({ data }: TableProps) {
     )
 }
 
-export default Table
+export default BaseTable

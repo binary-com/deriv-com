@@ -5,7 +5,6 @@ import Typography from 'features/components/atoms/typography'
 import FlexBox from 'features/components/atoms/flex-box'
 import { Localize } from 'components/localization'
 import Link from 'features/components/atoms/link'
-import Image from 'features/components/atoms/image'
 
 const MeetUsThere = () => {
     return (
@@ -52,12 +51,7 @@ const MeetUsThere = () => {
                                         mt={'12x'}
                                         md={{ mt: '0x' }}
                                     >
-                                        <Image
-                                            className={styles.image}
-                                            src={card.image}
-                                            height={48}
-                                            alt={'_t_Easy start_t_'}
-                                        />
+                                        {card.image}
                                         <FlexBox.Box
                                             padding="8x"
                                             direction={'col'}

@@ -49,7 +49,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
     const [error, rawMarketsData] = usePricingFeed()
     const TABLE_VISIBLE_ROWS = 5
     const [sorting, setSorting] = React.useState<SortingState>([])
-
+    console.log('==>', { error, rawMarketsData })
     const markets_data = useMemo(() => {
         if (rawMarketsData) {
             const stocks = rawMarketsData['stk']
@@ -109,6 +109,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
                                 <tr className={styles.table_row_data}>
                                     {row.getVisibleCells().map((cell) => (
                                         <td key={cell.id}>
+                                            {console.log('cell ==>', cell.getContext())}
                                             {flexRender(
                                                 cell.column.columnDef.cell,
                                                 cell.getContext(),

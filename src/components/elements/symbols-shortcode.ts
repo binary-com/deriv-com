@@ -110,19 +110,19 @@ import OTC_SX5E from 'images/svg/symbols/markets-stocks-and-indices/european-ind
 import OTC_FCHI from 'images/svg/symbols/markets-stocks-and-indices/european-indices/france-40.svg'
 import OTC_N225 from 'images/svg/symbols/markets-stocks-and-indices/asian-indices/japan-225.svg'
 import OTC_FTSE from 'images/svg/symbols/markets-stocks-and-indices/european-indices/uk-100.svg'
-import OTC_NDX from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-tech-100.svg'
-import OTC_DJI from 'images/svg/symbols/markets-stocks-and-indices/american-indices/wall-street-30.svg'
+import US_100 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-tech-100.svg'
+import US_30 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/wall-street-30.svg'
 import OTC_SPC from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-500.svg'
 import OTC_AS51 from 'images/svg/symbols/markets-stocks-and-indices/asian-indices/aus-200.svg'
 //derived
 import R_10 from 'images/svg/symbols/index10-new.svg'
 import R_25 from 'images/svg/symbols/index25-new.svg'
 import R_50 from 'images/svg/symbols/index50-new.svg'
-import R_75 from 'images/svg/symbols/index75-new.svg'
+import Volatility_75_Index from 'images/svg/symbols/index75-new.svg'
 import R_100 from 'images/svg/symbols/index100-new.svg'
 import stpRNG from 'images/svg/symbols/step-indices-new.svg'
 import RB100 from 'images/svg/symbols/rb-100-new.svg'
-import RB200 from 'images/svg/symbols/rb-200-new.svg'
+import Range_Break_200_Index from 'images/svg/symbols/rb-200-new.svg'
 import Vol_1HZ10V from 'images/svg/symbols/index10s1-new.svg'
 import Vol_1HZ25V from 'images/svg/symbols/index25s1-new.svg'
 import Vol_1HZ50V from 'images/svg/symbols/index50s1-new.svg'
@@ -132,12 +132,12 @@ import Vol_1HZ200V from 'images/svg/symbols/volatility_200_1s.svg'
 import Vol_1HZ300V from 'images/svg/symbols/volatility_300_1s.svg'
 import BOOM1000 from 'images/svg/symbols/boom-indices-1000-new.svg'
 import BOOM500 from 'images/svg/symbols/boom-indices-500-new.svg'
-import CRASH1000 from 'images/svg/symbols/crash-indices-1000-new.svg'
+import Crash_1000_Index from 'images/svg/symbols/crash-indices-1000-new.svg'
 import CRASH500 from 'images/svg/symbols/crash-indices-500-new.svg'
 import JD10 from 'images/svg/symbols/jump-10-new.svg'
 import JD100 from 'images/svg/symbols/jump-100-new.svg'
 import JD25 from 'images/svg/symbols/jump-25-new.svg'
-import JD50 from 'images/svg/symbols/jump-50-new.svg'
+import Jump_50_Index from 'images/svg/symbols/jump-50-new.svg'
 import JD75 from 'images/svg/symbols/jump-75-new.svg'
 import WLDAUD from 'images/svg/symbols/aud-basket.svg'
 import WLDEUR from 'images/svg/symbols/eur-basket.svg'
@@ -148,7 +148,7 @@ import USDJPYDFX10 from 'images/svg/symbols/usd-jpy-10.svg'
 import GBPUSDDFX10 from 'images/svg/symbols/gbp-usd-10.svg'
 import AUDUSDDFX10 from 'images/svg/symbols/aud-usd-10.svg'
 import USDCHFDFX10 from 'images/svg/symbols/usd-chf-10.svg'
-import EURUSDDFX10 from 'images/svg/symbols/eur-usd-10.svg'
+import EURUSD_DFX_10_Index from 'images/svg/symbols/eur-usd-10.svg'
 import Boom_300_Index from 'images/svg/symbols/boom-eu-boom-300.svg'
 import Crash_300_Index from 'images/svg/symbols/crash-eu-crash-300.svg'
 //forex
@@ -299,18 +299,18 @@ export {
     OTC_FCHI,
     OTC_N225,
     OTC_FTSE,
-    OTC_NDX,
-    OTC_DJI,
+    US_100,
+    US_30,
     OTC_SPC,
     OTC_AS51,
     R_10,
     R_25,
     R_50,
-    R_75,
+    Volatility_75_Index,
     R_100,
     stpRNG,
     RB100,
-    RB200,
+    Range_Break_200_Index,
     Vol_1HZ10V,
     Vol_1HZ25V,
     Vol_1HZ50V,
@@ -324,12 +324,12 @@ export {
     BOOM500,
     Boom_300_Index,
     Crash_300_Index,
-    CRASH1000,
+    Crash_1000_Index,
     CRASH500,
     JD10,
     JD100,
     JD25,
-    JD50,
+    Jump_50_Index,
     JD75,
     WLDAUD,
     WLDEUR,
@@ -340,7 +340,7 @@ export {
     GBPUSDDFX10,
     AUDUSDDFX10,
     USDCHFDFX10,
-    EURUSDDFX10,
+    EURUSD_DFX_10_Index,
     AUDJPY,
     AUDUSD,
     EURAUD,

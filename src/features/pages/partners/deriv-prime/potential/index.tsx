@@ -1,6 +1,6 @@
 import React from 'react'
 import { border_bottom } from './potential.module.scss'
-import { boxData } from './data'
+import { box_data } from './data'
 import Flex from 'features/components/atoms/flex-box'
 import Container from 'features/components/atoms/container'
 import ShadowBox from 'features/components/molecules/shadow-box'
@@ -24,7 +24,7 @@ const Potential = () => (
             md={{ direction: 'row', padding_block: '20x' }}
         >
             <Flex.Box basis="2-5" wrap="wrap" gap="8x" grow="1">
-                {boxData.map((item) => {
+                {box_data.map((item) => {
                     return (
                         <ShadowBox
                             key={item.icon_URL}

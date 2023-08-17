@@ -1,7 +1,7 @@
 import React from 'react'
 import { box_shadow, styled_heading } from './style.module.scss'
 import Flex from 'features/components/atoms/flex-box'
-import Icon from 'features/components/atoms/icon'
+import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
 import { TString } from 'types/generics'
 import { Localize, localize } from 'components/localization'
@@ -26,7 +26,7 @@ const ShadowBox = ({ icon_URL, heading, icon_alt, ...rest }: ShadowBoxProps) => 
             direction="col"
             {...rest}
         >
-            <Icon size="large" src={icon_URL} alt={localize(icon_alt)} />
+            <Image width={48} height={48} src={icon_URL} alt={localize(icon_alt)} />
             <Typography.Heading size="xs" className={dclsx(styled_heading)} mt="12x">
                 <Localize translate_text={heading} />
             </Typography.Heading>

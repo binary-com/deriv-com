@@ -61,6 +61,7 @@ const MeetUsThere = () => {
                                                 size={'xlarge'}
                                                 weight={'bold'}
                                                 mb={'4x'}
+                                                font_family="UBUNTU"
                                             >
                                                 <Localize translate_text={card.title} />
                                             </Typography.Paragraph>

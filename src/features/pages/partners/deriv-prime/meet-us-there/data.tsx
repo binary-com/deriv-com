@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import * as styles from './meet-us-there.module.scss'
 import { ExpoCardTypes } from './types'
+import { localize } from 'components/localization'
 
 export const expo_cards: ExpoCardTypes[] = [
     {
@@ -10,7 +11,7 @@ export const expo_cards: ExpoCardTypes[] = [
         image: (
             <StaticImage
                 src="../../../../../images/common/deriv-prime/dubai_expo.png"
-                alt="Dubai Expo"
+                alt={localize('_t_Dubai Expo_t_')}
                 className={styles.image}
                 formats={['avif', 'webp', 'auto']}
                 placeholder="none"
@@ -24,7 +25,7 @@ export const expo_cards: ExpoCardTypes[] = [
         image: (
             <StaticImage
                 src="../../../../../images/common/deriv-prime/cyprus_expo.png"
-                alt="Cyprus Expo"
+                alt={localize('_t_Cyprus Expo_t_')}
                 className={styles.image}
                 formats={['avif', 'webp', 'auto']}
                 placeholder="none"
@@ -38,7 +39,7 @@ export const expo_cards: ExpoCardTypes[] = [
         image: (
             <StaticImage
                 src="../../../../../images/common/deriv-prime/london_summit.png"
-                alt="London Summit"
+                alt={localize('_t_London Summit_t_')}
                 className={styles.image}
                 formats={['avif', 'webp', 'auto']}
                 placeholder="none"

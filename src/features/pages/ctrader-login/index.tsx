@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSigninAndSignup } from 'features/hooks/use-signin-and-signup'
+import { useDerivAuth } from 'features/hooks/use-deriv-auth'
 import Loading from 'features/components/atoms/loading'
 import CtraderWrapper from 'features/components/templates/ctrader/ctrader-wrapper'
 import Typography from 'features/components/atoms/typography'
@@ -9,7 +9,7 @@ import { isBrowser } from 'common/utility'
 const CtraderLogin = () => {
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const token = url_params.get('token1')
-    const { account_error, create_account_error } = useSigninAndSignup('ctrader', token)
+    const { account_error, create_account_error } = useDerivAuth('ctrader', token, 'login')
 
     return (
         <Layout hide_layout_overlay>

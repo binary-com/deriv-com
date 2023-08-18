@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { validation_regex } from 'common/validation'
 import apiManager from 'common/websocket'
-import { useSigninAndSignup } from 'features/hooks/use-signin-and-signup'
+import { useDerivAuth } from 'features/hooks/use-deriv-auth'
 import { isBrowser } from 'common/utility'
 import { not_available_ctrader_countries } from 'common/country-base'
 
@@ -36,7 +36,7 @@ const useCtraderCredentialsForm = () => {
     const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
     const affiliate_token = url_params.get('partnerId')
     const [token, setToken] = useState('')
-    const { loading, create_account_error } = useSigninAndSignup('ctrader', token)
+    const { loading, create_account_error } = useDerivAuth('ctrader', token, 'signup')
 
     const submitForm = useForm<SubmitFormData>({
         mode: 'all',

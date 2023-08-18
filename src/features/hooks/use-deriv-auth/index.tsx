@@ -3,7 +3,7 @@ import { navigate } from 'gatsby'
 import apiManager from 'common/websocket'
 import { isBrowser } from 'common/utility'
 
-export const useSigninAndSignup = (platform?: string, token?: string) => {
+export const useDerivAuth = (platform?: string, token?: string, auth_type?: 'login' | 'signup') => {
     const [loading, setLoading] = useState(false)
     const [has_account, setHasAccount] = useState(null)
     const [authorized, setAuthorized] = useState(false)
@@ -62,8 +62,10 @@ export const useSigninAndSignup = (platform?: string, token?: string) => {
                     platform,
                 })
                 .then(() => {
-                    setRedirectTo('signup_success')
                     setHasAccount(true)
+                    if (auth_type) {
+                        setRedirectTo(auth_type)
+                    }
                 })
                 .catch((reason) => {
                     setCreateAccountError({
@@ -88,7 +90,7 @@ export const useSigninAndSignup = (platform?: string, token?: string) => {
                     setLoading(false)
                 })
         }
-    }, [has_account, platform])
+    }, [auth_type, has_account, platform])
 
     useEffect(() => {
         if (service_token) {
@@ -101,9 +103,14 @@ export const useSigninAndSignup = (platform?: string, token?: string) => {
                     if (isBrowser() && redirect_to === 'ctrader_platform') {
                         window.location.href = `https://id-ct-uat.deriv.com/brokeroauth/success?token=${response.service_token.ctrader.token}`
                     }
-                    if (isBrowser() && redirect_to === 'signup_success') {
+                    if (isBrowser() && redirect_to === 'signup') {
                         navigate(
-                            `/ctrader-signup/success?token=${response.service_token.ctrader.token}`,
+                            `/ctrader-signup/signup-success?token=${response.service_token.ctrader.token}`,
+                        )
+                    }
+                    if (isBrowser() && redirect_to === 'login') {
+                        navigate(
+                            `/ctrader-login/login-success?token=${response.service_token.ctrader.token}`,
                         )
                     }
                 })

@@ -7,7 +7,6 @@ import EZIcon from 'images/svg/deriv-x/ez-icon.svg'
 import DGoIcon from 'images/svg/deriv-x/go-icon.svg'
 import DBIcon from 'images/svg/deriv-x/db-icon.svg'
 import DerivXLogo from 'images/svg/deriv-x/derivX.svg'
-import DerivXQR from 'images/svg/deriv-x/derivxQR.svg'
 import DerivXBannerLogo from 'images/svg/deriv-x/deriv-x-banner-logo.svg'
 
 export {
@@ -20,6 +19,5 @@ export {
     DGoIcon,
     DBIcon,
     DerivXLogo,
-    DerivXQR,
     DerivXBannerLogo,
 }

@@ -9,19 +9,19 @@ import dclsx from 'features/utils/dclsx'
 const tableData = [
     {
         '_t_Monthly volume requirement_t_': <Localize translate_text="_t_0 - 3 billion_t_" />,
-        '_t_Fee per million_t_': '$ 8.00',
+        '_t_Fee per million_t_': <Localize translate_text="_t_$ 8.00_t_" />,
     },
     {
         '_t_Monthly volume requirement_t_': <Localize translate_text="_t_> 3 - 5 billion_t_" />,
-        '_t_Fee per million_t_': '$ 7.00',
+        '_t_Fee per million_t_': <Localize translate_text="_t_$ 7.00_t_" />,
     },
     {
         '_t_Monthly volume requirement_t_': <Localize translate_text="_t_> 5 - 10 billion_t_" />,
-        '_t_Fee per million_t_': '$ 6.00',
+        '_t_Fee per million_t_': <Localize translate_text="_t_$ 6.00_t_" />,
     },
     {
         '_t_Monthly volume requirement_t_': <Localize translate_text="_t_> 10 billion_t_" />,
-        '_t_Fee per million_t_': '$ 5.00',
+        '_t_Fee per million_t_': <Localize translate_text="_t_$ 5.00_t_" />,
     },
     {
         '_t_Monthly volume requirement_t_': (
@@ -30,7 +30,7 @@ const tableData = [
                 components={[<span key={0} className={dclsx('typography-color-light')} />]}
             />
         ),
-        '_t_Fee per million_t_': '5.5 bps / 0.055%',
+        '_t_Fee per million_t_': <Localize translate_text="_t_5.5 bps / 0.055%_t_" />,
     },
     {
         '_t_Monthly volume requirement_t_': (
@@ -39,7 +39,7 @@ const tableData = [
                 components={[<span key={0} className={dclsx('typography-color-light')} />]}
             />
         ),
-        '_t_Fee per million_t_': '5 bps / 0.05%',
+        '_t_Fee per million_t_': <Localize translate_text="_t_5 bps / 0.05%_t_" />,
     },
 ]
 

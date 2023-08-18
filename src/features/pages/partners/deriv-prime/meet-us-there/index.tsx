@@ -20,7 +20,7 @@ const MeetUsThere = () => {
                 margin_block={'40x'}
                 md={{ justify: 'center', margin_block: '40x' }}
             >
-                <Typography.Heading align={'center'}>
+                <Typography.Heading as="h2" align={'center'}>
                     <Localize translate_text={'_t_Meet us there_t_'} />
                 </Typography.Heading>
                 <FlexBox.Box

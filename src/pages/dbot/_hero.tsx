@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
-import DerivBotLogo from 'images/svg/dbot/deriv-bot-banner-logo.svg'
+import { BotBannerLogo } from 'images/svg/dbot'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
@@ -69,7 +69,10 @@ const BackgroundStyle = styled.div`
     justify-content: flex-end;
     position: relative;
     direction: ltr;
-
+    @media only screen and (min-width: 1920px) {
+        min-block-size: 100%;
+        block-size: 100rem;
+    }
     @media ${device.tablet} {
         flex-direction: column-reverse;
         justify-content: center;
@@ -169,7 +172,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
             <StyledContainer jc="flex-start">
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
-                        <StyledLogo src={DerivBotLogo} />
+                        <StyledLogo src={BotBannerLogo} />
                         <CommonHeaderSection
                             title="_t_Automate your trading ideas without writing code_t_"
                             font_family_title={

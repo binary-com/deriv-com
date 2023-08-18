@@ -52,7 +52,7 @@ const WhyDerivPrime = () => {
                                     weight={'bold'}
                                     as="h3"
                                     mb={'4x'}
-                                    mt={'10x'}
+                                    mt={'5x'}
                                     font_family="UBUNTU"
                                     md={{ mt: '4x' }}
                                 >

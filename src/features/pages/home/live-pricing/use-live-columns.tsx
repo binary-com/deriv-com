@@ -79,7 +79,7 @@ const useLiveColumns = () => {
                         <Flex.Box>
                             <Typography.Paragraph
                                 size={is_mobile ? 'small' : 'medium'}
-                                color={bid_color}
+                                // color={bid_color}
                             >
                                 {info.getValue()}
                             </Typography.Paragraph>

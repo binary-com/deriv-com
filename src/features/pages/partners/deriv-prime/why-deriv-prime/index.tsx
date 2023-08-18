@@ -19,7 +19,7 @@ const WhyDerivPrime = () => {
                 margin_block={'40x'}
                 md={{ justify: 'center', margin_block: '40x' }}
             >
-                <Typography.Heading align={'center'} mb="5x" margin_inline="30x" md={{ mb: '20x' }}>
+                <Typography.Heading as="h2" align={'center'} mb="5x" margin_inline="30x" md={{ mb: '20x' }}>
                     <Localize translate_text={'_t_Why choose Deriv Prime?_t_'} />
                 </Typography.Heading>
                 <FlexBox.Box

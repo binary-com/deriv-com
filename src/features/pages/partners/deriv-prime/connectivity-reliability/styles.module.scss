@@ -1,0 +1,8 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.item_box {
+    max-inline-size: 28rem;
+    @include breakpoints(tablet) {
+        max-inline-size: 38.9rem;
+    }
+}

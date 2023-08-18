@@ -10,6 +10,7 @@ const origin = isBrowser && window.location.origin
 const href = isBrowser && window.location.href
 const site_url =
     origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
+const excludedPath = process.env.EXCLUDED_SVG_PATH || 'src/images/svg/**'
 
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
@@ -78,11 +79,7 @@ module.exports = {
                 base64Width: 20,
                 stripMetadata: true,
                 defaultQuality: 50,
-                cacheOptions: {
-                    // Configure cache options here
-                    cacheFolder: '.cache/caches/gatsby-plugin-sharp',
-                    maxMemory: 500000000,
-                },
+                exclude: [excludedPath],
             },
         },
         `gatsby-plugin-image`,

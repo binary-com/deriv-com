@@ -9,6 +9,7 @@
 .table {
     width: 100%;
     background-color: transparent;
+    table-layout: fixed;
 }
 .table-shadow {
     box-shadow: 0px 24px 48px 0px rgba(14, 14, 14, 0.18);

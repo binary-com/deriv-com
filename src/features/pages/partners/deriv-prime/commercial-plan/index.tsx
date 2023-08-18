@@ -4,6 +4,7 @@ import Container from 'features/components/atoms/container'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Table from 'features/components/atoms/table'
+import dclsx from 'features/utils/dclsx'
 
 const tableData = [
     {
@@ -26,7 +27,7 @@ const tableData = [
         '_t_Monthly volume requirement_t_': (
             <Localize
                 translate_text="_t_0 - 15 million <0>(Crypto)</0>_t_"
-                components={[<span key={0} />]}
+                components={[<span key={0} className={dclsx('typography-color-light')} />]}
             />
         ),
         '_t_Fee per million_t_': '5.5 bps / 0.055%',
@@ -35,7 +36,7 @@ const tableData = [
         '_t_Monthly volume requirement_t_': (
             <Localize
                 translate_text="_t_> 15 million <0>(Crypto)</0>_t_"
-                components={[<span key={0} />]}
+                components={[<span key={0} className={dclsx('typography-color-light')} />]}
             />
         ),
         '_t_Fee per million_t_': '5 bps / 0.05%',
@@ -44,8 +45,14 @@ const tableData = [
 
 const CommercialPlan = () => {
     return (
-        <Container.Fixed as="section" padding_block="40x" bgcolor="secondary">
-            <Container.Fluid padding_block="20x">
+        <Container.Fixed
+            as="section"
+            pt="20x"
+            pb="12x"
+            bgcolor="secondary"
+            md={{ padding_block: '40x' }}
+        >
+            <Container.Fluid md={{ padding_block: '20x' }}>
                 <Typography.Heading as="h2" align="center">
                     <Localize translate_text="_t_Scalable commercial plan_t_" />
                 </Typography.Heading>

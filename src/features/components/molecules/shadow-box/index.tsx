@@ -27,7 +27,7 @@ const ShadowBox = ({ icon_URL, heading, icon_alt, ...rest }: ShadowBoxProps) => 
             {...rest}
         >
             <Image width={48} height={48} src={icon_URL} alt={localize(icon_alt)} />
-            <Typography.Heading size="xs" className={dclsx(styled_heading)} mt="12x">
+            <Typography.Heading size="xs" as="h3" className={dclsx(styled_heading)} mt="12x">
                 <Localize translate_text={heading} />
             </Typography.Heading>
         </Flex.Box>

@@ -14,7 +14,7 @@ import MainNav from 'features/components/templates/navigation/main-nav'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import useRegion from 'components/hooks/use-region'
 import InitialLoader from 'components/elements/dot-loader'
-import PageNotFound from 'features/pages/404-error'
+import PageNotFound from 'features/pages/404'
 import { TGatsbyHead } from 'features/types'
 
 const Footer = loadable(() => import('features/components/templates/footer'))

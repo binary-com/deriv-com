@@ -1,5 +1,5 @@
 import React from 'react'
-import PageNotFound from '../404'
+import PageNotFound from 'features/pages/404'
 import useRegion from 'components/hooks/use-region'
 import { WithIntl } from 'components/localization'
 import DerivEZ from 'features/pages/deriv-ez'

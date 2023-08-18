@@ -11,7 +11,10 @@
     @include breakpoints(desktop) {
         min-block-size: 100svh;
     }
-
+    @media only screen and (min-width: 1920px) {
+        min-block-size: 100%;
+        block-size: 110rem;
+    }
     &::before {
         content: ' ';
         position: absolute;

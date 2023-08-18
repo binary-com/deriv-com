@@ -1,13 +1,18 @@
 import { TString } from 'types/generics'
 import { LinkUrlType } from 'features/types'
 
-type TInfoItem = {
+type InfoItemType = {
     header: TString
     sub_header: TString
 }
-type TButtonLink = {
+type LinkType = {
     text: TString
     url: LinkUrlType
 }
 
-export { TInfoItem, TButtonLink }
+type IconProps = {
+    src: string
+    alt: TString
+}
+
+export { InfoItemType, LinkType, IconProps }

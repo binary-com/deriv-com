@@ -63,7 +63,7 @@ const MarketTab = () => {
                         </Typography.Paragraph>
                     ),
             )}
-            {console.log('=>', selected_market)}
+            {/* {console.log('=>', selected_market)} */}
             <LiveMarketTable selected_market={selected_market} link_to={linkToMarketPage} />
         </Container.Fluid>
     )

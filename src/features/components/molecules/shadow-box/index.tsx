@@ -18,14 +18,7 @@ type ShadowBoxProps = BoxData & FlexBoxProps<'div'>
 
 const ShadowBox = ({ icon_URL, heading, icon_alt, ...rest }: ShadowBoxProps) => {
     return (
-        <Flex.Box
-            grow="1"
-            radius="8x"
-            padding="12x"
-            className={dclsx(box_shadow)}
-            direction="col"
-            {...rest}
-        >
+        <Flex.Box grow="1" padding="12x" className={dclsx(box_shadow)} direction="col" {...rest}>
             <Image width={48} height={48} src={icon_URL} alt={localize(icon_alt)} />
             <Typography.Heading size="xs" as="h3" className={dclsx(styled_heading)} mt="12x">
                 <Localize translate_text={heading} />

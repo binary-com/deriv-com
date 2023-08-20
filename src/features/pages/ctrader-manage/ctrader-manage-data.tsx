@@ -116,7 +116,7 @@ export const ctrader_manage_data: CtraderManageDataType = {
         button_url: {
             type: 'non-company',
             target: '_blank',
-            href: 'https://deriv-app-git-fork-hirad-deriv-ctrader-flow-new.binary.sx/account/cashier',
+            href: 'https://deriv-app-git-fork-hirad-deriv-ctrader-flow-new.binary.sx/account/cashier/account-transfer',
         },
     },
 }

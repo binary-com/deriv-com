@@ -214,7 +214,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                             content="_t_Earn a range of payouts without risking more than your initial stake._t_"
                                             title="_t_Options_t_"
                                             onClick={handleArrowClick}
-                                            to="/trade-types/options/"
+                                            to="/trade-types/options/digital-options/up-and-down/"
                                         />
                                     </Flex>
                                 )}

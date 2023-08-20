@@ -366,7 +366,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                                 content="_t_Earn a range of payouts without risking more than your initial stake._t_"
                                 title="_t_Options_t_"
                                 onClick={onClick}
-                                to="/trade-types/options/"
+                                to="/trade-types/options/digital-options/up-and-down/"
                             />
                         )}
                         <NavCard

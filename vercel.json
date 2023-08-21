@@ -1,0 +1,6 @@
+{
+    "cron": {
+      "0 * * * *": "node scripts/delete-old-previews.js" 
+    }
+}
+  

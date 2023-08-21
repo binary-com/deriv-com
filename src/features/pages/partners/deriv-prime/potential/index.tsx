@@ -23,7 +23,7 @@ const Potential = () => (
             direction="col-reverse"
             md={{ direction: 'row', padding_block: '20x' }}
         >
-            <Flex.Box basis="2-5" wrap="wrap" gap="8x" grow="1">
+            <Flex.Box basis="2-5" wrap="wrap" gap="4x" md={{ gap: '8x' }} grow="1">
                 {box_data.map((item) => {
                     return (
                         <ShadowBox

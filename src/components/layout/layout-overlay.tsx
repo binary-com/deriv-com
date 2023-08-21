@@ -14,6 +14,7 @@ const OverlayContainer = styled.div<{ is_rtl: boolean }>`
     inset: 0;
     z-index: 999;
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
     align-items: ${({ is_rtl }) => (is_rtl ? 'flex-start' : 'flex-end')};
 `

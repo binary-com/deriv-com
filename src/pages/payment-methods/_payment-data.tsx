@@ -75,6 +75,7 @@ type PaymentType = {
     locales?: string[]
     url?: string
     reference_link?: ReactElement
+    minimum_deposit?: number | ReactElement
     minimum_withdrawal?: number | ReactElement
 }
 
@@ -623,7 +624,7 @@ const payment_data: PaymentDataProps[] = [
                 name: 'USDC',
             },
             {
-                method: <StyledIcon src={Tether} alt="Tether" />,
+                method: <StyledIcon src={Tether} alt="USDT Omni" />,
                 currencies: 'USDT',
                 min_max_deposit: '_t_No minimum_t_',
                 min_max_withdrawal: '_t_24.88_t_',
@@ -632,6 +633,28 @@ const payment_data: PaymentDataProps[] = [
                 description:
                     '_t_Deposit and withdraw in Tether, a cryptocurrency that’s pegged to fiat currencies._t_',
                 name: 'UST',
+            },
+            {
+                method: <StyledIcon src={Tether} alt="USDT erc20" />,
+                currencies: 'eUSDT',
+                min_max_deposit: '_t_No minimum_t_',
+                min_max_withdrawal: '_t_24.88_t_',
+                deposit_time: '_t_Funds available as soon as confirmed_t_',
+                withdrawal_time: '_t_Subject to internal checks_t_',
+                description:
+                    '_t_Deposit and withdraw in Tether, a cryptocurrency that’s pegged to fiat currencies._t_',
+                name: 'eUSDT',
+            },
+            {
+                method: <StyledIcon src={Tether} alt="USDT trc20" />,
+                currencies: 'tUSDT',
+                min_max_deposit: '_t_No minimum_t_',
+                min_max_withdrawal: '_t_24.88_t_',
+                deposit_time: '_t_Funds available as soon as confirmed_t_',
+                withdrawal_time: '_t_Subject to internal checks_t_',
+                description:
+                    '_t_Deposit and withdraw in Tether, a cryptocurrency that’s pegged to fiat currencies._t_',
+                name: 'tUSDT',
             },
         ],
     },

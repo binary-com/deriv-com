@@ -143,14 +143,20 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                     </StyleCurrencyText>
                 </Td>
                 <Td>
-                    {payment_data?.min_max_deposit && (
-                        <LtrText is_rtl={is_rtl}>
-                            <Localize
-                                translate_text={payment_data.min_max_deposit}
-                                components={payment_data.min_max_deposit_components}
-                            />
-                        </LtrText>
-                    )}
+                    <>
+                        {payment_data?.minimum_deposit ? (
+                            <LtrText is_rtl={is_rtl}>{payment_data?.minimum_deposit}</LtrText>
+                        ) : (
+                            payment_data?.min_max_deposit && (
+                                <LtrText is_rtl={is_rtl}>
+                                    <Localize
+                                        translate_text={payment_data.min_max_deposit}
+                                        components={payment_data.min_max_deposit_components}
+                                    />
+                                </LtrText>
+                            )
+                        )}
+                    </>
                 </Td>
                 {!is_fiat_onramp && (
                     <Td>

@@ -166,13 +166,19 @@ const MobileExpandedList = ({
                             )}
                         </StyledItemDiv>
                         <StyledKeyDiv>
-                            {payment_data?.min_max_deposit && (
+                            {payment_data.minimum_deposit ? (
                                 <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
-                                    <Localize
-                                        translate_text={payment_data.min_max_deposit}
-                                        components={payment_data.min_max_deposit_components}
-                                    />
+                                    {payment_data.minimum_deposit}
                                 </ValueText>
+                            ) : (
+                                payment_data?.min_max_deposit && (
+                                    <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
+                                        <Localize
+                                            translate_text={payment_data.min_max_deposit}
+                                            components={payment_data.min_max_deposit_components}
+                                        />
+                                    </ValueText>
+                                )
                             )}
                         </StyledKeyDiv>
                     </StyledRow>

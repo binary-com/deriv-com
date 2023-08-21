@@ -79,7 +79,6 @@ const BoldText = styled(Text)`
 const Notes = styled.div`
     position: absolute;
     width: 100%;
-    padding: 1.6rem;
     background: var(--color-grey-8);
     left: 0;
     bottom: 0;
@@ -358,10 +357,15 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
             </OuterDiv>
             {pd.note && (
                 <Notes>
-                    <Text weight="500" size="var(--text-size-xs)">
+                    <Typography.Paragraph
+                        size="small"
+                        weight="normal"
+                        padding_inline="16x"
+                        padding_block="8x"
+                    >
                         <Localize translate_text="_t_Note:_t_" />{' '}
                         <Localize translate_text={pd.note} />
-                    </Text>
+                    </Typography.Paragraph>
                 </Notes>
             )}
         </>

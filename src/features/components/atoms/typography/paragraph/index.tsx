@@ -1,10 +1,10 @@
 import React from 'react'
 import BaseTypography, { BaseTypographyProps } from '../base'
-import { TextTagOptions, TTextSize } from 'features/types'
+import { TypographyTagOptions, TTextSize } from 'features/types'
 import dclsx from 'features/utils/dclsx'
 import { generateTextSize } from 'features/styles/utils'
 
-interface ParagraphProps extends BaseTypographyProps<TextTagOptions> {
+interface ParagraphProps extends BaseTypographyProps<TypographyTagOptions> {
     size?: TTextSize
 }
 

@@ -25,7 +25,7 @@ import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
 import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import DerivLife from 'images/svg/menu/deriv-life.svg'
-import DBot from 'images/svg/dbot/dbot-icon.svg'
+import { DbotIcon } from 'images/svg/dbot'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
 import API from 'images/svg/menu/developers.svg'
 import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
@@ -358,7 +358,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         aria_label="DBot"
                                         Icon={() => (
                                             <img
-                                                src={DBot}
+                                                src={DbotIcon}
                                                 alt={localize('_t_Dbot for auto trading_t_')}
                                                 width="32"
                                                 height="32"

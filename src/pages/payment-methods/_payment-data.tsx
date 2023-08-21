@@ -624,8 +624,8 @@ const payment_data: PaymentDataProps[] = [
                 name: 'USDC',
             },
             {
-                method: <StyledIcon src={Tether} alt="USDT Omni" />,
-                currencies: 'USDT',
+                method: <StyledIcon src={Tether} alt="Tether Omni (USDT)" />,
+                currencies: 'Tether Omni (USDT)',
                 min_max_deposit: '_t_No minimum_t_',
                 min_max_withdrawal: '_t_24.88_t_',
                 deposit_time: '_t_Funds available as soon as confirmed_t_',
@@ -635,8 +635,8 @@ const payment_data: PaymentDataProps[] = [
                 name: 'UST',
             },
             {
-                method: <StyledIcon src={Tether} alt="USDT erc20" />,
-                currencies: 'eUSDT',
+                method: <StyledIcon src={Tether} alt="Tether ERC20 (eUSDT)" />,
+                currencies: 'Tether ERC20 (eUSDT)',
                 min_max_deposit: '_t_No minimum_t_',
                 min_max_withdrawal: '_t_24.88_t_',
                 deposit_time: '_t_Funds available as soon as confirmed_t_',
@@ -646,8 +646,8 @@ const payment_data: PaymentDataProps[] = [
                 name: 'eUSDT',
             },
             {
-                method: <StyledIcon src={Tether} alt="USDT trc20" />,
-                currencies: 'tUSDT',
+                method: <StyledIcon src={Tether} alt="Tether TRC20 (tUSDT)" />,
+                currencies: 'Tether TRC20 (tUSDT)',
                 min_max_deposit: '_t_No minimum_t_',
                 min_max_withdrawal: '_t_24.88_t_',
                 deposit_time: '_t_Funds available as soon as confirmed_t_',

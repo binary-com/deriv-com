@@ -12,8 +12,7 @@ const MeetUsThere = () => {
             container={'fluid'}
             direction={'col'}
             padding_inline={'4x'}
-            pt={'20x'}
-            md={{ padding_inline: '0x', padding_block: '40x' }}
+            md={{ padding_inline: '0x' }}
         >
             <FlexBox.Box
                 direction={'col'}

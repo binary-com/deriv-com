@@ -160,7 +160,7 @@ const platformSliderItems: SmartPlatformItem[] = [
                 is_eu ? (
                     <StaticImage
                         objectFit="contain"
-                        src="../../../../images/common/home/rebranding/platform_deriv_trader.png"
+                        src="../../../../images/common/home/rebranding/platform_deriv_trader_eu.png"
                         alt="deriv trader"
                         formats={['avif', 'webp', 'auto']}
                         placeholder="none"

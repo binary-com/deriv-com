@@ -1,6 +1,5 @@
 {
-    "cron": {
-      "0 * * * *": "node scripts/delete-old-previews.js" 
+    "crons": {
+      "10 5 * * 0": "node scripts/delete-old-previews.js" 
     }
 }
-  

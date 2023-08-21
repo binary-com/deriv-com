@@ -55,7 +55,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
             const stocks = rawMarketsData['stk']
             const indices = rawMarketsData['ind']
             const stocks_indices = { ...stocks, ...indices }
-            const res = { ...rawMarketsData, indices: stocks_indices }
+            const res = { ...rawMarketsData, ind: stocks_indices }
 
             if (res[selected_market]) {
                 return Object.values(res[selected_market])

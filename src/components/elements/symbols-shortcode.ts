@@ -58,7 +58,7 @@ import DELHAG from 'images/svg/symbols/markets-stocks-and-indices/american-stock
 import DEPSHG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-porsche.svg'
 import DEPUMG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-puma.svg'
 import USAAL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-american-airlines-group-inc.svg'
-import USAAPL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-apple.svg'
+import AAPL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-apple.svg'
 import USABNB from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-airbnb.svg'
 import USAIG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-american-international-group.svg'
 import USAMD from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-amd.svg'
@@ -71,7 +71,7 @@ import USC from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/s
 import USCRM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-salesforce-com-inc.svg'
 import USCSCO from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-cisco-systems.svg'
 import USDAL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-delta-air-lines.svg'
-import USDIS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-walt-disney-company.svg'
+import DIS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-walt-disney-company.svg'
 import USEBAY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-e-bay-inc.svg'
 import USFB from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-facebook-inc.svg'
 import USFDX from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-fedex.svg'
@@ -99,7 +99,7 @@ import USPG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/
 import USPYPL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-paypal.svg'
 import USSONY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-sony.svg'
 import USTEVA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-teva-pharmaceutical-inds.svg'
-import USTSLMTR from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-tesla-inc.svg'
+import TSLA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-tesla-inc.svg'
 import USUBER from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-uber-technologies-inc.svg'
 import USVISA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-visa.svg'
 import USWMT from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-wal-mart-stores-inc.svg'
@@ -247,7 +247,7 @@ export {
     DEPSHG,
     DEPUMG,
     USAAL,
-    USAAPL,
+    AAPL,
     USABNB,
     USAIG,
     USAMD,
@@ -260,7 +260,7 @@ export {
     USCRM,
     USCSCO,
     USDAL,
-    USDIS,
+    DIS,
     USEBAY,
     USFB,
     USFDX,
@@ -288,7 +288,7 @@ export {
     USPYPL,
     USSONY,
     USTEVA,
-    USTSLMTR,
+    TSLA,
     USUBER,
     USVISA,
     USWMT,

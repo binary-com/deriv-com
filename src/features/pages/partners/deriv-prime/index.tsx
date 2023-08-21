@@ -1,5 +1,7 @@
 import React from 'react'
 import PrimeNumbers from './numbers'
+import MeetUsThere from './meet-us-there'
+import ConnectivityReliabilityType from './connectivity-reliability'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
 import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
@@ -14,10 +16,13 @@ const DerivPrime = () => {
                 title="_t_Liquidity solutions provider | Deriv Prime_t_"
             />
             <PaymentAgentAffiliateNav />
-            */remove the flex box before merging its only for test/*
             <Flex.Box pt="40x" mt="40x">
                 <PrimeNumbers />
             </Flex.Box>
+            <Flex.Box pt="40x" mt="40x">
+                <ConnectivityReliabilityType />
+            </Flex.Box>
+            <MeetUsThere />
             <Footer />
         </Layout>
     )

@@ -1,5 +1,6 @@
 import React from 'react'
 import Potential from './potential'
+import ConnectivityReliabilityType from './connectivity-reliability'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
 import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
@@ -17,6 +18,7 @@ const DerivPrime = () => {
             <Flex.Box pt="40x" mt="40x">
                 <Potential />
             </Flex.Box>
+            <ConnectivityReliabilityType />
             <Footer />
         </Layout>
     )

@@ -5,6 +5,7 @@ import { Localize, localize } from 'components/localization'
 import LinkButton from 'features/components/atoms/link-button'
 import Typography from 'features/components/atoms/typography'
 import Flex from 'features/components/atoms/flex-box'
+import dclsx from 'features/utils/dclsx'
 
 const Hero = () => {
     return (
@@ -13,19 +14,32 @@ const Hero = () => {
             container="fixed"
             as="section"
             align="center"
-            pt="39x"
             className={hero_wrapper}
         >
             <div className={hero_img}>
                 <StaticImage
-                    src="../../../../../images/common/deriv-prime/hero.png"
+                    src="../../../../../images/common/deriv-prime/hero-desktop.png"
                     alt={localize(
                         '_t_A professional trader searching for a liquidity solutions provider_t_',
                     )}
                     layout="fullWidth"
                     loading="eager"
                     placeholder="blurred"
+                    formats={['avif', 'webp', 'auto']}
                     style={{ height: '100%' }}
+                    className={dclsx('visible-larger-than-tablet')}
+                />
+                <StaticImage
+                    src="../../../../../images/common/deriv-prime/hero-mobile.png"
+                    alt={localize(
+                        '_t_A professional trader searching for a liquidity solutions provider_t_',
+                    )}
+                    layout="fullWidth"
+                    loading="eager"
+                    placeholder="blurred"
+                    formats={['avif', 'webp', 'auto']}
+                    style={{ height: '100%' }}
+                    className={dclsx('visible-phone-and-tablet')}
                 />
             </div>
             <Flex.Box

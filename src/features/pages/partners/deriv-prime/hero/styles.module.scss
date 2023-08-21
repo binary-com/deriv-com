@@ -3,11 +3,13 @@
 
 
 .hero_wrapper {
-    min-block-size: 67rem;
+    min-block-size: 57.6rem;
     position: relative;
     isolation: isolate;
+    margin-block-start: 10.4rem;
     @include breakpoints(tablet){
-        min-block-size: 76.4rem;
+        min-block-size: 66.1rem;
+        margin-block-start: 10.6rem;
     }
 }
 .container {

@@ -1,4 +1,5 @@
 import React from 'react'
+import MeetUsThere from './meet-us-there'
 import ConnectivityReliabilityType from './connectivity-reliability'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
@@ -17,7 +18,7 @@ const DerivPrime = () => {
             <Flex.Box pt="40x" mt="40x">
                 <ConnectivityReliabilityType />
             </Flex.Box>
-
+            <MeetUsThere />
             <Footer />
         </Layout>
     )

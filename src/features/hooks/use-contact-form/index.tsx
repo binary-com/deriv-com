@@ -3,6 +3,8 @@ import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { validation_regex } from 'common/validation'
+import { trimObjectValues } from 'common/utility'
+import { contact_us_form_post_data } from 'common/constants'
 
 const schema = yup.object({
     email: yup
@@ -16,12 +18,17 @@ const schema = yup.object({
 })
 
 type FormDataType = yup.InferType<typeof schema>
-type FormStateType = { is_loading_form: boolean; is_submitted: boolean }
+type FormStateType = {
+    is_loading_form: boolean
+    is_submitted: boolean
+    is_submission_fail: boolean
+}
 
 const useContactForm = () => {
     const [form_state, setFormState] = useState<FormStateType>({
         is_loading_form: false,
         is_submitted: false,
+        is_submission_fail: false,
     })
     const contact_us_form = useForm<FormDataType>({
         mode: 'onChange',
@@ -29,28 +36,28 @@ const useContactForm = () => {
     })
 
     const on_submit = async (data) => {
-        setFormState({ ...form_state, is_loading_form: true })
+        setFormState({ ...form_state, is_loading_form: true, is_submission_fail: false })
         try {
-            const response = await fetch('https://formkeep.com/f/7f4b8b55f10f', {
+            const clean_data = trimObjectValues(data)
+            const response = await fetch(contact_us_form_post_data, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(clean_data),
             })
 
             if (response.ok) {
-                const responseText = await response.text()
-                console.log('Form submitted successfully:', responseText, response)
-                setFormState({ is_submitted: true, is_loading_form: false })
+                setFormState({
+                    is_submitted: true,
+                    is_loading_form: false,
+                    is_submission_fail: false,
+                })
             } else {
-                console.error('Form submission error:', response.status)
-                // Handle errors here based on the response status
-                setFormState({ ...form_state, is_loading_form: false })
+                setFormState({ ...form_state, is_loading_form: false, is_submission_fail: true })
             }
         } catch (error) {
-            console.error('Form submission error:', error)
-            setFormState({ ...form_state, is_loading_form: false })
+            setFormState({ ...form_state, is_loading_form: false, is_submission_fail: true })
         }
     }
 

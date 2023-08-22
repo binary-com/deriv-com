@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { get_in_touch_form_container, get_in_touch_form } from './get-in-touch.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
@@ -19,7 +19,32 @@ const ContactFormGetInTouch = () => {
         setValue,
         handleSubmit,
     } = contact_us_form
-    const values = watch()
+
+    const get_form_bottom_message = useMemo(() => {
+        const { is_submission_fail, is_submitted } = form_state
+
+        if (!is_submission_fail && !is_submitted) {
+            return (
+                <Typography.Paragraph size="xs" textcolor="gray-shade">
+                    <Localize translate_text='_t_By clicking "Submit", you give your consent to be contacted by Deriv by email and telephone for marketing purposes._t_' />
+                </Typography.Paragraph>
+            )
+        }
+
+        if (is_submitted) {
+            return (
+                <Typography.Paragraph size="xs" textcolor="black">
+                    <Localize translate_text="_t_Thank you for submitting your details. Our team will be in touch with you soon._t_" />
+                </Typography.Paragraph>
+            )
+        }
+
+        return (
+            <Typography.Paragraph size="xs" textcolor="brand">
+                <Localize translate_text="_t_Form submission fail. Please try again!_t_" />
+            </Typography.Paragraph>
+        )
+    }, [form_state])
 
     return (
         <Flex.Box direction="col" basis="5-12" className={get_in_touch_form_container}>
@@ -115,17 +140,7 @@ const ContactFormGetInTouch = () => {
                             </Button.Primary>
                         </Flex.Item>
                     </Flex.Box>
-                    <Flex.Item>
-                        {form_state.is_submitted ? (
-                            <Typography.Paragraph size="xs" textcolor="black">
-                                <Localize translate_text="_t_Thank you for submitting your details. Our team will be in touch with you soon._t_" />
-                            </Typography.Paragraph>
-                        ) : (
-                            <Typography.Paragraph size="xs" textcolor="gray-shade">
-                                <Localize translate_text='_t_ By clicking "Submit", you give your consent to be contacted by Deriv by email and telephone for marketing purposes._t_' />
-                            </Typography.Paragraph>
-                        )}
-                    </Flex.Item>
+                    <Flex.Item>{get_form_bottom_message}</Flex.Item>
                 </Flex.Box>
             </Flex.Box>
         </Flex.Box>

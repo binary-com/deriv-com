@@ -20,7 +20,9 @@ const TableRow = <T, K extends keyof T>({ data, columns }: TableRowProps<T, K>) 
                                 'typography-align-center',
                                 'typography-font-UBUNTU',
                                 'text-small',
-                                'padding-block-6x',
+                                'padding-block-4x',
+                                'padding-inline-10x',
+                                'md-padding-block-6x',
                             )}
                         >
                             {row[col.accessor]}

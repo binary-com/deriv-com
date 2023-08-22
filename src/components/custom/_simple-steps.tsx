@@ -7,6 +7,7 @@ import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { TString } from 'types/generics'
 import { Localize } from 'components/localization'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 type TContent = {
     header?: TString
@@ -107,6 +108,7 @@ const LinkButtonWrapper = styled(Flex)`
 
 const SimpleSteps = ({ header, content }: SimpleStepsProps) => {
     const handleSignup = useHandleSignup()
+    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <StyledSection>
@@ -134,9 +136,11 @@ const SimpleSteps = ({ header, content }: SimpleStepsProps) => {
                     )
                 })}
             </StyledFlex>
-            <LinkButtonWrapper>
-                <Button label="_t_Sign up now_t_" onClick={handleSignup} primary />
-            </LinkButtonWrapper>
+            {!is_deriv_go ? (
+                <LinkButtonWrapper>
+                    <Button label="_t_Sign up now_t_" onClick={handleSignup} primary />
+                </LinkButtonWrapper>
+            ) : null}
         </StyledSection>
     )
 }

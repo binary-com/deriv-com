@@ -18,7 +18,7 @@ import Contact from 'images/svg/menu/contact.svg'
 import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
 import { DerivEzLogoRed } from 'images/svg/deriv-ez'
-import DBot from 'images/svg/dbot/dbot-icon.svg'
+import { DbotIcon } from 'images/svg/dbot'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
@@ -164,7 +164,7 @@ export const BotCard = ({ is_selected, word_break_cover }: CardProps) => (
             title="_t_DBot_t_"
             Icon={() => (
                 <StyledDbot
-                    src={DBot}
+                    src={DbotIcon}
                     width="72"
                     height="72"
                     alt={localize('_t_Dbot for auto trading_t_')}
@@ -366,7 +366,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                                 content="_t_Earn a range of payouts without risking more than your initial stake._t_"
                                 title="_t_Options_t_"
                                 onClick={onClick}
-                                to="/trade-types/options/"
+                                to="/trade-types/options/digital-options/up-and-down/"
                             />
                         )}
                         <NavCard
@@ -484,7 +484,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                             aria_label="DBot"
                             Icon={() => (
                                 <img
-                                    src={DBot}
+                                    src={DbotIcon}
                                     alt={localize('_t_Dbot for auto trading_t_')}
                                     width="32"
                                     height="32"

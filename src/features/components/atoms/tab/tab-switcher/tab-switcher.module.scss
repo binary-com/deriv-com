@@ -1,12 +1,13 @@
 .tab_switcher {
-  &_active {
-    font-weight: bold;
-    border-radius: 4px 0px 0px 4px;
-    box-shadow: 0px 24px 48px rgba(14, 14, 14, 0.18);
-  }
-  &_unactive {
-    font-weight: normal;
-    border-radius: 0px 4px 4px 0px;
-  }
+    &_active {
+        font-weight: bold;
+        border-radius: 4px 0px 0px 4px;
+        box-shadow: 0px 24px 48px rgba(14, 14, 14, 0.18);
+        transition: box-shadow 0.1s ease-out;
+    }
+    &_unactive {
+        font-weight: normal;
+        border-radius: 0px 4px 4px 0px;
+        transition: border-radius 0.1s ease-out;
+    }
 }
-

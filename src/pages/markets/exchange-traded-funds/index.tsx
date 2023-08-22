@@ -1,29 +1,16 @@
 import React from 'react'
-import Layout from 'features/components/templates/layout'
 import { WithIntl } from 'components/localization'
-import { SEO } from 'components/containers'
-import MarketNav from 'features/components/templates/navigation/market-nav'
 import ETFMarket from 'features/pages/markets/etf'
-import SignupPublic from 'features/components/templates/signup/with-banner'
 import useRegion from 'components/hooks/use-region'
 import PageNotFound from 'features/pages/404'
 
-const StocksAndIndicesPage = () => {
+const ETFMarketPage = () => {
     const { is_row } = useRegion()
+    if (is_row) {
+        return <ETFMarket />
+    }
 
-    return is_row ? (
-        <Layout>
-            <SEO
-                description="_t_Trade ETFs on Deriv and diversify your portfolio with assets that track bonds, commodities, and indices, without needing to own the underlying assets._t_"
-                title="_t_Exchange-traded funds | ETF trading | Deriv_t_"
-            />
-            <MarketNav />
-            <ETFMarket />
-            <SignupPublic />
-        </Layout>
-    ) : (
-        <PageNotFound />
-    )
+    return <PageNotFound />
 }
 
-export default WithIntl()(StocksAndIndicesPage)
+export default WithIntl()(ETFMarketPage)

@@ -36,7 +36,7 @@ const useContactForm = () => {
     })
 
     const on_submit = async (data) => {
-        setFormState({ ...form_state, is_loading_form: true, is_submission_fail: false })
+        setFormState({ is_loading_form: true, is_submission_fail: false, is_submitted: false })
         try {
             const clean_data = trimObjectValues(data)
             const response = await fetch(contact_us_form_post_data, {

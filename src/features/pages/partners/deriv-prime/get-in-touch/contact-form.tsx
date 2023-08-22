@@ -7,6 +7,7 @@ import Button from 'features/components/atoms/button'
 import Input from 'features/components/atoms/input'
 import { TString } from 'types/generics'
 import useContactForm from 'features/hooks/use-contact-form'
+import { TTypographyColor } from 'features/types'
 
 const ContactFormGetInTouch = () => {
     const { contact_us_form, on_submit, form_state } = useContactForm()
@@ -14,7 +15,6 @@ const ContactFormGetInTouch = () => {
     const {
         register,
         formState: { errors },
-        watch,
         clearErrors,
         setValue,
         handleSubmit,
@@ -22,28 +22,20 @@ const ContactFormGetInTouch = () => {
 
     const get_form_bottom_message = useMemo(() => {
         const { is_submission_fail, is_submitted } = form_state
-
-        if (!is_submission_fail && !is_submitted) {
-            return (
-                <Typography.Paragraph size="xs" textcolor="gray-shade">
-                    <Localize translate_text='_t_By clicking "Submit", you give your consent to be contacted by Deriv by email and telephone for marketing purposes._t_' />
-                </Typography.Paragraph>
-            )
-        }
-
-        if (is_submitted) {
-            return (
-                <Typography.Paragraph size="xs" textcolor="black">
-                    <Localize translate_text="_t_Thank you for submitting your details. Our team will be in touch with you soon._t_" />
-                </Typography.Paragraph>
-            )
-        }
-
-        return (
-            <Typography.Paragraph size="xs" textcolor="brand">
-                <Localize translate_text="_t_Form submission fail. Please try again!_t_" />
-            </Typography.Paragraph>
-        )
+        let text_values: { color: TTypographyColor; text: TString }
+        if (!is_submission_fail && !is_submitted)
+            text_values = {
+                color: 'gray-shade',
+                text: '_t_By clicking "Submit", you give your consent to be contacted by Deriv by email and telephone for marketing purposes._t_',
+            }
+        if (is_submitted)
+            text_values = {
+                color: 'black',
+                text: '_t_Thank you for submitting your details. Our team will be in touch with you soon._t_',
+            }
+        if (is_submission_fail)
+            text_values = { color: 'brand', text: '_t_Form submission fail. Please try again!_t_' }
+        return text_values
     }, [form_state])
 
     return (
@@ -140,7 +132,11 @@ const ContactFormGetInTouch = () => {
                             </Button.Primary>
                         </Flex.Item>
                     </Flex.Box>
-                    <Flex.Item>{get_form_bottom_message}</Flex.Item>
+                    <Flex.Item>
+                        <Typography.Paragraph size="xs" textcolor={get_form_bottom_message?.color}>
+                            <Localize translate_text={get_form_bottom_message?.text} />
+                        </Typography.Paragraph>
+                    </Flex.Item>
                 </Flex.Box>
             </Flex.Box>
         </Flex.Box>

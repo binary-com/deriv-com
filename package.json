@@ -112,6 +112,7 @@
         "babel-jest": "^29.5.0",
         "babel-plugin-styled-components": "^2.0.2",
         "babel-preset-gatsby": "^2.25.0",
+        "cypress": "^12.17.4",
         "eslint": "^7.32.0",
         "eslint-loader": "^4.0.2",
         "eslint-plugin-deprecation": "^1.3.2",
@@ -183,7 +184,8 @@
         "storybook": "start-storybook -p 6006",
         "build:storybook": "build-storybook -c .storybook -o public/storybook",
         "codegen": "graphql-codegen --config codegen.yml",
-        "codegen:watch": "graphql-codegen --config codegen.yml --watch"
+        "codegen:watch": "graphql-codegen --config codegen.yml --watch",
+        "cypress:open": "cypress open"
     },
     "repository": {
         "type": "git",

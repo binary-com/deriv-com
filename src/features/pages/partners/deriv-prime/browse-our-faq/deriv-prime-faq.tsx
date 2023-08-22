@@ -22,7 +22,13 @@ const DerivPrimeFaq = ({ faqs, subsection }: DerivPrimeFaqProps) => {
             pb="20x"
             md={{ pb: '40x' }}
         >
-            <Typography.Paragraph pb="12x" align="center" weight="normal" size="xlarge">
+            <Typography.Paragraph
+                pb="12x"
+                align="center"
+                font_family="UBUNTU"
+                weight="normal"
+                size="xlarge"
+            >
                 <Localize translate_text={subsection} />
             </Typography.Paragraph>
             <Accordion.Root type="multiple">

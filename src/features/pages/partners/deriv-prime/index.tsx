@@ -18,9 +18,7 @@ const DerivPrime = () => {
             />
             <PaymentAgentAffiliateNav />
             <WhyDerivPrime />
-            <Flex.Box pt="40x" mt="40x">
-                <ConnectivityReliabilityType />
-            </Flex.Box>
+            <ConnectivityReliabilityType />
             <AvailableInstruments />
             <PrimeNumbers />
             <ConnectivityReliabilityType />

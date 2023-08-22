@@ -153,7 +153,7 @@ const InputGroup = styled.div`
         margin-bottom: 20px;
     }
 `
-const EmailButton = styled(Button) <{ isChecked?: boolean }>`
+const EmailButton = styled(Button)<{ isChecked?: boolean }>`
     min-width: 125px;
     height: 40px;
     padding: 10px;
@@ -205,7 +205,7 @@ const SocialButton = styled(Button)`
         margin: 0 0.6rem;
     }
 `
-const StyledHeader = styled(Header) <{ position?: string }>`
+const StyledHeader = styled(Header)<{ position?: string }>`
     position: ${(props) => props.position || 'static'};
     width: auto;
 
@@ -332,11 +332,11 @@ const MobilePlatform = styled.div<{ is_rtl: boolean }>`
             width: 85%;
             top: 28px;
             ${({ is_rtl }) =>
-        is_rtl
-            ? css`
+                is_rtl
+                    ? css`
                           left: 0px !important;
                       `
-            : css`
+                    : css`
                           left: 20px !important;
                       `}
         }

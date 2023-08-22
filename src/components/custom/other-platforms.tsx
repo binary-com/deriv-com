@@ -17,7 +17,7 @@ import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
 import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
-import DerivEZ from 'images/svg/deriv-ez/deriv-ez-logo-red.svg'
+import { DerivEzLogoRed } from 'images/svg/deriv-ez'
 import { DbotIcon } from 'images/svg/dbot'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
@@ -427,7 +427,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                             aria_label="Derivez"
                             Icon={() => (
                                 <img
-                                    src={DerivEZ}
+                                    src={DerivEzLogoRed}
                                     alt={localize('_t_Deriv EZ trading paltform_t_')}
                                     width="32"
                                     height="32"

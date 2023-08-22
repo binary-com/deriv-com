@@ -24,7 +24,6 @@ const DerivPrime = () => {
             <ConnectivityReliabilityType />
             <AvailableInstruments />
             <PrimeNumbers />
-            <ConnectivityReliabilityType />
             <MeetUsThere />
             <BrowseOurFaq />
             <Footer />

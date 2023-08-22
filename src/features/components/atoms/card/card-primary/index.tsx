@@ -4,13 +4,22 @@ import Flex from '../../flex-box'
 import Link from '../../link'
 import { FlexBoxProps } from '../../flex-box/box'
 import { CardType } from '../type'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 
 export interface CardPrimaryProps extends FlexBoxProps<'div'>, CardType {}
 
-const CardPrimary = ({ header, description, icon, link, className, ...rest }: CardPrimaryProps) => {
+const CardPrimary = ({
+    header,
+    description,
+    icon,
+    alt_icon,
+    link,
+    className,
+    is_coming_soon = false,
+    ...rest
+}: CardPrimaryProps) => {
     const { is_mobile_or_tablet } = useBreakpoints()
 
     return (
@@ -23,21 +32,27 @@ const CardPrimary = ({ header, description, icon, link, className, ...rest }: Ca
             radius="8x"
             {...rest}
         >
-            <Flex.Item className={dclsx('item_block')}>
+            {is_coming_soon && (
+                <Flex.Box className={dclsx('coming_soon_wrapper')} justify="center" align="center">
+                    <Typography.Paragraph size={'xxs'} weight="bold" textcolor="black">
+                        <Localize translate_text={'_t_Coming soon_t_'} />
+                    </Typography.Paragraph>
+                </Flex.Box>
+            )}
+            <Flex.Item className={dclsx(link && 'item_block')}>
                 {icon && (
                     <Flex.Box pb="11x" lg={{ pb: '8x' }}>
-                        <img src={icon} width={44} height={44} />
+                        <img
+                            src={icon}
+                            width={44}
+                            height={44}
+                            alt={alt_icon ? localize(alt_icon) : ''}
+                        />
                     </Flex.Box>
                 )}
-                <Typography.Paragraph
-                    as="p"
-                    size={is_mobile_or_tablet ? 'large' : 'medium'}
-                    pb="4x"
-                    weight="bold"
-                    font_family="UBUNTU"
-                >
+                <Typography.Heading as="h3" size="xxs" pb="4x" weight="bold">
                     <Localize translate_text={header} />
-                </Typography.Paragraph>
+                </Typography.Heading>
                 <Typography.Paragraph size={is_mobile_or_tablet ? 'medium' : 'small'}>
                     <Localize translate_text={description} />
                 </Typography.Paragraph>

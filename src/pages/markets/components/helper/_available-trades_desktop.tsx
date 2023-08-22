@@ -9,6 +9,7 @@ import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { isBrowser } from 'common/utility'
 import { TString } from 'types/generics'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 type CardProps = {
     active_tab: string
@@ -207,6 +208,8 @@ const AvailableTradesDesktop = ({
         setTab(params.get('tab') || 'cfds')
     }, [params])
 
+    const { is_deriv_go } = usePlatformQueryParam()
+
     return (
         <StyledSection>
             <StyledHeader as="h2" size="var(--text-size-l)" align="center">
@@ -215,17 +218,31 @@ const AvailableTradesDesktop = ({
             <StyledContainer direction="column">
                 <CardWrapper position="relative" id="available-trades">
                     {CFDs && (
-                        <Link to="?tab=cfds#cfds">
+                        <Link
+                            to={is_deriv_go ? '?tab=cfds&platform=derivgo#cfds' : '?tab=cfds#cfds'}
+                        >
                             <Card name="CFDs" display_name="_t_CFDs_t_" active_tab={tab} />
                         </Link>
                     )}
                     {is_non_eu && DigitalOptions && (
-                        <Link to="?tab=options#options">
+                        <Link
+                            to={
+                                is_deriv_go
+                                    ? '?tab=options&platform=derivgo#options'
+                                    : '?tab=options#options'
+                            }
+                        >
                             <Card name="Options" display_name="_t_Options_t_" active_tab={tab} />
                         </Link>
                     )}
                     {Multipliers && (
-                        <Link to="?tab=multipliers#multipliers">
+                        <Link
+                            to={
+                                is_deriv_go
+                                    ? '?tab=multipliers&platform=derivgo#multipliers'
+                                    : '?tab=multipliers#multipliers'
+                            }
+                        >
                             <Card
                                 name="Multipliers"
                                 display_name="_t_Multipliers_t_"

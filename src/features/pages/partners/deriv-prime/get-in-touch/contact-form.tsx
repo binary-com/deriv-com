@@ -34,7 +34,10 @@ const ContactFormGetInTouch = () => {
                 text: '_t_Thank you for submitting your details. Our team will be in touch with you soon._t_',
             }
         if (is_submission_fail)
-            text_values = { color: 'brand', text: '_t_Form submission fail. Please try again!_t_' }
+            text_values = {
+                color: 'brand',
+                text: '_t_Form submission error. Please submit the form again._t_',
+            }
         return text_values
     }, [form_state])
 

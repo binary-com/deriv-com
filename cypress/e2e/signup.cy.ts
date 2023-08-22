@@ -1,4 +1,4 @@
-describe('Signup page', () => {
+describe('Signup page is functional for staging', () => {
   it('allows user to signup', () => {
     cy.visit(`https://staging.deriv.com/signup`)
     cy.get('input#email_address').type('test@example.com')

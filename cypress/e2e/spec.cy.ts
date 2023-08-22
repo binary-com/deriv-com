@@ -1,5 +1,5 @@
-describe('template spec', () => {
+describe('Homepage is working fine', () => {
   it('passes', () => {
-    cy.visit('https://example.cypress.io')
+    cy.visit('https://staging.deriv.com')
   })
 })

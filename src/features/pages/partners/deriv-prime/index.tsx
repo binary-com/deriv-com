@@ -1,4 +1,5 @@
 import React from 'react'
+import WhyDerivPrime from './why-deriv-prime'
 import PrimeNumbers from './numbers'
 import MeetUsThere from './meet-us-there'
 import ConnectivityReliabilityType from './connectivity-reliability'
@@ -16,6 +17,10 @@ const DerivPrime = () => {
                 title="_t_Liquidity solutions provider | Deriv Prime_t_"
             />
             <PaymentAgentAffiliateNav />
+            <WhyDerivPrime />
+            <Flex.Box pt="40x" mt="40x">
+                <ConnectivityReliabilityType />
+            </Flex.Box>
             <AvailableInstruments />
             <PrimeNumbers />
             <ConnectivityReliabilityType />

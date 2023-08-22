@@ -43,7 +43,7 @@ const Potential = () => (
                 <Box mt="8x">
                     <Typography.Paragraph
                         size="large"
-                        padding_block="8x"
+                        padding_block="6x"
                         md={{ padding_block: '12x' }}
                         className={dclsx(border_bottom)}
                     >
@@ -51,7 +51,7 @@ const Potential = () => (
                     </Typography.Paragraph>
                     <Typography.Paragraph
                         size="large"
-                        padding_block="8x"
+                        padding_block="6x"
                         md={{ padding_block: '12x' }}
                         className={dclsx(border_bottom)}
                     >
@@ -59,7 +59,7 @@ const Potential = () => (
                     </Typography.Paragraph>
                     <Typography.Paragraph
                         size="large"
-                        padding_block="8x"
+                        padding_block="6x"
                         md={{ padding_block: '12x' }}
                         className={dclsx(border_bottom)}
                     >
@@ -67,7 +67,7 @@ const Potential = () => (
                     </Typography.Paragraph>
                     <Typography.Paragraph
                         size="large"
-                        padding_block="8x"
+                        padding_block="6x"
                         md={{ padding_block: '12x' }}
                         className={dclsx(border_bottom)}
                     >
@@ -75,7 +75,7 @@ const Potential = () => (
                     </Typography.Paragraph>
                     <Typography.Paragraph
                         size="large"
-                        padding_block="8x"
+                        padding_block="6x"
                         md={{ padding_block: '12x' }}
                         className={dclsx(border_bottom)}
                     >
@@ -83,7 +83,7 @@ const Potential = () => (
                     </Typography.Paragraph>
                     <Typography.Paragraph
                         size="large"
-                        padding_block="8x"
+                        padding_block="6x"
                         md={{ padding_block: '12x' }}
                     >
                         <Localize translate_text="_t_Dedicated support for smooth operations_t_" />

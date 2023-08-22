@@ -19,7 +19,9 @@ const TableHeader = <T, K extends keyof T>({ columns }: TableHeaderProps<T, K>) 
                             'typography-font-UBUNTU',
                             'typography-weight-bold',
                             'text-small',
-                            'padding-block-6x',
+                            'padding-block-5x',
+                            'padding-inline-10x',
+                            'md-padding-block-6x',
                         )}
                     >
                         {col.header}

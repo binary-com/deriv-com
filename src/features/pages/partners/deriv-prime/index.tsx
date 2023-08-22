@@ -17,11 +17,10 @@ const DerivPrime = () => {
                 title="_t_Liquidity solutions provider | Deriv Prime_t_"
             />
             <PaymentAgentAffiliateNav />
-            <WhyDerivPrime />
-            <ConnectivityReliabilityType />
             <AvailableInstruments />
-            <PrimeNumbers />
             <ConnectivityReliabilityType />
+            <WhyDerivPrime />
+            <PrimeNumbers />
             <MeetUsThere />
             <Footer />
         </Layout>

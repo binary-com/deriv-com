@@ -1,6 +1,6 @@
 import React from 'react'
+import CommercialPlan from '../commercial-plan'
 import { DerivPrimeFAQDataItem } from './types'
-import Flex from 'features/components/atoms/flex-box'
 
 export const generalFAQData: DerivPrimeFAQDataItem[] = [
     {
@@ -119,11 +119,7 @@ export const tocFAQDAta: DerivPrimeFAQDataItem[] = [
             {
                 id: 8,
                 type: 'custom_component',
-                component: (
-                    <Flex.Box container="fluid" color="black">
-                        EEE
-                    </Flex.Box>
-                ),
+                component: <CommercialPlan is_in_faq />,
             },
         ],
     },

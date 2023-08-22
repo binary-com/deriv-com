@@ -1,5 +1,6 @@
 import React from 'react'
 import CommercialPlan from './commercial-plan'
+import BrowseOurFaq from './browse-our-faq'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
 import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
@@ -14,6 +15,7 @@ const DerivPrime = () => {
             />
             <PaymentAgentAffiliateNav />
             <CommercialPlan />
+            <BrowseOurFaq />
             <Footer />
         </Layout>
     )

@@ -49,18 +49,18 @@ const useContactForm = () => {
             // Validation and error messages for each field if user filled data with only white space
             const fieldsToValidate = ['full_name', 'mobile_number', 'company_name']
 
-            let hasValidationError = false
+            let has_validation_error = false
             fieldsToValidate.forEach((fieldName: FieldNameType) => {
                 if (!clean_data[fieldName]) {
                     contact_us_form.setError(fieldName, {
                         type: 'manual',
                         message: error_message[fieldName],
                     })
-                    hasValidationError = true
+                    has_validation_error = true
                 }
             })
 
-            if (hasValidationError) {
+            if (has_validation_error) {
                 setFormState({ ...form_state, is_loading_form: false })
                 return // Exit the function early
             }

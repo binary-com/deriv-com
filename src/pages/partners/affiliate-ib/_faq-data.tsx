@@ -148,12 +148,7 @@ const AffiliateAccountManagement = () => (
             <Localize
                 translate_text="_t_Don’t worry, you can easily <0>reset your password</0>._t_"
                 components={[
-                    <LocalizedLinkText
-                        to="https://login.deriv.com/password-reset.php"
-                        external
-                        target="_blank"
-                        key={0}
-                    />,
+                    <LocalizedLinkText to="https://login.deriv.com/password-reset.php" key={0} />,
                 ]}
             />
         </Header>

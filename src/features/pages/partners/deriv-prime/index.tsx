@@ -11,7 +11,6 @@ import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
 import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
 import Footer from 'features/components/templates/footer'
-import Flex from 'features/components/atoms/flex-box'
 
 const DerivPrime = () => {
     return (

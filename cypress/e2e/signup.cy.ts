@@ -1,5 +1,5 @@
 describe('Signup page is functional for staging', () => {
-  it('allows user to signup in deriv.com', () => {
+  it('allows user to signup at non-EU Website', () => {
     const url = Cypress.env('base_url') || 'https://staging.deriv.com';
     const email = Cypress.env('email')
     cy.visit(`${url}/signup`)
@@ -9,7 +9,7 @@ describe('Signup page is functional for staging', () => {
     cy.url().should('include', `/signup-success?email=${email}`) 
   })
 
-  it('allows user to signup in eu.deriv.com', () => {
+  it('allows user to signup at EU website', () => {
     const url = Cypress.env('base_url_eu') || 'https://staging-eu.deriv.com';
     const email = Cypress.env('email')
     cy.visit(`${url}/signup`)

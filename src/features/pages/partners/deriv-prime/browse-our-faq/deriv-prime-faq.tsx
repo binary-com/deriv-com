@@ -22,13 +22,7 @@ const DerivPrimeFaq = ({ faqs, subsection }: DerivPrimeFaqProps) => {
             pb="20x"
             md={{ pb: '40x' }}
         >
-            <Typography.Paragraph
-                pb="12x"
-                align="center"
-                font_family="UBUNTU"
-                weight="normal"
-                size="xlarge"
-            >
+            <Typography.Paragraph pb="12x" align="center" font_family="UBUNTU" size="xlarge">
                 <Localize translate_text={subsection} />
             </Typography.Paragraph>
             <Accordion.Root type="multiple">
@@ -75,7 +69,7 @@ const DerivPrimeFaq = ({ faqs, subsection }: DerivPrimeFaqProps) => {
                                                 ))}
                                         </ul>
                                     ) : answerItem.type === 'custom_component' ? (
-                                        <div>{answerItem.component}</div>
+                                        <Flex.Box>{answerItem.component}</Flex.Box>
                                     ) : null}
                                 </Flex.Box>
                             ))}

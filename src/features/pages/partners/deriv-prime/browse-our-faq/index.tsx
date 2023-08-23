@@ -1,5 +1,5 @@
 import React from 'react'
-import { generalFAQData, tocFAQDAta } from './data'
+import { general_faq_data, terms_cooperation_data } from './data'
 import DerivPrimeFaq from './deriv-prime-faq'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
@@ -18,8 +18,8 @@ const BrowseOurFaq = () => {
             >
                 <Localize translate_text="_t_Browse our FAQ_t_" />
             </Typography.Heading>
-            <DerivPrimeFaq faqs={generalFAQData} subsection="_t_General_t_" />
-            <DerivPrimeFaq faqs={tocFAQDAta} subsection="_t_Terms of cooperation_t_" />
+            <DerivPrimeFaq faqs={general_faq_data} subsection="_t_General_t_" />
+            <DerivPrimeFaq faqs={terms_cooperation_data} subsection="_t_Terms of cooperation_t_" />
         </>
     )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import CommercialPlan from '../commercial-plan'
 import { DerivPrimeFAQDataItem } from './types'
 
-export const generalFAQData: DerivPrimeFAQDataItem[] = [
+export const general_faq_data: DerivPrimeFAQDataItem[] = [
     {
         id: 1,
         question: '_t_Who is Deriv Prime?_t_',
@@ -76,7 +76,7 @@ export const generalFAQData: DerivPrimeFAQDataItem[] = [
     },
 ]
 
-export const tocFAQDAta: DerivPrimeFAQDataItem[] = [
+export const terms_cooperation_data: DerivPrimeFAQDataItem[] = [
     {
         id: 1,
         question: '_t_How does Deriv Prime’s liquidity solution pricing work?_t_',

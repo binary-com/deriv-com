@@ -4,9 +4,9 @@ import { TQuestions } from '../data/_data-types'
 import { Header } from 'components/elements'
 import device, { size } from 'themes/device'
 import { getWindowWidth, matchHashInURL, scrollTop, setHashInURL } from 'common/utility'
-import { Desktop } from 'components/containers/show'
 import { TString } from 'types/generics'
 import { Localize } from 'components/localization'
+import dclsx from 'features/utils/dclsx'
 
 interface ChildProps {
     label: string
@@ -69,7 +69,7 @@ const SideTab = ({ children, tab_header, data }: SideTabType) => {
 
     return (
         <Wrapper>
-            <Desktop>
+            <div className={dclsx('visible-larger-than-tablet')}>
                 <Header max_width="38.4rem" size="3.6rem" mb="4rem">
                     <Localize translate_text={tab_header} />
                 </Header>
@@ -91,7 +91,7 @@ const SideTab = ({ children, tab_header, data }: SideTabType) => {
                         )
                     })}
                 </Ol>
-            </Desktop>
+            </div>
 
             {show_content && (
                 <TabContent>

@@ -357,7 +357,7 @@ const StartTrader = () => {
                 ),
             },
             {
-                title: () => '_t_Create a real Deriv Multipliers account._t_',
+                title: () => '_t_Create a Deriv real money account_t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step2_mobile_eu' : 'real_step2_eu']}

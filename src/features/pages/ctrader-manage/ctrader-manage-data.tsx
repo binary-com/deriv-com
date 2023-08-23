@@ -110,7 +110,7 @@ export const ctrader_manage_data: CtraderManageDataType = {
     cashier: {
         title: '_t_Almost done_t_',
         paragraph: {
-            text: '_t_To manage your funds, please click the button bellow._t_',
+            text: '_t_To manage your funds, please click the button below._t_',
         },
         button_text: '_t_Go to Cashier_t_',
         button_url: {

@@ -1,6 +1,10 @@
 import React from 'react'
 import Potential from './potential'
+import WhyDerivPrime from './why-deriv-prime'
+import PrimeNumbers from './numbers'
+import MeetUsThere from './meet-us-there'
 import ConnectivityReliabilityType from './connectivity-reliability'
+import AvailableInstruments from './available-instruments'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
 import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
@@ -19,6 +23,11 @@ const DerivPrime = () => {
                 <Potential />
             </Flex.Box>
             <ConnectivityReliabilityType />
+            <AvailableInstruments />
+            <ConnectivityReliabilityType />
+            <WhyDerivPrime />
+            <PrimeNumbers />
+            <MeetUsThere />
             <Footer />
         </Layout>
     )

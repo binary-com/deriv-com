@@ -18,7 +18,7 @@ const Hero = () => {
         >
             <div className={hero_img}>
                 <StaticImage
-                    src="../../../../../images/common/deriv-prime/hero-desktop.png"
+                    src="../../../../../images/common/affiliate/partners-banner.png"
                     alt={localize(
                         '_t_A professional trader searching for a liquidity solutions provider_t_',
                     )}
@@ -27,6 +27,7 @@ const Hero = () => {
                     placeholder="blurred"
                     formats={['avif', 'webp', 'auto']}
                     style={{ height: '100%' }}
+                    objectPosition="center"
                     className={dclsx('visible-larger-than-tablet')}
                 />
                 <StaticImage

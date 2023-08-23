@@ -8,8 +8,8 @@
     isolation: isolate;
     margin-block-start: 10.4rem;
     @include breakpoints(tablet){
-        min-block-size: 66.1rem;
-        margin-block-start: 10.6rem;
+        min-block-size: 80rem;
+        margin-block-start: 10rem;
     }
 }
 .container {

@@ -1,5 +1,5 @@
 import React from 'react'
-import CommercialPlan from '../commercial-plan'
+import FAQCommercialPlan from './faq-commercial-plan'
 import { DerivPrimeFAQDataItem } from './types'
 
 export const general_faq_data: DerivPrimeFAQDataItem[] = [
@@ -119,7 +119,7 @@ export const terms_cooperation_data: DerivPrimeFAQDataItem[] = [
             {
                 id: 8,
                 type: 'custom_component',
-                component: <CommercialPlan is_in_faq />,
+                component: <FAQCommercialPlan />,
             },
         ],
     },

@@ -1,20 +1,4 @@
-@use 'features/styles/theme/theme-mixins' as *;
-
 .commercial_table {
     max-inline-size: 66.1rem;
     margin-inline: auto;
-}
-
-.commercial_table_faq {
-   max-inline-size: 54rem !important;
-   box-shadow: none !important;
-   padding: unset !important;
-}
-
-.container_faq{
-    margin-inline: auto !important;
-
-    @include breakpoints (phone){
-        margin-inline: unset !important;
-    }
 }

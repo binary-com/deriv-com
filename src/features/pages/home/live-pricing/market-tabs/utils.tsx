@@ -2,11 +2,13 @@ import { TMarketButtons } from '../types'
 import Forex from 'images/svg/home/ts_fx_icon.svg'
 import Derived from 'images/svg/home/ts_derived_icon.svg'
 import Stocks from 'images/svg/home/ts_stocks_icon.svg'
+import ETFS from 'images/svg/home/ts_etfs.svg'
 import Crypto from 'images/svg/home/ts_crypto_icon.svg'
 import Commodities from 'images/svg/home/ts_commodities_icon.svg'
 import SelectedForex from 'images/svg/home/selected_ts_fx_icon.svg'
 import SelectedDerived from 'images/svg/home/selected_ts_derived_icon.svg'
 import SelectedStocks from 'images/svg/home/selected_ts_stocks_icon.svg'
+import SelectedETFS from 'images/svg/home/selected_etfs.svg'
 import SelectedCrypto from 'images/svg/home/selected_ts_crypto_icon.svg'
 import SelectedCommodities from 'images/svg/home/selected_ts_commodities_icon.svg'
 
@@ -37,6 +39,15 @@ export const market_buttons: TMarketButtons[] = [
         market_description:
             '_t_Trade global stocks of your favourite household brands and international stock market indices on Deriv. Expand your trading opportunities with access to a wide range of stocks and indices at competitive prices, and the convenience to trade indices beyond standard market hours._t_',
         to: '/markets/stock/',
+    },
+    {
+        src: ETFS,
+        selected_src: SelectedETFS,
+        button_text: 'ETFs',
+        market_name: 'etfs',
+        market_description:
+            '_t_Diversify your portfolio with various assets, such as bonds, commodities, and indices, without the high cost of owning the underlying assets._t_',
+        to: '/markets/exchange-traded-funds/',
     },
     {
         src: Crypto,

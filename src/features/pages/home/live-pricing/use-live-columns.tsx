@@ -13,7 +13,6 @@ const useLiveColumns = () => {
     const { is_mobile } = useBreakpoints()
 
     const columns = useMemo(() => {
-        // let prevBid = 0
         return [
             liveMarketColumnHelper.accessor('code', {
                 header: () => (
@@ -30,7 +29,11 @@ const useLiveColumns = () => {
                 ),
                 cell: (info) => (
                     <Flex.Box>
-                        <SymbolIcon icon_src={info.getValue()} />
+                        {info.row.original.mkt !== 'etfs' ? (
+                            <SymbolIcon icon_src={info.getValue()} />
+                        ) : (
+                            <SymbolIcon icon_src="ETFSICON" />
+                        )}
                     </Flex.Box>
                 ),
             }),
@@ -58,29 +61,9 @@ const useLiveColumns = () => {
                     </Flex.Box>
                 ),
                 cell: (info) => {
-                    // let bid_color = 'gray'
-                    // if (prevBid > info.getValue()) {
-                    //     bid_color = 'red'
-                    // } else if (prevBid < info.getValue()) {
-                    //     bid_color = 'green'
-                    // } else {
-                    //     bid_color = 'gray'
-                    // }
-                    // console.log('use col ==>', bid_color)
-                    // console.log(
-                    //     'prevBid and newbid',
-                    //     prevBid,
-                    //     info.getValue(),
-                    //     typeof info.getValue(),
-                    // )
-                    // prevBid = info.getValue()
-
                     return (
                         <Flex.Box>
-                            <Typography.Paragraph
-                                size={is_mobile ? 'small' : 'medium'}
-                                // color={bid_color}
-                            >
+                            <Typography.Paragraph size={is_mobile ? 'small' : 'medium'}>
                                 {info.getValue()}
                             </Typography.Paragraph>
                         </Flex.Box>

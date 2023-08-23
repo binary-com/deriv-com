@@ -1,3 +1,5 @@
+// etfs
+import ETFSICON from 'images/svg/symbols/etf-usd-500.svg'
 //commodities
 import Vol_1HZ250V from 'images/svg/symbols/volatility_250_1s.svg'
 import Vol_1HZ150V from 'images/svg/symbols/volatility_150_1s.svg'
@@ -379,4 +381,5 @@ export {
     USDPLN,
     USDSEK,
     USDZAR,
+    ETFSICON,
 }

@@ -16,7 +16,7 @@ export type TMarketDataResponse = {
     req_id: number
 }
 
-export type TAvailableLiveMarkets = 'fx' | 'der' | 'ind' | 'cry' | 'com'
+export type TAvailableLiveMarkets = 'fx' | 'der' | 'ind' | 'cry' | 'com' | 'etfs'
 
 export type TMarketButtons = {
     src: string

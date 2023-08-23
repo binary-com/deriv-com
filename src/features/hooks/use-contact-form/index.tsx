@@ -7,7 +7,7 @@ import { trimObjectValues } from 'common/utility'
 import { contact_us_form_post_data } from 'common/constants'
 
 const error_message = {
-    mail: '_t_Email is required._t_',
+    email: '_t_Email is required._t_',
     full_name: '_t_Please enter your full name._t_',
     company_name: '_t_Please enter your company name._t_',
     mobile_number: '_t_Please enter your mobile number._t_',
@@ -17,9 +17,9 @@ const schema = yup.object({
     company_name: yup.string().required(error_message['company_name']),
     email: yup
         .string()
-        .required(error_message['mail'])
-        .matches(validation_regex.email, { message: error_message['mail'] })
-        .email(error_message['mail']),
+        .required(error_message['email'])
+        .matches(validation_regex.email, { message: error_message['email'] })
+        .email(error_message['email']),
     mobile_number: yup.string().required(error_message['mobile_number']),
 })
 
@@ -29,7 +29,7 @@ type FormStateType = {
     is_submitted: boolean
     is_submission_fail: boolean
 }
-type FieldNameType = 'full_name' | 'mobile_number' | 'company_name' | 'email'
+type FieldNameType = keyof typeof error_message
 
 const useContactForm = () => {
     const [form_state, setFormState] = useState<FormStateType>({

@@ -8,7 +8,6 @@ import { Header, LinkText, QueryImage, Text, ImageWithDireciton } from 'componen
 import { Localize, localize } from 'components/localization'
 import { Flex, Box, Container, Desktop, Mobile } from 'components/containers'
 import { deriv_app_url } from 'common/constants'
-import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 // SVG
 import Apple from 'images/svg/custom/apple.svg'
@@ -39,9 +38,6 @@ type SignupPublicProps = {
 const query = graphql`
     query {
         deriv_platform: file(relativePath: { eq: "sign-up/banner-phone.png" }) {
-            ...fadeIn
-        }
-        deriv_platform_eu: file(relativePath: { eq: "sign-up/banner-phone-eu.png" }) {
             ...fadeIn
         }
     }
@@ -378,7 +374,6 @@ const SignupPublic = ({
     is_submitting,
 }: SignupPublicProps) => {
     const data = useStaticQuery(query)
-    const { is_row, is_eu } = useRegion()
     const [is_checked, setChecked] = useState(false)
     const is_rtl = useIsRtl()
 
@@ -470,10 +465,7 @@ const SignupPublic = ({
                         </SignupFormWrapper>
                         <BackgroundWrapper direction="row" ai="center">
                             <QueryImage
-                                data={
-                                    (is_row && data['deriv_platform']) ||
-                                    (is_eu && data['deriv_platform_eu'])
-                                }
+                                data={data['deriv_platform']}
                                 alt={localize('_t_forex trading on mobile_t_')}
                                 width="255px"
                             />
@@ -508,10 +500,7 @@ const SignupPublic = ({
                         <MobileBackground>
                             <MobilePlatform is_rtl={is_rtl}>
                                 <QueryImage
-                                    data={
-                                        (is_row && data['deriv_platform']) ||
-                                        (is_eu && data['deriv_platform_eu'])
-                                    }
+                                    data={data['deriv_platform']}
                                     alt={localize('_t_forex trading on mobile_t_')}
                                     width="100%"
                                 />

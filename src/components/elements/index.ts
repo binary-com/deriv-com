@@ -1,6 +1,6 @@
 import { Accordion, AccordionItem } from './accordion'
 import AutoCarousel from './auto-carousel'
-import BackgroundImageWrapper, { StaticImageWrapper } from './background-image-wrapper'
+import BackgroundImage from './background-image'
 import { Card, CardStyle, NavCard, CardLink } from './card'
 import Divider from './divider'
 import DotLoader from './dot-loader'
@@ -32,8 +32,7 @@ export {
     Accordion,
     AccordionItem,
     AutoCarousel,
-    BackgroundImageWrapper,
-    StaticImageWrapper,
+    BackgroundImage,
     BaseElement,
     Card,
     CardLink,

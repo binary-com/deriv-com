@@ -313,7 +313,7 @@ const Locations = () => {
     }
 
     return (
-        <Layout type="careers" padding_top={7}>
+        <Layout type="careers" margin_top={7}>
             <SEO
                 title={localize('_t_Explore our office locations | Deriv_t_')}
                 description={localize(

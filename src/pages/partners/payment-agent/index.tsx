@@ -5,7 +5,7 @@ import Hero from './_pa-hero'
 import TapInto from './_tap-into'
 import { faq_schema } from './_faq-schema'
 import PremiumPaymentAgent from './_premium_payment_agent'
-import PageNotFound from 'pages/404'
+import PageNotFound from 'features/pages/404'
 import Layout from 'components/layout/layout'
 import { SEO, MetaAttributesType } from 'components/containers'
 import { Divider } from 'components/elements'
@@ -34,7 +34,7 @@ const PaymentAgent = () => {
                 meta_attributes={meta_attributes}
             />
             {is_row ? (
-                <Layout type="partners" padding_top={10}>
+                <Layout type="partners" margin_top={10}>
                     <Helmet>
                         <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
                     </Helmet>

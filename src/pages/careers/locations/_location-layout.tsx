@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import type { ImageDataLike } from 'gatsby-plugin-image'
@@ -6,14 +6,7 @@ import CareerContainer from '../_layout-components/_career_container'
 import { LocationsType } from '../_model/_locations/_locations.types'
 import device from 'themes/device'
 import { SectionContainer, Flex } from 'components/containers'
-import {
-    Text,
-    LinkText,
-    Header,
-    BackgroundImageWrapper,
-    StaticImageWrapper,
-    QueryImage,
-} from 'components/elements'
+import { Text, LinkText, Header, BackgroundImage, QueryImage } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { map_api_key, zoho_jobs_url } from 'common/constants'
 import { LocalizedLink } from 'components/localization'
@@ -26,13 +19,18 @@ export const Pin = styled.img`
     margin-top: 3px;
 `
 
-const StyledContainer = styled(CareerContainer)`
-    flex-direction: column;
+const StyledBackground = styled(BackgroundImage)`
+    width: 100%;
     height: 660px;
-
+    object-fit: contain;
     @media ${device.laptop} {
         height: 521px;
     }
+`
+
+const StyledContainer = styled(CareerContainer)`
+    flex-direction: column;
+    height: 100%;
 `
 
 const StyledHeader = styled(Header)`
@@ -69,16 +67,15 @@ const HeroBadge = styled(QueryImage)`
 
 type HeroProps = {
     display_name: string
+    img_data: ImageDataLike
     job_location?: string
     badge_data?: ImageDataLike
     badge_alt?: string
-    hero_image: ReactElement
 }
 
-const Hero = ({ display_name, badge_data, badge_alt, job_location, hero_image }: HeroProps) => {
+const Hero = ({ display_name, img_data, badge_data, badge_alt, job_location }: HeroProps) => {
     return (
-        <BackgroundImageWrapper>
-            <StaticImageWrapper>{hero_image}</StaticImageWrapper>
+        <StyledBackground data={img_data} alt={display_name}>
             {badge_data && <HeroBadge data={badge_data} alt={badge_alt} />}
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
@@ -91,7 +88,7 @@ const Hero = ({ display_name, badge_data, badge_alt, job_location, hero_image }:
                     {`View open positions in ${display_name}`}
                 </LinkButton>
             </StyledContainer>
-        </BackgroundImageWrapper>
+        </StyledBackground>
     )
 }
 
@@ -370,7 +367,7 @@ export const LocationLayout = ({ location, images }: LocationLayoutProps) => {
         <>
             <Hero
                 display_name={display_name}
-                hero_image={location.hero_image}
+                img_data={images[location.name]}
                 badge_data={images[location.badge]}
                 badge_alt={location.badge_alt}
                 job_location={job_location}

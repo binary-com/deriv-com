@@ -78,9 +78,9 @@ const StyledCardHeader = styled(Header)`
         margin-bottom: 24px;
     }
 `
-const StyledText = styled(Text)<{ hide_margin_button?: boolean }>`
+const StyledText = styled(Text)`
     font-size: 24px;
-    margin-bottom: ${({ hide_margin_button }) => (hide_margin_button ? '0' : '3rem')};
+    margin-bottom: 3rem;
 
     :last-child {
         margin-bottom: 0;
@@ -250,20 +250,18 @@ const Availability = () => {
                             </StyledText>
                         </Column>
                         <Column>
-                            <Desktop>
-                                <StyledText hide_margin_button>
+                            <StyledText>
+                                <Desktop>
                                     <Localize translate_text="_t_Download Deriv P2P._t_" />
-                                </StyledText>
 
-                                <QueryImage
-                                    data={data['qr_code']}
-                                    alt={localize('_t_play store_t_')}
-                                    width="108px"
-                                    height="108px"
-                                />
-                            </Desktop>
-                            <Mobile>
-                                <StyledText>
+                                    <QueryImage
+                                        data={data['qr_code']}
+                                        alt={localize('_t_play store_t_')}
+                                        width="108px"
+                                        height="108px"
+                                    />
+                                </Desktop>
+                                <Mobile>
                                     <Localize
                                         translate_text="_t_<0>Download Deriv P2P.</0>_t_"
                                         components={[
@@ -275,8 +273,8 @@ const Availability = () => {
                                             />,
                                         ]}
                                     />
-                                </StyledText>
-                            </Mobile>
+                                </Mobile>
+                            </StyledText>
                         </Column>
                     </Row>
                     <Row>

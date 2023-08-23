@@ -6,12 +6,13 @@ import Dp2p from './_dp2p'
 import MobileAccordianItem from './_mobile-accordian-item'
 import Layout from 'components/layout/layout'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import { Text, Header, Divider, Accordion, AccordionItem } from 'components/elements'
+import { Text, Header, Divider, Accordion, AccordionItem, DotLoader } from 'components/elements'
 import { SEO, SectionContainer, Container, MetaAttributesType } from 'components/containers'
 import { WithIntl, Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import useWS from 'components/hooks/useWS'
+import { isBrowser } from 'common/utility'
 import { TString } from 'types/generics'
 
 const ExpandList = Loadable(() => import('./_expanded-list'))
@@ -196,9 +197,12 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
           }
     const parent_style = { marginBottom: is_mobile ? '24px' : '2.4rem' }
 
+    if (!isBrowser()) {
+        return <DotLoader />
+    }
     return (
         <>
-            {payment_method_data.map((pdata, index) => {
+            {payment_method_data.map((pdata) => {
                 const styles = is_mobile
                     ? {
                           padding: '0 16px 0',
@@ -227,8 +231,9 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                     return null
                 } else
                     return (
-                        <Accordion has_single_state key={pdata.class_name + index}>
+                        <Accordion has_single_state>
                             <AccordionItem
+                                key={pdata.class_name}
                                 content_style={content_style}
                                 header_style={header_style}
                                 style={styles}

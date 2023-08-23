@@ -22,6 +22,7 @@ export const banner_data: BannerType = {
         icon: p2pQrImage,
         heading_one: '_t_Scan to download Deriv P2P_t_',
         heading_two: '_t_Android, iOS, and Huawei_t_',
+        heading_three: '_t_Android and iOS_t_',
     },
     os_apps: [
         {

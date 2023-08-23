@@ -206,6 +206,7 @@ const MarketsWrapper = styled(Flex)`
     padding: 0 0 80px 0;
     max-width: 100%;
 `
+
 const StyledHeader = styled(Header)`
     padding: auto;
     text-align: center;
@@ -231,6 +232,7 @@ const MobileCardContainer = styled(Flex)`
         margin-inline: auto;
     }
 `
+
 const StyledCarousel = styled.div`
     height: 40rem;
     @media ${device.tabletL} {
@@ -353,9 +355,9 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                 <MarketsWrapper tablet_jc="center">
                     <StyledCarousel>
                         <Carousel has_autoplay autoplay_interval={4000} {...settings}>
-                            {filteredMarkets.map((market, index) =>
+                            {filteredMarkets.map((market) =>
                                 market === '' ? (
-                                    <div key={market + index}></div>
+                                    <div key={market}></div>
                                 ) : (
                                     <Card market={market} key={market} />
                                 ),
@@ -367,9 +369,9 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
             <Mobile>
                 <StyledCarousel>
                     <MobileCardContainer direction="column">
-                        {filteredMarkets.map((market, index) =>
+                        {filteredMarkets.map((market) =>
                             except === market || market === '' ? null : (
-                                <MobileCard market={market} key={market + index} />
+                                <MobileCard market={market} key={market} />
                             ),
                         )}
                     </MobileCardContainer>

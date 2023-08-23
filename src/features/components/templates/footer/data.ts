@@ -65,7 +65,7 @@ const tradesLinks: SmartFooterLink[] = [
         id: 1,
         data: {
             text: '_t_Options_t_',
-            url: { type: 'internal', to: '/trade-types/options/' },
+            url: { type: 'internal', to: '/trade-types/options/digital-options/up-and-down/' },
         },
         visibility: {
             is_row: true,
@@ -91,7 +91,7 @@ const marketsLinks: SmartFooterLink[] = [
     {
         id: 1,
         data: {
-            text: '_t_Derived_t_',
+            text: '_t_Derived indices_t_',
             url: { type: 'internal', to: '/markets/synthetic/' },
         },
     },

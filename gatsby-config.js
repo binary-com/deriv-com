@@ -54,11 +54,12 @@ module.exports = {
                 ],
             },
         },
+        'gatsby-plugin-react-helmet',
         {
-            resolve: 'gatsby-plugin-canonical-urls',
+            resolve: `gatsby-plugin-react-helmet-canonical-urls`,
             options: {
                 siteUrl: `${site_url}`,
-                // noQueryString: true,
+                noQueryString: true,
             },
         },
         'gatsby-plugin-styled-components',
@@ -289,7 +290,14 @@ module.exports = {
                 crossOrigin: `use-credentials`,
             },
         },
-        'gatsby-plugin-svgr',
+        {
+            resolve: 'gatsby-plugin-svgr',
+            options: {
+                rule: {
+                    include: /svg/, // See below to configure properly
+                },
+            },
+        },
         {
             resolve: 'gatsby-plugin-eslint',
             options: {
@@ -305,7 +313,14 @@ module.exports = {
                     {
                         userAgent: '*',
                         allow: '/',
-                        disallow: ['/404/', '/homepage/', '/landing/', '/endpoint/', '/livechat/'],
+                        disallow: [
+                            '/404/',
+                            '/homepage/',
+                            '/landing/',
+                            '/endpoint/',
+                            '/livechat/',
+                            '/storybook/',
+                        ],
                     },
                 ],
             },

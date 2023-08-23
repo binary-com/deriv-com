@@ -1,16 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StaticImage } from 'gatsby-plugin-image'
+import { graphql, useStaticQuery } from 'gatsby'
 import { Flex, Container } from 'components/containers'
-import { BackgroundImageWrapper, Header, StaticImageWrapper } from 'components/elements'
-import { Localize, localize } from 'components/localization'
+import { Header } from 'components/elements'
+import { Localize } from 'components/localization'
+import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
-const Wrapper = styled(Container)`
-    justify-content: flex-start;
-
+const BackgroundWrapper = styled(Background)`
+    background-size: cover;
+    background-position: bottom right;
     @media ${device.desktopL} {
         height: 73rem;
     }
@@ -25,10 +26,6 @@ const Wrapper = styled(Container)`
     }
     @media ${device.tabletS} {
         height: 105rem;
-        margin-left: 0;
-        padding: 2.1rem 16px 0;
-        flex-direction: column-reverse;
-        justify-content: center;
     }
     @media ${device.mobileL} {
         height: 95rem;
@@ -40,11 +37,18 @@ const Wrapper = styled(Container)`
         height: 80rem;
     }
 `
+const Wrapper = styled(Container)`
+    @media ${device.tabletS} {
+        margin-left: 0;
+        padding: 2.1rem 16px 0;
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+`
 const InformationWrapper = styled(Flex)`
     width: 100%;
     max-width: 71rem;
     z-index: 1;
-    justify-content: flex-start;
 
     @media ${device.tabletL} {
         max-width: 55rem;
@@ -72,7 +76,6 @@ const HeroContent = styled(Flex)`
         }
     }
 `
-
 const StyledHeader = styled(Header)`
     color: var(--color-black-3);
     display: flex;
@@ -107,35 +110,26 @@ const TryButton = styled(LinkButton)`
     }
 `
 
+const query = graphql`
+    query {
+        p2p_hero_background: file(relativePath: { eq: "landing/weekend.png" }) {
+            ...fadeIn
+        }
+        p2p_hero_background_mobile: file(relativePath: { eq: "landing/weekend-m.png" }) {
+            ...fadeIn
+        }
+    }
+`
+
 const Hero = () => {
+    const data = useStaticQuery(query)
     const [is_mobile] = useBrowserResize()
+    const background = is_mobile ? data['p2p_hero_background_mobile'] : data['p2p_hero_background']
 
     return (
-        <BackgroundImageWrapper>
-            <StaticImageWrapper>
-                {is_mobile ? (
-                    <StaticImage
-                        src="../../../../images/common/landing/weekend-m.png"
-                        alt={localize('_t_weekend trading_t_')}
-                        objectFit="cover"
-                        formats={['avif', 'webp', 'auto']}
-                        objectPosition="bottom right"
-                        loading="eager"
-                    />
-                ) : (
-                    <StaticImage
-                        src="../../../../images/common/landing/weekend.png"
-                        alt={localize('_t_weekend trading_t_')}
-                        objectFit="cover"
-                        formats={['avif', 'webp', 'auto']}
-                        objectPosition="bottom right"
-                        loading="eager"
-                    />
-                )}
-            </StaticImageWrapper>
-
-            <Wrapper p="4rem 0 0">
-                <InformationWrapper direction="column">
+        <BackgroundWrapper data={background}>
+            <Wrapper p="4rem 0 0" justify="space-between" height="unset">
+                <InformationWrapper height="unset" direction="column">
                     <StyledHeader type="hero">
                         <Localize translate_text="_t_Ride the trends even on weekends_t_" />
                     </StyledHeader>
@@ -155,7 +149,7 @@ const Hero = () => {
                     </TryButton>
                 </InformationWrapper>
             </Wrapper>
-        </BackgroundImageWrapper>
+        </BackgroundWrapper>
     )
 }
 

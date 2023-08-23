@@ -27,7 +27,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: '18.x'
+                  node-version: '16.x'
                   cache: 'npm'
 
             - name: Set version env variable
@@ -37,6 +37,11 @@ jobs:
             - run: npm run format
             - run: npm run test
             - run: npm run build
+
+            - name: Remove Storybook
+              uses: JesseTG/rm@v1.0.2
+              with:
+                  path: public/storybook
 
             - uses: olegtarasov/get-tag@v2.1
               id: tagName

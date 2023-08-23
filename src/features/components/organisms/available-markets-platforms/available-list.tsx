@@ -1,5 +1,6 @@
 import React from 'react'
-import { Localize } from 'components/localization'
+import { available_wrapper } from './styles.module.scss'
+import { Localize, localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Link from 'features/components/atoms/link'
 import Typography from 'features/components/atoms/typography'
@@ -14,7 +15,14 @@ const AvailableList = ({
     items: OptionContentAvailability[]
 }) => {
     return (
-        <Flex.Box gap="10x" wrap="wrap" md={{ wrap: 'nowrap' }} justify="center" align="center">
+        <Flex.Box
+            gap="12x"
+            wrap="wrap"
+            className={available_wrapper}
+            md={{ wrap: 'nowrap' }}
+            justify="center"
+            align="center"
+        >
             <Flex.Item
                 grow="1"
                 shrink="0"
@@ -23,7 +31,13 @@ const AvailableList = ({
                     basis: 'auto',
                 }}
             >
-                <Typography.Paragraph font_family="UBUNTU" align="center">
+                <Typography.Paragraph
+                    font_family="UBUNTU"
+                    pt="12x"
+                    pb="4x"
+                    md={{ pb: '0x', pt: '0x' }}
+                    align="center"
+                >
                     <Localize translate_text={title} />
                 </Typography.Paragraph>
             </Flex.Item>
@@ -42,11 +56,16 @@ const AvailableList = ({
                 >
                     <img
                         src={marketItem.icon.src}
-                        alt={marketItem.icon.alt}
+                        alt={localize(marketItem.icon.alt)}
                         width="24"
                         height="24"
                     />
-                    <Link url={marketItem.link} key={marketItem.title} size="medium">
+                    <Link
+                        url={marketItem.link}
+                        key={marketItem.title}
+                        size="medium"
+                        font_family="UBUNTU"
+                    >
                         <Localize translate_text={marketItem.title} />
                     </Link>
                 </Flex.Box>

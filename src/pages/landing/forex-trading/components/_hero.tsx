@@ -1,13 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StaticImage } from 'gatsby-plugin-image'
-import { Flex, Container } from 'components/containers'
-import { BackgroundImageWrapper, Header, StaticImageWrapper } from 'components/elements'
-import { Localize, localize } from 'components/localization'
+import { graphql, useStaticQuery } from 'gatsby'
+import { Flex, Container, Desktop, Mobile } from 'components/containers'
+import { Header } from 'components/elements'
+import { Localize } from 'components/localization'
+import { Background } from 'components/elements/background-image'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
 import { HeroProps } from 'pages/landing/_types'
-import { useBrowserResize } from 'components/hooks/use-browser-resize'
+
+const BackgroundWrapper = styled(Background)`
+    background-size: cover;
+    background-position: bottom right;
+`
 
 const Wrapper = styled(Container)`
     @media ${device.tabletS} {
@@ -82,33 +87,9 @@ const TryButton = styled(LinkButton)`
     }
 `
 
-const Hero = ({ title, content }: HeroProps) => {
-    const [is_mobile] = useBrowserResize()
-
+const HeroComponent = ({ title, content, background_data }: HeroProps) => {
     return (
-        <BackgroundImageWrapper>
-            <StaticImageWrapper>
-                {is_mobile ? (
-                    <StaticImage
-                        src="../../../../images/common/landing/trade-fx-m.jpg"
-                        alt={localize('_t_forex trading_t_')}
-                        formats={['avif', 'webp', 'auto']}
-                        objectFit="cover"
-                        objectPosition="bottom right"
-                        loading="eager"
-                    />
-                ) : (
-                    <StaticImage
-                        src="../../../../images/common/landing/trade-fx.jpg"
-                        alt={localize('_t_forex trading_t_')}
-                        formats={['avif', 'webp', 'auto']}
-                        objectFit="cover"
-                        objectPosition="bottom right"
-                        loading="eager"
-                    />
-                )}
-            </StaticImageWrapper>
-
+        <BackgroundWrapper data={background_data}>
             <Wrapper p="0" justify="space-between" height="63rem">
                 <InformationWrapper height="unset" direction="column">
                     <StyledHeader mt="6.2rem" type="hero" color="white">
@@ -131,7 +112,41 @@ const Hero = ({ title, content }: HeroProps) => {
                     </TryButton>
                 </InformationWrapper>
             </Wrapper>
-        </BackgroundImageWrapper>
+        </BackgroundWrapper>
+    )
+}
+
+const query = graphql`
+    query {
+        p2p_hero_background: file(relativePath: { eq: "landing/trade-fx.jpg" }) {
+            ...fadeIn
+        }
+        p2p_hero_background_mobile: file(relativePath: { eq: "landing/trade-fx-m.jpg" }) {
+            ...fadeIn
+        }
+    }
+`
+
+const Hero = ({ title, content }: HeroProps) => {
+    const data = useStaticQuery(query)
+
+    return (
+        <div>
+            <Desktop>
+                <HeroComponent
+                    title={title}
+                    content={content}
+                    background_data={data['p2p_hero_background']}
+                />
+            </Desktop>
+            <Mobile>
+                <HeroComponent
+                    title={title}
+                    content={content}
+                    background_data={data['p2p_hero_background_mobile']}
+                />
+            </Mobile>
+        </div>
     )
 }
 

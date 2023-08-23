@@ -36,7 +36,10 @@ const BackgroundStyle = styled.div`
     justify-content: flex-end;
     position: relative;
     direction: ltr;
-
+    @media only screen and (min-width: 1920px) {
+        min-block-size: 100%;
+        block-size: 100rem;
+    }
     @media ${device.tablet} {
         flex-direction: column-reverse;
         justify-content: center;

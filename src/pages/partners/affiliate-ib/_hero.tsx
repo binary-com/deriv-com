@@ -1,34 +1,39 @@
 import React from 'react'
 import styled from 'styled-components'
-import { StaticImage } from 'gatsby-plugin-image'
+import { graphql, useStaticQuery } from 'gatsby'
 import { Container } from 'components/containers'
-import { BackgroundImageWrapper, StaticImageWrapper } from 'components/elements'
-import { localize } from 'components/localization'
+import { BackgroundImage } from 'components/elements'
 
 type HeroProps = {
     children: React.ReactNode
 }
 
 const StyeldContainer = styled(Container)`
-    height: 80rem;
+    height: 100%;
+`
+
+const query = graphql`
+    query {
+        image: file(relativePath: { eq: "affiliate/partners-banner.png" }) {
+            ...heroImage
+        }
+    }
 `
 
 const Hero = ({ children }: HeroProps) => {
+    const hero_img = useStaticQuery(query)
     return (
-        <BackgroundImageWrapper>
-            <StaticImageWrapper>
-                <StaticImage
-                    src="../../../images/common/affiliate/partners-banner.png"
-                    alt={localize('_t_affiliate_t_')}
-                    loading="eager"
-                    formats={['avif', 'webp', 'auto']}
-                />
-            </StaticImageWrapper>
-
+        <BackgroundImage
+            data={hero_img.image}
+            style={{
+                height: '80rem',
+                width: '100%',
+            }}
+        >
             <StyeldContainer direction="column" justify="center" align="center">
                 {children}
             </StyeldContainer>
-        </BackgroundImageWrapper>
+        </BackgroundImage>
     )
 }
 

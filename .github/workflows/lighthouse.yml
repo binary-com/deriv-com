@@ -95,7 +95,7 @@ jobs:
                       ${{ steps.format_lighthouse_score.outputs.comment }}
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
-              if: ${{ steps.format_lighthouse_score.outputs.performance < 60 }}
+              if: ${{ steps.format_lighthouse_score.outputs.performance < 0 }}
               with:
                   status: custom
                   fields: workflow,job,commit,repo

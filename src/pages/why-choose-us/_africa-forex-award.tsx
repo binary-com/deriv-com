@@ -1,13 +1,20 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import { BackgroundImageWrapper, StaticImageWrapper, Header, QueryImage } from 'components/elements'
+import { BackgroundImage, Header, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { Flex, Desktop, Mobile } from 'components/containers'
 
 const query = graphql`
     query {
+        africa_award_background: file(relativePath: { eq: "choose-us/africa_award_bg.png" }) {
+            ...fadeIn
+        }
+        africa_award_background_mobile: file(
+            relativePath: { eq: "choose-us/africa_award_bg_mobile.png" }
+        ) {
+            ...fadeIn
+        }
         africa_award: file(relativePath: { eq: "choose-us/africa_award.png" }) {
             ...fadeIn
         }
@@ -87,25 +94,20 @@ const AfricaAward = () => {
         <>
             <Desktop>
                 <StyledFlex>
-                    <BackgroundImageWrapper
-                        overflow="visible"
-                        style={{ width: '100%', maxWidth: '1200px' }}
+                    <BackgroundImage
+                        data={data.africa_award_background}
+                        style={{
+                            backgroundRepeat: 'no-repeat',
+                            backgroundSize: 'contain',
+                            width: '100%',
+                            maxWidth: '1200px',
+                            backgroundColor: 'white',
+                        }}
                     >
-                        <StaticImageWrapper>
-                            <StaticImage
-                                src="../../images/common/choose-us/africa_award_bg.png"
-                                alt={localize('_t_africa forex award_t_')}
-                                formats={['avif', 'webp', 'auto']}
-                                objectFit="contain"
-                                loading="eager"
-                            />
-                        </StaticImageWrapper>
-
-                        <Flex style={{ height: '360px' }} ai="center" jc="space-evenly">
+                        <Flex style={{ maxHeight: '360px' }} ai="center" jc="space-evenly">
                             <StyledHeader type="heading-2" align="left" color="white">
                                 <Localize translate_text="_t_Best Forex Broker Africa_t_" />
                             </StyledHeader>
-
                             <AwardImageWrapper>
                                 <QueryImage
                                     data={data.africa_award}
@@ -115,36 +117,28 @@ const AfricaAward = () => {
                                 />
                             </AwardImageWrapper>
                         </Flex>
-                    </BackgroundImageWrapper>
+                    </BackgroundImage>
                 </StyledFlex>
             </Desktop>
-
             <Mobile>
                 <Flex fd="column" ai="center">
-                    <BackgroundImageWrapper
+                    <BackgroundImage
+                        data={data.africa_award_background_mobile}
                         style={{
+                            backgroundRepeat: 'no-repeat',
+                            backgroundSize: 'contain',
                             width: '315px',
                             height: '325px',
                             maxWidth: '450px',
+                            backgroundColor: 'white',
                             margin: ' 0 1rem',
                         }}
                     >
-                        <StaticImageWrapper>
-                            <StaticImage
-                                src="../../images/common/choose-us/africa_award_bg_mobile.png"
-                                alt={localize('_t_africa forex award_t_')}
-                                formats={['avif', 'webp', 'auto']}
-                                objectFit="contain"
-                                loading="eager"
-                            />
-                        </StaticImageWrapper>
-
                         <StyledHeaderMobile type="heading-2" align="center" color="white">
                             <Localize translate_text="_t_Best Forex Broker Africa_t_" />
                         </StyledHeaderMobile>
                         <Header as="h2" width="50%"></Header>
-                    </BackgroundImageWrapper>
-
+                    </BackgroundImage>
                     <AwardImageWrapperMobile>
                         <QueryImage
                             data={data.africa_award}

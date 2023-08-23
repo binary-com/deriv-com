@@ -1,13 +1,20 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import { BackgroundImageWrapper, StaticImageWrapper, Header, QueryImage } from 'components/elements'
+import { BackgroundImage, Header, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { Flex, Desktop, Mobile } from 'components/containers'
 
 const query = graphql`
     query {
+        latam_award_background: file(relativePath: { eq: "choose-us/latam_award_bg.png" }) {
+            ...fadeIn
+        }
+        latam_award_background_mobile: file(
+            relativePath: { eq: "choose-us/latam_award_bg_mobile.png" }
+        ) {
+            ...fadeIn
+        }
         latam_award: file(relativePath: { eq: "choose-us/latam_award.png" }) {
             ...fadeIn
         }
@@ -78,25 +85,20 @@ const LatamAward = () => {
         <>
             <Desktop>
                 <StyledFlex>
-                    <BackgroundImageWrapper
-                        overflow="visible"
-                        style={{ width: '100%', maxWidth: '1200px' }}
+                    <BackgroundImage
+                        data={data.latam_award_background}
+                        style={{
+                            backgroundRepeat: 'no-repeat',
+                            backgroundSize: 'contain',
+                            width: '100%',
+                            maxWidth: '1200px',
+                            backgroundColor: 'white',
+                        }}
                     >
-                        <StaticImageWrapper>
-                            <StaticImage
-                                src="../../images/common/choose-us/latam_award_bg.png"
-                                alt={localize('_t_Latin America Forex Award_t_')}
-                                formats={['avif', 'webp', 'auto']}
-                                objectFit="contain"
-                                loading="eager"
-                            />
-                        </StaticImageWrapper>
-
                         <Flex style={{ maxHeight: '360px' }} ai="center" jc="space-evenly">
                             <StyledHeader type="heading-2" align="left" color="white">
                                 <Localize translate_text="_t_Best Forex Broker Latin America_t_" />
                             </StyledHeader>
-
                             <AwardImageWrapper>
                                 <QueryImage
                                     data={data.latam_award}
@@ -106,36 +108,28 @@ const LatamAward = () => {
                                 />
                             </AwardImageWrapper>
                         </Flex>
-                    </BackgroundImageWrapper>
+                    </BackgroundImage>
                 </StyledFlex>
             </Desktop>
-
             <Mobile>
                 <Flex fd="column" ai="center">
-                    <BackgroundImageWrapper
+                    <BackgroundImage
+                        data={data.latam_award_background_mobile}
                         style={{
+                            backgroundRepeat: 'no-repeat',
+                            backgroundSize: 'contain',
                             width: '315px',
                             height: '325px',
                             maxWidth: '450px',
+                            backgroundColor: 'white',
                             margin: ' 0 1rem',
                         }}
                     >
-                        <StaticImageWrapper>
-                            <StaticImage
-                                src="../../images/common/choose-us/latam_award_bg_mobile.png"
-                                alt={localize('_t_Latin America Forex Award_t_')}
-                                formats={['avif', 'webp', 'auto']}
-                                objectFit="contain"
-                                loading="eager"
-                            />
-                        </StaticImageWrapper>
-
                         <StyledHeaderMobile type="heading-2" align="center" color="white">
                             <Localize translate_text="_t_Best Forex Broker Latin America_t_" />
                         </StyledHeaderMobile>
                         <Header as="h2" width="50%"></Header>
-                    </BackgroundImageWrapper>
-
+                    </BackgroundImage>
                     <AwardImageWrapperMobile>
                         <QueryImage
                             data={data.latam_award}

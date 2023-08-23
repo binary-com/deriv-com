@@ -1,8 +1,5 @@
-import { ReactElement } from 'react'
-
 export type LocationsType = {
     name: string
-    hero_image: ReactElement
     link: string
     display_name?: string
     job_location?: string

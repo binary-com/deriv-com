@@ -12,8 +12,9 @@ const CommercialPlan = () => {
             as="section"
             pt="20x"
             pb="12x"
+            padding_inline="3x"
             bgcolor="secondary"
-            md={{ padding_block: '40x' }}
+            md={{ padding_block: '40x', padding_inline: '0x' }}
         >
             <Container.Fluid md={{ padding_block: '20x' }}>
                 <Typography.Heading as="h2" align="center">

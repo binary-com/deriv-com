@@ -9,12 +9,13 @@ import Typography from 'features/components/atoms/typography'
 
 const liveMarketColumnHelper = createColumnHelper<TMarketData>()
 
-const useLiveColumns = () => {
+const useLiveColumns = (markets_data) => {
     const { is_mobile } = useBreakpoints()
 
     const columns = useMemo(() => {
-        // let prevBid = 0
-        return [
+        let prevBid: any = sessionStorage.getItem('markets_data')
+        prevBid = JSON.parse(prevBid)
+        const table_data = [
             liveMarketColumnHelper.accessor('code', {
                 header: () => (
                     <Flex.Box>
@@ -58,14 +59,19 @@ const useLiveColumns = () => {
                     </Flex.Box>
                 ),
                 cell: (info) => {
-                    // let bid_color = 'gray'
-                    // if (prevBid > info.getValue()) {
-                    //     bid_color = 'red'
-                    // } else if (prevBid < info.getValue()) {
-                    //     bid_color = 'green'
-                    // } else {
-                    //     bid_color = 'gray'
-                    // }
+                    console.log('info =>', prevBid?.[info.row.index])
+                    let bid_color = 'gray'
+                    if (prevBid) {
+                        console.log('==>', 'prevBid', prevBid)
+                        if (prevBid[info.row.index].bid > info.getValue()) {
+                            bid_color = 'red'
+                        } else if (prevBid[info.row.index].bid < info.getValue()) {
+                            bid_color = 'green'
+                        } else {
+                            bid_color = 'gray'
+                        }
+                    }
+
                     // console.log('use col ==>', bid_color)
                     // console.log(
                     //     'prevBid and newbid',
@@ -79,7 +85,8 @@ const useLiveColumns = () => {
                         <Flex.Box>
                             <Typography.Paragraph
                                 size={is_mobile ? 'small' : 'medium'}
-                                // color={bid_color}
+                                color={bid_color}
+                                style={{ color: bid_color }}
                             >
                                 {info.getValue()}
                             </Typography.Paragraph>
@@ -168,6 +175,8 @@ const useLiveColumns = () => {
                 },
             }),
         ]
+        sessionStorage.setItem('markets_data', JSON.stringify(markets_data))
+        return table_data
     }, [])
 
     return columns

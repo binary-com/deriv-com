@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import {
     flexRender,
     getCoreRowModel,
@@ -64,7 +64,12 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
         return []
     }, [rawMarketsData, selected_market])
 
-    const columns = useLiveColumns()
+    const columns = useLiveColumns(markets_data)
+    useEffect(() => {
+        sessionStorage.setItem('markets_data', JSON.stringify(markets_data))
+    }, [markets_data])
+
+    console.log('markets_data =>', markets_data)
     const table = useReactTable({
         data: markets_data,
         columns,

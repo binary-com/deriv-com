@@ -223,7 +223,7 @@ export const hreflang_codes_row = [
     { rel: 'alternate', href: 'https://deriv.com/zh-cn/', hreflang: 'zh-CN' },
     { rel: 'alternate', href: 'https://deriv.com/zh-tw/', hreflang: 'zh-TW' },
     { rel: 'alternate', href: 'https://deriv.com/de/', hreflang: 'de-CH' },
-];
+]
 
 export const hreflang_codes_eu = [
     { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en' },
@@ -250,4 +250,4 @@ export const hreflang_codes_eu = [
     { rel: 'alternate', href: 'https://eu.deriv.com/it/', hreflang: 'it-IT' },
     { rel: 'alternate', href: 'https://eu.deriv.com/pt/', hreflang: 'pt-PT' },
     { rel: 'alternate', href: 'https://eu.deriv.com/pl/', hreflang: 'pl-PL' },
-];
+]

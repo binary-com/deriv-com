@@ -88,7 +88,7 @@ const SEO = ({
 
     const hreflang_codes = site_url.includes('eu.deriv.com')
         ? hreflang_codes_eu
-        : hreflang_codes_row;
+        : hreflang_codes_row
 
     if (locale_pathname) {
         const path_array = locale_pathname.split('/')
@@ -254,7 +254,7 @@ const SEO = ({
                         )
                     })}
 
-            {hreflang_codes.map(link => (
+            {hreflang_codes.map((link) => (
                 <link
                     key={link.hreflang}
                     rel={link.rel}

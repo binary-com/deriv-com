@@ -1,6 +1,7 @@
 import React from 'react'
 import CommercialPlan from './commercial-plan'
 import BrowseOurFaq from './browse-our-faq'
+import Potential from './potential'
 import WhyDerivPrime from './why-deriv-prime'
 import PrimeNumbers from './numbers'
 import MeetUsThere from './meet-us-there'
@@ -10,6 +11,7 @@ import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
 import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
 import Footer from 'features/components/templates/footer'
+import Flex from 'features/components/atoms/flex-box'
 
 const DerivPrime = () => {
     return (
@@ -20,9 +22,12 @@ const DerivPrime = () => {
             />
             <PaymentAgentAffiliateNav />
             <CommercialPlan />
-            <WhyDerivPrime />
+            <Flex.Box pt="40x" mt="40x">
+                <Potential />
+            </Flex.Box>
             <ConnectivityReliabilityType />
             <AvailableInstruments />
+            <WhyDerivPrime />
             <PrimeNumbers />
             <MeetUsThere />
             <BrowseOurFaq />

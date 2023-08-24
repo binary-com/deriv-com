@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Localize, LocalizedLink } from 'components/localization'
 import { Header, Text, LinkText, LiveChatLinkText } from 'components/elements'
-import { affiliate_signup_url } from 'common/constants'
+import { affiliate_signup_url, reset_link_url } from 'common/constants'
 import { isBrowser } from 'common/utility'
 import useRegion from 'components/hooks/use-region'
 
@@ -147,9 +147,7 @@ const AffiliateAccountManagement = () => (
         <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             <Localize
                 translate_text="_t_Don’t worry, you can easily <0>reset your password</0>._t_"
-                components={[
-                    <LocalizedLinkText to="https://login.deriv.com/password-reset.php" key={0} />,
-                ]}
+                components={[<LocalizedLinkText to={reset_link_url} key={0} />]}
             />
         </Header>
         <Header as="p" type="paragraph-1" mt="16px">

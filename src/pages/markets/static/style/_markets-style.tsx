@@ -254,6 +254,8 @@ export const SymbolText = styled(Header)`
 export const Title = styled(Text)`
     text-align: center;
     font-weight: bold;
+    font-family: Ubuntu, sans-serif;
+    color: var(--color-black-9);
 
     @media ${device.tabletL} {
         margin: 16px 0;

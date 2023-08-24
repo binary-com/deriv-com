@@ -32,6 +32,7 @@
                 ~ .text_input_label {
                     inset-block-start: -8px;
                     color: $color-black;
+                    inline-size: auto;
                 }
             }
             &:not(:placeholder-shown) ~ .text_input_label {
@@ -57,7 +58,7 @@
         transition: 0.2s ease all;
         -moz-transition: 0.2s ease all;
         -webkit-transition: 0.2s ease all;
-        width: 80%;
+        inline-size: 80%;
     }
 
     &_error {

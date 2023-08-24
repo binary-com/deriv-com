@@ -358,6 +358,9 @@ import VINDEX3001S from 'images/svg/symbols/volatility_300_1s.svg'
 import VINDEX1501S from 'images/svg/symbols/volatility_150_1s.svg'
 import VINDEX2501S from 'images/svg/symbols/volatility_250_1s.svg'
 import ZECUSD from 'images/svg/symbols/zec-usd.svg'
+import DSI10M from 'images/svg/symbols/dsi_10m.svg'
+import DSI20M from 'images/svg/symbols/dsi_20m.svg'
+import DSI30M from 'images/svg/symbols/dsi_30m.svg'
 
 export {
     AAL,
@@ -720,4 +723,7 @@ export {
     VINDEX3001S,
     USDCNH,
     USDBRENT,
+    DSI10M,
+    DSI20M,
+    DSI30M,
 }

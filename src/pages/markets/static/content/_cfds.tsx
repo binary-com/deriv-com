@@ -39,6 +39,7 @@ import {
     StepIndicesDetails,
     VolatilityIndicesDetails,
     VolatilityIndicesDetailsEU,
+    DriftSwitchDetails,
 } from './_details'
 import { TMarketContent } from './_types'
 
@@ -124,7 +125,7 @@ export const synthetic_cfds: TMarketContent = {
             id: 'drift-switch-indices',
             title: '_t_Drift switch indices_t_',
             component: <DriftSwitchIndices />,
-            details: <DexIndicesDetails />,
+            details: <DriftSwitchDetails />,
         },
         {
             id: 'dex-indices',

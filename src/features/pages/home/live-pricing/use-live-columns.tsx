@@ -1,5 +1,5 @@
 import { createColumnHelper } from '@tanstack/react-table'
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import { TMarketData } from './types'
 import SymbolIcon from './table-component/symbol-icon'
 import Flex from 'features/components/atoms/flex-box'
@@ -11,10 +11,28 @@ const liveMarketColumnHelper = createColumnHelper<TMarketData>()
 
 const useLiveColumns = (markets_data) => {
     const { is_mobile } = useBreakpoints()
+    const [bid_color, setBidColor] = useState('gray')
+
+    const compareValues = (previousValue, newValue) => {
+        // console.log("==>", "dsfs")
+        // let bid_color = 'gray'
+        if (previousValue > newValue) {
+            // bid_color = 'red'
+            console.log('==>', 'in if ')
+            setBidColor('red')
+        } else if (previousValue < newValue) {
+            // bid_color = 'green'
+            setBidColor('green')
+        } else {
+            // bid_color = 'gray'
+            setBidColor('gray')
+        }
+    }
 
     const columns = useMemo(() => {
         let prevBid: any = sessionStorage.getItem('markets_data')
         prevBid = JSON.parse(prevBid)
+
         const table_data = [
             liveMarketColumnHelper.accessor('code', {
                 header: () => (
@@ -59,18 +77,18 @@ const useLiveColumns = (markets_data) => {
                     </Flex.Box>
                 ),
                 cell: (info) => {
-                    console.log('info =>', prevBid?.[info.row.index])
-                    let bid_color = 'gray'
-                    if (prevBid) {
-                        console.log('==>', 'prevBid', prevBid)
-                        if (prevBid[info.row.index].bid > info.getValue()) {
-                            bid_color = 'red'
-                        } else if (prevBid[info.row.index].bid < info.getValue()) {
-                            bid_color = 'green'
-                        } else {
-                            bid_color = 'gray'
-                        }
-                    }
+                    // console.log('info =>', prevBid?.[info.row.index])
+                    // let bid_color = 'gray'
+                    // if (prevBid) {
+                    //     console.log('==>', 'prevBid', prevBid)
+                    //     if (prevBid[info.row.index].bid > info.getValue()) {
+                    //         bid_color = 'red'
+                    //     } else if (prevBid[info.row.index].bid < info.getValue()) {
+                    //         bid_color = 'green'
+                    //     } else {
+                    //         bid_color = 'gray'
+                    //     }
+                    // }
 
                     // console.log('use col ==>', bid_color)
                     // console.log(
@@ -80,13 +98,16 @@ const useLiveColumns = (markets_data) => {
                     //     typeof info.getValue(),
                     // )
                     // prevBid = info.getValue()
+                    if (prevBid) compareValues(prevBid[info.row.index].bid, info.getValue())
+                    // console.log('==>', bid_color)
 
                     return (
                         <Flex.Box>
                             <Typography.Paragraph
                                 size={is_mobile ? 'small' : 'medium'}
-                                color={bid_color}
-                                style={{ color: bid_color }}
+                                style={{
+                                    color: bid_color,
+                                }}
                             >
                                 {info.getValue()}
                             </Typography.Paragraph>
@@ -177,7 +198,7 @@ const useLiveColumns = (markets_data) => {
         ]
         sessionStorage.setItem('markets_data', JSON.stringify(markets_data))
         return table_data
-    }, [])
+    }, [bid_color])
 
     return columns
 }

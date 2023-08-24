@@ -351,10 +351,23 @@ const style_lint_options = {
     lintDirtyModulesOnly: true,
 }
 
-exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
+exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...options }) => {
     const config = getConfig()
     if (config.optimization) {
         config.optimization.minimizer = [new TerserPlugin()]
+    }
+
+    if (stage === 'build-html' || stage === 'develop-html') {
+        actions.setWebpackConfig({
+            module: {
+                rules: [
+                    {
+                        test: /analytics/,
+                        use: loaders.null(),
+                    },
+                ],
+            },
+        })
     }
     actions.setWebpackConfig({
         plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],

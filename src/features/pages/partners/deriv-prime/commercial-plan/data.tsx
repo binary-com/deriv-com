@@ -52,6 +52,6 @@ export const column_data: TableColumnType<Data, keyof Data>[] = [
     },
     {
         accessor: 'free_per_million',
-        header: <Localize translate_text="_t_Free Per Million_t_" />,
+        header: <Localize translate_text="_t_Fee per million_t_" />,
     },
 ]

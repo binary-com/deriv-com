@@ -9,7 +9,6 @@ import AvailableInstruments from './available-instruments'
 import CommercialPlan from './commercial-plan'
 import Hero from './hero'
 import Layout from 'features/components/templates/layout'
-import Flex from 'features/components/atoms/flex-box'
 import { SEO } from 'components/containers'
 import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
 import Footer from 'features/components/templates/footer'
@@ -22,7 +21,7 @@ const DerivPrime = () => {
                 title="_t_Liquidity solutions provider | Deriv Prime_t_"
             />
             <PaymentAgentAffiliateNav />
-            <Hero/>
+            <Hero />
             <Potential />
             <CommercialPlan />
             <AvailableInstruments />

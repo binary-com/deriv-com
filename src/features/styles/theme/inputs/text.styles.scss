@@ -8,7 +8,7 @@
                 border: 1px solid $color-brand;
             }
             label {
-                color: $color-brand;
+                color: $color-brand !important;
             }
         }
         & > input {

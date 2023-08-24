@@ -5,8 +5,8 @@ import { drift_switch_indices } from '../static/content/_market-symbols'
 const DriftSwitchIndices = () => {
     return (
         <>
-            {drift_switch_indices.map((symbol, index) => (
-                <Symbol key={index} src={symbol.src} text={symbol.text} />
+            {drift_switch_indices.map((symbol) => (
+                <Symbol key={symbol.text} src={symbol.src} text={symbol.text} />
             ))}
         </>
     )

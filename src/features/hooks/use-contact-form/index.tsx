@@ -46,7 +46,6 @@ const useContactForm = () => {
         setFormState({ is_loading_form: true, is_submission_fail: false, is_submitted: false })
         try {
             const clean_data = trimObjectValues(data)
-            // Validation and error messages for each field if user filled data with only white space
             const fields_to_validate = ['full_name', 'mobile_number', 'company_name']
 
             let has_validation_error = false
@@ -62,7 +61,7 @@ const useContactForm = () => {
 
             if (has_validation_error) {
                 setFormState({ ...form_state, is_loading_form: false })
-                return // Exit the function early
+                return
             }
             const response = await fetch(contact_us_form_post_data, {
                 method: 'POST',

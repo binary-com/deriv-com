@@ -5,6 +5,7 @@ import PrimeNumbers from './numbers'
 import MeetUsThere from './meet-us-there'
 import ConnectivityReliabilityType from './connectivity-reliability'
 import AvailableInstruments from './available-instruments'
+import CommercialPlan from './commercial-plan'
 import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
 import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
@@ -19,6 +20,7 @@ const DerivPrime = () => {
             />
             <PaymentAgentAffiliateNav />
             <Potential />
+            <CommercialPlan />
             <AvailableInstruments />
             <ConnectivityReliabilityType />
             <WhyDerivPrime />

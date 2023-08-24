@@ -7,6 +7,7 @@ import PrimeNumbers from './numbers'
 import MeetUsThere from './meet-us-there'
 import ConnectivityReliabilityType from './connectivity-reliability'
 import AvailableInstruments from './available-instruments'
+import CommercialPlan from './commercial-plan'
 import Layout from 'features/components/templates/layout'
 import Flex from 'features/components/atoms/flex-box'
 import { SEO } from 'components/containers'
@@ -21,12 +22,10 @@ const DerivPrime = () => {
                 title="_t_Liquidity solutions provider | Deriv Prime_t_"
             />
             <PaymentAgentAffiliateNav />
+            <Potential />
             <CommercialPlan />
-            <Flex.Box pt="40x" mt="40x">
-                <Potential />
-            </Flex.Box>
-            <ConnectivityReliabilityType />
             <AvailableInstruments />
+            <ConnectivityReliabilityType />
             <WhyDerivPrime />
             <PrimeNumbers />
             <MeetUsThere />

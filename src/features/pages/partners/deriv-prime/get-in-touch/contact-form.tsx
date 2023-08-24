@@ -135,12 +135,12 @@ const ContactFormGetInTouch = () => {
                             </Button.Primary>
                         </Flex.Item>
                     </Flex.Box>
-                    <Flex.Item>
-                        <Typography.Paragraph size="xs" textcolor={get_form_bottom_message?.color}>
-                            <Localize translate_text={get_form_bottom_message?.text} />
-                        </Typography.Paragraph>
-                    </Flex.Item>
                 </Flex.Box>
+                <Flex.Item>
+                    <Typography.Paragraph size="xs" textcolor={get_form_bottom_message?.color}>
+                        <Localize translate_text={get_form_bottom_message?.text} />
+                    </Typography.Paragraph>
+                </Flex.Item>
             </Flex.Box>
         </Flex.Box>
     )

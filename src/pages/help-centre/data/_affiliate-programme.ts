@@ -106,7 +106,7 @@ const affiliate_programme: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_<0>Cost per acquisition</0>(For EU-based clients only)_t_',
+                        '_t_<0>Cost per acquisition</0> (For EU-based clients only)_t_',
                     translation_components: [{ key: 0, type: 'strong' }],
                 },
                 {

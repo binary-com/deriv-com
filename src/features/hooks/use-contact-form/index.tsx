@@ -7,7 +7,7 @@ import { trimObjectValues } from 'common/utility'
 import { contact_us_form_post_data } from 'common/constants'
 
 const error_message = {
-    email: '_t_Email is required._t_',
+    email: '_t_Please enter your corporate email._t_',
     full_name: '_t_Please enter your full name._t_',
     company_name: '_t_Please enter your company name._t_',
     mobile_number: '_t_Please enter your mobile number._t_',

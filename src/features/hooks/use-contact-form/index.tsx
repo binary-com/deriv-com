@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
@@ -41,6 +41,13 @@ const useContactForm = () => {
         mode: 'onChange',
         resolver: yupResolver(schema),
     })
+    useEffect(() => {
+        if (form_state.is_submitted) {
+            setTimeout(() => {
+                setFormState({ ...form_state, is_submitted: false })
+            }, 4000)
+        }
+    }, [form_state])
 
     const on_submit = async (data) => {
         setFormState({ is_loading_form: true, is_submission_fail: false, is_submitted: false })
@@ -72,6 +79,7 @@ const useContactForm = () => {
             })
 
             if (response.ok) {
+                contact_us_form.reset()
                 setFormState({
                     is_submitted: true,
                     is_loading_form: false,

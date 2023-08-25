@@ -11,6 +11,23 @@ const affiliateNavItems: NavItems = [
                 to: '/partners/affiliate-ib/',
             },
         },
+        visibility: {
+            is_row: true,
+        },
+    },
+    {
+        id: 1,
+        data: {
+            type: 'single-item',
+            title: '_t_Affiliates_t_',
+            content: {
+                type: 'internal',
+                to: '/partners/affiliate-ib/',
+            },
+        },
+        visibility: {
+            is_eu: true,
+        },
     },
     {
         id: 1,

@@ -9,8 +9,24 @@ import { Localize } from 'components/localization/localize'
 import LanguageSwitcher from 'features/components/molecules/language-switcher'
 import Link from 'features/components/atoms/link'
 import Flex from 'features/components/atoms/flex-box'
+import useRegion from 'components/hooks/use-region'
+import { TString } from 'types/generics'
 
+type contentType = {
+    [T: string]: TString
+}
 const PaymentAgentAffiliateNav = () => {
+    const { is_eu } = useRegion()
+    const texts: contentType = is_eu
+        ? {
+              login: '_t_Affiliate log in_t_',
+              sign_up: '_t_Affiliate sign up_t_',
+          }
+        : {
+              login: '_t_Affiliate & IB Log in_t_',
+              sign_up: '_t_Affiliate & IB sign up_t_',
+          }
+
     return (
         <NavTemplate
             renderLogo={() => (
@@ -38,7 +54,7 @@ const PaymentAgentAffiliateNav = () => {
                     visible={'larger-than-tablet'}
                     className={partners_buttons}
                 >
-                    <Localize translate_text="_t_Affiliate & IB Log in_t_" />
+                    <Localize translate_text={texts.login} />
                 </Button.Primary>
                 <Button.Primary
                     id="dm-nav-affiliate-login-button"
@@ -56,7 +72,7 @@ const PaymentAgentAffiliateNav = () => {
                     visible={'larger-than-tablet'}
                     className={partners_buttons}
                 >
-                    <Localize translate_text="_t_Affiliate & IB sign up_t_" />
+                    <Localize translate_text={texts.sign_up} />
                 </Button.Primary>
                 <LanguageSwitcher />
             </Flex.Box>

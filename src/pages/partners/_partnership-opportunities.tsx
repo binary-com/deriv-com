@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 import { Header, Text, CardStyle } from 'components/elements'
 import { Localize, LocalizedLink } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
+import { TString } from 'types/generics'
 // Icons
 import { ReactComponent as PartnerAffiliate } from 'images/svg/partners/partner-affiliate.svg'
 import { ReactComponent as PartnerPaymentAgent } from 'images/svg/partners/partner-payment-agent.svg'
@@ -69,25 +70,43 @@ const ClientCard = styled(LocalizedLink)<ClientCardProps>`
         margin: 1.2rem 0;
     }
 `
+type contentType = {
+    [T: string]: TString
+}
+
 const PartnershipOpportunities = () => {
-    const { is_row } = useRegion()
+    const { is_row, is_eu } = useRegion()
+    const content_data: contentType = is_eu
+        ? {
+              partnership_title: '_t_Partnership opportunity_t_',
+              affiliate_title: '_t_Affiliate programme_t_',
+              affiliate_text:
+                  "_t_Earn 100 USD when a referred client deposits 100 USD in their Deriv account, whether it's a one-time deposit or accumulated over time. It's simple, transparent, and rewarding!_t_",
+          }
+        : {
+              partnership_title: '_t_Partnership opportunities_t_',
+              affiliate_title: '_t_Affiliate and IB programmes_t_',
+              affiliate_text:
+                  '_t_Enjoy the flexibility to choose from a variety of affiliate and introducing broker programmes. Earn 45% commission from promoting our trading platforms or enjoy turnover-based commissions._t_',
+          }
+
     return (
         <SectionContainer>
             <Container direction="column">
                 <Header align="center" size="var(--text-size-header-1)" as="h2" mb="4rem">
-                    <Localize translate_text="_t_Partnership opportunities_t_" />
+                    <Localize translate_text={content_data.partnership_title} />
                 </Header>
             </Container>
             <Flex wrap="wrap">
                 <ClientCard to="/partners/affiliate-ib/" first>
                     <Flex ai="center" height="auto" mb="0.8rem">
                         <Header as="h4" size="var(--text-size-sm)">
-                            <Localize translate_text="_t_Affiliate and IB programmes_t_" />
+                            <Localize translate_text={content_data.affiliate_title} />
                         </Header>
                         <PartnerAffiliate />
                     </Flex>
                     <Text>
-                        <Localize translate_text="_t_Enjoy the flexibility to choose from a variety of affiliate and introducing broker programmes. Earn 45% commission from promoting our trading platforms or enjoy turnover-based commissions._t_" />
+                        <Localize translate_text={content_data.affiliate_text} />
                     </Text>
                 </ClientCard>
                 {is_row && (

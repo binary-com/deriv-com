@@ -1,5 +1,5 @@
 import React from 'react'
-import { form_style, paragraph_style } from '../ctrader-signup'
+import { form_style, paragraph_style } from '../ctrader-signup/ctrader-form.module.scss'
 import { Localize } from 'components/localization'
 import { isBrowser } from 'common/utility'
 import CtraderWrapper from 'features/components/templates/ctrader/ctrader-wrapper'

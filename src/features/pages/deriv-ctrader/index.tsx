@@ -14,6 +14,8 @@ import { SEO } from 'components/containers'
 import { localize, WithIntl } from 'components/localization'
 
 const DerivCTrader = () => {
+    const is_ctrader = false
+
     return (
         <Layout>
             <MainNav />
@@ -28,8 +30,13 @@ const DerivCTrader = () => {
             <CTraderTradeDescription />
             <CTraderWhyTrade />
             <CTraderTradeFeatures />
-            <HowToStartCTrader />
-            <CTraderPlatformBanner />
+            {is_ctrader && (
+                <>
+                    <HowToStartCTrader />
+                    <CTraderPlatformBanner />
+                </>
+            )}
+
             <OtherPlatforms />
             <Footer />
         </Layout>

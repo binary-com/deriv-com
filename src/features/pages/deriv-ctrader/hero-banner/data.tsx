@@ -2,6 +2,7 @@ import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import Image from 'features/components/atoms/image'
 import CTraderLogo from 'images/svg/trading-platforms/ctrader/ctrader-logo.svg'
+import ComingSoonLogo from 'images/svg/trading-platforms/ctrader/coming_soon.svg'
 import { DerivProductContentType } from 'features/components/templates/banners/deriv-products-hero/types'
 
 export const hero_content_data: DerivProductContentType = {
@@ -30,4 +31,10 @@ export const hero_content_data: DerivProductContentType = {
     ),
     logo: <Image src={CTraderLogo} height={64} alt={'_t_Deriv ctrader logo_t_'} />,
     mobile_logo: <Image src={CTraderLogo} height={32} alt={'_t_Deriv ctrader logo_t_'} />,
+    coming_soon_icon: (
+        <Image src={ComingSoonLogo} height={28} width={101} alt={'_t_coming soon_t_'} />
+    ),
+    mobile_coming_soon_icon: (
+        <Image src={ComingSoonLogo} height={24} width={89} alt={'_t_coming soon_t_'} />
+    ),
 }

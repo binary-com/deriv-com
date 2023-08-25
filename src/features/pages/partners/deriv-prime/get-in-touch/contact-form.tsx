@@ -8,9 +8,11 @@ import Input from 'features/components/atoms/input'
 import { TString } from 'types/generics'
 import useContactForm from 'features/hooks/use-contact-form'
 import { TTypographyColor } from 'features/types'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const ContactFormGetInTouch = () => {
     const { contact_us_form, on_submit, form_state } = useContactForm()
+    const { is_mobile } = useBreakpoints()
 
     const {
         register,
@@ -137,7 +139,10 @@ const ContactFormGetInTouch = () => {
                     </Flex.Box>
                 </Flex.Box>
                 <Flex.Item>
-                    <Typography.Paragraph size="xs" textcolor={get_form_bottom_message?.color}>
+                    <Typography.Paragraph
+                        size={is_mobile ? 'small' : 'xs'}
+                        textcolor={get_form_bottom_message?.color}
+                    >
                         <Localize translate_text={get_form_bottom_message?.text} />
                     </Typography.Paragraph>
                 </Flex.Item>

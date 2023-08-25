@@ -11,6 +11,7 @@ const error_message = {
     full_name: '_t_Please enter your full name._t_',
     company_name: '_t_Please enter your company name._t_',
     mobile_number: '_t_Please enter your mobile number._t_',
+    email_validation: '_t_Please enter a valid email address._t_',
 }
 const schema = yup.object({
     full_name: yup.string().required(error_message['full_name']),
@@ -18,8 +19,8 @@ const schema = yup.object({
     email: yup
         .string()
         .required(error_message['email'])
-        .matches(validation_regex.email, { message: error_message['email'] })
-        .email(error_message['email']),
+        .matches(validation_regex.email, { message: error_message['email_validation'] })
+        .email(error_message['email_validation']),
     mobile_number: yup.string().required(error_message['mobile_number']),
 })
 

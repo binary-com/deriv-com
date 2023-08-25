@@ -15,7 +15,8 @@ const ProtectedRoute = ({
     component,
     is_loading = false,
 }: ProtectedRouteProps) => {
-    if (isBrowser()) {
+    if (typeof window !== undefined) {
+        console.log('==>', 'in', typeof window !== undefined)
         return is_loading ? (
             <Layout>
                 <InitialLoader />
@@ -26,6 +27,7 @@ const ProtectedRoute = ({
             <PageNotFound />
         )
     }
+    console.log('==>', 'out', typeof window !== undefined)
     return <>{component}</>
 }
 

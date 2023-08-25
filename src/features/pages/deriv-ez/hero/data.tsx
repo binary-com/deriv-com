@@ -1,7 +1,7 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import Image from 'features/components/atoms/image'
-import DerivEzLogo from 'images/svg/deriv-ez/deriv-ez-logo.svg'
+import { DerivEzLogo } from 'images/svg/deriv-ez'
 
 export const hero_images = {
     hero: (

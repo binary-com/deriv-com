@@ -42,7 +42,7 @@ export const other_markets_items: SmartOtherMarketsItem[] = [
     {
         id: 1,
         data: {
-            header: '_t_Derived_t_',
+            header: '_t_Derived indices_t_',
             description:
                 '_t_ Derived trading gives you a chance to make a profit from correctly predicting the price movement of instruments that mimic characteristics of financial markets or are derived from them._t_',
             icon: Derived,

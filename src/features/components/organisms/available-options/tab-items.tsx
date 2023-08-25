@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { useInView } from 'react-intersection-observer'
 import {
     tab_container,
@@ -10,24 +10,28 @@ import {
     options_available_tab_item,
 } from './styles.module.scss'
 import LeftArrow from 'images/svg/arrow-previous.svg'
-import { Localize } from 'components/localization'
+import { Localize, get_lang_direction } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import Link from 'features/components/atoms/link'
 import Image from 'features/components/atoms/image'
 import Tab from 'features/components/atoms/tab'
 import Flex from 'features/components/atoms/flex-box'
 import { OptionNavigationType } from 'features/components/templates/navigation/tab-nav-without-border/types'
-import { isActiveLink } from 'features/components/atoms/link/internal'
 import dclsx from 'features/utils/dclsx'
 import ArrowNext from 'images/svg/arrow-next.svg'
+import { getLocationPathname } from 'common/utility'
+import useScrollToActiveTab from 'features/hooks/use-scroll-to-active-tab'
 
 interface OptionsTabType {
     options_tabs: OptionNavigationType[]
 }
 
 const OptionsTab = ({ options_tabs }: OptionsTabType) => {
+    const pathname = getLocationPathname()
+    const direction = get_lang_direction()
     const content_wrapper = useRef<HTMLDivElement>(null)
     const [is_initial_load, setIsInitialLoad] = useState(true)
+    const [selected_tab_name, setSelectedTabName] = useState<string | null>(null)
 
     const [first_element_ref, firstInView] = useInView({
         threshold: 0.8,
@@ -36,6 +40,11 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
     const [last_element_ref, lastInView] = useInView({
         threshold: 0.8,
     })
+
+    const { active_element_ref, clickOnActiveElement } = useScrollToActiveTab<
+        HTMLDivElement,
+        HTMLDivElement
+    >(content_wrapper.current)
 
     const side_scroll = (
         element: HTMLDivElement,
@@ -54,9 +63,16 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
         }, speed)
     }
 
+    useEffect(() => {
+        const selected_tab_item: OptionNavigationType = options_tabs.find((option) =>
+            pathname?.includes(option.to),
+        )
+        setSelectedTabName(selected_tab_item?.option_name || null)
+    }, [pathname])
+
     return (
         <Flex.Box direction="col" padding_block="10x" md={{ padding_block: '20x' }}>
-            <Flex.Box className={tab_container} justify="center" md={{ padding_inline: '15x' }}>
+            <Flex.Box className={tab_container} justify="center">
                 <div className={dclsx(scroll_container, 'flex')} ref={content_wrapper}>
                     {options_tabs.map((option_item, index) => (
                         <div
@@ -70,10 +86,19 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                                     : null
                             }
                         >
-                            <Flex.Box
-                                direction={'row'}
-                                justify={'start'}
-                                md={{ justify: 'center' }}
+                            <div
+                                className={dclsx(
+                                    'flex',
+                                    'row',
+                                    'justify-start',
+                                    'md-justify-start',
+                                )}
+                                ref={
+                                    selected_tab_name === option_item.option_name
+                                        ? active_element_ref
+                                        : null
+                                }
+                                onClick={clickOnActiveElement}
                             >
                                 <Link
                                     url={{ type: 'internal', to: option_item.to }}
@@ -82,14 +107,14 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                                 >
                                     <Tab.MenuItem
                                         key={option_item.option_name}
-                                        selected={isActiveLink(option_item.to)}
+                                        selected={selected_tab_name === option_item.option_name}
                                         className={options_available_tab_item}
                                     >
                                         <Typography.Paragraph
                                             size="medium"
                                             font_family="UBUNTU"
                                             textcolor={
-                                                isActiveLink(option_item.to)
+                                                selected_tab_name === option_item.option_name
                                                     ? 'brand'
                                                     : 'light-black'
                                             }
@@ -98,7 +123,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                                         </Typography.Paragraph>
                                     </Tab.MenuItem>
                                 </Link>
-                            </Flex.Box>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -109,6 +134,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                         (is_initial_load || firstInView) && is_show_left,
                     )}
                     onClick={() => side_scroll(content_wrapper.current!, 25, 100, -10)}
+                    dir={get_lang_direction()}
                 >
                     <Image src={LeftArrow} width="36px" height="36px" />
                 </div>
@@ -119,6 +145,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                         lastInView && is_show_right,
                     )}
                     onClick={() => side_scroll(content_wrapper.current!, 25, 100, 10)}
+                    dir={get_lang_direction()}
                 >
                     <Image src={ArrowNext} width="36px" height="36px" />
                 </div>

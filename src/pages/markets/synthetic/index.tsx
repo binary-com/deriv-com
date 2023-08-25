@@ -26,7 +26,7 @@ const Markets = () => {
             />
 
             <DerivedFXHero
-                title="_t_Derived_t_"
+                title="_t_Derived indices_t_"
                 description={is_eu ? description_eu : description_row}
                 is_derived_eu={is_eu ? true : false}
                 is_derived_row={is_row ? true : false}

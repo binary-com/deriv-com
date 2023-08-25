@@ -17,6 +17,7 @@ exports.onCreatePage = ({ page, actions }) => {
     const who_we_are = /who-we-are/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
     const is_deriv_ez = /deriv-ez/g.test(page.path)
+    const is_options = /options/g.test(page.path)
 
     if (is_careers) {
         createRedirect({
@@ -151,6 +152,20 @@ exports.onCreatePage = ({ page, actions }) => {
         createRedirect({
             fromPath: `/trade-types/margin`,
             toPath: `/trade-types/cfds/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+    }
+    if (is_options) {
+        createRedirect({
+            fromPath: `/trade-types/options/`,
+            toPath: `/trade-types/options/digital-options/up-and-down/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/trade-types/options`,
+            toPath: `/trade-types/options/digital-options/up-and-down/`,
             redirectInBrowser: true,
             isPermanent: true,
         })
@@ -319,6 +334,21 @@ exports.onCreatePage = ({ page, actions }) => {
             createRedirect({
                 fromPath: `/${lang}/trade-types/margin`,
                 toPath: `/${lang}/trade-types/cfds/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
+        if (is_options) {
+            createRedirect({
+                fromPath: `/${lang}/trade-types/options/`,
+                toPath: `/${lang}/trade-types/options/digital-options/up-and-down/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/trade-types/options`,
+                toPath: `/${lang}/trade-types/options/digital-options/up-and-down/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

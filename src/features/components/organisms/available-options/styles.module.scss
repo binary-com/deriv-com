@@ -11,14 +11,6 @@
 
 .tab_container {
     position: relative;
-    overflow: scroll;
-    &::-webkit-scrollbar {
-        display: none;
-    }
-
-    @include breakpoints(tablet) {
-        overflow: scroll;
-    }
 }
 
 .scroll_buttons {
@@ -32,6 +24,10 @@
     inset-inline-start: 0;
     transform: translateY(-50%);
     z-index: 1;
+    &[dir="rtl"] {
+        inset-inline-start: auto;
+        inset-inline-end: 0;
+    }
 }
 .scroll_button_right {
     position: absolute;
@@ -39,14 +35,20 @@
     inset-inline-end: 0;
     transform: translateY(-50%);
     z-index: 1;
+    &[dir="rtl"] {
+        inset-inline-start: 0;
+        inset-inline-end: auto;
+    }
 }
 
 .scroll_container {
-    max-inline-size: 100vw;
-    @include breakpoints(phone) {
-        overflow: hidden !important;
-        white-space: nowrap;
-        justify-content: start;
+    overflow: scroll;
+    scrollbar-width: none;
+    overscroll-behavior: contain;
+    scroll-snap-type: x mandatory;
+    max-inline-size: calc(100vw - 1.5rem);
+    &::-webkit-scrollbar {
+        display: none;
     }
 }
 .is_show_left,

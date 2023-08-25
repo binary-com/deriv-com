@@ -303,7 +303,7 @@ const Hero = () => {
                             >
                                 <QueryImage
                                     data={data['huawei_app']}
-                                    alt={localize('_t_huawei app gallery_t_')}
+                                    alt={localize('_t_Huawei AppGallery_t_')}
                                 />
                             </AppButton>
                             <AppButton

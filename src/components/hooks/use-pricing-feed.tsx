@@ -5,6 +5,7 @@ import { firebaseConfig } from 'common/constants'
 import useRegion from 'components/hooks/use-region'
 
 const usePricingFeed = () => {
+    const [prev_data, setPerData] = useState(null)
     const [data, setData] = useState(null)
     const [error, setError] = useState(null)
     const { is_eu } = useRegion()
@@ -17,7 +18,10 @@ const usePricingFeed = () => {
         const unsubscribe = onValue(
             commoditiesRef,
             (snapshot) => {
-                setData(snapshot.val())
+                setData((old) => {
+                    setPerData(old)
+                    return snapshot.val()
+                })
             },
             (err) => {
                 setError(err)
@@ -27,7 +31,11 @@ const usePricingFeed = () => {
         return unsubscribe
     }, [is_eu])
 
-    return [error, data]
+    return {
+        error,
+        data,
+        prev_data,
+    }
 }
 
 export default usePricingFeed

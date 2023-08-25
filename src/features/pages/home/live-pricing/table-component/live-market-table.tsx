@@ -46,10 +46,10 @@ const ErrorView = (
 )
 
 const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) => {
-    const [error, rawMarketsData] = usePricingFeed()
+    const { error, data: rawMarketsData, prev_data } = usePricingFeed()
     const TABLE_VISIBLE_ROWS = 5
     const [sorting, setSorting] = React.useState<SortingState>([])
-    // console.log('==>', { error, rawMarketsData })
+    // console.log('==>', { prev_data, rawMarketsData })
     const markets_data = useMemo(() => {
         if (rawMarketsData) {
             const stocks = rawMarketsData['stk']
@@ -64,14 +64,19 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
         return []
     }, [rawMarketsData, selected_market])
 
-    const columns = useLiveColumns(markets_data)
+    // useEffect(() => {
+    //     console.log('=>', { prev_data, rawMarketsData })
+    // }, [prev_data, rawMarketsData])
+
+    const columns = useLiveColumns(markets_data, prev_data)
     useEffect(() => {
         sessionStorage.setItem('markets_data', JSON.stringify(markets_data))
     }, [markets_data])
 
-    console.log('markets_data =>', markets_data)
+    // console.log('markets_data =>', markets_data)
     const table = useReactTable({
         data: markets_data,
+        // prev_data: prev_data,
         columns,
         state: {
             sorting,

@@ -14,7 +14,7 @@ interface DerivProductHeroType {
 }
 
 const DerivProductHero = ({ contentData }: DerivProductHeroType) => {
-    const is_ctrader_hide = false
+    const is_ctrader_live = false
 
     return (
         <TradeHeroContainer
@@ -34,7 +34,7 @@ const DerivProductHero = ({ contentData }: DerivProductHeroType) => {
             >
                 <ProductsLogoAndText contentData={contentData} />
                 <ProductsHeading title={contentData.main_title} />
-                {is_ctrader_hide && (
+                {is_ctrader_live && (
                     <ProductsButtons feature_buttons={contentData.feature_buttons} />
                 )}
             </FlexBox.Box>

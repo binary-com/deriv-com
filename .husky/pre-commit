@@ -3,4 +3,4 @@
 
 npm run pre-commit-translate
 npm run pre-commit-lint
-
+bash ./.husky/secret-scanner.sh

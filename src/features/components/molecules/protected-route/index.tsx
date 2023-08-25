@@ -25,9 +25,8 @@ const ProtectedRoute = ({
         ) : (
             <PageNotFound />
         )
-    } else {
-        return <>{component}</>
     }
+    return <>{component}</>
 }
 
 export default ProtectedRoute

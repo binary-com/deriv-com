@@ -152,7 +152,7 @@ export const tocFAQDAta: DerivPrimeFAQDataItem[] = [
             {
                 id: 1,
                 type: 'text',
-                text: '_t_You can connect to your trusted bridge partner via a FIX API  protocol connection._t_',
+                text: '_t_You can connect to your trusted bridge partner via a FIX API protocol connection._t_',
             },
         ],
     },

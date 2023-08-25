@@ -246,9 +246,22 @@ const partnerLinks: SmartFooterLink[] = [
             text: '_t_Affiliates and IBs_t_',
             url: { type: 'internal', to: '/partners/affiliate-ib/' },
         },
+        visibility: {
+            is_row: true,
+        },
     },
     {
         id: 2,
+        data: {
+            text: '_t_Affiliates_t_',
+            url: { type: 'internal', to: '/partners/affiliate-ib/' },
+        },
+        visibility: {
+            is_row: false,
+        },
+    },
+    {
+        id: 3,
         data: {
             text: '_t_Payment agents_t_',
             url: { type: 'internal', to: '/partners/payment-agent/' },
@@ -258,7 +271,7 @@ const partnerLinks: SmartFooterLink[] = [
         },
     },
     {
-        id: 3,
+        id: 4,
         data: {
             text: '_t_API_t_',
             url: { type: 'company', url_name: 'api' },

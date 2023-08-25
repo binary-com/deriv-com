@@ -9,6 +9,7 @@ import { LinkButton } from 'components/form'
 import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
 import { TString } from 'types/generics'
+import useRegion from 'components/hooks/use-region'
 
 type AffiliateType = {
     title: TString
@@ -183,6 +184,7 @@ const Turnover: AffiliateType = [
     },
 ]
 const DerivAffiliateProgramme = () => {
+    const { is_eu } = useRegion()
     return (
         <StyledSection>
             <ContentContainer direction="column">
@@ -191,7 +193,11 @@ const DerivAffiliateProgramme = () => {
                         <Localize translate_text="_t_Deriv Affiliate Programme_t_" />
                     </Header>
                     <SubtitleHeader as="p" type="sub-section-title" align="center" weight="normal">
-                        <Localize translate_text="_t_Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on DTrader and DBot._t_" />
+                        {is_eu ? (
+                            <Localize translate_text="_t_Partner with us as an affiliate. Earn commission from your referred client’s deposits._t_" />
+                        ) : (
+                            <Localize translate_text="_t_Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on DTrader and DBot._t_" />
+                        )}
                     </SubtitleHeader>
                 </TitleWrapper>
                 <ComissionPlanContainer>

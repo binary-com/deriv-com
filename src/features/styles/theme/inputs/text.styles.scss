@@ -38,6 +38,7 @@
             &:not(:placeholder-shown) ~ .text_input_label {
                 inset-block-start: -12px;
                 inline-size: auto;
+                color: $color-black;
             }
         }
         .cross_icon {

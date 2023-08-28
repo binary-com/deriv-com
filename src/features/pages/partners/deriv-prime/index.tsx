@@ -22,7 +22,6 @@ const DerivPrime = () => {
                 title="_t_Liquidity solutions provider | Deriv Prime_t_"
             />
             <PaymentAgentAffiliateNav />
-            <GetInTouchBanner />
             <Hero />
             <Potential />
             <CommercialPlan />
@@ -30,6 +29,7 @@ const DerivPrime = () => {
             <ConnectivityReliabilityType />
             <WhyDerivPrime />
             <PrimeNumbers />
+            <GetInTouchBanner />
             <MeetUsThere />
             <BrowseOurFaq />
             <Footer />

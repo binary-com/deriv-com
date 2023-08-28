@@ -7,7 +7,11 @@ import Container from 'features/components/atoms/container'
 
 const GetInTouchBanner = () => {
     return (
-        <Container.Fixed padding_block="25x" md={{ padding_block: '30x', margin_block: '30x' }}>
+        <Container.Fixed
+            pt="20x"
+            md={{ padding_block: '30x', margin_block: '30x' }}
+            id="#getintouch"
+        >
             <Flex.Box bgcolor="primary" className={banner_container}>
                 <Flex.Box
                     direction={'col-reverse'}

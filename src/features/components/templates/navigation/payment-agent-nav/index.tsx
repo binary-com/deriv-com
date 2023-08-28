@@ -35,7 +35,10 @@ const PaymentAgentAffiliateNav = () => {
                 {is_deriv_prime_url ? (
                     <Button.Primary
                         id="dm-nav-deriv-prime-contact"
-                        onClick={() => (window.location.hash = '#getintouch')} //navigating to the get in touch div element.will be changed later
+                        onClick={() => {
+                            const element = document.getElementById('#getintouch')
+                            element.scrollIntoView({ behavior: 'smooth' })
+                        }}
                         className={partners_buttons}
                     >
                         <Localize translate_text="_t_Contact us_t_" />

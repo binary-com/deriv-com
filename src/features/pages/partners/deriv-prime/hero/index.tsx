@@ -1,11 +1,11 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import { hero_wrapper, container, hero_img } from './styles.module.scss'
+import { hero_wrapper, container, hero_img, hero_contact_button } from './styles.module.scss'
 import { Localize, localize } from 'components/localization'
-import LinkButton from 'features/components/atoms/link-button'
 import Typography from 'features/components/atoms/typography'
 import Flex from 'features/components/atoms/flex-box'
 import dclsx from 'features/utils/dclsx'
+import Button from 'features/components/atoms/button'
 
 const Hero = () => {
     return (
@@ -53,16 +53,22 @@ const Hero = () => {
                 <Typography.Heading align="center" size="xlarge" textcolor="white">
                     <Localize translate_text="_t_Global liquidity for all_t_" />
                 </Typography.Heading>
-                <Typography.Paragraph align="center" textcolor="white" size="large">
+                <Typography.Paragraph align="center" textcolor="white" size="large" pb="12x">
                     <Localize translate_text="_t_Deep, reliable liquidity with fast execution for professionals, seasoned institutions, start-ups, and more_t_" />
                 </Typography.Paragraph>
-                <LinkButton.Primary
-                    url={{ href: '#getintouch', type: 'non-company' }}
+
+                <Button.Primary
+                    textsize="large"
                     hero
-                    mt="12x"
+                    id="dm-nav-deriv-prime-contact"
+                    onClick={() => {
+                        const element = document.getElementById('#getintouch')
+                        element.scrollIntoView({ behavior: 'smooth' })
+                    }}
+                    className={hero_contact_button}
                 >
                     <Localize translate_text="_t_Contact us_t_" />
-                </LinkButton.Primary>
+                </Button.Primary>
             </Flex.Box>
         </Flex.Box>
     )

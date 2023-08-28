@@ -330,7 +330,7 @@ const MobileExpandedList = ({
                     )}
                     {payment_data.description && (
                         <Flex p="16px 0" fd="column">
-                            <Header type="paragraph-1" weight="normal">
+                            <Header as="p" type="paragraph-1" weight="normal">
                                 <Localize translate_text={payment_data.description} />
                             </Header>
                             {payment_data.url && (

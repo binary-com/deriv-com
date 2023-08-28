@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import derivXLogo from '../../images/svg/deriv-x/derivX.svg'
-import derivXQR from '../../images/svg/deriv-x/derivxQR.png'
 import GrayAngle30 from '../../images/common/gray-angle.png'
 import AppleIcon from '../../images/svg/apple-icon.svg'
 import AppGalleryIcon from '../../images/svg/appGallery-icon.svg'
 import AndroidIcon from '../../images/svg/android-icon.svg'
 import BrowserIcon from '../../images/svg/browser-icon.svg'
 import GetAppMobileBG from '../../images/common/getAppMobileBG.png'
+import { DerivXLogo } from 'images/svg/deriv-x'
+import DerivXQR from 'images/common/deriv-x/derivxQR.png'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
@@ -83,7 +83,7 @@ const DerivXGetApp = () => {
             >
                 <ContentWrapper is_rtl={is_rtl}>
                     <img
-                        src={derivXLogo}
+                        src={DerivXLogo}
                         alt={localize('_t_Deriv X logo_t_')}
                         width="64px"
                         height="64px"
@@ -103,7 +103,7 @@ const DerivXGetApp = () => {
                 </ContentWrapper>
                 <DownloadColumn
                     is_rtl={is_rtl}
-                    QRImage={derivXQR}
+                    QRImage={DerivXQR}
                     QRHeading1="_t_Scan to download_t_"
                     QRHeading2={
                         is_appgallery_supported

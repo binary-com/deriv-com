@@ -128,12 +128,12 @@ const MobileExpandedList = ({
                     {/* first row */}
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
-                            <Header as="p" type="subtitle-2">
+                            <Header type="subtitle-2">
                                 <Localize translate_text="_t_Currencies_t_" />
                             </Header>
                         </StyledItemDiv>
                         <StyledKeyDiv>
-                            <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
+                            <ValueText as="p" is_rtl={is_rtl} type="subtitle-2" weight="normal">
                                 {payment_data.currencies.includes('_t_') ? (
                                     <Localize translate_text={payment_data.currencies as TString} />
                                 ) : (
@@ -147,19 +147,19 @@ const MobileExpandedList = ({
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
                             {is_crypto || is_fiat_onramp ? (
-                                <Header as="p" type="subtitle-2">
+                                <Header type="subtitle-2">
                                     <Localize translate_text="_t_Min deposit_t_" />
                                 </Header>
                             ) : is_dp2p ? (
-                                <Header as="p" type="subtitle-2">
+                                <Header type="subtitle-2">
                                     <Localize translate_text="_t_Supported Deriv accounts_t_" />
                                 </Header>
                             ) : (
                                 <>
-                                    <Header as="p" type="subtitle-2">
+                                    <Header type="subtitle-2">
                                         <Localize translate_text="_t_Min-max_t_" />
                                     </Header>
-                                    <Header as="p" type="subtitle-2">
+                                    <Header type="subtitle-2">
                                         <Localize translate_text="_t_deposit_t_" />
                                     </Header>
                                 </>
@@ -167,12 +167,17 @@ const MobileExpandedList = ({
                         </StyledItemDiv>
                         <StyledKeyDiv>
                             {payment_data.minimum_deposit ? (
-                                <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
+                                <ValueText as="p" is_rtl={is_rtl} type="subtitle-2" weight="normal">
                                     {payment_data.minimum_deposit}
                                 </ValueText>
                             ) : (
                                 payment_data?.min_max_deposit && (
-                                    <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
+                                    <ValueText
+                                        as="p"
+                                        is_rtl={is_rtl}
+                                        type="subtitle-2"
+                                        weight="normal"
+                                    >
                                         <Localize
                                             translate_text={payment_data.min_max_deposit}
                                             components={payment_data.min_max_deposit_components}
@@ -189,19 +194,19 @@ const MobileExpandedList = ({
                             <StyledRow jc="space-between" ai="center">
                                 <StyledItemDiv>
                                     {is_crypto ? (
-                                        <Header as="p" type="subtitle-2">
+                                        <Header type="subtitle-2">
                                             <Localize translate_text="_t_Min withdrawal_t_" />
                                         </Header>
                                     ) : is_dp2p ? (
-                                        <Header as="p" type="subtitle-2">
+                                        <Header type="subtitle-2">
                                             <Localize translate_text="_t_Daily deposit limits_t_" />
                                         </Header>
                                     ) : (
                                         <>
-                                            <Header as="p" type="subtitle-2">
+                                            <Header type="subtitle-2">
                                                 <Localize translate_text="_t_Min-max_t_" />
                                             </Header>
-                                            <Header as="p" type="subtitle-2">
+                                            <Header type="subtitle-2">
                                                 <Localize translate_text="_t_withdrawal_t_" />
                                             </Header>
                                         </>
@@ -210,6 +215,7 @@ const MobileExpandedList = ({
                                 <StyledKeyDiv>
                                     {payment_data.minimum_withdrawal ? (
                                         <ValueText
+                                            as="p"
                                             is_rtl={is_rtl}
                                             type="subtitle-2"
                                             weight="normal"
@@ -219,6 +225,7 @@ const MobileExpandedList = ({
                                     ) : (
                                         payment_data?.min_max_withdrawal && (
                                             <ValueText
+                                                as="p"
                                                 is_rtl={is_rtl}
                                                 type="subtitle-2"
                                                 weight="normal"
@@ -241,26 +248,26 @@ const MobileExpandedList = ({
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
                             {is_fiat_onramp ? (
-                                <Header as="p" type="subtitle-2">
+                                <Header type="subtitle-2">
                                     <Localize translate_text="_t_Deposit processing time_t_" />
                                 </Header>
                             ) : is_dp2p ? (
-                                <Header as="p" type="subtitle-2">
+                                <Header type="subtitle-2">
                                     <Localize translate_text="_t_Daily withdrawal limits_t_" />
                                 </Header>
                             ) : (
-                                <Header as="p" type="subtitle-2">
-                                    <Header as="p" type="subtitle-2">
+                                <Header type="subtitle-2">
+                                    <Header type="subtitle-2">
                                         <Localize translate_text="_t_Deposit_t_" />
                                     </Header>
-                                    <Header as="p" type="subtitle-2">
+                                    <Header type="subtitle-2">
                                         <Localize translate_text="_t_processing time_t_" />
                                     </Header>
                                 </Header>
                             )}
                         </StyledItemDiv>
                         <StyledKeyDiv>
-                            <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
+                            <ValueText as="p" is_rtl={is_rtl} type="subtitle-2" weight="normal">
                                 {payment_data?.deposit_time && (
                                     <Localize translate_text={payment_data.deposit_time} />
                                 )}
@@ -272,15 +279,15 @@ const MobileExpandedList = ({
                     {!is_fiat_onramp && !is_dp2p && (
                         <StyledRow jc="space-between" ai="center">
                             <StyledItemDiv>
-                                <Header as="p" type="subtitle-2">
+                                <Header type="subtitle-2">
                                     <Localize translate_text="_t_Withdrawal_t_" />
                                 </Header>
-                                <Header as="p" type="subtitle-2">
+                                <Header type="subtitle-2">
                                     <Localize translate_text="_t_processing time_t_" />
                                 </Header>
                             </StyledItemDiv>
                             <StyledKeyDiv>
-                                <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
+                                <ValueText as="p" is_rtl={is_rtl} type="subtitle-2" weight="normal">
                                     {payment_data?.withdrawal_time && (
                                         <Localize translate_text={payment_data.withdrawal_time} />
                                     )}
@@ -291,12 +298,12 @@ const MobileExpandedList = ({
                     {is_dp2p && (
                         <StyledRow jc="space-between" ai="center">
                             <StyledItemDiv>
-                                <Header as="p" type="subtitle-2">
+                                <Header type="subtitle-2">
                                     <Localize translate_text="_t_Processing time_t_" />
                                 </Header>
                             </StyledItemDiv>
                             <StyledKeyDiv>
-                                <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
+                                <ValueText as="p" is_rtl={is_rtl} type="subtitle-2" weight="normal">
                                     {payment_data?.withdrawal_time && (
                                         <Localize translate_text={payment_data.withdrawal_time} />
                                     )}
@@ -309,7 +316,7 @@ const MobileExpandedList = ({
                     {payment_data?.reference_link && (
                         <StyledRow jc="space-between" ai="center">
                             <StyledItemDiv>
-                                <Header as="p" type="subtitle-2">
+                                <Header type="subtitle-2">
                                     <Localize translate_text="_t_More info_t_" />
                                 </Header>
                             </StyledItemDiv>
@@ -323,7 +330,7 @@ const MobileExpandedList = ({
                     )}
                     {payment_data.description && (
                         <Flex p="16px 0" fd="column">
-                            <Header as="p" type="paragraph-1" weight="normal">
+                            <Header type="paragraph-1" weight="normal">
                                 <Localize translate_text={payment_data.description} />
                             </Header>
                             {payment_data.url && (

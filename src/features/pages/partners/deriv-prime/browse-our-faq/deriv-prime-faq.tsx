@@ -15,7 +15,12 @@ interface DerivPrimeFaqProps {
 const DerivPrimeFaq = ({ faqs, subsection }: DerivPrimeFaqProps) => {
     return (
         <Flex.Box className={wrapper} direction="col" justify="center" align="center" pb="10x">
-            <Typography.Paragraph pb="16x" align="center" font_family="UBUNTU" size="xlarge">
+            <Typography.Paragraph
+                padding_block="16x"
+                align="center"
+                font_family="UBUNTU"
+                size="xlarge"
+            >
                 <Localize translate_text={subsection} />
             </Typography.Paragraph>
             <Accordion.Root type="multiple">

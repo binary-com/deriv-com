@@ -1,6 +1,7 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import CommercialPlan from './commercial-plan'
+import GetInTouchBanner from './get-in-touch'
 import BrowseOurFaq from './browse-our-faq'
 import Potential from './potential'
 import WhyDerivPrime from './why-deriv-prime'
@@ -26,6 +27,7 @@ const DerivPrime = () => {
                 <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
             </Helmet>
             <PaymentAgentAffiliateNav />
+            <GetInTouchBanner />
             <Hero />
             <Potential />
             <CommercialPlan />

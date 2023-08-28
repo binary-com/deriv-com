@@ -17,7 +17,7 @@ import {
 } from 'features/styles/utils'
 import { InternalLinkType } from 'features/types'
 
-const isActiveLink = (currentPage: string, active_urls?: string[]) => {
+export const isActiveLink = (currentPage: string, active_urls?: string[]) => {
     const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
 
     return active_urls?.length

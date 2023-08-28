@@ -1,0 +1,62 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.available_options_item {
+    border-block-end: 1px solid gray;
+}
+
+.available_options_item_active {
+    border-block-end: 1px solid red;
+}
+
+.tab_container {
+    position: relative;
+}
+
+.scroll_buttons {
+    margin-block-start: 1rem;
+    display: block;
+}
+
+.scroll_button_left {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+    &[dir="rtl"] {
+        inset-inline-start: auto;
+        inset-inline-end: 0;
+    }
+}
+.scroll_button_right {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-end: 0;
+    transform: translateY(-50%);
+    z-index: 1;
+    &[dir="rtl"] {
+        inset-inline-start: 0;
+        inset-inline-end: auto;
+    }
+}
+
+.scroll_container {
+    overflow: scroll;
+    scrollbar-width: none;
+    overscroll-behavior: contain;
+    scroll-snap-type: x mandatory;
+    max-inline-size: calc(100vw - 1.5rem);
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+.is_show_left,
+.is_show_right {
+    display: none;
+}
+
+.options_available_tab_item {
+    padding-inline: 1.6rem;
+    padding-block: 0.8rem;
+}

@@ -3,13 +3,22 @@ import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import * as styles from './language-switcher.module.scss'
 import useLangSwitcher from './useLangSwitcher'
 import Typography from 'features/components/atoms/typography'
-import { get_lang_direction } from 'components/localization'
+import { LocaleContext, get_lang_direction } from 'components/localization'
 import { useNavContext } from 'features/components/templates/navigation/template/nav-context'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 const LanguageSwitcher = () => {
     const { isSelected, languages, onSwitchLanguage, currentLang } = useLangSwitcher()
     const [open, setOpen] = useState(false)
     const { onCloseMenu, is_menu_open } = useNavContext()
+    const lang_direction = useLangDirection()
+    const { locale } = React.useContext(LocaleContext)
+    const formatted_lang = locale.replace('_', '-')
+
+    React.useEffect(() => {
+        document.body.dir = lang_direction
+        document.documentElement.lang = formatted_lang
+    }, [lang_direction])
 
     useEffect(() => {
         if (open && is_menu_open) {
@@ -17,26 +26,12 @@ const LanguageSwitcher = () => {
         }
     }, [open, is_menu_open, onCloseMenu])
 
-    const openHandler = () => {
-        // HOTFIX: Temporary solution - to be fixed in future
-        setOpen((prev) => !prev)
-        const styleTag = document.createElement('style')
-        styleTag.type = 'text/css'
-        styleTag.innerHTML = `
-            body {
-                overflow: auto !important;
-                margin-right: 0 !important;
-            }
-        `
-        document.body.insertAdjacentElement('beforeend', styleTag)
-    }
-
     return (
         <DropdownMenu.Root
             modal={true}
             dir={get_lang_direction()}
             open={open}
-            onOpenChange={openHandler}
+            onOpenChange={setOpen}
         >
             <DropdownMenu.Trigger asChild>
                 <div className={styles.trigger}>

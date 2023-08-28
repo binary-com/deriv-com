@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { TAvailableLiveMarkets } from '../types'
 import LiveMarketTable from '../table-component/live-market-table'
 import { market_buttons } from './utils'
-import { tab_container } from './tab-style.module.scss'
+import { tab_container, markets_menu_tab_item } from './tab-style.module.scss'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import Container from 'features/components/atoms/container'
@@ -26,15 +26,16 @@ const MarketTab = () => {
             >
                 {market_buttons.map((market_item) => (
                     <Flex.Box
+                        key={market_item.button_text}
                         direction="col"
                         className="tab_container"
-                        key={market_item.button_text}
                         onClick={() => {
                             onMarketButtonClick(market_item.market_name)
                             setLinkToMarketPage(market_item.to)
                         }}
                     >
                         <TabMenu
+                            item_className={markets_menu_tab_item}
                             tab_names={[market_item.button_text]}
                             current_tab={tab_name}
                             setCurrentTab={setTabName}

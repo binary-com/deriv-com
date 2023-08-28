@@ -71,7 +71,7 @@ const available_markets: TAvailableMarkets[] = [
         name: 'Derived',
         img_src: Derived,
         img_alt: '_t_derived_t_',
-        text: '_t_Derived_t_',
+        text: '_t_Derived indices_t_',
         description:
             '_t_Enjoy trading a wide range of offerings that mimic characteristics of financial markets or are derived from them._t_',
         eu_description:

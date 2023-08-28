@@ -123,7 +123,7 @@ export const synthetic_multiplier_eu: TMarketContent = {
     template: 3,
     content: [
         {
-            title: '_t_Volatility indices_t_',
+            title: '_t_Continuous indices_t_',
             id: 'continuous-indices',
             component: <VolatilityIndicesEU />,
             details: <VolatilityIndicesDetailsEU />,

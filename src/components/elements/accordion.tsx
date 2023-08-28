@@ -144,6 +144,7 @@ const ItemExpanded = ({ child, child_idx, nodes, id }: ItemExpandedProps) => {
     useEffect(() => {
         child && setHeight(getHeight(child_idx))
     }, [is_expanded])
+
     useEffect(() => {
         if (is_expanded) setTimeout(() => setHeight('auto'), 200)
         else setHeight(0)

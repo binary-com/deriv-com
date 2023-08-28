@@ -25,13 +25,14 @@ type LayoutProps = {
     children: ReactNode
     is_ppc?: boolean
     is_ppc_redirect?: boolean
-    padding_top?: number
+    padding_top?: string
     type?: string
+    show_footer?: boolean
 }
 
 type MainType = {
     is_static?: boolean
-    padding_top?: number
+    padding_top?: string
 }
 
 export type ModalPayloadType = {
@@ -47,6 +48,9 @@ const Main = styled.main<MainType>`
     background: var(--color-white);
     height: 100%;
     position: relative;
+    position: relative;
+    max-inline-size: 256rem;
+    margin-inline: auto;
 `
 
 if (isBrowser()) {
@@ -85,6 +89,7 @@ const Layout = ({
     is_ppc_redirect = false,
     padding_top,
     type = 'default',
+    show_footer = true,
 }: LayoutProps) => {
     const [is_mounted] = usePageLoaded()
     const [show_modal, toggleModal, closeModal] = useModal()
@@ -96,7 +101,7 @@ const Layout = ({
     //Handle page layout when redirection from mobile app.
     if (has_platform) {
         return (
-            <Main padding_top={0} is_static={is_static}>
+            <Main padding_top="0" is_static={is_static}>
                 {children}
             </Main>
         )
@@ -127,7 +132,7 @@ const Layout = ({
                     <LayoutOverlay is_ppc={is_ppc} />
                 </div>
             </LocationProvider>
-            <RebrandingFooter />
+            {show_footer && <RebrandingFooter />}
         </PpcProvider>
     )
 }

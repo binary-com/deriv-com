@@ -63,6 +63,7 @@ const InputWrapper = styled.div<InputWrapperProps>`
     border-radius: 16px;
     @media ${device.tabletL} {
         height: 5rem;
+        border-radius: 4px;
     }
 
     &:hover {

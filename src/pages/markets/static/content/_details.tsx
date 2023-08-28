@@ -90,13 +90,13 @@ export const DexIndicesDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="_t_The <0>DEX900UP</0> has frequent small spikes and major drops that occasionally occur <0>every 900 seconds</0> on average._t_"
+                translate_text="_t_The <0>DEX900UP</0> has frequent small drops and major spikes that occasionally occur <0>every 900 seconds</0> on average._t_"
                 components={[<strong key={0} />]}
             />
         </Text>
         <Text>
             <Localize
-                translate_text="_t_The <0>DEX900DN</0> has frequent small drops and major spikes that occasionally occur <0>every 900 seconds</0> on average._t_"
+                translate_text="_t_The <0>DEX900DN</0> has frequent small spikes and major drops that occasionally occur <0>every 900 seconds</0> on average._t_"
                 components={[<strong key={0} />]}
             />
         </Text>

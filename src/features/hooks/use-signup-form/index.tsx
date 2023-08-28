@@ -6,7 +6,7 @@ import { navigate } from 'gatsby'
 import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
 import { validation_regex } from 'common/validation'
 import apiManager from 'common/websocket'
-import { getLanguage } from 'common/utility'
+import { getLanguage, isBrowser } from 'common/utility'
 
 const getVerifyEmailRequest = (formatted_email: string) => {
     // TODO: this getJSON seems incorrect, we have to check it out, I don't know how this cookie is being populated
@@ -16,11 +16,15 @@ const getVerifyEmailRequest = (formatted_email: string) => {
     const cookies_objects = getCookiesObject(cookies)
     const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
 
+    const url_params = new URLSearchParams((isBrowser() && window.location.search) || '')
+    const gclid = url_params.get('gclid')
+
     return {
         verify_email: formatted_email,
         url_parameters: {
             ...(affiliate_token && { affiliate_token: affiliate_token }),
             ...(cookies_value && { ...cookies_value }),
+            ...(gclid && { gclid_url: gclid }),
         },
     }
 }

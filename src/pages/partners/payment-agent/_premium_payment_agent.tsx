@@ -7,11 +7,8 @@ import Typography from 'features/components/atoms/typography'
 import FlexBox from 'features/components/atoms/flex-box'
 import useScreenSize from 'components/hooks/use-screen-size'
 import Botswana from 'images/svg/flags/botswana.svg'
-import Brazil from 'images/svg/flags/brazil.svg'
 import India from 'images/svg/flags/india.svg'
-import Kenya from 'images/svg/flags/kenya.svg'
 import Nigeria from 'images/svg/flags/nigeria.svg'
-import SouthAfrica from 'images/svg/flags/south-africa.svg'
 import SriLanka from 'images/svg/flags/sri-lanka.svg'
 import Tanzania from 'images/svg/flags/tanzania.svg'
 import Zimbabwe from 'images/svg/flags/zimbabwe.svg'
@@ -22,20 +19,15 @@ type CountryProps = {
 }
 
 const countries: CountryProps[] = [
-    { name: '_t_Brazil_t_', flag: Brazil },
     { name: '_t_Botswana_t_', flag: Botswana },
     { name: '_t_India_t_', flag: India },
-    { name: '_t_Kenya_t_', flag: Kenya },
     { name: '_t_Nigeria_t_', flag: Nigeria },
     { name: '_t_Sri Lanka_t_', flag: SriLanka },
-    { name: '_t_South Africa_t_', flag: SouthAfrica },
     { name: '_t_Tanzania_t_', flag: Tanzania },
     { name: '_t_Zimbabwe_t_', flag: Zimbabwe },
 ]
 
 const PremiumPaymentAgent = () => {
-    const { is_mobile_or_tablet } = useScreenSize()
-
     return (
         <FlexBox.Box
             justify="center"

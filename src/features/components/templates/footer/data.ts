@@ -91,7 +91,7 @@ const marketsLinks: SmartFooterLink[] = [
     {
         id: 1,
         data: {
-            text: '_t_Derived_t_',
+            text: '_t_Derived indices_t_',
             url: { type: 'internal', to: '/markets/synthetic/' },
         },
     },

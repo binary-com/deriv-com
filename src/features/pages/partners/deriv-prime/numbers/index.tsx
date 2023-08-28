@@ -6,7 +6,7 @@ import Flex from 'features/components/atoms/flex-box'
 
 const PrimeNumbers = () => {
     return (
-        <Container.Fixed as="section" padding_block="40x">
+        <Container.Fixed as="section" padding_block="20x">
             <Flex.Box
                 container="fluid"
                 direction="col"

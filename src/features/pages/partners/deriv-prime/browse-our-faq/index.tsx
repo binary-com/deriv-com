@@ -8,7 +8,7 @@ import { Localize } from 'components/localization'
 const BrowseOurFaq = () => {
     return (
         <>
-            <Typography.Heading padding_block="15x" mt="40x" align="center" as="h2">
+            <Typography.Heading md={{ pt: '40x' }} align="center" as="h2">
                 <Localize translate_text="_t_Browse our FAQ_t_" />
             </Typography.Heading>
             <Container.Fixed pb="20x">

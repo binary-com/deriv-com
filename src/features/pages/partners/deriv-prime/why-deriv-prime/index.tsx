@@ -14,11 +14,7 @@ const WhyDerivPrime = () => {
             pt={'20x'}
             md={{ padding_inline: '0x', padding_block: '40x' }}
         >
-            <FlexBox.Box
-                direction={'col'}
-                margin_block={'40x'}
-                md={{ justify: 'center', margin_block: '40x' }}
-            >
+            <FlexBox.Box direction={'col'} md={{ justify: 'center', margin_block: '20x' }}>
                 <Typography.Heading
                     as="h2"
                     align={'center'}

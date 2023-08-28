@@ -1,4 +1,11 @@
 {
-    "presets": ["babel-preset-gatsby"],
+    "presets": [
+        [
+            "babel-preset-gatsby",
+            {
+                "stage": "build-javascript" // This fixes the code splitting issue, refer https://github.com/gatsbyjs/gatsby/issues/35731
+            }
+        ]
+    ],
     "plugins": ["@loadable/babel-plugin"]
 }

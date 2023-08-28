@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react'
+import { main_wrapper } from './style.module.scss'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
 import { getLanguage, isBrowser } from 'common/utility'
@@ -28,7 +29,7 @@ const Layout = ({ children, is_ppc = false, is_ppc_redirect = false }: LayoutPro
 
     return (
         <PpcProvider is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
-            <main>{children}</main>
+            <main className={main_wrapper}>{children}</main>
             <BrowserUpdateAlert />
             <LayoutOverlay />
         </PpcProvider>

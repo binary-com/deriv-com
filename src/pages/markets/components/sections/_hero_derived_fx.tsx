@@ -10,6 +10,7 @@ import useAuthCheck from 'components/hooks/use-auth-check'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import MarketNav from 'features/components/templates/navigation/market-nav'
 import { handleGetTrading } from 'components/custom/utils'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { TString } from 'types/generics'
 
 type ContainerProps = {
@@ -43,7 +44,7 @@ const StyledButton = styled.div<BackgroundWrapperProps>`
 `
 const MarketSubHeader = styled.div`
     font-size: 16px;
-    width: 22vw;
+    width: 70%;
     color: var(--color-black-9);
     text-align: left;
     line-height: 24px;
@@ -62,7 +63,7 @@ const MarketSubHeader = styled.div`
 const StyledHeader = styled.h1<ContainerProps>`
     font-size: 48px;
     color: var(--color-black-9);
-    width: 22vw;
+    width: 70%;
     text-wrap: nowrap;
     text-align: ${(props) => (props.is_rtl ? 'end' : 'start')};
     margin-bottom: 1rem;
@@ -196,6 +197,7 @@ export const DerivedFXHero = ({
     const [is_logged_in] = useAuthCheck()
     const handleSignup = useHandleSignup()
     const is_rtl = useIsRtl()
+    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <>
@@ -211,19 +213,21 @@ export const DerivedFXHero = ({
                                 <Localize translate_text={description} />
                             </MarketSubHeader>
                             <StyledButton is_rtl={is_rtl}>
-                                {is_logged_in ? (
-                                    <Button
-                                        onClick={handleGetTrading}
-                                        label="_t_Get trading_t_"
-                                        primary
-                                    />
-                                ) : (
-                                    <Button
-                                        onClick={handleSignup}
-                                        label="_t_Create free demo account_t_"
-                                        primary
-                                    />
-                                )}
+                                {!is_deriv_go ? (
+                                    is_logged_in ? (
+                                        <Button
+                                            onClick={handleGetTrading}
+                                            label="_t_Get trading_t_"
+                                            primary
+                                        />
+                                    ) : (
+                                        <Button
+                                            onClick={handleSignup}
+                                            label="_t_Create free demo account_t_"
+                                            primary
+                                        />
+                                    )
+                                ) : null}
                             </StyledButton>
                         </Content>
                     </ContentWrapperStyle>

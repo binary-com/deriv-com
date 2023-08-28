@@ -7,8 +7,34 @@
         block-size: 16.4rem;
     }
 }
+.coming_soon_wrapper {
+    position: absolute;
+    max-inline-size: 10rem;
+    max-block-size: 2.5rem;
+    background-color: $color-grey-8;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    top: 1.6rem;
+    right: 1.6rem;
+    @include rtl() {
+        top: 1.6rem;
+        left: 1.6rem;
+        right: initial;
+    }
+
+    @include breakpoints(tablet) {
+        top: 2.4rem;
+        right: 2.4rem;
+        @include rtl() {
+            top: 1.6rem;
+            left: 1.6rem;
+            right: initial;
+        }
+    }
+}
 
 .card_primary_container {
+    position: relative;
     box-shadow: rgba(14, 14, 14, 0.1) 0px 4px 8px 0px;
 
     padding: 1.6rem;

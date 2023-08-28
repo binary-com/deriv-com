@@ -12,6 +12,12 @@
 
 .other_market_item {
     min-block-size: 30rem;
+    &.no_link {
+        min-block-size: 17.5rem;
+        @include breakpoints(tablet) {
+            min-block-size: 19.8rem;
+        }
+    }
 }
 
 .markets_swiper {
@@ -20,6 +26,13 @@
 
     @include breakpoints(tablet) {
         min-block-size: 40rem;
+    }
+    &.no_link {
+        min-block-size: 22rem;
+
+        @include breakpoints(tablet) {
+            min-block-size: 25rem;
+        }
     }
 }
 

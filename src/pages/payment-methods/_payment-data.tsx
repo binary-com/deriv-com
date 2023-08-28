@@ -187,8 +187,7 @@ const payment_data: PaymentDataProps[] = [
                 min_max_withdrawal: '_t_Not applicable_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_Not applicable_t_',
-                description:
-                    '_t_Make deposits and withdrawals using your credit and debit cards._t_',
+                description: '_t_Make deposits using your credit and debit cards._t_',
             },
         ],
     },

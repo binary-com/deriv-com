@@ -282,9 +282,9 @@ export const basket_cfds: TMarketContent = {
 
 export const derived_fx_cfds: TMarketContent = {
     markets_list: {
-        col: 2,
-        tablet_col: 2,
-        mobile_col: 2,
+        col: 3,
+        tablet_col: 3,
+        mobile_col: 3,
     },
     template: 3,
     content: [

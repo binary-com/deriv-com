@@ -14,7 +14,6 @@ env:
     DATADOG_APPLICATION_ID: ${{ secrets.DATADOG_APPLICATION_ID }}
     DATADOG_CLIENT_TOKEN: ${{ secrets.DATADOG_CLIENT_TOKEN }}
     GATSBY_MAP_API_KEY: ${{ secrets.GATSBY_MAP_API_KEY }}
-    GATSBY_GROWTHBOOK_CLIENT_KEY: ${{ secrets.GATSBY_GROWTHBOOK_CLIENT_KEY }}
 
 jobs:
     release-production:

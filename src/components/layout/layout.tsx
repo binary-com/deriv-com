@@ -48,6 +48,9 @@ const Main = styled.main<MainType>`
     background: var(--color-white);
     height: 100%;
     position: relative;
+    position: relative;
+    max-inline-size: 256rem;
+    margin-inline: auto;
 `
 
 if (isBrowser()) {

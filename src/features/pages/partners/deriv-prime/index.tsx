@@ -1,4 +1,5 @@
 import React from 'react'
+import GetInTouchBanner from './get-in-touch'
 import BrowseOurFaq from './browse-our-faq'
 import Potential from './potential'
 import WhyDerivPrime from './why-deriv-prime'
@@ -21,6 +22,7 @@ const DerivPrime = () => {
                 title="_t_Liquidity solutions provider | Deriv Prime_t_"
             />
             <PaymentAgentAffiliateNav />
+            <GetInTouchBanner />
             <Hero />
             <Potential />
             <CommercialPlan />

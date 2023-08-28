@@ -3,8 +3,8 @@ const path = require('path');
 const glob = require('glob');
 
 const IMAGE_EXTENSIONS = ['.png', '.jpeg', '.jpg', '.svg'];
-const IMAGE_DIRECTORY = path.join(__dirname, '/src/images');
-const SRC_DIRECTORY = path.join(__dirname, '/src');
+const IMAGE_DIRECTORY = path.join(__dirname, '../src/images');
+const SRC_DIRECTORY = path.join(__dirname, '../src');
 
 function findUsedImages() {
     const usedImages = new Set();

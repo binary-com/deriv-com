@@ -81,24 +81,19 @@ const FormSocialButtons = () => {
                                 event.preventDefault()
                                 Login.redirectToLogin()
 
-                                RudderStack.track('ce_virtual_signup_form', {
-                                    action: 'open',
-                                    form_source: document.referrer,
-                                    form_name: isMobile
-                                        ? 'virtual_signup_web_mobile_default'
-                                        : 'virtual_signup_web_desktop_default',
-                                })
-                                console.log(`
-                                'ce_virtual_signup_form', {
-                                    action: 'open',
-                                    form_source: ${document.referrer},
-                                    form_name: ${
-                                        isMobile
+                                RudderStack.track(
+                                    'ce_virtual_signup_form',
+                                    {
+                                        action: 'open',
+                                        form_source: document.referrer,
+                                        form_name: isMobile
                                             ? 'virtual_signup_web_mobile_default'
-                                            : 'virtual_signup_web_desktop_default'
+                                            : 'virtual_signup_web_desktop_default',
                                     },
-                                }
-                                `)
+                                    {
+                                        is_anonymous: true,
+                                    },
+                                )
                             }}
                         />,
                     ]}

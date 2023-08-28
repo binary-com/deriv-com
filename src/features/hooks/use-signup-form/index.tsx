@@ -49,23 +49,18 @@ const useSignupForm = () => {
     })
 
     const onSignup = ({ email }: FormData) => {
-        RudderStack.track('ce_virtual_signup_form', {
-            action: 'started',
-            form_name: isMobile
-                ? 'virtual_signup_web_mobile_default'
-                : 'virtual_signup_web_desktop_default',
-        })
-
-        console.log(`
-        'ce_virtual_signup_form', {
-            action: 'started',
-            form_name: ${
-                isMobile
+        RudderStack.track(
+            'ce_virtual_signup_form',
+            {
+                action: 'started',
+                form_name: isMobile
                     ? 'virtual_signup_web_mobile_default'
-                    : 'virtual_signup_web_desktop_default'
+                    : 'virtual_signup_web_desktop_default',
             },
-        }
-        `)
+            {
+                is_anonymous: true,
+            },
+        )
 
         const formatted_email = getVerifyEmailRequest(email)
         apiManager
@@ -89,16 +84,6 @@ const useSignupForm = () => {
                         ? 'virtual_signup_web_mobile_default'
                         : 'virtual_signup_web_desktop_default',
                 })
-                console.log(`
-                'ce_virtual_signup_form', {
-                    action: 'signup_flow_error',
-                    form_name: ${
-                        isMobile
-                            ? 'virtual_signup_web_mobile_default'
-                            : 'virtual_signup_web_desktop_default'
-                    },
-                }
-                `)
                 signUpForm.setError('email', {
                     message: reason.error.code,
                 })

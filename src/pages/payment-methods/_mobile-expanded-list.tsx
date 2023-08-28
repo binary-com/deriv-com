@@ -252,14 +252,14 @@ const MobileExpandedList = ({
                                     <Localize translate_text="_t_Daily withdrawal limits_t_" />
                                 </Header>
                             ) : (
-                                <Header as="p" type="subtitle-2">
+                                <>
                                     <Header as="p" type="subtitle-2">
                                         <Localize translate_text="_t_Deposit_t_" />
                                     </Header>
                                     <Header as="p" type="subtitle-2">
                                         <Localize translate_text="_t_processing time_t_" />
                                     </Header>
-                                </Header>
+                                </>
                             )}
                         </StyledItemDiv>
                         <StyledKeyDiv>

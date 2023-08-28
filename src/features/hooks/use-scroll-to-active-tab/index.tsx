@@ -28,13 +28,14 @@ const useScrollToActiveTab = <T extends HTMLElement, U extends HTMLElement>(wrap
                 // If page load from URL
                 const active_element = active_element_ref?.current
                 const screen_position = wrapper.scrollLeft + wrapper.clientWidth
-                const active_item_position = active_element.offsetLeft + active_element.offsetWidth
+                const active_item_position =
+                    active_element?.offsetLeft + active_element?.offsetWidth
                 if (active_item_position > screen_position) {
                     wrapper.scrollLeft = active_element.offsetLeft
                 }
                 // For RTL
-                if (active_element.offsetLeft < 0) {
-                    wrapper.scrollLeft = active_element.offsetLeft - active_element.offsetWidth
+                if (active_element?.offsetLeft < 0) {
+                    wrapper.scrollLeft = active_element?.offsetLeft - active_element?.offsetWidth
                 }
             }
         }

@@ -5,10 +5,11 @@ import Layout from 'features/components/templates/layout'
 import StaticNav from 'features/components/templates/navigation/static-nav'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import SignupImage from 'images/common/sign-up/response-email.png'
 import Image from 'features/components/atoms/image'
 import Link from 'features/components/atoms/link'
+import { TGatsbyHead } from 'features/types'
 
 type SignupProps = {
     email?: string
@@ -17,10 +18,6 @@ type SignupProps = {
 const SignUpSuccessContainer = ({ email }: SignupProps) => {
     return (
         <Layout>
-            <SEO
-                title="_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_"
-                description="_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_"
-            />
             <StaticNav />
             <Flex.Box
                 container="fluid"
@@ -58,3 +55,11 @@ const SignUpSuccessContainer = ({ email }: SignupProps) => {
 }
 
 export default SignUpSuccessContainer
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_"
+        description="_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_"
+        pageContext={pageContext}
+    />
+)

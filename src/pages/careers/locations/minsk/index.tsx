@@ -4,13 +4,11 @@ import { minsk } from '../../_model/_locations/_locations'
 import { LocationLayout } from '../_location-layout'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
+import { TGatsbyHead } from 'features/types'
 
 const query = graphql`
     query {
-        minsk: file(relativePath: { eq: "careers/minsk.png" }) {
-            ...backgroundImage
-        }
         living_in_minsk: file(relativePath: { eq: "careers/living_in_minsk.jpg" }) {
             ...fadeIn
         }
@@ -70,15 +68,17 @@ const Minsk = () => {
 
     return (
         <Layout type="careers">
-            <SEO
-                title={localize('_t_Minsk | Our office – Belarus | Deriv_t_')}
-                description={localize(
-                    '_t_Find your role with us by browsing Deriv job opportunities in Minsk, Belarus._t_',
-                )}
-            />
             <LocationLayout location={minsk} images={images} />
         </Layout>
     )
 }
 
 export default WithIntl()(Minsk)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Minsk | Our office – Belarus | Deriv_t_"
+        description="_t_Find your role with us by browsing Deriv job opportunities in Minsk, Belarus._t_"
+        pageContext={pageContext}
+    />
+)

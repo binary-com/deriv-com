@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
+import { Script } from 'gatsby'
 import { vanillaFAQ, vanillaMarkets, vanillaOptionsContentItems, vanillaPlatforms } from './data'
 import { faq_schema } from './_faq-schema'
 import { why_vanilla_section } from './styles.module.scss'
@@ -12,6 +12,7 @@ import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
+import { TGatsbyHead } from 'features/types'
 
 const VanillaOptions = () => {
     return (
@@ -19,13 +20,6 @@ const VanillaOptions = () => {
             heading="_t_What are vanilla options?_t_"
             description="_t_Vanilla options allow you to express a bullish or bearish view on an underlying asset by purchasing either a Call or a Put option. You can earn a potentially high payout if your predictions are right within a timed contract and based on market conditions._t_"
         >
-            <SEO
-                title="_t_Vanilla options | Trade options | Deriv_t_"
-                description="_t_Earn a potentially high payout by trading vanilla options on Deriv, if your market prediction is right within a limited timeframe._t_"
-            />
-            <Helmet>
-                <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-            </Helmet>
             <Typography.Heading
                 as="h2"
                 align="center"
@@ -65,3 +59,14 @@ const VanillaOptions = () => {
 }
 
 export default VanillaOptions
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <>
+        <SEO
+            title="_t_Vanilla options | Trade options | Deriv_t_"
+            description="_t_Earn a potentially high payout by trading vanilla options on Deriv, if your market prediction is right within a limited timeframe._t_"
+            pageContext={pageContext}
+        />
+        <Script type="application/ld+json">{JSON.stringify(faq_schema)}</Script>
+    </>
+)

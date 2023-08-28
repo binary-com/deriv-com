@@ -11,6 +11,7 @@ import Layout from 'components/layout/layout'
 import { WithIntl, localize } from 'components/localization'
 import { Header, Text, Tabs, QueryImage } from 'components/elements'
 import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
+import { TGatsbyHead } from 'features/types'
 
 const meta_attributes = {
     og_title: localize('_t_Explore our office locations | Deriv_t_'),
@@ -313,14 +314,7 @@ const Locations = () => {
     }
 
     return (
-        <Layout type="careers" margin_top={7}>
-            <SEO
-                title={localize('_t_Explore our office locations | Deriv_t_')}
-                description={localize(
-                    '_t_Discover career opportunities at Deriv across our office locations around the globe._t_',
-                )}
-                meta_attributes={meta_attributes}
-            />
+        <Layout type="careers" padding_top="7">
             <Hero />
             <StyledSectionContainer direction="column" padding="80px 16px">
                 <Header
@@ -388,3 +382,12 @@ const Locations = () => {
 }
 
 export default WithIntl()(Locations)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Explore our office locations | Deriv_t_"
+        description="_t_Discover career opportunities at Deriv across our office locations around the globe._t_"
+        meta_attributes={meta_attributes}
+        pageContext={pageContext}
+    />
+)

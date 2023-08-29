@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import * as styles from './cfd-warning-banner.module.scss'
-import { fallback_loss_percent } from 'common/constants'
 import { Localize } from 'components/localization'
 import Arrow from 'images/svg/arrow_expandable.svg'
 import Container from 'features/components/atoms/container'
@@ -23,7 +22,7 @@ const CfdWarningBanner = () => {
             }
         }
     `)
-    const loss_percent = data?.strapiCfdWarningBanner?.loss_percent ?? fallback_loss_percent
+    const loss_percent = data?.strapiCfdWarningBanner?.loss_percent
 
     if (is_ppc || is_eu || is_cpa_plan) {
         const toggleExpansion = () => {

@@ -5,6 +5,7 @@ import { WithIntl } from 'components/localization'
 import UpAndDownDigitalOptionsPage from 'features/pages/options/digital/up-down'
 import ProtectedRoute from 'features/components/molecules/protected-route'
 import useRegion from 'components/hooks/use-region'
+import UpDownSEO from 'features/pages/options/digital/up-down/seo'
 
 const DigitalOptions = () => {
     const { is_row, is_region_loading } = useRegion()
@@ -21,6 +22,7 @@ const DigitalOptions = () => {
                 is_page_visible={is_row}
                 component={<UpAndDownDigitalOptionsPage />}
                 is_loading={is_region_loading}
+                seo={<UpDownSEO />}
             />
         </>
     )

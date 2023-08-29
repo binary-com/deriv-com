@@ -14,9 +14,8 @@ const useScrollToActiveTab = <T extends HTMLElement, U extends HTMLElement>(wrap
             item_position - item_width / 2 < wrapper.scrollLeft ||
             item_position + item_width / 2 > wrapper.scrollLeft + container_width
         ) {
-            // Calculate the next position to center the item in the container
             next_position = item_position - container_width / 2 + item_width / 2
-            next_position = Math.max(next_position, 0) // Ensure it's not negative
+            next_position = Math.max(next_position, 0)
         } else {
             next_position = wrapper.scrollLeft
         }

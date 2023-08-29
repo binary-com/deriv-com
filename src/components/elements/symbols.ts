@@ -361,6 +361,10 @@ import ZECUSD from 'images/svg/symbols/zec-usd.svg'
 import DSI10M from 'images/svg/symbols/dsi_10m.svg'
 import DSI20M from 'images/svg/symbols/dsi_20m.svg'
 import DSI30M from 'images/svg/symbols/dsi_30m.svg'
+import DEX600UP from 'images/svg/symbols/dex-600up.svg'
+import DEX600DN from 'images/svg/symbols/dex-600dn.svg'
+import DEX1500UP from 'images/svg/symbols/dex-1500up.svg'
+import DEX1500DN from 'images/svg/symbols/dex-1500dn.svg'
 
 export {
     AAL,
@@ -726,4 +730,8 @@ export {
     DSI10M,
     DSI20M,
     DSI30M,
+    DEX600UP,
+    DEX600DN,
+    DEX1500UP,
+    DEX1500DN,
 }

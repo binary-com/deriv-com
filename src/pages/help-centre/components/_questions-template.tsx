@@ -18,7 +18,7 @@ type TQuestionsTemplate = {
 }
 
 const ContactContainer = styled.div`
-    margin-top: 8rem;
+    margin-top: 4rem;
 `
 
 const QuestionsTemplate = ({ data }: TQuestionsTemplate) => {

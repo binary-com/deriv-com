@@ -5,9 +5,7 @@ import { SectionContainer, Container } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Header } from 'components/elements/typography'
 import device from 'themes/device'
-import Icon24_7 from 'images/svg/deriv-x/24-7.svg'
-import IconMultipleMarketing from 'images/svg/deriv-x/multiple-marketing.svg'
-import IconNewPromising from 'images/svg/deriv-x/new-promising.svg'
+import { Icon24_7, IconMultipleMarketing, IconNewPromising } from 'images/svg/deriv-x'
 import BoxStyledGrid from 'components/custom/_box-styled-grid'
 
 const StyledSectionContainer = styled(SectionContainer)`

@@ -22,10 +22,8 @@ function findUsedImages() {
         if (matches) {
             matches.forEach(match => {
                 usedImages.add(match.split("/").slice(-1).join("/").replace(/['"]+/g, ''))
-            }
-            );
-        }
-        });
+            });
+        }});
     });
 
     return usedImages;

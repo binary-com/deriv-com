@@ -1,7 +1,6 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
 import { lookbacks_content_items, lookbacksMarkets, lookbacksPlatforms, lookbacksFAQ } from './data'
-import { faq_schema } from './_faq-schema'
+import LookbacksSEO from './seo'
 import AvailableMarketPlatforms from 'features/components/organisms/available-markets-platforms'
 import DigitalOptionsLayout from 'features/components/templates/digital-options-layout'
 import OptionsContent from 'features/components/templates/options-content'
@@ -9,18 +8,11 @@ import OptionsFaq from 'features/components/templates/options-faq'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
-import { SEO } from 'components/containers'
 
 const LookbacksDigitalOptionsPage = () => {
     return (
         <DigitalOptionsLayout>
-            <SEO
-                title="_t_Lookbacks | Digital options contract | Deriv_t_"
-                description="_t_Open a digital options contract with a Lookbacks trade type on Deriv’s trading platforms and earn payouts with accurate market predictions._t_"
-            />
-            <Helmet>
-                <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-            </Helmet>
+            <LookbacksSEO />
             <Flex.Box container="fluid" justify="center">
                 <Typography.Paragraph pb="20x" pt="15x" align="center" md={{ pt: '0x' }}>
                     <Localize translate_text="_t_Lookbacks allow you to earn a payout depending on the optimum high or low achieved by the market during the duration of a contract._t_" />

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import * as styles from './cfd-warning-banner.module.scss'
+import { fallback_loss_percent } from 'common/constants'
 import { Localize } from 'components/localization'
 import Arrow from 'images/svg/arrow_expandable.svg'
 import Container from 'features/components/atoms/container'
-import { loss_percent } from 'common/constants'
 import Flex from 'features/components/atoms/flex-box'
 import Link from 'features/components/atoms/link'
 import Image from 'features/components/atoms/image'
@@ -15,6 +16,14 @@ const CfdWarningBanner = () => {
     const { is_ppc } = usePpc()
     const { is_eu, is_cpa_plan } = useRegion()
     const [expanded, setExpanded] = useState(false)
+    const data = useStaticQuery(graphql`
+        query {
+            strapiCfdWarningBanner {
+                loss_percent
+            }
+        }
+    `)
+    const loss_percent = data?.strapiCfdWarningBanner?.loss_percent ?? fallback_loss_percent
 
     if (is_ppc || is_eu || is_cpa_plan) {
         const toggleExpansion = () => {
@@ -85,7 +94,7 @@ const CfdWarningBanner = () => {
                     <Container.Fluid padding_block="10x">
                         <Typography.Paragraph size="medium">
                             <Localize
-                                translate_text="_t_CFDs and other products offered on this website are complex instruments with a high risk of losing money rapidly owing to leverage.<0> 73% of retail investor accounts lose money when trading CFDs with Deriv, read our full Risk disclosure here.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money._t_"
+                                translate_text="_t_CFDs and other products offered on this website are complex instruments with a high risk of losing money rapidly owing to leverage.<0>{{loss_percent}}% of retail investor accounts lose money when trading CFDs with Deriv, read our full Risk disclosure here.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money._t_"
                                 values={{ loss_percent }}
                                 components={[
                                     <Link

@@ -7,16 +7,19 @@ interface ProtectedRouteProps {
     is_page_visible: boolean
     component: React.ReactNode
     is_loading: boolean
+    seo?: React.ReactNode
 }
 
 const ProtectedRoute = ({
     is_page_visible,
     component,
     is_loading = false,
+    seo,
 }: ProtectedRouteProps) => {
     return is_loading ? (
         <Layout>
             <InitialLoader />
+            {seo}
         </Layout>
     ) : is_page_visible ? (
         <>{component}</>

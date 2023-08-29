@@ -40,6 +40,7 @@ function findUnusedImages(usedImages) {
 }
 
 function main() {  
+    let total_size = 0
     const usedImages = findUsedImages();
     const unusedImages = findUnusedImages(usedImages);
 
@@ -47,7 +48,12 @@ function main() {
     // usedImages.forEach(image => console.log(image));
 
     console.log('\nUnused images:');
-    unusedImages.forEach(image => console.log(image));
+    unusedImages.forEach(image => {
+        let size = fs.statSync(image).size / (1024*1024);
+        console.log(image, ', size(MB):', size)
+        total_size += size
+    });
+    console.log('\nTotal Unused Image Memory(MB)', total_size)
 }
 
 main();

@@ -1434,5 +1434,5 @@ export const derived_fx: TMarketSymbol[] = [
 export const drift_switch_indices: TMarketSymbol[] = [
     { src: icons.DSI10M, text: '_t_DSI10_t_' },
     { src: icons.DSI20M, text: '_t_DSI20_t_' },
-    { src: icons.DSI20M, text: '_t_DSI30_t_' },
+    { src: icons.DSI30M, text: '_t_DSI30_t_' },
 ]

@@ -10,12 +10,6 @@ export type TMarketData = {
     code: string
 }
 
-export type TMarketDataResponse = {
-    trading_platform_asset_listing: any
-    active_symbols: TMarketData[]
-    req_id: number
-}
-
 export type TAvailableLiveMarkets = 'fx' | 'der' | 'ind' | 'cry' | 'com' | 'etfs'
 
 export type TMarketButtons = {

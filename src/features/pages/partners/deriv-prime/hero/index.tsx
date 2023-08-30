@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import { hero_wrapper, container, hero_img, hero_contact_button } from './styles.module.scss'
+import { hero_wrapper, container, hero_img } from './styles.module.scss'
 import { Localize, localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import Flex from 'features/components/atoms/flex-box'
@@ -65,7 +65,6 @@ const Hero = () => {
                         const element = document.getElementById('#getintouch')
                         element.scrollIntoView({ behavior: 'smooth' })
                     }}
-                    className={hero_contact_button}
                 >
                     <Localize translate_text="_t_Contact us_t_" />
                 </Button.Primary>

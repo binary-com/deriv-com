@@ -1,5 +1,5 @@
 import { SmartFooterLink, SmartFooterLinkColumn } from './types'
-import { binary_bot_url, deriv_status_page_url, deriv_bug_bounty_url } from 'common/constants'
+import { deriv_status_page_url } from 'common/constants'
 
 const aboutUsLinks: SmartFooterLink[] = [
     {
@@ -255,13 +255,6 @@ const partnerLinks: SmartFooterLink[] = [
         data: {
             text: '_t_API_t_',
             url: { type: 'company', url_name: 'api' },
-        },
-    },
-    {
-        id: 3,
-        data: {
-            text: '_t_Bug bounty_t_',
-            url: { type: 'non-company', href: deriv_bug_bounty_url },
         },
     },
 ]

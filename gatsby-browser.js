@@ -75,7 +75,7 @@ const pushwooshInit = (push_woosh) => {
             safariWebsitePushID: 'web.com.deriv',
             defaultNotificationTitle: 'Deriv.com',
             defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
-            serviceWorkerUrl: '/sw.js'
+            serviceWorkerUrl: '/sw.js',
         },
     ])
 
@@ -186,6 +186,7 @@ export const onClientEntry = () => {
 }
 
 export const onRouteUpdate = () => {
+    window.rudderanalytics && window.rudderanalytics.page()
     checkDomain()
 
     const dataLayer = window.dataLayer

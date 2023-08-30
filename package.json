@@ -187,8 +187,7 @@
         "build:storybook": "build-storybook -c .storybook -o public/storybook",
         "codegen": "graphql-codegen --config codegen.yml",
         "codegen:watch": "graphql-codegen --config codegen.yml --watch",
-        "image:unused": "node scripts/find-unused-images.js",
-        "pre-commit-image:unused": "node scripts/unused-images-pre-commit.js"
+        "image:unused": "node scripts/find-unused-images.js"
     },
     "repository": {
         "type": "git",

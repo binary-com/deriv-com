@@ -118,7 +118,7 @@ const PartnershipOpportunities = () => {
                         <DeveloperProgramme />
                     </Flex>
                     <Text>
-                        <Localize translate_text="_t_Launch your trading app powered by our APIs. Get up to 5% in markup earnings from every trade your clients make on your app._t_" />
+                        <Localize translate_text="_t_Launch your trading app powered by our APIs. Get up to 3% in markup earnings from every trade your clients make on your app._t_" />
                     </Text>
                 </ClientCard>
             </Flex>

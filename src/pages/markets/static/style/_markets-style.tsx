@@ -263,6 +263,7 @@ export const Title = styled(Text)`
     font-weight: bold;
     font-family: Ubuntu, sans-serif;
     color: var(--color-black-9);
+    word-break: break-word;
 
     @media ${device.tabletL} {
         margin: 16px 0;

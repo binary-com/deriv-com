@@ -10,9 +10,11 @@ import LanguageSwitcher from 'features/components/molecules/language-switcher'
 import Link from 'features/components/atoms/link'
 import Flex from 'features/components/atoms/flex-box'
 import { getLocationPathname } from 'common/utility'
+import useScrollToElement from 'features/hooks/use-scroll-to-element'
 
 const PaymentAgentAffiliateNav = () => {
     const is_deriv_prime_url = getLocationPathname().includes('deriv-prime')
+    const clickToScrollHandler = useScrollToElement('getintouch')
 
     return (
         <NavTemplate
@@ -35,10 +37,7 @@ const PaymentAgentAffiliateNav = () => {
                 {is_deriv_prime_url ? (
                     <Button.Primary
                         id="dm-nav-deriv-prime-contact"
-                        onClick={() => {
-                            const element = document.getElementById('#getintouch')
-                            element.scrollIntoView({ behavior: 'smooth' })
-                        }}
+                        onClick={clickToScrollHandler}
                         className={partners_buttons}
                     >
                         <Localize translate_text="_t_Contact us_t_" />

@@ -6,8 +6,10 @@ import Typography from 'features/components/atoms/typography'
 import Flex from 'features/components/atoms/flex-box'
 import dclsx from 'features/utils/dclsx'
 import Button from 'features/components/atoms/button'
+import useScrollToElement from 'features/hooks/use-scroll-to-element'
 
 const Hero = () => {
+    const clickToScrollHandler = useScrollToElement('getintouch')
     return (
         <Flex.Box
             bgcolor="black"
@@ -57,15 +59,7 @@ const Hero = () => {
                     <Localize translate_text="_t_Deep, reliable liquidity with fast execution for professionals, seasoned institutions, start-ups, and more_t_" />
                 </Typography.Paragraph>
 
-                <Button.Primary
-                    textsize="large"
-                    hero
-                    id="dm-nav-deriv-prime-contact"
-                    onClick={() => {
-                        const element = document.getElementById('#getintouch')
-                        element.scrollIntoView({ behavior: 'smooth' })
-                    }}
-                >
+                <Button.Primary textsize="large" hero onClick={clickToScrollHandler}>
                     <Localize translate_text="_t_Contact us_t_" />
                 </Button.Primary>
             </Flex.Box>

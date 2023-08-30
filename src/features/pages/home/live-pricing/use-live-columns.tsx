@@ -114,7 +114,13 @@ const useLiveColumns = (markets_data, prev_data) => {
                     // console.log('info2 =>', info.cell.getContext())
                     // info.row.original.mkt
 
-                    return <TableCell info={info.getValue()} code={info.row.original.code} />
+                    return (
+                        <TableCell
+                            info={info.getValue()}
+                            code={info.row.original.code}
+                            status={info.row.original.bid_status}
+                        />
+                    )
                 },
             }),
             liveMarketColumnHelper.accessor('ask', {
@@ -165,6 +171,7 @@ const useLiveColumns = (markets_data, prev_data) => {
                         <Typography.Paragraph
                             weight="bold"
                             font_family="UBUNTU"
+                            P
                             size={is_mobile ? 'small' : 'medium'}
                             md={{ align: 'left' }}
                         >

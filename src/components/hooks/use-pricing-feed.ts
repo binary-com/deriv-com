@@ -27,9 +27,9 @@ const usePricingFeed = () => {
                 setError(err)
             },
         )
-
         return unsubscribe
     }, [is_eu])
+    // console.log('unsubscribe==>', { data, prev_data })
 
     return {
         error,

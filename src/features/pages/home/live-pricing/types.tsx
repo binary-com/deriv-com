@@ -8,6 +8,9 @@ export type TMarketData = {
     sprd: number
     sym: string
     code: string
+    bid_status?: string
+    ask_status?: string
+    spread_status?: string
 }
 
 export type TMarketDataResponse = {

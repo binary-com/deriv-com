@@ -15,6 +15,7 @@ import { Localize } from 'components/localization'
 import usePricingFeed from 'components/hooks/use-pricing-feed'
 import Typography from 'features/components/atoms/typography'
 import InitialLoader from 'components/elements/dot-loader'
+import { getCompairedValue } from 'common/utility'
 
 export type TLiveMarketTableProps = {
     selected_market: TAvailableLiveMarkets
@@ -56,13 +57,42 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
             const indices = rawMarketsData['ind']
             const stocks_indices = { ...stocks, ...indices }
             const res = { ...rawMarketsData, ind: stocks_indices }
+            // prev_data
 
             if (res[selected_market]) {
+                // console.log('==', Object.values(res[selected_market]))
+                if (prev_data) {
+                    const prev_stocks = prev_data['stk']
+                    const prev_indices = prev_data['ind']
+                    const prev_stocks_indices = { ...prev_stocks, ...prev_indices }
+                    const prev_res = { ...prev_data, ind: prev_stocks_indices }
+                    const new_response = Object.values(res[selected_market])
+                    const prev_response = Object.values(prev_res[selected_market])
+
+                    new_response.map((item, index) => {
+                        // console.log(console.log('item==', item))
+
+                        // const check_bid_status = item.bid === prev_response[index].bid
+                        // console.log('status==', check_bid_status)
+                        item.bid_status = getCompairedValue(item.bid, prev_response[index].bid)
+                        item.ask_status = getCompairedValue(item.ask, prev_response[index].ask)
+                        item.spread_status = getCompairedValue(item.sprd, prev_response[index].sprd)
+                    })
+
+                    // console.log('new_response===>', new_response)
+                    return new_response
+                }
+
                 return Object.values(res[selected_market])
             }
+
+            // if (prev_res[selected_market]) {
+            //     console.log('==', Object.values(prev_res[selected_market]))
+            //     return Object.values(prev_res[selected_market])
+            // }
         }
         return []
-    }, [rawMarketsData, selected_market])
+    }, [rawMarketsData, selected_market, prev_data])
 
     // useEffect(() => {
     //     console.log('=>', { prev_data, rawMarketsData })

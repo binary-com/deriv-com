@@ -6,12 +6,14 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 type tableCellProps = {
     info: number | string
     code: string
+    status: string
 }
-const TableCell = ({ info, code }: tableCellProps) => {
+const TableCell = ({ info, code, status }: tableCellProps) => {
     const { is_mobile } = useBreakpoints()
     const ref = useRef<number | string>()
     // let cell_color = 'grey'
     const [cell_color, SetCellColor] = useState('gray')
+
     useEffect(() => {
         if (ref.current) {
             if (ref.current == info) {
@@ -34,14 +36,15 @@ const TableCell = ({ info, code }: tableCellProps) => {
 
         // console.log('up ==>', ref.current, info, code)
         ref.current = info // Updating the ref to latest/current value
+        // setRerender(!rerender)
         // console.log('bottom ==>', ref.current, info, code)
-    })
+    }, [info])
     return (
         <Flex.Box>
             <Typography.Paragraph
                 size={is_mobile ? 'small' : 'medium'}
                 style={{
-                    color: cell_color,
+                    color: status || 'gray',
                 }}
             >
                 {info}

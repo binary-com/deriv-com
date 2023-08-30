@@ -442,16 +442,17 @@ export const getP2PCookie = () => {
     return p2p_validity
 }
 
-export const getCompairedValue = (newValue) => {
-    let previousValue = 0
+export const getCompairedValue = (newValue, previousValue) => {
     if (newValue > previousValue) {
-        previousValue = newValue
+        console.log('green,  ==>', newValue, previousValue)
+
         return 'green'
     } else if (newValue < previousValue) {
-        previousValue = newValue
+        console.log('red,  ==>', newValue, previousValue)
+
         return 'red'
     } else {
-        previousValue = newValue
+        console.log('gray,  ==>', newValue, previousValue)
         return 'grey'
     }
 }

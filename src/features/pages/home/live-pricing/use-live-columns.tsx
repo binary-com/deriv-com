@@ -60,15 +60,13 @@ const useLiveColumns = () => {
                         </Typography.Paragraph>
                     </Flex.Box>
                 ),
-                cell: (info) => {
-                    return (
-                        <Flex.Box>
-                            <Typography.Paragraph size={is_mobile ? 'small' : 'medium'}>
-                                {info.getValue()}
-                            </Typography.Paragraph>
-                        </Flex.Box>
-                    )
-                },
+                cell: (info) => (
+                    <Flex.Box>
+                        <Typography.Paragraph size={is_mobile ? 'small' : 'medium'}>
+                            {info.getValue()}
+                        </Typography.Paragraph>
+                    </Flex.Box>
+                ),
             }),
             liveMarketColumnHelper.accessor('ask', {
                 header: () => (

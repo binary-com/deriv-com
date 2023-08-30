@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { useFeatureValue } from '@growthbook/growthbook-react'
 import HeaderSection from './components/_header-section'
 import Introduction from './components/_introduction'
 import Topics from './components/_topics'
@@ -29,6 +30,13 @@ const query = graphql`
 `
 
 const StocksEbook = () => {
+    const ebookStocksHeadingTest = useFeatureValue('ebook-stocks-heading', 'control')
+
+    const introMain: TString = {
+        control: '_t_Learn to trade Stock derivatives the smart way_t_',
+        'new-title': '_t_Learn to trade Stock derivatives the smart way_t_',
+    }[ebookStocksHeadingTest]
+
     const data = useStaticQuery(query)
     return (
         <Layout type="landing-page" is_ppc_redirect>
@@ -42,7 +50,7 @@ const StocksEbook = () => {
                 imgWidth={557}
                 imgHeight={703}
                 ebook_utm_code="stock-ebook"
-                introMain="_t_Learn to trade Stock derivatives the smart way_t_"
+                introMain={introMain}
                 authorDesc="_t_This e-book has been brought to you by a veteran online trader and New York Times bestselling author,_t_"
                 authorName="_t_Vince Stanzione._t_"
             />

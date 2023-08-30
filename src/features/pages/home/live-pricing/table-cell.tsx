@@ -44,7 +44,7 @@ const TableCell = ({ info, code, status }: tableCellProps) => {
             <Typography.Paragraph
                 size={is_mobile ? 'small' : 'medium'}
                 style={{
-                    color: status || 'gray',
+                    color: cell_color || 'gray',
                 }}
             >
                 {info}

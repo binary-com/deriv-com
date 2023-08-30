@@ -80,7 +80,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
                     })
 
                     // console.log('new_response===>', new_response)
-                    return new_response
+                    // return new_response
                 }
 
                 return Object.values(res[selected_market])

@@ -10,7 +10,7 @@ const GetInTouchBanner = () => {
         <Container.Fixed
             pt="20x"
             md={{ padding_block: '30x', margin_block: '30x' }}
-            id="#getintouch"
+            id="getintouch"
         >
             <Flex.Box bgcolor="primary" className={banner_container}>
                 <Flex.Box

@@ -29,7 +29,7 @@ const WhyDerivPrime = () => {
                     align={'center'}
                     wrap="wrap"
                     gap="4x"
-                    md={{ direction: 'row', justify: 'center' }}
+                    md={{ direction: 'row', justify: 'center', align: 'stretch' }}
                 >
                     {card_data.map((card) => {
                         return (

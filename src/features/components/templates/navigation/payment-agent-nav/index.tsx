@@ -2,6 +2,7 @@ import React, { useMemo } from 'react'
 import NavTemplate from '../template'
 import affiliateNavItems from './data'
 import { partners_nav_logo, partners_buttons } from './payment-agent-nav.module.scss'
+import PrimeLogo from 'images/svg/deriv-prime/deriv-prime-logo.svg'
 import PartnerNavLogo from 'images/svg/partner-nav-logo.svg'
 import Image from 'features/components/atoms/image'
 import Button from 'features/components/atoms/button'
@@ -63,8 +64,18 @@ const PaymentAgentAffiliateNav = () => {
     return (
         <NavTemplate
             renderLogo={() => (
-                <Link url={{ type: 'internal', to: '/partners/' }}>
-                    <Image src={PartnerNavLogo} className={partners_nav_logo} />
+                <Link
+                    url={{
+                        type: 'internal',
+                        to: path_name.includes('deriv-prime')
+                            ? '/partners/deriv-prime'
+                            : '/partners',
+                    }}
+                >
+                    <Image
+                        src={path_name.includes('deriv-prime') ? PrimeLogo : PartnerNavLogo}
+                        className={partners_nav_logo}
+                    />
                 </Link>
             )}
             items={affiliateNavItems}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Link } from 'gatsby'
 import language_config from '../../../../../i18n-config.js'
 import { LinkProps } from '.'
@@ -17,9 +17,8 @@ import {
 } from 'features/styles/utils'
 import { InternalLinkType } from 'features/types'
 
+const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
 export const isActiveLink = (currentPage: string, active_urls?: string[]) => {
-    const pathname = typeof window !== 'undefined' ? window.location.pathname : ''
-
     return active_urls?.length
         ? active_urls.some((url) => pathname.includes(url))
         : pathname.includes(currentPage)
@@ -77,7 +76,7 @@ const Internal = ({
 
     const to = is_non_localized || is_default ? url.to : `/${path}${url.to}`
 
-    const is_active = isActiveLink(url.to, active_urls)
+    const is_active = useMemo(() => isActiveLink(url.to, active_urls), [pathname])
 
     return (
         <Link

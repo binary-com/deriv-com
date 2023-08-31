@@ -13,7 +13,7 @@ import Flex from 'features/components/atoms/flex-box'
 import { getLocationPathname } from 'common/utility'
 import useScrollToElement from 'features/hooks/use-scroll-to-element'
 
-const PaymentAgentAffiliateNav = () => {
+const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: boolean }) => {
     const path_name = getLocationPathname()
     const clickToScrollHandler = useScrollToElement('getintouch')
 
@@ -67,15 +67,14 @@ const PaymentAgentAffiliateNav = () => {
                 <Link
                     url={{
                         type: 'internal',
-                        to: path_name.includes('deriv-prime')
-                            ? '/partners/deriv-prime'
-                            : '/partners',
+                        to: is_prime_page ? '/partners/deriv-prime' : '/partners',
                     }}
                 >
-                    <Image
-                        src={path_name.includes('deriv-prime') ? PrimeLogo : PartnerNavLogo}
-                        className={partners_nav_logo}
-                    />
+                    {is_prime_page ? (
+                        <Image src={PrimeLogo} className={partners_nav_logo} />
+                    ) : (
+                        <Image src={PartnerNavLogo} className={partners_nav_logo} />
+                    )}
                 </Link>
             )}
             items={affiliateNavItems}

@@ -26,7 +26,7 @@ const DerivPrime = () => {
             <Helmet>
                 <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
             </Helmet>
-            <PaymentAgentAffiliateNav />
+            <PaymentAgentAffiliateNav is_prime_page />
             <Hero />
             <Potential />
             <CommercialPlan />

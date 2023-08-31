@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import language_config from '../../../../../i18n-config.js'
 import { LinkProps } from '.'
@@ -72,12 +72,16 @@ const Internal = ({
     }
     const locale = rawLocale?.replaceAll('-', '_')
 
+    const [is_active, setIsActive] = useState(false)
+
     const { is_default, path } = language_config[locale]
     const is_non_localized = url.to.includes('careers')
 
     const to = is_non_localized || is_default ? url.to : `/${path}${url.to}`
 
-    const is_active = isActiveLink(url.to, active_urls)
+    useEffect(() => {
+        setIsActive(isActiveLink(url.to, active_urls))
+    }, [active_urls, url.to])
 
     return (
         <Link

@@ -11,7 +11,7 @@ const WhyDerivPrime = () => {
             container={'fluid'}
             direction={'col'}
             padding_inline={'4x'}
-            pt={'20x'}
+            padding_block={'20x'}
             md={{ padding_inline: '0x', padding_block: '40x' }}
         >
             <FlexBox.Box direction={'col'} md={{ justify: 'center', margin_block: '20x' }}>

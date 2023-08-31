@@ -26,7 +26,7 @@ const WhyDerivPrime = () => {
                 </Typography.Heading>
                 <FlexBox.Box
                     direction={'col'}
-                    align={'center'}
+                    align={'stretch'}
                     wrap="wrap"
                     gap="4x"
                     md={{ direction: 'row', justify: 'center' }}

@@ -56,3 +56,9 @@
     position: relative;
     overflow: hidden;
 }
+
+.container_box{
+    @include breakpoints(tablet) {
+        margin-bottom: 18rem !important;
+    }
+}

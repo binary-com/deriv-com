@@ -186,7 +186,6 @@ export const onClientEntry = () => {
 }
 
 export const onRouteUpdate = () => {
-    window.rudderanalytics && window.rudderanalytics.page()
     checkDomain()
 
     const dataLayer = window.dataLayer

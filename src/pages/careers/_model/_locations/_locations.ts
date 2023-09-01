@@ -10,7 +10,6 @@ import {
     address_melaka,
     address_cyprus,
     address_rwanda,
-    address_belarus,
     address_france,
     address_guernsey,
     address_jordan,
@@ -26,7 +25,6 @@ import MaltaFlagIcon from 'images/svg/careers/flag_malta.svg'
 import CyprusFlagIcon from 'images/svg/careers/flag_cyprus.svg'
 import CaymanFlagIcon from 'images/svg/careers/flag_cayman.svg'
 import RwandaFlagIcon from 'images/svg/careers/flag_rwanda.svg'
-import BelarusFlagIcon from 'images/svg/careers/flag_belarus.svg'
 import BVIFlagIcon from 'images/svg/careers/flag_bvi.svg'
 import UKFlagIcon from 'images/svg/careers/flag_uk.svg'
 import FranceFlagIcon from 'images/svg/careers/flag_france.svg'
@@ -348,42 +346,6 @@ export const rwanda: LocationsType = {
     has_iframe: true,
 }
 
-export const minsk: LocationsType = {
-    name: 'minsk',
-    job_location: 'Minsk',
-    continent: 'eastern_europe',
-    display_continent: 'Eastern Europe',
-    link: '/careers/locations/minsk/',
-    display_name: 'Minsk',
-    display_thumbnail_name: 'Minsk',
-    display_title_name: 'Minsk',
-    img_alt: 'Diamond shape building in Minsk',
-    map_office_name: '(BY) LLC',
-    country: 'Belarus',
-    flagIcon: BelarusFlagIcon,
-    thumbnail: 'thumbnail_minsk',
-    first_p:
-        'Deriv (BY) LLC started its operations in the year 2021 to tap into the regional talent pool. The Customer Support and Front-end teams work towards attaining customer satisfaction and building digital products to give them the best trading experience possible.',
-    first_img: 'living_in_minsk',
-    first_img_alt: 'Houses nearby lake',
-    grid_images: ['minsk_grid_1', 'minsk_grid_2', 'minsk_grid_3', 'minsk_grid_4'],
-    grid_img_alt: [
-        'Girls smiling while seeing their laptop screens',
-        'Group of people smiling while seeing on the laptop screen',
-        'Team meetings',
-        'Girl having a chat ',
-    ],
-    map: 'ChIJF9lVNV_P20YRukiwrfpLP4E',
-    badge: 'minsk_great_place_to_work_badge',
-    badge_alt: 'Minsk Great Place to Work 2022 Certification Badge',
-    map_text:
-        'The work culture at Deriv (BY) LLC is lively and energetic. You will get exposure to global projects and work with highly skilled professionals from across the world. If working for a diverse and thriving team excites you, join our team in Minsk.',
-    address: address_belarus,
-    map_img: 'minsk_map',
-    google_map_link: 'https://goo.gl/maps/7wUCJ6zy7P8CsmkD7',
-    has_iframe: true,
-}
-
 export const paris: LocationsType = {
     name: 'paris',
     job_location: 'Paris',
@@ -690,7 +652,6 @@ export const all_offices: LocationsType[] = [
     vanuatu,
     dubai,
     jordan,
-    minsk,
     rwanda,
     asuncion,
     ciudad,
@@ -710,7 +671,6 @@ export const locations = {
     ipoh: `${ipoh.display_name}, ${ipoh.country}`,
     cyprus: `${cyprus.display_name}, ${cyprus.country}`,
     rwanda: `${rwanda.display_name}, ${rwanda.country}`,
-    belarus: `${minsk.display_name}, ${minsk.country}`,
     france: `${paris.display_name}, ${paris.country}`,
     guernsey: `${guernsey.display_name}, ${guernsey.country}`,
     vanuatu: `${vanuatu.display_name}, ${vanuatu.country}`,
@@ -726,7 +686,6 @@ export const allContinents = {
     asia: [],
     oceania: [],
     middle_east: [],
-    eastern_europe: [],
     africa: [],
     latam: [],
     caribbean: [],

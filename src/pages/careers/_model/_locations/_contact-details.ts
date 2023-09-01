@@ -3,8 +3,6 @@ const address_asuncion = [
     'Doctor Morra, Asunción 1849',
 ]
 
-const address_belarus = ['Level 2, 25/1-3 Vera Khoruzhey Street,', 'Minsk 220123']
-
 const address_ciudad = ['World Trade Center Ciudad del Este, Andrés Rojas, Cd. del Este, Paraguay']
 
 const address_cyberjaya = ['Deriv HQ, 3500, Jalan Teknokrat 3, 63000 Cyberjaya, Selangor']
@@ -54,7 +52,6 @@ const address_rwanda = ['Level 2 East Wing, Kigali Heights, KG7', 'Avenue, Kigal
 
 export {
     address_asuncion,
-    address_belarus,
     address_cyberjaya,
     address_cyprus,
     address_dubai,

@@ -27,6 +27,7 @@ const CommercialPlan = () => {
                     data={data}
                     columns={column_data}
                     striped
+                    layout="fixed"
                     className={commercial_table}
                 />
             </Container.Fluid>

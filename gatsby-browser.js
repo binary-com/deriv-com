@@ -74,7 +74,7 @@ const pushwooshInit = (push_woosh) => {
             safariWebsitePushID: 'web.com.deriv',
             defaultNotificationTitle: 'Deriv.com',
             defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
-            serviceWorkerUrl: '/sw.js'
+            serviceWorkerUrl: '/sw.js',
         },
     ])
 
@@ -142,8 +142,8 @@ export const onInitialClientRender = () => {
 export const onClientEntry = () => {
     //datadog
     const dd_options = {
-        clientToken: 'pub08554ab30284600af157441bfb0fa923',
-        applicationId: '5c8975a3-ec86-4a64-8a3a-e6888fdde082',
+        clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,
+        applicationId: process.env.GATSBY_DATADOG_APPLICATION_ID,
         site: 'datadoghq.com',
         service: 'deriv.com',
         env: 'production',

@@ -1,4 +1,4 @@
-import { RudderStack } from '@deriv/analytics/lib'
+import { RudderStack } from '@deriv/analytics'
 import { isBrowser } from 'common/utility'
 
 export const useAnalyticData = () => {

@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { RudderStack } from '@deriv/analytics/lib'
+import { RudderStack } from '@deriv/analytics'
 import { useAnalyticData } from 'features/hooks/analytic/use-analytic-data'
 
 type AnalyticsTypes = 'ce_virtual_signup_form' | 'ce_real_account_signup_form'
@@ -10,6 +10,7 @@ type SignupProvider = 'email' | 'phone' | 'google' | 'facebook' | 'apple'
 
 export const useAnalyticsEvents = (event: AnalyticsTypes) => {
     const { form_source, form_name } = useAnalyticData()
+    // console.log(RudderStack)
 
     const analytic_events = {
         [event]: useCallback((action: AnalyticsEventsTypes, signup_provider?: SignupProvider) => {
@@ -17,10 +18,6 @@ export const useAnalyticsEvents = (event: AnalyticsTypes) => {
                 event,
                 { action, signup_provider, form_source, form_name },
                 { is_anonymous: true },
-                // for demo
-                // () => {
-                //     console.log(`${isMobile ? `${action} on mobile` : action}`, `${event} happened`)
-                // },
             )
         }, []),
     }

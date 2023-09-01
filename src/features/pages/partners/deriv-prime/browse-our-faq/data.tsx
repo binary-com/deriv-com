@@ -21,7 +21,7 @@ export const general_faq_data: DerivPrimeFAQDataItem[] = [
     },
     {
         id: 2,
-        question: '_t_How can I open an Up/Down contract?_t_',
+        question: '_t_Who can partner with Deriv Prime?_t_',
         answers: [
             {
                 id: 1,

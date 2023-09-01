@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { navigate } from 'gatsby'
 import { isMobile } from 'react-device-detect'
-import { RudderStack } from '@deriv/analytics/lib'
+import { RudderStack } from '@deriv/analytics'
 import { getLanguage } from '../../common/utility'
 import SignUpSuccessContainer from 'features/pages/signup-success'
 import { WithIntl } from 'components/localization'

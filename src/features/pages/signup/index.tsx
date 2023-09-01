@@ -1,5 +1,5 @@
 import React from 'react'
-import { RudderStack } from '@deriv/analytics/lib'
+import { RudderStack } from '@deriv/analytics'
 import { isMobile } from 'react-device-detect'
 import { signup_wrapper } from './signup.module.scss'
 import SignUpContent from './signup.content'

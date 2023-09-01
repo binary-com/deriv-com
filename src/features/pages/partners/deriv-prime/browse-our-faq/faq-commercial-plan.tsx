@@ -23,6 +23,7 @@ const FAQCommercialPlan = () => {
                     data={data}
                     columns={column_data}
                     striped
+                    layout="fixed"
                     className={commercial_table_faq}
                 />
             </Container.Fixed>

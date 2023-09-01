@@ -12,6 +12,7 @@ import {
     address_rwanda,
     address_france,
     address_guernsey,
+    address_roadtown,
     address_jordan,
     address_singapore,
     address_vanuatu,
@@ -527,7 +528,7 @@ export const roadtown: LocationsType = {
     display_thumbnail_name: 'Road Town',
     display_title_name: 'Road Town',
     img_alt: 'Deriv’s British Virgin Islands office at Road Town',
-    map_office_name: '(BVI)',
+    map_office_name: '(BVI) Ltd',
     country: 'British Virgin Islands',
     flagIcon: BVIFlagIcon,
     thumbnail: 'thumbnail_roadtown',
@@ -537,9 +538,13 @@ export const roadtown: LocationsType = {
     first_img_alt: 'Road Town, British Virgin Islands',
     grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'bvi_grid_3', 'guernsey_grid_4'],
     grid_img_alt: ['Deriv’s British Virgin Islands team', '', 'Boss explaining to team members'],
-    map: 'ChIJs5fO51eGJY8RKFew8LoGSxU',
+    map: 'ChIJpZcftYkqgk4R0hiTkAwsZB4',
     map_text:
-        'Being part of our British Virgin Islands team gives you the chance to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to make sure our BVI compliance strategies are effective. If you have a passion for law and look for worthy challenges in your career, join us at Deriv (BVI).',
+        'Being part of our British Virgin Islands team gives you the chance to analyse regulatory policies, predict changes in fintech regulations, and formulate plans to make sure our BVI compliance strategies are effective. If you have a passion for law and look for worthy challenges in your career, join us at Deriv (BVI) Ltd.',
+    google_map_link: 'https://goo.gl/maps/nNq43TGQNZRRJgar5 ',
+    address: address_roadtown,
+    has_iframe: true,
+    has_map: true,
 }
 
 export const jordan: LocationsType = {

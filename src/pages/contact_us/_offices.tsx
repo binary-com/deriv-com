@@ -18,6 +18,7 @@ import Singapore from 'images/svg/contact/singapore.svg'
 import Jordan from 'images/svg/contact/jordan.svg'
 import Vanuatu from 'images/svg/contact/vanuatu.svg'
 import UK from 'images/svg/contact/uk.svg'
+import Bvi from 'images/svg/contact/bvi.svg'
 
 type GridLayoutProps = {
     children?: React.ReactNode | React.ReactChild
@@ -76,6 +77,9 @@ const query = graphql`
             ...fadeIn
         }
         map_uk: file(relativePath: { eq: "maps/map-uk.png" }) {
+            ...fadeIn
+        }
+        map_bvi: file(relativePath: { eq: "maps/map-bvi.png" }) {
             ...fadeIn
         }
     }
@@ -926,58 +930,112 @@ export const Offices = () => {
                             </GridLayout>
                         </FullBorder>
                     </Flex>
-                    <Flex mt="30px" fd="column" id="paraguay">
-                        <ContinentHeader>
-                            <Localize translate_text="_t_Caribbean_t_" />
-                        </ContinentHeader>
-                        <OfficeHeader>
-                            <div>
-                                <img src={Cayman} alt="Cayman Islands - George Town" />
-                            </div>
-                            <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                <Localize translate_text="_t_Cayman Islands_t_" />
-                            </Header>
-                        </OfficeHeader>
-                    </Flex>
-                    <Flex max_width="48.6rem">
-                        <BorderBox>
-                            <MapContainer>
-                                <LocalizedLink
+                    <ContinentHeader>
+                        <Localize translate_text="_t_Caribbean_t_" />
+                    </ContinentHeader>
+                    <GridLayout>
+                        <Flex mt="30px" fd="column" max_width="48.6rem" id="cayman">
+                            <OfficeHeader>
+                                <div>
+                                    <img src={Cayman} alt="Cayman Islands - George Town" />
+                                </div>
+                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                                    <Localize translate_text="_t_Cayman Islands_t_" />
+                                </Header>
+                            </OfficeHeader>
+                            <BorderBox>
+                                <MapContainer>
+                                    <LocalizedLink
+                                        to="https://goo.gl/maps/4bg5B7dkvUv5Pa11A"
+                                        external
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            alt="Deriv's office location map in Cayman"
+                                            data={data['map_cayman']}
+                                            height="100%"
+                                        />
+                                    </LocalizedLink>
+                                </MapContainer>
+                                <LocalizedLinkText
                                     to="https://goo.gl/maps/4bg5B7dkvUv5Pa11A"
                                     external
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    mt="0.8rem"
+                                    ml="1.6rem"
                                 >
-                                    <QueryImage
-                                        alt="Deriv's office location map in Cayman"
-                                        data={data['map_cayman']}
-                                        height="100%"
+                                    <Desktop>
+                                        <p>Cayman Enterprise City,</p>
+                                        <p>Strathvale House, 2nd Floor, 90N</p>
+                                        <p>Church St, George Town, Cayman</p>
+                                        <p>Islands</p>
+                                    </Desktop>
+                                    <Mobile>
+                                        <StyledMobileAddress>
+                                            Cayman Enterprise City, Strathvale House, 2nd Floor, 90
+                                            N Church St, George Town, Cayman Islands
+                                        </StyledMobileAddress>
+                                    </Mobile>
+                                </LocalizedLinkText>
+                            </BorderBox>
+                        </Flex>
+                        <Flex mt="30px" fd="column" max_width="48.6rem" id="bvi">
+                            <OfficeHeader>
+                                <div>
+                                    <img
+                                        src={Bvi}
+                                        width={'64px'}
+                                        height={'64px'}
+                                        alt="British Virgin Islands"
                                     />
-                                </LocalizedLink>
-                            </MapContainer>
-                            <LocalizedLinkText
-                                to="https://goo.gl/maps/4bg5B7dkvUv5Pa11A"
-                                external
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                mt="0.8rem"
-                                ml="1.6rem"
-                            >
-                                <Desktop>
-                                    <p>Cayman Enterprise City,</p>
-                                    <p>Strathvale House, 2nd Floor, 90N</p>
-                                    <p>Church St, George Town, Cayman</p>
-                                    <p>Islands</p>
-                                </Desktop>
-                                <Mobile>
-                                    <StyledMobileAddress>
-                                        Cayman Enterprise City, Strathvale House, 2nd Floor, 90 N
-                                        Church St, George Town, Cayman Islands
-                                    </StyledMobileAddress>
-                                </Mobile>
-                            </LocalizedLinkText>
-                        </BorderBox>
-                    </Flex>
+                                </div>
+                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                                    <Localize translate_text="_t_British Virgin Islands_t_" />
+                                </Header>
+                            </OfficeHeader>
+                            <BorderBox>
+                                <MapContainer>
+                                    <LocalizedLink
+                                        to=" https://goo.gl/maps/nNq43TGQNZRRJgar5"
+                                        external
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            alt="Deriv's office location map in British Virgin Islands"
+                                            data={data['map_bvi']}
+                                            height="100%"
+                                        />
+                                    </LocalizedLink>
+                                </MapContainer>
+                                <LocalizedLinkText
+                                    to=" https://goo.gl/maps/nNq43TGQNZRRJgar5"
+                                    external
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    mt="0.8rem"
+                                    ml="1.6rem"
+                                >
+                                    <Desktop>
+                                        <p>
+                                            2nd Floor, Suite 2, Omar Hodge Building, 325 Waterfront
+                                            Drive, Road Town, Tortola, VG 1110, British Virgin
+                                            Islands
+                                        </p>
+                                    </Desktop>
+                                    <Mobile>
+                                        <StyledMobileAddress>
+                                            2nd Floor, Suite 2, Omar Hodge Building, 325 Waterfront
+                                            Drive, Road Town, Tortola, VG 1110, British Virgin
+                                            Islands
+                                        </StyledMobileAddress>
+                                    </Mobile>
+                                </LocalizedLinkText>
+                            </BorderBox>
+                        </Flex>
+                    </GridLayout>
                     <Flex mt="30px" fd="column" id="vanuatu">
                         <ContinentHeader>
                             <Localize translate_text="_t_Oceania_t_" />

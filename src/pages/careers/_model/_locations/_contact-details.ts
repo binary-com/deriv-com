@@ -24,6 +24,10 @@ const address_georgetown = [
     'Cayman Enterprise City, Strathvale House, 2nd Floor, 90 N Church St, George Town, Cayman Islands',
 ]
 
+const address_roadtown = [
+    '2nd Floor, Suite 2, Omar Hodge Building, 325 Waterfront Drive, Road Town, Tortola, VG 1110, British Virgin Islands',
+]
+
 const address_ipoh = ['E-5-6, Soho Ipoh 2,', 'Jalan Sultan Idris Shah,', 'Ipoh 30000, Perak']
 
 const address_france = ["17 Rue d'Antin, 75002 Paris"]
@@ -67,5 +71,6 @@ export {
     address_georgetown,
     address_jordan,
     address_vanuatu,
+    address_roadtown,
     address_reading,
 }

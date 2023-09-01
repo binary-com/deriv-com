@@ -112,7 +112,7 @@ const StyledLinkText = styled(LinkText)`
 `
 
 const Regulatory = (locale: RegulatoryProps) => {
-    const { is_row, is_cpa_plan } = useRegion()
+    const { is_eu, is_cpa_plan } = useRegion()
 
     return (
         <Layout>
@@ -147,7 +147,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                 </GridContainer>
             </SectionContainer>
             <Divider />
-            {is_row || is_cpa_plan ? (
+            {!is_eu || is_cpa_plan ? (
                 <SectionContainer padding="8rem 0 8rem">
                     <SmallContainer fd="column">
                         <StyledHeader

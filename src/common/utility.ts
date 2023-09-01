@@ -28,6 +28,10 @@ export const isEmptyObject = (obj: unknown): boolean => {
     return is_empty
 }
 
+export const trimObjectValues = (obj: { [key: string]: string }): { [key: string]: string } => {
+    return Object.fromEntries(Object.entries(obj).map(([key, value]) => [key, value.trim()]))
+}
+
 export const scrollTop = () => {
     if (isBrowser()) {
         document.body.scrollTop = 0

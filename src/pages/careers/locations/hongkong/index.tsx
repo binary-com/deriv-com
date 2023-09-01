@@ -2,13 +2,12 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { hongkong } from '../../_model/_locations/_locations'
 import { LocationLayout } from '../_location-layout'
-import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
 
 const query = graphql`
     query {
-        hongkong: file(relativePath: { eq: "careers/hongkong.png" }) {
+        hongkong: file(relativePath: { eq: "careers/hongkong.jpg" }) {
             ...backgroundImage
         }
         living_in_hongkong: file(relativePath: { eq: "careers/living_in_hongkong.png" }) {

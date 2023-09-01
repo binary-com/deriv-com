@@ -346,5 +346,15 @@ module.exports = {
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
             },
         },
+        {
+            resolve: 'gatsby-plugin-env-variables',
+            options: {
+                allowList: [
+                    'RUDDERSTACK_URL',
+                    'RUDDERSTACK_STAGING_KEY',
+                    'RUDDERSTACK_PRODUCTION_KEY',
+                ],
+            },
+        },
     ],
 }

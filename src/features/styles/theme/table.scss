@@ -9,6 +9,11 @@
 .table {
     inline-size: 100%;
     background-color: transparent;
+    th, td {
+        line-height: 1.8;
+    }
+}
+.table-layout-fixed {
     table-layout: fixed;
 }
 .table-shadow {
@@ -29,9 +34,4 @@
             background-color: $color-white-1;
         }
     }
-}
-
-th, td {
-    line-height: 1.8!important;
-
 }

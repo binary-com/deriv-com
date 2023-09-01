@@ -1,0 +1,6 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.border_bottom{
+    border-bottom: 1px solid $color-grey-6;
+}

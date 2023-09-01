@@ -338,7 +338,6 @@ const Locations = () => {
                         'asia',
                         'oceania',
                         'middle_east',
-                        'eastern_europe',
                         'africa',
                         'latam',
                         'caribbean',

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import NavTemplate from '../template'
 import affiliateNavItems from './data'
 import { partners_nav_logo, partners_buttons } from './payment-agent-nav.module.scss'
+import PrimeLogo from 'images/svg/deriv-prime/deriv-prime-logo.svg'
 import PartnerNavLogo from 'images/svg/partner-nav-logo.svg'
 import Image from 'features/components/atoms/image'
 import Button from 'features/components/atoms/button'
@@ -9,26 +10,24 @@ import { Localize } from 'components/localization/localize'
 import LanguageSwitcher from 'features/components/molecules/language-switcher'
 import Link from 'features/components/atoms/link'
 import Flex from 'features/components/atoms/flex-box'
+import { getLocationPathname } from 'common/utility'
+import useScrollToElement from 'features/hooks/use-scroll-to-element'
 
-const PaymentAgentAffiliateNav = () => {
-    return (
-        <NavTemplate
-            renderLogo={() => (
-                <Link url={{ type: 'internal', to: '/partners/' }}>
-                    <Image src={PartnerNavLogo} className={partners_nav_logo} />
-                </Link>
-            )}
-            items={affiliateNavItems}
-            has_top_nav
-            has_centered_items
-        >
-            <Flex.Box
-                direction="row-reverse"
-                md={{ direction: 'row' }}
-                justify="center"
-                align="center"
-                gap="8x"
+const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: boolean }) => {
+    const path_name = getLocationPathname()
+    const clickToScrollHandler = useScrollToElement('getintouch')
+
+    const generate_buttons = useMemo(() => {
+        return !path_name ? null : path_name.includes('deriv-prime') ? (
+            <Button.Primary
+                id="dm-nav-deriv-prime-contact"
+                onClick={clickToScrollHandler}
+                className={partners_buttons}
             >
+                <Localize translate_text="_t_Contact us_t_" />
+            </Button.Primary>
+        ) : (
+            <>
                 <Button.Primary
                     id="dm-nav-affiliate-login-button"
                     onClick={() =>
@@ -58,6 +57,38 @@ const PaymentAgentAffiliateNav = () => {
                 >
                     <Localize translate_text="_t_Affiliate & IB sign up_t_" />
                 </Button.Primary>
+            </>
+        )
+    }, [path_name])
+
+    return (
+        <NavTemplate
+            renderLogo={() => (
+                <Link
+                    url={{
+                        type: 'internal',
+                        to: is_prime_page ? '/partners/deriv-prime' : '/partners',
+                    }}
+                >
+                    {is_prime_page ? (
+                        <Image src={PrimeLogo} className={partners_nav_logo} />
+                    ) : (
+                        <Image src={PartnerNavLogo} className={partners_nav_logo} />
+                    )}
+                </Link>
+            )}
+            items={affiliateNavItems}
+            has_top_nav
+            has_centered_items
+        >
+            <Flex.Box
+                direction="row-reverse"
+                md={{ direction: 'row' }}
+                justify="center"
+                align="center"
+                gap="8x"
+            >
+                {generate_buttons}
                 <LanguageSwitcher />
             </Flex.Box>
         </NavTemplate>

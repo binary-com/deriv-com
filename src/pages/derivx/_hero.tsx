@@ -32,6 +32,7 @@ const ImageWrapper = styled.div`
     width: 100%;
     align-self: center;
     flex: 1 1 0%;
+    padding-left: 1rem;
 `
 const BannerButtonWrapper = styled.div`
     display: flex;
@@ -77,7 +78,6 @@ const HeroImageWrapper = styled.div`
     position: absolute;
     right: 0;
     height: 100%;
-
     @media ${device.tablet} {
         width: 100%;
         position: relative;

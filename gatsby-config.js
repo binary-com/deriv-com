@@ -350,9 +350,9 @@ module.exports = {
             resolve: 'gatsby-plugin-env-variables',
             options: {
                 allowList: [
-                    'RUDDERSTACK_URL',
-                    'RUDDERSTACK_STAGING_KEY',
-                    'RUDDERSTACK_PRODUCTION_KEY',
+                    'GATSBY_RUDDERSTACK_URL',
+                    'GATSBY_RUDDERSTACK_STAGING_KEY',
+                    'GATSBY_RUDDERSTACK_PRODUCTION_KEY',
                 ],
             },
         },

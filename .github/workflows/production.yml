@@ -49,16 +49,6 @@ jobs:
               # with:
               #   tagRegex: "production(.*)"
 
-            - name: Deploy 🚀
-              run: |
-                  export NAMESPACE="deriv-com-production"
-                  export SERVICEACCOUNT_TOKEN=${{ secrets.SERVICEACCOUNT_TOKEN }}
-                  export CA=${{ secrets.CA }}
-                  git clone https://github.com/binary-com/devops-ci-scripts
-                  cd devops-ci-scripts/k8s-build_tools
-                  echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
-                  ./release.sh deriv-com $GIT_TAG_NAME
-
             - name: Deploy to Cloudflare ☁️
               uses: cloudflare/wrangler-action@2.0.0
               with:

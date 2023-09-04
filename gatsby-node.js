@@ -234,41 +234,41 @@ exports.onCreatePage = ({ page, actions }) => {
             })
         }
 
-        if (is_responsible_trading) {
-            createRedirect({
-                fromPath: `/${lang}/responsible-trading/`,
-                toPath: `/${lang}/responsible/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/responsible-trading`,
-                toPath: `/${lang}/responsible`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-        }
+        // if (is_responsible_trading) {
+        //     createRedirect({
+        //         fromPath: `/${lang}/responsible-trading/`,
+        //         toPath: `/${lang}/responsible/`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        //     createRedirect({
+        //         fromPath: `/${lang}/responsible-trading`,
+        //         toPath: `/${lang}/responsible`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        // }
 
-        if (is_contact_us) {
-            createRedirect({
-                fromPath: `/${lang}/contact-us/`,
-                toPath: `/${lang}/contact_us/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/contact/`,
-                toPath: `/${lang}/contact_us/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/contact-us`,
-                toPath: `/${lang}/contact_us`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-        }
+        // if (is_contact_us) {
+        //     createRedirect({
+        //         fromPath: `/${lang}/contact-us/`,
+        //         toPath: `/${lang}/contact_us/`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        //     createRedirect({
+        //         fromPath: `/${lang}/contact/`,
+        //         toPath: `/${lang}/contact_us/`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        //     createRedirect({
+        //         fromPath: `/${lang}/contact-us`,
+        //         toPath: `/${lang}/contact_us`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        // }
 
         if (is_p2p) {
             createRedirect({

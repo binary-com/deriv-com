@@ -1,0 +1,13 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.wrapper {
+    max-inline-size: 99.6rem;
+    margin-inline: auto;
+    inline-size: 90%;
+}
+
+.commercial_table_faq {
+   max-inline-size: 54rem;
+   box-shadow: none !important;
+   padding: unset !important;
+}

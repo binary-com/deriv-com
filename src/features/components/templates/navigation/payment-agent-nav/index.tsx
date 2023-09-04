@@ -67,7 +67,7 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
                 <Link
                     url={{
                         type: 'internal',
-                        to: is_prime_page ? '/partners/deriv-prime/' : '/partners',
+                        to: is_prime_page ? '/partners/deriv-prime/' : '/partners/',
                     }}
                 >
                     {is_prime_page ? (

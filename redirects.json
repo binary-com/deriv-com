@@ -1,0 +1,34 @@
+[
+    {
+        "fromPath": "/careers/people-management",
+        "toPath": "/careers/human-resources"
+    },
+    {
+        "fromPath": "/derivez",
+        "toPath": "/deriv-ez/"
+    }, 
+    {
+        "fromPath": "/careers/besquare/",
+        "toPath": "/careers/"
+    },
+    {
+        "fromPath": "/responsible-trading/",
+        "toPath": "/responsible/"
+    },
+    {
+        "fromPath": "/contact-us/",
+        "toPath": "/contact_us/"
+    },
+    {
+        "fromPath": "/p2p/v1",
+        "toPath": "/p2p"
+    },
+    {
+        "fromPath": "/about/",
+        "toPath": "/who-we-are/"
+    },
+    {
+        "fromPath":
+        "toPath": 
+    }
+]

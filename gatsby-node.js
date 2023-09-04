@@ -12,104 +12,104 @@ exports.onCreatePage = ({ page, actions }) => {
     deletePage(page)
     const is_responsible_trading = /responsible/g.test(page.path)
     const is_contact_us = /contact_us/g.test(page.path)
-    const is_careers = /careers/g.test(page.path)
+    // const is_careers = /careers/g.test(page.path)
     const is_p2p = /responsible/g.test(page.path)
     const who_we_are = /who-we-are/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
-    const is_deriv_ez = /deriv-ez/g.test(page.path)
+    // const is_deriv_ez = /deriv-ez/g.test(page.path)
     const is_options = /options/g.test(page.path)
 
-    if (is_careers) {
-        createRedirect({
-            fromPath: `/careers/people-management`,
-            toPath: `/careers/human-resources`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/careers/people-management/`,
-            toPath: `/careers/human-resources/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/careers/besquare/`,
-            toPath: `/careers/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/careers/besquare`,
-            toPath: `/careers/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-    }
+    // if (is_careers) {
+    //     createRedirect({
+    //         fromPath: `/careers/people-management`,
+    //         toPath: `/careers/human-resources`,
+    //         redirectInBrowser: true,
+    //         isPermanent: true,
+    //     })
+    //     createRedirect({
+    //         fromPath: `/careers/people-management/`,
+    //         toPath: `/careers/human-resources/`,
+    //         redirectInBrowser: true,
+    //         isPermanent: true,
+    //     })
+    //     createRedirect({
+    //         fromPath: `/careers/besquare/`,
+    //         toPath: `/careers/`,
+    //         redirectInBrowser: true,
+    //         isPermanent: true,
+    //     })
+    //     createRedirect({
+    //         fromPath: `/careers/besquare`,
+    //         toPath: `/careers/`,
+    //         redirectInBrowser: true,
+    //         isPermanent: true,
+    //     })
+    // }
 
-    if (is_responsible_trading) {
-        createRedirect({
-            fromPath: `/responsible-trading/`,
-            toPath: `/responsible/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/responsible-trading`,
-            toPath: `/responsible`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-    }
+    // if (is_responsible_trading) {
+    //     createRedirect({
+    //         fromPath: `/responsible-trading/`,
+    //         toPath: `/responsible/`,
+    //         redirectInBrowser: true,
+    //         isPermanent: true,
+    //     })
+    //     createRedirect({
+    //         fromPath: `/responsible-trading`,
+    //         toPath: `/responsible`,
+    //         redirectInBrowser: true,
+    //         isPermanent: true,
+    //     })
+    // }
 
-    if (is_contact_us) {
-        createRedirect({
-            fromPath: `/contact-us/`,
-            toPath: `/contact_us/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/contact/`,
-            toPath: `/contact_us/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/contact-us`,
-            toPath: `/contact_us`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-    }
+    // if (is_contact_us) {
+    //     createRedirect({
+    //         fromPath: `/contact-us/`,
+    //         toPath: `/contact_us/`,
+    //         redirectInBrowser: true,
+    //         isPermanent: true,
+    //     })
+    //     createRedirect({
+    //         fromPath: `/contact/`,
+    //         toPath: `/contact_us/`,
+    //         redirectInBrowser: true,
+    //         isPermanent: true,
+    //     })
+    //     createRedirect({
+    //         fromPath: `/contact-us`,
+    //         toPath: `/contact_us`,
+    //         redirectInBrowser: true,
+    //         isPermanent: true,
+    //     })
+    // }
 
-    if (is_p2p) {
-        createRedirect({
-            fromPath: `/p2p/v1`,
-            toPath: `/p2p`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/p2p/v2`,
-            toPath: `/p2p`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-    }
+    // if (is_p2p) {
+    //     createRedirect({
+    //         fromPath: `/p2p/v1`,
+    //         toPath: `/p2p`,
+    //         redirectInBrowser: true,
+    //         isPermanent: true,
+    //     })
+    //     createRedirect({
+    //         fromPath: `/p2p/v2`,
+    //         toPath: `/p2p`,
+    //         redirectInBrowser: true,
+    //         isPermanent: true,
+    //     })
+    // }
 
     if (who_we_are) {
-        createRedirect({
-            fromPath: `/about/`,
-            toPath: `/who-we-are/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/about`,
-            toPath: `/who-we-are/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
+        // createRedirect({
+        //     fromPath: `/about/`,
+        //     toPath: `/who-we-are/`,
+        //     redirectInBrowser: true,
+        //     isPermanent: true,
+        // })
+        // createRedirect({
+        //     fromPath: `/about`,
+        //     toPath: `/who-we-are/`,
+        //     redirectInBrowser: true,
+        //     isPermanent: true,
+        // })
         createRedirect({
             fromPath: `/story/`,
             toPath: `/who-we-are/`,
@@ -171,20 +171,20 @@ exports.onCreatePage = ({ page, actions }) => {
         })
     }
 
-    if (is_deriv_ez) {
-        createRedirect({
-            fromPath: `/derivez/`,
-            toPath: `/deriv-ez/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/derivez`,
-            toPath: `/deriv-ez/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-    }
+    // if (is_deriv_ez) {
+    //     createRedirect({
+    //         fromPath: `/derivez/`,
+    //         toPath: `/deriv-ez/`,
+    //         redirectInBrowser: true,
+    //         isPermanent: true,
+    //     })
+    //     createRedirect({
+    //         fromPath: `/derivez`,
+    //         toPath: `/deriv-ez/`,
+    //         redirectInBrowser: true,
+    //         isPermanent: true,
+    //     })
+    // }
 
     Object.keys(language_config).map((lang) => {
         // Use the values defined in "locales" to construct the path
@@ -354,20 +354,20 @@ exports.onCreatePage = ({ page, actions }) => {
             })
         }
 
-        if (is_deriv_ez) {
-            createRedirect({
-                fromPath: `/${lang}/derivez/`,
-                toPath: `/${lang}/deriv-ez/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/derivez`,
-                toPath: `/${lang}/deriv-ez/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-        }
+        // if (is_deriv_ez) {
+        //     createRedirect({
+        //         fromPath: `/${lang}/derivez/`,
+        //         toPath: `/${lang}/deriv-ez/`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        //     createRedirect({
+        //         fromPath: `/${lang}/derivez`,
+        //         toPath: `/${lang}/deriv-ez/`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        // }
 
         return current_page
     })

@@ -134,12 +134,6 @@ export const desktop_pins: MapPinType[] = [
         link: '/careers/locations/rwanda',
     },
     {
-        left: '54%',
-        top: '27.5%',
-        title: '_t_Minsk, Belarus_t_',
-        link: '/careers/locations/minsk',
-    },
-    {
         left: '61.5%',
         top: '45.9%',
         title: '_t_Dubai, UAE_t_',
@@ -261,12 +255,6 @@ export const mobile_pins: MapPinType[] = [
         top: '57.5%',
         title: '_t_Kigali, Rwanda_t_',
         link: '/careers/locations/rwanda',
-    },
-    {
-        left: '52.5%',
-        top: '23.5%',
-        title: '_t_Minsk, Belarus_t_',
-        link: '/careers/locations/minsk',
     },
     {
         left: '60%',

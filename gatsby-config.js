@@ -96,6 +96,7 @@ module.exports = {
                     '/bug-bounty',
                     '/**/bug-bounty',
                     '/**/bug-bounty/**/',
+                    '/careers/locations/minsk/',
                     '/check-email',
                     '/**/check-email',
                     '/reset-password',

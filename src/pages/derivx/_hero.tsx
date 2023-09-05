@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
 import CommonHeaderSection from 'components/elements/common-header-section'
-import DerivXLogo from 'images/svg/deriv-x/deriv-x-banner-logo.svg'
+import { DerivXBannerLogo } from 'images/svg/deriv-x'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -32,6 +32,7 @@ const ImageWrapper = styled.div`
     width: 100%;
     align-self: center;
     flex: 1 1 0%;
+    padding-left: 1rem;
 `
 const BannerButtonWrapper = styled.div`
     display: flex;
@@ -77,7 +78,6 @@ const HeroImageWrapper = styled.div`
     position: absolute;
     right: 0;
     height: 100%;
-
     @media ${device.tablet} {
         width: 100%;
         position: relative;
@@ -132,7 +132,7 @@ const DCommonBanner = () => {
             <StyledContainer jc="flex-start">
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
-                        <StyledTradingLogin src={DerivXLogo} />
+                        <StyledTradingLogin src={DerivXBannerLogo} />
                         <CommonHeaderSection
                             title="_t_The trading platform to fit your style_t_"
                             title_font_size={`${is_mobile ? 32 : 64}px`}

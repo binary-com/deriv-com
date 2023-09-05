@@ -348,16 +348,13 @@ module.exports = {
             },
         },
         {
-            resolve: `gatsby-plugin-rudderstack`,
+            resolve: 'gatsby-plugin-env-variables',
             options: {
-                prodKey: process.env.RUDDERSTACK_PRODUCTION_KEY,
-                devKey: process.env.RUDDERSTACK_STAGING_KEY,
-                dataPlaneUrl: process.env.RUDDERSTACK_URL,
-                trackPage: false,
-                trackPageDelay: 50,
-                delayLoad: false,
-                delayLoadTime: 1000,
-                manualLoad: false,
+                allowList: [
+                    'GATSBY_RUDDERSTACK_URL',
+                    'GATSBY_RUDDERSTACK_STAGING_KEY',
+                    'GATSBY_RUDDERSTACK_PRODUCTION_KEY',
+                ],
             },
         },
     ],

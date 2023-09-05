@@ -25,7 +25,6 @@ type SignupProps = {
     onSubmit?: (submit_status, email) => void
     submit_state?: string
 }
-
 type FormProps = {
     bgColor?: string
 }
@@ -41,7 +40,6 @@ const EmailLink = styled(StyledLink)`
 const Form = styled.form<FormProps>`
     height: 100%;
     background-color: ${(props) => props.bgColor || 'var(--color-white)'};
-
     @media ${device.mobileL} {
         width: 100%;
         margin-top: 70px;
@@ -84,39 +82,31 @@ const Signup = (props: SignupProps) => {
     const [email_error_msg, setEmailErrorMsg] = useState('')
     const [submit_status, setSubmitStatus] = useState('')
     const [submit_error_msg, setSubmitErrorMsg] = useState('')
-
     const validateEmail = (email_address) => {
         const error_message =
             validation.required(email_address) ||
             validation.email(email_address) ||
             submit_error_msg
-
         if (submit_error_msg) {
             setSubmitErrorMsg('')
             setSubmitStatus('')
         }
-
         return error_message
     }
-
     const handleValidation = (param) => {
         const message = typeof param === 'object' ? param.target.value : param
         setEmailErrorMsg(validateEmail(message.replace(/\s/g, '')))
     }
-
     const handleInputChange = (e) => {
         const { value } = e.target
         setEmail(value)
         handleValidation(value)
     }
-
     const getVerifyEmailRequest = (formatted_email) => {
         const affiliate_token = Cookies.getJSON('affiliate_tracking')
-
         const cookies = getCookiesFields()
         const cookies_objects = getCookiesObject(cookies)
         const cookies_value = getDataObjFromCookies(cookies_objects, cookies)
-
         return {
             verify_email: formatted_email,
             url_parameters: {
@@ -125,7 +115,6 @@ const Signup = (props: SignupProps) => {
             },
         }
     }
-
     const handleEmailSignup = (e) => {
         e.preventDefault()
         setSubmitting(true)
@@ -152,7 +141,6 @@ const Signup = (props: SignupProps) => {
                     }
                 }
             })
-
         if (props.appearance === 'public') {
             const success_default_link = `signup-success?email=${email}`
             const link_with_language = `${getLanguage()}/${success_default_link}`
@@ -162,7 +150,6 @@ const Signup = (props: SignupProps) => {
             navigate(success_link, { replace: true })
         }
     }
-
     const clearEmail = () => {
         setEmail('')
         setEmailErrorMsg('')
@@ -170,16 +157,13 @@ const Signup = (props: SignupProps) => {
 
     const handleSocialSignup = (e) => {
         e.preventDefault()
-
         const data_provider: TSocialProvider = e.currentTarget.getAttribute('data-provider')
         Login.initOneAll(data_provider)
     }
-
     const handleLogin = (e) => {
         e.preventDefault()
         Login.redirectToLogin()
     }
-
     const renderSwitch = (param) => {
         const parameters = {
             autofocus: props.autofocus,
@@ -193,7 +177,6 @@ const Signup = (props: SignupProps) => {
             is_ppc: props.is_ppc,
             is_submitting: is_submitting,
         }
-
         switch (param) {
             case Appearances.newSignup:
                 return <SignupNew {...parameters}></SignupNew>
@@ -241,5 +224,4 @@ const Signup = (props: SignupProps) => {
         </Form>
     )
 }
-
 export default Signup

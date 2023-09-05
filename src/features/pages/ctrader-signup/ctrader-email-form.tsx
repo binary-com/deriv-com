@@ -5,10 +5,10 @@ import Button from 'features/components/atoms/button'
 import { localize, Localize } from 'components/localization'
 import Input from 'features/components/atoms/input'
 import Link from 'features/components/atoms/link'
-import useSignupForm from 'features/hooks/use-signup-form'
+import useCtraderEmailForm from 'features/hooks/use-ctrader-email-form'
 
-const SignUpPageForm = () => {
-    const { onSignup, signUpForm } = useSignupForm()
+const CtraderEmailForm = () => {
+    const { onEnterEmail, enterEmailForm } = useCtraderEmailForm()
 
     const {
         register,
@@ -17,14 +17,14 @@ const SignUpPageForm = () => {
         handleSubmit,
         clearErrors,
         setValue,
-    } = signUpForm
+    } = enterEmailForm
     const values = watch()
 
     const is_button_disabled =
         values.email === '' || !values.terms || !isValid || isSubmitting || isSubmitSuccessful
 
     return (
-        <Flex.Box as="form" direction="col" onSubmit={handleSubmit(onSignup)} gap="8x">
+        <Flex.Box as="form" direction="col" onSubmit={handleSubmit(onEnterEmail)} gap="8x">
             <Input.Text
                 autoComplete="none"
                 autoCapitalize="none"
@@ -62,4 +62,4 @@ const SignUpPageForm = () => {
     )
 }
 
-export default SignUpPageForm
+export default CtraderEmailForm

@@ -5,7 +5,7 @@ import { overlay_container } from './layout-overlay.module.scss'
 import CfdWarningBanner from './cfd-warning-banner'
 import Flex from 'features/components/atoms/flex-box'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import { getLocationPathname } from 'common/utility'
+import { getLocationPathname, getLanguage } from 'common/utility'
 
 const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 5000))
 const WhatsappButton = loadable(() => pMinDelay(import('./whats-app-button'), 5000))
@@ -15,7 +15,10 @@ const LayoutOverlay = () => {
     const is_rtl = useIsRtl()
 
     const isHomePage = () => {
-        return getLocationPathname() === '/'
+        const currentPath = getLocationPathname()
+        const language = getLanguage()
+
+        return currentPath === `/${language}/` || currentPath === '/'
     }
     return (
         <Flex.Box

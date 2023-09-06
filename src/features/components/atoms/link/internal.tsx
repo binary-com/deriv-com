@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'gatsby'
 import language_config from '../../../../../i18n-config.js'
 import { LinkProps } from '.'
@@ -66,8 +66,6 @@ const Internal = ({
     link_rel,
     active_urls,
 }: InternalProps) => {
-    const [is_active, setIsActive] = useState(false)
-
     let rawLocale = 'en'
     if (isBrowser()) {
         rawLocale = localStorage.getItem('i18n') ?? 'en'
@@ -79,9 +77,7 @@ const Internal = ({
 
     const to = is_non_localized || is_default ? url.to : `/${path}${url.to}`
 
-    useEffect(() => {
-        setIsActive(isActiveLink(url.to, active_urls))
-    }, [active_urls, url.to])
+    const is_active = isActiveLink(url.to, active_urls)
 
     return (
         <Link

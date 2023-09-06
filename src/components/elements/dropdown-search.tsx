@@ -14,6 +14,7 @@ import {
     ToggleListVisibilityType,
     useDropdown,
 } from 'components/hooks/use-dropdown'
+import device from 'themes/device'
 import { Flex } from 'components/containers'
 
 type DropdownInputProps = {
@@ -29,12 +30,11 @@ type DropdownInputProps = {
 
 const DropdownInput = styled.input<DropdownInputProps>`
     color: var(--color-black-3);
-    cursor: pointer;
     width: calc(100% - 2px);
     border: none;
     white-space: nowrap;
     overflow: hidden;
-    padding: 0 2rem;
+    padding: 0 1rem;
     font-size: var(--text-size-xs);
     display: flex;
     align-items: center;
@@ -48,6 +48,14 @@ const DropdownInput = styled.input<DropdownInputProps>`
     &:focus {
         outline: none;
     }
+
+    @media ${device.tabletL} {
+        font-size: 1.75rem;
+    }
+
+    @media ${device.mobileL} {
+        font-size: 1.5rem;
+    }
 `
 
 const DropdownSearch = ({
@@ -58,7 +66,6 @@ const DropdownSearch = ({
     label,
     onChange,
     selected_item,
-    value,
     ...props
 }: DropdownProps) => {
     const [input_value, setInputValue] = useState('')
@@ -106,15 +113,11 @@ const DropdownSearch = ({
                 ref={dropdown_ref}
                 has_short_name={has_short_name}
                 error={error}
-                mb={props.mb || '12px'}
+                mb="36px"
                 {...props}
             >
-                <Flex ai="center">
-                    <StyledLabel
-                        active={
-                            is_open || (!is_open && selected_item) || (!is_open && value !== '')
-                        }
-                    >
+                <Flex>
+                    <StyledLabel active={is_open || (!is_open && selected_item)}>
                         {label}
                     </StyledLabel>
                     <DropdownInput

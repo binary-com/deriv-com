@@ -110,7 +110,7 @@ const SEO = ({
             name: 'Deriv',
             alternateName: 'Deriv.com',
             url: 'https://deriv.com',
-            logo: TradingImage,
+            logo: 'https://deriv.com/static/1b57a116945933314eefeec0030c8e9d/2a4de/logo.png',
             sameAs: [
                 'https://www.facebook.com/derivdotcom',
                 'https://www.twitter.com/derivdotcom',
@@ -173,7 +173,7 @@ const SEO = ({
                 },
                 {
                     property: 'og:image',
-                    content: TradingImage,
+                    content: meta_attributes?.og_img || TradingImage,
                 },
                 {
                     property: 'og:image:width',

@@ -7,7 +7,6 @@ import { TString } from 'types/generics'
 import dclsx from 'features/utils/dclsx'
 
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
-    formId?: string
     error?: string
     label?: TString
     clearErrors?: VoidFunction
@@ -15,7 +14,7 @@ interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
-    ({ formId, error, className, label, clearErrors, setValue, ...rest }, ref) => {
+    ({ error, className, label, clearErrors, setValue, ...rest }, ref) => {
         const notValid = error && error.length ? 'error' : 'valid'
         return (
             <div className={dclsx(className, 'text_input_container', notValid)}>
@@ -26,7 +25,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
                         alt="error icon"
                         className="cross_icon"
                         onClick={() => {
-                            setValue(formId, '')
+                            setValue('email', '')
                             clearErrors()
                         }}
                     />

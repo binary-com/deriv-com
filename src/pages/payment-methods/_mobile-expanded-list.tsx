@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { PaymentProps } from './_payment-data'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
+import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
@@ -19,7 +20,7 @@ const StyledItemWrapper = styled(Flex)<StyledProps>`
 `
 const StyledIconWrapper = styled.div`
     width: 100%;
-    max-width: 128px;
+    max-width: 80px;
     margin-left: 16px;
 `
 const StyledChevron = styled.img<StyledProps>`
@@ -40,9 +41,7 @@ const HoverChevron = styled.div`
 const DetailsWrapper = styled(Flex)<StyledProps>`
     display: ${(props) => (props.is_expanded ? 'flex' : 'none')};
 `
-const StyledHeader = styled(Header)`
-    font-size: 14px;
-`
+
 const StyledItemDiv = styled.div`
     width: 50%;
     margin-right: 8px;
@@ -70,7 +69,6 @@ const StyledRow = styled(Flex)`
     }
 `
 const ValueText = styled(Header)<{ is_rtl: boolean }>`
-    font-size: 14px;
     text-align: end;
     white-space: pre-line;
     direction: ltr;
@@ -87,6 +85,14 @@ const ValueText = styled(Header)<{ is_rtl: boolean }>`
         text-align: start;
     }
 `
+const RefIcon = styled.a`
+    display: flex;
+    justify-content: flex-end;
+`
+const StyledPDF = styled.img`
+    height: 32px;
+    width: 32px;
+`
 const StyledButton = styled(Button)`
     margin-top: 8px;
     max-width: 120px;
@@ -100,7 +106,13 @@ const StyledRefLink = styled(Flex)`
         width: 65%;
     }
 `
-const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, payment_data }: PaymentProps) => {
+const MobileExpandedList = ({
+    is_crypto,
+    is_fiat_onramp,
+    is_dp2p,
+    locale,
+    payment_data,
+}: PaymentProps) => {
     const [is_expanded, setExpanded] = React.useState(false)
     const is_rtl = useIsRtl()
     const toggleExpand = () => {
@@ -125,12 +137,12 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, payment_data }
                     {/* first row */}
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
-                            <StyledHeader type="subtitle-2">
+                            <Header as="p" type="subtitle-2">
                                 <Localize translate_text="_t_Currencies_t_" />
-                            </StyledHeader>
+                            </Header>
                         </StyledItemDiv>
                         <StyledKeyDiv>
-                            <ValueText as="p" is_rtl={is_rtl} type="subtitle-2" weight="normal">
+                            <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
                                 {payment_data.currencies.includes('_t_') ? (
                                     <Localize translate_text={payment_data.currencies as TString} />
                                 ) : (
@@ -144,43 +156,32 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, payment_data }
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
                             {is_crypto || is_fiat_onramp ? (
-                                <StyledHeader type="subtitle-2">
+                                <Header as="p" type="subtitle-2">
                                     <Localize translate_text="_t_Min deposit_t_" />
-                                </StyledHeader>
+                                </Header>
                             ) : is_dp2p ? (
-                                <StyledHeader type="subtitle-2">
+                                <Header as="p" type="subtitle-2">
                                     <Localize translate_text="_t_Supported Deriv accounts_t_" />
-                                </StyledHeader>
+                                </Header>
                             ) : (
                                 <>
-                                    <StyledHeader type="subtitle-2">
+                                    <Header as="p" type="subtitle-2">
                                         <Localize translate_text="_t_Min-max_t_" />
-                                    </StyledHeader>
-                                    <StyledHeader type="subtitle-2">
+                                    </Header>
+                                    <Header as="p" type="subtitle-2">
                                         <Localize translate_text="_t_deposit_t_" />
-                                    </StyledHeader>
+                                    </Header>
                                 </>
                             )}
                         </StyledItemDiv>
                         <StyledKeyDiv>
-                            {payment_data.minimum_deposit ? (
-                                <ValueText as="p" is_rtl={is_rtl} type="subtitle-2" weight="normal">
-                                    {payment_data.minimum_deposit}
+                            {payment_data?.min_max_deposit && (
+                                <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
+                                    <Localize
+                                        translate_text={payment_data.min_max_deposit}
+                                        components={payment_data.min_max_deposit_components}
+                                    />
                                 </ValueText>
-                            ) : (
-                                payment_data?.min_max_deposit && (
-                                    <ValueText
-                                        as="p"
-                                        is_rtl={is_rtl}
-                                        type="subtitle-2"
-                                        weight="normal"
-                                    >
-                                        <Localize
-                                            translate_text={payment_data.min_max_deposit}
-                                            components={payment_data.min_max_deposit_components}
-                                        />
-                                    </ValueText>
-                                )
                             )}
                         </StyledKeyDiv>
                     </StyledRow>
@@ -191,28 +192,27 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, payment_data }
                             <StyledRow jc="space-between" ai="center">
                                 <StyledItemDiv>
                                     {is_crypto ? (
-                                        <StyledHeader type="subtitle-2">
+                                        <Header as="p" type="subtitle-2">
                                             <Localize translate_text="_t_Min withdrawal_t_" />
-                                        </StyledHeader>
+                                        </Header>
                                     ) : is_dp2p ? (
-                                        <StyledHeader type="subtitle-2">
+                                        <Header as="p" type="subtitle-2">
                                             <Localize translate_text="_t_Daily deposit limits_t_" />
-                                        </StyledHeader>
+                                        </Header>
                                     ) : (
                                         <>
-                                            <StyledHeader type="subtitle-2">
+                                            <Header as="p" type="subtitle-2">
                                                 <Localize translate_text="_t_Min-max_t_" />
-                                            </StyledHeader>
-                                            <StyledHeader type="subtitle-2">
+                                            </Header>
+                                            <Header as="p" type="subtitle-2">
                                                 <Localize translate_text="_t_withdrawal_t_" />
-                                            </StyledHeader>
+                                            </Header>
                                         </>
                                     )}
                                 </StyledItemDiv>
                                 <StyledKeyDiv>
                                     {payment_data.minimum_withdrawal ? (
                                         <ValueText
-                                            as="p"
                                             is_rtl={is_rtl}
                                             type="subtitle-2"
                                             weight="normal"
@@ -222,7 +222,6 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, payment_data }
                                     ) : (
                                         payment_data?.min_max_withdrawal && (
                                             <ValueText
-                                                as="p"
                                                 is_rtl={is_rtl}
                                                 type="subtitle-2"
                                                 weight="normal"
@@ -245,26 +244,26 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, payment_data }
                     <StyledRow jc="space-between" ai="center">
                         <StyledItemDiv>
                             {is_fiat_onramp ? (
-                                <StyledHeader type="subtitle-2">
+                                <Header as="p" type="subtitle-2">
                                     <Localize translate_text="_t_Deposit processing time_t_" />
-                                </StyledHeader>
+                                </Header>
                             ) : is_dp2p ? (
-                                <StyledHeader type="subtitle-2">
+                                <Header as="p" type="subtitle-2">
                                     <Localize translate_text="_t_Daily withdrawal limits_t_" />
-                                </StyledHeader>
+                                </Header>
                             ) : (
-                                <>
-                                    <StyledHeader type="subtitle-2">
+                                <Header as="p" type="subtitle-2">
+                                    <Header as="p" type="subtitle-2">
                                         <Localize translate_text="_t_Deposit_t_" />
-                                    </StyledHeader>
-                                    <StyledHeader type="subtitle-2">
+                                    </Header>
+                                    <Header as="p" type="subtitle-2">
                                         <Localize translate_text="_t_processing time_t_" />
-                                    </StyledHeader>
-                                </>
+                                    </Header>
+                                </Header>
                             )}
                         </StyledItemDiv>
                         <StyledKeyDiv>
-                            <ValueText as="p" is_rtl={is_rtl} type="subtitle-2" weight="normal">
+                            <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
                                 {payment_data?.deposit_time && (
                                     <Localize translate_text={payment_data.deposit_time} />
                                 )}
@@ -276,15 +275,15 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, payment_data }
                     {!is_fiat_onramp && !is_dp2p && (
                         <StyledRow jc="space-between" ai="center">
                             <StyledItemDiv>
-                                <StyledHeader type="subtitle-2">
+                                <Header as="p" type="subtitle-2">
                                     <Localize translate_text="_t_Withdrawal_t_" />
-                                </StyledHeader>
-                                <StyledHeader type="subtitle-2">
+                                </Header>
+                                <Header as="p" type="subtitle-2">
                                     <Localize translate_text="_t_processing time_t_" />
-                                </StyledHeader>
+                                </Header>
                             </StyledItemDiv>
                             <StyledKeyDiv>
-                                <ValueText as="p" is_rtl={is_rtl} type="subtitle-2" weight="normal">
+                                <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
                                     {payment_data?.withdrawal_time && (
                                         <Localize translate_text={payment_data.withdrawal_time} />
                                     )}
@@ -295,33 +294,55 @@ const MobileExpandedList = ({ is_crypto, is_fiat_onramp, is_dp2p, payment_data }
                     {is_dp2p && (
                         <StyledRow jc="space-between" ai="center">
                             <StyledItemDiv>
-                                <StyledHeader type="subtitle-2">
+                                <Header as="p" type="subtitle-2">
                                     <Localize translate_text="_t_Processing time_t_" />
-                                </StyledHeader>
+                                </Header>
                             </StyledItemDiv>
                             <StyledKeyDiv>
-                                <ValueText as="p" is_rtl={is_rtl} type="subtitle-2" weight="normal">
-                                    {payment_data?.withdrawal_time && (
-                                        <Localize translate_text={payment_data.withdrawal_time} />
-                                    )}
+                                <ValueText is_rtl={is_rtl} type="subtitle-2" weight="normal">
+                                    {payment_data.withdrawal_time}
                                 </ValueText>
                             </StyledKeyDiv>
                         </StyledRow>
                     )}
 
                     {/* reference row */}
-                    {payment_data?.reference_link && (
+                    {(payment_data?.reference || payment_data?.reference_link) && (
                         <StyledRow jc="space-between" ai="center">
                             <StyledItemDiv>
-                                <StyledHeader type="subtitle-2">
-                                    <Localize translate_text="_t_More info_t_" />
-                                </StyledHeader>
+                                <Header as="p" type="subtitle-2">
+                                    <Localize
+                                        translate_text={
+                                            is_dp2p ? '_t_More info_t_' : '_t_Reference_t_'
+                                        }
+                                    />
+                                </Header>
                             </StyledItemDiv>
 
                             <StyledKeyDiv>
-                                <StyledRefLink jc="flex-end">
-                                    {payment_data.reference_link}
-                                </StyledRefLink>
+                                <>
+                                    {payment_data.reference ? (
+                                        <RefIcon
+                                            href={`/payment-methods/${
+                                                payment_data.locales?.includes(
+                                                    locale?.locale?.language,
+                                                )
+                                                    ? locale?.locale?.language +
+                                                      '/' +
+                                                      payment_data.reference
+                                                    : payment_data.reference
+                                            }`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <StyledPDF src={PDF} alt="PDF" />
+                                        </RefIcon>
+                                    ) : (
+                                        <StyledRefLink jc="flex-end">
+                                            {payment_data.reference_link}
+                                        </StyledRefLink>
+                                    )}
+                                </>
                             </StyledKeyDiv>
                         </StyledRow>
                     )}

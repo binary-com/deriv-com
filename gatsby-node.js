@@ -44,18 +44,6 @@ exports.onCreatePage = ({ page, actions }) => {
             redirectInBrowser: true,
             isPermanent: true,
         })
-        createRedirect({
-            fromPath: `/careers/locations/minsk`,
-            toPath: `/careers/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/careers/locations/minsk/`,
-            toPath: `/careers/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
     }
 
     if (is_responsible_trading) {

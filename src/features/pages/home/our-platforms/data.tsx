@@ -8,6 +8,7 @@ import DerivXIcon from 'images/svg/custom/rebranding/deriv-x-icon.svg'
 import DBotIcon from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
 import BinaryBotIcon from 'images/svg/custom/rebranding/binarybot-icon.svg'
 import SmartTraderIcon from 'images/svg/custom/rebranding/smarttrader-icon.svg'
+import APIIcon from 'images/svg/custom/rebranding/deriv-api-icon.svg'
 import DerivEzIcon from 'images/svg/custom/rebranding/deriv-ez-icon.svg'
 import Link from 'features/components/atoms/link'
 import {
@@ -156,24 +157,15 @@ const platformSliderItems: SmartPlatformItem[] = [
                     />,
                 ],
             },
-            image: ({ is_eu }) =>
-                is_eu ? (
-                    <StaticImage
-                        objectFit="contain"
-                        src="../../../../images/common/home/rebranding/platform_deriv_trader_eu.png"
-                        alt="deriv trader"
-                        formats={['avif', 'webp', 'auto']}
-                        placeholder="none"
-                    />
-                ) : (
-                    <StaticImage
-                        objectFit="contain"
-                        src="../../../../images/common/home/rebranding/platform_deriv_trader.png"
-                        alt="deriv trader"
-                        formats={['avif', 'webp', 'auto']}
-                        placeholder="none"
-                    />
-                ),
+            image: (
+                <StaticImage
+                    objectFit="contain"
+                    src="../../../../images/common/home/rebranding/platform_deriv_trader.png"
+                    alt="deriv trader"
+                    formats={['avif', 'webp', 'auto']}
+                    placeholder="none"
+                />
+            ),
         },
     },
     {

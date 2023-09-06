@@ -102,10 +102,4 @@ module.exports = {
         short_name: 'DE',
         affiliate_lang: 16,
     },
-    si: {
-        path: 'si',
-        display_name: 'සිංහල',
-        short_name: 'SI',
-        affiliate_lang: 17,
-    },
 }

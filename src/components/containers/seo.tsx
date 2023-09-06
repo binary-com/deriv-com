@@ -130,7 +130,7 @@ const SEO = ({
         {
             property: 'og:title',
             content:
-                (meta_attributes?.og_title.includes('_t_')
+                (meta_attributes?.og_title?.includes('_t_')
                     ? localize(meta_attributes?.og_title as TString)
                     : meta_attributes?.og_title) || default_og_title,
         },

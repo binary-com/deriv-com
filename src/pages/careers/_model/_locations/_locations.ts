@@ -667,7 +667,7 @@ export const hongkong: LocationsType = {
     map_text:
         "Our Hong Kong office offers a dynamic work environment with exciting opportunities to advance your career. If you're interested in showcasing and growing your innovative mindset, join our team in Hong Kong.",
     address: address_hongkong,
-    google_map_link: 'https://goo.gl/maps/taw811vL1Wht9z4YA',
+    google_map_link: 'https://goo.gl/maps/qi8uce4u3pMsar3d6 ',
     has_iframe: true,
 }
 

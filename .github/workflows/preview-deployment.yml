@@ -1,4 +1,4 @@
-name: Build to Cloudflare Pages
+name: Cloudflare Pages preview deployments
 
 permissions:
     actions: read
@@ -96,7 +96,7 @@ jobs:
 
                   branchName=$(echo $branch | sed 's/[\/_]/-/g')
                   if grep -q "Deployment complete" log.txt; then
-                    echo "preview_url=https://$branchName.deriv-com-playground.pages.dev" > "$GITHUB_OUTPUT"
+                    echo "preview_url=https://$branchName.deriv-com-preview-links.pages.dev" > "$GITHUB_OUTPUT"
                   else
                     echo "Deployment to Cloudflare Pages failed."
                     exit 1

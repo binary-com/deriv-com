@@ -87,7 +87,7 @@ jobs:
 
                   echo "Deploying build to Cloudflare Pages"
                   directory='public'
-                  projectName='deriv-com'
+                  projectName='deriv-com-preview-links'
                   branch=$GITHUB_HEAD_REF
 
                   preview_url=$(wrangler pages deploy $directory --project-name=$projectName --branch=$branch > log.txt 2>&1; echo $?)

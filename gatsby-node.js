@@ -5,19 +5,19 @@ const path = require('path')
 const translations_cache = {}
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 exports.onCreatePage = ({ page, actions }) => {
-    const { createRedirect, createPage, deletePage } = actions
+    const { createPage} = actions
 
     // First delete the incoming page that was automatically created by Gatsby
     // So everything in src/pages/
-    deletePage(page)
-    const is_responsible_trading = /responsible/g.test(page.path)
-    const is_contact_us = /contact_us/g.test(page.path)
+    // deletePage(page)
+    // const is_responsible_trading = /responsible/g.test(page.path)
+    // const is_contact_us = /contact_us/g.test(page.path)
     // const is_careers = /careers/g.test(page.path)
-    const is_p2p = /responsible/g.test(page.path)
-    const who_we_are = /who-we-are/g.test(page.path)
-    const is_cfds = /cfds/g.test(page.path)
+    // const is_p2p = /responsible/g.test(page.path)
+    // const who_we_are = /who-we-are/g.test(page.path)
+    // const is_cfds = /cfds/g.test(page.path)
     // const is_deriv_ez = /deriv-ez/g.test(page.path)
-    const is_options = /options/g.test(page.path)
+    // const is_options = /options/g.test(page.path)
 
     // if (is_careers) {
     //     createRedirect({
@@ -97,7 +97,7 @@ exports.onCreatePage = ({ page, actions }) => {
     //     })
     // }
 
-    if (who_we_are) {
+    // if (who_we_are) {
         // createRedirect({
         //     fromPath: `/about/`,
         //     toPath: `/who-we-are/`,
@@ -110,66 +110,66 @@ exports.onCreatePage = ({ page, actions }) => {
         //     redirectInBrowser: true,
         //     isPermanent: true,
         // })
-        createRedirect({
-            fromPath: `/story/`,
-            toPath: `/who-we-are/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/story`,
-            toPath: `/who-we-are/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/leadership/`,
-            toPath: `/who-we-are/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/leadership`,
-            toPath: `/who-we-are/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/careers/people-management`,
-            toPath: `/careers/human-resources`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-    }
+        // createRedirect({
+        //     fromPath: `/story/`,
+        //     toPath: `/who-we-are/`,
+        //     redirectInBrowser: true,
+        //     isPermanent: true,
+        // })
+        // createRedirect({
+        //     fromPath: `/story`,
+        //     toPath: `/who-we-are/`,
+        //     redirectInBrowser: true,
+        //     isPermanent: true,
+        // })
+        // createRedirect({
+        //     fromPath: `/leadership/`,
+        //     toPath: `/who-we-are/`,
+        //     redirectInBrowser: true,
+        //     isPermanent: true,
+        // })
+        // createRedirect({
+        //     fromPath: `/leadership`,
+        //     toPath: `/who-we-are/`,
+        //     redirectInBrowser: true,
+        //     isPermanent: true,
+        // })
+        // createRedirect({
+        //     fromPath: `/careers/people-management`,
+        //     toPath: `/careers/human-resources`,
+        //     redirectInBrowser: true,
+        //     isPermanent: true,
+        // })
+    // }
 
-    if (is_cfds) {
-        createRedirect({
-            fromPath: `/trade-types/margin/`,
-            toPath: `/trade-types/cfds/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/trade-types/margin`,
-            toPath: `/trade-types/cfds/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-    }
-    if (is_options) {
-        createRedirect({
-            fromPath: `/trade-types/options/`,
-            toPath: `/trade-types/options/digital-options/up-and-down/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/trade-types/options`,
-            toPath: `/trade-types/options/digital-options/up-and-down/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-    }
+    // if (is_cfds) {
+    //     createRedirect({
+    //         fromPath: `/trade-types/margin/`,
+    //         toPath: `/trade-types/cfds/`,
+    //         redirectInBrowser: true,
+    //         isPermanent: true,
+    //     })
+    //     createRedirect({
+    //         fromPath: `/trade-types/margin`,
+    //         toPath: `/trade-types/cfds/`,
+    //         redirectInBrowser: true,
+    //         isPermanent: true,
+    //     })
+    // }
+    // if (is_options) {
+    //     createRedirect({
+    //         fromPath: `/trade-types/options/`,
+    //         toPath: `/trade-types/options/digital-options/up-and-down/`,
+    //         redirectInBrowser: true,
+    //         isPermanent: true,
+    //     })
+    //     createRedirect({
+    //         fromPath: `/trade-types/options`,
+    //         toPath: `/trade-types/options/digital-options/up-and-down/`,
+    //         redirectInBrowser: true,
+    //         isPermanent: true,
+    //     })
+    // }
 
     // if (is_deriv_ez) {
     //     createRedirect({
@@ -218,21 +218,21 @@ exports.onCreatePage = ({ page, actions }) => {
             },
         })
 
-        if (is_default) {
-            const en_path = `/en${localized_path.slice(0, -1)}`
-            createRedirect({
-                fromPath: en_path,
-                toPath: localized_path,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `${en_path}/`,
-                toPath: localized_path,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-        }
+        // if (is_default) {
+        //     const en_path = `/en${localized_path.slice(0, -1)}`
+        //     createRedirect({
+        //         fromPath: en_path,
+        //         toPath: localized_path,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        //     createRedirect({
+        //         fromPath: `${en_path}/`,
+        //         toPath: localized_path,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        // }
 
         // if (is_responsible_trading) {
         //     createRedirect({
@@ -270,89 +270,89 @@ exports.onCreatePage = ({ page, actions }) => {
         //     })
         // }
 
-        if (is_p2p) {
-            createRedirect({
-                fromPath: `/${lang}/p2p/v1`,
-                toPath: `/${lang}/p2p`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/p2p/v2`,
-                toPath: `/${lang}/p2p`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-        }
+        // if (is_p2p) {
+        //     createRedirect({
+        //         fromPath: `/${lang}/p2p/v1`,
+        //         toPath: `/${lang}/p2p`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        //     createRedirect({
+        //         fromPath: `/${lang}/p2p/v2`,
+        //         toPath: `/${lang}/p2p`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        // }
 
-        if (who_we_are) {
-            createRedirect({
-                fromPath: `/${lang}/about/`,
-                toPath: `/${lang}/who-we-are/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/about`,
-                toPath: `/${lang}/who-we-are/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/story/`,
-                toPath: `/${lang}/who-we-are/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/story`,
-                toPath: `/${lang}/who-we-are/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/leadership/`,
-                toPath: `/${lang}/who-we-are/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/leadership`,
-                toPath: `/${lang}/who-we-are/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-        }
+        // if (who_we_are) {
+        //     createRedirect({
+        //         fromPath: `/${lang}/about/`,
+        //         toPath: `/${lang}/who-we-are/`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        //     createRedirect({
+        //         fromPath: `/${lang}/about`,
+        //         toPath: `/${lang}/who-we-are/`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        //     createRedirect({
+        //         fromPath: `/${lang}/story/`,
+        //         toPath: `/${lang}/who-we-are/`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        //     createRedirect({
+        //         fromPath: `/${lang}/story`,
+        //         toPath: `/${lang}/who-we-are/`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        //     createRedirect({
+        //         fromPath: `/${lang}/leadership/`,
+        //         toPath: `/${lang}/who-we-are/`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        //     createRedirect({
+        //         fromPath: `/${lang}/leadership`,
+        //         toPath: `/${lang}/who-we-are/`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        // }
 
-        if (is_cfds) {
-            createRedirect({
-                fromPath: `/${lang}/trade-types/margin/`,
-                toPath: `/${lang}/trade-types/cfds/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/trade-types/margin`,
-                toPath: `/${lang}/trade-types/cfds/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-        }
+        // if (is_cfds) {
+        //     createRedirect({
+        //         fromPath: `/${lang}/trade-types/margin/`,
+        //         toPath: `/${lang}/trade-types/cfds/`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        //     createRedirect({
+        //         fromPath: `/${lang}/trade-types/margin`,
+        //         toPath: `/${lang}/trade-types/cfds/`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        // }
 
-        if (is_options) {
-            createRedirect({
-                fromPath: `/${lang}/trade-types/options/`,
-                toPath: `/${lang}/trade-types/options/digital-options/up-and-down/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/trade-types/options`,
-                toPath: `/${lang}/trade-types/options/digital-options/up-and-down/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-        }
+        // if (is_options) {
+        //     createRedirect({
+        //         fromPath: `/${lang}/trade-types/options/`,
+        //         toPath: `/${lang}/trade-types/options/digital-options/up-and-down/`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        //     createRedirect({
+        //         fromPath: `/${lang}/trade-types/options`,
+        //         toPath: `/${lang}/trade-types/options/digital-options/up-and-down/`,
+        //         redirectInBrowser: true,
+        //         isPermanent: true,
+        //     })
+        // }
 
         // if (is_deriv_ez) {
         //     createRedirect({

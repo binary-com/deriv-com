@@ -95,6 +95,7 @@ module.exports = {
                     '/bug-bounty',
                     '/**/bug-bounty',
                     '/**/bug-bounty/**/',
+                    '/careers/locations/minsk/',
                     '/check-email',
                     '/**/check-email',
                     '/reset-password',
@@ -126,6 +127,9 @@ module.exports = {
                     '/**/endpoint',
                     '/signup-success',
                     '/**/signup-success',
+                    '/ctrader-login',
+                    '/ctrader-signup',
+                    '/ctrader-manage/**',
                 ],
                 query: `
                 {

@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
     build_to_cloudflare_pages:
-        runs-on: ubuntu-latest
+        runs-on: Runner_16cores
         steps:
             - name: Checkout to repo
               uses: actions/checkout@v3
@@ -81,6 +81,9 @@ jobs:
 
             - name: Publish to Cloudflare Pages
               id: publish-to-pages
+              env:
+                CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_TEST_LINKS_API_TOKEN }}
+                CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_TEST_LINKS_ACCOUNT_ID }}
               run: |
                   echo "Installing Wrangler CLI"
                   npm i -g wrangler@3.5.0

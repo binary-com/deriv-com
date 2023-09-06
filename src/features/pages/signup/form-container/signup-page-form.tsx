@@ -20,7 +20,7 @@ const SignUpPageForm = () => {
     } = signUpForm
     const values = watch()
 
-    const isButtonDisabled =
+    const is_button_disabled =
         values.email === '' || !values.terms || !isValid || isSubmitting || isSubmitSuccessful
 
     return (
@@ -29,6 +29,7 @@ const SignUpPageForm = () => {
                 autoComplete="none"
                 autoCapitalize="none"
                 id="email_address"
+                formId="email"
                 label={'_t_Email_t_'}
                 clearErrors={clearErrors}
                 setValue={setValue}
@@ -54,7 +55,7 @@ const SignUpPageForm = () => {
                     />
                 </Input.Checkbox>
             </Flex.Item>
-            <Button.Primary fluid disabled={isButtonDisabled}>
+            <Button.Primary fluid disabled={is_button_disabled}>
                 <Localize translate_text="_t_Create demo account_t_" />
             </Button.Primary>
         </Flex.Box>

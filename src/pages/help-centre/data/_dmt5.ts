@@ -64,7 +64,7 @@ const dmt5: TQuestionsData = {
                 {
                     margin_top: '4.1rem',
                     translation_text:
-                        "_t_<0>DTrader</0> offers multipliers trading on a range of underlying assets such as forex, cryptocurrencies, and derived. This platform allows you to open multipliers trades that offer the opportunity to multiply potential profit without risking more than your stake. You may find this platform more intuitive if you're new to the trading world._t_",
+                        "_t_<0>Deriv Trader</0> offers multipliers trading on a range of underlying assets such as forex, cryptocurrencies, and derived. This platform allows you to open multipliers trades that offer the opportunity to multiply potential profit without risking more than your stake. You may find this platform more intuitive if you're new to the trading world._t_",
                     translation_components: [{ key: 0, type: 'link', to: '/dtrader/' }],
                 },
                 {

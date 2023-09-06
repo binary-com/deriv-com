@@ -46,11 +46,11 @@ const faq_schema_data: TFaqSchemaData = {
         },
         {
             '@type': 'Question',
-            name: localize('_t_What is DTrader?_t_'),
+            name: localize('_t_What is Deriv Trader?_t_'),
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    '_t_DTrader is an advanced trading platform that allows you to trade more than 50 assets in the form of digitals, multiplier, and lookback options._t_',
+                    '_t_Deriv Trader is an advanced trading platform that allows you to trade more than 50 assets in the form of digitals, multiplier, and lookback options._t_',
                 ),
             },
         },

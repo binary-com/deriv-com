@@ -1,12 +1,14 @@
-import React, { useEffect, useRef } from 'react'
-import { GrowthBook, GrowthBookProvider } from '@growthbook/growthbook-react'
+import { useEffect, useRef } from 'react'
+import { RudderStack } from '@deriv/analytics/lib'
+import { GrowthBook } from '@growthbook/growthbook-react'
 import { useAnalyticData } from 'features/hooks/analytic/use-analytic-data'
 import { getClientInformation, getDomain, getLanguage } from 'common/utility'
 import { growthbook_client_key } from 'common/constants'
 
-const DerivGrowthBookProvider = ({ children }: { children: React.ReactNode }) => {
-    const { anonymous_id } = useAnalyticData()
+export const useGrowthBook = () => {
     const growthbook = useRef<GrowthBook>()
+    const { anonymous_id } = useAnalyticData()
+
     useEffect(() => {
         growthbook.current = new GrowthBook({
             apiHost: 'https://cdn.growthbook.io',
@@ -16,7 +18,7 @@ const DerivGrowthBookProvider = ({ children }: { children: React.ReactNode }) =>
                 id: anonymous_id,
             },
             trackingCallback: (experiment, result) => {
-                window.rudderanalytics.track('experiment_viewed', {
+                RudderStack.track('experiment_viewed', {
                     experimentId: experiment.key,
                     variationId: result.variationId,
                 })
@@ -31,13 +33,17 @@ const DerivGrowthBookProvider = ({ children }: { children: React.ReactNode }) =>
         const client_information = getClientInformation(domain)
 
         if (client_information) {
-            window.rudderanalytics.identifyEvent(client_information.loginid, {
+            RudderStack.identifyEvent(client_information.loginid, {
                 language,
             })
         }
     }, [])
 
-    return <GrowthBookProvider growthbook={growthbook.current}>{children}</GrowthBookProvider>
-}
+    console.log(growthbook.current)
 
-export default DerivGrowthBookProvider
+    return {
+        ebook_stocks_heading:
+            growthbook.current?.context.features?.['ebook-stocks-heading'].defaultValue,
+        homepage: growthbook.current?.context.features?.['homepage'].defaultValue,
+    }
+}

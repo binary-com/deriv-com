@@ -18,7 +18,7 @@ type SymbolProps = {
     has_demo_tag?: boolean
 }
 
-const Symbol = ({ instruments_type, src, text, has_demo_tag }: SymbolProps) => {
+const TradeSymbol = ({ instruments_type, src, text, has_demo_tag }: SymbolProps) => {
     const is_derived_fx = text?.includes('DFX')
 
     return (
@@ -55,4 +55,4 @@ const Symbol = ({ instruments_type, src, text, has_demo_tag }: SymbolProps) => {
     )
 }
 
-export default Symbol
+export default TradeSymbol

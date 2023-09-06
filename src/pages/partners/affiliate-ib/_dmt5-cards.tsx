@@ -58,6 +58,27 @@ const query = graphql`
         deriv_x_five: file(relativePath: { eq: "affiliate-and-ib/deriv_x_five.png" }) {
             ...fadeIn
         }
+        deriv_x_commodities: file(relativePath: { eq: "affiliate-and-ib/deriv_x_commodities.png" }) {
+            ...fadeIn
+        }
+        deriv_x_crypto: file(relativePath: { eq: "affiliate-and-ib/deriv_x_crypto.png" }) {
+            ...fadeIn
+        }
+        deriv_x_forex: file(relativePath: { eq: "affiliate-and-ib/deriv_x_forex.png" }) {
+            ...fadeIn
+        }
+        deriv_x_indices: file(relativePath: { eq: "affiliate-and-ib/deriv_x_indices.png" }) {
+            ...fadeIn
+        }
+        deriv_x_step: file(relativePath: { eq: "affiliate-and-ib/deriv_x_step.png" }) {
+            ...fadeIn
+        }
+        deriv_x_stocks: file(relativePath: { eq: "affiliate-and-ib/deriv_x_stocks.png" }) {
+            ...fadeIn
+        }
+        deriv_x_vol: file(relativePath: { eq: "affiliate-and-ib/deriv_x_vol.png" }) {
+            ...fadeIn
+        }
     }
 `
 

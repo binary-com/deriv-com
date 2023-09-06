@@ -22,6 +22,7 @@ import {
     StepIndices,
     VolatilityIndices,
     VolatilityIndicesEU,
+    DriftSwitchIndices,
 } from '../../instruments/_submarkets'
 import {
     AmericasDetails,
@@ -38,6 +39,7 @@ import {
     StepIndicesDetails,
     VolatilityIndicesDetails,
     VolatilityIndicesDetailsEU,
+    DriftSwitchDetails,
 } from './_details'
 import { TMarketContent } from './_types'
 
@@ -119,6 +121,12 @@ export const synthetic_cfds: TMarketContent = {
         mobile_col: 2,
     },
     content: [
+        {
+            id: 'drift-switch-indices',
+            title: '_t_Drift switch indices_t_',
+            component: <DriftSwitchIndices />,
+            details: <DriftSwitchDetails />,
+        },
         {
             id: 'dex-indices',
             title: '_t_DEX indices_t_',

@@ -1,4 +1,4 @@
-name: Cloudflare Pages preview deployments
+name: Cloudflare Pages preview deployment
 
 permissions:
     actions: read

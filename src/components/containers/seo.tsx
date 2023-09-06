@@ -141,7 +141,7 @@ const SEO = ({
         {
             property: 'og:description',
             content:
-                (meta_attributes?.og_description.includes('_t_')
+                (meta_attributes?.og_description?.includes('_t_')
                     ? localize(meta_attributes?.og_description as TString)
                     : meta_attributes?.og_description) || default_og_description,
         },

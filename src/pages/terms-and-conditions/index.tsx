@@ -6,6 +6,7 @@ import { SEO, SectionContainer, Container, Flex } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Header, Tabs } from 'components/elements'
 import { Localize, WithIntl } from 'components/localization'
+import { TGatsbyHead } from 'features/types'
 
 const Section = styled(SectionContainer)`
     background-color: transparent;
@@ -14,10 +15,6 @@ const Section = styled(SectionContainer)`
 const TermsAndConditions = () => {
     return (
         <Layout>
-            <SEO
-                title="_t_Terms and conditions | Legal policies | Deriv_t_"
-                description="_t_Read our terms and conditions to know how Deriv manages data feeds, security, privacy, and more._t_"
-            />
             <Section>
                 <Container>
                     <Flex direction="column" ai="center" mb="8rem">
@@ -54,3 +51,11 @@ const TermsAndConditions = () => {
 }
 
 export default WithIntl()(TermsAndConditions)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Terms and conditions | Legal policies | Deriv_t_"
+        description="_t_Read our terms and conditions to know how Deriv manages data feeds, security, privacy, and more._t_"
+        pageContext={pageContext}
+    />
+)

@@ -43,9 +43,8 @@ const List = ({
     return (
         <StyledList list_style={list_style} padding_left={padding_left || '5rem'}>
             {items.map(({ translation_text, translation_components, sub_items, img }) => (
-                <>
+                <React.Fragment key={translation_text}>
                     <ListItem
-                        key={translation_text}
                         margin_top={margin_top}
                         first_child_margin_top={first_child_margin_top}
                         size={size || '1.6rem'}
@@ -78,7 +77,7 @@ const List = ({
                             ))}
                         </StyledList>
                     )}
-                </>
+                </React.Fragment>
             ))}
         </StyledList>
     )

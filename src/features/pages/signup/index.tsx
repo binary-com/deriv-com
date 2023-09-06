@@ -6,14 +6,11 @@ import Layout from 'features/components/templates/layout'
 import StaticNav from 'features/components/templates/navigation/static-nav'
 import { SEO } from 'components/containers'
 import Flex from 'features/components/atoms/flex-box'
+import { TGatsbyHead } from 'features/types'
 
 const SignUp = () => {
     return (
         <Layout>
-            <SEO
-                title="_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_"
-                description="_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_"
-            />
             <StaticNav />
             <Flex.Box
                 container="fluid"
@@ -34,3 +31,11 @@ const SignUp = () => {
 }
 
 export default SignUp
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_"
+        description="_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_"
+        pageContext={pageContext}
+    />
+)

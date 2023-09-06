@@ -25,29 +25,27 @@ const MarketTab = () => {
                 md={{ justify: 'center', padding: '10x' }}
             >
                 {market_buttons.map((market_item) => (
-                    <>
-                        <Flex.Box
-                            direction="col"
-                            className="tab_container"
-                            onClick={() => {
-                                onMarketButtonClick(market_item.market_name)
-                                setLinkToMarketPage(market_item.to)
-                            }}
-                        >
-                            <TabMenu
-                                item_className={markets_menu_tab_item}
-                                tab_names={[market_item.button_text]}
-                                key={market_item.button_text}
-                                current_tab={tab_name}
-                                setCurrentTab={setTabName}
-                                icon={
-                                    market_item.market_name === selected_market
-                                        ? `${market_item.selected_src}#${market_item.market_name}`
-                                        : `${market_item.src}#${market_item.market_name}`
-                                }
-                            />
-                        </Flex.Box>
-                    </>
+                    <Flex.Box
+                        key={market_item.button_text}
+                        direction="col"
+                        className="tab_container"
+                        onClick={() => {
+                            onMarketButtonClick(market_item.market_name)
+                            setLinkToMarketPage(market_item.to)
+                        }}
+                    >
+                        <TabMenu
+                            item_className={markets_menu_tab_item}
+                            tab_names={[market_item.button_text]}
+                            current_tab={tab_name}
+                            setCurrentTab={setTabName}
+                            icon={
+                                market_item.market_name === selected_market
+                                    ? `${market_item.selected_src}#${market_item.market_name}`
+                                    : `${market_item.src}#${market_item.market_name}`
+                            }
+                        />
+                    </Flex.Box>
                 ))}
             </Flex.Box>
             {market_buttons.map(

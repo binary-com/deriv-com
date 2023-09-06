@@ -12,14 +12,11 @@ import { SEO } from 'components/containers'
 import Layout from 'features/components/templates/layout'
 import MarketNav from 'features/components/templates/navigation/market-nav'
 import Footer from 'features/components/templates/footer/'
+import { TGatsbyHead } from 'features/types'
 
 const ETFMarket = () => {
     return (
         <Layout>
-            <SEO
-                description="_t_Trade ETFs on Deriv and diversify your portfolio with assets that track bonds, commodities, and indices, without needing to own the underlying assets._t_"
-                title="_t_Exchange-traded funds | ETF trading | Deriv_t_"
-            />
             <MarketNav />
             <Banner />
             <TradeTypes />
@@ -43,3 +40,11 @@ const ETFMarket = () => {
 }
 
 export default ETFMarket
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        description="_t_Trade ETFs on Deriv and diversify your portfolio with assets that track bonds, commodities, and indices, without needing to own the underlying assets._t_"
+        title="_t_Exchange-traded funds | ETF trading | Deriv_t_"
+        pageContext={pageContext}
+    />
+)

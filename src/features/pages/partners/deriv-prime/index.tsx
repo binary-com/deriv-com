@@ -1,5 +1,5 @@
 import React from 'react'
-import { Helmet } from 'react-helmet'
+import { Script } from 'gatsby'
 import CommercialPlan from './commercial-plan'
 import GetInTouchBanner from './get-in-touch'
 import BrowseOurFaq from './browse-our-faq'
@@ -15,17 +15,11 @@ import Layout from 'features/components/templates/layout'
 import { SEO } from 'components/containers'
 import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
 import Footer from 'features/components/templates/footer'
+import { TGatsbyHead } from 'features/types'
 
 const DerivPrime = () => {
     return (
         <Layout>
-            <SEO
-                description="_t_With Deriv Prime’s liquidity solutions for online trading, you get unbeatable spreads on the commodities, cryptocurrencies, and forex markets._t_"
-                title="_t_Liquidity solutions provider | Deriv Prime_t_"
-            />
-            <Helmet>
-                <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-            </Helmet>
             <PaymentAgentAffiliateNav is_prime_page />
             <Hero />
             <Potential />
@@ -43,3 +37,14 @@ const DerivPrime = () => {
 }
 
 export default DerivPrime
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <>
+        <SEO
+            description="_t_With Deriv Prime’s liquidity solutions for online trading, you get unbeatable spreads on the commodities, cryptocurrencies, and forex markets._t_"
+            title="_t_Liquidity solutions provider | Deriv Prime_t_"
+            pageContext={pageContext}
+        />
+        <Script type="application/ld+json">{JSON.stringify(faq_schema)}</Script>
+    </>
+)

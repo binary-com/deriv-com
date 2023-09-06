@@ -1,0 +1,11 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.nav_style {
+    block-size: 80px;
+    margin-inline: auto;
+}
+
+.content_style {
+    max-inline-size: 600px;
+    min-block-size: 500px;
+}

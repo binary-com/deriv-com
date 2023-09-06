@@ -14,4 +14,5 @@ export type StepperTabTypes = {
     tab?: string
     onTabClick: (step: 'demo' | 'real' | number) => void
     direction?: TFlexDirection
+    is_ctrader?: boolean
 }

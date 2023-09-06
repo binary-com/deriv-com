@@ -10,12 +10,9 @@ import TradeHeroContainer from 'features/components/templates/hero-banners/trade
 
 interface DerivProductHeroType {
     contentData: DerivProductContentType
-    is_ctrader_hide: boolean
 }
 
 const DerivProductHero = ({ contentData }: DerivProductHeroType) => {
-    const is_ctrader_live = false
-
     return (
         <TradeHeroContainer
             container={'fixed'}
@@ -35,9 +32,7 @@ const DerivProductHero = ({ contentData }: DerivProductHeroType) => {
             >
                 <ProductsLogoAndText contentData={contentData} />
                 <ProductsHeading title={contentData.main_title} />
-                {is_ctrader_live && (
-                    <ProductsButtons feature_buttons={contentData.feature_buttons} />
-                )}
+                <ProductsButtons feature_buttons={contentData.feature_buttons} />
             </FlexBox.Box>
             <ProductsBanner contentData={contentData} />
         </TradeHeroContainer>

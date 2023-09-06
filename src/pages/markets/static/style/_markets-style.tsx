@@ -217,6 +217,12 @@ export const StyledText = styled(Text)<StyledTextProps>`
 export const SymbolContainer = styled(Flex)`
     width: fit-content;
     height: fit-content;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+`
+
+export const SymbolWrapper = styled(Flex)`
     align-items: center;
     justify-content: flex-start;
 
@@ -242,6 +248,7 @@ export const SymbolContainer = styled(Flex)`
         }
     }
 `
+
 export const SymbolText = styled(Header)`
     font-weight: normal;
 
@@ -254,6 +261,9 @@ export const SymbolText = styled(Header)`
 export const Title = styled(Text)`
     text-align: center;
     font-weight: bold;
+    font-family: Ubuntu, sans-serif;
+    color: var(--color-black-9);
+    word-break: break-word;
 
     @media ${device.tabletL} {
         margin: 16px 0;
@@ -264,4 +274,18 @@ export const Title = styled(Text)`
 
 export const StyledBox = styled(Box)<TChild>`
     content: ${({ text }) => (text ? localize(text) : '')};
+`
+
+export const StyledBadge = styled.span`
+    display: inline-flex;
+    padding: 0px 4px;
+    align-items: center;
+    gap: 4px;
+    border-radius: 2px;
+    background: #377cfc;
+    color: #fff;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.4;
 `

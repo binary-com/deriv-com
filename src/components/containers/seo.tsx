@@ -111,7 +111,7 @@ const SEO = ({
             name: 'Deriv',
             alternateName: 'Deriv.com',
             url: 'https://deriv.com',
-            logo: 'https://deriv.com/static/1b57a116945933314eefeec0030c8e9d/2a4de/logo.png',
+            logo: TradingImage,
             sameAs: [
                 'https://www.facebook.com/derivdotcom',
                 'https://www.twitter.com/derivdotcom',
@@ -147,7 +147,7 @@ const SEO = ({
         },
         { property: 'og:type', content: meta_attributes?.og_type || 'website' },
         { property: 'og:locale', content: lang },
-        { property: 'og:image', content: meta_attributes?.og_img || TradingImage },
+        { property: 'og:image', content: TradingImage },
         { property: 'og:image:width', content: meta_attributes?.og_img_width || '600' },
         { property: 'og:image:height', content: meta_attributes?.og_img_height || '315' },
         { name: 'twitter:card', content: 'summary' },

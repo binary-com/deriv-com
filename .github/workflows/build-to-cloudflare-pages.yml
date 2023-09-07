@@ -88,7 +88,7 @@ jobs:
               with:
                 apiToken: ${{ secrets.CLOUDFLARE_TEST_LINKS_API_TOKEN }}
                 accountId: ${{ secrets.CLOUDFLARE_TEST_LINKS_ACCOUNT_ID }}
-                command:  wrangler pages deploy public --project-name deriv-com --branch ${GITHUB_REF_NAME}
+                command:  wrangler pages deploy public --project-name=deriv-com --branch ${GITHUB_REF_NAME}
                           echo "preview_url=$(wrangler pages info deriv-com --branch ${GITHUB_REF_NAME} --format preview_url)" >> $GITHUB_OUTPUT
             
             - name: Retrieve Cloudflare Pages Preview URL

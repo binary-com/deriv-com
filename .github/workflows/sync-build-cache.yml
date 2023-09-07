@@ -1,0 +1,102 @@
+name: Sync build cache
+
+permissions:
+    actions: write
+    contents: read
+
+on:
+    schedule:
+        - cron: '0 22 * * *'
+    workflow_dispatch:
+
+env:
+    NODE_OPTIONS: '--max-old-space-size=8192'
+
+concurrency:
+    group: sync-build-cache
+    cancel-in-progress: false
+
+jobs:
+    validate-master-cache:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout to repo
+              uses: actions/checkout@v3
+              with:
+                  ref: master
+
+            - name: Setup node
+              uses: actions/setup-node@v2
+
+            - name: Get cached dependencies
+              id: cache-npm
+              uses: actions/cache/restore@v3
+              with:
+                  path: node_modules
+                  key: npm-${{ hashFiles('**/package-lock.json') }}
+
+            - name: Install dependencies
+              if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+              run: npm ci
+
+            - name: Save cached dependencies
+              if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }}
+              uses: actions/cache/save@v3
+              with:
+                  key: ${{ steps.cache-npm.outputs.cache-primary-key }}
+                  path: node_modules
+
+            - name: Get master cache
+              id: restore-master-cache
+              uses: actions/cache/restore@v3
+              with:
+                  key: master-cache-public
+                  path: |
+                      .cache
+                      public
+
+            - name: Clear master cache
+              if: ${{ steps.restore-master-cache.outputs.cache-hit == 'true' }}
+              run: |
+                  owner="binary-com"
+                  repo="deriv-com"
+                  cache_key="${{ steps.restore-master-cache.outputs.cache-matched-key }}"
+                  curl \
+                    -X DELETE \
+                    -H "Accept: application/vnd.github.v3+json" \
+                    -H "Authorization: token ${{ github.token }}" \
+                    https://api.github.com/repos/$owner/$repo/actions/caches?key=$cache_key
+
+            - name: Rebuild master cache
+              id: build-cache
+              run: npm run build
+
+            - name: Save master cache
+              if: ${{ steps.build-cache.outcome == 'success' }}
+              uses: actions/cache/save@v3
+              with:
+                  key: master-cache-public
+                  path: |
+                      .cache
+                      public
+
+            - name: Clear backup cache
+              if: ${{ steps.build-cache.outcome == 'success' }}
+              run: |
+                  owner="binary-com"
+                  repo="deriv-com"
+                  cache_key="master-cache-public-replica"
+                  curl \
+                    -X DELETE \
+                    -H "Accept: application/vnd.github.v3+json" \
+                    -H "Authorization: token ${{ github.token }}" \
+                    https://api.github.com/repos/$owner/$repo/actions/caches?key=$cache_key
+
+            - name: Sync backup cache with master cache
+              if: ${{ steps.build-cache.outcome == 'success' }}
+              uses: actions/cache/save@v3
+              with:
+                  key: master-cache-public-replica
+                  path: |
+                      .cache
+                      public

@@ -1,8 +1,8 @@
 import { TMarket, TSimpleStepContent } from './_types'
-import AdvancedCharting from 'images/svg/markets/forex/charting.svg'
+import Leverage from 'images/svg/markets/tight-spread-new.svg'
+import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
 import Deposit from 'images/svg/markets/forex/deposit.svg'
 import FriendlySupport from 'images/svg/markets/forex/smart.svg'
-import Leverage from 'images/svg/markets/forex/spread.svg'
 import ResponsiveWebsite from 'images/svg/markets/forex/platforms.svg'
 
 export const simple_step_content_forex: TSimpleStepContent[] = [

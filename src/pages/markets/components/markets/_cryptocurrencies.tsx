@@ -10,7 +10,6 @@ import { localize, Localize } from 'components/localization'
 import TightSpread from 'images/svg/markets/tight-spread-new.svg'
 import CryptoPairs from 'images/svg/markets/crypto-pairs-new.svg'
 import ZeroCommission from 'images/svg/markets/zero-commission-new.svg'
-import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
 import useRegion from 'components/hooks/use-region'
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
@@ -33,7 +32,7 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
 
     const crypto_content: TMarket[] = [
         {
-            src: Leverage,
+            src: TightSpread,
             text: is_eu ? '_t_1:2 leverage_t_' : '_t_1:100 leverage_t_',
             alt: '_t_1 to 100 leverage_t_',
         },

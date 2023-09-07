@@ -6,7 +6,7 @@ import Flex from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
 import AppleLogo from 'images/svg/signup_apple_icon.svg'
-import FacebookLogo from 'images/svg/signup_fb_icon.svg'
+import FacebookLogo from 'images/svg/custom/fb-signup.svg'
 import GoogleLogo from 'images/svg/google_logo.svg'
 import { Localize } from 'components/localization'
 

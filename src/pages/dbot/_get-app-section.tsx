@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { DbotIcon } from '../../images/svg/dbot'
 import GrayAngle30 from '../../images/common/gray-angle.png'
 import GetAppMobileBG from '../../images/common/dtrader/getAppMobileBG.jpg'
+import { DbIcon } from 'images/svg/deriv-trade-types'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -56,7 +56,7 @@ const DBotGetApp = () => {
             mobileBackgroundImage={GetAppMobileBG}
         >
             <ContentWrapper is_rtl={is_rtl}>
-                <img src={DbotIcon} alt={localize('_t_dbot logo_t_')} width="64px" height="64px" />
+                <img src={DbIcon} alt={localize('_t_dbot logo_t_')} width="64px" height="64px" />
                 <TextAndButtonWrapper>
                     <CommonHeaderSection
                         title="_t_Get into the Deriv Bot experience_t_"

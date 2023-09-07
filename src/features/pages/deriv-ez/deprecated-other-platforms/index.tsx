@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { DbIcon, DGoIcon, Dmt5Icon, DtIcon, DxIcon } from 'images/svg/deriv-ez'
+import { DtIcon, GoIcon, DxIcon, Mt5Icon, DbIcon } from 'images/svg/deriv-trade-types'
 import GenericCarousel, { TRenderableData } from 'components/custom/carousel/_platforms-carousel'
 
 const OurPlatforms = () => {
@@ -12,7 +12,7 @@ const OurPlatforms = () => {
 
     const carouselData: TRenderableData[] = [
         {
-            icon: Dmt5Icon,
+            icon: Mt5Icon,
             heading: 'Deriv MT5',
             paragraph: '_t_The all-in-one CFD trading platform._t_',
             link: '/dmt5/',
@@ -24,7 +24,7 @@ const OurPlatforms = () => {
             link: '/dtrader/',
         },
         {
-            icon: DGoIcon,
+            icon: GoIcon,
             heading: 'Deriv Go',
             paragraph: '_t_Our best trading experience on your mobile._t_',
             link: '/deriv-go/',

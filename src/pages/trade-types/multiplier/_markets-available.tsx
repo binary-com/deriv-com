@@ -7,7 +7,7 @@ import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import Forex from 'images/svg/trade-types/forex.svg'
-import Derived from 'images/svg/trade-types/derived.svg'
+import Derived from 'images/svg/markets/derived-fx.svg'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
 

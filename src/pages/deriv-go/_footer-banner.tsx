@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import derivGoLogo from '../../images/svg/deriv-go/derivGo.svg'
 import derivGoQR from '../../images/svg/deriv-go/derivGoQR.svg'
 import GrayAngle30 from '../../images/common/gray-angle.png'
 import AppleIcon from '../../images/svg/apple-icon.svg'
 import AppGalleryIcon from '../../images/svg/appGallery-icon.svg'
 import AndroidIcon from '../../images/svg/android-icon.svg'
 import GetAppMobileBG from '../../images/common/dtrader/getAppMobileBG.jpg'
+import { GoIcon } from 'images/svg/deriv-trade-types'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
@@ -68,7 +68,7 @@ const DerivGoGetApp = () => {
         >
             <ContentWrapper is_rtl={is_rtl}>
                 <img
-                    src={derivGoLogo}
+                    src={GoIcon}
                     alt={localize('_t_Deriv Go logo_t_')}
                     width="64px"
                     height="64px"

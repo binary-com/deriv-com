@@ -3,7 +3,7 @@ import FriendlySupport from 'images/svg/markets/forex/smart.svg'
 import MetalAndOil from 'images/svg/markets/precious-metals-and-oils-new.svg'
 import NoCommission from 'images/svg/markets/no-commission-new.svg'
 import ResponsiveWebsite from 'images/svg/markets/forex/responsive.svg'
-import VariableSpreads from 'images/svg/markets/variable-spreads-new.svg'
+import VariableSpreads from 'images/svg/markets/tight-spread-new.svg'
 
 export const simple_step_content_commodities: TSimpleStepContent[] = [
     {

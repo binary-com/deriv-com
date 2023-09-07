@@ -1,0 +1,7 @@
+export { default as DtIcon } from './dt-icon.svg'
+export { default as DxIcon } from './dx-icon.svg'
+export { default as EzIcon } from './ez-icon.svg'
+export { default as GoIcon } from './go-icon.svg'
+export { default as Mt5Icon } from './mt5.svg'
+export { default as DbIcon } from './dbot-icon.svg'
+export { default as Icon24_7 } from './24-7.svg'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Mt5Icon, GoIcon, EzIcon, DxIcon, DtIcon } from '../../images/svg/dbot'
+import { DtIcon, GoIcon, EzIcon, DxIcon, Mt5Icon } from 'images/svg/deriv-trade-types'
 import GenericCarousel, { TRenderableData } from 'components/custom/carousel/_platforms-carousel'
 
 const carouselData: TRenderableData[] = [

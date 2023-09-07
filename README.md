@@ -8,7 +8,6 @@ Deriv.com - An online trading platform that offers a wide selection of derivativ
 ![Sonar Violations (short format)](https://img.shields.io/sonar/violations/binary-com_deriv-com?server=https%3A%2F%2Fsonarcloud.io)
 
 ## In this document:
-
 -   [Other documents](#other-documents)
 -   [Pre-installation](#pre-installation)
 -   [Quick start](#quick-start)

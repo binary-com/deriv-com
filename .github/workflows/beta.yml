@@ -47,8 +47,8 @@ jobs:
       - name: Deploy to Cloudflare ☁️
         uses: cloudflare/wrangler-action@2.0.0
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          apiToken: ${{ secrets.CLOUDFLARE_TEST_LINKS_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_TEST_LINKS_ACCOUNT_ID }}
           command: pages publish public --project-name=deriv-com-pages --branch=beta
 
       - name: Cloudflare preview link ✨

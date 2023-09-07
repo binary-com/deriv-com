@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import MobileExpandedList from './_mobile-expanded-list'
 import { PaymentDataProps } from './_payment-data'
 import { Flex } from 'components/containers'
-import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
+import Typography from 'features/components/atoms/typography'
 
 const ParentWrapper = styled(Flex)`
     flex-direction: column;
@@ -21,7 +21,6 @@ const Notes = styled.div`
     width: auto;
     background: var(--color-grey-8);
     margin: 0 -16px;
-    padding: 16px;
 `
 type MobileAccordianItemProps = {
     locale?: {
@@ -50,10 +49,10 @@ const MobileAccordianItem = ({ locale, pd }: MobileAccordianItemProps) => {
 
             {pd.note && (
                 <Notes>
-                    <Header type="paragraph-1" weight="normal">
+                    <Typography.Paragraph size="small" weight="normal" padding="8x">
                         <Localize translate_text="_t_Note:_t_" />{' '}
                         <Localize translate_text={pd.note} />
-                    </Header>
+                    </Typography.Paragraph>
                 </Notes>
             )}
         </>

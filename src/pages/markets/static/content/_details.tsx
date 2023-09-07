@@ -1,6 +1,6 @@
 import React from 'react'
 import { CrashText, DetailsContainer } from '../style/_markets-style'
-import { Text } from 'components/elements'
+import { Text, Ul, Li } from 'components/elements'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 
@@ -446,6 +446,49 @@ export const DerivedCFDsDetails = () => (
             <Localize
                 translate_text="_t_These indices correspond to financial markets with volatilities of 10% and 20%. One tick is generated for every tick of the corresponding forex pair._t_"
                 components={[<strong key={0} />]}
+            />
+        </Text>
+    </DetailsContainer>
+)
+
+export const DriftSwitchDetails = () => (
+    <DetailsContainer>
+        <Text>
+            <Localize translate_text="_t_These indices simulate market trends with asset prices going through 3 regimes:_t_" />
+        </Text>
+        <Ul mb="2rem" ml="2rem">
+            <Li>
+                <Text>
+                    <Localize translate_text="_t_Positive Drift Regime (also known as a Bullish Trend),_t_" />
+                </Text>
+            </Li>
+            <Li>
+                <Text>
+                    <Localize translate_text="_t_Negative Drift Regime (also known as a Bearish Trend), and_t_" />
+                </Text>
+            </Li>
+            <Li>
+                <Text>
+                    <Localize translate_text="_t_Driftless Regime (also known as a Sideways Trend)_t_" />
+                </Text>
+            </Li>
+        </Ul>
+        <Text>
+            <Localize
+                translate_text="_t_The <0>DSI10</0> switches between regimes every <1>10 minutes</1> on average._t_"
+                components={[<strong key={0} />, <strong key={1} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="_t_The <0>DSI20</0> switches between regimes every <1>20 minutes</1> on average._t_"
+                components={[<strong key={0} />, <strong key={1} />]}
+            />
+        </Text>
+        <Text>
+            <Localize
+                translate_text="_t_The <0>DSI30</0> switches between regimes every <1>30 minutes</1> on average._t_"
+                components={[<strong key={0} />, <strong key={1} />]}
             />
         </Text>
     </DetailsContainer>

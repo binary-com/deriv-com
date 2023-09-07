@@ -11,6 +11,7 @@ import 'features/styles/app.scss'
 interface LayoutProps {
     is_ppc?: boolean
     is_ppc_redirect?: boolean
+    hide_layout_overlay?: boolean
     children: ReactNode
 }
 
@@ -19,7 +20,12 @@ if (isBrowser()) {
     apiManager.init(currentLanguage)
 }
 
-const Layout = ({ children, is_ppc = false, is_ppc_redirect = false }: LayoutProps) => {
+const Layout = ({
+    children,
+    is_ppc = false,
+    is_ppc_redirect = false,
+    hide_layout_overlay = false,
+}: LayoutProps) => {
     const { has_platform } = usePlatformQueryParam()
 
     //Handle page layout when redirection from mobile app.
@@ -31,7 +37,7 @@ const Layout = ({ children, is_ppc = false, is_ppc_redirect = false }: LayoutPro
         <PpcProvider is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
             <main className={main_wrapper}>{children}</main>
             <BrowserUpdateAlert />
-            <LayoutOverlay />
+            {!hide_layout_overlay && <LayoutOverlay />}
         </PpcProvider>
     )
 }

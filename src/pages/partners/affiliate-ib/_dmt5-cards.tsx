@@ -8,13 +8,8 @@ import { Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { Accordion, AccordionItem, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
-import { Button, LinkButton } from 'components/form'
-import { affiliate_signup_url } from 'common/constants'
+import { Button } from 'components/form'
 import device from 'themes/device'
-
-type StyledLinkButtonProps = {
-    id?: string
-}
 
 const query = graphql`
     query {

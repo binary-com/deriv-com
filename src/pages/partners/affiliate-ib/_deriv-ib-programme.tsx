@@ -21,6 +21,7 @@ type DescType = {
     secondText?: TString
 }
 
+
 type TypeForType = {
     title: TString
     headerHeight: string

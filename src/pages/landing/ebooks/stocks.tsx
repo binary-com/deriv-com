@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import { useFeatureValue } from '@growthbook/growthbook-react'
 import HeaderSection from './components/_header-section'
 import Introduction from './components/_introduction'
 import Topics from './components/_topics'
+import { useGrowthBook } from 'features/hooks/analytic/use-growthbook'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { WithIntl } from 'components/localization'
@@ -30,12 +30,14 @@ const query = graphql`
 `
 
 const StocksEbook = () => {
-    const ebookStocksHeadingTest = useFeatureValue('ebook-stocks-heading', 'control')
+    const { ebook_stocks_heading } = useGrowthBook()
 
-    const introMain: TString = {
+    const introMains = {
         control: '_t_Learn to trade Stock derivatives the smart way_t_',
         'new-title': '_t_Learn to trade Stock derivatives the smart way_t_',
-    }[ebookStocksHeadingTest]
+    }
+
+    const introMain = introMains[ebook_stocks_heading] || introMains.control
 
     const data = useStaticQuery(query)
     return (

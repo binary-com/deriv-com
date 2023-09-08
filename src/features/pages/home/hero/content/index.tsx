@@ -21,11 +21,10 @@ const HeroFeaturesCarousel = loadable(() => pMinDelay(import('./hero-features.ca
 
 const HomeHeroContent = () => {
     const { homepage } = useGrowthBook()
-    console.log(homepage)
 
     const headings = {
-        control: '_t_Get the widest range of markets, experiment here_t_',
-        'new-title': '_t_Get the widest range of markets, trades and platforms_t_',
+        control: '_t_Get the widest range of markets, trades and platforms_t_',
+        'new-title': '_t_Get the widest range of markets, experiment here_t_',
     }
 
     const heading = headings[homepage] || headings.control

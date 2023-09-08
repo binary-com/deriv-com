@@ -21,7 +21,7 @@ const SignUp = () => {
                     gap: '16x',
                 }}
                 className={signup_wrapper}
-                mt={'30x'}
+                pt="30x"
             >
                 <SignUpContent />
                 <SignUpFormContainer />

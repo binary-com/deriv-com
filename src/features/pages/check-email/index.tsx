@@ -20,7 +20,7 @@ const CheckEmailContainer = () => {
                 align="center"
                 container="fluid"
                 direction="col"
-                mt="40x"
+                pt="40x"
                 gap="20x"
                 md={{
                     gap: '30x',

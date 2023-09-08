@@ -663,7 +663,7 @@ export const minor_pairs: TMarketSymbol[] = [
         text: '_t_EUR/NZD_t_',
     },
     {
-        src: icons.EURLPN,
+        src: icons.EURPLN,
         text: '_t_EUR/PLN_t_',
     },
     {

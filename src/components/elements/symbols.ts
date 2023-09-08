@@ -78,7 +78,6 @@ import EURGBP from 'images/svg/symbols/eur-gbp.svg'
 import EURHKD from 'images/svg/symbols/eur-hkd.svg'
 import EURILS from 'images/svg/symbols/eur-ils.svg'
 import EURJPY from 'images/svg/symbols/eur-jpy.svg'
-import EURLPN from 'images/svg/symbols/eur-lpn.svg'
 import EURMXN from 'images/svg/symbols/eur-mxn.svg'
 import EURNOK from 'images/svg/symbols/eur-nok.svg'
 import EURNZD from 'images/svg/symbols/eur-nzd.svg'
@@ -220,7 +219,6 @@ import UNISWAP from 'images/svg/symbols/uniswap.svg'
 import UNIUSD from 'images/svg/symbols/uni-usd.svg'
 import US100 from 'images/svg/symbols/us-100.svg'
 import US30 from 'images/svg/symbols/us-30.svg'
-import US500 from 'images/svg/symbols/us-500.svg'
 import USDBASKET from 'images/svg/symbols/usd-basket.svg'
 import USDCAD from 'images/svg/symbols/usd-cad.svg'
 import USDCHF from 'images/svg/symbols/usd-chf.svg'
@@ -448,7 +446,6 @@ export {
     EURHKD,
     EURILS,
     EURJPY,
-    EURLPN,
     EURPLN,
     EURMXN,
     EURNOK,
@@ -593,7 +590,6 @@ export {
     UNIUSD,
     US100,
     US30,
-    US500,
     USDBASKET,
     USDCAD,
     USDCHF,

@@ -14,8 +14,6 @@ on:
 
 env:
     NODE_OPTIONS: '--max-old-space-size=8192'
-    CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_TEST_LINKS_API_TOKEN }}
-    CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_TEST_LINKS_ACCOUNT_ID }}
 
 concurrency:
     group: cloudflare-pages-build-${{ github.head_ref }}

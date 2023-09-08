@@ -28,6 +28,7 @@ type TypeForType = {
     class_name?: string
 }[]
 
+
 type NoteType = {
     title: TString
     desc: DescType

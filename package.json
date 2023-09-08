@@ -37,7 +37,7 @@
         "gatsby-plugin-page-progress": "^2.2.1",
         "gatsby-plugin-react-helmet": "^5.24.0",
         "gatsby-plugin-react-helmet-canonical-urls": "^1.4.0",
-        "gatsby-plugin-robots-txt": "^1.7.1",
+        "gatsby-plugin-robots-txt": "~1.7.1",
         "gatsby-plugin-sass": "^5.24.0",
         "gatsby-plugin-sharp": "^4.24.0",
         "gatsby-plugin-sitemap": "^5.24.0",
@@ -76,7 +76,6 @@
         "typewriter-effect": "^2.19.0",
         "use-query-params": "^1.2.3",
         "usehooks-ts": "^2.9.1",
-        "web-push-notifications": "^3.33.0",
         "webpack": "^5.65.0",
         "yup": "^1.0.2"
     },
@@ -153,7 +152,7 @@
     "license": "Apache License 2.0",
     "scripts": {
         "analyze-bundle": "GENERATE_JSON_STATS=true gatsby build && npx webpack-bundle-analyzer -m static -r ./webpack-bundle-report/report.html ./public/stats.json",
-        "build": "GATSBY_CPU_COUNT=2 gatsby build --log-pages",
+        "build": "gatsby clean && GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true NODE_OPTIONS='--max-old-space-size=10096' gatsby build --log-pages",
         "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o",
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",

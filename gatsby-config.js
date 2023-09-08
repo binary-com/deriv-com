@@ -48,9 +48,9 @@ module.exports = {
                         // isModule: true,
                         exportAsDefault: true, // to use in combination with isModule
                     }),
-                    require('cssnano')({
-                        preset: 'default',
-                    }),
+                    // require('cssnano')({
+                    //     preset: 'default',
+                    // }),
                 ],
             },
         },

@@ -42,7 +42,7 @@ const StyledContainer = styled(Container)`
     text-align: center;
     height: 100vh;
     padding: auto 0;
-    justify-content: start;
+    justify-content: flex-start;
 `
 
 const ButtonContainer = styled.div`

@@ -28,7 +28,7 @@ const Card = styled(Flex)`
     margin-top: -17rem;
 `
 const FlexContent = styled(Flex)`
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     max-width: 18.3rem;

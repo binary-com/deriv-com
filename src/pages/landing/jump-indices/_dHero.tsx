@@ -82,7 +82,7 @@ const StyledHeaderSmall = styled(Header)`
 `
 const BtnDiv = styled(Flex)`
     height: unset;
-    justify-content: start;
+    justify-content: flex-start;
 `
 const RigthWrapper = styled(Flex)`
     width: 60%;

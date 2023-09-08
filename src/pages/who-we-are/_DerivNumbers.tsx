@@ -55,7 +55,7 @@ const NumberSection = styled(CssGrid)`
         grid-template-columns: minmax(auto, 484px);
         grid-row-gap: 24px;
         grid-template-rows: 1fr 1fr 1fr 1fr;
-        justify-content: start;
+        justify-content: flex-start;
     }
 `
 

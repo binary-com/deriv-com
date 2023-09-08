@@ -37,7 +37,7 @@ const MainWrapper = styled(Flex)`
 const TextWrapper = styled(Flex)`
     width: 588px;
     margin-right: 126px;
-    justify-content: start;
+    justify-content: flex-start;
 
     @media ${device.laptopM} {
         margin-right: 60px;
@@ -56,7 +56,7 @@ const TextDiv = styled(Flex)`
     position: relative;
     text-align: start;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     z-index: 2;
 
@@ -94,7 +94,7 @@ const ImageWrapper = styled(Flex)`
     }
 `
 const BtnDiv = styled(Flex)`
-    justify-content: start;
+    justify-content: flex-start;
 `
 const StyledLinkButton = styled(LinkButton)<{ id?: string }>`
     padding: 10px 16px;

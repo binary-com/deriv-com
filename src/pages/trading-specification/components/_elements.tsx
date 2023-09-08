@@ -103,7 +103,7 @@ export const TableRow = styled.tr<TableRowProps>`
     }
     @media ${device.tablet} {
         gap: 0;
-        justify-content: start;
+        justify-content: flex-start;
 
         th {
             width: 150px;

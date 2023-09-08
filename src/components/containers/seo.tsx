@@ -88,7 +88,7 @@ const SEO = ({
 
     const hreflang_codes = site_url.includes('eu.deriv.com')
         ? hreflang_codes_eu
-        : hreflang_codes_row;
+        : hreflang_codes_row
 
     if (locale_pathname) {
         const path_array = locale_pathname.split('/')
@@ -110,7 +110,7 @@ const SEO = ({
             name: 'Deriv',
             alternateName: 'Deriv.com',
             url: 'https://deriv.com',
-            logo: 'https://deriv.com/static/1b57a116945933314eefeec0030c8e9d/2a4de/logo.png',
+            logo: TradingImage,
             sameAs: [
                 'https://www.facebook.com/derivdotcom',
                 'https://www.twitter.com/derivdotcom',
@@ -173,7 +173,7 @@ const SEO = ({
                 },
                 {
                     property: 'og:image',
-                    content: meta_attributes?.og_img || TradingImage,
+                    content: TradingImage,
                 },
                 {
                     property: 'og:image:width',
@@ -254,7 +254,7 @@ const SEO = ({
                         )
                     })}
 
-            {hreflang_codes.map(link => (
+            {hreflang_codes.map((link) => (
                 <link
                     key={link.hreflang}
                     rel={link.rel}

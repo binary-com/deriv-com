@@ -165,6 +165,8 @@ export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const youtube_url = 'https://www.youtube.com/@deriv'
 export const loss_percent = 72
 
+export const contact_us_form_post_data = 'https://formkeep.com/f/7f4b8b55f10f'
+
 export const cookie_key = 'browser_update_alert_modal_shown'
 export const browsers_minimum_required_version = {
     Chrome: 72,
@@ -223,7 +225,7 @@ export const hreflang_codes_row = [
     { rel: 'alternate', href: 'https://deriv.com/zh-cn/', hreflang: 'zh-CN' },
     { rel: 'alternate', href: 'https://deriv.com/zh-tw/', hreflang: 'zh-TW' },
     { rel: 'alternate', href: 'https://deriv.com/de/', hreflang: 'de-CH' },
-];
+]
 
 export const hreflang_codes_eu = [
     { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en' },
@@ -250,4 +252,4 @@ export const hreflang_codes_eu = [
     { rel: 'alternate', href: 'https://eu.deriv.com/it/', hreflang: 'it-IT' },
     { rel: 'alternate', href: 'https://eu.deriv.com/pt/', hreflang: 'pt-PT' },
     { rel: 'alternate', href: 'https://eu.deriv.com/pl/', hreflang: 'pl-PL' },
-];
+]

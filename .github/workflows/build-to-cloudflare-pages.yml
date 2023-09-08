@@ -90,6 +90,8 @@ jobs:
                 accountId: ${{ secrets.CLOUDFLARE_TEST_LINKS_ACCOUNT_ID }}
                 command: pages publish public --project-name=deriv-com --branch=${GITHUB_REF_NAME}
                          echo "preview_url=$(pages info --project-name=deriv-com --branch=${GITHUB_REF_NAME} --format preview_url)" >> $GITHUB_OUTPUT
+                         echo $CLOUDFLARE_TEST_LINKS_API_TOKEN
+                         echo $CLOUDFLARE_TEST_LINKS_ACCOUNT_ID
             
             - name: Retrieve Cloudflare Pages Preview URL
               id: cloudflare_pages_preview_url

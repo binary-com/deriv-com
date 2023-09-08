@@ -34,11 +34,12 @@ type NoteType = {
 }[]
 
 type ListType = {
-    details?: React.ReactElement
+    title?: TString
+    details?: TString
     icon?: string
     iconAlt?: TString
     notes?: NoteType
-    second_desc?: React.ReactElement
+    second_desc?: TString
 }[]
 
 type CountDetailsType = {
@@ -386,8 +387,9 @@ const ib_dmt5_synthetic: DMT5Type = {
             title: '_t_How it’s calculated_t_',
             list: [
                 {
+                    title: '_t_Volatility indices_t_',
                     details: (
-                        <Localize translate_text="_t_A deal for 1 lot of the Volatility 75 Index for a price of USD 500,000 will pay out USD 25 in commission based on the following formula:_t_" />
+                        '_t_A deal for 1 lot of the Volatility 75 Index for a price of USD 500,000 will pay out USD 25 in commission based on the following formula:_t_'
                     ),
                     icon: 'dmt5_synthetic_calculator',
                     iconAlt: '_t_DMT5 synthetic calculated_t_',
@@ -461,22 +463,25 @@ const ib_dmt5_financial: DMT5Type = {
             title: '_t_How it’s calculated_t_',
             list: [
                 {
+                    title: '_t_Forex_t_',
                     details: (
-                        <Localize translate_text="_t_For forex, there is a fixed commission of USD 2 per lot (only applicable for standard lots). A deal for 1 lot of EUR/USD will pay out USD 2 in commission based on the following formula:_t_" />
+                        '_t_For forex, there is a fixed commission of USD 2 per lot (only applicable for standard lots). A deal for 1 lot of EUR/USD will pay out USD 2 in commission based on the following formula:_t_'
                     ),
                     icon: 'dmt5_financial_calculator_one',
                     iconAlt: '_t_DMT5 Financial calculated first_t_',
                 },
                 {
+                    title: '_t_Commodities_t_',
                     details: (
-                        <Localize translate_text="_t_For metals, there is a fixed commission of USD 4 per lot. A deal for 1 lot of XAU/USD will pay out USD 4 in commission based on the following formula:_t_" />
+                        '_t_For <0>metals</0>, there is a fixed commission of USD 4 per lot. A deal for 1 lot of XAU/USD will pay out USD 4 in commission based on the following formula:_t_'
                     ),
                     icon: 'dmt5_financial_calculator_two',
                     iconAlt: '_t_DMT5 Financial calculated second_t_',
                 },
                 {
+                    title: '_t_Cryptocurrencies_t_',
                     details: (
-                        <Localize translate_text="_t_For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 5 in commission based on the following formula:_t_" />
+                        '_t_For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 5 in commission based on the following formula:_t_'
                     ),
                     icon: 'dmt5_financial_calculator_three',
                     iconAlt: '_t_DMT5 Financial calculated thirth_t_',
@@ -532,15 +537,17 @@ const ib_dmt5_financialSTP: DMT5Type = {
             title: '_t_How it’s calculated_t_',
             list: [
                 {
+                    title: '_t_Forex_t_',
                     details: (
-                        <Localize translate_text="_t_For forex, a deal for 1 lot of EUR/USD will pay out EUR 2.5 in commission based on the following formula:_t_" />
+                        '_t_For forex, a deal for 1 lot of EUR/USD will pay out EUR 2.5 in commission based on the following formula:_t_'
                     ),
                     icon: 'dmt5_financial_stp_calculator_one',
                     iconAlt: '_t_DMT5 Financial STP calculated first_t_',
                 },
                 {
+                    title: '_t_Cryptocurrencies_t_',
                     details: (
-                        <Localize translate_text="_t_For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 5 in commission based on the following formula:_t_" />
+                        '_t_For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 5 in commission based on the following formula:_t_'
                     ),
                     icon: 'dmt5_financial_stp_calculator_two',
                     iconAlt: '_t_DMT5 Financial STP calculated second_t_',
@@ -770,50 +777,57 @@ const ib_dx: DMT5Type = {
             title: '_t_How it’s calculated_t_',
             list: [
                 {
+                    title: '_t_Forex_t_',
                     details: (
-                        <Localize translate_text="_t_For Forex, a deal of 0.1 lots of GBP/USD will pay out USD 0.25 in commission based on the following formula:_t_" />
+                        '_t_For forex, a deal of 0.1 lots of GBP/USD will pay out USD 0.25 in commission based on the following formula:_t_'
                     ),
                     icon: 'deriv_x_forex',
                     iconAlt: '_t_Forex_t_',
                 },
                 {
+                    title: '_t_Commodities_t_',
                     details: (
-                        <Localize translate_text="_t_For Commodities, a deal of 10 lots of oil for a price of USD 96 will pay out USD 0.05 in commission based on the following formula:_t_" />
+                        '_t_For commodities, a deal for 10 lots of <0>oil</0> for a price of USD 96 will pay out USD 0.05 in commission based on the following formula:_t_'
                     ),
                     icon: 'deriv_x_commodities',
                     iconAlt: '_t_Commodities_t_',
+                    second_desc: '_t_This formula also applies to <0>metals</0> & <0>basket indices</0>. Commission rates, contract sizes, and deal prices depend on the individual asset._t_',
                 },
                 {
+                    title: '_t_Cryptocurrencies_t_',
                     details: (
-                        <Localize translate_text="_t_For cryptocurrencies, a deal of 1 lot f will pay out USD 2 in commission based on the following formula:_t_" />
+                        '_t_For cryptocurrencies, a deal for 1 lot of BTC/USD will pay out USD 2 in commission based on the following formula:_t_'
                     ),
                     icon: 'deriv_x_crypto',
                     iconAlt: '_t_Cryptocurrencies_t_',
                 },
                 {
+                    title: '_t_Stocks, ETFs, & stock indices_t_',
                     details: (
-                        <Localize translate_text="_t_For stocks, a deal of 1 lot of AAPL for a price of USD 178 will pay out USD 0.02 in commission based on the following formula:_t_" />
+                        '_t_For <0>stocks</0>, a deal for 1 lot of AAPL for a price of USD 178 will pay out USD 0.02 in commission based on the following formula:_t_'
                     ),
                     icon: 'deriv_x_stocks',
                     iconAlt: '_t_Stocks_t_',
+                    second_desc: '_t_This formula also applies to <0>ETFs</0>. Contract sizes and deal prices depend on the individual asset._t_',
                 },
                 {
                     details: (
-                        <Localize translate_text="_t_For Stock Indices, a deal for 20 lots of JP 225 for a price of JPY 32500 will pay out USD 0.05 in commission based on the following formula:_t_" />
+                        '_t_For <0>stock indices</0>, a deal for 20 lots of JP 225 for a price of JPY 32500 will pay out USD 0.05 in commission based on the following formula:_t_'
                     ),
                     icon: 'deriv_x_indices',
                     iconAlt: '_t_Stock Indices_t_',
                 },
                 {
+                    title: '_t_Volatility Indices_t_',
                     details: (
-                        <Localize translate_text="_t_For Volatility Indices deal for 1 lot of the Volatility 50 (1s) Index for a price of USD 600,000 will pay out USD 22.5 in commission based on the following formula:_t_" />
+                        '_t_A deal for 1 lot of the Volatility 50 (1s) Index for a price of USD 600,000 will pay out USD 22.50 in commission based on the following formula:_t_'
                     ),
                     icon: 'deriv_x_vol',
                     iconAlt: '_t_Volatility Indices_t_',
                 },
                 {
                     details: (
-                        <Localize translate_text="_t_For Step Index, a deal of 1 lot will pay out USD 6 in commission based on the following formula:_t_" />
+                        '_t_The same formula applies to all synthetics except <0>Step Index</0>, which has the following formula:_t_'
                     ),
                     icon: 'deriv_x_step',
                     iconAlt: '_t_Step Indexes_t_',

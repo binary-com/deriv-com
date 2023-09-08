@@ -188,33 +188,17 @@ const ButtonWrapper = styled.div`
     width: 100%;
     padding: 2.4rem 0;
 
-    button:last-child {
-        margin-left: 1.6rem;
-    }
     @media ${device.tabletL} {
         justify-content: center;
     }
 `
-const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
-    height: 40px;
 
-    @media ${device.tabletL} {
-        padding: 1.5rem 1.6rem;
-        height: 40px;
-        white-space: nowrap;
-        font-size: 12px;
-    }
-
-    @media ${device.mobileL} {
-        font-size: 10px;
-    }
-`
 const BackButton = styled(Button)`
     border: 2px solid var(--color-grey-5);
     color: var(--color-black);
     height: 40px;
+    inline-size: 100%;
     padding: 0 1.6rem;
-    margin-right: 0.8rem;
 `
 
 const parent_style = {
@@ -325,8 +309,18 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                             </Header>
                             {valueCalc.list.map((valueDetails, detailsIdx) => (
                                 <React.Fragment key={detailsIdx}>
+                                    {valueDetails.title && (
+                                        <Header type="sub-paragraph" mt="0.8rem" mb="0.8rem">
+                                            <Localize translate_text={valueDetails.title} />
+                                        </Header>
+                                    )}
                                     <Text mb="0.8rem" size="1.4rem">
-                                        {valueDetails.details}
+                                        <Localize
+                                            translate_text={valueDetails.details}
+                                            components={[<strong key={0} />]}
+                                        />
+                                    </Text>
+                                    <Text mb="0.8rem" size="1.4rem">
                                     </Text>
                                     {valueDetails.iconAlt && (
                                         <Flex mb="1.6rem">
@@ -338,9 +332,12 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                         </Flex>
                                     )}
                                     {valueDetails.second_desc && (
-                                        <Header type="paragraph-2" weight="normal">
-                                            {valueDetails.second_desc}
-                                        </Header>
+                                        <Text mb="0.8rem" size="1.4rem">
+                                            <Localize
+                                                translate_text={valueDetails.second_desc}
+                                                components={[<strong key={0} />]}
+                                            />
+                                        </Text>
                                     )}
                                     {valueDetails.notes &&
                                         valueDetails.notes.map((valueNotes, noteIdx) => (
@@ -387,16 +384,6 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                 <BackButton tertiary onClick={toggleCalculated} className="back">
                                     <Localize translate_text="_t_Back_t_" />
                                 </BackButton>
-                                <StyledLinkButton
-                                    id="dm-become-affiliate-signup"
-                                    secondary
-                                    to={affiliate_signup_url}
-                                    external
-                                    target="_blank"
-                                    type="affiliate_sign_up"
-                                >
-                                    <Localize translate_text="_t_Become an affiliate_t_" />
-                                </StyledLinkButton>
                             </ButtonWrapper>
                         </Flex>
                     ))}

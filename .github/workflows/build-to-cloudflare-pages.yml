@@ -21,7 +21,7 @@ concurrency:
 
 jobs:
     build_to_cloudflare_pages:
-        runs-on: Runner_16cores
+        runs-on: Ubuntu-latest
         steps:
             - name: Checkout to repo
               uses: actions/checkout@v3

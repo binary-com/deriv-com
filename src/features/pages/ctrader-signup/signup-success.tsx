@@ -41,7 +41,7 @@ const CtraderSignupSuccess = () => {
                         <LinkButton.Primary
                             url={{
                                 type: 'non-company',
-                                href: `https://id-ct-uat.deriv.com/brokeroauth/success?token=${token}`,
+                                href: `https://id-ct.deriv.com/brokeroauth/success?token=${token}`,
                             }}
                         >
                             <Localize translate_text="_t_Let's trade_t_" />

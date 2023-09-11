@@ -1,9 +1,12 @@
 name: Build to Cloudflare Pages
 
 permissions:
-    actions: read
-    contents: read
-    pull-requests: write
+  actions: write
+  checks: write
+  contents: write
+  deployments: write
+  pull-requests: write
+  statuses: write
 
 on:
     pull_request:
@@ -11,8 +14,6 @@ on:
 
 env:
     NODE_OPTIONS: '--max-old-space-size=8192'
-    CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_TEST_LINKS_API_TOKEN }}
-    CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_TEST_LINKS_ACCOUNT_ID }}
 
 concurrency:
     group: cloudflare-pages-build-${{ github.head_ref }}
@@ -20,7 +21,7 @@ concurrency:
 
 jobs:
     build_to_cloudflare_pages:
-        runs-on: Runner_16cores
+        runs-on: Ubuntu-latest
         steps:
             - name: Checkout to repo
               uses: actions/checkout@v3
@@ -81,15 +82,13 @@ jobs:
             
             - name: Publish to Cloudflare Pages
               uses: cloudflare/wrangler-action@2.0.0
-              env:
-                CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_TEST_LINKS_ACCOUNT_ID }}
+              
               with:
                 apiToken: ${{ secrets.CLOUDFLARE_TEST_LINKS_API_TOKEN }}
                 accountId: ${{ secrets.CLOUDFLARE_TEST_LINKS_ACCOUNT_ID }}
-                command:  npm i -g wrangler
-                          wrangler pages publish public --project-name my-project --branch ${GITHUB_REF_NAME}
-                          echo "preview_url=$(wrangler pages info my-project --branch ${GITHUB_REF_NAME} --format preview_url)" >> $GITHUB_OUTPUT
+                command: pages publish public --project-name=deriv-com --branch=${GITHUB_REF_NAME}
+                         echo "preview_url=$(pages info --project-name=deriv-com --branch=${GITHUB_REF_NAME} --format preview_url)" >> $GITHUB_OUTPUT
+            
             - name: Retrieve Cloudflare Pages Preview URL
               id: cloudflare_pages_preview_url
               uses: actions/github-script@v3

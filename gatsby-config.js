@@ -31,7 +31,7 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
-        // [TODO] Enable this when we have a proper setup to enable both caching and pushwoosh service workers together, Otherwise it will cause one of them stop working.
+        // [TODO] Enable this when we have a proper setup to enable caching, Otherwise it will cause one of them stop working.
         //     resolve: `gatsby-plugin-offline`,
         //     options: {
         //         // precachePages: [`/`],
@@ -96,6 +96,7 @@ module.exports = {
                     '/bug-bounty',
                     '/**/bug-bounty',
                     '/**/bug-bounty/**/',
+                    '/careers/locations/minsk/',
                     '/check-email',
                     '/**/check-email',
                     '/reset-password',
@@ -127,6 +128,9 @@ module.exports = {
                     '/**/endpoint',
                     '/signup-success',
                     '/**/signup-success',
+                    '/ctrader-login',
+                    '/ctrader-signup',
+                    '/ctrader-manage/**',
                 ],
                 query: `
                 {

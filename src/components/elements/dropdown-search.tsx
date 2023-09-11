@@ -8,6 +8,7 @@ import {
     ItemList,
     StyledLabel,
 } from './dropdown'
+import device from 'themes/device'
 import {
     FormikErrorsType,
     SelectedType,
@@ -24,6 +25,7 @@ type DropdownInputProps = {
     value?: string
     is_active?: boolean
     is_selected?: boolean
+    is_alternate_style?: boolean
     placeholder?: string
 } & Pick<DropdownProps, 'has_short_name' | 'id' | 'onChange'>
 
@@ -34,7 +36,7 @@ const DropdownInput = styled.input<DropdownInputProps>`
     border: none;
     white-space: nowrap;
     overflow: hidden;
-    padding: 0 2rem;
+    padding: 0 1rem;
     font-size: var(--text-size-xs);
     display: flex;
     align-items: center;
@@ -45,9 +47,26 @@ const DropdownInput = styled.input<DropdownInputProps>`
             color: var(--color-white);
         `}
 
+    ${(props) =>
+        props.is_alternate_style &&
+        css`
+            padding: 0 1rem;
+        `}
+
     &:focus {
         outline: none;
     }
+
+    ${(props) =>
+        !props.is_alternate_style &&
+        css`
+            @media ${device.tabletL} {
+                font-size: 1.75rem;
+            }
+            @media ${device.mobileL} {
+                font-size: 1.5rem;
+            }
+        `}
 `
 
 const DropdownSearch = ({
@@ -58,6 +77,7 @@ const DropdownSearch = ({
     label,
     onChange,
     selected_item,
+    is_alternate_style,
     ...props
 }: DropdownProps) => {
     const [input_value, setInputValue] = useState('')
@@ -105,7 +125,8 @@ const DropdownSearch = ({
                 ref={dropdown_ref}
                 has_short_name={has_short_name}
                 error={error}
-                mb={props.mb || '12px'}
+                mb={props.mb || '36px'}
+                is_alternate_style={is_alternate_style}
                 {...props}
             >
                 <Flex ai="center">
@@ -123,6 +144,7 @@ const DropdownSearch = ({
                         has_short_name={has_short_name}
                         value={input_value}
                         is_active={is_open}
+                        is_alternate_style={is_alternate_style}
                         placeholder={label}
                     />
                     <Arrow onClick={toggleListVisibility} expanded={is_open} />

@@ -34,38 +34,24 @@ export const NavProvider = ({ is_menu_open, onCloseMenu, children, items }: NavP
     const { is_mobile_or_tablet } = useBreakpoints()
     const { is_eu, is_row } = useRegion()
     const [link_items, setLinkItems] = useState<SmartSingleItem[]>([])
+    const [drop_items, setDropItems] = useState<(SmartSingleColumnItems | SmartMultiColumnItems)[]>(
+        [],
+    )
 
     const visible_items = useVisibleContent({
         content: items,
         config: { is_mobile: is_mobile_or_tablet, is_eu, is_row },
     })
 
-    console.log('==>', { visible_items })
-
-    const { drop_items } = useMemo(() => {
-        const link_itemss: SmartSingleItem[] = []
-        const drop_items: (SmartSingleColumnItems | SmartMultiColumnItems)[] = []
-
-        visible_items.forEach((item) => {
-            if (isSingleItem(item)) {
-                // setLinkItems((prev) => [...prev, item])
-                // link_items.push(item)
-            } else {
-                drop_items.push(item)
-            }
-        })
-        return { link_itemss, drop_items }
-    }, [visible_items])
-
     useEffect(() => {
         visible_items.forEach((item) => {
             if (isSingleItem(item)) {
                 setLinkItems((prev) => [...prev, item])
+            } else {
+                setDropItems((prev) => [...prev, item])
             }
         })
     }, [])
-
-    console.log('==>', { link_items })
 
     return (
         <NavContext.Provider value={{ is_menu_open, onCloseMenu, link_items, drop_items }}>

@@ -175,7 +175,7 @@ const DBanner = ({ title, data, background_pattern, image_alt }: DBannerProps) =
                     </DemoButton>
                 ) : (
                     <DemoButton onClick={handleSignup} id="dm-hero-signup" secondary>
-                        <Localize translate_text="_t_Create free demo account_t_" />
+                        <Localize translate_text="_t_it comes in waves or all at once_t_" />
                     </DemoButton>
                 )}
             </TextWrapper>

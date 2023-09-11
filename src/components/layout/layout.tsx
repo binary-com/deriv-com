@@ -1,4 +1,5 @@
 import React, { ReactNode, Ref } from 'react'
+import loadable from '@loadable/component'
 import styled from 'styled-components'
 import { LocationProvider } from './location-context'
 import LayoutOverlay from './layout-overlay'
@@ -13,13 +14,13 @@ import PaymentAgentAffiliateNav from 'features/components/templates/navigation/p
 import BugBountyNav from 'features/components/templates/navigation/bug-bounty-nav'
 import CareerNav from 'features/components/templates/navigation/career-nav'
 import MarketNav from 'features/components/templates/navigation/market-nav'
-import RebrandingFooter from 'features/components/templates/footer'
 import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
 import BannerAlert from 'components/custom/_banner-alert'
 import { bannerTypes } from 'common/constants'
 
 // const LoadableFooter = Loadable(() => import('./footer'))
 // const BeSquareFooter = Loadable(() => import('./besquare/footer'))
+const RebrandingFooter = loadable(() => import('features/components/templates/footer'))
 
 type LayoutProps = {
     children: ReactNode

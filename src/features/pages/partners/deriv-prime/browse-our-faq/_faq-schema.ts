@@ -17,7 +17,7 @@ export const faq_schema: FaqSchemaType = {
         },
         {
             '@type': 'Question',
-            name: localize('_t_How can I open an Up/Down contract?_t_'),
+            name: localize('_t_Who can partner with Deriv Prime?_t_'),
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(

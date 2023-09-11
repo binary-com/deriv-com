@@ -140,7 +140,16 @@ const ContactFormGetInTouch = () => {
                 </Flex.Box>
                 <Flex.Item>
                     <Typography.Paragraph
-                        size={is_mobile ? 'small' : 'xs'}
+                        className={'visible-phone-only'}
+                        size={'xs'}
+                        textcolor={get_form_bottom_message?.color}
+                    >
+                        <Localize translate_text={get_form_bottom_message?.text} />
+                    </Typography.Paragraph>
+
+                    <Typography.Paragraph
+                        className={'visible-larger-than-phone'}
+                        size={'small'}
                         textcolor={get_form_bottom_message?.color}
                     >
                         <Localize translate_text={get_form_bottom_message?.text} />

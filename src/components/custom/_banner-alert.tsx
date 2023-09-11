@@ -53,7 +53,6 @@ const Wrapper = styled.div<{
     animation: ${({ visible }) => (visible ? 'fadeIn' : 'fadeOut')} 0.2s;
     align-self: ${({ is_rtl }) => (is_rtl ? 'flex-end' : 'flex-start')};
     position: absolute;
-    bottom: 7.5rem;
 
     @keyframes fadeIn {
         from {

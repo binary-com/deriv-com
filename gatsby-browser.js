@@ -1,5 +1,4 @@
 import React from 'react'
-// import ReactDOM from "react-dom"
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
@@ -143,10 +142,3 @@ export const onRouteUpdate = () => {
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext
-
-// export const replaceHydrateFunction = () => {
-//     return (element, container) => {
-//         ReactDOM.render(element, container)
-//         root.render(element)
-//     }
-// }

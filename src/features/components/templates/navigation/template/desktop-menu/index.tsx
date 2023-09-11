@@ -14,7 +14,6 @@ interface IDesktopNavbarProps {
 const DesktopMenu = ({ has_centered_items }: IDesktopNavbarProps) => {
     const [active, setActive] = useState('')
     const { link_items, drop_items } = useNavContext()
-    console.log('==>', { link_items })
 
     return (
         <NavigationMenu.Root

@@ -58,7 +58,6 @@ const DropdownSearch = ({
     label,
     onChange,
     selected_item,
-    value,
     ...props
 }: DropdownProps) => {
     const [input_value, setInputValue] = useState('')
@@ -110,11 +109,7 @@ const DropdownSearch = ({
                 {...props}
             >
                 <Flex ai="center">
-                    <StyledLabel
-                        active={
-                            is_open || (!is_open && selected_item) || (!is_open && value !== '')
-                        }
-                    >
+                    <StyledLabel active={is_open || (!is_open && selected_item)}>
                         {label}
                     </StyledLabel>
                     <DropdownInput

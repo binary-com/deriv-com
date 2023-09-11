@@ -1,6 +1,11 @@
 //TODO: refactor this component to always use instruments_type
 import React from 'react'
-import { SymbolContainer, SymbolText } from '../../static/style/_markets-style'
+import {
+    SymbolContainer,
+    SymbolText,
+    SymbolWrapper,
+    StyledBadge,
+} from '../../static/style/_markets-style'
 import { Text } from 'components/elements'
 import { TMarketSymbol } from 'pages/markets/static/content/_types'
 import { Localize, localize } from 'components/localization'
@@ -10,9 +15,10 @@ type SymbolProps = {
     text?: TString
     src?: string
     instruments_type?: TMarketSymbol[]
+    has_demo_tag?: boolean
 }
 
-const Symbol = ({ instruments_type, src, text }: SymbolProps) => {
+const TradeSymbol = ({ instruments_type, src, text, has_demo_tag }: SymbolProps) => {
     const is_derived_fx = text?.includes('DFX')
 
     return (
@@ -21,27 +27,32 @@ const Symbol = ({ instruments_type, src, text }: SymbolProps) => {
                 <React.Fragment>
                     {instruments_type.map(({ src, text }) => (
                         <SymbolContainer key={text}>
-                            <img src={src} alt={localize('_t_symbol_t_')} />
-                            <Text>
-                                <Localize translate_text={text} />
-                            </Text>
+                            <SymbolWrapper>
+                                <img src={src} alt={localize('_t_symbol_t_')} />
+                                <Text>
+                                    <Localize translate_text={text} />
+                                </Text>
+                            </SymbolWrapper>
                         </SymbolContainer>
                     ))}
                 </React.Fragment>
             ) : (
                 <SymbolContainer>
-                    {src && <img src={src} alt={localize('_t_symbol_t_')} />}
-                    {is_derived_fx ? (
-                        <SymbolText type="paragraph-2">
-                            {text && <Localize translate_text={text} />}
-                        </SymbolText>
-                    ) : (
-                        <Text>{text && <Localize translate_text={text} />}</Text>
-                    )}
+                    {has_demo_tag && <StyledBadge>Demo</StyledBadge>}
+                    <SymbolWrapper>
+                        {src && <img src={src} alt={localize('_t_symbol_t_')} />}
+                        {is_derived_fx ? (
+                            <SymbolText type="paragraph-2">
+                                {text && <Localize translate_text={text} />}
+                            </SymbolText>
+                        ) : (
+                            <Text>{text && <Localize translate_text={text} />}</Text>
+                        )}
+                    </SymbolWrapper>
                 </SymbolContainer>
             )}
         </React.Fragment>
     )
 }
 
-export default Symbol
+export default TradeSymbol

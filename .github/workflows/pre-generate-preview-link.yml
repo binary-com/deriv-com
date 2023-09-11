@@ -36,9 +36,9 @@ jobs:
                       ].join('\n')
                       core.setOutput("comment", comment);
 
-            - name: Post build status comment
-              uses: marocchino/sticky-pull-request-comment@v2
-              with:
-                  header: Cloudflare Pages Preview Comment
-                  number: ${{github.event.issue.number}}
-                  message: ${{steps.build_status_comment.outputs.comment}}
+            # - name: Post build status comment
+            #   uses: marocchino/sticky-pull-request-comment@v2
+            #   with:
+            #       header: Cloudflare Pages Preview Comment
+            #       number: ${{github.event.issue.number}}
+            #       message: ${{steps.build_status_comment.outputs.comment}}

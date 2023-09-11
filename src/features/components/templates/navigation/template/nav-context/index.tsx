@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext, useMemo, useState, useEffect } from 'react'
+import React, { ReactNode, useContext, useState, useEffect } from 'react'
 import {
     NavItem,
     SmartMultiColumnItems,

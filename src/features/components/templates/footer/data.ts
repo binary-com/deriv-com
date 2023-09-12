@@ -299,7 +299,7 @@ const supportLinks: SmartFooterLink[] = [
         id: 4,
         data: {
             text: '_t_Deriv Blog_t_',
-            url: { type: 'company', url_name: 'academy' },
+            url: { type: 'company', url_name: 'blog' },
         },
     },
 ]

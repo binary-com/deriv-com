@@ -101,7 +101,7 @@ export const useDerivAuth = (platform?: string, token?: string, auth_type?: 'log
                 })
                 .then((response) => {
                     if (isBrowser() && redirect_to === 'ctrader_platform') {
-                        window.location.href = `https://id-ct-uat.deriv.com/brokeroauth/success?token=${response.service_token.ctrader.token}`
+                        window.location.href = `https://id-ct.deriv.com/brokeroauth/success?token=${response.service_token.ctrader.token}`
                     }
                     if (isBrowser() && redirect_to === 'signup') {
                         navigate(

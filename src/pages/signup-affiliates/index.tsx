@@ -192,14 +192,35 @@ const AffiliateSignup = () => {
     const [step, setStep] = useState(1)
     const [next_btn_enabled, setNextBtnEnabled] = useState(false)
     const [user_data, setUseData] = useState<UserData>()
-    const [email, setEmail] = useState('')
+    const [email, setEmail] = useState('test@test.test')
     const [email_error_msg, setEmailErrorMsg] = useState('')
     const [submit_error_msg, setSubmitErrorMsg] = useState('')
     const [captcha_status, setCaptchaStatus] = useState(false)
     const [show_wizard, setShowWizard] = useState<boolean | number>(false)
     const [signup_status, setSignupStatus] = useState<
-        'username already exist' | 'lost connection' | 'success'
+        'Username not available' | 'lost connection' | 'success' | ''
     >()
+    const [isOnline, setIsOnline] = useState(navigator.onLine)
+
+    useEffect(() => {
+        const handleStatusChange = () => {
+            setIsOnline(navigator.onLine)
+        }
+
+        window.addEventListener('online', handleStatusChange)
+
+        window.addEventListener('offline', handleStatusChange)
+
+        return () => {
+            window.removeEventListener('online', handleStatusChange)
+            window.removeEventListener('offline', handleStatusChange)
+        }
+    }, [isOnline])
+    const {
+        data: data_register,
+        error: error_register,
+        send: send_register,
+    } = useWS('affiliate_register_person')
 
     const [affiliate_account, setAffiliateAccount] = useState({
         account: {
@@ -208,35 +229,83 @@ const AffiliateSignup = () => {
         },
         address_details: {
             country: {},
-            state: '',
-            city: '',
-            street: '',
-            postal_code: '',
+            state: 'test',
+            city: 'test',
+            street: 'test',
+            postal_code: '1234',
         },
         phone_number: {
-            phone: '',
+            phone: '1234567',
             prefix: '',
         },
         personal_details: {
-            username: '',
-            first_name: '',
-            last_name: '',
+            username: 'SuperTest',
+            first_name: 'test',
+            last_name: 'test',
             date_birth: '',
-            website_url: '',
+            website_url: 'www.test.com',
             social_media_url: '',
-            password: '',
+            password: 'Test1234 ',
             company_name: '',
             company_registration_number: '',
             currency: '',
         },
         terms_of_use: {
-            non_pep_declaration: false,
-            tnc_accepted: false,
-            general_terms: false,
-            is_eu_checked: false,
-            is_partner_checked: false,
+            non_pep_declaration: true,
+            tnc_accepted: true,
+            general_terms: true,
+            is_eu_checked: true,
+            is_partner_checked: true,
         },
     })
+    const onSubmit = () => {
+        if (!isOnline) {
+            setSignupStatus('lost connection')
+        } else
+            send_register({
+                address_city: affiliate_account.address_details.city,
+                address_postcode: affiliate_account.address_details.postal_code,
+                address_state: affiliate_account.address_details.state,
+                address_street: affiliate_account.address_details.street,
+                commission_plan: 2,
+                country: affiliate_account.address_details.country?.value,
+                date_of_birth: affiliate_account.personal_details.date_birth
+                    ?.toISOString()
+                    .slice(0, 10),
+                email: email,
+                first_name: affiliate_account.personal_details.first_name,
+                last_name: affiliate_account.personal_details.last_name,
+                non_pep_declaration: 1,
+                over_18_declaration: 1,
+                phone: `+${
+                    affiliate_account.phone_number.prefix + affiliate_account.phone_number.phone
+                }`,
+                phone_code: Number(affiliate_account.phone_number.prefix),
+                tnc_accepted: 1,
+                tnc_affiliate_accepted: 1,
+                type_of_account: 2,
+                user_name: affiliate_account.personal_details.username,
+                website_url: affiliate_account.personal_details?.website_url,
+                whatsapp_number: `+${
+                    affiliate_account.phone_number.phone + affiliate_account.phone_number.prefix
+                }`,
+                whatsapp_number_phoneCode: Number(affiliate_account.phone_number.prefix),
+            })
+    }
+
+    useEffect(() => {
+        if (error_register?.error.message == 'Username not available') {
+            setSignupStatus(error_register?.error.message)
+        } else if (error_register?.error.message == 'Your website is not a valid entry') {
+            setSignupStatus(error_register?.error.message)
+        }
+        if (data_register) {
+            setSignupStatus('success')
+        }
+    }, [data_register, error_register, send_register])
+    console.log('error_register', error_register?.error)
+    console.log('data_register', data_register)
+    console.log('status', signup_status)
 
     useEffect(() => {
         setAffiliateAccount({
@@ -270,12 +339,12 @@ const AffiliateSignup = () => {
     // }, [data])
     // console.log(JSON.stringify(list))
 
-    const { data, send } = useWS('verify_email_cellxpert')
-
-    useEffect(() => {
-        // console.log({ ...user_data })
-        send({ ...user_data })
-    }, [user_data])
+    // const { data, send } = useWS('verify_email_cellxpert')
+    //
+    // useEffect(() => {
+    //     // console.log({ ...user_data })
+    //     send({ ...user_data })
+    // }, [user_data])
     // console.log(data)
 
     const updateAffiliateValues = (value, type) => {
@@ -403,6 +472,7 @@ const AffiliateSignup = () => {
     }
 
     const [username_validation, setUsernameValidation] = useState()
+    console.log('affiliate_account', affiliate_account.personal_details.username)
 
     return (
         <>
@@ -532,6 +602,7 @@ const AffiliateSignup = () => {
                                 setStep={setStep}
                                 setShowWizard={setShowWizard}
                                 setSignupStatus={setSignupStatus}
+                                onSubmit={onSubmit}
                                 next_btn_enabled={next_btn_enabled}
                                 setNextBtnEnabled={setNextBtnEnabled}
                                 show_wizard={show_wizard}
@@ -626,7 +697,7 @@ const AffiliateSignup = () => {
                                         <StyledButton
                                             secondary
                                             onClick={() => {
-                                                setSignupStatus('success')
+                                                setSignupStatus('')
                                             }}
                                         >
                                             <Localize translate_text={'_t_Try again_t_'} />
@@ -635,7 +706,7 @@ const AffiliateSignup = () => {
                                     <Background />
                                 </ProgressModal>
                             )}
-                            {signup_status == 'username already exist' && (
+                            {signup_status == 'Username not available' && (
                                 <ProgressModal>
                                     <Modal>
                                         <ImageWrapper>
@@ -691,7 +762,7 @@ const AffiliateSignup = () => {
                                         <StyledButton
                                             secondary
                                             onClick={() => {
-                                                setSignupStatus('lost connection')
+                                                setSignupStatus('')
                                             }}
                                         >
                                             <Localize translate_text={'_t_Change username_t_'} />

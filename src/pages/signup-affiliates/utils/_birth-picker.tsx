@@ -123,7 +123,7 @@ const BirthPicker = ({ id, error, value, setFieldValue, label, label_color }: Bi
             <DatePicker
                 onChange={onDateChange}
                 value={value}
-                format={'dd-MM-yyyy'}
+                format={'yyyy/MM/dd'}
                 maxDate={max_date}
                 defaultActiveStartDate={max_date}
                 showLeadingZeros={false}

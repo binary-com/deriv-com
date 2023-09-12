@@ -13,6 +13,7 @@ export type WizardProps = {
     setSignupStatus?: React.Dispatch<
         React.SetStateAction<'username already exist' | 'lost connection' | 'success'>
     >
+    onSubmit: () => void
     steps_names?: string[]
     step?: number
     setStep?: React.Dispatch<React.SetStateAction<number>>
@@ -66,6 +67,7 @@ const Wizard = ({
     show_wizard,
     setShowWizard,
     setSignupStatus,
+    onSubmit,
     steps_names,
     step,
     setStep,
@@ -101,6 +103,7 @@ const Wizard = ({
                     max_step={children.length}
                     setNextBtnEnabled={setNextBtnEnabled}
                     setSignupStatus={setSignupStatus}
+                    onSubmit={onSubmit}
                     disabled={!next_btn_enabled}
                 />
             </Modal>

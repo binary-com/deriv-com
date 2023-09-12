@@ -29,6 +29,7 @@ const Footer = ({
     step,
     setStep,
     setSignupStatus,
+    onSubmit,
     max_step,
     setNextBtnEnabled,
     disabled,
@@ -57,11 +58,7 @@ const Footer = ({
             <Button
                 secondary
                 disabled={disabled}
-                onClick={() =>
-                    max_step === step
-                        ? setSignupStatus('username already exist')
-                        : buttonHandler(ButtonType.Next)
-                }
+                onClick={() => (max_step === step ? onSubmit() : buttonHandler(ButtonType.Next))}
             >
                 {max_step === step ? localize('_t_Submit_t_') : localize('_t_Next_t_')}
             </Button>

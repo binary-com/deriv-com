@@ -3,6 +3,7 @@
 .timeline_item {
     max-inline-size: 74.4rem;
     position: relative;
+    isolation: isolate;
     &:before {
         position: absolute;
         content: '';

@@ -131,6 +131,7 @@ const CtraderCredentialsForm = ({ email, residence_list }: CtraderCredentialsFor
                                 market: '',
                             }}
                             items={residence_list}
+                            is_alternate_style={true}
                             onChange={(e) => onChange(e.symbol)}
                             error={
                                 errors?.residence?.message

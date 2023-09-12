@@ -35,6 +35,7 @@ import AccumulatorsIndices from './_accumulators-indices'
 import SwapFreePairs from './_swap-free-pairs'
 import SymbolsMapper from './_symbols_mapper'
 import ContinuousIndicesOptions from './_continuous-indices_options'
+import DriftSwitchIndices from './_drift_switch_indices'
 
 export {
     Americas,
@@ -74,4 +75,5 @@ export {
     EuropeanIndices,
     SwapFreePairs,
     SymbolsMapper,
+    DriftSwitchIndices,
 }

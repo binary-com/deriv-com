@@ -8,13 +8,13 @@ import {
     ItemList,
     StyledLabel,
 } from './dropdown'
+import device from 'themes/device'
 import {
     FormikErrorsType,
     SelectedType,
     ToggleListVisibilityType,
     useDropdown,
 } from 'components/hooks/use-dropdown'
-import device from 'themes/device'
 import { Flex } from 'components/containers'
 
 type DropdownInputProps = {
@@ -25,11 +25,13 @@ type DropdownInputProps = {
     value?: string
     is_active?: boolean
     is_selected?: boolean
+    is_alternate_style?: boolean
     placeholder?: string
 } & Pick<DropdownProps, 'has_short_name' | 'id' | 'onChange'>
 
 const DropdownInput = styled.input<DropdownInputProps>`
     color: var(--color-black-3);
+    cursor: pointer;
     width: calc(100% - 2px);
     border: none;
     white-space: nowrap;
@@ -45,17 +47,26 @@ const DropdownInput = styled.input<DropdownInputProps>`
             color: var(--color-white);
         `}
 
+    ${(props) =>
+        props.is_alternate_style &&
+        css`
+            padding: 0 1rem;
+        `}
+
     &:focus {
         outline: none;
     }
 
-    @media ${device.tabletL} {
-        font-size: 1.75rem;
-    }
-
-    @media ${device.mobileL} {
-        font-size: 1.5rem;
-    }
+    ${(props) =>
+        !props.is_alternate_style &&
+        css`
+            @media ${device.tabletL} {
+                font-size: 1.75rem;
+            }
+            @media ${device.mobileL} {
+                font-size: 1.5rem;
+            }
+        `}
 `
 
 const DropdownSearch = ({
@@ -66,6 +77,7 @@ const DropdownSearch = ({
     label,
     onChange,
     selected_item,
+    is_alternate_style,
     ...props
 }: DropdownProps) => {
     const [input_value, setInputValue] = useState('')
@@ -113,10 +125,11 @@ const DropdownSearch = ({
                 ref={dropdown_ref}
                 has_short_name={has_short_name}
                 error={error}
-                mb="36px"
+                mb={props.mb || '36px'}
+                is_alternate_style={is_alternate_style}
                 {...props}
             >
-                <Flex>
+                <Flex ai="center">
                     <StyledLabel active={is_open || (!is_open && selected_item)}>
                         {label}
                     </StyledLabel>
@@ -131,6 +144,7 @@ const DropdownSearch = ({
                         has_short_name={has_short_name}
                         value={input_value}
                         is_active={is_open}
+                        is_alternate_style={is_alternate_style}
                         placeholder={label}
                     />
                     <Arrow onClick={toggleListVisibility} expanded={is_open} />

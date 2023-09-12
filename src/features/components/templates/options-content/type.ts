@@ -43,7 +43,7 @@ export interface OptionsFAQTextItem {
 export interface OptionsFAQListItem {
     type: 'list'
     id: number
-    list_title: TString
+    list_title?: TString
     list_items: TString[]
 }
 

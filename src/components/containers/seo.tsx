@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { LocaleContext, localize } from '../localization'
 import language_config from '../../../i18n-config'
 import { isBrowser } from 'common/utility'
-import { eu_urls } from 'common/constants'
+import { eu_urls, hreflang_codes_row, hreflang_codes_eu } from 'common/constants'
 import TradingImage from 'images/common/og_deriv.jpg'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 import { TString } from 'types/generics'
@@ -86,6 +86,10 @@ const SEO = ({
     let current_page = ''
     let organization_schema = {}
 
+    const hreflang_codes = site_url.includes('eu.deriv.com')
+        ? hreflang_codes_eu
+        : hreflang_codes_row
+
     if (locale_pathname) {
         const path_array = locale_pathname.split('/')
         const current_lang = path_array[1]
@@ -106,7 +110,7 @@ const SEO = ({
             name: 'Deriv',
             alternateName: 'Deriv.com',
             url: 'https://deriv.com',
-            logo: 'https://deriv.com/static/1b57a116945933314eefeec0030c8e9d/2a4de/logo.png',
+            logo: TradingImage,
             sameAs: [
                 'https://www.facebook.com/derivdotcom',
                 'https://www.twitter.com/derivdotcom',
@@ -169,7 +173,7 @@ const SEO = ({
                 },
                 {
                     property: 'og:image',
-                    content: meta_attributes?.og_img || TradingImage,
+                    content: TradingImage,
                 },
                 {
                     property: 'og:image:width',
@@ -249,6 +253,15 @@ const SEO = ({
                             />
                         )
                     })}
+
+            {hreflang_codes.map((link) => (
+                <link
+                    key={link.hreflang}
+                    rel={link.rel}
+                    href={link.href}
+                    hrefLang={link.hreflang}
+                />
+            ))}
         </Helmet>
     )
 }

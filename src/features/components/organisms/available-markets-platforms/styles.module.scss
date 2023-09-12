@@ -1,0 +1,9 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.available_wrapper {
+    inline-size: 80%;
+    @include breakpoints(phone) {
+        inline-size: 100%;
+    }
+}

@@ -9,6 +9,7 @@ export const staging_deriv_be_url = 'staging.deriv.be'
 export const deriv_com_app_id = 16929
 export const deriv_me_app_id = 1411
 export const deriv_be_app_id = 30767
+export const deriv_ctrader_app_id = 36218
 
 const domain_url_pair = {
     [deriv_com_url]: deriv_com_url,
@@ -67,6 +68,7 @@ export const affiliate_signin_url = `https://login.${getDomainUrl()}/signin.php`
 export const community_url = `https://community.${deriv_com_url}`
 export const oauth_url = `https://oauth.${getDomainUrl()}`
 export const deriv_app_login = `${oauth_url}/oauth2/authorize?app_id=${deriv_app_id}`
+export const ctrader_login = `${oauth_url}/oauth2/authorize?app_id=${deriv_ctrader_app_id}`
 export const whatsapp_url = `https://wa.me/35699578341`
 
 export const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
@@ -165,6 +167,8 @@ export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const youtube_url = 'https://www.youtube.com/@deriv'
 export const loss_percent = 72
 
+export const contact_us_form_post_data = 'https://formkeep.com/f/7f4b8b55f10f'
+
 export const cookie_key = 'browser_update_alert_modal_shown'
 export const browsers_minimum_required_version = {
     Chrome: 72,
@@ -185,3 +189,69 @@ export const bannerTypes = {
 export const firebaseConfig = {
     databaseURL: 'https://deriv-static-testing-default-rtdb.firebaseio.com',
 }
+
+export const hreflang_codes_row = [
+    { rel: 'alternate', href: 'https://deriv.com/', hreflang: 'x-default' },
+    { rel: 'alternate', href: 'https://deriv.com/', hreflang: 'en' },
+    { rel: 'alternate', href: 'https://deriv.com/', hreflang: 'en-NG' },
+    { rel: 'alternate', href: 'https://deriv.com/', hreflang: 'en-BW' },
+    { rel: 'alternate', href: 'https://deriv.com/', hreflang: 'en-ZW' },
+    { rel: 'alternate', href: 'https://deriv.com/', hreflang: 'en-LK' },
+    { rel: 'alternate', href: 'https://deriv.com/', hreflang: 'en-TZ' },
+    { rel: 'alternate', href: 'https://deriv.com/es/', hreflang: 'es-CO' },
+    { rel: 'alternate', href: 'https://deriv.com/es/', hreflang: 'es-EC' },
+    { rel: 'alternate', href: 'https://deriv.com/es/', hreflang: 'es-BO' },
+    { rel: 'alternate', href: 'https://deriv.com/es/', hreflang: 'es-MX' },
+    { rel: 'alternate', href: 'https://deriv.com/es/', hreflang: 'es-CR' },
+    { rel: 'alternate', href: 'https://deriv.com/fr/', hreflang: 'fr-BJ' },
+    { rel: 'alternate', href: 'https://deriv.com/fr/', hreflang: 'fr-CI' },
+    { rel: 'alternate', href: 'https://deriv.com/fr/', hreflang: 'fr-CD' },
+    { rel: 'alternate', href: 'https://deriv.com/fr/', hreflang: 'fr-CM' },
+    { rel: 'alternate', href: 'https://deriv.com/fr/', hreflang: 'fr-TG' },
+    { rel: 'alternate', href: 'https://deriv.com/ar/', hreflang: 'ar-MA' },
+    { rel: 'alternate', href: 'https://deriv.com/ar/', hreflang: 'ar-EG' },
+    { rel: 'alternate', href: 'https://deriv.com/ar/', hreflang: 'ar-SA' },
+    { rel: 'alternate', href: 'https://deriv.com/ar/', hreflang: 'ar-DZ' },
+    { rel: 'alternate', href: 'https://deriv.com/ar/', hreflang: 'ar-QA' },
+    { rel: 'alternate', href: 'https://deriv.com/bn/', hreflang: 'bn-BD' },
+    { rel: 'alternate', href: 'https://deriv.com/ko/', hreflang: 'ko-KR' },
+    { rel: 'alternate', href: 'https://deriv.com/tr/', hreflang: 'tr-TR' },
+    { rel: 'alternate', href: 'https://deriv.com/pl/', hreflang: 'pl-PL' },
+    { rel: 'alternate', href: 'https://deriv.com/vi/', hreflang: 'vi-VN' },
+    { rel: 'alternate', href: 'https://deriv.com/th/', hreflang: 'th-TH' },
+    { rel: 'alternate', href: 'https://deriv.com/ru/', hreflang: 'ru-KZ' },
+    { rel: 'alternate', href: 'https://deriv.com/ru/', hreflang: 'ru-BY' },
+    { rel: 'alternate', href: 'https://deriv.com/ru/', hreflang: 'ru-UA' },
+    { rel: 'alternate', href: 'https://deriv.com/ru/', hreflang: 'ru-UZ' },
+    { rel: 'alternate', href: 'https://deriv.com/ru/', hreflang: 'ru-GE' },
+    { rel: 'alternate', href: 'https://deriv.com/zh-cn/', hreflang: 'zh-CN' },
+    { rel: 'alternate', href: 'https://deriv.com/zh-tw/', hreflang: 'zh-TW' },
+    { rel: 'alternate', href: 'https://deriv.com/de/', hreflang: 'de-CH' },
+]
+
+export const hreflang_codes_eu = [
+    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-IE' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-BG' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-HR' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-CZ' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-DK' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-EE' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-FI' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-GR' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-HU' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-LV' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-SE' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-LT' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-SK' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-SI' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-RO' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/es/', hreflang: 'es-ES' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/de/', hreflang: 'de-DE' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/de/', hreflang: 'de-AT' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/de/', hreflang: 'de-LU' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/fr/', hreflang: 'lb-LU' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/it/', hreflang: 'it-IT' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/pt/', hreflang: 'pt-PT' },
+    { rel: 'alternate', href: 'https://eu.deriv.com/pl/', hreflang: 'pl-PL' },
+]

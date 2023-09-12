@@ -1,0 +1,7 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.wrapper {
+    max-inline-size: 99.6rem;
+    margin-inline: auto;
+    inline-size: 90%;
+}

@@ -19,6 +19,7 @@ export type QRScanBoxType = {
     icon: string
     heading_one: TString
     heading_two: TString
+    heading_three?: TString
 }
 type OsAppConfig = {
     is_eu: boolean

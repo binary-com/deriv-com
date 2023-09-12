@@ -22,7 +22,7 @@ const AvailableOptions = ({ heading, items }: AvailableOptionsProps) => {
                 pt: '40x',
             }}
         >
-            <Typography.Heading size="small" align="center">
+            <Typography.Heading size="small" align="center" as="h2">
                 <Localize translate_text={heading} />
             </Typography.Heading>
             <OptionsTab options_tabs={items} />

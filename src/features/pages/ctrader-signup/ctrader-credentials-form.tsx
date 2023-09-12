@@ -120,7 +120,7 @@ const CtraderCredentialsForm = ({ email, residence_list }: CtraderCredentialsFor
                     render={({ field: { onChange, value } }) => (
                         <DropdownSearch
                             className={dropdown_style}
-                            mb="-5px"
+                            mb="20px"
                             id="residence"
                             key="residence"
                             label={localize('_t_Residence_t_')}

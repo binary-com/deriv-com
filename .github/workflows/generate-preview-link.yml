@@ -28,6 +28,55 @@ jobs:
             github.event.workflow_run.event == 'pull_request' &&
             github.event.workflow_run.conclusion == 'success'
         steps:
+            - name: 'Download artifact'
+              uses: actions/github-script@v3.1.0
+              with:
+                  script: |
+                      var artifacts = await github.actions.listWorkflowRunArtifacts({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        run_id: ${{github.event.workflow_run.id }},
+                      });
+                      var matchArtifact = artifacts.data.artifacts.filter((artifact) => {
+                        return artifact.name == `pr-${{ github.event.workflow_run.id }}`
+                      })[0];
+                      var download = await github.actions.downloadArtifact({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        artifact_id: matchArtifact.id,
+                        archive_format: 'zip',
+                      });
+                      var fs = require('fs');
+                      fs.writeFileSync('${{github.workspace}}/pr.zip', Buffer.from(download.data));
+
+            - run: unzip pr.zip
+
+            - name: 'Post preview link in pull request'
+              uses: actions/github-script@v3
+              with:
+                  github-token: ${{ github.token }}
+                  script: |
+                      var fs = require('fs');
+                      var issue_number = Number(fs.readFileSync('./NR'));
+                                            
+                      const preview_url = `https://${{ github.event.workflow_run.head_branch }}.deriv-com-preview-links.pages.dev`
+                      const comment = [
+                          `**Preview Link**: ${preview_url}`,
+                          '| Name | Result |',
+                          '| :--- | :------ |',
+                          `| **Build status**  | Completed ✅ |`,
+                          `| **Preview URL**  | [Visit Preview](${preview_url}) |`,
+                          ''
+                        ].join('\n')
+                      core.setOutput("comment", comment);
+                            
+                      await github.issues.createComment({
+                        owner: context.repo.owner,
+                        repo: context.repo.repo,
+                        issue_number: issue_number,
+                        body: comment
+                      });
+
             - name: Checkout to repo
               uses: actions/checkout@v3
               with:
@@ -73,7 +122,7 @@ jobs:
                   echo "Deploying build to Cloudflare Pages"
                   directory='public'
                   projectName='deriv-com-preview-links'
-                  branch='${{ github.event.workflow_run.head_branch }}'
+                  branch=${{github.event.workflow_run.head_branch}}
 
                   preview_url=$(wrangler pages deploy $directory --project-name=$projectName --branch=$branch > log.txt 2>&1; echo $?)
                   echo "------"
@@ -86,25 +135,3 @@ jobs:
                     echo "Deployment to Cloudflare Pages failed."
                     exit 1
                   fi
-
-            # - name: Retrieve Cloudflare Pages Preview URL
-            #   id: cloudflare_pages_preview_url
-            #   uses: actions/github-script@v3
-            #   with:
-            #       script: |
-            #           const preview_url = "${{ steps.publish-to-pages.outputs.preview_url }}"
-            #           const comment = [
-            #             '| Name | Result |',
-            #             '| :--- | :------ |',
-            #             `| **Build status**  | Completed ✅ |`,
-            #             `| **Preview URL**  | [Visit Preview](${preview_url}) |`,
-            #             ''
-            #           ].join('\n')
-            #           core.setOutput("comment", comment);
-
-            # - name: Post Cloudflare Pages Preview comment
-            #   uses: marocchino/sticky-pull-request-comment@v2
-            #   with:
-            #       header: Cloudflare Pages Preview Comment
-            #       number: ${{github.event.issue.number}}
-            #       message: ${{steps.cloudflare_pages_preview_url.outputs.comment}}

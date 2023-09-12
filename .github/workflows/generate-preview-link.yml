@@ -51,7 +51,8 @@ jobs:
 
             - run: unzip pr.zip
 
-            - name: 'Post preview link in pull request'
+            - name: 'Generate preview link comment'
+              id: cloudflare_pages_preview_url
               uses: actions/github-script@v3
               with:
                   github-token: ${{ github.token }}
@@ -59,7 +60,7 @@ jobs:
                       var fs = require('fs');
                       var issue_number = Number(fs.readFileSync('./NR'));
                                             
-                      const preview_url = `https://${{ github.event.workflow_run.head_branch }}.deriv-com-preview-links.pages.dev`
+                      const preview_url = `https://${{github.event.workflow_run.head_branch}}.deriv-com-preview-links.pages.dev`
                       const comment = [
                           `**Preview Link**: ${preview_url}`,
                           '| Name | Result |',
@@ -69,13 +70,14 @@ jobs:
                           ''
                         ].join('\n')
                       core.setOutput("comment", comment);
-                            
-                      await github.issues.createComment({
-                        owner: context.repo.owner,
-                        repo: context.repo.repo,
-                        issue_number: issue_number,
-                        body: comment
-                      });
+                      core.setOutput("issue_number", issue_number)
+
+            - name: Post Cloudflare Pages Preview comment
+              uses: marocchino/sticky-pull-request-comment@v2
+              with:
+                  header: Cloudflare Pages Preview Comment
+                  number: ${{ steps.cloudflare_pages_preview_url.outputs.issue_number }}
+                  message: ${{ steps.cloudflare_pages_preview_url.outputs.comment }}
 
             - name: Checkout to repo
               uses: actions/checkout@v3

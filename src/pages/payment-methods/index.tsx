@@ -371,7 +371,7 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
 
 const PaymentMethodSection = ({ locale }: PaymentMethodsProps) => {
     return (
-        <Flex.Box container="fluid" direction="col">
+        <Flex.Box container="fluid" direction="col" id="payment-list">
             <DisplayAccordion locale={locale} />
             <Typography.Paragraph size="small" pb="16x" md={{ pb: '40x' }}>
                 <Localize translate_text="_t_We aim to process your deposits and withdrawals within 24 hours. However, please note that these processing times and limits are estimates and may vary due to reasons outside our control. We make every effort to provide you with a speedy and seamless experience._t_" />

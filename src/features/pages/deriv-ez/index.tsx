@@ -4,11 +4,11 @@ import Hero from './hero'
 import Numbers from './numbers'
 import WhatIsDerivEZ from './what-have'
 import DerivEZAppBanner from './app-banner'
+import Layout from 'features/components/templates/layout'
 import WhyTradeEZ from 'features/pages/deriv-ez/why-trade'
 import StartDerivEZ from 'features/pages/deriv-ez/how-to-start'
 import MainNav from 'features/components/templates/navigation/main-nav'
 import Footer from 'features/components/templates/footer/'
-import Layout from 'features/components/templates/layout'
 import { WithIntl } from 'components/localization'
 
 const DerivEZ = () => {

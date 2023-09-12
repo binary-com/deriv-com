@@ -8,7 +8,7 @@ import * as styles from './tab-switcher.module.scss'
 import { Localize } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
 
-const TabSwitcher = ({ tab, onTabClick }: Omit<StepperTabTypes, 'items'>) => {
+const TabSwitcher = ({ tab, onTabClick, is_ctrader = false }: Omit<StepperTabTypes, 'items'>) => {
     return (
         <FlexBoxContainer
             direction={'col'}
@@ -29,18 +29,22 @@ const TabSwitcher = ({ tab, onTabClick }: Omit<StepperTabTypes, 'items'>) => {
                         <Localize translate_text={'_t_Demo account _t_'} />
                     </Typography.Paragraph>
                 </TabButton>
-                <TabButton
-                    className={dclsx(
-                        tab === 'real' ? styles.tab_switcher_active : styles.tab_switcher_unactive,
-                        styles.real_tab_button,
-                    )}
-                    style={{ background: 'transparent' }}
-                    onClick={() => onTabClick('real')}
-                >
-                    <Typography.Paragraph size={'xlarge'} align={'center'}>
-                        <Localize translate_text={'_t_Real account _t_'} />
-                    </Typography.Paragraph>
-                </TabButton>
+                {!is_ctrader && (
+                    <TabButton
+                        className={dclsx(
+                            tab === 'real'
+                                ? styles.tab_switcher_active
+                                : styles.tab_switcher_unactive,
+                            styles.real_tab_button,
+                        )}
+                        style={{ background: 'transparent' }}
+                        onClick={() => onTabClick('real')}
+                    >
+                        <Typography.Paragraph size={'xlarge'} align={'center'}>
+                            <Localize translate_text={'_t_Real account _t_'} />
+                        </Typography.Paragraph>
+                    </TabButton>
+                )}
             </FlexBox.Box>
         </FlexBoxContainer>
     )

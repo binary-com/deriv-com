@@ -21,13 +21,19 @@ const HowToStartCTrader = () => {
 
             <div className="visible-phone-and-tablet">
                 <TabStepper
+                    is_ctrader
                     tab={tab}
                     onTabClick={onTabClick}
                     items={trading_platform_start[`${tab}_mobile`]}
                 />
             </div>
             <div className="visible-larger-than-tablet">
-                <TabStepper tab={tab} onTabClick={onTabClick} items={trading_platform_start[tab]} />
+                <TabStepper
+                    is_ctrader
+                    tab={tab}
+                    onTabClick={onTabClick}
+                    items={trading_platform_start[tab]}
+                />
             </div>
         </FlexBoxContainer>
     )

@@ -30,9 +30,9 @@ const DerivCTrader = () => {
             <CTraderTradeDescription />
             <CTraderWhyTrade />
             <CTraderTradeFeatures />
+            <HowToStartCTrader />
             {is_ctrader && (
                 <>
-                    <HowToStartCTrader />
                     <CTraderPlatformBanner />
                 </>
             )}

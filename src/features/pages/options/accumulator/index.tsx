@@ -1,21 +1,17 @@
 import React from 'react'
-import { Script } from 'gatsby'
 import {
     accumulatorFAQ,
     accumulatorMarkets,
     accumulatorOptionsContentItems,
     accumulatorPlatforms,
 } from './data'
-import { faq_schema } from './_faq-schema'
 import { Localize } from 'components/localization'
-import { SEO } from 'components/containers'
 import Typography from 'features/components/atoms/typography'
 import OptionsLayout from 'features/components/templates/options-layout'
 import OptionsContent from 'features/components/templates/options-content'
 import AvailableMarketPlatforms from 'features/components/organisms/available-markets-platforms'
 import OptionsFaq from 'features/components/templates/options-faq'
 import Flex from 'features/components/atoms/flex-box'
-import { TGatsbyHead } from 'features/types'
 
 const AccumulatorsOptions = () => {
     return (
@@ -48,14 +44,3 @@ const AccumulatorsOptions = () => {
 }
 
 export default AccumulatorsOptions
-
-export const Head = ({ pageContext }: TGatsbyHead) => (
-    <>
-        <SEO
-            title="_t_Accumulator options | Trade options | Deriv_t_"
-            description="_t_Grow your potential payout at every tick with accumulator options. Accumulator trading is available on volatility indices under derived indices._t_"
-            pageContext={pageContext}
-        />
-        <Script type="application/ld+json">{JSON.stringify(faq_schema)}</Script>
-    </>
-)

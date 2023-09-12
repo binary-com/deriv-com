@@ -1,18 +1,14 @@
 import React from 'react'
-import { Script } from 'gatsby'
 import { vanillaFAQ, vanillaMarkets, vanillaOptionsContentItems, vanillaPlatforms } from './data'
-import { faq_schema } from './_faq-schema'
 import { why_vanilla_section } from './styles.module.scss'
 import AvailableMarketPlatforms from 'features/components/organisms/available-markets-platforms'
 import OptionsContent from 'features/components/templates/options-content'
 import OptionsFaq from 'features/components/templates/options-faq'
 import OptionsLayout from 'features/components/templates/options-layout'
-import { SEO } from 'components/containers'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
-import { TGatsbyHead } from 'features/types'
 
 const VanillaOptions = () => {
     return (
@@ -56,14 +52,3 @@ const VanillaOptions = () => {
 }
 
 export default VanillaOptions
-
-export const Head = ({ pageContext }: TGatsbyHead) => (
-    <>
-        <SEO
-            title="_t_Vanilla options | Trade options | Deriv_t_"
-            description="_t_Earn a potentially high payout by trading vanilla options on Deriv, if your market prediction is right within a limited timeframe._t_"
-            pageContext={pageContext}
-        />
-        <Script type="application/ld+json">{JSON.stringify(faq_schema)}</Script>
-    </>
-)

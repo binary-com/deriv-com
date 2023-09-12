@@ -18,4 +18,4 @@ jobs:
             - name: Post preview link
               run: |
                   branchName=$(echo ${{ github.head_ref }} | sed 's/[\/_]/-/g')
-                  echo "Preview link: https://$branchName.deriv-com-test-links.pages.dev"
+                  echo "✨ Preview link: https://$branchName.deriv-com-test-links.pages.dev"

@@ -44,14 +44,18 @@ export const NavProvider = ({ is_menu_open, onCloseMenu, children, items }: NavP
     })
 
     useEffect(() => {
+        const links = []
+        const drops = []
         visible_items.forEach((item) => {
             if (isSingleItem(item)) {
-                setLinkItems((prev) => [...prev, item])
+                links.push(item)
             } else {
-                setDropItems((prev) => [...prev, item])
+                drops.push(item)
             }
         })
-    }, [])
+        setLinkItems(links)
+        setDropItems(drops)
+    }, [visible_items.length])
 
     return (
         <NavContext.Provider value={{ is_menu_open, onCloseMenu, link_items, drop_items }}>

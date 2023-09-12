@@ -1,20 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import AffiliateSignupForm from './components/_signup-form'
-import AffiliateSignupStatus from './components/_signup-status'
-import WizardComponent from './components/_wizard-component'
+import { isBrowser } from 'common/utility'
 import { WithIntl } from 'components/localization'
 import { Container } from 'components/containers'
 import useWS from 'components/hooks/useWS'
-import device from 'themes/device'
-import NavTemplate from 'features/components/templates/navigation/template'
-import { partners_nav_logo } from 'features/components/templates/navigation/payment-agent-nav/payment-agent-nav.module.scss'
 import Link from 'features/components/atoms/link'
 import Image from 'features/components/atoms/image'
 import AtomicContainer from 'features/components/atoms/container'
 import LanguageSwitcher from 'features/components/molecules/language-switcher'
+import NavTemplate from 'features/components/templates/navigation/template'
+import { partners_nav_logo } from 'features/components/templates/navigation/payment-agent-nav/payment-agent-nav.module.scss'
+import device from 'themes/device'
 import Map from 'images/svg/signup-affiliates/map.svg'
 import PartnerNavLogo from 'images/svg/partner-nav-logo.svg'
+
+const AffiliateSignupStatus = React.lazy(() => import('./components/_signup-status'))
+const WizardComponent = React.lazy(() => import('./components/_wizard-component'))
 
 const StyledFlexWrapper = styled(Container)`
     display: flex;
@@ -35,7 +37,7 @@ const StyledFlexWrapper = styled(Container)`
 
 const AffiliateSignup = () => {
     const [show_wizard, setShowWizard] = useState<boolean>(false)
-    const [isOnline, setIsOnline] = useState(navigator.onLine)
+    const [isOnline, setIsOnline] = useState(isBrowser() && navigator.onLine)
     const [signup_status, setSignupStatus] = useState<
         | 'Username not available'
         | 'lost connection'
@@ -160,7 +162,7 @@ const AffiliateSignup = () => {
                 address_postcode: affiliate_account.address_details.postal_code,
                 address_state: affiliate_account.address_details.state,
                 address_street: affiliate_account.address_details.street,
-                commission_plan: 2,
+                commission_plan: affiliate_account.account.plan,
                 country: affiliate_account.address_details.country?.value,
                 date_of_birth: affiliate_account.personal_details.date_birth
                     ?.toISOString()
@@ -168,15 +170,15 @@ const AffiliateSignup = () => {
                 email: affiliate_account.email,
                 first_name: affiliate_account.personal_details.first_name,
                 last_name: affiliate_account.personal_details.last_name,
-                non_pep_declaration: 1,
+                non_pep_declaration: affiliate_account.terms_of_use.non_pep_declaration && 1,
                 over_18_declaration: 1,
                 phone: `+${
                     affiliate_account.phone_number.prefix + affiliate_account.phone_number.phone
                 }`,
                 phone_code: Number(affiliate_account.phone_number.prefix),
-                tnc_accepted: 1,
-                tnc_affiliate_accepted: 1,
-                type_of_account: 2,
+                tnc_accepted: affiliate_account.terms_of_use.tnc_accepted && 1,
+                tnc_affiliate_accepted: affiliate_account.terms_of_use.is_partner_checked && 1,
+                type_of_account: affiliate_account.account.type,
                 user_name: affiliate_account.personal_details.username,
                 website_url: affiliate_account.personal_details?.website_url,
                 whatsapp_number: `+${
@@ -205,22 +207,24 @@ const AffiliateSignup = () => {
                         setAffiliateAccount={setAffiliateAccount}
                         setShowWizard={setShowWizard}
                     />
-                    {show_wizard && (
-                        <WizardComponent
-                            show_wizard={show_wizard}
-                            setShowWizard={setShowWizard}
+                    <Suspense fallback={<div>Loading</div>}>
+                        {show_wizard && (
+                            <WizardComponent
+                                show_wizard={show_wizard}
+                                setShowWizard={setShowWizard}
+                                affiliate_account={affiliate_account}
+                                setAffiliateAccount={setAffiliateAccount}
+                                onSubmit={onSubmit}
+                            />
+                        )}
+                        <AffiliateSignupStatus
+                            signup_status={signup_status}
+                            setSignupStatus={setSignupStatus}
                             affiliate_account={affiliate_account}
                             setAffiliateAccount={setAffiliateAccount}
                             onSubmit={onSubmit}
                         />
-                    )}
-                    <AffiliateSignupStatus
-                        signup_status={signup_status}
-                        setSignupStatus={setSignupStatus}
-                        affiliate_account={affiliate_account}
-                        setAffiliateAccount={setAffiliateAccount}
-                        onSubmit={onSubmit}
-                    />
+                    </Suspense>
                 </StyledFlexWrapper>
             </AtomicContainer.Fluid>
         </>

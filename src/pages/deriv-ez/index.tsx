@@ -6,6 +6,7 @@ import ProtectedRoute from 'features/components/molecules/protected-route'
 
 const DerivEZPage = () => {
     const { is_eu, is_region_loading } = useRegion()
+    //dummy
     return (
         <ProtectedRoute
             is_page_visible={!is_eu}

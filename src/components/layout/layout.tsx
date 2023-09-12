@@ -18,8 +18,6 @@ import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
 import BannerAlert from 'components/custom/_banner-alert'
 import { bannerTypes } from 'common/constants'
 
-// const LoadableFooter = Loadable(() => import('./footer'))
-// const BeSquareFooter = Loadable(() => import('./besquare/footer'))
 const RebrandingFooter = loadable(() => import('features/components/templates/footer'))
 
 type LayoutProps = {

@@ -10,9 +10,6 @@ export type WizardProps = {
     children?: React.ReactElement[]
     show_wizard?: boolean | number
     setShowWizard?: React.Dispatch<React.SetStateAction<boolean>>
-    setSignupStatus?: React.Dispatch<
-        React.SetStateAction<'username already exist' | 'lost connection' | 'success'>
-    >
     onSubmit: () => void
     steps_names?: string[]
     step?: number
@@ -66,7 +63,6 @@ const Wizard = ({
     children,
     show_wizard,
     setShowWizard,
-    setSignupStatus,
     onSubmit,
     steps_names,
     step,
@@ -102,7 +98,6 @@ const Wizard = ({
                     setStep={setStep}
                     max_step={children.length}
                     setNextBtnEnabled={setNextBtnEnabled}
-                    setSignupStatus={setSignupStatus}
                     onSubmit={onSubmit}
                     disabled={!next_btn_enabled}
                 />

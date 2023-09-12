@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import validation from '../validations/_validations'
+import affiliate_validation from '../validations/_affilaite_validation'
 import BirthForm from '../utils/_birth-form'
 import AffiliateInput from '../utils/_affiliate-input'
 import { localize } from 'components/localization'
@@ -31,31 +31,6 @@ type PersonalDetailsProps = {
     is_individual: boolean
     affiliate_personal_data: PersonalDataProps
 }
-
-// const CurrencyWrapper = styled.div`
-//     display: flex;
-//     flex-direction: row;
-//     align-items: center;
-//
-//     span {
-//         display: flex;
-//         flex-direction: row;
-//     }
-//     span::before,
-//     span::after {
-//         content: '';
-//         flex: 1 1;
-//         border-bottom: 1px solid;
-//         margin: auto;
-//         color: var(--color-grey-8);
-//     }
-//     span::before {
-//         margin-right: 8px;
-//     }
-//     span::after {
-//         margin-left: 8px;
-//     }
-// `
 
 const InputGroup = styled.div`
     display: flex;
@@ -288,15 +263,15 @@ const PersonalDetails = ({
         switch (name) {
             case 'username': {
                 setUsername(value)
-                return setUserNameErrorMsg(validation.username(value))
+                return setUserNameErrorMsg(affiliate_validation.username(value))
             }
             case 'first_name': {
                 setFirstName(value)
-                return setFirstNameErrorMsg(validation.first_name(value))
+                return setFirstNameErrorMsg(affiliate_validation.first_name(value))
             }
             case 'last_name': {
                 setLastName(value)
-                return setLastNameErrorMsg(validation.last_name(value))
+                return setLastNameErrorMsg(affiliate_validation.last_name(value))
             }
             case 'date_birth': {
                 setDateBirth(value)
@@ -304,23 +279,25 @@ const PersonalDetails = ({
             }
             case 'company_name': {
                 setCompanyName(value)
-                return setCompanyNameErrorMsg(validation.company_name(value))
+                return setCompanyNameErrorMsg(affiliate_validation.company_name(value))
             }
             case 'company_registration_number': {
                 setCompanyRegistrationNumber(value)
-                return setCompanyRegistrationErrorMsg(validation.company_registration_number(value))
+                return setCompanyRegistrationErrorMsg(
+                    affiliate_validation.company_registration_number(value),
+                )
             }
             case 'website_url': {
                 setWebsiteUrl(value)
-                return setWebsiteUrlErrorMsg(validation.website_url(value))
+                return setWebsiteUrlErrorMsg(affiliate_validation.website_url(value))
             }
             case 'social_media_url': {
                 setSocialMedia(value)
-                return setSocialMediaErrorMsg(validation.social_media_url(value))
+                return setSocialMediaErrorMsg(affiliate_validation.social_media_url(value))
             }
             case 'password': {
                 setPassword(value)
-                return setPasswordErrorMsg(validation.password(value))
+                return setPasswordErrorMsg(affiliate_validation.password(value))
             }
         }
     }

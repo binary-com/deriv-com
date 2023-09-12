@@ -28,7 +28,6 @@ const enum ButtonType {
 const Footer = ({
     step,
     setStep,
-    setSignupStatus,
     onSubmit,
     max_step,
     setNextBtnEnabled,

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import validation from '../validations/_validations'
+import affiliate_validation from '../validations/_affilaite_validation'
 import AffiliateInput from '../utils/_affiliate-input'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
@@ -75,7 +75,7 @@ const PhoneNumber = ({ updatedData, onValidate, affiliate_phone_number }: PhoneN
     const handlePhoneNumber = (e) => {
         const { value } = e.target
         setPhone(value)
-        setPhoneErrorMsg(validation.phone(value))
+        setPhoneErrorMsg(affiliate_validation.phone(value))
     }
 
     return (

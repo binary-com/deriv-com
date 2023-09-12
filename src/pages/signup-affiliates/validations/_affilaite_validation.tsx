@@ -3,6 +3,7 @@ import { localize, Localize } from 'components/localization'
 /* eslint-disable */
 
 export const affiliate_validation_regex = {
+    email: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
     alphabet: /^([a-zA-Z0-9-]){1,30}$/,
     latin: /[^a-zA-Za 0-9/!@"?¨'_.,-]/,
     name: /[^a-zA-Za -]/,
@@ -20,6 +21,13 @@ const validation_is_exceed_number = (input, max_digit) => {
 
 const validation_is_lack_number = (input, min_digit) => input.length + 1 > min_digit
 
+const emailValidation = (input) => {
+    if (!input) {
+        return <Localize translate_text="_t_Email is required_t_" />
+    } else if (!affiliate_validation_regex.email.test(input)) {
+        return localize('_t_Wrong email_t_')
+    }
+}
 const userNameValidation = (input) => {
     if (!input) {
         return <Localize translate_text="_t_User name is required_t_" />
@@ -152,7 +160,10 @@ const urlValidation = (input) => {
     }
 }
 
-const validation = {
+const affiliate_validation = {
+    email: (input) => {
+        return emailValidation(input)
+    },
     username: (input) => {
         return userNameValidation(input)
     },
@@ -208,4 +219,4 @@ const validation = {
         return urlValidation(input)
     },
 }
-export default validation
+export default affiliate_validation

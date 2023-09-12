@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import AffiliateInput from '../utils/_affiliate-input'
-import validation from '../validations/_validations'
+import affiliate_validation from '../validations/_affilaite_validation'
 import residence_list from './_residence-list'
 import { DropdownSearch } from 'components/elements'
 import { localize } from 'components/localization'
@@ -13,7 +13,7 @@ type CountryType = {
     value: string
 }
 type AccountDetailsProps = {
-    residence_list: CountryType[]
+    residence_list?: CountryType[]
     updateData: (e) => void
     onValidate: (e) => void
     affiliate_address_data: {
@@ -157,23 +157,23 @@ const AccountDetails = ({
         switch (name) {
             case 'country': {
                 setCountry(value)
-                return setCountryErrorMsg(validation.country(value))
+                return setCountryErrorMsg(affiliate_validation.country(value))
             }
             case 'state': {
                 setState(value)
-                return setStateErrorMsg(validation.address_state(value))
+                return setStateErrorMsg(affiliate_validation.address_state(value))
             }
             case 'city': {
                 setCity(value)
-                return setCityErrorMsg(validation.address_city(value))
+                return setCityErrorMsg(affiliate_validation.address_city(value))
             }
             case 'street': {
                 setStreet(value)
-                return setStreetErrorMsg(validation.address_street(value))
+                return setStreetErrorMsg(affiliate_validation.address_street(value))
             }
             case 'postal_code': {
                 setPostCode(value)
-                return setPostCodeErrorMsg(validation.address_postal_code(value))
+                return setPostCodeErrorMsg(affiliate_validation.address_postal_code(value))
             }
         }
     }

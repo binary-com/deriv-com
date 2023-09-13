@@ -18,7 +18,7 @@ describe('EU Language pop up in the navigation', () => {
         cy.get('#radix-6 div').should('have.length', languageArrayLength)
     })
 
-    it('Should visit deriv.com on each language', () => {
+    it('EU - Should visit eu.deriv.com on each language', () => {
         const baseUrl = Cypress.env('base_url_eu') || 'https://eu.deriv.com'
         Cypress.env('languages').forEach((language) => {
             const url = `${baseUrl}/${language}/`

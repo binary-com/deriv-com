@@ -1,5 +1,4 @@
 import React from 'react'
-import { Script } from 'gatsby'
 import AccumulatorsOptions from 'features/pages/options/accumulator'
 import { faq_schema } from 'features/pages/options/accumulator/_faq-schema'
 import { WithIntl } from 'components/localization'
@@ -28,6 +27,6 @@ export const Head = ({ pageContext }: TGatsbyHead) => (
             description="_t_Grow your potential payout at every tick with accumulator options. Accumulator trading is available on volatility indices under derived indices._t_"
             pageContext={pageContext}
         />
-        <Script type="application/ld+json">{JSON.stringify(faq_schema)}</Script>
+        <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
     </>
 )

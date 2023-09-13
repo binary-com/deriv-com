@@ -1,5 +1,4 @@
 import React from 'react'
-import { Script } from 'gatsby'
 import QuestionsSection from './components/_questions-section'
 import SearchSection from './components/_search-section'
 import faq_schema from './components/_faq-schema'
@@ -43,6 +42,6 @@ export const Head = ({ pageContext }: TGatsbyHead) => (
             description="_t_Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question._t_"
             pageContext={pageContext}
         />
-        <Script type="application/ld+json">{JSON.stringify(faq_schema)}</Script>
+        <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
     </>
 )

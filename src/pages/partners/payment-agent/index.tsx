@@ -1,6 +1,5 @@
 import React from 'react'
 import Loadable from '@loadable/component'
-import { Script } from 'gatsby'
 import Hero from './_pa-hero'
 import TapInto from './_tap-into'
 import { faq_schema } from './_faq-schema'
@@ -61,6 +60,6 @@ export const Head = ({ pageContext }: TGatsbyHead) => (
             meta_attributes={meta_attributes}
             pageContext={pageContext}
         />
-        <Script type="application/ld+json">{JSON.stringify(faq_schema)}</Script>
+        <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
     </>
 )

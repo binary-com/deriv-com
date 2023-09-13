@@ -175,7 +175,7 @@ const SEO = ({
                 <meta key={data.name} {...data} />
             ))}
             {has_organization_schema && (
-                <Script type="application/ld+json">{JSON.stringify(organization_schema)}</Script>
+                <script type="application/ld+json">{JSON.stringify(organization_schema)}</script>
             )}
             {!is_non_localized &&
                 languages

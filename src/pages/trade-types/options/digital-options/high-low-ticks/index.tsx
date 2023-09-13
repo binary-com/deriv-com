@@ -1,5 +1,4 @@
 import React from 'react'
-import { Script } from 'gatsby'
 import HighLowDigitalOptionsPage from 'features/pages/options/digital/high-low'
 import { faq_schema } from 'features/pages/options/digital/high-low/_faq-schema'
 import { WithIntl } from 'components/localization'
@@ -28,6 +27,6 @@ export const Head = ({ pageContext }: TGatsbyHead) => (
             description="_t_Open a digital options contract with a High/Low ticks trade type on Deriv’s trading platforms and earn payouts with accurate market predictions._t_"
             pageContext={pageContext}
         />
-        <Script type="application/ld+json">{JSON.stringify(faq_schema)}</Script>
+        <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
     </>
 )

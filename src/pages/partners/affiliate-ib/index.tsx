@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
-import { Script } from 'gatsby'
 import Hero from './_hero'
 import { WhyUsType } from './_why-us'
 import { faq_schema } from './_faq-schema'
@@ -214,6 +213,6 @@ export const Head = ({ pageContext }: TGatsbyHead) => (
             meta_attributes={meta_attributes}
             pageContext={pageContext}
         />
-        <Script type="application/ld+json">{JSON.stringify(faq_schema)}</Script>
+        <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
     </>
 )

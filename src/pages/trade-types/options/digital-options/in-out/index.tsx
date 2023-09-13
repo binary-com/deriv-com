@@ -1,5 +1,4 @@
 import React from 'react'
-import { Script } from 'gatsby'
 import { WithIntl } from 'components/localization'
 import InOutDigitalOptionsPage from 'features/pages/options/digital/in-out'
 import { faq_schema } from 'features/pages/options/digital/in-out/_faq-schema'
@@ -28,6 +27,6 @@ export const Head = ({ pageContext }: TGatsbyHead) => (
             description="_t_Open a digital options contract with an In/Out trade type on Deriv’s trading platforms and earn payouts with accurate market predictions._t_"
             pageContext={pageContext}
         />
-        <Script type="application/ld+json">{JSON.stringify(faq_schema)}</Script>
+        <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
     </>
 )

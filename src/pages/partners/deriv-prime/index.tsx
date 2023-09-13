@@ -1,10 +1,9 @@
 import React from 'react'
-import { Script } from 'gatsby'
 import { WithIntl } from 'components/localization'
 import DerivPrime from 'features/pages/partners/deriv-prime'
+import { faq_schema } from 'features/pages/partners/deriv-prime/browse-our-faq/_faq-schema'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
-import { faq_schema } from 'features/pages/partners/deriv-prime/browse-our-faq/_faq-schema'
 
 const DerivPrimePage = () => {
     return <DerivPrime />
@@ -19,6 +18,6 @@ export const Head = ({ pageContext }: TGatsbyHead) => (
             title="_t_Liquidity solutions provider | Deriv Prime_t_"
             pageContext={pageContext}
         />
-        <Script type="application/ld+json">{JSON.stringify(faq_schema)}</Script>
+        <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
     </>
 )

@@ -21,6 +21,7 @@
         "commander": "^8.3.0",
         "crc-32": "^1.2.0",
         "cssnano": "^5.1.15",
+        "cypress": "^13.1.0",
         "deriv-api-ts": "^1.0.7",
         "embla-carousel-autoplay": "^6.2.0",
         "embla-carousel-react": "^6.0.2",
@@ -157,7 +158,7 @@
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",
         "eslint": "DEBUG=eslint:cli-engine eslint {'src/**/*.{js,jsx,ts,tsx}','./*.js'} --fix",
-        "start": "npm run develop",
+        "start": "NODE_OPTIONS=--max-old-space-size=16384 npm run develop",
         "start-80": "sudo gatsby develop -p 80",
         "serve": "gatsby serve",
         "test": "npm run eslint && npm run stylelint",
@@ -182,7 +183,8 @@
         "storybook": "start-storybook -p 6006",
         "build:storybook": "build-storybook -c .storybook -o public/storybook",
         "codegen": "graphql-codegen --config codegen.yml",
-        "codegen:watch": "graphql-codegen --config codegen.yml --watch"
+        "codegen:watch": "graphql-codegen --config codegen.yml --watch",
+        "cypress:open": "cypress open"
     },
     "repository": {
         "type": "git",

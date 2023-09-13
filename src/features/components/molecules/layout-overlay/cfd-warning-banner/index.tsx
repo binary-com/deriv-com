@@ -59,7 +59,7 @@ const CfdWarningBanner = () => {
                             ) : (
                                 <Container.Fluid margin_inline="10x">
                                     <Localize
-                                        translate_text="_t_<0>73% of retail investor accounts lose money when trading CFDs with Deriv, read our full Risk disclosure here.</0>_t_"
+                                        translate_text="_t_<0>{{loss_percent}}% of retail investor accounts lose money when trading CFDs with Deriv, read our full Risk disclosure here.</0>_t_"
                                         values={{ loss_percent }}
                                         components={[
                                             <Link

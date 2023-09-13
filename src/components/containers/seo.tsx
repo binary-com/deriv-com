@@ -45,12 +45,12 @@ const languages = Object.keys(language_config)
 languages.push('x-default')
 
 const SEO = ({
-                 description,
-                 title,
-                 no_index,
-                 has_organization_schema,
-                 meta_attributes,
-             }: SeoProps) => {
+    description,
+    title,
+    no_index,
+    has_organization_schema,
+    meta_attributes,
+}: SeoProps) => {
     const queries: QueriesType = useStaticQuery(
         graphql`
             query {
@@ -73,16 +73,18 @@ const SEO = ({
     const site_url = queries.site.siteMetadata.siteUrl
     const lang_direction = useLangDirection()
     // Added the context check
-    const contextValue = React.useContext(LocaleContext);
+    const contextValue = React.useContext(LocaleContext)
 
     if (contextValue && contextValue.locale) {
-        const { locale: lang, pathname } = contextValue;
+        const { locale: lang, pathname } = contextValue
         const formatted_lang = lang.replace('_', '-')
         const locale_pathname = pathname.charAt(0) === '/' ? pathname : `/${pathname}`
         const default_og_title = localize(
             '_t_Online trading with Deriv | Simple. Flexible. Reliable._t_',
         )
-        const default_og_description = localize('_t_Trading platforms designed with you in mind._t_')
+        const default_og_description = localize(
+            '_t_Trading platforms designed with you in mind._t_',
+        )
 
         // To block eu.deriv.com domain for search engines
         const block_eu = isBrowser() && eu_urls.includes(window.location.hostname)
@@ -220,22 +222,24 @@ const SEO = ({
                     },
                     block_eu
                         ? {
-                            name: 'robots',
-                            content: 'noindex, nofollow',
-                        }
+                              name: 'robots',
+                              content: 'noindex, nofollow',
+                          }
                         : {},
                     ...(no_index || no_index_staging || is_ach_page
                         ? [
-                            {
-                                name: 'robots',
-                                content: 'noindex',
-                            },
-                        ]
+                              {
+                                  name: 'robots',
+                                  content: 'noindex',
+                              },
+                          ]
                         : []),
                 ]}
             >
                 {has_organization_schema && (
-                    <script type="application/ld+json">{JSON.stringify(organization_schema)}</script>
+                    <script type="application/ld+json">
+                        {JSON.stringify(organization_schema)}
+                    </script>
                 )}
 
                 {!is_non_localized &&
@@ -269,7 +273,7 @@ const SEO = ({
         )
     } else {
         // Context value or locale property is not available
-        return null;
+        return null
     }
 }
 

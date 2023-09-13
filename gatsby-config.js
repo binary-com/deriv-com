@@ -11,6 +11,21 @@ const href = isBrowser && window.location.href
 const site_url =
     origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
 
+const strapi_preview_param = {
+    publicationState: 'live',
+}
+
+const strapi_config = [
+    {
+        singularName: 'who-we-are-page',
+        queryParams: strapi_preview_param,
+    },
+    {
+        singularName: 'cfd-warning-banner',
+        queryParams: strapi_preview_param,
+    },
+]
+
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     flags: {
@@ -349,6 +364,14 @@ module.exports = {
             options: {
                 analyzerMode: 'disabled',
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
+            },
+        },
+        {
+            resolve: 'gatsby-source-strapi',
+            options: {
+                apiURL: 'https://chief-skinny-instrument.strapiapp.com',
+                accessToken: process.env.GATSBY_STRAPI_TOKEN,
+                collectionTypes: strapi_config,
             },
         },
     ],

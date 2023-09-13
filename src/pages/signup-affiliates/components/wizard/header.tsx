@@ -22,7 +22,7 @@ const Title = styled.h2`
     font-size: 16px;
     font-weight: 700;
     padding-top: 4px;
-    color: '#333333';
+    color: var(--color-black-3);
 `
 
 type HeaderProps = {

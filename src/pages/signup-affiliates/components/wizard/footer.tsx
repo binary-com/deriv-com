@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { WizardProps } from './index'
 import Button from 'components/form/button'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 
 const StyledFooter = styled.div`
     display: flex;
@@ -59,7 +59,11 @@ const Footer = ({
                 disabled={disabled}
                 onClick={() => (max_step === step ? onSubmit() : buttonHandler(ButtonType.Next))}
             >
-                {max_step === step ? localize('_t_Submit_t_') : localize('_t_Next_t_')}
+                {max_step === step ? (
+                    <Localize translate_text="_t_Submit_t_" />
+                ) : (
+                    <Localize translate_text="_t_Next_t_" />
+                )}
             </Button>
         </StyledFooter>
     )

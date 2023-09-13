@@ -4,6 +4,7 @@ import AffiliateSignupForm from './components/_signup-form'
 import { isBrowser } from 'common/utility'
 import { WithIntl } from 'components/localization'
 import { Container } from 'components/containers'
+import InitialLoader from 'components/elements/dot-loader'
 import useWS from 'components/hooks/useWS'
 import Link from 'features/components/atoms/link'
 import Image from 'features/components/atoms/image'
@@ -207,7 +208,7 @@ const AffiliateSignup = () => {
                         setAffiliateAccount={setAffiliateAccount}
                         setShowWizard={setShowWizard}
                     />
-                    <Suspense fallback={<div>Loading</div>}>
+                    <Suspense fallback={<InitialLoader />}>
                         {show_wizard && (
                             <WizardComponent
                                 show_wizard={show_wizard}

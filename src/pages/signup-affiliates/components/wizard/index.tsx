@@ -94,12 +94,12 @@ const Wizard = ({
                     ))}
                 </Wrapper>
                 <Footer
+                    disabled={!next_btn_enabled}
                     step={step}
-                    setStep={setStep}
                     max_step={children.length}
+                    setStep={setStep}
                     setNextBtnEnabled={setNextBtnEnabled}
                     onSubmit={onSubmit}
-                    disabled={!next_btn_enabled}
                 />
             </Modal>
             <Background />

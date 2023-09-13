@@ -50,8 +50,8 @@ const AffiliateSignup = () => {
     const [affiliate_account, setAffiliateAccount] = useState({
         email: '',
         account: {
-            type: '',
-            plan: '',
+            type: 0,
+            plan: 0,
         },
         address_details: {
             country: {},

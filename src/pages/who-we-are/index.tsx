@@ -17,26 +17,25 @@ import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
-import { TGatsbyHead } from 'features/types'
 
 const StartSeparator = styled.div`
-  width: 0;
-  height: 0;
-  border-top: 120px solid transparent;
-  border-right: 99vw solid var(--color-grey-30);
-  @media ${device.tabletL} {
-    border-top: 40px solid transparent;
-  }
+    width: 0;
+    height: 0;
+    border-top: 120px solid transparent;
+    border-right: 99vw solid var(--color-grey-30);
+    @media ${device.tabletL} {
+        border-top: 40px solid transparent;
+    }
 `
 
 const EndSeparator = styled.div`
-  width: 0;
-  height: 0;
-  border-left: 99vw solid var(--color-grey-30);
-  border-bottom: 120px solid transparent;
-  @media ${device.tabletL} {
-    border-bottom: 40px solid transparent;
-  }
+    width: 0;
+    height: 0;
+    border-left: 99vw solid var(--color-grey-30);
+    border-bottom: 120px solid transparent;
+    @media ${device.tabletL} {
+        border-bottom: 40px solid transparent;
+    }
 `
 
 const AboutUs = ({ data }: TWhoWeAre) => {
@@ -52,6 +51,10 @@ const AboutUs = ({ data }: TWhoWeAre) => {
     } = data?.strapiWhoWeArePage || {}
     return (
         <Layout>
+            <SEO
+                title="_t_Who we are | An Online Trading Platform | Deriv.com_t_"
+                description="_t_Deriv is a pioneering and award-winning online trading platform that offers a wide selection of derivatives for anyone, anywhere to trade._t_"
+            />
             <Hero hero={hero} />
             <MakeTrading hero={hero} />
             <StartSeparator />
@@ -224,11 +227,3 @@ export const query = graphql`
 `
 
 export default WithIntl()(AboutUs)
-
-export const Head = ({ pageContext }: TGatsbyHead) => (
-    <SEO
-        title="_t_Who we are | An Online Trading Platform | Deriv.com_t_"
-        description="_t_Deriv is a pioneering and award-winning online trading platform that offers a wide selection of derivatives for anyone, anywhere to trade._t_"
-        pageContext={pageContext}
-    />
-)

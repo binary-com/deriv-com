@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import { SectionContainer, Flex, Container } from 'components/containers'
@@ -9,6 +9,7 @@ import useRegion from 'components/hooks/use-region'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { isBrowser } from 'common/utility'
 import { TString } from 'types/generics'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 type CardProps = {
     active_tab: string
@@ -103,7 +104,7 @@ const CardContainer = styled(Flex)<CardContainerProps>`
             border-bottom: ${(props) =>
                 props.active_tab === props.name.toLocaleLowerCase()
                     ? '2px solid var(--color-red)'
-                    : '2px solid var(--color-black-3    )'};
+                    : '2px solid var(--color-black-3)'};
 
             @media (min-width: 320px) and (max-width: 992px) {
                 width: 30vw;
@@ -186,9 +187,6 @@ const Card = ({ display_name, active_tab, name }: CardProps) => {
             is_rtl={is_rtl}
         >
             <Flex height="fit-content" jc="flex-start" ai="center" style={{ overflow: 'visible' }}>
-                {name === 'CFDs'}
-                {name === 'Options'}
-                {name === 'Multipliers'}
                 <CardHeader as="h4" width="auto">
                     <Localize translate_text={display_name} />
                 </CardHeader>
@@ -205,7 +203,12 @@ const AvailableTradesDesktop = ({
 }: AvailableTradesProps) => {
     const { is_non_eu } = useRegion()
     const params = new URLSearchParams(isBrowser() && location.search)
-    const tab = params.get('tab')
+    const [tab, setTab] = useState('cfds')
+    useEffect(() => {
+        setTab(params.get('tab') || 'cfds')
+    }, [params])
+
+    const { is_deriv_go } = usePlatformQueryParam()
 
     return (
         <StyledSection>
@@ -215,29 +218,35 @@ const AvailableTradesDesktop = ({
             <StyledContainer direction="column">
                 <CardWrapper position="relative" id="available-trades">
                     {CFDs && (
-                        <Link to="?tab=cfds#cfds">
-                            <Card
-                                name="CFDs"
-                                display_name="_t_CFDs_t_"
-                                active_tab={tab || 'cfds'}
-                            />
+                        <Link
+                            to={is_deriv_go ? '?tab=cfds&platform=derivgo#cfds' : '?tab=cfds#cfds'}
+                        >
+                            <Card name="CFDs" display_name="_t_CFDs_t_" active_tab={tab} />
                         </Link>
                     )}
                     {is_non_eu && DigitalOptions && (
-                        <Link to="?tab=options#options">
-                            <Card
-                                name="Options"
-                                display_name="_t_Options_t_"
-                                active_tab={tab || 'cfds'}
-                            />
+                        <Link
+                            to={
+                                is_deriv_go
+                                    ? '?tab=options&platform=derivgo#options'
+                                    : '?tab=options#options'
+                            }
+                        >
+                            <Card name="Options" display_name="_t_Options_t_" active_tab={tab} />
                         </Link>
                     )}
                     {Multipliers && (
-                        <Link to="?tab=multipliers#multipliers">
+                        <Link
+                            to={
+                                is_deriv_go
+                                    ? '?tab=multipliers&platform=derivgo#multipliers'
+                                    : '?tab=multipliers#multipliers'
+                            }
+                        >
                             <Card
                                 name="Multipliers"
                                 display_name="_t_Multipliers_t_"
-                                active_tab={tab || 'cfds'}
+                                active_tab={tab}
                             />
                         </Link>
                     )}

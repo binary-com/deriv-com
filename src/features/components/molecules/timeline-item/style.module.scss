@@ -1,0 +1,26 @@
+@import 'features/styles/theme/variables';
+
+.timeline_item {
+    max-inline-size: 74.4rem;
+    position: relative;
+    isolation: isolate;
+    &:before {
+        position: absolute;
+        content: '';
+        inset-inline-start: 10px;
+        border-inline-start: 2px dashed $color-brand;
+        z-index: -1;
+    }
+}
+.last_item {
+    &:before {
+        inset-block-start: 1px;
+        block-size: 20px;
+    }
+}
+.not_last_item {
+    &::before {
+        inset-block-end: -5px;
+        inset-block-start: 8px;
+    }
+}

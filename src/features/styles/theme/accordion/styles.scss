@@ -1,3 +1,6 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
 .accordion_root {
     inline-size: 100%;
 }
@@ -23,12 +26,17 @@
         }
     }
 
-    &_item {
-        overflow: hidden;
+    &_shadow_item {
+        margin-block-end: 2rem;
+        &_trigger {
+            box-shadow: 0px 1px 2px 0px rgba(14, 14, 14, 0.06),
+                0px 1px 3px 0px rgba(14, 14, 14, 0.1);
+        }
     }
 
     &_content {
         padding-inline: 1rem;
+        overflow: hidden;
 
         &[data-state='open'] {
             animation: slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1);
@@ -46,16 +54,29 @@
         align-items: center;
         inline-size: 100%;
         text-align: start;
-        padding-inline: 1rem;
+        padding-inline: 1.6rem;
         min-block-size: 5rem;
 
         .accordion_icon {
             transition: transform 0.25s linear;
             transform: rotate(-180deg);
         }
+        .plus_icon {
+            inline-size: 1.6rem;
+            block-size: 1.6rem;
+            background: url(images/svg/elements/plus.svg) no-repeat top left;
+            background-size: contain;
+            min-inline-size: 3.6rem;
 
-        &[data-state='open'] .accordion_icon {
-            transform: rotate(0deg);
+            @include breakpoints(phone) {
+                inline-size: 2.4rem;
+                block-size: 2.4rem;
+            }
+        }
+
+        &[data-state='open'] .plus_icon {
+            background: url(images/svg/elements/minus.svg) no-repeat top left;
+            background-size: contain;
         }
 
         &:active,

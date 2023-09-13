@@ -33,22 +33,26 @@ const Link = styled(LocalizedLink)`
     }
 `
 
-const SearchSuccess = ({ suggested_topics }: TSearchSuccess) => (
-    <>
-        <Header as="h3" type="heading-3" color="black">
-            <Localize translate_text="_t_Topic suggestions_t_" />
-        </Header>
+const SearchSuccess = ({ suggested_topics }: TSearchSuccess) => {
+    const filtered_topics = [...new Set(suggested_topics)]
 
-        <StyledList>
-            {suggested_topics.slice(0, 3).map(({ category, question, label }) => (
-                <ListItem key={label}>
-                    <Link to={convertToHash(category, label)}>
-                        <Localize translate_text={question} />
-                    </Link>
-                </ListItem>
-            ))}
-        </StyledList>
-    </>
-)
+    return (
+        <>
+            <Header as="h3" type="heading-3" color="black">
+                <Localize translate_text="_t_Topic suggestions_t_" />
+            </Header>
+
+            <StyledList>
+                {filtered_topics.slice(0, 3).map(({ category, question, label }) => (
+                    <ListItem key={label}>
+                        <Link to={convertToHash(category, label)}>
+                            <Localize translate_text={question} />
+                        </Link>
+                    </ListItem>
+                ))}
+            </StyledList>
+        </>
+    )
+}
 
 export default SearchSuccess

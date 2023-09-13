@@ -208,7 +208,7 @@ const AffiliateSignup = () => {
                         setAffiliateAccount={setAffiliateAccount}
                         setShowWizard={setShowWizard}
                     />
-                    <Suspense fallback={<InitialLoader />}>
+                    <Suspense fallback={<InitialLoader style={{ position: 'absolute' }} />}>
                         {show_wizard && (
                             <WizardComponent
                                 show_wizard={show_wizard}

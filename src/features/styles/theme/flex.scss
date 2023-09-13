@@ -86,6 +86,9 @@ $flex-medias: (md, lg);
 .flex-dir-col-reverse {
     flex-direction: column-reverse;
 }
+.flex-basis-0 {
+    flex-basis: 0%;
+}
 .flex-basis-1-2 {
     flex-basis: 50%;
 }
@@ -166,6 +169,9 @@ $flex-medias: (md, lg);
 }
 .flex-basis-full {
     flex-basis: 100%;
+}
+.flex-basis-auto {
+    flex-basis: auto;
 }
 
 @mixin flex($media-name) {
@@ -331,6 +337,12 @@ $flex-medias: (md, lg);
         }
     }
 
+    .#{$media-name + #{'-'}}flex-basis-0 {
+        @include media($media-name) {
+            flex-basis: 0%;
+        }
+    }
+
     .#{$media-name + #{'-'}}flex-basis-1-2 {
         @include media($media-name) {
             flex-basis: 50%;
@@ -490,6 +502,12 @@ $flex-medias: (md, lg);
     .#{$media-name + #{'-'}}flex-basis-full {
         @include media($media-name) {
             flex-basis: 100%;
+        }
+    }
+
+    .#{$media-name + #{'-'}}flex-basis-auto {
+        @include media($media-name) {
+            flex-basis: auto;
         }
     }
 }

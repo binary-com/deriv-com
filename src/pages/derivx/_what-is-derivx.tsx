@@ -37,7 +37,7 @@ const WhatIsDeriv = () => {
                         <Localize translate_text="_t_What is Deriv X_t_" />
                     </StyledHeader>
                     <StyledText mt="16px" align="center" as="p" type="paragraph-1">
-                        <Localize translate_text="_t_Deriv X is a customisable multi-asset trading platform. Offering CFDs on forex, commodities, exchange-traded funds, stocks & indices, cryptocurrencies, and derived, Deriv X gives you a versatile trading experience that lets you customise your trading environment._t_" />
+                        <Localize translate_text="_t_Deriv X is a customisable multi-asset trading platform. Offering CFDs on forex, commodities, exchange-traded funds, stocks & indices, cryptocurrencies, and derived indices, Deriv X gives you a versatile trading experience that lets you customise your trading environment._t_" />
                     </StyledText>
                 </Flex>
             </Container>

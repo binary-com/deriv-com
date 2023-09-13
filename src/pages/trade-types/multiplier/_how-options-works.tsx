@@ -127,7 +127,7 @@ const HowOptionsWorks = () => {
                     >
                         {is_eu ? (
                             <StaticImage
-                                src="../../../images/common/trade-types/multiplier-market-eu.png"
+                                src="../../../images/common/trade-types/multiplier-market-eu-new.png"
                                 alt={localize('_t_Select market to trade_t_')}
                                 loading="eager"
                                 formats={['avif', 'webp', 'auto']}
@@ -137,7 +137,7 @@ const HowOptionsWorks = () => {
                             />
                         ) : (
                             <StaticImage
-                                src="../../../images/common/trade-types/multiplier-market.png"
+                                src="../../../images/common/trade-types/multiplier-market-new.png"
                                 alt={localize('_t_Select market to trade_t_')}
                                 loading="eager"
                                 formats={['avif', 'webp', 'auto']}

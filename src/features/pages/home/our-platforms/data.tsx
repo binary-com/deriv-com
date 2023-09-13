@@ -8,7 +8,6 @@ import DerivXIcon from 'images/svg/custom/rebranding/deriv-x-icon.svg'
 import DBotIcon from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
 import BinaryBotIcon from 'images/svg/custom/rebranding/binarybot-icon.svg'
 import SmartTraderIcon from 'images/svg/custom/rebranding/smarttrader-icon.svg'
-import APIIcon from 'images/svg/custom/rebranding/deriv-api-icon.svg'
 import DerivEzIcon from 'images/svg/custom/rebranding/deriv-ez-icon.svg'
 import Link from 'features/components/atoms/link'
 import {
@@ -157,15 +156,24 @@ const platformSliderItems: SmartPlatformItem[] = [
                     />,
                 ],
             },
-            image: (
-                <StaticImage
-                    objectFit="contain"
-                    src="../../../../images/common/home/rebranding/platform_deriv_trader.png"
-                    alt="deriv trader"
-                    formats={['avif', 'webp', 'auto']}
-                    placeholder="none"
-                />
-            ),
+            image: ({ is_eu }) =>
+                is_eu ? (
+                    <StaticImage
+                        objectFit="contain"
+                        src="../../../../images/common/home/rebranding/platform_deriv_trader_eu.png"
+                        alt="deriv trader"
+                        formats={['avif', 'webp', 'auto']}
+                        placeholder="none"
+                    />
+                ) : (
+                    <StaticImage
+                        objectFit="contain"
+                        src="../../../../images/common/home/rebranding/platform_deriv_trader.png"
+                        alt="deriv trader"
+                        formats={['avif', 'webp', 'auto']}
+                        placeholder="none"
+                    />
+                ),
         },
     },
     {
@@ -352,41 +360,6 @@ const platformSliderItems: SmartPlatformItem[] = [
                     objectFit="contain"
                     src="../../../../images/common/home/rebranding/platform_binary_bot.png"
                     alt="binary bot"
-                    formats={['avif', 'webp', 'auto']}
-                    placeholder="none"
-                />
-            ),
-        },
-        visibility: {
-            is_eu: false,
-        },
-    },
-    {
-        id: 8,
-        data: {
-            title: '_t_API_t_',
-            description: '_t_Build your own apps with our API._t_',
-            url: {
-                type: 'company',
-                url_name: 'api',
-            },
-            icon: APIIcon,
-            image_caption: {
-                text: '_t_Available on <0>web browser</0>_t_',
-                components: [
-                    <Link
-                        key={0}
-                        url={{ type: 'company', url_name: 'api' }}
-                        weight="bold"
-                        font_family="UBUNTU"
-                    />,
-                ],
-            },
-            image: (
-                <StaticImage
-                    objectFit="contain"
-                    src="../../../../images/common/home/rebranding/platform_deriv_api.png"
-                    alt="deriv api"
                     formats={['avif', 'webp', 'auto']}
                     placeholder="none"
                 />

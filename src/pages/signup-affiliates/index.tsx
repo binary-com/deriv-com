@@ -19,6 +19,46 @@ import PartnerNavLogo from 'images/svg/partner-nav-logo.svg'
 const AffiliateSignupStatus = React.lazy(() => import('./components/_signup-status'))
 const WizardComponent = React.lazy(() => import('./components/_wizard-component'))
 
+const Submit = (
+    isOnline: boolean,
+    affiliate_account: any,
+    setSignupStatus: any,
+    send_register: any,
+) => {
+    if (!isOnline) {
+        setSignupStatus('lost connection')
+    } else
+        send_register({
+            address_city: affiliate_account.address_details.city,
+            address_postcode: affiliate_account.address_details.postal_code,
+            address_state: affiliate_account.address_details.state,
+            address_street: affiliate_account.address_details.street,
+            commission_plan: affiliate_account.account.plan,
+            country: affiliate_account.address_details.country.symbol,
+            date_of_birth: affiliate_account.personal_details.date_birth
+                ?.toISOString()
+                .slice(0, 10),
+            email: affiliate_account.email,
+            first_name: affiliate_account.personal_details.first_name,
+            last_name: affiliate_account.personal_details.last_name,
+            non_pep_declaration: affiliate_account.terms_of_use.non_pep_declaration && 1,
+            over_18_declaration: 1,
+            phone: `+${
+                affiliate_account.phone_number.prefix + affiliate_account.phone_number.phone
+            }`,
+            phone_code: Number(affiliate_account.phone_number.prefix),
+            tnc_accepted: affiliate_account.terms_of_use.tnc_accepted && 1,
+            tnc_affiliate_accepted: affiliate_account.terms_of_use.is_partner_checked && 1,
+            type_of_account: affiliate_account.account.type,
+            user_name: affiliate_account.personal_details.username,
+            website_url: affiliate_account.personal_details?.website_url,
+            whatsapp_number: `+${
+                affiliate_account.phone_number.phone + affiliate_account.phone_number.prefix
+            }`,
+            whatsapp_number_phoneCode: Number(affiliate_account.phone_number.prefix),
+        })
+}
+
 const StyledFlexWrapper = styled(Container)`
     display: flex;
     flex-direction: row;
@@ -38,7 +78,7 @@ const StyledFlexWrapper = styled(Container)`
 
 const AffiliateSignup = () => {
     const [show_wizard, setShowWizard] = useState<boolean>(false)
-    const [isOnline, setIsOnline] = useState(isBrowser() && navigator.onLine)
+    const [is_online, setIsOnline] = useState(isBrowser() && navigator.onLine)
     const [signup_status, setSignupStatus] = useState<
         | 'Username not available'
         | 'lost connection'
@@ -69,7 +109,7 @@ const AffiliateSignup = () => {
             first_name: '',
             last_name: '',
             date_birth: '',
-            website_url: '',
+            website_url: 'www.',
             social_media_url: '',
             password: '',
             company_name: '',
@@ -77,11 +117,11 @@ const AffiliateSignup = () => {
             currency: '',
         },
         terms_of_use: {
-            non_pep_declaration: true,
-            tnc_accepted: true,
-            general_terms: true,
-            is_eu_checked: true,
-            is_partner_checked: true,
+            non_pep_declaration: false,
+            tnc_accepted: false,
+            general_terms: false,
+            is_eu_checked: false,
+            is_partner_checked: false,
         },
     })
 
@@ -101,8 +141,7 @@ const AffiliateSignup = () => {
             window.removeEventListener('online', handleStatusChange)
             window.removeEventListener('offline', handleStatusChange)
         }
-    }, [isOnline])
-
+    }, [is_online])
     useEffect(() => {
         if (error_register?.error.message == 'Username not available') {
             setSignupStatus(error_register?.error.message)
@@ -113,7 +152,6 @@ const AffiliateSignup = () => {
             setSignupStatus('success')
         }
     }, [data_register, error_register, send_register])
-
     useEffect(() => {
         setAffiliateAccount({
             ...affiliate_account,
@@ -123,71 +161,7 @@ const AffiliateSignup = () => {
             },
         })
     }, [affiliate_account.address_details.country])
-
-    // doesn't work in vercel due serverlsess features
-    // const { data, send } = useWS('residence_list')
-    // const [list, setList] = useState()
-    // useEffect(() => {
-    //     send({})
-    // }, [send])
-    //
-    // useEffect(() => {
-    //     if (data) {
-    //         const country_list = data?.map(({ text, value, phone_idd }) => {
-    //             return {
-    //                 name: text,
-    //                 display_name: text,
-    //                 value: value,
-    //                 prefix: phone_idd,
-    //             }
-    //         })
-    //         setList(country_list)
-    //     }
-    // }, [data])
-    // console.log(JSON.stringify(list))
-
-    // const { data, send } = useWS('verify_email_cellxpert')
-    //
-    // useEffect(() => {
-    //     // console.log({ ...user_data })
-    //     send({ ...user_data })
-    // }, [user_data])
-    // console.log(data)
-
-    const onSubmit = () => {
-        if (!isOnline) {
-            setSignupStatus('lost connection')
-        } else
-            send_register({
-                address_city: affiliate_account.address_details.city,
-                address_postcode: affiliate_account.address_details.postal_code,
-                address_state: affiliate_account.address_details.state,
-                address_street: affiliate_account.address_details.street,
-                commission_plan: affiliate_account.account.plan,
-                country: affiliate_account.address_details.country?.value,
-                date_of_birth: affiliate_account.personal_details.date_birth
-                    ?.toISOString()
-                    .slice(0, 10),
-                email: affiliate_account.email,
-                first_name: affiliate_account.personal_details.first_name,
-                last_name: affiliate_account.personal_details.last_name,
-                non_pep_declaration: affiliate_account.terms_of_use.non_pep_declaration && 1,
-                over_18_declaration: 1,
-                phone: `+${
-                    affiliate_account.phone_number.prefix + affiliate_account.phone_number.phone
-                }`,
-                phone_code: Number(affiliate_account.phone_number.prefix),
-                tnc_accepted: affiliate_account.terms_of_use.tnc_accepted && 1,
-                tnc_affiliate_accepted: affiliate_account.terms_of_use.is_partner_checked && 1,
-                type_of_account: affiliate_account.account.type,
-                user_name: affiliate_account.personal_details.username,
-                website_url: affiliate_account.personal_details?.website_url,
-                whatsapp_number: `+${
-                    affiliate_account.phone_number.phone + affiliate_account.phone_number.prefix
-                }`,
-                whatsapp_number_phoneCode: Number(affiliate_account.phone_number.prefix),
-            })
-    }
+    const onSubmit = () => Submit(is_online, affiliate_account, setSignupStatus, send_register)
 
     return (
         <>

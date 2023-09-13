@@ -50,7 +50,7 @@ const PhoneNumberInput = styled(AffiliateInput)`
 
 type PhoneNumberProps = {
     updatedData: (value: { phone: string; prefix: string }) => void
-    onValidate: (valid: number | true) => void
+    onValidate: (e) => void
     affiliate_phone_number: { phone: string; prefix: string }
 }
 

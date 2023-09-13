@@ -10,11 +10,14 @@ const formatResidenceList = (residences) => {
     if (!residences.length) {
         return []
     }
-    return residences?.map(({ text: display_name, text: name, value: symbol }) => ({
-        name,
-        display_name,
-        symbol,
-    }))
+    return residences?.map(
+        ({ text: display_name, text: name, value: symbol, phone_idd: prefix }) => ({
+            name,
+            display_name,
+            symbol,
+            prefix,
+        }),
+    )
 }
 
 export const useResidenceList = () => {

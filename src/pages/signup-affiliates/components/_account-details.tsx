@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import AffiliateInput from '../utils/_affiliate-input'
 import affiliate_validation from '../validations/_affilaite_validation'
-import residence_list from './_residence-list'
 import { DropdownSearch } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
@@ -48,6 +47,7 @@ const AccountDetails = ({
     updateData,
     affiliate_address_data,
     onValidate,
+    residence_list,
 }: AccountDetailsProps) => {
     const [country, setCountry] = useState(affiliate_address_data.country)
     const [state, setState] = useState(affiliate_address_data.state)
@@ -188,7 +188,7 @@ const AccountDetails = ({
                                 key={item.id}
                                 id={item.id}
                                 selected_item={item.value}
-                                onChange={(country) => setCountry(country)}
+                                onChange={(country) => item.value_set(country)}
                                 error={item.error}
                                 items={item.list}
                                 label={localize('_t_Country of residence_t_')}

@@ -6,6 +6,7 @@ import PhoneNumber from './_phone_number'
 import AccountTerms from './_account-terms'
 import PersonalDetails from './_account-personal-details'
 import Wizard from './wizard'
+import { useResidenceList } from 'features/hooks/use-residence-list'
 import { localize } from 'components/localization'
 import { Container } from 'components/containers'
 
@@ -45,6 +46,7 @@ const WizardComponent = ({
 }: WizardComponentProps) => {
     const [step, setStep] = useState(1)
     const [next_btn_enabled, setNextBtnEnabled] = useState(false)
+    const [residence_list] = useResidenceList()
 
     const updateAffiliateValues = (value, type) => {
         switch (type) {
@@ -56,7 +58,6 @@ const WizardComponent = ({
                 break
 
             case 'account-details':
-                // setNextBtnEnabled(false)
                 setAffiliateAccount({
                     ...affiliate_account,
                     address_details: {
@@ -69,7 +70,6 @@ const WizardComponent = ({
                 })
                 break
             case 'phone-number':
-                // setNextBtnEnabled(false)
                 setAffiliateAccount({
                     ...affiliate_account,
                     phone_number: {
@@ -79,7 +79,6 @@ const WizardComponent = ({
                 })
                 break
             case 'personal-details':
-                // setNextBtnEnabled(false)
                 setAffiliateAccount({
                     ...affiliate_account,
                     personal_details: {
@@ -97,7 +96,6 @@ const WizardComponent = ({
                 })
                 break
             case 'terms-of-use':
-                // setNextBtnEnabled(false)
                 setAffiliateAccount({
                     ...affiliate_account,
                     terms_of_use: {
@@ -141,6 +139,7 @@ const WizardComponent = ({
                 onValidate={(valid) => {
                     setNextBtnEnabled(valid)
                 }}
+                residence_list={residence_list}
             />
             <PhoneNumber
                 affiliate_phone_number={affiliate_account.phone_number}

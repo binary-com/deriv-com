@@ -88,6 +88,7 @@ export const smart_trader_languages = [
     'zh_cn',
     'zh_tw',
 ]
+export const affiliate_reset_password_link = 'https://login.deriv.com/password-reset.php'
 export const deriv_status_page_url = 'https://deriv.statuspage.io'
 export const deriv_bug_bounty_url = 'https://hackerone.com/deriv?type=team'
 export const derivx_ios_url = 'https://apps.apple.com/us/app/deriv-x/id1563337503'

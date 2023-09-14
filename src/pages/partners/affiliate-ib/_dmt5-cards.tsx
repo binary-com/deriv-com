@@ -38,11 +38,6 @@ const query = graphql`
         ) {
             ...fadeIn
         }
-        dmt5_financial_stp_calculator_two: file(
-            relativePath: { eq: "affiliate-and-ib/dmt5-financial-stp-calculator-two.png" }
-        ) {
-            ...fadeIn
-        }
         deriv_x_one: file(relativePath: { eq: "affiliate-and-ib/deriv_x_one.png" }) {
             ...fadeIn
         }

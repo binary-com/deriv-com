@@ -3,6 +3,7 @@ import { TQuestionsData } from './_data-types'
 const ib_programme: TQuestionsData = {
     section: 'General',
     category: '_t_IB programme_t_',
+    hide_for_eu: true,
     questions: [
         {
             question: '_t_How do I sign up as an introducing broker (IB)?_t_',

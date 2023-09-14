@@ -3792,10 +3792,6 @@ export type Unnamed_28_Query = {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
-    demo_step1_mobile: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
     demo_step2: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
@@ -3816,7 +3812,7 @@ export type Unnamed_28_Query = {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
-    real_step1_mobile: {
+    step1_mobile: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
@@ -3986,10 +3982,6 @@ export type Unnamed_35_Query = {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
-    demo_step1_mobile: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
     demo_step2: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
@@ -4018,7 +4010,7 @@ export type Unnamed_35_Query = {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
-    real_step1_mobile: {
+    step1_mobile: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
@@ -4743,10 +4735,6 @@ export type Unnamed_71_Query = {
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }
     dmt5_financial_stp_calculator_one: {
-        __typename?: 'File'
-        childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
-    }
-    dmt5_financial_stp_calculator_two: {
         __typename?: 'File'
         childImageSharp: { __typename?: 'ImageSharp'; gatsbyImageData: any }
     }

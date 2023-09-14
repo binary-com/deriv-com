@@ -14,6 +14,7 @@ import { Localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/partners/dot-pattern.svg'
 import { TString } from 'types/generics'
+import useRegion from 'components/hooks/use-region'
 
 const FaqHeader = styled(Header)`
     @media ${device.tabletL} {
@@ -147,6 +148,7 @@ const StyledAccordionWrapper = styled(AccordionWrapper)`
     }
 `
 const Faq = () => {
+    const { is_eu } = useRegion()
     return (
         <RelativeContainer>
             <FaqHeader as="h2" size="4.8rem" align="center">
@@ -180,34 +182,38 @@ const Faq = () => {
                     })}
                 </Accordion>
             </StyledAccordionWrapper>
-            <FaqSubHeader
-                as="h3"
-                type="sub-section-title"
-                align="center"
-                m="8rem 0 4rem 0 "
-                weight="normal"
-            >
-                <Localize translate_text="_t_Deriv IB Programme_t_" />
-            </FaqSubHeader>
-            <StyledAccordionWrapper id="faq-list-2">
-                <Accordion has_single_state>
-                    {faq_content.deriv_ib.map((item) => {
-                        return (
-                            <AccordionItem
-                                key={item.class_name}
-                                header={item.header}
-                                parent_style={parent_style}
-                                header_style={header_style}
-                                style={item_style}
-                                class_name={item.class_name}
-                                plus
-                            >
-                                {item.component}
-                            </AccordionItem>
-                        )
-                    })}
-                </Accordion>
-            </StyledAccordionWrapper>
+            {!is_eu && (
+                <>
+                    <FaqSubHeader
+                        as="h3"
+                        type="sub-section-title"
+                        align="center"
+                        m="8rem 0 4rem 0 "
+                        weight="normal"
+                    >
+                        <Localize translate_text="_t_Deriv IB Programme_t_" />
+                    </FaqSubHeader>
+                    <StyledAccordionWrapper id="faq-list-2">
+                        <Accordion has_single_state>
+                            {faq_content.deriv_ib.map((item) => {
+                                return (
+                                    <AccordionItem
+                                        key={item.class_name}
+                                        header={item.header}
+                                        parent_style={parent_style}
+                                        header_style={header_style}
+                                        style={item_style}
+                                        class_name={item.class_name}
+                                        plus
+                                    >
+                                        {item.component}
+                                    </AccordionItem>
+                                )
+                            })}
+                        </Accordion>
+                    </StyledAccordionWrapper>
+                </>
+            )}
             <TopLeftDot src={DotPattern} />
             <BottomRightDot src={DotPattern} />
         </RelativeContainer>

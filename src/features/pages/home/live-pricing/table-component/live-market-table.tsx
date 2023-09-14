@@ -84,7 +84,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
     return (
         <>
             <Flex.Box justify="center" mt="16x">
-                <table>
+                <table data-cy="live-price-table">
                     <thead>
                         {table.getHeaderGroups().map((headerGroup) => (
                             <Flex.Box key={headerGroup.id} justify="center">
@@ -123,7 +123,12 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
             </Flex.Box>
 
             <Flex.Box justify="center" align="center" mt="18x" gap="10x">
-                <Link url={{ type: 'internal', to: link_to }} font_family="UBUNTU" size="medium">
+                <Link
+                    url={{ type: 'internal', to: link_to }}
+                    font_family="UBUNTU"
+                    size="medium"
+                    data-cy="view-all"
+                >
                     <Localize translate_text="_t_View all >_t_"></Localize>
                 </Link>
             </Flex.Box>

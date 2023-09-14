@@ -152,7 +152,7 @@ const WizardComponent = ({
             />
             <PersonalDetails
                 affiliate_personal_data={affiliate_account.personal_details}
-                is_individual={affiliate_account.account.type === 'Individual'}
+                is_individual={affiliate_account.account.type == 1}
                 updateData={(value) => {
                     updateAffiliateValues(value, 'personal-details')
                 }}

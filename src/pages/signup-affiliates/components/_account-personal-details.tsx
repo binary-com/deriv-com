@@ -352,13 +352,6 @@ const PersonalDetails = ({
                             )
                         }
                     })}
-
-                    {/*<CurrencyWrapper>*/}
-                    {/*    <Header as="span" type="paragraph-1" align="center" weight="normal">*/}
-                    {/*        <Localize translate_text={'_t_Choose your currency_t_'} />*/}
-                    {/*    </Header>*/}
-                    {/*</CurrencyWrapper>*/}
-                    {/*<Currency current_select={currency} selectedCurrency={setCurrency} />*/}
                 </form>
             </InputWrapper>
         </InputGroup>

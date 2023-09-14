@@ -1,5 +1,6 @@
 /* eslint-disable import/order */
 const language_config = require(`./i18n-config.js`)
+const path = require('path')
 
 const translations_cache = {}
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
@@ -21,26 +22,26 @@ exports.onCreatePage = ({ page }) => {
             const translation_json = require(`./src/translations/${lang}`)
             translations_cache[lang] = translation_json
         }
+    })
+}
 
-        const StylelintPlugin = require('stylelint-webpack-plugin')
-        const TerserPlugin = require('terser-webpack-plugin')
-        const style_lint_options = {
-            files: 'src/**/*.js',
-            emitErrors: false,
-            lintDirtyModulesOnly: true,
-        }
+const StylelintPlugin = require('stylelint-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const style_lint_options = {
+    files: 'src/**/*.js',
+    emitErrors: false,
+    lintDirtyModulesOnly: true,
+}
 
-        exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
-            const config = getConfig()
-            if (config.optimization) {
-                config.optimization.minimizer = [new TerserPlugin()]
-            }
-            actions.setWebpackConfig({
-                plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
-                resolve: {
-                    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
-                },
-            })
-        }
+exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
+    const config = getConfig()
+    if (config.optimization) {
+        config.optimization.minimizer = [new TerserPlugin()]
+    }
+    actions.setWebpackConfig({
+        plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
+        resolve: {
+            modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+        },
     })
 }

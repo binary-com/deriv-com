@@ -35,6 +35,7 @@ const affiliate_programme: TQuestionsData = {
                             {
                                 translation_text:
                                     "_t_You'll have multiple income opportunities by joining other partnership programmes that we offer._t_",
+                                eu_translation_text: null,
                             },
                             {
                                 translation_text:
@@ -66,6 +67,7 @@ const affiliate_programme: TQuestionsData = {
             category: 'Affiliate programme',
             sub_category: '_t_Partners_t_',
             label: 'commission-plans',
+            hide_for_eu: true,
             answer: [
                 { translation_text: '_t_We have 3 commission plans:_t_' },
                 {
@@ -92,6 +94,30 @@ const affiliate_programme: TQuestionsData = {
                     translation_components: [
                         { key: 0, type: 'link', to: 'https://deriv.com/partners/affiliate-ib/' },
                     ],
+                },
+            ],
+        },
+        {
+            question: '_t_What commission plan do you offer?_t_',
+            category: 'Affiliate programme',
+            sub_category: '_t_Partners_t_',
+            label: 'commission-plans',
+            hide_for_non_eu: true,
+            answer: [
+                {
+                    translation_text:
+                        '_t_<0>Cost per acquisition</0> (For EU-based clients only)_t_',
+                    translation_components: [{ key: 0, type: 'strong' }],
+                },
+                {
+                    translation_text:
+                        '_t_Earn 100 USD when a referred client successfully deposits a one-time or cumulative total of USD 100 into their Deriv account._t_',
+                    has_margin_top: true,
+                },
+                {
+                    translation_text:
+                        '_t_Please note that according to regulations, you cannot have clients who reside in Portugal or Spain._t_',
+                    has_margin_top: true,
                 },
             ],
         },
@@ -219,6 +245,8 @@ const affiliate_programme: TQuestionsData = {
                 {
                     translation_text:
                         '_t_A referred client is a client who signed up using your tracking link, made a deposit in their account, and started trading on our platforms. As an affiliate, you stand to earn commission from the trades performed by your referred clients._t_',
+                    eu_translation_text:
+                        '_t_A referred client is a client who signed up to Deriv using your tracking link and made a deposit into their account. As an affiliate, you’ll receive commissions based on the successful deposits of your referred client._t_',
                 },
             ],
         },
@@ -331,6 +359,8 @@ const affiliate_programme: TQuestionsData = {
                     translation_components: [
                         { key: 0, type: 'link', to: '/help-centre/ib-programme/#ib-sign-up' },
                     ],
+                    eu_translation_text:
+                        "_t_We'll credit your commission for the previous month into your trading account after the 15th of every month. You’ll earn a commission based on each successful referral when your referred client deposits the required minimum amount into their Deriv account._t_",
                 },
             ],
         },

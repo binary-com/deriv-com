@@ -324,6 +324,8 @@ module.exports = {
                             '/endpoint/',
                             '/livechat/',
                             '/storybook/',
+                            '*.binary.sx',
+                            '/?region=*/',
                         ],
                     },
                 ],

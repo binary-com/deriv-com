@@ -93,7 +93,7 @@ const AfricaAward = () => {
                     >
                         <StaticImageWrapper>
                             <StaticImage
-                                src="../../images/common/choose-us/africa_award_bg.png"
+                                src="../../images/common/choose-us/award_bg.png"
                                 alt={localize('_t_africa forex award_t_')}
                                 formats={['avif', 'webp', 'auto']}
                                 objectFit="contain"
@@ -131,7 +131,7 @@ const AfricaAward = () => {
                     >
                         <StaticImageWrapper>
                             <StaticImage
-                                src="../../images/common/choose-us/africa_award_bg_mobile.png"
+                                src="../../images/common/choose-us/award_bg_mobile.png"
                                 alt={localize('_t_africa forex award_t_')}
                                 formats={['avif', 'webp', 'auto']}
                                 objectFit="contain"

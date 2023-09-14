@@ -137,7 +137,7 @@ const HowOptionsWorks = () => {
                             />
                         ) : (
                             <StaticImage
-                                src="../../../images/common/trade-types/multiplier-market-new.png"
+                                src="../../../images/common/trade-types/options-market.png"
                                 alt={localize('_t_Select market to trade_t_')}
                                 loading="eager"
                                 formats={['avif', 'webp', 'auto']}

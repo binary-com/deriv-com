@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import styled from 'styled-components'
-import { BackgroundImageWrapper, StaticImageWrapper, Header, QueryImage } from 'components/elements'
+import { BackgroundImageWrapper, Header, QueryImage, StaticImageWrapper } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { Flex, Desktop, Mobile } from 'components/containers'
 
@@ -84,19 +84,17 @@ const LatamAward = () => {
                     >
                         <StaticImageWrapper>
                             <StaticImage
-                                src="../../images/common/choose-us/latam_award_bg.png"
+                                src="../../images/common/choose-us/award_bg.png"
                                 alt={localize('_t_Latin America Forex Award_t_')}
                                 formats={['avif', 'webp', 'auto']}
                                 objectFit="contain"
                                 loading="eager"
                             />
                         </StaticImageWrapper>
-
                         <Flex style={{ maxHeight: '360px' }} ai="center" jc="space-evenly">
                             <StyledHeader type="heading-2" align="left" color="white">
                                 <Localize translate_text="_t_Best Forex Broker Latin America_t_" />
                             </StyledHeader>
-
                             <AwardImageWrapper>
                                 <QueryImage
                                     data={data.latam_award}
@@ -109,7 +107,6 @@ const LatamAward = () => {
                     </BackgroundImageWrapper>
                 </StyledFlex>
             </Desktop>
-
             <Mobile>
                 <Flex fd="column" ai="center">
                     <BackgroundImageWrapper
@@ -122,20 +119,18 @@ const LatamAward = () => {
                     >
                         <StaticImageWrapper>
                             <StaticImage
-                                src="../../images/common/choose-us/latam_award_bg_mobile.png"
+                                src="../../images/common/choose-us/award_bg_mobile.png"
                                 alt={localize('_t_Latin America Forex Award_t_')}
                                 formats={['avif', 'webp', 'auto']}
                                 objectFit="contain"
                                 loading="eager"
                             />
                         </StaticImageWrapper>
-
                         <StyledHeaderMobile type="heading-2" align="center" color="white">
                             <Localize translate_text="_t_Best Forex Broker Latin America_t_" />
                         </StyledHeaderMobile>
                         <Header as="h2" width="50%"></Header>
                     </BackgroundImageWrapper>
-
                     <AwardImageWrapperMobile>
                         <QueryImage
                             data={data.latam_award}

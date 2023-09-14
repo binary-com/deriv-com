@@ -18,6 +18,7 @@ import {
     address_jordan,
     address_singapore,
     address_vanuatu,
+    address_hongkong,
     address_reading,
 } from './_contact-details'
 import { LocationsType } from './_locations.types'
@@ -37,6 +38,7 @@ import VanuatuFlagIcon from 'images/svg/careers/flag_vanuatu.svg'
 import JordanFlagIcon from 'images/svg/careers/flag_jordan.svg'
 import SingaporeFlagIcon from 'images/svg/careers/flag_singapore.svg'
 import { localize } from 'components/localization'
+import HongKong from 'images/svg/careers/flag_hongkong.svg'
 
 export const cyberjaya: LocationsType = {
     name: 'cyberjaya',
@@ -801,6 +803,41 @@ export const ciudad: LocationsType = {
     has_iframe: true,
 }
 
+export const hongkong: LocationsType = {
+    name: 'hongkong',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/hongkong.jpg"
+            alt={localize('_t_HongKong_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
+    job_location: 'Hong-Kong',
+    continent: 'asia',
+    display_continent: 'Asia',
+    link: '/careers/locations/hongkong/',
+    display_name: 'Hong Kong',
+    display_thumbnail_name: 'Hong Kong',
+    display_title_name: 'Hong Kong',
+    map_office_name: '(HK) Ltd',
+    country: 'Hong Kong',
+    flagIcon: HongKong,
+    thumbnail: 'thumbnail_hongkong',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'guernsey grid 3', 'guernsey_grid_4'],
+    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'guernsey grid 3', 'guernsey grid 4'],
+    first_p:
+        'With risk management and compliance at its core, Deriv (HK) Ltd brings together a highly skilled workforce that focuses on our clients’ safety and the organisation’s adherence to regulatory policies. Various functional teams work together in a dynamic and collaborative environment to foster a culture of compliance throughout the company.',
+    first_img: 'living_in_hongkong',
+    first_img_alt: 'Living in Hong Kong',
+    map: 'ChIJb6MEJ_ojP0ERFA9bhdSH07g',
+    map_text:
+        "Our Hong Kong office offers a dynamic work environment with exciting opportunities to advance your career. If you're interested in showcasing and growing your innovative mindset, join our team in Hong Kong.",
+    address: address_hongkong,
+    google_map_link: 'https://goo.gl/maps/qi8uce4u3pMsar3d6 ',
+    has_iframe: true,
+}
+
 export const all_offices: LocationsType[] = [
     paris,
     malta,
@@ -813,6 +850,7 @@ export const all_offices: LocationsType[] = [
     melaka,
     labuan,
     singapore,
+    hongkong,
     vanuatu,
     dubai,
     jordan,
@@ -840,6 +878,7 @@ export const locations = {
     vanuatu: `${vanuatu.display_name}, ${vanuatu.country}`,
     jordan: `${jordan.display_name}, ${jordan.country}`,
     singapore: `${singapore.display_name}, ${singapore.country}`,
+    hongkong: `${hongkong.display_name}, ${hongkong.country}`,
     georgetown: `${georgetown.display_name}, ${georgetown.country}`,
     roadtown: `${roadtown.display_name}, ${roadtown.country}`,
 }

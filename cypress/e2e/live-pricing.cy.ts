@@ -34,7 +34,7 @@ describe('Live pricing spec', () => {
 
     cy.get('[data-cy="market"]').each(($item, $index) => {
       cy.wrap($item).click();
-      cy.get('[data-cy="view_all"] a').invoke('attr', 'href').should("include", items[$index]);
+      cy.get('[data-cy="view-all"] a').invoke('attr', 'href').should("include", items[$index]);
     })
   })
 

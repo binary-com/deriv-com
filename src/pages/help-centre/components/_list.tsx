@@ -4,6 +4,7 @@ import { TListStyle, TList } from '../data/_data-types'
 import ImageCard from './_image-card'
 import TranslationComponents from './_translation-components'
 import { Localize } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
 
 type TStyledList = {
     list_style: TListStyle
@@ -40,46 +41,67 @@ const List = ({
     items,
     size,
 }: TList) => {
+    const { is_eu } = useRegion()
     return (
         <StyledList list_style={list_style} padding_left={padding_left || '5rem'}>
-            {items.map(({ translation_text, translation_components, sub_items, img }) => (
-                <>
-                    <ListItem
-                        key={translation_text}
-                        margin_top={margin_top}
-                        first_child_margin_top={first_child_margin_top}
-                        size={size || '1.6rem'}
-                    >
-                        <Localize
-                            translate_text={translation_text}
-                            components={
-                                translation_components &&
-                                TranslationComponents(translation_components)
-                            }
-                        />
-                        {img && <ImageCard {...img} />}
-                    </ListItem>
-                    {sub_items && (
-                        <StyledList list_style={sub_items.list_style} padding_left="5rem">
-                            {sub_items.items.map(({ translation_text, translation_components }) => (
+            {items.map(
+                ({
+                    translation_text,
+                    eu_translation_text,
+                    translation_components,
+                    sub_items,
+                    img,
+                }) => {
+                    const text =
+                        is_eu && eu_translation_text !== undefined
+                            ? eu_translation_text
+                            : translation_text
+                    return (
+                        <>
+                            {text && (
                                 <ListItem
                                     key={translation_text}
-                                    margin_top={sub_items.margin_top}
+                                    margin_top={margin_top}
+                                    first_child_margin_top={first_child_margin_top}
                                     size={size || '1.6rem'}
                                 >
                                     <Localize
-                                        translate_text={translation_text}
+                                        translate_text={text}
                                         components={
                                             translation_components &&
                                             TranslationComponents(translation_components)
                                         }
                                     />
+                                    {img && <ImageCard {...img} />}
                                 </ListItem>
-                            ))}
-                        </StyledList>
-                    )}
-                </>
-            ))}
+                            )}
+                            {sub_items && (
+                                <StyledList list_style={sub_items.list_style} padding_left="5rem">
+                                    {sub_items.items.map(
+                                        ({ translation_text, translation_components }) => (
+                                            <ListItem
+                                                key={translation_text}
+                                                margin_top={sub_items.margin_top}
+                                                size={size || '1.6rem'}
+                                            >
+                                                <Localize
+                                                    translate_text={translation_text}
+                                                    components={
+                                                        translation_components &&
+                                                        TranslationComponents(
+                                                            translation_components,
+                                                        )
+                                                    }
+                                                />
+                                            </ListItem>
+                                        ),
+                                    )}
+                                </StyledList>
+                            )}
+                        </>
+                    )
+                },
+            )}
         </StyledList>
     )
 }

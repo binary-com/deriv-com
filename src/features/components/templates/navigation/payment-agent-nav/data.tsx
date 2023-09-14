@@ -22,9 +22,26 @@ const affiliateNavItems: NavItems = [
                 to: '/partners/affiliate-ib/',
             },
         },
+        visibility: {
+            is_row: true,
+        },
     },
     {
         id: 2,
+        data: {
+            type: 'single-item',
+            title: '_t_Affiliates_t_',
+            content: {
+                type: 'internal',
+                to: '/partners/affiliate-ib/',
+            },
+        },
+        visibility: {
+            is_eu: true,
+        },
+    },
+    {
+        id: 3,
         data: {
             type: 'single-item',
             title: '_t_Payment agents_t_',
@@ -38,7 +55,7 @@ const affiliateNavItems: NavItems = [
         },
     },
     {
-        id: 3,
+        id: 4,
         data: {
             type: 'single-item',
             title: '_t_API_t_',

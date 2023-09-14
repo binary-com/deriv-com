@@ -58,7 +58,9 @@ const query = graphql`
         deriv_x_five: file(relativePath: { eq: "affiliate-and-ib/deriv_x_five.png" }) {
             ...fadeIn
         }
-        deriv_x_commodities: file(relativePath: { eq: "affiliate-and-ib/deriv_x_commodities.png" }) {
+        deriv_x_commodities: file(
+            relativePath: { eq: "affiliate-and-ib/deriv_x_commodities.png" }
+        ) {
             ...fadeIn
         }
         deriv_x_crypto: file(relativePath: { eq: "affiliate-and-ib/deriv_x_crypto.png" }) {
@@ -86,7 +88,7 @@ const StyledCard = styled(Card)`
     min-height: 42.6rem;
     height: 100%;
     position: relative;
-    border-radius: 8px;
+    border-radius: 0.8rem;
     min-width: calc((100% - 4.8rem) / 3);
     width: calc((100% - 4.8rem) / 3);
     justify-content: flex-start;
@@ -95,7 +97,7 @@ const StyledCard = styled(Card)`
         margin: 1.6rem 2.4rem 0;
 
         @media ${device.tabletL} {
-            margin: 24px 0;
+            margin: 2.4rem 0;
         }
     }
 
@@ -105,12 +107,12 @@ const StyledCard = styled(Card)`
     }
 
     @media ${device.tabletL} {
-        min-width: 328px;
-        padding: 16px 16px 0;
+        min-width: 32.8rem;
+        padding: 1.6rem 1.6rem 0;
         ${(props) => props.tabletHeight && 'height:' + props.tabletHeight};
 
         :first-child {
-            margin: 24px 0 0;
+            margin: 2.4rem 0 0;
         }
     }
 
@@ -130,10 +132,10 @@ const CardWrappers = styled(Flex)`
     }
 `
 const CardText = styled(Text)`
-    margin-bottom: 16px;
+    margin-bottom: 1.6rem;
 `
 const AccordionWrapper = styled.div`
-    max-width: 996px;
+    max-width: 99.6rem;
     width: fit-content;
     margin: 0 auto;
     position: relative;
@@ -154,7 +156,7 @@ const StyledTrap = styled(TRAP)<CardProps>`
     height: ${(props) => (props.headerHeight ? props.headerHeight : '')};
     background-color: var(--color-grey-39);
     padding: 1.1rem 0.8rem;
-    min-height: 72px;
+    min-height: 7.2rem;
     border-bottom: none;
     display: flex;
     align-items: center;
@@ -166,13 +168,13 @@ const StyledText = styled(Text)`
 const HowItsCalculate = styled.div`
     display: flex;
     width: auto;
-    margin: 0 -25px;
-    padding: 16px 0;
+    margin: 0 -2.5rem;
+    padding: 1.6rem 0;
     justify-content: center;
-    border-top: 1px solid var(--color-grey-21);
+    border-top: 0.1rem solid var(--color-grey-21);
 
     @media ${device.tabletL} {
-        margin: 0 -16px;
+        margin: 0 -1.6rem;
     }
 `
 
@@ -189,9 +191,9 @@ const ButtonWrapper = styled.div`
 `
 
 const BackButton = styled(Button)`
-    border: 2px solid var(--color-grey-5);
+    border: 0.2rem solid var(--color-grey-5);
     color: var(--color-black);
-    height: 40px;
+    height: 4rem;
     inline-size: 100%;
     padding: 0 1.6rem;
 `
@@ -202,25 +204,25 @@ const parent_style = {
 const item_style = {
     padding: '0',
     background: 'var(--color-white)',
-    borderRadius: '0 0 8px 8px',
-    marginBottom: '16px',
+    borderRadius: '0 0 0.8rem 0.8rem',
+    marginBottom: '1.6rem',
 }
 const header_style = {
-    padding: '14px 0 17px',
+    padding: '1.4rem 0 1.7rem',
     borderRadius: '0',
     height: 'auto',
     boxShadow: 'unset',
     borderBottom: 'unset',
-    borderTop: '1px solid var(--color-grey-21)',
+    borderTop: '0.1rem solid var(--color-grey-21)',
 }
 const StyledButton = styled(Button)`
     border: none;
     color: var(--color-red);
-    font-size: 14px;
+    font-size: 1.4rem;
     background: none;
 
     @media ${device.tabletL} {
-        font-size: 14px;
+        font-size: 1.4rem;
     }
 `
 
@@ -265,7 +267,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                                         isTitle="true"
                                                         headerHeight={value.headerHeight}
                                                     >
-                                                        <StyledText size="14px" weight="bold">
+                                                        <StyledText size="1.4rem" weight="bold">
                                                             <Localize
                                                                 translate_text={listedValue.title}
                                                             />
@@ -276,7 +278,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                                             even={indexData % 2 ? 'true' : ''}
                                                             key={indexData}
                                                         >
-                                                            <StyledText size="14px">
+                                                            <StyledText size="1.4rem">
                                                                 <Localize translate_text={info} />
                                                             </StyledText>
                                                         </TRAPREVERSE>
@@ -315,8 +317,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                             components={[<strong key={0} />]}
                                         />
                                     </Text>
-                                    <Text mb="0.8rem" size="1.4rem">
-                                    </Text>
+                                    <Text mb="0.8rem" size="1.4rem"></Text>
                                     {valueDetails.iconAlt && (
                                         <Flex mb="1.6rem">
                                             <QueryImage
@@ -357,7 +358,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                     </Header>
                                     {valueNotes.desc.secondText ? (
                                         <>
-                                            <Text mb="16px" size="1.4rem">
+                                            <Text mb="1.6rem" size="1.4rem">
                                                 <Localize
                                                     translate_text={valueNotes.desc.firstText}
                                                 />

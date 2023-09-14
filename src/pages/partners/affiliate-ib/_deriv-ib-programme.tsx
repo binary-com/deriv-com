@@ -79,21 +79,21 @@ const StyledSection = styled(SectionContainer)<StyledSectionProps>`
     text-align: ${(props) => props.align || 'left'};
 
     @media ${device.tabletL} {
-        padding: 40px 0 0;
+        padding: 4rem 0 0;
     }
 `
 
 const DecideSection = styled(StyledSection)`
-    padding-top: 40px;
+    padding-top: 4rem;
     @media ${device.tabletL} {
-        padding: 24px 0 0;
+        padding: 2.4rem 0 0;
     }
 `
 
 const IBSectionContainer = styled(SectionContainer)`
-    padding-bottom: 80px;
+    padding-bottom: 8rem;
     @media ${device.tabletL} {
-        padding: 24px 0 0;
+        padding: 2.4rem 0 0;
     }
     @media ${device.mobileM} {
         width: unset;
@@ -102,7 +102,7 @@ const IBSectionContainer = styled(SectionContainer)`
 const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         text-align: center;
-        font-size: 16px;
+        font-size: 1.6rem;
     }
 `
 
@@ -117,20 +117,20 @@ const StyledHeaderCommission = styled(StyledHeader)`
 
 const StyledTitleHeader = styled(Header)`
     @media ${device.tabletL} {
-        font-size: 24px;
+        font-size: 2.4rem;
     }
 `
 
 const SubtitleHeader = styled(Header)`
-    line-height: 36px;
+    line-height: 3.6rem;
 
     @media ${device.laptopL} {
         width: 100%;
     }
     @media ${device.tabletL} {
-        line-height: 24px;
-        font-size: 16px !important;
-        max-width: 305px;
+        line-height: 2.4rem;
+        font-size: 1.6rem !important;
+        max-width: 30.5rem;
     }
 `
 
@@ -145,8 +145,8 @@ const Item = styled.div<ItemProps>`
     opacity: ${(props) => (props.active_tab === props.name.toLocaleLowerCase() ? '1' : '0.48')};
     border-bottom: ${(props) =>
         props.name === props.active_tab
-            ? '2px solid var(--color-red)'
-            : '2px solid var(--color-black-3)'};
+            ? '0.2rem solid var(--color-red)'
+            : '0.2rem solid var(--color-black-3)'};
     cursor: pointer;
     z-index: 2;
     white-space: nowrap;
@@ -165,11 +165,11 @@ const Item = styled.div<ItemProps>`
             props.active_tab === props.name.toLocaleLowerCase() ? '300' : '400'};
     }
     @media ${device.tabletL} {
-        padding: 12px 8px 12px 7px;
-        margin-top: 24px;
+        padding: 1.2rem 0.8rem 1.2rem 0.7rem;
+        margin-top: 2.4rem;
 
         ${Header} {
-            font-size: 20px;
+            font-size: 2rem;
             width: 100%;
         }
     }
@@ -264,7 +264,7 @@ const DerivIBProgramme = () => {
                             type="sub-section-title"
                             align="center"
                             weight="medium"
-                            mb="24px"
+                            mb="2.4rem"
                         >
                             <Localize translate_text="_t_Can’t decide which programme or commission plan suits you?_t_" />
                         </StyledHeader>
@@ -422,7 +422,7 @@ const ib_dmt5_financial: DMT5Type = {
     type: [
         {
             title: '_t_Forex and metals_t_',
-            headerHeight: '8.0rem',
+            headerHeight: '8rem',
             assets: [
                 {
                     title: '_t_Asset_t_',
@@ -510,7 +510,7 @@ const ib_dmt5_financialSTP: DMT5Type = {
     type: [
         {
             title: '_t_Forex_t_',
-            headerHeight: '8.0rem',
+            headerHeight: '8rem',
             assets: [
                 {
                     title: '_t_Asset_t_',
@@ -578,7 +578,7 @@ const ib_dx: DMT5Type = {
     type: [
         {
             title: '_t_Forex_t_',
-            headerHeight: '8.0rem',
+            headerHeight: '8rem',
             assets: [
                 {
                     title: '_t_Asset_t_',

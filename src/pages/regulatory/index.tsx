@@ -102,7 +102,6 @@ const ResponsiveGrid = styled(CssGridColumn)`
 `
 
 const ResponsiveHeader = styled(StyledHeader)`
-    color: var(--color-red);
     @media ${device.mobileL} {
         font-size: 5rem;
     }

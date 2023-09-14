@@ -122,7 +122,7 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
                 </table>
             </Flex.Box>
 
-            <Flex.Box justify="center" align="center" mt="18x" gap="10x" data-cy="view_all">
+            <Flex.Box justify="center" align="center" mt="18x" gap="10x" data-cy="view-all">
                 <Link url={{ type: 'internal', to: link_to }} font_family="UBUNTU" size="medium">
                     <Localize translate_text="_t_View all >_t_"></Localize>
                 </Link>

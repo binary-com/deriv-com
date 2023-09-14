@@ -38,6 +38,7 @@ const TabMenu = ({
                         onClick={() => {
                             setCurrentTab(tab_name)
                         }}
+                        data-cy="market"
                     >
                         {icon && (
                             <FlexBox.Box justify="center" padding_block="6x">

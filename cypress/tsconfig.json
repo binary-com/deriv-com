@@ -1,0 +1,13 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+      "target": "es5",
+      "lib": ["es5", "dom"],
+      // be explicit about types included
+      // to avoid clashing with Jest types
+      "types": ["cypress", "node"],
+      "isolatedModules": false
+    },
+    "include": ["**/*.ts"],
+    "exclude": ["node_modules"]
+  }

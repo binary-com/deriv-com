@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Controller } from 'react-hook-form'
 import {
     form_style,
@@ -24,6 +24,7 @@ type CtraderCredentialsFormProps = {
 const CtraderCredentialsForm = ({ email, residence_list }: CtraderCredentialsFormProps) => {
     const { submitForm, onSubmit, loading } = useCtraderCredentialsForm()
     const disable_button = useRef(false)
+    const [selected_item, setSelectedItem] = useState({})
 
     const {
         register,
@@ -119,7 +120,7 @@ const CtraderCredentialsForm = ({ email, residence_list }: CtraderCredentialsFor
                     render={({ field: { onChange, value } }) => (
                         <DropdownSearch
                             className={dropdown_style}
-                            mb="-5px"
+                            mb="20px"
                             id="residence"
                             key="residence"
                             label={localize('_t_Residence_t_')}
@@ -132,12 +133,16 @@ const CtraderCredentialsForm = ({ email, residence_list }: CtraderCredentialsFor
                             }}
                             items={residence_list}
                             is_alternate_style={true}
-                            onChange={(e) => onChange(e.symbol)}
+                            onChange={(val) => {
+                                onChange(val.symbol)
+                                setSelectedItem({ ...val })
+                            }}
                             error={
                                 errors?.residence?.message
                                     ? localize(errors?.residence?.message as TString)
                                     : null
                             }
+                            selected_item={selected_item}
                             value={value}
                             disabled={residence_list.length < 1}
                         />

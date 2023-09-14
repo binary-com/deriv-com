@@ -1,92 +1,116 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { Localize, LocalizedLink } from 'components/localization'
-import { Header } from 'components/elements'
-import { ReactComponent as Pin } from 'images/svg/who-we-are/pin.svg'
+import { THero } from '../_types'
+import useBreakpoints from 'components/hooks/use-breakpoints'
+import { Localize } from 'components/localization'
+import { Desktop, Flex, Mobile } from 'components/containers'
 import device from 'themes/device'
 
-type PinWrapperProps = {
-    left: string
-    top: string
-    to: string
+type ParentWrapperProps = {
+    bg_image: string
 }
-
-const PinWrapper = styled.div<PinWrapperProps>`
-  position: absolute;
-  top: ${({ top }) => top};
-  left: ${({ left }) => left};
-  -webkit-tap-highlight-color: transparent;
-  /* stylelint-disable */
-  -webkit-appearance: none;
-  /* stylelint-enable */
-  cursor: pointer;
+const ParentWrapper = styled(Flex)<ParentWrapperProps>`
+    width: 100%;
+    background-image: url(${({ bg_image }) => bg_image});
+    background-position: center;
+    background-size: cover;
 `
+const ContentWrapper = styled(Flex)`
+    height: auto;
+    margin: 180px 0;
 
-const PinContent = styled(LocalizedLink)<{ anchor?: boolean }>`
-  width: max-content;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: var(--color-white);
-  box-shadow: rgba(0, 0, 0, 0.05) 0 16px 20px 0, rgba(0, 0, 0, 0.05) 0 0 20px 0;
-  border-radius: 5px;
-  padding: 4px 8px;
-  text-align: center;
-  position: relative;
-  left: -43%;
-  top: -55px;
-  transition: opacity 0.25s;
-  z-index: 3;
-  text-decoration: none;
+    @media ${device.tabletL} {
+        margin: 180px 0 145px;
+    }
+`
+const MobileHeader = styled.h1`
+    color: var(--color-white);
+    text-align: center;
+    margin-top: 40px;
+    font-size: 84px;
+    line-height: 94px;
+    font-weight: bold;
 
-  &::after {
-    content: '';
-    width: 12px;
-    height: 12px;
-    background: var(--color-white);
+    @media ${device.tabletS} {
+        max-width: 300px;
+        width: 100%;
+    }
+    @media ${device.mobileL} {
+        max-width: 210px;
+        font-size: 64px;
+        line-height: 1.25;
+    }
+`
+const DesktopHeader = styled.h1`
+    color: white;
+    font-weight: bold;
+    margin: 120px auto;
+    letter-spacing: 1px;
+    font-size: 200px;
+    z-index: 3;
+    line-height: inherit;
+    text-align: center;
+
+    @media (max-width: 1200px) {
+        font-size: 140px;
+    }
+`
+const StyledFlex = styled(Flex)`
+    min-height: 400px;
+    position: relative;
+`
+const StyledImage = styled.img`
+    max-width: 591px;
+    z-index: 2;
     position: absolute;
-    transform: rotate(45deg);
-    top: 83%;
-    left: 40.5%;
-  }
-  @media ${device.tabletL} {
-    padding: 2px 4px;
-    width: 58px;
-  }
+`
+const StyledMobileImage = styled.img`
+    max-width: 445px;
+
+    @media (max-width: 480px) {
+        max-width: 328px;
+    }
+    @media (max-width: 360px) {
+        max-width: 300px;
+    }
 `
 
-// country_city and link_url should be optional due we can't pass left and top properties to strapi
-export type MapPinType = {
-    left: string
-    top: string
-    country_city?: string
-    link_url?: string
-}
-
-const MapPin = ({ top, left, country_city, link_url }: MapPinType) => {
-    const [is_pin_show, setPinShow] = useState(false)
-
-    const onMouseEnter = () => setPinShow(true)
-    const onMouseLeave = () => setPinShow(false)
+const Hero = ({ hero }: THero) => {
+    const { is_mobile_or_tablet } = useBreakpoints()
+    const bg_image = is_mobile_or_tablet
+        ? hero?.bg_mobile?.localFile?.publicURL
+        : hero?.bg_desktop?.localFile?.publicURL
 
     return (
-        <PinWrapper
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-            top={top}
-            left={left}
-            to={link_url}
-        >
-            <Pin />
-            {is_pin_show && (
-                <PinContent locale="en" to={link_url} anchor>
-                    <Header color="black" mr="8px" weight="normal" type="small">
-                        <Localize translate_text={country_city} />
-                    </Header>
-                </PinContent>
-            )}
-        </PinWrapper>
+        <ParentWrapper bg_image={bg_image}>
+            <ContentWrapper jc="center">
+                <Desktop>
+                    <StyledFlex>
+                        <StyledImage
+                            src={hero?.hero_image?.localFile?.publicURL}
+                            alt="hero image desktop"
+                        />
+                        <Flex jc="center" p="0 32px" max_width="1440px">
+                            <DesktopHeader>
+                                <Localize translate_text={hero?.header} />
+                            </DesktopHeader>
+                        </Flex>
+                    </StyledFlex>
+                </Desktop>
+                <Mobile>
+                    <Flex fd="column" ai="center" p="0 16px">
+                        <StyledMobileImage
+                            src={hero?.hero_image?.localFile?.publicURL}
+                            alt="hero image mobile"
+                        />
+                        <MobileHeader>
+                            <Localize translate_text={hero?.header} />
+                        </MobileHeader>
+                    </Flex>
+                </Mobile>
+            </ContentWrapper>
+        </ParentWrapper>
     )
 }
 
-export default MapPin
+export default Hero

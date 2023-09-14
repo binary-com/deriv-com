@@ -9,6 +9,7 @@ export const staging_deriv_be_url = 'staging.deriv.be'
 export const deriv_com_app_id = 16929
 export const deriv_me_app_id = 1411
 export const deriv_be_app_id = 30767
+export const deriv_ctrader_app_id = 36218
 
 const domain_url_pair = {
     [deriv_com_url]: deriv_com_url,
@@ -67,6 +68,7 @@ export const affiliate_signin_url = `https://login.${getDomainUrl()}/signin.php`
 export const community_url = `https://community.${deriv_com_url}`
 export const oauth_url = `https://oauth.${getDomainUrl()}`
 export const deriv_app_login = `${oauth_url}/oauth2/authorize?app_id=${deriv_app_id}`
+export const ctrader_login = `${oauth_url}/oauth2/authorize?app_id=${deriv_ctrader_app_id}`
 export const whatsapp_url = `https://wa.me/35699578341`
 
 export const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
@@ -165,6 +167,8 @@ export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const youtube_url = 'https://www.youtube.com/@deriv'
 export const loss_percent = 72
+
+export const contact_us_form_post_data = 'https://formkeep.com/f/7f4b8b55f10f'
 
 export const cookie_key = 'browser_update_alert_modal_shown'
 export const browsers_minimum_required_version = {

@@ -1,7 +1,6 @@
 import React from 'react'
-import { Pushwoosh } from 'web-push-notifications'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
-import { isLive, isProduction } from './src/common/websocket/config'
+import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
@@ -31,69 +30,6 @@ const hacker_one_url = 'https://hackerone.com/deriv?type=team'
 
 if (is_browser) {
     if (window.location.pathname.includes(bug_bounty_path)) window.location.href = hacker_one_url
-}
-
-const sendTags = (api) => {
-    const language = LocalStore.get('i18n') || ''
-    const domain = getDomain()
-    const { loginid, residence } = getClientInformation(domain) || {
-        loginid: '',
-        residence: '',
-    }
-    api.getTags()
-        .then((result) => {
-            if (!result || !result.result) {
-                return null
-            }
-            if (
-                !result.result['Login ID'] ||
-                !result.result['Site Language'] ||
-                !result.result.Residence
-            ) {
-                return api.setTags({
-                    'Login ID': loginid,
-                    'Site Language': language.toLowerCase(),
-                    Residence: residence,
-                })
-            }
-            return null
-        })
-        .catch((e) => {
-            // eslint-disable-next-line no-console
-            console.error(e)
-            return null
-        })
-}
-
-const pushwooshInit = (push_woosh) => {
-    push_woosh.push([
-        'init',
-        {
-            logLevel: 'error', // or info or debug
-            applicationCode: 'DD293-35A19',
-            safariWebsitePushID: 'web.com.deriv',
-            defaultNotificationTitle: 'Deriv.com',
-            defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
-            serviceWorkerUrl: '/sw.js'
-        },
-    ])
-
-    push_woosh.push([
-        'onReady',
-        function (api) {
-            try {
-                push_woosh.isSubscribed().then((is_subscribed) => {
-                    if (!is_subscribed) {
-                        push_woosh.subscribe()
-                    }
-                })
-            } catch (error) {
-                console.log(error.message)
-            }
-
-            sendTags(api)
-        },
-    ])
 }
 
 export const wrapRootElement = ({ element }) => {
@@ -167,11 +103,6 @@ export const onClientEntry = () => {
     window.DD_RUM.onReady(function () {
         window.DD_RUM.startSessionReplayRecording()
     })
-
-    const push_woosh = new Pushwoosh()
-    if (isLive()) {
-        pushwooshInit(push_woosh)
-    }
 
     addScript({
         src: 'https://static.deriv.com/scripts/cookie.js',

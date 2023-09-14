@@ -1,5 +1,6 @@
 /* eslint-disable import/order */
 const language_config = require(`./i18n-config.js`)
+const language_config_en = require(`./i18n-config-en.js`)
 const path = require('path')
 
 const translations_cache = {}
@@ -185,8 +186,9 @@ exports.onCreatePage = ({ page, actions }) => {
             isPermanent: true,
         })
     }
+    const is_english = process.env.GATSBY_LANGUAGE === 'en'
 
-    Object.keys(language_config).map((lang) => {
+    Object.keys(is_english ? language_config_en : language_config).map((lang) => {
         // Use the values defined in "locales" to construct the path
         const { path, is_default } = language_config[lang]
         const localized_path = is_default ? page.path : `${path}${page.path}`

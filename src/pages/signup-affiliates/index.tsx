@@ -1,10 +1,10 @@
-import React, { Suspense, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import Loadable from '@loadable/component'
 import AffiliateSignupForm from './components/_signup-form'
 import { isBrowser } from 'common/utility'
 import { WithIntl } from 'components/localization'
 import { Container } from 'components/containers'
-import InitialLoader from 'components/elements/dot-loader'
 import useWS from 'components/hooks/useWS'
 import Link from 'features/components/atoms/link'
 import Image from 'features/components/atoms/image'
@@ -16,8 +16,8 @@ import device from 'themes/device'
 import Map from 'images/svg/signup-affiliates/map.svg'
 import PartnerNavLogo from 'images/svg/partner-nav-logo.svg'
 
-const AffiliateSignupStatus = React.lazy(() => import('./components/_signup-status'))
-const WizardComponent = React.lazy(() => import('./components/_wizard-component'))
+const AffiliateSignupStatus = Loadable(() => import('./components/_signup-status'))
+const WizardComponent = Loadable(() => import('./components/_wizard-component'))
 
 const Submit = (
     isOnline: boolean,
@@ -182,24 +182,22 @@ const AffiliateSignup = () => {
                         setAffiliateAccount={setAffiliateAccount}
                         setShowWizard={setShowWizard}
                     />
-                    <Suspense fallback={<InitialLoader style={{ position: 'absolute' }} />}>
-                        {show_wizard && (
-                            <WizardComponent
-                                show_wizard={show_wizard}
-                                setShowWizard={setShowWizard}
-                                affiliate_account={affiliate_account}
-                                setAffiliateAccount={setAffiliateAccount}
-                                onSubmit={onSubmit}
-                            />
-                        )}
-                        <AffiliateSignupStatus
-                            signup_status={signup_status}
-                            setSignupStatus={setSignupStatus}
+                    {show_wizard && (
+                        <WizardComponent
+                            show_wizard={show_wizard}
+                            setShowWizard={setShowWizard}
                             affiliate_account={affiliate_account}
                             setAffiliateAccount={setAffiliateAccount}
                             onSubmit={onSubmit}
                         />
-                    </Suspense>
+                    )}
+                    <AffiliateSignupStatus
+                        signup_status={signup_status}
+                        setSignupStatus={setSignupStatus}
+                        affiliate_account={affiliate_account}
+                        setAffiliateAccount={setAffiliateAccount}
+                        onSubmit={onSubmit}
+                    />
                 </StyledFlexWrapper>
             </AtomicContainer.Fluid>
         </>

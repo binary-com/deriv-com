@@ -39,8 +39,6 @@ export const useGrowthBook = () => {
         }
     }, [])
 
-    console.log(growthbook.current)
-
     return {
         ebook_stocks_heading:
             growthbook.current?.context.features?.['ebook-stocks-heading'].defaultValue,

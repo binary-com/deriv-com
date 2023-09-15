@@ -152,7 +152,7 @@ const Item = styled.div<ItemProps>`
     white-space: nowrap;
 
     ${Header} {
-        font-size: 2.4rem;
+        font-size: 2rem;
         width: max-content;
         text-align: center;
     }

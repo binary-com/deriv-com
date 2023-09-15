@@ -24,16 +24,7 @@ const FlexText = styled(LinkText)`
     @media ${device.tabletS} {
         width: 80%;
         justify-content: flex-start;
-        padding-left: 15rem;
-    }
-    @media (max-width: 500px) {
-        padding-left: 8.5rem;
-    }
-    @media ${device.mobileM} {
-        padding-left: 6rem;
-    }
-    @media ${device.mobileS} {
-        padding-left: 4.5rem;
+        padding-left: 0;
     }
 `
 

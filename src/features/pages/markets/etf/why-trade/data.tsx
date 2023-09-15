@@ -37,6 +37,9 @@ export const ETFTradeBenefitItems: BenefitTradeTypeItem[] = [
 
             icon_src: ETF4,
         },
+        visibility: {
+            is_eu: false,
+        },
     },
     {
         id: 4,

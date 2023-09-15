@@ -136,7 +136,7 @@ const dmt5: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_This difference is because MT5 is a third-party platform that requires its own login credentials. Your Deriv MT5 login gives you access to the MT5 platform, while your Deriv login gives you access to our digital options platforms such as DTrader and DBot._t_',
+                        '_t_This difference is because MT5 is a third-party platform that requires its own login credentials. Your Deriv MT5 login gives you access to the MT5 platform, while your Deriv login gives you access to our digital options platforms such as Deriv Trader and Deriv Bot._t_',
                 },
             ],
         },

@@ -30,7 +30,6 @@ const OtherMarketsSlider = ({
         config: {
             current_market: (market_page) => market_page !== current_market,
             is_eu: (item_is_eu) => item_is_eu === undefined || is_eu === item_is_eu,
-            hide_in: (market_page) => market_page === undefined || market_page !== current_market,
         },
     })
     const is_no_linkAvailable = !!available_markets?.length

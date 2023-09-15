@@ -36,12 +36,11 @@ const HelpCentre = () => {
 export default WithIntl()(HelpCentre)
 
 export const Head = ({ pageContext }: TGatsbyHead) => (
-    <>
-        <SEO
-            title="_t_Help centre | Frequently asked questions | Deriv_t_"
-            description="_t_Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question._t_"
-            pageContext={pageContext}
-        />
+    <SEO
+        title="_t_Help centre | Frequently asked questions | Deriv_t_"
+        description="_t_Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question._t_"
+        pageContext={pageContext}
+    >
         <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-    </>
+    </SEO>
 )

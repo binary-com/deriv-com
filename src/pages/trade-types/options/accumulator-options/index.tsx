@@ -21,12 +21,11 @@ const AccumulatorsOptionsPage = () => {
 export default WithIntl()(AccumulatorsOptionsPage)
 
 export const Head = ({ pageContext }: TGatsbyHead) => (
-    <>
-        <SEO
-            title="_t_Accumulator options | Trade options | Deriv_t_"
-            description="_t_Grow your potential payout at every tick with accumulator options. Accumulator trading is available on volatility indices under derived indices._t_"
-            pageContext={pageContext}
-        />
+    <SEO
+        title="_t_Accumulator options | Trade options | Deriv_t_"
+        description="_t_Grow your potential payout at every tick with accumulator options. Accumulator trading is available on volatility indices under derived indices._t_"
+        pageContext={pageContext}
+    >
         <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-    </>
+    </SEO>
 )

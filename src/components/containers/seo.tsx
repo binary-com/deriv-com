@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 import { useStaticQuery, graphql, Script } from 'gatsby'
 import { localize } from '../localization'
 import language_config from '../../../i18n-config'
@@ -50,7 +50,8 @@ const SEO = ({
     has_organization_schema,
     meta_attributes,
     pageContext,
-}: TSeo) => {
+    children,
+}: PropsWithChildren<TSeo>) => {
     const queries: TQueries = useStaticQuery(
         graphql`
             query {
@@ -199,6 +200,8 @@ const SEO = ({
             {hreflang_codes.map(({ href, hreflang, rel }) => (
                 <link key={hreflang} rel={rel} href={href} hrefLang={hreflang} />
             ))}
+
+            {children}
         </>
     )
 }

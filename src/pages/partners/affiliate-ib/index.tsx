@@ -238,13 +238,12 @@ const AffiliateIb = () => {
 export default WithIntl()(AffiliateIb)
 
 export const Head = ({ pageContext }: TGatsbyHead) => (
-    <>
-        <SEO
-            title="_t_Affiliate and IB programmes | Partnership programmes | Deriv_t_"
-            description="_t_Join the Deriv affiliate partnership programme and introducing broker (IB) programme to earn commissions from various income opportunities._t_"
-            meta_attributes={meta_attributes}
-            pageContext={pageContext}
-        />
+    <SEO
+        title="_t_Affiliate and IB programmes | Partnership programmes | Deriv_t_"
+        description="_t_Join the Deriv affiliate partnership programme and introducing broker (IB) programme to earn commissions from various income opportunities._t_"
+        meta_attributes={meta_attributes}
+        pageContext={pageContext}
+    >
         <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-    </>
+    </SEO>
 )

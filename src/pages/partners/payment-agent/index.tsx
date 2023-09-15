@@ -53,13 +53,12 @@ const PaymentAgent = () => {
 export default WithIntl()(PaymentAgent)
 
 export const Head = ({ pageContext }: TGatsbyHead) => (
-    <>
-        <SEO
-            title="_t_Payment agents | Partnership programmes | Deriv_t_"
-            description="_t_Find out how to become a payment agent on Deriv to expand your client base and earn extra revenue._t_"
-            meta_attributes={meta_attributes}
-            pageContext={pageContext}
-        />
+    <SEO
+        title="_t_Payment agents | Partnership programmes | Deriv_t_"
+        description="_t_Find out how to become a payment agent on Deriv to expand your client base and earn extra revenue._t_"
+        meta_attributes={meta_attributes}
+        pageContext={pageContext}
+    >
         <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-    </>
+    </SEO>
 )

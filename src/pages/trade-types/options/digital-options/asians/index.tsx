@@ -21,12 +21,11 @@ const DigitalOptionsAsians = () => {
 export default WithIntl()(DigitalOptionsAsians)
 
 export const Head = ({ pageContext }: TGatsbyHead) => (
-    <>
-        <SEO
-            title="_t_Asians | Digital options contract | Deriv_t_"
-            description="_t_Open a digital options contract with an Asians trade type on Deriv’s trading platforms and earn payouts with accurate market predictions._t_"
-            pageContext={pageContext}
-        />
+    <SEO
+        title="_t_Asians | Digital options contract | Deriv_t_"
+        description="_t_Open a digital options contract with an Asians trade type on Deriv’s trading platforms and earn payouts with accurate market predictions._t_"
+        pageContext={pageContext}
+    >
         <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-    </>
+    </SEO>
 )

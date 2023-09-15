@@ -12,12 +12,11 @@ const DerivPrimePage = () => {
 export default WithIntl()(DerivPrimePage)
 
 export const Head = ({ pageContext }: TGatsbyHead) => (
-    <>
-        <SEO
-            description="_t_With Deriv Prime’s liquidity solutions for online trading, you get unbeatable spreads on the commodities, cryptocurrencies, and forex markets._t_"
-            title="_t_Liquidity solutions provider | Deriv Prime_t_"
-            pageContext={pageContext}
-        />
+    <SEO
+        description="_t_With Deriv Prime’s liquidity solutions for online trading, you get unbeatable spreads on the commodities, cryptocurrencies, and forex markets._t_"
+        title="_t_Liquidity solutions provider | Deriv Prime_t_"
+        pageContext={pageContext}
+    >
         <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>
-    </>
+    </SEO>
 )

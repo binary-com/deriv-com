@@ -199,7 +199,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                     return null
                 } else
                     return (
-                        <Accordion has_single_state key={pdata.class_name + index}>
+                        <Accordion has_single_state key={index}>
                             <AccordionItem
                                 content_style={content_style}
                                 header_style={header_style}

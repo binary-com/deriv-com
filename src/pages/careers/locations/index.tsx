@@ -292,6 +292,9 @@ const query = graphql`
         thumbnail_singapore: file(relativePath: { eq: "careers/thumbnail_singapore.png" }) {
             ...fadeIn
         }
+        thumbnail_hongkong: file(relativePath: { eq: "careers/thumbnail_hongkong.png" }) {
+            ...fadeIn
+        }
     }
 `
 

@@ -12,6 +12,7 @@ export type WhyUsType = {
     subtitle: TString
     image_name: string
     image_alt: TString
+    only_row?: boolean
 }[]
 
 type WhyUsProps = {

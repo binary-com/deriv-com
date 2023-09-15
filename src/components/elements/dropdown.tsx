@@ -159,7 +159,7 @@ export const DropdownContainer = styled.ul<DropdownContainerProps>`
 const StyledDiv = styled.div<Pick<DropdownProps, 'is_alternate_style'>>`
     position: relative;
     width: 100%;
-    top: 30px;
+    top: -30px;
 
     ${(props) =>
         props.is_alternate_style &&

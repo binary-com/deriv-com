@@ -12,7 +12,7 @@ export const useGrowthBook = () => {
     useEffect(() => {
         growthbook.current = new GrowthBook({
             apiHost: 'https://cdn.growthbook.io',
-            clientKey: growthbook_client_key,
+            clientKey: growthbook_client_key ?? ' ',
             enableDevMode: true,
             attributes: {
                 id: anonymous_id,
@@ -41,7 +41,7 @@ export const useGrowthBook = () => {
 
     return {
         ebook_stocks_heading:
-            growthbook.current?.context.features?.['ebook-stocks-heading'].defaultValue,
-        homepage: growthbook.current?.context.features?.['homepage'].defaultValue,
+            growthbook.current?.context.features?.['ebook-stocks-heading']?.defaultValue,
+        homepage: growthbook.current?.context.features?.['homepage']?.defaultValue,
     }
 }

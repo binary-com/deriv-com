@@ -4,7 +4,8 @@ const path = require('path')
 
 const translations_cache = {}
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
-exports.onCreatePage = ({ page }) => {
+exports.onCreatePage = ({ page, actions }) => {
+    const { createPage } = actions
     Object.keys(language_config).map((lang) => {
         // Use the values defined in "locales" to construct the path
         const { path, is_default } = language_config[lang]
@@ -22,6 +23,20 @@ exports.onCreatePage = ({ page }) => {
             const translation_json = require(`./src/translations/${lang}`)
             translations_cache[lang] = translation_json
         }
+        const current_page = createPage({
+            // Pass on everything from the original page
+            ...page,
+            // Remove trailing slash from page.path (e.g. "/de/")
+            path: localized_path,
+            // Pass in the locale as context to every page
+            context: {
+                ...page.context,
+                locale: lang,
+                localeResources: translations_cache[lang],
+                pathname: localized_path,
+            },
+        })
+        return current_page
     })
 }
 

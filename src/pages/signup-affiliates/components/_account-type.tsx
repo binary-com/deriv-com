@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { WizardStepProps } from '../_types'
 import { Localize, LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements'
-import device from 'themes/device'
 import IndividualIcon from 'images/svg/signup-affiliates/individual.svg'
 import BusinessIcon from 'images/svg/signup-affiliates/company.svg'
 import Revenue from 'images/svg/signup-affiliates/revenue.svg'
 import Turnover from 'images/svg/signup-affiliates/turnover.svg'
 import CPA from 'images/svg/signup-affiliates/cpa.svg'
 import Selected from 'images/svg/signup-affiliates/selected.svg'
+import device from 'themes/device'
 import { TString } from 'types/generics'
 
 type CardProps = {
@@ -18,11 +19,6 @@ type CardProps = {
     selected?: boolean
     value?: number
     onClick?: (e) => void
-}
-type AccountTypeProps = {
-    updateData: (e) => void
-    card_selected: { type: number; plan: number }
-    onValidate: (e) => void
 }
 
 const StyledCard = styled.div<{ selected: boolean }>`
@@ -161,10 +157,10 @@ const plans: CardProps[] = [
         description: '_t_Earn based on each successful referral. <0>Learn more</>_t_',
     },
 ]
-const AccountType = ({ updateData, card_selected, onValidate }: AccountTypeProps) => {
-    const [selected_items, setSelectedItems] = useState(card_selected)
+const AccountType = ({ updateData, affiliate_data, onValidate }: WizardStepProps) => {
+    const [selected_items, setSelectedItems] = useState(affiliate_data)
 
-    const validate = selected_items.type && selected_items.plan
+    const validate = !!(selected_items.type && selected_items.plan)
 
     useEffect(() => {
         onValidate(validate)

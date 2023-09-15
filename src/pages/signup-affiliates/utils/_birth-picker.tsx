@@ -32,7 +32,7 @@ const BirthPickerWrapper = styled.div<BirthPickerWrapperProps>`
     .react-date-picker {
         display: block;
         font-size: 14px;
-        padding: 1rem 1rem 1rem 0.8rem;
+        padding: 0.8rem;
         height: 40px;
     }
     .react-date-picker__wrapper {
@@ -107,7 +107,6 @@ const BirthPicker = ({ id, error, value, setFieldValue, label, label_color }: Bi
     }
     const subtractYears = (numOfYears, date = new Date()) => {
         date.setFullYear(date.getFullYear() - numOfYears)
-
         return date
     }
     const max_date = subtractYears(18)

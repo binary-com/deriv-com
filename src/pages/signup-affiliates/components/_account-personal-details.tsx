@@ -1,36 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { WizardStepProps } from '../_types'
 import affiliate_validation from '../validations/_affilaite_validation'
 import BirthForm from '../utils/_birth-form'
 import AffiliateInput from '../utils/_affiliate-input'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-
-export type TCertificate = {
-    lastModified: string
-    lastModifiedDate: string
-    name: string
-    size: number
-    type: string
-    webkitRelativePath: string
-}
-type PersonalDataProps = {
-    username: string
-    first_name: string
-    last_name: string
-    date_birth: Date | [Date, Date]
-    social_media_url: string
-    website_url: string
-    password: string
-    company_name: string
-    company_registration_number: string
-}
-type PersonalDetailsProps = {
-    updateData: (value: PersonalDataProps) => void
-    onValidate: (valid: boolean) => void
-    is_individual: boolean
-    affiliate_personal_data: PersonalDataProps
-}
 
 const InputGroup = styled.div`
     display: flex;
@@ -56,21 +31,21 @@ const InputWrapper = styled.div`
 
 const PersonalDetails = ({
     is_individual,
-    affiliate_personal_data,
+    affiliate_data,
     updateData,
     onValidate,
-}: PersonalDetailsProps) => {
-    const [username, setUsername] = useState(affiliate_personal_data.username)
-    const [first_name, setFirstName] = useState(affiliate_personal_data.first_name)
-    const [last_name, setLastName] = useState(affiliate_personal_data.last_name)
-    const [date_birth, setDateBirth] = useState(affiliate_personal_data.date_birth)
-    const [company_name, setCompanyName] = useState(affiliate_personal_data.company_name)
+}: WizardStepProps) => {
+    const [username, setUsername] = useState(affiliate_data.username)
+    const [first_name, setFirstName] = useState(affiliate_data.first_name)
+    const [last_name, setLastName] = useState(affiliate_data.last_name)
+    const [date_birth, setDateBirth] = useState(affiliate_data.date_birth)
+    const [company_name, setCompanyName] = useState(affiliate_data.company_name)
     const [company_registration_number, setCompanyRegistrationNumber] = useState(
-        affiliate_personal_data.company_registration_number,
+        affiliate_data.company_registration_number,
     )
-    const [website_url, setWebsiteUrl] = useState(affiliate_personal_data.website_url)
-    const [social_media_url, setSocialMedia] = useState(affiliate_personal_data.social_media_url)
-    const [password, setPassword] = useState(affiliate_personal_data.password)
+    const [website_url, setWebsiteUrl] = useState(affiliate_data.website_url)
+    const [social_media_url, setSocialMedia] = useState(affiliate_data.social_media_url)
+    const [password, setPassword] = useState(affiliate_data.password)
 
     const [user_name_error_msg, setUserNameErrorMsg] = useState()
     const [first_name_error_msg, setFirstNameErrorMsg] = useState()
@@ -198,6 +173,13 @@ const PersonalDetails = ({
             error_set: setPasswordErrorMsg,
         },
     ]
+    // prevent these characters from the input type='number' tag
+    const input = document.getElementById('company_registration_number')
+    input?.addEventListener('keydown', function (e) {
+        if (['.', '-', '+', 'e'].includes(e.key)) {
+            e.preventDefault()
+        }
+    })
 
     const validate = is_individual
         ? username &&
@@ -222,7 +204,7 @@ const PersonalDetails = ({
 
     useEffect(() => {
         updateData({
-            ...affiliate_personal_data,
+            ...affiliate_data,
             username,
             first_name,
             last_name,

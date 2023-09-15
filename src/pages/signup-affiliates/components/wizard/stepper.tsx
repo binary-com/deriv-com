@@ -2,8 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
 
-type StepperProps = { step: number; step_names: string[] }
-
 const StepperWrapper = styled.div`
     padding: 30px 0 24px 0;
     display: flex;
@@ -80,10 +78,16 @@ const Label = styled.h4<{ active: boolean }>`
     color: ${(props) => (props.active ? `#FF444F` : `#999999`)};
 `
 
-const Stepper = ({ step, step_names }: StepperProps) => {
+const Stepper = ({ step }: { step: number }) => {
     return (
         <StepperWrapper>
-            {step_names?.map((step_name, id) => (
+            {[
+                'Account type',
+                'Address details',
+                'Phone number',
+                'Personal details',
+                'Terms of use',
+            ]?.map((step_name, id) => (
                 <StepperItem key={step_name} active={id + 1 < step}>
                     <StepCounter active={id + 1 <= step}>{id + 1}</StepCounter>
                     <Label active={id + 1 === step}>{step_name}</Label>

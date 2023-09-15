@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { WizardComponentProps } from '../_types'
 import AccountType from './_account-type'
 import AccountDetails from './_account-details'
 import PhoneNumber from './_phone_number'
@@ -7,7 +8,6 @@ import AccountTerms from './_account-terms'
 import PersonalDetails from './_account-personal-details'
 import Wizard from './wizard'
 import { useResidenceList } from 'features/hooks/use-residence-list'
-import { localize } from 'components/localization'
 import { Container } from 'components/containers'
 
 export const SignUpWrapper = styled(Container)`
@@ -22,21 +22,7 @@ export const SignUpWrapper = styled(Container)`
     border-radius: 6px;
     box-shadow: 0px 12px 16px -4px #0e0e0e14;
 `
-const steps = [
-    'Account type',
-    'Address details',
-    'Phone number',
-    'Personal details',
-    'Terms of use',
-]
 
-type WizardComponentProps = {
-    show_wizard: boolean
-    setShowWizard: any
-    affiliate_account: any
-    setAffiliateAccount: any
-    onSubmit: () => void
-}
 const WizardComponent = ({
     show_wizard,
     setShowWizard,
@@ -45,8 +31,9 @@ const WizardComponent = ({
     onSubmit,
 }: WizardComponentProps) => {
     const [step, setStep] = useState(1)
-    const [next_btn_enabled, setNextBtnEnabled] = useState(false)
+    const [next_btn_enabled, setNextBtnEnabled] = useState<boolean>(false)
     const [residence_list] = useResidenceList()
+    console.log(residence_list)
 
     const updateAffiliateValues = (value, type) => {
         switch (type) {
@@ -112,8 +99,6 @@ const WizardComponent = ({
 
     return (
         <Wizard
-            title={localize('_t_Add an affiliate account_t_')}
-            steps_names={steps}
             step={step}
             setStep={setStep}
             show_wizard={show_wizard}
@@ -123,16 +108,16 @@ const WizardComponent = ({
             onSubmit={onSubmit}
         >
             <AccountType
-                card_selected={affiliate_account.account}
-                updateData={(account) => {
-                    updateAffiliateValues(account, 'account-type')
+                affiliate_data={affiliate_account.account}
+                updateData={(value) => {
+                    updateAffiliateValues(value, 'account-type')
                 }}
                 onValidate={(valid) => {
                     setNextBtnEnabled(valid)
                 }}
             />
             <AccountDetails
-                affiliate_address_data={affiliate_account.address_details}
+                affiliate_data={affiliate_account.address_details}
                 updateData={(value) => {
                     updateAffiliateValues(value, 'account-details')
                 }}
@@ -142,8 +127,8 @@ const WizardComponent = ({
                 residence_list={residence_list}
             />
             <PhoneNumber
-                affiliate_phone_number={affiliate_account.phone_number}
-                updatedData={(value) => {
+                affiliate_data={affiliate_account.phone_number}
+                updateData={(value) => {
                     updateAffiliateValues(value, 'phone-number')
                 }}
                 onValidate={(valid) => {
@@ -151,7 +136,7 @@ const WizardComponent = ({
                 }}
             />
             <PersonalDetails
-                affiliate_personal_data={affiliate_account.personal_details}
+                affiliate_data={affiliate_account.personal_details}
                 is_individual={affiliate_account.account.type == 1}
                 updateData={(value) => {
                     updateAffiliateValues(value, 'personal-details')
@@ -161,7 +146,7 @@ const WizardComponent = ({
                 }}
             />
             <AccountTerms
-                affiliate_terms_of_use={affiliate_account.terms_of_use}
+                affiliate_data={affiliate_account.terms_of_use}
                 updateData={(value) => {
                     updateAffiliateValues(value, 'terms-of-use')
                 }}

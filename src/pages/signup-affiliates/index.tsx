@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import AffiliateSignupForm from './components/_signup-form'
+import { AffiliateAccountTypes, SignUpStatusTypes, SubmitTypes } from './_types'
 import { isBrowser } from 'common/utility'
 import { WithIntl } from 'components/localization'
 import { Container } from 'components/containers'
@@ -19,13 +20,8 @@ import PartnerNavLogo from 'images/svg/partner-nav-logo.svg'
 const AffiliateSignupStatus = Loadable(() => import('./components/_signup-status'))
 const WizardComponent = Loadable(() => import('./components/_wizard-component'))
 
-const Submit = (
-    isOnline: boolean,
-    affiliate_account: any,
-    setSignupStatus: any,
-    send_register: any,
-) => {
-    if (!isOnline) {
+const Submit = ({ is_online, affiliate_account, setSignupStatus, send_register }: SubmitTypes) => {
+    if (!is_online) {
         setSignupStatus('lost connection')
     } else
         send_register({
@@ -79,15 +75,9 @@ const StyledFlexWrapper = styled(Container)`
 const AffiliateSignup = () => {
     const [show_wizard, setShowWizard] = useState<boolean>(false)
     const [is_online, setIsOnline] = useState(isBrowser() && navigator.onLine)
-    const [signup_status, setSignupStatus] = useState<
-        | 'Username not available'
-        | 'lost connection'
-        | 'success'
-        | 'Your website is not a valid entry'
-        | ''
-    >()
+    const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>()
 
-    const [affiliate_account, setAffiliateAccount] = useState({
+    const [affiliate_account, setAffiliateAccount] = useState<AffiliateAccountTypes>({
         email: '',
         account: {
             type: 0,
@@ -161,7 +151,7 @@ const AffiliateSignup = () => {
             },
         })
     }, [affiliate_account.address_details.country])
-    const onSubmit = () => Submit(is_online, affiliate_account, setSignupStatus, send_register)
+    const onSubmit = () => Submit({ is_online, affiliate_account, setSignupStatus, send_register })
 
     return (
         <>

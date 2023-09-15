@@ -3,23 +3,9 @@ import styled from 'styled-components'
 import Footer from './footer'
 import Header from './header'
 import Stepper from './stepper'
-import device from 'themes/device'
+import { WizardProps } from 'pages/signup-affiliates/_types'
 import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
-
-export type WizardProps = {
-    children?: React.ReactElement[]
-    show_wizard?: boolean | number
-    setShowWizard?: React.Dispatch<React.SetStateAction<boolean>>
-    onSubmit: () => void
-    steps_names?: string[]
-    step?: number
-    setStep?: React.Dispatch<React.SetStateAction<number>>
-    title?: string
-    max_step?: number
-    next_btn_enabled?: boolean
-    setNextBtnEnabled?: React.Dispatch<React.SetStateAction<boolean>>
-    disabled?: boolean
-}
+import device from 'themes/device'
 
 export const Background = styled.div`
     position: absolute;
@@ -64,10 +50,8 @@ const Wizard = ({
     show_wizard,
     setShowWizard,
     onSubmit,
-    steps_names,
     step,
     setStep,
-    title,
     next_btn_enabled,
     setNextBtnEnabled,
 }: WizardProps) => {
@@ -82,22 +66,21 @@ const Wizard = ({
     )
 
     if (!show_wizard) return <></>
-
     return (
         <>
             <Modal>
-                <Header title={title} setShowWizard={setShowWizard} />
-                <Stepper step={step} step_names={steps_names} />
+                <Header setShowWizard={setShowWizard} />
+                <Stepper step={step} />
                 <Wrapper>
                     {React.Children.map(children, (child, idx) => (
                         <div key={child.props.name}>{step === idx + 1 && child}</div>
                     ))}
                 </Wrapper>
                 <Footer
-                    disabled={!next_btn_enabled}
-                    step={step}
                     max_step={children.length}
+                    step={step}
                     setStep={setStep}
+                    next_btn_enabled={next_btn_enabled}
                     setNextBtnEnabled={setNextBtnEnabled}
                     onSubmit={onSubmit}
                 />

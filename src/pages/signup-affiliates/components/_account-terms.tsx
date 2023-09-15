@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { WizardStepProps } from '../_types'
 import { Localize } from 'components/localization'
 import { Header, LocalizedLinkText } from 'components/elements'
 import Flex from 'features/components/atoms/flex-box'
@@ -8,20 +9,8 @@ import { TString } from 'types/generics'
 
 type AgreementDataType = {
     link_text: TString
-    link_url?: string
     name: string
     optional?: boolean
-}
-type AccountTermsProps = {
-    updateData: (e) => void
-    affiliate_terms_of_use: {
-        non_pep_declaration: boolean
-        tnc_accepted: boolean
-        general_terms: boolean
-        is_eu_checked: boolean
-        is_partner_checked: boolean
-    }
-    onValidate: (e) => void
 }
 
 const MainWrapper = styled.div`
@@ -48,8 +37,8 @@ const CheckBox = styled.input`
     margin-inline-end: 8px;
 `
 
-const AccountTerms = ({ affiliate_terms_of_use, updateData, onValidate }: AccountTermsProps) => {
-    const [terms_of_use, setTermsOfUse] = useState(affiliate_terms_of_use)
+const AccountTerms = ({ affiliate_data, updateData, onValidate }: WizardStepProps) => {
+    const [terms_of_use, setTermsOfUse] = useState(affiliate_data)
 
     const AgreementData: AgreementDataType[] = [
         {
@@ -69,7 +58,6 @@ const AccountTerms = ({ affiliate_terms_of_use, updateData, onValidate }: Accoun
             link_text:
                 '_t_I consent to receive promotional materials and notifications regarding your partnership program._t_',
             name: 'is_partner_checked',
-            optional: true,
         },
         {
             link_text: '_t_I’m going to promote Deriv in the EU._t_',
@@ -119,7 +107,7 @@ const AccountTerms = ({ affiliate_terms_of_use, updateData, onValidate }: Accoun
                                 onClick={() =>
                                     setTermsOfUse({
                                         ...terms_of_use,
-                                        [name]: !affiliate_terms_of_use[name],
+                                        [name]: !affiliate_data[name],
                                     })
                                 }
                             />

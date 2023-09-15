@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Localize } from 'components/localization'
 import CloseSVG from 'images/svg/custom/close-2.svg'
 
 const StyledHeader = styled.div`
@@ -11,13 +12,11 @@ const StyledHeader = styled.div`
     border-bottom: 1px solid var(--color-grey-43);
     gap: 10px;
 `
-
 const CloseButton = styled.img`
     &:hover {
         cursor: pointer;
     }
 `
-
 const Title = styled.h2`
     font-size: 16px;
     font-weight: 700;
@@ -25,15 +24,16 @@ const Title = styled.h2`
     color: var(--color-black-3);
 `
 
-type HeaderProps = {
-    title: string
+const Header = ({
+    setShowWizard,
+}: {
     setShowWizard: React.Dispatch<React.SetStateAction<boolean>>
-}
-
-const Header = ({ title, setShowWizard }: HeaderProps) => {
+}) => {
     return (
         <StyledHeader>
-            <Title>{title}</Title>
+            <Title>
+                <Localize translate_text="_t_Add an affiliate account_t_" />
+            </Title>
             <CloseButton src={CloseSVG} onClick={() => setShowWizard(false)} />
         </StyledHeader>
     )

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { WizardStepProps } from '../_types'
 import affiliate_validation from '../validations/_affilaite_validation'
 import AffiliateInput from '../utils/_affiliate-input'
 import { Header } from 'components/elements'
@@ -41,26 +42,17 @@ const PhoneNumberInput = styled(AffiliateInput)`
     border-radius: 0px;
 `
 
-// const ButtonCode = styled(Button)`
-//     border-radius: 0 4px;
-// `
-// const CodeText = styled(Header)`
-//     padding-right: 95px;
-// `
-
-type PhoneNumberProps = {
-    updatedData: (value: { phone: string; prefix: string }) => void
-    onValidate: (e) => void
-    affiliate_phone_number: { phone: string; prefix: string }
-}
-
-const PhoneNumber = ({ updatedData, onValidate, affiliate_phone_number }: PhoneNumberProps) => {
-    const [phone, setPhone] = useState(affiliate_phone_number.phone)
+const PhoneNumber = ({
+    updateData,
+    onValidate,
+    affiliate_data: affiliate_number,
+}: WizardStepProps) => {
+    const [phone, setPhone] = useState(affiliate_number.phone)
     const [phone_error_msg, setPhoneErrorMsg] = useState('')
 
     useEffect(() => {
-        updatedData({
-            ...affiliate_phone_number,
+        updateData({
+            ...affiliate_number,
             phone,
         })
     }, [phone])
@@ -90,7 +82,7 @@ const PhoneNumber = ({ updatedData, onValidate, affiliate_phone_number }: PhoneN
             <CodeContainer>
                 <CodeWrapper>
                     <CountryCode>
-                        <span>{`+${affiliate_phone_number.prefix}`}</span>
+                        <span>{`+${affiliate_number.prefix}`}</span>
                     </CountryCode>
                 </CodeWrapper>
 

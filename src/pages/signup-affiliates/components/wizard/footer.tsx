@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { WizardProps } from './index'
 import Button from 'components/form/button'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
+import { WizardTypes } from 'pages/signup-affiliates/_types'
 
 const StyledFooter = styled.div`
     display: flex;
@@ -31,8 +31,8 @@ const Footer = ({
     onSubmit,
     max_step,
     setNextBtnEnabled,
-    disabled,
-}: WizardProps) => {
+    next_btn_enabled,
+}: WizardTypes) => {
     const buttonHandler = React.useCallback(
         (button_type: ButtonType): void => {
             if (button_type === ButtonType.Previous) {
@@ -51,12 +51,12 @@ const Footer = ({
         <StyledFooter>
             {step > 1 && (
                 <Button tertiary onClick={() => buttonHandler(ButtonType.Previous)}>
-                    {localize('_t_Previous_t_')}
+                    <Localize translate_text="_t_Previous_t_" />
                 </Button>
             )}
             <Button
                 secondary
-                disabled={disabled}
+                disabled={!next_btn_enabled}
                 onClick={() => (max_step === step ? onSubmit() : buttonHandler(ButtonType.Next))}
             >
                 {max_step === step ? (

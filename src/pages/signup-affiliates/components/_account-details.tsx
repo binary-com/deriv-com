@@ -1,28 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { WizardStepProps } from '../_types'
 import AffiliateInput from '../utils/_affiliate-input'
 import affiliate_validation from '../validations/_affilaite_validation'
 import { DropdownSearch } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
-
-type CountryType = {
-    name: string
-    display_name: string
-    value: string
-}
-type AccountDetailsProps = {
-    residence_list?: CountryType[]
-    updateData: (e) => void
-    onValidate: (e) => void
-    affiliate_address_data: {
-        state: string
-        city: string
-        street: string
-        postal_code: string
-        country: CountryType
-    }
-}
 
 const InputGroup = styled.div`
     display: flex;
@@ -44,16 +27,16 @@ const InputWrapper = styled.div`
 `
 
 const AccountDetails = ({
+    affiliate_data,
     updateData,
-    affiliate_address_data,
     onValidate,
     residence_list,
-}: AccountDetailsProps) => {
-    const [country, setCountry] = useState(affiliate_address_data.country)
-    const [state, setState] = useState(affiliate_address_data.state)
-    const [city, setCity] = useState(affiliate_address_data.city)
-    const [street, setStreet] = useState(affiliate_address_data.street)
-    const [postal_code, setPostCode] = useState(affiliate_address_data.postal_code)
+}: WizardStepProps) => {
+    const [country, setCountry] = useState(affiliate_data.country)
+    const [state, setState] = useState(affiliate_data.state)
+    const [city, setCity] = useState(affiliate_data.city)
+    const [street, setStreet] = useState(affiliate_data.street)
+    const [postal_code, setPostCode] = useState(affiliate_data.postal_code)
     const [country_error_msg, setCountryErrorMsg] = useState('')
     const [state_error_msg, setStateErrorMsg] = useState('')
     const [city_error_msg, setCityErrorMsg] = useState('')
@@ -62,7 +45,7 @@ const AccountDetails = ({
 
     useEffect(() => {
         updateData({
-            ...affiliate_address_data,
+            ...affiliate_data,
             country,
             state,
             street,

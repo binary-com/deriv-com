@@ -18,7 +18,6 @@ export type MarketPageType =
 export type OtherMarketsConfig = {
     current_market: MarketPageType
     is_eu: boolean
-    hide_in: MarketPageType
 }
 
 export type SmartOtherMarketsItem = TSmartContent<CardType, OtherMarketsConfig>
@@ -118,7 +117,6 @@ export const other_markets_items: SmartOtherMarketsItem[] = [
         },
         visibility: {
             current_market: 'commodities',
-            hide_in: 'etfs',
         },
     },
 ]

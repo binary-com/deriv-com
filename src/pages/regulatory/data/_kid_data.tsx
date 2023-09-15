@@ -28,12 +28,12 @@ const kid_data: kidType[] = [
         ref: 'kid_deriv_commodities.pdf',
     },
     {
-        title: '_t_CFDs - synthetics: Volatility 250 (1s) Index_t_',
+        title: '_t_CFDs - Synthetics: Volatility 250 (1s) Index_t_',
         ref: 'kid_deriv_CFD_synthetic_vol_250.pdf',
     },
 
     {
-        title: '_t_CFDs - synthetics: Crash 300 Index_t_',
+        title: '_t_CFDs - Synthetics: Crash 300 Index_t_',
         ref: 'kid_deriv_CFD_synthetic_crash_300.pdf',
     },
     {
@@ -43,19 +43,19 @@ const kid_data: kidType[] = [
 ]
 const kid_data_multiplier = [
     {
-        title: '_t_Multipliers - forex_t_',
+        title: '_t_Multipliers - Forex_t_',
         ref: 'kid_deriv_multipliers_forex.pdf',
     },
     {
-        title: '_t_Multipliers - cryptocurrencies_t_',
+        title: '_t_Multipliers - Cryptocurrencies_t_',
         ref: 'kid_deriv_multipliers_cryptocurrencies.pdf',
     },
     {
-        title: '_t_Multipliers - synthetics: Volatility 250 (1s) Index_t_',
+        title: '_t_Multipliers - Synthetics: Volatility 250 (1s) Index_t_',
         ref: 'kid_deriv_multipliers_synthetics_vol_250.pdf',
     },
     {
-        title: '_t_Multipliers - synthetics: Crash 300 Index_t_',
+        title: '_t_Multipliers - Synthetics: Crash 300 Index_t_',
         ref: 'kid_deriv_multipliers_synthetics_crash_300.pdf',
     },
 ]

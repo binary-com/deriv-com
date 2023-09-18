@@ -29,15 +29,16 @@ const WizardComponent = ({
     affiliate_account,
     setAffiliateAccount,
     onSubmit,
+    onAnalyticEvent,
 }: WizardComponentProps) => {
     const [step, setStep] = useState(1)
     const [next_btn_enabled, setNextBtnEnabled] = useState<boolean>(false)
     const [residence_list] = useResidenceList()
-    console.log(residence_list)
 
     const updateAffiliateValues = (value, type) => {
         switch (type) {
             case 'account-type':
+                onAnalyticEvent('affiliates: account type')
                 setAffiliateAccount({
                     ...affiliate_account,
                     account: { type: value.type, plan: value.plan },
@@ -45,6 +46,7 @@ const WizardComponent = ({
                 break
 
             case 'account-details':
+                onAnalyticEvent('affiliates: account details')
                 setAffiliateAccount({
                     ...affiliate_account,
                     address_details: {
@@ -57,6 +59,7 @@ const WizardComponent = ({
                 })
                 break
             case 'phone-number':
+                onAnalyticEvent('affiliates: phone number')
                 setAffiliateAccount({
                     ...affiliate_account,
                     phone_number: {
@@ -66,6 +69,7 @@ const WizardComponent = ({
                 })
                 break
             case 'personal-details':
+                onAnalyticEvent('affiliates: personal details')
                 setAffiliateAccount({
                     ...affiliate_account,
                     personal_details: {
@@ -83,6 +87,7 @@ const WizardComponent = ({
                 })
                 break
             case 'terms-of-use':
+                onAnalyticEvent('affiliates: terms of use')
                 setAffiliateAccount({
                     ...affiliate_account,
                     terms_of_use: {

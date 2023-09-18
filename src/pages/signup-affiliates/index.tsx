@@ -12,6 +12,7 @@ import Image from 'features/components/atoms/image'
 import AtomicContainer from 'features/components/atoms/container'
 import LanguageSwitcher from 'features/components/molecules/language-switcher'
 import NavTemplate from 'features/components/templates/navigation/template'
+import { useAnalyticsEvents } from 'features/hooks/analytic/use-analytic-events'
 import { partners_nav_logo } from 'features/components/templates/navigation/payment-agent-nav/payment-agent-nav.module.scss'
 import device from 'themes/device'
 import Map from 'images/svg/signup-affiliates/map.svg'
@@ -77,6 +78,11 @@ const AffiliateSignup = () => {
     const [show_wizard, setShowWizard] = useState<boolean>(false)
     const [is_online, setIsOnline] = useState(isBrowser() && navigator.onLine)
     const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>()
+    const { onAnalyticEvent } = useAnalyticsEvents('ce_affiliate_signup_form')
+
+    useEffect(() => {
+        onAnalyticEvent('affiliates: registration started')
+    }, [])
 
     const [affiliate_account, setAffiliateAccount] = useState<AffiliateAccountTypes>({
         email: '',
@@ -152,7 +158,10 @@ const AffiliateSignup = () => {
             },
         })
     }, [affiliate_account.address_details.country])
-    const onSubmit = () => Submit({ is_online, affiliate_account, setSignupStatus, send_register })
+    const onSubmit = () => {
+        signup_status == 'success' && onAnalyticEvent('affiliates: registration done')
+        Submit({ is_online, affiliate_account, setSignupStatus, send_register })
+    }
 
     return (
         <>
@@ -180,6 +189,7 @@ const AffiliateSignup = () => {
                             affiliate_account={affiliate_account}
                             setAffiliateAccount={setAffiliateAccount}
                             onSubmit={onSubmit}
+                            onAnalyticEvent={onAnalyticEvent}
                         />
                     )}
                     <AffiliateSignupStatus

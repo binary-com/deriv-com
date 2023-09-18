@@ -55,6 +55,7 @@ export type WizardComponentProps = {
     affiliate_account?: AffiliateAccountTypes
     setAffiliateAccount?: setAffiliateAccountTypes
     onSubmit: () => void
+    onAnalyticEvent?: () => void
 }
 export type WizardTypes = {
     children?: ReactElement[]

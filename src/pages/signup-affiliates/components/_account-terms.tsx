@@ -98,7 +98,7 @@ const AccountTerms = ({ affiliate_data, updateData, onValidate }: WizardStepProp
                     }
                 />
             </Header>
-            {AgreementData.map(({ link_text, link_url, name, optional }, index) => {
+            {AgreementData.map(({ link_text, name, optional }, index) => {
                 return (
                     <>
                         <Flex.Box key={name} align={'center'} pb={'8x'}>

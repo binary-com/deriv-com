@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import AffiliateSignupForm from './components/_signup-form'
-import AffiliateNav from './components/_navigation'
 import { AffiliateAccountTypes, SignUpStatusTypes, SubmitTypes } from './_types'
 import { isBrowser } from 'common/utility'
 import { WithIntl } from 'components/localization'
 import { Container } from 'components/containers'
 import useWS from 'components/hooks/useWS'
+import Layout from 'components/layout/layout'
 import AtomicContainer from 'features/components/atoms/container'
 import { useAnalyticsEvents } from 'features/hooks/analytic/use-analytic-events'
 import device from 'themes/device'
@@ -159,8 +159,7 @@ const AffiliateSignup = () => {
     }
 
     return (
-        <>
-            <AffiliateNav />
+        <Layout type="affiliates">
             <AtomicContainer.Fluid dir={'row'}>
                 <StyledFlexWrapper>
                     <AffiliateSignupForm
@@ -187,7 +186,7 @@ const AffiliateSignup = () => {
                     />
                 </StyledFlexWrapper>
             </AtomicContainer.Fluid>
-        </>
+        </Layout>
     )
 }
 

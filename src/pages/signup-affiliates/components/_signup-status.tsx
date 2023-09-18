@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import affiliate_validation from '../validations/_affilaite_validation'
 import AffiliateInput from '../utils/_affiliate-input'
+import { SignUpStatusProps } from '../_types'
+import Image from 'features/components/atoms/image'
 import { localize, Localize } from 'components/localization'
 import { Container } from 'components/containers'
 import { Button } from 'components/form'
 import { Background } from 'pages/signup-affiliates/components/wizard'
 import { Header } from 'components/elements'
 import device from 'themes/device'
-import Map from 'images/svg/signup-affiliates/map.svg'
 import Success from 'images/svg/signup-affiliates/success.svg'
 import Failed from 'images/svg/signup-affiliates/failed.svg'
 
@@ -23,23 +24,6 @@ export const SignUpWrapper = styled(Container)`
     background: var(--color-white);
     border-radius: 6px;
     box-shadow: 0px 12px 16px -4px #0e0e0e14;
-`
-
-const StyledFlexWrapper = styled(Container)`
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-around;
-    background: url(${Map}) no-repeat fixed bottom;
-    block-size: 100vh;
-    inline-size: 100vw;
-    padding-top: 120px;
-
-    @media ${device.tabletL} {
-        flex-direction: column-reverse;
-        justify-content: flex-end;
-        padding-top: 0;
-    }
 `
 const StyledButton = styled(Button)`
     inline-size: fit-content;
@@ -68,7 +52,7 @@ const Modal = styled.div`
     top: 50%;
     left: 50%;
     background-color: white;
-    box-shadow: 0px 20px 24px -4px #0e0e0e14;
+    box-shadow: 0 20px 24px -4px #0e0e0e14;
 
     @media ${device.tablet} {
         width: 100%;
@@ -81,20 +65,13 @@ const Modal = styled.div`
     }
 `
 
-type AffiliateSignupStatusProps = {
-    signup_status: string
-    setSignupStatus: any
-    affiliate_account: any
-    setAffiliateAccount: any
-    onSubmit: any
-}
 const AffiliateSignupStatus = ({
     signup_status,
     setSignupStatus,
     affiliate_account,
     setAffiliateAccount,
     onSubmit,
-}: AffiliateSignupStatusProps) => {
+}: SignUpStatusProps) => {
     const [username_error, setUsernameError] = useState()
     const [website_url_error, setWebsiteUrlError] = useState()
 
@@ -103,7 +80,7 @@ const AffiliateSignupStatus = ({
             {signup_status == 'success' && (
                 <ProgressModal>
                     <Modal>
-                        <img src={Success} alt="email" width="64" height="64" />
+                        <Image src={Success} alt="email" width="64" height="64" />
                         <Header type="subtitle-1" align="center">
                             <Localize translate_text={'_t_Thank you for signing up_t_'} />
                         </Header>
@@ -139,7 +116,7 @@ const AffiliateSignupStatus = ({
             {signup_status == 'Username not available' && (
                 <ProgressModal>
                     <Modal>
-                        <img src={Failed} alt="email" width="64" height="64" />
+                        <Image src={Failed} alt="email" width="64" height="64" />
                         <Header type="subtitle-1" align="center">
                             <Localize translate_text={'_t_Signup failed_t_'} />
                         </Header>
@@ -195,7 +172,7 @@ const AffiliateSignupStatus = ({
             {signup_status == 'Your website is not a valid entry' && (
                 <ProgressModal>
                     <Modal>
-                        <img src={Failed} alt="email" width="64" height="64" />
+                        <Image src={Failed} alt="email" width="64" height="64" />
                         <Header type="subtitle-1" align="center">
                             <Localize translate_text={'_t_Signup failed_t_'} />
                         </Header>

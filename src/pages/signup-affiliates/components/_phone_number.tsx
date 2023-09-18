@@ -17,7 +17,7 @@ const CodeWrapper = styled.div`
     justify-content: center;
     padding-block: 10px;
     padding-inline: 16px;
-    border-radius: 4px 0px 0px 4px;
+    border-radius: 4px 0 0 4px;
     background: var(--color-grey-8);
     border: 1px solid var(--color-grey-7);
 `
@@ -39,7 +39,7 @@ const PhoneNumberInput = styled(AffiliateInput)`
     padding-block: 10px;
     padding-inline: 16px;
     min-inline-size: 192px;
-    border-radius: 0px;
+    border-radius: 0;
 `
 
 const PhoneNumber = ({
@@ -57,8 +57,6 @@ const PhoneNumber = ({
         })
     }, [phone])
 
-    // need to initialize a type of current wizard
-    // in future can pass or set phone prefix
     const validate = phone && !phone_error_msg
     useEffect(() => {
         onValidate(validate)
@@ -100,16 +98,7 @@ const PhoneNumber = ({
                     autoFocus
                     required
                 />
-
-                {/*<ButtonCode disabled tertiary>*/}
-                {/*    <Localize translate_text={'_t_Send code_t_'} />*/}
-                {/*</ButtonCode>*/}
             </CodeContainer>
-            {/*<CodeText align="center" color="grey" type="paragraph-2" weight="400">*/}
-            {/*    <Localize*/}
-            {/*        translate_text={'_t_Didn’t receive your code? Try again in 59 seconds_t_'}*/}
-            {/*    />*/}
-            {/*</CodeText>*/}
         </>
     )
 }

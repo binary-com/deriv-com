@@ -137,8 +137,11 @@ const AffiliateSignup = () => {
     useEffect(() => {
         if (error_register?.error.message == 'Username not available') {
             setSignupStatus(error_register?.error.message)
-        } else if (error_register?.error.message == 'Your website is not a valid entry') {
-            setSignupStatus(error_register?.error.message)
+        } else if (
+            error_register?.error.message == 'Your website is not a valid entry' ||
+            error_register?.error.message == "String does not match '^[0-9A-Za-z.-]{5,250}$'"
+        ) {
+            setSignupStatus('Your website is not a valid entry')
         }
         if (data_register) {
             setSignupStatus('success')

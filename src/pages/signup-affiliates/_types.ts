@@ -33,6 +33,11 @@ export type AffiliateAccountTypes = {
     }
 }
 export type setAffiliateAccountTypes = Dispatch<SetStateAction<AffiliateAccountTypes>>
+type AffiliateAccountProps = {
+    affiliate_account?: AffiliateAccountTypes
+    setAffiliateAccount?: setAffiliateAccountTypes
+    onSubmit: () => void
+}
 export type SignUpStatusTypes =
     | 'Username not available'
     | 'lost connection'
@@ -40,6 +45,10 @@ export type SignUpStatusTypes =
     | 'Your website is not a valid entry'
     | ''
 export type setSignUpStatusTypes = Dispatch<SetStateAction<SignUpStatusTypes>>
+export type SignUpStatusProps = {
+    signup_status: SignUpStatusTypes
+    setSignupStatus: setSignUpStatusTypes
+} & AffiliateAccountProps
 export type SubmitTypes = {
     is_online: boolean
     affiliate_account: AffiliateAccountTypes
@@ -48,15 +57,11 @@ export type SubmitTypes = {
     // once types will add in our API we can remove type below
     send_register: (data?: any) => Promise<void>
 }
-
 export type WizardComponentProps = {
     show_wizard: boolean
     setShowWizard: Dispatch<SetStateAction<boolean>>
-    affiliate_account?: AffiliateAccountTypes
-    setAffiliateAccount?: setAffiliateAccountTypes
-    onSubmit: () => void
     onAnalyticEvent?: () => void
-}
+} & AffiliateAccountProps
 export type WizardTypes = {
     children?: ReactElement[]
     next_btn_enabled: boolean

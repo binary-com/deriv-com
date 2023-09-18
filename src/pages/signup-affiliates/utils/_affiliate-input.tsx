@@ -1,9 +1,6 @@
 import React, { useRef, useState } from 'react'
 import styled from 'styled-components'
 import device from 'themes/device'
-// SVG Component
-import EyeIcon from 'images/svg/signup-affiliates/eye.svg'
-import CrossIcon from 'images/svg/help/cross.svg'
 import {
     InputProps,
     InputWrapper,
@@ -12,6 +9,8 @@ import {
     StyledInput,
     StyledLabel,
 } from 'components/form/input'
+import EyeIcon from 'images/svg/signup-affiliates/eye.svg'
+import CrossIcon from 'images/svg/help/cross.svg'
 
 type AffiliateInputProps = {
     password_icon?: boolean
@@ -108,9 +107,6 @@ const AffiliateInput = ({
             ) : (
                 <ExtraInfo>{extra_info}</ExtraInfo>
             )}
-            {/*{error && (*/}
-            {/*    */}
-            {/*)}*/}
         </RelativeWrapper>
     )
 }

@@ -2,21 +2,16 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import AffiliateSignupForm from './components/_signup-form'
+import AffiliateNav from './components/_navigation'
 import { AffiliateAccountTypes, SignUpStatusTypes, SubmitTypes } from './_types'
 import { isBrowser } from 'common/utility'
 import { WithIntl } from 'components/localization'
 import { Container } from 'components/containers'
 import useWS from 'components/hooks/useWS'
-import Link from 'features/components/atoms/link'
-import Image from 'features/components/atoms/image'
 import AtomicContainer from 'features/components/atoms/container'
-import LanguageSwitcher from 'features/components/molecules/language-switcher'
-import NavTemplate from 'features/components/templates/navigation/template'
 import { useAnalyticsEvents } from 'features/hooks/analytic/use-analytic-events'
-import { partners_nav_logo } from 'features/components/templates/navigation/payment-agent-nav/payment-agent-nav.module.scss'
 import device from 'themes/device'
 import Map from 'images/svg/signup-affiliates/map.svg'
-import PartnerNavLogo from 'images/svg/partner-nav-logo.svg'
 
 const AffiliateSignupStatus = Loadable(() => import('./components/_signup-status'))
 const WizardComponent = Loadable(() => import('./components/_wizard-component'))
@@ -165,16 +160,7 @@ const AffiliateSignup = () => {
 
     return (
         <>
-            <NavTemplate
-                renderLogo={() => (
-                    <Link url={{ type: 'internal', to: '/partners/' }}>
-                        <Image src={PartnerNavLogo} className={partners_nav_logo} />
-                    </Link>
-                )}
-                has_centered_items
-            >
-                <LanguageSwitcher />
-            </NavTemplate>
+            <AffiliateNav />
             <AtomicContainer.Fluid dir={'row'}>
                 <StyledFlexWrapper>
                     <AffiliateSignupForm

@@ -148,6 +148,10 @@ const SearchSection = () => {
                         <StyledSearchIcon src={SearchIcon} alt="search-icon" />
                         <SearchInput
                             autoFocus
+                            onBlur={(e) => {
+                                e.preventDefault()
+                                e.currentTarget.focus()
+                            }}
                             value={search_value}
                             onChange={handleSearchOnChange}
                             placeholder={localize('_t_Try “Trade”_t_')}

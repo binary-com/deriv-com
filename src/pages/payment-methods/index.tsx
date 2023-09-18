@@ -6,12 +6,13 @@ import Dp2p from './_dp2p'
 import MobileAccordianItem from './_mobile-accordian-item'
 import Layout from 'components/layout/layout'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
-import { Text, Divider, Accordion, AccordionItem } from 'components/elements'
+import { Text, Divider, Accordion, AccordionItem, DotLoader } from 'components/elements'
 import { SEO, SectionContainer, Container, TMetaAttributes } from 'components/containers'
 import { WithIntl, Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import useWS from 'components/hooks/useWS'
+import { isBrowser } from 'common/utility'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { TGatsbyHead } from 'features/types'
@@ -108,7 +109,6 @@ export type PaymentMethodsProps = {
     locale?: PaymentDataProps
     pd?: PaymentDataProps
 }
-
 const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
     const { is_p2p_allowed_country, is_eu } = useRegion()
     const [is_mobile] = useBrowserResize(992)
@@ -169,9 +169,12 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
           }
     const parent_style = { marginBottom: is_mobile ? '24px' : '2.4rem' }
 
+    if (!isBrowser()) {
+        return <DotLoader />
+    }
     return (
         <>
-            {payment_method_data.map((pdata, index) => {
+            {payment_method_data.map((pdata) => {
                 const styles = is_mobile
                     ? {
                           padding: '0 16px 0',
@@ -199,7 +202,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                     return null
                 } else
                     return (
-                        <Accordion has_single_state key={index}>
+                        <Accordion has_single_state key={pdata.class_name}>
                             <AccordionItem
                                 content_style={content_style}
                                 header_style={header_style}

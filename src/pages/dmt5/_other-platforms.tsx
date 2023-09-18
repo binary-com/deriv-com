@@ -1,8 +1,8 @@
 import React from 'react'
-import dxIcon from '../../images/svg/dmt5/dx-icon.svg'
-import dtIcon from '../../images/svg/dmt5/dt-icon.svg'
+import dxIcon from '../../images/svg/custom/rebranding/deriv-x-icon.svg'
+import dtIcon from '../../images/svg/custom/rebranding/dtrader-icon.svg'
 import ezIcon from '../../images/svg/dmt5/ez-icon.svg'
-import dGoIcon from '../../images/svg/dmt5/go-icon.svg'
+import dGoIcon from '../../images/svg/custom/rebranding/deriv-go-icon.svg'
 import dbIcon from '../../images/svg/dmt5/db-icon.svg'
 import GenericCarousel, { TRenderableData } from 'components/custom/carousel/_platforms-carousel'
 

@@ -1,94 +1,117 @@
 [
     {
         "fromPath": "/careers/people-management",
-        "toPath": "/careers/human-resources/"
+        "toPath": "/careers/human-resources/",
+        "status": 301
     },
     {
         "fromPath": "/careers/people-management/",
-        "toPath": "/careers/human-resources/"
+        "toPath": "/careers/human-resources/",
+        "status": 301
     },
     {
         "fromPath": "/derivez",
-        "toPath": "/deriv-ez/"
+        "toPath": "/deriv-ez/",
+        "status": 301
     },
     {
         "fromPath": "/derivez/",
-        "toPath": "/deriv-ez/"
+        "toPath": "/deriv-ez/",
+        "status": 301
     },
     {
         "fromPath": "/careers/besquare",
-        "toPath": "/careers/"
+        "toPath": "/careers/",
+        "status": 301
     },
     {
         "fromPath": "/careers/besquare/",
-        "toPath": "/careers/"
+        "toPath": "/careers/",
+        "status": 301
     },
     {
         "fromPath": "/responsible-trading",
-        "toPath": "/responsible/"
+        "toPath": "/responsible/",
+        "status": 301
     },
     {
         "fromPath": "/responsible-trading/",
-        "toPath": "/responsible/"
+        "toPath": "/responsible/",
+        "status": 301
     },
     {
         "fromPath": "/contact-us",
-        "toPath": "/contact_us/"
+        "toPath": "/contact_us/",
+        "status": 301
     },
     {
         "fromPath": "/contact-us/",
-        "toPath": "/contact_us/"
+        "toPath": "/contact_us/",
+        "status": 301
     },
     {
         "fromPath": "/contact/",
-        "toPath": "/contact_us/"
+        "toPath": "/contact_us/",
+        "status": 301
     },
     {
         "fromPath": "/p2p/v1",
-        "toPath": "/p2p"
+        "toPath": "/p2p",
+        "status": 301
     },
     {
         "fromPath": "/p2p/v2",
-        "toPath": "/p2p"
+        "toPath": "/p2p",
+        "status": 301
     },
     {
         "fromPath": "/about",
-        "toPath": "/who-we-are/"
+        "toPath": "/who-we-are/",
+        "status": 301
     },
     {
         "fromPath": "/about/",
-        "toPath": "/who-we-are/"
+        "toPath": "/who-we-are/",
+        "status": 301
     },
     {
         "fromPath": "/story",
-        "toPath": "/who-we-are/"
+        "toPath": "/who-we-are/",
+        "status": 301
     },
     {
         "fromPath": "/story/",
-        "toPath": "/who-we-are/"
+        "toPath": "/who-we-are/",
+        "status": 301
     },
     {
         "fromPath": "/leadership/",
-        "toPath": "/who-we-are/"
+        "toPath": "/who-we-are/",
+        "status": 301
     },
     {
         "fromPath": "/leadership",
-        "toPath": "/who-we-are/"
+        "toPath": "/who-we-are/",
+        "status": 301
     },
     {
         "fromPath": "/trade-types/margin/",
-        "toPath": "/trade-types/cfds/"
+        "toPath": "/trade-types/cfds/",
+        "status": 301
     },
     {
         "fromPath": "/trade-types/margin",
-        "toPath": "/trade-types/cfds/"
+        "toPath": "/trade-types/cfds/",
+        "status": 301
     },
     {
         "fromPath": "/trade-types/options/",
-        "toPath": "/trade-types/options/digital-options/up-and-down/"
+        "toPath": "/trade-types/options/digital-options/up-and-down/",
+        "status": 301
     },
     {
         "fromPath": "/trade-types/options",
-        "toPath": "/trade-types/options/digital-options/up-and-down/"
+        "toPath": "/trade-types/options/digital-options/up-and-down/",
+        "status": 301
     }
 ]

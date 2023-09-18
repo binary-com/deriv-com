@@ -1,8 +1,22 @@
 /* eslint-disable import/order */
 const language_config = require(`./i18n-config.js`)
 const path = require('path')
+const redirects = require('./redirects.json')
 
 const translations_cache = {}
+exports.createPages = ({ actions }) => {
+    const { createRedirect } = actions
+
+    redirects.forEach((redirect) => {
+        createRedirect({
+            fromPath: redirect.fromPath,
+            toPath: redirect.toPath,
+            isPermanent: true,
+            redirectInBrowser: true,
+        })
+    })
+}
+
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 exports.onCreatePage = ({ page, actions }) => {
     const { createPage } = actions

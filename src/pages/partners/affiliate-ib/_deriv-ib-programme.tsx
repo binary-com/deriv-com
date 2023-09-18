@@ -243,14 +243,6 @@ const DerivIBProgramme = () => {
                             <Header as="h2" mb="3rem" type="page-title" align="center">
                                 <Localize translate_text="_t_Deriv X_t_" />
                             </Header>
-                            <StyledHeaderCommission
-                                align="center"
-                                as="h3"
-                                type="main-paragraph"
-                                mb="1.6rem"
-                            >
-                                <Localize translate_text="_t_Here's your commission plan:_t_" />
-                            </StyledHeaderCommission>
                             <StyledCardWrapper>
                                 <DERIVIBDMT5Cards data={ib_dx} />
                             </StyledCardWrapper>
@@ -812,12 +804,12 @@ const ib_dx: DMT5Type = {
                 },
                 {
                     details:
-                        '_t_For <0>stock indices</0>, a deal for 20 lots of JP 225 for a price of JPY 32500 will pay out USD 0.05 in commission based on the following formula:_t_',
+                        '_t_For <0>stock indices</0>, a deal for 20 lots of JP225 for a price of JPY 32,500 will pay out USD 0.05 in commission based on the following formula:_t_',
                     icon: 'deriv_x_indices',
                     iconAlt: '_t_Stock Indices_t_',
                 },
                 {
-                    title: '_t_Volatility Indices_t_',
+                    title: '_t_Volatility indices_t_',
                     details:
                         '_t_A deal for 1 lot of the Volatility 50 (1s) Index for a price of USD 600,000 will pay out USD 22.50 in commission based on the following formula:_t_',
                     icon: 'deriv_x_vol',

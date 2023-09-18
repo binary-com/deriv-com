@@ -45,6 +45,11 @@ export const AffiliateLabel = styled(StyledLabel)`
 `
 export const StyledInputWrapper = styled(InputWrapper)`
     border-radius: 4px;
+
+    @media ${device.tabletL} {
+        height: unset;
+        border-radius: 4px;
+    }
 `
 
 const AffiliateInput = ({

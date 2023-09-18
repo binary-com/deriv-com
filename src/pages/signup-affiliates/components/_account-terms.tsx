@@ -69,7 +69,8 @@ const AccountTerms = ({ affiliate_data, updateData, onValidate }: WizardStepProp
     const validate =
         terms_of_use['non_pep_declaration'] &&
         terms_of_use['tnc_accepted'] &&
-        terms_of_use['general_terms']
+        terms_of_use['general_terms'] &&
+        terms_of_use['is_partner_checked']
 
     useEffect(() => {
         onValidate(validate)

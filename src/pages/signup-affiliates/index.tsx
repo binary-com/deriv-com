@@ -68,6 +68,7 @@ const StyledFlexWrapper = styled(Container)`
     @media ${device.tabletL} {
         flex-direction: column-reverse;
         justify-content: flex-end;
+        align-items: center;
         padding-top: 0;
     }
 `

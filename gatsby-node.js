@@ -1,9 +1,24 @@
 /* eslint-disable import/order */
 const language_config = require(`./i18n-config.js`)
 const language_config_en = require(`./i18n-config-en.js`)
+const redirects = require('./src/redirects.json')
 const path = require('path')
 
 const translations_cache = {}
+
+exports.createPages = ({ actions }) => {
+    const { createRedirect } = actions;
+  
+    redirects.forEach(redirect => {
+      createRedirect({
+        fromPath: redirect.from,
+        toPath: redirect.to,
+        isPermanent: true,
+        redirectInBrowser: true,
+      });
+    });
+  };
+
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 exports.onCreatePage = ({ page, actions }) => {
     const { createRedirect, createPage, deletePage } = actions

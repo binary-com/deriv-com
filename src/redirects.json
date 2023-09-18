@@ -1,0 +1,10 @@
+[
+    {
+        "from": "/trade-types/cfds/",
+        "to": "/dmt5/"
+    },
+    {
+        "from": "/personal-blog/my-second-post",
+        "to": "/magazine/2023/my-second-post"
+    }
+]

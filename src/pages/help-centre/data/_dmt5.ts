@@ -108,7 +108,7 @@ const dmt5: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_The DMT5 Financial account offers you leverage to trade contracts for difference (CFDs) on forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies._t_',
+                        '_t_The Deriv MT5 Financial account offers you leverage to trade contracts for difference (CFDs) on forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies._t_',
                 },
             ],
         },

@@ -285,6 +285,19 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                 ))}
                             </Accordion>
                         </AccordionWrapper>
+                        <Flex
+                            style={{ borderTop: '0.1rem solid var(--color-grey-21)' }}
+                            direction="column"
+                            ai="flex-start"
+                            height="auto"
+                        >
+                            <Header type="main-paragraph" mt="1.4rem" mb="0.8rem">
+                                <Localize translate_text="_t_Disclaimer:_t_" />
+                            </Header>
+                            <Header type="main-paragraph" mb="0.8rem">
+                                <Localize translate_text="_t_This plan is not available for IBs who promote to clients residing in the EU._t_" />
+                            </Header>
+                        </Flex>
                     </CardWrappers>
                     <HowItsCalculate>
                         <StyledButton flat onClick={toggleCalculated} className="calculated">

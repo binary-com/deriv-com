@@ -87,36 +87,29 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
                 <table>
                     <thead>
                         {table.getHeaderGroups().map((headerGroup) => (
-                            <Flex.Box key={headerGroup.id} justify="center">
-                                <tr className={styles.table_row_header}>
-                                    {headerGroup.headers.map((header) => (
-                                        <th key={header.id}>
-                                            {header.isPlaceholder
-                                                ? null
-                                                : flexRender(
-                                                      header.column.columnDef.header,
-                                                      header.getContext(),
-                                                  )}
-                                        </th>
-                                    ))}
-                                </tr>
-                            </Flex.Box>
+                            <tr key={headerGroup.id} className={styles.table_row_header}>
+                                {headerGroup.headers.map((header) => (
+                                    <th key={header.id}>
+                                        {header.isPlaceholder
+                                            ? null
+                                            : flexRender(
+                                                  header.column.columnDef.header,
+                                                  header.getContext(),
+                                              )}
+                                    </th>
+                                ))}
+                            </tr>
                         ))}
                     </thead>
                     <tbody>
                         {rows.map((row) => (
-                            <Flex.Box key={row.id} justify="center">
-                                <tr className={styles.table_row_data}>
-                                    {row.getVisibleCells().map((cell) => (
-                                        <td key={cell.id}>
-                                            {flexRender(
-                                                cell.column.columnDef.cell,
-                                                cell.getContext(),
-                                            )}
-                                        </td>
-                                    ))}
-                                </tr>
-                            </Flex.Box>
+                            <tr key={row.id} className={styles.table_row_data}>
+                                {row.getVisibleCells().map((cell) => (
+                                    <td key={cell.id}>
+                                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                    </td>
+                                ))}
+                            </tr>
                         ))}
                     </tbody>
                 </table>

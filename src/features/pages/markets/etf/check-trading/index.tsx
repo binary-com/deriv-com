@@ -11,8 +11,8 @@ const CheckTrading = () => {
             container="fluid"
             justify="center"
             align="center"
-            pb="10x"
-            md={{ pb: '40x', mb: '20x' }}
+            pb="20x"
+            md={{ pb: '40x' }}
         >
             <Typography.Paragraph mb="10x" textcolor="black" align="center">
                 <Localize translate_text="_t_Want to know more about CFD trading conditions for the instruments we offer?_t_" />

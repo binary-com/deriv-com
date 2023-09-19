@@ -30,7 +30,6 @@ const ETFMarket = () => {
                 direction="col"
                 as="section"
                 padding_inline="8x"
-                md={{ pb: '20x' }}
             >
                 <InstrumentsTable />
                 <InstrumentsContent />

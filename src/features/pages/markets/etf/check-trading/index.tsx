@@ -20,7 +20,6 @@ const CheckTrading = () => {
             <LinkButton.Primary
                 font_family="UBUNTU"
                 size="medium"
-                aria-label="check trading specs"
                 url={{
                     type: 'internal',
                     to: '/trading-specification',

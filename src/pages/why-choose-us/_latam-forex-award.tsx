@@ -7,12 +7,10 @@ import { Flex, Desktop, Mobile } from 'components/containers'
 
 const query = graphql`
     query {
-        latam_award_background: file(relativePath: { eq: "choose-us/latam_award_bg.png" }) {
+        award_background: file(relativePath: { eq: "choose-us/award_bg.png" }) {
             ...fadeIn
         }
-        latam_award_background_mobile: file(
-            relativePath: { eq: "choose-us/latam_award_bg_mobile.png" }
-        ) {
+        award_background_mobile: file(relativePath: { eq: "choose-us/award_bg_mobile.png" }) {
             ...fadeIn
         }
         latam_award: file(relativePath: { eq: "choose-us/latam_award.png" }) {
@@ -86,7 +84,7 @@ const LatamAward = () => {
             <Desktop>
                 <StyledFlex>
                     <BackgroundImage
-                        data={data.latam_award_background}
+                        data={data.award_background}
                         style={{
                             backgroundRepeat: 'no-repeat',
                             backgroundSize: 'contain',
@@ -114,7 +112,7 @@ const LatamAward = () => {
             <Mobile>
                 <Flex fd="column" ai="center">
                     <BackgroundImage
-                        data={data.latam_award_background_mobile}
+                        data={data.award_background_mobile}
                         style={{
                             backgroundRepeat: 'no-repeat',
                             backgroundSize: 'contain',

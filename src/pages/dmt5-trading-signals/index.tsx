@@ -4,15 +4,16 @@ import { Hero, SmallContainer } from './_style'
 import HowTo from './_how-to'
 import { Signal, SignalContentType } from './_signal'
 import Subscription from './_subscription'
-import { SEO, Flex, Box, MetaAttributesType } from 'components/containers'
+import { SEO, Flex, Box, TMetaAttributes } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { Localize, WithIntl } from 'components/localization'
 import { Header } from 'components/elements'
 import { useTabStateQuery } from 'components/hooks/use-tab-state-query'
 import device from 'themes/device'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import { TGatsbyHead } from 'features/types'
 
-const meta_attributes: MetaAttributesType = {
+const meta_attributes: TMetaAttributes = {
     og_title: '_t_Deriv MetaTrader 5 trading signals | Resources | Deriv_t_',
     og_description:
         '_t_Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies._t_',
@@ -107,11 +108,6 @@ const DMT5TradingSignals = () => {
 
     return (
         <Layout>
-            <SEO
-                description="_t_Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies._t_"
-                title="_t_Deriv MetaTrader 5 trading signals | Resources | Deriv_t_"
-                meta_attributes={meta_attributes}
-            />
             <Hero jc="cneter" ai="center">
                 <SmallContainer>
                     <Header as="h1" type="display-title" color="white" align="center">
@@ -155,3 +151,12 @@ const DMT5TradingSignals = () => {
 }
 
 export default WithIntl()(DMT5TradingSignals)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        description="_t_Subscribe to Deriv MetaTrader 5 trading signals to copy the trades of experienced traders, or become a signal provider and share your strategies._t_"
+        title="_t_Deriv MetaTrader 5 trading signals | Resources | Deriv_t_"
+        meta_attributes={meta_attributes}
+        pageContext={pageContext}
+    />
+)

@@ -285,34 +285,45 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                 ))}
                             </Accordion>
                         </AccordionWrapper>
-                        {data.countDetails.map((valueCalc, indexCalc) => (
-                            <Flex
-                                key={indexCalc}
-                                style={{ borderTop: '0.1rem solid var(--color-grey-21)' }}
-                                direction="column"
-                                ai="flex-start"
-                                height="auto"
-                            >
-                                {valueCalc.disclaimer &&
-                                    valueCalc.disclaimer.map((valueNotes, notesIndex) => (
-                                        <React.Fragment key={notesIndex}>
-                                            <Header
-                                                type="main-paragraph"
-                                                as="p"
-                                                mt="1.4rem"
-                                                mb="0.8rem"
-                                            >
-                                                <Localize translate_text={valueNotes.title} />
-                                            </Header>
-                                            <Header type="main-paragraph" as="p" mb="0.8rem">
-                                                <Localize
-                                                    translate_text={valueNotes.desc.firstText}
-                                                />
-                                            </Header>
-                                        </React.Fragment>
-                                    ))}
-                            </Flex>
-                        ))}
+                        {data.countDetails.map(
+                            (valueCalc, indexCalc) =>
+                                data[0]?.countDetails[0]?.disclaimer && (
+                                    <Flex
+                                        key={indexCalc}
+                                        style={{ borderTop: '0.1rem solid var(--color-grey-21)' }}
+                                        direction="column"
+                                        ai="flex-start"
+                                        height="auto"
+                                    >
+                                        {valueCalc.disclaimer &&
+                                            valueCalc.disclaimer.map((valueNotes, notesIndex) => (
+                                                <React.Fragment key={notesIndex}>
+                                                    <Header
+                                                        type="main-paragraph"
+                                                        as="p"
+                                                        mt="1.4rem"
+                                                        mb="0.8rem"
+                                                    >
+                                                        <Localize
+                                                            translate_text={valueNotes.title}
+                                                        />
+                                                    </Header>
+                                                    <Header
+                                                        type="main-paragraph"
+                                                        as="p"
+                                                        mb="0.8rem"
+                                                    >
+                                                        <Localize
+                                                            translate_text={
+                                                                valueNotes.desc.firstText
+                                                            }
+                                                        />
+                                                    </Header>
+                                                </React.Fragment>
+                                            ))}
+                                    </Flex>
+                                ),
+                        )}
                     </CardWrappers>
                     <HowItsCalculate>
                         <StyledButton flat onClick={toggleCalculated} className="calculated">

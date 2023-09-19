@@ -291,10 +291,10 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                             ai="flex-start"
                             height="auto"
                         >
-                            <Header type="main-paragraph" mt="1.4rem" mb="0.8rem">
+                            <Header type="main-paragraph" as="p" mt="1.4rem" mb="0.8rem">
                                 <Localize translate_text="_t_Disclaimer:_t_" />
                             </Header>
-                            <Header type="main-paragraph" mb="0.8rem">
+                            <Header type="main-paragraph" as="p" mb="0.8rem">
                                 <Localize translate_text="_t_This plan is not available for IBs who promote to clients residing in the EU._t_" />
                             </Header>
                         </Flex>

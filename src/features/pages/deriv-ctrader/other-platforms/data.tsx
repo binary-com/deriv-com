@@ -1,8 +1,4 @@
-import dxIcon from 'images/svg/deriv-ez/dx-icon.svg'
-import dtIcon from 'images/svg/deriv-ez/dt-icon.svg'
-import dmt5Icon from 'images/svg/deriv-ez/dmt5-icon.svg'
-import dGoIcon from 'images/svg/deriv-ez/go-icon.svg'
-import dbIcon from 'images/svg/deriv-ez/db-icon.svg'
+import { DbIcon, DxIcon, DGoIcon, Dmt5Icon, DtIcon } from 'images/svg/deriv-ez'
 import { TString } from 'types/generics'
 import { LinkUrlType } from 'features/types'
 
@@ -17,7 +13,7 @@ export type PlatformType = {
 export const carousel_data: PlatformType[] = [
     {
         id: 1,
-        icon: dmt5Icon,
+        icon: Dmt5Icon,
         heading: 'Deriv MT5',
         paragraph: '_t_The all-in-one CFD trading platform._t_',
         link: {
@@ -27,7 +23,7 @@ export const carousel_data: PlatformType[] = [
     },
     {
         id: 2,
-        icon: dtIcon,
+        icon: DtIcon,
         heading: 'Deriv Trader',
         paragraph: '_t_Our flagship app for trading options and multipliers._t_',
         link: {
@@ -37,7 +33,7 @@ export const carousel_data: PlatformType[] = [
     },
     {
         id: 3,
-        icon: dGoIcon,
+        icon: DGoIcon,
         heading: 'Deriv Go',
         paragraph: '_t_Our best trading experience on your mobile._t_',
         link: {
@@ -47,7 +43,7 @@ export const carousel_data: PlatformType[] = [
     },
     {
         id: 4,
-        icon: dxIcon,
+        icon: DxIcon,
         heading: 'Deriv X',
         paragraph: '_t_The CFD trading platform to fit your style._t_',
         link: {
@@ -57,7 +53,7 @@ export const carousel_data: PlatformType[] = [
     },
     {
         id: 5,
-        icon: dbIcon,
+        icon: DbIcon,
         heading: 'Deriv Bot',
         paragraph: '_t_Automate your trading. No coding required._t_',
         link: {

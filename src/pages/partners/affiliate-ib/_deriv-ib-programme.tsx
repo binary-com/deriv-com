@@ -46,6 +46,7 @@ type CountDetailsType = {
     title: TString
     list: ListType
     notes: NoteType
+    disclaimer?: NoteType
 }[]
 
 type DMT5Type = {
@@ -827,6 +828,15 @@ const ib_dx: DMT5Type = {
                     desc: {
                         firstText:
                             '_t_Contract sizes directly affect the commission calculation.<br><br>Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate._t_',
+                    },
+                },
+            ],
+            disclaimer: [
+                {
+                    title: '_t_Disclaimer:_t_',
+                    desc: {
+                        firstText:
+                            '_t_This plan is not available for IBs who promote to clients residing in the EU._t_',
                     },
                 },
             ],

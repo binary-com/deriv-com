@@ -430,7 +430,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                         <CssGridColumn>
                             <DesktopWrapper>
                                 <StyledHeader as="h2" type="sub-section-title">
-                                    <Localize translate_text="_t_Deriv Holdings (Guernsey) Limited_t_" />
+                                    <Localize translate_text="_t_Deriv.com Limited_t_" />
                                 </StyledHeader>
                             </DesktopWrapper>
                             <Text mt="0.8rem">
@@ -442,7 +442,7 @@ const Regulatory = (locale: RegulatoryProps) => {
             </SectionContainer>
             <Divider />
             <SectionContainer padding="4rem 0 8rem">
-                <SmallContainer>
+                <SmallContainer max_width="0">
                     <CssGrid
                         height="auto"
                         columns="15.4rem 1fr"

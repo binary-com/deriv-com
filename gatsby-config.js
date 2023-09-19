@@ -339,6 +339,8 @@ module.exports = {
                             '/endpoint/',
                             '/livechat/',
                             '/storybook/',
+                            '*.binary.sx',
+                            '/?region=*/',
                         ],
                     },
                 ],
@@ -372,6 +374,16 @@ module.exports = {
                 apiURL: 'https://chief-skinny-instrument.strapiapp.com',
                 accessToken: process.env.GATSBY_STRAPI_TOKEN,
                 collectionTypes: strapi_config,
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-env-variables',
+            options: {
+                allowList: [
+                    'GATSBY_RUDDERSTACK_URL',
+                    'GATSBY_RUDDERSTACK_STAGING_KEY',
+                    'GATSBY_RUDDERSTACK_PRODUCTION_KEY',
+                ],
             },
         },
     ],

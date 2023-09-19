@@ -1,3 +1,5 @@
+import type { HeadProps } from 'gatsby'
+
 export type ContentSectionTagOptions =
     | 'div'
     | 'address'
@@ -144,3 +146,10 @@ export interface ClassProps {
     padding_block?: TSpacingSize
     radius?: TBorderRadius
 }
+
+export type TPageContext = {
+    locale: string
+    pathname: string
+}
+
+export type TGatsbyHead = HeadProps<object, TPageContext>

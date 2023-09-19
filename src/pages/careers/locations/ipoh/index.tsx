@@ -4,13 +4,11 @@ import { ipoh } from '../../_model/_locations/_locations'
 import { LocationLayout } from '../_location-layout'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
+import { TGatsbyHead } from 'features/types'
 
 const query = graphql`
     query {
-        ipoh: file(relativePath: { eq: "careers/ipoh.jpg" }) {
-            ...backgroundImage
-        }
         living_in_ipoh: file(relativePath: { eq: "careers/living_in_ipoh.png" }) {
             ...fadeIn
         }
@@ -42,15 +40,17 @@ const Ipoh = () => {
 
     return (
         <Layout type="careers">
-            <SEO
-                title={localize('_t_Ipoh | Our office – Malaysia | Deriv_t_')}
-                description={localize(
-                    '_t_Find your role with us by browsing Deriv job opportunities in Ipoh, Malaysia._t_',
-                )}
-            />
             <LocationLayout location={ipoh} images={images} />
         </Layout>
     )
 }
 
 export default WithIntl()(Ipoh)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Ipoh | Our office – Malaysia | Deriv_t_"
+        description="_t_Find your role with us by browsing Deriv job opportunities in Ipoh, Malaysia._t_"
+        pageContext={pageContext}
+    />
+)

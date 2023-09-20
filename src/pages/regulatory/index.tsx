@@ -441,8 +441,9 @@ const Regulatory = (locale: RegulatoryProps) => {
                 </SmallContainer>
             </SectionContainer>
             <Divider />
-            <SectionContainer padding="4rem 0 8rem">
-                <SmallContainer max_width="0">
+
+            <SectionContainer padding="0 0 4rem" mt="4rem">
+                <SmallContainer>
                     <CssGrid
                         height="auto"
                         columns="15.4rem 1fr"
@@ -465,7 +466,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                                     <Localize translate_text="_t_The Financial Commission_t_" />
                                 </StyledHeader>
                             </DesktopWrapper>
-                            <Text mt="0.8rem" max_width="58.8rem">
+                            <Text mt="0.8rem">
                                 <Localize
                                     translate_text="_t_We are registered with the Financial Commission, an international independent organisation dedicated to resolving disputes within the financial services industry (<0>view membership</0>)._t_"
                                     components={[

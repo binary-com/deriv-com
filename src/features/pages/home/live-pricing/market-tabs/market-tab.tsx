@@ -13,7 +13,7 @@ import useRegion from 'components/hooks/use-region'
 const MarketTab = () => {
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('fx')
     const [tab_name, setTabName] = useState('Forex')
-    const [linkToMarketPage, setLinkToMarketPage] = useState('/markets/forex/')
+    const [linkToMarketPage, setLinkToMarketPage] = useState<`/${string}`>('/markets/forex/')
     const { is_eu } = useRegion()
     const updated_market_buttons = market_buttons.filter((items) => {
         if (!is_eu) return items

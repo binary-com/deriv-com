@@ -30,15 +30,15 @@ const useLiveColumns = () => {
                 cell: (info) => (
                     <Flex.Box>
                         {info.row.original.mkt !== 'etfs' ? (
-                            <SymbolIcon icon_src={info.getValue()} />
+                            <SymbolIcon icon_src={info.getValue()} alt="Instrument Icon" />
                         ) : (
-                            <SymbolIcon icon_src="ETFSICON" />
+                            <SymbolIcon icon_src="ETFSICON" alt="Instrument Icon" />
                         )}
                     </Flex.Box>
                 ),
             }),
             liveMarketColumnHelper.accessor('sym', {
-                header: () => <Flex.Box></Flex.Box>,
+                header: () => <Flex.Box><p className="sr-only">Symbol</p></Flex.Box>,
                 cell: (info) => (
                     <Flex.Box>
                         <Typography.Paragraph size={is_mobile ? 'small' : 'medium'}>

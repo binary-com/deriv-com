@@ -18,7 +18,7 @@ import InitialLoader from 'components/elements/dot-loader'
 
 export type TLiveMarketTableProps = {
     selected_market: TAvailableLiveMarkets
-    link_to: string
+    link_to: `/${string}`
 }
 
 const LoaderView = (

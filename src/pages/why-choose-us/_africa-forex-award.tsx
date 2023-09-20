@@ -47,8 +47,8 @@ const AwardImageWrapper = styled.div`
 const AwardImageWrapperMobile = styled.div`
     z-index: 2;
     padding: 36px 18px;
-    max-width: 305px;
-    margin-top: -2rem;
+    max-width: 316px;
+    margin: -2rem 0 4rem 0;
     background: #ffffff;
     border-radius: 8px;
     box-shadow: 0 25.3563px 50.7126px -9.5086px rgba(14, 14, 14, 0.14);

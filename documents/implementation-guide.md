@@ -198,15 +198,15 @@ Usage example:
 import React from 'react'
 import styled from 'styled-components'
 import { localize, WithIntl } from 'components/localization'
+import { TGatsbyHead } from 'features/types'
 
 const MyPageName = () => {
-    return (
-        <Layout>
-            <SEO title={localize('My page')} description={localize('My page description')} />
-            {/* Your children here */}
-        </Layout>
-    )
+    return <Layout>{/* Your children here */}</Layout>
 }
 
 export default WithIntl()(MyPageName)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO title="My page" description="My page description" pageContext={pageContext} />
+)
 ```

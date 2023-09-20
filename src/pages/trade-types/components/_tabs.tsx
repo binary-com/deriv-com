@@ -149,11 +149,27 @@ const StyledText = styled(Text)`
     }
 `
 
-const TabPanel = ({ children, className, panelID, tabID }: TabPanelProps) => (
-    <TabContent className={className} role="tabpanel" tabIndex={0}>
-        {children}
-    </TabContent>
-)
+const TabPanel = ({ children, className, panelID, tabID }: TabPanelProps) => {
+    const [is_mobile] = useBrowserResize()
+    if (is_mobile) {
+        return (
+            <TabContent className={className} tabIndex={0}>
+                {children}
+            </TabContent>
+        )
+    }
+    return (
+        <TabContent
+            className={className}
+            role="tabpanel"
+            tabIndex={0}
+            id={panelID}
+            aria-labelledby={tabID}
+        >
+            {children}
+        </TabContent>
+    )
+}
 
 const Tabs = ({
     children,

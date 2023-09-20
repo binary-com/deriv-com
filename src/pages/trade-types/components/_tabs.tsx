@@ -13,6 +13,8 @@ type ChildProps = {
     label: TString
     description: TString
     description_components?: React.ReactElement[]
+    panelID?: string
+    tabID?: `${string}-tab`
 }
 
 type TabButtonType = {
@@ -147,8 +149,14 @@ const StyledText = styled(Text)`
     }
 `
 
-const TabPanel = ({ children, className }: TabPanelProps) => (
-    <TabContent className={className} role="tabpanel" tabIndex={0}>
+const TabPanel = ({ children, className, panelID, tabID }: TabPanelProps) => (
+    <TabContent
+        className={className}
+        role="tabpanel"
+        tabIndex={0}
+        id={panelID}
+        aria-labelledby={tabID}
+    >
         {children}
     </TabContent>
 )
@@ -174,14 +182,17 @@ const Tabs = ({
             <TabListWrapper className="side-tab__wrapper">
                 <TabList className="side-tab__list" role="tablist" is_reverse={is_reverse}>
                     {React.Children.map(children, (child, index) => {
+                        console.log('==>', child)
                         const {
-                            props: { label, description, description_components },
+                            props: { label, description, description_components, panelID, tabID },
                         } = child
                         return (
                             <>
                                 <TabButton
                                     className="side-tab__button"
                                     role="tab"
+                                    id={tabID}
+                                    aria-controls={panelID}
                                     selected={selected_tab === index}
                                     aria-selected={selected_tab === index ? 'true' : 'false'}
                                     onClick={() => selectTab(index)}

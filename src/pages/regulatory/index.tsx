@@ -422,7 +422,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                         <ResponsiveGrid align="flex-start">
                             <MobileWrapper>
                                 <StyledHeader as="h2" type="sub-section-title" mb="1.6rem">
-                                    <Localize translate_text="_t_Deriv Holdings (Guernsey) Limited_t_" />
+                                    <Localize translate_text="_t_Deriv.com Limited_t_" />
                                 </StyledHeader>
                             </MobileWrapper>
                             <Img src={Deriv} alt="Deriv Limited" />

@@ -150,13 +150,7 @@ const StyledText = styled(Text)`
 `
 
 const TabPanel = ({ children, className, panelID, tabID }: TabPanelProps) => (
-    <TabContent
-        className={className}
-        role="tabpanel"
-        tabIndex={0}
-        id={panelID}
-        aria-labelledby={tabID}
-    >
+    <TabContent className={className} role="tabpanel" tabIndex={0}>
         {children}
     </TabContent>
 )

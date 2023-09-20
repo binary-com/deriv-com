@@ -38,7 +38,6 @@ const LivePricing = () => {
                 <Button.Primary
                     className={button_table}
                     onClick={is_logged_in ? handleRedirectToTradersHub : handleLogin}
-                    aria-label="Get trading"
                 >
                     <Localize translate_text="_t_Trade now_t_" />
                 </Button.Primary>

@@ -290,6 +290,9 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                 {valueCalc.disclaimer &&
                                     valueCalc.disclaimer.map((valueNotes, notesIndex) => (
                                         <Flex
+                                            direction="column"
+                                            ai="flex-start"
+                                            height="auto"
                                             style={{
                                                 borderTop: '0.1rem solid var(--color-grey-21)',
                                             }}

@@ -1,6 +1,7 @@
 describe('Live pricing spec', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:8000/')
+    const baseUrl = Cypress.env('baseUrl');
+    cy.visit(baseUrl);
   })
   it('should have 5 markets and all of them are clickable', () => {
     cy.get('[data-cy="market"]').should("have.length", 5).each((item)=> {
@@ -18,7 +19,7 @@ describe('Live pricing spec', () => {
   })
 
   it("should have right amount of instrument for EU", () => {
-    cy.visit('http://localhost:8000?region=de')
+    cy.visit(Cypress.env('baseUrlEu'));
     cy.get('[data-cy="market"]').each((item, index) => {
       cy.wrap(item).click();
 
@@ -43,30 +44,30 @@ describe('Live pricing spec', () => {
     cy.get('[data-cy="market"]').eq(0).click();
     cy.get('[data-cy="view-all"]').click();
     cy.url().should("contain", "markets/forex/")
-    cy.visit("http://localhost:8000/")
+    cy.visit(Cypress.env('baseUrl'));
 
 
     cy.get('[data-cy="market"]').eq(1).click();
     cy.get('[data-cy="view-all"]').click();
     cy.url().should("contain", "markets/synthetic/")
-    cy.visit("http://localhost:8000/")
+    cy.visit(Cypress.env('baseUrl'));
 
 
     cy.get('[data-cy="market"]').eq(2).click();
     cy.get('[data-cy="view-all"]').click();
     cy.url().should("contain", "markets/stock/")
-    cy.visit("http://localhost:8000/")
+    cy.visit(Cypress.env('baseUrl'));
 
 
     cy.get('[data-cy="market"]').eq(3).click();
     cy.get('[data-cy="view-all"]').click();
     cy.url().should("contain", "markets/cryptocurrencies/")
-    cy.visit("http://localhost:8000/")
+    cy.visit(Cypress.env('baseUrl'));
 
 
     cy.get('[data-cy="market"]').eq(4).click();
     cy.get('[data-cy="view-all"]').click();
     cy.url().should("contain", "markets/commodities/")
-    cy.visit("http://localhost:8000/")
+    cy.visit(Cypress.env('baseUrl'));
   })
 })

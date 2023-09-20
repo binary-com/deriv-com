@@ -54,12 +54,11 @@ module.exports = {
                 ],
             },
         },
-        'gatsby-plugin-react-helmet',
         {
-            resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+            resolve: 'gatsby-plugin-canonical-urls',
             options: {
                 siteUrl: `${site_url}`,
-                noQueryString: true,
+                // noQueryString: true,
             },
         },
         'gatsby-plugin-styled-components',
@@ -324,6 +323,8 @@ module.exports = {
                             '/endpoint/',
                             '/livechat/',
                             '/storybook/',
+                            '*.binary.sx',
+                            '/?region=*/',
                         ],
                     },
                 ],
@@ -349,6 +350,16 @@ module.exports = {
             options: {
                 analyzerMode: 'disabled',
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-env-variables',
+            options: {
+                allowList: [
+                    'GATSBY_RUDDERSTACK_URL',
+                    'GATSBY_RUDDERSTACK_STAGING_KEY',
+                    'GATSBY_RUDDERSTACK_PRODUCTION_KEY',
+                ],
             },
         },
     ],

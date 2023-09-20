@@ -4,7 +4,7 @@
 
 Deriv.com - An online trading platform that offers a wide selection of derivatives to trade on 24/7.
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/binary-com/deriv-com/Release%20Staging) ![node](https://img.shields.io/badge/node-%3E%3D12.3.0-blue.svg) ![npm](https://img.shields.io/badge/npm-%3E%3D6.9.0-blue.svg) [![GATSBY](https://img.shields.io/badge/Gatsby-663399?style=flat&logo=gatsby&logoColor=white)](https://github.com/styled-components/styled-components) [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components) ![Sonar Tech Debt](https://img.shields.io/sonar/tech_debt/binary-com_deriv-com?server=https%3A%2F%2Fsonarcloud.io)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/binary-com/deriv-com/Release%20Staging) ![node](https://img.shields.io/badge/node-%3E%3D18.12.1-blue.svg) ![npm](https://img.shields.io/badge/npm-%3E%3D8.19.2-blue.svg) [![GATSBY](https://img.shields.io/badge/Gatsby-663399?style=flat&logo=gatsby&logoColor=white)](https://github.com/styled-components/styled-components) [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components) ![Sonar Tech Debt](https://img.shields.io/sonar/tech_debt/binary-com_deriv-com?server=https%3A%2F%2Fsonarcloud.io)
 ![Sonar Violations (short format)](https://img.shields.io/sonar/violations/binary-com_deriv-com?server=https%3A%2F%2Fsonarcloud.io)
 
 ## In this document:
@@ -34,8 +34,8 @@ Deriv.com - An online trading platform that offers a wide selection of derivativ
 
 Before running or contribute to this project, you need to have the setup of the following packages in your environment
 
--   node >=16.6.0
--   npm >=8.11.0
+-   node >=18.12.1
+-   npm >=8.19.2
 -   git (for `contribution`)
 -   gatsby-cli (npm install -g gatsby-cli) (for using commands that aren't listed in scripts)
 
@@ -264,6 +264,7 @@ If preferable to use manual deployment, you can use [gh-pages](https://pages.git
     This will be deployed to name.github.io/deriv-com/br/fix_all_the_bugs
 
 ⚠️ You have to enable pathPrefix in gatsby-config for manual deployment, otherwise, the resources will not be uploaded to the site
+
 ## FAQ
 
 -   [how to create a new page?](documents/implementation-guide.md#create-new-page)

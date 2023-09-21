@@ -187,7 +187,7 @@ export const bannerTypes = {
 }
 
 export const firebaseConfig = {
-    databaseURL: 'https://deriv-static-testing-default-rtdb.firebaseio.com',
+    databaseURL: 'https://deriv-static-pricingfeedv2.firebaseio.com',
 }
 
 export const hreflang_codes_row = [

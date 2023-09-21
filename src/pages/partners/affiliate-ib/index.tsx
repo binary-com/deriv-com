@@ -155,18 +155,11 @@ const AffiliateIb = () => {
 
     const why_partner_with_us_items: WhyUsType = [
         {
-            title: '_t_Multiple income opportunities and generous commissions_t_',
-            subtitle:
-                '_t_Start off as an affiliate and get ensuing access to our IB programme. Earn commission for as long as your referred clients keep trading._t_',
-            image_name: 'multiple_income_opportunities',
-            image_alt: '_t_DMT5 and Dtrader trading platform at Deriv_t_',
-            only_row: true,
-        },
-        {
             title: content_data.payout_title,
             subtitle: content_data.payout_text,
             image_name: 'daily_ib_commission',
             image_alt: '_t_Check your daily IB commission_t_',
+            only_row: true,
         },
         {
             title: '_t_Optimise conversions with great user experience and creative support_t_',

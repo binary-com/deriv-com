@@ -24,11 +24,6 @@ type RowProps = {
 }
 const query = graphql`
     query {
-        multiple_income_opportunities: file(
-            relativePath: { eq: "affiliate/multiple-income-opportunities.png" }
-        ) {
-            ...fadeIn
-        }
         daily_ib_commission: file(relativePath: { eq: "affiliate/daily-ib-commission.png" }) {
             ...fadeIn
         }

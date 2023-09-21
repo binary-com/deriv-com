@@ -150,14 +150,6 @@ const StyledText = styled(Text)`
 `
 
 const TabPanel = ({ children, className, panelID, tabID }: TabPanelProps) => {
-    const [is_mobile] = useBrowserResize()
-    if (is_mobile) {
-        return (
-            <TabContent className={className} tabIndex={0}>
-                {children}
-            </TabContent>
-        )
-    }
     return (
         <TabContent
             className={className}
@@ -192,7 +184,6 @@ const Tabs = ({
             <TabListWrapper className="side-tab__wrapper">
                 <TabList className="side-tab__list" role="tablist" is_reverse={is_reverse}>
                     {React.Children.map(children, (child, index) => {
-                        console.log('==>', child)
                         const {
                             props: { label, description, description_components, panelID, tabID },
                         } = child
@@ -205,6 +196,7 @@ const Tabs = ({
                                     aria-controls={panelID}
                                     selected={selected_tab === index}
                                     aria-selected={selected_tab === index ? 'true' : 'false'}
+                                    aria-expanded={selected_tab === index ? 'true' : 'false'}
                                     onClick={() => selectTab(index)}
                                 >
                                     <CommonHeaderSection

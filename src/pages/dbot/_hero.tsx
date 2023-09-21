@@ -8,7 +8,7 @@ import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { LinkButton } from 'components/form'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { handleGetTrading } from 'components/custom/utils'
 import Shape from 'components/custom/_hero-shape'
 import Button from 'components/custom/_button'
@@ -172,7 +172,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
             <StyledContainer jc="flex-start">
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
-                        <StyledLogo src={BotBannerLogo} />
+                        <StyledLogo src={BotBannerLogo} alt={localize('_t_dbot logo_t_')} />
                         <CommonHeaderSection
                             title="_t_Automate your trading ideas without writing code_t_"
                             font_family_title={

@@ -41,9 +41,19 @@ const StyledIcon = styled.img<{ password_icon?: boolean }>`
 `
 export const AffiliateLabel = styled(StyledLabel)`
     top: 1.6rem;
+    color: var(--color-grey-5);
 `
 export const StyledInputWrapper = styled(InputWrapper)`
     border-radius: 4px;
+    border: solid 1px var(--color-grey-7);
+
+    &:hover {
+        border-color: var(--color-grey-5);
+
+        & > label {
+            color: var(--color-grey-5);
+        }
+    }
 
     @media ${device.tabletL} {
         height: unset;
@@ -54,12 +64,8 @@ export const StyledInputWrapper = styled(InputWrapper)`
 const AffiliateInput = ({
     label = '',
     extra_info,
-    border = '',
-    label_hover_color,
-    label_color = '',
     id = '',
     error = '',
-    background = '',
     handleError,
     password_icon,
     ...props
@@ -69,18 +75,19 @@ const AffiliateInput = ({
 
     return (
         <RelativeWrapper>
-            <StyledInputWrapper border={border} label_hover_color={label_hover_color} error={error}>
+            <StyledInputWrapper error={error}>
                 <StyledInput
+                    ref={() => current_input}
                     id={id}
-                    background={background}
+                    background={'white'}
                     error={error}
                     showLabel={label}
-                    {...props}
+                    width={500}
                     type={is_password_visible ? 'text' : props.type}
-                    ref={() => current_input}
+                    {...props}
                 />
                 {label && (
-                    <AffiliateLabel error={error} htmlFor={id} label_color={label_color}>
+                    <AffiliateLabel error={error} htmlFor={id}>
                         {label}
                     </AffiliateLabel>
                 )}

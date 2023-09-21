@@ -154,22 +154,17 @@ const AffiliateSignupForm = ({
                 </StyledNote>
                 <InputGroup>
                     <AffiliateInput
+                        required
                         id="dm-email-input"
                         name="email"
                         type="text"
-                        border="solid 1px var(--color-grey-7)"
-                        label_color="grey-5"
-                        label_hover_color="grey-5"
-                        background="white"
                         error={email_error_msg}
                         value={affiliate_account.email}
                         label={localize('_t_Email_t_')}
                         placeholder={'Email'}
-                        autoComplete="off"
-                        handleError={() => setAffiliateAccount({ ...affiliate_account, email: '' })}
-                        onChange={handleInput}
                         onBlur={handleInput}
-                        required
+                        onChange={handleInput}
+                        handleError={() => setAffiliateAccount({ ...affiliate_account, email: '' })}
                     />
                 </InputGroup>
                 <ImageWrapper>

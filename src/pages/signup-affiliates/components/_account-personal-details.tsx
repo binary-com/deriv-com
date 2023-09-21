@@ -296,9 +296,6 @@ const PersonalDetails = ({
                                     key={item.id}
                                     error={item.error}
                                     value={item.value}
-                                    border="solid 1px var(--color-grey-7)"
-                                    label_color="grey-5"
-                                    label_hover_color="grey-5"
                                     label={localize(item.label)}
                                     setFieldValue={item.value_set}
                                 />
@@ -306,26 +303,20 @@ const PersonalDetails = ({
                         } else {
                             return (
                                 <AffiliateInput
-                                    width={500}
                                     id={item.id}
                                     key={item.id}
                                     name={item.name}
                                     type={item.type}
                                     value={item.value}
                                     error={item.error}
-                                    password_icon={item.type == 'password'}
-                                    border="solid 1px var(--color-grey-7)"
-                                    label_color="grey-5"
-                                    label_hover_color="grey-5"
-                                    background="white"
+                                    required={item.required}
+                                    extra_info={item.extra_info}
                                     label={localize(item.label)}
                                     placeholder={item.placeholder}
-                                    extra_info={item.extra_info}
+                                    password_icon={item.type == 'password'}
                                     onChange={handleInput}
                                     onBlur={handleInput}
-                                    required={item.required}
                                     data-lpignore="true"
-                                    autoComplete="off"
                                     handleError={() => {
                                         item?.value_set('')
                                         item?.error_set('')

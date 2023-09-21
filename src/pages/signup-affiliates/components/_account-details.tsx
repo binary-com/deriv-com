@@ -180,24 +180,18 @@ const AccountDetails = ({
                     } else {
                         return (
                             <AffiliateInput
-                                width={500}
                                 id={item.id}
                                 key={item.id}
                                 name={item.name}
                                 type={item.type}
                                 value={item.value}
                                 error={item.error}
-                                border="solid 1px var(--color-grey-7)"
-                                label_color="grey-5"
-                                label_hover_color="grey-5"
-                                background="white"
                                 label={item.label}
-                                placeholder={item.placeholder}
+                                required={item.required}
                                 extra_info={item.extra_info}
+                                placeholder={item.placeholder}
                                 onChange={handleInput}
                                 onBlur={handleInput}
-                                autoComplete="off"
-                                required={item.required}
                                 handleError={() => {
                                     item?.value_set('')
                                     item?.error_set('')

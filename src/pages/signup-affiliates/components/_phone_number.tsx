@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { WizardStepProps } from '../_types'
 import affiliate_validation from '../validations/_affilaite_validation'
 import AffiliateInput from '../utils/_affiliate-input'
+import Image from 'features/components/atoms/image'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import OtpVerification from 'images/svg/signup-affiliates/code.svg'
@@ -70,21 +71,20 @@ const PhoneNumber = ({
 
     return (
         <>
-            <Header as="h2" align="center" type="paragraph-1" pb="24px" weight="normal">
+            <Header as="div" align="center" type="paragraph-1" pb="24px" weight="normal">
                 <Localize translate_text={'_t_Please provide your phone number_t_'} />
             </Header>
             <ImageContainer>
-                <img src={OtpVerification} width={240} height={192} />
+                <Image src={OtpVerification} width={240} height={192} />
             </ImageContainer>
-
             <CodeContainer>
                 <CodeWrapper>
                     <CountryCode>
                         <span>{`+${affiliate_number.prefix}`}</span>
                     </CountryCode>
                 </CodeWrapper>
-
                 <PhoneNumberInput
+                    required
                     id="phone"
                     value={phone}
                     error={phone_error_msg}
@@ -93,10 +93,6 @@ const PhoneNumber = ({
                         setPhone('')
                         setPhoneErrorMsg('')
                     }}
-                    focus_border="var(--color-grey-7)"
-                    autoComplete="off"
-                    autoFocus
-                    required
                 />
             </CodeContainer>
         </>

@@ -124,14 +124,9 @@ const AffiliateSignupStatus = ({
                             <Localize translate_text="_t_Username already exists. Please enter another:_t_" />
                         </Header>
                         <AffiliateInput
-                            width={500}
                             type={'text'}
                             value={affiliate_account.personal_details.username}
                             error={username_error}
-                            border="solid 1px var(--color-grey-7)"
-                            label_color="grey-5"
-                            label_hover_color="grey-5"
-                            background="white"
                             label={localize('_t_User name_t_')}
                             placeholder={'Username'}
                             extra_info={' '}
@@ -180,14 +175,9 @@ const AffiliateSignupStatus = ({
                             <Localize translate_text="_t_Your website is not a valid entry. Please enter another:_t_" />
                         </Header>
                         <AffiliateInput
-                            width={500}
                             type={'text'}
                             value={affiliate_account.personal_details.website_url}
                             error={website_url_error}
-                            border="solid 1px var(--color-grey-7)"
-                            label_color="grey-5"
-                            label_hover_color="grey-5"
-                            background="white"
                             label={localize('_t_Website url_t_')}
                             placeholder={'Username'}
                             extra_info={' '}

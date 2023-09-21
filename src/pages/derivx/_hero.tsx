@@ -132,7 +132,7 @@ const DCommonBanner = () => {
             <StyledContainer jc="flex-start">
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
-                        <StyledTradingLogin src={DerivXBannerLogo} />
+                        <StyledTradingLogin src={DerivXBannerLogo} alt="Deriv X logo" />
                         <CommonHeaderSection
                             title="_t_The trading platform to fit your style_t_"
                             title_font_size={`${is_mobile ? 32 : 64}px`}

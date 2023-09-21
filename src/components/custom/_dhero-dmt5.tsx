@@ -137,7 +137,7 @@ const DCommonBanner = () => {
             <StyledContainer jc="flex-start">
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
-                        <StyledTradingLogin src={DerivMT5Logo} />
+                        <StyledTradingLogin src={DerivMT5Logo} alt="Deriv MT5 logo" />
                         <CommonHeaderSection
                             title="_t_The all-in-one CFD trading platform_t_"
                             title_font_size={is_mobile ? '32px' : '64px'}

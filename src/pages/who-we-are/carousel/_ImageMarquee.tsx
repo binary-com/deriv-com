@@ -27,6 +27,21 @@ const queryCarouselData = graphql`
         media6: file(relativePath: { eq: "about-us-carousel/media-6.jpg" }) {
             ...fadeIn
         }
+        media7: file(relativePath: { eq: "about-us-carousel/media-7.jpg" }) {
+            ...fadeIn
+        }
+        media8: file(relativePath: { eq: "about-us-carousel/media-8.jpg" }) {
+            ...fadeIn
+        }
+        media9: file(relativePath: { eq: "about-us-carousel/media-9.jpg" }) {
+            ...fadeIn
+        }
+        media10: file(relativePath: { eq: "about-us-carousel/media-10.jpg" }) {
+            ...fadeIn
+        }
+        media11: file(relativePath: { eq: "about-us-carousel/media-11.jpg" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -121,6 +136,11 @@ const ImageMarquee = () => {
         carousel_data.media4,
         carousel_data.media5,
         carousel_data.media6,
+        carousel_data.media7,
+        carousel_data.media8,
+        carousel_data.media9,
+        carousel_data.media10,
+        carousel_data.media11,
     ]
 
     const is_rtl = useIsRtl()

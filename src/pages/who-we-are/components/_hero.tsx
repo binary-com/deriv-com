@@ -96,12 +96,6 @@ const Hero = () => {
             <ContentWrapper jc="center">
                 <Desktop>
                     <StyledFlex>
-                        <StyledQueryImage
-                            data={data['about_us_logo']}
-                            alt={localize('_t_example_t_')}
-                            width="unset"
-                            loading="eager"
-                        />
                         <Flex jc="center" p="0 32px" max_width="1440px">
                             <DesktopHeader>{title}</DesktopHeader>
                         </Flex>
@@ -109,11 +103,6 @@ const Hero = () => {
                 </Desktop>
                 <Mobile>
                     <Flex fd="column" ai="center" p="0 16px">
-                        <StyledMobileQueryImage
-                            data={data['about_us_logo']}
-                            alt={localize('_t_example_t_')}
-                            width="unset"
-                        />
                         <MobileHeader>{title}</MobileHeader>
                     </Flex>
                 </Mobile>

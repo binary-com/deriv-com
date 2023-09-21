@@ -1,8 +1,11 @@
+import React from 'react'
+import { EmployerAwardsType } from './types'
 import Shield from 'images/svg/who-we-are/shield.svg'
 import Star from 'images/svg/who-we-are/star.svg'
 import People from 'images/svg/who-we-are/people.svg'
 import Hands from 'images/svg/who-we-are/hands.svg'
 import { TString } from 'types/generics'
+import Link from 'features/components/atoms/link'
 
 type FirstSectionTextsType = {
     text: TString
@@ -34,13 +37,13 @@ type DerivNumbersType = {
 
 export const first_section_texts: FirstSectionTextsType[] = [
     {
-        text: '_t_Deriv is one of the world’s largest online brokers. We offer CFDs and other derivatives on forex, stocks & indices, cryptocurrencies, commodities, and derived to millions of registered users across the globe._t_',
+        text: '_t_Deriv is one of the world’s largest online brokers. We offer CFDs and other derivatives on forex, stocks & indices, cryptocurrencies, commodities, and derived indices to millions of registered users across the globe._t_',
     },
     {
         text: '_t_From inception, our goal was to break free of the high commissions and clunky products offered by traditional brokers. Also, we aim to deliver a first-class experience to digitally inclined traders, regardless of the size of their accounts._t_',
     },
     {
-        text: '_t_In a journey spanning more than 22 years, we have grown to over 2.5 million customers worldwide. But our mission has remained the same._t_',
+        text: '_t_In a journey spanning more than 23 years, we have grown to over 2.5 million customers worldwide. But our mission has remained the same:_t_',
     },
 ]
 
@@ -57,7 +60,7 @@ export const our_values: ValueType[] = [
     },
     {
         title: '_t_Competence_t_',
-        text: '_t_We value colleagues with an aptitude to learn and grow and the ability to use good judgement._t_',
+        text: '_t_We value colleagues with the ability to use good judgement and an aptitude to learn and grow._t_',
         icon: Star,
     },
     {
@@ -205,6 +208,12 @@ export const desktop_pins: MapPinType[] = [
         title: '_t_Reading, United kingdom_t_',
         link: '/careers/locations/reading',
     },
+    {
+        left: '78%',
+        top: '48%',
+        title: '_t_Hong kong_t_',
+        link: '/careers/locations/hongkong',
+    },
 ]
 
 export const mobile_pins: MapPinType[] = [
@@ -322,11 +331,17 @@ export const mobile_pins: MapPinType[] = [
         title: '_t_Reading, United kingdom_t_',
         link: '/careers/locations/reading',
     },
+    {
+        left: '76%',
+        top: '45%',
+        title: '_t_Hong kong_t_',
+        link: '/careers/locations/hongkong',
+    },
 ]
 
 export const our_offices_count: DerivNumbersType[] = [
-    { count: '_t_1000+_t_', title: '_t_employees_t_' },
-    { count: '_t_50+_t_', title: '_t_nationalities_t_' },
+    { count: '_t_1200+_t_', title: '_t_employees_t_' },
+    { count: '_t_70+_t_', title: '_t_nationalities_t_' },
     { count: '_t_20_t_', title: '_t_locations_t_' },
     { count: '_t_16_t_', title: '_t_countries_t_' },
 ]
@@ -334,8 +349,52 @@ export const our_offices_count: DerivNumbersType[] = [
 export const deriv_numbers: DerivNumbersType[][] = [
     [
         { count: '_t_2.5M+_t_', title: '_t_traders worldwide_t_' },
-        { count: '_t_USD 26M+_t_', title: '_t_withdrawals last month_t_' },
-        { count: '_t_114M+_t_', title: '_t_trades last month_t_' },
-        { count: '_t_USD 10B+_t_', title: '_t_total trade turnover_t_' },
+        { count: '_t_USD 46M+_t_', title: '_t_withdrawals last month_t_' },
+        { count: '_t_187M+_t_', title: '_t_trades last month_t_' },
+        { count: '_t_USD 15T+_t_', title: '_t_total trade turnover_t_' },
     ],
+]
+
+export const employer_award_content: EmployerAwardsType[] = [
+    {
+        id: 0,
+        title: '_t_Investors in People_t_',
+        text_with_link: {
+            text: '_t_We were awarded Gold accreditation by <0>Investors in People</0> (IIP) for our commitment to building trust within Deriv, motivating employee growth, and adapting to change. We are honoured to be recognised for our leadership approach, people practices, career advancement opportunities, and culture of trust._t_',
+            components: [
+                <Link
+                    weight="bold"
+                    key={0}
+                    target="_blank"
+                    url={{
+                        type: 'non-company',
+                        href: 'https://www.investorsinpeople.com/',
+                    }}
+                    rel="noopener noreferrer"
+                />,
+            ],
+        },
+    },
+    {
+        id: 1,
+        title: '_t_Great Place to Work®_t_',
+        text_with_link: {
+            text: "_t_Deriv's offices in Dubai, Paraguay, Cyprus, France, Malta, Rwanda, and UK have received the <0>Great Place to Work®</0> (GPTW) 2023 certification for fair treatment of employees regardless of gender or race, ethical business practices, and supportive work culture._t_",
+
+            components: [
+                <Link
+                    weight="bold"
+                    key={0}
+                    target="_blank"
+                    url={{
+                        type: 'non-company',
+                        href: 'https://www.greatplacetowork.com/',
+                    }}
+                    rel="noopener noreferrer"
+                />,
+            ],
+        },
+        sub_text:
+            '_t_ In the year 2022, 20 Deriv offices worldwide, including Cyberjaya, Dubai, Asunción, Birkirkara, Limassol, Kigali, Ipoh, Malaka, and Labuan, were recognised by GPTW._t_',
+    },
 ]

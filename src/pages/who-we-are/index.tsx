@@ -10,6 +10,7 @@ import {
     AboutUsBanner,
     DerivNumbers,
     OurOffices,
+    EmployerAwards,
 } from './_lazy-load'
 import device from 'themes/device'
 import { SEO } from 'components/containers'
@@ -50,6 +51,7 @@ const AboutUs = () => {
             <DerivNumbers />
             <ImageMarquee />
             <OurOffices />
+            <EmployerAwards />
             <AboutUsBanner />
         </Layout>
     )

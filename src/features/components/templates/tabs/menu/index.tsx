@@ -1,5 +1,5 @@
 import React from 'react'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import FlexBox from 'features/components/atoms/flex-box'
 import Tab from 'features/components/atoms/tab'
 import { TString } from 'types/generics'
@@ -41,7 +41,14 @@ const TabMenu = ({
                     >
                         {icon && (
                             <FlexBox.Box justify="center" padding_block="6x">
-                                {icon && <Image src={icon} width="24px" height="24px" />}
+                                {icon && (
+                                    <Image
+                                        src={icon}
+                                        width="24px"
+                                        height="24px"
+                                        alt={localize(tab_name)}
+                                    />
+                                )}
                             </FlexBox.Box>
                         )}
 

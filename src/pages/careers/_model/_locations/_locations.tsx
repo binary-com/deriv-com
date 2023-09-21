@@ -1,3 +1,5 @@
+import React from 'react'
+import { StaticImage } from 'gatsby-plugin-image'
 import {
     address_cyberjaya,
     address_dubai,
@@ -16,6 +18,7 @@ import {
     address_jordan,
     address_singapore,
     address_vanuatu,
+    address_hongkong,
     address_reading,
 } from './_contact-details'
 import { LocationsType } from './_locations.types'
@@ -34,9 +37,19 @@ import GermanyFlagIcon from 'images/svg/careers/flag_germany.svg'
 import VanuatuFlagIcon from 'images/svg/careers/flag_vanuatu.svg'
 import JordanFlagIcon from 'images/svg/careers/flag_jordan.svg'
 import SingaporeFlagIcon from 'images/svg/careers/flag_singapore.svg'
+import { localize } from 'components/localization'
+import HongKong from 'images/svg/careers/flag_hongkong.svg'
 
 export const cyberjaya: LocationsType = {
     name: 'cyberjaya',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/cyberjaya.png"
+            alt={localize('_t_Cyberjaya bridge and lake view_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
     job_location: 'Cyberjaya',
     continent: 'asia',
     display_continent: 'Asia',
@@ -72,6 +85,14 @@ export const cyberjaya: LocationsType = {
 
 export const malta: LocationsType = {
     name: 'malta',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/malta.jpg"
+            alt={localize('_t_Malta Senglea Church_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
     job_location: 'Birkirkara',
     continent: 'europe',
     display_continent: 'Europe',
@@ -106,6 +127,14 @@ export const malta: LocationsType = {
 
 export const dubai: LocationsType = {
     name: 'dubai',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/dubai.jpg"
+            alt={localize('_t_Dubai Skyscrappers_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
     job_location: 'Dubai',
     continent: 'middle_east',
     display_continent: 'Middle East',
@@ -140,6 +169,14 @@ export const dubai: LocationsType = {
 
 export const labuan: LocationsType = {
     name: 'labuan',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/labuan.jpg"
+            alt={localize('_t_Labuan clock tower_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
     job_location: 'Labuan',
     continent: 'asia',
     display_continent: 'Asia',
@@ -175,6 +212,15 @@ export const labuan: LocationsType = {
 
 export const asuncion: LocationsType = {
     name: 'asuncion',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/asuncion.png"
+            alt={localize('_t_Palace of the Lopez - Asuncion_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+            style={{ width: '100%' }}
+        />
+    ),
     job_location: 'Asuncion',
     continent: 'latam',
     display_continent: 'Latam',
@@ -209,6 +255,14 @@ export const asuncion: LocationsType = {
 
 export const melaka: LocationsType = {
     name: 'melaka',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/melaka.jpg"
+            alt={localize('_t_Dutch square of Melaka_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
     job_location: 'Melaka',
     continent: 'asia',
     display_continent: 'Asia',
@@ -244,6 +298,14 @@ export const melaka: LocationsType = {
 
 export const ipoh: LocationsType = {
     name: 'ipoh',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/ipoh.jpg"
+            alt={localize('_t_White architecture building in Ipoh_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
     job_location: 'Ipoh',
     continent: 'asia',
     display_continent: 'Asia',
@@ -278,6 +340,14 @@ export const ipoh: LocationsType = {
 
 export const cyprus: LocationsType = {
     name: 'cyprus',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/cyprus.jpg"
+            alt={localize('_t_Buildings near beach side - Limassol_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
     job_location: 'Limassol',
     continent: 'europe',
     display_continent: 'Europe',
@@ -313,6 +383,14 @@ export const cyprus: LocationsType = {
 
 export const rwanda: LocationsType = {
     name: 'rwanda',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/rwanda.jpg"
+            alt={localize('_t_Blue sky and buildings - Kigali_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
     job_location: 'Kigali',
     continent: 'africa',
     display_continent: 'Africa',
@@ -349,6 +427,14 @@ export const rwanda: LocationsType = {
 
 export const paris: LocationsType = {
     name: 'paris',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/paris.jpg"
+            alt={localize('_t_paris_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
     job_location: 'Paris',
     continent: 'europe',
     display_continent: 'Europe',
@@ -378,6 +464,15 @@ export const paris: LocationsType = {
 
 export const guernsey: LocationsType = {
     name: 'guernsey',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/guernsey.jpg"
+            alt={localize('_t_Guernsey alt img_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+            style={{ width: '100%' }}
+        />
+    ),
     job_location: 'Guernsey',
     continent: 'europe',
     display_continent: 'Europe',
@@ -408,6 +503,15 @@ export const guernsey: LocationsType = {
 
 export const berlin: LocationsType = {
     name: 'berlin',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/berlin.png"
+            alt={localize('_t_Deriv’s Germany office at Berlin_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+            style={{ width: '100%' }}
+        />
+    ),
     job_location: 'Berlin',
     continent: 'europe',
     display_continent: 'Europe',
@@ -434,6 +538,14 @@ export const berlin: LocationsType = {
 
 export const reading: LocationsType = {
     name: 'reading',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/reading.jpg"
+            alt={localize('_t_Deriv’s Reading office at United Kingdom_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
     job_location: 'Reading',
     continent: 'europe',
     display_continent: 'Europe',
@@ -463,6 +575,14 @@ export const reading: LocationsType = {
 
 export const vanuatu: LocationsType = {
     name: 'vanuatu',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/vanuatu.png"
+            alt={localize('_t_Vanuatu alt img_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
     job_location: 'Port-Vila',
     continent: 'oceania',
     display_continent: 'Oceania',
@@ -492,6 +612,14 @@ export const vanuatu: LocationsType = {
 
 export const georgetown: LocationsType = {
     name: 'georgetown',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/georgetown.png"
+            alt={localize('_t_Deriv’s Cayman Islands office at George Town_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
     job_location: 'George-Town',
     continent: 'caribbean',
     display_continent: 'Caribbean',
@@ -520,6 +648,14 @@ export const georgetown: LocationsType = {
 
 export const roadtown: LocationsType = {
     name: 'roadtown',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/roadtown.jpg"
+            alt={localize('_t_Deriv’s British Virgin Islands office at Road Town_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
     job_location: 'British-Virgin-Islands',
     continent: 'caribbean',
     display_continent: 'Caribbean',
@@ -549,6 +685,14 @@ export const roadtown: LocationsType = {
 
 export const jordan: LocationsType = {
     name: 'jordan',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/jordan.jpg"
+            alt={localize('_t_Jordan alt img_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
     job_location: 'Amman',
     continent: 'middle_east',
     display_continent: 'Middle East',
@@ -578,6 +722,15 @@ export const jordan: LocationsType = {
 
 export const singapore: LocationsType = {
     name: 'singapore',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/singapore.png"
+            alt={localize('_t_Marina Bay Sands - Singapore_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+            style={{ width: '100%' }}
+        />
+    ),
     job_location: 'Singapore',
     continent: 'asia',
     display_continent: 'Asia',
@@ -609,6 +762,14 @@ export const singapore: LocationsType = {
 
 export const ciudad: LocationsType = {
     name: 'ciudad',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/ciudad.jpg"
+            alt={localize('_t_Paraguay office at Ciudad del Este_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
     job_location: 'Ciudad-del-Este',
     continent: 'latam',
     display_continent: 'Latam',
@@ -642,6 +803,41 @@ export const ciudad: LocationsType = {
     has_iframe: true,
 }
 
+export const hongkong: LocationsType = {
+    name: 'hongkong',
+    hero_image: (
+        <StaticImage
+            src="../../../../images/common/careers/hongkong.jpg"
+            alt={localize('_t_HongKong_t_')}
+            formats={['avif', 'webp', 'auto']}
+            loading="eager"
+        />
+    ),
+    job_location: 'Hong-Kong',
+    continent: 'asia',
+    display_continent: 'Asia',
+    link: '/careers/locations/hongkong/',
+    display_name: 'Hong Kong',
+    display_thumbnail_name: 'Hong Kong',
+    display_title_name: 'Hong Kong',
+    map_office_name: '(HK) Ltd',
+    country: 'Hong Kong',
+    flagIcon: HongKong,
+    thumbnail: 'thumbnail_hongkong',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'guernsey grid 3', 'guernsey_grid_4'],
+    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'guernsey grid 3', 'guernsey grid 4'],
+    first_p:
+        'With risk management and compliance at its core, Deriv (HK) Ltd brings together a highly skilled workforce that focuses on our clients’ safety and the organisation’s adherence to regulatory policies. Various functional teams work together in a dynamic and collaborative environment to foster a culture of compliance throughout the company.',
+    first_img: 'living_in_hongkong',
+    first_img_alt: 'Living in Hong Kong',
+    map: 'ChIJb6MEJ_ojP0ERFA9bhdSH07g',
+    map_text:
+        "Our Hong Kong office offers a dynamic work environment with exciting opportunities to advance your career. If you're interested in showcasing and growing your innovative mindset, join our team in Hong Kong.",
+    address: address_hongkong,
+    google_map_link: 'https://goo.gl/maps/qi8uce4u3pMsar3d6 ',
+    has_iframe: true,
+}
+
 export const all_offices: LocationsType[] = [
     paris,
     malta,
@@ -654,6 +850,7 @@ export const all_offices: LocationsType[] = [
     melaka,
     labuan,
     singapore,
+    hongkong,
     vanuatu,
     dubai,
     jordan,
@@ -681,6 +878,7 @@ export const locations = {
     vanuatu: `${vanuatu.display_name}, ${vanuatu.country}`,
     jordan: `${jordan.display_name}, ${jordan.country}`,
     singapore: `${singapore.display_name}, ${singapore.country}`,
+    hongkong: `${hongkong.display_name}, ${hongkong.country}`,
     georgetown: `${georgetown.display_name}, ${georgetown.country}`,
     roadtown: `${roadtown.display_name}, ${roadtown.country}`,
 }

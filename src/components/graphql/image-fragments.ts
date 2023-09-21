@@ -14,19 +14,6 @@ export const heroImage = graphql`
     }
 `
 
-export const backgroundImage = graphql`
-    fragment backgroundImage on File {
-        childImageSharp {
-            gatsbyImageData(
-                formats: [AUTO, WEBP]
-                layout: CONSTRAINED
-                quality: 100
-                placeholder: NONE
-            )
-        }
-    }
-`
-
 export const bannerImage = graphql`
     fragment bannerImage on File {
         childImageSharp {

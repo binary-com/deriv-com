@@ -14,6 +14,7 @@ import DMT5BG from 'images/svg/dmt5/dmt5-bg.svg'
 import DMT5BG2 from 'images/svg/dmt5/dmt5-bg2.svg'
 import { size } from 'themes/device'
 import { isBrowser } from 'common/utility'
+import { TGatsbyHead } from 'features/types'
 
 const query = graphql`
     query {
@@ -37,11 +38,6 @@ const DMT5 = () => {
 
     return (
         <Layout is_ppc_redirect>
-            <SEO
-                title="_t_DMT5 | MetaTrader 5 | Deriv_t_"
-                description="_t_DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile._t_"
-                no_index
-            />
             <DHero
                 title="_t_Deriv MT5 (DMT5)_t_"
                 content="_t_Trade 24/7 on forex, stocks, synthetic indices, and commodities_t_"
@@ -79,3 +75,12 @@ const DMT5 = () => {
 }
 
 export default WithIntl()(DMT5)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_DMT5 | MetaTrader 5 | Deriv_t_"
+        description="_t_DMT5 is developed to give you the best CFD trading experience. You can access our MT5 trader through desktop and even mobile._t_"
+        no_index
+        pageContext={pageContext}
+    />
+)

@@ -4,13 +4,11 @@ import { melaka } from '../../_model/_locations/_locations'
 import { LocationLayout } from '../_location-layout'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
+import { TGatsbyHead } from 'features/types'
 
 const query = graphql`
     query {
-        melaka: file(relativePath: { eq: "careers/melaka.jpg" }) {
-            ...backgroundImage
-        }
         living_in_melaka: file(relativePath: { eq: "careers/living_in_melaka.png" }) {
             ...fadeIn
         }
@@ -42,15 +40,17 @@ const Melaka = () => {
 
     return (
         <Layout type="careers">
-            <SEO
-                title={localize('_t_Melaka | Our office – Malaysia | Deriv_t_')}
-                description={localize(
-                    '_t_Find your role with us by browsing Deriv job opportunities in Melaka, Malaysia._t_',
-                )}
-            />
             <LocationLayout location={melaka} images={images} />
         </Layout>
     )
 }
 
 export default WithIntl()(Melaka)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Melaka | Our office – Malaysia | Deriv_t_"
+        description="_t_Find your role with us by browsing Deriv job opportunities in Melaka, Malaysia._t_"
+        pageContext={pageContext}
+    />
+)

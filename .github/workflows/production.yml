@@ -18,6 +18,7 @@ env:
     GATSBY_RUDDERSTACK_STAGING_KEY: ${{ secrets.GATSBY_RUDDERSTACK_STAGING_KEY }}
     GATSBY_RUDDERSTACK_PRODUCTION_KEY: ${{ secrets.GATSBY_RUDDERSTACK_PRODUCTION_KEY }}
     GATSBY_RUDDERSTACK_URL: ${{ secrets.GATSBY_RUDDERSTACK_URL }}
+    GATSBY_STRAPI_TOKEN: ${{ secrets.GATSBY_STRAPI_TOKEN }}
 
 jobs:
     release-production:
@@ -31,7 +32,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: '16.x'
+                  node-version: '18.x'
                   cache: 'npm'
 
             - name: Set version env variable

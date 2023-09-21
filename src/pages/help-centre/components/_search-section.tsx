@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 import { matchSorter } from 'match-sorter'
 import styled from 'styled-components'
 import { useFilteredCategory, useFilteredQuestions } from '../data/_hooks'
@@ -89,6 +89,15 @@ const SearchCrossIcon = styled.img`
 
 const SearchSection = () => {
     const [search_value, setSearchValue] = useState('')
+    const search_input_ref = useRef(null)
+
+    useEffect(() => {
+        if (search_input_ref.current) {
+            setTimeout(() => {
+                search_input_ref.current.focus()
+            }, 5)
+        }
+    }, [])
 
     const handleSubmit = (e) => e.preventDefault()
     const clearSearch = () => setSearchValue('')
@@ -147,7 +156,7 @@ const SearchSection = () => {
                     <SearchForm onSubmit={handleSubmit}>
                         <StyledSearchIcon src={SearchIcon} alt="search-icon" />
                         <SearchInput
-                            autoFocus
+                            ref={search_input_ref}
                             value={search_value}
                             onChange={handleSearchOnChange}
                             placeholder={localize('_t_Try “Trade”_t_')}

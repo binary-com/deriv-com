@@ -164,8 +164,6 @@ export const live_chat_key = 'live_chat_redirection'
 export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const youtube_url = 'https://www.youtube.com/@deriv'
-export const loss_percent = 72
-
 export const contact_us_form_post_data = 'https://formkeep.com/f/7f4b8b55f10f'
 
 export const cookie_key = 'browser_update_alert_modal_shown'

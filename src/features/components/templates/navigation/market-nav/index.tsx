@@ -23,8 +23,8 @@ const MarketNav = () => {
                 <NavTemplate
                     render_bottom_nav={() => <MarketBottomNav />}
                     renderLogo={() => (
-                        <Link url={{ type: 'internal', to: '/' }}>
-                            <Image src={LogoImage} className={market_nav_logo} />
+                        <Link url={{ type: 'internal', to: '/' }} aria-label="deriv logo link">
+                            <Image src={LogoImage} className={market_nav_logo} alt="deriv-logo" />
                         </Link>
                     )}
                     items={mainItems}

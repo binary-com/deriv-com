@@ -59,7 +59,7 @@ const TradeStepsWrapper = ({ header, data }: TradeStepsType) => {
                 pt="20x"
                 lg={{ padding_block: '20x' }}
             >
-                <Button.Primary aria-label="Signup" id="dm-nav-signup" onClick={handleSignup}>
+                <Button.Primary aria-label="Signup" onClick={handleSignup}>
                     <Localize translate_text="_t_Sign up now_t_" />
                 </Button.Primary>
             </Flex.Box>

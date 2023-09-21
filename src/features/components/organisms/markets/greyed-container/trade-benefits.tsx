@@ -9,7 +9,7 @@ import Image from 'features/components/atoms/image'
 const TradeBenefit = ({ item }: { item: TradeBenefitType }) => {
     return (
         <Flex.Box className={item_container} direction="col" align="center" gap="5x">
-            <Image src={item.icon_src} width={48} height={48} />
+            <Image src={item.icon_src} width={48} height={48} alt="trade benefit icon" />
 
             <Flex.Item>
                 <Typography.Paragraph textcolor="inverted" align="center">

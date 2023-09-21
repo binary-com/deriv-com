@@ -4,7 +4,7 @@ import { Flex, Box } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
 import { TString } from 'types/generics'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 
 type AvailableOptionsProps = {
     title?: TString
@@ -56,7 +56,7 @@ const AvailableOptions = ({
                 </Box>
             )}
             <Flex jc="flex-start">
-                <Icon src={svg} />
+                <Icon src={svg} alt="options icon" />
                 <Box max_width="28.8rem">
                     <StyledText>
                         <Localize translate_text={content} components={content_components} />

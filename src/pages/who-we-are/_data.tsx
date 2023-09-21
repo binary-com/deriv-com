@@ -1,5 +1,5 @@
 import React from 'react'
-import { EmployerAwardsType } from './types'
+import { EmployerAwardsType } from './_types'
 import Shield from 'images/svg/who-we-are/shield.svg'
 import Star from 'images/svg/who-we-are/star.svg'
 import People from 'images/svg/who-we-are/people.svg'

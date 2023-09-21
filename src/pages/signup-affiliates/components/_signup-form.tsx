@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-// on discussion about removing
-import ReCAPTCHA from 'react-google-recaptcha'
 import affiliate_validation from '../validations/_affilaite_validation'
 import AffiliateInput from '../utils/_affiliate-input'
 import { SignUpFormProps } from '../_types'
@@ -64,9 +62,6 @@ const LoginContainer = styled.div`
     align-items: center;
     margin-top: 2.4rem;
 `
-const ImageWrapper = styled.div`
-    margin: auto;
-`
 const StyledFlex = styled(Container)`
     display: flex;
     flex-direction: column;
@@ -103,7 +98,6 @@ const AffiliateSignupForm = ({
     setShowWizard,
 }: SignUpFormProps) => {
     const [email_error_msg, setEmailErrorMsg] = useState('')
-    const [captcha_status, setCaptchaStatus] = useState(false)
 
     const handleInput = (e) => {
         const { value } = e.target
@@ -167,19 +161,10 @@ const AffiliateSignupForm = ({
                         handleError={() => setAffiliateAccount({ ...affiliate_account, email: '' })}
                     />
                 </InputGroup>
-                <ImageWrapper>
-                    <ReCAPTCHA
-                        sitekey="6Ld_EwIhAAAAAI8eRUeCN9RtKzn5oKsHKKwwPaXf"
-                        onChange={(value) => {
-                            setCaptchaStatus(!!value)
-                        }}
-                    />
-                </ImageWrapper>
                 <EmailButton
                     type="submit"
                     secondary
                     onClick={() => setShowWizard(true)}
-                    // disabled={!(captcha_status && email && !email_error_msg)}
                     disabled={!(affiliate_account.email && !email_error_msg)}
                 >
                     <Localize translate_text={'_t_Create partner account_t_'} />

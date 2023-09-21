@@ -16,11 +16,11 @@ import Map from 'images/svg/signup-affiliates/map.svg'
 const AffiliateSignupStatus = Loadable(() => import('./components/_signup-status'))
 const Wizard = Loadable(() => import('./components/_wizard'))
 
-const Submit = ({ is_online, affiliate_account, setSignupStatus, send_register }: SubmitTypes) => {
+const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }: SubmitTypes) => {
     if (!is_online) {
         setSignupStatus('lost connection')
     } else
-        send_register({
+        affiliateSend({
             address_city: affiliate_account.address_details.city,
             address_postcode: affiliate_account.address_details.postal_code,
             address_state: affiliate_account.address_details.state,
@@ -158,7 +158,7 @@ const AffiliateSignup = () => {
     }, [affiliate_account.address_details.country])
     const onSubmit = () => {
         signup_status == 'success' && onAnalyticEvent('affiliates: registration done')
-        Submit({ is_online, affiliate_account, setSignupStatus, send_register: affiliateSend })
+        Submit({ is_online, affiliate_account, setSignupStatus, affiliateSend })
     }
 
     return (

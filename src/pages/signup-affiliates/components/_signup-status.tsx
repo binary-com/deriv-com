@@ -23,7 +23,7 @@ export const SignUpWrapper = styled(Container)`
     max-width: 486px;
     background: var(--color-white);
     border-radius: 6px;
-    box-shadow: 0px 12px 16px -4px #0e0e0e14;
+    box-shadow: 0 12px 16px -4px #0e0e0e14;
 `
 const StyledButton = styled(Button)`
     inline-size: fit-content;

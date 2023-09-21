@@ -55,7 +55,7 @@ export type SubmitTypes = {
 
     setSignupStatus: setSignUpStatusTypes
     // once our API register this call we can remove type below
-    send_register: (data?: any) => Promise<void>
+    affiliateSend: (data?: any) => Promise<void>
 }
 type SetShowWizardType = Dispatch<SetStateAction<boolean>>
 export type WizardProps = {

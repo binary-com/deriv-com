@@ -14,7 +14,7 @@ import device from 'themes/device'
 import Map from 'images/svg/signup-affiliates/map.svg'
 
 const AffiliateSignupStatus = Loadable(() => import('./components/_signup-status'))
-const WizardComponent = Loadable(() => import('./components/_wizard-component'))
+const Wizard = Loadable(() => import('./components/_wizard'))
 
 const Submit = ({ is_online, affiliate_account, setSignupStatus, send_register }: SubmitTypes) => {
     if (!is_online) {
@@ -118,9 +118,9 @@ const AffiliateSignup = () => {
     })
 
     const {
-        data: data_register,
-        error: error_register,
-        send: send_register,
+        data: affiliate_api_data,
+        error: affiliate_api_error,
+        send: affiliateSend,
     } = useWS('affiliate_register_person')
 
     useEffect(() => {
@@ -135,18 +135,18 @@ const AffiliateSignup = () => {
         }
     }, [is_online])
     useEffect(() => {
-        if (error_register?.error.message == 'Username not available') {
-            setSignupStatus(error_register?.error.message)
+        if (affiliate_api_error?.error.message == 'Username not available') {
+            setSignupStatus(affiliate_api_error?.error.message)
         } else if (
-            error_register?.error.message == 'Your website is not a valid entry' ||
-            error_register?.error.message == "String does not match '^[0-9A-Za-z.-]{5,250}$'"
+            affiliate_api_error?.error.message == 'Your website is not a valid entry' ||
+            affiliate_api_error?.error.message == "String does not match '^[0-9A-Za-z.-]{5,250}$'"
         ) {
             setSignupStatus('Your website is not a valid entry')
         }
-        if (data_register) {
+        if (affiliate_api_data) {
             setSignupStatus('success')
         }
-    }, [data_register, error_register, send_register])
+    }, [affiliate_api_data, affiliate_api_error, affiliateSend])
     useEffect(() => {
         setAffiliateAccount({
             ...affiliate_account,
@@ -158,7 +158,7 @@ const AffiliateSignup = () => {
     }, [affiliate_account.address_details.country])
     const onSubmit = () => {
         signup_status == 'success' && onAnalyticEvent('affiliates: registration done')
-        Submit({ is_online, affiliate_account, setSignupStatus, send_register })
+        Submit({ is_online, affiliate_account, setSignupStatus, send_register: affiliateSend })
     }
 
     return (
@@ -171,7 +171,7 @@ const AffiliateSignup = () => {
                         setShowWizard={setShowWizard}
                     />
                     {show_wizard && (
-                        <WizardComponent
+                        <Wizard
                             show_wizard={show_wizard}
                             setShowWizard={setShowWizard}
                             affiliate_account={affiliate_account}

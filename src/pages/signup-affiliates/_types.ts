@@ -36,7 +36,7 @@ export type setAffiliateAccountTypes = Dispatch<SetStateAction<AffiliateAccountT
 type AffiliateAccountProps = {
     affiliate_account?: AffiliateAccountTypes
     setAffiliateAccount?: setAffiliateAccountTypes
-    onSubmit: () => void
+    onSubmit?: () => void
 }
 export type SignUpStatusTypes =
     | 'Username not available'
@@ -54,27 +54,32 @@ export type SubmitTypes = {
     affiliate_account: AffiliateAccountTypes
 
     setSignupStatus: setSignUpStatusTypes
-    // once types will add in our API we can remove type below
+    // once our API register this call we can remove type below
     send_register: (data?: any) => Promise<void>
 }
-export type WizardComponentProps = {
+type SetShowWizardType = Dispatch<SetStateAction<boolean>>
+export type WizardProps = {
     show_wizard: boolean
-    setShowWizard: Dispatch<SetStateAction<boolean>>
+    setShowWizard: SetShowWizardType
     onAnalyticEvent?: () => void
 } & AffiliateAccountProps
-export type WizardTypes = {
+export type SignUpFormProps = {
+    setShowWizard: SetShowWizardType
+} & AffiliateAccountProps
+export type WizardComponentTypes = {
     children?: ReactElement[]
     next_btn_enabled: boolean
     setNextBtnEnabled: Dispatch<SetStateAction<boolean>>
     step: number
     setStep: Dispatch<SetStateAction<number>>
     max_step?: number
-} & Pick<WizardComponentProps, 'onSubmit'>
-export type WizardProps = WizardTypes & WizardComponentProps
+} & Pick<WizardProps, 'onSubmit'>
+export type WizardComponentsProps = WizardComponentTypes & WizardProps
+type AffiliateData = keyof AffiliateAccountTypes
 export type WizardStepProps = {
-    affiliate_data: any
-    updateData: (e: any) => void
-    onValidate: (e: boolean) => void
+    affiliate_data: AffiliateAccountTypes[AffiliateData]
+    updateData: (value: AffiliateAccountTypes[AffiliateData]) => void
+    onValidate: (value: boolean) => void
     residence_list?: CountryType[]
     is_individual?: boolean
 }

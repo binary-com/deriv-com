@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from 'components/form/button'
 import { Localize } from 'components/localization'
-import { WizardTypes } from 'pages/signup-affiliates/_types'
+import { WizardComponentTypes } from 'pages/signup-affiliates/_types'
 
 const StyledFooter = styled.div`
     display: flex;
@@ -32,7 +32,7 @@ const Footer = ({
     max_step,
     setNextBtnEnabled,
     next_btn_enabled,
-}: WizardTypes) => {
+}: WizardComponentTypes) => {
     const buttonHandler = React.useCallback(
         (button_type: ButtonType): void => {
             if (button_type === ButtonType.Previous) {

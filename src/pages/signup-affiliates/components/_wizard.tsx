@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { WizardComponentProps } from '../_types'
+import { WizardProps } from '../_types'
 import AccountType from './_account-type'
 import AccountDetails from './_account-details'
 import PhoneNumber from './_phone_number'
 import AccountTerms from './_account-terms'
 import PersonalDetails from './_account-personal-details'
-import Wizard from './wizard'
+import WizardComponent from './wizard-component'
 import { useResidenceList } from 'features/hooks/use-residence-list'
 import { Container } from 'components/containers'
 
@@ -20,17 +20,17 @@ export const SignUpWrapper = styled(Container)`
     max-width: 486px;
     background: var(--color-white);
     border-radius: 6px;
-    box-shadow: 0px 12px 16px -4px #0e0e0e14;
+    box-shadow: 0 12px 16px -4px #0e0e0e14;
 `
 
-const WizardComponent = ({
+const Wizard = ({
     show_wizard,
     setShowWizard,
     affiliate_account,
     setAffiliateAccount,
     onSubmit,
     onAnalyticEvent,
-}: WizardComponentProps) => {
+}: WizardProps) => {
     const [step, setStep] = useState(1)
     const [next_btn_enabled, setNextBtnEnabled] = useState<boolean>(false)
     const [residence_list] = useResidenceList()
@@ -103,7 +103,7 @@ const WizardComponent = ({
     }
 
     return (
-        <Wizard
+        <WizardComponent
             step={step}
             setStep={setStep}
             show_wizard={show_wizard}
@@ -159,8 +159,8 @@ const WizardComponent = ({
                     setNextBtnEnabled(valid)
                 }}
             />
-        </Wizard>
+        </WizardComponent>
     )
 }
 
-export default WizardComponent
+export default Wizard

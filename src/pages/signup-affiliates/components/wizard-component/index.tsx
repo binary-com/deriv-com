@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Footer from './footer'
 import Header from './header'
 import Stepper from './stepper'
-import { WizardProps } from 'pages/signup-affiliates/_types'
+import { WizardComponentsProps } from 'pages/signup-affiliates/_types'
 import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
 import device from 'themes/device'
 
@@ -17,7 +17,6 @@ export const Background = styled.div`
     opacity: 0.4;
     z-index: 10;
 `
-
 export const Modal = styled.div`
     display: flex;
     flex-direction: column;
@@ -38,14 +37,12 @@ export const Modal = styled.div`
         width: 100%;
     }
 `
-
 const Wrapper = styled.div`
     block-size: fit-content;
     padding: 24px 0 75px 0;
     overflow-x: auto;
 `
-
-const Wizard = ({
+const WizardComponent = ({
     children,
     show_wizard,
     setShowWizard,
@@ -54,7 +51,7 @@ const Wizard = ({
     setStep,
     next_btn_enabled,
     setNextBtnEnabled,
-}: WizardProps) => {
+}: WizardComponentsProps) => {
     useEffect(() => {
         setNextBtnEnabled(next_btn_enabled)
     }, [next_btn_enabled])
@@ -90,4 +87,4 @@ const Wizard = ({
     )
 }
 
-export default Wizard
+export default WizardComponent

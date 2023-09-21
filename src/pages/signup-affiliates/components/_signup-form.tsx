@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+// on discussion about removing
 import ReCAPTCHA from 'react-google-recaptcha'
 import affiliate_validation from '../validations/_affilaite_validation'
 import AffiliateInput from '../utils/_affiliate-input'
+import { SignUpFormProps } from '../_types'
 import { localize, Localize } from 'components/localization'
 import { Container } from 'components/containers'
 import { Button } from 'components/form'
@@ -93,21 +95,16 @@ export const SignUpWrapper = styled(Container)`
     max-width: 486px;
     background: var(--color-white);
     border-radius: 6px;
-    box-shadow: 0px 12px 16px -4px #0e0e0e14;
+    box-shadow: 0 12px 16px -4px #0e0e0e14;
 `
-
-type AffiliateSignupFormProps = {
-    affiliate_account: any
-    setAffiliateAccount: any
-    setShowWizard: any
-}
 const AffiliateSignupForm = ({
     affiliate_account,
     setAffiliateAccount,
     setShowWizard,
-}: AffiliateSignupFormProps) => {
+}: SignUpFormProps) => {
     const [email_error_msg, setEmailErrorMsg] = useState('')
     const [captcha_status, setCaptchaStatus] = useState(false)
+
     const handleInput = (e) => {
         const { value } = e.target
         setAffiliateAccount({ ...affiliate_account, email: value })

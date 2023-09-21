@@ -12,7 +12,6 @@ const StepperWrapper = styled.div`
         width: 100%;
     }
 `
-
 const StepperItem = styled.div<{ active: boolean }>`
     position: relative;
     display: flex;
@@ -49,7 +48,6 @@ const StepperItem = styled.div<{ active: boolean }>`
         content: none;
     }
 `
-
 const StepCounter = styled.div<{ active: boolean }>`
     color: #ffffff;
     font-weight: 700;
@@ -69,7 +67,6 @@ const StepCounter = styled.div<{ active: boolean }>`
         font-weight: bold;
     }
 `
-
 const Label = styled.h4<{ active: boolean }>`
     text-align: center;
     padding-top: 10px;

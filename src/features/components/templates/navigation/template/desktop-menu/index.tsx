@@ -32,9 +32,11 @@ const DesktopMenu = ({ has_centered_items }: IDesktopNavbarProps) => {
                 ))}
                 {link_items.map((item) => (
                     <NavigationMenu.Item key={item.id} value={item.data.title} asChild>
-                        <NavigationMenu.Link asChild>
-                            <NavSingleItem item={item.data} />
-                        </NavigationMenu.Link>
+                        <li>
+                            <NavigationMenu.Link asChild>
+                                <NavSingleItem item={item.data} />
+                            </NavigationMenu.Link>
+                        </li>
                     </NavigationMenu.Item>
                 ))}
             </NavigationMenu.List>

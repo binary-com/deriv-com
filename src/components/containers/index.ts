@@ -5,7 +5,7 @@ import FlexGridContainer from './flex-grid-container'
 import SectionContainer from './section-container'
 import GridContainer from './grid-container'
 import CssGrid, { CssGridColumn } from './css-grid'
-import SEO, { MetaAttributesType } from './seo'
+import SEO, { TMetaAttributes } from './seo'
 import Box from './box'
 import { Desktop, Mobile } from './visibility'
 
@@ -22,5 +22,5 @@ export {
     CssGridColumn,
     Desktop,
     Mobile,
-    MetaAttributesType,
+    TMetaAttributes,
 }

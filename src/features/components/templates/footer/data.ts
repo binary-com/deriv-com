@@ -1,5 +1,5 @@
 import { SmartFooterLink, SmartFooterLinkColumn } from './types'
-import { binary_bot_url, deriv_status_page_url, deriv_bug_bounty_url } from 'common/constants'
+import { deriv_status_page_url } from 'common/constants'
 
 const aboutUsLinks: SmartFooterLink[] = [
     {
@@ -246,9 +246,22 @@ const partnerLinks: SmartFooterLink[] = [
             text: '_t_Affiliates and IBs_t_',
             url: { type: 'internal', to: '/partners/affiliate-ib/' },
         },
+        visibility: {
+            is_row: true,
+        },
     },
     {
         id: 2,
+        data: {
+            text: '_t_Affiliates_t_',
+            url: { type: 'internal', to: '/partners/affiliate-ib/' },
+        },
+        visibility: {
+            is_row: false,
+        },
+    },
+    {
+        id: 3,
         data: {
             text: '_t_Payment agents_t_',
             url: { type: 'internal', to: '/partners/payment-agent/' },
@@ -258,7 +271,7 @@ const partnerLinks: SmartFooterLink[] = [
         },
     },
     {
-        id: 3,
+        id: 4,
         data: {
             text: '_t_API_t_',
             url: { type: 'company', url_name: 'api' },
@@ -299,7 +312,7 @@ const supportLinks: SmartFooterLink[] = [
         id: 4,
         data: {
             text: '_t_Deriv Blog_t_',
-            url: { type: 'company', url_name: 'academy' },
+            url: { type: 'company', url_name: 'blog' },
         },
     },
 ]

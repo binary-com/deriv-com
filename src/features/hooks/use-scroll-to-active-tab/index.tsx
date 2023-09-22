@@ -5,12 +5,17 @@ const useScrollToActiveTab = <T extends HTMLElement, U extends HTMLElement>(wrap
 
     const clickOnActiveElement = (e: MouseEvent<U>) => {
         const item_position = e.currentTarget.offsetLeft + e.currentTarget.offsetWidth / 2
-        const screen_position = wrapper.scrollLeft + wrapper.clientWidth
+        const item_width = e.currentTarget.offsetWidth
+        const container_width = wrapper.clientWidth
+
         let next_position = 0
 
-        // Check if the item is at least half visible in the container
-        if (item_position > screen_position || item_position < wrapper.scrollLeft) {
-            next_position = e.currentTarget.offsetLeft
+        if (
+            item_position - item_width / 2 < wrapper.scrollLeft ||
+            item_position + item_width / 2 > wrapper.scrollLeft + container_width
+        ) {
+            next_position = item_position - container_width / 2 + item_width / 2
+            next_position = Math.max(next_position, 0)
         } else {
             next_position = wrapper.scrollLeft
         }
@@ -28,13 +33,14 @@ const useScrollToActiveTab = <T extends HTMLElement, U extends HTMLElement>(wrap
                 // If page load from URL
                 const active_element = active_element_ref?.current
                 const screen_position = wrapper.scrollLeft + wrapper.clientWidth
-                const active_item_position = active_element.offsetLeft + active_element.offsetWidth
+                const active_item_position =
+                    active_element?.offsetLeft + active_element?.offsetWidth
                 if (active_item_position > screen_position) {
                     wrapper.scrollLeft = active_element.offsetLeft
                 }
                 // For RTL
-                if (active_element.offsetLeft < 0) {
-                    wrapper.scrollLeft = active_element.offsetLeft - active_element.offsetWidth
+                if (active_element?.offsetLeft < 0) {
+                    wrapper.scrollLeft = active_element?.offsetLeft - active_element?.offsetWidth
                 }
             }
         }

@@ -14,6 +14,7 @@
     }
 }
 .flex_container {
+    padding-block-start: 7rem;
     @include breakpoints(tablet) {
         position: relative;
         min-block-size: 36rem;

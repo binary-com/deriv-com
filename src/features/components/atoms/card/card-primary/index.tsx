@@ -50,7 +50,12 @@ const CardPrimary = ({
                         />
                     </Flex.Box>
                 )}
-                <Typography.Heading as="h3" size="xxs" pb="4x" weight="bold">
+                <Typography.Heading
+                    as="h3"
+                    className={dclsx(is_mobile_or_tablet ? 'text-large' : 'text-medium')}
+                    pb="4x"
+                    weight="bold"
+                >
                     <Localize translate_text={header} />
                 </Typography.Heading>
                 <Typography.Paragraph size={is_mobile_or_tablet ? 'medium' : 'small'}>

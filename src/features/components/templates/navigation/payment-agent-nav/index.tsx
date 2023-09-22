@@ -12,10 +12,27 @@ import Link from 'features/components/atoms/link'
 import Flex from 'features/components/atoms/flex-box'
 import { getLocationPathname } from 'common/utility'
 import useScrollToElement from 'features/hooks/use-scroll-to-element'
+import useRegion from 'components/hooks/use-region'
+import { TString } from 'types/generics'
+
+type contentType = {
+    [T: string]: TString
+}
 
 const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: boolean }) => {
     const path_name = getLocationPathname()
     const clickToScrollHandler = useScrollToElement('getintouch')
+
+    const { is_eu } = useRegion()
+    const texts: contentType = is_eu
+        ? {
+              login: '_t_Affiliate log in_t_',
+              sign_up: '_t_Affiliate sign up_t_',
+          }
+        : {
+              login: '_t_Affiliate & IB Log in_t_',
+              sign_up: '_t_Affiliate & IB sign up_t_',
+          }
 
     const generate_buttons = useMemo(() => {
         return !path_name ? null : path_name.includes('deriv-prime') ? (
@@ -37,7 +54,7 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
                     visible={'larger-than-tablet'}
                     className={partners_buttons}
                 >
-                    <Localize translate_text="_t_Affiliate & IB Log in_t_" />
+                    <Localize translate_text={texts.login} />
                 </Button.Primary>
                 <Button.Primary
                     id="dm-nav-affiliate-login-button"
@@ -55,7 +72,7 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
                     visible={'larger-than-tablet'}
                     className={partners_buttons}
                 >
-                    <Localize translate_text="_t_Affiliate & IB sign up_t_" />
+                    <Localize translate_text={texts.sign_up} />
                 </Button.Primary>
             </>
         )
@@ -67,7 +84,7 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
                 <Link
                     url={{
                         type: 'internal',
-                        to: is_prime_page ? '/partners/deriv-prime' : '/partners',
+                        to: is_prime_page ? '/partners/deriv-prime/' : '/partners/',
                     }}
                 >
                     {is_prime_page ? (

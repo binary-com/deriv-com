@@ -9,70 +9,70 @@ import { Header } from 'components/elements'
 import device from 'themes/device'
 
 const StyledSectionContainer = styled(SectionContainer)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0;
-  padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0 16px;
 `
 const StyledCssGrid = styled(CssGrid)`
-  max-width: 996px;
+    max-width: 996px;
 
-  @media (max-width: 1100px) {
-    max-width: 90%;
-    padding: 0 40px;
-  }
-  @media ${device.tablet} {
-    max-width: unset;
-    padding: 0;
-  }
-  @media (max-width: 359px) {
-    grid-template-columns: repeat(3, 88px);
-    grid-column-gap: 12px;
-    grid-row-gap: 4px;
-  }
+    @media (max-width: 1100px) {
+        max-width: 90%;
+        padding: 0 40px;
+    }
+    @media ${device.tablet} {
+        max-width: unset;
+        padding: 0;
+    }
+    @media (max-width: 359px) {
+        grid-template-columns: repeat(3, 88px);
+        grid-column-gap: 12px;
+        grid-row-gap: 4px;
+    }
 `
 const StyledHeader = styled(Header)`
-  padding-bottom: 40px;
+    padding-bottom: 40px;
 
-  @media ${device.laptop} {
-    font-size: 28px;
-  }
-  @media ${device.tablet} {
-    padding-bottom: 24px;
-  }
+    @media ${device.laptop} {
+        font-size: 28px;
+    }
+    @media ${device.tablet} {
+        padding-bottom: 24px;
+    }
 `
 const StyledImageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-bottom: 20px;
 
-  @media ${device.tabletS} {
-    width: 104px;
-    height: 114px;
-  }
-  @media ${device.tabletL} {
-    &:nth-child(3n-2) {
-      ${ModalFlex} {
-        left: 0;
-      }
+    @media ${device.tabletS} {
+        width: 104px;
+        height: 114px;
     }
-    &:nth-child(3n) {
-      ${ModalFlex} {
-        align-self: right;
-        right: 0;
-      }
+    @media ${device.tabletL} {
+        &:nth-child(3n-2) {
+            ${ModalFlex} {
+                left: 0;
+            }
+        }
+        &:nth-child(3n) {
+            ${ModalFlex} {
+                align-self: right;
+                right: 0;
+            }
+        }
     }
-  }
-  @media ${device.tabletS} {
-    padding-bottom: 10px;
-  }
-  @media ${device.mobileL} {
-    width: 88px;
-    height: 98px;
-  }
+    @media ${device.tabletS} {
+        padding-bottom: 10px;
+    }
+    @media ${device.mobileL} {
+        width: 88px;
+        height: 98px;
+    }
 `
 type MouseEvent = MouseEventHandler<HTMLDivElement> &
     ((event: MouseEventHandler<HTMLDivElement>) => void)

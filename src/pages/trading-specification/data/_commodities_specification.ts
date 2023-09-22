@@ -30,6 +30,7 @@ const commodities_specification: TSpecification = {
             instrument: {
                 symbol: 'SILVEREUR',
                 instrument: 'Silver/EUR',
+                swf_icon: true,
             },
             contract_size: '5000 oz',
             base_currency: 'XAG',
@@ -47,6 +48,7 @@ const commodities_specification: TSpecification = {
                 symbol: 'SILVERUSD',
                 dl_icon: true,
                 instrument: 'Silver/USD',
+                swf_icon: true,
             },
             contract_size: '5,000 oz',
             base_currency: 'XAG',
@@ -63,6 +65,7 @@ const commodities_specification: TSpecification = {
             instrument: {
                 symbol: 'ALUMINIUMUSD',
                 instrument: 'Aluminium/USD',
+                swf_icon: true,
             },
             contract_size: '100 ton',
             base_currency: 'XAL',
@@ -79,6 +82,7 @@ const commodities_specification: TSpecification = {
             instrument: {
                 symbol: 'GOLDEUR',
                 instrument: 'Gold/EUR',
+                swf_icon: true,
             },
             contract_size: '100 oz',
             base_currency: 'XAU',
@@ -96,6 +100,7 @@ const commodities_specification: TSpecification = {
                 symbol: 'GOLDUSD',
                 dl_icon: true,
                 instrument: 'Gold/USD',
+                swf_icon: true,
             },
             contract_size: '100 oz',
             base_currency: 'XAU',
@@ -112,6 +117,7 @@ const commodities_specification: TSpecification = {
             instrument: {
                 symbol: 'COPPERUSD',
                 instrument: 'Copper/USD',
+                swf_icon: true,
             },
             contract_size: '100 ton',
             base_currency: 'XCU',
@@ -128,6 +134,7 @@ const commodities_specification: TSpecification = {
             instrument: {
                 symbol: 'NICKELUSD',
                 instrument: 'Nickel/USD',
+                swf_icon: true,
             },
             contract_size: '100 ton',
             base_currency: 'XNI',
@@ -144,6 +151,7 @@ const commodities_specification: TSpecification = {
             instrument: {
                 symbol: 'LEADUSD',
                 instrument: 'Lead/USD',
+                swf_icon: true,
             },
             contract_size: '100 ton',
             base_currency: 'XPB',
@@ -160,6 +168,7 @@ const commodities_specification: TSpecification = {
             instrument: {
                 symbol: 'PALLADIUMUSD',
                 instrument: 'Palladium/USD',
+                swf_icon: true,
             },
             contract_size: '100 oz',
             base_currency: 'XPD',
@@ -192,6 +201,7 @@ const commodities_specification: TSpecification = {
             instrument: {
                 symbol: 'ZINCUSD',
                 instrument: 'Zinc/USD',
+                swf_icon: true,
             },
             contract_size: '100 ton',
             base_currency: 'XZN',
@@ -208,6 +218,7 @@ const commodities_specification: TSpecification = {
             instrument: {
                 symbol: 'POUNDBRENT',
                 instrument: 'Brent crude oil',
+                swf_icon: true,
             },
             contract_size: '1 barrel',
             base_currency: 'USD',
@@ -224,6 +235,7 @@ const commodities_specification: TSpecification = {
             instrument: {
                 symbol: 'USDBRENT',
                 instrument: 'West Texas Intermediate',
+                swf_icon: true,
             },
             contract_size: '1 barrel',
             base_currency: 'USD',
@@ -370,6 +382,7 @@ const commodities_specification: TSpecification = {
             instrument: {
                 symbol: 'PLATINUMUSD',
                 instrument: 'Platinum/USD',
+                swf_icon: true,
             },
             contract_size: '100 oz',
             base_currency: 'XPT',

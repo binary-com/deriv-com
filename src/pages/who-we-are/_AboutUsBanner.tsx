@@ -25,77 +25,77 @@ const StyledSectionContainer = styled(SectionContainer)`
 `
 type TStyledFlex = { is_rtl: boolean; bg_image: string }
 const StyledFlex = styled(Flex)<TStyledFlex>`
-  border-radius: 10px;
-  background-image: url(${({ bg_image }) => bg_image});
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
+    border-radius: 10px;
+    background-image: url(${({ bg_image }) => bg_image});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
 
-  @media ${device.laptopM} {
-    width: 100%;
-  }
-  @media (max-width: 610px) {
-    ${({ is_rtl, bg_image }) =>
+    @media ${device.laptopM} {
+        width: 100%;
+    }
+    @media (max-width: 610px) {
+        ${({ is_rtl, bg_image }) =>
             is_rtl
-                    ? css`
+                ? css`
                       background-image: url(${bg_image});
                       background-position-x: right;
                   `
-                    : css`
+                : css`
                       background-image: url(${bg_image});
                       background-position-x: left;
                   `};
-    height: 546px;
-  }
-  @media (max-width: 359px) {
-    background-position-x: -40px;
-  }
+        height: 546px;
+    }
+    @media (max-width: 359px) {
+        background-position-x: -40px;
+    }
 `
 const PictureFlex = styled(Flex)`
-  width: 373px;
-  margin: 32px 0 32px 100px;
+    width: 373px;
+    margin: 32px 0 32px 100px;
 
-  @media ${device.laptop} {
-    margin: 32px 0 32px 50px;
-  }
-  @media ${device.tablet} {
-    margin: 40px 0 0 29px;
-    width: 250px;
-  }
-  @media (max-width: 359px) {
-    margin: 10px 10px 0 29px;
-  }
+    @media ${device.laptop} {
+        margin: 32px 0 32px 50px;
+    }
+    @media ${device.tablet} {
+        margin: 40px 0 0 29px;
+        width: 250px;
+    }
+    @media (max-width: 359px) {
+        margin: 10px 10px 0 29px;
+    }
 `
 const StyledHeader = styled(Header)`
-  line-height: 40px;
+    line-height: 40px;
 
-  @media ${device.laptop} {
-    line-height: 34px;
-  }
-  @media ${device.tabletL} {
-    font-size: 30px;
-  }
-  @media ${device.tablet} {
-    font-size: 28px;
-  }
+    @media ${device.laptop} {
+        line-height: 34px;
+    }
+    @media ${device.tabletL} {
+        font-size: 30px;
+    }
+    @media ${device.tablet} {
+        font-size: 28px;
+    }
 `
 const StyledHeader2 = styled(Header)`
-  color: var(--color-white);
-  margin: 12px 0 8px;
+    color: var(--color-white);
+    margin: 12px 0 8px;
 
-  @media ${device.tablet} {
-    margin: 6px 0 10px;
-    font-size: 11px;
-    font-weight: 400;
-    line-height: 17px;
-    letter-spacing: 0;
-  }
+    @media ${device.tablet} {
+        margin: 6px 0 10px;
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 17px;
+        letter-spacing: 0;
+    }
 `
 const StyledLinkButton = styled(LinkButton)`
-  @media ${device.tablet} {
-    padding: 8px 16px;
-  }
+    @media ${device.tablet} {
+        padding: 8px 16px;
+    }
 `
 
 const AboutUsBanner = ({ banner }: TWhoWeAreBanner) => {

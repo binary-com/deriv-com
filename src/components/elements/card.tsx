@@ -46,7 +46,7 @@ type TNavCard = {
     type?: string
     external?: boolean
     target?: string
-    otherLinkProps?: { rel?: string }
+    otherlinkprops?: { rel?: string }
 }
 
 type TCardWrapper = {
@@ -407,7 +407,7 @@ export const NavCard = ({
     type,
     external,
     target,
-    otherLinkProps,
+    otherlinkprops,
 }: TNavCard) => {
     const is_rtl = useIsRtl()
 
@@ -425,7 +425,7 @@ export const NavCard = ({
             type={type}
             target={target}
             onClick={onClick}
-            rel={otherLinkProps.rel}
+            rel={otherlinkprops.rel}
         >
             <FlexHover jc="flex-start" direction="row" tablet_direction="row">
                 <SvgWrapper>

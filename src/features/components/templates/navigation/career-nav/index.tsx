@@ -14,8 +14,12 @@ const CareerNav = () => {
     return (
         <NavTemplate
             renderLogo={() => (
-                <Link url={{ type: 'internal', to: '/' }}>
-                    <Image src={CareerNavLogo} className={careers_nav_logo} />
+                <Link url={{ type: 'internal', to: '/' }} aria-label="deriv careers logo link">
+                    <Image
+                        src={CareerNavLogo}
+                        className={careers_nav_logo}
+                        alt="deriv careers logo"
+                    />
                 </Link>
             )}
             items={career_nav_items}

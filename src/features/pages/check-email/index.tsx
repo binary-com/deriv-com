@@ -3,7 +3,6 @@ import { check_email_container } from './check-email.module.scss'
 import CheckEmailSteps from './check-email.steps'
 import Layout from 'features/components/templates/layout'
 import MainNav from 'features/components/templates/navigation/main-nav'
-import { SEO } from 'components/containers'
 import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
@@ -13,18 +12,13 @@ import Footer from 'features/components/templates/footer'
 const CheckEmailContainer = () => {
     return (
         <Layout>
-            <SEO
-                title="_t_Check your email_t_"
-                description="_t_Didn't receive an email from us? Here's what could've happened._t_"
-                no_index
-            />
             <MainNav />
             <Flex.Box
                 justify="center"
                 align="center"
                 container="fluid"
                 direction="col"
-                mt="40x"
+                pt="40x"
                 gap="20x"
                 md={{
                     gap: '30x',

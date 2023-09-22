@@ -5,8 +5,10 @@ import Cookies from 'js-cookie'
 import language_config from '../../../i18n-config'
 import { useClientInformation } from '../hooks/use-client-information'
 import Dropdown from './language-dropdown'
+import { LocaleContext } from './locale-context'
 import { isProduction } from 'common/websocket/config'
 import { nonENLangUrlReplace, setCookiesWithDomain } from 'common/utility'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
 
 type LanguageSwitchProps = {
     i18n?: { language: string }
@@ -21,6 +23,14 @@ const disabled_lang = ['ach']
 const LanguageSwitch = ({ i18n, is_high_nav, is_security }: LanguageSwitchProps) => {
     const [language, setLanguage] = React.useState(i18n.language)
     const client_information = useClientInformation()
+    const lang_direction = useLangDirection()
+    const { locale } = React.useContext(LocaleContext)
+    const formatted_lang = locale.replace('_', '-')
+
+    React.useEffect(() => {
+        document.body.dir = lang_direction
+        document.documentElement.lang = formatted_lang
+    }, [lang_direction])
 
     React.useEffect(() => {
         setLanguage(i18n.language)

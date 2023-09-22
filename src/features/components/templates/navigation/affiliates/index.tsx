@@ -11,7 +11,12 @@ const AffiliateNav = () => {
         <NavTemplate
             renderLogo={() => (
                 <Link url={{ type: 'internal', to: '/partners/' }}>
-                    <Image src={PartnerNavLogo} className={partners_nav_logo} />
+                    <Image
+                        src={PartnerNavLogo}
+                        alt={'nav affiliates'}
+                        className={partners_nav_logo}
+                        aria-label="deriv logo link"
+                    />
                 </Link>
             )}
             has_centered_items

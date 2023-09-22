@@ -145,7 +145,6 @@ const addressValidation = (input, field_name, min_digit, max_digit) => {
     ) {
         return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
     } else if (!affiliate_validation_regex.address.test(input)) {
-        console.log('regex!')
         return (
             <Localize
                 translate_text="_t_Please enter a valid {{field_name}}_t_"

@@ -91,7 +91,7 @@ const Card = ({ icon, title, description, selected, value, onClick }: CardProps)
         onClick && onClick(value)
     }
 
-    React.useEffect(() => {
+    useEffect(() => {
         setIsSelected(selected)
     }, [selected])
 

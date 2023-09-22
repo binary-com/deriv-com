@@ -7,7 +7,7 @@ export const deriv_me_url = 'deriv.me'
 export const deriv_be_url = 'deriv.be'
 export const staging_deriv_be_url = 'staging.deriv.be'
 
-export const deriv_com_app_id = 11780
+export const deriv_com_app_id = 16929
 export const deriv_me_app_id = 1411
 export const deriv_be_app_id = 30767
 export const deriv_ctrader_app_id = 36218
@@ -164,8 +164,6 @@ export const live_chat_key = 'live_chat_redirection'
 export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const youtube_url = 'https://www.youtube.com/@deriv'
-export const loss_percent = 72
-
 export const contact_us_form_post_data = 'https://formkeep.com/f/7f4b8b55f10f'
 
 export const cookie_key = 'browser_update_alert_modal_shown'
@@ -186,7 +184,7 @@ export const bannerTypes = {
 }
 
 export const firebaseConfig = {
-    databaseURL: 'https://deriv-static-pricingfeed.firebaseio.com',
+    databaseURL: 'https://deriv-static-pricingfeedv2.firebaseio.com',
 }
 
 export const hreflang_codes_row = [

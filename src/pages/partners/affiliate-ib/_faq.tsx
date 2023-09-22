@@ -214,8 +214,8 @@ const Faq = () => {
                     </StyledAccordionWrapper>
                 </>
             )}
-            <TopLeftDot src={DotPattern} />
-            <BottomRightDot src={DotPattern} />
+            <TopLeftDot src={DotPattern} alt="dot pattern" />
+            <BottomRightDot src={DotPattern} alt="dot pattern" />
         </RelativeContainer>
     )
 }

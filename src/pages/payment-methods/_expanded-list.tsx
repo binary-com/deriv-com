@@ -131,7 +131,6 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
     return (
         <>
             <Tr is_expanded={is_expanded}>
-                <th scope="row">dfasdf</th>
                 <Td>{payment_data.method}</Td>
                 <Td colSpan={is_fiat_onramp && parse_to_integer}>
                     <StyleCurrencyText>

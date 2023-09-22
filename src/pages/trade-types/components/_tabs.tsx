@@ -195,8 +195,8 @@ const Tabs = ({
                                     id={tabID}
                                     aria-controls={panelID}
                                     selected={selected_tab === index}
-                                    aria-selected={selected_tab === index ? 'true' : 'false'}
-                                    aria-expanded={selected_tab === index ? 'true' : 'false'}
+                                    aria-selected={selected_tab === index}
+                                    aria-expanded={selected_tab === index}
                                     onClick={() => selectTab(index)}
                                 >
                                     <CommonHeaderSection

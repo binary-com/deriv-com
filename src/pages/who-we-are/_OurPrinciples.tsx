@@ -8,75 +8,75 @@ import device from 'themes/device'
 import { LinkButton } from 'components/form'
 
 const StyledSection = styled(SectionContainer)`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 24px 16px 120px;
-    background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px 120px;
+  background-color: var(--color-white);
 
-    @media ${device.tablet} {
-        padding: 40px 16px;
-    }
+  @media ${device.tablet} {
+    padding: 40px 16px;
+  }
 `
 const StyledDivider = styled(Divider)`
-    margin: 0;
+  margin: 0;
 
-    @media (min-width: 824px) {
-        width: 792px;
-    }
+  @media (min-width: 824px) {
+    width: 792px;
+  }
 `
 const StyledFlex = styled(Flex)`
-    margin-bottom: 40px;
-    max-width: 792px;
+  margin-bottom: 40px;
+  max-width: 792px;
 
-    @media (max-width: 930px) {
-        flex-direction: column;
-        width: unset;
-        align-items: left;
-        margin-bottom: 24px;
-    }
+  @media (max-width: 930px) {
+    flex-direction: column;
+    width: unset;
+    align-items: left;
+    margin-bottom: 24px;
+  }
 `
 const InsideFlex = styled(Flex)`
-    @media ${device.tablet} {
-        display: block;
-        margin-top: 18px;
-    }
+  @media ${device.tablet} {
+    display: block;
+    margin-top: 18px;
+  }
 `
 const StyledText = styled(Header)`
-    max-width: 551px;
-    margin: 16px 0;
-    font-size: 16px;
+  max-width: 551px;
+  margin: 16px 0;
+  font-size: 16px;
 
-    @media ${device.tablet} {
-        font-size: 14px;
-    }
+  @media ${device.tablet} {
+    font-size: 14px;
+  }
 `
 const StyledLinkButton = styled(LinkButton)`
-    height: 40px;
-    width: auto;
-    border-radius: 4px;
-    position: relative;
-    white-space: nowrap;
+  height: 40px;
+  width: auto;
+  border-radius: 4px;
+  position: relative;
+  white-space: nowrap;
 `
 const StyledDiv = styled.div`
-    width: 241px;
+  width: 241px;
 `
 const ColoredBox = styled(Box)<{ bgcolor: string }>`
-    align-self: left;
-    width: fit-content;
-    padding: 8px 16px;
-    background-color: ${({ bgcolor }) => bgcolor};
-    border-radius: 8px;
-    font-weight: bold;
-    color: #333333;
-    font-size: 24px;
-    line-height: 36px;
-    margin-right: 20px;
+  align-self: left;
+  width: fit-content;
+  padding: 8px 16px;
+  background-color: ${({ bgcolor }) => bgcolor};
+  border-radius: 8px;
+  font-weight: bold;
+  color: #333333;
+  font-size: 24px;
+  line-height: 36px;
+  margin-right: 20px;
 
-    @media ${device.tabletL} {
-        font-size: 18px;
-    }
+  @media ${device.tabletL} {
+    font-size: 18px;
+  }
 `
 
 const OurPrinciples = ({ our_principles }: TOurPrinciples) => {

@@ -8,52 +8,52 @@ import { Header } from 'components/elements'
 import device from 'themes/device'
 
 const StyledSectionContainer = styled(SectionContainer)`
-    display: flex;
-    overflow: hidden;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 120px;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 120px;
 
-    @media ${device.tablet} {
-        margin-top: 40px;
-        padding: 0 0 40px;
-    }
+  @media ${device.tablet} {
+    margin-top: 40px;
+    padding: 0 0 40px;
+  }
 `
 const StyledHeader = styled(Header)`
-    line-height: 4rem;
-    margin-bottom: 40px;
+  line-height: 4rem;
+  margin-bottom: 40px;
 
-    @media ${device.laptop} {
-        font-size: 28px;
-    }
+  @media ${device.laptop} {
+    font-size: 28px;
+  }
 `
 const NumberSection = styled(Flex)`
-    margin-top: 40px;
-    max-width: 788px;
+  margin-top: 40px;
+  max-width: 788px;
 `
 const NumberText = styled(Header)`
-    font-weight: normal;
+  font-weight: normal;
 `
 const MapImage = styled.div<{ bg_image: string }>`
-    position: relative;
-    width: 840px;
-    overflow: auto;
-    height: 414px;
-    background-image: url(${({ bg_image }) => bg_image});
-    background-color: transparent;
-    background-size: cover;
-    direction: ltr;
+  position: relative;
+  width: 840px;
+  overflow: auto;
+  height: 414px;
+  background-image: url(${({ bg_image }) => bg_image});
+  background-color: transparent;
+  background-size: cover;
+  direction: ltr;
 
-    @media ${device.tabletL} {
-        width: 328px;
-        height: 170px;
-        overflow: hidden;
-    }
-    @media (max-width: 359px) {
-        width: 298px;
-        height: 155px;
-        overflow: hidden;
-    }
+  @media ${device.tabletL} {
+    width: 328px;
+    height: 170px;
+    overflow: hidden;
+  }
+  @media (max-width: 359px) {
+    width: 298px;
+    height: 155px;
+    overflow: hidden;
+  }
 `
 
 const OurOffices = ({ our_locations }: TOurOffices) => {

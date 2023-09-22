@@ -7,35 +7,35 @@ import { Header } from 'components/elements'
 import device from 'themes/device'
 
 const FirstSectionContainer = styled(SectionContainer)`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 120px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 120px 16px 24px;
 
-    @media ${device.tabletL} {
-        padding: 40px 16px;
-    }
+  @media ${device.tabletL} {
+    padding: 40px 16px;
+  }
 `
 const StyledHeader = styled(Header)`
-    max-width: 742px;
-    padding: 0;
+  max-width: 742px;
+  padding: 0;
 
-    @media ${device.laptop} {
-        font-size: 48px;
-        line-height: 60px;
-        text-align: center;
-    }
+  @media ${device.laptop} {
+    font-size: 48px;
+    line-height: 60px;
+    text-align: center;
+  }
 `
 
 const StyledFirstSectionText = styled(Header)`
-    max-width: 792px;
-    padding: 0 0 40px 0;
-    line-height: 36px;
-    font-weight: 400;
+  max-width: 792px;
+  padding: 0 0 40px 0;
+  line-height: 36px;
+  font-weight: 400;
 
-    @media ${device.laptop} {
-        padding: 0 0 24px 0;
-    }
+  @media ${device.laptop} {
+    padding: 0 0 24px 0;
+  }
 `
 type TFirstSectionTexts = {
     text: string

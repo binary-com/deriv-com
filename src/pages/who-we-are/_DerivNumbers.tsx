@@ -7,88 +7,88 @@ import { Header } from 'components/elements'
 import device from 'themes/device'
 
 const StyledSection = styled(SectionContainer)`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 180px 16px 200px;
-    background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 180px 16px 200px;
+  background-color: var(--color-white);
 
-    @media ${device.tablet} {
-        padding: 30px 16px 40px;
-    }
+  @media ${device.tablet} {
+    padding: 30px 16px 40px;
+  }
 `
 const StyledFlex = styled(Flex)`
-    margin: 0 2rem;
-    max-width: 1200px;
-    justify-content: space-around;
+  margin: 0 2rem;
+  max-width: 1200px;
+  justify-content: space-around;
 
-    @media ${device.laptop} {
-        flex-direction: column;
-        align-items: center;
-    }
+  @media ${device.laptop} {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 const TitleSection = styled(Flex)`
-    max-width: 46rem;
+  max-width: 46rem;
 
-    @media ${device.laptop} {
-        margin-bottom: 8rem;
-        max-width: 90rem;
-        grid-column-gap: 4rem;
-    }
-    @media ${device.laptop} {
-        margin-bottom: 24px;
-    }
+  @media ${device.laptop} {
+    margin-bottom: 8rem;
+    max-width: 90rem;
+    grid-column-gap: 4rem;
+  }
+  @media ${device.laptop} {
+    margin-bottom: 24px;
+  }
 `
 const NumberSection = styled(CssGrid)`
-    max-width: 588px;
+  max-width: 588px;
 
-    @media ${device.tabletL} {
-        grid-column-gap: 4rem;
-    }
-    @media ${device.tabletS} {
-        grid-template-columns: minmax(auto, 484px);
-        grid-row-gap: 24px;
-        grid-template-rows: 1fr 1fr 1fr 1fr;
-        justify-content: start;
-    }
+  @media ${device.tabletL} {
+    grid-column-gap: 4rem;
+  }
+  @media ${device.tabletS} {
+    grid-template-columns: minmax(auto, 484px);
+    grid-row-gap: 24px;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    justify-content: start;
+  }
 `
 const TitleHeader = styled(Header)`
-    font-size: 48px;
-    line-height: 60px;
+  font-size: 48px;
+  line-height: 60px;
 
-    @media ${device.laptop} {
-        text-align: center;
-    }
+  @media ${device.laptop} {
+    text-align: center;
+  }
 
-    @media ${device.tabletS} {
-        text-align: start;
-    }
-    @media ${device.mobileL} {
-        width: auto;
-        text-align: start;
-    }
+  @media ${device.tabletS} {
+    text-align: start;
+  }
+  @media ${device.mobileL} {
+    width: auto;
+    text-align: start;
+  }
 `
 const StyledHeader = styled(Header)`
-    @media ${device.laptop} {
-        text-align: center;
-    }
+  @media ${device.laptop} {
+    text-align: center;
+  }
 
-    @media ${device.tabletS} {
-        text-align: start;
-    }
+  @media ${device.tabletS} {
+    text-align: start;
+  }
 `
 const NumberHeader = styled(Header)`
-    line-height: 6rem;
-    text-align: start;
+  line-height: 6rem;
+  text-align: start;
 
-    @media ${device.mobileL} {
-        margin-bottom: 8px;
-    }
+  @media ${device.mobileL} {
+    margin-bottom: 8px;
+  }
 `
 const NumberText = styled(Header)`
-    font-weight: normal;
-    text-align: start;
+  font-weight: normal;
+  text-align: start;
 `
 
 const DerivNumbers = ({ deriv_in_numbers }: TDerivNumbers) => {

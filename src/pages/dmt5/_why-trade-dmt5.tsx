@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import DemoSignUP from 'images/svg/dmt5/demo-signup.svg'
 import LicensedAndRegulated from 'images/svg/dmt5/licensed-and-regulated.svg'
 import MultipleAssets from 'images/svg/dmt5/multiple-assets.svg'
-import TwentyFourSeven from 'images/svg/dmt5/twenty-four-seven.svg'
+import { Icon24_7 } from 'images/svg/deriv-trade-types'
 import SwapFree from 'images/svg/dmt5/swap-free-icon.svg'
 import { Localize } from 'components/localization'
 import { Header } from 'components/elements'
@@ -27,7 +27,7 @@ const card_data: TItem[] = [
         image_alt: '_t_synthetic indices_t_',
     },
     {
-        icon: TwentyFourSeven,
+        icon: Icon24_7,
         title: '_t_24/7 trading_t_',
         subtitle:
             '_t_Trade round-the-clock, even on weekends, with our proprietary derived indices._t_',

@@ -11,7 +11,7 @@ import Forex from 'images/svg/trade-types/forex.svg'
 import ETFs from 'images/svg/markets/etfs.svg'
 import Cryptocurrencies from 'images/svg/trade-types/cryptocurrencies.svg'
 import Commodities from 'images/svg/trade-types/commodities.svg'
-import Derived from 'images/svg/trade-types/derived.svg'
+import Derived from 'images/svg/markets/derived-fx.svg'
 import StockIndices from 'images/svg/trade-types/stock-indices.svg'
 import { TString } from 'types/generics'
 

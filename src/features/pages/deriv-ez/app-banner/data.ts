@@ -1,7 +1,8 @@
 import AppleIcon from 'images/svg/apple-icon.svg'
 import AppGalleryIcon from 'images/svg/appGallery-icon.svg'
 import AndroidIcon from 'images/svg/android-icon.svg'
-import { DerivEzLogoRed, DerivEzQR } from 'images/svg/deriv-ez'
+import { DerivEzQR } from 'images/svg/deriv-ez'
+import { DerivEZIcon } from 'images/svg/deriv-trade-types'
 import InfoIcon from 'images/svg/info-icon.svg'
 import {
     deriv_go_huaweiappgallery_url,
@@ -12,7 +13,7 @@ import { BannerType } from 'features/components/templates/banners/blade-shape-ba
 
 export const apps_data: BannerType = {
     information: {
-        icon: DerivEzLogoRed,
+        icon: DerivEZIcon,
         heading: '_t_Get trading with Deriv EZ_t_',
     },
     scan_box: {

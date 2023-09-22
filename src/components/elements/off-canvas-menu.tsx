@@ -25,15 +25,17 @@ import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
 import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import DerivLife from 'images/svg/menu/deriv-life.svg'
-import { DbotIcon } from 'images/svg/dbot'
+import {
+    DBotIcon,
+    DMT5Icon,
+    DerivXIcon,
+    DerivGoIcon,
+    DTraderIcon,
+    DerivEZIcon,
+} from 'images/svg/deriv-trade-types'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
 import API from 'images/svg/menu/developers.svg'
 import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
-import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
-import DerivX from 'images/svg/custom/deriv-x.svg'
-import { DerivEzLogoRed } from 'images/svg/deriv-ez'
-import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
-import DerivGo from 'images/svg/deriv-go/deriv-go-icon.svg'
 import Forex from 'images/svg/custom/forex-nav.svg'
 import Help from 'images/svg/menu/help-center.svg'
 import CFD from 'images/svg/custom/margin-trading-nav.svg'
@@ -246,7 +248,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 aria_label="DMT5"
                                 Icon={() => (
                                     <img
-                                        src={DMT5}
+                                        src={DMT5Icon}
                                         alt={localize('_t_Deriv MT5 trading platform_t_')}
                                         width="32"
                                         height="32"
@@ -265,7 +267,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         aria_label="Derivx"
                                         Icon={() => (
                                             <img
-                                                src={DerivX}
+                                                src={DerivXIcon}
                                                 alt={localize('_t_Deriv X trading paltform_t_')}
                                                 width="32"
                                                 height="32"
@@ -282,7 +284,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         aria_label="Derivez"
                                         Icon={() => (
                                             <img
-                                                src={DerivEzLogoRed}
+                                                src={DerivEZIcon}
                                                 alt={localize('_t_Deriv EZ trading paltform_t_')}
                                                 width="32"
                                                 height="32"
@@ -301,7 +303,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                 aria_label="DTrader"
                                 Icon={() => (
                                     <img
-                                        src={DTrader}
+                                        src={DTraderIcon}
                                         alt={localize('_t_Dtrader trading platform_t_')}
                                         width="32"
                                         height="32"
@@ -320,7 +322,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         aria_label="Deriv GO"
                                         Icon={() => (
                                             <img
-                                                src={DerivGo}
+                                                src={DerivGoIcon}
                                                 alt={localize('_t_Deriv GO mobile trading app_t_')}
                                                 width="32"
                                                 height="32"
@@ -358,7 +360,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         aria_label="DBot"
                                         Icon={() => (
                                             <img
-                                                src={DbotIcon}
+                                                src={DBotIcon}
                                                 alt={localize('_t_Dbot for auto trading_t_')}
                                                 width="32"
                                                 height="32"

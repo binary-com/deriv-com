@@ -5,7 +5,7 @@ import { SectionContainer, Container } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Header } from 'components/elements/typography'
 import device from 'themes/device'
-import Icon24_7 from 'images/svg/deriv-go/24-7.svg'
+import { Icon24_7 } from 'images/svg/deriv-trade-types'
 import IconUserFriendly from 'images/svg/deriv-go/user-friendly.svg'
 import BoxStyledGrid from 'components/custom/_box-styled-grid'
 

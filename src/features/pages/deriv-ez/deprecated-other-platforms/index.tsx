@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { DbIcon, DGoIcon, Dmt5Icon, DtIcon, DxIcon } from 'images/svg/deriv-ez'
+import {
+    DBotIcon,
+    DMT5Icon,
+    DerivXIcon,
+    DerivGoIcon,
+    DTraderIcon,
+} from 'images/svg/deriv-trade-types'
 import GenericCarousel, { TRenderableData } from 'components/custom/carousel/_platforms-carousel'
 
 const OurPlatforms = () => {
@@ -12,31 +18,31 @@ const OurPlatforms = () => {
 
     const carouselData: TRenderableData[] = [
         {
-            icon: Dmt5Icon,
+            icon: DMT5Icon,
             heading: 'Deriv MT5',
             paragraph: '_t_The all-in-one CFD trading platform._t_',
             link: '/dmt5/',
         },
         {
-            icon: DtIcon,
+            icon: DTraderIcon,
             heading: 'Deriv Trader',
             paragraph: '_t_Our flagship app for trading options and multipliers._t_',
             link: '/dtrader/',
         },
         {
-            icon: DGoIcon,
+            icon: DerivGoIcon,
             heading: 'Deriv Go',
             paragraph: '_t_Our best trading experience on your mobile._t_',
             link: '/deriv-go/',
         },
         {
-            icon: DxIcon,
+            icon: DerivXIcon,
             heading: 'Deriv X',
             paragraph: '_t_The CFD trading platform to fit your style._t_',
             link: '/derivx/',
         },
         {
-            icon: DbIcon,
+            icon: DBotIcon,
             heading: 'Deriv Bot',
             paragraph: '_t_Automate your trading. No coding required._t_',
             link: '/dbot/',

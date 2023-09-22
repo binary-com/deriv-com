@@ -1,0 +1,7 @@
+export { default as DTraderIcon } from './d-trader.svg'
+export { default as DerivXIcon } from './deriv-x.svg'
+export { default as DerivEZIcon } from './deriv-ez.svg'
+export { default as DerivGoIcon } from './deriv-go.svg'
+export { default as DMT5Icon } from './dmt5.svg'
+export { default as DBotIcon } from './dbot.svg'
+export { default as Icon24_7 } from './24-7.svg'

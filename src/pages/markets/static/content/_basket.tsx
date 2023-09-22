@@ -1,7 +1,7 @@
 import { TMarket, TSimpleStepContent } from './_types'
 import Baskets from 'images/svg/stock-indices/baskets.svg'
 import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
-import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
+import Leverage from 'images/svg/markets/tight-spread-new.svg'
 import ResponsiveWebsite from 'images/svg/markets/forex/platforms.svg'
 import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
 

@@ -6,7 +6,7 @@ import AppGalleryIcon from '../../images/svg/appGallery-icon.svg'
 import AndroidIcon from '../../images/svg/android-icon.svg'
 import BrowserIcon from '../../images/svg/browser-icon.svg'
 import GetAppMobileBG from '../../images/common/getAppMobileBG.png'
-import { DerivXLogo } from 'images/svg/deriv-x'
+import { DerivXIcon } from 'images/svg/deriv-trade-types'
 import DerivXQR from 'images/common/deriv-x/derivxQR.png'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
@@ -83,7 +83,7 @@ const DerivXGetApp = () => {
             >
                 <ContentWrapper is_rtl={is_rtl}>
                     <img
-                        src={DerivXLogo}
+                        src={DerivXIcon}
                         alt={localize('_t_Deriv X logo_t_')}
                         width="64px"
                         height="64px"

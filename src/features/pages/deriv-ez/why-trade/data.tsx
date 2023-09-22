@@ -1,6 +1,7 @@
 import React from 'react'
 import { DerivEzCardTypes } from '../types'
-import { EasyToStart, FavouriteAssets, TwentyFourSeven } from 'images/svg/deriv-ez'
+import { EasyToStart, FavouriteAssets } from 'images/svg/deriv-ez'
+import { Icon24_7 } from 'images/svg/deriv-trade-types'
 import Image from 'features/components/atoms/image'
 
 export const card_data: DerivEzCardTypes[] = [
@@ -14,7 +15,7 @@ export const card_data: DerivEzCardTypes[] = [
         title: '_t_24/7 trading_t_',
         subtitle:
             '_t_Trade anytime you want, including weekends and holidays, on cryptocurrencies and our proprietary derived indices._t_',
-        icon: <Image src={TwentyFourSeven} height={48} alt={'_t_24/7 chat_t_'} />,
+        icon: <Image src={Icon24_7} height={48} alt={'_t_24/7 chat_t_'} />,
     },
     {
         title: '_t_All your favourite assets, one platform_t_',

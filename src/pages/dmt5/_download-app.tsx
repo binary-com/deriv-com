@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import dmt5Logo from '../../images/svg/dmt5/dmt5Logo.svg'
 import dmt5QR from '../../images/svg/dmt5/dmt5QR.svg'
 import GrayAngle30 from '../../images/common/gray-angle.png'
 import AppleIcon from '../../images/svg/apple-icon.svg'
@@ -12,6 +11,7 @@ import LinuxIcon from '../../images/svg/linux-icon.svg'
 import MacIcon from '../../images/svg/mac-icon.svg'
 import WinIcon from '../../images/svg/windows-icon.svg'
 import GetAppMobileBG from '../../images/common/getAppMobileBG.png'
+import { DMT5Icon } from 'images/svg/deriv-trade-types'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
@@ -96,7 +96,7 @@ const DerivMT5GetApp = () => {
         >
             <ContentWrapper is_rtl={is_rtl}>
                 <img
-                    src={dmt5Logo}
+                    src={DMT5Icon}
                     alt={localize('_t_Deriv MT5 logo_t_')}
                     width="64px"
                     height="64px"

@@ -185,6 +185,7 @@ const commodities_specification: TSpecification = {
             instrument: {
                 symbol: 'PLATINUMUSD',
                 instrument: 'Platinum/USD',
+                swf_icon: true,
             },
             contract_size: '100 oz',
             base_currency: 'XPT',
@@ -382,7 +383,6 @@ const commodities_specification: TSpecification = {
             instrument: {
                 symbol: 'PLATINUMUSD',
                 instrument: 'Platinum/USD',
-                swf_icon: true,
             },
             contract_size: '100 oz',
             base_currency: 'XPT',

@@ -5,7 +5,6 @@ import { Button } from 'components/form/'
 import { Text } from 'components/elements'
 import { Localize } from 'components/localization'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
-import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { TString } from 'types/generics'
 
@@ -132,6 +131,7 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
     return (
         <>
             <Tr is_expanded={is_expanded}>
+                <th scope="row">dfasdf</th>
                 <Td>{payment_data.method}</Td>
                 <Td colSpan={is_fiat_onramp && parse_to_integer}>
                     <StyleCurrencyText>

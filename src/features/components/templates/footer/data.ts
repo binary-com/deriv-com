@@ -1,5 +1,6 @@
 import { SmartFooterLink, SmartFooterLinkColumn } from './types'
 import { deriv_status_page_url } from 'common/constants'
+import InfesterPeopleIcon from 'images/svg/footer/invester_people_icon.svg'
 
 const aboutUsLinks: SmartFooterLink[] = [
     {
@@ -49,6 +50,14 @@ const aboutUsLinks: SmartFooterLink[] = [
         data: {
             text: '_t_Deriv life_t_',
             url: { type: 'company', url_name: 'derivlife' },
+        },
+    },
+    {
+        id: 7,
+        data: {
+            src: InfesterPeopleIcon,
+            url: { type: 'company', url_name: 'derivlife' },
+            alt: '_t_Investors in people_t_',
         },
     },
 ]

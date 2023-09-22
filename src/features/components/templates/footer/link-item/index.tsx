@@ -18,7 +18,8 @@ const FooterLink = ({ item: { data } }: FooterLinkProps) => {
 
     return (
         <Link url={visible_url} size="small" pb="6x">
-            <Localize translate_text={data.text} />
+            {data?.text ? <Localize translate_text={data.text} /> : null}
+            {/* {data?.src ?       <Image src={data.src} has_rtl />:null} */}
         </Link>
     )
 }

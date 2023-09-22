@@ -8,8 +8,10 @@ export interface FooterLinkConfig {
 }
 
 export interface FooterLink {
-    text: TString
+    text?: TString
     url: LinkUrlType | ((config: Partial<FooterLinkConfig>) => LinkUrlType)
+    src?: string
+    alt?: TString
 }
 
 export type SmartFooterLink = TSmartContent<FooterLink, FooterLinkConfig>

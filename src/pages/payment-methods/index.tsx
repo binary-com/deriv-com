@@ -7,7 +7,7 @@ import MobileAccordianItem from './_mobile-accordian-item'
 import Layout from 'components/layout/layout'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { Text, Divider, Accordion, AccordionItem, DotLoader } from 'components/elements'
-import { SEO, SectionContainer, Container, MetaAttributesType } from 'components/containers'
+import { SEO, SectionContainer, Container, TMetaAttributes } from 'components/containers'
 import { WithIntl, Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
@@ -15,6 +15,7 @@ import useWS from 'components/hooks/useWS'
 import { isBrowser } from 'common/utility'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
+import { TGatsbyHead } from 'features/types'
 
 const ExpandList = Loadable(() => import('./_expanded-list'))
 
@@ -22,7 +23,7 @@ type StyledTableType = {
     has_note: boolean
 }
 
-const meta_attributes: MetaAttributesType = {
+const meta_attributes: TMetaAttributes = {
     og_title: '_t_Payment Methods | Deposits and withdrawals | Deriv_t_',
     og_description:
         '_t_We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!_t_',
@@ -201,9 +202,8 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
                     return null
                 } else
                     return (
-                        <Accordion has_single_state>
+                        <Accordion has_single_state key={pdata.class_name}>
                             <AccordionItem
-                                key={pdata.class_name}
                                 content_style={content_style}
                                 header_style={header_style}
                                 style={styles}
@@ -374,7 +374,7 @@ const DisplayAccordianItem = ({ pd, locale }: PaymentMethodsProps) => {
 
 const PaymentMethodSection = ({ locale }: PaymentMethodsProps) => {
     return (
-        <Flex.Box container="fluid" direction="col">
+        <Flex.Box container="fluid" direction="col" id="payment-list">
             <DisplayAccordion locale={locale} />
             <Typography.Paragraph size="small" pb="16x" md={{ pb: '40x' }}>
                 <Localize translate_text="_t_We aim to process your deposits and withdrawals within 24 hours. However, please note that these processing times and limits are estimates and may vary due to reasons outside our control. We make every effort to provide you with a speedy and seamless experience._t_" />
@@ -387,11 +387,6 @@ const PaymentMethods = () => {
     const { is_p2p_allowed_country } = useRegion()
     return (
         <Layout>
-            <SEO
-                title="_t_Payment Methods | Deposits and withdrawals | Deriv_t_"
-                description="_t_We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!_t_"
-                meta_attributes={meta_attributes}
-            />
             <Flex.Box
                 direction="col"
                 container="fluid"
@@ -432,3 +427,12 @@ const PaymentMethods = () => {
 }
 
 export default WithIntl()(PaymentMethods)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Payment Methods | Deposits and withdrawals | Deriv_t_"
+        description="_t_We offer various payment methods - Bank wires, debit/credit cards, e-wallets and cryptocurrencies to make your transactions more convenient!_t_"
+        meta_attributes={meta_attributes}
+        pageContext={pageContext}
+    />
+)

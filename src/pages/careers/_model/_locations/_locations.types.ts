@@ -1,5 +1,8 @@
+import { ReactElement } from 'react'
+
 export type LocationsType = {
     name: string
+    hero_image: ReactElement
     link: string
     display_name?: string
     job_location?: string
@@ -15,7 +18,7 @@ export type LocationsType = {
     first_p: string
     first_img: string
     first_img_alt?: string
-    grid_images: string[]
+    grid_images?: string[]
     grid_img_alt?: string[]
     map: string
     map_img?: string

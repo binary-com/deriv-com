@@ -8,11 +8,14 @@ import Link from 'features/components/atoms/link'
 import useRegion from 'components/hooks/use-region'
 import CtraderWrapper from 'features/components/templates/ctrader/ctrader-wrapper'
 import Layout from 'features/components/templates/layout'
+import { ctrader_login, brand_name } from 'common/constants'
+import { getLanguage } from 'common/utility'
 
 const CtraderSignup = () => {
     const { is_eu } = useRegion()
 
     const security_pdf_link = `/tnc${is_eu ? '/eu' : ''}/security-and-privacy.pdf`
+    getLanguage()
 
     return (
         <Layout hide_layout_overlay>
@@ -50,7 +53,7 @@ const CtraderSignup = () => {
                                     key={0}
                                     url={{
                                         type: 'non-company',
-                                        href: 'https://qa126.deriv.dev/oauth2/authorize?app_id=36218&source=web&theme=dark&lang=en&firstLogin=false',
+                                        href: `${ctrader_login}&brand=${brand_name.toLowerCase()}&source=web&lang=${getLanguage()}`,
                                     }}
                                 />,
                             ]}

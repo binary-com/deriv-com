@@ -16,6 +16,7 @@ const EmployerAwards = () => {
             container="fluid"
             padding_block="10x"
             md={{ padding_block: '20x' }}
+            id="investors-in-people"
         >
             {is_row && !is_region_loading && (
                 <div>

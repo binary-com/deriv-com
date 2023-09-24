@@ -56,7 +56,7 @@ const aboutUsLinks: SmartFooterLink[] = [
         id: 7,
         data: {
             src: InfesterPeopleIcon,
-            url: { type: 'company', url_name: 'derivlife' },
+            url: { type: 'internal', to: '/who-we-are/#investors-in-people' },
             alt: '_t_Investors in people_t_',
         },
     },

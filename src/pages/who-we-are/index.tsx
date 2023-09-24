@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import MakeTrading from './_MakeTrading'
 import Hero from './components/_hero'
@@ -17,6 +17,8 @@ import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import { TGatsbyHead } from 'features/types'
+import useScrollToElement from 'features/hooks/use-scroll-to-element'
+import { getLocationHash, isBrowser } from 'common/utility'
 
 const StartSeparator = styled.div`
     width: 0;
@@ -39,6 +41,13 @@ const EndSeparator = styled.div`
 `
 
 const AboutUs = () => {
+    const clickToScrollHandler = useScrollToElement('investors-in-people')
+    const pathname_hash = getLocationHash()
+    useEffect(() => {
+        setTimeout(() => {
+            pathname_hash?.includes('investors-in-people') && clickToScrollHandler()
+        }, 1000)
+    }, [pathname_hash])
     return (
         <Layout>
             <Hero />

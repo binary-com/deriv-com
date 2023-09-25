@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Hero } from '../components/_style'
 import WhatAreAccumulators from './_what-are-accumulators'
 import PageNotFound from 'features/pages/404'
-import { SEO, SmallContainer, MetaAttributesType } from 'components/containers'
+import { SEO, SmallContainer, TMetaAttributes } from 'components/containers'
 import Layout from 'components/layout/layout'
 import Button from 'components/custom/_button'
 import CommonHeaderSection from 'components/elements/common-header-section'
@@ -16,11 +16,12 @@ import useRegion from 'components/hooks/use-region'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { TString } from 'types/generics'
+import { TGatsbyHead } from 'features/types'
 
 const HowAccumulatorsWork = Loadable(() => import('./_how-accumulators-works'))
 const AccumulatorsToTrade = Loadable(() => import('./_accumulators-to-trade'))
 
-const meta_attributes: MetaAttributesType = {
+const meta_attributes: TMetaAttributes = {
     og_title: '_t_Options trading | Trading types | Deriv_t_',
     og_description:
         '_t_Learn about options trading on Deriv. Earn payouts by correctly predicting price movements without needing to buy the underlying assets._t_',
@@ -63,11 +64,6 @@ const Accumulators = () => {
     if (is_loaded) {
         return is_accumulators_released && is_row ? (
             <Layout>
-                <SEO
-                    title="_t_Options trading | Trade digital options on Deriv_t_"
-                    description="_t_Explore what are options on Deriv. Learn how to start trading options with forex, synthetics, stocks & indices, and baskets._t_"
-                    meta_attributes={meta_attributes}
-                />
                 <Hero jc="center" ai="center">
                     <CommonHeaderSection
                         title="_t_Options_t_"
@@ -96,12 +92,30 @@ const Accumulators = () => {
         )
     }
 
-    return (
-        <SEO
-            title="_t_Options trading | Trade types | Deriv_t_"
-            description="_t_Learn about options trading on Deriv. Earn payouts by correctly predicting price movements in forex, synthetic indices, and other popular financial markets._t_"
-        />
-    )
+    return <React.Fragment></React.Fragment>
 }
 
 export default WithIntl()(Accumulators)
+
+export const Head = ({ pageContext }: TGatsbyHead) => {
+    const { is_row } = useRegion()
+    const { is_accumulators_released } = usePlatformQueryParam()
+    const is_options = is_accumulators_released && is_row
+
+    return (
+        <SEO
+            title={
+                is_options
+                    ? '_t_Options trading | Trade digital options on Deriv_t_'
+                    : '_t_Options trading | Trade types | Deriv_t_'
+            }
+            description={
+                is_options
+                    ? '_t_Explore what are options on Deriv. Learn how to start trading options with forex, synthetics, stocks & indices, and baskets._t_'
+                    : '_t_Learn about options trading on Deriv. Earn payouts by correctly predicting price movements in forex, synthetic indices, and other popular financial markets._t_'
+            }
+            meta_attributes={is_options ? meta_attributes : {}}
+            pageContext={pageContext}
+        />
+    )
+}

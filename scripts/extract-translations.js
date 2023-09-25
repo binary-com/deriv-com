@@ -8,6 +8,7 @@ const fs = require('fs')
 const glob = require('glob')
 const translated_keys = require('../src/translations/ach.json')
 const DISABLE_TRANSLATION = 'disable-translation'
+const strap_data = require('../public/page-data/404/page-data.json')
 
 
 
@@ -72,11 +73,17 @@ const new_find_keys = (file) => {
  */
 extractTranslations();
 
+function getStrapiStrings(strapi_obj_data) {
+    return strapi_obj_data instanceof Array ? strapi_obj_data.map((array) => getStrapiStrings(array)).flat() :
+        strapi_obj_data instanceof Object ? Object.values(strapi_obj_data).map((object) => getStrapiStrings(object)).flat() :
+            strapi_obj_data;
+}
+
 function extractTranslations() {
     (async () => {
         try {
             const file_paths = [];
-            const messages = [];
+            const pre_messages = [];
             const messages_json = {};
 
             // Find all file types listed in `globs`
@@ -94,13 +101,17 @@ function extractTranslations() {
                 try {
                     const file = fs.readFileSync(file_paths[i], 'utf8');
                     if (!file.includes(DISABLE_TRANSLATION)) {
-                        messages.push(...old_find_keys(file));
-                        messages.push(...new_find_keys(file))
+                        pre_messages.push(...old_find_keys(file));
+                        pre_messages.push(...new_find_keys(file))
                     }
                 } catch (e) {
                     console.log(e);
                 }
             }
+
+            const data_from_strapi = getStrapiStrings(strap_data.result.data.strapiWhoWeArePage)
+            const messages = new Array(...pre_messages, ...data_from_strapi)
+
             const untranslated = []
             // Hash the messages and set the key-value pair for json
             for (let i = 0; i < messages.length; i++) {

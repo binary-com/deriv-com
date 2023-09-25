@@ -5,6 +5,7 @@ import { Container, SEO } from 'components/containers'
 import { Header } from 'components/elements'
 import { localize, WithIntl, Localize } from 'components/localization'
 import Layout from 'components/layout/layout'
+import { TGatsbyHead } from 'features/types'
 
 const tools: ToolsType = [
     {
@@ -67,10 +68,6 @@ const tools: ToolsType = [
 const TraderTools = () => {
     return (
         <Layout>
-            <SEO
-                title="_t_Trading tools | Swap, pip, and margin calculators | Deriv_t_"
-                description="_t_Take advantage of Deriv's trading calculators that help you to calculate your swap, pip, profit, and losses for the CFD and multiplier trading._t_"
-            />
             <Hero jc="center" ai="center">
                 <Container>
                     <Header as="h1" type="display-title" color="white" align="center">
@@ -84,3 +81,11 @@ const TraderTools = () => {
 }
 
 export default WithIntl()(TraderTools)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Trading tools | Swap, pip, and margin calculators | Deriv_t_"
+        description="_t_Take advantage of Deriv's trading calculators that help you to calculate your swap, pip, profit, and losses for the CFD and multiplier trading._t_"
+        pageContext={pageContext}
+    />
+)

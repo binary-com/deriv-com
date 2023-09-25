@@ -125,9 +125,9 @@ const PartnershipOpportunities = () => {
           }
         : {
               partnership_title: '_t_Partnership opportunities_t_',
-              affiliate_title: '_t_Affiliate and IB programmes_t_',
+              affiliate_title: '_t_Affiliate and IBs_t_',
               affiliate_text:
-                  '_t_Enjoy the flexibility to choose from a variety of affiliate and introducing broker programmes. Earn 45% commission from promoting our trading platforms or enjoy turnover-based commissions._t_',
+                  '_t_For marketers, influencers and introducing brokers to monetise their network. Earn competitive commissions and get access to high-quality promotional materials._t_',
           }
 
     return (

@@ -4,13 +4,11 @@ import { jordan } from '../../_model/_locations/_locations'
 import { NewLocationLayout } from '../_location-layout-new-offices'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
+import { TGatsbyHead } from 'features/types'
 
 const query = graphql`
     query {
-        jordan: file(relativePath: { eq: "careers/jordan.jpg" }) {
-            ...backgroundImage
-        }
         living_in_jordan: file(relativePath: { eq: "careers/living_in_jordan.jpg" }) {
             ...fadeIn
         }
@@ -37,15 +35,17 @@ const Jordan = () => {
 
     return (
         <Layout type="careers">
-            <SEO
-                title={localize('_t_Jordan – Our office | Deriv_t_')}
-                description={localize(
-                    '_t_Check out the current open job positions at Deriv and get a chance to work with our team in Jordan for a thriving tech career._t_',
-                )}
-            />
             <NewLocationLayout location={jordan} images={images} />
         </Layout>
     )
 }
 
 export default WithIntl()(Jordan)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Jordan – Our office | Deriv_t_"
+        description="_t_Check out the current open job positions at Deriv and get a chance to work with our team in Jordan for a thriving tech career._t_"
+        pageContext={pageContext}
+    />
+)

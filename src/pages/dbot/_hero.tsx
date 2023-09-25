@@ -172,7 +172,7 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
             <StyledContainer jc="flex-start">
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
-                        <StyledLogo src={BotBannerLogo} alt={localize('_t_dbot logo_t_')} />
+                        <StyledLogo src={BotBannerLogo} alt={localize('_t_Deriv Bot_t_')} />
                         <CommonHeaderSection
                             title="_t_Automate your trading ideas without writing code_t_"
                             font_family_title={

@@ -12,6 +12,7 @@ import Shape from 'components/custom/_hero-shape'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import Button from 'components/custom/_button'
 import { Container } from 'components/containers'
+import { localize } from 'components/localization'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
@@ -132,7 +133,10 @@ const DCommonBanner = () => {
             <StyledContainer jc="flex-start">
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
-                        <StyledTradingLogin src={DerivXBannerLogo} alt="Deriv X logo" />
+                        <StyledTradingLogin
+                            src={DerivXBannerLogo}
+                            alt={localize('_t_Deriv X_t_')}
+                        />
                         <CommonHeaderSection
                             title="_t_The trading platform to fit your style_t_"
                             title_font_size={`${is_mobile ? 32 : 64}px`}

@@ -44,7 +44,7 @@ const signal_content_provider: SignalContentType = {
     ],
 }
 
-const TabsContainer = styled(Flex)`
+export const TabsContainer = styled(Flex)`
     display: flex;
     overflow: auto;
 

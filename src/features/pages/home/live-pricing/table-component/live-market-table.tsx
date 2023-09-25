@@ -15,10 +15,11 @@ import { Localize } from 'components/localization'
 import usePricingFeed from 'components/hooks/use-pricing-feed'
 import Typography from 'features/components/atoms/typography'
 import InitialLoader from 'components/elements/dot-loader'
+import { PathType } from 'features/types'
 
 export type TLiveMarketTableProps = {
     selected_market: TAvailableLiveMarkets
-    link_to: `/${string}`
+    link_to: PathType
 }
 
 const LoaderView = (

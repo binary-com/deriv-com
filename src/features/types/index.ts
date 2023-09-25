@@ -159,3 +159,5 @@ export type IconType = {
     src: string
     alt: TString
 }
+
+export type PathType = `/${string}`

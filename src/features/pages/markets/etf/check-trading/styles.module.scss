@@ -2,7 +2,9 @@
 @import 'features/styles/theme/variables';
 
 .item_container {
-    @include breakpoints(tablet, max) {
-        box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 0;
+
+    @include breakpoints(tablet) {
+        box-shadow: none;
     }
 }

@@ -10,7 +10,7 @@ const CheckTrading = () => {
         <Flex.Box direction="col" className={styles.item_container}>
             <Flex.Box
                 direction="col"
-                container="fluid"
+                container="fixed"
                 justify="center"
                 align="center"
                 pb="30x"

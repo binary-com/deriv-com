@@ -5,6 +5,7 @@ import Banner from './banner'
 import InstrumentsTable from './instruments'
 import InstrumentsContent from './instrumental-content'
 import TradeTypes from './trades-available'
+import CheckTrading from './check-trading'
 import SignupPublic from 'features/components/templates/signup/with-banner'
 import Flex from 'features/components/atoms/flex-box'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
@@ -24,10 +25,12 @@ const ETFMarket = () => {
                 direction="col"
                 as="section"
                 padding_inline="8x"
+                md={{ pb: '20x' }}
             >
                 <InstrumentsTable />
                 <InstrumentsContent />
             </Flex.Box>
+            <CheckTrading />
             <WhyTrade />
             <Steps />
             <OtherMarketsSlider current_market="etfs" />

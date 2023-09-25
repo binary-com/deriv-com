@@ -11,13 +11,14 @@ const InstrumentsContent = () => {
             <Flex.Box
                 container="fixed"
                 className={styles.content_wrapper}
-                mb="20x"
+                mb="12x"
                 padding_inline="7x"
                 padding_block="15x"
                 gap="8x"
                 direction="col"
                 md={{
                     padding_inline: '15x',
+                    mb: '0x',
                 }}
             >
                 {instrumental_content.map((data) => (

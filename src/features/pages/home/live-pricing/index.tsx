@@ -23,6 +23,7 @@ const LivePricing = () => {
                 align="center"
                 gap="4x"
                 direction="col"
+                padding_block="10x"
                 md={{ direction: 'row', gap: '10x' }}
             >
                 <LinkButton.Primary

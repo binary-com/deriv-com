@@ -10,7 +10,7 @@ import {
 } from './_faq-data'
 import device from 'themes/device'
 import { SectionContainer } from 'components/containers'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/partners/dot-pattern.svg'
 import { TString } from 'types/generics'
@@ -214,8 +214,8 @@ const Faq = () => {
                     </StyledAccordionWrapper>
                 </>
             )}
-            <TopLeftDot src={DotPattern} alt="dot pattern" />
-            <BottomRightDot src={DotPattern} alt="dot pattern" />
+            <TopLeftDot src={DotPattern} alt={localize('_t_polkadot background_t_')} />
+            <BottomRightDot src={DotPattern} alt={localize('_t_polkadot background_t_')} />
         </RelativeContainer>
     )
 }

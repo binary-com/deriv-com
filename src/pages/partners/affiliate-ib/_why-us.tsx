@@ -32,9 +32,6 @@ const query = graphql`
         daily_ib_commission: file(relativePath: { eq: "affiliate/daily-ib-commission.png" }) {
             ...fadeIn
         }
-        daily_ib_commission_eu: file(relativePath: { eq: "affiliate/daily-ib-commission-eu.png" }) {
-            ...fadeIn
-        }
         marketing_material: file(relativePath: { eq: "affiliate/marketing-material.png" }) {
             ...fadeIn
         }

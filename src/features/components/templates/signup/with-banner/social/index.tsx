@@ -4,7 +4,7 @@ import Flex from 'features/components/atoms/flex-box'
 import Button from 'features/components/atoms/button'
 import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import AppleLogo from 'images/svg/apple_logo.svg'
 import FacebookLogo from 'images/svg/facebook_logo.svg'
 import GoogleLogo from 'images/svg/google_logo.svg'
@@ -56,7 +56,7 @@ const PublicSignupSocial = () => {
                     outlined
                 >
                     <Flex.Box justify="center" align="end" gap={'2x'}>
-                        <Image src={buttonItem.img} />
+                        <Image src={buttonItem.img} alt={localize(buttonItem.title)} />
                         <Typography.Paragraph
                             size="small"
                             weight="bold"

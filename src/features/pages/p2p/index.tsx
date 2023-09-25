@@ -9,8 +9,6 @@ import { banner_data, portalData } from './_data'
 import Roadmap from 'features/components/organisms/roadmap'
 import DP2Banner from 'features/components/templates/banners/blade-shape-banner'
 import Layout from 'features/components/templates/layout'
-import { SEO } from 'components/containers'
-import { localize } from 'components/localization'
 import MainNav from 'features/components/templates/navigation/main-nav'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import useRegion from 'components/hooks/use-region'
@@ -22,18 +20,11 @@ const Footer = loadable(() => import('features/components/templates/footer'))
 const DP2PPage = () => {
     useOpenLiveChat(true)
     const { is_p2p_allowed_country, is_p2p_loading } = useRegion()
+
     if (!is_p2p_loading) {
         if (is_p2p_allowed_country) {
             return (
                 <Layout>
-                    <SEO
-                        title={localize(
-                            '_t_Deriv P2P – peer-to-peer deposit and withdrawal service_t_',
-                        )}
-                        description={localize(
-                            '_t_With Deriv P2P your deposits and withdrawals are easy, fast, and efficient. Access now via the desktop or mobile app._t_',
-                        )}
-                    />
                     <MainNav />
                     <DP2Hero />
                     <DP2Numbers />

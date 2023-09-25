@@ -44,6 +44,10 @@ const address_labuan = [
 
 const address_singapore = ['80 Robinson Road, #11-03, Singapore 068898']
 
+const address_hongkong = [
+    'Room 408A, Empire Centre, 68 Mody Road, Tsim Sha Tsui East, Kowloon, Hong Kong',
+]
+
 const address_malta = [
     'Level 3, W   Business Centre,',
     'Triq Dun Karm Birkirkara,',
@@ -71,6 +75,7 @@ export {
     address_georgetown,
     address_jordan,
     address_vanuatu,
+    address_hongkong,
     address_roadtown,
     address_reading,
 }

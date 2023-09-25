@@ -10,10 +10,14 @@ on:
 env:
     GATSBY_CPU_COUNT: 16
     GATSBY_ENV: production
-    NODE_OPTIONS: "--max_old_space_size=7168"
-    DATADOG_APPLICATION_ID: ${{ secrets.DATADOG_APPLICATION_ID }}
-    DATADOG_CLIENT_TOKEN: ${{ secrets.DATADOG_CLIENT_TOKEN }}
+    NODE_OPTIONS: '--max_old_space_size=7168'
+    GATSBY_DATADOG_APPLICATION_ID: ${{ secrets.GATSBY_DATADOG_APPLICATION_ID }}
+    GATSBY_DATADOG_CLIENT_TOKEN: ${{ secrets.GATSBY_DATADOG_CLIENT_TOKEN }}
     GATSBY_MAP_API_KEY: ${{ secrets.GATSBY_MAP_API_KEY }}
+    GATSBY_GROWTHBOOK_CLIENT_KEY: ${{ secrets.GATSBY_GROWTHBOOK_CLIENT_KEY }}
+    GATSBY_RUDDERSTACK_STAGING_KEY: ${{ secrets.GATSBY_RUDDERSTACK_STAGING_KEY }}
+    GATSBY_RUDDERSTACK_PRODUCTION_KEY: ${{ secrets.GATSBY_RUDDERSTACK_PRODUCTION_KEY }}
+    GATSBY_RUDDERSTACK_URL: ${{ secrets.GATSBY_RUDDERSTACK_URL }}
 
 jobs:
     release-production:
@@ -27,7 +31,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: '16.x'
+                  node-version: '18.x'
                   cache: 'npm'
 
             - name: Set version env variable
@@ -52,9 +56,9 @@ jobs:
             - name: Deploy to Cloudflare ☁️
               uses: cloudflare/wrangler-action@2.0.0
               with:
-                apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                command: pages publish public --project-name=deriv-com-pages --branch=main
+                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                  command: pages publish public --project-name=deriv-com-pages --branch=main
 
             - name: Cloudflare production link ✨
               run: echo "New website - http://cf-pages-deriv-com.deriv.com"

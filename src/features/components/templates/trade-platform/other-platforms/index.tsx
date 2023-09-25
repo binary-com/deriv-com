@@ -13,7 +13,7 @@ import PlatformCard from './platform-card'
 import Container from 'features/components/atoms/container'
 import { TString } from 'types/generics'
 import Typography from 'features/components/atoms/typography'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
 import Image from 'features/components/atoms/image'
 import RightArrowIcon from 'images/svg/chevron-right.svg'
@@ -39,7 +39,7 @@ const PlatformsCarousel = ({ heading, data, ...rest }: PropsType) => {
                         spaceBetween={30}
                         modules={[Autoplay, Navigation, Pagination]}
                         autoplay={false}
-                        autoHeight={true}
+                        autoHeight
                         pagination={{
                             clickable: true,
                         }}
@@ -83,7 +83,7 @@ const PlatformsCarousel = ({ heading, data, ...rest }: PropsType) => {
                             slider_button_next,
                         )}
                     >
-                        <Image src={RightArrowIcon} alt="icon" />
+                        <Image src={RightArrowIcon} alt={localize('_t_icon_t_')} />
                     </button>
                 </div>
             </Container.Fluid>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { PlatformType } from '../types'
 import { platform_card, platform_link } from './styles.module.scss'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
 import Link from 'features/components/atoms/link'
@@ -24,7 +24,7 @@ const PlatformCard = ({ data: { icon, heading, paragraph, link } }: PlatformProp
             mb="8x"
             className={platform_card}
         >
-            <Image src={icon} alt="icon" width={48} height={48} />
+            <Image src={icon} alt={localize('_t_icon_t_')} width={48} height={48} />
             <Typography.Heading as="h3" size="xxs">
                 {heading}
             </Typography.Heading>
@@ -43,7 +43,7 @@ const PlatformCard = ({ data: { icon, heading, paragraph, link } }: PlatformProp
                 <Localize translate_text="_t_Learn more_t_" />
                 <Image
                     src={Arrow}
-                    alt="Arrow"
+                    alt={localize('_t_Arrow_t_')}
                     className={dclsx('margin-left-1x')}
                     width={10}
                     height={10}

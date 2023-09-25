@@ -26,7 +26,7 @@ const TradingPlatformHowToStart = ({
     const onTabClick = (chosen_tab: TabType) => {
         setTab(chosen_tab)
     }
-    console.log('is_mobile_or_tablet', is_mobile_or_tablet, is_mobile || is_tablet)
+
     const new_items = useMemo(() => {
         switch (tab) {
             case 'real':

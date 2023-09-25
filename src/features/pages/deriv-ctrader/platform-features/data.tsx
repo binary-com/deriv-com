@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { TradingPlatformWhatHaveData } from 'features/components/templates/trade-platform/types'
+import { localize } from 'components/localization'
 
 export const trading_platform_features: TradingPlatformWhatHaveData[] = [
     {
@@ -11,7 +12,7 @@ export const trading_platform_features: TradingPlatformWhatHaveData[] = [
         image: (
             <StaticImage
                 src="../../../../images/common/trading-platforms/ctrader/interface.png"
-                alt="An intuitive interface"
+                alt={localize('_t_An intuitive interface_t_')}
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
                 quality={100}
@@ -28,7 +29,7 @@ export const trading_platform_features: TradingPlatformWhatHaveData[] = [
         image: (
             <StaticImage
                 src="../../../../images/common/trading-platforms/ctrader/assets.png"
-                alt="Favourite assets"
+                alt={localize('_t_Favourite assets_t_')}
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
                 quality={100}
@@ -45,7 +46,7 @@ export const trading_platform_features: TradingPlatformWhatHaveData[] = [
         image: (
             <StaticImage
                 src="../../../../images/common/trading-platforms/ctrader/trade-margin.png"
-                alt="Trade margins"
+                alt={localize('_t_Trade margins_t_')}
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
                 quality={100}

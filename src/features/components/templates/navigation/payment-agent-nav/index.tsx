@@ -14,6 +14,7 @@ import { getLocationPathname } from 'common/utility'
 import useScrollToElement from 'features/hooks/use-scroll-to-element'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
+import { localize } from 'components/localization'
 
 type contentType = {
     [T: string]: TString
@@ -84,19 +85,19 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
                         type: 'internal',
                         to: is_prime_page ? '/partners/deriv-prime/' : '/partners/',
                     }}
-                    aria-label="deriv partners logo link"
+                    aria-label="deriv partners link"
                 >
                     {is_prime_page ? (
                         <Image
                             src={PrimeLogo}
                             className={partners_nav_logo}
-                            alt="deriv prime logo"
+                            alt={localize('_t_Deriv Prime_t_')}
                         />
                     ) : (
                         <Image
                             src={PartnerNavLogo}
                             className={partners_nav_logo}
-                            alt="deriv partners logo"
+                            alt={localize('_t_Deriv Partners_t_')}
                         />
                     )}
                 </Link>

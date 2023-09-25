@@ -7,10 +7,10 @@ import Typography from 'features/components/atoms/typography'
 
 const CheckTrading = () => {
     return (
-        <Flex.Box direction="col" className={styles.item_container}>
+        <Flex.Box direction="col" container="fixed" className={styles.item_container}>
             <Flex.Box
                 direction="col"
-                container="fixed"
+                container="fluid"
                 justify="center"
                 align="center"
                 pb="30x"

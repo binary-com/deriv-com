@@ -3,11 +3,13 @@ import { graphql, useStaticQuery } from 'gatsby'
 import HeaderSection from './components/_header-section'
 import Introduction from './components/_introduction'
 import Topics from './components/_topics'
+import { useGrowthBook } from 'features/hooks/analytic/use-growthbook'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { WithIntl } from 'components/localization'
 import StocksIntroImage from 'images/svg/stock-indices/stocksHeaderBelowSection.svg'
 import { TString } from 'types/generics'
+import { TGatsbyHead } from 'features/types'
 
 const topicsCovered: TString[] = [
     '_t_The basics of CFD trading_t_',
@@ -29,20 +31,24 @@ const query = graphql`
 `
 
 const StocksEbook = () => {
+    const { ebook_stocks_heading } = useGrowthBook()
+
+    const introMains = {
+        control: '_t_Learn to trade Stock derivatives the smart way_t_',
+        'new-title': '_t_Learn to trade Stock derivatives the smart way_t_',
+    }
+
+    const introMain = introMains[ebook_stocks_heading] || introMains.control
+
     const data = useStaticQuery(query)
     return (
         <Layout type="landing-page" is_ppc_redirect>
-            <SEO
-                title="_t_Stocks Ebook_t_"
-                description="_t_Trade Forex CFDs on our Deriv platform._t_"
-                no_index
-            />
             <HeaderSection
                 mainHeaderImage={data['stocks_ebook_img']}
                 imgWidth={557}
                 imgHeight={703}
                 ebook_utm_code="stock-ebook"
-                introMain="_t_Learn to trade Stock derivatives the smart way_t_"
+                introMain={introMain}
                 authorDesc="_t_This e-book has been brought to you by a veteran online trader and New York Times bestselling author,_t_"
                 authorName="_t_Vince Stanzione._t_"
             />
@@ -58,3 +64,12 @@ const StocksEbook = () => {
 }
 
 export default WithIntl()(StocksEbook)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Stocks Ebook_t_"
+        description="_t_Trade Forex CFDs on our Deriv platform._t_"
+        no_index
+        pageContext={pageContext}
+    />
+)

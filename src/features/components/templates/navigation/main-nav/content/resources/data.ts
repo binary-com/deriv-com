@@ -50,7 +50,7 @@ export const resourcesNavSectionContent: SmartNavContent[] = [
         id: 6,
         data: {
             title: '_t_Deriv Blog_t_',
-            url: { type: 'company', url_name: 'academy', target: '_blank' },
+            url: { type: 'company', url_name: 'blog', target: '_blank' },
         },
     },
 ]

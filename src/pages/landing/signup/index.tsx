@@ -7,6 +7,7 @@ import { SEO } from 'components/containers'
 import device from 'themes/device'
 import { Header, Text } from 'components/elements'
 import Graph from 'images/svg/landing/graph.svg'
+import { TGatsbyHead } from 'features/types'
 
 const Wrapper = styled.section`
     padding: 8rem 0;
@@ -67,12 +68,7 @@ const NewSignup = () => {
     }
 
     return (
-        <Layout type="static" margin_top="0" is_ppc>
-            <SEO
-                title="_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_"
-                description="_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_"
-                no_index
-            />
+        <Layout type="static" padding_top="0" is_ppc>
             <Wrapper>
                 {submit_state !== 'success' && (
                     <Content>
@@ -104,3 +100,12 @@ const NewSignup = () => {
 }
 
 export default WithIntl()(NewSignup)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_"
+        description="_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_"
+        no_index
+        pageContext={pageContext}
+    />
+)

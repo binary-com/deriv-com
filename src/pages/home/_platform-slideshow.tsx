@@ -4,6 +4,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
+import { localize } from 'components/localization'
 
 const ImagePlaceHolder = styled.div`
     width: 690px;
@@ -46,7 +47,7 @@ const PlatformSlideshow = () => {
                     image: (
                         <StaticImage
                             src="../../images/common/home/hero_platform1.png"
-                            alt="mobile app deriv go"
+                            alt={localize('_t_mobile app deriv go_t_')}
                             formats={['avif', 'webp', 'auto']}
                             quality={36}
                             loading="eager"
@@ -59,7 +60,7 @@ const PlatformSlideshow = () => {
                     image: (
                         <StaticImage
                             src="../../images/common/home/hero_platform2.png"
-                            alt="laptop dtrader"
+                            alt={localize('_t_laptop dtrader_t_')}
                             formats={['avif', 'webp', 'auto']}
                             quality={44}
                             placeholder="none"
@@ -71,7 +72,7 @@ const PlatformSlideshow = () => {
                     image: (
                         <StaticImage
                             src="../../images/common/home/hero_platform3.png"
-                            alt="laptop mt5"
+                            alt={localize('_t_laptop mt5_t_')}
                             formats={['avif', 'webp', 'auto']}
                             quality={38}
                             placeholder="none"
@@ -83,7 +84,7 @@ const PlatformSlideshow = () => {
                     image: (
                         <StaticImage
                             src="../../images/common/home/hero_platform4.png"
-                            alt="laptop deriv x"
+                            alt={localize('_t_laptop deriv x_t_')}
                             formats={['avif', 'webp', 'auto']}
                             quality={44}
                             placeholder="none"
@@ -99,7 +100,7 @@ const PlatformSlideshow = () => {
                     image: (
                         <StaticImage
                             src="../../images/common/home/hero_platform1_eu.png"
-                            alt="laptop dtrader eu"
+                            alt={localize('_t_laptop dtrader eu_t_')}
                             formats={['avif', 'webp', 'auto']}
                             quality={44}
                             loading="eager"
@@ -112,7 +113,7 @@ const PlatformSlideshow = () => {
                     image: (
                         <StaticImage
                             src="../../images/common/home/hero_platform2_eu.png"
-                            alt="laptop dmt5 eu"
+                            alt={localize('_t_laptop dmt5 eu_t_')}
                             formats={['avif', 'webp', 'auto']}
                             quality={38}
                             placeholder="none"

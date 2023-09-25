@@ -33,6 +33,29 @@ type AffiliateAccountTypes = {
         is_partner_checked: boolean
     }
 }
+type AffiliateSendTypes = {
+    address_city: string
+    address_postcode: string
+    address_state: string
+    address_street: string
+    commission_plan: number
+    country: string
+    date_of_birth: string
+    email: string
+    first_name: string
+    last_name: string
+    non_pep_declaration: number
+    over_18_declaration: number
+    phone: string
+    phone_code: number
+    tnc_accepted: number
+    tnc_affiliate_accepted: number
+    type_of_account: number
+    user_name: string
+    website_url: string
+    whatsapp_number: string
+    whatsapp_number_phoneCode: number
+}
 
 type setAffiliateAccountTypes = Dispatch<SetStateAction<AffiliateAccountTypes>>
 
@@ -61,7 +84,7 @@ type SubmitTypes = {
 
     setSignupStatus: setSignUpStatusTypes
     // once our API register this call we can remove type below
-    affiliateSend: (data?: any) => Promise<void>
+    affiliateSend: (data?: AffiliateSendTypes) => Promise<void>
 }
 
 type SetShowWizardType = Dispatch<SetStateAction<boolean>>

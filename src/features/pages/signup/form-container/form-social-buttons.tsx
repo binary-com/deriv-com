@@ -20,7 +20,7 @@ const FormSocialButtons = () => {
                 outlined
                 id="dm-signup-google"
                 onClick={() => {
-                    onAnalyticEvent('google')
+                    onAnalyticEvent('started', 'google')
                     Login.initOneAll('google')
                 }}
             >
@@ -35,7 +35,7 @@ const FormSocialButtons = () => {
                 className={signup_fb_btn}
                 id="dm-signup-facebook"
                 onClick={() => {
-                    onAnalyticEvent('facebook')
+                    onAnalyticEvent('started', 'facebook')
                     Login.initOneAll('facebook')
                 }}
             >
@@ -56,7 +56,7 @@ const FormSocialButtons = () => {
                 textcolor="white"
                 id="dm-signup-apple"
                 onClick={() => {
-                    onAnalyticEvent('apple')
+                    onAnalyticEvent('started', 'apple')
                     Login.initOneAll('apple')
                 }}
             >
@@ -83,7 +83,7 @@ const FormSocialButtons = () => {
                             className={signup_login_redirect}
                             onClick={(event) => {
                                 event.preventDefault()
-                                onAnalyticEvent('email')
+                                onAnalyticEvent('started', 'email')
                                 Login.redirectToLogin()
                             }}
                         />,

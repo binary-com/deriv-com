@@ -1,9 +1,13 @@
 import React from 'react'
+import { GrowthBook } from '@growthbook/growthbook-react'
+import { RudderStack } from '@deriv/analytics'
 import { createRoot } from 'react-dom/client'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
+import { useAnalyticData } from './src/features/hooks/analytic/use-analytic-data'
+import { growthbook_client_key } from './src/common/constants'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
 import {
     addScript,
@@ -77,6 +81,38 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const { anonymous_id } = useAnalyticData()
+
+    const gb = new GrowthBook({
+        apiHost: 'https://cdn.growthbook.io',
+        clientKey: growthbook_client_key ?? ' ',
+        enableDevMode: true,
+        attributes: {
+            id: anonymous_id,
+        },
+        trackingCallback: (experiment, result) => {
+            RudderStack.track(
+                'experiment_viewed',
+                {
+                    experimentId: experiment.key,
+                    variationId: result.variationId,
+                },
+                { is_anonymous: !!anonymous_id },
+            )
+        },
+    })
+    gb.loadFeatures()
+
+    const language = getLanguage()
+    const domain = getDomain()
+    const client_information = getClientInformation(domain)
+
+    if (client_information) {
+        RudderStack.identifyEvent(client_information.loginid, {
+            language,
+        })
+    }
     //datadog
     const dd_options = {
         clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,

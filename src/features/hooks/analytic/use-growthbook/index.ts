@@ -1,47 +1,18 @@
-import { useEffect, useRef } from 'react'
-import { RudderStack } from '@deriv/analytics/lib'
+import { useRef } from 'react'
 import { GrowthBook } from '@growthbook/growthbook-react'
-import { useAnalyticData } from 'features/hooks/analytic/use-analytic-data'
-import { getClientInformation, getDomain, getLanguage } from 'common/utility'
-import { growthbook_client_key } from 'common/constants'
 
 export const useGrowthBook = () => {
     const growthbook = useRef<GrowthBook>()
-    const { anonymous_id } = useAnalyticData()
+    growthbook.current = window._growthbook
 
-    useEffect(() => {
-        growthbook.current = new GrowthBook({
-            apiHost: 'https://cdn.growthbook.io',
-            clientKey: growthbook_client_key ?? ' ',
-            enableDevMode: true,
-            attributes: {
-                id: anonymous_id,
-            },
-            trackingCallback: (experiment, result) => {
-                RudderStack.track('experiment_viewed', {
-                    experimentId: experiment.key,
-                    variationId: result.variationId,
-                })
-            },
-        })
-        growthbook.current.loadFeatures({
-            autoRefresh: true,
-        })
+    // calls tracking feature trackingCallback()
+    growthbook.current.isOn('test-toggle-aa-test')
 
-        const language = getLanguage()
-        const domain = getDomain()
-        const client_information = getClientInformation(domain)
-
-        if (client_information) {
-            RudderStack.identifyEvent(client_information.loginid, {
-                language,
-            })
-        }
-    }, [])
+    // fetch feature flag from growthbook by name
+    const test_toggle_aa_test =
+        growthbook.current.context.features['test-toggle-aa-test'].defaultValue
 
     return {
-        ebook_stocks_heading:
-            growthbook.current?.context.features?.['ebook-stocks-heading']?.defaultValue,
-        homepage: growthbook.current?.context.features?.['homepage']?.defaultValue,
+        test_toggle_aa_test,
     }
 }

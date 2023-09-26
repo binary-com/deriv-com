@@ -53,7 +53,7 @@ const AboutUs = ({ data }: TWhoWeAre) => {
         <Layout>
             <SEO
                 title="_t_Who we are | An Online Trading Platform | Deriv.com_t_"
-                description="_t_Deriv is a pioneering and award-winning online trading platform that offers a wide selection of derivatives for anyone, anywhere to trade._t_"
+                description="_t_Deriv is a award-winning online trading platform that offers a wide selection of derivatives for anyone, anywhere to trade._t_"
             />
             <Hero hero={hero} />
             <MakeTrading hero={hero} />

@@ -1,5 +1,4 @@
 import AAL from 'images/svg/symbols/aal.svg'
-import AAPL from 'images/svg/symbols/aapl.svg'
 import ABNB from 'images/svg/symbols/abnb.svg'
 import ADAUSD from 'images/svg/symbols/ada-usd.svg'
 import ADS from 'images/svg/symbols/ads.svg'
@@ -368,7 +367,6 @@ import DEX1500DN from 'images/svg/symbols/dex-1500dn.svg'
 
 export {
     AAL,
-    AAPL,
     ABNB,
     ADAUSD,
     ADS,

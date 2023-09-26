@@ -52,26 +52,16 @@ import ZECUSD from 'images/svg/symbols/zec-usd.svg'
 import DEADS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-adidas-salomon.svg'
 import FRAIR from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-airbus.svg'
 import FRAIRF from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-airfrance.svg'
-import DEBAYER from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-bayer-ag.svg'
-import DEBMW from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-bmw.svg'
 import DECONG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-continental-ag.svg'
 import DEDBK from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-deutsche-bank-ag.svg'
 import DELHAG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-deutsche-lufthansa-ag.svg'
 import DEPSHG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-porsche.svg'
 import DEPUMG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-puma.svg'
-import USAAL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-american-airlines-group-inc.svg'
-import AAPL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-apple.svg'
 import USABNB from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-airbnb.svg'
-import USAIG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-american-international-group.svg'
 import USAMD from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-amd.svg'
 import USAMZN from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-amazon-com-inc.svg'
-import USBA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-boeing.svg'
 import USBABA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-alibaba-group-holding-ltd.svg'
-import USBAC from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-bank-of-america.svg'
-import USBIIB from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-biogen-inc.svg'
-import USC from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-citigroup.svg'
 import USCRM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-salesforce-com-inc.svg'
-import USCSCO from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-cisco-systems.svg'
 import USDAL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-delta-air-lines.svg'
 import DIS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-walt-disney-company.svg'
 import USEBAY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-e-bay-inc.svg'
@@ -241,26 +231,16 @@ export {
     DEADS,
     FRAIR,
     FRAIRF,
-    DEBAYER,
-    DEBMW,
     DECONG,
     DEDBK,
     DELHAG,
     DEPSHG,
     DEPUMG,
-    USAAL,
-    AAPL,
     USABNB,
-    USAIG,
     USAMD,
     USAMZN,
-    USBA,
     USBABA,
-    USBAC,
-    USBIIB,
-    USC,
     USCRM,
-    USCSCO,
     USDAL,
     DIS,
     USEBAY,

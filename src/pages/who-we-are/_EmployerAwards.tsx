@@ -16,7 +16,6 @@ const EmployerAwards = () => {
             container="fluid"
             padding_block="10x"
             md={{ padding_block: '20x' }}
-            id="investors-in-people"
         >
             {is_row && !is_region_loading && (
                 <div>
@@ -66,7 +65,15 @@ const EmployerAwards = () => {
                     </Flex.Box>
                 </div>
             )}
-            <Typography.Heading size="medium" mb="10x" textcolor="black" align="center" mt="10x">
+
+            <Typography.Heading
+                size="medium"
+                mb="10x"
+                textcolor="black"
+                align="center"
+                mt="10x"
+                id="investors-in-people"
+            >
                 <Localize translate_text="_t_Employer awards_t_" />
             </Typography.Heading>
 

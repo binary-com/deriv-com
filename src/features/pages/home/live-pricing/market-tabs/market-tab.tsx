@@ -8,15 +8,21 @@ import Typography from 'features/components/atoms/typography'
 import Container from 'features/components/atoms/container'
 import Flex from 'features/components/atoms/flex-box'
 import TabMenu from 'features/components/templates/tabs/menu'
+import useRegion from 'components/hooks/use-region'
 
 const MarketTab = () => {
-    const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
+    const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('fx')
     const [tab_name, setTabName] = useState('Forex')
     const [linkToMarketPage, setLinkToMarketPage] = useState('/markets/forex/')
+    const { is_eu } = useRegion()
+    const updated_market_buttons = market_buttons.filter((items) => {
+        if (!is_eu) return items
+        if (is_eu && items.market_name !== 'etfs') return items
+    })
+
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
     }
-
     return (
         <Container.Fluid>
             <Flex.Box
@@ -24,30 +30,28 @@ const MarketTab = () => {
                 padding_block="10x"
                 md={{ justify: 'center', padding: '10x' }}
             >
-                {market_buttons.map((market_item) => (
-                    <>
-                        <Flex.Box
-                            direction="col"
-                            className="tab_container"
-                            onClick={() => {
-                                onMarketButtonClick(market_item.market_name)
-                                setLinkToMarketPage(market_item.to)
-                            }}
-                        >
-                            <TabMenu
-                                item_className={markets_menu_tab_item}
-                                tab_names={[market_item.button_text]}
-                                key={market_item.button_text}
-                                current_tab={tab_name}
-                                setCurrentTab={setTabName}
-                                icon={
-                                    market_item.market_name === selected_market
-                                        ? `${market_item.selected_src}#${market_item.market_name}`
-                                        : `${market_item.src}#${market_item.market_name}`
-                                }
-                            />
-                        </Flex.Box>
-                    </>
+                {updated_market_buttons.map((market_item) => (
+                    <Flex.Box
+                        key={market_item.button_text}
+                        direction="col"
+                        className="tab_container"
+                        onClick={() => {
+                            onMarketButtonClick(market_item.market_name)
+                            setLinkToMarketPage(market_item.to)
+                        }}
+                    >
+                        <TabMenu
+                            item_className={markets_menu_tab_item}
+                            tab_names={[market_item.button_text]}
+                            current_tab={tab_name}
+                            setCurrentTab={setTabName}
+                            icon={
+                                market_item.market_name === selected_market
+                                    ? `${market_item.selected_src}#${market_item.market_name}`
+                                    : `${market_item.src}#${market_item.market_name}`
+                            }
+                        />
+                    </Flex.Box>
                 ))}
             </Flex.Box>
             {market_buttons.map(
@@ -63,7 +67,6 @@ const MarketTab = () => {
                         </Typography.Paragraph>
                     ),
             )}
-
             <LiveMarketTable selected_market={selected_market} link_to={linkToMarketPage} />
         </Container.Fluid>
     )

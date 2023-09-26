@@ -2,19 +2,20 @@ import React, { useEffect, useState } from 'react'
 import Loadable from '@loadable/component'
 import DCommonBanner from './_hero'
 import PageNotFound from 'features/pages/404'
-import { SEO, MetaAttributesType } from 'components/containers'
+import { SEO, TMetaAttributes } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import DNumber, { TDNumbersItem } from 'components/custom/_dnumbers'
 import useRegion from 'components/hooks/use-region'
 import { TradingType } from 'components/custom/_dtrading'
+import { TGatsbyHead } from 'features/types'
 
 const DTrading = Loadable(() => import('components/custom/_dtrading'))
 const DBotEasySteps = Loadable(() => import('./_steps_section'))
 const DBotGetApp = Loadable(() => import('./_get-app-section'))
 const OurPlatforms = Loadable(() => import('./_our-platforms'))
 
-const meta_attributes: MetaAttributesType = {
+const meta_attributes: TMetaAttributes = {
     og_title: '_t_DBot Trading | Auto Trading Robot | Deriv_t_',
     og_description:
         '_t_Deriv’s easy and free setup of DBot trader can automate your trading without writing codes. Create your own bot trader using our tutorials and guides!_t_',
@@ -85,11 +86,6 @@ const Dbot = () => {
     if (is_loaded) {
         return (
             <>
-                <SEO
-                    title="_t_DBot | Trading robot | Deriv_t_"
-                    description="_t_Automate your trading with DBot, Deriv’s trading robot which you can build without writing code._t_"
-                    meta_attributes={meta_attributes}
-                />
                 {is_row && (
                     <Layout>
                         <DCommonBanner join_us_for_free is_live_demo image_name="dbot" />
@@ -105,13 +101,16 @@ const Dbot = () => {
         )
     }
 
-    return (
-        <SEO
-            title="_t_DBot | Trading robot | Deriv_t_"
-            description="_t_Automate your trading with DBot, Deriv’s trading robot which you can build without writing code._t_"
-            meta_attributes={meta_attributes}
-        />
-    )
+    return <React.Fragment></React.Fragment>
 }
 
 export default WithIntl()(Dbot)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_DBot | Trading robot | Deriv_t_"
+        description="_t_Automate your trading with DBot, Deriv’s trading robot which you can build without writing code._t_"
+        meta_attributes={meta_attributes}
+        pageContext={pageContext}
+    />
+)

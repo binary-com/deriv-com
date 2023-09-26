@@ -8,13 +8,8 @@ import { Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { Accordion, AccordionItem, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
-import { Button, LinkButton } from 'components/form'
-import { affiliate_signup_url } from 'common/constants'
+import { Button } from 'components/form'
 import device from 'themes/device'
-
-type StyledLinkButtonProps = {
-    id?: string
-}
 
 const query = graphql`
     query {
@@ -58,6 +53,29 @@ const query = graphql`
         deriv_x_five: file(relativePath: { eq: "affiliate-and-ib/deriv_x_five.png" }) {
             ...fadeIn
         }
+        deriv_x_commodities: file(
+            relativePath: { eq: "affiliate-and-ib/deriv_x_commodities.png" }
+        ) {
+            ...fadeIn
+        }
+        deriv_x_crypto: file(relativePath: { eq: "affiliate-and-ib/deriv_x_crypto.png" }) {
+            ...fadeIn
+        }
+        deriv_x_forex: file(relativePath: { eq: "affiliate-and-ib/deriv_x_forex.png" }) {
+            ...fadeIn
+        }
+        deriv_x_indices: file(relativePath: { eq: "affiliate-and-ib/deriv_x_indices.png" }) {
+            ...fadeIn
+        }
+        deriv_x_step: file(relativePath: { eq: "affiliate-and-ib/deriv_x_step.png" }) {
+            ...fadeIn
+        }
+        deriv_x_stocks: file(relativePath: { eq: "affiliate-and-ib/deriv_x_stocks.png" }) {
+            ...fadeIn
+        }
+        deriv_x_vol: file(relativePath: { eq: "affiliate-and-ib/deriv_x_vol.png" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -65,7 +83,7 @@ const StyledCard = styled(Card)`
     min-height: 42.6rem;
     height: 100%;
     position: relative;
-    border-radius: 8px;
+    border-radius: 0.8rem;
     min-width: calc((100% - 4.8rem) / 3);
     width: calc((100% - 4.8rem) / 3);
     justify-content: flex-start;
@@ -74,7 +92,7 @@ const StyledCard = styled(Card)`
         margin: 1.6rem 2.4rem 0;
 
         @media ${device.tabletL} {
-            margin: 24px 0;
+            margin: 2.4rem 0;
         }
     }
 
@@ -84,12 +102,12 @@ const StyledCard = styled(Card)`
     }
 
     @media ${device.tabletL} {
-        min-width: 328px;
-        padding: 16px 16px 0;
+        min-width: 32.8rem;
+        padding: 1.6rem 1.6rem 0;
         ${(props) => props.tabletHeight && 'height:' + props.tabletHeight};
 
         :first-child {
-            margin: 24px 0 0;
+            margin: 2.4rem 0 0;
         }
     }
 
@@ -109,10 +127,10 @@ const CardWrappers = styled(Flex)`
     }
 `
 const CardText = styled(Text)`
-    margin-bottom: 16px;
+    margin-bottom: 1.6rem;
 `
 const AccordionWrapper = styled.div`
-    max-width: 996px;
+    max-width: 99.6rem;
     width: fit-content;
     margin: 0 auto;
     position: relative;
@@ -133,7 +151,7 @@ const StyledTrap = styled(TRAP)<CardProps>`
     height: ${(props) => (props.headerHeight ? props.headerHeight : '')};
     background-color: var(--color-grey-39);
     padding: 1.1rem 0.8rem;
-    min-height: 72px;
+    min-height: 7.2rem;
     border-bottom: none;
     display: flex;
     align-items: center;
@@ -145,13 +163,13 @@ const StyledText = styled(Text)`
 const HowItsCalculate = styled.div`
     display: flex;
     width: auto;
-    margin: 0 -25px;
-    padding: 16px 0;
+    margin: 0 -2.5rem;
+    padding: 1.6rem 0;
     justify-content: center;
-    border-top: 1px solid var(--color-grey-21);
+    border-top: 0.1rem solid var(--color-grey-21);
 
     @media ${device.tabletL} {
-        margin: 0 -16px;
+        margin: 0 -1.6rem;
     }
 `
 
@@ -162,33 +180,17 @@ const ButtonWrapper = styled.div`
     width: 100%;
     padding: 2.4rem 0;
 
-    button:last-child {
-        margin-left: 1.6rem;
-    }
     @media ${device.tabletL} {
         justify-content: center;
     }
 `
-const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
-    height: 40px;
 
-    @media ${device.tabletL} {
-        padding: 1.5rem 1.6rem;
-        height: 40px;
-        white-space: nowrap;
-        font-size: 12px;
-    }
-
-    @media ${device.mobileL} {
-        font-size: 10px;
-    }
-`
 const BackButton = styled(Button)`
-    border: 2px solid var(--color-grey-5);
+    border: 0.2rem solid var(--color-grey-5);
     color: var(--color-black);
-    height: 40px;
+    height: 4rem;
+    inline-size: 100%;
     padding: 0 1.6rem;
-    margin-right: 0.8rem;
 `
 
 const parent_style = {
@@ -197,25 +199,25 @@ const parent_style = {
 const item_style = {
     padding: '0',
     background: 'var(--color-white)',
-    borderRadius: '0 0 8px 8px',
-    marginBottom: '16px',
+    borderRadius: '0 0 0.8rem 0.8rem',
+    marginBottom: '1.6rem',
 }
 const header_style = {
-    padding: '14px 0 17px',
+    padding: '1.4rem 0 1.7rem',
     borderRadius: '0',
     height: 'auto',
     boxShadow: 'unset',
     borderBottom: 'unset',
-    borderTop: '1px solid var(--color-grey-21)',
+    borderTop: '0.1rem solid var(--color-grey-21)',
 }
 const StyledButton = styled(Button)`
     border: none;
     color: var(--color-red);
-    font-size: 14px;
+    font-size: 1.4rem;
     background: none;
 
     @media ${device.tabletL} {
-        font-size: 14px;
+        font-size: 1.4rem;
     }
 `
 
@@ -260,7 +262,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                                         isTitle="true"
                                                         headerHeight={value.headerHeight}
                                                     >
-                                                        <StyledText size="14px" weight="bold">
+                                                        <StyledText size="1.4rem" weight="bold">
                                                             <Localize
                                                                 translate_text={listedValue.title}
                                                             />
@@ -271,7 +273,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                                             even={indexData % 2 ? 'true' : ''}
                                                             key={indexData}
                                                         >
-                                                            <StyledText size="14px">
+                                                            <StyledText size="1.4rem">
                                                                 <Localize translate_text={info} />
                                                             </StyledText>
                                                         </TRAPREVERSE>
@@ -283,6 +285,36 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                 ))}
                             </Accordion>
                         </AccordionWrapper>
+                        {data.countDetails.map((valueCalc, indexCalc) => (
+                            <Flex key={indexCalc} direction="column" ai="flex-start" height="auto">
+                                {valueCalc.disclaimer &&
+                                    valueCalc.disclaimer.map((valueNotes, notesIndex) => (
+                                        <Flex
+                                            direction="column"
+                                            ai="flex-start"
+                                            height="auto"
+                                            style={{
+                                                borderTop: '0.1rem solid var(--color-grey-21)',
+                                            }}
+                                            key={notesIndex}
+                                        >
+                                            <Header
+                                                type="main-paragraph"
+                                                as="p"
+                                                mt="1.4rem"
+                                                mb="0.8rem"
+                                            >
+                                                <Localize translate_text={valueNotes.title} />
+                                            </Header>
+                                            <Header type="main-paragraph" as="p" mb="0.8rem">
+                                                <Localize
+                                                    translate_text={valueNotes.desc.firstText}
+                                                />
+                                            </Header>
+                                        </Flex>
+                                    ))}
+                            </Flex>
+                        ))}
                     </CardWrappers>
                     <HowItsCalculate>
                         <StyledButton flat onClick={toggleCalculated} className="calculated">
@@ -299,9 +331,18 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                             </Header>
                             {valueCalc.list.map((valueDetails, detailsIdx) => (
                                 <React.Fragment key={detailsIdx}>
+                                    {valueDetails.title && (
+                                        <Header type="sub-paragraph" mt="0.8rem" mb="0.8rem">
+                                            <Localize translate_text={valueDetails.title} />
+                                        </Header>
+                                    )}
                                     <Text mb="0.8rem" size="1.4rem">
-                                        {valueDetails.details}
+                                        <Localize
+                                            translate_text={valueDetails.details}
+                                            components={[<strong key={0} />]}
+                                        />
                                     </Text>
+                                    <Text mb="0.8rem" size="1.4rem"></Text>
                                     {valueDetails.iconAlt && (
                                         <Flex mb="1.6rem">
                                             <QueryImage
@@ -312,9 +353,12 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                         </Flex>
                                     )}
                                     {valueDetails.second_desc && (
-                                        <Header type="paragraph-2" weight="normal">
-                                            {valueDetails.second_desc}
-                                        </Header>
+                                        <Text mb="0.8rem" size="1.4rem">
+                                            <Localize
+                                                translate_text={valueDetails.second_desc}
+                                                components={[<strong key={0} />]}
+                                            />
+                                        </Text>
                                     )}
                                     {valueDetails.notes &&
                                         valueDetails.notes.map((valueNotes, noteIdx) => (
@@ -339,7 +383,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                     </Header>
                                     {valueNotes.desc.secondText ? (
                                         <>
-                                            <Text mb="16px" size="1.4rem">
+                                            <Text mb="1.6rem" size="1.4rem">
                                                 <Localize
                                                     translate_text={valueNotes.desc.firstText}
                                                 />
@@ -361,16 +405,6 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                 <BackButton tertiary onClick={toggleCalculated} className="back">
                                     <Localize translate_text="_t_Back_t_" />
                                 </BackButton>
-                                <StyledLinkButton
-                                    id="dm-become-affiliate-signup"
-                                    secondary
-                                    to={affiliate_signup_url}
-                                    external
-                                    target="_blank"
-                                    type="affiliate_sign_up"
-                                >
-                                    <Localize translate_text="_t_Become an affiliate_t_" />
-                                </StyledLinkButton>
                             </ButtonWrapper>
                         </Flex>
                     ))}

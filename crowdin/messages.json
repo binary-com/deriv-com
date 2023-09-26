@@ -2660,13 +2660,10 @@
   "-1134652564": "What type of commission plans do you offer?",
   "-1835477277": "<0>Cost per acquisition</0> (For the EU only)",
   "-2057848186": "Earn 100 USD in commission for each successful referral. Your referred client must open a real account using your tracking link and deposit 100 USD or more (one-time or accumulative).",
-<<<<<<< HEAD
-=======
   "-1389111416": "What commission plan do you offer?",
   "-652613124": "<0>Cost per acquisition</0> (For EU-based clients only)",
   "-2081856861": "Earn 100 USD when a referred client successfully deposits a one-time or cumulative total of USD 100 into their Deriv account.",
   "-1268486656": "Please note that according to regulations, you cannot have clients who reside in Portugal or Spain.",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-504946033": "Who can apply as an affiliate?",
   "-1264084852": "We encourage you to become our affiliate if you are:",
   "-1754830736": "<0>A webmaster</0><br/>Do you have a trading-related website? Join our network of affiliates and turn your traffic into revenue by promoting our products and services.",
@@ -3052,10 +3049,6 @@
   "-1503338163": "Demo account ",
   "-1179918966": "Browser Update Alert",
   "-684271315": "OK",
-<<<<<<< HEAD
-  "-31744371": "<0>73% of retail investor accounts lose money when trading CFDs with Deriv, read our full Risk disclosure here.</0>",
-=======
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1809314981": "Other markets you might be interested in",
   "-696867299": "Get trading",
   "-943701585": "Available on",
@@ -3069,11 +3062,8 @@
   "-773544978": "Home",
   "-1793603559": "Locations",
   "-1174851024": "Explore jobs",
-<<<<<<< HEAD
-=======
   "-674205520": "Affiliate log in",
   "-1547132756": "Affiliate sign up",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1788474476": "Affiliate & IB sign up",
   "-373212993": "Deriv website",
   "-1816672668": "Please enter your corporate email.",
@@ -3082,10 +3072,6 @@
   "-381962759": "Please enter a valid email address.",
   "-1232661871": "Verification code is requried",
   "-142727028": "The email is in your spam folder (sometimes things get lost there).",
-<<<<<<< HEAD
-  "-1961258037": "Didn't receive an email from us? Here's what could've happened.",
-=======
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-276906320": "If you don't see an email from us within a few minutes, a few things could have happened:",
   "-1878043830": "Re-enter your email and try again",
   "-1607321031": "Return",
@@ -3115,11 +3101,6 @@
   "-1252238038": "Add a Deriv EZ demo account.",
   "-2085932861": "Start trading on the Deriv GO mobile app.",
   "-149226129": "Create or sign in to your demo Deriv account.",
-<<<<<<< HEAD
-  "-247192100": "Deriv EZ – a CFD trading platform | Deriv",
-  "-612077545": "Deriv EZ is our intuitive CFD trading platform where you can trade forex, commodities, stocks & indices, cryptocurrencies, and derived indices.",
-=======
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1189690573": "Deriv EZ is a user-friendly CFDs trading platform that offers instant access to all your favourite assets.",
   "-831303760": "Trade on Deriv EZ and access a wide variety of assets in forex, stocks and indices, commodities, cryptocurrencies, and derived indices.",
   "-1949727600": "50+ indicators and tools",
@@ -3132,13 +3113,8 @@
   "-967353831": "You need Deriv GO Ultimate for Android. Trade Options, in addition to CFDs and Multipliers, on your favourite markets.",
   "-1638607416": "Download now >",
   "-1981735781": "One broker, countless trading opportunities",
-<<<<<<< HEAD
-  "-704828346": "Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv",
-  "-1722031734": "Check trading specs",
-=======
   "-1722031734": "Check trading specs",
   "-61718257": "Speculate on the price movements of popular exchange-traded funds (ETFs). Diversify your portfolio with assets that track bonds, commodities, and indices, without the high cost of owning the underlying assets.",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-777850431": "View all >",
   "-1384760133": "Bid price",
   "-1882694284": "Ask price",
@@ -3152,11 +3128,6 @@
   "-1016982945": "Earn a range of payouts by correctly predicting market movements.",
   "-502915460": "Multiply your potential profit without risking more than your stake.",
   "-1863708031": "Exchange-traded funds (ETFs) allow you to diversify your portfolio with assets that track bonds, commodities, and indices, without the high cost of owning the underlying assets.",
-<<<<<<< HEAD
-  "-1825149732": "Trade ETFs on Deriv and diversify your portfolio with assets that track bonds, commodities, and indices, without needing to own the underlying assets.",
-  "-314383561": "Exchange-traded funds | ETF trading | Deriv",
-=======
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1542166394": "<0>AGG.US</0> The iShares Core US Aggregate Bond ETF tracks an index of US investment-grade bonds.",
   "-1968382000": "<0>ARKK.US</0> The ARK Innovation ETF invests in domestic and foreign equity securities of companies that rely on or benefit from developments in artificial intelligence, automation, DNA technologies, energy storage, fintech, and robotics.",
   "-603147794": "<0>DIA.US</0> The SPDR Dow Jones Industrial Average ETF Trust tracks the Dow Jones Industrial Average index.",
@@ -3189,19 +3160,7 @@
   "-519772806": "Smart and friendly support, 7 days a week",
   "-1690667791": "Why trade ETFs on Deriv",
   "-244980648": "What are accumulator options?",
-<<<<<<< HEAD
-  "-659039661": "Accumulator options | Trade options | Deriv",
   "-1018568023": "How do accumulator options work?",
-  "-615241025": "Open a digital options contract with a Lookbacks trade type on Deriv’s trading platforms and earn payouts with accurate market predictions.",
-  "-1225084394": "Open a digital options contract with an Only ups/Only downs trade type on Deriv’s trading platforms and earn payouts with accurate market predictions.",
-  "-37833418": "Reset call/reset put | Digital options contract | Deriv",
-  "-1295570449": "Open a digital options contract with a Reset call/Reset put trade type on Deriv’s trading platforms and earn payouts with accurate market predictions.",
-  "-376204933": "Touch/No touch | Digital options contract | Deriv",
-  "-562730170": "Open a digital options contract with a Touch/No touch trade type on Deriv’s trading platforms and earn payouts with accurate market predictions.",
-  "-99150551": "Vanilla options | Trade options | Deriv",
-=======
-  "-1018568023": "How do accumulator options work?",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1461784880": "How do vanilla options work?",
   "-231290085": "Start connecting with fellow traders to make deposits and withdrawals.",
   "-1245597945": "Try Deriv P2P now",
@@ -3210,11 +3169,6 @@
   "-385361251": "Save time",
   "-1139543787": "Works with your local currency",
   "-1267106447": "Deal with fellow traders at pre-agreed rates.",
-<<<<<<< HEAD
-  "-141169956": "Deriv P2P – peer-to-peer deposit and withdrawal service",
-  "-1451760391": "With Deriv P2P your deposits and withdrawals are easy, fast, and efficient. Access now via the desktop or mobile app.",
-=======
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-336031456": "Major, minor, and exotic currency pairs.",
   "-187586473": "Trade forex",
   "-828546225": "Trade cryptocurrencies",
@@ -3268,10 +3222,6 @@
   "-1920558726": "Reliable access to deep market liquidity pools",
   "-102338874": "Fast execution with intelligent order routing",
   "-763839364": "Dedicated support for smooth operations",
-<<<<<<< HEAD
-  "-1957784093": "Easy And Free Sign Up | Online Trading | Deriv.com",
-=======
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-2125275828": "Unique trade types. Hundreds of instruments. Financial and derived markets.",
   "-154889447": "Ready to join over 2.5 million traders who have chosen Deriv as their trusted broker? Enter your email address to create a free demo account.",
   "-1131891395": "Important businesses",
@@ -3281,11 +3231,7 @@
   "-399968273": "Our main trading platform: app.deriv.com<0>*</0>",
   "-147938047": "<0>*</0>This only covers the functionalities handled by Deriv",
   "-1249554404": "Our legacy trading platform: smarttrader.deriv.com",
-<<<<<<< HEAD
-  "-129426559": "Our GitHub repositories: <0>github.com/binary-com</0>",
-=======
   "-477259544": "Our GitHub repositories: github.com/binary-com",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-461231581": "Deriv GO: Our options trading app (<0>Android app</0>, <1>iOS app</1>)",
   "-1870128839": "Our site for marketing campaigns: trade.deriv.com (third-party)",
   "-669674120": "Our site for static resources: static.deriv.com",
@@ -3293,8 +3239,6 @@
   "-1667399786": "Our internal apps: *.deriv.cloud",
   "-1969499072": "Our CFD trading platform by MetaQuotes: metatraderweb.app",
   "-732739164": "Our community site: community.deriv.com",
-<<<<<<< HEAD
-=======
   "-323355149": "deriv careers",
   "-507845880": "Cyberjaya bridge and lake view",
   "-2024257622": "Dubai Skyscrappers",
@@ -3321,7 +3265,6 @@
   "-2098815298": "business excellence department",
   "-1686674481": "project management department",
   "-994502200": "business intelligence department",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1076255913": "Asunción | Our office – Paraguay | Deriv",
   "-578762577": "Berlin - Our office | Deriv",
   "-2137963507": "Cyberjaya | Our office – Malaysia | Deriv",
@@ -3342,10 +3285,7 @@
   "-763671807": "Check email in your spam",
   "-1867937110": "Email ID had a typo error",
   "-1567349106": "Firewall filter",
-<<<<<<< HEAD
-=======
   "-1961258037": "Didn't receive an email from us? Here's what could've happened.",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-246512194": "We’re here to help",
   "-980586483": "United Kingdom",
   "-705682181": "Malta",
@@ -3356,13 +3296,8 @@
   "-1552543730": "Caribbean",
   "-2098459063": "British Virgin Islands",
   "-1077630901": "Oceania",
-<<<<<<< HEAD
-  "-1278724614": "Have any query or need assistance, check out the details to call our international help desk and our email ID. Feel free to contact us anytime!",
-  "-1439893219": "Got questions? Here's how to get answers.",
-=======
   "-1439893219": "Got questions? Here's how to get answers.",
   "-1278724614": "Have any query or need assistance, check out the details to call our international help desk and our email ID. Feel free to contact us anytime!",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-316740382": "1. Select your asset",
   "-2109493526": "2. Set purchase conditions",
   "-179851357": "3. Set restart conditions",
@@ -3387,11 +3322,8 @@
   "-1131365089": "Track your performance",
   "-386070899": "Access tutorials, guides, and reference information as you build your bot.",
   "-1068098082": "Save your bots",
-<<<<<<< HEAD
-=======
   "-247192100": "Deriv EZ – a CFD trading platform | Deriv",
   "-612077545": "Deriv EZ is our intuitive CFD trading platform where you can trade forex, commodities, stocks & indices, cryptocurrencies, and derived indices.",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-2082435325": "A trading platform for on-the-go traders",
   "-1485956312": "Get trading with Deriv GO",
   "-930794949": "Sign in to your Deriv account. If you don’t have one, sign up for free; then create a Deriv real account.",
@@ -3512,12 +3444,9 @@
   "-511270225": "... And how you want",
   "-1852662378": "Forex, cryptocurrencies, and synthetics – whether it’s the world markets or derived markets that excite you, you’ll find them here.",
   "-12829538": "Choose a multiplier value, fine-tune your trade with multipliers optional features (take profit, stop loss, and deal cancellation), and start trading with a stake as low as $5.",
-<<<<<<< HEAD
-=======
   "-1507095704": "Help centre | Frequently asked questions | Affiliate programme | Deriv",
   "-1973882807": "Frequently asked questions - Affiliate programme",
   "-1602949376": "Help centre | Frequently asked questions | Complaints procedure | Deriv",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1628704443": "Have a question?",
   "-274881601": "Use this variable to store the stake amount used in the last contract. You can assign any amount you want, but it must be a positive number.",
   "-985220032": "maximumLoss",
@@ -3535,21 +3464,11 @@
   "-370313455": "The Deriv MT5 Standard account offers new and experienced traders high leverage and variable spreads for maximum flexibility.<br />The Deriv MT5 Advanced account is a 100% A Book account where your trades are passed straight through to the market, giving you direct access to forex liquidity providers.<br />The Deriv MT5 Synthetic Indices account allows you to trade contracts for difference (CFDs) on synthetic indices that mimic real-world movements. It is available for trading 24/7 and audited for fairness by an independent third party.",
   "-1508841947": "DTrader allows you to trade more than 50 assets in the form of digitals, multiplier, and lookback options.<br />Deriv MT5 is a multi-asset trading platform that you can use to trade spot forex and contracts for difference (CFDs) with leverage.",
   "-2073101307": "<0>View fewer questions</0>",
-<<<<<<< HEAD
-  "-369631423": "Frequently asked questions - ${untranslate_category}",
-=======
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-839094775": "Back",
   "-177264246": "Keep your search term short as our search capabilities works best with short search terms",
   "-1342698728": "Sorry, we couldn’t find any results matching '{{search_value}}'.",
   "-859753143": "Search tips:",
   "-584435215": "Talk to us",
-<<<<<<< HEAD
-  "-17396892": "Need help? Have questions about Deriv services and online trading platforms? Read our FAQ or ask us a question.",
-  "-1422362986": "${PLATFORMS}",
-  "-313388618": "Dtrader trading platform at Deriv",
-  "-642822922": "What our clients say about Deriv",
-=======
   "-1257106357": "Help centre | Frequently asked questions | Deposits and withdrawals | Deriv",
   "-524318410": "Frequently asked questions - Deposits and withdrawals",
   "-1406076534": "Frequently asked questions - Deriv EZ",
@@ -3570,7 +3489,6 @@
   "-313388618": "Dtrader trading platform at Deriv",
   "-642822922": "What our clients say about Deriv",
   "-704828346": "Online trading platform | Forex, commodities, synthetic indices, stocks, and stock indices | Deriv",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-958338811": "binary",
   "-1353630503": "Deriv.com is everything you love about Binary.com, and more",
   "-2050452639": "No sign up required",
@@ -3656,13 +3574,8 @@
   "-56855120": "Order types for derivatives trading",
   "-581275151": "How to evaluate a cryptocurrency",
   "-841420376": "Common crypto terms to impress your friends",
-<<<<<<< HEAD
-  "-2056714393": "Trade Cryptocurrencies on our Deriv platform.",
-  "-1745155150": "In this guide, you’ll learn valuable tips and strategies for trading cryptocurrencies on Deriv. You will also get a free demo account to practice completely risk-free on Deriv MT5 and DTrader platforms, as well as the DerivGo app. And when you are ready to start trading for real, you can start with as little as a $5 deposit.",
-=======
   "-1745155150": "In this guide, you’ll learn valuable tips and strategies for trading cryptocurrencies on Deriv. You will also get a free demo account to practice completely risk-free on Deriv MT5 and DTrader platforms, as well as the DerivGo app. And when you are ready to start trading for real, you can start with as little as a $5 deposit.",
   "-2056714393": "Trade Cryptocurrencies on our Deriv platform.",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1109370844": "How to manage risk when trading forex",
   "-515430658": "How to use digital options to profit from up, down, and even sideways moves",
   "-1866115993": "The basics of forex",
@@ -3672,25 +3585,15 @@
   "-1637535607": "Advantages of trading forex on DMT5",
   "-1386083220": "Currency pairs you can trade on Deriv",
   "-1702975584": "Forex in more detail",
-<<<<<<< HEAD
-  "-1856944033": "Forex Ebook",
-  "-907834110": "Trade Forex CFDs on our Deriv platform.",
-  "-773444549": "Your free guide on",
-  "-1871897949": "Foreign exchange – forex or the FX market, as it is commonly known – is one of the biggest marketplaces in the world, offering endless trading opportunities. In this 75-page book, expert trader Vince Stanzione will teach you how to spot and take advantage of trading opportunities in the forex markets, using Deriv’s DTrader and MetaTrader5 platforms.",
-=======
   "-773444549": "Your free guide on",
   "-1871897949": "Foreign exchange – forex or the FX market, as it is commonly known – is one of the biggest marketplaces in the world, offering endless trading opportunities. In this 75-page book, expert trader Vince Stanzione will teach you how to spot and take advantage of trading opportunities in the forex markets, using Deriv’s DTrader and MetaTrader5 platforms.",
   "-1856944033": "Forex Ebook",
   "-907834110": "Trade Forex CFDs on our Deriv platform.",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-785550912": "Stock market seasonality",
   "-124300884": "Learn to trade Stock derivatives the smart way",
   "-1135060666": "In this 57-page e-book by trader Vince Stanzione, you will learn how to diversify your portfolio with commission-free trading on the biggest international stocks and stock market indices. Wall Street 30, US Tech 100, UK 100, Alphabet, Tesla, Amazon plus many more are available on the MetaTrader 5 platform, where you can trade stock derivatives with leverage, allowing you to get started with minimal capital.",
   "-782426189": "We’ll even add in a free demo account on Deriv.com right away. This way, you can practice trading stock derivatives completely risk-free on the Deriv MT5 platform, using a free Financial demo account. And once you are ready to get trading for real, you can get started with as little as $5.",
-<<<<<<< HEAD
-=======
   "-111365181": "forex trading",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1965920446": "Start trading",
   "-1111635562": "Why 1M+ forex traders choose Deriv",
   "-1703592620": "high leverage",
@@ -3703,25 +3606,16 @@
   "-707839573": "Add a Deriv MT5 Financial real account.<0 />",
   "-1743170005": "DMT5 account",
   "-114537153": "Log in to Deriv MT5, select an asset, and start trading.<0 />",
-<<<<<<< HEAD
-  "-742854273": "Weekends",
-  "-791962871": "Ride the trends even on weekends",
-  "-1399909248": "Take advantage of the best trading conditions by Deriv",
-=======
   "-1399909248": "Take advantage of the best trading conditions by Deriv",
   "-742854273": "Weekends",
   "-791962871": "Ride the trends even on weekends",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1293694434": "3 simple steps",
   "-1663221456": "Trade synthetics with our new jump indices and take advantage of the constant volatility with a twist — price jumps.",
   "-1433405472": "Experience equal probability of an upward or downward price jump every 20 minutes on average.",
   "-1687100060": "Available 24/7",
   "-167184778": "Trade with high leverage ratios to have even more opportunities to increase your position size.",
   "-1355872061": "Join over 1 million people who trade stocks, forex and other markets on Deriv.com — the award-winning broker that’s been trusted for over 20 years.",
-<<<<<<< HEAD
-=======
   "-1957784093": "Easy And Free Sign Up | Online Trading | Deriv.com",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1859592272": "deriv platform",
   "-399480833": "deriv platform mobile",
   "-69605883": "background pattern mobile",
@@ -3779,11 +3673,8 @@
   "-931787292": "Options trading allows for a range of payouts from correctly predicting market movements, without needing to buy an underlying asset.",
   "-1235724293": "Multipliers allow you to trade on leverage while limiting downside risk to your investment. You can maximise your potential profit by several multiples of any market movement without risking more than your initial investment.",
   "-1061697694": "Derived Fx | Derived Fx demo account | Deriv",
-<<<<<<< HEAD
-=======
   "-1825149732": "Trade ETFs on Deriv and diversify your portfolio with assets that track bonds, commodities, and indices, without needing to own the underlying assets.",
   "-314383561": "Exchange-traded funds | ETF trading | Deriv",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1850714176": "Trade forex on Deriv's intuitive online trading platforms and get access to a wide range of major, minor, and exotic currency pairs.",
   "-381746202": "US 500",
   "-512194910": "US Tech 100",
@@ -4007,23 +3898,10 @@
   "-1356010780": "Implement policies to prevent vulnerable persons from trading",
   "-1186213423": "We will refuse underage persons’ access and implement processes to identify customers who are trading beyond their financial capacity.",
   "-220003669": "We will implement know-your-customer (KYC) controls and prevent money laundering and other unlawful activities on our platforms.",
-<<<<<<< HEAD
-  "-586716383": "Our principles | Deriv",
-  "-223886724": "Our principles",
-  "-184006493": "Go to Cashier > Deriv P2P and register.",
-  "-2138310324": "Scan the QR code to download Deriv P2P",
-  "-673401995": "Deriv’s P2P mobile app",
-  "-834818166": "21,000+",
-  "-1154771259": "Want to learn more about Deriv P2P? Head to our <0>Help Centre</0>",
-  "-861802092": "Exchange in minutes. Less waiting, more trading. Deposit and withdraw in <0 /> minutes.",
-  "-140275707": "Deriv’s P2P app buy and sell",
-  "-297247067": "Take a look at Deriv P2P’s product roadmap, give us your feedback on what we’re building, and suggestions on what to build next.",
-=======
   "-223886724": "Our principles",
   "-586716383": "Our principles | Deriv",
   "-141169956": "Deriv P2P – peer-to-peer deposit and withdrawal service",
   "-1451760391": "With Deriv P2P your deposits and withdrawals are easy, fast, and efficient. Access now via the desktop or mobile app.",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-68718669": "Deriv is the next step in the evolution of Binary.com, the company with a proven record of delivering market-leading products that are trusted around the world.",
   "-919442675": "We offer the widest selection of derivatives to trade, with sharp prices and tight spreads that attract over 2.5 million online traders worldwide. Our technology provides an intuitive and powerful trading experience, enabling our clients to understand risk more effectively to make better trading decisions.",
   "-550677199": "Trading accounts opened",
@@ -4043,10 +3921,7 @@
   "-268471694": "0.75%",
   "-711200693": "0%",
   "-13699993": "Deriv Affiliate Programme",
-<<<<<<< HEAD
-=======
   "-806909894": "Partner with us as an affiliate. Earn commission from your referred client’s deposits.",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1218045572": "Choose a commission plan:",
   "-11615110": "Turnover",
   "-449109188": "<0>Options:</0> Earn based on each contract’s payout probability.",
@@ -4080,10 +3955,7 @@
   "-2061883933": "2.5",
   "-1587788256": "DMT5 Financial STP calculated second",
   "-921778308": "How it's calculated",
-<<<<<<< HEAD
-=======
   "-1416309087": "The Deriv Affiliate Programme is an exciting partnership programme where you benefit from bringing in new clients.",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1606777087": "The Deriv Affiliate Programme is an exciting partnership programme where you benefit from bringing in new clients to trade on our DTrader and DBot platforms.",
   "-1322494837": "We offer a complete trading experience tailored to the needs of an exceptionally wide range of traders. New traders can learn about trading and practise trading risk-free with a demo account. Seasoned traders can take advantage of the wide range of markets, trade conditions, and analysis tools we offer.",
   "-823166137": "Why should I become a Deriv affiliate?",
@@ -4134,20 +4006,13 @@
   "-1253892742": "Advertise",
   "-2139211466": "Use your unique affiliate link and our tried-and-tested referral tools to bring new clients to Deriv.",
   "-2096939984": "Why partner with us",
-<<<<<<< HEAD
-=======
   "-1669980379": "Sign up as our affiliate",
   "-871158567": "Deriv Affiliate Programme is free. Enjoy reliable payouts by getting your affiliate commissions paid to your Deriv account.",
   "-372628491": "Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on popular financial markets with the utmost convenience. Deriv Group Ltd — the owner of Binary.com and Deriv.com — has a proven track record of running successful referral programmes with prompt payouts.",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-903553712": "Start off as an affiliate and get ensuing access to our IB programme. Earn commission for as long as your referred clients keep trading.",
   "-2090447319": "DMT5 and Dtrader trading platform at Deriv",
   "-1299009682": "Optimise conversions with great user experience and creative support",
   "-1657692765": "Marketing creative material",
-<<<<<<< HEAD
-  "-372628491": "Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on popular financial markets with the utmost convenience. Deriv Group Ltd — the owner of Binary.com and Deriv.com — has a proven track record of running successful referral programmes with prompt payouts.",
-=======
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1225936915": "Be our partner | Partnership programmes | Deriv",
   "-1163074287": "Explore Deriv’s partnership programmes and team up with a trusted online trading broker to earn extra income.",
   "-2066779239": "FAQs",
@@ -4250,10 +4115,6 @@
   "-1460908018": "Multipliers - cryptocurrencies",
   "-682734426": "Multipliers - synthetics: Volatility 250 (1s) Index",
   "-832341678": "CFDs - synthetics: Crash 300 Index",
-<<<<<<< HEAD
-  "-1678516609": "Deriv operates and offers its products and services under the Deriv Group, which has several subsidiary companies licensed in their respective jurisdictions.",
-=======
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1488849807": "The services offered on Deriv.com are provided by the Deriv Group. The group has several subsidiary companies that are licensed to operate Deriv.com in their registered jurisdictions.",
   "-1131400885": "Deriv Investments (Europe) Limited",
   "-398588615": "Deriv Investments (Europe) Limited – W Business Centre, Level 3, Triq Dun Karm, Birkirkara BKR 9033, Malta – is licensed in Malta (<0>licence no. IS/70156</0>) and regulated by the Malta Financial Services Authority under the Investments Services Act to provide investment services in the European Union.",
@@ -4267,14 +4128,9 @@
   "-386585223": "Deriv (SVG) LLC is located in First Floor, SVG Teachers Credit Union Uptown Building, Corner of James and Middle Street, Kingstown P. O., St. Vincent and the Grenadines (company no. 273 LLC 2020).",
   "-1824040310": "Deriv Holdings (Guernsey) Limited",
   "-1528857737": "The Financial Commission",
-<<<<<<< HEAD
-  "-2054653788": "Forgot your Deriv password? Want to reset your password? Send us your email address and we’ll email you the instructions.",
-  "-1937167246": "Return to log in",
-=======
   "-1678516609": "Deriv operates and offers its products and services under the Deriv Group, which has several subsidiary companies licensed in their respective jurisdictions.",
   "-1937167246": "Return to log in",
   "-2054653788": "Forgot your Deriv password? Want to reset your password? Send us your email address and we’ll email you the instructions.",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1354825404": "New to trading?",
   "-669896084": "Strong password",
   "-1511869631": "Use strong and varied passwords. Make them as difficult as possible for anyone to guess.",
@@ -4312,15 +4168,9 @@
   "-188305238": "Funds & transfers",
   "-2100890115": "Security & privacy",
   "-732092769": "Risk disclosure",
-<<<<<<< HEAD
-  "-488793705": "Terms and conditions | Legal policies | Deriv",
-  "-924881302": "This is where you’ll find information about our legal policies and how they apply to you. The documents linked below collectively form our standard terms of use (the “Terms”). It’s important that you make yourself aware of these Terms and agree to them before using any of our websites, products, or services.",
-  "-1532421724": "FOR BUSINESS PARTNERS",
-=======
   "-924881302": "This is where you’ll find information about our legal policies and how they apply to you. The documents linked below collectively form our standard terms of use (the “Terms”). It’s important that you make yourself aware of these Terms and agree to them before using any of our websites, products, or services.",
   "-1532421724": "FOR BUSINESS PARTNERS",
   "-488793705": "Terms and conditions | Legal policies | Deriv",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-628929749": "Crash/Boom indices",
   "-739489985": "Crash/Boom indices mimic markets with sudden price movements, either a sharp drop (crash) or a spike (boom) in prices.",
   "-2038780348": "higher lower",
@@ -4349,13 +4199,8 @@
   "-239170576": "Learn about options trading on Deriv. Earn payouts by correctly predicting price movements without needing to buy the underlying assets.",
   "-135132536": "Open a real account, make a deposit, and start trading accumulators for real.",
   "-963994159": "Options trading | Trade digital options on Deriv",
-<<<<<<< HEAD
-  "-1302287224": "Explore what are options on Deriv. Learn how to start trading options with forex, synthetics, stocks & indices, and baskets.",
-  "-1640776435": "Options trading | Trade types | Deriv",
-=======
   "-1640776435": "Options trading | Trade types | Deriv",
   "-1302287224": "Explore what are options on Deriv. Learn how to start trading options with forex, synthetics, stocks & indices, and baskets.",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1573631881": "forex",
   "-79919115": "Access over 50 currency pairs and trade with leverage up to 1:1000 to increase your market exposure.",
   "-52578265": "Access over 30 currency pairs and trade with leverage up to 1:30 to increase your market exposure.",
@@ -4380,17 +4225,10 @@
   "-1477021091": "You can use our swap calculator to estimate the swap charges required to keep your positions open overnight on Deriv’s CFD trading platforms.",
   "-1984817147": "On Deriv, you can trade CFDs with tight spreads. The spread is the difference between the buy price and sell price. The tighter the spread, the lower the cost to enter the market.",
   "-877732419": "<0>High leverage</0> — Leverage allows you to open larger positions with a smaller balance in your trading account. The higher the leverage, the less money you need.",
-<<<<<<< HEAD
-  "-1794853647": "CFD trading | Online trading platform | Deriv",
-  "-31586003": "Trade CFDs on multiple markets. Enjoy high leverage, tight spreads, and risk management features to amplify your potential profits and limit losses.",
-  "-319509090": "CFD trading",
-  "-2087689842": "Why trade CFDs on Deriv",
-=======
   "-319509090": "CFD trading",
   "-2087689842": "Why trade CFDs on Deriv",
   "-1794853647": "CFD trading | Online trading platform | Deriv",
   "-31586003": "Trade CFDs on multiple markets. Enjoy high leverage, tight spreads, and risk management features to amplify your potential profits and limit losses.",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-2089509521": "arrow right",
   "-1845399397": "Increased market exposure",
   "-1126407219": "Get more market exposure while limiting risk to your stake amount.",
@@ -4500,8 +4338,6 @@
   "-2138295691": "What are options?",
   "-1504129614": "Options are products that allow for payouts from predicting market movements, without needing to buy the underlying asset. You only need to open a position that predicts how the asset will move over a period of time. This makes it possible for people to participate in the financial markets with minimal capital investment.",
   "-1746360444": "Options available on Deriv",
-<<<<<<< HEAD
-=======
   "-659039661": "Accumulator options | Trade options | Deriv",
   "-615241025": "Open a digital options contract with a Lookbacks trade type on Deriv’s trading platforms and earn payouts with accurate market predictions.",
   "-1225084394": "Open a digital options contract with an Only ups/Only downs trade type on Deriv’s trading platforms and earn payouts with accurate market predictions.",
@@ -4510,7 +4346,6 @@
   "-376204933": "Touch/No touch | Digital options contract | Deriv",
   "-562730170": "Open a digital options contract with a Touch/No touch trade type on Deriv’s trading platforms and earn payouts with accurate market predictions.",
   "-99150551": "Vanilla options | Trade options | Deriv",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-2024884579": "{{fieldName}} is required",
   "-1461005658": "Please enter a valid amount, including the decimal point (.), in this format: ####.#",
   "-437139044": "Input must be greater than 0",
@@ -4623,13 +4458,8 @@
   "-40032056": "How to calculate stop loss and take profit amount",
   "-879231159": "<0>Stop loss and take profit amount in the Up direction = Max [{stake × ((stop loss OR take profit level - asset price) ÷ asset price × multiplier) - commission}, -stake]</0>",
   "-1314217739": "<0>Stop loss and take profit amount in the Down direction = Max [{stake × (-(stop loss OR take profit level - asset price) ÷ asset price × multiplier) - commission}, -stake]</0>",
-<<<<<<< HEAD
-  "-1139241115": "PnL Multipliers Calculator",
-  "-52920846": "Stop loss and take profit calculator for multipliers",
-=======
   "-52920846": "Stop loss and take profit calculator for multipliers",
   "-1139241115": "PnL Multipliers Calculator",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1716318326": "( -7.5 ",
   "-1003218369": "<0>-0.83</0>",
   "-678435511": "<0>-0.24</0>",
@@ -4668,12 +4498,6 @@
   "-722677708": "Find Instrument",
   "-446531930": "Trading specifications | CFD trading | Trading with Deriv",
   "-499889649": "Find Deriv’s CFD trading specifications for multiple assets in forex, derived indices, stocks and indices, cryptocurrencies, and commodities.",
-<<<<<<< HEAD
-  "-1706181054": "Unsubscribe from Deriv emails.",
-  "-2040051099": "Unsubscribed successfully",
-  "-231863107": "No",
-  "-1033881248": "See our open positions",
-=======
   "-2040051099": "Unsubscribed successfully",
   "-231863107": "No",
   "-1706181054": "Unsubscribe from Deriv emails.",
@@ -4691,7 +4515,6 @@
   "-661813412": "Enjoy full access to all our markets and platforms.",
   "-1520902282": "No credit card needed",
   "-2022759357": "Make trading accessible to anyone, anywhere",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-293057652": "Deriv is one of the world’s largest online brokers. We offer CFDs and other derivatives on forex, stocks & indices, cryptocurrencies, commodities, and derived to millions of registered users across the globe.",
   "-77779780": "From inception, our goal was to break free of the high commissions and clunky products offered by traditional brokers. Also, we aim to deliver a first-class experience to digitally inclined traders, regardless of the size of their accounts.",
   "-1468738308": "In a journey spanning more than 22 years, we have grown to over 2.5 million customers worldwide. But our mission has remained the same.",
@@ -4702,35 +4525,9 @@
   "-611750993": "Competence",
   "-1676257949": "We value colleagues with an aptitude to learn and grow and the ability to use good judgement.",
   "-1111451256": "Teamwork",
-<<<<<<< HEAD
-  "-690367121": "Asunción, Paraguay",
-  "-2115035597": "Ciudad del Este, Paraguay",
-  "-1823196348": "George Town, Cayman Islands",
-  "-1407021161": "Limassol, Cyprus",
-  "-1212698711": "Cyberjaya, Malaysia",
-  "-1195888299": "Labuan, Malaysia",
-  "-1248217739": "Road Town, British Virgin Islands",
-  "-1694351814": "Guernsey, Channel Islands",
-  "-188641562": "Reading, United kingdom",
-  "-36064087": "1000+",
-  "-1165835520": "employees",
-  "-1373949478": "50+",
-  "-651384976": "nationalities",
-  "-1972341214": "20",
-  "-1400973409": "USD 26M+",
-  "-275117592": "withdrawals last month",
-  "-654476117": "114M+",
-  "-608807773": "trades last month",
-  "-2022759357": "Make trading accessible to anyone, anywhere",
-  "-1855417261": "Our leadership",
-  "-418008452": "Our principles are the framework for our decisions",
-  "-3618456": "Learn more about our principles",
-  "-169612585": "leader",
-=======
   "-418008452": "Our principles are the framework for our decisions",
   "-3618456": "Learn more about our principles",
   "-1855417261": "Our leadership",
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
   "-1277783292": "Chief Operating Officer",
   "-1369524546": "Chief Information Officer",
   "-2049472334": "Chief Risk & Compliance Officer",
@@ -4739,24 +4536,9 @@
   "-290006480": "Vice President of Product",
   "-871474425": "Vice President of IT Operations",
   "-864130274": "Head of Accounts",
-<<<<<<< HEAD
-  "-234962411": "Who we are | An Online Trading Platform | Deriv.com",
-  "-719133900": "Deriv is a pioneering and award-winning online trading platform that offers a wide selection of derivatives for anyone, anywhere to trade.",
-  "-328903026": "Best Forex Broker Africa",
-  "-1129579596": "Africa Forex Award",
-  "-599033718": "Deriv does not use your money for its business interests and you are allowed to withdraw your money at any time. All your money is segregated and held in secure financial institutions. In this way, in the unlikely event of Deriv becoming insolvent, all your money will be returned to you because it is never merged with ours.",
-  "-392665367": "Help when you need it",
-  "-367457070": "Deriv makes it easy for anyone to start trading, understand risk, and make better trading decisions. Our tools and platforms have clear and simple instructions and are intuitively easy to navigate. We also regularly provide market news, analysis, webinars, ebooks, video tutorials and help centre articles to help you stay informed and become a better trader.",
-  "-811263292": "Latin America Forex Award",
-  "-594286125": "Practise trading with Deriv as long as you like. No risk, no hidden fees.",
-  "-1773685845": "All markets and platforms",
-  "-661813412": "Enjoy full access to all our markets and platforms.",
-  "-1520902282": "No credit card needed"
-=======
   "-275117592": "withdrawals last month",
   "-608807773": "trades last month",
   "-1165835520": "employees",
   "-651384976": "nationalities",
   "-1033881248": "See our open positions"
->>>>>>> 03151e76b04f3f7874bc722f76933229a93fb834
 }

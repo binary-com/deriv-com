@@ -136,7 +136,7 @@ export const african_countries = [
 // special partnership payments for this countries
 export const cpa_plan_countries = ['za', 'ec']
 
-export const isEuCountry = (clients_country: typeof eu_countries[number]): boolean =>
+export const isEuCountry = (clients_country: (typeof eu_countries)[number]): boolean =>
     eu_countries.includes(clients_country)
 
 // added for QA purposes only
@@ -447,4 +447,63 @@ export const not_available_appgallery_countries = [
     'ye',
     'zm',
     'zw',
+]
+
+export const not_available_ctrader_countries = [
+    'as',
+    'au',
+    'at',
+    'be',
+    'bg',
+    'ca',
+    'ky',
+    'hr',
+    'cu',
+    'cy',
+    'cz',
+    'dk',
+    'ee',
+    'fi',
+    'fr',
+    'de',
+    'gr',
+    'gu',
+    'gg',
+    'hk',
+    'hu',
+    'ir',
+    'ie',
+    'im',
+    'il',
+    'it',
+    'je',
+    'kp',
+    'lv',
+    'lt',
+    'lu',
+    'my',
+    'mt',
+    'mm',
+    'nl',
+    'mp',
+    'py',
+    'pl',
+    'pt',
+    'pr',
+    'ro',
+    'rw',
+    'sg',
+    'sk',
+    'si',
+    'es',
+    'se',
+    'sy',
+    'ae',
+    'gb',
+    'um',
+    'us',
+    'vu',
+    'vi',
+    'jp',
+    'no',
 ]

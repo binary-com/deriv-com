@@ -1,11 +1,11 @@
-// eslint-disable-next-line no-unused-vars
-const { defaults } = require('jest-config')
 module.exports = {
     // A set of global variables that need to be available in all test environments
     globals: {},
 
     // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
-    testURL: 'http://localhost:8000',
+    testEnvironmentOptions: {
+        url: 'http://localhost:8000'
+    },
 
     // Indicates whether the coverage information should be collected while executing the test
     collectCoverage: false,
@@ -20,7 +20,7 @@ module.exports = {
     coverageDirectory: './coverage/',
 
     // The glob patterns Jest uses to detect test files
-    testMatch: ['<rootDir>/src/**/__tests__/**/?(*.)+(spec).[jt]s?(x)'],
+    testMatch: ['<rootDir>/src/features/**/__tests__/**/?(*.)+(spec).[jt]s?(x)'],
 
     // The test environment that will be used for testing
     testEnvironment: 'jsdom',
@@ -32,7 +32,7 @@ module.exports = {
     },
 
     // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
-    transformIgnorePatterns: [`node_modules/(?!(gatsby|gatsby-script)/)`],
+    transformIgnorePatterns: [`node_modules/(?!(gatsby|gatsby-script|gbimage-bridge|p-min-delay|uuid)/)`],
 
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
     moduleNameMapper: {
@@ -40,21 +40,19 @@ module.exports = {
         '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': `<rootDir>/__mocks__/file-mock.js`,
         '^common/(.*)$': '<rootDir>/src/common/$1',
         '^components/(.*)$': '<rootDir>/src/components/$1',
+        '^features/(.*)$': '<rootDir>/src/features/$1',
         '^images/(.*)$': '<rootDir>/src/images/$1',
         '^lotties/(.*)$': '<rootDir>/src/lotties/$1',
         '^pages/(.*)$': '<rootDir>/src/pages/$1',
-        '^store': '<rootDir>/src/store/$1',
+        '^store/(.*)$': '<rootDir>/src/store/$1',
         '^templates': '<rootDir>/src/templates/$1',
         '^themes/(.*)$': '<rootDir>/src/themes/$1',
         '^translations/(.*)$': '<rootDir>/src/translations/$1',
         '^types/(.*)$': '<rootDir>/src/types/$1',
-        '^gatsby-page-utils/(.*)$': `gatsby-page-utils/dist/$1`,
-        '^gatsby-core-utils/(.*)$': `gatsby-core-utils/dist/$1`,
-        '^gatsby-plugin-utils/(.*)$': [`gatsby-plugin-utils/dist/$1`, `gatsby-plugin-utils/$1`],
     },
 
     // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-    testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`],
+    testPathIgnorePatterns: [`node_modules`, `\\.cache`, `<rootDir>.*/public`, `<rootDir>/src/features/pages` ],
 
     // An array of directory names to be searched recursively up from the requiring module's location
     moduleDirectories: ['node_modules'],

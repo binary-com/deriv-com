@@ -1,0 +1,64 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.get_in_touch_container {
+    inline-size: 100%;
+    border-radius: 16px;
+
+    @include breakpoints(phone) {
+        inline-size: 90%;
+        min-block-size: 36rem;
+        margin-inline: auto;
+    }
+    @include breakpoints(tablet) {
+        max-width: 100%;
+    }
+}
+
+.banner_container {
+    inline-size: 90%;
+    margin-inline: auto;
+    @include breakpoints(phone) {
+        inline-size: 80%;
+    }
+}
+
+.get_in_touch_form_container {
+    @include breakpoints(tablet) {
+        position: relative;
+    }
+}
+
+.get_in_touch_form {
+    min-block-size: 48.4rem;
+
+    box-shadow: 0px 0px 16px rgba(14, 14, 14, 0.04), 0px 16px 16px rgba(14, 14, 14, 0.04);
+    border-radius: 8px;
+    @include breakpoints(tablet) {
+        max-inline-size: 41.4rem;
+        min-inline-size: 32rem;
+        box-shadow: 0px 32px 64px rgba(14, 14, 14, 0.14);
+        position: absolute;
+        inset-block-start: 5rem;
+        inset-inline-start: 3rem;
+    }
+    @include breakpoints(laptop) {
+        inset-block-start: 4rem;
+        inset-inline-start: 8rem;
+        min-inline-size: 35rem;
+    }
+    @include breakpoints(desktop) {
+        min-inline-size: 41.4rem;
+    }
+}
+
+.text_banner_container {
+    position: relative;
+    overflow: hidden;
+}
+
+.container_box{
+    @include breakpoints(tablet) {
+        margin-bottom: 18rem !important;
+    }
+}

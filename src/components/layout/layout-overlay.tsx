@@ -1,17 +1,12 @@
 import React from 'react'
 import Loadable from '@loadable/component'
 import styled from 'styled-components'
-import CFDWarningBanner from './cfd-warning-banner'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import BannerAlert from 'components/custom/_banner-alert'
 import { bannerTypes } from 'common/constants'
 
 const LiveChat = Loadable(() => import('./livechat'))
 const WhatsApp = Loadable(() => import('./whatsapp'))
-
-type TProps = {
-    is_ppc: boolean
-}
 
 const OverlayContainer = styled.div<{ is_rtl: boolean }>`
     pointer-events: none;
@@ -24,7 +19,7 @@ const OverlayContainer = styled.div<{ is_rtl: boolean }>`
     align-items: ${({ is_rtl }) => (is_rtl ? 'flex-start' : 'flex-end')};
 `
 
-const LayoutOverlay = ({ is_ppc = false }: TProps) => {
+const LayoutOverlay = () => {
     const is_rtl = useIsRtl()
 
     return (
@@ -32,7 +27,6 @@ const LayoutOverlay = ({ is_ppc = false }: TProps) => {
             <LiveChat />
             <WhatsApp />
             <BannerAlert bannerType={bannerTypes.cookieBanner} />
-            <CFDWarningBanner is_ppc={is_ppc} />
         </OverlayContainer>
     )
 }

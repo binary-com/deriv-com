@@ -17,7 +17,7 @@ export type TTranslationComponents = {
 
 type TLocalize = {
     translation_text?: TString
-    eu_translation_text?: TString
+    eu_translation_text?: TString | null
     translation_components?: TTranslationComponents
     img?: TImage
 }

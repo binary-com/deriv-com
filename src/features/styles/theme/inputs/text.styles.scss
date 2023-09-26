@@ -3,12 +3,12 @@
 .text_input {
     &_container {
         position: relative;
-        &.error{
-            & > input{
+        &.error {
+            & > input {
                 border: 1px solid $color-brand;
             }
             label {
-                color:$color-brand;
+                color: $color-brand !important;
             }
         }
         & > input {
@@ -31,13 +31,17 @@
                 outline: none;
                 ~ .text_input_label {
                     inset-block-start: -8px;
+                    color: $color-black;
+                    inline-size: auto;
                 }
             }
             &:not(:placeholder-shown) ~ .text_input_label {
                 inset-block-start: -12px;
+                inline-size: auto;
+                color: $color-black;
             }
         }
-        .cross_icon{
+        .cross_icon {
             position: absolute;
             inset-inline-end: 0.8rem;
             inset-block-start: 1.2rem;
@@ -56,11 +60,10 @@
         transition: 0.2s ease all;
         -moz-transition: 0.2s ease all;
         -webkit-transition: 0.2s ease all;
+        inline-size: 80%;
     }
 
     &_error {
-        position: absolute;
-        inset-block-end: -2.1rem;
         inset-inline-start: 15px;
     }
 }

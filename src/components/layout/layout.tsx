@@ -1,4 +1,5 @@
 import React, { ReactNode, Ref } from 'react'
+import loadable from '@loadable/component'
 import styled from 'styled-components'
 import { LocationProvider } from './location-context'
 import LayoutOverlay from './layout-overlay'
@@ -13,25 +14,24 @@ import PaymentAgentAffiliateNav from 'features/components/templates/navigation/p
 import BugBountyNav from 'features/components/templates/navigation/bug-bounty-nav'
 import CareerNav from 'features/components/templates/navigation/career-nav'
 import MarketNav from 'features/components/templates/navigation/market-nav'
-import RebrandingFooter from 'features/components/templates/footer'
 import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
 import BannerAlert from 'components/custom/_banner-alert'
 import { bannerTypes } from 'common/constants'
 
-// const LoadableFooter = Loadable(() => import('./footer'))
-// const BeSquareFooter = Loadable(() => import('./besquare/footer'))
+const RebrandingFooter = loadable(() => import('features/components/templates/footer'))
 
 type LayoutProps = {
     children: ReactNode
     is_ppc?: boolean
     is_ppc_redirect?: boolean
-    margin_top?: number | string
+    padding_top?: string
     type?: string
+    show_footer?: boolean
 }
 
 type MainType = {
     is_static?: boolean
-    margin_top?: number | string
+    padding_top?: string
 }
 
 export type ModalPayloadType = {
@@ -43,10 +43,13 @@ export type ModalPayloadType = {
 }
 
 const Main = styled.main<MainType>`
-    margin-top: ${(props) => (props.margin_top && `${props.margin_top}rem`) || '7rem'};
+    padding-top: ${({ padding_top }) => (padding_top && `${padding_top}rem`) || '7rem'};
     background: var(--color-white);
     height: 100%;
     position: relative;
+    position: relative;
+    max-inline-size: 256rem;
+    margin-inline: auto;
 `
 
 if (isBrowser()) {
@@ -83,8 +86,9 @@ const Layout = ({
     children,
     is_ppc = false,
     is_ppc_redirect = false,
-    margin_top = '',
+    padding_top,
     type = 'default',
+    show_footer = true,
 }: LayoutProps) => {
     const [is_mounted] = usePageLoaded()
     const [show_modal, toggleModal, closeModal] = useModal()
@@ -96,7 +100,7 @@ const Layout = ({
     //Handle page layout when redirection from mobile app.
     if (has_platform) {
         return (
-            <Main margin_top={'0'} is_static={is_static}>
+            <Main padding_top="0" is_static={is_static}>
                 {children}
             </Main>
         )
@@ -110,7 +114,7 @@ const Layout = ({
                 setModalPayload={setModalPayload}
             >
                 <div className="styled-layout">
-                    <Main margin_top={margin_top} is_static={is_static}>
+                    <Main padding_top={padding_top} is_static={is_static}>
                         {children}
                     </Main>
                     <EURedirect
@@ -127,7 +131,7 @@ const Layout = ({
                     <LayoutOverlay is_ppc={is_ppc} />
                 </div>
             </LocationProvider>
-            <RebrandingFooter />
+            {show_footer && <RebrandingFooter />}
         </PpcProvider>
     )
 }

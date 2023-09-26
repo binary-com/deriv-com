@@ -58,7 +58,11 @@ const useLiveColumns = (markets_data, prev_data) => {
                 ),
                 cell: (info) => (
                     <Flex.Box>
-                        <SymbolIcon icon_src={info.getValue()} />
+                        {info.row.original.mkt !== 'etfs' ? (
+                            <SymbolIcon icon_src={info.getValue()} />
+                        ) : (
+                            <SymbolIcon icon_src="ETFSICON" />
+                        )}
                     </Flex.Box>
                 ),
             }),

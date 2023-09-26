@@ -9,8 +9,10 @@ import Typography from 'features/components/atoms/typography'
 import Link from 'features/components/atoms/link'
 import { Localize } from 'components/localization'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import useRegion from 'components/hooks/use-region'
 
 const BladeShapeBanner = ({ data }: { data: BannerType }) => {
+    const { is_appgallery_supported } = useRegion()
     const { is_mobile } = useBreakpoints()
     return (
         <Container.Fixed
@@ -108,40 +110,53 @@ const BladeShapeBanner = ({ data }: { data: BannerType }) => {
                                     <Localize translate_text={data.scan_box.heading_one} />
                                 </Typography.Paragraph>
                                 <Typography.Heading size={'xxs'} textcolor={'white'}>
-                                    <Localize translate_text={data.scan_box.heading_two} />
+                                    <Localize
+                                        translate_text={
+                                            is_appgallery_supported
+                                                ? data.scan_box.heading_two
+                                                : data.scan_box.heading_three
+                                        }
+                                    />
                                 </Typography.Heading>
                             </FlexBox.Box>
                         </FlexBox.Box>
                         <Flex.Box wrap={'wrap'} justify={'start'} pl={'12x'}>
-                            {data.os_apps.map((item) => (
-                                <Flex.Box
-                                    key={item.id}
-                                    align={'center'}
-                                    padding_block={'8x'}
-                                    basis={'6-12'}
-                                >
-                                    <Image
-                                        src={item.data.icon}
-                                        alt={item.data.text}
-                                        width={is_mobile ? 24 : 32}
-                                        height={is_mobile ? 24 : 32}
-                                    />
-                                    <Link pl={'3x'} url={item.data.url} no_hover>
-                                        {item?.data.smallText && (
-                                            <Typography.Paragraph textcolor={'white'} size={'xxs'}>
-                                                <Localize translate_text={item.data.smallText} />
+                            {data.os_apps
+                                .filter((item) => is_appgallery_supported || item.id !== 2)
+                                .map((item) => (
+                                    <Flex.Box
+                                        key={item.id}
+                                        align={'center'}
+                                        padding_block={'8x'}
+                                        basis={'6-12'}
+                                    >
+                                        <Image
+                                            src={item.data.icon}
+                                            alt={item.data.text}
+                                            width={is_mobile ? 24 : 32}
+                                            height={is_mobile ? 24 : 32}
+                                        />
+                                        <Link pl={'3x'} url={item.data.url} no_hover>
+                                            {item?.data.smallText && (
+                                                <Typography.Paragraph
+                                                    textcolor={'white'}
+                                                    size={'xxs'}
+                                                >
+                                                    <Localize
+                                                        translate_text={item.data.smallText}
+                                                    />
+                                                </Typography.Paragraph>
+                                            )}
+                                            <Typography.Paragraph
+                                                textcolor={'white'}
+                                                size={'large'}
+                                                weight={'bold'}
+                                            >
+                                                {item.data.text}
                                             </Typography.Paragraph>
-                                        )}
-                                        <Typography.Paragraph
-                                            textcolor={'white'}
-                                            size={'large'}
-                                            weight={'bold'}
-                                        >
-                                            {item.data.text}
-                                        </Typography.Paragraph>
-                                    </Link>
-                                </Flex.Box>
-                            ))}
+                                        </Link>
+                                    </Flex.Box>
+                                ))}
                         </Flex.Box>
                     </div>
                 </Flex.Box>

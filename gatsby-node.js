@@ -1,5 +1,6 @@
 /* eslint-disable import/order */
 const language_config = require(`./i18n-config.js`)
+const language_config_en = require(`./i18n-config-en.js`)
 const path = require('path')
 
 const translations_cache = {}
@@ -17,6 +18,7 @@ exports.onCreatePage = ({ page, actions }) => {
     const who_we_are = /who-we-are/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
     const is_deriv_ez = /deriv-ez/g.test(page.path)
+    const is_options = /options/g.test(page.path)
 
     if (is_careers) {
         createRedirect({
@@ -155,6 +157,20 @@ exports.onCreatePage = ({ page, actions }) => {
             isPermanent: true,
         })
     }
+    if (is_options) {
+        createRedirect({
+            fromPath: `/trade-types/options/`,
+            toPath: `/trade-types/options/digital-options/up-and-down/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+        createRedirect({
+            fromPath: `/trade-types/options`,
+            toPath: `/trade-types/options/digital-options/up-and-down/`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+    }
 
     if (is_deriv_ez) {
         createRedirect({
@@ -170,8 +186,9 @@ exports.onCreatePage = ({ page, actions }) => {
             isPermanent: true,
         })
     }
+    const is_english = process.env.GATSBY_LANGUAGE === 'en'
 
-    Object.keys(language_config).map((lang) => {
+    Object.keys(is_english ? language_config_en : language_config).map((lang) => {
         // Use the values defined in "locales" to construct the path
         const { path, is_default } = language_config[lang]
         const localized_path = is_default ? page.path : `${path}${page.path}`
@@ -324,6 +341,21 @@ exports.onCreatePage = ({ page, actions }) => {
             })
         }
 
+        if (is_options) {
+            createRedirect({
+                fromPath: `/${lang}/trade-types/options/`,
+                toPath: `/${lang}/trade-types/options/digital-options/up-and-down/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/trade-types/options`,
+                toPath: `/${lang}/trade-types/options/digital-options/up-and-down/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
         if (is_deriv_ez) {
             createRedirect({
                 fromPath: `/${lang}/derivez/`,
@@ -351,10 +383,22 @@ const style_lint_options = {
     lintDirtyModulesOnly: true,
 }
 
-exports.onCreateWebpackConfig = ({ actions, getConfig }, { ...options }) => {
+exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...options }) => {
     const config = getConfig()
     if (config.optimization) {
         config.optimization.minimizer = [new TerserPlugin()]
+    }
+    if (stage === 'build-html' || stage === 'develop-html') {
+        actions.setWebpackConfig({
+            module: {
+                rules: [
+                    {
+                        test: /analytics/,
+                        use: loaders.null(),
+                    },
+                ],
+            },
+        })
     }
     actions.setWebpackConfig({
         plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],

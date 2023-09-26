@@ -3,7 +3,8 @@ import Cookies from 'js-cookie'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { navigate } from 'gatsby'
-import { getCookiesObject, getCookiesFields, getDataObjFromCookies } from 'common/cookies'
+import { useAnalyticsEvents } from 'features/hooks/analytic/use-analytic-events'
+import { getCookiesFields, getCookiesObject, getDataObjFromCookies } from 'common/cookies'
 import { validation_regex } from 'common/validation'
 import apiManager from 'common/websocket'
 import { getLanguage, isBrowser } from 'common/utility'
@@ -41,12 +42,15 @@ const schema = yup.object({
 type FormData = yup.InferType<typeof schema>
 
 const useSignupForm = () => {
+    const { onAnalyticEvent } = useAnalyticsEvents('ce_virtual_signup_form')
     const signUpForm = useForm<FormData>({
         mode: 'onChange',
         resolver: yupResolver(schema),
     })
 
     const onSignup = ({ email }: FormData) => {
+        onAnalyticEvent('started')
+
         const formatted_email = getVerifyEmailRequest(email)
         apiManager
             .augmentedSend('verify_email', {
@@ -63,6 +67,7 @@ const useSignupForm = () => {
                 navigate(success_link, { replace: true })
             })
             .catch((reason) => {
+                onAnalyticEvent('signup_flow_error')
                 signUpForm.setError('email', {
                     message: reason.error.code,
                 })

@@ -53,7 +53,6 @@ const Wrapper = styled.div<{
     animation: ${({ visible }) => (visible ? 'fadeIn' : 'fadeOut')} 0.2s;
     align-self: ${({ is_rtl }) => (is_rtl ? 'flex-end' : 'flex-start')};
     position: absolute;
-    bottom: 7.5rem;
 
     @keyframes fadeIn {
         from {
@@ -159,14 +158,12 @@ const BannerAlert = ({ bannerType }: TProps) => {
     }, [cookie.should_show, is_visible])
 
     //outdated browser banner
-    useEffect(
-        () =>
-            bannerTypes.outdatedBrowserBanner === bannerType &&
+    useEffect(() => {
+        bannerTypes.outdatedBrowserBanner === bannerType &&
             is_outdated &&
             !cookie_browser_update.get(cookie_key) &&
-            setIsVisible(true),
-        [is_outdated],
-    )
+            setIsVisible(true)
+    }, [is_outdated])
 
     const handlePositive = () => {
         const expiration_date = Date.now() + 14 * 86400 * 1000 // 2 weeks later (1209600000 ms)

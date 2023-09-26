@@ -1,6 +1,5 @@
 import about_deriv from '../data/_about-deriv'
 import account from '../data/_account'
-import accumulators from '../data/_accumulators'
 import affiliate_programme from '../data/_affiliate-programme'
 import dbot from '../data/_dbot'
 import deposits_and_withdrawals from '../data/_deposits-and-withdrawals'

@@ -1,0 +1,26 @@
+.form_style {
+    margin: auto;
+    max-inline-size: 350px;
+}
+
+.paragraph_style {
+    width: 500px;
+}
+
+.input_style {
+    width: 100%;
+
+    label {
+        color: var(--color-grey-5);
+        font-size: 14px;
+    }
+    span {
+        font-size: 12px;
+    }
+}
+
+.dropdown_style {
+    label {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,26 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.hero_wrapper {
+    min-block-size: 57.6rem;
+    position: relative;
+    isolation: isolate;
+    padding-block-start: 10.4rem;
+    @include breakpoints(tablet) {
+        min-block-size: 80rem;
+        padding-block-start: 10rem;
+    }
+}
+.container {
+    inline-size: 95%;
+    margin-inline: auto;
+    max-inline-size: 68.8rem;
+    @include breakpoints(tablet) {
+        inline-size: 90%;
+    }
+}
+.hero_img {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}

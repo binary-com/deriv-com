@@ -2,40 +2,41 @@ import React, { useEffect, useRef, useState } from 'react'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import useBreakpoints from 'components/hooks/use-breakpoints'
+import { TTypographyColor } from 'features/types'
 
 type tableCellProps = {
     info: number | string
-    code: string
+    midValue: number | string
     status: string
 }
-const TableCell = ({ info, code, status }: tableCellProps) => {
+const TableCell = ({ info, midValue, status }: tableCellProps) => {
     const { is_mobile } = useBreakpoints()
     const ref = useRef<number | string>()
     // let cell_color = 'grey'
-    const [cell_color, SetCellColor] = useState('gray')
+    const [cell_color, SetCellColor] = useState<TTypographyColor>('secondary')
 
     useEffect(() => {
         if (ref.current) {
-            if (ref.current == info) {
-                SetCellColor('gray')
+            if (ref.current == midValue) {
+                SetCellColor('secondary')
                 console.log('inside equal')
-            } else if (ref.current > info) {
+            } else if (ref.current > midValue) {
                 // cell_color = 'red'
                 // console.log('==>', 'in if ')
-                SetCellColor('red')
+                SetCellColor('brand')
                 console.log('red')
-            } else if (ref.current < info) {
+            } else if (ref.current < midValue) {
                 // cell_color = 'green'
-                SetCellColor('green')
+                SetCellColor('profit')
                 console.log('red')
             } else {
                 // cell_color = 'gray'
-                SetCellColor('gray')
+                SetCellColor('secondary')
             }
         }
 
-        // console.log('up ==>', ref.current, info, code)
-        ref.current = info // Updating the ref to latest/current value
+        // console.log('up ==>', ref.current, midValue, code)
+        ref.current = midValue // Updating the ref to latest/current value
         // setRerender(!rerender)
         // console.log('bottom ==>', ref.current, info, code)
     }, [info])
@@ -43,11 +44,12 @@ const TableCell = ({ info, code, status }: tableCellProps) => {
         <Flex.Box>
             <Typography.Paragraph
                 size={is_mobile ? 'small' : 'medium'}
-                style={{
-                    color: cell_color || 'gray',
-                }}
+                // style={{
+                //     color: cell_color || 'gray',
+                // }}
+                textcolor={cell_color}
             >
-                {info}
+                {info} -- {midValue}
             </Typography.Paragraph>
         </Flex.Box>
     )

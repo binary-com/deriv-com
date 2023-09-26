@@ -117,7 +117,7 @@ const useLiveColumns = (markets_data, prev_data) => {
                     return (
                         <TableCell
                             info={info.getValue()}
-                            code={info.row.original.code}
+                            midValue={info.row.original.mid}
                             status={info.row.original.bid_status}
                         />
                     )
@@ -137,11 +137,16 @@ const useLiveColumns = (markets_data, prev_data) => {
                     </Flex.Box>
                 ),
                 cell: (info) => (
-                    <Flex.Box>
-                        <Typography.Paragraph size={is_mobile ? 'small' : 'medium'}>
-                            {info.getValue()}
-                        </Typography.Paragraph>
-                    </Flex.Box>
+                    <TableCell
+                        info={info.getValue()}
+                        midValue={info.row.original.mid}
+                        status={info.row.original.bid_status}
+                    />
+                    // <Flex.Box>
+                    //     <Typography.Paragraph size={is_mobile ? 'small' : 'medium'}>
+                    //         {info.getValue()}
+                    //     </Typography.Paragraph>
+                    // </Flex.Box>
                 ),
             }),
             liveMarketColumnHelper.accessor('sprd', {
@@ -171,7 +176,6 @@ const useLiveColumns = (markets_data, prev_data) => {
                         <Typography.Paragraph
                             weight="bold"
                             font_family="UBUNTU"
-                            P
                             size={is_mobile ? 'small' : 'medium'}
                             md={{ align: 'left' }}
                         >

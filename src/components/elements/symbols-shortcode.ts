@@ -80,18 +80,9 @@ import USFDX from 'images/svg/symbols/markets-stocks-and-indices/american-stocks
 import USFOX from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-fox-corp-class-b.svg'
 import USGM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-general-motors-company.svg'
 import USGOOG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-alphabet-inc-class-c.svg'
-import USGLDSCH from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-goldman-sachs-group.svg'
 import USHD from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-home-depot.svg'
-import USHPQ from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-hp-inc.svg'
-import USIBM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-ibm.svg'
-import USINTC from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-intel.svg'
-import USJNJ from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-jonhson-johnson.svg'
-import USJPM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-jp-morgan-chase.svg'
 import USKO from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-coca-cola.svg'
-import USMA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-mastercard-inc.svg'
-import USMCD from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-mc-donalds.svg'
 import USMRNA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-moderna-inc.svg'
-import USMSFT from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-microsoft-corporation.svg'
 import USNTFLX from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-netflix.svg'
 import USNKE from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-nike.svg'
 import USNVDA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-nvidia-corp.svg'
@@ -269,18 +260,9 @@ export {
     USFOX,
     USGM,
     USGOOG,
-    USGLDSCH,
     USHD,
-    USHPQ,
-    USIBM,
-    USINTC,
-    USJNJ,
-    USJPM,
     USKO,
-    USMA,
-    USMCD,
     USMRNA,
-    USMSFT,
     USNTFLX,
     USNKE,
     USNVDA,

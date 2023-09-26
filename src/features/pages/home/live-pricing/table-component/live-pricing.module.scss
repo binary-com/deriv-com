@@ -10,7 +10,7 @@
     align-items: center;
     min-block-size: 7.5rem;
     th {
-        padding: 1rem;
+        padding-block: 0;
         inline-size: 7.3rem;
         &:nth-child(1) {
             inline-size: 11rem;
@@ -63,7 +63,7 @@
     gap: 1rem;
 
     td {
-        padding: 1rem;
+        padding-block: 1rem;
         display: flex;
         justify-content: center;
         inline-size: 6.9rem;

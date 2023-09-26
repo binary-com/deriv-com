@@ -9,8 +9,8 @@
     justify-content: center;
     align-items: center;
     min-block-size: 7.5rem;
+    padding: 1.4rem;
     th {
-        padding: 1rem;
         inline-size: 7.3rem;
         &:nth-child(1) {
             inline-size: 11rem;
@@ -61,7 +61,7 @@
     border-block-end: 2px solid var(--color-grey-8);
     align-items: center;
     gap: 1rem;
-
+    padding: 2rem;
     td {
         padding-block: 1rem;
         display: flex;
@@ -80,8 +80,8 @@
         }
     }
     @include breakpoints(phone) {
-        padding: 2rem;
         gap: 0;
+        padding: 1rem;
         td {
             justify-content: flex-start;
             inline-size: 12rem;
@@ -98,7 +98,7 @@
         }
     }
     @include breakpoints(laptop) {
-        padding: 2rem;
+        padding: 1rem;
         gap: 0;
         td {
             justify-content: flex-start;

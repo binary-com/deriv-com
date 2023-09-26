@@ -22,7 +22,7 @@ env:
     GATSBY_RUDDERSTACK_STAGING_KEY: ${{ secrets.GATSBY_RUDDERSTACK_STAGING_KEY }}
     GATSBY_RUDDERSTACK_PRODUCTION_KEY: ${{ secrets.GATSBY_RUDDERSTACK_PRODUCTION_KEY }}
     GATSBY_RUDDERSTACK_URL: ${{ secrets.GATSBY_RUDDERSTACK_URL }}
-    
+
 jobs:
     release-beta:
         timeout-minutes: 30
@@ -53,7 +53,7 @@ jobs:
               with:
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  command: pages publish public --project-name=deriv-com-pages --branch=beta
+                  command: pages deploy public --project-name=deriv-com-pages --branch=beta
 
             - name: Cloudflare preview link ✨
               run: echo "New beta website - https://beta.deriv.com"

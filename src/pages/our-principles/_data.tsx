@@ -17,7 +17,7 @@ type PrinciplesType = {
 
 export const principles: Array<PrinciplesType> = [
     {
-        title: '_t_Be reliable_t_',
+        title: '_t_Test_t_',
         description: [
             {
                 title: '_t_Settle all contracts fairly, accurately, and promptly_t_',

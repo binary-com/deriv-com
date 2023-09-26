@@ -1,0 +1,28 @@
+name: Pre-generate preview link
+
+permissions:
+    pull-requests: write
+
+on:
+    pull_request:
+        types: [opened, synchronize]
+
+concurrency:
+    group: cloudflare-pages-verify-${{ github.head_ref }}
+    cancel-in-progress: true
+
+jobs:
+    verify_pull_request:
+        runs-on: Ubuntu-latest
+        steps:
+            - name: Retrieve PR information
+              run: |
+                  mkdir -p ./pr
+                  echo ${{ github.event.number }} > ./pr/NR
+                  echo ${{ github.event.pull_request.user.login }} > ./pr/USERNAME
+
+            - name: Upload PR information to artifact
+              uses: actions/upload-artifact@v2
+              with:
+                  name: 'pr-${{github.run_id}}'
+                  path: pr/

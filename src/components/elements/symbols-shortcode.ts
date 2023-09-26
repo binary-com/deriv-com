@@ -54,9 +54,6 @@ import FRAIR from 'images/svg/symbols/markets-stocks-and-indices/american-stocks
 import FRAIRF from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-airfrance.svg'
 import DEBAYER from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-bayer-ag.svg'
 import DEBMW from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-bmw.svg'
-import DECONG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-continental-ag.svg'
-import DEDBK from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-deutsche-bank-ag.svg'
-import DELHAG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-deutsche-lufthansa-ag.svg'
 import DEPSHG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-porsche.svg'
 import DEPUMG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-puma.svg'
 import USAAL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-american-airlines-group-inc.svg'
@@ -72,13 +69,7 @@ import USBIIB from 'images/svg/symbols/markets-stocks-and-indices/american-stock
 import USC from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-citigroup.svg'
 import USCRM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-salesforce-com-inc.svg'
 import USCSCO from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-cisco-systems.svg'
-import USDAL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-delta-air-lines.svg'
 import DIS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-walt-disney-company.svg'
-import USEBAY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-e-bay-inc.svg'
-import USFB from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-facebook-inc.svg'
-import USFDX from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-fedex.svg'
-import USFOX from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-fox-corp-class-b.svg'
-import USGM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-general-motors-company.svg'
 import USGOOG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-alphabet-inc-class-c.svg'
 import USGLDSCH from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-goldman-sachs-group.svg'
 import USHD from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-home-depot.svg'
@@ -87,7 +78,6 @@ import USIBM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks
 import USINTC from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-intel.svg'
 import USJNJ from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-jonhson-johnson.svg'
 import USJPM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-jp-morgan-chase.svg'
-import USKO from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-coca-cola.svg'
 import USMA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-mastercard-inc.svg'
 import USMCD from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-mc-donalds.svg'
 import USMRNA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-moderna-inc.svg'
@@ -243,9 +233,6 @@ export {
     FRAIRF,
     DEBAYER,
     DEBMW,
-    DECONG,
-    DEDBK,
-    DELHAG,
     DEPSHG,
     DEPUMG,
     USAAL,
@@ -261,13 +248,7 @@ export {
     USC,
     USCRM,
     USCSCO,
-    USDAL,
     DIS,
-    USEBAY,
-    USFB,
-    USFDX,
-    USFOX,
-    USGM,
     USGOOG,
     USGLDSCH,
     USHD,
@@ -276,7 +257,6 @@ export {
     USINTC,
     USJNJ,
     USJPM,
-    USKO,
     USMA,
     USMCD,
     USMRNA,

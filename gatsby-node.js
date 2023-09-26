@@ -1,5 +1,6 @@
 /* eslint-disable import/order */
 const language_config = require(`./i18n-config.js`)
+const language_config_en = require(`./i18n-config-en.js`)
 const path = require('path')
 const redirects = require('./redirects.json')
 
@@ -11,7 +12,7 @@ exports.createPages = ({ actions }) => {
         createRedirect({
             fromPath: redirect.fromPath,
             toPath: redirect.toPath,
-            isPermanent: true,
+            isPermanent: redirect.status === 301 ? true : false,
             redirectInBrowser: true,
         })
     })
@@ -27,7 +28,26 @@ exports.onCreatePage = ({ page, actions }) => {
         const is_production = process.env.GATSBY_ENV === 'production'
         const excluded_pages_regex =
             /^[a-z-]+\/(careers|endpoint|offline-plugin-app-shell-fallback|besquare|livechat|academy)\//g
+        const is_english = process.env.GATSBY_LANGUAGE === 'en'
 
+        Object.keys(is_english ? language_config_en : language_config).map((lang) => {
+            // Use the values defined in "locales" to construct the path
+            const { path, is_default } = language_config[lang]
+            const localized_path = is_default ? page.path : `${path}${page.path}`
+            const is_production = process.env.GATSBY_ENV === 'production'
+            const excluded_pages_regex =
+                /^[a-z-]+\/(careers|endpoint|offline-plugin-app-shell-fallback|besquare|livechat|academy)\//g
+
+            if (is_production) {
+                if (path === 'ach') return
+            }
+            if (localized_path.match(excluded_pages_regex)) return
+
+            if (!translations_cache[lang]) {
+                const translation_json = require(`./src/translations/${lang}`)
+                translations_cache[lang] = translation_json
+            }
+        })
         if (is_production) {
             if (path === 'ach') return
         }

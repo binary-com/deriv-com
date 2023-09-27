@@ -236,9 +236,9 @@ const DerivIBProgramme = () => {
                                 <Localize translate_text="_t_Choose a commission plan:_t_" />
                             </StyledHeaderCommission>
                             <StyledCardWrapper>
+                                <DERIVIBDMT5Cards data={ib_dmt5_financial} />
                                 <DERIVIBDMT5Cards data={ib_dmt5_swapFree} />
                                 <DERIVIBDMT5Cards data={ib_dmt5_synthetic} />
-                                <DERIVIBDMT5Cards data={ib_dmt5_financial} />
                                 <DERIVIBDMT5Cards data={ib_dmt5_financialSTP} />
                             </StyledCardWrapper>
                         </>

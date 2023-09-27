@@ -173,7 +173,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                 </Flex>
                 <Divider />
                 <Flex>
-                    <EdgeFlex mt="1.8rem">
+                    <EdgeFlex>
                         {kid_data_multiplier.map((data, idx) => (
                             <FlexText
                                 key={idx}

@@ -12,13 +12,13 @@ const HomeHeroSlider = loadable(() => pMinDelay(import('./slider'), 4000), {
     fallback: (
         <SliderWrapper>
             <StaticImage
-                objectFit="fill"
+                objectFit="contain"
                 src="../../../../images/common/home/hero_1.png"
                 alt="person-hero-1"
                 formats={['avif', 'webp', 'auto']}
                 loading="eager"
-                quality={50}
-                placeholder="blurred"
+                quality={100}
+                placeholder="none"
             />
         </SliderWrapper>
     ),
@@ -28,13 +28,13 @@ const HomeHeroSliderEu = loadable(() => pMinDelay(import('./slider'), 4000), {
     fallback: (
         <SliderWrapper>
             <StaticImage
-                objectFit="fill"
+                objectFit="contain"
                 src="../../../../images/common/home/eu_hero_person_5.png"
                 alt="person-hero-1"
                 formats={['avif', 'webp', 'auto']}
                 loading="eager"
-                quality={50}
-                placeholder="blurred"
+                quality={100}
+                placeholder="none"
             />
         </SliderWrapper>
     ),
@@ -64,7 +64,18 @@ const HomeHero = () => {
                 }}
             >
                 <HomeHeroContent />
-                {is_eu ? <HomeHeroSliderEu /> : <HomeHeroSlider />}
+                {/* {is_eu ? <HomeHeroSliderEu /> : <HomeHeroSlider />} */}
+                <SliderWrapper>
+                    <StaticImage
+                        objectFit="contain"
+                        src="../../../../images/common/home/hero_1.png"
+                        alt="person-hero-1"
+                        formats={['avif', 'webp', 'auto']}
+                        loading="eager"
+                        quality={100}
+                        placeholder="none"
+                    />
+                </SliderWrapper>
             </Flex.Box>
         </ProductHeroContainer>
     )

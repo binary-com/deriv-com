@@ -36,8 +36,36 @@ jobs:
                   run_id: ${{ github.event.workflow_run.id }}
                   name: 'pr-${{ github.event.workflow_run.id }}'
 
-            - name: Retrieve pull request and verify user organization
+            - name: Retrieve pull request
               id: pr_information
+              run: |
+                  echo "issue_number=$(cat ./NR)" > $GITHUB_OUTPUT
+
+            - name: 'Generate action link comment'
+              id: generate_action_url
+              uses: actions/github-script@v3
+              with:
+                  github-token: ${{ github.token }}
+                  script: |
+                      const action_url = "${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}}"
+                      const comment = [
+                          '| Name | Result |',
+                          '| :--- | :------ |',
+                          `| **Build status**  | Building 🔨 |`,
+                          `| **Action URL**  | [Visit Action](${action_url}) |`,
+                          ''
+                        ].join('\n')
+                      core.setOutput("comment", comment);
+            - name: Post Cloudflare Pages Preview comment
+              uses: marocchino/sticky-pull-request-comment@v2
+              with:
+                  header: Cloudflare Pages Preview Comment
+                  number: ${{steps.pr_information.outputs.issue_number}}
+                  message: ${{steps.generate_action_url.outputs.comment}}
+                  recreate: true
+
+            - name: Verify user organization
+              id: verify_user_organization
               run: |
                   echo "Verifying user's organization..."
                   user=$(cat ./USERNAME)
@@ -54,7 +82,6 @@ jobs:
                   else
                       echo "User is a member of binary-com organization."
                       echo "Proceeding to build and deploy for the pull request: https://github.com/binary-com/deriv-com/pull/$(cat ./NR)"
-                      echo "issue_number=$(cat ./NR)" > $GITHUB_OUTPUT
                   fi
             - name: Checkout to repo
               uses: actions/checkout@v3
@@ -99,7 +126,8 @@ jobs:
                   echo "Deploying build to Cloudflare Pages"
                   directory='public'
                   projectName='deriv-com-preview-links'
-                  branch=${{github.event.workflow_run.head_branch}}
+                  head_branch=${{github.event.workflow_run.head_branch}}
+                  branch=$(echo $head_branch | head -c 20)
                   preview_url=$(wrangler pages deploy $directory --project-name=$projectName --branch=$branch > log.txt 2>&1; echo $?)
                   echo "------"
                   cat log.txt
@@ -111,22 +139,38 @@ jobs:
                     exit 1
                   fi
             - name: 'Generate preview link comment'
+              if: always()
               id: generate_preview_url
               uses: actions/github-script@v3
               with:
                   github-token: ${{ github.token }}
                   script: |
-                      const preview_url = `https://${{github.event.workflow_run.head_branch}}.deriv-com-preview-links.pages.dev`
-                      const comment = [
-                          `**Preview Link**: ${preview_url}`,
-                          '| Name | Result |',
-                          '| :--- | :------ |',
-                          `| **Build status**  | Completed ✅ |`,
-                          `| **Preview URL**  | [Visit Preview](${preview_url}) |`,
-                          ''
-                        ].join('\n')
+                      let comment;
+                      const action_url = "${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}}"
+                      const status = "${{steps.publish-to-pages.outcome}}"
+                      if (status == 'success') {
+                        const preview_url = "${{steps.publish-to-pages.outputs.preview_url}}"
+                          comment = [
+                            `**Preview Link**: ${preview_url}`,
+                            '| Name | Result |',
+                            '| :--- | :------ |',
+                            `| **Build status**  | Completed ✅ |`,
+                            `| **Preview URL**  | [Visit Preview](${preview_url}) |`,
+                            `| **Action URL**  | [Visit Action](${action_url}) |`,
+                            ''
+                          ].join('\n')
+                      } else {
+                          comment = [
+                            '| Name | Result |',
+                            '| :--- | :------ |',
+                            `| **Build status**  | Failed ❌ |`,
+                            `| **Action URL**  | [Visit Action](${action_url}) |`,
+                            ''
+                          ].join('\n')
+                      }
                       core.setOutput("comment", comment);
             - name: Post Cloudflare Pages Preview comment
+              if: always()
               uses: marocchino/sticky-pull-request-comment@v2
               with:
                   header: Cloudflare Pages Preview Comment

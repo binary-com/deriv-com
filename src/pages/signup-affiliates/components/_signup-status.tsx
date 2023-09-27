@@ -72,8 +72,8 @@ const AffiliateSignupStatus = ({
     setAffiliateAccount,
     onSubmit,
 }: SignUpStatusProps) => {
-    const [username_error, setUsernameError] = useState()
-    const [website_url_error, setWebsiteUrlError] = useState()
+    const [username_error, setUsernameError] = useState<string>()
+    const [website_url_error, setWebsiteUrlError] = useState<string>()
 
     return (
         <>

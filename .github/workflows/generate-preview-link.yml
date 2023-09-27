@@ -181,3 +181,17 @@ jobs:
                   number: ${{steps.pr_information.outputs.issue_number}}
                   message: ${{steps.generate_preview_url.outputs.comment || steps.generate_failure_comment.outputs.comment }}
                   recreate: true
+
+            - name: E2E Smoke Test
+              run: |
+                curl -X POST \
+                -H "Authorization: token ${{ secrets.e2e-deriv-com }}" \
+                -H "Accept: application/vnd.github.everest-preview+json" \
+                "https://api.github.com/repos/deriv-com/e2e-deriv-com/dispatches" \
+                -d '{
+                  "event_type": "run-e2e-tests",
+                  "client_payload": {
+                    "baseurl": "${{steps.publish-to-pages.outputs.preview_url}}"
+                  }
+                }'
+                 

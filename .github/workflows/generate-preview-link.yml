@@ -117,7 +117,7 @@ jobs:
               with:
                   github-token: ${{ github.token }}
                   script: |
-                      const preview_url = `https://${{steps.publish-to-pages.outputs.preview_url}}.deriv-com-preview-links.pages.dev`
+                      const preview_url = "${{steps.publish-to-pages.outputs.preview_url}}"
                       const comment = [
                           `**Preview Link**: ${preview_url}`,
                           '| Name | Result |',

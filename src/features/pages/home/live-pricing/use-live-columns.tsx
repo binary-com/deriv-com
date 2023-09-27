@@ -20,7 +20,7 @@ const useLiveColumns = () => {
                             align="left"
                             weight="bold"
                             font_family="UBUNTU"
-                            size={is_mobile ? 'small' : 'medium'}
+                            size={is_mobile ? 'xs' : 'medium'}
                         >
                             <Localize translate_text="_t_Instrument_t_" />
                         </Typography.Paragraph>
@@ -36,7 +36,7 @@ const useLiveColumns = () => {
                 header: () => <Flex.Box></Flex.Box>,
                 cell: (info) => (
                     <Flex.Box>
-                        <Typography.Paragraph size={is_mobile ? 'small' : 'medium'}>
+                        <Typography.Paragraph size={is_mobile ? 'xs' : 'medium'}>
                             {info.getValue()}
                         </Typography.Paragraph>
                     </Flex.Box>
@@ -49,7 +49,7 @@ const useLiveColumns = () => {
                             align="left"
                             weight="bold"
                             font_family="UBUNTU"
-                            size={is_mobile ? 'small' : 'medium'}
+                            size={is_mobile ? 'xs' : 'medium'}
                         >
                             <Localize translate_text="_t_Bid price_t_" />
                         </Typography.Paragraph>
@@ -57,7 +57,7 @@ const useLiveColumns = () => {
                 ),
                 cell: (info) => (
                     <Flex.Box>
-                        <Typography.Paragraph size={is_mobile ? 'small' : 'medium'}>
+                        <Typography.Paragraph size={is_mobile ? 'xs' : 'medium'}>
                             {info.getValue()}
                         </Typography.Paragraph>
                     </Flex.Box>
@@ -70,7 +70,7 @@ const useLiveColumns = () => {
                             align="left"
                             weight="bold"
                             font_family="UBUNTU"
-                            size={is_mobile ? 'small' : 'medium'}
+                            size={is_mobile ? 'xs' : 'medium'}
                         >
                             <Localize translate_text="_t_Ask price_t_" />
                         </Typography.Paragraph>
@@ -78,7 +78,7 @@ const useLiveColumns = () => {
                 ),
                 cell: (info) => (
                     <Flex.Box>
-                        <Typography.Paragraph size={is_mobile ? 'small' : 'medium'}>
+                        <Typography.Paragraph size={is_mobile ? 'xs' : 'medium'}>
                             {info.getValue()}
                         </Typography.Paragraph>
                     </Flex.Box>
@@ -91,7 +91,7 @@ const useLiveColumns = () => {
                             align="left"
                             weight="bold"
                             font_family="UBUNTU"
-                            size={is_mobile ? 'small' : 'medium'}
+                            size={is_mobile ? 'xs' : 'medium'}
                         >
                             <Localize translate_text="_t_Spread_t_" />
                         </Typography.Paragraph>
@@ -99,7 +99,7 @@ const useLiveColumns = () => {
                 ),
                 cell: (info) => (
                     <Flex.Box>
-                        <Typography.Paragraph size={is_mobile ? 'small' : 'medium'}>
+                        <Typography.Paragraph size={is_mobile ? 'xs' : 'medium'}>
                             {info.getValue()}
                         </Typography.Paragraph>
                     </Flex.Box>
@@ -111,7 +111,7 @@ const useLiveColumns = () => {
                         <Typography.Paragraph
                             weight="bold"
                             font_family="UBUNTU"
-                            size={is_mobile ? 'small' : 'medium'}
+                            size={is_mobile ? 'xs' : 'medium'}
                             md={{ align: 'left' }}
                         >
                             <Localize translate_text="_t_Daily % change_t_" />
@@ -132,7 +132,7 @@ const useLiveColumns = () => {
                     return (
                         <Flex.Box>
                             <Typography.Paragraph
-                                size={is_mobile ? 'small' : 'medium'}
+                                size={is_mobile ? 'xs' : 'medium'}
                                 font_family="UBUNTU"
                                 textcolor={color}
                                 dir="ltr"

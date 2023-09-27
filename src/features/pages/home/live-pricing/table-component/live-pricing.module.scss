@@ -9,8 +9,9 @@
     justify-content: center;
     align-items: center;
     min-block-size: 7.5rem;
+    padding-inline: 0.6rem;
     th {
-        padding-block: 0;
+        padding: 0;
         inline-size: 7.3rem;
         &:nth-child(1) {
             inline-size: 11rem;
@@ -61,6 +62,7 @@
     border-block-end: 2px solid var(--color-grey-8);
     align-items: center;
     gap: 1rem;
+    padding-inline: 0.6rem;
 
     td {
         padding-block: 1rem;
@@ -115,8 +117,3 @@
         }
     }
 }
-
-
-
-
-

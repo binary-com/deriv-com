@@ -36,8 +36,36 @@ jobs:
                   run_id: ${{ github.event.workflow_run.id }}
                   name: 'pr-${{ github.event.workflow_run.id }}'
 
-            - name: Retrieve pull request and verify user organization
+            - name: Retrieve pull request
               id: pr_information
+              run: |
+                  echo "issue_number=$(cat ./NR)" > $GITHUB_OUTPUT
+
+            - name: 'Generate action link comment'
+              id: generate_action_url
+              uses: actions/github-script@v3
+              with:
+                  github-token: ${{ github.token }}
+                  script: |
+                      const action_url = "${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}}"
+                      const comment = [
+                          '| Name | Result |',
+                          '| :--- | :------ |',
+                          `| **Build status**  | Building 🔨 |`,
+                          `| **Action URL**  | [Visit Action](${action_url}) |`,
+                          ''
+                        ].join('\n')
+                      core.setOutput("comment", comment);
+            - name: Post Cloudflare Pages Preview comment
+              uses: marocchino/sticky-pull-request-comment@v2
+              with:
+                  header: Cloudflare Pages Preview Comment
+                  number: ${{steps.pr_information.outputs.issue_number}}
+                  message: ${{steps.generate_action_url.outputs.comment}}
+                  recreate: true
+
+            - name: Verify user organization
+              id: verify_user_organization
               run: |
                   echo "Verifying user's organization..."
                   user=$(cat ./USERNAME)
@@ -54,7 +82,6 @@ jobs:
                   else
                       echo "User is a member of binary-com organization."
                       echo "Proceeding to build and deploy for the pull request: https://github.com/binary-com/deriv-com/pull/$(cat ./NR)"
-                      echo "issue_number=$(cat ./NR)" > $GITHUB_OUTPUT
                   fi
             - name: Checkout to repo
               uses: actions/checkout@v3
@@ -112,11 +139,13 @@ jobs:
                     exit 1
                   fi
             - name: 'Generate preview link comment'
+              if: success()
               id: generate_preview_url
               uses: actions/github-script@v3
               with:
                   github-token: ${{ github.token }}
                   script: |
+                      const action_url = "${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}}"
                       const preview_url = "${{steps.publish-to-pages.outputs.preview_url}}"
                       const comment = [
                           `**Preview Link**: ${preview_url}`,
@@ -124,13 +153,31 @@ jobs:
                           '| :--- | :------ |',
                           `| **Build status**  | Completed ✅ |`,
                           `| **Preview URL**  | [Visit Preview](${preview_url}) |`,
+                          `| **Action URL**  | [Visit Action](${action_url}) |`,
                           ''
                         ].join('\n')
                       core.setOutput("comment", comment);
+            - name: 'Generate failure comment'
+              if: failure()
+              id: generate_failure_comment
+              uses: actions/github-script@v3
+              with:
+                  github-token: ${{ github.token }}
+                  script: |
+                      const action_url = "${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}}"
+                      const comment = [
+                        '| Name | Result |',
+                        '| :--- | :------ |',
+                        `| **Build status**  | Failed ❌ |`,
+                        `| **Action URL**  | [Visit Action](${action_url}) |`,
+                        ''
+                      ].join('\n')
+                      core.setOutput("comment", comment);
             - name: Post Cloudflare Pages Preview comment
+              if: success() || failure()
               uses: marocchino/sticky-pull-request-comment@v2
               with:
                   header: Cloudflare Pages Preview Comment
                   number: ${{steps.pr_information.outputs.issue_number}}
-                  message: ${{steps.generate_preview_url.outputs.comment}}
+                  message: ${{steps.generate_preview_url.outputs.comment || steps.generate_failure_comment.outputs.comment }}
                   recreate: true

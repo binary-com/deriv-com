@@ -8,21 +8,15 @@ import Typography from 'features/components/atoms/typography'
 import Container from 'features/components/atoms/container'
 import Flex from 'features/components/atoms/flex-box'
 import TabMenu from 'features/components/templates/tabs/menu'
-import useRegion from 'components/hooks/use-region'
 
 const MarketTab = () => {
-    const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('fx')
+    const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
     const [tab_name, setTabName] = useState('Forex')
     const [linkToMarketPage, setLinkToMarketPage] = useState('/markets/forex/')
-    const { is_eu } = useRegion()
-    const updated_market_buttons = market_buttons.filter((items) => {
-        if (!is_eu) return items
-        if (is_eu && items.market_name !== 'etfs') return items
-    })
-
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
     }
+
     return (
         <Container.Fluid>
             <Flex.Box
@@ -30,7 +24,7 @@ const MarketTab = () => {
                 padding_block="10x"
                 md={{ justify: 'center', padding: '10x' }}
             >
-                {updated_market_buttons.map((market_item) => (
+                {market_buttons.map((market_item) => (
                     <Flex.Box
                         key={market_item.button_text}
                         direction="col"
@@ -67,6 +61,7 @@ const MarketTab = () => {
                         </Typography.Paragraph>
                     ),
             )}
+
             <LiveMarketTable selected_market={selected_market} link_to={linkToMarketPage} />
         </Container.Fluid>
     )

@@ -8,8 +8,8 @@ import Flex from 'features/components/atoms/flex-box'
 import ProductHeroContainer from 'features/components/templates/hero-banners/product'
 import useRegion from 'components/hooks/use-region'
 
-const HomeHeroSlider = lazy(() => import('./slider'))
-const HomeHeroSliderEu = lazy(() => import('./slider'))
+const HomeHeroSlider = lazy(() => pMinDelay(import('./slider'), 4000))
+const HomeHeroSliderEu = lazy(() => pMinDelay(import('./slider'), 4000))
 
 // const HomeHeroSlider = loadable(() => pMinDelay(import('./slider'), 4000), {
 //     fallback: (

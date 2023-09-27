@@ -76,6 +76,63 @@ const query = graphql`
         deriv_x_vol: file(relativePath: { eq: "affiliate-and-ib/deriv_x_vol.png" }) {
             ...fadeIn
         }
+        mt5_forex: file(relativePath: { eq: "affiliate-and-ib/mt5_forex.png" }) {
+            ...fadeIn
+        }
+        mt5_metal: file(relativePath: { eq: "affiliate-and-ib/mt5_metal.png" }) {
+            ...fadeIn
+        }
+        mt5_oil: file(relativePath: { eq: "affiliate-and-ib/mt5_oil.png" }) {
+            ...fadeIn
+        }
+        mt5_crypto: file(relativePath: { eq: "affiliate-and-ib/mt5_crypto.png" }) {
+            ...fadeIn
+        }
+        mt5_stocks: file(relativePath: { eq: "affiliate-and-ib/mt5_stocks.png" }) {
+            ...fadeIn
+        }
+        mt5_stock_indices: file(relativePath: { eq: "affiliate-and-ib/mt5_stock_indices.png" }) {
+            ...fadeIn
+        }
+        mt5_volatility: file(relativePath: { eq: "affiliate-and-ib/mt5_volatility.png" }) {
+            ...fadeIn
+        }
+        mt5_step: file(relativePath: { eq: "affiliate-and-ib/mt5_step.png" }) {
+            ...fadeIn
+        }
+        derived_crash: file(relativePath: { eq: "affiliate-and-ib/derived_crash.png" }) {
+            ...fadeIn
+        }
+        derived_jump: file(relativePath: { eq: "affiliate-and-ib/derived_jump.png" }) {
+            ...fadeIn
+        }
+        derived_step: file(relativePath: { eq: "affiliate-and-ib/derived_step.png" }) {
+            ...fadeIn
+        }
+        derived_volatility: file(relativePath: { eq: "affiliate-and-ib/derived_volatility.png" }) {
+            ...fadeIn
+        }
+        fin_crypto: file(relativePath: { eq: "affiliate-and-ib/fin_crypto.png" }) {
+            ...fadeIn
+        }
+        fin_forex: file(relativePath: { eq: "affiliate-and-ib/fin_forex.png" }) {
+            ...fadeIn
+        }
+        fin_metal: file(relativePath: { eq: "affiliate-and-ib/fin_metal.png" }) {
+            ...fadeIn
+        }
+        fin_oil: file(relativePath: { eq: "affiliate-and-ib/fin_oil.png" }) {
+            ...fadeIn
+        }
+        fin_stock: file(relativePath: { eq: "affiliate-and-ib/fin_stock.png" }) {
+            ...fadeIn
+        }
+        stp_forex: file(relativePath: { eq: "affiliate-and-ib/stp_forex.png" }) {
+            ...fadeIn
+        }
+        stp_crypto: file(relativePath: { eq: "affiliate-and-ib/stp_crypto.png" }) {
+            ...fadeIn
+        }
     }
 `
 
@@ -285,36 +342,19 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                 ))}
                             </Accordion>
                         </AccordionWrapper>
-                        {data.countDetails.map((valueCalc, indexCalc) => (
-                            <Flex key={indexCalc} direction="column" ai="flex-start" height="auto">
-                                {valueCalc.disclaimer &&
-                                    valueCalc.disclaimer.map((valueNotes, notesIndex) => (
-                                        <Flex
-                                            direction="column"
-                                            ai="flex-start"
-                                            height="auto"
-                                            style={{
-                                                borderTop: '0.1rem solid var(--color-grey-21)',
-                                            }}
-                                            key={notesIndex}
-                                        >
-                                            <Header
-                                                type="main-paragraph"
-                                                as="p"
-                                                mt="1.4rem"
-                                                mb="0.8rem"
-                                            >
-                                                <Localize translate_text={valueNotes.title} />
-                                            </Header>
-                                            <Header type="main-paragraph" as="p" mb="0.8rem">
-                                                <Localize
-                                                    translate_text={valueNotes.desc.firstText}
-                                                />
-                                            </Header>
-                                        </Flex>
-                                    ))}
-                            </Flex>
-                        ))}
+                        <Flex
+                            style={{ borderTop: '0.1rem solid var(--color-grey-21)' }}
+                            direction="column"
+                            ai="flex-start"
+                            height="auto"
+                        >
+                            <Header type="main-paragraph" as="p" mt="1.4rem" mb="0.8rem">
+                                <Localize translate_text="_t_Disclaimer:_t_" />
+                            </Header>
+                            <Header type="main-paragraph" as="p" mb="0.8rem">
+                                <Localize translate_text="_t_This plan is not available for IBs who promote to clients residing in the EU._t_" />
+                            </Header>
+                        </Flex>
                     </CardWrappers>
                     <HowItsCalculate>
                         <StyledButton flat onClick={toggleCalculated} className="calculated">

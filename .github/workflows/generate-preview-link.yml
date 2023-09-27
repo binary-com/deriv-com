@@ -139,35 +139,39 @@ jobs:
                     exit 1
                   fi
             - name: 'Generate preview link comment'
-              if: always()
+              if: success()
               id: generate_preview_url
               uses: actions/github-script@v3
               with:
                   github-token: ${{ github.token }}
                   script: |
-                      let comment;
                       const action_url = "${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}}"
-                      const status = "${{steps.publish-to-pages.outcome}}"
-                      if (status == 'success') {
-                        const preview_url = "${{steps.publish-to-pages.outputs.preview_url}}"
-                          comment = [
-                            `**Preview Link**: ${preview_url}`,
-                            '| Name | Result |',
-                            '| :--- | :------ |',
-                            `| **Build status**  | Completed ✅ |`,
-                            `| **Preview URL**  | [Visit Preview](${preview_url}) |`,
-                            `| **Action URL**  | [Visit Action](${action_url}) |`,
-                            ''
-                          ].join('\n')
-                      } else {
-                          comment = [
-                            '| Name | Result |',
-                            '| :--- | :------ |',
-                            `| **Build status**  | Failed ❌ |`,
-                            `| **Action URL**  | [Visit Action](${action_url}) |`,
-                            ''
-                          ].join('\n')
-                      }
+                      const preview_url = "${{steps.publish-to-pages.outputs.preview_url}}"
+                      const comment = [
+                          `**Preview Link**: ${preview_url}`,
+                          '| Name | Result |',
+                          '| :--- | :------ |',
+                          `| **Build status**  | Completed ✅ |`,
+                          `| **Preview URL**  | [Visit Preview](${preview_url}) |`,
+                          `| **Action URL**  | [Visit Action](${action_url}) |`,
+                          ''
+                        ].join('\n')
+                      core.setOutput("comment", comment);
+            - name: 'Generate failure comment'
+              if: failure()
+              id: generate_failure_comment
+              uses: actions/github-script@v3
+              with:
+                  github-token: ${{ github.token }}
+                  script: |
+                      const action_url = "${{github.server_url}}/${{github.repository}}/actions/runs/${{github.run_id}}"
+                      const comment = [
+                        '| Name | Result |',
+                        '| :--- | :------ |',
+                        `| **Build status**  | Failed ❌ |`,
+                        `| **Action URL**  | [Visit Action](${action_url}) |`,
+                        ''
+                      ].join('\n')
                       core.setOutput("comment", comment);
             - name: Post Cloudflare Pages Preview comment
               if: always()

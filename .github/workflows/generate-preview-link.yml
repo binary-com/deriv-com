@@ -99,7 +99,8 @@ jobs:
                   echo "Deploying build to Cloudflare Pages"
                   directory='public'
                   projectName='deriv-com-preview-links'
-                  branch=${{github.event.workflow_run.head_branch}}
+                  head_branch=${{github.event.workflow_run.head_branch}}
+                  branch=$(echo $head_branch | head -c 20)
                   preview_url=$(wrangler pages deploy $directory --project-name=$projectName --branch=$branch > log.txt 2>&1; echo $?)
                   echo "------"
                   cat log.txt
@@ -116,7 +117,7 @@ jobs:
               with:
                   github-token: ${{ github.token }}
                   script: |
-                      const preview_url = `https://${{github.event.workflow_run.head_branch}}.deriv-com-preview-links.pages.dev`
+                      const preview_url = "${{steps.publish-to-pages.outputs.preview_url}}"
                       const comment = [
                           `**Preview Link**: ${preview_url}`,
                           '| Name | Result |',

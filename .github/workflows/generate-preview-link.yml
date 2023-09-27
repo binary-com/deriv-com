@@ -179,5 +179,5 @@ jobs:
               with:
                   header: Cloudflare Pages Preview Comment
                   number: ${{steps.pr_information.outputs.issue_number}}
-                  message: ${{steps.generate_preview_url.outputs.comment}}
+                  message: ${{steps.generate_preview_url.outputs.comment || steps.generate_failure_comment.outputs.comment }}
                   recreate: true

@@ -157,8 +157,8 @@ const plans: CardProps[] = [
         description: '_t_Earn based on each successful referral. <0>Learn more</>_t_',
     },
 ]
-const AccountType = ({ updateData, affiliate_data, onValidate }: WizardStepProps) => {
-    const [selected_items, setSelectedItems] = useState(affiliate_data)
+const AccountType = ({ updateData, affiliate_account, onValidate }: WizardStepProps) => {
+    const [selected_items, setSelectedItems] = useState(affiliate_account.account)
 
     const validate = !!(selected_items.type && selected_items.plan)
 

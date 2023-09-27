@@ -37,7 +37,8 @@ const CheckBox = styled.input`
     margin-inline-end: 8px;
 `
 
-const AccountTerms = ({ affiliate_data, updateData, onValidate }: WizardStepProps) => {
+const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepProps) => {
+    const affiliate_data = affiliate_account.terms_of_use
     const [terms_of_use, setTermsOfUse] = useState(affiliate_data)
 
     const AgreementData: AgreementDataType[] = [
@@ -67,9 +68,9 @@ const AccountTerms = ({ affiliate_data, updateData, onValidate }: WizardStepProp
     ]
 
     const validate =
-        terms_of_use['non_pep_declaration'] &&
+        terms_of_use['non_pep_declaration_accepted'] &&
         terms_of_use['tnc_accepted'] &&
-        terms_of_use['general_terms'] &&
+        terms_of_use['general_terms_accepted'] &&
         terms_of_use['is_partner_checked']
 
     useEffect(() => {

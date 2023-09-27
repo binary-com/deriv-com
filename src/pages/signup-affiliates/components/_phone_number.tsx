@@ -43,17 +43,13 @@ const PhoneNumberInput = styled(AffiliateInput)`
     border-radius: 0;
 `
 
-const PhoneNumber = ({
-    updateData,
-    onValidate,
-    affiliate_data: affiliate_number,
-}: WizardStepProps) => {
-    const [phone, setPhone] = useState(affiliate_number.phone)
+const PhoneNumber = ({ updateData, onValidate, affiliate_account }: WizardStepProps) => {
+    const [phone, setPhone] = useState(affiliate_account.phone_number.phone)
     const [phone_error_msg, setPhoneErrorMsg] = useState('')
 
     useEffect(() => {
         updateData({
-            ...affiliate_number,
+            ...affiliate_account.phone_number,
             phone,
         })
     }, [phone])
@@ -80,7 +76,7 @@ const PhoneNumber = ({
             <CodeContainer>
                 <CodeWrapper>
                     <CountryCode>
-                        <span>{`+${affiliate_number.prefix}`}</span>
+                        <span>{`+${affiliate_account.phone_number.prefix}`}</span>
                     </CountryCode>
                 </CodeWrapper>
                 <PhoneNumberInput

@@ -23,7 +23,7 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
         affiliateSend({
             address_city: affiliate_account.address_details.city,
             address_postcode: affiliate_account.address_details.postal_code,
-            address_state: affiliate_account.address_details.state,
+            address_state: affiliate_account.address_details.state.name,
             address_street: affiliate_account.address_details.street,
             commission_plan: affiliate_account.account.plan,
             country: affiliate_account.address_details.country.symbol,
@@ -33,7 +33,7 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
             email: affiliate_account.email,
             first_name: affiliate_account.personal_details.first_name,
             last_name: affiliate_account.personal_details.last_name,
-            non_pep_declaration: affiliate_account.terms_of_use.non_pep_declaration && 1,
+            non_pep_declaration: affiliate_account.terms_of_use.non_pep_declaration_accepted && 1,
             over_18_declaration: 1,
             phone: `+${
                 affiliate_account.phone_number.prefix + affiliate_account.phone_number.phone
@@ -87,7 +87,7 @@ const AffiliateSignup = () => {
         },
         address_details: {
             country: {},
-            state: '',
+            state: {},
             city: '',
             street: '',
             postal_code: '',
@@ -100,7 +100,7 @@ const AffiliateSignup = () => {
             username: '',
             first_name: '',
             last_name: '',
-            date_birth: '',
+            date_birth: null,
             website_url: 'www.',
             social_media_url: '',
             password: '',
@@ -109,9 +109,9 @@ const AffiliateSignup = () => {
             currency: '',
         },
         terms_of_use: {
-            non_pep_declaration: false,
+            non_pep_declaration_accepted: false,
             tnc_accepted: false,
-            general_terms: false,
+            general_terms_accepted: false,
             is_eu_checked: false,
             is_partner_checked: false,
         },
@@ -139,7 +139,9 @@ const AffiliateSignup = () => {
             setSignupStatus(affiliate_api_error?.error.message)
         } else if (
             affiliate_api_error?.error.message == 'Your website is not a valid entry' ||
-            affiliate_api_error?.error.message == "String does not match '^[0-9A-Za-z.-]{5,250}$'"
+            affiliate_api_error?.error.message ==
+                "String does not match '^[0-9A-Za-z.-]{5,250}$'" ||
+            affiliate_api_error?.error.message == 'Input validation failed: website_url'
         ) {
             setSignupStatus('Your website is not a valid entry')
         }

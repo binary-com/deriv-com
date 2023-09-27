@@ -31,10 +31,11 @@ const InputWrapper = styled.div`
 
 const PersonalDetails = ({
     is_individual,
-    affiliate_data,
+    affiliate_account,
     updateData,
     onValidate,
 }: WizardStepProps) => {
+    const affiliate_data = affiliate_account.personal_details
     const [username, setUsername] = useState(affiliate_data.username)
     const [first_name, setFirstName] = useState(affiliate_data.first_name)
     const [last_name, setLastName] = useState(affiliate_data.last_name)
@@ -47,14 +48,14 @@ const PersonalDetails = ({
     const [social_media_url, setSocialMedia] = useState(affiliate_data.social_media_url)
     const [password, setPassword] = useState(affiliate_data.password)
 
-    const [user_name_error_msg, setUserNameErrorMsg] = useState()
-    const [first_name_error_msg, setFirstNameErrorMsg] = useState()
-    const [last_name_error_msg, setLastNameErrorMsg] = useState()
-    const [company_name_error_msg, setCompanyNameErrorMsg] = useState()
-    const [company_registration_error_msg, setCompanyRegistrationErrorMsg] = useState()
-    const [website_url_error_msg, setWebsiteUrlErrorMsg] = useState()
-    const [social_media_url_error_msg, setSocialMediaErrorMsg] = useState()
-    const [password_error_msg, setPasswordErrorMsg] = useState()
+    const [user_name_error_msg, setUserNameErrorMsg] = useState<string>()
+    const [first_name_error_msg, setFirstNameErrorMsg] = useState<string>()
+    const [last_name_error_msg, setLastNameErrorMsg] = useState<string>()
+    const [company_name_error_msg, setCompanyNameErrorMsg] = useState<string>()
+    const [company_registration_error_msg, setCompanyRegistrationErrorMsg] = useState<string>()
+    const [website_url_error_msg, setWebsiteUrlErrorMsg] = useState<string>()
+    const [social_media_url_error_msg, setSocialMediaErrorMsg] = useState<string>()
+    const [password_error_msg, setPasswordErrorMsg] = useState<string>()
 
     const form_inputs = [
         {
@@ -287,45 +288,43 @@ const PersonalDetails = ({
     return (
         <InputGroup>
             <InputWrapper>
-                <form>
-                    {getFormFields().map((item) => {
-                        if (item.name === 'date_birth') {
-                            return (
-                                <BirthForm
-                                    id={item.id}
-                                    key={item.id}
-                                    error={item.error}
-                                    value={item.value}
-                                    label={localize(item.label)}
-                                    setFieldValue={item.value_set}
-                                />
-                            )
-                        } else {
-                            return (
-                                <AffiliateInput
-                                    id={item.id}
-                                    key={item.id}
-                                    name={item.name}
-                                    type={item.type}
-                                    value={item.value}
-                                    error={item.error}
-                                    required={item.required}
-                                    extra_info={item.extra_info}
-                                    label={localize(item.label)}
-                                    placeholder={item.placeholder}
-                                    password_icon={item.type == 'password'}
-                                    onChange={handleInput}
-                                    onBlur={handleInput}
-                                    data-lpignore="true"
-                                    handleError={() => {
-                                        item?.value_set('')
-                                        item?.error_set('')
-                                    }}
-                                />
-                            )
-                        }
-                    })}
-                </form>
+                {getFormFields().map((item) => {
+                    if (item.name === 'date_birth') {
+                        return (
+                            <BirthForm
+                                id={item.id}
+                                key={item.id}
+                                error={item.error}
+                                value={item.value}
+                                label={item.label}
+                                setFieldValue={item.value_set}
+                            />
+                        )
+                    } else {
+                        return (
+                            <AffiliateInput
+                                id={item.id}
+                                key={item.id}
+                                name={item.name}
+                                type={item.type}
+                                label={item.label}
+                                value={item.value}
+                                error={item.error}
+                                required={item.required}
+                                extra_info={item.extra_info}
+                                placeholder={item.placeholder}
+                                password_icon={item.type == 'password'}
+                                onChange={handleInput}
+                                onBlur={handleInput}
+                                data-lpignore="true"
+                                handleError={() => {
+                                    item?.value_set('')
+                                    item?.error_set('')
+                                }}
+                            />
+                        )
+                    }
+                })}
             </InputWrapper>
         </InputGroup>
     )

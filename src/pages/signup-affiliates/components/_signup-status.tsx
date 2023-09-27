@@ -87,6 +87,14 @@ const AffiliateSignupStatus = ({
                         <Header type="paragraph-1" align="center" weight="400" pt="8px">
                             <Localize translate_text="_t_We've sent you an email about your application status._t_" />
                         </Header>
+                        <StyledButton
+                            secondary
+                            onClick={() => {
+                                setSignupStatus('')
+                            }}
+                        >
+                            <Localize translate_text={'_t_Got it_t_'} />
+                        </StyledButton>
                     </Modal>
                     <Background />
                 </ProgressModal>

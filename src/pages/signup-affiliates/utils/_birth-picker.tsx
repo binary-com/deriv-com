@@ -1,24 +1,22 @@
 import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import DatePicker from 'react-date-picker'
-import { TCertificate } from '../components/_account-personal-details'
 import { AffiliateLabel } from './_affiliate-input'
 import Calendar from 'images/svg/signup-affiliates/calendar.svg'
 
 export type SetStateDate =
     | React.Dispatch<React.SetStateAction<string>>
-    | React.Dispatch<React.SetStateAction<Date | [Date, Date]>>
-    | React.Dispatch<React.SetStateAction<TCertificate>>
+    | React.Dispatch<React.SetStateAction<Date>>
 
 type BirthPickerWrapperProps = {
     is_date_field: boolean
-    value: Date | [Date, Date]
+    value: Date
     error: string
 }
 type BirthPickerProps = {
     id: string
     error: string
-    value: Date | [Date, Date]
+    value: Date
     setFieldValue: SetStateDate
     label?: string
     label_color?: string

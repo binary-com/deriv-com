@@ -77,14 +77,14 @@ const AffiliateInput = ({
         <RelativeWrapper>
             <StyledInputWrapper error={error}>
                 <StyledInput
-                    ref={() => current_input}
+                    {...props}
                     id={id}
-                    background={'white'}
+                    width={500}
                     error={error}
                     showLabel={label}
-                    width={500}
+                    background={'white'}
+                    ref={() => current_input}
                     type={is_password_visible ? 'text' : props.type}
-                    {...props}
                 />
                 {label && (
                     <AffiliateLabel error={error} htmlFor={id}>

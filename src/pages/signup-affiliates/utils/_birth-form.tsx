@@ -1,24 +1,13 @@
 import React from 'react'
-import BirthPicker, { SetStateDate } from './_birth-picker'
+import BirthPicker from './_birth-picker'
 import { ExtraInfo, StyledInputWrapper } from './_affiliate-input'
-import { InputProps, RelativeWrapper } from 'components/form/input'
+import { RelativeWrapper } from 'components/form/input'
 
-type BirthFormProps = {
-    setFieldValue: SetStateDate
-    value: Date | [Date, Date]
-} & InputProps
-
-const BirthForm = ({ label, id, error, value, setFieldValue }: BirthFormProps) => {
+const BirthForm = (props) => {
     return (
         <RelativeWrapper>
-            <StyledInputWrapper error={error}>
-                <BirthPicker
-                    id={id}
-                    error={error}
-                    value={value}
-                    label={label}
-                    setFieldValue={setFieldValue}
-                />
+            <StyledInputWrapper>
+                <BirthPicker {...props} />
             </StyledInputWrapper>
             <ExtraInfo />
         </RelativeWrapper>

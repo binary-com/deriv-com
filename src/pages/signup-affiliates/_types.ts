@@ -7,7 +7,7 @@ type AffiliateAccountTypes = {
     account: { type: number; plan: number }
     address_details: {
         country: CountryType
-        state: string
+        state: { name?: string; display_name?: string }
         city: string
         street: string
         postal_code: string
@@ -17,7 +17,7 @@ type AffiliateAccountTypes = {
         username: string
         first_name: string
         last_name: string
-        date_birth: string
+        date_birth: Date
         website_url: string
         social_media_url: string
         password: string
@@ -26,9 +26,9 @@ type AffiliateAccountTypes = {
         currency: string
     }
     terms_of_use: {
-        non_pep_declaration: boolean
+        non_pep_declaration_accepted: boolean
         tnc_accepted: boolean
-        general_terms: boolean
+        general_terms_accepted: boolean
         is_eu_checked: boolean
         is_partner_checked: boolean
     }
@@ -113,7 +113,7 @@ type WizardComponentsProps = WizardComponentTypes & WizardProps
 type AffiliateData = keyof AffiliateAccountTypes
 
 type WizardStepProps = {
-    affiliate_data: AffiliateAccountTypes[AffiliateData]
+    affiliate_account: AffiliateAccountTypes
     updateData: (value: AffiliateAccountTypes[AffiliateData]) => void
     onValidate: (value: boolean) => void
     residence_list?: CountryType[]

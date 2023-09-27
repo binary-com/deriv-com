@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { WizardStepProps } from '../_types'
 import AffiliateInput from '../utils/_affiliate-input'
 import affiliate_validation from '../validations/_affilaite_validation'
+import { useStatesList } from 'features/hooks/use-states-list'
 import { DropdownSearch } from 'components/elements'
 import { localize } from 'components/localization'
 import device from 'themes/device'
@@ -27,11 +28,12 @@ const InputWrapper = styled.div`
 `
 
 const AccountDetails = ({
-    affiliate_data,
+    affiliate_account,
     updateData,
     onValidate,
     residence_list,
 }: WizardStepProps) => {
+    const affiliate_data = affiliate_account.address_details
     const [country, setCountry] = useState(affiliate_data.country)
     const [state, setState] = useState(affiliate_data.state)
     const [city, setCity] = useState(affiliate_data.city)
@@ -42,6 +44,8 @@ const AccountDetails = ({
     const [city_error_msg, setCityErrorMsg] = useState('')
     const [street_error_msg, setStreetErrorMsg] = useState('')
     const [postcode_error_msg, setPostCodeErrorMsg] = useState('')
+
+    const [states_list] = useStatesList(affiliate_data.country?.symbol)
 
     useEffect(() => {
         updateData({
@@ -56,7 +60,7 @@ const AccountDetails = ({
 
     const validate =
         country?.name &&
-        state &&
+        state?.name &&
         city &&
         street &&
         postal_code &&
@@ -85,15 +89,14 @@ const AccountDetails = ({
         {
             id: 'dm-state',
             name: 'state',
-            type: 'text',
-            error: state_error_msg,
+            type: 'select',
             label: localize('_t_State/province_t_'),
             placeholder: 'State/province',
-            extra_info: ' ',
             required: true,
+            error: state_error_msg,
             value: state,
+            list: states_list,
             value_set: setState,
-            error_set: setStateErrorMsg,
         },
         {
             id: 'dm-town',
@@ -165,16 +168,16 @@ const AccountDetails = ({
         <InputGroup>
             <InputWrapper>
                 {form_inputs.map((item) => {
-                    if (item.name === 'country') {
+                    if (item.name === 'country' || item.name === 'state') {
                         return (
                             <DropdownSearch
                                 key={item.id}
                                 id={item.id}
-                                selected_item={item.value}
-                                onChange={(country) => item.value_set(country)}
-                                error={item.error}
+                                label={item.label}
                                 items={item.list}
-                                label={localize('_t_Country of residence_t_')}
+                                error={item.error}
+                                selected_item={item.value}
+                                onChange={(value) => item.value_set(value)}
                             />
                         )
                     } else {

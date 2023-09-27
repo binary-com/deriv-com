@@ -91,9 +91,9 @@ const Wizard = ({
                 setAffiliateAccount({
                     ...affiliate_account,
                     terms_of_use: {
-                        non_pep_declaration: value.non_pep_declaration,
+                        non_pep_declaration_accepted: value.non_pep_declaration,
                         tnc_accepted: value.tnc_accepted,
-                        general_terms: value.general_terms,
+                        general_terms_accepted: value.general_terms,
                         is_eu_checked: value.is_eu_checked,
                         is_partner_checked: value.is_partner_checked,
                     },
@@ -113,7 +113,7 @@ const Wizard = ({
             onSubmit={onSubmit}
         >
             <AccountType
-                affiliate_data={affiliate_account.account}
+                affiliate_account={affiliate_account}
                 updateData={(value) => {
                     updateAffiliateValues(value, 'account-type')
                 }}
@@ -122,7 +122,7 @@ const Wizard = ({
                 }}
             />
             <AccountDetails
-                affiliate_data={affiliate_account.address_details}
+                affiliate_account={affiliate_account}
                 updateData={(value) => {
                     updateAffiliateValues(value, 'account-details')
                 }}
@@ -132,7 +132,7 @@ const Wizard = ({
                 residence_list={residence_list}
             />
             <PhoneNumber
-                affiliate_data={affiliate_account.phone_number}
+                affiliate_account={affiliate_account}
                 updateData={(value) => {
                     updateAffiliateValues(value, 'phone-number')
                 }}
@@ -141,7 +141,7 @@ const Wizard = ({
                 }}
             />
             <PersonalDetails
-                affiliate_data={affiliate_account.personal_details}
+                affiliate_account={affiliate_account}
                 is_individual={affiliate_account.account.type == 1}
                 updateData={(value) => {
                     updateAffiliateValues(value, 'personal-details')
@@ -151,7 +151,7 @@ const Wizard = ({
                 }}
             />
             <AccountTerms
-                affiliate_data={affiliate_account.terms_of_use}
+                affiliate_account={affiliate_account}
                 updateData={(value) => {
                     updateAffiliateValues(value, 'terms-of-use')
                 }}

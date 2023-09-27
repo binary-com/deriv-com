@@ -64,18 +64,7 @@ const HomeHero = () => {
                 }}
             >
                 <HomeHeroContent />
-                {/* {is_eu ? <HomeHeroSliderEu /> : <HomeHeroSlider />} */}
-                <SliderWrapper>
-                    <StaticImage
-                        objectFit="contain"
-                        src="../../../../images/common/home/hero_1.png"
-                        alt="person-hero-1"
-                        formats={['avif', 'webp', 'auto']}
-                        loading="eager"
-                        quality={100}
-                        placeholder="none"
-                    />
-                </SliderWrapper>
+                {is_eu ? <HomeHeroSliderEu /> : <HomeHeroSlider />}
             </Flex.Box>
         </ProductHeroContainer>
     )

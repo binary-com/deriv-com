@@ -72,13 +72,13 @@ const HomeHero = () => {
                         fallback={
                             <SliderWrapper>
                                 <StaticImage
-                                    objectFit="contain"
+                                    objectFit="fill"
                                     src="../../../../images/common/home/eu_hero_person_5.png"
                                     alt="person-hero-1"
                                     formats={['avif', 'webp', 'auto']}
                                     loading="eager"
-                                    quality={100}
-                                    placeholder="none"
+                                    quality={50}
+                                    placeholder="blurred"
                                 />
                             </SliderWrapper>
                         }
@@ -90,13 +90,13 @@ const HomeHero = () => {
                         fallback={
                             <SliderWrapper>
                                 <StaticImage
-                                    objectFit="contain"
+                                    objectFit="fill"
                                     src="../../../../images/common/home/hero_1.png"
                                     alt="person-hero-1"
                                     formats={['avif', 'webp', 'auto']}
                                     loading="eager"
-                                    quality={100}
-                                    placeholder="none"
+                                    quality={50}
+                                    placeholder="blurred"
                                 />
                             </SliderWrapper>
                         }

@@ -174,7 +174,7 @@ jobs:
                       ].join('\n')
                       core.setOutput("comment", comment);
             - name: Post Cloudflare Pages Preview comment
-              if: always()
+              if: success() || failure()
               uses: marocchino/sticky-pull-request-comment@v2
               with:
                   header: Cloudflare Pages Preview Comment

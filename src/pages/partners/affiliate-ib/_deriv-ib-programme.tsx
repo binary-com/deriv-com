@@ -91,14 +91,11 @@ const StyledColumnWrap = styled.div`
     gap: 0.8rem;
 
     section {
-        inline-size: 100%;
+        inline-size: 37.786rem;
     }
 
     @media ${device.laptopM} {
         align-items: center;
-        section {
-            inline-size: 32.8rem;
-        }
     }
 `
 const StyledRowWrap = styled.div`
@@ -108,7 +105,7 @@ const StyledRowWrap = styled.div`
     gap: 2.4rem;
 
     section {
-        inline-size: 100%;
+        inline-size: 37.786rem;
         block-size: fit-content;
     }
 
@@ -117,10 +114,6 @@ const StyledRowWrap = styled.div`
         align-items: center;
         gap: 0.8rem;
         margin-left: 0;
-
-        section {
-            inline-size: 32.8rem;
-        }
     }
 `
 

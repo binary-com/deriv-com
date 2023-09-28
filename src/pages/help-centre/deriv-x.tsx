@@ -4,9 +4,14 @@ import derivx from './data/_deriv-x'
 import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
+import useRegion from 'components/hooks/use-region'
+import PageNotFound from 'features/pages/404'
 
-const DerivX = () => <QuestionsTemplate data={derivx} />
+const DerivX = () => {
+    const is_eu = useRegion()
 
+    return !is_eu ? <QuestionsTemplate data={derivx} /> : <PageNotFound />
+}
 export default WithIntl()(DerivX)
 
 export const Head = ({ pageContext }: TGatsbyHead) => (

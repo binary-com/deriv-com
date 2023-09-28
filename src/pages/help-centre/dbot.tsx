@@ -4,9 +4,14 @@ import dbot from './data/_dbot'
 import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
+import useRegion from 'components/hooks/use-region'
+import PageNotFound from 'features/pages/404'
 
-const DBot = () => <QuestionsTemplate data={dbot} />
+const DBot = () => {
+    const is_eu = useRegion()
 
+    return !is_eu ? <QuestionsTemplate data={dbot} /> : <PageNotFound />
+}
 export default WithIntl()(DBot)
 
 export const Head = ({ pageContext }: TGatsbyHead) => (

@@ -86,10 +86,13 @@ const Hero = ({ hero }: THero) => {
             <ContentWrapper jc="center">
                 <Desktop>
                     <StyledFlex>
-                        <StyledImage
-                            src={hero?.hero_image?.localFile?.publicURL}
-                            alt="hero image desktop"
-                        />
+                        {/* Todo: Remove this Hero Image section from Strapi then from here */}
+                        {hero?.hero_image?.localFile?.publicURL && (
+                            <StyledImage
+                                src={hero?.hero_image?.localFile?.publicURL}
+                                alt="hero image desktop"
+                            />
+                        )}
                         <Flex jc="center" p="0 32px" max_width="1440px">
                             <DesktopHeader>
                                 <Localize translate_text={hero?.header} />

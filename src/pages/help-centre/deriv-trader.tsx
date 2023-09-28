@@ -1,6 +1,6 @@
 import React from 'react'
 import QuestionsTemplate from './components/_questions-template'
-import dtrader from './data/_dtrader'
+import dtrader from './data/_deriv-trader'
 import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'

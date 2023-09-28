@@ -5,12 +5,18 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 import useRegion from 'components/hooks/use-region'
-import PageNotFound from 'features/pages/404'
+import ProtectedRoute from 'features/components/molecules/protected-route'
 
 const DerivX = () => {
-    const is_eu = useRegion()
+    const { is_eu, is_region_loading } = useRegion()
 
-    return !is_eu ? <QuestionsTemplate data={derivx} /> : <PageNotFound />
+    return (
+        <ProtectedRoute
+            is_page_visible={!is_eu}
+            component={<QuestionsTemplate data={derivx} />}
+            is_loading={is_region_loading}
+        />
+    )
 }
 export default WithIntl()(DerivX)
 

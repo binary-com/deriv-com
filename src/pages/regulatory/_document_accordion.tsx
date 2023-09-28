@@ -21,19 +21,11 @@ const FlexText = styled(LinkText)`
     @media ${device.laptopM} {
         width: 40%;
     }
-    @media ${device.tabletS} {
+    @media (max-width: 685px) {
         width: 80%;
         justify-content: flex-start;
-        padding-left: 15rem;
-    }
-    @media (max-width: 500px) {
-        padding-left: 8.5rem;
-    }
-    @media ${device.mobileM} {
-        padding-left: 6rem;
-    }
-    @media ${device.mobileS} {
-        padding-left: 4.5rem;
+        padding-left: 0;
+        margin-inline: 0;
     }
 `
 
@@ -49,21 +41,13 @@ const FlexText_Pillar = styled(LinkText)`
 const EdgeFlex = styled(Flex)`
     flex-wrap: wrap;
     justify-content: flex-start;
-    margin-left: 5%;
 
     /* Edge does not support space-evenly */
     @supports (-ms-ime-align: auto) {
         justify-content: space-around;
     }
-    @media ${device.laptopM} {
-        margin-left: 9%;
-    }
-    @media ${device.tabletL} {
-        margin-left: 18%;
-    }
     @media ${device.tabletS} {
         flex-direction: column;
-        margin-left: 10%;
     }
 `
 
@@ -170,7 +154,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                                         ? selected_language + '/'
                                         : ''
                                 }${data.ref}`}
-                                m="1.6rem 2.4rem"
+                                m="1.6rem 1.4rem"
                             >
                                 <img src={PDFIcon} alt="pdf icon black" />
                                 <span>

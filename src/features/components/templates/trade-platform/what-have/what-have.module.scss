@@ -6,7 +6,17 @@
   }
 }
 .flex_items{
+ 
   @include breakpoints(tablet) {
+    inline-size: 49%;
+    justify-content: center;
+  }
+}
+.image_item{
+  block-size: 23rem;
+  
+  @include breakpoints(tablet) {
+    block-size: 30rem;
     inline-size: 49%;
     justify-content: center;
   }

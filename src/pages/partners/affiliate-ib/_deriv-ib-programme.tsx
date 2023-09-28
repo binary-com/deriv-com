@@ -75,7 +75,7 @@ const StyledCardWrapper = styled(CardWrapper)`
     }
 `
 
-const StyledCardWrap = styled.div`
+const StyledBlockWrap = styled.div`
     display: flex;
 
     @media ${device.laptopM} {
@@ -280,7 +280,7 @@ const DerivIBProgramme = () => {
                             <StyledHeaderCommission as="h3" type="main-paragraph" mb="1.6rem">
                                 <Localize translate_text="_t_Choose a commission plan:_t_" />
                             </StyledHeaderCommission>
-                            <StyledCardWrap>
+                            <StyledBlockWrap>
                                 <StyledColumnWrap>
                                     <DERIVIBDMT5Cards data={ib_dmt5_financial} />
                                     <DERIVIBDMT5Cards data={ib_dmt5_financialSTP} />
@@ -289,7 +289,7 @@ const DerivIBProgramme = () => {
                                     <DERIVIBDMT5Cards data={ib_dmt5_swapFree} />
                                     <DERIVIBDMT5Cards data={ib_dmt5_synthetic} />
                                 </StyledRowWrap>
-                            </StyledCardWrap>
+                            </StyledBlockWrap>
                         </>
                     )}
 

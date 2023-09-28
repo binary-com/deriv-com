@@ -1,4 +1,5 @@
 import React from 'react'
+import Cookies from 'js-cookie'
 import { GrowthBook } from '@growthbook/growthbook-react'
 import { RudderStack } from '@deriv/analytics'
 import { createRoot } from 'react-dom/client'
@@ -7,7 +8,7 @@ import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { useAnalyticData } from './src/features/hooks/analytic/use-analytic-data'
-import { growthbook_client_key } from './src/common/constants'
+import { growthbook_client_key, growthbook_decryption_key } from './src/common/constants'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
 import {
     addScript,
@@ -86,10 +87,16 @@ export const onClientEntry = () => {
 
     const gb = new GrowthBook({
         apiHost: 'https://cdn.growthbook.io',
-        clientKey: growthbook_client_key ?? ' ',
-        enableDevMode: true,
+        clientKey: growthbook_client_key,
+        decryptionKey: growthbook_decryption_key,
+        enableDevMode: process.env.NODE_ENV !== 'production',
+        subscribeToChanges: true,
         attributes: {
             id: anonymous_id,
+            country:
+                JSON.parse(JSON.parse(Cookies.get('website_status')).website_status)
+                    .clients_country || ' ',
+            language: Cookies.get('user_language') || getLanguage(),
         },
         trackingCallback: (experiment, result) => {
             RudderStack.track(

@@ -80,6 +80,7 @@ const Hero = ({ hero }: THero) => {
     const bg_image = is_mobile_or_tablet
         ? hero?.bg_mobile?.localFile?.publicURL
         : hero?.bg_desktop?.localFile?.publicURL
+    const deriv_icon = hero?.hero_image?.localFile?.publicURL
 
     return (
         <ParentWrapper bg_image={bg_image}>
@@ -87,12 +88,7 @@ const Hero = ({ hero }: THero) => {
                 <Desktop>
                     <StyledFlex>
                         {/* Todo: Remove this Hero Image section from Strapi then from here */}
-                        {hero?.hero_image?.localFile?.publicURL && (
-                            <StyledImage
-                                src={hero?.hero_image?.localFile?.publicURL}
-                                alt="hero image desktop"
-                            />
-                        )}
+                        {deriv_icon && <StyledImage src={deriv_icon} alt="hero image desktop" />}
                         <Flex jc="center" p="0 32px" max_width="1440px">
                             <DesktopHeader>
                                 <Localize translate_text={hero?.header} />

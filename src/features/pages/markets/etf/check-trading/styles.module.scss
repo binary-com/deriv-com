@@ -1,0 +1,10 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.item_container {
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 0;
+
+    @include breakpoints(tablet) {
+        box-shadow: none;
+    }
+}

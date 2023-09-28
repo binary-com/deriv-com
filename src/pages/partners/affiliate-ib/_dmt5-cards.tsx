@@ -137,29 +137,21 @@ const query = graphql`
 `
 
 const StyledCard = styled(Card)`
-    min-height: 42.6rem;
-    height: 100%;
+    min-block-size: 42.6rem;
+    block-size: fit-content;
+    min-inline-size: calc((100% - 4.8rem) / 3);
+    inline-size: calc((100% - 4.8rem) / 3);
     position: relative;
     border-radius: 0.8rem;
-    min-width: calc((100% - 4.8rem) / 3);
-    width: calc((100% - 4.8rem) / 3);
     justify-content: flex-start;
 
-    :nth-child(2) {
-        margin: 1.6rem 2.4rem 0;
-
-        @media ${device.tabletL} {
-            margin: 2.4rem 0;
-        }
-    }
-
     @media ${device.laptopM} {
-        min-width: 38.4rem;
-        width: 38.4rem;
+        min-inline-size: 38.4rem;
+        inline-size: 38.4rem;
     }
 
     @media ${device.tabletL} {
-        min-width: 32.8rem;
+        min-inline-size: 32.8rem;
         padding: 1.6rem 1.6rem 0;
         ${(props) => props.tabletHeight && 'height:' + props.tabletHeight};
 
@@ -169,11 +161,12 @@ const StyledCard = styled(Card)`
     }
 
     @media ${device.mobileM} {
-        min-width: unset;
-        width: 100%;
+        min-inline-size: unset;
+        inline-size: 100%;
         ${(props) => props.mobileHeight && 'height:' + props.mobileHeight};
     }
 `
+
 const CardWrappers = styled(Flex)`
     min-height: 33.8rem;
     flex-direction: column;
@@ -188,7 +181,7 @@ const CardText = styled(Text)`
 `
 const AccordionWrapper = styled.div`
     max-width: 99.6rem;
-    width: fit-content;
+    width: 100%;
     margin: 0 auto;
     position: relative;
     z-index: 2;

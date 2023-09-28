@@ -70,12 +70,57 @@ const TitleWrapper = styled.div`
 const StyledCardWrapper = styled(CardWrapper)`
     flex-wrap: wrap;
 
-    :nth-child(3) {
-        justify-content: flex-start;
-    }
-
     @media ${device.tabletL} {
         align-items: center;
+    }
+`
+
+const StyledCardWrap = styled.div`
+    display: flex;
+
+    @media ${device.laptopM} {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+    }
+`
+
+const StyledColumnWrap = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+
+    section {
+        inline-size: 100%;
+    }
+
+    @media ${device.laptopM} {
+        align-items: center;
+        section {
+            inline-size: 32.8rem;
+        }
+    }
+`
+const StyledRowWrap = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin-left: 2.4rem;
+    gap: 2.4rem;
+
+    section {
+        inline-size: 100%;
+        block-size: fit-content;
+    }
+
+    @media ${device.laptopM} {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.8rem;
+        margin-left: 0;
+
+        section {
+            inline-size: 32.8rem;
+        }
     }
 `
 
@@ -235,12 +280,16 @@ const DerivIBProgramme = () => {
                             <StyledHeaderCommission as="h3" type="main-paragraph" mb="1.6rem">
                                 <Localize translate_text="_t_Choose a commission plan:_t_" />
                             </StyledHeaderCommission>
-                            <StyledCardWrapper>
-                                <DERIVIBDMT5Cards data={ib_dmt5_financial} />
-                                <DERIVIBDMT5Cards data={ib_dmt5_swapFree} />
-                                <DERIVIBDMT5Cards data={ib_dmt5_synthetic} />
-                                <DERIVIBDMT5Cards data={ib_dmt5_financialSTP} />
-                            </StyledCardWrapper>
+                            <StyledCardWrap>
+                                <StyledColumnWrap>
+                                    <DERIVIBDMT5Cards data={ib_dmt5_financial} />
+                                    <DERIVIBDMT5Cards data={ib_dmt5_financialSTP} />
+                                </StyledColumnWrap>
+                                <StyledRowWrap>
+                                    <DERIVIBDMT5Cards data={ib_dmt5_swapFree} />
+                                    <DERIVIBDMT5Cards data={ib_dmt5_synthetic} />
+                                </StyledRowWrap>
+                            </StyledCardWrap>
                         </>
                     )}
 

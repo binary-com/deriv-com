@@ -184,5 +184,5 @@ export const bannerTypes = {
 }
 
 export const firebaseConfig = {
-    databaseURL: 'https://deriv-static-pricingfeedv2.firebaseio.com',
+    databaseURL: 'https://deriv-static-pricingfeed.firebaseio.com',
 }

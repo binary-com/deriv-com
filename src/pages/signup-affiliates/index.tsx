@@ -117,6 +117,8 @@ const AffiliateSignup = () => {
         },
     })
 
+    console.log('affiliate_account', affiliate_account.terms_of_use)
+
     const {
         data: affiliate_api_data,
         error: affiliate_api_error,

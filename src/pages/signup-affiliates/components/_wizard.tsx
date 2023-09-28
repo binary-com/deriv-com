@@ -91,9 +91,9 @@ const Wizard = ({
                 setAffiliateAccount({
                     ...affiliate_account,
                     terms_of_use: {
-                        non_pep_declaration_accepted: value.non_pep_declaration,
+                        non_pep_declaration_accepted: value.non_pep_declaration_accepted,
                         tnc_accepted: value.tnc_accepted,
-                        general_terms_accepted: value.general_terms,
+                        general_terms_accepted: value.general_terms_accepted,
                         is_eu_checked: value.is_eu_checked,
                         is_partner_checked: value.is_partner_checked,
                     },

@@ -174,7 +174,7 @@ const AccountType = ({ updateData, affiliate_account, onValidate }: WizardStepPr
         <MainWrapper>
             <Header align="center" type="paragraph-1" pb="8px" weight="normal">
                 <Localize
-                    translate_text={'_t_Choose which plan you would like to subscribe to:_t_'}
+                    translate_text={'_t_Choose the type of partner account you want to register_t_'}
                 />
             </Header>
             {cards.map(({ value, icon, title, description }) => {

@@ -40,11 +40,12 @@ const CheckBox = styled.input`
 const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepProps) => {
     const affiliate_data = affiliate_account.terms_of_use
     const [terms_of_use, setTermsOfUse] = useState(affiliate_data)
+    console.log(terms_of_use)
 
     const AgreementData: AgreementDataType[] = [
         {
             link_text: '_t_I am not a PEP, and I have not been a PEP in the last 12 months._t_',
-            name: 'non_pep_declaration',
+            name: 'non_pep_declaration_accepted',
         },
         {
             link_text: '_t_I have read and accepted <0>Deriv’s terms and conditions</0>_t_',
@@ -53,7 +54,7 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
         {
             link_text:
                 '_t_I have read and accepted <0>Deriv’s general terms of use and affiliates and introducing brokers’ terms and conditions</0>_t_',
-            name: 'general_terms',
+            name: 'general_terms_accepted',
         },
         {
             link_text:

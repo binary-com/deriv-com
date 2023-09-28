@@ -12,6 +12,7 @@ import {
     AboutUsBanner,
     DerivNumbers,
     OurOffices,
+    EmployerAwards,
 } from './_lazy-load'
 import { TGatsbyHead } from 'features/types'
 import device from 'themes/device'
@@ -62,6 +63,7 @@ const AboutUs = ({ data }: TWhoWeAre) => {
             <DerivNumbers deriv_in_numbers={deriv_in_numbers} />
             <ImageMarquee slider_medias={slider_medias} />
             <OurOffices our_locations={our_locations} />
+            <EmployerAwards />
             <AboutUsBanner banner={banner} />
         </Layout>
     )

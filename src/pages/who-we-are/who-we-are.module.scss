@@ -1,0 +1,14 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.employer_awards_wrapper {
+    padding-inline: 2rem;
+
+    @include breakpoints(tablet) {
+        padding-inline: 20rem;
+    }
+}
+.image_wrapper {
+    max-inline-size: 32rem;
+    max-block-size: 11.4rem;
+}

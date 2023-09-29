@@ -45,6 +45,7 @@ const Modal = styled.div`
     align-items: center;
     justify-content: center;
     min-width: 546px;
+    min-height: 214px;
     border-radius: 8px;
     padding: 40px;
     transform: translate(-50%, -50%);
@@ -62,6 +63,39 @@ const Modal = styled.div`
     }
     @media ${device.laptop} {
         width: 80%;
+    }
+`
+const StyledSpinner = styled.svg`
+    animation: rotate 1s linear infinite;
+    margin: 40px;
+    width: 200px;
+    height: 200px;
+    z-index: 105;
+
+    & .path {
+        stroke: var(--color-red-5);
+        stroke-linecap: round;
+        animation: dash 1.5s ease-in-out infinite;
+    }
+
+    @keyframes rotate {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    @keyframes dash {
+        0% {
+            stroke-dasharray: 1, 150;
+            stroke-dashoffset: 0;
+        }
+        50% {
+            stroke-dasharray: 90, 150;
+            stroke-dashoffset: -35;
+        }
+        100% {
+            stroke-dasharray: 90, 150;
+            stroke-dashoffset: -124;
+        }
     }
 `
 
@@ -95,6 +129,23 @@ const AffiliateSignupStatus = ({
                         >
                             <Localize translate_text={'_t_Got it_t_'} />
                         </StyledButton>
+                    </Modal>
+                    <Background />
+                </ProgressModal>
+            )}
+            {signup_status == 'loading' && (
+                <ProgressModal>
+                    <Modal>
+                        <StyledSpinner viewBox="0 0 50 50">
+                            <circle
+                                className="path"
+                                cx="25"
+                                cy="25"
+                                r="20"
+                                fill="none"
+                                strokeWidth="2"
+                            />
+                        </StyledSpinner>
                     </Modal>
                     <Background />
                 </ProgressModal>

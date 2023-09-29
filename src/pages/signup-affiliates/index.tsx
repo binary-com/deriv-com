@@ -117,8 +117,6 @@ const AffiliateSignup = () => {
         },
     })
 
-    console.log('affiliate_account', affiliate_account.terms_of_use)
-
     const {
         data: affiliate_api_data,
         error: affiliate_api_error,
@@ -149,6 +147,7 @@ const AffiliateSignup = () => {
         }
         if (affiliate_api_data) {
             setSignupStatus('success')
+            onAnalyticEvent('affiliates: registration done')
         }
     }, [affiliate_api_data, affiliate_api_error, affiliateSend])
     useEffect(() => {
@@ -161,7 +160,7 @@ const AffiliateSignup = () => {
         })
     }, [affiliate_account.address_details.country])
     const onSubmit = () => {
-        signup_status == 'success' && onAnalyticEvent('affiliates: registration done')
+        setSignupStatus('loading')
         Submit({ is_online, affiliate_account, setSignupStatus, affiliateSend })
     }
 

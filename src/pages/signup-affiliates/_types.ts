@@ -69,6 +69,7 @@ export type SignUpStatusTypes =
     | 'Username not available'
     | 'lost connection'
     | 'success'
+    | 'loading'
     | 'Your website is not a valid entry'
     | ''
 export type setSignUpStatusTypes = Dispatch<SetStateAction<SignUpStatusTypes>>

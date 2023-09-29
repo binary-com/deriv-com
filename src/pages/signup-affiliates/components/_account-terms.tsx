@@ -40,7 +40,6 @@ const CheckBox = styled.input`
 const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepProps) => {
     const affiliate_data = affiliate_account.terms_of_use
     const [terms_of_use, setTermsOfUse] = useState(affiliate_data)
-    console.log(terms_of_use)
 
     const AgreementData: AgreementDataType[] = [
         {

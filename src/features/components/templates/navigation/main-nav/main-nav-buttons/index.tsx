@@ -27,18 +27,12 @@ const MainNavButtons = () => {
             gap="8x"
         >
             {is_logged_in ? (
-                <Button.Primary
-                    disabled={is_region_loading}
-                    onClick={handleGetTrading}
-                    aria-label="Get trading"
-                    outlined
-                >
+                <Button.Primary onClick={handleGetTrading} aria-label="Get trading" outlined>
                     <Localize translate_text="_t_Get trading_t_" />
                 </Button.Primary>
             ) : (
                 <>
                     <Button.Primary
-                        disabled={is_region_loading}
                         id="dm-nav-login-button"
                         aria-label="Login"
                         onClick={handleLogin}
@@ -48,7 +42,6 @@ const MainNavButtons = () => {
                     </Button.Primary>
                     <Button.Primary
                         visible="larger-than-tablet"
-                        disabled={is_region_loading}
                         aria-label="Signup"
                         id="dm-nav-signup"
                         onClick={handleSignup}

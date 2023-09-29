@@ -26,6 +26,7 @@ const product_links: ProductLinksType = {
     deriv_app: ({ language, url }) =>
         getDerivAppLocalizedURL(localized_link_url['deriv_app'], language, url),
     mt5: ({ language, url }) => getDerivAppLocalizedURL(localized_link_url['mt5'], language, url),
+    deriv_app_login: () => localized_link_url['deriv_app_login'],
     derivx: ({ language, url }) =>
         getDerivAppLocalizedURL(localized_link_url['derivx'], language, url),
     affiliate_sign_in: ({ affiliate_lang }) =>

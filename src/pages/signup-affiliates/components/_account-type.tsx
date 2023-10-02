@@ -132,7 +132,7 @@ const cards: CardProps[] = [
         value: 2,
         icon: BusinessIcon,
         title: '_t_Legal entity_t_',
-        description: '_t_Register for a business or corporate accoubnt_t_',
+        description: '_t_Register for a business or corporate account_t_',
     },
 ]
 const plans: CardProps[] = [
@@ -194,7 +194,7 @@ const AccountType = ({ updateData, affiliate_account, onValidate }: WizardStepPr
             <SecondPart is_disabled={selected_items.type == 0}>
                 <Header align="center" type="paragraph-1" pb="8px" weight="normal">
                     <Localize
-                        translate_text={'_t_Choose which plan yo would like to subscribe to_t_'}
+                        translate_text={'_t_Choose which plan you would like to subscribe to_t_'}
                     />
                 </Header>
                 {plans.map(({ value, icon, title, description }) => {

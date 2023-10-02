@@ -124,7 +124,7 @@ const AffiliateSignupStatus = ({
                         <StyledButton
                             secondary
                             onClick={() => {
-                                setSignupStatus('')
+                                window.location.href = 'https://deriv.com/partners/'
                             }}
                         >
                             <Localize translate_text={'_t_Got it_t_'} />

@@ -30,7 +30,7 @@ const emailValidation = (input) => {
 }
 const userNameValidation = (input) => {
     if (!input) {
-        return localize('_t_User name is required_t_')
+        return localize('_t_Username is required_t_')
     } else if (
         affiliate_validation_regex.latin.test(input) ||
         !affiliate_validation_regex.alphabet.test(input)

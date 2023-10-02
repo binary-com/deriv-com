@@ -62,7 +62,7 @@ const PersonalDetails = ({
             id: 'username',
             name: 'username',
             type: 'text',
-            label: localize('_t_User name_t_'),
+            label: localize('_t_Username_t_'),
             placeholder: 'Username',
             extra_info: ' ',
             error: user_name_error_msg,
@@ -89,7 +89,7 @@ const PersonalDetails = ({
             name: 'last_name',
             type: 'text',
             label: localize('_t_Last name_t_'),
-            placeholder: 'First name',
+            placeholder: 'Last name',
             extra_info: ' ',
             error: last_name_error_msg,
             value: last_name,
@@ -140,10 +140,10 @@ const PersonalDetails = ({
             type: 'text',
             label: localize('_t_Website URL_t_'),
             placeholder: 'Website URL',
-            extra_info: 'Optional',
+            extra_info: ' ',
             error: website_url_error_msg,
             value: website_url,
-            required: false,
+            required: true,
             value_set: setWebsiteUrl,
             error_set: setWebsiteUrlErrorMsg,
         },
@@ -177,7 +177,7 @@ const PersonalDetails = ({
     // prevent these characters from the input type='number' tag
     const input = document.getElementById('company_registration_number')
     input?.addEventListener('keydown', function (e) {
-        if (['.', '-', '+', 'e'].includes(e.key)) {
+        if (['.', ',', '-', '+', 'e'].includes(e.key)) {
             e.preventDefault()
         }
     })
@@ -318,7 +318,7 @@ const PersonalDetails = ({
                                 onBlur={handleInput}
                                 data-lpignore="true"
                                 handleError={() => {
-                                    item?.value_set('')
+                                    item?.value_set(null)
                                     item?.error_set('')
                                 }}
                             />

@@ -16,6 +16,14 @@ import Map from 'images/svg/signup-affiliates/map.svg'
 const AffiliateSignupStatus = Loadable(() => import('./components/_signup-status'))
 const Wizard = Loadable(() => import('./components/_wizard'))
 
+const customSlugify = (text: string): string =>
+    text
+        .toString()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim()
+        .replace(/'/g, '')
+        .replace(/--+/g, '-')
 const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }: SubmitTypes) => {
     if (!is_online) {
         setSignupStatus('lost connection')
@@ -23,7 +31,7 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
         affiliateSend({
             address_city: affiliate_account.address_details.city,
             address_postcode: affiliate_account.address_details.postal_code,
-            address_state: affiliate_account.address_details.state.name,
+            address_state: customSlugify(affiliate_account.address_details.state.name),
             address_street: affiliate_account.address_details.street,
             commission_plan: affiliate_account.account.plan,
             country: affiliate_account.address_details.country.symbol,
@@ -116,7 +124,6 @@ const AffiliateSignup = () => {
             is_partner_checked: false,
         },
     })
-
     const {
         data: affiliate_api_data,
         error: affiliate_api_error,

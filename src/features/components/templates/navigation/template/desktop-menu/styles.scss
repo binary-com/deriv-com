@@ -46,6 +46,14 @@
         animation-timing-function: ease;
     }
 
+    &_scrollable_menu {
+        @media screen and (max-height: 975px) {
+            block-size: 85vh;
+            padding-block-end: 3rem;
+            overflow: auto;
+        }
+    }
+
     &_position {
         display: flex;
         justify-content: end;

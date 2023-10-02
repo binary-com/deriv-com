@@ -8,10 +8,9 @@ export const useGrowthBook = () => {
     const growthbook = gb.current
 
     // calls tracking feature trackingCallback()
-    const test_toggle_aa_test = growthbook.evalFeature('test-toggle-aa-test')
+    const test_toggle_aa_test = isBrowser() && growthbook?.evalFeature('test-toggle-aa-test')
 
-    // fetch feature flag from growthbook by name
     return {
-        test_toggle_aa_test: test_toggle_aa_test.experimentResult.name,
+        test_toggle_aa_test: test_toggle_aa_test.experimentResult?.name,
     }
 }

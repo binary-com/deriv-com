@@ -55,7 +55,6 @@ import DEBMW from 'images/svg/symbols/markets-stocks-and-indices/american-stocks
 import DECONG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-continental-ag.svg'
 import DEDBK from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-deutsche-bank-ag.svg'
 import DELHAG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-deutsche-lufthansa-ag.svg'
-import DEPSHG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-porsche.svg'
 import DEPUMG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-puma.svg'
 import USAAL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-american-airlines-group-inc.svg'
 import USAAPL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-apple.svg'
@@ -88,15 +87,8 @@ import USJPM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks
 import USKO from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-coca-cola.svg'
 import USMA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-mastercard-inc.svg'
 import USMCD from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-mc-donalds.svg'
-import USMRNA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-moderna-inc.svg'
 import USMSFT from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-microsoft-corporation.svg'
-import USNTFLX from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-netflix.svg'
-import USNKE from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-nike.svg'
-import USNVDA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-nvidia-corp.svg'
-import USPEP from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-pepsico.svg'
-import USPFE from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-pfizer.svg'
 import USPG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-procter-gamble.svg'
-import USPYPL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-paypal.svg'
 import USSONY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-sony.svg'
 import USTEVA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-teva-pharmaceutical-inds.svg'
 import USTSLMTR from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-tesla-inc.svg'
@@ -244,7 +236,6 @@ export {
     DECONG,
     DEDBK,
     DELHAG,
-    DEPSHG,
     DEPUMG,
     USAAL,
     USAAPL,
@@ -277,15 +268,8 @@ export {
     USKO,
     USMA,
     USMCD,
-    USMRNA,
     USMSFT,
-    USNTFLX,
-    USNKE,
-    USNVDA,
-    USPEP,
-    USPFE,
     USPG,
-    USPYPL,
     USSONY,
     USTEVA,
     USTSLMTR,

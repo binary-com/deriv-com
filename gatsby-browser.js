@@ -1,5 +1,6 @@
 import React from 'react'
 import Cookies from 'js-cookie'
+import { isMobile } from 'react-device-detect'
 import { GrowthBook } from '@growthbook/growthbook-react'
 import { RudderStack } from '@deriv/analytics'
 import { createRoot } from 'react-dom/client'
@@ -96,7 +97,9 @@ export const onClientEntry = () => {
             country:
                 JSON.parse(JSON.parse(Cookies.get('website_status')).website_status)
                     .clients_country || ' ',
-            language: Cookies.get('user_language') || getLanguage(),
+            user_language: Cookies.get('user_language') || getLanguage(),
+            device_language: navigator?.language,
+            device_type: isMobile ? 'mobile' : 'web',
         },
         trackingCallback: (experiment, result) => {
             RudderStack.track(
@@ -108,18 +111,11 @@ export const onClientEntry = () => {
                 { is_anonymous: !!anonymous_id },
             )
         },
+        onFeatureUsage: (featureKey, result) => {
+            console.log('feature', featureKey, 'has value', result.value)
+        },
     })
     gb.loadFeatures()
-
-    const language = getLanguage()
-    const domain = getDomain()
-    const client_information = getClientInformation(domain)
-
-    if (client_information) {
-        RudderStack.identifyEvent(client_information.loginid, {
-            language,
-        })
-    }
     //datadog
     const dd_options = {
         clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,
@@ -161,6 +157,7 @@ export const onClientEntry = () => {
 
 export const onRouteUpdate = () => {
     checkDomain()
+    window?._growthbook.setURL(window.location.href)
 
     const dataLayer = window.dataLayer
     const domain = getDomain()

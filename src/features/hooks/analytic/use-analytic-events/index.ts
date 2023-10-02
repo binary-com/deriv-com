@@ -6,14 +6,14 @@ type ExtractAction<T> = T extends { action: infer A } ? A : never
 type ActionForEvent<E extends keyof TEvents> = ExtractAction<TEvents[E]>
 
 export const useAnalyticsEvents = <T extends keyof TEvents>(event: keyof TEvents) => {
-    const { form_source, form_name } = useAnalyticData()
+    const { form_source, form_name, anonymous_id } = useAnalyticData()
 
     const analytic_events = {
         [event]: useCallback((action: ActionForEvent<T>, signup_provider?: SignupProvider) => {
             RudderStack.track(
                 event,
                 { action, signup_provider, form_source, form_name },
-                { is_anonymous: true },
+                { is_anonymous: !!anonymous_id },
             )
         }, []),
     }

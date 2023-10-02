@@ -64,7 +64,7 @@ const dmt5: TQuestionsData = {
                 {
                     margin_top: '4.1rem',
                     translation_text:
-                        "_t_<0>DTrader</0> offers multipliers trading on a range of underlying assets such as forex, cryptocurrencies, and derived. This platform allows you to open multipliers trades that offer the opportunity to multiply potential profit without risking more than your stake. You may find this platform more intuitive if you're new to the trading world._t_",
+                        "_t_<0>Deriv Trader</0> offers multipliers trading on a range of underlying assets such as forex, cryptocurrencies, and derived. This platform allows you to open multipliers trades that offer the opportunity to multiply potential profit without risking more than your stake. You may find this platform more intuitive if you're new to the trading world._t_",
                     translation_components: [{ key: 0, type: 'link', to: '/dtrader/' }],
                 },
                 {
@@ -108,7 +108,7 @@ const dmt5: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_The DMT5 Financial account offers you leverage to trade contracts for difference (CFDs) on forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies._t_',
+                        '_t_The Deriv MT5 Financial account offers you leverage to trade contracts for difference (CFDs) on forex, stocks, stock indices, commodities, synthetic indices, and cryptocurrencies._t_',
                 },
             ],
         },
@@ -136,7 +136,7 @@ const dmt5: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_This difference is because MT5 is a third-party platform that requires its own login credentials. Your Deriv MT5 login gives you access to the MT5 platform, while your Deriv login gives you access to our digital options platforms such as DTrader and DBot._t_',
+                        '_t_This difference is because MT5 is a third-party platform that requires its own login credentials. Your Deriv MT5 login gives you access to the MT5 platform, while your Deriv login gives you access to our digital options platforms such as Deriv Trader and Deriv Bot._t_',
                 },
             ],
         },

@@ -6,6 +6,8 @@ import {
     cpa_plan_countries,
     p2p_countries,
     not_available_appgallery_countries,
+    not_avalable_appgallery_and_ios_countries,
+    not_available_iOS_countries,
 } from 'common/country-base'
 import useWebsiteStatus from 'components/hooks/use-website-status'
 import {
@@ -35,7 +37,9 @@ type RegionContextType = Record<
     | 'is_row'
     | 'is_dev'
     | 'is_africa'
-    | 'is_appgallery_supported',
+    | 'is_appgallery_supported'
+    | 'is_appgallery_and_ios_supported'
+    | 'is_ios_supported',
     boolean
 > & { user_country: string }
 
@@ -57,6 +61,8 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
     })
     const [is_p2p_allowed_country, setP2PAllowedCountry] = useState(false)
     const [is_appgallery_supported, setAppgallerySupported] = useState(false)
+    const [is_appgallery_and_ios_supported, setAppgalleryIosSupported] = useState(false)
+    const [is_ios_supported, setIosSupported] = useState(false)
     const [is_p2p_loading, setP2PLoading] = useState(true)
     const [user_country, setUserCountry] = useState(null)
 
@@ -90,6 +96,12 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                 not_available_appgallery_countries.includes(qa_url_region)
                     ? setAppgallerySupported(false)
                     : setAppgallerySupported(true)
+                not_avalable_appgallery_and_ios_countries.includes(qa_url_region)
+                    ? setAppgalleryIosSupported(false)
+                    : setAppgalleryIosSupported(true)
+                not_available_iOS_countries.includes(qa_url_region)
+                    ? setIosSupported(false)
+                    : setIosSupported(true)
             }
             setUserCountry(clients_country)
             setRegion({
@@ -155,6 +167,8 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
                 is_row,
                 is_dev,
                 is_appgallery_supported,
+                is_appgallery_and_ios_supported,
+                is_ios_supported,
             }}
         >
             {children}

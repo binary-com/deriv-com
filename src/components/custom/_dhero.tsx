@@ -167,7 +167,12 @@ const DHero = ({ join_us_for_free, is_live_demo, image_name }: DHeroProps) => {
             <StyledContainer jc="flex-start">
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
-                        <img width="237px" height="64px" src={DerivTLogo} />
+                        <img
+                            width="237px"
+                            height="64px"
+                            src={DerivTLogo}
+                            alt={localize('_t_Deriv Trader_t_')}
+                        />
                         <CommonHeaderSection
                             title="_t_A user-friendly trading platform_t_"
                             title_font_size={`${is_mobile ? 32 : 64}px`}

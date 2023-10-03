@@ -15,10 +15,11 @@ import { Localize } from 'components/localization'
 import usePricingFeed from 'components/hooks/use-pricing-feed'
 import Typography from 'features/components/atoms/typography'
 import InitialLoader from 'components/elements/dot-loader'
+import { PathType } from 'features/types'
 
 export type TLiveMarketTableProps = {
     selected_market: TAvailableLiveMarkets
-    link_to: string
+    link_to: PathType
 }
 
 const LoaderView = (
@@ -49,12 +50,13 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
     const [error, rawMarketsData] = usePricingFeed()
     const TABLE_VISIBLE_ROWS = 5
     const [sorting, setSorting] = React.useState<SortingState>([])
+
     const markets_data = useMemo(() => {
         if (rawMarketsData) {
-            const stocks = rawMarketsData['stk']
-            const indices = rawMarketsData['ind']
+            const stocks = rawMarketsData['stocks']
+            const indices = rawMarketsData['indices']
             const stocks_indices = { ...stocks, ...indices }
-            const res = { ...rawMarketsData, ind: stocks_indices }
+            const res = { ...rawMarketsData, indices: stocks_indices }
 
             if (res[selected_market]) {
                 return Object.values(res[selected_market])

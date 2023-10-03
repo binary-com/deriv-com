@@ -14,7 +14,6 @@ import OptionsFaq from 'features/components/templates/options-faq'
 const ResetCallDigitalOptionsPage = () => {
     return (
         <DigitalOptionsLayout>
-            <ResetCallSEO />
             <OptionsContent items={reset_and_recall_content_items} />
             <AvailableMarketPlatforms
                 markets={reset_call_markets}

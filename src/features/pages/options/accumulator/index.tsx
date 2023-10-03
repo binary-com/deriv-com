@@ -5,7 +5,6 @@ import {
     accumulatorOptionsContentItems,
     accumulatorPlatforms,
 } from './data'
-import AccumulatorSEO from './seo'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import OptionsLayout from 'features/components/templates/options-layout'
@@ -20,7 +19,6 @@ const AccumulatorsOptions = () => {
             heading="_t_What are accumulator options?_t_"
             description="_t_Accumulator options allow you to predict whether the current spot price remains within a predefined range from the previous spot price._t_"
         >
-            <AccumulatorSEO />
             <Typography.Heading
                 as="h2"
                 align="center"

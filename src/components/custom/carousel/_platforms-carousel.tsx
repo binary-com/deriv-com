@@ -129,7 +129,7 @@ const GenericCarousel = ({ renderableData, mainHeading }: TGenericCarousel) => {
                         <MarketsItem>
                             <Card>
                                 <MobileCardHeader>
-                                    <img src={icon} width="48" height="48" />
+                                    <img src={icon} width="48" height="48" alt={heading} />
                                     <StyledText weight="bold">{heading}</StyledText>
                                 </MobileCardHeader>
                                 <StyledPara>

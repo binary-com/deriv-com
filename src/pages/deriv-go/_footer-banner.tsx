@@ -46,16 +46,34 @@ const TextAndButtonWrapper = styled.div`
 const DerivGoGetApp = () => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const is_rtl = useIsRtl()
-    const { is_appgallery_supported } = useRegion()
+    const { is_appgallery_supported, is_ios_supported, is_appgallery_and_ios_supported } =
+        useRegion()
 
     const items: TDownloadColumnItem[] = [
         { text: 'Google Play', icon: AndroidIcon, link: deriv_go_playstore_url },
-        { text: 'App Store', icon: AppleIcon, link: deriv_go_ios_url },
-        ...(is_appgallery_supported
+        ...(is_ios_supported && is_appgallery_and_ios_supported
+            ? [{ text: 'App Store', icon: AppleIcon, link: deriv_go_ios_url }]
+            : []),
+        ...(is_appgallery_supported && is_appgallery_and_ios_supported
             ? [{ text: 'AppGallery', icon: AppGalleryIcon, link: deriv_go_huaweiappgallery_url }]
             : []),
     ]
 
+    function findQRHeading(
+        is_appgallery_supported,
+        is_ios_supported,
+        is_appgallery_and_ios_supported,
+    ) {
+        if (!is_appgallery_and_ios_supported) {
+            return '_t_Android_t_'
+        } else if (!is_ios_supported) {
+            return '_t_Android and Huawei_t_'
+        } else if (!is_appgallery_supported) {
+            return '_t_Android, and iOS_t_'
+        } else {
+            return '_t_Android, iOS, and Huawei_t_'
+        }
+    }
     return (
         <MultiWidthColumn
             firstColumnBackground="#4C515C"
@@ -88,11 +106,11 @@ const DerivGoGetApp = () => {
             <DownloadColumn
                 QRImage={derivGoQR}
                 QRHeading1="_t_Scan to download_t_"
-                QRHeading2={
-                    is_appgallery_supported
-                        ? '_t_Android, iOS, and Huawei_t_'
-                        : '_t_Android and iOS_t_'
-                }
+                QRHeading2={findQRHeading(
+                    is_appgallery_supported,
+                    is_ios_supported,
+                    is_appgallery_and_ios_supported,
+                )}
                 items={items}
                 is_rtl={is_rtl}
             />

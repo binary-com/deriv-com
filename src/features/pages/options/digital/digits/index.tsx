@@ -1,5 +1,4 @@
 import React from 'react'
-import DigitsSEO from './seo'
 import {
     digits_content_items,
     digit_options_faq,
@@ -14,7 +13,6 @@ import OptionsFaq from 'features/components/templates/options-faq'
 const DigitDigitalOptionsPage = () => {
     return (
         <DigitalOptionsLayout>
-            <DigitsSEO />
             <OptionsContent items={digits_content_items} />
             <AvailableMarketPlatforms
                 markets={digit_options_markets}

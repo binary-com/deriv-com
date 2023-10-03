@@ -52,7 +52,7 @@
         "match-sorter": "^6.3.1",
         "npm": "^9.6.2",
         "p-min-delay": "^4.0.2",
-        "postcss": "^8.4.5",
+        "postcss": "^8.4.31",
         "postcss-discard-duplicates": "^5.1.0",
         "postcss-ts-classnames": "^0.3.0",
         "prompt-sync": "^4.2.0",

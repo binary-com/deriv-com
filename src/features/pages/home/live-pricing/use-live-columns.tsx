@@ -28,12 +28,19 @@ const useLiveColumns = () => {
                 ),
                 cell: (info) => (
                     <Flex.Box>
-                        <SymbolIcon icon_src={info.getValue()} />
+                        <SymbolIcon
+                            icon_src={info.getValue()}
+                            alt={info.row._valuesCache.sym as string}
+                        />
                     </Flex.Box>
                 ),
             }),
             liveMarketColumnHelper.accessor('symbol', {
-                header: () => <Flex.Box></Flex.Box>,
+                header: () => (
+                    <Flex.Box>
+                        <p className="sr-only">Symbol</p>
+                    </Flex.Box>
+                ),
                 cell: (info) => (
                     <Flex.Box>
                         <Typography.Paragraph size={is_mobile ? 'small' : 'medium'}>

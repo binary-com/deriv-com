@@ -14,6 +14,7 @@ import { getLocationPathname } from 'common/utility'
 import useScrollToElement from 'features/hooks/use-scroll-to-element'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
+import { localize } from 'components/localization'
 
 type contentType = {
     [T: string]: TString
@@ -46,7 +47,6 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
         ) : (
             <>
                 <Button.Primary
-                    id="dm-nav-affiliate-login-button"
                     onClick={() =>
                         window.open('https://login.deriv.com/signin.php?lang=0', '_blank')
                     }
@@ -57,7 +57,6 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
                     <Localize translate_text={texts.login} />
                 </Button.Primary>
                 <Button.Primary
-                    id="dm-nav-affiliate-login-button"
                     onClick={() =>
                         window.open('https://login.deriv.com/signin.php?lang=0', '_blank')
                     }
@@ -86,11 +85,20 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
                         type: 'internal',
                         to: is_prime_page ? '/partners/deriv-prime/' : '/partners/',
                     }}
+                    aria-label="deriv partners link"
                 >
                     {is_prime_page ? (
-                        <Image src={PrimeLogo} className={partners_nav_logo} />
+                        <Image
+                            src={PrimeLogo}
+                            className={partners_nav_logo}
+                            alt={localize('_t_Deriv Prime_t_')}
+                        />
                     ) : (
-                        <Image src={PartnerNavLogo} className={partners_nav_logo} />
+                        <Image
+                            src={PartnerNavLogo}
+                            className={partners_nav_logo}
+                            alt={localize('_t_Deriv Partners_t_')}
+                        />
                     )}
                 </Link>
             )}

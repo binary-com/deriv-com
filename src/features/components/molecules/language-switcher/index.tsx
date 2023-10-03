@@ -34,11 +34,11 @@ const LanguageSwitcher = () => {
             onOpenChange={setOpen}
         >
             <DropdownMenu.Trigger asChild>
-                <div className={styles.trigger}>
+                <button className={styles.trigger}>
                     <Typography.Paragraph size="medium" font_family={'UBUNTU'} weight="bold">
                         {currentLang.short_name}
                     </Typography.Paragraph>
-                </div>
+                </button>
             </DropdownMenu.Trigger>
 
             <DropdownMenu.Content

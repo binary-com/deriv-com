@@ -210,3 +210,5 @@ jobs:
                 GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
                 # Set Base Url from client_payload.
                 CYPRESS_BASE_URL: ${{steps.publish-to-pages.outputs.preview_url}}
+                # Send PR and Repo details to Cypress Cloud test run
+                COMMIT_INFO_MESSAGE: PR "${{ github.event.pull_request.title }}" in Repo "${{ github.repository }}" 

@@ -10,40 +10,50 @@ export const ETFTradeBenefitItems: BenefitTradeTypeItem[] = [
         id: 0,
         data: {
             description: '_t_A low-cost way to trade diverse asset groups_t_',
-
-            icon_src: ETF1,
+            icon: {
+                src: ETF1,
+                alt: '_t_low-cost trading_t_',
+            },
         },
     },
     {
         id: 1,
         data: {
             description: '_t_Numerous intraday trading opportunities_t_',
-
-            icon_src: ETF2,
+            icon: {
+                src: ETF2,
+                alt: '_t_intraday trading opportunities_t_',
+            },
         },
     },
     {
         id: 2,
         data: {
             description: '_t_Fast, secure deposit and withdrawal options_t_',
-
-            icon_src: ETF3,
+            icon: {
+                src: ETF3,
+                alt: '_t_fast, secure deposit and withdrawal_t_',
+            },
         },
     },
     {
         id: 3,
         data: {
             description: '_t_Powerful, intuitive platforms_t_',
-
-            icon_src: ETF4,
+            icon: {
+                src: ETF4,
+                alt: '_t_powerful and intuitive platforms_t_',
+            },
         },
     },
     {
         id: 4,
         data: {
             description: '_t_Smart and friendly support, 7 days a week_t_',
-
-            icon_src: ETF5,
+            icon: {
+                src: ETF5,
+                alt: '_t_smart and friendly support_t_',
+            },
         },
     },
 ]

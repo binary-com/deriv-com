@@ -39,12 +39,13 @@ import RiseFall from 'images/svg/options/rise-fall.svg'
 import SbGo from 'images/svg/options/sb-go.svg'
 import TNT from 'images/svg/options/tnt.svg'
 import { TString } from 'types/generics'
+import { IconType } from 'features/types'
 
 type OptionElement = {
     title?: TString
     text: TString
     text_component?: React.ReactElement[]
-    svg: string
+    svg: IconType
     wrap?: string
     remove_title?: boolean
     mobile_pt?: string
@@ -61,12 +62,18 @@ const getOptions = (is_synthetic_options: boolean) => {
         [
             {
                 title: '_t_Up/Down_t_',
-                svg: RiseFall,
+                svg: {
+                    src: RiseFall,
+                    alt: '_t_rise/fall option trade_t_',
+                },
                 text: '_t_<0>Rise/Fall:</0> Predict whether the exit spot will be strictly higher or lower than the entry spot at the end of the contract period._t_',
                 text_component: [<strong key={0} />],
             },
             {
-                svg: HigherLower,
+                svg: {
+                    src: HigherLower,
+                    alt: '_t_higher/lower option trade_t_',
+                },
                 text: '_t_<0>Higher/Lower:</0> Predict whether the exit spot will be higher or lower than a price target (the barrier) at the end of the contract period._t_',
                 text_component: [<strong key={0} />],
             },
@@ -74,12 +81,18 @@ const getOptions = (is_synthetic_options: boolean) => {
         [
             {
                 title: '_t_In/Out_t_',
-                svg: EbEo,
+                svg: {
+                    src: EbEo,
+                    alt: '_t_ends between/ends outside option trade_t_',
+                },
                 text: '_t_<0>Ends Between/Ends Outside:</0> Predict whether the exit spot will be inside or outside two price targets at the end of the contract period._t_',
                 text_component: [<strong key={0} />],
             },
             {
-                svg: SbGo,
+                svg: {
+                    src: SbGo,
+                    alt: '_t_stays between/goes outside option trade_t_',
+                },
                 text: '_t_<0>Stays Between/Goes Outside:</0> Predict whether the market will stay inside or go outside two price targets at any time during the contract period._t_',
                 text_component: [<strong key={0} />],
             },
@@ -87,7 +100,10 @@ const getOptions = (is_synthetic_options: boolean) => {
         [
             {
                 title: '_t_Touch/No Touch_t_',
-                svg: TNT,
+                svg: {
+                    src: TNT,
+                    alt: '_t_touch/no touch option trade_t_',
+                },
                 text: '_t_Predict whether the market will touch or not touch a target at any time during the contract period._t_',
             },
         ],
@@ -100,18 +116,27 @@ const getOptions = (is_synthetic_options: boolean) => {
                 {
                     wrap: 'wrap',
                     title: '_t_Digits_t_',
-                    svg: MatchesDiffers,
+                    svg: {
+                        src: MatchesDiffers,
+                        alt: '_t_matches/differs option trade_t_',
+                    },
                     text: '_t_<0>Matches/Differs:</0> Predict what number will be the last digit of the last tick of a contract._t_',
                     text_component: [<strong key={0} />],
                 },
                 {
-                    svg: OuOd,
+                    svg: {
+                        src: OuOd,
+                        alt: '_t_over/under option trade_t_',
+                    },
                     text: '_t_<0>Over/Under:</0> Predict whether the last digit of the last tick of a contract will be higher or lower than a specific number._t_',
                     text_component: [<strong key={0} />],
                 },
                 {
                     remove_title: true,
-                    svg: EvenOdd,
+                    svg: {
+                        src: EvenOdd,
+                        alt: '_t_even/odd option trade_t_',
+                    },
                     text: '_t_<0>Even/Odd:</0> Predict whether the last digit of the last tick of a contract will be an even number or an odd number._t_',
                     text_component: [<strong key={0} />],
                     mobile_pt: '2.4rem',
@@ -120,12 +145,18 @@ const getOptions = (is_synthetic_options: boolean) => {
             [
                 {
                     title: '_t_Reset Call/Reset Put_t_',
-                    svg: RcRp,
+                    svg: {
+                        src: RcRp,
+                        alt: '_t_reset call/reset put option trade_t_',
+                    },
                     text: '_t_Predict whether the exit spot will be higher or lower than either the entry spot or the spot at reset time._t_',
                 },
                 {
                     title: '_t_High/Low Ticks_t_',
-                    svg: HighLowTicks,
+                    svg: {
+                        src: HighLowTicks,
+                        alt: '_t_high/low ticks option trade_t_',
+                    },
                     text: '_t_Predict which will be the highest or the lowest tick in a series of five ticks._t_',
                     mobile_pt: '2.4rem',
                 },
@@ -133,12 +164,18 @@ const getOptions = (is_synthetic_options: boolean) => {
             [
                 {
                     title: '_t_Touch/No Touch_t_',
-                    svg: TNT,
+                    svg: {
+                        src: TNT,
+                        alt: '_t_touch/no touch option trade_t_',
+                    },
                     text: '_t_Predict whether the market will touch or not touch a target at any time during the contract period._t_',
                 },
                 {
                     title: '_t_Asians_t_',
-                    svg: Asians,
+                    svg: {
+                        src: Asians,
+                        alt: '_t_asians option trade_t_',
+                    },
                     text: '_t_Predict whether the exit spot (last tick) will be higher or lower than the average of the ticks at the end of the contract period._t_',
                     mobile_pt: '2.4rem',
                 },
@@ -146,7 +183,10 @@ const getOptions = (is_synthetic_options: boolean) => {
             [
                 {
                     title: '_t_Only Ups/Only Downs_t_',
-                    svg: OuOd,
+                    svg: {
+                        src: OuOd,
+                        alt: '_t_only ups/only downs option trade_t_',
+                    },
                     text: '_t_Predict whether consecutive ticks will rise or fall successively after the entry spot._t_',
                 },
             ],
@@ -154,18 +194,27 @@ const getOptions = (is_synthetic_options: boolean) => {
                 {
                     wrap: 'wrap',
                     title: '_t_Lookbacks_t_',
-                    svg: HighClose,
+                    svg: {
+                        src: HighClose,
+                        alt: '_t_high-close option trade_t_',
+                    },
                     text: '_t_<0>High-Close:</0> When you purchase a ‘High-Close’ contract, your win or loss will be equal to the multiplier times the difference between the high and the close over the duration of the contract._t_',
                     text_component: [<strong key={0} />],
                 },
                 {
-                    svg: HighLow,
+                    svg: {
+                        src: HighLow,
+                        alt: '_t_high-low option trade_t_',
+                    },
                     text: '_t_<0>High-Low:</0> When you purchase a ‘High-Low’ contract, your win or loss will be equal to the multiplier times the difference between the high and the low over the duration of the contract._t_',
                     text_component: [<strong key={0} />],
                 },
                 {
                     remove_title: true,
-                    svg: CloseLow,
+                    svg: {
+                        src: CloseLow,
+                        alt: '_t_close-low option trade_t_',
+                    },
                     text: '_t_<0>Close-Low:</0> When you purchase a ‘Close-Low’ contract, your win or loss will be equal to the multiplier times the difference between the close and the low over the duration of the contract._t_',
                     text_component: [<strong key={0} />],
                     mobile_pt: '2.4rem',

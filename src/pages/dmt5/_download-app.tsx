@@ -112,7 +112,7 @@ const DerivMT5GetApp = () => {
                         margin_title="0 0 18px"
                     />
                     <Flex jc="stretch" ai="flex-start" height="auto">
-                        <StyledInfoIcon src={InfoIcon} />
+                        <StyledInfoIcon src={InfoIcon} alt={localize('_t_info symbol_t_')} />
                         <InfoText>
                             <Localize
                                 translate_text="_t_For mobile app sign-ups, set the broker code to <0>Deriv Holdings (Guernsey) Limited.<0>_t_"

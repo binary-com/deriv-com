@@ -22,7 +22,7 @@ export const useGrowthBook = () => {
             id: anonymous_id,
             country: website_status?.clients_country || ' ',
             user_language: Cookies.get('user_language') || getLanguage(),
-            device_language: navigator?.language,
+            device_language: navigator?.language || ' ',
             device_type: isMobile ? 'mobile' : 'web',
         },
         trackingCallback: (experiment, result) => {

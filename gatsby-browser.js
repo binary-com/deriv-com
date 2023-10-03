@@ -90,7 +90,7 @@ export const onClientEntry = () => {
         apiHost: 'https://cdn.growthbook.io',
         clientKey: growthbook_client_key,
         decryptionKey: growthbook_decryption_key,
-        enableDevMode: process.env.NODE_ENV !== 'production',
+        enableDevMode: true,
         subscribeToChanges: true,
         attributes: {
             id: anonymous_id,
@@ -111,9 +111,10 @@ export const onClientEntry = () => {
                 { is_anonymous: !!anonymous_id },
             )
         },
-        onFeatureUsage: (featureKey, result) => {
-            console.log('feature', featureKey, 'has value', result.value)
-        },
+        // use it for development and testing purpose
+        // onFeatureUsage: (featureKey, result) => {
+        //     console.log('feature', featureKey, 'has value', result.value)
+        // },
     })
     gb.loadFeatures()
     //datadog

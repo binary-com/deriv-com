@@ -6,7 +6,6 @@ import { hero_content_title, hero_typewriter } from './hero-content.module.scss'
 import HeroHeaderItems from './hero-header.items'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
-import { useGrowthBook } from 'features/hooks/analytic/use-growthbook'
 import { get_lang_direction, Localize } from 'components/localization'
 
 const HeroFeaturesCarousel = loadable(() => pMinDelay(import('./hero-features.carousel'), 3000), {
@@ -20,14 +19,12 @@ const HeroFeaturesCarousel = loadable(() => pMinDelay(import('./hero-features.ca
 })
 
 const HomeHeroContent = () => {
-    const { homepage } = useGrowthBook()
-
     const headings = {
         control: '_t_Get the widest range of markets, trades and platforms_t_',
         'new-title': '_t_Get the widest range of markets, trades and platforms_t_',
     }
 
-    const heading = headings[homepage] || headings.control
+    const heading = headings.control
 
     return (
         <Flex.Box justify="start" direction="col" align="start" gap="4x" dir={get_lang_direction()}>

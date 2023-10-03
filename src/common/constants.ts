@@ -1,5 +1,4 @@
 const MAP_API_KEY = process.env.GATSBY_MAP_API_KEY
-const GATSBY_GROWTHBOOK_CLIENT_KEY = process.env.GATSBY_GROWTHBOOK_CLIENT_KEY
 const isBrowser = () => typeof window !== 'undefined'
 
 export const deriv_com_url = 'deriv.com'
@@ -132,7 +131,6 @@ export const ctrader_app_store_url =
 
 export const ctrader_web_browser_url = 'ct.deriv.com'
 export const ctrader_windows_url = 'https://getctrader.com/deriv/ctrader-deriv-setup.exe'
-export const growthbook_client_key = GATSBY_GROWTHBOOK_CLIENT_KEY
 export const gtm_test_domain = 'deriv-com.binary.sx'
 export const map_api_key = MAP_API_KEY
 export const mga_link_url =

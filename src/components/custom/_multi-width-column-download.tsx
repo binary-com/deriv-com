@@ -17,7 +17,7 @@ type TDownloadColumn = {
     items?: TDownloadColumnItem[]
     QRImage?: string
     QRHeading1?: TString
-    QRHeading2?: TString
+    QRHeading2?: TString | (() => void)
     is_rtl: boolean
 }
 

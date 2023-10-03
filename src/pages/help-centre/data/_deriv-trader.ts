@@ -2,10 +2,10 @@ import { TQuestionsData } from './_data-types'
 
 const dtrader: TQuestionsData = {
     section: 'Platforms',
-    category: '_t_DTrader_t_',
+    category: '_t_Deriv Trader_t_',
     questions: [
         {
-            question: '_t_What is DTrader?_t_',
+            question: '_t_What is Deriv Trader?_t_',
             category: 'DTrader',
             hide_for_non_eu: true,
             sub_category: '_t_Platforms_t_',
@@ -13,15 +13,15 @@ const dtrader: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_<0>DTrader</0> is an advanced trading platform where you can trade digital and lookback options and multipliers on more than 50 assets._t_',
+                        '_t_<0>Deriv Trader</0> is an advanced trading platform where you can trade digital and lookback options and multipliers on more than 50 assets._t_',
                     eu_translation_text:
-                        '_t_<0>DTrader</0> is one of our trading platforms. It offers multipliers on a variety of assets in financial and synthetic markets._t_',
+                        '_t_<0>Deriv Trader</0> is one of our trading platforms. It offers multipliers on a variety of assets in financial and synthetic markets._t_',
                     translation_components: [{ key: 0, type: 'link', to: '/dtrader/' }],
                 },
             ],
         },
         {
-            question: '_t_What is DTrader?_t_',
+            question: '_t_What is Deriv Trader?_t_',
             category: 'DTrader',
             sub_category: '_t_Platforms_t_',
             hide_for_eu: true,
@@ -29,46 +29,46 @@ const dtrader: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_<0>DTrader</0> is an advanced trading platform where you can trade digital and lookback options and multipliers on more than 50 assets._t_',
+                        '_t_<0>Deriv Trader</0> is an advanced trading platform where you can trade digital and lookback options and multipliers on more than 50 assets._t_',
                     translation_components: [{ key: 0, type: 'link', to: '/dtrader/' }],
                 },
             ],
         },
         {
-            question: '_t_What markets can I trade on DTrader?_t_',
+            question: '_t_What markets can I trade on Deriv Trader?_t_',
             category: 'DTrader',
             sub_category: '_t_Markets_t_',
             label: 'markets-on-dtrader',
             answer: [
                 {
                     eu_translation_text:
-                        '_t_You can trade forex, cryptocurrencies, and derived on DTrader. Some markets may not be available in certain countries._t_',
+                        '_t_You can trade forex, cryptocurrencies, and derived on Deriv Trader. Some markets may not be available in certain countries._t_',
                     translation_text:
-                        '_t_You can trade forex, stock indices, commodities, cryptocurrencies, and derived on DTrader. Some markets may not be available in certain countries._t_',
+                        '_t_You can trade forex, stock indices, commodities, cryptocurrencies, and derived on Deriv Trader. Some markets may not be available in certain countries._t_',
                 },
             ],
         },
         {
-            question: '_t_What contract types do you offer on DTrader?_t_',
+            question: '_t_What contract types do you offer on Deriv Trader?_t_',
             category: 'DTrader',
             sub_category: '_t_Contracts_t_',
             label: 'contracts-on-dtrader',
             hide_for_non_eu: true,
             answer: [
                 {
-                    translation_text: '_t_You can trade multipliers on DTrader._t_',
+                    translation_text: '_t_You can trade multipliers on Deriv Trader._t_',
                 },
             ],
         },
         {
-            question: '_t_What contract types do you offer on DTrader?_t_',
+            question: '_t_What contract types do you offer on Deriv Trader?_t_',
             category: 'DTrader',
             sub_category: '_t_Contracts_t_',
             label: 'contracts-on-dtrader',
             hide_for_eu: true,
             answer: [
                 {
-                    translation_text: '_t_These contracts are available on DTrader:_t_',
+                    translation_text: '_t_These contracts are available on Deriv Trader:_t_',
                     list: {
                         list_style: 'disc',
                         margin_top: '0.3rem',
@@ -118,14 +118,14 @@ const dtrader: TQuestionsData = {
             ],
         },
         {
-            question: '_t_Can I download the chart on DTrader?_t_',
+            question: '_t_Can I download the chart on Deriv Trader?_t_',
             category: 'DTrader',
             sub_category: '_t_Contracts_t_',
             label: 'download-the-chart-on-DTrader',
             answer: [
                 {
                     translation_text:
-                        '_t_Yes, you can download the chart on DTrader (in .csv and .png) by clicking <0>Download</0> on the toolbar on the left._t_',
+                        '_t_Yes, you can download the chart on Deriv Trader (in .csv and .png) by clicking <0>Download</0> on the toolbar on the left._t_',
                     translation_components: [{ key: 0, type: 'strong' }],
                 },
             ],

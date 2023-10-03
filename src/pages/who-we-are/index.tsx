@@ -13,6 +13,7 @@ import {
     DerivNumbers,
     OurOffices,
 } from './_lazy-load'
+import { TGatsbyHead } from 'features/types'
 import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -51,10 +52,6 @@ const AboutUs = ({ data }: TWhoWeAre) => {
     } = data?.strapiWhoWeArePage || {}
     return (
         <Layout>
-            <SEO
-                title="_t_Who we are | An Online Trading Platform | Deriv.com_t_"
-                description="_t_Deriv is a pioneering and award-winning online trading platform that offers a wide selection of derivatives for anyone, anywhere to trade._t_"
-            />
             <Hero hero={hero} />
             <MakeTrading hero={hero} />
             <StartSeparator />
@@ -227,3 +224,11 @@ export const query = graphql`
 `
 
 export default WithIntl()(AboutUs)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Who we are | An Online Trading Platform | Deriv.com_t_"
+        description="_t_Deriv is a pioneering and award-winning online trading platform that offers a wide selection of derivatives for anyone, anywhere to trade._t_"
+        pageContext={pageContext}
+    />
+)

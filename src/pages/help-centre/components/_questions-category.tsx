@@ -83,9 +83,11 @@ const QuestionsCategory = ({ data, topic_number }: TQuestionsCategory) => {
                 {questions_to_show.map(({ question, label }) => {
                     const to = convertToHash(getUntranslatedCategory(category), label, platform)
                     return (
-                        <Link key={label} to={to} onClick={handleLinkClick}>
-                            <Localize translate_text={question} />
-                        </Link>
+                        <li key={label}>
+                            <Link to={to} onClick={handleLinkClick}>
+                                <Localize translate_text={question} />
+                            </Link>
+                        </li>
                     )
                 })}
             </StyledList>

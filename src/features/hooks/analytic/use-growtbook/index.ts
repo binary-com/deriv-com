@@ -11,6 +11,6 @@ export const useGrowthBook = () => {
     const test_toggle_aa_test = isBrowser() && growthbook?.evalFeature('test-toggle-aa-test')
 
     return {
-        test_toggle_aa_test: test_toggle_aa_test.experimentResult?.name,
+        test_toggle_aa_test: test_toggle_aa_test?.experimentResult?.name,
     }
 }

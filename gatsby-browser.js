@@ -85,8 +85,6 @@ export const onInitialClientRender = () => {
 export const onClientEntry = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { anonymous_id } = useAnalyticData()
-    console.log('anonymous_id', anonymous_id)
-    console.log('Rudderstack', RudderStack)
 
     const gb = new GrowthBook({
         apiHost: 'https://cdn.growthbook.io',

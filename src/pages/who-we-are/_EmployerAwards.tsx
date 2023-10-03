@@ -65,7 +65,14 @@ const EmployerAwards = () => {
                     </Flex.Box>
                 </div>
             )}
-            <Typography.Heading size="medium" mb="10x" textcolor="black" align="center" mt="10x">
+            <Typography.Heading
+                size="medium"
+                mb="10x"
+                textcolor="black"
+                align="center"
+                mt="10x"
+                id="investors-in-people"
+            >
                 <Localize translate_text="_t_Employer awards_t_" />
             </Typography.Heading>
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import { TWhoWeAre } from './_types'
@@ -15,6 +15,8 @@ import {
     EmployerAwards,
 } from './_lazy-load'
 import { TGatsbyHead } from 'features/types'
+import useScrollToElement from 'features/hooks/use-scroll-to-element'
+import { getLocationHash } from 'common/utility'
 import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
@@ -51,6 +53,15 @@ const AboutUs = ({ data }: TWhoWeAre) => {
         our_locations,
         banner,
     } = data?.strapiWhoWeArePage || {}
+
+    const clickToScrollHandler = useScrollToElement('investors-in-people')
+    const pathname_hash = getLocationHash()
+    useEffect(() => {
+        setTimeout(() => {
+            pathname_hash?.includes('investors-in-people') && clickToScrollHandler()
+        }, 1000)
+    }, [pathname_hash])
+
     return (
         <Layout>
             <Hero hero={hero} />

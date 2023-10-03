@@ -1,9 +1,11 @@
 import React from 'react'
 import { SmartFooterLink } from '../types'
+import { footer_image } from '../footer.module.scss'
 import usePpc from 'features/hooks/use-ppc'
 import useRegion from 'components/hooks/use-region'
 import Link from 'features/components/atoms/link'
 import { Localize } from 'components/localization'
+import Image from 'features/components/atoms/image'
 
 interface FooterLinkProps {
     item: SmartFooterLink
@@ -18,7 +20,8 @@ const FooterLink = ({ item: { data } }: FooterLinkProps) => {
 
     return (
         <Link url={visible_url} size="small" pb="6x">
-            <Localize translate_text={data.text} />
+            {data?.text ? <Localize translate_text={data.text} /> : null}
+            {data?.src ? <Image src={data.src} className={footer_image} /> : null}
         </Link>
     )
 }

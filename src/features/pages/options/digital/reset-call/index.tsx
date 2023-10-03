@@ -5,7 +5,6 @@ import {
     reset_call_markets,
     reset_call_Platforms,
 } from './data'
-import ResetCallSEO from './seo'
 import AvailableMarketPlatforms from 'features/components/organisms/available-markets-platforms'
 import DigitalOptionsLayout from 'features/components/templates/digital-options-layout'
 import OptionsContent from 'features/components/templates/options-content'

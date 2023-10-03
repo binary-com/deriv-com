@@ -11,7 +11,7 @@ import { growthbook_client_key, growthbook_decryption_key } from 'common/constan
 export const useGrowthBook = () => {
     const { anonymous_id } = useAnalyticData()
     const { website_status } = useWebsiteStatus()
-    console.log("process.env.NODE_ENV !== 'production'", process.env.NODE_ENV !== 'production')
+
     const gb = new GrowthBook({
         apiHost: 'https://cdn.growthbook.io',
         clientKey: growthbook_client_key,
@@ -36,9 +36,9 @@ export const useGrowthBook = () => {
             )
         },
         // use it for development and testing purpose
-        onFeatureUsage: (featureKey, result) => {
-            console.log('feature', featureKey, 'has value', result.value)
-        },
+        // onFeatureUsage: (featureKey, result) => {
+        //     console.log('feature', featureKey, 'has value', result.value)
+        // },
     })
     gb.loadFeatures()
     const growthbook = useRef<GrowthBook>(gb)

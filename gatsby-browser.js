@@ -90,7 +90,7 @@ export const onClientEntry = () => {
         apiHost: 'https://cdn.growthbook.io',
         clientKey: growthbook_client_key,
         decryptionKey: growthbook_decryption_key,
-        enableDevMode: process.env.NODE_ENV !== 'production',
+        enableDevMode: true,
         subscribeToChanges: true,
         attributes: {
             id: anonymous_id,

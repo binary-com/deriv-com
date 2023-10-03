@@ -4,7 +4,7 @@ import { RudderStack } from '@deriv/analytics'
 import { isBrowser } from 'common/utility'
 
 export const useGrowthBook = () => {
-    RudderStack.init()
+    isBrowser() && RudderStack.init()
     const gb = useRef<GrowthBook>()
     gb.current = isBrowser() && window._growthbook
     const growthbook = gb.current

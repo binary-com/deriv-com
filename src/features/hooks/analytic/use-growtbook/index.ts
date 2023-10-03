@@ -1,8 +1,10 @@
 import { useRef } from 'react'
 import { GrowthBook } from '@growthbook/growthbook-react'
+import { RudderStack } from '@deriv/analytics'
 import { isBrowser } from 'common/utility'
 
 export const useGrowthBook = () => {
+    RudderStack.init()
     const gb = useRef<GrowthBook>()
     gb.current = isBrowser() && window._growthbook
     const growthbook = gb.current

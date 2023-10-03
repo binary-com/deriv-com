@@ -77,6 +77,7 @@ const StyledCardWrapper = styled(CardWrapper)`
 
 const StyledBlockWrap = styled.div`
     display: flex;
+    justify-content: center;
 
     @media ${device.laptopM} {
         flex-direction: column;
@@ -91,7 +92,7 @@ const StyledColumnWrap = styled.div`
     gap: 0.8rem;
 
     section {
-        inline-size: 37.786rem;
+        inline-size: 38.4rem;
     }
 
     @media ${device.laptopM} {
@@ -105,7 +106,7 @@ const StyledRowWrap = styled.div`
     gap: 2.4rem;
 
     section {
-        inline-size: 37.786rem;
+        inline-size: 38.4rem;
         block-size: fit-content;
     }
 
@@ -146,15 +147,6 @@ const StyledHeader = styled(Header)`
     @media ${device.tabletL} {
         text-align: center;
         font-size: 1.6rem;
-    }
-`
-
-const StyledHeaderCommission = styled(StyledHeader)`
-    @media ${device.laptopM} {
-        text-align: center;
-    }
-    @media ${device.tabletL} {
-        text-align: center;
     }
 `
 
@@ -270,9 +262,6 @@ const DerivIBProgramme = () => {
                             <Header as="h2" mb="3rem" type="page-title" align="center">
                                 <Localize translate_text="_t_Deriv MT5_t_" />
                             </Header>
-                            <StyledHeaderCommission as="h3" type="main-paragraph" mb="1.6rem">
-                                <Localize translate_text="_t_Choose a commission plan:_t_" />
-                            </StyledHeaderCommission>
                             <StyledBlockWrap>
                                 <StyledColumnWrap>
                                     <DERIVIBDMT5Cards data={ib_dmt5_financial} />

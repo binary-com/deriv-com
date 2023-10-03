@@ -139,16 +139,10 @@ const query = graphql`
 const StyledCard = styled(Card)`
     min-block-size: 42.6rem;
     block-size: fit-content;
-    min-inline-size: calc((100% - 4.8rem) / 3);
-    inline-size: calc((100% - 4.8rem) / 3);
+    inline-size: 38.4rem;
     position: relative;
     border-radius: 0.8rem;
     justify-content: flex-start;
-
-    @media ${device.laptopM} {
-        min-inline-size: 38.4rem;
-        inline-size: 38.4rem;
-    }
 
     @media ${device.tabletL} {
         min-inline-size: 32.8rem;

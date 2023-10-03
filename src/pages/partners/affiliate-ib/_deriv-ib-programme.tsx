@@ -170,14 +170,14 @@ const SubtitleHeader = styled(Header)`
 `
 
 type ItemProps = {
-    active_tab: 'mt5' | 'x'
-    name: 'mt5' | 'x'
+    active_tab: 'MT5' | 'cTrader' | 'X'
+    name: 'MT5' | 'cTrader' | 'X'
 }
 
 const Item = styled.div<ItemProps>`
     margin-top: 4rem;
     padding: 1.2rem 1.6rem;
-    opacity: ${(props) => (props.active_tab === props.name.toLocaleLowerCase() ? '1' : '0.48')};
+    opacity: ${(props) => (props.active_tab === props.name ? '1' : '0.48')};
     border-bottom: ${(props) =>
         props.name === props.active_tab
             ? '0.2rem solid var(--color-red)'
@@ -193,11 +193,8 @@ const Item = styled.div<ItemProps>`
     }
     h4 {
         color: ${(props) =>
-            props.active_tab === props.name.toLocaleLowerCase()
-                ? 'var(--color-red)'
-                : 'var(--color-black-3)'};
-        font-weight: ${(props) =>
-            props.active_tab === props.name.toLocaleLowerCase() ? '300' : '400'};
+            props.active_tab === props.name ? 'var(--color-red)' : 'var(--color-black-3)'};
+        font-weight: ${(props) => (props.active_tab === props.name ? '300' : '400')};
     }
     @media ${device.tabletL} {
         padding: 1.2rem 0.8rem 1.2rem 0.7rem;
@@ -214,10 +211,10 @@ const Item = styled.div<ItemProps>`
     }
 `
 
-const tabs = ['mt5', 'x']
+const tabs = ['MT5', 'cTrader', 'X']
 
 const DerivIBProgramme = () => {
-    const [activeTab, setActiveTab] = useState<'x' | 'mt5'>('mt5')
+    const [activeTab, setActiveTab] = useState<'MT5' | 'cTrader' | 'X'>('MT5')
     const [is_mounted] = usePageLoaded()
 
     const handleTabClick = (tabName: ItemProps['name']) => {
@@ -249,15 +246,13 @@ const DerivIBProgramme = () => {
                                 name={tabName}
                             >
                                 <Header as="h4">
-                                    <Localize
-                                        translate_text={`_t_Deriv ${tabName.toUpperCase()}_t_`}
-                                    />
+                                    <Localize translate_text={`_t_Deriv ${tabName}_t_`} />
                                 </Header>
                             </Item>
                         ))}
                 </TabsContainer>
                 <IBSectionContainer padding="4rem 0 9.6rem 0">
-                    {activeTab === 'mt5' && (
+                    {activeTab === 'MT5' && (
                         <>
                             <Header as="h2" mb="3rem" type="page-title" align="center">
                                 <Localize translate_text="_t_Deriv MT5_t_" />
@@ -275,13 +270,24 @@ const DerivIBProgramme = () => {
                         </>
                     )}
 
-                    {activeTab === 'x' && (
+                    {activeTab === 'X' && (
                         <>
                             <Header as="h2" mb="3rem" type="page-title" align="center">
                                 <Localize translate_text="_t_Deriv X_t_" />
                             </Header>
                             <StyledCardWrapper>
                                 <DERIVIBDMT5Cards data={ib_dx} />
+                            </StyledCardWrapper>
+                        </>
+                    )}
+
+                    {activeTab === 'cTrader' && (
+                        <>
+                            <Header as="h2" mb="3rem" type="page-title" align="center">
+                                <Localize translate_text="_t_Deriv cTrader_t_" />
+                            </Header>
+                            <StyledCardWrapper>
+                                <DERIVIBDMT5Cards data={ib_cTrader} />
                             </StyledCardWrapper>
                         </>
                     )}
@@ -988,6 +994,277 @@ const ib_dx: DMT5Type = {
                         '_t_7.5_t_',
                         '_t_7.5_t_',
                         '_t_10_t_',
+                    ],
+                },
+            ],
+            class_name: 'volatility-indices',
+        },
+        {
+            title: '_t_Step index_t_',
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: '_t_Asset_t_',
+                    list: ['_t_Step index_t_'],
+                },
+                {
+                    title: '_t_Commission per USD 100k turnover_t_',
+                    list: ['_t_0.10_t_'],
+                },
+            ],
+            class_name: 'step-index',
+        },
+        {
+            title: '_t_Jump indices_t_',
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: '_t_Asset_t_',
+                    list: [
+                        '_t_Jump 10 Index_t_',
+                        '_t_Jump 25 Index_t_',
+                        '_t_Jump 50 Index_t_',
+                        '_t_Jump 75 Index_t_',
+                        '_t_Jump 100 Index_t_',
+                    ],
+                },
+                {
+                    title: '_t_Commission per USD 100k turnover_t_',
+                    list: ['_t_0.50_t_', '_t_1.25_t_', '_t_2.50_t_', '_t_3.75_t_', '_t_5_t_'],
+                },
+            ],
+            class_name: 'jump-index',
+        },
+        {
+            title: '_t_Range break indices_t_',
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: '_t_Asset_t_',
+                    list: ['_t_Range Break 100 Index_t_', '_t_Range Break 200 Index_t_'],
+                },
+                {
+                    title: '_t_Commission per USD 100k turnover_t_',
+                    list: ['_t_0.50_t_', '_t_0.25_t_'],
+                },
+            ],
+        },
+        {
+            title: '_t_Basket indices_t_',
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: '_t_Asset_t_',
+                    list: [
+                        '_t_AUD Basket_t_',
+                        '_t_EUR Basket_t_',
+                        '_t_GBP Basket_t_',
+                        '_t_USD Basket_t_',
+                        '_t_Gold Basket_t_',
+                    ],
+                },
+                {
+                    title: '_t_Commission per USD 100k turnover_t_',
+                    list: ['_t_1.50_t_', '_t_1.50_t_', '_t_1.50_t_', '_t_1.50_t_', '_t_7_t_'],
+                },
+            ],
+        },
+    ],
+    countDetails: [
+        {
+            title: '_t_How it’s calculated_t_',
+            list: [
+                {
+                    title: '_t_Forex_t_',
+                    details:
+                        '_t_For forex, a deal of 0.1 lots of GBP/USD will pay out USD 0.25 in commission based on the following formula:_t_',
+                    icon: 'deriv_x_forex',
+                    iconAlt: '_t_Forex_t_',
+                },
+                {
+                    title: '_t_Commodities_t_',
+                    details:
+                        '_t_For commodities, a deal for 10 lots of <0>oil</0> for a price of USD 96 will pay out USD 0.05 in commission based on the following formula:_t_',
+                    icon: 'deriv_x_commodities',
+                    iconAlt: '_t_Commodities_t_',
+                    second_desc:
+                        '_t_This formula also applies to <0>metals</0> & <0>basket indices</0>. Commission rates, contract sizes, and deal prices depend on the individual asset._t_',
+                },
+                {
+                    title: '_t_Cryptocurrencies_t_',
+                    details:
+                        '_t_For cryptocurrencies, a deal for 1 lot of BTC/USD will pay out USD 2 in commission based on the following formula:_t_',
+                    icon: 'deriv_x_crypto',
+                    iconAlt: '_t_Cryptocurrencies_t_',
+                },
+                {
+                    title: '_t_Stocks, ETFs, & stock indices_t_',
+                    details:
+                        '_t_For <0>stocks</0>, a deal for 1 lot of AAPL for a price of USD 178 will pay out USD 0.02 in commission based on the following formula:_t_',
+                    icon: 'deriv_x_stocks',
+                    iconAlt: '_t_Stocks_t_',
+                    second_desc:
+                        '_t_This formula also applies to <0>ETFs</0>. Contract sizes and deal prices depend on the individual asset._t_',
+                },
+                {
+                    details:
+                        '_t_For <0>stock indices</0>, a deal for 20 lots of JP225 for a price of JPY 32,500 will pay out USD 0.05 in commission based on the following formula:_t_',
+                    icon: 'deriv_x_indices',
+                    iconAlt: '_t_Stock Indices_t_',
+                },
+                {
+                    title: '_t_Volatility indices_t_',
+                    details:
+                        '_t_A deal for 1 lot of the Volatility 50 (1s) Index for a price of USD 600,000 will pay out USD 22.50 in commission based on the following formula:_t_',
+                    icon: 'deriv_x_vol',
+                    iconAlt: '_t_Volatility Indices_t_',
+                },
+                {
+                    details:
+                        '_t_The same formula applies to all synthetics except <0>Step Index</0>, which has the following formula:_t_',
+                    icon: 'deriv_x_step',
+                    iconAlt: '_t_Step Indexes_t_',
+                },
+            ],
+            notes: [
+                {
+                    title: '_t_Please note:_t_',
+                    desc: {
+                        firstText:
+                            '_t_Contract sizes directly affect the commission calculation.<br><br>Commission payout for all assets will be converted to your deposit currency based on the latest exchange rate._t_',
+                    },
+                },
+            ],
+        },
+    ],
+}
+
+const ib_cTrader: DMT5Type = {
+    name: '_t_Deriv cTrader_t_',
+    description:
+        '_t_Earn when your clients trade on a Deriv cTrader account.<br><br>All commission rates are quoted in USD._t_',
+    type: [
+        {
+            title: '_t_Forex_t_',
+            headerHeight: '8rem',
+            assets: [
+                {
+                    title: '_t_Asset_t_',
+                    list: ['_t_Forex (Majors)_t_', '_t_Forex (Minors)_t_'],
+                },
+                {
+                    title: '_t_Commission per USD 100k turnover_t_',
+                    list: ['_t_2_t_', '_t_2_t_'],
+                },
+            ],
+        },
+        {
+            title: '_t_Commodities_t_',
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: '_t_Asset_t_',
+                    list: ['_t_Metals_t_', '_t_Energy (Oil)_t_'],
+                },
+                {
+                    title: '_t_Commission per USD 100k turnover_t_',
+                    list: ['_t_1.50_t_', '_t_5_t_'],
+                },
+            ],
+        },
+        {
+            title: '_t_Cryptocurrencies_t_',
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: '_t_Asset_t_',
+                    list: ['_t_Cryptocurrencies_t_'],
+                },
+                {
+                    title: '_t_Commission per USD 100k turnover_t_',
+                    list: ['_t_10_t_'],
+                },
+            ],
+        },
+        {
+            title: '_t_Stocks, ETFs, & stock indices_t_',
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: '_t_Asset_t_',
+                    list: ['_t_Stocks_t_', '_t_ETFs_t_', '_t_Stock indices_t_'],
+                },
+                {
+                    title: '_t_Commission per USD 100k turnover_t_',
+                    list: ['_t_10_t_', '_t_10_t_', '_t_1_t_'],
+                },
+            ],
+        },
+        {
+            title: '_t_Crash/Boom indices_t_',
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: '_t_Asset_t_',
+                    list: [
+                        '_t_Crash 300 Index_t_',
+                        '_t_Crash 500 Index_t_',
+                        '_t_Crash 1000 Index_t_',
+                        '_t_Boom 300 Index_t_',
+                        '_t_Boom 500 Index_t_',
+                        '_t_Boom 1000 Index_t_',
+                    ],
+                },
+                {
+                    title: '_t_Commission per USD 100k turnover_t_',
+                    list: [
+                        '_t_1_t_',
+                        '_t_0.35_t_',
+                        '_t_0.25_t_',
+                        '_t_1_t_',
+                        '_t_0.35_t_',
+                        '_t_0.25_t_',
+                    ],
+                },
+            ],
+            class_name: 'crash-boom',
+        },
+        {
+            title: '_t_Volatility indices_t_',
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: '_t_Asset_t_',
+                    list: [
+                        '_t_Volatility 10 Index_t_',
+                        '_t_Volatility 10 (1s) Index_t_',
+                        '_t_Volatility 25 Index_t_',
+                        '_t_Volatility 25 (1s) Index_t_',
+                        '_t_Volatility 50 Index_t_',
+                        '_t_Volatility 50 (1s) Index_t_',
+                        '_t_Volatility 75 Index _t_',
+                        '_t_Volatility 75 (1s) Index_t_',
+                        '_t_Volatility 100 Index_t_',
+                        '_t_Volatility 100 (1s) Index_t_',
+                        '_t_Volatility 150 (1s) Index_t_',
+                        '_t_Volatility 250 (1s) Index_t_',
+                    ],
+                },
+                {
+                    title: '_t_Commission per USD 100k turnover_t_',
+                    list: [
+                        '_t_0.75_t_',
+                        '_t_0.75_t_',
+                        '_t_1.75_t_',
+                        '_t_1.75_t_',
+                        '_t_3.75_t_',
+                        '_t_3.75_t_',
+                        '_t_5_t_',
+                        '_t_5_t_',
+                        '_t_7.5_t_',
+                        '_t_7.5_t_',
+                        '_t_7.5_t_',
+                        '_t_12.5_t_',
                     ],
                 },
             ],

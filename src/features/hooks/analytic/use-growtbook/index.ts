@@ -1,16 +1,51 @@
 import { useRef } from 'react'
-import { GrowthBook } from '@growthbook/growthbook-react'
+import Cookies from 'js-cookie'
+import { isMobile } from 'react-device-detect'
 import { RudderStack } from '@deriv/analytics'
-import { isBrowser } from 'common/utility'
+import { GrowthBook } from '@growthbook/growthbook-react'
+import { useAnalyticData } from 'features/hooks/analytic/use-analytic-data'
+import { getLanguage, isBrowser } from 'common/utility'
+import { growthbook_client_key, growthbook_decryption_key } from 'common/constants'
 
 export const useGrowthBook = () => {
-    isBrowser() && RudderStack.init()
-    const gb = useRef<GrowthBook>()
-    gb.current = isBrowser() && window._growthbook
-    const growthbook = gb.current
+    const { anonymous_id } = useAnalyticData()
+    console.log("process.env.NODE_ENV !== 'production'", process.env.NODE_ENV !== 'production')
+    const gb = new GrowthBook({
+        apiHost: 'https://cdn.growthbook.io',
+        clientKey: growthbook_client_key,
+        decryptionKey: growthbook_decryption_key,
+        enableDevMode: true,
+        subscribeToChanges: true,
+        attributes: {
+            id: anonymous_id,
+            country:
+                JSON.parse(JSON.parse(Cookies.get('website_status')).website_status)
+                    .clients_country || ' ',
+            user_language: Cookies.get('user_language') || getLanguage(),
+            device_language: navigator?.language,
+            device_type: isMobile ? 'mobile' : 'web',
+        },
+        trackingCallback: (experiment, result) => {
+            RudderStack.track(
+                'experiment_viewed',
+                {
+                    experimentId: experiment.key,
+                    variationId: result.variationId,
+                },
+                { is_anonymous: !!anonymous_id },
+            )
+        },
+        // use it for development and testing purpose
+        onFeatureUsage: (featureKey, result) => {
+            console.log('feature', featureKey, 'has value', result.value)
+        },
+    })
+    gb.loadFeatures()
+    const growthbook = useRef<GrowthBook>(gb)
 
     // calls tracking feature trackingCallback()
-    const test_toggle_aa_test = isBrowser() && growthbook?.evalFeature('test-toggle-aa-test')
+    const test_toggle_aa_test =
+        isBrowser() && growthbook.current?.evalFeature('test-toggle-aa-test')
 
     return {
         test_toggle_aa_test: test_toggle_aa_test?.experimentResult?.name,

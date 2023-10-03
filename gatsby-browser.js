@@ -1,15 +1,9 @@
 import React from 'react'
-import Cookies from 'js-cookie'
-import { isMobile } from 'react-device-detect'
-import { GrowthBook } from '@growthbook/growthbook-react'
-import { RudderStack } from '@deriv/analytics'
 import { createRoot } from 'react-dom/client'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
-import { useAnalyticData } from './src/features/hooks/analytic/use-analytic-data'
-import { growthbook_client_key, growthbook_decryption_key } from './src/common/constants'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
 import {
     addScript,
@@ -83,40 +77,6 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const { anonymous_id } = useAnalyticData()
-
-    const gb = new GrowthBook({
-        apiHost: 'https://cdn.growthbook.io',
-        clientKey: growthbook_client_key,
-        decryptionKey: growthbook_decryption_key,
-        enableDevMode: process.env.NODE_ENV !== 'production',
-        subscribeToChanges: true,
-        attributes: {
-            id: anonymous_id,
-            country:
-                JSON.parse(JSON.parse(Cookies.get('website_status')).website_status)
-                    .clients_country || ' ',
-            user_language: Cookies.get('user_language') || getLanguage(),
-            device_language: navigator?.language,
-            device_type: isMobile ? 'mobile' : 'web',
-        },
-        trackingCallback: (experiment, result) => {
-            RudderStack.track(
-                'experiment_viewed',
-                {
-                    experimentId: experiment.key,
-                    variationId: result.variationId,
-                },
-                { is_anonymous: !!anonymous_id },
-            )
-        },
-        // use it for development and testing purpose
-        // onFeatureUsage: (featureKey, result) => {
-        //     console.log('feature', featureKey, 'has value', result.value)
-        // },
-    })
-    gb.loadFeatures()
     //datadog
     const dd_options = {
         clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,

@@ -50,12 +50,13 @@ const LiveMarketTable = ({ selected_market, link_to }: TLiveMarketTableProps) =>
     const [error, rawMarketsData] = usePricingFeed()
     const TABLE_VISIBLE_ROWS = 5
     const [sorting, setSorting] = React.useState<SortingState>([])
+
     const markets_data = useMemo(() => {
         if (rawMarketsData) {
-            const stocks = rawMarketsData['stk']
-            const indices = rawMarketsData['ind']
+            const stocks = rawMarketsData['stocks']
+            const indices = rawMarketsData['indices']
             const stocks_indices = { ...stocks, ...indices }
-            const res = { ...rawMarketsData, ind: stocks_indices }
+            const res = { ...rawMarketsData, indices: stocks_indices }
 
             if (res[selected_market]) {
                 return Object.values(res[selected_market])

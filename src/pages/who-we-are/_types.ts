@@ -4,7 +4,7 @@ import { TString } from 'types/generics'
 export type EmployerAwardsType = {
     id: number
     title: TString
-    text_with_link: {
+    text_link: {
         text: TString
         components?: ReactElement[]
     }

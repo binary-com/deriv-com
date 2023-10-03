@@ -34,12 +34,12 @@ const EmployerAwards = () => {
                         <div className={image_wrapper}>
                             <StaticImage
                                 src="../../images/common/who-we-are/uf-awards.png"
-                                loading="eager"
+                                placeholder="blurred"
                                 formats={['avif', 'webp', 'auto']}
                                 alt="banner"
                             />
                         </div>
-                        <Flex.Box gap="0x" direction="col">
+                        <Flex.Box direction="col">
                             <Typography.Paragraph
                                 size="xlarge"
                                 mb="10x"
@@ -89,8 +89,8 @@ const EmployerAwards = () => {
                                 align="left"
                             >
                                 <Localize
-                                    translate_text={data.text_with_link.text}
-                                    components={data.text_with_link.components}
+                                    translate_text={data.text_link.text}
+                                    components={data.text_link.components}
                                 />
                             </Typography.Paragraph>
                             {data?.sub_text ? (

@@ -157,7 +157,7 @@ export const onClientEntry = () => {
 
 export const onRouteUpdate = () => {
     checkDomain()
-    window?._growthbook.setURL(window.location.href)
+    window?._growthbook?.setURL(window.location.href)
 
     const dataLayer = window.dataLayer
     const domain = getDomain()

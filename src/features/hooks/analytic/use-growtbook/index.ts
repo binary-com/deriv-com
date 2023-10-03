@@ -4,11 +4,13 @@ import { isMobile } from 'react-device-detect'
 import { RudderStack } from '@deriv/analytics'
 import { GrowthBook } from '@growthbook/growthbook-react'
 import { useAnalyticData } from 'features/hooks/analytic/use-analytic-data'
+import useWebsiteStatus from 'components/hooks/use-website-status'
 import { getLanguage, isBrowser } from 'common/utility'
 import { growthbook_client_key, growthbook_decryption_key } from 'common/constants'
 
 export const useGrowthBook = () => {
     const { anonymous_id } = useAnalyticData()
+    const { website_status } = useWebsiteStatus()
     console.log("process.env.NODE_ENV !== 'production'", process.env.NODE_ENV !== 'production')
     const gb = new GrowthBook({
         apiHost: 'https://cdn.growthbook.io',
@@ -18,9 +20,7 @@ export const useGrowthBook = () => {
         subscribeToChanges: true,
         attributes: {
             id: anonymous_id,
-            country:
-                JSON.parse(JSON.parse(Cookies.get('website_status')).website_status)
-                    .clients_country || ' ',
+            country: website_status?.clients_country || ' ',
             user_language: Cookies.get('user_language') || getLanguage(),
             device_language: navigator?.language,
             device_type: isMobile ? 'mobile' : 'web',

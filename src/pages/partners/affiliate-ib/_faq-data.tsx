@@ -82,31 +82,28 @@ const AffiliateGeneral = () => {
                     <TextList>
                         <Localize translate_text="_t_Trading experts_t_" />
                     </TextList>
+                    <Text>
+                        <Localize translate_text="_t_Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media._t_" />
+                    </Text>
                 </li>
-
-                <Text>
-                    <Localize translate_text="_t_Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media._t_" />
-                </Text>
 
                 <li>
                     <TextList>
                         <Localize translate_text="_t_Software developers_t_" />
                     </TextList>
+                    <Text>
+                        <Localize translate_text="_t_Develop web, desktop, and mobile applications using Deriv API._t_" />
+                    </Text>
                 </li>
-
-                <Text>
-                    <Localize translate_text="_t_Develop web, desktop, and mobile applications using Deriv API._t_" />
-                </Text>
 
                 <li>
                     <TextList>
                         <Localize translate_text="_t_Community managers_t_" />
                     </TextList>
+                    <Text>
+                        <Localize translate_text="_t_Manage an active online community that’s passionate about online trading, investing, or personal finance._t_" />
+                    </Text>
                 </li>
-
-                <Text>
-                    <Localize translate_text="_t_Manage an active online community that’s passionate about online trading, investing, or personal finance._t_" />
-                </Text>
             </StyledUl>
             <Header as="p" type="paragraph-1" mt="16px">
                 <Localize translate_text="_t_Why should I become a Deriv affiliate?_t_" />

@@ -202,7 +202,7 @@ const DerivAffiliateProgramme = () => {
                 </TitleWrapper>
                 <ComissionPlanContainer>
                     {!is_eu && (
-                        <StyledHeader as="h3" type="main-paragraph" className="">
+                        <StyledHeader as="h3" type="main-paragraph">
                             <Localize translate_text="_t_Choose a commission plan:_t_" />
                         </StyledHeader>
                     )}

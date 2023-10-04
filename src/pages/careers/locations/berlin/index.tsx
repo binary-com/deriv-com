@@ -4,13 +4,11 @@ import { berlin } from '../../_model/_locations/_locations'
 import { NewLocationLayout } from '../_location-layout-new-offices'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
-import { localize, WithIntl } from 'components/localization'
+import { WithIntl } from 'components/localization'
+import { TGatsbyHead } from 'features/types'
 
 const query = graphql`
     query {
-        berlin: file(relativePath: { eq: "careers/berlin.png" }) {
-            ...backgroundImage
-        }
         living_in_berlin: file(relativePath: { eq: "careers/living_in_berlin.png" }) {
             ...fadeIn
         }
@@ -37,15 +35,17 @@ const Berlin = () => {
 
     return (
         <Layout type="careers">
-            <SEO
-                title={localize('_t_Berlin - Our office | Deriv_t_')}
-                description={localize(
-                    '_t_Join Deriv’s team in Germany and work on next-gen fintech products. View our current openings for a chance to build a fulfilling career._t_',
-                )}
-            />
             <NewLocationLayout location={berlin} images={images} />
         </Layout>
     )
 }
 
 export default WithIntl()(Berlin)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Berlin - Our office | Deriv_t_"
+        description="_t_Join Deriv’s team in Germany and work on next-gen fintech products. View our current openings for a chance to build a fulfilling career._t_"
+        pageContext={pageContext}
+    />
+)

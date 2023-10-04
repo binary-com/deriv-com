@@ -1,4 +1,5 @@
 import React from 'react'
+import { createRoot } from 'react-dom/client'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
@@ -20,7 +21,7 @@ const is_browser = typeof window !== 'undefined'
 const checkDomain = () => {
     return eval(
         decodeURIComponent(
-            'var%20curhost%20%3D%20window.location.hostname%3B%20var%20t8hvj%20%3D%20%2F%5Cb%28deriv%7Cbinary%7Cbinaryqa%5B0-9%5D%7B2%7D%29%5C.%28com%7Cbot%7Cme%7Cbe%7Capp%7Csx%29%24%7C%5Cb%28localhost%29%2Fgm%3B%20if%20%28t8hvj.test%28curhost%29%20%3D%3D%20false%29%7Balert%28%22Not%20our%20domain%22%29%7D',
+            'var%20curhost%20%3D%20window.location.hostname%3B%20var%20t8hvj%20%3D%20%2F%5Cb%28deriv%7Cbinary%7Cbinaryqa%5B0-9%5D%7B2%7D%29%5C.%28com%7Cbot%7Cme%7Cbe%7Capp%7Csx%29%24%7C%5Cb%28localhost%29%7C%28%5Cbderiv-com-preview-links.pages.dev%29%2Fgm%3B%20if%20%28t8hvj.test%28curhost%29%20%3D%3D%20false%29%7Balert%28%22Not%20our%20domain%22%29%7D',
         ),
     )
 }
@@ -78,8 +79,8 @@ export const onInitialClientRender = () => {
 export const onClientEntry = () => {
     //datadog
     const dd_options = {
-        clientToken: 'pub08554ab30284600af157441bfb0fa923',
-        applicationId: '5c8975a3-ec86-4a64-8a3a-e6888fdde082',
+        clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,
+        applicationId: process.env.GATSBY_DATADOG_APPLICATION_ID,
         site: 'datadoghq.com',
         service: 'deriv.com',
         env: 'production',
@@ -139,6 +140,13 @@ export const onRouteUpdate = () => {
             }),
         })
     }, 1500)
+}
+
+export const replaceHydrateFunction = () => {
+    return (element, container) => {
+        const root = createRoot(container)
+        root.render(element)
+    }
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

@@ -122,6 +122,8 @@ const HowOptionsWorks = () => {
                 </Header>
                 <SideTab>
                     <SideTab.Panel
+                        panelID="market"
+                        tabID="market-tab"
                         label="_t_1. Market_t_"
                         description="_t_Choose an asset from the list of markets offered on Deriv._t_"
                     >
@@ -137,7 +139,7 @@ const HowOptionsWorks = () => {
                             />
                         ) : (
                             <StaticImage
-                                src="../../../images/common/trade-types/multiplier-market-new.png"
+                                src="../../../images/common/trade-types/options-market.png"
                                 alt={localize('_t_Select market to trade_t_')}
                                 loading="eager"
                                 formats={['avif', 'webp', 'auto']}
@@ -148,6 +150,8 @@ const HowOptionsWorks = () => {
                         )}
                     </SideTab.Panel>
                     <SideTab.Panel
+                        panelID="trade-type"
+                        tabID="trade-type-tab"
                         label="_t_2. Trade type_t_"
                         description={
                             is_eu
@@ -178,6 +182,8 @@ const HowOptionsWorks = () => {
                         )}
                     </SideTab.Panel>
                     <SideTab.Panel
+                        panelID="stake"
+                        tabID="stake-tab"
                         label="_t_3. Stake_t_"
                         description="_t_Enter the amount you wish to trade with._t_"
                     >
@@ -192,6 +198,8 @@ const HowOptionsWorks = () => {
                         />
                     </SideTab.Panel>
                     <SideTab.Panel
+                        panelID="multiplier-value"
+                        tabID="multiplier-value-tab"
                         label="_t_4. Multiplier value_t_"
                         description={
                             is_eu
@@ -227,6 +235,8 @@ const HowOptionsWorks = () => {
                 </StyledDtraderHeader>
                 <SideTab is_reverse>
                     <SideTab.Panel
+                        panelID="take-profit"
+                        tabID="take-profit-tab"
                         label="_t_5. Take profit_t_"
                         description="_t_This feature allows you to set the level of profit that you are comfortable with when the market moves in your favour. Once the amount is reached, your position will be closed automatically and your earnings will be deposited into your Deriv account._t_"
                     >
@@ -241,6 +251,8 @@ const HowOptionsWorks = () => {
                         />
                     </SideTab.Panel>
                     <SideTab.Panel
+                        panelID="stop-loss"
+                        tabID="stop-loss-tab"
                         label="_t_6. Stop loss_t_"
                         description="_t_This feature allows you to set the amount of loss you are willing to take in case the market moves against your position. Once the amount is reached, your contract will be closed automatically._t_"
                     >
@@ -255,6 +267,8 @@ const HowOptionsWorks = () => {
                         />
                     </SideTab.Panel>
                     <SideTab.Panel
+                        panelID="deal-cancellation"
+                        tabID="deal-cancellation-tab"
                         label="_t_7. Deal cancellation_t_"
                         description={
                             is_eu
@@ -278,6 +292,8 @@ const HowOptionsWorks = () => {
                 </StyledDtraderHeader>
                 <SideTab>
                     <SideTab.Panel
+                        panelID="purchase-contract"
+                        tabID="purchase-contract-tab"
                         label="_t_8. Purchase your contract_t_"
                         description="_t_Once you are satisfied with the parameters that you have set, select either ‘Up’ or ‘Down’ to purchase your contract. Otherwise, continue to customise the parameters and place your order when you are satisfied with the conditions._t_"
                     >

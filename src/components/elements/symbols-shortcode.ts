@@ -60,16 +60,12 @@ import DEPUMG from 'images/svg/symbols/markets-stocks-and-indices/american-stock
 import USAAL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-american-airlines-group-inc.svg'
 import USAAPL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-apple.svg'
 import USABNB from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-airbnb.svg'
-import USAIG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-american-international-group.svg'
 import USAMD from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-amd.svg'
 import USAMZN from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-amazon-com-inc.svg'
-import USBA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-boeing.svg'
 import USBABA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-alibaba-group-holding-ltd.svg'
-import USBAC from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-bank-of-america.svg'
-import USBIIB from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-biogen-inc.svg'
-import USC from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-citigroup.svg'
 import USCRM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-salesforce-com-inc.svg'
 import USCSCO from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-cisco-systems.svg'
+import DIS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-walt-disney-company.svg'
 import USDAL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-delta-air-lines.svg'
 import USDIS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-walt-disney-company.svg'
 import USEBAY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-e-bay-inc.svg'
@@ -85,7 +81,6 @@ import USIBM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks
 import USINTC from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-intel.svg'
 import USJNJ from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-jonhson-johnson.svg'
 import USJPM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-jp-morgan-chase.svg'
-import USKO from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-coca-cola.svg'
 import USMA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-mastercard-inc.svg'
 import USMCD from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-mc-donalds.svg'
 import USMRNA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-moderna-inc.svg'
@@ -249,16 +244,12 @@ export {
     USAAL,
     USAAPL,
     USABNB,
-    USAIG,
     USAMD,
     USAMZN,
-    USBA,
     USBABA,
-    USBAC,
-    USBIIB,
-    USC,
     USCRM,
     USCSCO,
+    DIS,
     USDAL,
     USDIS,
     USEBAY,
@@ -274,7 +265,6 @@ export {
     USINTC,
     USJNJ,
     USJPM,
-    USKO,
     USMA,
     USMCD,
     USMRNA,

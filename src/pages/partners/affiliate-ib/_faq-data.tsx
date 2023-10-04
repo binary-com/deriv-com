@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Localize, LocalizedLink } from 'components/localization'
 import { Header, Text, LinkText, LiveChatLinkText } from 'components/elements'
-import { affiliate_signup_url } from 'common/constants'
+import { affiliate_signup_url, affiliate_reset_password_link } from 'common/constants'
 import { isBrowser } from 'common/utility'
 import useRegion from 'components/hooks/use-region'
 
@@ -44,83 +44,97 @@ const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`
     }
 `
 
-const AffiliateGeneral = () => (
-    <ItemContainer>
-        <Header as="p" type="paragraph-1" mt="16px">
-            <Localize translate_text="_t_What is the Deriv Affiliate Programme?_t_" />
-        </Header>
-        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
-            <Localize translate_text="_t_The Deriv Affiliate Programme is an exciting partnership programme where you benefit from bringing in new clients to trade on our DTrader and DBot platforms._t_" />
-        </Header>
-        <TextSecondary>
-            <Localize translate_text="_t_As an affiliate, you’ll advertise our products and services to your audience, including our leading-edge DTrader and DBot trading platforms. After they sign up and start trading with real money, you’ll earn commissions from their trades._t_" />
-        </TextSecondary>
-        <TextSecondary>
-            <Localize translate_text="_t_We offer a complete trading experience tailored to the needs of an exceptionally wide range of traders. New traders can learn about trading and practise trading risk-free with a demo account. Seasoned traders can take advantage of the wide range of markets, trade conditions, and analysis tools we offer._t_" />
-        </TextSecondary>
-        <Header as="p" type="paragraph-1" mt="16px">
-            <Localize translate_text="_t_Who can apply as a Deriv affiliate?_t_" />
-        </Header>
-        <StyledUl>
-            <li>
-                <TextList>
-                    <Localize translate_text="_t_Trading experts_t_" />
-                </TextList>
-            </li>
+const AffiliateGeneral = () => {
+    const { is_eu } = useRegion()
 
-            <Text>
-                <Localize translate_text="_t_Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media._t_" />
-            </Text>
+    return (
+        <ItemContainer>
+            <Header as="p" type="paragraph-1" mt="16px">
+                <Localize translate_text="_t_What is the Deriv Affiliate Programme?_t_" />
+            </Header>
+            {is_eu ? (
+                <>
+                    <Header as="p" type="paragraph-1" mt="8px" weight="normal">
+                        <Localize translate_text="_t_The Deriv Affiliate Programme is an exciting partnership programme where you benefit from bringing in new clients._t_" />
+                    </Header>
+                    <TextSecondary>
+                        <Localize translate_text="_t_As an affiliate, you’ll advertise our products and services to your audience, including our leading-edge Deriv Trader platform. After they sign up and start trading with real money, you’ll earn commissions from their deposits._t_" />
+                    </TextSecondary>
+                </>
+            ) : (
+                <>
+                    <Header as="p" type="paragraph-1" mt="8px" weight="normal">
+                        <Localize translate_text="_t_The Deriv Affiliate Programme is an exciting partnership programme where you benefit from bringing in new clients to trade on our DTrader and DBot platforms._t_" />
+                    </Header>
+                    <TextSecondary>
+                        <Localize translate_text="_t_As an affiliate, you’ll advertise our products and services to your audience, including our leading-edge DTrader and DBot trading platforms. After they sign up and start trading with real money, you’ll earn commissions from their trades._t_" />
+                    </TextSecondary>
+                </>
+            )}
+            <TextSecondary>
+                <Localize translate_text="_t_We offer a complete trading experience tailored to the needs of an exceptionally wide range of traders. New traders can learn about trading and practise trading risk-free with a demo account. Seasoned traders can take advantage of the wide range of markets, trade conditions, and analysis tools we offer._t_" />
+            </TextSecondary>
+            <Header as="p" type="paragraph-1" mt="16px">
+                <Localize translate_text="_t_Who can apply as a Deriv affiliate?_t_" />
+            </Header>
+            <StyledUl>
+                <li>
+                    <TextList>
+                        <Localize translate_text="_t_Trading experts_t_" />
+                    </TextList>
+                    <Text>
+                        <Localize translate_text="_t_Provide expert tips and opinions on online trading via a website, blog, YouTube channel, webinars, or other forms of digital media._t_" />
+                    </Text>
+                </li>
 
-            <li>
-                <TextList>
-                    <Localize translate_text="_t_Software developers_t_" />
-                </TextList>
-            </li>
+                <li>
+                    <TextList>
+                        <Localize translate_text="_t_Software developers_t_" />
+                    </TextList>
+                    <Text>
+                        <Localize translate_text="_t_Develop web, desktop, and mobile applications using Deriv API._t_" />
+                    </Text>
+                </li>
 
-            <Text>
-                <Localize translate_text="_t_Develop web, desktop, and mobile applications using Deriv API._t_" />
-            </Text>
-
-            <li>
-                <TextList>
-                    <Localize translate_text="_t_Community managers_t_" />
-                </TextList>
-            </li>
-
-            <Text>
-                <Localize translate_text="_t_Manage an active online community that’s passionate about online trading, investing, or personal finance._t_" />
-            </Text>
-        </StyledUl>
-        <Header as="p" type="paragraph-1" mt="16px">
-            <Localize translate_text="_t_Why should I become a Deriv affiliate?_t_" />
-        </Header>
-        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
-            <Localize translate_text="_t_Deriv is a customer-centric online trading experience. Backed by over 20 years of experience and award-winning innovation, we’ve reimagined the online trading experience from the ground up so that anyone can easily start trading._t_" />
-        </Header>
-        <Header as="p" type="paragraph-1" mt="16px">
-            <Localize translate_text="_t_Are there any fees I need to pay to join your affiliate programme?_t_" />
-        </Header>
-        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
-            <Localize translate_text="_t_Not at all. Joining our affiliate programme is completely free._t_" />
-        </Header>
-        <Header as="p" type="paragraph-1" mt="16px">
-            <Localize translate_text="_t_What does ‘referred client’ mean?_t_" />
-        </Header>
-        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
-            <Localize translate_text="_t_A referred client is someone who has clicked on your unique affiliate link, signed up with Deriv, and deposited money into their Deriv account. They must be aged 18 years or above and have not previously been a Deriv or Binary.com client._t_" />
-        </Header>
-        <Header as="p" type="paragraph-1" mt="16px">
-            <Localize translate_text="_t_Who can sign up as a Deriv client?_t_" />
-        </Header>
-        <Header as="p" type="paragraph-1" mt="8px" weight="normal">
-            <Localize
-                translate_text="_t_Anyone aged 18 years or above who isn’t a resident of a restricted country can become a Deriv client.  You can find the list of restricted countries in our <0>terms and conditions</0>._t_"
-                components={[<LocalizedLinkText to="/terms-and-conditions/#clients" key={0} />]}
-            />
-        </Header>
-    </ItemContainer>
-)
+                <li>
+                    <TextList>
+                        <Localize translate_text="_t_Community managers_t_" />
+                    </TextList>
+                    <Text>
+                        <Localize translate_text="_t_Manage an active online community that’s passionate about online trading, investing, or personal finance._t_" />
+                    </Text>
+                </li>
+            </StyledUl>
+            <Header as="p" type="paragraph-1" mt="16px">
+                <Localize translate_text="_t_Why should I become a Deriv affiliate?_t_" />
+            </Header>
+            <Header as="p" type="paragraph-1" mt="8px" weight="normal">
+                <Localize translate_text="_t_Deriv is a customer-centric online trading experience. Backed by over 20 years of experience and award-winning innovation, we’ve reimagined the online trading experience from the ground up so that anyone can easily start trading._t_" />
+            </Header>
+            <Header as="p" type="paragraph-1" mt="16px">
+                <Localize translate_text="_t_Are there any fees I need to pay to join your affiliate programme?_t_" />
+            </Header>
+            <Header as="p" type="paragraph-1" mt="8px" weight="normal">
+                <Localize translate_text="_t_Not at all. Joining our affiliate programme is completely free._t_" />
+            </Header>
+            <Header as="p" type="paragraph-1" mt="16px">
+                <Localize translate_text="_t_What does ‘referred client’ mean?_t_" />
+            </Header>
+            <Header as="p" type="paragraph-1" mt="8px" weight="normal">
+                <Localize translate_text="_t_A referred client is someone who has clicked on your unique affiliate link, signed up with Deriv, and deposited money into their Deriv account. They must be aged 18 years or above and have not previously been a Deriv or Binary.com client._t_" />
+            </Header>
+            <Header as="p" type="paragraph-1" mt="16px">
+                <Localize translate_text="_t_Who can sign up as a Deriv client?_t_" />
+            </Header>
+            <Header as="p" type="paragraph-1" mt="8px" weight="normal">
+                <Localize
+                    translate_text="_t_Anyone aged 18 years or above who isn’t a resident of a restricted country can become a Deriv client.  You can find the list of restricted countries in our <0>terms and conditions</0>._t_"
+                    components={[<LocalizedLinkText to="/terms-and-conditions/#clients" key={0} />]}
+                />
+            </Header>
+        </ItemContainer>
+    )
+}
 const AffiliateAccountManagement = () => (
     <ItemContainer>
         <Header as="p" type="paragraph-1" mt="16px">
@@ -147,7 +161,7 @@ const AffiliateAccountManagement = () => (
         <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             <Localize
                 translate_text="_t_Don’t worry, you can easily <0>reset your password</0>._t_"
-                components={[<LocalizedLinkText to="/reset-password/" key={0} />]}
+                components={[<LocalizedLinkText to={affiliate_reset_password_link} key={0} />]}
             />
         </Header>
         <Header as="p" type="paragraph-1" mt="16px">

@@ -16,7 +16,7 @@ export const useGrowthBook = () => {
         apiHost: 'https://cdn.growthbook.io',
         clientKey: growthbook_client_key,
         decryptionKey: growthbook_decryption_key,
-        enableDevMode: true,
+        enableDevMode: process.env.NODE_ENV !== 'production',
         subscribeToChanges: true,
         attributes: {
             id: anonymous_id,
@@ -36,9 +36,9 @@ export const useGrowthBook = () => {
             )
         },
         // use it for development and testing purpose
-        // onFeatureUsage: (featureKey, result) => {
-        //     console.log('feature', featureKey, 'has value', result.value)
-        // },
+        onFeatureUsage: (featureKey, result) => {
+            console.log('feature', featureKey, 'has value', result.value)
+        },
     })
     gb.loadFeatures()
     const growthbook = useRef<GrowthBook>(gb)

@@ -36,9 +36,9 @@ export const useGrowthBook = () => {
             )
         },
         // use it for development and testing purpose
-        onFeatureUsage: (featureKey, result) => {
-            console.log('feature', featureKey, 'has value', result.value)
-        },
+        // onFeatureUsage: (featureKey, result) => {
+        //     console.log('feature', featureKey, 'has value', result.value)
+        // },
     })
     gb.loadFeatures()
     const growthbook = useRef<GrowthBook>(gb)

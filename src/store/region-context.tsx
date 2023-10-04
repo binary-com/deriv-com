@@ -93,13 +93,13 @@ export const RegionProvider = ({ children }: RegionProviderProps) => {
             const p2p_cookie = getP2PCookie()
             setP2P(p2p_cookie, p2p_config)
             if (qa_url_region) {
-                not_available_appgallery_countries.includes(qa_url_region)
+                not_available_appgallery_countries.includes(qa_url_region || user_ip_country)
                     ? setAppgallerySupported(false)
                     : setAppgallerySupported(true)
-                not_avalable_appgallery_and_ios_countries.includes(qa_url_region)
+                not_avalable_appgallery_and_ios_countries.includes(qa_url_region || user_ip_country)
                     ? setAppgalleryIosSupported(false)
                     : setAppgalleryIosSupported(true)
-                not_available_iOS_countries.includes(qa_url_region)
+                not_available_iOS_countries.includes(qa_url_region || user_ip_country)
                     ? setIosSupported(false)
                     : setIosSupported(true)
             }

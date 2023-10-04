@@ -87,7 +87,7 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
     @media ${device.mobileM} {
-        text-align: start;
+        text-align: center;
         inline-size: 38rem;
     }
 `
@@ -202,7 +202,7 @@ const DerivAffiliateProgramme = () => {
                 </TitleWrapper>
                 <ComissionPlanContainer>
                     {!is_eu && (
-                        <StyledHeader as="h3" type="main-paragraph">
+                        <StyledHeader as="h3" type="main-paragraph" className="">
                             <Localize translate_text="_t_Choose a commission plan:_t_" />
                         </StyledHeader>
                     )}

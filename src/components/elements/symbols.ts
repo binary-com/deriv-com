@@ -257,7 +257,6 @@ import SOLANA from 'images/svg/symbols/solana.svg'
 import STOCKSUS500 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-500.svg'
 import STOCKSUSTECH100 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-tech-100.svg'
 import STOCKSWALLSTREET30 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/wall-street-30.svg'
-import STOCKSAUS200 from 'images/svg/symbols/markets-stocks-and-indices/asian-indices/aus-200.svg'
 import STOCKSHONGKONG50 from 'images/svg/symbols/markets-stocks-and-indices/asian-indices/hongkong-50.svg'
 import STOCKSJAPAN225 from 'images/svg/symbols/markets-stocks-and-indices/asian-indices/japan-225.svg'
 import STOCKSEUROPE50 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/europe-50.svg'
@@ -626,7 +625,6 @@ export {
     STOCKSUS500,
     STOCKSUSTECH100,
     STOCKSWALLSTREET30,
-    STOCKSAUS200,
     STOCKSADVANCEDMICRODEVICES,
     STOCKSJAPAN225,
     STOCKSEUROPE50,

@@ -98,17 +98,11 @@ import USTSLMTR from 'images/svg/symbols/markets-stocks-and-indices/american-sto
 import USUBER from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-uber-technologies-inc.svg'
 import USVISA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-visa.svg'
 import USWMT from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-wal-mart-stores-inc.svg'
-import USZM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-zoom-video-communications-inc.svg'
 import OTC_GDAXI from 'images/svg/symbols/markets-stocks-and-indices/european-indices/germany-40.svg'
-import OTC_IBEX35 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/spain-35.svg'
-import OTC_SX5E from 'images/svg/symbols/markets-stocks-and-indices/european-indices/europe-50.svg'
-import OTC_FCHI from 'images/svg/symbols/markets-stocks-and-indices/european-indices/france-40.svg'
-import OTC_N225 from 'images/svg/symbols/markets-stocks-and-indices/asian-indices/japan-225.svg'
 import OTC_FTSE from 'images/svg/symbols/markets-stocks-and-indices/european-indices/uk-100.svg'
 import OTC_NDX from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-tech-100.svg'
 import OTC_DJI from 'images/svg/symbols/markets-stocks-and-indices/american-indices/wall-street-30.svg'
 import OTC_SPC from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-500.svg'
-import OTC_AS51 from 'images/svg/symbols/markets-stocks-and-indices/asian-indices/aus-200.svg'
 //derived
 import R_10 from 'images/svg/symbols/index10-new.svg'
 import R_25 from 'images/svg/symbols/index25-new.svg'
@@ -282,17 +276,11 @@ export {
     USUBER,
     USVISA,
     USWMT,
-    USZM,
     OTC_GDAXI,
-    OTC_IBEX35,
-    OTC_SX5E,
-    OTC_FCHI,
-    OTC_N225,
     OTC_FTSE,
     OTC_NDX,
     OTC_DJI,
     OTC_SPC,
-    OTC_AS51,
     R_10,
     R_25,
     R_50,

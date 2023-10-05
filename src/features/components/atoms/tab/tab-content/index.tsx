@@ -22,16 +22,22 @@ const TabContent = ({ items: initial_tems, direction = 'row' }: Omit<StepperTabT
             align={'center'}
             margin_inline={'10x'}
             margin_block={'20x'}
-            md={{ direction: direction, margin_block: '32x', pb: '40x', margin_inline: '0x' }}
+            md={{
+                direction: direction,
+                margin_block: '32x',
+                pb: '40x',
+                margin_inline: '0x',
+                gap: '40x',
+            }}
         >
             <FlexBox.Box
                 className={tab_images}
-                margin_inline={'40x'}
+                margin_inline={'25x'}
                 md={{ margin_block: '12x', margin_inline: '0x' }}
             >
                 {items[selected]?.image}
             </FlexBox.Box>
-            <FlexBox.Box>
+            <FlexBox.Box padding="5x">
                 <Box as={'ul'}>
                     {items.map((item, index) => {
                         const is_selected = selected === index
@@ -51,7 +57,7 @@ const TabContent = ({ items: initial_tems, direction = 'row' }: Omit<StepperTabT
                                     {`${index + 1}. `}
                                     <Localize
                                         translate_text={item.title}
-                                        components={[item?.component]}
+                                        components={item?.component}
                                     />
                                 </Typography.Paragraph>
                             </Box>

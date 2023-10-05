@@ -1,6 +1,6 @@
 import React from 'react'
 import { trade_item } from './style.module.scss'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
 import Flex from 'features/components/atoms/flex-box'
@@ -29,7 +29,7 @@ const TradeItem = ({ data, ...rest }: TradeItemProps) => {
             className={trade_item}
             {...rest}
         >
-            <Image src={data.icon_src} width={48} height={48} />
+            <Image src={data.icon_src} width={48} height={48} alt={localize(data.heading)} />
             <Typography.Heading
                 as="h4"
                 align="center"

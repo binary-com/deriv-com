@@ -8,18 +8,18 @@ import AreYouSureImage from 'images/common/help-centre/dbot-are-you-sure.png'
 
 const dbot: TQuestionsData = {
     section: 'Platforms',
-    category: '_t_DBot_t_',
+    category: '_t_Deriv Bot_t_',
     hide_for_eu: true,
     questions: [
         {
-            question: '_t_What is DBot?_t_',
+            question: '_t_What is Deriv Bot?_t_',
             category: 'DBot',
             sub_category: '_t_Platforms_t_',
             label: 'what-is-dbot',
             answer: [
                 {
                     translation_text:
-                        "_t_DBot is a web-based strategy builder for trading digital options. It’s a platform where you can build your own trading bot using drag-and-drop 'blocks'._t_",
+                        "_t_Deriv Bot is a web-based strategy builder for trading digital options. It’s a platform where you can build your own trading bot using drag-and-drop 'blocks'._t_",
                 },
             ],
         },
@@ -124,7 +124,7 @@ const dbot: TQuestionsData = {
             ],
         },
         {
-            question: '_t_Do you offer pre-built trading bots on DBot?_t_',
+            question: '_t_Do you offer pre-built trading bots on Deriv Bot?_t_',
             category: 'DBot',
             sub_category: '_t_Platforms_t_',
             label: 'offer-pre-built',
@@ -144,7 +144,7 @@ const dbot: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        "_t_A quick strategy is a ready-made strategy that you can use in DBot. There are 3 quick strategies you can choose from: Martingale, D'Alembert, and Oscar's Grind._t_",
+                        "_t_A quick strategy is a ready-made strategy that you can use in Deriv Bot. There are 3 quick strategies you can choose from: Martingale, D'Alembert, and Oscar's Grind._t_",
                 },
                 {
                     translation_text: '_t_<0>Using a quick strategy</0>_t_',
@@ -198,7 +198,7 @@ const dbot: TQuestionsData = {
             ],
         },
         {
-            question: '_t_How do I import my own trading bot into DBot?_t_',
+            question: '_t_How do I import my own trading bot into Deriv Bot?_t_',
             category: 'DBot',
             sub_category: '_t_Strategy_t_',
             label: 'import-strategy',
@@ -313,14 +313,14 @@ const dbot: TQuestionsData = {
             ],
         },
         {
-            question: '_t_How do I control my losses with DBot?_t_',
+            question: '_t_How do I control my losses with Deriv Bot?_t_',
             category: 'DBot',
             sub_category: '_t_How to trade_t_',
             label: 'control-loss',
             renderProp: ControlLosses,
         },
         {
-            question: '_t_Can I run DBot on multiple tabs in my web browser?_t_',
+            question: '_t_Can I run Deriv Bot on multiple tabs in my web browser?_t_',
             category: 'DBot',
             sub_category: '_t_Logs_t_',
             label: 'mutilpile-tab',
@@ -339,13 +339,13 @@ const dbot: TQuestionsData = {
             ],
         },
         {
-            question: '_t_Can I trade cryptocurrencies on DBot?_t_',
+            question: '_t_Can I trade cryptocurrencies on Deriv Bot?_t_',
             category: 'DBot',
             sub_category: '_t_Chart_t_',
             label: 'trade-cryptocurrencies',
             answer: [
                 {
-                    translation_text: "_t_No, we don't offer cryptocurrencies on DBot._t_",
+                    translation_text: "_t_No, we don't offer cryptocurrencies on Deriv Bot._t_",
                 },
             ],
         },
@@ -357,12 +357,12 @@ const dbot: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        "_t_No, we don't. However, you'll find quick strategies on DBot that'll help you build your own trading bot for free._t_",
+                        "_t_No, we don't. However, you'll find quick strategies on Deriv Bot that'll help you build your own trading bot for free._t_",
                 },
             ],
         },
         {
-            question: '_t_In which countries is DBot available?_t_',
+            question: '_t_In which countries is Deriv Bot available?_t_',
             category: 'DBot',
             sub_category: '_t_Chart_t_',
             label: 'available-countries',
@@ -381,14 +381,14 @@ const dbot: TQuestionsData = {
             ],
         },
         {
-            question: '_t_If I close my web browser, will DBot continue to run?_t_',
+            question: '_t_If I close my web browser, will Deriv Bot continue to run?_t_',
             category: 'DBot',
             sub_category: '_t_Chart_t_',
             label: 'close-browser',
             answer: [
                 {
                     translation_text:
-                        '_t_No, DBot will stop running when your web browser is closed._t_',
+                        '_t_No, Deriv Bot will stop running when your web browser is closed._t_',
                 },
             ],
         },
@@ -400,7 +400,7 @@ const dbot: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        "_t_Three of the most commonly used strategies in automated trading are Martingale, D'Alembert, and Oscar's Grind — you can find them already-made and waiting for you in DBot._t_",
+                        "_t_Three of the most commonly used strategies in automated trading are Martingale, D'Alembert, and Oscar's Grind — you can find them already-made and waiting for you in Deriv Bot._t_",
                 },
             ],
         },
@@ -412,7 +412,7 @@ const dbot: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_<0>Watch this video</0> to learn how to build a trading bot on DBot. Also, <1>check out this blog post</1> on building a trading bot._t_',
+                        '_t_<0>Watch this video</0> to learn how to build a trading bot on Deriv Bot. Also, <1>check out this blog post</1> on building a trading bot._t_',
                     translation_components: [
                         {
                             key: 0,

@@ -1,8 +1,9 @@
 import { TSmartContent, TString } from 'types/generics'
+import { IconType } from 'features/types'
 
 export type TradeBenefitType = {
     description: TString
-    icon_src: string
+    icon: IconType
 }
 
 type TradeTypeConfig = {

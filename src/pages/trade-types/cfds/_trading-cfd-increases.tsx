@@ -198,7 +198,7 @@ const TradingCFDIncreases = () => {
                 </Text>
 
                 <StyledButton to="/trader-tools/swap-calculator/">
-                    <Button label="Swap calculator" primary />
+                    <Button label="_t_Swap calculator_t_" primary />
                 </StyledButton>
             </SmallContainer>
         </StyledSectionContainer>

@@ -131,7 +131,7 @@ jobs:
                   preview_url=$(wrangler pages deploy $directory --project-name=$projectName --branch=$branch > log.txt 2>&1; echo $?)
                   echo "------"
                   cat log.txt
-                  branchName=$(echo $branch | sed 's/[\/_\.]/-/g')
+                  branchName=$(echo $branch | sed 's/[\/_\.]/-/g; s/[^a-zA-Z]$//')
                   if grep -q "Deployment complete" log.txt; then
                     echo "preview_url=https://$branchName.deriv-com-preview-links.pages.dev" > "$GITHUB_OUTPUT"
                   else
@@ -181,3 +181,34 @@ jobs:
                   number: ${{steps.pr_information.outputs.issue_number}}
                   message: ${{steps.generate_preview_url.outputs.comment || steps.generate_failure_comment.outputs.comment }}
                   recreate: true
+
+            - name: e2e Smoke Tests
+              uses: actions/checkout@v4
+              with:
+                repository: deriv-com/e2e-deriv-com # Replace with your repository name
+
+            - name: Cypress run
+              # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
+              uses: cypress-io/github-action@v6
+              with:
+                # Starts web server for E2E tests - replace with your own server invocation
+                # https://docs.cypress.io/guides/continuous-integration/introduction#Boot-your-server
+                # start: npm start
+                # wait-on: 'http://localhost:3000' # Waits for above
+                # Records to Cypress Cloud 
+                # https://docs.cypress.io/guides/cloud/projects#Set-up-a-project-to-record
+                record: true
+                parallel: true # Runs test in parallel using settings above
+                spec: cypress/e2e/smoke/*.js
+                group: 'Smoke Tests'
+        
+              env:
+                # For recording and parallelization to work you must set your CYPRESS_RECORD_KEY
+                # in GitHub repo → Settings → Secrets → Actions
+                CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+                # Creating a token https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+                GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+                # Set Base Url from client_payload.
+                CYPRESS_BASE_URL: ${{steps.publish-to-pages.outputs.preview_url}}
+                # Send PR and Repo details to Cypress Cloud test run
+                COMMIT_INFO_MESSAGE: PR "${{ github.event.pull_request.title }}" in Repo "${{ github.repository }}" 

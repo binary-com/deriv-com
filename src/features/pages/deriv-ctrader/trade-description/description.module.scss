@@ -1,0 +1,8 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.description_box {
+    @include breakpoints(tablet) {
+        border-bottom: 1px solid $color-grey-1;
+    }
+}

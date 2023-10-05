@@ -44,10 +44,3 @@ export type TradingPlatformOtherProps = {
     description: TString
     link: string
 }[]
-export type TradingPlatformDataType = {
-    trading_platform_hero: TradingPlatformPHeroProps
-    trading_platform_description: TradingPlatformDescriptionProps
-    trading_platform_start: TradingPlatformStartProps
-    trading_platform_banner?: BannerType
-    trading_platform_other: TradingPlatformOtherProps
-}

@@ -60,7 +60,6 @@ const BannerText = ({ item }: HomepageBannerProps) => {
                     type={'button'}
                     aria-label="create free demo account"
                     onClick={handleSignup}
-                    id="dm-hero-signup"
                 >
                     <Localize translate_text={'_t_Create free demo account_t_'} />
                 </Button.Primary>

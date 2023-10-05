@@ -5,7 +5,7 @@ import { main_item_active, main_item, description_grid_item } from './platforms-
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import Link from 'features/components/atoms/link'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
 import Image from 'features/components/atoms/image'
 
@@ -21,7 +21,7 @@ const MainSliderItem = ({ item }: MainSliderItemProps) => {
                 [main_item_active]: swiperSlide.isActive,
             })}
         >
-            <Image src={item.icon} width={40} height={40} />
+            <Image src={item.icon} width={40} height={40} alt={localize(item.title)} />
             <Typography.Heading as="h3" size="xxs">
                 <Localize translate_text={item.title} />
             </Typography.Heading>

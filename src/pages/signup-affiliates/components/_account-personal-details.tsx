@@ -318,7 +318,7 @@ const PersonalDetails = ({
                                 onBlur={handleInput}
                                 data-lpignore="true"
                                 handleError={() => {
-                                    item?.value_set(null)
+                                    item?.value_set('')
                                     item?.error_set('')
                                 }}
                             />

@@ -25,6 +25,7 @@ const MainNavButtons = () => {
             justify="center"
             align="center"
             gap="8x"
+            shrink="0"
         >
             {is_logged_in ? (
                 <Button.Primary disabled={is_region_loading} onClick={handleGetTrading} outlined>

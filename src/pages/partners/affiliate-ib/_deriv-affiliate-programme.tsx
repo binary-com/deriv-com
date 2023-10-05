@@ -88,7 +88,7 @@ const StyledHeader = styled(Header)`
     }
     @media ${device.mobileM} {
         text-align: center;
-        max-width: 34rem;
+        inline-size: 38rem;
     }
 `
 

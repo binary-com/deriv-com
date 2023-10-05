@@ -90,7 +90,7 @@ const MindWhenTrading = () => {
                     <Localize translate_text="_t_Use our margin calculator to calculate the margin required to increase your market exposure (the market value of your position) on Deriv’s CFD trading platforms._t_" />
                 </Text>
                 <StyledButton to="/trader-tools/margin-calculator/">
-                    <Button label="Margin calculator" primary />
+                    <Button label="_t_Margin calculator_t_" primary />
                 </StyledButton>
             </SmallContainer>
         </StyledSectionContainer>

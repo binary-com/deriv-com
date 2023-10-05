@@ -1,16 +1,28 @@
+import { PathType } from 'features/types'
 import { TString } from 'types/generics'
 
 export type TMarketData = {
     ask: number
     bid: number
-    chng: number
-    mkt: string
-    sprd: number
-    sym: string
-    code: string
+    day_percentage_change: number
+    market: string
+    spread: number
+    symbol: string
+    shortcode: string
 }
 
-export type TAvailableLiveMarkets = 'fx' | 'der' | 'ind' | 'cry' | 'com' | 'etfs'
+export type TMarketDataResponse = {
+    trading_platform_asset_listing: any
+    active_symbols: TMarketData[]
+    req_id: number
+}
+
+export type TAvailableLiveMarkets =
+    | 'forex'
+    | 'derived'
+    | 'indices'
+    | 'cryptocurrency'
+    | 'commodities'
 
 export type TMarketButtons = {
     src: string
@@ -18,5 +30,5 @@ export type TMarketButtons = {
     button_text: string
     market_name: TAvailableLiveMarkets
     market_description: TString
-    to: string
+    to: PathType
 }

@@ -143,23 +143,6 @@ const account: TQuestionsData = {
             category: 'account',
             sub_category: '_t_Managing your account_t_',
             label: 'change-my-email-address',
-            hide_for_non_eu: true,
-            answer: [
-                {
-                    translation_text:
-                        "_t_Yes. <0>Contact us via live chat</0> and we'll help you with it._t_",
-                    translation_components: [
-                        { key: 0, type: 'link', to: '/contact_us/?is_livechat' },
-                    ],
-                },
-            ],
-        },
-        {
-            question: '_t_Can I change my email address?_t_',
-            category: 'account',
-            sub_category: '_t_Managing your account_t_',
-            label: 'change-my-email-address',
-            hide_for_eu: true,
             answer: [
                 {
                     translation_text:

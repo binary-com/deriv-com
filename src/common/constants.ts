@@ -125,6 +125,14 @@ export const dmt5_windows_url =
     'https://download.mql5.com/cdn/web/deriv.limited/mt5/deriv5setup.exe'
 export const dp2p_google_play_url =
     'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
+//to be updated with ctrader url later
+export const ctrader_google_play_url =
+    'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
+export const ctrader_app_store_url =
+    'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
+
+export const ctrader_web_browser_url = 'ct.deriv.com'
+export const ctrader_windows_url = 'https://getctrader.com/deriv/ctrader-deriv-setup.exe'
 export const growthbook_client_key = GATSBY_GROWTHBOOK_CLIENT_KEY || ' '
 export const growthbook_decryption_key = GATSBY_GROWTHBOOK_DECRYPTION_KEY || ' '
 export const gtm_test_domain = 'deriv-com.binary.sx'
@@ -147,6 +155,7 @@ export const localized_link_url = Object.freeze({
     blog: blog_url,
     community: community_url,
     derivx: derivx_app_url,
+    deriv_app_login,
     api: deriv_api_url,
     dbot: deriv_bot_app_url,
     deriv_app: deriv_app_url,
@@ -186,5 +195,5 @@ export const bannerTypes = {
 }
 
 export const firebaseConfig = {
-    databaseURL: 'https://deriv-static-pricingfeedv2.firebaseio.com',
+    databaseURL: 'https://deriv-static-pricingfeed.firebaseio.com',
 }

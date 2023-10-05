@@ -1,4 +1,5 @@
 import type { HeadProps } from 'gatsby'
+import { TString } from 'types/generics'
 
 export type ContentSectionTagOptions =
     | 'div'
@@ -153,3 +154,10 @@ export type TPageContext = {
 }
 
 export type TGatsbyHead = HeadProps<object, TPageContext>
+
+export type IconType = {
+    src: string
+    alt: TString
+}
+
+export type PathType = `/${string}`

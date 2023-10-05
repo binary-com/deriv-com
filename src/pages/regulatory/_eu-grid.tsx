@@ -20,12 +20,18 @@ const Country = styled.div`
     font-size: var(--text-size-s);
     color: var(--color-grey-3);
     align-items: center;
+    inline-size: 20rem;
 
     & a {
         display: inline;
         font-size: 1rem;
         line-height: 1rem;
         color: var(--color-grey-3);
+    }
+
+    @media (max-width: 425px) {
+        font-size: var(--text-size-xs);
+        inline-size: 16rem;
     }
 `
 const Order = styled.div`

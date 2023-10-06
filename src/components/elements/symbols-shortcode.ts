@@ -104,7 +104,6 @@ import OTC_IBEX35 from 'images/svg/symbols/markets-stocks-and-indices/european-i
 import OTC_SX5E from 'images/svg/symbols/markets-stocks-and-indices/european-indices/europe-50.svg'
 import OTC_FCHI from 'images/svg/symbols/markets-stocks-and-indices/european-indices/france-40.svg'
 import OTC_N225 from 'images/svg/symbols/markets-stocks-and-indices/asian-indices/japan-225.svg'
-import OTC_FTSE from 'images/svg/symbols/markets-stocks-and-indices/european-indices/uk-100.svg'
 import OTC_NDX from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-tech-100.svg'
 import OTC_DJI from 'images/svg/symbols/markets-stocks-and-indices/american-indices/wall-street-30.svg'
 import OTC_SPC from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-500.svg'
@@ -288,7 +287,6 @@ export {
     OTC_SX5E,
     OTC_FCHI,
     OTC_N225,
-    OTC_FTSE,
     OTC_NDX,
     OTC_DJI,
     OTC_SPC,

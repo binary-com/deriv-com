@@ -139,7 +139,7 @@ const AffiliateIb = () => {
         ? {
               banner_btn: '_t_Sign up as our affiliate_t_',
               earn_text:
-                  "_t_Earn commissions on your referrals' deposits, relying on our track record of prompt payouts and a successful affiliate programme. Your referred clients will enjoy a seamless experience, advanced trading tools, and a wide range of financial instruments on our platforms._t_",
+                  '_t_Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on several popular financial markets with the utmost convenience. Deriv Group Ltd — the owner of Deriv.com — has a proven track record of running successful referral programmes with prompt payouts._t_',
               payout_title: '_t_Zero charges with prompt monthly payouts_t_',
               payout_text:
                   '_t_Deriv Affiliate Programme is free. Enjoy reliable payouts by getting your affiliate commissions paid to your Deriv account._t_',

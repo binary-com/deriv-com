@@ -97,6 +97,7 @@ const ApplyNow = styled(LinkButton)<ApplyNowProps>`
     display: block;
     width: 100%;
     border-radius: 4px;
+    margin-block-start: 24px;
 
     @media ${device.tabletL} {
         height: 40px;
@@ -124,7 +125,7 @@ const StyledCard = styled(Card)`
     }
 
     @media (max-width: 1313px) {
-        height: 63rem;
+        min-height: 63rem;
     }
 
     @media ${device.laptopM} {
@@ -135,6 +136,7 @@ const StyledCard = styled(Card)`
     @media ${device.tabletL} {
         min-width: unset;
         padding: 24px 16px;
+        min-height: auto;
         ${(props) => props.tabletHeight && 'height:' + props.tabletHeight};
 
         :first-child {
@@ -210,7 +212,7 @@ const DerivAffiliateProgramme = () => {
                     <CardWrapper>
                         {!is_eu && (
                             <>
-                                <StyledCard height="69rem" tabletHeight="auto" padding="2.4rem">
+                                <StyledCard height="auto" tabletHeight="auto" padding="2.4rem">
                                     <div>
                                         <Header as="h4" type="sub-section-title" mb="0.8rem">
                                             <Localize translate_text="_t_Revenue share_t_" />
@@ -278,7 +280,7 @@ const DerivAffiliateProgramme = () => {
                                         </ApplyNow>
                                     </div>
                                 </StyledCard>
-                                <StyledCard height="69rem" tabletHeight="auto" padding="2.4rem">
+                                <StyledCard height="auto" tabletHeight="auto" padding="2.4rem">
                                     <div>
                                         <Header as="h4" type="sub-section-title" mb="0.8rem">
                                             <Localize translate_text="_t_Turnover_t_" />
@@ -363,7 +365,7 @@ const DerivAffiliateProgramme = () => {
                                 </StyledCard>
                             </>
                         )}
-                        <StyledCard height="69rem" tabletHeight="auto" padding="2.4rem">
+                        <StyledCard height="auto" tabletHeight="auto" padding="2.4rem">
                             <div>
                                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                                     <Localize translate_text="_t_CPA (EU only)_t_" />

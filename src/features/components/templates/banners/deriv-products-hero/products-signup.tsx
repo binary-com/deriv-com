@@ -19,7 +19,7 @@ const HeroMainButton = () => {
     }
     return (
         <Button.Primary className={hero_main_btn} type={'button'} onClick={handleSignup}>
-            <Localize translate_text={'_t_Test Create free demo account_t_'} />
+            <Localize translate_text={'_t_Create free demo account_t_'} />
         </Button.Primary>
     )
 }

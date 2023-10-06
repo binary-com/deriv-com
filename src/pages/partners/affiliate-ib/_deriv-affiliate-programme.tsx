@@ -171,11 +171,11 @@ const Turnover: AffiliateType = [
     {
         title: '_t_Probability of return_t_',
         data: [
-            '_t_0-19.999%_t_',
-            '_t_20-39.999%_t_',
-            '_t_40-59.999%_t_',
-            '_t_60-79.999%_t_',
-            '_t_80-94.999%_t_',
+            '_t_0–19.999%_t_',
+            '_t_20–39.999%_t_',
+            '_t_40–59.999%_t_',
+            '_t_60–79.999%_t_',
+            '_t_80–94.999%_t_',
             '_t_95% and above_t_',
         ],
     },
@@ -322,6 +322,30 @@ const DerivAffiliateProgramme = () => {
                                                 components={[<strong key={0} />]}
                                             />
                                         </Text>
+                                        <Text mb="0.8rem" mt="2.4rem">
+                                            <Localize
+                                                translate_text="_t_<0>Disclaimer:</0>_t_"
+                                                components={[<strong key={0} />]}
+                                            />
+                                        </Text>
+                                        <Ul>
+                                            <Li>
+                                                <Text>
+                                                    <Localize
+                                                        translate_text="_t_<0>This plan is not available for affiliates who promote to clients residing in the EU.</0>_t_"
+                                                        components={[<strong key={0} />]}
+                                                    />
+                                                </Text>
+                                            </Li>
+                                            <Li>
+                                                <Text>
+                                                    <Localize
+                                                        translate_text="_t_<0>Affiliates residing in the EU may sign up for the Turnover plan. However, only clients residing outside of the EU can be referred under this plan.</0>_t_"
+                                                        components={[<strong key={0} />]}
+                                                    />
+                                                </Text>
+                                            </Li>
+                                        </Ul>
                                     </div>
                                     <div>
                                         <ApplyNow

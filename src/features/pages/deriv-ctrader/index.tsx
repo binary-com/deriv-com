@@ -3,6 +3,7 @@ import CTraderHero from './hero-banner'
 import CTraderNumbers from './trade-numbers'
 import CTraderTradeDescription from './trade-description'
 import CTraderWhyTrade from './why-trade'
+import BrowseOurFaq from './browse-our-faq'
 import CTraderTradeFeatures from './platform-features'
 import HowToStartCTrader from './how-to-start'
 import CTraderPlatformBanner from './platform-banner'
@@ -31,6 +32,7 @@ const DerivCTrader = () => {
             )}
 
             <OtherPlatforms />
+            <BrowseOurFaq />
             <Footer />
         </Layout>
     )

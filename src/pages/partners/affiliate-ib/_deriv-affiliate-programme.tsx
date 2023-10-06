@@ -196,7 +196,7 @@ const DerivAffiliateProgramme = () => {
                         {is_eu ? (
                             <Localize translate_text="_t_Partner with us as an affiliate. Earn commission from your referred client’s deposits._t_" />
                         ) : (
-                            <Localize translate_text="_t_Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on DTrader and DBot._t_" />
+                            <Localize translate_text="_t_Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on Deriv Trader and Deriv Bot._t_" />
                         )}
                     </SubtitleHeader>
                 </TitleWrapper>

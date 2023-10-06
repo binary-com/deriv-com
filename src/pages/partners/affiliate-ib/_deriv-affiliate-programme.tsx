@@ -10,6 +10,7 @@ import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
 import { TString } from 'types/generics'
 import useRegion from 'components/hooks/use-region'
+import { Li, Ul } from 'components/elements'
 
 type AffiliateType = {
     title: TString
@@ -159,7 +160,7 @@ const StyledTrap = styled(TRAP)`
 const RevenueShare: AffiliateType = [
     {
         title: '_t_Net revenue_t_',
-        data: ['_t_≤ USD 20,000 per month_t_', '_t_> USD 20,000 per month_t_'],
+        data: ['_t_≤ 20,000 USD per month_t_', '_t_> 20,000 USD per month_t_'],
     },
     {
         title: '_t_Commission_t_',
@@ -238,6 +239,30 @@ const DerivAffiliateProgramme = () => {
                                                 </TC>
                                             ))}
                                         </Table>
+                                        <Text mb="0.8rem" mt="2.4rem">
+                                            <Localize
+                                                translate_text="_t_<0>Disclaimer:</0>_t_"
+                                                components={[<strong key={0} />]}
+                                            />
+                                        </Text>
+                                        <Ul>
+                                            <Li>
+                                                <Text>
+                                                    <Localize
+                                                        translate_text="_t_<0>This plan is not available for affiliates who promote to clients residing in the EU.</0>_t_"
+                                                        components={[<strong key={0} />]}
+                                                    />
+                                                </Text>
+                                            </Li>
+                                            <Li>
+                                                <Text>
+                                                    <Localize
+                                                        translate_text="_t_<0>Affiliates residing in the EU may sign up for the Revenue share plan. However, only clients residing outside of the EU can be referred under this plan.</0>_t_"
+                                                        components={[<strong key={0} />]}
+                                                    />
+                                                </Text>
+                                            </Li>
+                                        </Ul>
                                     </div>
                                     <div>
                                         <ApplyNow

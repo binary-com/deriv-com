@@ -2,7 +2,7 @@ import { ReactElement } from 'react'
 import { TString } from 'types/generics'
 
 export type EmployerAwardsType = {
-    id: number
+    id: string
     title: TString
     text_link: {
         text: TString

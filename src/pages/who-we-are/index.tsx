@@ -54,12 +54,13 @@ const AboutUs = ({ data }: TWhoWeAre) => {
         banner,
     } = data?.strapiWhoWeArePage || {}
 
-    const clickToScrollHandler = useScrollToElement('investors-in-people')
+    const clickToScrollHandler = useScrollToElement('investors-in-people', -100)
     const pathname_hash = getLocationHash()
+
     useEffect(() => {
         setTimeout(() => {
             pathname_hash?.includes('investors-in-people') && clickToScrollHandler()
-        }, 1000)
+        }, 1500)
     }, [pathname_hash])
 
     return (

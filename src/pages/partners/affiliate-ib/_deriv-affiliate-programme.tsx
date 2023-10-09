@@ -5,7 +5,7 @@ import { Table, TRAP, TRAPREVERSE, TC } from './_table'
 import { SectionContainer, Container } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { Localize } from 'components/localization'
-import { LinkButton } from 'components/form'
+import { LinkButton, Button } from 'components/form'
 import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
 import { TString } from 'types/generics'
@@ -159,6 +159,25 @@ const StyledTrap = styled(TRAP)`
     border-bottom: none;
 `
 
+const StyledSignupBtnWrap = styled.div`
+    display: flex;
+    justify-content: center;
+    text-align: center;
+`
+
+const StyledCalculatedButton = styled(Button)`
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    margin-block-start: 24px;
+    padding-block: 7px;
+
+    @media ${device.tabletL} {
+        height: 40px;
+        margin-top: 40px;
+    }
+`
+
 const RevenueShare: AffiliateType = [
     {
         title: '_t_Net revenue_t_',
@@ -267,17 +286,9 @@ const DerivAffiliateProgramme = () => {
                                         </Ul>
                                     </div>
                                     <div>
-                                        <ApplyNow
-                                            id="dm-card-affiliate-signup-1"
-                                            secondary
-                                            to={affiliate_signup_url}
-                                            external
-                                            target="_blank"
-                                            type="affiliate_sign_up"
-                                            mt_mobile="40px"
-                                        >
-                                            <Localize translate_text="_t_Sign up_t_" />
-                                        </ApplyNow>
+                                        <StyledCalculatedButton secondary>
+                                            <Localize translate_text="_t_How it’s calculated_t_" />
+                                        </StyledCalculatedButton>
                                     </div>
                                 </StyledCard>
                                 <StyledCard height="auto" tabletHeight="auto" padding="2.4rem">
@@ -350,17 +361,9 @@ const DerivAffiliateProgramme = () => {
                                         </Ul>
                                     </div>
                                     <div>
-                                        <ApplyNow
-                                            id="dm-card-affiliate-signup-2"
-                                            secondary
-                                            to={affiliate_signup_url}
-                                            external
-                                            target="_blank"
-                                            type="affiliate_sign_up"
-                                            mt_mobile="24px"
-                                        >
-                                            <Localize translate_text="_t_Sign up_t_" />
-                                        </ApplyNow>
+                                        <StyledCalculatedButton secondary>
+                                            <Localize translate_text="_t_How it’s calculated_t_" />
+                                        </StyledCalculatedButton>
                                     </div>
                                 </StyledCard>
                             </>
@@ -413,20 +416,24 @@ const DerivAffiliateProgramme = () => {
                                 </Ul>
                             </div>
                             <div>
-                                <ApplyNow
-                                    id="dm-card-affiliate-signup-3"
-                                    secondary
-                                    to={affiliate_signup_url}
-                                    external
-                                    target="_blank"
-                                    type="affiliate_sign_up"
-                                    mt_mobile="32px"
-                                >
-                                    <Localize translate_text="_t_Sign up_t_" />
-                                </ApplyNow>
+                                <StyledCalculatedButton secondary>
+                                    <Localize translate_text="_t_How it’s calculated_t_" />
+                                </StyledCalculatedButton>
                             </div>
                         </StyledCard>
                     </CardWrapper>
+                    <StyledSignupBtnWrap>
+                        <ApplyNow
+                            secondary
+                            to={affiliate_signup_url}
+                            external
+                            target="_blank"
+                            type="affiliate_sign_up"
+                            mt_mobile="32px"
+                        >
+                            <Localize translate_text="_t_Sign up_t_" />
+                        </ApplyNow>
+                    </StyledSignupBtnWrap>
                 </ComissionPlanContainer>
             </ContentContainer>
         </StyledSection>

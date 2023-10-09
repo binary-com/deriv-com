@@ -1,10 +1,10 @@
 import React from 'react'
-import { StyledCard, StyledCalculatedButton, CPAContent } from './_style'
+import { StyledCard, StyledCalculatedButton, CPAContent } from '../_style'
 import { Header, Text } from 'components/elements/typography'
 import { Localize } from 'components/localization'
 import { Li, Ul } from 'components/elements'
 
-const CpaEuOnlyCard = () => {
+const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => {
     return (
         <StyledCard height="auto" tabletHeight="auto" padding="2.4rem">
             <div>
@@ -54,7 +54,7 @@ const CpaEuOnlyCard = () => {
                 </Ul>
             </div>
             <div>
-                <StyledCalculatedButton secondary>
+                <StyledCalculatedButton secondary onClick={toggleCalculated}>
                     <Localize translate_text="_t_How it’s calculated_t_" />
                 </StyledCalculatedButton>
             </div>
@@ -62,4 +62,4 @@ const CpaEuOnlyCard = () => {
     )
 }
 
-export default CpaEuOnlyCard
+export default DefaultCard

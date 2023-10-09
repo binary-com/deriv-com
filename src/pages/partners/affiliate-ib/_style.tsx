@@ -307,3 +307,16 @@ export const StyledBackButton = styled(Button)`
     inline-size: 100%;
     padding: 0 1.6rem;
 `
+
+export const StyledCardWrapper = styled(Flex)`
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @media ${device.tabletL} {
+        flex-direction: column;
+        align-items: center;
+    }
+    @media ${device.laptopM} {
+        flex-wrap: wrap;
+    }
+`

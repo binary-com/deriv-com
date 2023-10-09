@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import RevenueShareCard from './revenue-share/_index'
 import TurnoverCard from './turnover/_index'
-import CpaEuOnlyCard from './_cpa-eu-only-card'
-import { CardWrapper } from './_partner-card'
+import CpaEuOnlyCard from './cpa-eu-only/_index'
+import { StyledCardWrapper } from './_style'
 import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements/typography'
 import { Localize } from 'components/localization'
@@ -121,7 +121,7 @@ const DerivAffiliateProgramme = () => {
                             <Localize translate_text="_t_Choose a commission plan:_t_" />
                         </StyledHeader>
                     )}
-                    <CardWrapper>
+                    <StyledCardWrapper>
                         {!is_eu && (
                             <>
                                 <RevenueShareCard />
@@ -129,7 +129,7 @@ const DerivAffiliateProgramme = () => {
                             </>
                         )}
                         <CpaEuOnlyCard />
-                    </CardWrapper>
+                    </StyledCardWrapper>
                     <StyledSignupBtnWrap>
                         <ApplyNow
                             secondary

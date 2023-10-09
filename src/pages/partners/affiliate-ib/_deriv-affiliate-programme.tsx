@@ -97,7 +97,8 @@ const ApplyNow = styled(LinkButton)<ApplyNowProps>`
     display: block;
     width: 100%;
     border-radius: 4px;
-    margin-block-start: 24px;
+    margin-block-start: 40px;
+    max-inline-size: 336px;
 
     @media ${device.tabletL} {
         height: 40px;

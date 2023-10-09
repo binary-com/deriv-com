@@ -238,10 +238,6 @@ export const StyledCard = styled(Card)<FlexProps>`
         }
     }
 
-    @media (max-width: 1313px) {
-        min-height: 63rem;
-    }
-
     @media ${device.laptopM} {
         min-width: 38.4rem;
         width: 38.4rem;
@@ -250,7 +246,6 @@ export const StyledCard = styled(Card)<FlexProps>`
     @media ${device.tabletL} {
         min-width: unset;
         padding: 24px 16px;
-        min-height: auto;
         ${(props) => props.tabletHeight && 'height:' + props.tabletHeight};
 
         :first-child {

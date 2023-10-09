@@ -9,47 +9,58 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
         <StyledCard height="auto" tabletHeight="auto" padding="2.4rem" align_self="baseline">
             <div>
                 <Header as="h4" type="sub-section-title" mb="0.8rem">
-                    <Localize translate_text="_t_Revenue share_t_" />
+                    <Localize translate_text="_t_Master Affiliate_t_" />
                 </Header>
                 <Header as="p" type="paragraph-2">
                     <Localize translate_text="_t_This plan is not available for affiliates who promote to clients residing in the EU._t_" />
                 </Header>
                 <Header as="h2" type="paragraph-2" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="_t_Example 1_t_" />
+                    <Localize translate_text="_t_Example 1:_t_" />
                 </Header>
                 <Ul>
                     <Li>
                         <Header as="p" weight="normal">
-                            <Localize translate_text="_t_A client generates 10,000 USD monthly net revenue. Calculation is as follows:_t_" />
+                            <Localize translate_text="_t_A sub-affiliate generates USD 300 worth of commission. Here is how we calculate their total commissions:_t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
-                            <Localize translate_text="_t_Total commission earned: 10,000 USD x 30% = 3,000 USD_t_" />
+                            <Localize translate_text="_t_Sub affiliate’s total commission: USD 300_t_" />
+                        </Header>
+                        <Header as="p" weight="normal" mt="2.4rem">
+                            <Localize translate_text="_t_Master affiliate’s total commission: USD 300 x 20% = USD 60_t_" />
                         </Header>
                     </Li>
                 </Ul>
                 <Header as="h2" type="paragraph-2" mt="1.6rem" mb="0.8rem">
-                    <Localize translate_text="_t_Example 2_t_" />
+                    <Localize translate_text="_t_Example 2:_t_" />
                 </Header>
                 <Ul>
                     <Li>
                         <Header as="p" weight="normal">
-                            <Localize translate_text="_t_A client generates 25,000 USD monthly net revenue. Calculation is as follows:_t_" />
+                            <Localize translate_text="_t_A sub-affiliate earns USD 200 from their Revenue Share plan. The same sub-affiliate earns USD 100 from their IB programme. Here is how we calculate their total commissions:_t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
-                            <Localize translate_text="_t_20,000 USD x 30% = 6,000 USD_t_" />
-                            <br />
-                            <Localize translate_text="_t_5,000 USD x 45% = 2,250 USD_t_" />
+                            <Localize translate_text="_t_Sub-affiliate’s total commission: 200 + 100 = USD 300 (including IB commission)_t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
-                            <Localize translate_text="_t_Total commission earned:_t_" />
-                            <br />
-                            <Localize translate_text="_t_6,000 + 2,250 = 8,250 USD_t_" />
+                            <Localize translate_text="_t_Master affiliate’s total commission: USD 200 * 20% = USD 40_t_" />
                         </Header>
                     </Li>
                 </Ul>
-                <Header as="p" type="paragraph-1" mt="1.6rem">
-                    <Localize translate_text="_t_Disclaimer: Affiliates residing in the EU may sign up for the Revenue share plan. However, only clients residing outside of the EU can be referred under this plan._t_" />
+                <Header as="h2" type="paragraph-2" mt="1.6rem" mb="0.8rem">
+                    <Localize translate_text="_t_Disclaimer:_t_" />
                 </Header>
+                <Ul>
+                    <Li>
+                        <Header as="p">
+                            <Localize translate_text="_t_Master affiliates will not earn based on the sub-affiliates’ IB programme_t_" />
+                        </Header>
+                    </Li>
+                    <Li>
+                        <Header as="p" mt="0.8">
+                            <Localize translate_text="_t_You need to be a registered affiliate with Deriv before signing up as a master affiliate. (To sign up as a master affiliate, contact your respective account manager.)_t_" />
+                        </Header>
+                    </Li>
+                </Ul>
             </div>
             <div>
                 <StyledBackButton tertiary onClick={toggleCalculated} mt="2.4rem">

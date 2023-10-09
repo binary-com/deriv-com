@@ -21,12 +21,13 @@ const HeroFeaturesCarousel = loadable(() => pMinDelay(import('./hero-features.ca
 
 const HomeHeroContent = () => {
     const { test_toggle_aa_test } = useGrowthBook()
+    console.log(test_toggle_aa_test)
 
     const headings = {
         Control: '_t_Get the widest range of markets, trades and platforms_t_',
         'Variation 1': '_t_Get the widest range of markets, trades and platforms_t_',
     }
-    const heading = headings[test_toggle_aa_test || 'Control']
+    const heading = headings[test_toggle_aa_test ? 'Control' : 'Variation 1']
 
     return (
         <Flex.Box justify="start" direction="col" align="start" gap="4x" dir={get_lang_direction()}>

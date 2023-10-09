@@ -2,6 +2,7 @@
 const language_config = require(`./i18n-config.js`)
 const language_config_en = require(`./i18n-config-en.js`)
 const path = require('path')
+// Non-Translated routes redirection are done here in "redirects.json"
 const redirects = require('./redirects.json')
 
 const translations_cache = {}

@@ -376,7 +376,7 @@ const DerivAffiliateProgramme = () => {
                                 <CPAContent>
                                     <Text>
                                         <Localize
-                                            translate_text="_t_You earn <0>USD 100</0> when a referred client successfully deposits a one-time or cumulative total of <0>USD 100</0> into their Deriv account._t_"
+                                            translate_text="_t_You earn <0>100 USD</0> when your new referred client deposits and trades a total amount of <0>100 USD</0> or its equivalent into their Deriv account, either in one deposit or cumulatively._t_"
                                             components={[<strong key={0} />]}
                                         />
                                     </Text>
@@ -387,6 +387,30 @@ const DerivAffiliateProgramme = () => {
                                         />
                                     </Text>
                                 </CPAContent>
+                                <Text mb="0.8rem" mt="2.4rem">
+                                    <Localize
+                                        translate_text="_t_<0>Disclaimer:</0>_t_"
+                                        components={[<strong key={0} />]}
+                                    />
+                                </Text>
+                                <Ul>
+                                    <Li>
+                                        <Text>
+                                            <Localize
+                                                translate_text="_t_<0>This plan is available exclusively for affiliates who promote to clients residing in EU.</0>_t_"
+                                                components={[<strong key={0} />]}
+                                            />
+                                        </Text>
+                                    </Li>
+                                    <Li>
+                                        <Text>
+                                            <Localize
+                                                translate_text="_t_<0>Affiliates not residing in the EU may sign up for the CPA plan.</0>_t_"
+                                                components={[<strong key={0} />]}
+                                            />
+                                        </Text>
+                                    </Li>
+                                </Ul>
                             </div>
                             <div>
                                 <ApplyNow

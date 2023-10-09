@@ -289,3 +289,8 @@ export const StyledText = styled(Text)`
         font-size: 14px;
     }
 `
+export const CPAContent = styled.div`
+    ${Text} {
+        margin-top: 2.4rem;
+    }
+`

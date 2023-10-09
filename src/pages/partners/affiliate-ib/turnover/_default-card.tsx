@@ -2,7 +2,7 @@ import React from 'react'
 import { StyledCard, StyledCalculatedButton, StyledTrap, StyledText } from '../_style'
 import { Table, TRAPREVERSE, TC } from '../_table'
 import { Localize } from 'components/localization'
-import { Header, Text } from 'components/elements/typography'
+import { Header } from 'components/elements/typography'
 import { Li, Ul } from 'components/elements'
 import { TString } from 'types/generics'
 
@@ -36,12 +36,12 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                     <Localize translate_text="_t_Turnover_t_" />
                 </Header>
-                <Text>
+                <Header as="p" type="paragraph-1" weight="normal">
                     <Localize
                         translate_text="_t_<0>Options:</0> Earn based on each contract’s payout probability._t_"
                         components={[<strong key={0} />]}
                     />
-                </Text>
+                </Header>
                 <Table grid_col_number={2}>
                     {turnover_data.map(({ title, data }, index) => (
                         <TC grid_area={'area' + index} key={index}>
@@ -60,40 +60,31 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                         </TC>
                     ))}
                 </Table>
-                <Text mt="2.4rem">
+                <Header as="p" type="paragraph-1" weight="normal" mt="2.4rem">
                     <Localize
                         translate_text="_t_<0>Multipliers:</0> Earn 40% of the commissions generated from your clients’ trades._t_"
                         components={[<strong key={0} />]}
                     />
-                </Text>
-                <Text mt="2.4rem">
+                </Header>
+                <Header as="p" type="paragraph-1" weight="normal" mt="2.4rem">
                     <Localize
                         translate_text="_t_<0>Lookbacks:</0> Earn 0.8% on the stake of each lookbacks trade on SmartTrader._t_"
                         components={[<strong key={0} />]}
                     />
-                </Text>
-                <Text mb="0.8rem" mt="2.4rem">
-                    <Localize
-                        translate_text="_t_<0>Disclaimer:</0>_t_"
-                        components={[<strong key={0} />]}
-                    />
-                </Text>
+                </Header>
+                <Header as="p" type="paragraph-1" mb="0.8rem" mt="2.4rem">
+                    <Localize translate_text="_t_Disclaimer:_t_" />
+                </Header>
                 <Ul>
                     <Li>
-                        <Text>
-                            <Localize
-                                translate_text="_t_<0>This plan is not available for affiliates who promote to clients residing in the EU.</0>_t_"
-                                components={[<strong key={0} />]}
-                            />
-                        </Text>
+                        <Header as="p" type="paragraph-1">
+                            <Localize translate_text="_t_This plan is not available for affiliates who promote to clients residing in the EU._t_" />
+                        </Header>
                     </Li>
                     <Li>
-                        <Text>
-                            <Localize
-                                translate_text="_t_<0>Affiliates residing in the EU may sign up for the Turnover plan. However, only clients residing outside of the EU can be referred under this plan.</0>_t_"
-                                components={[<strong key={0} />]}
-                            />
-                        </Text>
+                        <Header as="p" type="paragraph-1">
+                            <Localize translate_text="_t_Affiliates residing in the EU may sign up for the Turnover plan. However, only clients residing outside of the EU can be referred under this plan._t_" />
+                        </Header>
                     </Li>
                 </Ul>
             </div>

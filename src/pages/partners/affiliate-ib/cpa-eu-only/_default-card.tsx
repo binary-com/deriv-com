@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyledCard, StyledCalculatedButton, CPAContent } from '../_style'
-import { Header, Text } from 'components/elements/typography'
+import { Header } from 'components/elements/typography'
 import { Localize } from 'components/localization'
 import { Li, Ul } from 'components/elements'
 
@@ -11,45 +11,36 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                     <Localize translate_text="_t_CPA (EU-based clients only)_t_" />
                 </Header>
-                <Text>
+                <Header as="p" type="paragraph-1" weight="normal">
                     <Localize translate_text="_t_Earn based on each successful referral._t_" />
-                </Text>
+                </Header>
                 <CPAContent>
-                    <Text>
+                    <Header as="p" type="paragraph-1" weight="normal">
                         <Localize
                             translate_text="_t_You earn <0>USD 100</0> when your new referred client deposits and trades a total amount of <0>USD 100</0> or its equivalent into their Deriv account, either in one deposit or cumulatively._t_"
                             components={[<strong key={0} />]}
                         />
-                    </Text>
-                    <Text>
+                    </Header>
+                    <Header as="p" type="paragraph-1" weight="normal">
                         <Localize
                             translate_text="_t_This plan is available exclusively for EU-based clients. <0>Please note that according to regulations, you cannot have clients who reside in Portugal or Spain.</0>_t_"
                             components={[<strong key={0} />]}
                         />
-                    </Text>
+                    </Header>
                 </CPAContent>
-                <Text mb="0.8rem" mt="2.4rem">
-                    <Localize
-                        translate_text="_t_<0>Disclaimer:</0>_t_"
-                        components={[<strong key={0} />]}
-                    />
-                </Text>
+                <Header as="p" type="paragraph-1" mb="0.8rem" mt="2.4rem">
+                    <Localize translate_text="_t_Disclaimer:_t_" />
+                </Header>
                 <Ul>
                     <Li>
-                        <Text>
-                            <Localize
-                                translate_text="_t_<0>This plan is available exclusively for affiliates who promote to clients residing in EU.</0>_t_"
-                                components={[<strong key={0} />]}
-                            />
-                        </Text>
+                        <Header as="p" type="paragraph-1">
+                            <Localize translate_text="_t_This plan is available exclusively for affiliates who promote to clients residing in EU._t_" />
+                        </Header>
                     </Li>
                     <Li>
-                        <Text>
-                            <Localize
-                                translate_text="_t_<0>Affiliates not residing in the EU may sign up for the CPA plan.</0>_t_"
-                                components={[<strong key={0} />]}
-                            />
-                        </Text>
+                        <Header as="p" type="paragraph-1">
+                            <Localize translate_text="_t_Affiliates not residing in the EU may sign up for the CPA plan._t_" />
+                        </Header>
                     </Li>
                 </Ul>
             </div>

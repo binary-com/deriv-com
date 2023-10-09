@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import RevenueShareCard from './revenue-share/_index'
-import TurnoverCard from './_turnover-card'
+import TurnoverCard from './turnover/_index'
 import CpaEuOnlyCard from './_cpa-eu-only-card'
 import { CardWrapper } from './_partner-card'
 import { SectionContainer, Container } from 'components/containers'

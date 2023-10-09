@@ -1,6 +1,6 @@
 import React from 'react'
-import { StyledCard, StyledCalculatedButton, StyledTrap, StyledText } from './_style'
-import { Table, TRAPREVERSE, TC } from './_table'
+import { StyledCard, StyledCalculatedButton, StyledTrap, StyledText } from '../_style'
+import { Table, TRAPREVERSE, TC } from '../_table'
 import { Localize } from 'components/localization'
 import { Header, Text } from 'components/elements/typography'
 import { Li, Ul } from 'components/elements'
@@ -29,7 +29,7 @@ const turnover_data: AffiliateType = [
     },
 ]
 
-const Turnover = () => {
+const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => {
     return (
         <StyledCard height="auto" tabletHeight="auto" padding="2.4rem">
             <div>
@@ -98,7 +98,7 @@ const Turnover = () => {
                 </Ul>
             </div>
             <div>
-                <StyledCalculatedButton secondary>
+                <StyledCalculatedButton secondary onClick={toggleCalculated}>
                     <Localize translate_text="_t_How it’s calculated_t_" />
                 </StyledCalculatedButton>
             </div>
@@ -106,4 +106,4 @@ const Turnover = () => {
     )
 }
 
-export default Turnover
+export default DefaultCard

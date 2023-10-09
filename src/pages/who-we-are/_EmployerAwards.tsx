@@ -65,14 +65,21 @@ const EmployerAwards = () => {
                     </Flex.Box>
                 </div>
             )}
-            <Typography.Heading size="medium" mb="10x" textcolor="black" align="center" mt="10x">
+            <Typography.Heading
+                size="medium"
+                mb="10x"
+                textcolor="black"
+                align="center"
+                mt="10x"
+                id="investors-in-people"
+            >
                 <Localize translate_text="_t_Employer awards_t_" />
             </Typography.Heading>
 
             <Flex.Box className={employer_awards_wrapper} direction="col">
                 {employer_award_content.map((data) => {
                     return (
-                        <div key={data.id} id={data.id}>
+                        <div key={data.id}>
                             <Typography.Heading
                                 size="small"
                                 mb="10x"

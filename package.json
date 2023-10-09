@@ -128,7 +128,7 @@
         "jest-extended": "^4.0.0",
         "lint-staged": "^12.1.5",
         "npm-force-resolutions": "0.0.10",
-        "postcss": "^8.4.31",
+        "postcss": "^8.4.5",
         "prettier": "^2.5.1",
         "query-string": "^7.0.1",
         "react-test-renderer": "^18.2.0",

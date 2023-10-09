@@ -42,10 +42,11 @@ const EmployerAwards = () => {
                         <Flex.Box direction="col">
                             <Typography.Paragraph
                                 size="xlarge"
-                                mb="10x"
+                                mb="5x"
                                 textcolor="black"
                                 align="left"
                                 margin_block="3x"
+                                md={{ mb: '10x' }}
                             >
                                 <Localize
                                     translate_text={'_t_Most Trusted Broker - APAC 2023_t_'}
@@ -53,9 +54,10 @@ const EmployerAwards = () => {
                             </Typography.Paragraph>
                             <Typography.Paragraph
                                 size="xlarge"
-                                mb="10x"
+                                mb="0x"
                                 textcolor="black"
                                 align="left"
+                                md={{ mb: '10x' }}
                             >
                                 <Localize
                                     translate_text={'_t_ Best Forex Spreads - APAC 2023_t_'}

@@ -225,18 +225,11 @@ export const ResultStrong = styled.span`
 `
 
 export const StyledCard = styled(Card)<FlexProps>`
-    min-width: calc((100% - 4.8rem) / 3);
-    width: calc((100% - 4.8rem) / 3);
+    min-width: calc((100% - 4rem) / 3);
+    width: calc((100% - 4rem) / 3);
     border-radius: 8px;
+    margin-block-start: 0;
     ${({ align_self }) => align_self && 'align-self:' + align_self};
-
-    :nth-child(2) {
-        margin: 1.6rem 2.8rem 0 2rem;
-
-        @media ${device.tabletL} {
-            margin: 20px 0 11px;
-        }
-    }
 
     @media ${device.laptopM} {
         min-width: 38.4rem;
@@ -247,13 +240,6 @@ export const StyledCard = styled(Card)<FlexProps>`
         min-width: unset;
         padding: 24px 16px;
         ${(props) => props.tabletHeight && 'height:' + props.tabletHeight};
-
-        :first-child {
-            margin-top: 16px;
-        }
-        :last-child {
-            margin-top: 0;
-        }
     }
 
     @media ${device.mobileM} {
@@ -306,6 +292,8 @@ export const StyledBackButton = styled(Button)`
 export const StyledCardWrapper = styled(Flex)`
     justify-content: center;
     flex-wrap: wrap;
+    gap: 2rem;
+    margin-block-start: 1.6rem;
 
     @media ${device.tabletL} {
         flex-direction: column;

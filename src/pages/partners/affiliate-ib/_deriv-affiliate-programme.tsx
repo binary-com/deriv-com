@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import RevenueShareCard from './revenue-share/_index'
 import TurnoverCard from './turnover/_index'
 import CpaEuOnlyCard from './cpa-eu-only/_index'
+import MasterAffilateCard from './master-affiliate/_index'
 import { StyledCardWrapper } from './_style'
 import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements/typography'
@@ -129,6 +130,7 @@ const DerivAffiliateProgramme = () => {
                             </>
                         )}
                         <CpaEuOnlyCard />
+                        {!is_eu && <MasterAffilateCard />}
                     </StyledCardWrapper>
                     <StyledSignupBtnWrap>
                         <ApplyNow

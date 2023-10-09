@@ -6,6 +6,8 @@ export type DerivProductContentType = {
     hero: ReactElement
     hero_mobile: ReactElement
     logo: ReactElement
+    demo_icon: ReactElement
+    mobile_demo_icon: ReactElement
     mobile_logo: ReactElement
     product_water_mark_logo?: ReactElement
     product_water_mark_logo_mobile?: ReactElement

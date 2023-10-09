@@ -9,13 +9,18 @@ import { Localize } from 'components/localization/localize'
 import LanguageSwitcher from 'features/components/molecules/language-switcher'
 import Link from 'features/components/atoms/link'
 import Flex from 'features/components/atoms/flex-box'
+import { localize } from 'components/localization'
 
 const CareerNav = () => {
     return (
         <NavTemplate
             renderLogo={() => (
-                <Link url={{ type: 'internal', to: '/' }}>
-                    <Image src={CareerNavLogo} className={careers_nav_logo} />
+                <Link url={{ type: 'internal', to: '/' }} aria-label="deriv careers link">
+                    <Image
+                        src={CareerNavLogo}
+                        className={careers_nav_logo}
+                        alt={localize('_t_Deriv Careers_t_')}
+                    />
                 </Link>
             )}
             items={career_nav_items}

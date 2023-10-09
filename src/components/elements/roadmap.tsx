@@ -92,7 +92,13 @@ const Roadmap = ({ portal: { frame, link, paragraph } }: RoadmapProps) => {
             </Container>
 
             <StyledFrame>
-                <iframe src={frame} frameBorder="0" height="100%" width="100%"></iframe>
+                <iframe
+                    src={frame}
+                    title="product board"
+                    frameBorder="0"
+                    height="100%"
+                    width="100%"
+                ></iframe>
                 <StyledButton tertiary external to={link} target="_blank" rel="noopener noreferrer">
                     <Localize translate_text="_t_Go to portal_t_" />
                 </StyledButton>

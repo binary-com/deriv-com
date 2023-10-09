@@ -4,7 +4,8 @@ import { Flex, Box } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
 import { TString } from 'types/generics'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
+import { IconType } from 'features/types'
 
 type AvailableOptionsProps = {
     title?: TString
@@ -12,7 +13,7 @@ type AvailableOptionsProps = {
     content_components?: React.ReactElement[]
     mobile_pt?: string
     remove_title?: boolean
-    svg: string
+    svg: IconType
 }
 
 const StyledFlex = styled(Flex)<{ mobile_pt: string }>`
@@ -56,7 +57,7 @@ const AvailableOptions = ({
                 </Box>
             )}
             <Flex jc="flex-start">
-                <Icon src={svg} />
+                <Icon src={svg.src} alt={localize(svg.alt)} />
                 <Box max_width="28.8rem">
                     <StyledText>
                         <Localize translate_text={content} components={content_components} />

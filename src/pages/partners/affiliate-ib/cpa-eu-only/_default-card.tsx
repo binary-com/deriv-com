@@ -9,7 +9,7 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
         <StyledCard height="auto" tabletHeight="auto" padding="2.4rem">
             <div>
                 <Header as="h4" type="sub-section-title" mb="0.8rem">
-                    <Localize translate_text="_t_CPA (EU only)_t_" />
+                    <Localize translate_text="_t_CPA (EU-based clients only)_t_" />
                 </Header>
                 <Text>
                     <Localize translate_text="_t_Earn based on each successful referral._t_" />
@@ -17,7 +17,7 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                 <CPAContent>
                     <Text>
                         <Localize
-                            translate_text="_t_You earn <0>100 USD</0> when your new referred client deposits and trades a total amount of <0>100 USD</0> or its equivalent into their Deriv account, either in one deposit or cumulatively._t_"
+                            translate_text="_t_You earn <0>USD 100</0> when your new referred client deposits and trades a total amount of <0>USD 100</0> or its equivalent into their Deriv account, either in one deposit or cumulatively._t_"
                             components={[<strong key={0} />]}
                         />
                     </Text>

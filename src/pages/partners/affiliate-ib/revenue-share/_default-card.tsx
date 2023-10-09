@@ -1,6 +1,6 @@
 import React from 'react'
-import { StyledCard, StyledCalculatedButton, StyledTrap, StyledText } from './_style'
-import { Table, TRAPREVERSE, TC } from './_table'
+import { StyledCard, StyledCalculatedButton, StyledTrap, StyledText } from '../_style'
+import { Table, TRAPREVERSE, TC } from '../_table'
 import { Localize } from 'components/localization'
 import { Header, Text } from 'components/elements/typography'
 import { Li, Ul } from 'components/elements'
@@ -14,7 +14,7 @@ type AffiliateType = {
 const revenue_data: AffiliateType = [
     {
         title: '_t_Net revenue_t_',
-        data: ['_t_≤ 20,000 USD per month_t_', '_t_> 20,000 USD per month_t_'],
+        data: ['_t_USD ≤ 20,000 per month_t_', '_t_USD > 20,000 per month_t_'],
     },
     {
         title: '_t_Commission_t_',
@@ -22,7 +22,7 @@ const revenue_data: AffiliateType = [
     },
 ]
 
-const RevenueShare = () => {
+const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => {
     return (
         <StyledCard height="auto" tabletHeight="auto" padding="2.4rem">
             <div>
@@ -76,7 +76,7 @@ const RevenueShare = () => {
                 </Ul>
             </div>
             <div>
-                <StyledCalculatedButton secondary>
+                <StyledCalculatedButton secondary onClick={toggleCalculated}>
                     <Localize translate_text="_t_How it’s calculated_t_" />
                 </StyledCalculatedButton>
             </div>
@@ -84,4 +84,4 @@ const RevenueShare = () => {
     )
 }
 
-export default RevenueShare
+export default DefaultCard

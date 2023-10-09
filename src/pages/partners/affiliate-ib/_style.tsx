@@ -5,6 +5,7 @@ import { Button } from 'components/form'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 import { Text } from 'components/elements/typography'
+import { TAlignSelf } from 'features/types'
 
 type PointerProps = {
     ml?: string
@@ -12,6 +13,10 @@ type PointerProps = {
 }
 type FormulaTopWrapperProps = {
     oneLine?: boolean
+}
+
+type FlexProps = {
+    align_self?: TAlignSelf
 }
 
 export const FormulaBottomWrapper = styled(Flex)`
@@ -219,10 +224,11 @@ export const ResultStrong = styled.span`
     color: var(--color-black-3);
 `
 
-export const StyledCard = styled(Card)`
+export const StyledCard = styled(Card)<FlexProps>`
     min-width: calc((100% - 4.8rem) / 3);
     width: calc((100% - 4.8rem) / 3);
     border-radius: 8px;
+    ${({ align_self }) => align_self && 'align-self:' + align_self};
 
     :nth-child(2) {
         margin: 1.6rem 2.8rem 0 2rem;
@@ -293,4 +299,11 @@ export const CPAContent = styled.div`
     ${Text} {
         margin-top: 2.4rem;
     }
+`
+export const StyledBackButton = styled(Button)`
+    border: 0.2rem solid var(--color-grey-5);
+    color: var(--color-black);
+    height: 4rem;
+    inline-size: 100%;
+    padding: 0 1.6rem;
 `

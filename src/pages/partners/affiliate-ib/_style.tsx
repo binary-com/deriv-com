@@ -1,6 +1,10 @@
 import styled from 'styled-components'
+import { Card } from './_partner-card'
+import { TRAP } from './_table'
+import { Button } from 'components/form'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
+import { Text } from 'components/elements/typography'
 
 type PointerProps = {
     ml?: string
@@ -213,4 +217,75 @@ export const ResultStrong = styled.span`
     font-weight: bold;
     margin-right: 0.4rem;
     color: var(--color-black-3);
+`
+
+export const StyledCard = styled(Card)`
+    min-width: calc((100% - 4.8rem) / 3);
+    width: calc((100% - 4.8rem) / 3);
+    border-radius: 8px;
+
+    :nth-child(2) {
+        margin: 1.6rem 2.8rem 0 2rem;
+
+        @media ${device.tabletL} {
+            margin: 20px 0 11px;
+        }
+    }
+
+    @media (max-width: 1313px) {
+        min-height: 63rem;
+    }
+
+    @media ${device.laptopM} {
+        min-width: 38.4rem;
+        width: 38.4rem;
+    }
+
+    @media ${device.tabletL} {
+        min-width: unset;
+        padding: 24px 16px;
+        min-height: auto;
+        ${(props) => props.tabletHeight && 'height:' + props.tabletHeight};
+
+        :first-child {
+            margin-top: 16px;
+        }
+        :last-child {
+            margin-top: 0;
+        }
+    }
+
+    @media ${device.mobileM} {
+        min-width: unset;
+        width: 100%;
+    }
+`
+
+export const StyledCalculatedButton = styled(Button)`
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+    margin-block-start: 24px;
+    padding-block: 7px;
+
+    @media ${device.tabletL} {
+        height: 40px;
+        margin-top: 40px;
+    }
+`
+
+export const StyledTrap = styled(TRAP)`
+    background-color: var(--color-grey-39);
+    padding: 1rem 0.8rem;
+    height: 40px;
+    border-bottom: none;
+`
+
+export const StyledText = styled(Text)`
+    font-size: 1.4rem;
+    line-height: 1.5;
+    text-align: center;
+    @media ${device.tabletL} {
+        font-size: 14px;
+    }
 `

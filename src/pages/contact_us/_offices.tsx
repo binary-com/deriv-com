@@ -18,6 +18,7 @@ import Singapore from 'images/svg/contact/singapore.svg'
 import Jordan from 'images/svg/contact/jordan.svg'
 import Vanuatu from 'images/svg/contact/vanuatu.svg'
 import UK from 'images/svg/contact/uk.svg'
+import Berlin from 'images/svg/contact/berlin.svg'
 import Bvi from 'images/svg/contact/bvi.svg'
 
 type GridLayoutProps = {
@@ -80,6 +81,9 @@ const query = graphql`
             ...fadeIn
         }
         map_bvi: file(relativePath: { eq: "maps/map-bvi.png" }) {
+            ...fadeIn
+        }
+        map_berlin: file(relativePath: { eq: "maps/map-berlin.png" }) {
             ...fadeIn
         }
     }
@@ -483,6 +487,50 @@ export const Offices = () => {
                                         <StyledMobileAddress>
                                             Suite 5, One Cornet Street, St Peter Port, Guernsey GY1
                                             1 BZ
+                                        </StyledMobileAddress>
+                                    </Mobile>
+                                </LocalizedLinkText>
+                            </BorderBox>
+                        </Flex>
+                        <Flex mt="30px" fd="column" max_width="48.6rem" id="berlin">
+                            <OfficeHeader>
+                                <div>
+                                    <img src={Berlin} alt="Germany - Berlin" />
+                                </div>
+                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                                    <Localize translate_text="_t_Berlin_t_" />
+                                </Header>
+                            </OfficeHeader>
+                            <BorderBox>
+                                <MapContainer>
+                                    <LocalizedLink
+                                        to="https://maps.app.goo.gl/hPyVpLLrynCf6NmEA"
+                                        external
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            alt="Deriv's office location map in Germany"
+                                            data={data['map_berlin']}
+                                            height="100%"
+                                        />
+                                    </LocalizedLink>
+                                </MapContainer>
+                                <LocalizedLinkText
+                                    to="https://maps.app.goo.gl/hPyVpLLrynCf6NmEA"
+                                    external
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    mt="0.8rem"
+                                    ml="1.6rem"
+                                >
+                                    <Desktop>
+                                        <p>Kemperplatz 1 Mitte D, 10785</p>
+                                        <p>Berlin, Germany</p>
+                                    </Desktop>
+                                    <Mobile>
+                                        <StyledMobileAddress>
+                                            Kemperplatz 1 Mitte D, 10785 Berlin, Germany
                                         </StyledMobileAddress>
                                     </Mobile>
                                 </LocalizedLinkText>

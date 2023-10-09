@@ -58,6 +58,8 @@ const address_melaka = ['67-1 & 69-1, Jalan KLJ 6, Taman Kota', 'Laksamana Jaya,
 
 const address_rwanda = ['Level 2 East Wing, Kigali Heights, KG7', 'Avenue, Kigali']
 
+const address_berlin = ['Kemperplatz 1 Mitte D, 10785 Berlin, Germany']
+
 export {
     address_asuncion,
     address_cyberjaya,
@@ -78,4 +80,5 @@ export {
     address_hongkong,
     address_roadtown,
     address_reading,
+    address_berlin,
 }

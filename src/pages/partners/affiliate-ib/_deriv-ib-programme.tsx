@@ -464,7 +464,7 @@ const ib_dmt5_synthetic: DMT5Type = {
 const ib_dmt5_swapFree: DMT5Type = {
     name: '_t_MT5 Swap Free_t_',
     description:
-        '_t_Earn when your clients trade on an MT5 Derived account.<br><br>All commission rates are quoted in USD._t_',
+        '_t_Earn when your clients trade on an MT5 Swap Free account.<br><br>All commission rates are quoted in USD._t_',
     type: [
         {
             title: '_t_Forex_t_',

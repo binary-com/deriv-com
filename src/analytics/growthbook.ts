@@ -1,5 +1,5 @@
-import { GrowthBook, useFeatureIsOn } from '@growthbook/growthbook-react'
-import { FeatureResult, WidenPrimitives } from '@growthbook/growthbook/src/types/growthbook'
+import { GrowthBook } from '@growthbook/growthbook-react'
+import { FeatureResult } from '@growthbook/growthbook/src/types/growthbook'
 import * as RudderAnalytics from 'rudder-sdk-js'
 
 export type GrowthBookType = GrowthBook
@@ -60,15 +60,11 @@ export class Growthbook<AppFeatures extends Record<string, any> = Record<string,
             device_type,
         })
     }
-    getFeatureIsOn<K extends string & keyof AppFeatures = string>(id: K): boolean {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        return useFeatureIsOn(id)
+    getExperimentValue<K extends string & keyof AppFeatures = string>(id: K): string {
+        return this.GrowthBook.evalFeature(id).experimentResult.name
     }
-    getFeatureValue<V extends AppFeatures[K], K extends string & keyof AppFeatures = string>(
-        key: K,
-        defaultValue: V,
-    ): WidenPrimitives<V> {
-        return this.GrowthBook.getFeatureValue(key, defaultValue)
+    getFeatureValue<K extends string & keyof AppFeatures = string>(key: K): boolean {
+        return this.GrowthBook.getFeatureValue(key)
     }
     init() {
         this.GrowthBook.loadFeatures().catch((err) => console.error(err))

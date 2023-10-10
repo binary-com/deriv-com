@@ -22,14 +22,16 @@ const HeroFeaturesCarousel = loadable(() => pMinDelay(import('./hero-features.ca
 const HomeHeroContent = () => {
     // const { ab } = Analytics?.getInstances()
     // console.log(ab)
-    const test_toggle_aa_test = Analytics?.getFeatureIsOn('test-toggle-aa-test')
-    console.log('test_toggle_aa_test:', test_toggle_aa_test)
+    const test_toggle_aa_test = Analytics?.getExperimentValue('test-toggle-aa-test')
+    const test_toggle_aa_test_value = Analytics?.getFeatureValue('test-toggle-aa-test')
+    console.log('experiment-value:', test_toggle_aa_test)
+    console.log('test_toggle_aa_test:', test_toggle_aa_test_value)
 
     const headings = {
         Control: '_t_Get the widest range of markets, trades and platforms_t_',
         'Variation 1': '_t_Get the widest range of markets, trades and platforms_t_',
     }
-    const heading = headings[test_toggle_aa_test ? 'Control' : 'Variation 1']
+    const heading = headings[test_toggle_aa_test]
 
     return (
         <Flex.Box justify="start" direction="col" align="start" gap="4x" dir={get_lang_direction()}>

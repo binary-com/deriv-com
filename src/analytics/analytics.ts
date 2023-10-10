@@ -37,11 +37,11 @@ export class Analytics {
         })
     }
 
-    public static getFeatureIsOn(id: string) {
-        return Analytics._growthbook.getFeatureIsOn(id)
+    public static getExperimentValue(id: string) {
+        return Analytics._growthbook.getExperimentValue(id)
     }
-    public static getFeatureValue(id: string, fallback: string) {
-        return Analytics._growthbook.getFeatureValue(id, fallback)
+    public static getFeatureValue(id: string) {
+        return Analytics._growthbook.getFeatureValue(id)
     }
 
     public static getId() {

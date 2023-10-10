@@ -1,18 +1,22 @@
 import React from 'react'
 import { signup_apple_btn, signup_fb_btn, signup_login_redirect } from '../signup.module.scss'
+import { Analytics } from '../../../../analytics'
 import Login from 'common/login'
 import Button from 'features/components/atoms/button'
 import Flex from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
-import { useAnalyticsEvents } from 'features/hooks/analytic/use-analytic-events'
 import AppleLogo from 'images/svg/signup_apple_icon.svg'
 import FacebookLogo from 'images/svg/signup_fb_icon.svg'
 import GoogleLogo from 'images/svg/google_logo.svg'
 import { Localize } from 'components/localization'
+import { isBrowser } from 'common/utility'
 
 const FormSocialButtons = () => {
-    const { onAnalyticEvent } = useAnalyticsEvents('ce_virtual_signup_form')
+    const { onAnalyticEvent } = Analytics.registerAnalyticsEvent(
+        'ce_virtual_signup_form',
+        isBrowser() && window.location.hostname,
+    )
 
     return (
         <>

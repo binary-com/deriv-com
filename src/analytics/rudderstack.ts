@@ -107,15 +107,34 @@ export type TEvents = {
 export type TTrackOptions = {
     is_anonymous: boolean
 }
-
 export class RudderStack {
     has_identified = false
     has_initialized = false
     current_page = ''
     private static _instance: RudderStack
 
-    constructor() {
-        this.init()
+    constructor(
+        RUDDERSTACK_STAGING_KEY: string,
+        RUDDERSTACK_PRODUCTION_KEY: string,
+        NODE_ENV: string,
+    ) {
+        this.init(RUDDERSTACK_STAGING_KEY, RUDDERSTACK_PRODUCTION_KEY, NODE_ENV)
+    }
+
+    public static getRudderStackInstance(
+        RUDDERSTACK_STAGING_KEY: string,
+        RUDDERSTACK_PRODUCTION_KEY: string,
+        NODE_ENV: string,
+    ) {
+        if (!RudderStack._instance) {
+            RudderStack._instance = new RudderStack(
+                RUDDERSTACK_STAGING_KEY,
+                RUDDERSTACK_PRODUCTION_KEY,
+                NODE_ENV,
+            )
+            return RudderStack._instance
+        }
+        return RudderStack._instance
     }
 
     /**
@@ -137,13 +156,11 @@ export class RudderStack {
      * For local/staging environment, ensure that `RUDDERSTACK_STAGING_KEY` and `RUDDERSTACK_URL` is set.
      * For production environment, ensure that `RUDDERSTACK_PRODUCTION_KEY` and `RUDDERSTACK_URL` is set.
      */
-    init() {
+    init(RUDDERSTACK_STAGING_KEY: string, RUDDERSTACK_PRODUCTION_KEY: string, NODE_ENV: string) {
         const is_production =
-            process.env.CIRCLE_JOB === 'release_production' || process.env.NODE_ENV === 'production'
+            process.env.CIRCLE_JOB === 'release_production' || NODE_ENV === 'production'
 
-        const RUDDERSTACK_KEY = is_production
-            ? '1oV5agvlcnCZ6IH94wCKM1oR8Pd'
-            : '1lN3tsFD2nruGFgM5F074DC2hMB'
+        const RUDDERSTACK_KEY = is_production ? RUDDERSTACK_PRODUCTION_KEY : RUDDERSTACK_STAGING_KEY
 
         if (RUDDERSTACK_KEY) {
             RudderAnalytics.load(RUDDERSTACK_KEY, 'https://deriv-dataplane.rudderstack.com')
@@ -204,5 +221,3 @@ export class RudderStack {
         }
     }
 }
-
-export default new RudderStack()

@@ -1,6 +1,9 @@
 import React from 'react'
+import Cookies from 'js-cookie'
+import { isMobile } from 'react-device-detect'
 import { createRoot } from 'react-dom/client'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
+import { Analytics } from './src/analytics'
 import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
@@ -10,6 +13,7 @@ import {
     getClientInformation,
     getDomain,
     getLanguage,
+    isBrowser,
     updateURLAsPerUserLanguage,
 } from 'common/utility'
 import './static/css/ibm-plex-sans-var.css'
@@ -77,6 +81,21 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
+    Analytics.getAnalyticInstance(
+        process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
+        process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
+        process.env.GATSBY_RUDDERSTACK_STAGING_KEY,
+        process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
+        process.env.NODE_ENV,
+    )
+    Analytics.setAttributes({
+        user_language: Cookies.get('user_language') || getLanguage(),
+        device_language: (isBrowser() && navigator?.language) || ' ',
+        device_type: isMobile ? 'mobile' : 'web',
+        country:
+            JSON.parse(JSON.parse(Cookies.get('website_status')).website_status).clients_country ||
+            ' ',
+    })
     //datadog
     const dd_options = {
         clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,

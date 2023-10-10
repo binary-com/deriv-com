@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { navigate } from 'gatsby'
-import { getLanguage } from 'common/utility'
-import { useAnalyticsEvents } from 'features/hooks/analytic/use-analytic-events'
+import { Analytics } from '../../analytics'
+import { getLanguage, isBrowser } from 'common/utility'
 import SignUpSuccessContainer from 'features/pages/signup-success'
 import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
@@ -9,7 +9,10 @@ import { TGatsbyHead } from 'features/types'
 
 const SignupSuccess = () => {
     const [registeredEmail, setRegisteredEmail] = useState('')
-    const { onAnalyticEvent } = useAnalyticsEvents('ce_virtual_signup_form')
+    const { onAnalyticEvent } = Analytics.registerAnalyticsEvent(
+        'ce_virtual_signup_form',
+        isBrowser() && window.location.hostname,
+    )
     useEffect(() => {
         const params = new URLSearchParams(location.search)
         const email = params.get('email')

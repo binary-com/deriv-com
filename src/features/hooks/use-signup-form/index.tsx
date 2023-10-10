@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { navigate } from 'gatsby'
-import { useAnalyticsEvents } from 'features/hooks/analytic/use-analytic-events'
+import { Analytics } from '../../../analytics'
 import { getCookiesFields, getCookiesObject, getDataObjFromCookies } from 'common/cookies'
 import { validation_regex } from 'common/validation'
 import apiManager from 'common/websocket'
@@ -42,7 +42,10 @@ const schema = yup.object({
 type FormData = yup.InferType<typeof schema>
 
 const useSignupForm = () => {
-    const { onAnalyticEvent } = useAnalyticsEvents('ce_virtual_signup_form')
+    const { onAnalyticEvent } = Analytics.registerAnalyticsEvent(
+        'ce_virtual_signup_form',
+        isBrowser() && window.location.hostname,
+    )
     const signUpForm = useForm<FormData>({
         mode: 'onChange',
         resolver: yupResolver(schema),

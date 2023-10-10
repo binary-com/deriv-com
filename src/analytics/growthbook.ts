@@ -32,7 +32,8 @@ export class Growthbook<AppFeatures extends Record<string, any> = Record<string,
                 apiHost: 'https://cdn.growthbook.io',
                 clientKey,
                 decryptionKey,
-                enableDevMode: NODE_ENV !== 'production',
+                // enableDevMode: NODE_ENV !== 'production',
+                enableDevMode: true,
                 subscribeToChanges: true,
                 trackingCallback: (experiment: any, result: any) => {
                     RudderAnalytics.track('experiment_viewed', {

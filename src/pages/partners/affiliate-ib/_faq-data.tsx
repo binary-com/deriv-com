@@ -80,7 +80,16 @@ const AffiliateGeneral = () => {
             <TextSecondary>
                 <Localize
                     translate_text="_t_<0>Click here</0> to sign up as a Deriv affiliate._t_"
-                    components={[<LocalizedLinkText to="#" key={0} />]}
+                    components={[
+                        <LocalizedLinkText
+                            to={affiliate_signup_url}
+                            external
+                            type="affiliate_sign_up"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            key={0}
+                        />,
+                    ]}
                 />
             </TextSecondary>
             <TextSecondary>
@@ -158,14 +167,18 @@ const AffiliateGeneral = () => {
                 <TextSecondary>
                     <Localize
                         translate_text="_t_<0>Scroll up on this page for more information on the commission plan.</0>_t_"
-                        components={[<LocalizedLinkText to="#" key={0} />]}
+                        components={[
+                            <StyledLink key={0} href="#" weight="normal" onClick={scrollToIb} />,
+                        ]}
                     />
                 </TextSecondary>
             ) : (
                 <TextSecondary>
                     <Localize
                         translate_text="_t_<0>Scroll up on this page for more information on the commission plans.</0>_t_"
-                        components={[<LocalizedLinkText to="#" key={0} />]}
+                        components={[
+                            <StyledLink key={0} href="#" weight="normal" onClick={scrollToIb} />,
+                        ]}
                     />
                 </TextSecondary>
             )}
@@ -437,7 +450,7 @@ const IBGeneral = () => (
         <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             <Localize
                 translate_text="_t_<0>Scroll up on this page for more info on the IB commission scheme.</0>_t_"
-                components={[<LocalizedLink to="#" key={0} />]}
+                components={[<StyledLink key={0} href="#" weight="normal" onClick={scrollToIb} />]}
             />
         </Header>
         <Header as="p" type="paragraph-1" mt="16px">

@@ -60,10 +60,10 @@ export class Growthbook<AppFeatures extends Record<string, any> = Record<string,
             device_type,
         })
     }
-    getExperimentValue<K extends string & keyof AppFeatures = string>(id: K): string {
-        return this.GrowthBook.evalFeature(id).experimentResult.name
+    getFeatureState<K>(id: K): string {
+        return this.GrowthBook.evalFeature(id)
     }
-    getFeatureValue<K extends string & keyof AppFeatures = string>(key: K): boolean {
+    getFeatureValue<K>(key: K): boolean {
         return this.GrowthBook.getFeatureValue(key)
     }
     init() {

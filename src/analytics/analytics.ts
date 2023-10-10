@@ -37,7 +37,7 @@ export class Analytics {
         })
     }
 
-    public static getExperimentValue(id: string) {
+    public static getFeatureState(id: string) {
         return Analytics._growthbook.getExperimentValue(id)
     }
     public static getFeatureValue(id: string) {

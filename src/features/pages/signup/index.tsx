@@ -9,7 +9,7 @@ import Flex from 'features/components/atoms/flex-box'
 import { isBrowser } from 'common/utility'
 
 const SignUp = () => {
-    const { onAnalyticEvent } = Analytics.registerAnalyticsEvent(
+    const onAnalyticEvent = Analytics?.registerAnalyticsEvent(
         'ce_virtual_signup_form',
         isBrowser() && window.location.hostname,
     )

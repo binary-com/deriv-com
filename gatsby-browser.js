@@ -81,14 +81,14 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
-    Analytics.getAnalyticInstance(
+    Analytics?.getAnalyticInstance(
         process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
         process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
         process.env.GATSBY_RUDDERSTACK_STAGING_KEY,
         process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
         process.env.NODE_ENV,
     )
-    Analytics.setAttributes({
+    Analytics?.setAttributes({
         user_language: Cookies.get('user_language') || getLanguage(),
         device_language: (isBrowser() && navigator?.language) || ' ',
         device_type: isMobile ? 'mobile' : 'web',

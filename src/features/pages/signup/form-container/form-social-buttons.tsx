@@ -13,7 +13,7 @@ import { Localize } from 'components/localization'
 import { isBrowser } from 'common/utility'
 
 const FormSocialButtons = () => {
-    const { onAnalyticEvent } = Analytics.registerAnalyticsEvent(
+    const onAnalyticEvent = Analytics?.registerAnalyticsEvent(
         'ce_virtual_signup_form',
         isBrowser() && window.location.hostname,
     )

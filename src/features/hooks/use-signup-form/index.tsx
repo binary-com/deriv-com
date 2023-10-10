@@ -42,7 +42,7 @@ const schema = yup.object({
 type FormData = yup.InferType<typeof schema>
 
 const useSignupForm = () => {
-    const { onAnalyticEvent } = Analytics.registerAnalyticsEvent(
+    const onAnalyticEvent = Analytics?.registerAnalyticsEvent(
         'ce_virtual_signup_form',
         isBrowser() && window.location.hostname,
     )

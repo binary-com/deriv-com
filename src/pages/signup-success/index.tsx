@@ -9,7 +9,7 @@ import { TGatsbyHead } from 'features/types'
 
 const SignupSuccess = () => {
     const [registeredEmail, setRegisteredEmail] = useState('')
-    const { onAnalyticEvent } = Analytics.registerAnalyticsEvent(
+    const onAnalyticEvent = Analytics?.registerAnalyticsEvent(
         'ce_virtual_signup_form',
         isBrowser() && window.location.hostname,
     )

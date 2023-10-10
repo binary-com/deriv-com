@@ -62,7 +62,7 @@ export class Analytics {
             },
         }
 
-        return { onAnalyticEvent: analytic_events[event] }
+        return analytic_events[event]
     }
     // to get instances directly
     public static getInstances() {

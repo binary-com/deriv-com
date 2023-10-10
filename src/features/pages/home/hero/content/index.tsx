@@ -20,7 +20,7 @@ const HeroFeaturesCarousel = loadable(() => pMinDelay(import('./hero-features.ca
 })
 
 const HomeHeroContent = () => {
-    const { ab } = Analytics.getInstances()
+    const { ab } = Analytics?.getInstances()
     const test_toggle_aa_test = Analytics?.getFeatureIsOn('test-toggle-aa-test')
     console.log(ab)
     console.log('test_toggle_aa_test:', test_toggle_aa_test)

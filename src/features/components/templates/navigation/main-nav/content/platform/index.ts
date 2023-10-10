@@ -9,7 +9,6 @@ import Smarttrader from 'images/svg/custom/rebranding/smarttrader-icon.svg'
 import DerivGo from 'images/svg/custom/rebranding/deriv-go-icon.svg'
 import DMT5 from 'images/svg/custom/rebranding/dmt5-icon.svg'
 import DTrader from 'images/svg/custom/rebranding/dtrader-icon.svg'
-import DerivEZ from 'images/svg/custom/rebranding/deriv-ez-icon.svg'
 import DerivBot from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
 
 export const tradeTypesContent: SmartNavContent[] = [
@@ -121,23 +120,6 @@ export const tradingPlatformsContent: SmartNavContent[] = [
     {
         id: 2,
         data: {
-            aria_label: 'Derivez',
-            icon: {
-                src: DerivEZ,
-                alt: 'Deriv EZ trading paltform',
-            },
-            content:
-                '_t_Trade on global markets from anywhere with our mobile-first CFD trading platform._t_',
-            title: '_t_Deriv EZ_t_',
-            url: { type: 'internal', to: '/deriv-ez/' },
-        },
-        visibility: {
-            is_row: true,
-        },
-    },
-    {
-        id: 3,
-        data: {
             aria_label: 'SmartTrader',
             icon: {
                 src: Smarttrader,
@@ -152,7 +134,7 @@ export const tradingPlatformsContent: SmartNavContent[] = [
         },
     },
     {
-        id: 4,
+        id: 3,
         data: {
             aria_label: 'Deriv Trader',
             icon: {
@@ -168,7 +150,7 @@ export const tradingPlatformsContent: SmartNavContent[] = [
         },
     },
     {
-        id: 5,
+        id: 4,
         data: {
             aria_label: 'Deriv cTrader',
             icon: {

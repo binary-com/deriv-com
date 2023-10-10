@@ -8,7 +8,6 @@ import DerivXIcon from 'images/svg/custom/rebranding/deriv-x-icon.svg'
 import DBotIcon from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
 import BinaryBotIcon from 'images/svg/custom/rebranding/binarybot-icon.svg'
 import SmartTraderIcon from 'images/svg/custom/rebranding/smarttrader-icon.svg'
-import DerivEzIcon from 'images/svg/custom/rebranding/deriv-ez-icon.svg'
 import Link from 'features/components/atoms/link'
 import {
     deriv_go_ios_url,
@@ -226,47 +225,6 @@ const platformSliderItems: SmartPlatformItem[] = [
     {
         id: 4,
         data: {
-            title: '_t_Deriv EZ_t_',
-            description: '_t_Our mobile-first CFD trading platform_t_',
-            url: {
-                type: 'internal',
-                to: '/deriv-ez/',
-            },
-            icon: DerivEzIcon,
-            image_caption: {
-                text: '_t_Available on <0>Android</0> and <1>iOS</1> (on Deriv GO)_t_',
-                components: [
-                    <Link
-                        key={0}
-                        url={{ type: 'non-company', href: deriv_go_playstore_url }}
-                        weight="bold"
-                        font_family="UBUNTU"
-                    />,
-                    <Link
-                        key={1}
-                        url={{ type: 'non-company', href: deriv_go_ios_url }}
-                        weight="bold"
-                        font_family="UBUNTU"
-                    />,
-                ],
-            },
-            image: (
-                <StaticImage
-                    objectFit="contain"
-                    src="../../../../images/common/home/rebranding/platform_deriv_ez.png"
-                    alt="deriv ez"
-                    formats={['avif', 'webp', 'auto']}
-                    placeholder="none"
-                />
-            ),
-        },
-        visibility: {
-            is_eu: false,
-        },
-    },
-    {
-        id: 5,
-        data: {
             title: '_t_Deriv Bot_t_',
             description: '_t_Automate your trading. No coding required._t_',
             url: {
@@ -300,7 +258,7 @@ const platformSliderItems: SmartPlatformItem[] = [
         },
     },
     {
-        id: 6,
+        id: 5,
         data: {
             title: '_t_SmartTrader_t_',
             description: '_t_Our legacy options trading platform._t_',
@@ -335,7 +293,7 @@ const platformSliderItems: SmartPlatformItem[] = [
         },
     },
     {
-        id: 7,
+        id: 6,
         data: {
             title: '_t_Binary Bot_t_',
             description: '_t_Our classic bot builder and automated trading platform._t_',

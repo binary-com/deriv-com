@@ -4,7 +4,6 @@ import useRegion from 'components/hooks/use-region'
 import { Flex } from 'components/containers'
 import DerivMT5 from 'images/svg/trading-specification/deriv-mt5.svg'
 import DerivX from 'images/svg/trading-specification/deriv-x.svg'
-import DerivEZ from 'images/svg/trading-specification/deriv-ez.svg'
 import { Localize, LocalizedLink, localize } from 'components/localization'
 import device from 'themes/device'
 import { Header } from 'components/elements'
@@ -102,21 +101,6 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                         </StyledHeader>
                                     </Flex>
                                 </StyledLocalizedLink>
-                                {!selectedEtfsTab ? (
-                                    <StyledLocalizedLink to="/deriv-ez/">
-                                        <Flex direction="row">
-                                            <img
-                                                src={DerivEZ}
-                                                alt={localize('_t_Deriv EZ_t_')}
-                                                width="24"
-                                                height="24"
-                                            />
-                                            <StyledHeader type="paragraph-1" as="h2" width="auto">
-                                                <Localize translate_text={deriv_ez} />
-                                            </StyledHeader>
-                                        </Flex>
-                                    </StyledLocalizedLink>
-                                ) : null}
                             </FlexContainer>
                         </>
                     ) : (

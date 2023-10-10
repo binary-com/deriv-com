@@ -26,12 +26,6 @@ const carouselData: TRenderableData[] = [
         link: '/dtrader/',
     },
     {
-        icon: ezIcon,
-        heading: 'Deriv EZ',
-        paragraph: '_t_Our mobile-first CFD trading platform._t_',
-        link: '/deriv-ez/',
-    },
-    {
         icon: dbIcon,
         heading: 'Deriv Bot',
         paragraph: '_t_Automate your trading. No coding required._t_',

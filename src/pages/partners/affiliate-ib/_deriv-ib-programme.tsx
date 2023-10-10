@@ -385,7 +385,7 @@ const ib_dmt5_synthetic: DMT5Type = {
             assets: [
                 {
                     title: '_t_Asset_t_',
-                    list: ['_t_Step index_t_'],
+                    list: ['_t_Step Index_t_'],
                 },
                 {
                     title: '_t_Commission per USD 100k turnover_t_',
@@ -569,7 +569,7 @@ const ib_dmt5_swapFree: DMT5Type = {
             assets: [
                 {
                     title: '_t_Asset_t_',
-                    list: ['_t_Step index_t_'],
+                    list: ['_t_Step Index_t_'],
                 },
                 {
                     title: '_t_Commission per USD 100k turnover_t_',
@@ -759,7 +759,7 @@ const ib_dmt5_financial: DMT5Type = {
                 {
                     title: '_t_Cryptocurrencies_t_',
                     details:
-                        '_t_For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 5 in commission based on the following formula::_t_',
+                        '_t_For cryptocurrency assets, a deal for 1 lot of BTC/USD (with a BTC to USD exchange rate of USD 50,000) will pay out USD 5 in commission based on the following formula:_t_',
                     icon: 'fin_crypto',
                     iconAlt: '_t_Cryptocurrencies_t_',
                 },
@@ -999,7 +999,7 @@ const ib_dx: DMT5Type = {
             assets: [
                 {
                     title: '_t_Asset_t_',
-                    list: ['_t_Step index_t_'],
+                    list: ['_t_Step Index_t_'],
                 },
                 {
                     title: '_t_Commission per USD 100k turnover_t_',

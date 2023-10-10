@@ -20,6 +20,7 @@ import Vanuatu from 'images/svg/contact/vanuatu.svg'
 import UK from 'images/svg/contact/uk.svg'
 import Berlin from 'images/svg/contact/berlin.svg'
 import Bvi from 'images/svg/contact/bvi.svg'
+import HongKong from 'images/svg/contact/hongkong.svg'
 
 type GridLayoutProps = {
     children?: React.ReactNode | React.ReactChild
@@ -84,6 +85,9 @@ const query = graphql`
             ...fadeIn
         }
         map_berlin: file(relativePath: { eq: "maps/map-berlin.png" }) {
+            ...fadeIn
+        }
+        map_hk: file(relativePath: { eq: "maps/map-hk.png" }) {
             ...fadeIn
         }
     }
@@ -701,49 +705,94 @@ export const Offices = () => {
                             </GridLayout>
                         </FullBorder>
                     </Flex>
-                    <Flex mt="30px" fd="column" id="singapore">
-                        <OfficeHeader>
-                            <div>
-                                <img src={Singapore} alt="Singapore - Merlion Park" />
-                            </div>
-                            <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
-                                <Localize translate_text="_t_Singapore_t_" />
-                            </Header>
-                        </OfficeHeader>
-                    </Flex>
-                    <Flex max_width="48.6rem">
-                        <BorderBox>
-                            <MapContainer>
-                                <LocalizedLink
+                    <GridLayout>
+                        <Flex mt="30px" fd="column" max_width="48.6rem" id="singapore">
+                            <OfficeHeader>
+                                <div>
+                                    <img src={Singapore} alt="Singapore - Merlion Park" />
+                                </div>
+                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                                    <Localize translate_text="_t_Singapore_t_" />
+                                </Header>
+                            </OfficeHeader>
+                            <BorderBox>
+                                <MapContainer>
+                                    <LocalizedLink
+                                        to="https://goo.gl/maps/kWBStW3LrCR5HuoP6"
+                                        external
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            alt="Deriv's office location map in Singapore"
+                                            data={data['map_singapore']}
+                                            height="100%"
+                                        />
+                                    </LocalizedLink>
+                                </MapContainer>
+                                <LocalizedLinkText
                                     to="https://goo.gl/maps/kWBStW3LrCR5HuoP6"
                                     external
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    mt="0.8rem"
+                                    ml="1.6rem"
                                 >
-                                    <QueryImage
-                                        alt="Deriv's office location map in Singapore"
-                                        data={data['map_singapore']}
-                                        height="100%"
-                                    />
-                                </LocalizedLink>
-                            </MapContainer>
-                            <LocalizedLinkText
-                                to="https://goo.gl/maps/kWBStW3LrCR5HuoP6"
-                                external
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                mt="0.8rem"
-                                ml="1.6rem"
-                            >
-                                <Desktop>80 Robinson Road, #11-03, Singapore 068898</Desktop>
-                                <Mobile>
-                                    <StyledMobileAddress>
-                                        80 Robinson Road, #11-03, Singapore 068898
-                                    </StyledMobileAddress>
-                                </Mobile>
-                            </LocalizedLinkText>
-                        </BorderBox>
-                    </Flex>
+                                    <Desktop>80 Robinson Road, #11-03, Singapore 068898</Desktop>
+                                    <Mobile>
+                                        <StyledMobileAddress>
+                                            80 Robinson Road, #11-03, Singapore 068898
+                                        </StyledMobileAddress>
+                                    </Mobile>
+                                </LocalizedLinkText>
+                            </BorderBox>
+                        </Flex>
+                        <Flex mt="30px" fd="column" max_width="48.6rem" id="hong kong">
+                            <OfficeHeader>
+                                <div>
+                                    <img src={HongKong} alt="Hong Kong - Hong Kong" />
+                                </div>
+                                <Header as="h4" type="sub-section-title" mt="0.8rem" mb="1.6rem">
+                                    <Localize translate_text="_t_Hong Kong_t_" />
+                                </Header>
+                            </OfficeHeader>
+                            <BorderBox>
+                                <MapContainer>
+                                    <LocalizedLink
+                                        to="https://maps.app.goo.gl/SKGKN8eVpSCBVWKp9"
+                                        external
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <QueryImage
+                                            alt="Deriv's office location map in Hong Kong"
+                                            data={data['map_hk']}
+                                            height="100%"
+                                        />
+                                    </LocalizedLink>
+                                </MapContainer>
+                                <LocalizedLinkText
+                                    to="https://maps.app.goo.gl/SKGKN8eVpSCBVWKp9"
+                                    external
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    mt="0.8rem"
+                                    ml="1.6rem"
+                                >
+                                    <Desktop>
+                                        Room 408A, Empire Centre, 68 Mody Road, Tsim Sha Tsui East,
+                                        Kowloon, Hong Kong
+                                    </Desktop>
+                                    <Mobile>
+                                        <StyledMobileAddress>
+                                            Room 408A, Empire Centre, 68 Mody Road, Tsim Sha Tsui
+                                            East, Kowloon, Hong Kong
+                                        </StyledMobileAddress>
+                                    </Mobile>
+                                </LocalizedLinkText>
+                            </BorderBox>
+                        </Flex>
+                    </GridLayout>
                     <ContinentHeader>
                         <Localize translate_text="_t_Middle East_t_" />
                     </ContinentHeader>

@@ -38,7 +38,7 @@ export class Analytics {
     }
 
     public static getFeatureState(id: string) {
-        return Analytics._growthbook.getExperimentValue(id)
+        return Analytics._growthbook.getFeatureState(id)
     }
     public static getFeatureValue(id: string) {
         return Analytics._growthbook.getFeatureValue(id)

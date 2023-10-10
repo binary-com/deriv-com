@@ -60,7 +60,7 @@ export class Growthbook<AppFeatures extends Record<string, any> = Record<string,
             device_type,
         })
     }
-    getFeatureState<K>(id: K): string {
+    getFeatureState<K>(id: K) {
         return this.GrowthBook.evalFeature(id)
     }
     getFeatureValue<K>(key: K): boolean {

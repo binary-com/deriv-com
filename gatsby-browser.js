@@ -81,13 +81,15 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
-    Analytics?.getAnalyticInstance(
-        process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
-        process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
-        process.env.GATSBY_RUDDERSTACK_STAGING_KEY,
-        process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
-        process.env.NODE_ENV,
-    )
+    Analytics?.initialise({
+        growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
+        growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
+        enableDeveloperTools: process.env.NODE_ENV !== 'production',
+        rudderstackKey:
+            process.env.NODE_ENV !== 'production'
+                ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
+                : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
+    })
     Analytics?.setAttributes({
         user_language: Cookies.get('user_language') || getLanguage(),
         device_language: (isBrowser() && navigator?.language) || ' ',

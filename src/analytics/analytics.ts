@@ -3,33 +3,43 @@ import { RudderStack, SignupProvider, TEvents } from './rudderstack'
 
 type ExtractAction<T> = T extends { action: infer A } ? A : never
 type ActionForEvent<E extends keyof TEvents> = ExtractAction<TEvents[E]>
-export class Analytics {
-    public static _growthbook: Growthbook
-    public static _rudderstack: RudderStack
 
-    public static getAnalyticInstance(
-        clientKey: string,
-        decryptionKey: string,
-        RUDDERSTACK_STAGING_KEY: string,
-        RUDDERSTACK_PRODUCTION_KEY: string,
-        NODE_ENV: string,
-    ) {
-        this._growthbook = Growthbook.getGrowthBookInstance(clientKey, decryptionKey, NODE_ENV)
-        this._rudderstack = RudderStack.getRudderStackInstance(
-            RUDDERSTACK_STAGING_KEY,
-            RUDDERSTACK_PRODUCTION_KEY,
-            NODE_ENV,
+type Options = {
+    growthbookKey: string
+    growthbookDecryptionKey: string
+    rudderstackKey: string
+    enableDeveloperTools?: boolean
+}
+
+export function createAnalyticsInstance(options?: Options) {
+    let _growthbook: Growthbook, _rudderstack: RudderStack
+
+    const initialise = ({
+        growthbookKey,
+        growthbookDecryptionKey,
+        rudderstackKey,
+        enableDeveloperTools,
+    }: Options) => {
+        _rudderstack = RudderStack.getRudderStackInstance(rudderstackKey)
+        _growthbook = Growthbook.getGrowthBookInstance(
+            growthbookKey,
+            growthbookDecryptionKey,
+            enableDeveloperTools,
         )
     }
 
-    public static setAttributes({
+    if (options) {
+        initialise(options)
+    }
+
+    const setAttributes = ({
         country,
         user_language,
         device_language,
         device_type,
-    }: AttributesTypes) {
-        this._growthbook.setAttributes({
-            id: Analytics.getId(),
+    }: AttributesTypes) => {
+        _growthbook.setAttributes({
+            id: getId(),
             country,
             user_language,
             device_language,
@@ -37,36 +47,39 @@ export class Analytics {
         })
     }
 
-    public static getFeatureState(id: string) {
-        return Analytics._growthbook.getFeatureState(id)
-    }
-    public static getFeatureValue(id: string) {
-        return Analytics._growthbook.getFeatureValue(id)
-    }
+    const getFeatureState = (id: string) => _growthbook.getFeatureState(id)?.experimentResult?.name
+    const getFeatureValue = (id: string) => _growthbook.getFeatureValue(id)
+    const getId = () => _rudderstack.getUserId() || _rudderstack.getAnonymousId()
 
-    public static getId() {
-        return Analytics._rudderstack.getUserId() || Analytics._rudderstack.getAnonymousId()
-    }
-
-    public static registerAnalyticsEvent = <T extends keyof TEvents>(
+    const registerAnalyticsEvent = <T extends keyof TEvents>(
         event: keyof TEvents,
         form_source: string,
         form_name: string,
     ) => {
         const analytic_events = {
             [event]: (action: ActionForEvent<T>, signup_provider?: SignupProvider) => {
-                this._rudderstack.track(
+                _rudderstack.track(
                     event,
                     { action, signup_provider, form_source, form_name },
-                    { is_anonymous: !!this._rudderstack.getAnonymousId() },
+                    { is_anonymous: !!_rudderstack.getAnonymousId() },
                 )
             },
         }
-
         return analytic_events[event]
     }
-    // to get instances directly
-    public static getInstances() {
-        return { ab: Analytics._growthbook, tracking: Analytics._rudderstack }
+
+    const getInstances = () => ({ ab: _growthbook, tracking: _rudderstack })
+
+    return {
+        initialise,
+        setAttributes,
+        getFeatureState,
+        getFeatureValue,
+        getId,
+        registerAnalyticsEvent,
+        getInstances,
     }
 }
+
+export const Analytics = createAnalyticsInstance()
+export default Analytics

@@ -11,18 +11,17 @@ export type AttributesTypes = {
     device_language: string
     device_type: string
 }
-export class Growthbook<AppFeatures extends Record<string, any> = Record<string, any>> {
+export class Growthbook {
     GrowthBook
     private static _instance: Growthbook
 
     // we have to pass settings due the specific framework implementation
-    constructor(clientKey: string, decryptionKey: string, NODE_ENV: string) {
+    constructor(clientKey: string, decryptionKey: string, enableDevMode: boolean) {
         this.GrowthBook = new GrowthBook<GrowthBook>({
             apiHost: 'https://cdn.growthbook.io',
-            clientKey: clientKey,
-            decryptionKey: decryptionKey,
-            // enableDevMode: process.env.NODE_ENV !== 'production',
-            enableDevMode: true,
+            clientKey,
+            decryptionKey,
+            enableDevMode,
             subscribeToChanges: true,
             trackingCallback: (experiment, result) => {
                 RudderAnalytics.track('experiment_viewed', {
@@ -42,10 +41,10 @@ export class Growthbook<AppFeatures extends Record<string, any> = Record<string,
     public static getGrowthBookInstance(
         clientKey: string,
         decryptionKey: string,
-        NODE_ENV: string,
+        enableDevMode: boolean,
     ) {
         if (!Growthbook._instance) {
-            Growthbook._instance = new Growthbook(clientKey, decryptionKey, NODE_ENV)
+            Growthbook._instance = new Growthbook(clientKey, decryptionKey, enableDevMode)
             return Growthbook._instance
         }
         return Growthbook._instance
@@ -64,9 +63,9 @@ export class Growthbook<AppFeatures extends Record<string, any> = Record<string,
         return this.GrowthBook.evalFeature(id)
     }
     getFeatureValue<K>(key: K): boolean {
-        return this.GrowthBook.getFeatureValue(key)
+        return this.GrowthBook.getFeatureValue(key, 'fallback')
     }
     init() {
-        this.GrowthBook.loadFeatures().catch((err) => console.error(err))
+        return this.GrowthBook.loadFeatures().catch((err) => console.error(err))
     }
 }

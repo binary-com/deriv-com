@@ -16,6 +16,7 @@ const FormSocialButtons = () => {
     const onAnalyticEvent = Analytics?.registerAnalyticsEvent(
         'ce_virtual_signup_form',
         isBrowser() && window.location.hostname,
+        'default_diel_deriv',
     )
 
     return (

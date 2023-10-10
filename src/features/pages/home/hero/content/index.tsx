@@ -21,6 +21,7 @@ const HeroFeaturesCarousel = loadable(() => pMinDelay(import('./hero-features.ca
 
 const HomeHeroContent = () => {
     const test_toggle_aa_test = Analytics?.getFeatureIsOn('test-toggle-aa-test')
+    console.log('test_toggle_aa_test:', test_toggle_aa_test)
 
     const headings = {
         Control: '_t_Get the widest range of markets, trades and platforms_t_',

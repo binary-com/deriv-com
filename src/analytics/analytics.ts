@@ -51,12 +51,13 @@ export class Analytics {
     public static registerAnalyticsEvent = <T extends keyof TEvents>(
         event: keyof TEvents,
         form_source: string,
+        form_name: string,
     ) => {
         const analytic_events = {
             [event]: (action: ActionForEvent<T>, signup_provider?: SignupProvider) => {
                 this._rudderstack.track(
                     event,
-                    { action, signup_provider, form_source },
+                    { action, signup_provider, form_source, form_name },
                     { is_anonymous: !!this._rudderstack.getAnonymousId() },
                 )
             },

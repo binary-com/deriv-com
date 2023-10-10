@@ -41,9 +41,9 @@ export class Growthbook<AppFeatures extends Record<string, any> = Record<string,
                     })
                 },
                 // use it for development and testing purpose
-                // onFeatureUsage: (featureKey, result) => {
-                //     console.log('feature', featureKey, 'has value', result.value)
-                // },
+                onFeatureUsage: (featureKey, result) => {
+                    console.log('feature', featureKey, 'has value', result.value)
+                },
             })
             return Growthbook._instance
         }

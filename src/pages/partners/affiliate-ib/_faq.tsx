@@ -179,12 +179,12 @@ const Faq = () => {
                         as="h3"
                         type="sub-section-title"
                         align="center"
-                        m="4rem 0"
+                        m="8rem 0 4rem 0"
                         weight="normal"
                     >
                         <Localize translate_text="_t_Deriv Master Affiliate Programme_t_" />
                     </FaqSubHeader>
-                    <StyledAccordionWrapper id="faq-list-1">
+                    <StyledAccordionWrapper id="faq-list-2">
                         <Accordion has_single_state>
                             {faq_content.master_affiliate.map((item) => {
                                 return (
@@ -207,12 +207,12 @@ const Faq = () => {
                         as="h3"
                         type="sub-section-title"
                         align="center"
-                        m="8rem 0 4rem 0 "
+                        m="8rem 0 4rem 0"
                         weight="normal"
                     >
                         <Localize translate_text="_t_Deriv IB Programme_t_" />
                     </FaqSubHeader>
-                    <StyledAccordionWrapper id="faq-list-2">
+                    <StyledAccordionWrapper id="faq-list-3">
                         <Accordion has_single_state>
                             {faq_content.deriv_ib.map((item) => {
                                 return (

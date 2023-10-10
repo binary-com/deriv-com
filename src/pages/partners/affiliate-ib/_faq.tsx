@@ -4,9 +4,8 @@ import {
     AffiliateGeneral,
     AffiliateAccountManagement,
     AffiliateReferralTools,
+    MAGeneral,
     IBGeneral,
-    IBAccountManagement,
-    IBReferralTools,
 } from './_faq-data'
 import device from 'themes/device'
 import { SectionContainer } from 'components/containers'
@@ -105,6 +104,7 @@ type TFaqContent = {
         component: React.ReactElement
         class_name: string
     }[]
+    master_affiliate: { header: TString; component: React.ReactElement; class_name: string }[]
     deriv_ib: { header: TString; component: React.ReactElement; class_name: string }[]
 }
 const faq_content: TFaqContent = {
@@ -125,19 +125,10 @@ const faq_content: TFaqContent = {
             class_name: 'referal-tools-affiliate',
         },
     ],
-    deriv_ib: [
-        { header: '_t_General_t_', component: <IBGeneral />, class_name: 'general-ib' },
-        {
-            header: '_t_Account management_t_',
-            component: <IBAccountManagement />,
-            class_name: 'account-management-ib',
-        },
-        {
-            header: '_t_Referral tools_t_',
-            component: <IBReferralTools />,
-            class_name: 'referal-tools-ib',
-        },
+    master_affiliate: [
+        { header: '_t_General_t_', component: <MAGeneral />, class_name: 'general-master' },
     ],
+    deriv_ib: [{ header: '_t_General_t_', component: <IBGeneral />, class_name: 'general-ib' }],
 }
 
 const StyledAccordionWrapper = styled(AccordionWrapper)`
@@ -184,6 +175,34 @@ const Faq = () => {
             </StyledAccordionWrapper>
             {!is_eu && (
                 <>
+                    <FaqSubHeader
+                        as="h3"
+                        type="sub-section-title"
+                        align="center"
+                        m="4rem 0"
+                        weight="normal"
+                    >
+                        <Localize translate_text="_t_Deriv Master Affiliate Programme_t_" />
+                    </FaqSubHeader>
+                    <StyledAccordionWrapper id="faq-list-1">
+                        <Accordion has_single_state>
+                            {faq_content.master_affiliate.map((item) => {
+                                return (
+                                    <AccordionItem
+                                        key={item.class_name}
+                                        header={item.header}
+                                        parent_style={parent_style}
+                                        header_style={header_style}
+                                        style={item_style}
+                                        class_name={item.class_name}
+                                        plus
+                                    >
+                                        {item.component}
+                                    </AccordionItem>
+                                )
+                            })}
+                        </Accordion>
+                    </StyledAccordionWrapper>
                     <FaqSubHeader
                         as="h3"
                         type="sub-section-title"

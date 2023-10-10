@@ -8,7 +8,7 @@ type Options = {
     growthbookKey: string
     growthbookDecryptionKey: string
     rudderstackKey: string
-    enableDeveloperTools?: boolean
+    enableDevMode?: boolean
 }
 
 export function createAnalyticsInstance(options?: Options) {
@@ -18,13 +18,13 @@ export function createAnalyticsInstance(options?: Options) {
         growthbookKey,
         growthbookDecryptionKey,
         rudderstackKey,
-        enableDeveloperTools,
+        enableDevMode,
     }: Options) => {
         _rudderstack = RudderStack.getRudderStackInstance(rudderstackKey)
         _growthbook = Growthbook.getGrowthBookInstance(
             growthbookKey,
             growthbookDecryptionKey,
-            enableDeveloperTools,
+            enableDevMode,
         )
     }
 

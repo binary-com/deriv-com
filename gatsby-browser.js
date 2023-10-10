@@ -84,7 +84,7 @@ export const onClientEntry = () => {
     Analytics?.initialise({
         growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
         growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
-        enableDeveloperTools: process.env.NODE_ENV !== 'production',
+        enableDevMode: process.env.NODE_ENV !== 'production',
         rudderstackKey:
             process.env.NODE_ENV !== 'production'
                 ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY

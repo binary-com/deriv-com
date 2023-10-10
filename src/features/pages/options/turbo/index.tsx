@@ -1,6 +1,6 @@
 import React from 'react'
 import { turboFAQ, turboMarkets, turboOptionsContentItems, turboPlatforms } from './data'
-import { why_vanilla_section } from './styles.module.scss'
+import { why_turbo_section } from './styles.module.scss'
 import AvailableMarketPlatforms from 'features/components/organisms/available-markets-platforms'
 import OptionsContent from 'features/components/templates/options-content'
 import OptionsFaq from 'features/components/templates/options-faq'
@@ -34,13 +34,13 @@ const TurboOptions = () => {
                     padding_inline: '12x',
                     pt: '20x',
                 }}
-                className={why_vanilla_section}
+                className={why_turbo_section}
             >
                 <h4 className={dclsx('text-small')}>
-                    <Localize translate_text="_t_Why traders choose vanilla options_t_" />
+                    <Localize translate_text="_t_Why traders choose turbo options_t_" />
                 </h4>
                 <Typography.Paragraph size="small">
-                    <Localize translate_text="_t_In addition to their simplicity to understand, the main reason traders choose to trade vanilla options is because they offer potentially high profit as they do not have a fixed payout, while losses are strictly limited to the initial stake amount._t_" />
+                    <Localize translate_text="_t_Turbo options can be considered a lower-cost or a higher-risk-and-return alternative to vanilla options. Though the odds of the contract expiring worthless can be high (which is when the contract expires without you earning a payout), your loss is strictly limited to your invested stake._t_" />
                 </Typography.Paragraph>
             </Flex.Box>
             <Flex.Box justify="center" align="center" direction="col">

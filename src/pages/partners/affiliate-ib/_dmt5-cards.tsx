@@ -189,8 +189,15 @@ const AccordionWrapper = styled.div`
 const TableWrapper = styled(Table)`
     margin: 0 auto 1.6rem;
     grid-auto-rows: 1fr;
+    grid-template-columns: 60% 40%;
+`
+
+const NewTableWrapper = styled(Table)`
+    margin: 0 auto 1.6rem;
+    grid-auto-rows: 1fr;
     grid-template-columns: 50% 50%;
 `
+
 const StyledTrap = styled(TRAP)<CardProps>`
     height: ${(props) => (props.headerHeight ? props.headerHeight : '')};
     background-color: var(--color-grey-39);
@@ -201,6 +208,17 @@ const StyledTrap = styled(TRAP)<CardProps>`
     align-items: center;
     justify-content: center;
 `
+
+const NewStyledTrap = styled(TRAP)<CardProps>`
+    background-color: var(--color-grey-39);
+    padding: 1.1rem 0.8rem;
+    min-height: 9.6rem;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
+
 const StyledText = styled(Text)`
     text-align: center;
 `
@@ -296,7 +314,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                         class_name={value.class_name}
                                         plus
                                     >
-                                        {value.styles ? (
+                                        {value.styles && (
                                             <TableWrapper grid_col_number={2} is_balance={true}>
                                                 {value.assets.map((listedValue, indexValue) => (
                                                     <TC
@@ -331,7 +349,43 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                                     </TC>
                                                 ))}
                                             </TableWrapper>
-                                        ) : (
+                                        )}
+                                        {value.styled && (
+                                            <NewTableWrapper grid_col_number={2} is_balance={true}>
+                                                {value.assets.map((listedValue, indexValue) => (
+                                                    <TC
+                                                        grid_area={'area' + indexValue}
+                                                        key={indexValue}
+                                                    >
+                                                        <NewStyledTrap
+                                                            isTitle="true"
+                                                            headerHeight={value.headerHeight}
+                                                        >
+                                                            <StyledText size="1.4rem" weight="bold">
+                                                                <Localize
+                                                                    translate_text={
+                                                                        listedValue.title
+                                                                    }
+                                                                />
+                                                            </StyledText>
+                                                        </NewStyledTrap>
+                                                        {listedValue.list.map((info, indexData) => (
+                                                            <TRAPREVERSE
+                                                                even={indexData % 2 ? 'true' : ''}
+                                                                key={indexData}
+                                                            >
+                                                                <StyledText size="1.4rem">
+                                                                    <Localize
+                                                                        translate_text={info}
+                                                                    />
+                                                                </StyledText>
+                                                            </TRAPREVERSE>
+                                                        ))}
+                                                    </TC>
+                                                ))}
+                                            </NewTableWrapper>
+                                        )}
+                                        {!value.styles && !value.styled && (
                                             <TableWrapper grid_col_number={2} is_balance={true}>
                                                 {value.assets.map((listedValue, indexValue) => (
                                                     <TC

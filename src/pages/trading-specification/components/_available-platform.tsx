@@ -61,11 +61,9 @@ const StyledFlex = styled(Flex)`
 const available_on: TString = '_t_Available on_t_'
 const deriv_mt5: TString = '_t_Deriv MT5_t_'
 const deriv_x: TString = '_t_Deriv X_t_'
-const deriv_ez: TString = '_t_Deriv EZ_t_'
 
 const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
     const { is_row } = useRegion()
-    const selectedEtfsTab = selected_market === 'etfs'
 
     return (
         <>

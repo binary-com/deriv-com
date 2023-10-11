@@ -1,7 +1,6 @@
 import React from 'react'
 import Cookies from 'js-cookie'
 import { isMobile } from 'react-device-detect'
-import { createRoot } from 'react-dom/client'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { Analytics } from './src/analytics'
 import { isProduction } from './src/common/websocket/config'
@@ -164,13 +163,6 @@ export const onRouteUpdate = () => {
             }),
         })
     }, 1500)
-}
-
-export const replaceHydrateFunction = () => {
-    return (element, container) => {
-        const root = createRoot(container)
-        root.render(element)
-    }
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

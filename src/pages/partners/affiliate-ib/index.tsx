@@ -165,7 +165,7 @@ const AffiliateIb = () => {
         {
             title: content_data.payout_title,
             subtitle: content_data.payout_text,
-            image_name: 'daily_ib_commission',
+            image_name: is_eu ? 'daily_ib_commission_eu' : 'daily_ib_commission',
             image_alt: '_t_Check your daily IB commission_t_',
         },
         {

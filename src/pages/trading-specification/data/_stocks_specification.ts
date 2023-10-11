@@ -144,7 +144,7 @@ const stocks_specification: TSpecification = {
         },
         {
             instrument: {
-                symbol: 'STOCKSUK100',
+                symbol: 'UK100',
                 swf_icon: true,
                 instrument: 'UK 100',
             },
@@ -1449,7 +1449,7 @@ const stocks_specification: TSpecification = {
         },
         {
             instrument: {
-                symbol: 'STOCKSUK100',
+                symbol: 'UK100',
                 instrument: 'UK 100',
             },
             contract_size: 1,

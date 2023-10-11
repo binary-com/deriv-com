@@ -1,4 +1,4 @@
-import Forex from 'images/svg/markets/forex_markets.svg'
+import Forex from 'images/svg/trade-types/forex.svg'
 import Stocks from 'images/svg/markets/stocks_markets.svg'
 import CryptoCurrencies from 'images/svg/markets/crypto_markets.svg'
 import Commodities from 'images/svg/markets/commodities_markets.svg'

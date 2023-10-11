@@ -211,7 +211,7 @@ export const europe: TMarketSymbol[] = [
         text: '_t_Swiss 20_t_',
     },
     {
-        src: icons.STOCKSUK100,
+        src: icons.UK100,
         text: '_t_UK 100_t_',
     },
 ]
@@ -718,7 +718,7 @@ export const stocks_european_indices: TMarketSymbol[] = [
         text: '_t_Germany 40_t_',
     },
     {
-        src: icons.STOCKSUK100,
+        src: icons.UK100,
         text: '_t_UK 100_t_',
     },
     {

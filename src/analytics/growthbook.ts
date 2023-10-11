@@ -1,5 +1,4 @@
 import { GrowthBook } from '@growthbook/growthbook-react'
-import { FeatureResult } from '@growthbook/growthbook/src/types/growthbook'
 import * as RudderAnalytics from 'rudder-sdk-js'
 
 export type GrowthBookType = GrowthBook
@@ -28,10 +27,6 @@ export class Growthbook {
                     experimentId: experiment.key,
                     variationId: result.variationId,
                 })
-            },
-            // use it for development and testing purpose
-            onFeatureUsage: (featureKey: string, result: FeatureResult<any>) => {
-                console.log('feature', featureKey, 'has value', result.value)
             },
         })
         this.init()

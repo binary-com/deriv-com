@@ -1,9 +1,9 @@
 import { AttributesTypes, Growthbook } from './growthbook'
 import { RudderStack, SignupProvider, TEvents } from './rudderstack'
 
+export type AnalyticsData = { event: keyof TEvents; form_source: string; form_name: string }
 type ExtractAction<T> = T extends { action: infer A } ? A : never
 type ActionForEvent<E extends keyof TEvents> = ExtractAction<TEvents[E]>
-
 type Options = {
     growthbookKey: string
     growthbookDecryptionKey: string
@@ -51,21 +51,21 @@ export function createAnalyticsInstance(options?: Options) {
     const getFeatureValue = (id: string) => _growthbook.getFeatureValue(id)
     const getId = () => _rudderstack.getUserId() || _rudderstack.getAnonymousId()
 
-    const registerAnalyticsEvent = <T extends keyof TEvents>(
-        event: keyof TEvents,
-        form_source: string,
-        form_name: string,
+    const track = <T extends keyof TEvents>(
+        analyticsData: AnalyticsData,
+        action: ActionForEvent<T>,
+        signup_provider?: SignupProvider,
     ) => {
-        const analytic_events = {
-            [event]: (action: ActionForEvent<T>, signup_provider?: SignupProvider) => {
-                _rudderstack.track(
-                    event,
-                    { action, signup_provider, form_source, form_name },
-                    { is_anonymous: !!_rudderstack.getAnonymousId() },
-                )
+        _rudderstack.track(
+            analyticsData.event,
+            {
+                action,
+                signup_provider,
+                form_source: analyticsData.form_source,
+                form_name: analyticsData.form_name,
             },
-        }
-        return analytic_events[event]
+            { is_anonymous: !!_rudderstack.getAnonymousId() },
+        )
     }
 
     const getInstances = () => ({ ab: _growthbook, tracking: _rudderstack })
@@ -76,10 +76,9 @@ export function createAnalyticsInstance(options?: Options) {
         getFeatureState,
         getFeatureValue,
         getId,
-        registerAnalyticsEvent,
+        track,
         getInstances,
     }
 }
 
 export const Analytics = createAnalyticsInstance()
-export default Analytics

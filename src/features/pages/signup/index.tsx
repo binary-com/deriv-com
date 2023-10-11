@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Analytics } from '../../../analytics'
+import { Analytics, AnalyticsData } from '../../../analytics'
 import { signup_wrapper } from './signup.module.scss'
 import SignUpContent from './signup.content'
 import SignUpFormContainer from './form-container'
@@ -9,14 +9,14 @@ import Flex from 'features/components/atoms/flex-box'
 import { isBrowser } from 'common/utility'
 
 const SignUp = () => {
-    const onAnalyticEvent = Analytics?.registerAnalyticsEvent(
-        'ce_virtual_signup_form',
-        isBrowser() && window.location.hostname,
-        'default_diel_deriv',
-    )
+    const analyticsData: AnalyticsData = {
+        event: 'ce_virtual_signup_form',
+        form_source: isBrowser() && window.location.hostname,
+        form_name: 'default_diel_deriv',
+    }
 
     useEffect(() => {
-        onAnalyticEvent('open')
+        Analytics?.track(analyticsData, 'open')
     }, [])
 
     return (

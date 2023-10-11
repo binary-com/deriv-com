@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { navigate } from 'gatsby'
-import { Analytics } from '../../../analytics'
+import { Analytics, AnalyticsData } from '../../../analytics'
 import { getCookiesFields, getCookiesObject, getDataObjFromCookies } from 'common/cookies'
 import { validation_regex } from 'common/validation'
 import apiManager from 'common/websocket'
@@ -42,18 +42,18 @@ const schema = yup.object({
 type FormData = yup.InferType<typeof schema>
 
 const useSignupForm = () => {
-    const onAnalyticEvent = Analytics?.registerAnalyticsEvent(
-        'ce_virtual_signup_form',
-        isBrowser() && window.location.hostname,
-        'default_diel_deriv',
-    )
+    const analyticsData: AnalyticsData = {
+        event: 'ce_virtual_signup_form',
+        form_source: isBrowser() && window.location.hostname,
+        form_name: 'default_diel_deriv',
+    }
     const signUpForm = useForm<FormData>({
         mode: 'onChange',
         resolver: yupResolver(schema),
     })
 
     const onSignup = ({ email }: FormData) => {
-        onAnalyticEvent('started')
+        Analytics?.track(analyticsData, 'started')
 
         const formatted_email = getVerifyEmailRequest(email)
         apiManager
@@ -71,7 +71,7 @@ const useSignupForm = () => {
                 navigate(success_link, { replace: true })
             })
             .catch((reason) => {
-                onAnalyticEvent('signup_flow_error')
+                Analytics?.track(analyticsData, 'signup_flow_error')
                 signUpForm.setError('email', {
                     message: reason.error.code,
                 })

@@ -1,6 +1,6 @@
 import React from 'react'
 import { signup_apple_btn, signup_fb_btn, signup_login_redirect } from '../signup.module.scss'
-import { Analytics } from '../../../../analytics'
+import { Analytics, AnalyticsData } from '../../../../analytics'
 import Login from 'common/login'
 import Button from 'features/components/atoms/button'
 import Flex from 'features/components/atoms/flex-box'
@@ -13,11 +13,11 @@ import { Localize } from 'components/localization'
 import { isBrowser } from 'common/utility'
 
 const FormSocialButtons = () => {
-    const onAnalyticEvent = Analytics?.registerAnalyticsEvent(
-        'ce_virtual_signup_form',
-        isBrowser() && window.location.hostname,
-        'default_diel_deriv',
-    )
+    const analyticsData: AnalyticsData = {
+        event: 'ce_virtual_signup_form',
+        form_source: isBrowser() && window.location.hostname,
+        form_name: 'default_diel_deriv',
+    }
 
     return (
         <>
@@ -25,7 +25,7 @@ const FormSocialButtons = () => {
                 outlined
                 id="dm-signup-google"
                 onClick={() => {
-                    onAnalyticEvent('started', 'google')
+                    Analytics?.track(analyticsData, 'started', 'google')
                     Login.initOneAll('google')
                 }}
             >
@@ -40,7 +40,7 @@ const FormSocialButtons = () => {
                 className={signup_fb_btn}
                 id="dm-signup-facebook"
                 onClick={() => {
-                    onAnalyticEvent('started', 'facebook')
+                    Analytics?.track(analyticsData, 'started', 'facebook')
                     Login.initOneAll('facebook')
                 }}
             >
@@ -61,7 +61,7 @@ const FormSocialButtons = () => {
                 textcolor="white"
                 id="dm-signup-apple"
                 onClick={() => {
-                    onAnalyticEvent('started', 'apple')
+                    Analytics?.track(analyticsData, 'started', 'apple')
                     Login.initOneAll('apple')
                 }}
             >
@@ -88,7 +88,7 @@ const FormSocialButtons = () => {
                             className={signup_login_redirect}
                             onClick={(event) => {
                                 event.preventDefault()
-                                onAnalyticEvent('started', 'email')
+                                Analytics?.track(analyticsData, 'started', 'email')
                                 Login.redirectToLogin()
                             }}
                         />,

@@ -1,1 +1,1 @@
-export { Analytics } from './analytics'
+export { Analytics, AnalyticsData } from './analytics'

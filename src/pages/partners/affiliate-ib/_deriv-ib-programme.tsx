@@ -26,6 +26,7 @@ type TypeForType = {
     headerHeight: string
     assets: AssetsType
     class_name?: string
+    styles?: string
 }[]
 
 type NoteType = {
@@ -483,6 +484,7 @@ const ib_dmt5_swapFree: DMT5Type = {
         {
             title: '_t_Commodities_t_',
             headerHeight: '6.4rem',
+            styles: `minBlockSize: '6.2rem'`,
             assets: [
                 {
                     title: '_t_Asset_t_',
@@ -692,6 +694,7 @@ const ib_dmt5_financial: DMT5Type = {
         {
             title: '_t_Commodities_t_',
             headerHeight: '6.4rem',
+            styles: `minBlockSize: '6.2rem'`,
             assets: [
                 {
                     title: '_t_Asset_t_',

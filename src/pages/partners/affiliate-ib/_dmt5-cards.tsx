@@ -189,7 +189,7 @@ const AccordionWrapper = styled.div`
 const TableWrapper = styled(Table)`
     margin: 0 auto 1.6rem;
     grid-auto-rows: 1fr;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 50% 50%;
 `
 const StyledTrap = styled(TRAP)<CardProps>`
     height: ${(props) => (props.headerHeight ? props.headerHeight : '')};
@@ -296,35 +296,76 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                         class_name={value.class_name}
                                         plus
                                     >
-                                        <TableWrapper grid_col_number={2} is_balance={true}>
-                                            {value.assets.map((listedValue, indexValue) => (
-                                                <TC
-                                                    grid_area={'area' + indexValue}
-                                                    key={indexValue}
-                                                >
-                                                    <StyledTrap
-                                                        isTitle="true"
-                                                        headerHeight={value.headerHeight}
+                                        {value.styles ? (
+                                            <TableWrapper grid_col_number={2} is_balance={true}>
+                                                {value.assets.map((listedValue, indexValue) => (
+                                                    <TC
+                                                        grid_area={'area' + indexValue}
+                                                        key={indexValue}
                                                     >
-                                                        <StyledText size="1.4rem" weight="bold">
-                                                            <Localize
-                                                                translate_text={listedValue.title}
-                                                            />
-                                                        </StyledText>
-                                                    </StyledTrap>
-                                                    {listedValue.list.map((info, indexData) => (
-                                                        <TRAPREVERSE
-                                                            even={indexData % 2 ? 'true' : ''}
-                                                            key={indexData}
+                                                        <StyledTrap
+                                                            isTitle="true"
+                                                            headerHeight={value.headerHeight}
                                                         >
-                                                            <StyledText size="1.4rem">
-                                                                <Localize translate_text={info} />
+                                                            <StyledText size="1.4rem" weight="bold">
+                                                                <Localize
+                                                                    translate_text={
+                                                                        listedValue.title
+                                                                    }
+                                                                />
                                                             </StyledText>
-                                                        </TRAPREVERSE>
-                                                    ))}
-                                                </TC>
-                                            ))}
-                                        </TableWrapper>
+                                                        </StyledTrap>
+                                                        {listedValue.list.map((info, indexData) => (
+                                                            <TRAPREVERSE
+                                                                style={{ minBlockSize: '6.2rem' }}
+                                                                even={indexData % 2 ? 'true' : ''}
+                                                                key={indexData}
+                                                            >
+                                                                <StyledText size="1.4rem">
+                                                                    <Localize
+                                                                        translate_text={info}
+                                                                    />
+                                                                </StyledText>
+                                                            </TRAPREVERSE>
+                                                        ))}
+                                                    </TC>
+                                                ))}
+                                            </TableWrapper>
+                                        ) : (
+                                            <TableWrapper grid_col_number={2} is_balance={true}>
+                                                {value.assets.map((listedValue, indexValue) => (
+                                                    <TC
+                                                        grid_area={'area' + indexValue}
+                                                        key={indexValue}
+                                                    >
+                                                        <StyledTrap
+                                                            isTitle="true"
+                                                            headerHeight={value.headerHeight}
+                                                        >
+                                                            <StyledText size="1.4rem" weight="bold">
+                                                                <Localize
+                                                                    translate_text={
+                                                                        listedValue.title
+                                                                    }
+                                                                />
+                                                            </StyledText>
+                                                        </StyledTrap>
+                                                        {listedValue.list.map((info, indexData) => (
+                                                            <TRAPREVERSE
+                                                                even={indexData % 2 ? 'true' : ''}
+                                                                key={indexData}
+                                                            >
+                                                                <StyledText size="1.4rem">
+                                                                    <Localize
+                                                                        translate_text={info}
+                                                                    />
+                                                                </StyledText>
+                                                            </TRAPREVERSE>
+                                                        ))}
+                                                    </TC>
+                                                ))}
+                                            </TableWrapper>
+                                        )}
                                     </AccordionItem>
                                 ))}
                             </Accordion>

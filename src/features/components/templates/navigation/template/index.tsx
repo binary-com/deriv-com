@@ -101,13 +101,10 @@ const NavTemplate = ({
 
                     {has_items ? (
                         <>
-                            {is_mobile_or_tablet ? (
-                                <span ref={nav_wrapper_ref}>
-                                    <MobileMenu has_top_nav={has_top_nav} />
-                                </span>
-                            ) : (
-                                <DesktopMenu has_centered_items={has_centered_items} />
-                            )}
+                            <span ref={nav_wrapper_ref}>
+                                <MobileMenu has_top_nav={has_top_nav} />
+                            </span>
+                            <DesktopMenu has_centered_items={has_centered_items} />
                         </>
                     ) : null}
                     {children}

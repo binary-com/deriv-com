@@ -80,8 +80,6 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
-    console.log("process.env.NODE_ENV !== 'production'", process.env.NODE_ENV !== 'production')
-    console.log('process.env.NODE_ENV', process.env.NODE_ENV)
     Analytics?.initialise({
         growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
         growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,

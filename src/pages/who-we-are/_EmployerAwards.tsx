@@ -20,7 +20,7 @@ const EmployerAwards = () => {
             {is_row && !is_region_loading && (
                 <div>
                     <Typography.Heading size="medium" mb="10x" textcolor="black" align="center">
-                        <Localize translate_text={'_t_UFAwards_t_'} />
+                        <Localize translate_text={'_t_UF Awards_t_'} />
                     </Typography.Heading>
                     <Flex.Box
                         justify="center"

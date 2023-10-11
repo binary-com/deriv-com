@@ -11,7 +11,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    '_t_<p>To place a turbos options trade on Deriv, you’ll need to:</p><ul><li>Select the underlying asset you want to trade.</li><li>Choose your preferred contract duration or end time.</li><li>Select Long or Short depending on your market predictions.</li><li>Determine a trade barrier.</li> <li>Enter your stake amount.</li><li>Open your contract.</li></ul>_t_',
+                    '_t_<p>To place a turbo options trade on Deriv, you’ll need to:</p><ul><li>Select the underlying asset you want to trade.</li><li>Choose your preferred contract duration or end time.</li><li>Select Long or Short depending on your market predictions.</li><li>Determine a trade barrier.</li> <li>Enter your stake amount.</li><li>Open your contract.</li></ul>_t_',
                 ),
             },
         },
@@ -31,7 +31,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    '_t_<p>When you open a turbo option contract, you’ll pay an initial stake amount. This is the cost of entering the turbo options trade. You’ll also need to determine a trade barrier. The spot price must not touch or breach this barrier throughout your contract duration, otherwise your contract will be terminated early without any gains.</p><p>If the spot price never touches or breaches your predetermined barrier, you will receive a potential payout based on the movement of the underlying asset, when your contract expires.</p><p>Please bear in mind that if you decide to manually terminate the trade early (before expiry), you will be charged an additional exit fee. Additionally, early termination less than 15 seconds before expiry is not possible.</p>_t_',
+                    '_t_<p>When you open a turbo options contract, you’ll pay an initial stake amount. This is the cost of entering the turbo options trade. You’ll also need to determine a trade barrier. The spot price must not touch or breach this barrier throughout your contract duration, otherwise your contract will be terminated early without any gains.</p><p>If the spot price never touches or breaches your predetermined barrier, you will receive a potential payout based on the movement of the underlying asset, when your contract expires.</p><p>Please bear in mind that if you decide to manually terminate the trade early (before expiry), you will be charged an additional exit fee. Additionally, early termination less than 15 seconds before expiry is not possible.</p>_t_',
                 ),
             },
         },
@@ -61,7 +61,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    '_t_Yes, you can open multiple turbo option contracts at the same time._t_',
+                    '_t_Yes, you can open multiple turbo options contracts at the same time._t_',
                 ),
             },
         },

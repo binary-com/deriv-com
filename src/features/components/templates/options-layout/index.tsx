@@ -8,7 +8,6 @@ import WhyTradeOptions from 'features/components/templates/why-trade-options'
 import { TString } from 'types/generics'
 import OptionsTopTab from 'features/components/organisms/options-top-tab'
 import WhatAreDigitalOptions from 'features/components/organisms/what-are-digital-options'
-import Label from 'features/components/atoms/label'
 
 interface OptionsLayoutProps {
     children?: ReactNode

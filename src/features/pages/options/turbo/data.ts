@@ -72,7 +72,7 @@ export const turboFAQ: OptionsFAQDataItem[] = [
             {
                 id: 1,
                 type: 'list',
-                list_title: '_t_To place a turbos options trade on Deriv, you’ll need to:_t_',
+                list_title: '_t_To place a turbo options trade on Deriv, you’ll need to:_t_',
                 list_items: [
                     '_t_- Select the underlying asset you want to trade._t_',
                     '_t_- Choose your preferred contract duration or end time._t_',
@@ -102,7 +102,7 @@ export const turboFAQ: OptionsFAQDataItem[] = [
             {
                 id: 1,
                 type: 'text',
-                text: '_t_When you open a turbo option contract, you’ll pay an initial stake amount. This is the cost of entering the turbo options trade. You’ll also need to determine a trade barrier. The spot price must not touch or breach this barrier throughout your contract duration, otherwise your contract will be terminated early without any gains._t_',
+                text: '_t_When you open a turbo options contract, you’ll pay an initial stake amount. This is the cost of entering the turbo options trade. You’ll also need to determine a trade barrier. The spot price must not touch or breach this barrier throughout your contract duration, otherwise your contract will be terminated early without any gains._t_',
             },
             {
                 id: 2,
@@ -165,7 +165,7 @@ export const turboFAQ: OptionsFAQDataItem[] = [
             {
                 id: 1,
                 type: 'text',
-                text: '_t_Yes, you can open multiple turbo option contracts at the same time._t_',
+                text: '_t_Yes, you can open multiple turbo options contracts at the same time._t_',
             },
         ],
     },

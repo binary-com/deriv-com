@@ -18,7 +18,7 @@ const query = graphql`
         guernsey_grid_2: file(relativePath: { eq: "careers/guernsey_grid_2.jpg" }) {
             ...fadeIn
         }
-        berlin_grid_3: file(relativePath: { eq: "careers/berlin_grid_3.png" }) {
+        guernsey_grid_3: file(relativePath: { eq: "careers/guernsey_grid_3.png" }) {
             ...fadeIn
         }
         guernsey_grid_4: file(relativePath: { eq: "careers/guernsey_grid_4.jpg" }) {

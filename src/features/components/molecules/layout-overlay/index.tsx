@@ -10,7 +10,7 @@ import { getLocationPathname, getLanguage } from 'common/utility'
 
 const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 5000))
 const WhatsappButton = loadable(() => pMinDelay(import('./whats-app-button'), 5000))
-const CookieBanner = lazy(() => import('./cookie-banner'))
+const CookieBanner = lazy(() => pMinDelay(import('./cookie-banner'), 5000))
 
 const LayoutOverlay = () => {
     const is_rtl = useIsRtl()

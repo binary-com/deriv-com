@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Card, CardProps } from './_partner-card'
@@ -286,13 +286,25 @@ const StyledButton = styled(Button)`
 const DMT5Cards = ({ data }: DMT5Props) => {
     const dataImages = useStaticQuery(query)
     const [is_calculated, setCalculated] = React.useState(false)
+    const headerRef = useRef(null)
 
     const toggleCalculated = () => {
         setCalculated(!is_calculated)
     }
 
+    const scrollToHeader = () => {
+        setCalculated(!is_calculated)
+
+        if (headerRef.current) {
+            window.scrollTo({
+                top: headerRef.current.offsetTop - 100,
+                behavior: 'smooth',
+            })
+        }
+    }
+
     return (
-        <StyledCard padding="2.4rem 2.4rem 0" id="affiliate-card">
+        <StyledCard ref={headerRef} padding="2.4rem 2.4rem 0" id="affiliate-card">
             {!is_calculated ? (
                 <>
                     <CardWrappers>
@@ -524,7 +536,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                 </React.Fragment>
                             ))}
                             <ButtonWrapper>
-                                <BackButton tertiary onClick={toggleCalculated} className="back">
+                                <BackButton tertiary onClick={scrollToHeader} className="back">
                                     <Localize translate_text="_t_Back_t_" />
                                 </BackButton>
                             </ButtonWrapper>

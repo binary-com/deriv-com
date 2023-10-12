@@ -18,32 +18,37 @@ const TabSwitcher = ({ tab, onTabClick, is_ctrader = false }: Omit<StepperTabTyp
             md={{ padding: '10x' }}
         >
             <FlexBox.Box justify={'center'}>
-                <TabButton
-                    className={dclsx(
-                        tab === 'demo' ? styles.tab_switcher_active : styles.tab_switcher_unactive,
-                        styles.demo_tab_button,
-                    )}
-                    onClick={() => onTabClick('demo')}
-                >
-                    <Typography.Paragraph size={'xlarge'} align={'center'}>
-                        <Localize translate_text={'_t_Demo account _t_'} />
-                    </Typography.Paragraph>
-                </TabButton>
                 {!is_ctrader && (
-                    <TabButton
-                        className={dclsx(
-                            tab === 'real'
-                                ? styles.tab_switcher_active
-                                : styles.tab_switcher_unactive,
-                            styles.real_tab_button,
-                        )}
-                        style={{ background: 'transparent' }}
-                        onClick={() => onTabClick('real')}
-                    >
-                        <Typography.Paragraph size={'xlarge'} align={'center'}>
-                            <Localize translate_text={'_t_Real account _t_'} />
-                        </Typography.Paragraph>
-                    </TabButton>
+                    <>
+                        <TabButton
+                            className={dclsx(
+                                tab === 'demo'
+                                    ? styles.tab_switcher_active
+                                    : styles.tab_switcher_unactive,
+                                styles.demo_tab_button,
+                            )}
+                            onClick={() => onTabClick('demo')}
+                        >
+                            <Typography.Paragraph size={'xlarge'} align={'center'}>
+                                <Localize translate_text={'_t_Demo account _t_'} />
+                            </Typography.Paragraph>
+                        </TabButton>
+
+                        <TabButton
+                            className={dclsx(
+                                tab === 'real'
+                                    ? styles.tab_switcher_active
+                                    : styles.tab_switcher_unactive,
+                                styles.real_tab_button,
+                            )}
+                            style={{ background: 'transparent' }}
+                            onClick={() => onTabClick('real')}
+                        >
+                            <Typography.Paragraph size={'xlarge'} align={'center'}>
+                                <Localize translate_text={'_t_Real account _t_'} />
+                            </Typography.Paragraph>
+                        </TabButton>
+                    </>
                 )}
             </FlexBox.Box>
         </FlexBoxContainer>

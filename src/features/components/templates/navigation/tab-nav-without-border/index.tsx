@@ -47,40 +47,22 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
     return (
         <Container.Fluid pt={'20x'}>
             <Flex.Box padding_block="10x" visible="phone-only" className={swiper_wrapper}>
-                <Swiper
-                    ref={swiper_ref}
-                    speed={1000}
-                    slidesPerView={3}
-                    direction="horizontal"
-                    navigation={{ nextEl: '.swiper-button-next' }}
-                    className={swiper_height}
-                >
-                    {tab_data.map((tab_item) => {
-                        return (
-                            <SwiperSlide key={tab_item.option_name} className={swiper_slide}>
-                                <NavigationTabMenu
-                                    tab_items={tab_item}
-                                    selected={tab_item.option_name === selected_tab_name}
-                                    is_no_border_bottom
-                                    icon={
-                                        tab_item.option_name === selected_tab_name
-                                            ? `${tab_item.selected_src}#${tab_item.option_name}`
-                                            : `${tab_item.src}#${tab_item.option_name}`
-                                    }
-                                />
-                            </SwiperSlide>
-                        )
-                    })}
-                </Swiper>
-                <div
-                    className={dclsx(
-                        'swiper-button-next',
-                        swiper_button_next,
-                        tab_data.length <= 3 && swiper_button_disabled,
-                    )}
-                >
-                    <Image src={ArrowNext} width="24px" height="24px" />
-                </div>
+                {tab_data.map((tab_item) => {
+                    return (
+                        <SwiperSlide key={tab_item.option_name} className={swiper_slide}>
+                            <NavigationTabMenu
+                                tab_items={tab_item}
+                                selected={tab_item.option_name === selected_tab_name}
+                                is_no_border_bottom
+                                icon={
+                                    tab_item.option_name === selected_tab_name
+                                        ? `${tab_item.selected_src}#${tab_item.option_name}`
+                                        : `${tab_item.src}#${tab_item.option_name}`
+                                }
+                            />
+                        </SwiperSlide>
+                    )
+                })}
             </Flex.Box>
             <Flex.Box
                 padding_block="10x"

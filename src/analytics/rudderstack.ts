@@ -148,13 +148,14 @@ export class RudderStack {
         RudderAnalytics.load(RUDDERSTACK_KEY, 'https://deriv-dataplane.rudderstack.com')
         RudderAnalytics.ready(() => {
             this.has_initialized = true
+            this.has_identified = !!(this.getUserId() || this.getAnonymousId())
         })
     }
 
     /**
      *
      * @param user_id The user ID of the user to identify and associate all events with that particular user ID
-     * @param payload Additional information passed to indentify the user
+     * @param payload Additional information passed to identify the user
      */
     identifyEvent = (user_id: string, payload: TEvents['identify']) => {
         if (this.has_initialized) {
@@ -192,8 +193,8 @@ export class RudderStack {
      * @param event The event name to track
      * @param payload Additional information related to the event
      */
-    track<T extends keyof TEvents>(event: T, payload: TEvents[T], options?: TTrackOptions) {
-        if (this.has_initialized && (options?.is_anonymous || this.has_identified)) {
+    track<T extends keyof TEvents>(event: T, payload: TEvents[T]) {
+        if (this.has_initialized && this.has_identified) {
             try {
                 RudderAnalytics.track(event, payload)
             } catch (err) {

@@ -57,8 +57,11 @@ export class Growthbook {
     getFeatureState<K>(id: K) {
         return this.GrowthBook.evalFeature(id)
     }
-    getFeatureValue<K>(key: K): boolean {
-        return this.GrowthBook.getFeatureValue(key, 'fallback')
+    getFeatureValue<K>(key: K, defaultValue: string) {
+        return this.GrowthBook.getFeatureValue(key, defaultValue)
+    }
+    setUrl(href: string) {
+        return this.GrowthBook.setURL(href)
     }
     init() {
         return this.GrowthBook.loadFeatures().catch((err) => console.error(err))

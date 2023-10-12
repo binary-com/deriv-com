@@ -89,6 +89,7 @@ export const onClientEntry = () => {
                 ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
                 : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
     })
+
     Analytics?.setAttributes({
         user_language: Cookies.get('user_language') || getLanguage(),
         device_language: (isBrowser() && navigator?.language) || ' ',
@@ -138,7 +139,7 @@ export const onClientEntry = () => {
 
 export const onRouteUpdate = () => {
     checkDomain()
-    window?._growthbook?.setURL(window.location.href)
+    Analytics?.setURL(window.location.href)
 
     const dataLayer = window.dataLayer
     const domain = getDomain()

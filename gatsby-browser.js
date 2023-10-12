@@ -140,7 +140,7 @@ export const onClientEntry = () => {
 export const onRouteUpdate = () => {
     checkDomain()
     // can't be resolved by package function due the gatsby architecture
-    window._growthbook.setURL(window.location.href)
+    window?._growthbook?.setURL(window.location.href)
 
     const dataLayer = window.dataLayer
     const domain = getDomain()

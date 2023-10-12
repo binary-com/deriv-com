@@ -9,11 +9,17 @@ import Container from 'features/components/atoms/container'
 import Flex from 'features/components/atoms/flex-box'
 import TabMenu from 'features/components/templates/tabs/menu'
 import { PathType } from 'features/types'
+import useRegion from 'components/hooks/use-region'
 
 const MarketTab = () => {
-    const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
+    const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('fx')
     const [tab_name, setTabName] = useState('Forex')
     const [linkToMarketPage, setLinkToMarketPage] = useState<PathType>('/markets/forex/')
+    const { is_eu } = useRegion()
+    const updated_market_buttons = market_buttons.filter((items) => {
+        if (!is_eu) return items
+        if (is_eu && items.market_name !== 'etfs') return items
+    })
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
     }
@@ -25,7 +31,7 @@ const MarketTab = () => {
                 padding_block="10x"
                 md={{ justify: 'center', padding: '10x' }}
             >
-                {market_buttons.map((market_item) => (
+                {updated_market_buttons.map((market_item) => (
                     <Flex.Box
                         key={market_item.button_text}
                         direction="col"

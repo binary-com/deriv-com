@@ -4,10 +4,10 @@ import { Container, CssGrid, SectionContainer, Flex, Desktop, Mobile } from 'com
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 // SVG
-import Integrity from 'images/svg/careers/career-integrity.svg'
-import Customer from 'images/svg/careers/career-customer.svg'
-import Competence from 'images/svg/careers/career-competence.svg'
-import Teamwork from 'images/svg/careers/career-teamwork.svg'
+import Integrity from 'images/svg/careers/career_integrity.svg'
+import Customer from 'images/svg/careers/career_customer.svg'
+import Competence from 'images/svg/careers/career_competence.svg'
+import Teamwork from 'images/svg/careers/career_teamwork.svg'
 
 const StyledHeader = styled(Header)`
     font-style: normal;

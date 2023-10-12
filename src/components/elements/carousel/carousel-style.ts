@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import type { FlattenSimpleInterpolation } from 'styled-components'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
-import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
+import { ReactComponent as Chevron } from 'images/svg/carousel_chevron.svg'
 
 type StyledButtonWrapperProps = {
     disabled?: boolean

@@ -10,7 +10,7 @@ import { SEO, SectionContainer, Container, Flex, CssGrid } from 'components/cont
 import Layout from 'components/layout/layout'
 import { WithIntl, localize } from 'components/localization'
 import { Header, Text, Tabs, QueryImage } from 'components/elements'
-import { ReactComponent as Chevron } from 'images/svg/careers/carousel-chevron.svg'
+import { ReactComponent as Chevron } from 'images/svg/carousel_chevron.svg'
 import { TGatsbyHead } from 'features/types'
 
 const meta_attributes = {

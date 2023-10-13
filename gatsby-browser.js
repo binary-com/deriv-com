@@ -144,7 +144,7 @@ export const onRouteUpdate = () => {
 
 export function replaceHydrateFunction() {
     return (element, container, callback) => {
-        ReactDOM.render(element, container, callback)
+        ReactDOM?.render(element, container, callback)
     }
 }
 

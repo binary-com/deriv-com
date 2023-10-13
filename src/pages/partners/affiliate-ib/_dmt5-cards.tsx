@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Card, CardProps } from './_partner-card'
@@ -6,6 +6,7 @@ import { Table, TRAP, TRAPREVERSE, TC } from './_table'
 import { DMT5Props } from './_deriv-ib-programme'
 import { Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
+import useScrollToElement from 'features/hooks/use-scroll-to-element'
 import { Accordion, AccordionItem, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { Button } from 'components/form'
@@ -286,7 +287,7 @@ const StyledButton = styled(Button)`
 const DMT5Cards = ({ data }: DMT5Props) => {
     const dataImages = useStaticQuery(query)
     const [is_calculated, setCalculated] = React.useState(false)
-    const headerRef = useRef(null)
+    const clickToScrollHandler = useScrollToElement('affiliate-card', -100)
 
     const toggleCalculated = () => {
         setCalculated(!is_calculated)
@@ -294,17 +295,11 @@ const DMT5Cards = ({ data }: DMT5Props) => {
 
     const scrollToHeader = () => {
         setCalculated(!is_calculated)
-
-        if (headerRef.current) {
-            window.scrollTo({
-                top: headerRef.current.offsetTop - 100,
-                behavior: 'smooth',
-            })
-        }
+        clickToScrollHandler()
     }
 
     return (
-        <StyledCard ref={headerRef} padding="2.4rem 2.4rem 0" id="affiliate-card">
+        <StyledCard padding="2.4rem 2.4rem 0" id="affiliate-card">
             {!is_calculated ? (
                 <>
                     <CardWrappers>

@@ -17,7 +17,7 @@ import {
 import { LinkButton } from 'components/form'
 import { map_api_key, zoho_jobs_url } from 'common/constants'
 import { LocalizedLink } from 'components/localization'
-import MapPin from 'images/svg/careers/map.svg'
+import MapPin from 'images/svg/careers/career_map.svg'
 
 export const Pin = styled.img`
     width: 12px;

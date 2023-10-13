@@ -16,7 +16,7 @@ import {
 } from 'components/elements'
 import { LinkButton } from 'components/form'
 import { map_api_key, zoho_jobs_url } from 'common/constants'
-import MapPin from 'images/svg/careers/map.svg'
+import MapPin from 'images/svg/careers/career_map.svg'
 
 const StyledContainer = styled(CareerContainer)`
     flex-direction: column;

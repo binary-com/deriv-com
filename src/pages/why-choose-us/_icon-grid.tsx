@@ -6,13 +6,13 @@ import { Header, Text } from 'components/elements'
 import { Localize, LocalizedLink, localize } from 'components/localization'
 import { TString } from 'types/generics'
 // Icons
-import ProvenTrackRecord from 'images/svg/choose/wd-proven-track-record.svg'
-import LicensedRegulated from 'images/svg/choose/wd-licensed-regulated.svg'
-import ClientProtection from 'images/svg/choose/wd-client-money-protection.svg'
-import Risk from 'images/svg/choose/wd-risk.svg'
-import Help from 'images/svg/choose/wd-help.svg'
-import Safety from 'images/svg/choose/wd-your-safety.svg'
-import CustomerFirst from 'images/svg/choose/wd-customer-first-trading.svg'
+import ProvenTrackRecord from 'images/svg/why-choose-us/wd-proven-track-record.svg'
+import LicensedRegulated from 'images/svg/why-choose-us/wd-licensed-regulated.svg'
+import ClientProtection from 'images/svg/why-choose-us/why_us_client_money_protection.svg'
+import Risk from 'images/svg/why-choose-us/wd-risk.svg'
+import Help from 'images/svg/why-choose-us/wd-help.svg'
+import Safety from 'images/svg/why-choose-us/wd-your-safety.svg'
+import CustomerFirst from 'images/svg/why-choose-us/wd-customer-first-trading.svg'
 
 type ColProps = {
     Icon: string

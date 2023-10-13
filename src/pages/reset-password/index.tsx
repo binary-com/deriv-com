@@ -39,6 +39,20 @@ const InputGroup = styled.div`
 const StyledButton = styled(Button)`
     margin: 0.8rem 0.4rem;
 `
+export const withErrorBoundary = (WrappedComponent) => {
+    return function ErrorBoundary(props) {
+        const [error, setError] = useState(null)
+        if (error) {
+            return <div>An error occured:{error.toString()}</div>
+        }
+
+        try {
+            return <WrappedComponent {...props} />
+        } catch (err) {
+            setError(err)
+        }
+    }
+}
 
 const ResetPassword = () => {
     const [apiError, setApiError] = useState<string | null>('')

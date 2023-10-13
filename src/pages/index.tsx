@@ -1,4 +1,5 @@
 import React from 'react'
+import { withErrorBoundary } from './reset-password'
 import { WithIntl } from 'components/localization'
 import HomePage from 'features/pages/home'
 import { SEO } from 'components/containers'
@@ -8,7 +9,8 @@ const Home = () => {
     return <HomePage />
 }
 
-export default WithIntl()(Home)
+export default withErrorBoundary(Home)
+WithIntl()
 
 export const Head = ({ pageContext }: TGatsbyHead) => (
     <SEO

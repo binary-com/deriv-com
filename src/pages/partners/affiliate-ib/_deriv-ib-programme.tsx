@@ -171,9 +171,12 @@ const SubtitleHeader = styled(Header)`
     }
 `
 
+const tabs = ['MT5', 'cTrader', 'X']
+type TabType = (typeof tabs)[number]
+
 type ItemProps = {
-    active_tab: 'MT5' | 'cTrader' | 'X'
-    name: 'MT5' | 'cTrader' | 'X'
+    active_tab: TabType
+    name: TabType
 }
 
 const Item = styled.div<ItemProps>`
@@ -213,10 +216,8 @@ const Item = styled.div<ItemProps>`
     }
 `
 
-const tabs = ['MT5', 'cTrader', 'X']
-
 const DerivIBProgramme = () => {
-    const [activeTab, setActiveTab] = useState<'MT5' | 'cTrader' | 'X'>('MT5')
+    const [activeTab, setActiveTab] = useState<TabType>('MT5')
     const [is_mounted] = usePageLoaded()
 
     const handleTabClick = (tabName: ItemProps['name']) => {

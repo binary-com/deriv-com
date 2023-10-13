@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import RevenueShareCard from './revenue-share/_index'
 import TurnoverCard from './turnover/_index'
-import CpaEuOnlyCard from './cpa-eu-only/_index'
+import CpaEuClientsOnlyCard from './cpa-eu-clients-only/_index'
 import MasterAffilateCard from './master-affiliate/_index'
+import CpaEuCard from './cpa-eu/_index'
 import { StyledCardWrapper } from './_style'
 import { SectionContainer, Container } from 'components/containers'
 import { Header } from 'components/elements/typography'
@@ -102,7 +103,7 @@ const StyledSignupBtnWrap = styled.div`
 const DerivAffiliateProgramme = () => {
     const { is_eu } = useRegion()
     return (
-        <StyledSection>
+        <StyledSection id="deriv-affiliate">
             <ContentContainer direction="column">
                 <TitleWrapper>
                     <Header size="4.8rem" align="center" as="h2" mb="1.2rem">
@@ -127,10 +128,11 @@ const DerivAffiliateProgramme = () => {
                             <>
                                 <RevenueShareCard />
                                 <TurnoverCard />
+                                <CpaEuClientsOnlyCard />
+                                <MasterAffilateCard />
                             </>
                         )}
-                        <CpaEuOnlyCard />
-                        {!is_eu && <MasterAffilateCard />}
+                        {is_eu && <CpaEuCard />}
                     </StyledCardWrapper>
                     <StyledSignupBtnWrap>
                         <ApplyNow

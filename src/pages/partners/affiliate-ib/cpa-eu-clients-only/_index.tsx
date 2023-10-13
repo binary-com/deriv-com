@@ -2,7 +2,7 @@ import React from 'react'
 import CalculatedCard from './_calculated-card'
 import DefaultCard from './_default-card'
 
-const CpaEuOnlyCard = () => {
+const CpaEuClientsOnlyCard = () => {
     const [is_calculated, setCalculated] = React.useState(false)
 
     const toggleCalculated = () => {
@@ -13,4 +13,4 @@ const CpaEuOnlyCard = () => {
     return <DefaultCard toggleCalculated={toggleCalculated} />
 }
 
-export default CpaEuOnlyCard
+export default CpaEuClientsOnlyCard

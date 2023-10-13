@@ -20,6 +20,7 @@ import {
     address_vanuatu,
     address_hongkong,
     address_reading,
+    address_berlin,
 } from './_contact-details'
 import { LocationsType } from './_locations.types'
 import MalaysiaFlagIcon from 'images/svg/careers/flag_malaysia.svg'
@@ -524,16 +525,19 @@ export const berlin: LocationsType = {
     country: 'Germany',
     flagIcon: GermanyFlagIcon,
     thumbnail: 'thumbnail_berlin',
-    address: address_guernsey,
     first_p:
         'Deriv Services GmbH is our office at the heart of the European Union. Home to tech professionals, this agile office helps the Deriv Group with its most ambitious technological challenges to create future-proof online trading solutions.',
     first_img: 'living_in_berlin',
     first_img_alt: 'Working with Deriv’s Berlin team',
-    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'berlin_grid_3', 'guernsey_grid_4'],
-    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'berlin grid 3', 'guernsey grid 4'],
-    map: '',
+    grid_images: ['guernsey_grid_1', 'guernsey_grid_2', 'guernsey_grid_3', 'guernsey_grid_4'],
+    grid_img_alt: ['guernsey grid 1', 'guernsey grid 2', 'guernsey grid 3', 'guernsey grid 4'],
+    map: 'ChIJkzgDakBRqEcR_2nTpFNTjUQ',
+    address: address_berlin,
+    google_map_link: 'https://maps.app.goo.gl/hPyVpLLrynCf6NmEA',
     map_text:
-        'Our Berlin office is another strong base for Deriv fintech talent in Europe. The experts at this office tackle exciting projects to create Deriv’s next-gen products. Join our Germany team if you’re in search of a worthy challenge in your career.',
+        'At Deriv Services GmBH, collaboration among seasoned professionals drives success. Our team comprises enthusiastic and driven individuals who possess a wealth of expertise and a can-do attitude, making them capable of transforming innovative ideas into reality. If you share the same values, we invite you to join our team in Berlin.',
+    has_iframe: true,
+    has_map: true,
 }
 
 export const reading: LocationsType = {

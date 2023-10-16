@@ -1,7 +1,7 @@
 import React from 'react'
 import { nav_style, content_style } from './ctrader-wrapper.module.scss'
-import Logo from 'images/svg/ctrader/logo.svg'
-import Watermark from 'images/svg/ctrader/watermark.svg'
+import Logo from 'images/svg/ctrader/ctrader_logo.svg'
+import Watermark from 'images/svg/ctrader/ctrader_watermark.svg'
 import Flex from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { PaymentProps } from './_payment-data'
-import Chevron from 'images/svg/custom/chevron-thick.svg'
+import Chevron from 'images/svg/chevron_thick.svg'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'

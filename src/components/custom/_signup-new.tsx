@@ -1,7 +1,7 @@
 import React, { useState, CSSProperties } from 'react'
 import styled from 'styled-components'
 import AgreementLabel from './_agreement-label'
-import Apple from 'images/svg/custom/apple-signup.svg'
+import Apple from 'images/svg/components/component_apple_signup.svg'
 import Facebook from 'images/svg/custom/fb-signup.svg'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, LocalizedLinkText } from 'components/elements'

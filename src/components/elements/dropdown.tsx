@@ -11,7 +11,7 @@ import {
     useDropdown,
 } from 'components/hooks/use-dropdown'
 import { Text } from 'components/elements/typography'
-import { ReactComponent as Chevron } from 'images/svg/custom/chevron-bottom.svg'
+import { ReactComponent as Chevron } from 'images/svg/components/component_chevron_bottom.svg'
 import device from 'themes/device'
 import { Flex } from 'components/containers'
 

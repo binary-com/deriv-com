@@ -5,7 +5,7 @@ import { Text } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 // Icons
-import Close from 'images/svg/custom/close-2.svg'
+import Close from 'images/svg/components/component_close_2.svg'
 
 type EURedirectProps = {
     aria_label?: string

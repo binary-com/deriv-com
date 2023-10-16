@@ -5,7 +5,7 @@ import Link from 'features/components/atoms/link'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Image from 'features/components/atoms/image'
-import Arrow from 'images/svg/custom/chevron-right.svg'
+import Arrow from 'images/svg/components/component_chevron_right.svg'
 import './banner.styles.scss'
 
 const PublicSignupBanner = () => {

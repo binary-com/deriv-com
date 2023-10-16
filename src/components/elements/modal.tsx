@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import device from 'themes/device'
-import CloseSVG from 'images/svg/custom/close-2.svg'
+import CloseSVG from 'images/svg/components/component_close_2.svg'
 
 const Container = styled.div`
     position: fixed;

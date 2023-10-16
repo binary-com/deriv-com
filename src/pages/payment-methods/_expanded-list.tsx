@@ -4,7 +4,7 @@ import { PaymentProps } from './_payment-data'
 import { Button } from 'components/form/'
 import { Text } from 'components/elements'
 import { Localize } from 'components/localization'
-import Chevron from 'images/svg/custom/chevron-thick.svg'
+import Chevron from 'images/svg/chevron_thick.svg'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { TString } from 'types/generics'
 

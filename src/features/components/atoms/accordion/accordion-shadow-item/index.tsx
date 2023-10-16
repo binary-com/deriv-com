@@ -4,7 +4,7 @@ import type { AccordionItemProps } from '@radix-ui/react-accordion'
 import Typography from '../../typography'
 import Icon from '../../icon'
 import { TString } from 'types/generics'
-import Chevron from 'images/svg/custom/chevron-thick.svg'
+import Chevron from 'images/svg/chevron_thick.svg'
 import { Localize } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
 

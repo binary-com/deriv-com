@@ -6,8 +6,8 @@ import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 // SVG
-import Facebook from 'images/svg/custom/facebook.svg'
-import Google from 'images/svg/custom/google.svg'
+import Facebook from 'images/svg/components/component_facebook.svg'
+import Google from 'images/svg/components/component_google.svg'
 
 type SignupDefaultProps = {
     autofocus?: boolean

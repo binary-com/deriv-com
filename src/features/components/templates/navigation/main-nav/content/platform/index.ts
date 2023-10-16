@@ -1,16 +1,16 @@
 import { SmartNavContent, SmartNavSectionColumns } from '../../../types'
-import DerivcTrader from 'images/svg/custom/rebranding/deriv-ctrader-icon.svg'
-import BinaryBot from 'images/svg/custom/rebranding/binarybot-icon.svg'
-import DerivX from 'images/svg/custom/rebranding/deriv-x-icon.svg'
-import CFD from 'images/svg/custom/rebranding/cfds-icon.svg'
+import DerivcTrader from 'images/svg/components/component_deriv_ctrader_icon.svg'
+import BinaryBot from 'images/svg/binarybot_icon.svg'
+import DerivX from 'images/svg/deriv_x_icon.svg'
+import CFD from 'images/svg/components/component_cfds_icon.svg'
 import Multipliers from 'images/svg/custom/rebranding/multipliers-icon.svg'
 import Options from 'images/svg/custom/rebranding/options-icon.svg'
 import Smarttrader from 'images/svg/custom/rebranding/smarttrader-icon.svg'
-import DerivGo from 'images/svg/custom/rebranding/deriv-go-icon.svg'
+import DerivGo from 'images/svg/deriv_go_icon.svg'
 import DMT5 from 'images/svg/custom/rebranding/dmt5-icon.svg'
 import DTrader from 'images/svg/custom/rebranding/dtrader-icon.svg'
-import DerivEZ from 'images/svg/custom/rebranding/deriv-ez-icon.svg'
-import DerivBot from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
+import DerivEZ from 'images/svg/deriv_ez_icon.svg'
+import DerivBot from 'images/svg/deriv_bot_icon.svg'
 
 export const tradeTypesContent: SmartNavContent[] = [
     {

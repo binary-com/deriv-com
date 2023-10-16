@@ -11,8 +11,8 @@ import { deriv_app_url } from 'common/constants'
 import device from 'themes/device'
 // SVG
 import Apple from 'images/svg/components/component_apple.svg'
-import Facebook from 'images/svg/custom/facebook-blue.svg'
-import Google from 'images/svg/custom/google.svg'
+import Facebook from 'images/svg/components/component_facebook_blue.svg'
+import Google from 'images/svg/components/component_google.svg'
 import Arrow from 'images/svg/components/component_chevron_right.svg'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 

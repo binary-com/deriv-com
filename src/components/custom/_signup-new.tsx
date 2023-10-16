@@ -2,13 +2,13 @@ import React, { useState, CSSProperties } from 'react'
 import styled from 'styled-components'
 import AgreementLabel from './_agreement-label'
 import Apple from 'images/svg/components/component_apple_signup.svg'
-import Facebook from 'images/svg/custom/fb-signup.svg'
+import Facebook from 'images/svg/components/component_fb_signup.svg'
 import { Input, Button } from 'components/form'
 import { Header, LinkText, LocalizedLinkText } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
 // SVG
-import Google from 'images/svg/custom/google.svg'
+import Google from 'images/svg/components/component_google.svg'
 import useRegion from 'components/hooks/use-region'
 
 type SignupNewProps = {

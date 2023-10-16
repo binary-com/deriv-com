@@ -1,6 +1,6 @@
 import { SmartNavSectionColumns } from '../../../types'
-import Commodities from 'images/svg/custom/rebranding/commodities-icon.svg'
-import Cryptocurrencies from 'images/svg/custom/rebranding/cryptocurrencies-icon.svg'
+import Commodities from 'images/svg/components/component_commodities_icon.svg'
+import Cryptocurrencies from 'images/svg/components/component_cryptocurrencies_icon.svg'
 import DerivedFX from 'images/svg/custom/rebranding/derived-fx-icon.svg'
 import Forex from 'images/svg/custom/rebranding/forex-icon.svg'
 import ETF from 'images/svg/custom/rebranding/etf-icon.svg'

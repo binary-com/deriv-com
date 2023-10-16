@@ -30,7 +30,7 @@ jobs:
     - name: Checkout external repository with Cypress tests
       uses: actions/checkout@v4
       with:
-        repository: deriv-experiments/Cypress-demo  # Replace with your repository name
+        repository: deriv-com/e2e-deriv-com
 
     - name: Cypress run
       # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action

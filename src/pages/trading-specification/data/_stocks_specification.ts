@@ -23,7 +23,7 @@ const stocks_specification: TSpecification = {
     data: [
         {
             instrument: {
-                symbol: 'STOCKSAUS200',
+                symbol: 'AUS200',
                 swf_icon: true,
                 instrument: 'Australia 200',
             },
@@ -1351,7 +1351,7 @@ const stocks_specification: TSpecification = {
         },
         {
             instrument: {
-                symbol: 'STOCKSAUS200',
+                symbol: 'AUS200',
                 instrument: 'Australia 200',
             },
             contract_size: 1,

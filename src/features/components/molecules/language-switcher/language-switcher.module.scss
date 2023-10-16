@@ -6,6 +6,9 @@
     padding-inline-start: 2rem;
     padding-block: 2rem;
     outline: none;
+    background: transparent;
+    border: none;
+    padding-inline-end: 0;
 
     &:focus,
     &:visited,

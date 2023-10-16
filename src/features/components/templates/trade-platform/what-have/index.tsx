@@ -22,7 +22,7 @@ const TradingPlatformWhatHave = ({ items }: TradingPlatformWhatHaveProps) => {
                 return (
                     <FlexBox.Box
                         className={what_have_wrapper}
-                        key={content.id}
+                        key={content?.id}
                         direction={'col'}
                         margin_block={'10x'}
                         align={'center'}
@@ -32,14 +32,14 @@ const TradingPlatformWhatHave = ({ items }: TradingPlatformWhatHaveProps) => {
                     >
                         <FlexBox.Box direction={'col'} justify={'center'} className={flex_items}>
                             <Typography.Heading mb={'6x'} align="left" textcolor="primary" mr="5x">
-                                <Localize translate_text={content.title} />
+                                <Localize translate_text={content?.title} />
                             </Typography.Heading>
                             <Typography.Paragraph align={'left'} mb={'12x'} md={{ mb: '0x' }}>
-                                <Localize translate_text={content.subtitle} />
+                                <Localize translate_text={content?.subtitle} />
                             </Typography.Paragraph>
                         </FlexBox.Box>
                         <FlexBox.Box className={image_item} md={{ padding_inline: '40x' }}>
-                            {content.image}
+                            {content?.image}
                         </FlexBox.Box>
                     </FlexBox.Box>
                 )

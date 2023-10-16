@@ -54,7 +54,7 @@ const CheckEmailSteps = () => {
                 <Flex.Box key={item.id} gap="8x" justify="start" align="center">
                     <Icon size="xlarge" src={item.icon} alt={item.alt} />
                     <Typography.Paragraph>
-                        <Localize translate_text={item.content} />
+                        <Localize translate_text={item?.content} />
                     </Typography.Paragraph>
                 </Flex.Box>
             ))}

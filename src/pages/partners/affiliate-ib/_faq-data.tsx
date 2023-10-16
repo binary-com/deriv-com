@@ -257,7 +257,7 @@ const AffiliateGeneral = () => {
 }
 const AffiliateAccountManagement = () => (
     <ItemContainer>
-        <Header as="p" type="paragraph-1" mt="0.8rem">
+        <Header as="p" type="paragraph-1" mt="16px">
             <Localize translate_text="_t_I forgot my account password. What should I do?_t_" />
         </Header>
         <Header as="p" type="paragraph-1" mt="8px" weight="normal">
@@ -270,13 +270,13 @@ const AffiliateAccountManagement = () => (
             <Localize translate_text="_t_If you are still having issues, please contact our support team via _t_" />
             <LiveChatLinkText text="_t_live chat._t_" />
         </Header>
-        <Header as="p" type="paragraph-1" mt="0.8rem">
+        <Header as="p" type="paragraph-1" mt="16px">
             <Localize translate_text="_t_How do I change my affiliate payment method?_t_" />
         </Header>
         <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             <Localize translate_text="_t_In your affiliate dashboard, go to the “Finances” tab and select “Payment instructions” to change or set your preferred payment method._t_" />
         </Header>
-        <Header as="p" type="paragraph-1" mt="0.8rem">
+        <Header as="p" type="paragraph-1" mt="16px">
             <Localize translate_text="_t_How can I check how much commission I have earned?_t_" />
         </Header>
         <Header as="p" type="paragraph-1" mt="8px" weight="normal">
@@ -285,7 +285,7 @@ const AffiliateAccountManagement = () => (
         <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             <Localize translate_text="_t_You may also set your preferred filters like the time period when you view the report._t_" />
         </Header>
-        <Header as="p" type="paragraph-1" mt="0.8rem">
+        <Header as="p" type="paragraph-1" mt="16px">
             <Localize translate_text="_t_What kind of reports can I generate from my affiliate account?_t_" />
         </Header>
         <Header as="p" type="paragraph-1" mt="8px" weight="normal">

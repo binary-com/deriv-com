@@ -248,19 +248,6 @@ export const StyledCard = styled(Card)<FlexProps>`
     }
 `
 
-export const StyledCalculatedButton = styled(Button)`
-    display: block;
-    width: 100%;
-    border-radius: 4px;
-    margin-block-start: 24px;
-    padding-block: 7px;
-
-    @media ${device.tabletL} {
-        height: 40px;
-        margin-top: 40px;
-    }
-`
-
 export const StyledTrap = styled(TRAP)`
     background-color: var(--color-grey-39);
     padding: 1rem 0.8rem;
@@ -301,5 +288,23 @@ export const StyledCardWrapper = styled(Flex)`
     }
     @media ${device.laptopM} {
         flex-wrap: wrap;
+    }
+`
+
+export const StyledButtonWrap = styled.div`
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-block-start: 1.6rem;
+`
+
+export const StyledCalculatedButton = styled(Button)`
+    border: none;
+    color: var(--color-red);
+    font-size: 1.4rem;
+    background: none;
+
+    @media ${device.tabletL} {
+        font-size: 1.4rem;
     }
 `

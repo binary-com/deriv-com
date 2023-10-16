@@ -1,5 +1,11 @@
 import React from 'react'
-import { StyledCard, StyledCalculatedButton, StyledTrap, StyledText } from '../_style'
+import {
+    StyledCard,
+    StyledCalculatedButton,
+    StyledTrap,
+    StyledText,
+    StyledButtonWrap,
+} from '../_style'
 import { Table, TRAPREVERSE, TC } from '../_table'
 import { Localize } from 'components/localization'
 import { Header } from 'components/elements/typography'
@@ -88,11 +94,11 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                     </Li>
                 </Ul>
             </div>
-            <div>
-                <StyledCalculatedButton secondary onClick={toggleCalculated}>
+            <StyledButtonWrap>
+                <StyledCalculatedButton flat onClick={toggleCalculated}>
                     <Localize translate_text="_t_How it’s calculated_t_" />
                 </StyledCalculatedButton>
-            </div>
+            </StyledButtonWrap>
         </StyledCard>
     )
 }

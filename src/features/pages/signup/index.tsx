@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Analytics, AnalyticsData } from '../../../analytics'
+import { Analytics, AnalyticsData } from '@deriv/analytics'
 import { signup_wrapper } from './signup.module.scss'
 import SignUpContent from './signup.content'
 import SignUpFormContainer from './form-container'

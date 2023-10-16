@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { navigate } from 'gatsby'
-import { Analytics, AnalyticsData } from '../../analytics'
+import { Analytics, AnalyticsData } from '@deriv/analytics'
 import { getLanguage, isBrowser } from 'common/utility'
 import SignUpSuccessContainer from 'features/pages/signup-success'
 import { WithIntl } from 'components/localization'

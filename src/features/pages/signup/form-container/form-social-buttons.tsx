@@ -1,6 +1,6 @@
 import React from 'react'
+import { Analytics, AnalyticsData } from '@deriv/analytics'
 import { signup_apple_btn, signup_fb_btn, signup_login_redirect } from '../signup.module.scss'
-import { Analytics, AnalyticsData } from '../../../../analytics'
 import Login from 'common/login'
 import Button from 'features/components/atoms/button'
 import Flex from 'features/components/atoms/flex-box'

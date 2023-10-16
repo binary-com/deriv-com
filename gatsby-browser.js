@@ -1,8 +1,8 @@
 import React from 'react'
 import Cookies from 'js-cookie'
+import { Analytics } from '@deriv/analytics'
 import { isMobile } from 'react-device-detect'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
-import { Analytics } from './src/analytics'
 import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
@@ -89,7 +89,6 @@ export const onClientEntry = () => {
                 ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
                 : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
     })
-
     Analytics?.setAttributes({
         user_language: Cookies.get('user_language') || getLanguage(),
         device_language: (isBrowser() && navigator?.language) || ' ',
@@ -140,7 +139,7 @@ export const onClientEntry = () => {
 export const onRouteUpdate = () => {
     checkDomain()
     // can't be resolved by package function due the gatsby architecture
-    window?._growthbook?.setURL(window.location.href)
+    window?._growthbook?.GrowthBook?.setURL(window.location.href)
 
     const dataLayer = window.dataLayer
     const domain = getDomain()

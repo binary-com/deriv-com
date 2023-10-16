@@ -1,6 +1,6 @@
 import React from 'react'
 import dxIcon from '../../images/svg/deriv_x_icon.svg'
-import dtIcon from '../../images/svg/custom/rebranding/dtrader-icon.svg'
+import dtIcon from '../../images/svg/dtrader_icon.svg'
 import ezIcon from '../../images/svg/dmt5/ez-icon.svg'
 import dGoIcon from '../../images/svg/deriv_go_icon.svg'
 import dbIcon from '../../images/svg/dmt5/db-icon.svg'

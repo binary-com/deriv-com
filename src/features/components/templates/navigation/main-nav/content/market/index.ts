@@ -1,10 +1,10 @@
 import { SmartNavSectionColumns } from '../../../types'
 import Commodities from 'images/svg/components/component_commodities_icon.svg'
 import Cryptocurrencies from 'images/svg/components/component_cryptocurrencies_icon.svg'
-import DerivedFX from 'images/svg/custom/rebranding/derived-fx-icon.svg'
-import Forex from 'images/svg/custom/rebranding/forex-icon.svg'
-import ETF from 'images/svg/custom/rebranding/etf-icon.svg'
-import StockIndices from 'images/svg/custom/rebranding/stock-indices-icon.svg'
+import DerivedFX from 'images/svg/components/component_derived_fx_icon.svg'
+import Forex from 'images/svg/components/component_forex_icon.svg'
+import ETF from 'images/svg/components/component_etf_icon.svg'
+import StockIndices from 'images/svg/components/component_stock_indices_icon.svg'
 
 export const marketSectionContent: SmartNavSectionColumns[] = [
     {

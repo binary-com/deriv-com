@@ -4,8 +4,8 @@ import DerivedIndicesIcon from 'images/svg/home/ts_derived_icon.svg'
 import CommoditiesIcon from 'images/svg/home/ts_commodities_icon.svg'
 import StockIndicesIcon from 'images/svg/home/ts_stocks_icon.svg'
 // platforms icons
-import DTraderIcon from 'images/svg/custom/rebranding/dtrader-icon.svg'
-import SmartTraderIcon from 'images/svg/custom/rebranding/smarttrader-icon.svg'
+import DTraderIcon from 'images/svg/dtrader_icon.svg'
+import SmartTraderIcon from 'images/svg/smart_trader_icon.svg'
 import DerivBotIcon from 'images/svg/deriv_bot_icon.svg'
 import { OptionContentAvailability } from 'features/components/templates/options-content/type'
 

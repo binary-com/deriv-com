@@ -43,14 +43,14 @@ const WhatAreAccumulators = () => {
                 {accumulator_content.map((content, index) => (
                     <StyledBox
                         key={index}
-                        item_title={content.item_title}
-                        text={content.text}
+                        item_title={content?.item_title}
+                        text={content?.text}
                         icon={
                             <img
                                 width="48px"
                                 height="48px"
-                                src={content.src}
-                                alt={localize(content.alt)}
+                                src={content?.src}
+                                alt={localize(content?.alt)}
                             />
                         }
                     ></StyledBox>

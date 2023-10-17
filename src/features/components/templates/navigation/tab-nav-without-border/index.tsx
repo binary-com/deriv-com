@@ -46,7 +46,13 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
 
     return (
         <Container.Fluid pt={'20x'}>
-            <Flex.Box padding_block="10x" gap="3x" visible="phone-only" className={swiper_wrapper}>
+            <Flex.Box
+                padding_block="10x"
+                gap="3x"
+                visible="phone-only"
+                className={swiper_wrapper}
+                justify="center"
+            >
                 {tab_data.map((tab_item) => {
                     return (
                         <SwiperSlide key={tab_item.option_name} className={swiper_slide}>

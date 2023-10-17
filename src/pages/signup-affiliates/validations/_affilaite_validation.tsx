@@ -5,7 +5,7 @@ export const affiliate_validation_regex = {
     email: /^[a-z0-9]+@[a-z0-9]+[.][a-z]{2,}/,
     latin: /[^a-zA-Za 0-9-]/,
     name: /^[^a-zA-Z-]/,
-    user_name: /[^a-zA-Za 0-9/!@"?¨'_.,-]/,
+    user_name: /[^a-zA-Za 0-9!@"?¨'_.,-]/,
     password: /^(?=.*[a-z])(?=.*\d)(?=.*[A-Z])[ -~]*$/,
     address: /^[a-zA-Z 0-9/_.,-]*$/,
     postal_code: /^[a-zA-Z 0-9_.-]{5,10}$/,

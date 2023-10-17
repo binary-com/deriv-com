@@ -103,7 +103,7 @@ const Leverages = () => {
     return (
         <MainWrapper>
             <ParentWrapper>
-                {content.map(({ imgsrc, header, title }) => (
+                {content?.map(({ imgsrc, header, title }) => (
                     <EachWrapper key={title}>
                         <ImgWrapper src={imgsrc} />
                         <StyledHeader type="section-title">

@@ -58,7 +58,6 @@ import DECONG from 'images/svg/symbols/markets-stocks-and-indices/american-stock
 import DEDBK from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-deutsche-bank-ag.svg'
 import DELHAG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-deutsche-lufthansa-ag.svg'
 import DEPSHG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-porsche.svg'
-import DEPUMG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-puma.svg'
 import USAAL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-american-airlines-group-inc.svg'
 import AAPL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-apple.svg'
 import USABNB from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-airbnb.svg'
@@ -89,7 +88,6 @@ import USNKE from 'images/svg/symbols/markets-stocks-and-indices/american-stocks
 import USNVDA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-nvidia-corp.svg'
 import USPEP from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-pepsico.svg'
 import USPFE from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-pfizer.svg'
-import USPG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-procter-gamble.svg'
 import USPYPL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-paypal.svg'
 import USSONY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-sony.svg'
 import USTEVA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-teva-pharmaceutical-inds.svg'
@@ -106,7 +104,6 @@ import OTC_N225 from 'images/svg/symbols/markets-stocks-and-indices/asian-indice
 import US_100 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-tech-100.svg'
 import US_30 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/wall-street-30.svg'
 import OTC_SPC from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-500.svg'
-import OTC_AS51 from 'images/svg/symbols/markets-stocks-and-indices/asian-indices/aus-200.svg'
 //derived
 import R_10 from 'images/svg/symbols/index10-new.svg'
 import R_25 from 'images/svg/symbols/index25-new.svg'
@@ -238,7 +235,6 @@ export {
     DEDBK,
     DELHAG,
     DEPSHG,
-    DEPUMG,
     USAAL,
     AAPL,
     USABNB,
@@ -269,7 +265,6 @@ export {
     USNVDA,
     USPEP,
     USPFE,
-    USPG,
     USPYPL,
     USSONY,
     USTEVA,
@@ -286,7 +281,6 @@ export {
     US_100,
     US_30,
     OTC_SPC,
-    OTC_AS51,
     R_10,
     R_25,
     R_50,

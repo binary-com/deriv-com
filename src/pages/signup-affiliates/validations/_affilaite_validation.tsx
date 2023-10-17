@@ -5,6 +5,7 @@ export const affiliate_validation_regex = {
     email: /^[a-z0-9]+@[a-z0-9]+[.][a-z]{2,}/,
     latin: /[^a-zA-Za 0-9-]/,
     name: /^[^a-zA-Z-]/,
+    user_name: /[^a-zA-Za 0-9/!@"?¨'_.,-]/,
     password: /^(?=.*[a-z])(?=.*\d)(?=.*[A-Z])[ -~]*$/,
     address: /^[a-zA-Z 0-9/_.,-]*$/,
     postal_code: /^[a-zA-Z 0-9_.-]{5,10}$/,
@@ -28,8 +29,9 @@ const emailValidation = (input) => {
 }
 const userNameValidation = (input) => {
     if (!input) {
+        G
         return localize('_t_Username is required_t_')
-    } else if (affiliate_validation_regex.latin.test(input)) {
+    } else if (affiliate_validation_regex.user_name.test(input)) {
         return localize('_t_Only Latin characters_t_')
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
         return localize('_t_Empty input not available_t_')

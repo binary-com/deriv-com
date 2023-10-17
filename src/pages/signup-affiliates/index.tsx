@@ -56,6 +56,10 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
                 affiliate_account.phone_number.phone + affiliate_account.phone_number.prefix
             }`,
             whatsapp_number_phoneCode: Number(affiliate_account.phone_number.prefix),
+            company_name: affiliate_account.personal_details?.company_name,
+            company_registration_number: Number(
+                affiliate_account.personal_details?.company_registration_number,
+            ),
         })
 }
 

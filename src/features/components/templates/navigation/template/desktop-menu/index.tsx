@@ -3,6 +3,7 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu'
 import { useNavContext } from '../nav-context'
 import NavSingleItem from '../nav-single-item'
 import NavDesktopItem from './desktop.items'
+import useRegion from 'components/hooks/use-region'
 import { get_lang_direction } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
 import './styles.scss'
@@ -15,25 +16,29 @@ interface IDesktopNavbarProps {
 const DesktopMenu = ({ has_centered_items, has_start_aligned_items }: IDesktopNavbarProps) => {
     const [active, setActive] = useState('')
     const { link_items, drop_items } = useNavContext()
+    const { is_eu } = useRegion()
+    let additionalClasses = []
+
+    if (has_start_aligned_items) {
+        if (is_eu) {
+            additionalClasses = ['justify-center', 'margin-right-40x', 'padding-right-40x']
+        } else {
+            additionalClasses = ['justify-start', 'margin-left-36x']
+        }
+    } else if (has_centered_items) {
+        additionalClasses = ['justify-center']
+    } else {
+        additionalClasses = ['justify-end', 'margin-right-40x']
+    }
+
+    const classNames = ['navigation_root', ...additionalClasses]
 
     return (
         <NavigationMenu.Root
             dir={get_lang_direction()}
             value={active}
             onValueChange={setActive}
-            className={dclsx(
-                'navigation_root',
-                has_start_aligned_items
-                    ? 'justify-start'
-                    : has_centered_items
-                    ? 'justify-center'
-                    : 'justify-end',
-                has_start_aligned_items
-                    ? 'margin-left-36x'
-                    : has_centered_items
-                    ? undefined
-                    : 'margin-right-40x',
-            )}
+            className={dclsx(...classNames)}
         >
             <NavigationMenu.List className="navigation_list">
                 {drop_items.map((item) => (

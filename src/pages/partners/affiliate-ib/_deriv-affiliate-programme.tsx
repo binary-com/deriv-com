@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import RevenueShareCard from './revenue-share/_index'
 import TurnoverCard from './turnover/_index'
-import CpaEuClientsOnlyCard from './cpa-eu-clients-only/_index'
+import CpaEuForRow from './cpa-eu-for-row/_index'
 import MasterAffilateCard from './master-affiliate/_index'
 import CpaEuCard from './cpa-eu/_index'
 import { StyledCardWrapper } from './_style'
@@ -128,7 +128,7 @@ const DerivAffiliateProgramme = () => {
                             <>
                                 <RevenueShareCard />
                                 <TurnoverCard />
-                                <CpaEuClientsOnlyCard />
+                                <CpaEuForRow />
                                 <MasterAffilateCard />
                             </>
                         )}

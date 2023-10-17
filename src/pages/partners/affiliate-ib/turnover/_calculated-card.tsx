@@ -26,7 +26,9 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                             <Localize translate_text="_t_Based on the chart, the probability of return falls under 0.5% commission_t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
-                            <Localize translate_text="_t_Calculation is as follows:Total commission earned: 10 x 0.5% = USD 0.05_t_" />
+                            <Localize translate_text="_t_Calculation is as follows:_t_" />
+                            <br />
+                            <Localize translate_text="_t_Total commission earned: 10 x 0.5% = USD 0.05_t_" />
                         </Header>
                     </Li>
                 </Ul>
@@ -39,9 +41,9 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                             <Localize translate_text="_t_Client trades multipliers with a stake of USD 100. The commission generated from the client’s trade is USD 0.60._t_" />
                         </Header>
                         <Header as="p" weight="normal" mt="2.4rem">
-                            <Localize translate_text="_t_Total commission earned:_t_" />
+                            <Localize translate_text="_t_Calculation is as follows:_t_" />
                             <br />
-                            <Localize translate_text="_t_USD 0.60 * 40% = USD 0.24_t_" />
+                            <Localize translate_text="_t_Total commission earned: USD 0.60 * 40% = USD 0.24_t_" />
                         </Header>
                     </Li>
                 </Ul>
@@ -56,7 +58,7 @@ const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) 
                         <Header as="p" weight="normal" mt="2.4rem">
                             <Localize translate_text="_t_Calculation is as follows:_t_" />
                             <br />
-                            <Localize translate_text="_t_USD 10 * 0.8% = USD 0.08_t_" />
+                            <Localize translate_text="_t_Total commission earned: USD 10 * 0.8% = USD 0.08_t_" />
                         </Header>
                     </Li>
                 </Ul>

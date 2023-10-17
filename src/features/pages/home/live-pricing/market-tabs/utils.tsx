@@ -46,7 +46,7 @@ export const market_buttons: TMarketButtons[] = [
         button_text: 'ETFs',
         market_name: 'etfs',
         market_description:
-            '_t_Speculate on the price movements of popular exchange-traded funds (ETFs). Diversify your portfolio with assets that track bonds, commodities, and indices, without the high cost of owning the underlying assets._t_',
+            '_t_Fasih on the price movements of popular exchange-traded funds (ETFs). Diversify your portfolio with assets that track bonds, commodities, and indices, without the high cost of owning the underlying assets._t_',
         to: '/markets/exchange-traded-funds/',
     },
     {

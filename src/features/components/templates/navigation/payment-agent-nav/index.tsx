@@ -104,7 +104,8 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
             )}
             items={affiliateNavItems}
             has_top_nav
-            has_centered_items
+            has_centered_items={!is_prime_page}
+            has_start_aligned_items={is_prime_page}
         >
             <Flex.Box
                 direction="row-reverse"

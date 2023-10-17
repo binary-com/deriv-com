@@ -16,6 +16,7 @@ interface NavTemplateProps extends HTMLAttributes<HTMLDivElement> {
     has_top_nav?: boolean
     renderLogo: () => ReactNode
     has_centered_items?: boolean
+    has_start_aligned_items?: boolean
     has_centered_logo?: boolean
     render_bottom_nav?: () => ReactNode
     items?: NavItems
@@ -29,6 +30,7 @@ const NavTemplate = ({
     children,
     className,
     has_centered_items,
+    has_start_aligned_items,
     has_centered_logo,
 }: NavTemplateProps) => {
     const nav_wrapper_ref = useRef()
@@ -104,7 +106,10 @@ const NavTemplate = ({
                             <span ref={nav_wrapper_ref}>
                                 <MobileMenu has_top_nav={has_top_nav} />
                             </span>
-                            <DesktopMenu has_centered_items={has_centered_items} />
+                            <DesktopMenu
+                                has_start_aligned_items={has_start_aligned_items}
+                                has_centered_items={has_centered_items}
+                            />
                         </>
                     ) : null}
                     {children}

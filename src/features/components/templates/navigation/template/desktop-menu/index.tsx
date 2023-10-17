@@ -9,9 +9,10 @@ import './styles.scss'
 
 interface IDesktopNavbarProps {
     has_centered_items?: boolean
+    has_start_aligned_items?: boolean
 }
 
-const DesktopMenu = ({ has_centered_items }: IDesktopNavbarProps) => {
+const DesktopMenu = ({ has_centered_items, has_start_aligned_items }: IDesktopNavbarProps) => {
     const [active, setActive] = useState('')
     const { link_items, drop_items } = useNavContext()
 
@@ -22,8 +23,16 @@ const DesktopMenu = ({ has_centered_items }: IDesktopNavbarProps) => {
             onValueChange={setActive}
             className={dclsx(
                 'navigation_root',
-                has_centered_items ? 'justify-center' : 'justify-end',
-                has_centered_items ? undefined : 'margin-right-40x',
+                has_start_aligned_items
+                    ? 'justify-start'
+                    : has_centered_items
+                    ? 'justify-center'
+                    : 'justify-end',
+                has_start_aligned_items
+                    ? 'margin-left-36x'
+                    : has_centered_items
+                    ? undefined
+                    : 'margin-right-40x',
             )}
         >
             <NavigationMenu.List className="navigation_list">

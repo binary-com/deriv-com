@@ -19,7 +19,7 @@ export const americas: TMarketSymbol[] = [
 
 export const asia_oceania: TMarketSymbol[] = [
     {
-        src: icons.STOCKSAUS200,
+        src: icons.AUS200,
         text: '_t_Australia 200_t_',
     },
     {
@@ -691,7 +691,7 @@ export const stocks_american_indices: TMarketSymbol[] = [
 
 export const stocks_asian_indices: TMarketSymbol[] = [
     {
-        src: icons.STOCKSAUS200,
+        src: icons.AUS200,
         text: '_t_Australia 200_t_',
     },
     {

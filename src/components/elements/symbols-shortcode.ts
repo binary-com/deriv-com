@@ -96,7 +96,6 @@ import OTC_N225 from 'images/svg/symbols/markets-stocks-and-indices/asian-indice
 import OTC_NDX from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-tech-100.svg'
 import OTC_DJI from 'images/svg/symbols/markets-stocks-and-indices/american-indices/wall-street-30.svg'
 import OTC_SPC from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-500.svg'
-import OTC_AS51 from 'images/svg/symbols/markets-stocks-and-indices/asian-indices/aus-200.svg'
 //derived
 import R_10 from 'images/svg/symbols/index10-new.svg'
 import R_25 from 'images/svg/symbols/index25-new.svg'
@@ -268,7 +267,6 @@ export {
     OTC_NDX,
     OTC_DJI,
     OTC_SPC,
-    OTC_AS51,
     R_10,
     R_25,
     R_50,

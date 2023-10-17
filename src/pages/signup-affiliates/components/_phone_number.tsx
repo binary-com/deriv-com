@@ -65,6 +65,13 @@ const PhoneNumber = ({ updateData, onValidate, affiliate_account }: WizardStepPr
         setPhoneErrorMsg(affiliate_validation.phone(value))
     }
 
+    const input = document.getElementById('phone')
+    input?.addEventListener('keydown', function (e) {
+        if (['.', ',', '-', '+', 'e'].includes(e.key)) {
+            e.preventDefault()
+        }
+    })
+
     return (
         <>
             <Header as="div" align="center" type="paragraph-1" pb="24px" weight="normal">
@@ -82,6 +89,7 @@ const PhoneNumber = ({ updateData, onValidate, affiliate_account }: WizardStepPr
                 <PhoneNumberInput
                     required
                     id="phone"
+                    type="number"
                     value={phone}
                     error={phone_error_msg}
                     onChange={handlePhoneNumber}

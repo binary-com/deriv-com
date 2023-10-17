@@ -1,6 +1,6 @@
 import { SmartConnectivityTypeItemType } from './types'
-import FixApiIcon from 'images/svg/deriv-prime/fix_api.svg'
-import FastStableIcon from 'images/svg/deriv-prime/fast_stable.svg'
+import FixApiIcon from 'images/svg/deriv-prime/deriv_prime_fix_api.svg'
+import FastStableIcon from 'images/svg/deriv-prime/deriv_prime_fast_stable.svg'
 
 export const connectivity_items: SmartConnectivityTypeItemType[] = [
     {

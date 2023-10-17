@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import IconEasyAccess from 'images/svg/deriv-go/easy-access.svg'
+import IconEasyAccess from 'images/svg/deriv-go/deriv_go_easy_access.svg'
 import { SectionContainer, Container } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Header } from 'components/elements/typography'
 import device from 'themes/device'
-import Icon24_7 from 'images/svg/deriv-go/24-7.svg'
-import IconUserFriendly from 'images/svg/deriv-go/user-friendly.svg'
+import Icon24_7 from 'images/svg/deriv-go/deriv_go_24_7.svg'
+import IconUserFriendly from 'images/svg/deriv-go/deriv_go_user_friendly.svg'
 import BoxStyledGrid from 'components/custom/_box-styled-grid'
 
 const StyledHeader = styled(Header)`

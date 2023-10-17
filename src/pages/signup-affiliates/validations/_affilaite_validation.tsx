@@ -3,7 +3,7 @@ import { localize } from 'components/localization'
 
 export const affiliate_validation_regex = {
     email: /^[a-z0-9]+@[a-z0-9]+[.][a-z]{2,}/,
-    latin: /[^a-zA-Za 0-9/!@"?¨'_.,-]/,
+    latin: /[^a-zA-Za 0-9-]/,
     name: /^[^a-zA-Z-]/,
     password: /^(?=.*[a-z])(?=.*\d)(?=.*[A-Z])[ -~]*$/,
     address: /^[a-zA-Z 0-9/_.,-]*$/,

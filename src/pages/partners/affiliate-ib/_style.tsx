@@ -239,6 +239,7 @@ export const StyledCard = styled(Card)<FlexProps>`
     @media ${device.tabletL} {
         min-width: unset;
         padding: 24px 16px;
+        margin-inline: auto;
         ${(props) => props.tabletHeight && 'height:' + props.tabletHeight};
     }
 

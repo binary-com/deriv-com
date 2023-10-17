@@ -6,7 +6,7 @@ import { Li, Ul } from 'components/elements'
 
 const CalculatedCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => {
     return (
-        <StyledCard height="auto" tabletHeight="auto" padding="2.4rem" align_self="baseline">
+        <StyledCard height="auto" tabletHeight="auto" padding="2.4rem">
             <div>
                 <Header as="h4" type="sub-section-title" mb="0.8rem">
                     <Localize translate_text="_t_CPA_t_" />

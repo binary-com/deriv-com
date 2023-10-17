@@ -56,7 +56,7 @@ const companyNameValidation = (input, min_digit, max_digit) => {
     const length_error = localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
     if (!input) {
         return localize('_t_Company name is required_t_')
-    } else if (!/^\w{3,128}$/.test(input)) {
+    } else if (!/^[a-zA-Z0-9]+$/.test(input)) {
         return localize('_t_Incorrect company name_t_')
     } else if (!validation_is_exceed_number(input, max_digit)) {
         return length_error

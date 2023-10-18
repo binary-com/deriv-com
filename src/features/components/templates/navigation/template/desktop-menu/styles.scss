@@ -95,3 +95,8 @@
 .trade_landing_active {
     inset-inline-end: 5rem;
 }
+.nav_text_wrapper {
+    @include breakpoints(tablet) {
+        padding-block: 1.5rem;
+    }
+}

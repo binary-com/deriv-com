@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { Analytics } from '../../../../analytics'
 import { WizardProps } from '../_types'
 import AccountType from './_account-type'
 import AccountDetails from './_account-details'
@@ -9,6 +10,7 @@ import PersonalDetails from './_account-personal-details'
 import WizardComponent from './wizard-component'
 import { useResidenceList } from 'features/hooks/use-residence-list'
 import { Container } from 'components/containers'
+import { isBrowser } from 'common/utility'
 
 export const SignUpWrapper = styled(Container)`
     display: flex;
@@ -29,16 +31,33 @@ const Wizard = ({
     affiliate_account,
     setAffiliateAccount,
     onSubmit,
-    onAnalyticEvent,
 }: WizardProps) => {
     const [step, setStep] = useState(1)
     const [next_btn_enabled, setNextBtnEnabled] = useState<boolean>(false)
     const [residence_list] = useResidenceList()
 
+    const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
+        form_source: isBrowser() && window?.location.hostname,
+        form_name: 'default_diel_deriv',
+    }
+
+    useEffect(() => {
+        show_wizard &&
+            Analytics?.trackEvent('ce_partner_account_signup_form', {
+                action: 'open_wizard',
+                ...analyticsData,
+            })
+        return () => {
+            Analytics?.trackEvent('ce_partner_account_signup_form', {
+                action: 'close_wizard',
+                ...analyticsData,
+            })
+        }
+    }, [show_wizard])
+
     const updateAffiliateValues = (value, type) => {
         switch (type) {
             case 'account-type':
-                onAnalyticEvent('affiliates: account type')
                 setAffiliateAccount({
                     ...affiliate_account,
                     account: { type: value.type, plan: value.plan },
@@ -46,7 +65,6 @@ const Wizard = ({
                 break
 
             case 'account-details':
-                onAnalyticEvent('affiliates: account details')
                 setAffiliateAccount({
                     ...affiliate_account,
                     address_details: {
@@ -59,7 +77,6 @@ const Wizard = ({
                 })
                 break
             case 'phone-number':
-                onAnalyticEvent('affiliates: phone number')
                 setAffiliateAccount({
                     ...affiliate_account,
                     phone_number: {
@@ -69,7 +86,6 @@ const Wizard = ({
                 })
                 break
             case 'personal-details':
-                onAnalyticEvent('affiliates: personal details')
                 setAffiliateAccount({
                     ...affiliate_account,
                     personal_details: {
@@ -87,7 +103,6 @@ const Wizard = ({
                 })
                 break
             case 'terms-of-use':
-                onAnalyticEvent('affiliates: terms of use')
                 setAffiliateAccount({
                     ...affiliate_account,
                     terms_of_use: {

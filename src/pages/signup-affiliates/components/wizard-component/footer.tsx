@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Analytics } from '../../../../../analytics'
 import Button from 'components/form/button'
 import { Localize } from 'components/localization'
 import { WizardComponentTypes } from 'pages/signup-affiliates/_types'
+import { isBrowser } from 'common/utility'
 
 const StyledFooter = styled.div`
     display: flex;
@@ -33,13 +35,42 @@ const Footer = ({
     setNextBtnEnabled,
     next_btn_enabled,
 }: WizardComponentTypes) => {
+    const getCodeName = (num: number) => {
+        switch (num) {
+            case 1:
+                return 'Account type'
+            case 2:
+                return 'Address details'
+            case 3:
+                return 'Phone number'
+            case 4:
+                return 'Personal details'
+            case 5:
+                return 'Terms of use'
+        }
+    }
+    const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
+        form_source: isBrowser() && window?.location.hostname,
+        form_name: 'default_diel_deriv',
+        step_num: step,
+        step_codename: getCodeName(step),
+    }
+
     const buttonHandler = React.useCallback(
         (button_type: ButtonType): void => {
             if (button_type === ButtonType.Previous) {
+                Analytics?.trackEvent('ce_partner_account_signup_form', {
+                    action: 'step_back',
+                    ...analyticsData,
+                })
                 step > 1 && setStep(step - 1)
                 setNextBtnEnabled(true)
             }
             if (button_type === ButtonType.Next) {
+                Analytics?.trackEvent('ce_partner_account_signup_form', {
+                    action: 'step_passed',
+                    ...analyticsData,
+                })
                 step < max_step && setStep(step + 1)
                 setNextBtnEnabled(false)
             }

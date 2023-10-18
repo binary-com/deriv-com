@@ -1,5 +1,8 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
+import Cookies from 'js-cookie'
+import { isMobile } from 'react-device-detect'
+import { Analytics } from './analytics'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
@@ -10,6 +13,7 @@ import {
     getClientInformation,
     getDomain,
     getLanguage,
+    isBrowser,
     updateURLAsPerUserLanguage,
 } from 'common/utility'
 import './static/css/ibm-plex-sans-var.css'
@@ -77,6 +81,35 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
+    Analytics?.initialise({
+        growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
+        growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
+        enableDevMode: process.env.NODE_ENV !== 'production',
+        rudderstackKey:
+            process.env.NODE_ENV !== 'production'
+                ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
+                : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
+    })
+    Analytics?.setAttributes({
+        user_language: Cookies.get('user_language') || getLanguage(),
+        device_language: (isBrowser() && navigator?.language) || ' ',
+        device_type: isMobile ? 'mobile' : 'web',
+        country: (() => {
+            try {
+                return (
+                    JSON?.parse(JSON?.parse(Cookies?.get('website_status'))?.website_status)
+                        ?.clients_country || ' '
+                )
+            } catch (error) {
+                console.error('Error parsing country data:', error)
+            }
+        })(),
+    })
+    Analytics?.setCoreAnalyticsData({
+        language: getLanguage(),
+        device_type: isMobile ? 'mobile' : 'web',
+        account_type: 'VR',
+    })
     //datadog
     const dd_options = {
         clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,

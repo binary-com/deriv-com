@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
+import { Analytics } from '../../../analytics'
 import AffiliateSignupForm from './components/_signup-form'
 import { AffiliateAccountTypes, SignUpStatusTypes, SubmitTypes } from './_types'
 import { isBrowser } from 'common/utility'
@@ -9,7 +10,6 @@ import { Container } from 'components/containers'
 import useWS from 'components/hooks/useWS'
 import Layout from 'components/layout/layout'
 import AtomicContainer from 'features/components/atoms/container'
-import { useAnalyticsEvents } from 'features/hooks/analytic/use-analytic-events'
 import device from 'themes/device'
 import Map from 'images/svg/signup-affiliates/map.svg'
 
@@ -85,10 +85,24 @@ const AffiliateSignup = () => {
     const [show_wizard, setShowWizard] = useState<boolean>(false)
     const [is_online, setIsOnline] = useState(isBrowser() && navigator.onLine)
     const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>()
-    const { onAnalyticEvent } = useAnalyticsEvents('ce_affiliate_signup_form')
+
+    const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
+        form_source: isBrowser() && window?.location.hostname,
+        form_name: 'default_diel_deriv',
+    }
 
     useEffect(() => {
-        onAnalyticEvent('affiliates: registration started')
+        Analytics?.trackEvent('ce_partner_account_signup_form', {
+            action: 'open',
+            ...analyticsData,
+        })
+
+        return () => {
+            Analytics?.trackEvent('ce_partner_account_signup_form', {
+                action: 'close',
+                ...analyticsData,
+            })
+        }
     }, [])
 
     const [affiliate_account, setAffiliateAccount] = useState<AffiliateAccountTypes>({
@@ -146,19 +160,38 @@ const AffiliateSignup = () => {
         }
     }, [is_online])
     useEffect(() => {
-        if (affiliate_api_error?.error.message == 'Username not available') {
-            setSignupStatus(affiliate_api_error?.error.message)
+        const partner_signup_error_message = affiliate_api_error?.error.message
+        if (partner_signup_error_message == 'Username not available') {
+            Analytics?.trackEvent('ce_partner_account_signup_form', {
+                action: 'partners_signup_error',
+                partner_signup_error_message,
+                ...analyticsData,
+            })
+            setSignupStatus(partner_signup_error_message)
         } else if (
-            affiliate_api_error?.error.message == 'Your website is not a valid entry' ||
-            affiliate_api_error?.error.message ==
-                "String does not match '^[0-9A-Za-z.-]{5,250}$'" ||
-            affiliate_api_error?.error.message == 'Input validation failed: website_url'
+            partner_signup_error_message == 'Your website is not a valid entry' ||
+            partner_signup_error_message == "String does not match '^[0-9A-Za-z.-]{5,250}$'" ||
+            partner_signup_error_message == 'Input validation failed: website_url'
         ) {
+            Analytics?.trackEvent('ce_partner_account_signup_form', {
+                action: 'partners_signup_error',
+                partner_signup_error_message,
+                ...analyticsData,
+            })
             setSignupStatus('Your website is not a valid entry')
+        } else if (partner_signup_error_message) {
+            Analytics?.trackEvent('ce_partner_account_signup_form', {
+                action: 'other_error',
+                partner_signup_error_message,
+                ...analyticsData,
+            })
         }
         if (affiliate_api_data) {
+            Analytics?.trackEvent('ce_partner_account_signup_form', {
+                action: 'real_signup_finished',
+                ...analyticsData,
+            })
             setSignupStatus('success')
-            onAnalyticEvent('affiliates: registration done')
         }
     }, [affiliate_api_data, affiliate_api_error, affiliateSend])
     useEffect(() => {
@@ -191,7 +224,6 @@ const AffiliateSignup = () => {
                             affiliate_account={affiliate_account}
                             setAffiliateAccount={setAffiliateAccount}
                             onSubmit={onSubmit}
-                            onAnalyticEvent={onAnalyticEvent}
                         />
                     )}
                     <AffiliateSignupStatus

@@ -95,7 +95,6 @@ type SetShowWizardType = Dispatch<SetStateAction<boolean>>
 type WizardProps = {
     show_wizard: boolean
     setShowWizard: SetShowWizardType
-    onAnalyticEvent?: () => void
 } & AffiliateAccountProps
 
 type SignUpFormProps = {

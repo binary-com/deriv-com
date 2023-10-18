@@ -48,7 +48,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
         <Container.Fluid pt={'20x'}>
             <Flex.Box
                 padding_block="10x"
-                gap="3x"
+                gap="6x"
                 visible="phone-only"
                 className={swiper_wrapper}
                 justify="center"

@@ -1,0 +1,78 @@
+[
+    {
+        "fromPath": "/derivez",
+        "toPath": "/deriv-ez/"
+    },
+    {
+        "fromPath": "/derivez/",
+        "toPath": "/deriv-ez/"
+    },
+    {
+        "fromPath": "/responsible-trading",
+        "toPath": "/responsible/"
+    },
+    {
+        "fromPath": "/responsible-trading/",
+        "toPath": "/responsible/"
+    },
+    {
+        "fromPath": "/contact-us",
+        "toPath": "/contact_us/"
+    },
+    {
+        "fromPath": "/contact-us/",
+        "toPath": "/contact_us/"
+    },
+    {
+        "fromPath": "/contact/",
+        "toPath": "/contact_us/"
+    },
+    {
+        "fromPath": "/p2p/v1",
+        "toPath": "/p2p"
+    },
+    {
+        "fromPath": "/p2p/v2",
+        "toPath": "/p2p"
+    },
+    {
+        "fromPath": "/about",
+        "toPath": "/who-we-are/"
+    },
+    {
+        "fromPath": "/about/",
+        "toPath": "/who-we-are/"
+    },
+    {
+        "fromPath": "/story",
+        "toPath": "/who-we-are/"
+    },
+    {
+        "fromPath": "/story/",
+        "toPath": "/who-we-are/"
+    },
+    {
+        "fromPath": "/leadership/",
+        "toPath": "/who-we-are/"
+    },
+    {
+        "fromPath": "/leadership",
+        "toPath": "/who-we-are/"
+    },
+    {
+        "fromPath": "/trade-types/margin/",
+        "toPath": "/trade-types/cfds/"
+    },
+    {
+        "fromPath": "/trade-types/margin",
+        "toPath": "/trade-types/cfds/"
+    },
+    {
+        "fromPath": "/trade-types/options/",
+        "toPath": "/trade-types/options/digital-options/up-and-down/"
+    },
+    {
+        "fromPath": "/trade-types/options",
+        "toPath": "/trade-types/options/digital-options/up-and-down/"
+    }
+]

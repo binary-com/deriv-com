@@ -1,6 +1,6 @@
 import React from 'react'
 import { LoveTradingComponent, LoveTradingComponentProps } from '../_love-trading'
-import PlatformMt5 from 'images/svg/interim/bg-dmt5.svg'
+import PlatformMt5 from 'images/svg/interim/interim_bg-dmt5.svg'
 import PlatformMt5Mobile from 'images/common/interim/interim-mt5-mobile-bg.png'
 
 const content: LoveTradingComponentProps = {

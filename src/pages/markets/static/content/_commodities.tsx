@@ -1,9 +1,9 @@
 import { TMarket, TSimpleStepContent } from './_types'
-import FriendlySupport from 'images/svg/markets/forex/smart.svg'
-import MetalAndOil from 'images/svg/markets/precious-metals-and-oils-new.svg'
-import NoCommission from 'images/svg/markets/no-commission-new.svg'
-import ResponsiveWebsite from 'images/svg/markets/forex/responsive.svg'
-import VariableSpreads from 'images/svg/markets/variable-spreads-new.svg'
+import FriendlySupport from 'images/svg/markets/forex/forex_smart.svg'
+import MetalAndOil from 'images/svg/markets/market_precious_metals_and_oils_new.svg'
+import NoCommission from 'images/svg/markets/market_no_commission_new.svg'
+import ResponsiveWebsite from 'images/svg/markets/forex/forex_responsive.svg'
+import VariableSpreads from 'images/svg/markets/market_variable_spreads_new.svg'
 
 export const simple_step_content_commodities: TSimpleStepContent[] = [
     {

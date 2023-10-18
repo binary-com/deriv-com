@@ -1,7 +1,7 @@
 import React, { forwardRef, InputHTMLAttributes } from 'react'
 import Typography from '../../typography'
 import Image from '../../image'
-import CrossIcon from 'images/svg/help/cross.svg'
+import CrossIcon from 'images/svg/components/component_cross.svg'
 import { localize, Localize } from 'components/localization'
 import { TString } from 'types/generics'
 import dclsx from 'features/utils/dclsx'

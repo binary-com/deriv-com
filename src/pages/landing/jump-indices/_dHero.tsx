@@ -7,7 +7,7 @@ import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import device from 'themes/device'
-import GridSVG from 'images/svg/jump-indices/jump-indices-grid.svg'
+import GridSVG from 'images/svg/jump-indices/jump_indices_grid.svg'
 import JumpIndicesAnimation from 'lotties/JumpIndicesChart.json'
 
 const MainWrapper = styled(Flex)`

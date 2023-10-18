@@ -4,7 +4,7 @@ import { Flex } from 'components/containers'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
-import JumpSVG from 'images/svg/jump-indices/jump-indices-imagery.svg'
+import JumpSVG from 'images/svg/jump-indices/jump_indices_imagery.svg'
 
 const MainWrapper = styled(Flex)`
     background: var(--color-white);

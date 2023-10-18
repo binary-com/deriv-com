@@ -1,9 +1,9 @@
 import { BenefitTradeTypeItem } from 'features/components/organisms/markets/greyed-container/types'
-import ETF1 from 'images/svg/markets/etf_1.svg'
-import ETF2 from 'images/svg/markets/etf_2.svg'
-import ETF3 from 'images/svg/markets/etf_3.svg'
-import ETF4 from 'images/svg/markets/etf_4.svg'
-import ETF5 from 'images/svg/markets/etf_5.svg'
+import ETF1 from 'images/svg/markets/market_etf_1.svg'
+import ETF2 from 'images/svg/markets/market_etf_2.svg'
+import ETF3 from 'images/svg/markets/market_etf_3.svg'
+import ETF4 from 'images/svg/markets/market_etf_4.svg'
+import ETF5 from 'images/svg/markets/market_etf_5.svg'
 
 export const ETFTradeBenefitItems: BenefitTradeTypeItem[] = [
     {

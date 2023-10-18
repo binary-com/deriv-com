@@ -1,10 +1,10 @@
 import { CardType } from 'features/components/atoms/card/type'
 import Forex from 'images/svg/trade-types/forex.svg'
-import Derived from 'images/svg/markets/derived_markets.svg'
-import Stocks from 'images/svg/markets/stocks_markets.svg'
-import CryptoCurrencies from 'images/svg/markets/crypto_markets.svg'
-import Commodities from 'images/svg/markets/commodities_markets.svg'
-import ETFs from 'images/svg/markets/etfs.svg'
+import Derived from 'images/svg/markets/market_derived_markets.svg'
+import Stocks from 'images/svg/markets/market_stocks_markets.svg'
+import CryptoCurrencies from 'images/svg/markets/market_crypto_markets.svg'
+import Commodities from 'images/svg/markets/market_commodities_markets.svg'
+import ETFs from 'images/svg/markets/market_etfs.svg'
 import { TSmartContent } from 'types/generics'
 
 export type MarketPageType =

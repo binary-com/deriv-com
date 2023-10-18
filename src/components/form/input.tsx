@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { Text } from '../elements'
 import device from 'themes/device'
 // SVG Component
-import CrossIcon from 'images/svg/help/cross.svg'
+import CrossIcon from 'images/svg/components/component_cross.svg'
 
 interface ReactInput extends React.ComponentPropsWithoutRef<'input'> {
     height?: string

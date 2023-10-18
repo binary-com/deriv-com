@@ -1,14 +1,14 @@
 import React from 'react'
 import { TMarket, TSimpleStepContent } from './_types'
 import { localize } from 'components/localization'
-import RealWorld from 'images/svg/markets/real-world.svg'
-import TightSpreads from 'images/svg/markets/tight-spread-new.svg'
-import TwentyFourHourTrading from 'images/svg/jump-indices/jump-indices-24-7-trading.svg'
-import Deposit from 'images/svg/markets/deposit-and-withdrawal-new.svg'
-import FriendlySupport from 'images/svg/markets/forex/smart.svg'
-import ResponsiveWebsite from 'images/svg/markets/forex/platforms.svg'
-import PractiseIcon from 'images/svg/markets/aim-new.svg'
-import TradeIcon from 'images/svg/markets/trade-new.svg'
+import RealWorld from 'images/svg/markets/market_real_world.svg'
+import TightSpreads from 'images/svg/markets/market_tight_spread_new.svg'
+import TwentyFourHourTrading from 'images/svg/jump-indices/jump_indices_24_7_trading.svg'
+import Deposit from 'images/svg/markets/market_deposit_and_withdrawal_new.svg'
+import FriendlySupport from 'images/svg/markets/forex/forex_smart.svg'
+import ResponsiveWebsite from 'images/svg/markets/forex/forex_platforms.svg'
+import PractiseIcon from 'images/svg/markets/market_aim_new.svg'
+import TradeIcon from 'images/svg/markets/market_trade_new.svg'
 
 export const simple_step_content_derived: TSimpleStepContent[] = [
     {

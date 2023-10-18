@@ -1,8 +1,8 @@
 // markets icons
-import ForexIcon from 'images/svg/home/ts_fx_icon.svg'
-import DerivedIndicesIcon from 'images/svg/home/ts_derived_icon.svg'
-import CommoditiesIcon from 'images/svg/home/ts_commodities_icon.svg'
-import StockIndicesIcon from 'images/svg/home/ts_stocks_icon.svg'
+import ForexIcon from 'images/svg/home/home_ts_fx_icon.svg'
+import DerivedIndicesIcon from 'images/svg/home/home_ts_derived_icon.svg'
+import CommoditiesIcon from 'images/svg/home/home_ts_commodities_icon.svg'
+import StockIndicesIcon from 'images/svg/home/home_ts_stocks_icon.svg'
 // platforms icons
 import DTraderIcon from 'images/svg/dtrader_icon.svg'
 import SmartTraderIcon from 'images/svg/smart_trader_icon.svg'

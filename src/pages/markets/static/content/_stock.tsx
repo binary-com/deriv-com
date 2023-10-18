@@ -1,8 +1,8 @@
 import { TMarket, TSimpleStepContent } from './_types'
 import ExtendedTime from 'images/svg/stock-indices/stocks-extented-time.svg'
-import FriendlySupport from 'images/svg/markets/forex/smart.svg'
+import FriendlySupport from 'images/svg/markets/forex/forex_smart.svg'
 import MinimalCapital from 'images/svg/stock-indices/stocks-minimum-capital.svg'
-import ResponsiveWebsite from 'images/svg/markets/forex/platforms.svg'
+import ResponsiveWebsite from 'images/svg/markets/forex/forex_platforms.svg'
 import WithdrawIcon from 'images/svg/stock-indices/deposit-and-withdrawal-new.svg'
 
 export const simple_step_content_stock: TSimpleStepContent[] = [

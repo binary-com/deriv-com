@@ -6,7 +6,7 @@ import { Localize, localize, WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import device from 'themes/device'
 import { Header, Text } from 'components/elements'
-import Graph from 'images/svg/landing/graph.svg'
+import Graph from 'images/svg/landing/landing_graph.svg'
 import { TGatsbyHead } from 'features/types'
 
 const Wrapper = styled.section`

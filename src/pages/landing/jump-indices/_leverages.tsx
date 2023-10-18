@@ -6,8 +6,8 @@ import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import device from 'themes/device'
-import TradingIcon from 'images/svg/jump-indices/jump-indices-24-7-trading.svg'
-import LeverageIcon from 'images/svg/jump-indices/jump-indices-high-leverage.svg'
+import TradingIcon from 'images/svg/jump-indices/jump_indices_24_7_trading.svg'
+import LeverageIcon from 'images/svg/jump-indices/jump_indices_high_leverage.svg'
 import { ContentType } from 'pages/landing/_types'
 
 const MainWrapper = styled(Flex)`

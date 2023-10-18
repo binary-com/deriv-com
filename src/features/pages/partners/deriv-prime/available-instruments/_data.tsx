@@ -1,8 +1,8 @@
 import Forex from 'images/svg/trade-types/forex.svg'
-import Stocks from 'images/svg/markets/stocks_markets.svg'
-import CryptoCurrencies from 'images/svg/markets/crypto_markets.svg'
-import Commodities from 'images/svg/markets/commodities_markets.svg'
-import ETFs from 'images/svg/markets/etfs.svg'
+import Stocks from 'images/svg/markets/market_stocks_markets.svg'
+import CryptoCurrencies from 'images/svg/markets/market_crypto_markets.svg'
+import Commodities from 'images/svg/markets/market_commodities_markets.svg'
+import ETFs from 'images/svg/markets/market_etfs.svg'
 import { SmartOtherMarketsItem } from 'features/components/molecules/other-markets-slider/data'
 
 export const other_markets_items_deriv_prime: SmartOtherMarketsItem[] = [

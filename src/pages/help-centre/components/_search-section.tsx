@@ -11,8 +11,8 @@ import { Localize, localize } from 'components/localization'
 import { sanitize } from 'common/utility'
 import device from 'themes/device'
 // Icons
-import SearchIcon from 'images/svg/help/search.svg'
-import CrossIcon from 'images/svg/help/cross.svg'
+import SearchIcon from 'images/svg/help-center/help_center_search.svg'
+import CrossIcon from 'images/svg/components/component_cross.svg'
 
 const Section = styled.section`
     padding: 8rem 0;

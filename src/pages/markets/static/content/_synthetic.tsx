@@ -1,9 +1,9 @@
 import { TMarket, TSimpleStepContent } from './_types'
-import ExclusiveTradeType from 'images/svg/markets/exclusive-trade-types-another.svg'
-import MarketandRisk from 'images/svg/markets/market-and-risk-new.svg'
-import SevenTrading from 'images/svg/jump-indices/jump-indices-24-7-trading.svg'
-import FriendlySupport from 'images/svg/markets/forex/smart.svg'
-import ResponsiveWebsite from 'images/svg/markets/forex/platforms.svg'
+import ExclusiveTradeType from 'images/svg/markets/market_exclusive_trade_types_another.svg'
+import MarketandRisk from 'images/svg/markets/market_and_risk_new.svg'
+import SevenTrading from 'images/svg/jump-indices/jump_indices_24_7_trading.svg'
+import FriendlySupport from 'images/svg/markets/forex/forex_smart.svg'
+import ResponsiveWebsite from 'images/svg/markets/forex/forex_platforms.svg'
 
 export const simple_step_content_synthetic: TSimpleStepContent[] = [
     {

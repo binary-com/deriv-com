@@ -1,13 +1,13 @@
-import Icon24_7 from 'images/svg/deriv-x/24-7.svg'
-import IconMultipleMarketing from 'images/svg/deriv-x/multiple-marketing.svg'
-import IconNewPromising from 'images/svg/deriv-x/new-promising.svg'
-import MT5Icon from 'images/svg/deriv-x/mt5.svg'
-import DTIcon from 'images/svg/deriv-x/dt-icosn.svg'
-import EZIcon from 'images/svg/deriv-x/ez-icon.svg'
+import Icon24_7 from 'images/svg/deriv-x/deriv_x_24_7.svg'
+import IconMultipleMarketing from 'images/svg/deriv-x/deriv_x_multiple_marketing.svg'
+import IconNewPromising from 'images/svg/deriv-x/deriv_x_new_promising.svg'
+import MT5Icon from 'images/svg/deriv-x/deriv_x_mt5.svg'
+import DTIcon from 'images/svg/deriv-x/deriv_x_dt_icon.svg'
+import EZIcon from 'images/svg/deriv-x/deriv_x_ez_icon.svg'
 import DGoIcon from 'images/svg/deriv_go_icon.svg'
-import DBIcon from 'images/svg/deriv-x/db-icon.svg'
-import DerivXLogo from 'images/svg/deriv-x/derivX.svg'
-import DerivXBannerLogo from 'images/svg/deriv-x/deriv-x-banner-logo.svg'
+import DBIcon from 'images/svg/deriv-x/deriv_x_db_icon.svg'
+import DerivXLogo from 'images/svg/deriv-x/deriv_x.svg'
+import DerivXBannerLogo from 'images/svg/deriv-x/deriv_x_banner_logo.svg'
 
 export {
     Icon24_7,

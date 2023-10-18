@@ -1,6 +1,6 @@
 import React from 'react'
 import FooterSocialIcons from '../social-icons'
-import DerivFooterLogo from 'images/svg/layout/deriv_footer_logo.svg'
+import DerivFooterLogo from 'images/svg/layout/layout_deriv_footer_logo.svg'
 import Image from 'features/components/atoms/image'
 import Flex from 'features/components/atoms/flex-box'
 

@@ -1,9 +1,9 @@
 import { TMarket, TSimpleStepContent } from './_types'
 import Baskets from 'images/svg/stock-indices/baskets.svg'
-import AdvancedCharting from 'images/svg/markets/advanced-charting-widgets-new.svg'
+import AdvancedCharting from 'images/svg/markets/market_advanced_charting_widgets_new.svg'
 import Leverage from 'images/svg/stock-indices/stocks-high-leverage.svg'
-import ResponsiveWebsite from 'images/svg/markets/forex/platforms.svg'
-import WithdrawIcon from 'images/svg/markets/deposit-and-withdrawal-new.svg'
+import ResponsiveWebsite from 'images/svg/markets/forex/forex_platforms.svg'
+import WithdrawIcon from 'images/svg/markets/market_deposit_and_withdrawal_new.svg'
 
 export const simple_step_content_basket: TSimpleStepContent[] = [
     {

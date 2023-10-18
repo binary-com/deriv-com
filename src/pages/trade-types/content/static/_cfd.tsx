@@ -1,9 +1,9 @@
-import FriendlySupport from 'images/svg/markets/forex/smart.svg'
-import Tight from 'images/svg/markets/forex/tight.svg'
-import Favourite from 'images/svg/markets/forex/favourite.svg'
-import Golong from 'images/svg/markets/forex/go-long.svg'
-import Instant from 'images/svg/markets/forex/instant.svg'
-import SwapFree from 'images/svg/markets/forex/swap-free.svg'
+import FriendlySupport from 'images/svg/markets/forex/forex_smart.svg'
+import Tight from 'images/svg/markets/forex/forex_tight.svg'
+import Favourite from 'images/svg/markets/forex/forex_favourite.svg'
+import Golong from 'images/svg/markets/forex/forex_go_long.svg'
+import Instant from 'images/svg/markets/forex/forex_instant.svg'
+import SwapFree from 'images/svg/markets/forex/forex_swap_free.svg'
 import { TRegion, TString } from 'types/generics'
 
 type TCFD = {

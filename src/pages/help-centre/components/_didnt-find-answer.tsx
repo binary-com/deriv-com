@@ -5,8 +5,8 @@ import { Button } from 'components/form'
 import { Localize } from 'components/localization'
 import { useLivechat } from 'components/hooks/use-livechat'
 import device from 'themes/device'
-import ContactUsIcon from 'images/svg/help/livechat-red.svg'
-import WhatsAppSVG from 'images/svg/help/whatsapp.svg'
+import ContactUsIcon from 'images/svg/help-center/help_center_livechat-red.svg'
+import WhatsAppSVG from 'images/svg/help-center/help_center_whatsapp.svg'
 import { whatsapp_url } from 'common/constants'
 
 const DidntFindYourAnswerWrapper = styled.div`

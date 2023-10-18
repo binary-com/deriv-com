@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { Text, LocalizedLinkText } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
-import BinaryWhite from 'images/svg/interim/binary-white.svg'
-import BinaryBlue from 'images/svg/interim/binary.svg'
+import BinaryWhite from 'images/svg/interim/interim_binary-white.svg'
+import BinaryBlue from 'images/svg/interim/interim_binary.svg'
 
 type CtaBinaryProps = {
     is_white?: boolean

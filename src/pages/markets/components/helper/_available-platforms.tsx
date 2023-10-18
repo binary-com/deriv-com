@@ -12,7 +12,7 @@ import DBot from 'images/svg/deriv_bot_icon.svg'
 import DMT5 from 'images/svg/dmt5_icon.svg'
 import DTrader from 'images/svg/dtrader_icon.svg'
 import DerivGo from 'images/svg/deriv_go_icon.svg'
-import DerivEZ from 'images/svg/dtrader/ez-icon.svg'
+import DerivEZ from 'images/svg/dtrader/dtrader_ez_icon.svg'
 import useRegion from 'components/hooks/use-region'
 
 type AvailablePlatformsProps = {

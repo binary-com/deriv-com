@@ -1,8 +1,8 @@
 import React from 'react'
 import FloatingActionButton from './floating-action-button'
 import { useLivechat } from 'components/hooks/use-livechat'
-import LiveChatIC from 'images/svg/layout/livechat.svg'
-import LiveChatHover from 'images/svg/layout/livechat-hover.svg'
+import LiveChatIC from 'images/svg/layout/layout_livechat.svg'
+import LiveChatHover from 'images/svg/layout/layout_livechat_hover.svg'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const LiveChat = () => {

@@ -6,12 +6,12 @@ import Image from 'features/components/atoms/image'
 import Typography from 'features/components/atoms/typography'
 import FlexBox from 'features/components/atoms/flex-box'
 import useScreenSize from 'components/hooks/use-screen-size'
-import Botswana from 'images/svg/flags/botswana.svg'
-import India from 'images/svg/flags/india.svg'
-import Nigeria from 'images/svg/flags/nigeria.svg'
-import SriLanka from 'images/svg/flags/sri-lanka.svg'
-import Tanzania from 'images/svg/flags/tanzania.svg'
-import Zimbabwe from 'images/svg/flags/zimbabwe.svg'
+import Botswana from 'images/svg/flags/flag_botswana.svg'
+import India from 'images/svg/flags/flag_india.svg'
+import Nigeria from 'images/svg/flags/flag_nigeria.svg'
+import SriLanka from 'images/svg/flags/flag_sri-lanka.svg'
+import Tanzania from 'images/svg/flags/flag_tanzania.svg'
+import Zimbabwe from 'images/svg/flags/flag_zimbabwe.svg'
 
 type CountryProps = {
     name: TString

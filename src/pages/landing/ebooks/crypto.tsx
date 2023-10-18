@@ -9,7 +9,7 @@ import { Appearances } from 'components/custom/signup'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { WithIntl } from 'components/localization'
-import StocksIntroImage from 'images/svg/landing/crypto-intro.svg'
+import StocksIntroImage from 'images/svg/landing/landing_crypto_intro.svg'
 import { TString } from 'types/generics'
 import { TGatsbyHead } from 'features/types'
 

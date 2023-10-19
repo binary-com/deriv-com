@@ -1,9 +1,9 @@
 import React from 'react'
 import { TradingPlatformCardDataType } from 'features/components/templates/trade-platform/types'
 import Image from 'features/components/atoms/image'
-import MultipleAssets from 'images/svg/trading-platforms/ctrader/multiple-assets.svg'
-import AnyTime from 'images/svg/trading-platforms/deriv-ez/twenty-four-seven.svg'
-import SignIn from 'images/svg/trading-platforms/ctrader/sign-in.svg'
+import MultipleAssets from 'images/svg/ctrader/ctrader_multiple_assets.svg'
+import AnyTime from 'images/svg/deriv-ez/deriv_ez_twenty_four_seven2.svg'
+import SignIn from 'images/svg/ctrader/ctrader_sign_in.svg'
 import { localize } from 'components/localization'
 
 export const trading_platform_why_trade: TradingPlatformCardDataType[] = [

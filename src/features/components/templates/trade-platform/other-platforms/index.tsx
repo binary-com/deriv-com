@@ -16,8 +16,8 @@ import Typography from 'features/components/atoms/typography'
 import { Localize, localize } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
 import Image from 'features/components/atoms/image'
-import RightArrowIcon from 'images/svg/chevron-right.svg'
-import LeftArrowIcon from 'images/svg//chevron-left.svg'
+import RightArrowIcon from 'images/svg/chevron_right.svg'
+import LeftArrowIcon from 'images/svg//chevron_left.svg'
 import { FlexBoxProps } from 'features/components/atoms/flex-box/box'
 
 interface PropsType extends FlexBoxProps<'section'> {

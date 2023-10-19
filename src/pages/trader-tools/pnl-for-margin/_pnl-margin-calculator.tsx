@@ -54,7 +54,7 @@ import {
 import { Desktop, Mobile } from 'components/containers/visibility'
 import { Flex } from 'components/containers'
 import Input from 'components/form/input'
-import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import RightArrow from 'images/svg/trader-tools/trader_tools_black_right_arrow.svg'
 
 const PnlMarginCalculator = () => {
     const formik_ref = useRef(null)

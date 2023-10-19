@@ -7,7 +7,7 @@ import Image from 'features/components/atoms/image'
 import dclsx from 'features/utils/dclsx'
 import { TString } from 'types/generics'
 import { FlexBoxProps } from 'features/components/atoms/flex-box/box'
-import checkIcon from 'images/svg/check-circle.svg'
+import checkIcon from 'images/svg/check_circle.svg'
 
 export type TimelineItemType = {
     heading: TString

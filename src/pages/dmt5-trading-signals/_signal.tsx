@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Text, Header } from 'components/elements'
 import { SectionContainer, Flex } from 'components/containers'
 import device from 'themes/device'
-import { ReactComponent as Checklist } from 'images/svg/trade-types/checklist-red.svg'
+import { ReactComponent as Checklist } from 'images/svg/trade-types/trade_type_checklist_red.svg'
 import { TString } from 'types/generics'
 import { Localize } from 'components/localization'
 

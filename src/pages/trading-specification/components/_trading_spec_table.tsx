@@ -20,10 +20,10 @@ import {
     StyledButtonPage,
     StyledPaginationContainer,
 } from './_elements'
-import SearchNotFound from 'images/svg/trading-specification/search-not-found.svg'
-import RightChevron from 'images/svg/trading-specification/right-chevron.svg'
-import LeftChevron from 'images/svg/trading-specification/left-chevron.svg'
-import SearchIcon from 'images/svg/trading-specification/search-icon.svg'
+import SearchNotFound from 'images/svg/trading-specification/trading_spec_search_not_found.svg'
+import RightChevron from 'images/svg/trading-specification/trading_spec_right_chevron.svg'
+import LeftChevron from 'images/svg/trading-specification/trading_spec_left_chevron.svg'
+import SearchIcon from 'images/svg/trading-specification/trading_spec_search_icon.svg'
 import { Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import { Header } from 'components/elements'

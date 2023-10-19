@@ -1,9 +1,9 @@
-import Risk from 'images/svg/trade-types/risk.svg'
-import Exposure from 'images/svg/trade-types/exposure.svg'
-import Responsive from 'images/svg/trade-types/responsive.svg'
-import FriendlySupport from 'images/svg/trade-types/friendly-support.svg'
-import TradeAnytime from 'images/svg/trade-types/trade-anytime.svg'
-import Crash from 'images/svg/trade-types/crash.svg'
+import Risk from 'images/svg/trade-types/trade_type_risk.svg'
+import Exposure from 'images/svg/trade-types/trade_type_exposure.svg'
+import Responsive from 'images/svg/trade-types/trade_type_responsive.svg'
+import FriendlySupport from 'images/svg/trade-types/trade_type_friendly_support.svg'
+import TradeAnytime from 'images/svg/trade-types/trade_type_anytime.svg'
+import Crash from 'images/svg/trade-types/trade_type_crash.svg'
 import { TString } from 'types/generics'
 
 type multipliers_content = {

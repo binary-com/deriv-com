@@ -1,5 +1,5 @@
-import PayoutWin from 'images/svg/trade-types/options/accumulator/payout_win.svg'
-import PayoutKnockedOut from 'images/svg/trade-types/options/accumulator/payout_knocked_out.svg'
+import PayoutWin from 'images/svg/options/accumulator/option_accumulator_payout_win.svg'
+import PayoutKnockedOut from 'images/svg/options/accumulator/option_accumulator_payout_knocked_out.svg'
 import {
     OptionContentAvailability,
     OptionContentItemData,

@@ -14,7 +14,7 @@ import Container from 'features/components/atoms/container'
 import Image from 'features/components/atoms/image'
 import Flex from 'features/components/atoms/flex-box'
 import { getLocationPathname } from 'common/utility'
-import ArrowNext from 'images/svg/arrow-next.svg'
+import ArrowNext from 'images/svg/arrow_next.svg'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import dclsx from 'features/utils/dclsx'
 

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Text, ImageWithDireciton } from 'components/elements'
 import { Localize, LocalizedLink } from 'components/localization'
-import Arrow from 'images/svg/trade-types/arrow-right.svg'
+import Arrow from 'images/svg/trade-types/trade_type_arrow_right.svg'
 import device from 'themes/device'
 import { TString } from 'types/generics'
 

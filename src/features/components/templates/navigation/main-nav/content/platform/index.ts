@@ -1,16 +1,16 @@
 import { SmartNavContent, SmartNavSectionColumns } from '../../../types'
 import DerivcTrader from 'images/svg/components/component_deriv_ctrader_icon.svg'
 import BinaryBot from 'images/svg/binarybot_icon.svg'
-import DerivX from 'images/svg/deriv_x_icon.svg'
+import DerivX from 'images/svg/deriv-x/deriv_x_icon.svg'
 import CFD from 'images/svg/components/component_cfds_icon.svg'
 import Multipliers from 'images/svg/components/component_multipliers_icon.svg'
 import Options from 'images/svg/components/component_options_icon.svg'
 import Smarttrader from 'images/svg/smart_trader_icon.svg'
-import DerivGo from 'images/svg/deriv_go_icon.svg'
-import DMT5 from 'images/svg/dmt5_icon.svg'
-import DTrader from 'images/svg/dtrader_icon.svg'
-import DerivEZ from 'images/svg/deriv_ez_icon.svg'
-import DerivBot from 'images/svg/deriv_bot_icon.svg'
+import DerivGo from 'images/svg/deriv-go/deriv_go_icon.svg'
+import DMT5 from 'images/svg/dmt5/dmt5_icon2.svg'
+import DTrader from 'images/svg/dtrader/dtrader_icon2.svg'
+import DerivEZ from 'images/svg/deriv-ez/deriv_ez_icon.svg'
+import DerivBot from 'images/svg/dbot/deriv_bot_icon.svg'
 
 export const tradeTypesContent: SmartNavContent[] = [
     {

@@ -1,8 +1,8 @@
-import TouchLossIcon from 'images/svg/trade-types/options/digital/touch_loss.svg'
-import NoTouchWinIcon from 'images/svg/trade-types/options/digital/no-touch-win.svg'
-import TouchWinIcon from 'images/svg/trade-types/options/digital/touch_win.svg'
-import NoTouchLossIcon from 'images/svg/trade-types/options/digital/no-touch-loss.svg'
-import TouchNoTouchIcon from 'images/svg/trade-types/options/digital/touch-no-touch-icon.svg'
+import TouchLossIcon from 'images/svg/options/digital/option_digital_touch_loss.svg'
+import NoTouchWinIcon from 'images/svg/options/digital/option_digital_no_touch_win.svg'
+import TouchWinIcon from 'images/svg/options/digital/option_digital_touch_win.svg'
+import NoTouchLossIcon from 'images/svg/options/digital/option_digital_no_touch_loss.svg'
+import TouchNoTouchIcon from 'images/svg/options/digital/option_digital_touch_no_touch_icon.svg'
 import {
     OptionContentAvailability,
     OptionContentItemData,

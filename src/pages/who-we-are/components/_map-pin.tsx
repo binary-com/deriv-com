@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Localize, LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements'
-import { ReactComponent as Pin } from 'images/svg/who-we-are/pin.svg'
+import { ReactComponent as Pin } from 'images/svg/who-we-are/who_we_are_pin.svg'
 import device from 'themes/device'
 
 type PinWrapperProps = {

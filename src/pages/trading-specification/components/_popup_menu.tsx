@@ -19,7 +19,7 @@ import {
 } from './_elements'
 import { market_specification } from './_constants'
 import HowItsCalculated from './_howItsCalculated'
-import CloseIcon from 'images/svg/trading-specification/close-icon.svg'
+import CloseIcon from 'images/svg/trading-specification/trading_spec_close_icon.svg'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import { TString } from 'types/generics'

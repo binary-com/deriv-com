@@ -1,8 +1,8 @@
-import AppleIcon from 'images/svg/apple-icon.svg'
-import AppGalleryIcon from 'images/svg/appGallery-icon.svg'
-import AndroidIcon from 'images/svg/android-icon.svg'
+import AppleIcon from 'images/svg/apple_icon.svg'
+import AppGalleryIcon from 'images/svg/appGallery_icon.svg'
+import AndroidIcon from 'images/svg/android_icon.svg'
 import { DerivEzLogoRed, DerivEzQR } from 'images/svg/deriv-ez'
-import InfoIcon from 'images/svg/info-icon.svg'
+import InfoIcon from 'images/svg/info_icon.svg'
 import {
     deriv_go_huaweiappgallery_url,
     deriv_go_ios_url,

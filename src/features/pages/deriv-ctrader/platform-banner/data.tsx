@@ -5,12 +5,12 @@ import {
     ctrader_web_browser_url,
     ctrader_windows_url,
 } from 'common/constants'
-import CTraderLogo from 'images/svg/trading-platforms/ctrader/ctrader-main-logo.svg'
-import derivCTraderQR from 'images/svg/trading-platforms/ctrader/ctrader-qr-code.svg'
-import AndroidIcon from 'images/svg/android-icon.svg'
-import AppleIcon from 'images/svg/apple-icon.svg'
-import BrowserIcon from 'images/svg/browser-icon.svg'
-import WindowsIcon from 'images/svg/windows-icon.svg'
+import CTraderLogo from 'images/svg/ctrader/ctrader_main_logo.svg'
+import derivCTraderQR from 'images/svg/ctrader/ctrader_qr_code.svg'
+import AndroidIcon from 'images/svg/android_icon.svg'
+import AppleIcon from 'images/svg/apple_icon.svg'
+import BrowserIcon from 'images/svg/browser_icon.svg'
+import WindowsIcon from 'images/svg/windows_icon.svg'
 
 export const trading_platform_banner: BannerType = {
     information: {

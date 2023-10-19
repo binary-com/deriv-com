@@ -1,13 +1,13 @@
-import InOutIcon from 'images/svg/trade-types/options/digital/in-out-icon.svg'
-import EndsBetweenWinIcon from 'images/svg/trade-types/options/digital/ends-between-win.svg'
-import EndsBetweenLossIcon from 'images/svg/trade-types/options/digital/ends-between-loss.svg'
-import EndsOutsideWinIcon from 'images/svg/trade-types/options/digital/ends-outside-win.svg'
-import EndsoutsideLossIcon from 'images/svg/trade-types/options/digital/ends-outside-loss.svg'
-import InOutStaysIcon from 'images/svg/trade-types/options/digital/in-out-stays-icon.svg'
-import StaysBetweenWinIcon from 'images/svg/trade-types/options/digital/stays-between-win.svg'
-import StaysBetweenLossIcon from 'images/svg/trade-types/options/digital/stays-between-loss.svg'
-import GoesOutsideWinIcon from 'images/svg/trade-types/options/digital/goes-outside-win.svg'
-import GoesOutsideLossIcon from 'images/svg/trade-types/options/digital/goes-outside-loss.svg'
+import InOutIcon from 'images/svg/options/digital/option_digital_in_out_icon.svg'
+import EndsBetweenWinIcon from 'images/svg/options/digital/option_digital_ends_between_win.svg'
+import EndsBetweenLossIcon from 'images/svg/options/digital/option_digital_ends_between_loss.svg'
+import EndsOutsideWinIcon from 'images/svg/options/digital/option_digital_ends_outside_win.svg'
+import EndsoutsideLossIcon from 'images/svg/options/digital/option_digital_ends_outside_loss.svg'
+import InOutStaysIcon from 'images/svg/options/digital/option_digital_in_out_stays_icon.svg'
+import StaysBetweenWinIcon from 'images/svg/options/digital/option_digital_stays_between_win.svg'
+import StaysBetweenLossIcon from 'images/svg/options/digital/option_digital_stays_between_loss.svg'
+import GoesOutsideWinIcon from 'images/svg/options/digital/option_digital_goes_outside_win.svg'
+import GoesOutsideLossIcon from 'images/svg/options/digital/option_digital_goes_outside_loss.svg'
 import {
     OptionContentAvailability,
     OptionContentItemData,

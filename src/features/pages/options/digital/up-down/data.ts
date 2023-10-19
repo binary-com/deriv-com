@@ -1,13 +1,13 @@
-import RiseFallIcon from 'images/svg/trade-types/options/digital/up-down-rise-fall.svg'
-import RiseWinImg from 'images/svg/trade-types/options/digital/rise_win.svg'
-import RiseLoseImg from 'images/svg/trade-types/options/digital/rise_lose.svg'
-import FallWinImg from 'images/svg/trade-types/options/digital/fall_win.svg'
-import FallLoseImg from 'images/svg/trade-types/options/digital/fall_lose.svg'
-import HightLowerIcon from 'images/svg/trade-types/options/digital/up-down-higher-lower.svg'
-import HigherWinImg from 'images/svg/trade-types/options/digital/higher_win.svg'
-import HigherLossImg from 'images/svg/trade-types/options/digital/higher_loss.svg'
-import LowerWinImg from 'images/svg/trade-types/options/digital/lower_win.svg'
-import LowerLossImg from 'images/svg/trade-types/options/digital/lower_loss.svg'
+import RiseFallIcon from 'images/svg/options/digital/option_digital_up_down_rise_fall.svg'
+import RiseWinImg from 'images/svg/options/digital/option_digital_rise_win.svg'
+import RiseLoseImg from 'images/svg/options/digital/option_digital_rise_lose.svg'
+import FallWinImg from 'images/svg/options/digital/option_digital_fall_win.svg'
+import FallLoseImg from 'images/svg/options/digital/option_digital_fall_lose.svg'
+import HightLowerIcon from 'images/svg/options/digital/option_digital_up_down_higher_lower.svg'
+import HigherWinImg from 'images/svg/options/digital/option_digital_higher_win.svg'
+import HigherLossImg from 'images/svg/options/digital/option_digital_higher_loss.svg'
+import LowerWinImg from 'images/svg/options/digital/option_digital_lower_win.svg'
+import LowerLossImg from 'images/svg/options/digital/option_digital_lower_loss.svg'
 import {
     OptionContentAvailability,
     OptionContentItemData,

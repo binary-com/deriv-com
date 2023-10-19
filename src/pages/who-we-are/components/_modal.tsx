@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Localize, LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements'
-import Linkedin from 'images/svg/who-we-are/linkedin.svg'
+import Linkedin from 'images/svg/who-we-are/who_we_are_linkedin.svg'
 import device from 'themes/device'
 
 type ModalPropsType = {

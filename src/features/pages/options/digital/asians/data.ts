@@ -1,8 +1,8 @@
-import AsiansIcon from 'images/svg/trade-types/options/digital/asians-icon.svg'
-import AsianUpWinIcon from 'images/svg/trade-types/options/digital/asian-up-win.svg'
-import AsianUpLossIcon from 'images/svg/trade-types/options/digital/asian-up-loss.svg'
-import AsianDownWinIcon from 'images/svg/trade-types/options/digital/asian-down-win.svg'
-import AsianDownLossIcon from 'images/svg/trade-types/options/digital/asian-down-loss.svg'
+import AsiansIcon from 'images/svg/options/digital/option_digital_asians_icon.svg'
+import AsianUpWinIcon from 'images/svg/options/digital/option_digital_asian_up_win.svg'
+import AsianUpLossIcon from 'images/svg/options/digital/option_digital_asian_up_loss.svg'
+import AsianDownWinIcon from 'images/svg/options/digital/option_digital_asian_down_win.svg'
+import AsianDownLossIcon from 'images/svg/options/digital/option_digital_asian_down_loss.svg'
 import {
     OptionContentAvailability,
     OptionContentItemData,

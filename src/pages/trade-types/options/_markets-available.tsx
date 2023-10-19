@@ -6,10 +6,10 @@ import { SmallContainer, Card, MarketsItem } from '../components/_style'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
-import Forex from 'images/svg/trade-types/forex.svg'
-import Commodities from 'images/svg/trade-types/commodities.svg'
-import Derived from 'images/svg/trade-types/derived.svg'
-import StockIndices from 'images/svg/trade-types/stock-indices.svg'
+import Forex from 'images/svg/trade-types/trade_type_forex.svg'
+import Commodities from 'images/svg/trade-types/trade_type_commodities.svg'
+import Derived from 'images/svg/trade-types/trade_type_derived.svg'
+import StockIndices from 'images/svg/trade-types/trade_type_stock_indices.svg'
 
 const MobileCardHeader = styled(Flex)`
     margin-bottom: 0.8rem;

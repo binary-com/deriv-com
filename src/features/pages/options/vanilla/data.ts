@@ -1,8 +1,8 @@
-import CallPutIcon from 'images/svg/trade-types/options/vanilla/vanilla_call_put.svg'
-import CallPayout from 'images/svg/trade-types/options/vanilla/call_payout.svg'
-import CallNoPayout from 'images/svg/trade-types/options/vanilla/call_no_payout.svg'
-import PutPayout from 'images/svg/trade-types/options/vanilla/put_payout.svg'
-import PutNoPayout from 'images/svg/trade-types/options/vanilla/put_no_payout.svg'
+import CallPutIcon from 'images/svg/options/vanilla/option_vanilla_call_put.svg'
+import CallPayout from 'images/svg/options/vanilla/option_vanilla_call_payout.svg'
+import CallNoPayout from 'images/svg/options/vanilla/option_vanilla_call_no_payout.svg'
+import PutPayout from 'images/svg/options/vanilla/option_vanilla_put_payout.svg'
+import PutNoPayout from 'images/svg/options/vanilla/option_vanilla_put_no_payout.svg'
 import {
     OptionContentAvailability,
     OptionContentItemData,

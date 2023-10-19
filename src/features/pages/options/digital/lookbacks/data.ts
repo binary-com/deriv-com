@@ -1,9 +1,9 @@
-import HighCloseIcon from 'images/svg/trade-types/options/digital/high-close-icon.svg'
-import HighClose from 'images/svg/trade-types/options/digital/high-close.svg'
-import HighLowIcon from 'images/svg/trade-types/options/digital/high-low-icon.svg'
-import HighLow from 'images/svg/trade-types/options/digital/high-low.svg'
-import CloseLowIcon from 'images/svg/trade-types/options/digital/close-low-icon.svg'
-import CloseLow from 'images/svg/trade-types/options/digital/close-low.svg'
+import HighCloseIcon from 'images/svg/options/digital/option_digital_high_close_icon.svg'
+import HighClose from 'images/svg/options/digital/option_digital_high_close.svg'
+import HighLowIcon from 'images/svg/options/digital/option_digital_high_low_icon.svg'
+import HighLow from 'images/svg/options/digital/option_digital_high_low.svg'
+import CloseLowIcon from 'images/svg/options/digital/option_digital_close_low_icon.svg'
+import CloseLow from 'images/svg/options/digital/option_digital_close_low.svg'
 import {
     OptionContentAvailability,
     OptionContentItemData,

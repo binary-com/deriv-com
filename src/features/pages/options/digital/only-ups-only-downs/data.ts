@@ -1,8 +1,8 @@
-import OnlyUpsDownsIcon from 'images/svg/trade-types/options/digital/only-ups-downs-icon.svg'
-import OnlyUpsWin from 'images/svg/trade-types/options/digital/only-ups-win.svg'
-import OnlyUpsLoss from 'images/svg/trade-types/options/digital/only-ups-loss.svg'
-import OnlyDownsWin from 'images/svg/trade-types/options/digital/only-downs-win.svg'
-import OnlyDownsLoss from 'images/svg/trade-types/options/digital/only-down-loss.svg'
+import OnlyUpsDownsIcon from 'images/svg/options/digital/option_digital_only_ups_downs_icon.svg'
+import OnlyUpsWin from 'images/svg/options/digital/option_digital_only_ups_win.svg'
+import OnlyUpsLoss from 'images/svg/options/digital/option_digital_only_ups_loss.svg'
+import OnlyDownsWin from 'images/svg/options/digital/option_digital_only_downs_win.svg'
+import OnlyDownsLoss from 'images/svg/options/digital/option_digital_only_down_loss.svg'
 import {
     OptionContentAvailability,
     OptionContentItemData,

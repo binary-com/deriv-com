@@ -6,7 +6,7 @@ import Flex from 'features/components/atoms/flex-box'
 import Image from 'features/components/atoms/image'
 import Link from 'features/components/atoms/link'
 import Typography from 'features/components/atoms/typography'
-import Arrow from 'images/svg/trade-types/arrow-right.svg'
+import Arrow from 'images/svg/trade-types/trade_type_arrow_right.svg'
 import dclsx from 'features/utils/dclsx'
 
 type PlatformProps = {

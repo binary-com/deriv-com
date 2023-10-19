@@ -1,8 +1,8 @@
-import HighAndLowIcon from 'images/svg/trade-types/options/digital/high-and-low.svg'
-import HighWinIcon from 'images/svg/trade-types/options/digital/high-win.svg'
-import HighLossIcon from 'images/svg/trade-types/options/digital/high-loss.svg'
-import LowWinIcon from 'images/svg/trade-types/options/digital/low-win.svg'
-import LowLossIcon from 'images/svg/trade-types/options/digital/low-loss.svg'
+import HighAndLowIcon from 'images/svg/options/digital/option_digital_high_and_low.svg'
+import HighWinIcon from 'images/svg/options/digital/option_digital_high_win.svg'
+import HighLossIcon from 'images/svg/options/digital/option_digital_high_loss.svg'
+import LowWinIcon from 'images/svg/options/digital/option_digital_low_win.svg'
+import LowLossIcon from 'images/svg/options/digital/option_digital_low_loss.svg'
 import {
     OptionContentAvailability,
     OptionContentItemData,

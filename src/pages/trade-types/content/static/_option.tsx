@@ -1,7 +1,7 @@
-import Favourite from 'images/svg/trade-types/favourite.svg'
-import Instant from 'images/svg/trade-types/instant.svg'
-import UserFriendly from 'images/svg/trade-types/user-friendly.svg'
-import Flexible from 'images/svg/trade-types/flexible.svg'
+import Favourite from 'images/svg/trade-types/trade_type_favourite.svg'
+import Instant from 'images/svg/trade-types/trade_type_instant.svg'
+import UserFriendly from 'images/svg/trade-types/trade_type_user_friendly.svg'
+import Flexible from 'images/svg/trade-types/trade_type_flexible.svg'
 import { TString } from 'types/generics'
 
 type OptionsContentElement = {

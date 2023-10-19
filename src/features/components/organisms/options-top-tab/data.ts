@@ -6,7 +6,7 @@ import {
     AccumulatorslInActive,
     DigitalnActive,
     VanillaInActive,
-} from 'images/svg/trade-types/options/options-images'
+} from 'images/svg/options'
 export const tab_data: OptionNavigationType[] = [
     {
         src: DigitalnActive,

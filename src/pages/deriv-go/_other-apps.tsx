@@ -2,7 +2,7 @@ import React from 'react'
 import mt5Icon from '../../images/svg/deriv-go/deriv_go_mt5.svg'
 import dtIcon from '../../images/svg/deriv-go/deriv_go_dt_icon.svg'
 import ezIcon from '../../images/svg/deriv-go/deriv_go_ez_icon.svg'
-import dxIcon from '../../images/svg/deriv_x_icon.svg'
+import dxIcon from '../../images/svg/deriv-x/deriv_x_icon.svg'
 import dbIcon from '../../images/svg/deriv-go/deriv_go_db_icon.svg'
 import GenericCarousel, { TRenderableData } from 'components/custom/carousel/_platforms-carousel'
 

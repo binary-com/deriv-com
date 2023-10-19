@@ -7,28 +7,30 @@ import { SectionContainer, Flex, Container } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import DefinePosition from 'images/svg/trade-types/define-your-position.svg'
-import GetQuote from 'images/svg/trade-types/get-quote.svg'
-import PurchaseContract from 'images/svg/trade-types/purchase-your-contract.svg'
+import DefinePosition from 'images/svg/trade-types/trade_type_define_your_position.svg'
+import GetQuote from 'images/svg/trade-types/trade_type_get_quote.svg'
+import PurchaseContract from 'images/svg/trade-types/trade_type_purchase_your_contract.svg'
 
 const query = graphql`
     query {
-        option_market: file(relativePath: { eq: "trade-types/options-market.png" }) {
+        option_market: file(relativePath: { eq: "trade-types/trade_type_options_market.png" }) {
             ...fadeIn
         }
-        option_trade_type: file(relativePath: { eq: "trade-types/options-trade-type.png" }) {
+        option_trade_type: file(
+            relativePath: { eq: "trade-types/trade_type_options_trade_type.png" }
+        ) {
             ...fadeIn
         }
-        option_duration: file(relativePath: { eq: "trade-types/options-duration.png" }) {
+        option_duration: file(relativePath: { eq: "trade-types/trade_type_options_duration.png" }) {
             ...fadeIn
         }
-        option_stake: file(relativePath: { eq: "trade-types/options-stake.png" }) {
+        option_stake: file(relativePath: { eq: "trade-types/trade_type_options_stake.png" }) {
             ...fadeIn
         }
-        option_quote: file(relativePath: { eq: "trade-types/options-quote.png" }) {
+        option_quote: file(relativePath: { eq: "trade-types/trade_type_options_quote.png" }) {
             ...fadeIn
         }
-        option_purchase: file(relativePath: { eq: "trade-types/options-purchase.png" }) {
+        option_purchase: file(relativePath: { eq: "trade-types/trade_type_options_purchase.png" }) {
             ...fadeIn
         }
     }

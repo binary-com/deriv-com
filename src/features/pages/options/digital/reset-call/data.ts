@@ -1,12 +1,12 @@
-import ResetCallWinSecondary from 'images/svg/trade-types/options/digital/reset_call_win_2.svg'
-import ResetCallLossSecondary from 'images/svg/trade-types/options/digital/reset_call_loss_2.svg'
-import ResetLossIcon from 'images/svg/trade-types/options/digital/reset_call_loss.svg'
-import ResetCallWin from 'images/svg/trade-types/options/digital/reset_call_win.svg'
-import ResetRecallIcon from 'images/svg/trade-types/options/digital/reset-icon.svg'
-import ResetPutWinIcon from 'images/svg/trade-types/options/digital/reset-put-win.svg'
-import ResetPutLossIcon from 'images/svg/trade-types/options/digital/reset-put-loss.svg'
-import ResetPutWinIconSecondary from 'images/svg/trade-types/options/digital/reset-put-win-2.svg'
-import ResetPutLossIconSecondary from 'images/svg/trade-types/options/digital/reset-put-loss_2.svg'
+import ResetCallWinSecondary from 'images/svg/options/digital/option_digital_reset_call_win_2.svg'
+import ResetCallLossSecondary from 'images/svg/options/digital/option_digital_reset_call_loss_2.svg'
+import ResetLossIcon from 'images/svg/options/digital/option_digital_reset_call_loss.svg'
+import ResetCallWin from 'images/svg/options/digital/option_digital_reset_call_win.svg'
+import ResetRecallIcon from 'images/svg/options/digital/option_digital_reset_icon.svg'
+import ResetPutWinIcon from 'images/svg/options/digital/option_digital_reset_put_win.svg'
+import ResetPutLossIcon from 'images/svg/options/digital/option_digital_reset_put_loss.svg'
+import ResetPutWinIconSecondary from 'images/svg/options/digital/option_digital_reset_put_win_2.svg'
+import ResetPutLossIconSecondary from 'images/svg/options/digital/option_digital_reset_put_loss_2.svg'
 import {
     OptionContentAvailability,
     OptionContentItemData,

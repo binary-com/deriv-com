@@ -9,7 +9,7 @@ import {
     is_show_right,
     options_available_tab_item,
 } from './styles.module.scss'
-import LeftArrow from 'images/svg/arrow-previous.svg'
+import LeftArrow from 'images/svg/arrow_previous.svg'
 import { Localize, get_lang_direction } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import Link from 'features/components/atoms/link'
@@ -18,7 +18,7 @@ import Tab from 'features/components/atoms/tab'
 import Flex from 'features/components/atoms/flex-box'
 import { OptionNavigationType } from 'features/components/templates/navigation/tab-nav-without-border/types'
 import dclsx from 'features/utils/dclsx'
-import ArrowNext from 'images/svg/arrow-next.svg'
+import ArrowNext from 'images/svg/arrow_next.svg'
 import { getLocationPathname } from 'common/utility'
 import useScrollToActiveTab from 'features/hooks/use-scroll-to-active-tab'
 

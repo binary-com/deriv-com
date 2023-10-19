@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import { Text } from 'components/elements'
 import device from 'themes/device'
-import Info from 'images/svg/trade-types/info.svg'
+import Info from 'images/svg/trade-types/trade_type_info.svg'
 import { TString } from 'types/generics'
 import { Localize, localize } from 'components/localization'
 

@@ -1,10 +1,10 @@
 import { StartTradingType } from 'features/components/templates/start-trading'
 import { WhyTradeOptionsType } from 'features/components/templates/why-trade-options'
-import FlexibleLayoutIcon from 'images/svg/trade-types/options/options-images/why_trade_options/flexiable_layout.svg'
-import AllFavoriteIcon from 'images/svg/trade-types/options/options-images/why_trade_options/all_you_ favorite_markets.svg'
-import InstantAccessIcon from 'images/svg/trade-types/options/options-images/why_trade_options/Instant_access.svg'
-import AdvancedChartingWidgetsIcon from 'images/svg/trade-types/options/options-images/why_trade_options/advanced_charting_widgets.svg'
-import FlexibleTradeTypesIcon from 'images/svg/trade-types/options/options-images/why_trade_options/flexiable_trade_types.svg'
+import FlexibleLayoutIcon from 'images/svg/options/why-trade-options/option_why_trade_flexiable_layout.svg'
+import AllFavoriteIcon from 'images/svg/options/why-trade-options/option_why_trade_all_you_ favorite_markets.svg'
+import InstantAccessIcon from 'images/svg/options/why-trade-options/option_why_trade_instant_access.svg'
+import AdvancedChartingWidgetsIcon from 'images/svg/options/why-trade-options/option_why_trade_advanced_charting_widgets.svg'
+import FlexibleTradeTypesIcon from 'images/svg/options/why-trade-options/option_why_trade_flexiable_trade_types.svg'
 
 export const start_trading_data: StartTradingType = {
     heading: '_t_Start trading options on Deriv_t_',

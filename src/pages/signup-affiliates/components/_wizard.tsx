@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Analytics } from '../../../../analytics'
+import { Analytics } from '@deriv/analytics'
 import { WizardProps } from '../_types'
 import AccountType from './_account-type'
 import AccountDetails from './_account-details'

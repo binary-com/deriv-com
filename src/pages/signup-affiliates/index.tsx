@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
-import { Analytics } from '../../../analytics'
+import { Analytics } from '@deriv/analytics'
 import AffiliateSignupForm from './components/_signup-form'
 import { AffiliateAccountTypes, SignUpStatusTypes, SubmitTypes } from './_types'
 import { isBrowser } from 'common/utility'

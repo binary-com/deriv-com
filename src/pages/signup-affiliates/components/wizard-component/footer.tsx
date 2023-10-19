@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Analytics } from '../../../../../analytics'
+import { Analytics } from '@deriv/analytics'
 import Button from 'components/form/button'
 import { Localize } from 'components/localization'
 import { WizardComponentTypes } from 'pages/signup-affiliates/_types'

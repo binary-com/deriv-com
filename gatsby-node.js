@@ -4,7 +4,6 @@ const language_config_en = require(`./i18n-config-en.js`)
 const path = require('path')
 // Non-Translated routes redirection are done here in "redirects.json"
 const redirects = require('./redirects.json')
-const redirectslanguage = require('./languages-redirects.json')
 
 const translations_cache = {}
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
@@ -21,13 +20,13 @@ exports.onCreatePage = ({ page, actions }) => {
     // First delete the incoming page that was automatically created by Gatsby
     // So everything in src/pages/
     deletePage(page)
-    // const is_responsible_trading = /responsible/g.test(page.path)
-    // const is_contact_us = /contact_us/g.test(page.path)
-    // const is_p2p = /p2p/g.test(page.path)
-    // const who_we_are = /who-we-are/g.test(page.path)
-    // const is_cfds = /cfds/g.test(page.path)
-    // const is_deriv_ez = /deriv-ez/g.test(page.path)
-    // const is_options = /options/g.test(page.path)
+    const is_responsible_trading = /responsible/g.test(page.path)
+    const is_contact_us = /contact_us/g.test(page.path)
+    const is_p2p = /p2p/g.test(page.path)
+    const who_we_are = /who-we-are/g.test(page.path)
+    const is_cfds = /cfds/g.test(page.path)
+    const is_deriv_ez = /deriv-ez/g.test(page.path)
+    const is_options = /options/g.test(page.path)
 
     const is_english = process.env.GATSBY_LANGUAGE === 'en'
 
@@ -79,16 +78,141 @@ exports.onCreatePage = ({ page, actions }) => {
             })
         }
 
-        redirectslanguage.forEach((redirectslanguage) => {
+        if (is_responsible_trading) {
             createRedirect({
-                fromPath: `${lang}${redirectslanguage.fromPath}`,
-                toPath:`${lang}${redirectslanguage.toPath}`,
-                isPermanent: redirectslanguage.status === 301 ? true : false,
+                fromPath: `/${lang}/responsible-trading/`,
+                toPath: `/${lang}/responsible/`,
                 redirectInBrowser: true,
+                isPermanent: true,
             })
-            // console.log('redirectslanguage', `${lang}${redirectslanguage.fromPath}`,`${lang}${redirectslanguage.toPath}`)
-        })
-        
+            createRedirect({
+                fromPath: `/${lang}/responsible-trading`,
+                toPath: `/${lang}/responsible`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
+        if (is_contact_us) {
+            createRedirect({
+                fromPath: `/${lang}/contact-us/`,
+                toPath: `/${lang}/contact_us/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/contact/`,
+                toPath: `/${lang}/contact_us/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/contact-us`,
+                toPath: `/${lang}/contact_us`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
+        if (is_p2p) {
+            createRedirect({
+                fromPath: `/${lang}/p2p/v1`,
+                toPath: `/${lang}/p2p`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/p2p/v2`,
+                toPath: `/${lang}/p2p`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
+        if (who_we_are) {
+            createRedirect({
+                fromPath: `/${lang}/about/`,
+                toPath: `/${lang}/who-we-are/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/about`,
+                toPath: `/${lang}/who-we-are/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/story/`,
+                toPath: `/${lang}/who-we-are/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/story`,
+                toPath: `/${lang}/who-we-are/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/leadership/`,
+                toPath: `/${lang}/who-we-are/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/leadership`,
+                toPath: `/${lang}/who-we-are/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
+        if (is_cfds) {
+            createRedirect({
+                fromPath: `/${lang}/trade-types/margin/`,
+                toPath: `/${lang}/trade-types/cfds/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/trade-types/margin`,
+                toPath: `/${lang}/trade-types/cfds/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
+        if (is_options) {
+            createRedirect({
+                fromPath: `/${lang}/trade-types/options/`,
+                toPath: `/${lang}/trade-types/options/digital-options/up-and-down/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/trade-types/options`,
+                toPath: `/${lang}/trade-types/options/digital-options/up-and-down/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
+        if (is_deriv_ez) {
+            createRedirect({
+                fromPath: `/${lang}/derivez/`,
+                toPath: `/${lang}/deriv-ez/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+            createRedirect({
+                fromPath: `/${lang}/derivez`,
+                toPath: `/${lang}/deriv-ez/`,
+                redirectInBrowser: true,
+                isPermanent: true,
+            })
+        }
+
         return current_page
     })
 }

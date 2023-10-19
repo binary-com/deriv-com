@@ -23,7 +23,7 @@ export default WithIntl()(TurboOptionsPage)
 export const Head = ({ pageContext }: TGatsbyHead) => (
     <SEO
         title="_t_Turbo options | Trade options | Deriv_t_"
-        description="_t_Turbo options allow you to earn a potentially high payout if your market predictions are right and if the spot price does not touch or breach a predetermined barrier._t_"
+        description="_t_Start trading turbo options on Deriv Trader and earn a potentially high payout if your market predictions are correct._t_"
         pageContext={pageContext}
     >
         <script type="application/ld+json">{JSON.stringify(faq_schema)}</script>

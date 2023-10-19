@@ -27,11 +27,11 @@ export const turboOptionsContentItems: OptionContentItemData[] = [
                 images: [
                     {
                         src: LongPayout,
-                        alt: '_t_A chart illustrating a turbo long option trade payout_t_',
+                        alt: '_t_A chart illustrating a turbos long contract payout_t_',
                     },
                     {
                         src: LongNoPayout,
-                        alt: '_t_A chart illustrating a turbo long option trade with no payout_t_',
+                        alt: '_t_A chart illustrating a terminated turbos long contract_t_',
                     },
                 ],
                 texts: [
@@ -44,11 +44,11 @@ export const turboOptionsContentItems: OptionContentItemData[] = [
                 images: [
                     {
                         src: ShortPayout,
-                        alt: '_t_A chart illustrating a turbo short option trade payout_t_',
+                        alt: '_t_A chart illustrating a turbos short contract payout_t_',
                     },
                     {
                         src: ShortNoPayout,
-                        alt: '_t_A chart illustrating a turbo short option trade with no payout_t_',
+                        alt: '_t_A chart illustrating a terminated turbos short contract_t_',
                     },
                 ],
                 texts: [

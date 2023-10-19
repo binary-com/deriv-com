@@ -37,9 +37,9 @@ const TurboOptions = () => {
                 }}
                 className={why_turbo_section}
             >
-                <h4 className={dclsx('text-small')}>
+                <h3 className={dclsx('text-small')}>
                     <Localize translate_text="_t_Why traders choose turbo options_t_" />
-                </h4>
+                </h3>
                 <Typography.Paragraph size="small">
                     <Localize translate_text="_t_Turbo options can be considered a lower-cost or a higher-risk-and-return alternative to vanilla options. Though the odds of the contract expiring worthless can be high (which is when the contract expires without you earning a payout), your loss is strictly limited to your invested stake._t_" />
                 </Typography.Paragraph>

@@ -81,15 +81,18 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
+    console.log(
+        "window.location.hostname.includes('localhost')",
+        window.location.hostname.includes('localhost'),
+    )
     // @deriv/analytics
     Analytics?.initialise({
         growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
         growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
-        enableDevMode: process.env.NODE_ENV !== 'production',
-        rudderstackKey:
-            process.env.NODE_ENV !== 'production'
-                ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
-                : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
+        enableDevMode: window?.location.hostname.includes('localhost'),
+        rudderstackKey: window?.location.hostname.includes('localhost')
+            ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
+            : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
     })
     Analytics?.setAttributes({
         user_language: Cookies.get('user_language') || getLanguage(),
@@ -105,10 +108,6 @@ export const onClientEntry = () => {
                 console.error('Error parsing country data:', error)
             }
         })(),
-    })
-    Analytics?.setCoreAnalyticsData({
-        language: getLanguage(),
-        device_type: isMobile ? 'mobile' : 'web',
         account_type: 'VR',
     })
     //datadog

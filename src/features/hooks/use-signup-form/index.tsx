@@ -1,6 +1,6 @@
 import * as yup from 'yup'
 import Cookies from 'js-cookie'
-import { Analytics, AnalyticsData } from '@deriv/analytics'
+import { Analytics } from '@deriv/analytics'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { navigate } from 'gatsby'
@@ -42,8 +42,7 @@ const schema = yup.object({
 type FormData = yup.InferType<typeof schema>
 
 const useSignupForm = () => {
-    const analyticsData: AnalyticsData = {
-        event: 'ce_virtual_signup_form',
+    const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
         form_source: isBrowser() && window.location.hostname,
         form_name: 'default_diel_deriv',
     }
@@ -53,7 +52,7 @@ const useSignupForm = () => {
     })
 
     const onSignup = ({ email }: FormData) => {
-        Analytics?.track(analyticsData, 'started')
+        Analytics?.trackEvent('ce_virtual_signup_form', { action: 'started', ...analyticsData })
 
         const formatted_email = getVerifyEmailRequest(email)
         apiManager
@@ -71,7 +70,10 @@ const useSignupForm = () => {
                 navigate(success_link, { replace: true })
             })
             .catch((reason) => {
-                Analytics?.track(analyticsData, 'signup_flow_error')
+                Analytics?.trackEvent('ce_virtual_signup_form', {
+                    action: 'signup_flow_error',
+                    ...analyticsData,
+                })
                 signUpForm.setError('email', {
                     message: reason.error.code,
                 })

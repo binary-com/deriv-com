@@ -93,9 +93,21 @@ export const onClientEntry = () => {
         user_language: Cookies.get('user_language') || getLanguage(),
         device_language: (isBrowser() && navigator?.language) || ' ',
         device_type: isMobile ? 'mobile' : 'web',
-        country:
-            JSON.parse(JSON.parse(Cookies.get('website_status')).website_status).clients_country ||
-            ' ',
+        country: (() => {
+            try {
+                return (
+                    JSON?.parse(JSON?.parse(Cookies?.get('website_status'))?.website_status)
+                        ?.clients_country || ' '
+                )
+            } catch (error) {
+                console.error('Error parsing country data:', error)
+            }
+        })(),
+    })
+    Analytics?.setCoreAnalyticsData({
+        language: getLanguage(),
+        device_type: isMobile ? 'mobile' : 'web',
+        account_type: 'VR',
     })
     //datadog
     const dd_options = {

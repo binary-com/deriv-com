@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { navigate } from 'gatsby'
-import { Analytics, AnalyticsData } from '@deriv/analytics'
+import { Analytics } from '@deriv/analytics'
 import { getLanguage, isBrowser } from 'common/utility'
 import SignUpSuccessContainer from 'features/pages/signup-success'
 import { WithIntl } from 'components/localization'
@@ -9,8 +9,7 @@ import { TGatsbyHead } from 'features/types'
 
 const SignupSuccess = () => {
     const [registeredEmail, setRegisteredEmail] = useState('')
-    const analyticsData: AnalyticsData = {
-        event: 'ce_virtual_signup_form',
+    const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
         form_source: isBrowser() && window.location.hostname,
         form_name: 'default_diel_deriv',
     }
@@ -26,7 +25,10 @@ const SignupSuccess = () => {
                 navigate('/', { replace: true })
             }
         } else {
-            Analytics?.track(analyticsData, 'email_confirmation_sent')
+            Analytics?.trackEvent('ce_virtual_signup_form', {
+                action: 'email_confirmation_sent',
+                ...analyticsData,
+            })
         }
     }, [])
 

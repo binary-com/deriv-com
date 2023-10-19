@@ -1,4 +1,5 @@
 import React from 'react'
+import { createRoot } from 'react-dom/client'
 import Cookies from 'js-cookie'
 import { Analytics } from '@deriv/analytics'
 import { isMobile } from 'react-device-detect'
@@ -80,6 +81,7 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
+    // @deriv/analytics
     Analytics?.initialise({
         growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
         growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
@@ -174,6 +176,13 @@ export const onRouteUpdate = () => {
             }),
         })
     }, 1500)
+}
+
+export const replaceHydrateFunction = () => {
+    return (element, container) => {
+        const root = createRoot(container)
+        root.render(element)
+    }
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

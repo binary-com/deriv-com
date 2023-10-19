@@ -41,7 +41,7 @@ const Footer = ({ no_footer_links = false }: FooterProps) => {
                 >
                     {!no_footer_links && (
                         <Flex.Box justify="between" visible="larger-than-tablet">
-                            {content.map((contentItem) => (
+                            {content?.map((contentItem) => (
                                 <FooterLinksColumn key={contentItem.id} item={contentItem} />
                             ))}
                         </Flex.Box>

@@ -5,7 +5,7 @@ import { Header, Text } from 'components/elements'
 import { Localize } from 'components/localization'
 import { Container, Flex } from 'components/containers'
 import device from 'themes/device'
-import Quote from 'images/svg/testimonials/quote.svg'
+import Quote from 'images/svg/testimonials/testimonial_quote.svg'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
 

@@ -70,7 +70,7 @@ import {
     Text,
 } from 'components/elements'
 import Input from 'components/form/input'
-import RightArrow from 'images/svg/tools/black-right-arrow.svg'
+import RightArrow from 'images/svg/trader-tools/tools_black_right_arrow.svg'
 import useWS from 'components/hooks/useWS'
 
 const MarginCalculator = () => {

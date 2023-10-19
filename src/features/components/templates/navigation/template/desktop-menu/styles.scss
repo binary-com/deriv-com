@@ -97,6 +97,13 @@
 }
 .nav_text_wrapper {
     @include breakpoints(tablet) {
-        padding-block: 1.5rem;
+        position: relative;
+        &::before {
+            position: absolute;
+            content: '';
+            left: 0;
+            right: 0;
+            height: 50px;
+        }
     }
 }

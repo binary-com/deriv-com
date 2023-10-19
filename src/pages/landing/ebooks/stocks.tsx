@@ -7,7 +7,7 @@ import { useGrowthBook } from 'features/hooks/analytic/use-growthbook'
 import Layout from 'components/layout/layout'
 import { SEO } from 'components/containers'
 import { WithIntl } from 'components/localization'
-import StocksIntroImage from 'images/svg/stock-indices/stocksHeaderBelowSection.svg'
+import StocksIntroImage from 'images/svg/stock-indices/stock_header_below_section.svg'
 import { TString } from 'types/generics'
 import { TGatsbyHead } from 'features/types'
 

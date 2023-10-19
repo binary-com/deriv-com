@@ -5,10 +5,10 @@ import { Localize, localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
 // SVG
-import CloseAccount from 'images/svg/partners/pa-close-account.svg'
-import Comission from 'images/svg/partners/pa-comission.svg'
-import LoudSpeaker from 'images/svg/partners/icon-loudspeaker.svg'
-import WithdrawDeposit from 'images/svg/partners/pa-withdraw-deposit.svg'
+import CloseAccount from 'images/svg/partners/partner_pa_close_account.svg'
+import Comission from 'images/svg/partners/partner_pa_comission.svg'
+import LoudSpeaker from 'images/svg/partners/partner_icon_loudspeaker.svg'
+import WithdrawDeposit from 'images/svg/partners/partner_pa_withdraw_deposit.svg'
 import { TString } from 'types/generics'
 
 const Card = styled(Flex)`

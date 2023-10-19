@@ -12,7 +12,7 @@ import device from 'themes/device'
 import { SectionContainer } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
-import DotPattern from 'images/svg/partners/dot-pattern.svg'
+import DotPattern from 'images/svg/partners/partner_dot_pattern.svg'
 import { TString } from 'types/generics'
 import useRegion from 'components/hooks/use-region'
 

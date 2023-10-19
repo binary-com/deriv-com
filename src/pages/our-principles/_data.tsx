@@ -1,7 +1,7 @@
-import Reliable from 'images/svg/principles/reliable.svg'
-import Fair from 'images/svg/principles/fare.svg'
-import Transparent from 'images/svg/principles/transparent.svg'
-import Responsible from 'images/svg/principles/responsible.svg'
+import Reliable from 'images/svg/principles/principle_reliable.svg'
+import Fair from 'images/svg/principles/principle_fare.svg'
+import Transparent from 'images/svg/principles/principle_transparent.svg'
+import Responsible from 'images/svg/principles/principle_responsible.svg'
 import { TString } from 'types/generics'
 
 type PrinciplesType = {

@@ -13,7 +13,7 @@ import APIROW from 'images/svg/terms/api-users-row.svg'
 import BugBounty from 'images/svg/terms/bug-bounty.svg'
 import BugBountyRow from 'images/svg/terms/bug-bounty-row.svg'
 import IG from 'images/svg/terms/important-guidelines.svg'
-import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
+import PDF from 'images/svg/regulatory/regulatory_pdf_icon_black.svg'
 import useRegion from 'components/hooks/use-region'
 
 type ColProps = {

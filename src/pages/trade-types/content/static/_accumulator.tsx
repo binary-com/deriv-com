@@ -1,8 +1,8 @@
-import StraightForward from 'images/svg/options/straightforward.svg'
-import Significant from 'images/svg/options/significant.svg'
-import LowCapital from 'images/svg/options/low_capital.svg'
-import RiskManagement from 'images/svg/options/risk_management.svg'
-import TradeSmartly from 'images/svg/options/trade_smartly.svg'
+import StraightForward from 'images/svg/options/option_straightforward.svg'
+import Significant from 'images/svg/options/option_significant.svg'
+import LowCapital from 'images/svg/options/option_low_capital.svg'
+import RiskManagement from 'images/svg/options/option_risk_management.svg'
+import TradeSmartly from 'images/svg/options/option_trade_smartly.svg'
 import { TString } from 'types/generics'
 
 type AccumulatorContentProps = {

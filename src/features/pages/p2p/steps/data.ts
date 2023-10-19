@@ -1,10 +1,10 @@
 import { SmartStepItem } from './types'
-import RightAd from 'images/svg/p2p/right-ad.svg'
-import SettlePayment from 'images/svg/p2p/settle-payment.svg'
-import CompleteOrder from 'images/svg/p2p/complete-order.svg'
-import RightAdMobile from 'images/svg/p2p/right-ad-mobile.svg'
-import SettlePaymentMobile from 'images/svg/p2p/settle-payment-mobile.svg'
-import CompleteOrderMobile from 'images/svg/p2p/complete-order-mobile.svg'
+import RightAd from 'images/svg/p2p/p2p_right_ad.svg'
+import SettlePayment from 'images/svg/p2p/p2p_settle_payment.svg'
+import CompleteOrder from 'images/svg/p2p/p2p_complete_order.svg'
+import RightAdMobile from 'images/svg/p2p/p2p_right_ad_mobile.svg'
+import SettlePaymentMobile from 'images/svg/p2p/p2p_settle_payment_mobile.svg'
+import CompleteOrderMobile from 'images/svg/p2p/p2p_complete_order_mobile.svg'
 
 export const step_items: SmartStepItem[] = [
     {

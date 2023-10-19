@@ -5,9 +5,9 @@ import { Header, Text } from 'components/elements'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 // SVG
-import Hand from 'images/svg/partners/hand-icon.svg'
-import Lamp from 'images/svg/partners/lamp-icon.svg'
-import HiddenFee from 'images/svg/partners/hidden-fee-icon.svg'
+import Hand from 'images/svg/partners/partner_hand_icon.svg'
+import Lamp from 'images/svg/partners/partner_lamp_icon.svg'
+import HiddenFee from 'images/svg/partners/partner_hidden_fee_icon.svg'
 
 const Wrapper = styled(Flex)`
     flex-wrap: wrap;

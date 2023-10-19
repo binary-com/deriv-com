@@ -5,7 +5,7 @@ import { Text, Accordion, AccordionItem, LinkText } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
-import PDFIcon from 'images/svg/regulatory/pdf-icon-black.svg'
+import PDFIcon from 'images/svg/regulatory/regulatory_pdf_icon_black.svg'
 
 type DocumentAccordionProps = { locale: { language: string } }
 

@@ -5,9 +5,9 @@ import { Text } from 'components/elements'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import { Localize, localize } from 'components/localization'
 // SVG
-import CrashBoom from 'images/svg/options/crash-boom.svg'
-import JumpIndices from 'images/svg/options/jump-indices.svg'
-import VolatilityIndices from 'images/svg/options/volatility-indices.svg'
+import CrashBoom from 'images/svg/options/option_crash_boom.svg'
+import JumpIndices from 'images/svg/options/option_jump_indices.svg'
+import VolatilityIndices from 'images/svg/options/option_volatility_indices.svg'
 import useRegion from 'components/hooks/use-region'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 

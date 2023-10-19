@@ -4,9 +4,9 @@ import { SectionContainer, Container, Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { Localize } from 'components/localization'
 import device from 'themes/device'
-import GlobalAffiliate from 'images/svg/partners/global-affiliate-support.svg'
-import Advertise from 'images/svg/partners/advertise.svg'
-import HighValue from 'images/svg/partners/high-value-partnership.svg'
+import GlobalAffiliate from 'images/svg/partners/partner_global_affiliate_support.svg'
+import Advertise from 'images/svg/partners/partner_advertise.svg'
+import HighValue from 'images/svg/partners/partner_high_value_partnership.svg'
 
 type StyledContainerProps = {
     mw: string

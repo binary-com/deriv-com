@@ -4,10 +4,10 @@ import { Container, Flex, Box } from 'components/containers'
 import { Header, LocalizedLinkText, Text } from 'components/elements'
 import { localize, Localize } from 'components/localization'
 import device from 'themes/device'
-import InstallAntivirus from 'images/svg/responsible/install-latest-antivirus.svg'
-import DifferentPassword from 'images/svg/responsible/diff-password.svg'
-import PaymentMethod from 'images/svg/responsible/payment-method.svg'
-import SecureBrowser from 'images/svg/responsible/secure-browser.svg'
+import InstallAntivirus from 'images/svg/responsible/responsible_install_latest_antivirus.svg'
+import DifferentPassword from 'images/svg/responsible/responsible_diff_password.svg'
+import PaymentMethod from 'images/svg/responsible/responsible_payment_method.svg'
+import SecureBrowser from 'images/svg/responsible/responsible_secure_browser.svg'
 
 const Ul = styled(Flex).attrs({ as: 'ul' })`
     width: 100%;

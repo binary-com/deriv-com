@@ -8,12 +8,12 @@ import useRegion from 'components/hooks/use-region'
 import { Timeline } from 'components/elements'
 import device from 'themes/device'
 import { affiliate_signup_url } from 'common/constants'
-import TradingExperts from 'images/svg/partners/trading-experts.svg'
-import SoftwareDeveloper from 'images/svg/partners/software-developer.svg'
-import CommunityManagers from 'images/svg/partners/community-managers.svg'
-import Apply from 'images/svg/partners/apply.svg'
-import Advertise from 'images/svg/partners/advertise.svg'
-import Earn from 'images/svg/partners/earn.svg'
+import TradingExperts from 'images/svg/partners/partner_trading_experts.svg'
+import SoftwareDeveloper from 'images/svg/partners/partner_software_developer.svg'
+import CommunityManagers from 'images/svg/partners/partner_community_managers.svg'
+import Apply from 'images/svg/partners/partner_apply.svg'
+import Advertise from 'images/svg/partners/partner_advertise.svg'
+import Earn from 'images/svg/partners/partner_earn.svg'
 
 type ContentProps = {
     min_width?: string

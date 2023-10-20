@@ -6,7 +6,7 @@ import StockIndicesIcon from 'images/svg/home/home_ts_stocks_icon.svg'
 // platforms icons
 import DTraderIcon from 'images/svg/dtrader/dtrader_icon.svg'
 import SmartTraderIcon from 'images/svg/smart_trader_icon.svg'
-import DerivBotIcon from 'images/svg/dbot/deriv_bot_icon.svg'
+import DerivBotIcon from 'images/svg/dbot/dbot_icon5.svg'
 import { OptionContentAvailability } from 'features/components/templates/options-content/type'
 
 export type AllMarkets = 'forex' | 'derived_indices' | 'commodities' | 'stock_indices'

@@ -10,7 +10,7 @@ import DerivGo from 'images/svg/deriv-go/deriv_go_icon.svg'
 import DMT5 from 'images/svg/dmt5/dmt5_icon2.svg'
 import DTrader from 'images/svg/dtrader/dtrader_icon2.svg'
 import DerivEZ from 'images/svg/deriv-ez/deriv_ez_icon.svg'
-import DerivBot from 'images/svg/dbot/deriv_bot_icon.svg'
+import DerivBot from 'images/svg/dbot/dbot_icon5.svg'
 
 export const tradeTypesContent: SmartNavContent[] = [
     {

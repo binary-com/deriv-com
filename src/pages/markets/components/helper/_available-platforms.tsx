@@ -8,11 +8,11 @@ import { Localize, LocalizedLink } from 'components/localization'
 import device from 'themes/device'
 import SmartTrader from 'images/svg/smart_trader_icon.svg'
 import DerivX from 'images/svg/components/component_deriv_x.svg'
-import DBot from 'images/svg/dbot/deriv_bot_icon.svg'
+import DBot from 'images/svg/dbot/dbot_icon5.svg'
 import DMT5 from 'images/svg/dmt5/dmt5_icon2.svg'
 import DTrader from 'images/svg/dtrader/dtrader_icon2.svg'
 import DerivGo from 'images/svg/deriv-go/deriv_go_icon.svg'
-import DerivEZ from 'images/svg/dtrader/dtrader_ez_icon.svg'
+import DerivEZ from 'images/svg/deriv-ez/deriv_ez_icon4.svg'
 import useRegion from 'components/hooks/use-region'
 
 type AvailablePlatformsProps = {

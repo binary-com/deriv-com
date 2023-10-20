@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext, useMemo } from 'react'
+import React, { ReactNode, useContext, useState, useEffect } from 'react'
 import {
     NavItem,
     SmartMultiColumnItems,
@@ -33,25 +33,29 @@ export const isSingleItem = (item: NavItem): item is SmartSingleItem => {
 export const NavProvider = ({ is_menu_open, onCloseMenu, children, items }: NavProviderProps) => {
     const { is_mobile_or_tablet } = useBreakpoints()
     const { is_eu, is_row } = useRegion()
+    const [link_items, setLinkItems] = useState<SmartSingleItem[]>([])
+    const [drop_items, setDropItems] = useState<(SmartSingleColumnItems | SmartMultiColumnItems)[]>(
+        [],
+    )
 
     const visible_items = useVisibleContent({
         content: items,
         config: { is_mobile: is_mobile_or_tablet, is_eu, is_row },
     })
 
-    const { drop_items, link_items } = useMemo(() => {
-        const link_items: SmartSingleItem[] = []
-        const drop_items: (SmartSingleColumnItems | SmartMultiColumnItems)[] = []
-
+    useEffect(() => {
+        const links = []
+        const drops = []
         visible_items.forEach((item) => {
             if (isSingleItem(item)) {
-                link_items.push(item)
+                links.push(item)
             } else {
-                drop_items.push(item)
+                drops.push(item)
             }
         })
-        return { link_items, drop_items }
-    }, [visible_items])
+        setLinkItems(links)
+        setDropItems(drops)
+    }, [visible_items.length])
 
     return (
         <NavContext.Provider value={{ is_menu_open, onCloseMenu, link_items, drop_items }}>

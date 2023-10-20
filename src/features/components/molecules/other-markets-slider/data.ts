@@ -1,5 +1,5 @@
 import { CardType } from 'features/components/atoms/card/type'
-import Forex from 'images/svg/markets/forex_markets.svg'
+import Forex from 'images/svg/trade-types/forex.svg'
 import Derived from 'images/svg/markets/derived_markets.svg'
 import Stocks from 'images/svg/markets/stocks_markets.svg'
 import CryptoCurrencies from 'images/svg/markets/crypto_markets.svg'

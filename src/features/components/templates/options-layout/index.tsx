@@ -13,14 +13,24 @@ interface OptionsLayoutProps {
     children?: ReactNode
     heading: TString
     description: TString
+    is_coming_soon?: boolean
 }
 
-const OptionsLayout = ({ heading, description, children }: OptionsLayoutProps) => {
+const OptionsLayout = ({
+    heading,
+    description,
+    children,
+    is_coming_soon = false,
+}: OptionsLayoutProps) => {
     return (
         <Layout>
             <MainNav />
             <OptionsTopTab />
-            <WhatAreDigitalOptions heading={heading} description={description} />
+            <WhatAreDigitalOptions
+                heading={heading}
+                description={description}
+                is_coming_soon={is_coming_soon}
+            />
             {children}
             <WhyTradeOptions data={why_trade_options_data} />
             <StartTrading data={start_trading_data} />

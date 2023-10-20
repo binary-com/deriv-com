@@ -81,18 +81,12 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
-    const dev_condition = ['.pages.dev', 'git-fork', 'localhost']
-
-    console.log(
-        'dev_condition.some(condition => window.location.hostname.includes(condition))',
-        dev_condition.some((condition) => window.location.hostname.includes(condition)),
-    )
     // @deriv/analytics
     Analytics?.initialise({
         growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
         growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
         enableDevMode: window?.location.hostname.includes('localhost'),
-        rudderstackKey: dev_condition.some((condition) =>
+        rudderstackKey: ['.pages.dev', 'git-fork', 'localhost'].some((condition) =>
             window.location.hostname.includes(condition),
         )
             ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY

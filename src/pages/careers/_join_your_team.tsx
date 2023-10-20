@@ -22,32 +22,32 @@ const StyledCssGrid = styled(CssGrid)`
 
 const query = graphql`
     {
-        backendDevelopment: file(relativePath: { eq: "careers/Back-end-Development.png" }) {
+        backendDevelopment: file(relativePath: { eq: "careers/back_end_development.png" }) {
             ...fadeIn
         }
-        businessExcellence: file(relativePath: { eq: "careers/Business-Excellence.png" }) {
+        businessExcellence: file(relativePath: { eq: "careers/business_excellence.png" }) {
             ...fadeIn
         }
-        customerSupport: file(relativePath: { eq: "careers/Customer-Support.png" }) {
+        customerSupport: file(relativePath: { eq: "careers/customer_support.png" }) {
             ...fadeIn
         }
-        cyberSecurityIT: file(relativePath: { eq: "careers/Cyber-Security-IT.png" }) {
+        cyberSecurityIT: file(relativePath: { eq: "careers/cyber_security_IT.png" }) {
             ...fadeIn
         }
-        financeAccounts: file(relativePath: { eq: "careers/Finance-Accounts.png" }) {
+        financeAccounts: file(relativePath: { eq: "careers/finance_accounts.png" }) {
             ...fadeIn
         }
-        frontendDevelopment: file(relativePath: { eq: "careers/Front-end-Development.png" }) {
+        frontendDevelopment: file(relativePath: { eq: "careers/front_end_development.png" }) {
             ...fadeIn
         }
-        internalAudit: file(relativePath: { eq: "careers/Internal-Audit.png" }) {
+        internalAudit: file(relativePath: { eq: "careers/internal_audit.png" }) {
             ...fadeIn
         }
-        legalCompliance: file(relativePath: { eq: "careers/Legal-Compliance.png" }) {
+        legalCompliance: file(relativePath: { eq: "careers/legal_compliance.png" }) {
             ...fadeIn
         }
         marketingGlobalPartnerships: file(
-            relativePath: { eq: "careers/Marketing-Global-Partnerships.png" }
+            relativePath: { eq: "careers/marketing_global_partnerships.png" }
         ) {
             ...fadeIn
         }
@@ -56,22 +56,22 @@ const query = graphql`
         ) {
             ...fadeIn
         }
-        humanResources: file(relativePath: { eq: "careers/Human-Resources.png" }) {
+        humanResources: file(relativePath: { eq: "careers/human_resources.png" }) {
             ...fadeIn
         }
-        productDesignUX: file(relativePath: { eq: "careers/Product-Design-UX.png" }) {
+        productDesignUX: file(relativePath: { eq: "careers/product_design_UX.png" }) {
             ...fadeIn
         }
-        projectManagement: file(relativePath: { eq: "careers/Project-Management.png" }) {
+        projectManagement: file(relativePath: { eq: "careers/project_management.png" }) {
             ...fadeIn
         }
-        softwareTesting: file(relativePath: { eq: "careers/Software-Testing.png" }) {
+        softwareTesting: file(relativePath: { eq: "careers/software_testing.png" }) {
             ...fadeIn
         }
-        tradingOperations: file(relativePath: { eq: "careers/Trading-Operations.png" }) {
+        tradingOperations: file(relativePath: { eq: "careers/trading_operations.png" }) {
             ...fadeIn
         }
-        businessIntelligence: file(relativePath: { eq: "careers/Business-Intelligence.png" }) {
+        businessIntelligence: file(relativePath: { eq: "careers/business_intelligence.png" }) {
             ...fadeIn
         }
     }

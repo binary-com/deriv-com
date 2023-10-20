@@ -1,5 +1,5 @@
 import React from 'react'
-import mt5Icon from '../../images/svg/deriv-go/deriv_go_mt5.svg'
+import mt5Icon from '../../images/svg/dmt5/dmt5_logo2.svg'
 import dtIcon from '../../images/svg/deriv-go/deriv_go_dt_icon.svg'
 import ezIcon from '../../images/svg/deriv-go/deriv_go_ez_icon.svg'
 import dxIcon from '../../images/svg/deriv-x/deriv_x_icon.svg'

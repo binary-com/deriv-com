@@ -37,11 +37,14 @@ export const trade_types: TradeType[] = [
                 },
             },
             {
-                icon: DerivcTrader,
-                name: '_t_Deriv cTrader_t_',
-                link: {
-                    type: 'internal',
-                    to: '/deriv-ctrader',
+                id: 3,
+                data: {
+                    icon: DerivcTrader,
+                    name: '_t_Deriv cTrader_t_',
+                    link: {
+                        type: 'internal',
+                        to: '/deriv-ctrader',
+                    },
                 },
             },
         ],

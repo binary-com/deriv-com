@@ -29,7 +29,7 @@ const NavSectionColumn = ({ item }: NavSectionColumnProps) => {
 
     const content = useVisibleContent({ config: filter_config, content: item.data.section })
 
-    if (content.length) {
+    if (content?.length) {
         return (
             <Flex.Box
                 direction="col"

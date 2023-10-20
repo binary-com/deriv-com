@@ -56,7 +56,7 @@ const table_data: { th: TString; td: TString }[] = [
 const ControlLosses = () => (
     <>
         <Header size="16px" weight="normal" mb="1.6rem">
-            <Localize translate_text="_t_There are several ways to control your losses with DBot. Here’s a simple example of how you can implement loss control in your strategy:_t_" />
+            <Localize translate_text="_t_There are several ways to control your losses with Deriv Bot. Here’s a simple example of how you can implement loss control in your strategy:_t_" />
         </Header>
 
         <ImageCard src={LossesImage} alt="Control loss" width="70rem" />

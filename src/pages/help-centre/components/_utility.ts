@@ -10,6 +10,14 @@ export const convertToHash = (category: string, label: string, platform?: string
         return platform
             ? `/help-centre/dmt5/?platform=${platform}#${label}`
             : `/help-centre/dmt5/#${label}`
+    } else if (format_category.includes('dtrader')) {
+        return platform
+            ? `/help-centre/deriv-trader/?platform=${platform}#${label}`
+            : `/help-centre/deriv-trader/#${label}`
+    } else if (format_category.includes('dbot')) {
+        return platform
+            ? `/help-centre/deriv-bot/?platform=${platform}#${label}`
+            : `/help-centre/deriv-bot/#${label}`
     }
     return platform
         ? `/help-centre/${format_category}/?platform=${platform}#${label}`

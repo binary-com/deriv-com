@@ -622,17 +622,7 @@ const payment_data: PaymentDataProps[] = [
                     '_t_Deposit and withdraw in USD Coin, a cryptocurrency that’s pegged to USD._t_',
                 name: 'USDC',
             },
-            {
-                method: <StyledIcon src={Tether} alt="Tether Omni (USDT)" />,
-                currencies: 'Tether Omni (USDT)',
-                min_max_deposit: '_t_No minimum_t_',
-                min_max_withdrawal: '_t_24.88_t_',
-                deposit_time: '_t_Funds available as soon as confirmed_t_',
-                withdrawal_time: '_t_Subject to internal checks_t_',
-                description:
-                    '_t_Deposit and withdraw in Tether, a cryptocurrency that’s pegged to fiat currencies._t_',
-                name: 'UST',
-            },
+
             {
                 method: <StyledIcon src={Tether} alt="Tether ERC20 (eUSDT)" />,
                 currencies: 'Tether ERC20 (eUSDT)',

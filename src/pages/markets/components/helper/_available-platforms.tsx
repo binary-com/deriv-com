@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { smarttrader_url } from 'common/constants'
+import DerivcTrader from 'images/svg/trading-platforms/ctrader/ctrader-main-logo.svg'
 import { Flex } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Localize, LocalizedLink } from 'components/localization'
@@ -11,7 +12,7 @@ import DBot from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
 import DMT5 from 'images/svg/custom/rebranding/dmt5-icon.svg'
 import DTrader from 'images/svg/custom/rebranding/dtrader-icon.svg'
 import DerivGo from 'images/svg/custom/rebranding/deriv-go-icon.svg'
-import DerivEZ from 'images/svg/trading-specification/deriv-ez.svg'
+import DerivEZ from 'images/svg/dtrader/ez-icon.svg'
 import useRegion from 'components/hooks/use-region'
 
 type AvailablePlatformsProps = {
@@ -20,6 +21,7 @@ type AvailablePlatformsProps = {
     dtrader?: boolean
     dbot?: boolean
     smarttrader?: boolean
+    deriv_ctrader?: boolean
     derivx?: boolean
     deriv_ez?: boolean
     derivez?: boolean
@@ -31,8 +33,7 @@ type AvailablePlatformsProps = {
 const PlatformsContainer = styled.div<AvailablePlatformsProps>`
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    width: unset;
+    justify-content: space-between;
 
     a {
         text-decoration: none;
@@ -43,33 +44,14 @@ const PlatformsContainer = styled.div<AvailablePlatformsProps>`
         height: 24px;
         margin: 0 0.3rem;
     }
-    a:last-child {
-        margin-right: 0;
-        min-width: 95px;
-    }
-    @media ${device.mobileL} {
-        display: ${(props) => (props.tablet_direction ? 'grid' : 'flex')};
-        grid-template-columns: ${(props) => (props.tablet_direction ? 'repeat(2, 1fr)' : 'auto')};
-        grid-template-rows: ${(props) => (props.tablet_direction ? 'auto auto' : 'auto')};
-        grid-gap: ${(props) => (props.tablet_direction ? '1rem' : 'unset')};
 
-        ${(props) =>
-            props.tablet_direction &&
-            `
-          a:nth-child(1) {
-            grid-column: 1 / span 1;
-            grid-row: 1 / span 1;
-          }
-          a:nth-child(2) {
-            grid-column: 2 / span 1;
-            grid-row: 1 / span 1;
-          }
-          a:nth-child(3) {
-            grid-column: 1 / span 2;
-            grid-row: 2 / span 1;
-            text-align: center;
-          }
-        `}
+    @media ${device.mobileL} {
+        display: flex;
+        width: 90%;
+        justify-content: space-around;
+        a {
+            width: 45%;
+        }
     }
 `
 const StyledText = styled(Header)`
@@ -88,6 +70,10 @@ const StyledText = styled(Header)`
 `
 const StyledFlex = styled(Flex)`
     padding: 0.8rem;
+    @media ${device.mobileL} {
+        justify-content: start;
+        padding: 0.9rem;
+    }
 
     ${Text} {
         font-size: 14px;
@@ -103,6 +89,7 @@ const AvailablePlatforms = ({
     smarttrader,
     derivx,
     derivez,
+    deriv_ctrader,
     flex_direction,
     tablet_direction,
     m_top,
@@ -203,6 +190,16 @@ const AvailablePlatforms = ({
                             <embed src={DerivEZ} width="24" height="24" />
                             <Text ml="0.4rem">
                                 <Localize translate_text="_t_Deriv EZ_t_" />
+                            </Text>
+                        </StyledFlex>
+                    </LocalizedLink>
+                )}
+                {deriv_ctrader && (
+                    <LocalizedLink to="/deriv-ctrader/">
+                        <StyledFlex direction="row" ai="center">
+                            <embed src={DerivcTrader} width="24" height="24" />
+                            <Text ml="0.4rem">
+                                <Localize translate_text="_t_Deriv cTrader_t_" />
                             </Text>
                         </StyledFlex>
                     </LocalizedLink>

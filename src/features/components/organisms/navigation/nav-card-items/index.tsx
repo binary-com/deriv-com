@@ -31,7 +31,7 @@ const NavCardItems = ({ items }: NavCardItemsProps) => {
 
     return (
         <>
-            {content.map(({ id, data }) => {
+            {content?.map(({ id, data }) => {
                 const { url, title, content, icon } = data
                 const nav_card_link = typeof url === 'function' ? url(filter_config) : url
                 const nav_card_content =

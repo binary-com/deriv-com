@@ -1,4 +1,5 @@
 const MAP_API_KEY = process.env.GATSBY_MAP_API_KEY
+const GATSBY_GROWTHBOOK_CLIENT_KEY = process.env.GATSBY_GROWTHBOOK_CLIENT_KEY
 const isBrowser = () => typeof window !== 'undefined'
 
 export const deriv_com_url = 'deriv.com'
@@ -9,6 +10,7 @@ export const staging_deriv_be_url = 'staging.deriv.be'
 export const deriv_com_app_id = 16929
 export const deriv_me_app_id = 1411
 export const deriv_be_app_id = 30767
+export const deriv_ctrader_app_id = 36218
 
 const domain_url_pair = {
     [deriv_com_url]: deriv_com_url,
@@ -67,14 +69,13 @@ export const affiliate_signin_url = `https://login.${getDomainUrl()}/signin.php`
 export const community_url = `https://community.${deriv_com_url}`
 export const oauth_url = `https://oauth.${getDomainUrl()}`
 export const deriv_app_login = `${oauth_url}/oauth2/authorize?app_id=${deriv_app_id}`
+export const ctrader_login = `${oauth_url}/oauth2/authorize?app_id=${deriv_ctrader_app_id}`
 export const whatsapp_url = `https://wa.me/35699578341`
 
-export const application_id = 'f0aef779-d9ec-4517-807e-a84c683c4265'
 export const besquare_signup_url =
     'https://deriv.zohorecruit.eu/jobs/Careers/47807000013799423/Empty?source=CareerSite '
 export const binary_url = 'https://binary.com'
 export const brand_name = 'Deriv'
-export const client_token = 'pubc42fda54523c5fb23c564e3d8bceae88'
 export const deriv_app_languages = ['id', 'es', 'ru', 'fr']
 export const smart_trader_languages = [
     'es',
@@ -88,6 +89,7 @@ export const smart_trader_languages = [
     'zh_cn',
     'zh_tw',
 ]
+export const affiliate_reset_password_link = 'https://login.deriv.com/password-reset.php'
 export const deriv_status_page_url = 'https://deriv.statuspage.io'
 export const deriv_bug_bounty_url = 'https://hackerone.com/deriv?type=team'
 export const derivx_ios_url = 'https://apps.apple.com/us/app/deriv-x/id1563337503'
@@ -122,9 +124,16 @@ export const dmt5_windows_url =
     'https://download.mql5.com/cdn/web/deriv.limited/mt5/deriv5setup.exe'
 export const dp2p_google_play_url =
     'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
+//to be updated with ctrader url later
+export const ctrader_google_play_url =
+    'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
+export const ctrader_app_store_url =
+    'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
+
+export const ctrader_web_browser_url = 'ct.deriv.com'
+export const ctrader_windows_url = 'https://getctrader.com/deriv/ctrader-deriv-setup.exe'
+export const growthbook_client_key = GATSBY_GROWTHBOOK_CLIENT_KEY
 export const gtm_test_domain = 'deriv-com.binary.sx'
-export const livechat_client_id = '66aa088aad5a414484c1fd1fa8a5ace7'
-export const livechat_license_id = 12049137
 export const map_api_key = MAP_API_KEY
 export const mga_link_url =
     'https://authorisation.mga.org.mt/verification.aspx?lang=EN&company=a5fd1edc-d072-4c26-b0cd-ab3fa0f0cc40&details=1'
@@ -144,6 +153,7 @@ export const localized_link_url = Object.freeze({
     blog: blog_url,
     community: community_url,
     derivx: derivx_app_url,
+    deriv_app_login,
     api: deriv_api_url,
     dbot: deriv_bot_app_url,
     deriv_app: deriv_app_url,
@@ -163,7 +173,7 @@ export const live_chat_key = 'live_chat_redirection'
 export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const youtube_url = 'https://www.youtube.com/@deriv'
-export const loss_percent = 72
+export const contact_us_form_post_data = 'https://formkeep.com/f/7f4b8b55f10f'
 
 export const cookie_key = 'browser_update_alert_modal_shown'
 export const browsers_minimum_required_version = {

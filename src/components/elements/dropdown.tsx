@@ -18,6 +18,7 @@ import { Flex } from 'components/containers'
 type DropdownStyledProps = {
     open?: boolean
     active?: boolean | React.SetStateAction<OptionOrSelectedType>
+    is_alternate_style?: boolean
 } & Pick<DropdownProps, 'has_short_name'>
 
 type DropdownSelectedProps = {
@@ -38,6 +39,7 @@ type ListItemProps = {
     onKeyDown?: (e: React.KeyboardEvent<HTMLLIElement>) => void
 }
 type ArrowType = {
+    is_alternate_style?: boolean
     expanded?: boolean
     onClick?: React.KeyboardEventHandler<HTMLInputElement> &
         React.FocusEventHandler<HTMLInputElement> &
@@ -46,7 +48,7 @@ type ArrowType = {
 }
 type DropdownContainerProps = {
     mb?: string
-} & Pick<DropdownProps, 'has_short_name' | 'active' | 'error'>
+} & Pick<DropdownProps, 'has_short_name' | 'active' | 'error' | 'is_alternate_style'>
 
 const Symbol = styled(Flex)`
     width: fit-content;
@@ -81,22 +83,31 @@ const Symbol = styled(Flex)`
 `
 
 export const DropdownContainer = styled.ul<DropdownContainerProps>`
-    @media ${device.mobileL} {
-        height: 43px;
-    }
+    ${(props) =>
+        !props.is_alternate_style &&
+        css`
+            @media ${device.mobileL} {
+                height: 43px;
+            }
+        `}
 
+    inline-size: 100%;
     list-style: none;
     position: relative;
-    border: 1px solid var(--color-grey-7);
+    ${(props) =>
+        props.is_alternate_style
+            ? 'border: 1.5px solid var(--color-grey-7);'
+            : 'border: 1px solid var(--color-grey-7);'}
+    ${(props) => (props.is_alternate_style ? 'border-radius: 16px;' : 'border-radius: 4px;')}
+    ${(props) => (props.is_alternate_style ? 'height: 42px;' : 'height: 40px;')}
     cursor: pointer;
     padding: 0;
-    border-radius: 4px;
-    height: 40px;
     margin-bottom: ${(props) => props.mb ?? '0'};
 
     /* ul has no focus attributes, it needs to pass on active props instead */
     ${(props) =>
         props.active &&
+        !props.is_alternate_style &&
         css`
             border-color: var(--color-green) !important;
         `}
@@ -123,13 +134,21 @@ export const DropdownContainer = styled.ul<DropdownContainerProps>`
 
     ${(props) => {
         if (props.error)
-            return css`
-                border-color: var(--color-red-1) !important;
+            if (props.is_alternate_style)
+                return css`
+                    border-color: var(--color-red) !important;
 
-                & > label {
-                    color: var(--color-red-1) !important;
-                }
-            `
+                    label {
+                        color: var(--color-red) !important;
+                    }
+                `
+            else
+                return css`
+                    border-color: var(--color-red-1) !important;
+                    & > label {
+                        color: var(--color-red-1) !important;
+                    }
+                `
 
         return css`
             border-color: var(--color-grey-7);
@@ -137,13 +156,22 @@ export const DropdownContainer = styled.ul<DropdownContainerProps>`
     }}
 `
 
-const StyledDiv = styled.div`
+const StyledDiv = styled.div<Pick<DropdownProps, 'is_alternate_style'>>`
     position: relative;
+    width: 100%;
     top: -30px;
+
+    ${(props) =>
+        props.is_alternate_style &&
+        css`
+            width: 100%;
+            top: -12px;
+        `}
 `
 
 const DropdownSelected = styled.li<DropdownSelectedProps>`
     color: var(--color-grey-6);
+    cursor: pointer;
     list-style-position: inside;
     white-space: nowrap;
     overflow: hidden;
@@ -235,59 +263,69 @@ const UnorderedList = styled.ul<DropdownStyledProps>`
         `}
 `
 
-export const Arrow = styled(Chevron)<ArrowType>`
+export const Arrow = styled((props) => <Chevron {...props} />)<ArrowType>`
     position: absolute;
     right: 8px;
-    top: 25%;
+    ${(props) => (props.is_alternate_style ? ' top: 25%;' : 'top: 30%;')}
     transition: transform 0.2s linear;
     ${(props) => (props.expanded ? 'transform: rotate(-180deg);' : '')}
-
     & path {
         fill: var(--color-black);
     }
 `
 
 export const StyledLabel = styled.label<DropdownStyledProps>`
-    color: gray;
+    ${(props) => (props.is_alternate_style ? 'color: gray;' : 'color: var(--color-grey-5);')}
+    ${(props) =>
+        props.is_alternate_style ? 'font-size: var(--text-size-xs);' : 'font-size: 1.6rem;'}
     background: var(--color-white);
-    font-size: 1.6rem;
     position: absolute;
     pointer-events: none;
     left: 0.8rem;
-    top: 1.1rem;
+    ${(props) => (props.is_alternate_style ? 'top: 1.3rem;' : 'top: 1.1rem;')}
     height: 2rem;
     transition: 0.25s ease transform;
     transform: translateZ(0);
-    padding: 0 0.4rem;
-
-    @media ${device.tabletL} {
-        font-size: 1.65rem;
-        top: 1.4rem;
-    }
-
-    @media ${device.mobileL} {
-        font-size: 1.5rem;
-        top: 1.6rem;
-    }
+    padding: 0 0.8rem;
 
     ${(props) =>
-        props.active &&
+        !props.is_alternate_style &&
         css`
-            color: var(--color-green);
-            transform: translate(-0.6rem, -2.2rem) scale(0.7);
-
             @media ${device.tabletL} {
-                top: 9px;
+                font-size: 1.65rem;
+                top: 1.4rem;
+            }
+            @media ${device.mobileL} {
+                font-size: 1.5rem;
+                top: 1.6rem;
             }
         `}
+
+    ${(props) => {
+        if (props.active)
+            if (props.is_alternate_style)
+                return css`
+                    color: var(--color-grey-5);
+                    transform: translate(0, -2rem);
+                `
+            else
+                return css`
+                    color: var(--color-green);
+                    transform: translate(-0.6rem, -2.2rem) scale(0.7);
+                    @media ${device.tabletL} {
+                        top: 9px;
+                    }
+                `
+    }}
 `
 
-const ErrorMessages = styled(Text)`
+const ErrorMessages = styled(Text)<Pick<DropdownProps, 'is_alternate_style'>>`
     position: absolute;
     padding-left: 0.8rem;
     font-size: 1.2rem;
     min-height: 16px;
-    color: var(--color-red-1);
+    ${(props) =>
+        props.is_alternate_style ? 'color: var(--color-red);' : 'color: var(--color-red-1);'}
 `
 
 const ContractSizeWrapper = styled(Text)`
@@ -352,12 +390,15 @@ export const ItemList = ({
 export const BottomLabel = ({
     error,
     contractSize,
-}: Pick<DropdownProps, 'error' | 'contractSize'>) => {
+    is_alternate_style,
+}: Pick<DropdownProps, 'error' | 'contractSize' | 'is_alternate_style'>) => {
     return (
-        <StyledDiv>
-            <ErrorMessages lh="1.4" align="start">
-                {error}
-            </ErrorMessages>
+        <StyledDiv is_alternate_style={is_alternate_style}>
+            {error && (
+                <ErrorMessages lh="1.4" align="start" is_alternate_text={is_alternate_style}>
+                    {error}
+                </ErrorMessages>
+            )}
 
             {contractSize && (
                 <ContractSizeWrapper lh="1.4" align="start">
@@ -396,9 +437,11 @@ export type DropdownProps = {
     option_list?: ItemsType[]
     selected_option?: OptionOrSelectedType
     selected_item?: SelectedType
+    value?: string
     disabled?: boolean
     autocomplete?: string
     mb?: string
+    is_alternate_style?: boolean
 } & Pick<ItemsType, 'contractSize'>
 
 const Dropdown = ({
@@ -410,6 +453,7 @@ const Dropdown = ({
     error,
     selected_option,
     contractSize,
+    is_alternate_style,
     ...props
 }: DropdownProps) => {
     const [is_open, dropdown_ref, nodes, handleChange, toggleListVisibility] = useDropdown(onChange)
@@ -421,9 +465,15 @@ const Dropdown = ({
                 ref={dropdown_ref}
                 has_short_name={has_short_name}
                 error={error}
+                is_alternate_style={is_alternate_style}
                 {...props}
             >
-                <StyledLabel active={is_open || (!is_open && selected_option)}>{label}</StyledLabel>
+                <StyledLabel
+                    active={is_open || (!is_open && selected_option)}
+                    is_alternate_style={is_alternate_style}
+                >
+                    {label}
+                </StyledLabel>
                 <DropdownSelected
                     id="selected_dropdown"
                     role="button"
@@ -439,7 +489,7 @@ const Dropdown = ({
                             <DefaultOptionText>{default_option.display_name}</DefaultOptionText>
                         )}
                     </Symbol>
-                    <Arrow expanded={is_open} />
+                    <Arrow expanded={is_open} is_alternate_style={is_alternate_style} />
                 </DropdownSelected>
                 <ItemList
                     error={error}
@@ -450,7 +500,11 @@ const Dropdown = ({
                     selected_option={selected_option}
                 />
             </DropdownContainer>
-            <BottomLabel contractSize={contractSize} error={error} />
+            <BottomLabel
+                contractSize={contractSize}
+                error={error}
+                is_alternate_style={is_alternate_style}
+            />
         </>
     )
 }

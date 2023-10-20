@@ -55,6 +55,10 @@ const BackgroundStyle = styled.div`
     position: relative;
     direction: ltr;
 
+    @media only screen and (min-width: 1920px) {
+        min-block-size: 100%;
+        block-size: 100rem;
+    }
     @media ${device.tablet} {
         flex-direction: column-reverse;
         justify-content: center;
@@ -133,7 +137,7 @@ const DCommonBanner = () => {
             <StyledContainer jc="flex-start">
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
-                        <StyledTradingLogin src={DerivMT5Logo} />
+                        <StyledTradingLogin src={DerivMT5Logo} alt={localize('_t_Deriv MT5_t_')} />
                         <CommonHeaderSection
                             title="_t_The all-in-one CFD trading platform_t_"
                             title_font_size={is_mobile ? '32px' : '64px'}

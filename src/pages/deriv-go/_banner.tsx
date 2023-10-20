@@ -12,6 +12,7 @@ import Shape from 'components/custom/_hero-shape'
 import Button from 'components/custom/_button'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { Container } from 'components/containers'
+import { localize } from 'components/localization'
 
 //TODO: (deriv-rebranding) to make the content section reusable .
 
@@ -36,7 +37,10 @@ const BackgroundStyle = styled.div`
     justify-content: flex-end;
     position: relative;
     direction: ltr;
-
+    @media only screen and (min-width: 1920px) {
+        min-block-size: 100%;
+        block-size: 100rem;
+    }
     @media ${device.tablet} {
         flex-direction: column-reverse;
         justify-content: center;
@@ -113,7 +117,7 @@ const DHero = () => {
             <StyledContainer jc="flex-start">
                 <ContentWrapperStyle is_rtl={is_rtl}>
                     <Content>
-                        <StyledTradingLogin src={DerivGOLogo} />
+                        <StyledTradingLogin src={DerivGOLogo} alt={localize('_t_Deriv Go_t_')} />
                         <CommonHeaderSection
                             title="_t_A trading platform for on-the-go traders_t_"
                             title_font_size={`${is_mobile ? 32 : 64}px`}

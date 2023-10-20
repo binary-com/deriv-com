@@ -3,8 +3,6 @@ const address_asuncion = [
     'Doctor Morra, Asunción 1849',
 ]
 
-const address_belarus = ['Level 2, 25/1-3 Vera Khoruzhey Street,', 'Minsk 220123']
-
 const address_ciudad = ['World Trade Center Ciudad del Este, Andrés Rojas, Cd. del Este, Paraguay']
 
 const address_cyberjaya = ['Deriv HQ, 3500, Jalan Teknokrat 3, 63000 Cyberjaya, Selangor']
@@ -26,6 +24,10 @@ const address_georgetown = [
     'Cayman Enterprise City, Strathvale House, 2nd Floor, 90 N Church St, George Town, Cayman Islands',
 ]
 
+const address_roadtown = [
+    '2nd Floor, Suite 2, Omar Hodge Building, 325 Waterfront Drive, Road Town, Tortola, VG 1110, British Virgin Islands',
+]
+
 const address_ipoh = ['E-5-6, Soho Ipoh 2,', 'Jalan Sultan Idris Shah,', 'Ipoh 30000, Perak']
 
 const address_france = ["17 Rue d'Antin, 75002 Paris"]
@@ -42,6 +44,10 @@ const address_labuan = [
 
 const address_singapore = ['80 Robinson Road, #11-03, Singapore 068898']
 
+const address_hongkong = [
+    'Room 408A, Empire Centre, 68 Mody Road, Tsim Sha Tsui East, Kowloon, Hong Kong',
+]
+
 const address_malta = [
     'Level 3, W   Business Centre,',
     'Triq Dun Karm Birkirkara,',
@@ -52,9 +58,10 @@ const address_melaka = ['67-1 & 69-1, Jalan KLJ 6, Taman Kota', 'Laksamana Jaya,
 
 const address_rwanda = ['Level 2 East Wing, Kigali Heights, KG7', 'Avenue, Kigali']
 
+const address_berlin = ['Kemperplatz 1 Mitte D, 10785 Berlin, Germany']
+
 export {
     address_asuncion,
-    address_belarus,
     address_cyberjaya,
     address_cyprus,
     address_dubai,
@@ -70,5 +77,8 @@ export {
     address_georgetown,
     address_jordan,
     address_vanuatu,
+    address_hongkong,
+    address_roadtown,
     address_reading,
+    address_berlin,
 }

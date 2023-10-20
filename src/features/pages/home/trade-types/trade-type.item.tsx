@@ -3,7 +3,7 @@ import { item_container, item_learn_more, item_description } from './styles.modu
 import { TradeTypeItemType } from './types'
 import Flex from 'features/components/atoms/flex-box'
 import Link from 'features/components/atoms/link'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import Image from 'features/components/atoms/image'
 
@@ -22,7 +22,7 @@ const TradeTypeItem = ({ item }: TradeTypeItemProps) => {
                 padding_block: '20x',
             }}
         >
-            <Image src={item.icon_src} width={96} height={96} />
+            <Image src={item.icon_src} width={96} height={96} alt={localize(item?.title)} />
             <Typography.Heading as="h3" size="xs" textcolor="inverted" mt={'5x'}>
                 <Localize translate_text={item.title} />
             </Typography.Heading>

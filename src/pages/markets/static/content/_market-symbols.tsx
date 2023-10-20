@@ -18,7 +18,7 @@ export const americas: TMarketSymbol[] = [
 
 export const asia_oceania: TMarketSymbol[] = [
     {
-        src: icons.STOCKSAUS200,
+        src: icons.AUS200,
         text: '_t_Australia 200_t_',
     },
     {
@@ -314,7 +314,7 @@ export const europe: TMarketSymbol[] = [
         text: '_t_Swiss 20_t_',
     },
     {
-        src: icons.STOCKSUK100,
+        src: icons.UK100,
         text: '_t_UK 100_t_',
     },
 ]
@@ -524,8 +524,12 @@ export const metals_options: TMarketSymbol[] = [
 ]
 
 export const dex_indices: TMarketSymbol[] = [
+    { src: icons.DEX600UP, text: '_t_DEX 600UP_t_' },
     { src: icons.DEX900UP, text: '_t_DEX 900UP_t_' },
+    { src: icons.DEX1500UP, text: '_t_DEX 1500UP_t_' },
+    { src: icons.DEX600DN, text: '_t_DEX 600DN_t_' },
     { src: icons.DEX900DN, text: '_t_DEX 900DN_t_' },
+    { src: icons.DEX1500DN, text: '_t_DEX 1500DN_t_' },
 ]
 
 export const range_break: TMarketSymbol[] = [
@@ -799,7 +803,7 @@ export const stocks_american_indices: TMarketSymbol[] = [
 
 export const stocks_asian_indices: TMarketSymbol[] = [
     {
-        src: icons.STOCKSAUS200,
+        src: icons.AUS200,
         text: '_t_Australia 200_t_',
     },
     {
@@ -835,7 +839,7 @@ export const stocks_european_indices: TMarketSymbol[] = [
         eu: true,
     },
     {
-        src: icons.STOCKSUK100,
+        src: icons.UK100,
         text: '_t_UK 100_t_',
         eu: true,
     },
@@ -1429,4 +1433,10 @@ export const derived_fx: TMarketSymbol[] = [
         src: icons.USDCHF20,
         text: '_t_USD/CHF DFX20 Index_t_',
     },
+]
+
+export const drift_switch_indices: TMarketSymbol[] = [
+    { src: icons.DSI10M, text: '_t_DSI10_t_' },
+    { src: icons.DSI20M, text: '_t_DSI20_t_' },
+    { src: icons.DSI30M, text: '_t_DSI30_t_' },
 ]

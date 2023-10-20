@@ -12,6 +12,7 @@ export type WhyUsType = {
     subtitle: TString
     image_name: string
     image_alt: TString
+    only_row?: boolean
 }[]
 
 type WhyUsProps = {
@@ -29,6 +30,9 @@ const query = graphql`
             ...fadeIn
         }
         daily_ib_commission: file(relativePath: { eq: "affiliate/daily-ib-commission.png" }) {
+            ...fadeIn
+        }
+        daily_ib_commission_eu: file(relativePath: { eq: "affiliate/daily-ib-commission-eu.png" }) {
             ...fadeIn
         }
         marketing_material: file(relativePath: { eq: "affiliate/marketing-material.png" }) {

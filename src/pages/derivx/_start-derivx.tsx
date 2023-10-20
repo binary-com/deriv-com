@@ -19,9 +19,6 @@ const query = graphql`
         demo_step1: file(relativePath: { eq: "deriv-x/demo-1.png" }) {
             ...fadeIn
         }
-        demo_step1_mobile: file(relativePath: { eq: "deriv-x/mobile-demo-1.png" }) {
-            ...fadeIn
-        }
         demo_step2: file(relativePath: { eq: "deriv-x/demo-2.png" }) {
             ...fadeIn
         }
@@ -34,10 +31,7 @@ const query = graphql`
         demo_step3_mobile: file(relativePath: { eq: "deriv-x/mobile-start-trading.png" }) {
             ...fadeIn
         }
-        real_step1: file(relativePath: { eq: "deriv-x/real-1.png" }) {
-            ...fadeIn
-        }
-        real_step1_mobile: file(relativePath: { eq: "deriv-x/mobile-real-1.png" }) {
+        step1_mobile: file(relativePath: { eq: "deriv-x/mobile-1.png" }) {
             ...fadeIn
         }
         real_step2: file(relativePath: { eq: "deriv-x/real-2.png" }) {
@@ -145,7 +139,7 @@ const StartDerivX = () => {
                     '_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_',
                 image: () => (
                     <QueryImage
-                        data={data[is_mobile_or_tablet ? 'demo_step1_mobile' : 'demo_step1']}
+                        data={data[is_mobile_or_tablet ? 'step1_mobile' : 'demo_step1']}
                         alt={localize('_t_Deriv X demo account signup page_t_')}
                     />
                 ),
@@ -179,7 +173,7 @@ const StartDerivX = () => {
                     '_t_Sign in to your Deriv account. If you don’t have one, sign up for free._t_',
                 image: () => (
                     <QueryImage
-                        data={data[is_mobile_or_tablet ? 'real_step1_mobile' : 'real_step1']}
+                        data={data[is_mobile_or_tablet ? 'step1_mobile' : 'demo_step1']}
                         alt={localize('_t_Sign in_t_')}
                     />
                 ),

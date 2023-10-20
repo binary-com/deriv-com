@@ -25,13 +25,13 @@ import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
 import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import DerivLife from 'images/svg/menu/deriv-life.svg'
-import DBot from 'images/svg/dbot/dbot-icon.svg'
+import { DbotIcon } from 'images/svg/dbot'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
 import API from 'images/svg/menu/developers.svg'
 import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
-import DerivEZ from 'images/svg/deriv-ez/deriv-ez-logo-red.svg'
+import { DerivEzLogoRed } from 'images/svg/deriv-ez'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
 import DerivGo from 'images/svg/deriv-go/deriv-go-icon.svg'
 import Forex from 'images/svg/custom/forex-nav.svg'
@@ -214,7 +214,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                             content="_t_Earn a range of payouts without risking more than your initial stake._t_"
                                             title="_t_Options_t_"
                                             onClick={handleArrowClick}
-                                            to="/trade-types/options/"
+                                            to="/trade-types/options/digital-options/up-and-down/"
                                         />
                                     </Flex>
                                 )}
@@ -282,7 +282,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         aria_label="Derivez"
                                         Icon={() => (
                                             <img
-                                                src={DerivEZ}
+                                                src={DerivEzLogoRed}
                                                 alt={localize('_t_Deriv EZ trading paltform_t_')}
                                                 width="32"
                                                 height="32"
@@ -350,7 +350,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         type="smart_trader"
                                         external
                                         target="_blank"
-                                        otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                        otherlinkprops={{ rel: 'noopener noreferrer' }}
                                     />
                                 </Flex>
                                 <Flex mb="2rem">
@@ -358,7 +358,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         aria_label="DBot"
                                         Icon={() => (
                                             <img
-                                                src={DBot}
+                                                src={DbotIcon}
                                                 alt={localize('_t_Dbot for auto trading_t_')}
                                                 width="32"
                                                 height="32"
@@ -389,7 +389,7 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         to={binary_bot_url}
                                         external
                                         target="_blank"
-                                        otherLinkProps={{ rel: 'noopener noreferrer' }}
+                                        otherlinkprops={{ rel: 'noopener noreferrer' }}
                                     />
                                 </Flex>
                             </>

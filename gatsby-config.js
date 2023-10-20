@@ -11,6 +11,21 @@ const href = isBrowser && window.location.href
 const site_url =
     origin === 'https://deriv.com' || origin === 'https://eu.deriv.com' ? href : 'https://deriv.com'
 
+const strapi_preview_param = {
+    publicationState: 'live',
+}
+
+const strapi_config = [
+    {
+        singularName: 'who-we-are-page',
+        queryParams: strapi_preview_param,
+    },
+    {
+        singularName: 'cfd-warning-banner',
+        queryParams: strapi_preview_param,
+    },
+]
+
 module.exports = {
     // pathPrefix: process.env.PATH_PREFIX || '/deriv-com/', // For non CNAME GH-pages deployment
     flags: {
@@ -31,7 +46,7 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
-        // [TODO] Enable this when we have a proper setup to enable both caching and pushwoosh service workers together, Otherwise it will cause one of them stop working.
+        // [TODO] Enable this when we have a proper setup to enable caching, Otherwise it will cause one of them stop working.
         //     resolve: `gatsby-plugin-offline`,
         //     options: {
         //         // precachePages: [`/`],
@@ -54,12 +69,11 @@ module.exports = {
                 ],
             },
         },
-        'gatsby-plugin-react-helmet',
         {
-            resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+            resolve: 'gatsby-plugin-canonical-urls',
             options: {
                 siteUrl: `${site_url}`,
-                noQueryString: true,
+                // noQueryString: true,
             },
         },
         'gatsby-plugin-styled-components',
@@ -96,6 +110,7 @@ module.exports = {
                     '/bug-bounty',
                     '/**/bug-bounty',
                     '/**/bug-bounty/**/',
+                    '/careers/locations/minsk/',
                     '/check-email',
                     '/**/check-email',
                     '/reset-password',
@@ -127,6 +142,9 @@ module.exports = {
                     '/**/endpoint',
                     '/signup-success',
                     '/**/signup-success',
+                    '/ctrader-login',
+                    '/ctrader-signup',
+                    '/ctrader-manage/**',
                 ],
                 query: `
                 {
@@ -320,6 +338,8 @@ module.exports = {
                             '/endpoint/',
                             '/livechat/',
                             '/storybook/',
+                            '*.binary.sx',
+                            '/?region=*/',
                         ],
                     },
                 ],
@@ -345,6 +365,24 @@ module.exports = {
             options: {
                 analyzerMode: 'disabled',
                 generateStatsFile: process.env.GENERATE_JSON_STATS === 'true',
+            },
+        },
+        {
+            resolve: 'gatsby-source-strapi',
+            options: {
+                apiURL: 'https://chief-skinny-instrument.strapiapp.com',
+                accessToken: process.env.GATSBY_STRAPI_TOKEN,
+                collectionTypes: strapi_config,
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-env-variables',
+            options: {
+                allowList: [
+                    'GATSBY_RUDDERSTACK_URL',
+                    'GATSBY_RUDDERSTACK_STAGING_KEY',
+                    'GATSBY_RUDDERSTACK_PRODUCTION_KEY',
+                ],
             },
         },
     ],

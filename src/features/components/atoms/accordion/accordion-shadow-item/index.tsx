@@ -18,7 +18,14 @@ const AccordionShadowItem = React.forwardRef<HTMLDivElement, TAccordionItem>(
     ({ children, className, renderHeader, item_title, icon_type = 'chevron', ...props }, ref) => (
         <Accordion.Item className={'accordion_item accordion_shadow_item'} ref={ref} {...props}>
             <Accordion.Header>
-                <Accordion.Trigger className={dclsx('accordion_trigger', 'bg-color-primary')}>
+                <Accordion.Trigger
+                    className={dclsx(
+                        'accordion_trigger accordion_shadow_item_trigger',
+                        'bg-color-primary',
+                        'padding-block-8x',
+                        'border-radius-4x',
+                    )}
+                >
                     {renderHeader ? (
                         renderHeader(item_title)
                     ) : (
@@ -38,7 +45,9 @@ const AccordionShadowItem = React.forwardRef<HTMLDivElement, TAccordionItem>(
                     )}
                 </Accordion.Trigger>
             </Accordion.Header>
-            <Accordion.Content className={dclsx('accordion_content', className)}>
+            <Accordion.Content
+                className={dclsx('accordion_content accordion_shadow_item_content', className)}
+            >
                 <div className="AccordionContentText">{children}</div>
             </Accordion.Content>
         </Accordion.Item>

@@ -1,4 +1,5 @@
 import { SmartNavContent, SmartNavSectionColumns } from '../../../types'
+import DerivcTrader from 'images/svg/custom/rebranding/deriv-ctrader-icon.svg'
 import BinaryBot from 'images/svg/custom/rebranding/binarybot-icon.svg'
 import DerivX from 'images/svg/custom/rebranding/deriv-x-icon.svg'
 import CFD from 'images/svg/custom/rebranding/cfds-icon.svg'
@@ -57,7 +58,7 @@ export const tradeTypesContent: SmartNavContent[] = [
             },
             content: '_t_Earn a range of payouts without risking more than your initial stake._t_',
             title: '_t_Options_t_',
-            url: { type: 'internal', to: '/trade-types/options/' },
+            url: { type: 'internal', to: '/trade-types/options/digital-options/up-and-down/' },
         },
         visibility: {
             is_ppc: false,
@@ -164,6 +165,23 @@ export const tradingPlatformsContent: SmartNavContent[] = [
         },
         visibility: {
             is_eu: true,
+        },
+    },
+    {
+        id: 5,
+        data: {
+            aria_label: 'Deriv cTrader',
+            icon: {
+                src: DerivcTrader,
+                alt: 'Deriv cTrader trading platform',
+            },
+            content:
+                '_t_Advance trading, charting and technical analysis tools available for users._t_',
+            title: '_t_Deriv cTrader_t_',
+            url: { type: 'internal', to: '/deriv-ctrader/' },
+        },
+        visibility: {
+            is_row: true,
         },
     },
 ]

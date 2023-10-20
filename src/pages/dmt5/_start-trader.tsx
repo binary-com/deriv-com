@@ -18,16 +18,10 @@ type TabProps = {
 
 const query = graphql`
     query {
-        demo_step1: file(relativePath: { eq: "dmt5/dmt5-demo-step1.png" }) {
+        step1: file(relativePath: { eq: "dmt5/dmt5-demo-step1.png" }) {
             ...fadeIn
         }
-        demo_step1_eu: file(relativePath: { eq: "dmt5/dmt5-demo-step1-eu.png" }) {
-            ...fadeIn
-        }
-        demo_step1_mobile: file(relativePath: { eq: "dmt5/dmt5-demo-step1-mobile.png" }) {
-            ...fadeIn
-        }
-        demo_step1_mobile_eu: file(relativePath: { eq: "dmt5/dmt5-demo-step1-mobile-eu.png" }) {
+        step1_mobile: file(relativePath: { eq: "dmt5/dmt5-step1-mobile.png" }) {
             ...fadeIn
         }
         demo_step2: file(relativePath: { eq: "dmt5/dmt5-demo-step2.png" }) {
@@ -52,18 +46,6 @@ const query = graphql`
             ...fadeIn
         }
         demo_step3_mobile_eu: file(relativePath: { eq: "dmt5/dmt5-demo-step3-mobile-eu.png" }) {
-            ...fadeIn
-        }
-        real_step1: file(relativePath: { eq: "dmt5/dmt5-real-step1.png" }) {
-            ...fadeIn
-        }
-        real_step1_eu: file(relativePath: { eq: "dmt5/dmt5-real-step1-eu.png" }) {
-            ...fadeIn
-        }
-        real_step1_mobile: file(relativePath: { eq: "dmt5/dmt5-real-step1-mobile.png" }) {
-            ...fadeIn
-        }
-        real_step1_mobile_eu: file(relativePath: { eq: "dmt5/dmt5-real-step1-mobile-eu.png" }) {
             ...fadeIn
         }
         real_step2: file(relativePath: { eq: "dmt5/dmt5-real-step2.png" }) {
@@ -208,7 +190,7 @@ const StartTrader = () => {
                 ],
                 image: () => (
                     <QueryImage
-                        data={data[is_mobile_or_tablet ? 'demo_step1_mobile' : 'demo_step1']}
+                        data={data[is_mobile_or_tablet ? 'step1_mobile' : 'step1']}
                         alt={localize('_t_Sign up for a free_t_')}
                     />
                 ),
@@ -253,7 +235,7 @@ const StartTrader = () => {
                 ],
                 image: () => (
                     <QueryImage
-                        data={data[is_mobile_or_tablet ? 'real_step1_mobile' : 'real_step1']}
+                        data={data[is_mobile_or_tablet ? 'step1_mobile' : 'step1']}
                         alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
@@ -263,7 +245,7 @@ const StartTrader = () => {
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step2_mobile' : 'real_step2']}
-                        alt="_t_Deriv MT5 demo account_t_"
+                        alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
@@ -307,7 +289,7 @@ const StartTrader = () => {
                 ],
                 image: () => (
                     <QueryImage
-                        data={data[is_mobile_or_tablet ? 'demo_step1_mobile_eu' : 'demo_step1_eu']}
+                        data={data[is_mobile_or_tablet ? 'step1_mobile' : 'step1']}
                         alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
@@ -351,13 +333,13 @@ const StartTrader = () => {
                 ],
                 image: () => (
                     <QueryImage
-                        data={data[is_mobile_or_tablet ? 'real_step1_mobile_eu' : 'real_step1_eu']}
+                        data={data[is_mobile_or_tablet ? 'step1_mobile' : 'step1']}
                         alt={localize('_t_Deriv MT5 demo account_t_')}
                     />
                 ),
             },
             {
-                title: () => '_t_Create a real Deriv Multipliers account._t_',
+                title: () => '_t_Create a Deriv real money account_t_',
                 image: () => (
                     <QueryImage
                         data={data[is_mobile_or_tablet ? 'real_step2_mobile_eu' : 'real_step2_eu']}

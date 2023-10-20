@@ -5,7 +5,7 @@ import { transformPadding } from './padding'
 const STYLIS_PROPERTY_CONTEXT = 1
 
 const transformCSSProperties = (content: string) => {
-    const [prop, value] = content.split(':')
+    const [prop, value] = content?.split(':')
     if (!value) {
         return
     }

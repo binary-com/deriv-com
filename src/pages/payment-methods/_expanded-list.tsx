@@ -5,7 +5,6 @@ import { Button } from 'components/form/'
 import { Text } from 'components/elements'
 import { Localize } from 'components/localization'
 import Chevron from 'images/svg/custom/chevron-thick.svg'
-import PDF from 'images/svg/regulatory/pdf-icon-black.svg'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { TString } from 'types/generics'
 
@@ -80,7 +79,7 @@ const Description = styled.div<ExpandListType>`
         props.is_expanded &&
         css`
             max-height: 40rem;
-            padding: 24px 14px;
+            padding: 8px 14px 24px 14px;
             border-bottom: 1px solid var(--color-grey-8);
         `}
 `
@@ -143,14 +142,20 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                     </StyleCurrencyText>
                 </Td>
                 <Td>
-                    {payment_data?.min_max_deposit && (
-                        <LtrText is_rtl={is_rtl}>
-                            <Localize
-                                translate_text={payment_data.min_max_deposit}
-                                components={payment_data.min_max_deposit_components}
-                            />
-                        </LtrText>
-                    )}
+                    <>
+                        {payment_data?.minimum_deposit ? (
+                            <LtrText is_rtl={is_rtl}>{payment_data?.minimum_deposit}</LtrText>
+                        ) : (
+                            payment_data?.min_max_deposit && (
+                                <LtrText is_rtl={is_rtl}>
+                                    <Localize
+                                        translate_text={payment_data.min_max_deposit}
+                                        components={payment_data.min_max_deposit_components}
+                                    />
+                                </LtrText>
+                            )
+                        )}
+                    </>
                 </Td>
                 {!is_fiat_onramp && (
                     <Td>
@@ -192,28 +197,7 @@ const ExpandList = ({ payment_data, is_fiat_onramp, locale }: PaymentProps) => {
                         </LtrText>
                     </Withdrawal>
                 )}
-
-                <Td>
-                    <>
-                        {payment_data.reference ? (
-                            <CenterIcon
-                                href={`/payment-methods/${
-                                    payment_data.locales?.includes(locale?.locale?.language)
-                                        ? locale?.locale?.language + '/' + payment_data.reference
-                                        : payment_data.reference
-                                }`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <StyledPDF src={PDF} alt="PDF" />
-                            </CenterIcon>
-                        ) : payment_data.reference_link ? (
-                            payment_data.reference_link
-                        ) : (
-                            <Text align="center">-</Text>
-                        )}
-                    </>
-                </Td>
+                {payment_data.reference_link && <Td>{payment_data.reference_link}</Td>}
                 {payment_data.description && (
                     <HoverTd onClick={toggleExpand}>
                         <StyledChevron src={Chevron} alt="chevron" is_expanded={is_expanded} />

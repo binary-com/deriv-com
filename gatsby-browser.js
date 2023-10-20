@@ -1,7 +1,7 @@
 import React from 'react'
-import { Pushwoosh } from 'web-push-notifications'
+import { createRoot } from 'react-dom/client'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
-import { isLive, isProduction } from './src/common/websocket/config'
+import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
 import GlobalProvider from './src/store/global-provider'
 import { checkLiveChatRedirection } from './src/common/live-chat-redirection-checking'
@@ -21,7 +21,7 @@ const is_browser = typeof window !== 'undefined'
 const checkDomain = () => {
     return eval(
         decodeURIComponent(
-            'var%20curhost%20%3D%20window.location.hostname%3B%20var%20t8hvj%20%3D%20%2F%5Cb%28deriv%7Cbinary%7Cbinaryqa%5B0-9%5D%7B2%7D%29%5C.%28com%7Cbot%7Cme%7Cbe%7Capp%7Csx%29%24%7C%5Cb%28localhost%29%2Fgm%3B%20if%20%28t8hvj.test%28curhost%29%20%3D%3D%20false%29%7Balert%28%22Not%20our%20domain%22%29%7D',
+            'var%20curhost%20%3D%20window.location.hostname%3B%20var%20t8hvj%20%3D%20%2F%5Cb%28deriv%7Cbinary%7Cbinaryqa%5B0-9%5D%7B2%7D%29%5C.%28com%7Cbot%7Cme%7Cbe%7Capp%7Csx%29%24%7C%5Cb%28localhost%29%7C%28%5Cbderiv-com-preview-links.pages.dev%29%2Fgm%3B%20if%20%28t8hvj.test%28curhost%29%20%3D%3D%20false%29%7Balert%28%22Not%20our%20domain%22%29%7D',
         ),
     )
 }
@@ -31,69 +31,6 @@ const hacker_one_url = 'https://hackerone.com/deriv?type=team'
 
 if (is_browser) {
     if (window.location.pathname.includes(bug_bounty_path)) window.location.href = hacker_one_url
-}
-
-const sendTags = (api) => {
-    const language = LocalStore.get('i18n') || ''
-    const domain = getDomain()
-    const { loginid, residence } = getClientInformation(domain) || {
-        loginid: '',
-        residence: '',
-    }
-    api.getTags()
-        .then((result) => {
-            if (!result || !result.result) {
-                return null
-            }
-            if (
-                !result.result['Login ID'] ||
-                !result.result['Site Language'] ||
-                !result.result.Residence
-            ) {
-                return api.setTags({
-                    'Login ID': loginid,
-                    'Site Language': language.toLowerCase(),
-                    Residence: residence,
-                })
-            }
-            return null
-        })
-        .catch((e) => {
-            // eslint-disable-next-line no-console
-            console.error(e)
-            return null
-        })
-}
-
-const pushwooshInit = (push_woosh) => {
-    push_woosh.push([
-        'init',
-        {
-            logLevel: 'error', // or info or debug
-            applicationCode: 'DD293-35A19',
-            safariWebsitePushID: 'web.com.deriv',
-            defaultNotificationTitle: 'Deriv.com',
-            defaultNotificationImage: 'https://deriv.com/favicons/favicon-192x192.png',
-            serviceWorkerUrl: '/sw.js'
-        },
-    ])
-
-    push_woosh.push([
-        'onReady',
-        function (api) {
-            try {
-                push_woosh.isSubscribed().then((is_subscribed) => {
-                    if (!is_subscribed) {
-                        push_woosh.subscribe()
-                    }
-                })
-            } catch (error) {
-                console.log(error.message)
-            }
-
-            sendTags(api)
-        },
-    ])
 }
 
 export const wrapRootElement = ({ element }) => {
@@ -142,8 +79,8 @@ export const onInitialClientRender = () => {
 export const onClientEntry = () => {
     //datadog
     const dd_options = {
-        clientToken: 'pub08554ab30284600af157441bfb0fa923',
-        applicationId: '5c8975a3-ec86-4a64-8a3a-e6888fdde082',
+        clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,
+        applicationId: process.env.GATSBY_DATADOG_APPLICATION_ID,
         site: 'datadoghq.com',
         service: 'deriv.com',
         env: 'production',
@@ -167,11 +104,6 @@ export const onClientEntry = () => {
     window.DD_RUM.onReady(function () {
         window.DD_RUM.startSessionReplayRecording()
     })
-
-    const push_woosh = new Pushwoosh()
-    if (isLive()) {
-        pushwooshInit(push_woosh)
-    }
 
     addScript({
         src: 'https://static.deriv.com/scripts/cookie.js',
@@ -208,6 +140,13 @@ export const onRouteUpdate = () => {
             }),
         })
     }, 1500)
+}
+
+export const replaceHydrateFunction = () => {
+    return (element, container) => {
+        const root = createRoot(container)
+        root.render(element)
+    }
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

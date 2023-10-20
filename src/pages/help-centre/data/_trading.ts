@@ -110,19 +110,6 @@ const trading: TQuestionsData = {
             ],
         },
         {
-            question: '_t_What are digital options?_t_',
-            category: 'Trading',
-            sub_category: '_t_Markets_t_',
-            label: 'what-are-digital-options',
-            hide_for_eu: true,
-            answer: [
-                {
-                    translation_text:
-                        "_t_Digital options allow you to predict the price movement of underlying assets without actually owning them. With digital options, you open a position based on your prediction, with a set duration that closes your position automatically. You'll earn a profit if your position is closed when the price is in your favour._t_",
-                },
-            ],
-        },
-        {
             question: '_t_How many trading platforms do you offer?_t_',
             category: 'Trading',
             sub_category: '_t_How to trade_t_',
@@ -130,27 +117,23 @@ const trading: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_We have a diverse suite of 6 trading platforms: <0>Deriv MT5</0>, <1>Deriv X</1>, <2>DTrader</2>, <3>DBot</3>, <4>SmartTrader</4>, and <5>Binary Bot</5>. Each of these platforms is designed to fit any trading style, regardless of your trading experience._t_',
+                        '_t_We have a diverse suite of 8 trading platforms: <0>Deriv MT5</0>, <1>Deriv X</1>, <2>Deriv Trader</2>, <3>Deriv Bot</3>, <4>Deriv EZ</4>, <5>Deriv GO</5>, <6>SmartTrader</6>, and <7>Binary Bot</7>. Each of these platforms is designed to fit any trading style, regardless of your trading experience._t_',
                     eu_translation_text:
-                        '_t_We offer two trading platforms in the EU: <0>Deriv MT5</0> and <2>DTrader</2>. Each of these platforms is designed to fit any trading style, regardless of your trading experience._t_',
+                        '_t_We offer 2 trading platforms in the EU: <0>Deriv MT5</0> (CFDs) and <2>Deriv Trader</2> (multipliers). They’re designed to fit any trading style and give you access to financial and derived markets._t_',
                     translation_components: [
                         { key: 0, type: 'link', to: '/dmt5/' },
                         { key: 1, type: 'link', to: '/derivx/' },
                         { key: 2, type: 'link', to: '/dtrader/' },
                         { key: 3, type: 'link', to: '/dbot/' },
+                        { key: 4, type: 'link', to: '/deriv-ez/' },
+                        { key: 5, type: 'link', to: '/deriv-go/' },
                         {
-                            key: 4,
+                            key: 6,
                             type: 'link',
                             to: 'https://smarttrader.deriv.com/en/trading.html',
                         },
-                        { key: 5, type: 'link', to: binary_bot_url },
+                        { key: 7, type: 'link', to: binary_bot_url },
                     ],
-                },
-                {
-                    translation_text:
-                        '_t_Note: DBot, SmartTrader, and Binary Bot are not available in the EU and UK._t_',
-                    eu_translation_text: '_t_ _t_',
-                    has_margin_top: true,
                 },
             ],
         },

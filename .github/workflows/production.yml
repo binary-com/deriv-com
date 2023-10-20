@@ -10,10 +10,14 @@ on:
 env:
     GATSBY_CPU_COUNT: 16
     GATSBY_ENV: production
-    NODE_OPTIONS: "--max_old_space_size=7168"
-    DATADOG_APPLICATION_ID: ${{ secrets.DATADOG_APPLICATION_ID }}
-    DATADOG_CLIENT_TOKEN: ${{ secrets.DATADOG_CLIENT_TOKEN }}
+    NODE_OPTIONS: '--max_old_space_size=7168'
+    GATSBY_DATADOG_APPLICATION_ID: ${{ secrets.GATSBY_DATADOG_APPLICATION_ID }}
+    GATSBY_DATADOG_CLIENT_TOKEN: ${{ secrets.GATSBY_DATADOG_CLIENT_TOKEN }}
     GATSBY_MAP_API_KEY: ${{ secrets.GATSBY_MAP_API_KEY }}
+    GATSBY_GROWTHBOOK_CLIENT_KEY: ${{ secrets.GATSBY_GROWTHBOOK_CLIENT_KEY }}
+    GATSBY_RUDDERSTACK_STAGING_KEY: ${{ secrets.GATSBY_RUDDERSTACK_STAGING_KEY }}
+    GATSBY_RUDDERSTACK_PRODUCTION_KEY: ${{ secrets.GATSBY_RUDDERSTACK_PRODUCTION_KEY }}
+    GATSBY_RUDDERSTACK_URL: ${{ secrets.GATSBY_RUDDERSTACK_URL }}
 
 jobs:
     release-production:
@@ -27,7 +31,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: '16.x'
+                  node-version: '18.x'
                   cache: 'npm'
 
             - name: Set version env variable
@@ -48,39 +52,13 @@ jobs:
               # For using same tag for staging and production we need to uncomment these two below lines:
               # with:
               #   tagRegex: "production(.*)"
-            - name: Building docker image 🐳
-              run: docker build -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest -t ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME .
-
-            - name: Verify nginx image
-              run: |
-                  set -e
-                  docker run --rm ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME nginx -t
-                  echo "docker image validated successfully"
-
-            - name: Pushing Image to docker hub 🐳
-              run: |
-                  echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-                  docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:latest
-                  docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME
-
-            - name: Deploy 🚀
-              run: |
-                  export NAMESPACE="deriv-com-production"
-                  export SERVICEACCOUNT_TOKEN=${{ secrets.SERVICEACCOUNT_TOKEN }}
-                  export DOCKERHUB_ORGANISATION=${{ secrets.DOCKERHUB_ORGANISATION }}
-                  export KUBE_SERVER=${{ secrets.KUBE_SERVER }}
-                  export CA=${{ secrets.CA }}
-                  git clone https://github.com/binary-com/devops-ci-scripts
-                  cd devops-ci-scripts/k8s-build_tools
-                  echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
-                  ./release.sh deriv-com $GIT_TAG_NAME
 
             - name: Deploy to Cloudflare ☁️
               uses: cloudflare/wrangler-action@2.0.0
               with:
-                apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                command: pages publish public --project-name=deriv-com-pages --branch=main
+                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+                  command: pages deploy public --project-name=deriv-com-pages --branch=main
 
             - name: Cloudflare production link ✨
               run: echo "New website - http://cf-pages-deriv-com.deriv.com"

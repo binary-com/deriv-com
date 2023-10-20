@@ -1,5 +1,5 @@
 import { SmartFooterLink, SmartFooterLinkColumn } from './types'
-import { binary_bot_url, deriv_status_page_url, deriv_bug_bounty_url } from 'common/constants'
+import { deriv_status_page_url } from 'common/constants'
 
 const aboutUsLinks: SmartFooterLink[] = [
     {
@@ -65,7 +65,7 @@ const tradesLinks: SmartFooterLink[] = [
         id: 1,
         data: {
             text: '_t_Options_t_',
-            url: { type: 'internal', to: '/trade-types/options/' },
+            url: { type: 'internal', to: '/trade-types/options/digital-options/up-and-down/' },
         },
         visibility: {
             is_row: true,
@@ -206,6 +206,16 @@ const platformsLinks: SmartFooterLink[] = [
             is_row: true,
         },
     },
+    {
+        id: 8,
+        data: {
+            text: '_t_Deriv cTrader_t_',
+            url: { type: 'internal', to: '/deriv-ctrader/' },
+        },
+        visibility: {
+            is_row: true,
+        },
+    },
 ]
 
 const legalLinks: SmartFooterLink[] = [
@@ -236,12 +246,32 @@ const partnerLinks: SmartFooterLink[] = [
     {
         id: 0,
         data: {
-            text: '_t_Affiliates and IBs_t_',
-            url: { type: 'internal', to: '/partners/affiliate-ib/' },
+            text: '_t_Deriv Prime_t_',
+            url: { type: 'internal', to: '/partners/deriv-prime/' },
         },
     },
     {
         id: 1,
+        data: {
+            text: '_t_Affiliates and IBs_t_',
+            url: { type: 'internal', to: '/partners/affiliate-ib/' },
+        },
+        visibility: {
+            is_row: true,
+        },
+    },
+    {
+        id: 2,
+        data: {
+            text: '_t_Affiliates_t_',
+            url: { type: 'internal', to: '/partners/affiliate-ib/' },
+        },
+        visibility: {
+            is_row: false,
+        },
+    },
+    {
+        id: 3,
         data: {
             text: '_t_Payment agents_t_',
             url: { type: 'internal', to: '/partners/payment-agent/' },
@@ -251,17 +281,10 @@ const partnerLinks: SmartFooterLink[] = [
         },
     },
     {
-        id: 2,
+        id: 4,
         data: {
             text: '_t_API_t_',
             url: { type: 'company', url_name: 'api' },
-        },
-    },
-    {
-        id: 3,
-        data: {
-            text: '_t_Bug bounty_t_',
-            url: { type: 'non-company', href: deriv_bug_bounty_url },
         },
     },
 ]
@@ -299,7 +322,7 @@ const supportLinks: SmartFooterLink[] = [
         id: 4,
         data: {
             text: '_t_Deriv Blog_t_',
-            url: { type: 'company', url_name: 'academy' },
+            url: { type: 'company', url_name: 'blog' },
         },
     },
 ]
@@ -343,7 +366,7 @@ export const footerLinks: SmartFooterLinkColumn[] = [
     {
         id: 5,
         data: {
-            title: '_t_PARTNER_t_',
+            title: '_t_PARTNERS_t_',
             links: partnerLinks,
         },
     },

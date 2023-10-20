@@ -45,9 +45,6 @@ export const marketItems: MarketTradeTypeItem[] = [
                 to: '/markets/exchange-traded-funds/',
             },
         },
-        visibility: {
-            is_eu: false,
-        },
     },
     {
         id: 4,

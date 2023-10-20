@@ -73,8 +73,8 @@ import {
     USDSEK,
     USDBASKET,
     USDJPY,
-    VINDEXIC200,
-    VINDEXIC300,
+    VOLATILITY200EU,
+    VOLATILITY300EU,
 } from 'components/elements/symbols'
 
 export const optionItemDefault = {
@@ -251,14 +251,14 @@ export const syntheticItemLists = [
     {
         name: 'Volatility 200 (1s) Index',
         display_name: 'Volatility 200 (1s) Index',
-        icon: <img src={VINDEXIC200} alt="vol 200 1s" />,
+        icon: <img src={VOLATILITY200EU} alt="vol 200 1s" />,
         market: 'synthetic_indices',
         symbol: '1HZ200V',
     },
     {
         name: 'Volatility 300 (1s) Index',
         display_name: 'Volatility 300 (1s) Index',
-        icon: <img src={VINDEXIC300} alt="vol 300 1s" />,
+        icon: <img src={VOLATILITY300EU} alt="vol 300 1s" />,
         market: 'synthetic_indices',
         symbol: '1HZ300V',
     },

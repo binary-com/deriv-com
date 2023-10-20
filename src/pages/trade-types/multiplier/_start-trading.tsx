@@ -35,7 +35,7 @@ const StartTrading = () => {
                 margin_title="15rem 0 7rem 0"
             />
             <StepperView items={MultipliersItems} />
-            <Button onClick={handleSignup} label="Create free demo account" primary />
+            <Button onClick={handleSignup} label="_t_Create free demo account_t_" primary />
         </SmallContainer>
     )
 }

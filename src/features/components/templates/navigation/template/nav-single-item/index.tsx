@@ -16,7 +16,7 @@ const NavSingleItem = ({ item, is_mobile }: NavSingleItemProps) => {
             size={is_mobile ? 'large' : 'medium'}
             padding_block="2x"
             padding_inline="8x"
-            url={item.content}
+            url={item?.content}
             weight={is_mobile ? 'bold' : 'normal'}
             font_family="UBUNTU"
             onClick={onCloseMenu}

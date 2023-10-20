@@ -13,6 +13,8 @@ type ChildProps = {
     label: TString
     description: TString
     description_components?: React.ReactElement[]
+    panelID?: string
+    tabID?: `${string}-tab`
 }
 
 type TabButtonType = {
@@ -147,11 +149,19 @@ const StyledText = styled(Text)`
     }
 `
 
-const TabPanel = ({ children, className }: TabPanelProps) => (
-    <TabContent className={className} role="tabpanel" tabIndex={0}>
-        {children}
-    </TabContent>
-)
+const TabPanel = ({ children, className, panelID, tabID }: TabPanelProps) => {
+    return (
+        <TabContent
+            className={className}
+            role="tabpanel"
+            tabIndex={0}
+            id={panelID}
+            aria-labelledby={tabID}
+        >
+            {children}
+        </TabContent>
+    )
+}
 
 const Tabs = ({
     children,
@@ -175,15 +185,18 @@ const Tabs = ({
                 <TabList className="side-tab__list" role="tablist" is_reverse={is_reverse}>
                     {React.Children.map(children, (child, index) => {
                         const {
-                            props: { label, description, description_components },
+                            props: { label, description, description_components, panelID, tabID },
                         } = child
                         return (
                             <>
                                 <TabButton
                                     className="side-tab__button"
                                     role="tab"
+                                    id={tabID}
+                                    aria-controls={panelID}
                                     selected={selected_tab === index}
-                                    aria-selected={selected_tab === index ? 'true' : 'false'}
+                                    aria-selected={selected_tab === index}
+                                    aria-expanded={selected_tab === index}
                                     onClick={() => selectTab(index)}
                                 >
                                     <CommonHeaderSection

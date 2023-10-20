@@ -52,7 +52,7 @@ const StartTrading = () => {
                 <StepperView items={CfdItems} />
             </StepperContainer>
             <ButtonContainer>
-                <Button onClick={handleSignup} label="Create free demo account" primary />
+                <Button onClick={handleSignup} label="_t_Create free demo account_t_" primary />
             </ButtonContainer>
         </SmallContainer>
     )

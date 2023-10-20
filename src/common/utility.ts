@@ -394,7 +394,12 @@ export const isEuDomain = () =>
 
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 
-export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))
+export const isTestlink = () =>
+    !!(
+        isBrowser() &&
+        (window.location.hostname.includes('binary.sx') ||
+            window.location.hostname.includes('deriv-com-preview-links.pages.dev'))
+    )
 
 export const matchHashInURL = (hash: string) =>
     isBrowser() && location.hash.replace('#', '') === hash

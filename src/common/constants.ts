@@ -103,7 +103,7 @@ export const dmt5_web_browser_url =
 export const deriv_mt5_app_url =
     'https://metatraderweb.app/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979'
 export const dmt5_windows =
-    'https://download.mql5.com/cdn/web/deriv.holdings.guernsey/mt5/deriv5setup.exe'
+    'https://download.mql5.com/cdn/web/deriv.com.limited/mt5/deriv5setup.exe'
 export const dmt5_app_gallery_url =
     'https://download.mql5.com/cdn/mobile/mt5/android/app-gallery?hl=en&utm_source=www.metatrader5.com&utm_campaign=install.metaquotes'
 export const dmt5_ios_url =
@@ -117,11 +117,11 @@ export const dmt5_macos_url =
 export const dmt5_mac_app_url =
     'https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/MetaTrader5.dmg'
 export const dmt5_windows_download_url =
-    'https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe?utm_source=www.metatrader5.com&utm_campaign=download'
+    'https://download.mql5.com/cdn/web/deriv.com.limited/mt5/deriv5setup.exe'
 export const dmt5_app_gallery =
     'https://download.mql5.com/cdn/mobile/mt5/android/app-gallery?hl=en&utm_source=www.metatrader5.com&utm_campaign=install.metaquotes'
 export const dmt5_windows_url =
-    'https://download.mql5.com/cdn/web/deriv.limited/mt5/deriv5setup.exe'
+    'https://download.mql5.com/cdn/web/deriv.com.limited/mt5/deriv5setup.exe'
 export const dp2p_google_play_url =
     'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
 //to be updated with ctrader url later

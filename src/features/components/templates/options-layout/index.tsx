@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
-import { start_trading_data, why_trade_options_data } from './data'
 import Layout from 'features/components/templates/layout'
+import { start_trading_data, why_trade_options_data } from './data'
 import MainNav from 'features/components/templates/navigation/main-nav'
 import Footer from 'features/components/templates/footer'
 import StartTrading from 'features/components/templates/start-trading'

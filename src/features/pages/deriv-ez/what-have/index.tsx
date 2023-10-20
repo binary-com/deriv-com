@@ -18,7 +18,7 @@ const WhatIsDerivEZ = () => {
                 return (
                     <FlexBox.Box
                         className={what_have_wrapper}
-                        key={content.id}
+                        key={content?.id}
                         direction={'col'}
                         margin_block={'10x'}
                         justify={'around'}
@@ -29,7 +29,7 @@ const WhatIsDerivEZ = () => {
                     >
                         <FlexBox.Box direction={'col'} justify={'center'}>
                             <Typography.Heading mb={'6x'} align="left" textcolor="primary">
-                                <Localize translate_text={content.title} />
+                                <Localize translate_text={content?.title} />
                             </Typography.Heading>
                             <Typography.Paragraph
                                 className={what_have_text}
@@ -37,10 +37,10 @@ const WhatIsDerivEZ = () => {
                                 mb={'12x'}
                                 md={{ mb: '0x' }}
                             >
-                                <Localize translate_text={content.subtitle} />
+                                <Localize translate_text={content?.subtitle} />
                             </Typography.Paragraph>
                         </FlexBox.Box>
-                        {content.image}
+                        {content?.image}
                     </FlexBox.Box>
                 )
             })}

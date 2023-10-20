@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react'
-import { start_trading_data, why_trade_options_data } from './data'
 import Layout from 'features/components/templates/layout'
+import { start_trading_data, why_trade_options_data } from './data'
 import MainNav from 'features/components/templates/navigation/main-nav'
 import Footer from 'features/components/templates/footer'
 import StartTrading from 'features/components/templates/start-trading'
@@ -13,14 +13,24 @@ interface OptionsLayoutProps {
     children?: ReactNode
     heading: TString
     description: TString
+    is_coming_soon?: boolean
 }
 
-const OptionsLayout = ({ heading, description, children }: OptionsLayoutProps) => {
+const OptionsLayout = ({
+    heading,
+    description,
+    children,
+    is_coming_soon = false,
+}: OptionsLayoutProps) => {
     return (
         <Layout>
             <MainNav />
             <OptionsTopTab />
-            <WhatAreDigitalOptions heading={heading} description={description} />
+            <WhatAreDigitalOptions
+                heading={heading}
+                description={description}
+                is_coming_soon={is_coming_soon}
+            />
             {children}
             <WhyTradeOptions data={why_trade_options_data} />
             <StartTrading data={start_trading_data} />

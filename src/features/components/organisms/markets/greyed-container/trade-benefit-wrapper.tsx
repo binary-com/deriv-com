@@ -6,6 +6,8 @@ import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import { TString } from 'types/generics'
+import useRegion from 'components/hooks/use-region'
+import useVisibleContent from 'components/hooks/use-visible-content'
 
 interface TradeBenefitWrapperProps {
     data: BenefitTradeTypeItem[]
@@ -13,6 +15,8 @@ interface TradeBenefitWrapperProps {
 }
 
 const TradeBenefitWrapper = ({ data, header }: TradeBenefitWrapperProps) => {
+    const { is_eu } = useRegion()
+    const visible_trade_benefits = useVisibleContent({ content: data, config: { is_eu } })
     return (
         <Container.Fixed
             as="section"
@@ -39,7 +43,7 @@ const TradeBenefitWrapper = ({ data, header }: TradeBenefitWrapperProps) => {
                 gap="12x"
                 lg={{ direction: 'row', padding_inline: '20x', pb: '20x' }}
             >
-                {data.map((item) => (
+                {visible_trade_benefits.map((item) => (
                     <TradeBenefit key={item.id} item={item.data} />
                 ))}
             </Flex.Box>

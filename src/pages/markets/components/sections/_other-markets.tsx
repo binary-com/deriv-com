@@ -265,7 +265,7 @@ const Card = ({ market }: CardProps) => {
             <Text size="16px" mt="0.8rem">
                 <Localize
                     translate_text={
-                        is_eu ? markets_type[market].content_eu : markets_type[market].content
+                        is_eu ? markets_type[market].content_eu : markets_type[market]?.content
                     }
                 />
             </Text>
@@ -291,7 +291,7 @@ const MobileCard = ({ market }: CardProps) => {
                 </Text>
             </Flex>
             <Text size="14px" mb="3rem">
-                <Localize translate_text={markets_type[market].content} />
+                <Localize translate_text={markets_type[market]?.content} />
             </Text>
             <LearnMore to={markets_type[market].to} visibility="true">
                 <Text>

@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import kid_data from './data/_kid_data'
-import { Text, Accordion, AccordionItem, LinkText } from 'components/elements'
+import { kid_data, kid_data_multiplier } from './data/_kid_data'
+import { Text, Accordion, AccordionItem, LinkText, Divider } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
@@ -155,6 +155,30 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                                         : ''
                                 }${data.ref}`}
                                 m="1.6rem 1.4rem"
+                            >
+                                <img src={PDFIcon} alt="pdf icon black" />
+                                <span>
+                                    <Localize translate_text={data.title} />
+                                </span>
+                            </FlexText>
+                        ))}
+                    </EdgeFlex>
+                </Flex>
+                <Divider />
+                <Flex>
+                    <EdgeFlex>
+                        {kid_data_multiplier.map((data, idx) => (
+                            <FlexText
+                                key={idx}
+                                color="red"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={`/regulatory/kid/${
+                                    is_supported_language(selected_language)
+                                        ? selected_language + '/'
+                                        : ''
+                                }${data.ref}`}
+                                m="1.6rem 2.4rem"
                             >
                                 <img src={PDFIcon} alt="pdf icon black" />
                                 <span>

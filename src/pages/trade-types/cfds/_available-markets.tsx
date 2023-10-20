@@ -125,7 +125,7 @@ const available_markets: TAvailableMarkets[] = [
     },
 ]
 
-const eu_restricted_markets = ['ETFs', 'Basket Indices']
+const eu_restricted_markets = ['Basket Indices']
 
 const eu_available_markets = available_markets.filter(
     (el) => !eu_restricted_markets.includes(el.name),

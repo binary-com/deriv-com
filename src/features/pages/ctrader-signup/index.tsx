@@ -1,4 +1,5 @@
 import React from 'react'
+import Layout from 'features/components/templates/layout'
 import { form_style } from './ctrader-form.module.scss'
 import SignUpCtraderForm from './ctrader-email-form'
 import Flex from 'features/components/atoms/flex-box'
@@ -7,7 +8,6 @@ import { Localize } from 'components/localization'
 import Link from 'features/components/atoms/link'
 import useRegion from 'components/hooks/use-region'
 import CtraderWrapper from 'features/components/templates/ctrader/ctrader-wrapper'
-import Layout from 'features/components/templates/layout'
 import { ctrader_login, brand_name } from 'common/constants'
 import { getLanguage } from 'common/utility'
 

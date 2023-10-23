@@ -6,6 +6,7 @@ import { Table, TRAP, TRAPREVERSE, TC } from './_table'
 import { DMT5Props } from './_deriv-ib-programme'
 import { Flex } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
+import useScrollToElement from 'features/hooks/use-scroll-to-element'
 import { Accordion, AccordionItem, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import { Button } from 'components/form'
@@ -286,9 +287,15 @@ const StyledButton = styled(Button)`
 const DMT5Cards = ({ data }: DMT5Props) => {
     const dataImages = useStaticQuery(query)
     const [is_calculated, setCalculated] = React.useState(false)
+    const clickToScrollHandler = useScrollToElement('affiliate-card', -100)
 
     const toggleCalculated = () => {
         setCalculated(!is_calculated)
+    }
+
+    const scrollToHeader = () => {
+        setCalculated(!is_calculated)
+        clickToScrollHandler()
     }
 
     return (
@@ -524,7 +531,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                                 </React.Fragment>
                             ))}
                             <ButtonWrapper>
-                                <BackButton tertiary onClick={toggleCalculated} className="back">
+                                <BackButton tertiary onClick={scrollToHeader} className="back">
                                     <Localize translate_text="_t_Back_t_" />
                                 </BackButton>
                             </ButtonWrapper>

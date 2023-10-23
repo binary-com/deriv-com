@@ -1,9 +1,11 @@
+import { ReactElement } from 'react'
 import { TString } from 'types/generics'
 
 export interface DerivPrimeFAQTextItem {
     type: 'text'
     id: number
     text: TString
+    components?: ReactElement[]
 }
 
 export interface DerivPrimeFAQListItem {

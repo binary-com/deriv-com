@@ -158,7 +158,7 @@ export const tradingPlatformsContent: SmartNavContent[] = [
                 alt: 'Deriv cTrader trading platform',
             },
             content:
-                '_t_Advance trading, charting and technical analysis tools available for users._t_',
+                '_t_An intuitive, multi-asset CFD trading platform with copy trading and custom indicators._t_',
             title: '_t_Deriv cTrader_t_',
             url: { type: 'internal', to: '/deriv-ctrader/' },
         },

@@ -1,7 +1,7 @@
 import React from 'react'
+import Layout from 'features/components/templates/layout'
 import PageNotFound from 'features/pages/404'
 import InitialLoader from 'components/elements/dot-loader'
-import Layout from 'features/components/templates/layout'
 
 interface ProtectedRouteProps {
     is_page_visible: boolean

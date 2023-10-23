@@ -48,6 +48,7 @@
 
     &_scrollable_menu {
         @media screen and (max-height: 975px) {
+            block-size: 80vh;
             padding-block-end: 3rem;
             overflow: auto;
         }

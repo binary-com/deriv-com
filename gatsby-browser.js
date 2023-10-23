@@ -1,8 +1,8 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
 import Cookies from 'js-cookie'
-import { Analytics } from '@deriv/analytics'
 import { isMobile } from 'react-device-detect'
+import { Analytics } from '@deriv/analytics'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
@@ -13,7 +13,6 @@ import {
     getClientInformation,
     getDomain,
     getLanguage,
-    isBrowser,
     updateURLAsPerUserLanguage,
 } from 'common/utility'
 import './static/css/ibm-plex-sans-var.css'
@@ -93,20 +92,10 @@ export const onClientEntry = () => {
             : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
     })
     Analytics?.setAttributes({
+        country: Cookies.get('clients_country') || Cookies.getJSON('website_status'),
         user_language: Cookies.get('user_language') || getLanguage(),
-        device_language: (isBrowser() && navigator?.language) || ' ',
-        device_type: isMobile ? 'mobile' : 'web',
-        country: (() => {
-            try {
-                return (
-                    JSON?.parse(JSON?.parse(Cookies?.get('website_status'))?.website_status)
-                        ?.clients_country || ' '
-                )
-            } catch (error) {
-                console.error('Error parsing country data:', error)
-            }
-        })(),
-        account_type: 'VR',
+        device_language: navigator?.language || ' ',
+        device_type: isMobile ? 'mobile' : 'desktop',
     })
     //datadog
     const dd_options = {

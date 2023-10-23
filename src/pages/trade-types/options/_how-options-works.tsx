@@ -13,24 +13,22 @@ import PurchaseContract from 'images/svg/trade-types/trade_type_purchase_your_co
 
 const query = graphql`
     query {
-        option_market: file(relativePath: { eq: "trade-types/trade_type_options_market.png" }) {
+        option_market: file(relativePath: { eq: "trade-types/options-market.png" }) {
             ...fadeIn
         }
-        option_trade_type: file(
-            relativePath: { eq: "trade-types/trade_type_options_trade_type.png" }
-        ) {
+        option_trade_type: file(relativePath: { eq: "trade-types/options-trade-type.png" }) {
             ...fadeIn
         }
-        option_duration: file(relativePath: { eq: "trade-types/trade_type_options_duration.png" }) {
+        option_duration: file(relativePath: { eq: "trade-types/options-duration.png" }) {
             ...fadeIn
         }
-        option_stake: file(relativePath: { eq: "trade-types/trade_type_options_stake.png" }) {
+        option_stake: file(relativePath: { eq: "trade-types/options-stake.png" }) {
             ...fadeIn
         }
-        option_quote: file(relativePath: { eq: "trade-types/trade_type_options_quote.png" }) {
+        option_quote: file(relativePath: { eq: "trade-types/options-quote.png" }) {
             ...fadeIn
         }
-        option_purchase: file(relativePath: { eq: "trade-types/trade_type_options_purchase.png" }) {
+        option_purchase: file(relativePath: { eq: "trade-types/options-purchase.png" }) {
             ...fadeIn
         }
     }

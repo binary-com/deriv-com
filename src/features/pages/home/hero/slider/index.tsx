@@ -36,7 +36,7 @@ const HomeHeroSlider = () => {
             },
         ]
         if (!is_eu) {
-            slide_images.unshift(
+            slide_images.push(
                 {
                     key: 'hero2',
                     image: (
@@ -65,7 +65,7 @@ const HomeHeroSlider = () => {
                 },
             )
         } else {
-            slide_images.unshift({
+            slide_images.push({
                 key: 'hero_eu_1',
                 image: (
                     <StaticImage

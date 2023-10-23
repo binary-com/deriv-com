@@ -46,6 +46,9 @@ export const trade_types: TradeType[] = [
                         to: '/deriv-ctrader',
                     },
                 },
+                visibility: {
+                    is_eu: false,
+                },
             },
         ],
     },

@@ -31,11 +31,13 @@ const kid_data: kidType[] = [
     {
         title: '_t_CFDs - Synthetics: Volatility 250 (1s) Index_t_',
         ref: 'kid_deriv_CFD_synthetic_vol_250.pdf',
+        is_only_en: true,
     },
 
     {
         title: '_t_CFDs - Synthetics: Crash 300 Index_t_',
         ref: 'kid_deriv_CFD_synthetic_crash_300.pdf',
+        is_only_en: true,
     },
     {
         title: '_t_CFDs - ETFs_t_',
@@ -55,10 +57,12 @@ const kid_data_multiplier = [
     {
         title: '_t_Multipliers - Synthetics: Volatility 250 (1s) Index_t_',
         ref: 'kid_deriv_multipliers_synthetics_vol_250.pdf',
+        is_only_en: true,
     },
     {
         title: '_t_Multipliers - Synthetics: Crash 300 Index_t_',
         ref: 'kid_deriv_multipliers_synthetics_crash_300.pdf',
+        is_only_en: true,
     },
 ]
 

@@ -129,7 +129,7 @@ const HowOptionsWorks = () => {
                     >
                         {is_eu ? (
                             <StaticImage
-                                src="../../../images/common/trade-types/trade_type_multiplier-market-eu-new.png"
+                                src="../../../images/common/trade-types/multiplier-market-eu-new.png"
                                 alt={localize('_t_Select market to trade_t_')}
                                 loading="eager"
                                 formats={['avif', 'webp', 'auto']}
@@ -139,7 +139,7 @@ const HowOptionsWorks = () => {
                             />
                         ) : (
                             <StaticImage
-                                src="../../../images/common/trade-types/trade_type_options-market.png"
+                                src="../../../images/common/trade-types/options-market.png"
                                 alt={localize('_t_Select market to trade_t_')}
                                 loading="eager"
                                 formats={['avif', 'webp', 'auto']}
@@ -161,7 +161,7 @@ const HowOptionsWorks = () => {
                     >
                         {is_eu ? (
                             <StaticImage
-                                src="../../../images/common/trade-types/trade_type_multiplier-trade-type-eu.png"
+                                src="../../../images/common/trade-types/multiplier-trade-type-eu.png"
                                 alt={localize('_t_Selecting multiplier_t_')}
                                 loading="eager"
                                 formats={['avif', 'webp', 'auto']}
@@ -171,7 +171,7 @@ const HowOptionsWorks = () => {
                             />
                         ) : (
                             <StaticImage
-                                src="../../../images/common/trade-types/trade_type_multiplier-trade-type.png"
+                                src="../../../images/common/trade-types/multiplier-trade-type.png"
                                 alt={localize('_t_Selecting multiplier_t_')}
                                 loading="eager"
                                 formats={['avif', 'webp', 'auto']}
@@ -188,7 +188,7 @@ const HowOptionsWorks = () => {
                         description="_t_Enter the amount you wish to trade with._t_"
                     >
                         <StaticImage
-                            src="../../../images/common/trade-types/trade_type_multiplier-stake.png"
+                            src="../../../images/common/trade-types/multiplier-stake.png"
                             alt={localize('_t_Enter stake amount_t_')}
                             loading="eager"
                             formats={['avif', 'webp', 'auto']}
@@ -209,7 +209,7 @@ const HowOptionsWorks = () => {
                     >
                         {is_eu ? (
                             <StaticImage
-                                src="../../../images/common/trade-types/trade_type_multiplier-value-eu.png"
+                                src="../../../images/common/trade-types/multiplier-value-eu.png"
                                 alt={localize('_t_Enter multiplier value_t_')}
                                 loading="eager"
                                 formats={['avif', 'webp', 'auto']}
@@ -219,7 +219,7 @@ const HowOptionsWorks = () => {
                             />
                         ) : (
                             <StaticImage
-                                src="../../../images/common/trade-types/trade_type_multiplier-value.png"
+                                src="../../../images/common/trade-types/multiplier-value.png"
                                 alt={localize('_t_Enter multiplier value_t_')}
                                 loading="eager"
                                 formats={['avif', 'webp', 'auto']}
@@ -241,7 +241,7 @@ const HowOptionsWorks = () => {
                         description="_t_This feature allows you to set the level of profit that you are comfortable with when the market moves in your favour. Once the amount is reached, your position will be closed automatically and your earnings will be deposited into your Deriv account._t_"
                     >
                         <StaticImage
-                            src="../../../images/common/trade-types/trade_type_multiplier-take-profit.png"
+                            src="../../../images/common/trade-types/multiplier-take-profit.png"
                             alt={localize('_t_Set profit level_t_')}
                             loading="eager"
                             formats={['avif', 'webp', 'auto']}
@@ -257,7 +257,7 @@ const HowOptionsWorks = () => {
                         description="_t_This feature allows you to set the amount of loss you are willing to take in case the market moves against your position. Once the amount is reached, your contract will be closed automatically._t_"
                     >
                         <StaticImage
-                            src="../../../images/common/trade-types/trade_type_multiplier-stop-loss.png"
+                            src="../../../images/common/trade-types/multiplier-stop-loss.png"
                             alt={localize('_t_Set stop loss_t_')}
                             loading="eager"
                             formats={['avif', 'webp', 'auto']}
@@ -277,7 +277,7 @@ const HowOptionsWorks = () => {
                         }
                     >
                         <StaticImage
-                            src="../../../images/common/trade-types/trade_type_multiplier-deal-cancellation.png"
+                            src="../../../images/common/trade-types/multiplier-deal-cancellation.png"
                             alt={localize('_t_Set deal cancellation time_t_')}
                             loading="eager"
                             formats={['avif', 'webp', 'auto']}
@@ -298,7 +298,7 @@ const HowOptionsWorks = () => {
                         description="_t_Once you are satisfied with the parameters that you have set, select either ‘Up’ or ‘Down’ to purchase your contract. Otherwise, continue to customise the parameters and place your order when you are satisfied with the conditions._t_"
                     >
                         <StaticImage
-                            src="../../../images/common/trade-types/trade_type_multiplier-purchase.png"
+                            src="../../../images/common/trade-types/multiplier-purchase.png"
                             alt={localize('_t_Purchase the contract_t_')}
                             loading="eager"
                             formats={['avif', 'webp', 'auto']}

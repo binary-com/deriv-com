@@ -45,6 +45,9 @@ export const ETFTradeBenefitItems: BenefitTradeTypeItem[] = [
                 alt: '_t_powerful and intuitive platforms_t_',
             },
         },
+        visibility: {
+            is_eu: false,
+        },
     },
     {
         id: 4,

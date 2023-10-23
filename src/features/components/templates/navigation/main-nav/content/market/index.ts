@@ -106,9 +106,6 @@ export const marketSectionContent: SmartNavSectionColumns[] = [
                         title: '_t_Exchange-traded funds (ETFs)_t_',
                         url: { type: 'internal', to: '/markets/exchange-traded-funds/' },
                     },
-                    visibility: {
-                        is_row: true,
-                    },
                 },
             ],
             no_divider: true,

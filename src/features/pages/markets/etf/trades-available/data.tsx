@@ -12,27 +12,39 @@ export const trade_types: TradeType[] = [
             '_t_On Deriv, you can trade CFDs with high leverage, enabling you to pay just a fraction of the contract’s value. It will amplify your potential gain and also increase your potential loss._t_',
         trade_items: [
             {
-                icon: MT5,
-                name: '_t_Deriv MT5_t_',
-                link: {
-                    type: 'internal',
-                    to: '/dmt5',
+                id: 1,
+                data: {
+                    icon: MT5,
+                    name: '_t_Deriv MT5_t_',
+                    link: {
+                        type: 'internal',
+                        to: '/dmt5',
+                    },
                 },
             },
             {
-                icon: DerivX,
-                name: '_t_Deriv X_t_',
-                link: {
-                    type: 'internal',
-                    to: '/derivx',
+                id: 2,
+                data: {
+                    icon: DerivX,
+                    name: '_t_Deriv X_t_',
+                    link: {
+                        type: 'internal',
+                        to: '/derivx',
+                    },
+                },
+                visibility: {
+                    is_eu: false,
                 },
             },
             {
-                icon: DerivcTrader,
-                name: '_t_Deriv cTrader_t_',
-                link: {
-                    type: 'internal',
-                    to: '/deriv-ctrader',
+                id: 3,
+                data: {
+                    icon: DerivcTrader,
+                    name: '_t_Deriv cTrader_t_',
+                    link: {
+                        type: 'internal',
+                        to: '/deriv-ctrader',
+                    },
                 },
             },
         ],

@@ -85,7 +85,6 @@ export const other_markets_items: SmartOtherMarketsItem[] = [
         },
         visibility: {
             current_market: 'etfs',
-            is_eu: false,
         },
     },
     {

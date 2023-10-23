@@ -105,11 +105,8 @@ const marketsLinks: SmartFooterLink[] = [
     {
         id: 3,
         data: {
-            text: '_t_ETF_t_',
+            text: '_t_ETFs_t_',
             url: { type: 'internal', to: '/markets/exchange-traded-funds/' },
-        },
-        visibility: {
-            is_row: true,
         },
     },
     {

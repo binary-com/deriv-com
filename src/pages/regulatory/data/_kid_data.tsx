@@ -3,6 +3,7 @@ import { TString } from 'types/generics'
 type kidType = {
     title: TString
     ref: string
+    is_only_en?: boolean
 }
 
 const kid_data: kidType[] = [
@@ -39,6 +40,7 @@ const kid_data: kidType[] = [
     {
         title: '_t_CFDs - ETFs_t_',
         ref: 'kid_deriv_cfds_etfs.pdf',
+        is_only_en: true,
     },
 ]
 const kid_data_multiplier = [

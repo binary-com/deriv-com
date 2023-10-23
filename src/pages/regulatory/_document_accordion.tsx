@@ -149,7 +149,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                                 color="red"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                href={`/regulatory/kis_cr/${
+                                href={`/regulatory/kid/${
                                     is_supported_language(selected_language) && !data.is_only_en
                                         ? selected_language + '/'
                                         : ''

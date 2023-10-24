@@ -93,7 +93,7 @@ export const onClientEntry = () => {
             ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
             : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
     })
-    console.log(Cookies.get('clients_country') || Cookies.getJSON('website_status'))
+    console.log(Cookies.get('clients_country') || Cookies.getJSON('website_status') || 'def')
     console.log(Cookies.get('user_language') || getLanguage())
     console.log(navigator?.language || ' ')
     Analytics?.setAttributes({

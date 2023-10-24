@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { tradeTypesItems } from './data'
 import TradeTypeItem from './trade-type.item'
 import Container from 'features/components/atoms/container'
@@ -12,10 +12,14 @@ import { TString } from 'types/generics'
 const TradeTypes = () => {
     const { is_eu } = useRegion()
     const visible_items = useVisibleContent({ content: tradeTypesItems, config: { is_eu } })
-    const title_text: TString = useMemo(() => {
-        return is_eu
-            ? '_t_Trade the way you want with 2 flexible trade types._t_'
-            : '_t_Trade the way you want with 3 exciting trade types._t_'
+    const [title_text, setTitleText] = useState<TString>(
+        '_t_Trade the way you want with 3 exciting trade types._t_',
+    )
+
+    useEffect(() => {
+        if (is_eu) {
+            setTitleText('_t_Trade the way you want with 2 flexible trade types._t_')
+        }
     }, [is_eu])
 
     return (

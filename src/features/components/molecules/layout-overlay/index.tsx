@@ -1,8 +1,7 @@
-import React, { lazy } from 'react'
+import React, { lazy, useEffect, useState } from 'react'
 import pMinDelay from 'p-min-delay'
 import loadable from '@loadable/component'
 import { overlay_container } from './layout-overlay.module.scss'
-import CfdWarningBanner from './cfd-warning-banner'
 import Flex from 'features/components/atoms/flex-box'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { getLocationPathname, getLanguage } from 'common/utility'
@@ -11,9 +10,11 @@ import SuspenseHelper from 'features/components/atoms/suspense-helper'
 const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 5000))
 const WhatsappButton = loadable(() => pMinDelay(import('./whats-app-button'), 5000))
 const CookieBanner = lazy(() => import('./cookie-banner'))
+const CfdWarningBanner = lazy(() => import('./cfd-warning-banner'))
 
 const LayoutOverlay = () => {
     const is_rtl = useIsRtl()
+    const [is_home, setIsHome] = useState(false)
 
     const isHomePage = () => {
         const currentPath = getLocationPathname()
@@ -21,6 +22,9 @@ const LayoutOverlay = () => {
 
         return currentPath === `/${language}/` || currentPath === '/'
     }
+    useEffect(() => {
+        setIsHome(isHomePage())
+    }, [])
     return (
         <Flex.Box
             id="overlay-container"
@@ -47,7 +51,11 @@ const LayoutOverlay = () => {
                     <WhatsappButton />
                 </Flex.Box>
             </Flex.Box>
-            {isHomePage() && <CfdWarningBanner />}
+            {is_home && (
+                <SuspenseHelper fallback={<></>}>
+                    <CfdWarningBanner />
+                </SuspenseHelper>
+            )}
         </Flex.Box>
     )
 }

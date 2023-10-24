@@ -1,4 +1,5 @@
 import React from 'react'
+import Layout from 'features/components/templates/layout'
 import Steps from './steps'
 import WhyTrade from './why-trade'
 import Banner from './banner'
@@ -9,7 +10,6 @@ import CheckTrading from './check-trading'
 import SignupPublic from 'features/components/templates/signup/with-banner'
 import Flex from 'features/components/atoms/flex-box'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
-import Layout from 'features/components/templates/layout'
 import MarketNav from 'features/components/templates/navigation/market-nav'
 import Footer from 'features/components/templates/footer/'
 

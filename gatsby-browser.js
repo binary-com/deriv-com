@@ -91,14 +91,14 @@ export const onClientEntry = () => {
             ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
             : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
     })
-    console.log(Analytics?.getId())
     Analytics?.setAttributes({
         country: Cookies.get('clients_country') || Cookies.getJSON('website_status'),
         user_language: Cookies.get('user_language') || getLanguage(),
         device_language: navigator?.language || ' ',
         device_type: isMobile ? 'mobile' : 'desktop',
-        user_id: Analytics?.getId(),
     })
+    const { tracking } = Analytics.getInstances()
+    tracking.identifyEvent(Analytics?.getId(), { language: getLanguage() })
     //datadog
     const dd_options = {
         clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,

@@ -24,10 +24,10 @@ const HomeHeroContent = () => {
     const common_test = Analytics?.getFeatureValue('test-toggle-aa-test', 'fallback')
 
     const headings = {
-        control: '_t_Get the widest range of markets, trades and platforms_t_',
+        Control: '_t_Get the widest range of markets, trades and platforms_t_',
         'Variation 1': '_t_Get the widest range of markets, trades and platforms_t_',
     }
-    const heading = headings[test_toggle_aa_test || 'control']
+    const heading = headings[test_toggle_aa_test || 'Control']
 
     return (
         <Flex.Box justify="start" direction="col" align="start" gap="4x" dir={get_lang_direction()}>

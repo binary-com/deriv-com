@@ -8,12 +8,16 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import useRegion from 'components/hooks/use-region'
 import { TGatsbyHead } from 'features/types'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const CommoditiesPage = () => {
     const { is_row } = useRegion()
+    const [is_mounted] = usePageLoaded()
     const hero_description = is_row
         ? '_t_Trade popular assets in the commodities market such as silver, gold, oil, and more without owning the underlying asset. Speculate on the price movements and benefit from our high leverage and competitive spreads._t_'
         : '_t_Trade popular assets in the commodities market such as silver, gold, oil, and more without owning the underlying asset. Speculate on the price movements and benefit from our competitive spreads._t_'
+
+    if (!is_mounted) return null
 
     return (
         <Layout type="noNav">

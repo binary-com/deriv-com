@@ -84,13 +84,18 @@ export const onClientEntry = () => {
     Analytics?.initialise({
         growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
         growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
-        enableDevMode: window?.location.hostname.includes('localhost'),
+        enableDevMode: ['.pages.dev', 'git-fork', 'localhost'].some((condition) =>
+            window.location.hostname.includes(condition),
+        ),
         rudderstackKey: ['.pages.dev', 'git-fork', 'localhost'].some((condition) =>
             window.location.hostname.includes(condition),
         )
             ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
             : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
     })
+    console.log(Cookies.get('clients_country') || Cookies.getJSON('website_status'))
+    console.log(Cookies.get('user_language') || getLanguage())
+    console.log(navigator?.language || ' ')
     Analytics?.setAttributes({
         country: Cookies.get('clients_country') || Cookies.getJSON('website_status'),
         user_language: Cookies.get('user_language') || getLanguage(),

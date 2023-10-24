@@ -84,20 +84,20 @@ export const onClientEntry = () => {
     Analytics?.initialise({
         growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
         growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
-        enableDevMode: ['.pages.dev', 'git-fork', 'localhost'].some((condition) =>
-            window.location.hostname.includes(condition),
-        ),
+        enableDevMode: window?.location.hostname.includes('localhost'),
         rudderstackKey: ['.pages.dev', 'git-fork', 'localhost'].some((condition) =>
             window.location.hostname.includes(condition),
         )
             ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
             : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
     })
+    console.log(Analytics?.getId())
     Analytics?.setAttributes({
         country: Cookies.get('clients_country') || Cookies.getJSON('website_status'),
         user_language: Cookies.get('user_language') || getLanguage(),
         device_language: navigator?.language || ' ',
         device_type: isMobile ? 'mobile' : 'desktop',
+        user_id: Analytics?.getId(),
     })
     //datadog
     const dd_options = {

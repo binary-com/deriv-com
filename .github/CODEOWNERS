@@ -41,7 +41,7 @@
 #  mitra-deriv
 #  fasihali-deriv
 #  aswathy-deriv
-#  meenu-deriv
+#  meenakshi-deriv
 
 ######################################################################################################
 #
@@ -77,7 +77,7 @@
 # ==============================================================
 
 /src/common/**/*                                                @habib-deriv @yashim-deriv @prince-deriv @aswathy-deriv @mitra-deriv
-/src/components/**/*                                            @habib-deriv @yashim-deriv @prince-deriv @meenu-deriv
+/src/components/**/*                                            @habib-deriv @yashim-deriv @prince-deriv @meenakshi-deriv
 /src/themes/**/*                                                @habib-deriv @yashim-deriv @prince-deriv @fasihali-deriv
 /src/features/**/*                                              @habib-deriv @prince-deriv @mitra-deriv @fasihali-deriv
 
@@ -110,4 +110,4 @@
 # ==============================================================
 
 /storybooks.d.ts
-@prince-deriv @habib-deriv @aswathy-deriv @meenu-deriv
+@prince-deriv @habib-deriv @mitra-deriv @fasihali-deriv @aswathy-deriv @meenakshi-deriv

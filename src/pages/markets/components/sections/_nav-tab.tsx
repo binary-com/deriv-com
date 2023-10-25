@@ -7,6 +7,7 @@ import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { TNavTab, TTabButton, TTabList } from 'pages/markets/static/content/_types'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const TabsContainer = styled(Flex)`
     justify-content: center;
@@ -123,6 +124,9 @@ const NavTab = ({ route_from }: TNavTab) => {
     const { is_eu } = useRegion()
     const ref = useRef(null)
     const { is_deriv_go } = usePlatformQueryParam()
+    const [is_mounted] = usePageLoaded()
+
+    if (!is_mounted) return null
 
     return (
         <TabsContainer>

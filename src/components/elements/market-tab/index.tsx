@@ -20,7 +20,7 @@ const MarketIcon = styled.img<{ is_selected?: boolean }>`
 `
 
 const MarketTab = () => {
-    const { is_row } = useRegion()
+    const { is_eu } = useRegion()
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)
@@ -29,28 +29,26 @@ const MarketTab = () => {
     return (
         <>
             <MarketsContainer>
-                {market_buttons
-                    .filter((marketItem) => is_row || marketItem.market_name !== 'etfs')
-                    .map((marketItem) => (
-                        <MarketButton
-                            selected={marketItem.market_name === selected_market}
-                            key={marketItem.id}
-                            onClick={() => {
-                                onMarketButtonClick(marketItem.market_name)
-                            }}
-                        >
-                            <MarketIcon
-                                src={
-                                    marketItem.market_name === selected_market
-                                        ? marketItem.selected_src
-                                        : marketItem.src
-                                }
-                            />
-                            <TabStyledHeader type="paragraph-2" as="p">
-                                <Localize translate_text={marketItem.button_text} />
-                            </TabStyledHeader>
-                        </MarketButton>
-                    ))}
+                {market_buttons.map((marketItem) => (
+                    <MarketButton
+                        selected={marketItem.market_name === selected_market}
+                        key={marketItem.id}
+                        onClick={() => {
+                            onMarketButtonClick(marketItem.market_name)
+                        }}
+                    >
+                        <MarketIcon
+                            src={
+                                marketItem.market_name === selected_market
+                                    ? marketItem.selected_src
+                                    : marketItem.src
+                            }
+                        />
+                        <TabStyledHeader type="paragraph-2" as="p">
+                            <Localize translate_text={marketItem.button_text} />
+                        </TabStyledHeader>
+                    </MarketButton>
+                ))}
             </MarketsContainer>
             <ContainerWrapper>
                 {market_buttons.map(
@@ -63,7 +61,13 @@ const MarketTab = () => {
                                 align="center"
                                 as="p"
                             >
-                                <Localize translate_text={marketItem.market_description} />
+                                <Localize
+                                    translate_text={
+                                        is_eu
+                                            ? marketItem.market_description_eu
+                                            : marketItem.market_description
+                                    }
+                                />
                             </Header>
                         ),
                 )}

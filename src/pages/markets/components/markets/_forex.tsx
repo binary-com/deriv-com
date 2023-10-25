@@ -17,6 +17,7 @@ import { Localize, localize } from 'components/localization'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 import { TSimpleStepContent } from 'pages/markets/static/content/_types'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -27,6 +28,9 @@ type ForexProps = {
 
 const Forex = ({ simple_step_content }: ForexProps) => {
     const { is_row, is_eu } = useRegion()
+    const [is_mounted] = usePageLoaded()
+
+    if (!is_mounted) return null
 
     return (
         <>

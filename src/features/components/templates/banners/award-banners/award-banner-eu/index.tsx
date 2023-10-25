@@ -7,12 +7,21 @@ import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { Localize, localize } from 'components/localization'
 
-const AwardBannerEu = ({ title }: AwardProps) => {
+const AwardBannerEu = ({ title, subtitle }: AwardProps) => {
     return (
         <Container.Fluid margin_block="36x">
-            <Typography.Heading align="center" margin="16x" weight="bold" md={{ margin: '24x' }}>
+            <Typography.Heading align="center" margin="8x" weight="bold" md={{ margin: '12x' }}>
                 <Localize translate_text={title} />
             </Typography.Heading>
+            <Typography.Paragraph
+                size="xlarge"
+                align="center"
+                mt="8x"
+                mb="16x"
+                md={{ mb: '24x', mt: '12x' }}
+            >
+                <Localize translate_text={subtitle} />
+            </Typography.Paragraph>
             <Flex.Box
                 align="center"
                 direction="col"

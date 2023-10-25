@@ -8,4 +8,5 @@ export interface AwardImagesProps {
 
 export interface AwardProps {
     title: TString
+    subtitle?: TString
 }

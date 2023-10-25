@@ -147,6 +147,7 @@ const StyledLinkButton = styled(LinkButton)`
 
     @media ${device.tabletL} {
         padding: 10px 15px;
+        margin-bottom: 1rem;
     }
 
     :active {

@@ -25,7 +25,11 @@ const NavDesktopItem = ({ item, active }: DesktopItemsProps) => {
     return (
         <NavigationMenu.Item value={item.data.title}>
             <NavigationMenu.Trigger className="navigation_trigger" onClick={handleClick}>
-                <Typography.Paragraph size="medium" font_family="UBUNTU">
+                <Typography.Paragraph
+                    size="medium"
+                    font_family="UBUNTU"
+                    className="nav_text_wrapper"
+                >
                     <Localize translate_text={item.data.title} />
                 </Typography.Paragraph>
             </NavigationMenu.Trigger>

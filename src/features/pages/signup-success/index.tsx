@@ -1,6 +1,6 @@
 import React from 'react'
-import { signup_success_wrapper, signup_success_description } from './signup-success.module.scss'
 import Layout from 'features/components/templates/layout'
+import { signup_success_wrapper, signup_success_description } from './signup-success.module.scss'
 import StaticNav from 'features/components/templates/navigation/static-nav'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'

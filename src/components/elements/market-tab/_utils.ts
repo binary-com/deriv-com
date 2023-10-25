@@ -19,6 +19,8 @@ export const market_buttons: TMarketButtons[] = [
         selected_src: SelectedForex,
         button_text: '_t_Forex_t_',
         market_name: 'forex',
+        market_description_eu:
+            '_t_Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events._t_',
         market_description:
             '_t_Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events._t_',
         to: 'markets/forex/',
@@ -29,6 +31,8 @@ export const market_buttons: TMarketButtons[] = [
         selected_src: SelectedDerived,
         button_text: '_t_Derived indices_t_',
         market_name: 'derived',
+        market_description_eu:
+            '_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX, and baskets._t_',
         market_description:
             '_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX, and baskets._t_',
         to: 'markets/synthetic/',
@@ -39,6 +43,8 @@ export const market_buttons: TMarketButtons[] = [
         selected_src: SelectedStocks,
         button_text: '_t_Stocks & indices_t_',
         market_name: 'indices',
+        market_description_eu:
+            '_t_Trade global stocks of your favourite household brands and international stock market indices on Deriv. Expand your trading opportunities with access to a wide range of stocks and indices at competitive prices, and the convenience to trade indices beyond standard market hours._t_',
         market_description:
             '_t_Trade global stocks of your favourite household brands and international stock market indices on Deriv. Expand your trading opportunities with access to a wide range of stocks and indices at competitive prices, and the convenience to trade indices beyond standard market hours._t_',
         to: 'markets/stock/',
@@ -49,6 +55,8 @@ export const market_buttons: TMarketButtons[] = [
         selected_src: SelectedEtfs,
         button_text: '_t_ETFs_t_',
         market_name: 'etfs',
+        market_description_eu:
+            '_t_Trade global stocks of your favourite household brands and international stock market indices on Deriv. Our stocks & indices offer competitively priced equities and asset baskets that you can trade outside the regular hours of major stock markets._t_',
         market_description:
             '_t_Diversify your portfolio with various assets, such as bonds, commodities, and indices, without the high cost of owning the underlying assets._t_',
         to: 'markets/etfs/',
@@ -59,6 +67,8 @@ export const market_buttons: TMarketButtons[] = [
         selected_src: SelectedCrypto,
         button_text: '_t_Cryptocurrencies_t_',
         market_name: 'cryptocurrency',
+        market_description_eu:
+            "_t_Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of world's most popular cryptocurrencies._t_",
         market_description:
             "_t_Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of world's most popular cryptocurrencies._t_",
         to: 'markets/cryptocurrencies/',
@@ -69,6 +79,8 @@ export const market_buttons: TMarketButtons[] = [
         selected_src: SelectedCommodities,
         button_text: '_t_Commodities_t_',
         market_name: 'commodities',
+        market_description_eu:
+            '_t_Speculate on the price movements of silver, gold, oil and more. Profit from the price difference when the market moves in the direction that you have predicted._t_',
         market_description:
             '_t_Speculate on the price movements of silver, gold, oil and more. Profit from the price difference when the market moves in the direction that you have predicted._t_',
         to: 'markets/commodities/',

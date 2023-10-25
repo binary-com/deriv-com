@@ -1,14 +1,21 @@
 import { LinkUrlType } from 'features/types'
-import { TString } from 'types/generics'
+import { TSmartContent, TString } from 'types/generics'
 
-export type TradeItems = {
+export type TradeItem = {
     icon: string
     name: TString
     link: LinkUrlType
 }
+
+interface TradeItemConfig {
+    is_eu: boolean
+}
+
+export type SmartTradeItem = TSmartContent<TradeItem, TradeItemConfig>
+
 export type TradeType = {
     trade_name?: TString
     trade_description_1?: TString
     trade_description_2?: TString
-    trade_items?: Array<TradeItems>
+    trade_items: SmartTradeItem[]
 }

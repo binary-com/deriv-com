@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Layout from 'features/components/templates/layout'
 import { form_style, paragraph_style } from './ctrader-form.module.scss'
 import CtraderCredentialsForm from './ctrader-credentials-form'
 import { Localize } from 'components/localization'
@@ -9,7 +10,6 @@ import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import Button from 'features/components/atoms/button'
 import Link from 'features/components/atoms/link'
-import Layout from 'features/components/templates/layout'
 import { useResidenceList } from 'features/hooks/use-residence-list'
 import Image from 'features/components/atoms/image'
 

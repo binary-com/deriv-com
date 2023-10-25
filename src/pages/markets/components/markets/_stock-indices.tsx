@@ -16,6 +16,7 @@ import useRegion from 'components/hooks/use-region'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 import { TSimpleStepContent } from 'pages/markets/static/content/_types'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -27,6 +28,9 @@ type StockIndicesProps = {
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     const { is_eu } = useRegion()
     const [is_mobile] = useBrowserResize()
+    const [is_mounted] = usePageLoaded()
+
+    if (!is_mounted) return null
 
     simple_step_content[1].text = is_eu
         ? '_t_Open a real account, make a deposit, and start trading stocks, stock indices, and other markets._t_'

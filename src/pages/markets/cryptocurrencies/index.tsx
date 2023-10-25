@@ -7,12 +7,8 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import SignupPublic from 'features/components/templates/signup/with-banner'
 import { TGatsbyHead } from 'features/types'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const CryptocurrenciesPage = () => {
-    const [is_mounted] = usePageLoaded()
-    if (!is_mounted) return null
-
     return (
         <Layout type="noNav">
             <DerivedFXHero

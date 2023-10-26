@@ -99,7 +99,7 @@ const DerivNumbers = ({ deriv_in_numbers }: TDerivNumbers) => {
                     <TitleHeader as="h2" color="black-2" align="start" type="unset">
                         <Localize translate_text={deriv_in_numbers?.header} />
                     </TitleHeader>
-                    <StyledHeader as="h2" size="24px" align="start" weight="400" type="unset">
+                    <StyledHeader as="p" size="24px" align="start" weight="400" type="unset">
                         <Localize translate_text={deriv_in_numbers?.sub_header} />
                     </StyledHeader>
                 </TitleSection>

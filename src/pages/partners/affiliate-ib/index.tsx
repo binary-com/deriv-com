@@ -94,11 +94,11 @@ const AffiliateIb = () => {
                     <MinimumVolume />
                 </>
             )} */}
-            {/* <WhyUs items={why_partner_data} />
+            <WhyUs items={why_partner_data} />
             <WhoCanAplly />
             <MoreReason />
             <Faq />
-            <PartnerCTA /> */}
+            <PartnerCTA />
         </Layout>
     )
 }

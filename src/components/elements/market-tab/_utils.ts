@@ -56,7 +56,7 @@ export const market_buttons: TMarketButtons[] = [
         button_text: '_t_ETFs_t_',
         market_name: 'etfs',
         market_description_eu:
-            'Trade global stocks of your favourite household brands and international stock market indices on Deriv. Our stocks & indices offer competitively priced equities and asset baskets that you can trade outside the regular hours of major stock markets.',
+            '_t_Trade global stocks of your favourite household brands and international stock market indices on Deriv. Our stocks & indices offer competitively priced equities and asset baskets that you can trade outside the regular hours of major stock markets._t_',
         market_description:
             '_t_Diversify your portfolio with various assets, such as bonds, commodities, and indices, without the high cost of owning the underlying assets._t_',
         to: 'markets/etfs/',

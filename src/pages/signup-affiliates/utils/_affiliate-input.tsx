@@ -15,13 +15,14 @@ import CrossIcon from 'images/svg/help/cross.svg'
 type AffiliateInputProps = {
     password_icon?: boolean
     extra_info?: string
+    extra_info_size?: string
 } & InputProps
 
-export const ExtraInfo = styled.div<{ error?: boolean }>`
-    block-size: 36px;
-    padding: 10px 0 16px 16px;
+export const ExtraInfo = styled.div<{ error?: boolean; extra_info_size?: string }>`
     font-size: 12px;
     color: ${({ error }) => (error ? 'var(--color-red-1)' : 'var(--color-grey-5)')};
+    block-size: ${({ extra_info_size }) => extra_info_size || '36px'};
+    padding: ${({ extra_info_size }) => (extra_info_size ? '6px 0' : '10px 0 16px 16px')};
 `
 const StyledIcon = styled.img<{ password_icon?: boolean }>`
     position: absolute;
@@ -64,6 +65,7 @@ export const StyledInputWrapper = styled(InputWrapper)`
 const AffiliateInput = ({
     label = '',
     extra_info,
+    extra_info_size,
     id = '',
     error = '',
     handleError,
@@ -102,7 +104,9 @@ const AffiliateInput = ({
             )}
             {error ? (
                 <>
-                    <ExtraInfo error>{error}</ExtraInfo>
+                    <ExtraInfo extra_info_size={extra_info_size} error>
+                        {error}
+                    </ExtraInfo>
                     <StyledError
                         src={CrossIcon}
                         alt="error icon"
@@ -112,7 +116,7 @@ const AffiliateInput = ({
                     />
                 </>
             ) : (
-                <ExtraInfo>{extra_info}</ExtraInfo>
+                <ExtraInfo extra_info_size={extra_info_size}>{extra_info}</ExtraInfo>
             )}
         </RelativeWrapper>
     )

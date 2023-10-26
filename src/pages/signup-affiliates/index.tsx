@@ -69,20 +69,19 @@ const StyledFlexWrapper = styled(Container)`
     align-items: flex-start;
     justify-content: space-around;
     background: url(${Map}) no-repeat fixed bottom;
-    block-size: 100vh;
     inline-size: 100vw;
     padding-top: 120px;
 
     @media ${device.tabletL} {
+        inline-size: 100%;
         flex-direction: column-reverse;
         justify-content: flex-end;
-        align-items: center;
         padding-top: 0;
     }
 `
 
 const AffiliateSignup = () => {
-    const [show_wizard, setShowWizard] = useState<boolean>(false)
+    const [show_wizard, setShowWizard] = useState<boolean>(true)
     const [is_online, setIsOnline] = useState(isBrowser() && navigator.onLine)
     const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>()
 

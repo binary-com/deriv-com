@@ -6,27 +6,25 @@ import { SignUpFormProps } from '../_types'
 import { localize, Localize } from 'components/localization'
 import { Container } from 'components/containers'
 import { Button } from 'components/form'
-import { Header, LinkText, LocalizedLinkText } from 'components/elements'
+import { Header, LinkText } from 'components/elements'
 import device from 'themes/device'
 import Link from 'features/components/atoms/link'
 import Typography from 'features/components/atoms/typography'
 
 const StyledNote = styled.div`
-    padding: 8px 0;
-    margin: 24px 0 16px;
-    height: 36px;
-    width: 406px;
-    border-radius: 4px;
-    background-color: #f8f8f9;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: flex-start;
+    padding: 8px 0;
+    margin: 24px 16px;
+    block-size: 40px;
+    inline-size: 406px;
+    border-radius: 8px;
+    background-color: #f8f8f9;
 
-    @media ${device.mobileL} {
-        height: 54px;
-        padding: 8px 7px;
-        width: 100%;
+    @media ${device.tabletL} {
+        inline-size: 100%;
     }
 `
 const StyledLinkText = styled(LinkText)`
@@ -39,17 +37,12 @@ const StyledLinkText = styled(LinkText)`
     }
 `
 const InputGroup = styled.div`
-    width: 100%;
+    inline-size: 100%;
 `
 const EmailButton = styled(Button)`
     width: 100%;
     font-size: 1.4rem;
-    margin-bottom: 0.4rem;
-    margin-top: 3.2rem;
-
-    @media ${device.tabletL} {
-        margin-top: 24px;
-    }
+    margin-block-end: 24px;
 
     @media ${device.mobileL} {
         font-size: 1.75rem;
@@ -65,32 +58,37 @@ const LoginContainer = styled.div`
 const StyledFlex = styled(Container)`
     display: flex;
     flex-direction: column;
-    height: 510px;
-    width: 100%;
-    max-width: 486px;
+    block-size: 510px;
+    inline-size: 100%;
+    max-inline-size: 486px;
     margin: 0;
 
     @media ${device.tabletL} {
-        padding-top: 30px;
-        width: 328px;
-        height: 250px;
-        margin-top: 0;
-    }
-    @media ${device.mobileS} {
-        margin-left: 8px;
+        justify-content: flex-start;
+        max-inline-size: 328px;
+        block-size: 100%;
+        padding-block: 40px 23px;
     }
 `
 export const SignUpWrapper = styled(Container)`
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    padding: 24px 34px;
     margin: 0;
-    height: 510px;
-    width: 100%;
-    max-width: 486px;
+    block-size: 510px;
+    inline-size: 100%;
+    max-inline-size: 486px;
     background: var(--color-white);
     border-radius: 6px;
     box-shadow: 0 12px 16px -4px #0e0e0e14;
+
+    @media ${device.tablet} {
+        block-size: 100%;
+        padding: 8px 0 16px;
+    }
+    @media ${device.tabletS} {
+        box-shadow: unset;
+    }
 `
 const AffiliateSignupForm = ({
     affiliate_account,
@@ -107,7 +105,7 @@ const AffiliateSignupForm = ({
 
     return (
         <>
-            <StyledFlex jc="center" fd="column" width="486px">
+            <StyledFlex jc="center" fd="column">
                 <Header mb="8px" as="h3" type="heading-3">
                     <Localize translate_text={'_t_Deriv Affiliate_t_'} />
                 </Header>
@@ -130,20 +128,29 @@ const AffiliateSignupForm = ({
                 </Header>
             </StyledFlex>
             <SignUpWrapper>
-                <Header as="h3" type="heading-3" mb="0.8rem">
+                <Header as="h3" type="heading-3" mb="24px">
                     <Localize translate_text={'_t_Sign up_t_'} />
                 </Header>
                 <Header as="p" type="subtitle-1" weight="normal">
                     <Localize translate_text={'_t_Enter your email address to begin_t_'} />
                 </Header>
                 <StyledNote>
-                    <Header as="p" type="paragraph-2" weight="normal" align="center" color="grey-5">
+                    <Header
+                        as="p"
+                        type="paragraph-2"
+                        weight="normal"
+                        align="center"
+                        color="black-3"
+                    >
                         <Localize translate_text={'_t_Want to sign up as a trader?_t_'} />
-                        <LocalizedLinkText to="/signup">
-                            <StyledLinkText id="dm-new-login-button" size="14px" color="grey-5">
-                                <Localize translate_text={'_t_Create a Deriv account_t_'} />
-                            </StyledLinkText>
-                        </LocalizedLinkText>
+                        <Typography.Link
+                            href={'/signup'}
+                            id="dm-new-login-button"
+                            textcolor={'brand'}
+                            ml={'2x'}
+                        >
+                            <Localize translate_text={'_t_Create a Deriv account_t_'} />
+                        </Typography.Link>
                     </Header>
                 </StyledNote>
                 <InputGroup>
@@ -156,6 +163,7 @@ const AffiliateSignupForm = ({
                         value={affiliate_account.email}
                         label={localize('_t_Email_t_')}
                         placeholder={'Email'}
+                        extra_info_size={'24px'}
                         onBlur={handleInput}
                         onChange={handleInput}
                         handleError={() => setAffiliateAccount({ ...affiliate_account, email: '' })}

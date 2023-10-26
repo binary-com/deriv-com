@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import useBreakpoints from 'components/hooks/use-breakpoints'
 import device from 'themes/device'
 
 const StepperWrapper = styled.div`
@@ -76,6 +77,7 @@ const Label = styled.h4<{ active: boolean }>`
 `
 
 const Stepper = ({ step }: { step: number }) => {
+    const { is_mobile } = useBreakpoints()
     return (
         <StepperWrapper>
             {[

@@ -13,7 +13,6 @@ import {
     getClientInformation,
     getDomain,
     getLanguage,
-    isBrowser,
     updateURLAsPerUserLanguage,
 } from 'common/utility'
 import './static/css/ibm-plex-sans-var.css'
@@ -81,35 +80,25 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
+    // @deriv/analytics
     Analytics?.initialise({
         growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
         growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
-        enableDevMode: process.env.NODE_ENV !== 'production',
-        rudderstackKey:
-            process.env.NODE_ENV !== 'production'
-                ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
-                : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
+        enableDevMode: window?.location.hostname.includes('localhost'),
+        rudderstackKey: ['.pages.dev', 'git-fork', 'localhost'].some((condition) =>
+            window.location.hostname.includes(condition),
+        )
+            ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
+            : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
     })
     Analytics?.setAttributes({
+        country: Cookies.get('clients_country') || Cookies.getJSON('website_status'),
         user_language: Cookies.get('user_language') || getLanguage(),
-        device_language: (isBrowser() && navigator?.language) || ' ',
-        device_type: isMobile ? 'mobile' : 'web',
-        country: (() => {
-            try {
-                return (
-                    JSON?.parse(JSON?.parse(Cookies?.get('website_status'))?.website_status)
-                        ?.clients_country || ' '
-                )
-            } catch (error) {
-                console.error('Error parsing country data:', error)
-            }
-        })(),
+        device_language: navigator?.language || ' ',
+        device_type: isMobile ? 'mobile' : 'desktop',
     })
-    Analytics?.setCoreAnalyticsData({
-        language: getLanguage(),
-        device_type: isMobile ? 'mobile' : 'web',
-        account_type: 'VR',
-    })
+    const { tracking } = Analytics.getInstances()
+    tracking.identifyEvent(Analytics?.getId(), { language: getLanguage() })
     //datadog
     const dd_options = {
         clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,

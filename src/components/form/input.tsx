@@ -130,7 +130,7 @@ export const StyledInput = styled.input<StyledInputProps>`
 
         & ~ label {
             font-size: 1.75rem;
-            top: 1.95rem;
+            top: 1.5rem;
         }
     }
     @media ${device.mobileL} {
@@ -154,8 +154,8 @@ export const StyledInput = styled.input<StyledInputProps>`
             background-color: ${({ background }) =>
                 background ? `var(--color-${background})` : 'var(--color-grey-1)'};
 
-            @media ${device.mobileL} {
-                transform: translate(-0.6rem, -20px) scale(0.7);
+            @media ${device.tablet} {
+                transform: translate(-0.6rem, -25px) scale(0.7);
             }
         }
         &::placeholder {

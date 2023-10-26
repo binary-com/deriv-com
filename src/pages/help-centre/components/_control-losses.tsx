@@ -82,7 +82,7 @@ const ControlLosses = () => (
 
         <Header size="16px" weight="normal" mt="2.3rem" mb="2.6rem">
             <Localize
-                translate_text="_t_2.Set the <0>Purchase conditions</0>. In this example, your bot will purchase a <0>Rise</0> contract when it starts and after a contract closes._t_"
+                translate_text="_t_2. Set the <0>Purchase conditions</0>. In this example, your bot will purchase a <0>Rise</0> contract when it starts and after a contract closes._t_"
                 components={[<strong key={0} />]}
             />
         </Header>

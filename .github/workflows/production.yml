@@ -31,7 +31,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: '16.x'
+                  node-version: '18.x'
                   cache: 'npm'
 
             - name: Set version env variable
@@ -58,7 +58,7 @@ jobs:
               with:
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  command: pages publish public --project-name=deriv-com-pages --branch=main
+                  command: pages deploy public --project-name=deriv-com-pages --branch=main
 
             - name: Cloudflare production link ✨
               run: echo "New website - http://cf-pages-deriv-com.deriv.com"

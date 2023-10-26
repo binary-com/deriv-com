@@ -103,7 +103,7 @@ export const dmt5_web_browser_url =
 export const deriv_mt5_app_url =
     'https://metatraderweb.app/trade?servers=Deriv-Server-02&trade_server=Deriv-Server-02&login=100648979'
 export const dmt5_windows =
-    'https://download.mql5.com/cdn/web/deriv.holdings.guernsey/mt5/deriv5setup.exe'
+    'https://download.mql5.com/cdn/web/deriv.com.limited/mt5/deriv5setup.exe'
 export const dmt5_app_gallery_url =
     'https://download.mql5.com/cdn/mobile/mt5/android/app-gallery?hl=en&utm_source=www.metatrader5.com&utm_campaign=install.metaquotes'
 export const dmt5_ios_url =
@@ -117,13 +117,21 @@ export const dmt5_macos_url =
 export const dmt5_mac_app_url =
     'https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/MetaTrader5.dmg'
 export const dmt5_windows_download_url =
-    'https://download.mql5.com/cdn/web/metaquotes.software.corp/mt5/mt5setup.exe?utm_source=www.metatrader5.com&utm_campaign=download'
+    'https://download.mql5.com/cdn/web/deriv.com.limited/mt5/deriv5setup.exe'
 export const dmt5_app_gallery =
     'https://download.mql5.com/cdn/mobile/mt5/android/app-gallery?hl=en&utm_source=www.metatrader5.com&utm_campaign=install.metaquotes'
 export const dmt5_windows_url =
-    'https://download.mql5.com/cdn/web/deriv.limited/mt5/deriv5setup.exe'
+    'https://download.mql5.com/cdn/web/deriv.com.limited/mt5/deriv5setup.exe'
 export const dp2p_google_play_url =
     'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
+//to be updated with ctrader url later
+export const ctrader_google_play_url =
+    'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
+export const ctrader_app_store_url =
+    'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
+
+export const ctrader_web_browser_url = 'ct.deriv.com'
+export const ctrader_windows_url = 'https://getctrader.com/deriv/ctrader-deriv-setup.exe'
 export const growthbook_client_key = GATSBY_GROWTHBOOK_CLIENT_KEY
 export const gtm_test_domain = 'deriv-com.binary.sx'
 export const map_api_key = MAP_API_KEY
@@ -145,6 +153,7 @@ export const localized_link_url = Object.freeze({
     blog: blog_url,
     community: community_url,
     derivx: derivx_app_url,
+    deriv_app_login,
     api: deriv_api_url,
     dbot: deriv_bot_app_url,
     deriv_app: deriv_app_url,
@@ -164,8 +173,6 @@ export const live_chat_key = 'live_chat_redirection'
 export const reddit_url = 'https://www.reddit.com/user/Deriv_official/'
 export const telegram_url = 'https://t.me/derivdotcomofficial'
 export const youtube_url = 'https://www.youtube.com/@deriv'
-export const loss_percent = 72
-
 export const contact_us_form_post_data = 'https://formkeep.com/f/7f4b8b55f10f'
 
 export const cookie_key = 'browser_update_alert_modal_shown'
@@ -188,69 +195,3 @@ export const bannerTypes = {
 export const firebaseConfig = {
     databaseURL: 'https://deriv-static-pricingfeed.firebaseio.com',
 }
-
-export const hreflang_codes_row = [
-    { rel: 'alternate', href: 'https://deriv.com/', hreflang: 'x-default' },
-    { rel: 'alternate', href: 'https://deriv.com/', hreflang: 'en' },
-    { rel: 'alternate', href: 'https://deriv.com/', hreflang: 'en-NG' },
-    { rel: 'alternate', href: 'https://deriv.com/', hreflang: 'en-BW' },
-    { rel: 'alternate', href: 'https://deriv.com/', hreflang: 'en-ZW' },
-    { rel: 'alternate', href: 'https://deriv.com/', hreflang: 'en-LK' },
-    { rel: 'alternate', href: 'https://deriv.com/', hreflang: 'en-TZ' },
-    { rel: 'alternate', href: 'https://deriv.com/es/', hreflang: 'es-CO' },
-    { rel: 'alternate', href: 'https://deriv.com/es/', hreflang: 'es-EC' },
-    { rel: 'alternate', href: 'https://deriv.com/es/', hreflang: 'es-BO' },
-    { rel: 'alternate', href: 'https://deriv.com/es/', hreflang: 'es-MX' },
-    { rel: 'alternate', href: 'https://deriv.com/es/', hreflang: 'es-CR' },
-    { rel: 'alternate', href: 'https://deriv.com/fr/', hreflang: 'fr-BJ' },
-    { rel: 'alternate', href: 'https://deriv.com/fr/', hreflang: 'fr-CI' },
-    { rel: 'alternate', href: 'https://deriv.com/fr/', hreflang: 'fr-CD' },
-    { rel: 'alternate', href: 'https://deriv.com/fr/', hreflang: 'fr-CM' },
-    { rel: 'alternate', href: 'https://deriv.com/fr/', hreflang: 'fr-TG' },
-    { rel: 'alternate', href: 'https://deriv.com/ar/', hreflang: 'ar-MA' },
-    { rel: 'alternate', href: 'https://deriv.com/ar/', hreflang: 'ar-EG' },
-    { rel: 'alternate', href: 'https://deriv.com/ar/', hreflang: 'ar-SA' },
-    { rel: 'alternate', href: 'https://deriv.com/ar/', hreflang: 'ar-DZ' },
-    { rel: 'alternate', href: 'https://deriv.com/ar/', hreflang: 'ar-QA' },
-    { rel: 'alternate', href: 'https://deriv.com/bn/', hreflang: 'bn-BD' },
-    { rel: 'alternate', href: 'https://deriv.com/ko/', hreflang: 'ko-KR' },
-    { rel: 'alternate', href: 'https://deriv.com/tr/', hreflang: 'tr-TR' },
-    { rel: 'alternate', href: 'https://deriv.com/pl/', hreflang: 'pl-PL' },
-    { rel: 'alternate', href: 'https://deriv.com/vi/', hreflang: 'vi-VN' },
-    { rel: 'alternate', href: 'https://deriv.com/th/', hreflang: 'th-TH' },
-    { rel: 'alternate', href: 'https://deriv.com/ru/', hreflang: 'ru-KZ' },
-    { rel: 'alternate', href: 'https://deriv.com/ru/', hreflang: 'ru-BY' },
-    { rel: 'alternate', href: 'https://deriv.com/ru/', hreflang: 'ru-UA' },
-    { rel: 'alternate', href: 'https://deriv.com/ru/', hreflang: 'ru-UZ' },
-    { rel: 'alternate', href: 'https://deriv.com/ru/', hreflang: 'ru-GE' },
-    { rel: 'alternate', href: 'https://deriv.com/zh-cn/', hreflang: 'zh-CN' },
-    { rel: 'alternate', href: 'https://deriv.com/zh-tw/', hreflang: 'zh-TW' },
-    { rel: 'alternate', href: 'https://deriv.com/de/', hreflang: 'de-CH' },
-]
-
-export const hreflang_codes_eu = [
-    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-IE' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-BG' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-HR' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-CZ' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-DK' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-EE' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-FI' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-GR' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-HU' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-LV' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-SE' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-LT' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-SK' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-SI' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/', hreflang: 'en-RO' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/es/', hreflang: 'es-ES' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/de/', hreflang: 'de-DE' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/de/', hreflang: 'de-AT' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/de/', hreflang: 'de-LU' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/fr/', hreflang: 'lb-LU' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/it/', hreflang: 'it-IT' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/pt/', hreflang: 'pt-PT' },
-    { rel: 'alternate', href: 'https://eu.deriv.com/pl/', hreflang: 'pl-PL' },
-]

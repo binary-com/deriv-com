@@ -1,3 +1,9 @@
+.demo_tab_button {
+    border-radius: 16px 0 0 16px;
+}
+.real_tab_button {
+    border-radius: 0px 16px 16px 0;
+}
 .tab_switcher {
     &_active {
         font-weight: bold;

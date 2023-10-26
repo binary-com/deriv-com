@@ -22,6 +22,7 @@ const DerivProductHero = ({ contentData }: DerivProductHeroType) => {
             md={{ direction: 'row' }}
         >
             <FlexBox.Box
+                container="fluid"
                 className={hero_wrapper}
                 direction={'col'}
                 justify={'center'}

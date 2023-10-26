@@ -1,4 +1,5 @@
 import { SmartNavContent, SmartNavSectionColumns } from '../../../types'
+import DerivcTrader from 'images/svg/custom/rebranding/deriv-ctrader-icon.svg'
 import BinaryBot from 'images/svg/custom/rebranding/binarybot-icon.svg'
 import DerivX from 'images/svg/custom/rebranding/deriv-x-icon.svg'
 import CFD from 'images/svg/custom/rebranding/cfds-icon.svg'
@@ -164,6 +165,23 @@ export const tradingPlatformsContent: SmartNavContent[] = [
         },
         visibility: {
             is_eu: true,
+        },
+    },
+    {
+        id: 5,
+        data: {
+            aria_label: 'Deriv cTrader',
+            icon: {
+                src: DerivcTrader,
+                alt: 'Deriv cTrader trading platform',
+            },
+            content:
+                '_t_An intuitive, multi-asset CFD trading platform with copy trading and custom indicators._t_',
+            title: '_t_Deriv cTrader_t_',
+            url: { type: 'internal', to: '/deriv-ctrader/' },
+        },
+        visibility: {
+            is_row: true,
         },
     },
 ]

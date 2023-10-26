@@ -22,6 +22,7 @@ env:
     GATSBY_RUDDERSTACK_STAGING_KEY: ${{ secrets.GATSBY_RUDDERSTACK_STAGING_KEY }}
     GATSBY_RUDDERSTACK_PRODUCTION_KEY: ${{ secrets.GATSBY_RUDDERSTACK_PRODUCTION_KEY }}
     GATSBY_RUDDERSTACK_URL: ${{ secrets.GATSBY_RUDDERSTACK_URL }}
+    GATSBY_STRAPI_TOKEN: ${{ secrets.GATSBY_STRAPI_TOKEN }}
 
 jobs:
     release-staging:
@@ -35,7 +36,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: '16.x'
+                  node-version: '18.x'
                   cache: 'npm'
 
             - run: npm ci
@@ -54,7 +55,7 @@ jobs:
               with:
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  command: pages publish public --project-name=deriv-com-pages --branch=staging
+                  command: pages deploy public --project-name=deriv-com-pages --branch=staging
 
             - name: Cloudflare preview link ✨
               run: echo "New staging website - http://staging.cf-pages-deriv-com.deriv.com"

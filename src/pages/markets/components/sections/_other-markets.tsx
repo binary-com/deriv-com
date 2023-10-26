@@ -6,7 +6,7 @@ import { localize, Localize, LocalizedLink } from 'components/localization'
 //TODO: using temp svg as a function for having dynamic id
 import Arrow from 'images/svg/trade-types/arrow-right.svg'
 import Commodities from 'images/svg/markets/commodities-new.svg'
-import Cryptocurrencies from 'images/svg/markets/cryptocurrencies-new.svg'
+import Cryptocurrencies from 'images/svg/markets/cryptocurrencies.svg'
 import Forex from 'images/svg/markets/forex-new.svg'
 import StockIndices from 'images/svg/markets/stock-new.svg'
 import DerivedFX from 'images/svg/markets/derived-fx.svg'
@@ -206,7 +206,6 @@ const MarketsWrapper = styled(Flex)`
     padding: 0 0 80px 0;
     max-width: 100%;
 `
-
 const StyledHeader = styled(Header)`
     padding: auto;
     text-align: center;
@@ -232,7 +231,6 @@ const MobileCardContainer = styled(Flex)`
         margin-inline: auto;
     }
 `
-
 const StyledCarousel = styled.div`
     height: 40rem;
     @media ${device.tabletL} {
@@ -267,7 +265,7 @@ const Card = ({ market }: CardProps) => {
             <Text size="16px" mt="0.8rem">
                 <Localize
                     translate_text={
-                        is_eu ? markets_type[market].content_eu : markets_type[market].content
+                        is_eu ? markets_type[market].content_eu : markets_type[market]?.content
                     }
                 />
             </Text>
@@ -293,7 +291,7 @@ const MobileCard = ({ market }: CardProps) => {
                 </Text>
             </Flex>
             <Text size="14px" mb="3rem">
-                <Localize translate_text={markets_type[market].content} />
+                <Localize translate_text={markets_type[market]?.content} />
             </Text>
             <LearnMore to={markets_type[market].to} visibility="true">
                 <Text>
@@ -355,9 +353,9 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
                 <MarketsWrapper tablet_jc="center">
                     <StyledCarousel>
                         <Carousel has_autoplay autoplay_interval={4000} {...settings}>
-                            {filteredMarkets.map((market) =>
+                            {filteredMarkets.map((market, index) =>
                                 market === '' ? (
-                                    <div key={market}></div>
+                                    <div key={market + index}></div>
                                 ) : (
                                     <Card market={market} key={market} />
                                 ),
@@ -369,9 +367,9 @@ const OtherMarkets = ({ except }: OtherMarketsProps) => {
             <Mobile>
                 <StyledCarousel>
                     <MobileCardContainer direction="column">
-                        {filteredMarkets.map((market) =>
+                        {filteredMarkets.map((market, index) =>
                             except === market || market === '' ? null : (
-                                <MobileCard market={market} key={market} />
+                                <MobileCard market={market} key={market + index} />
                             ),
                         )}
                     </MobileCardContainer>

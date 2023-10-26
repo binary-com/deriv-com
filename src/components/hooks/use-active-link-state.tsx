@@ -75,7 +75,9 @@ export const useActiveLinkState = (type: string) => {
         [navigation_map],
     )
 
-    useEffect(() => updateCurrentPage(type), [type, updateCurrentPage])
+    useEffect(() => {
+        updateCurrentPage(type)
+    }, [type, updateCurrentPage])
 
     return currentPage
 }

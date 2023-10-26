@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import kid_data from './data/_kid_data'
-import { Text, Accordion, AccordionItem, LinkText } from 'components/elements'
+import { kid_data, kid_data_multiplier } from './data/_kid_data'
+import { Text, Accordion, AccordionItem, LinkText, Divider } from 'components/elements'
 import { Flex } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
@@ -21,19 +21,11 @@ const FlexText = styled(LinkText)`
     @media ${device.laptopM} {
         width: 40%;
     }
-    @media ${device.tabletS} {
+    @media (max-width: 685px) {
         width: 80%;
         justify-content: flex-start;
-        padding-left: 15rem;
-    }
-    @media (max-width: 500px) {
-        padding-left: 8.5rem;
-    }
-    @media ${device.mobileM} {
-        padding-left: 6rem;
-    }
-    @media ${device.mobileS} {
-        padding-left: 4.5rem;
+        padding-left: 0;
+        margin-inline: 0;
     }
 `
 
@@ -49,21 +41,13 @@ const FlexText_Pillar = styled(LinkText)`
 const EdgeFlex = styled(Flex)`
     flex-wrap: wrap;
     justify-content: flex-start;
-    margin-left: 5%;
 
     /* Edge does not support space-evenly */
     @supports (-ms-ime-align: auto) {
         justify-content: space-around;
     }
-    @media ${device.laptopM} {
-        margin-left: 9%;
-    }
-    @media ${device.tabletL} {
-        margin-left: 18%;
-    }
     @media ${device.tabletS} {
         flex-direction: column;
-        margin-left: 10%;
     }
 `
 
@@ -166,7 +150,31 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 href={`/regulatory/kid/${
-                                    is_supported_language(selected_language)
+                                    is_supported_language(selected_language) && !data.is_only_en
+                                        ? selected_language + '/'
+                                        : ''
+                                }${data.ref}`}
+                                m="1.6rem 1.4rem"
+                            >
+                                <img src={PDFIcon} alt="pdf icon black" />
+                                <span>
+                                    <Localize translate_text={data.title} />
+                                </span>
+                            </FlexText>
+                        ))}
+                    </EdgeFlex>
+                </Flex>
+                <Divider />
+                <Flex>
+                    <EdgeFlex>
+                        {kid_data_multiplier.map((data, idx) => (
+                            <FlexText
+                                key={idx}
+                                color="red"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href={`/regulatory/kid/${
+                                    is_supported_language(selected_language) && !data.is_only_en
                                         ? selected_language + '/'
                                         : ''
                                 }${data.ref}`}

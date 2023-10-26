@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import ImageCard from './_image-card'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
+import LogicBlockImage from 'images/common/help-centre/purchase-condition.png'
 import LossesImage from 'images/common/help-centre/dbot-losses.png'
+import UpdateCurrentPlImage from 'images/common/help-centre/restart-trading.png'
 import VariablesImage from 'images/common/help-centre/dbot-variables.png'
-import LogicBlockImage from 'images/common/help-centre/dbot-logic-block.png'
-import UpdateCurrentPlImage from 'images/common/help-centre/dbot-update-currentPL.png'
 import { TString } from 'types/generics'
 
 const Table = styled.table`
@@ -36,20 +36,12 @@ const Td = styled.td`
 
 const table_data: { th: TString; td: TString }[] = [
     {
-        th: '_t_currentPL_t_',
-        td: '_t_Use this variable to store the cumulative profit or loss while your bot is running. Set the initial value to <0>0</0>._t_',
+        th: '_t_Stop loss threshold_t_',
+        td: '_t_Use this variable to store your loss limit. You can assign any amount you want. Your bot will stop when your losses hits or exceeds this amount._t_',
     },
     {
-        th: '_t_currentStake_t_',
-        td: '_t_Use this variable to store the stake amount used in the last contract. You can assign any amount you want, but it must be a positive number._t_',
-    },
-    {
-        th: '_t_maximumLoss_t_',
-        td: '_t_Use this variable to store your maximum loss limit. You can assign any amount you want, but it must be a positive number._t_',
-    },
-    {
-        th: '_t_tradeAgain_t_',
-        td: '_t_Use this variable to stop trading when your loss limit is reached. Set the initial value to <0>true</0>._t_',
+        th: '_t_Current stake_t_',
+        td: '_t_Use this variable to store the stake amount. You can assign any amount you want, but it must be a positive number._t_',
     },
 ]
 
@@ -62,7 +54,10 @@ const ControlLosses = () => (
         <ImageCard src={LossesImage} alt="Control loss" width="70rem" />
 
         <Header size="16px" weight="normal" mt="2.3rem" mb="2.4rem">
-            <Localize translate_text="_t_1. Create the following variables:_t_" />
+            <Localize
+                translate_text="_t_1. Create the following variables and place them under <0>Run once at start</0>:_t_"
+                components={[<strong key={0} />]}
+            />
         </Header>
 
         <Table>
@@ -73,18 +68,21 @@ const ControlLosses = () => (
                             <Localize translate_text={th} />
                         </Th>
                         <Td>
-                            <Localize translate_text={td} components={[<strong key={0} />]} />
+                            <Localize translate_text={td} />
                         </Td>
                     </Tr>
                 ))}
             </thead>
         </Table>
 
+        <Header size="16px" weight="normal" mt="2.3rem" mb="2.6rem">
+            <Localize translate_text="_t_This is how your trade parameters, variables, and trade options should look like:_t_" />
+        </Header>
         <ImageCard src={VariablesImage} alt="Variables" width="40rem" />
 
         <Header size="16px" weight="normal" mt="2.3rem" mb="2.6rem">
             <Localize
-                translate_text="_t_2. Use a logic block to check if <0>currentPL</0> exceeds <0>maximumLoss</0>. If it does, set <0>tradeAgain</0> to false to prevent the bot from running another cycle._t_"
+                translate_text="_t_2.Set the <0>Purchase conditions</0>. In this example, your bot will purchase a <0>Rise</0> contract when it starts and after a contract closes._t_"
                 components={[<strong key={0} />]}
             />
         </Header>
@@ -93,7 +91,7 @@ const ControlLosses = () => (
 
         <Header size="16px" weight="normal" mt="2.3rem" mb="2.6rem">
             <Localize
-                translate_text="_t_3. Update <0>currentPL</0> with the profit from the last contract. If the last contract was lost, the value of <0>currentPL</0> will be negative._t_"
+                translate_text="_t_3. Use a logic block to check if <0>Total profit/loss</0> is more than the <0>Stop loss threshold</0> amount. You can find the <0>Total profit/loss</0> variable under <0>Analysis > Stats</0> on the <0>Blocks menu</0> on the left. Your bot will continue to purchase new contracts until the <0>Total profit/loss</0> amount exceeds the <0>Stop loss threshold</0> amount._t_"
                 components={[<strong key={0} />]}
             />
         </Header>

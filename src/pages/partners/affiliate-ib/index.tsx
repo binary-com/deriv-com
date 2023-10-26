@@ -1,17 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import { WhyUsType } from './_why-us'
 import { faq_schema } from './_faq-schema'
 import AffiliateIbHero from './_affiliate-ib-hero'
 import Numbers from './_numbers'
-import { Header, Text } from 'components/elements'
-import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
-import { SectionContainer, Container, SEO, TMetaAttributes } from 'components/containers'
-import { Localize, WithIntl } from 'components/localization'
-import { affiliate_signup_url } from 'common/constants'
-import device from 'themes/device'
+import { SEO, TMetaAttributes } from 'components/containers'
+import { WithIntl } from 'components/localization'
 import { TString } from 'types/generics'
 import { TGatsbyHead } from 'features/types'
 import useRegion from 'components/hooks/use-region'
@@ -88,12 +83,12 @@ const AffiliateIb = () => {
             <AffiliateIbHero btn_text={content_data.banner_btn} />
             <Numbers earn_text={content_data.earn_text} />
             <DerivAffiliateProgramme />
-            {/* {!is_eu && (
+            {!is_eu && (
                 <>
                     <DerivIBProgramme />
                     <MinimumVolume />
                 </>
-            )} */}
+            )}
             <WhyUs items={why_partner_data} />
             <WhoCanAplly />
             <MoreReason />

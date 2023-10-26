@@ -14,8 +14,8 @@ const Wrapper = styled(Flex)`
 const Card = styled(Flex)`
     ${CardStyle}
     padding: 2.4rem;
-    max-width: 20.8rem;
-    min-height: 15.8rem;
+    max-width: 28.2rem;
+    min-height: 16.8rem;
     justify-content: flex-start;
     block-size: auto;
 `
@@ -33,7 +33,7 @@ const DerivNumbers = () => {
             <Wrapper mb="8rem">
                 <Card direction="column">
                     <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
-                        20+
+                        23
                     </CardHeader>
                     <Text align="center">
                         <Localize translate_text="_t_Years of industry experience_t_" />
@@ -41,15 +41,15 @@ const DerivNumbers = () => {
                 </Card>
                 <Card direction="column">
                     <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
-                        6.5M+
+                        1M+
                     </CardHeader>
                     <Text align="center">
-                        <Localize translate_text="_t_Trading accounts opened_t_" />
+                        <Localize translate_text="_t_Active traders_t_" />
                     </Text>
                 </Card>
                 <Card direction="column">
                     <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
-                        USD 12T+
+                        USD 15T+
                     </CardHeader>
                     <Text align="center">
                         <Localize translate_text="_t_Total trade turnover_t_" />
@@ -57,15 +57,7 @@ const DerivNumbers = () => {
                 </Card>
                 <Card direction="column">
                     <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
-                        200M+
-                    </CardHeader>
-                    <Text align="center">
-                        <Localize translate_text="_t_Trades last month_t_" />
-                    </Text>
-                </Card>
-                <Card direction="column">
-                    <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
-                        USD 47M+
+                        USD 45M+
                     </CardHeader>
                     <Text align="center">
                         <Localize translate_text="_t_Withdrawals last month_t_" />

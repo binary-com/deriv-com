@@ -10,7 +10,7 @@ const strings: TString[] = [
     '_t_Cryptocurrencies_t_',
     '_t_Stocks & indices_t_',
     '_t_Commodities_t_',
-    '_t_Derived Indices_t_',
+    '_t_Derived Indicess_t_',
 ]
 
 const HeroFeaturesCarousel = () => {

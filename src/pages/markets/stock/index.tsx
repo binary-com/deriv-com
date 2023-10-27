@@ -10,6 +10,10 @@ import { TGatsbyHead } from 'features/types'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const StocksAndIndicesPage = () => {
+    const [is_mounted] = usePageLoaded()
+
+    if (!is_mounted) return null
+
     return (
         <Layout type="noNav">
             <DerivedFXHero

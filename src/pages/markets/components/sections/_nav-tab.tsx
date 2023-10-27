@@ -124,9 +124,6 @@ const NavTab = ({ route_from }: TNavTab) => {
     const { is_eu } = useRegion()
     const ref = useRef(null)
     const { is_deriv_go } = usePlatformQueryParam()
-    const [is_mounted] = usePageLoaded()
-
-    if (!is_mounted) return null
 
     return (
         <TabsContainer>

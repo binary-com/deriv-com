@@ -15,7 +15,6 @@ import useRegion from 'components/hooks/use-region'
 import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 import { TSimpleStepContent } from 'pages/markets/static/content/_types'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -26,12 +25,9 @@ type CommoditiesProps = {
 
 const Commodities = ({ simple_step_content }: CommoditiesProps) => {
     const { is_eu } = useRegion()
-    const [is_mounted] = usePageLoaded()
 
     simple_step_content[1].text =
         '_t_Open a real account, make a deposit, and start trading commodities and other markets. _t_'
-
-    if (!is_mounted) return null
 
     return (
         <>

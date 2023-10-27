@@ -19,7 +19,6 @@ import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 import { TSimpleStepContent } from 'pages/markets/static/content/_types'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
 
@@ -30,9 +29,6 @@ type StockIndicesProps = {
 const StockIndices = ({ simple_step_content }: StockIndicesProps) => {
     const { is_eu } = useRegion()
     const { is_deriv_go } = usePlatformQueryParam()
-    const [is_mounted] = usePageLoaded()
-
-    if (!is_mounted) return null
 
     return (
         <div>

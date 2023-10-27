@@ -19,7 +19,6 @@ import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 import { TMarket, TSimpleStepContent } from 'pages/markets/static/content/_types'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 //Lazy-load
 const SimpleSteps = Loadable(() => import('components/custom/_simple-steps'))
@@ -31,7 +30,6 @@ type CryptocurrenciesProps = {
 const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
     const { is_eu } = useRegion()
     const { is_deriv_go } = usePlatformQueryParam()
-    const [is_mounted] = usePageLoaded()
 
     const crypto_content: TMarket[] = [
         {
@@ -55,8 +53,6 @@ const Cryptocurrencies = ({ simple_step_content }: CryptocurrenciesProps) => {
             alt: '_t_zero commission_t_',
         },
     ]
-
-    if (!is_mounted) return null
 
     return (
         <>

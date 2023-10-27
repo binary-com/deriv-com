@@ -12,6 +12,10 @@ import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const CommoditiesPage = () => {
     const { is_row } = useRegion()
+    const [is_mounted] = usePageLoaded()
+
+    if (!is_mounted) return null
+
     const hero_description = is_row
         ? '_t_Trade popular assets in the commodities market such as silver, gold, oil, and more without owning the underlying asset. Speculate on the price movements and benefit from our high leverage and competitive spreads._t_'
         : '_t_Trade popular assets in the commodities market such as silver, gold, oil, and more without owning the underlying asset. Speculate on the price movements and benefit from our competitive spreads._t_'

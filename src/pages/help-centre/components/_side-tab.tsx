@@ -7,7 +7,6 @@ import { getWindowWidth, matchHashInURL, scrollTop, setHashInURL } from 'common/
 import { TString } from 'types/generics'
 import { Localize } from 'components/localization'
 import dclsx from 'features/utils/dclsx'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 interface ChildProps {
     label: string
@@ -67,7 +66,6 @@ const TabContent = styled.div`
 const SideTab = ({ children, tab_header, data }: SideTabType) => {
     const [is_menu, setMenu] = useState(false)
     const show_content = !is_menu || Number(getWindowWidth()) >= size.tabletL
-    const [is_mounted] = usePageLoaded()
 
     return (
         <Wrapper>
@@ -77,22 +75,21 @@ const SideTab = ({ children, tab_header, data }: SideTabType) => {
                 </Header>
 
                 <Ol>
-                    {is_mounted &&
-                        data.map(({ question, label }) => {
-                            const className = matchHashInURL(label) ? 'tab-active' : ''
+                    {data.map(({ question, label }) => {
+                        const className = matchHashInURL(label) ? 'tab-active' : ''
 
-                            const handleClick = () => {
-                                setHashInURL(label)
-                                setMenu(!is_menu)
-                                scrollTop()
-                            }
+                        const handleClick = () => {
+                            setHashInURL(label)
+                            setMenu(!is_menu)
+                            scrollTop()
+                        }
 
-                            return (
-                                <ListItem key={label} className={className} onClick={handleClick}>
-                                    <Localize translate_text={question} />
-                                </ListItem>
-                            )
-                        })}
+                        return (
+                            <ListItem key={label} className={className} onClick={handleClick}>
+                                <Localize translate_text={question} />
+                            </ListItem>
+                        )
+                    })}
                 </Ol>
             </div>
 

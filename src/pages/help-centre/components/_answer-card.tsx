@@ -9,7 +9,6 @@ import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 type AnswerCardType = {
     label: string
@@ -35,7 +34,6 @@ export const Wrapper = styled.div`
 
 const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
     const { is_eu } = useRegion()
-    const [is_mounted] = usePageLoaded()
 
     return (
         <Wrapper>
@@ -43,43 +41,42 @@ const AnswerCard = ({ question, answer, renderProp }: AnswerCardType) => {
                 <Localize translate_text={question} />
             </Header>
             {renderProp?.()}
-            {is_mounted &&
-                answer?.map(
-                    ({
-                        translation_text,
-                        eu_translation_text,
-                        translation_components,
-                        has_margin_top,
-                        margin_top,
-                        list,
-                        img,
-                        color,
-                        size,
-                    }) => {
-                        const text =
-                            is_eu && eu_translation_text ? eu_translation_text : translation_text
-                        const component =
-                            translation_components && TranslationComponents(translation_components)
+            {answer?.map(
+                ({
+                    translation_text,
+                    eu_translation_text,
+                    translation_components,
+                    has_margin_top,
+                    margin_top,
+                    list,
+                    img,
+                    color,
+                    size,
+                }) => {
+                    const text =
+                        is_eu && eu_translation_text ? eu_translation_text : translation_text
+                    const component =
+                        translation_components && TranslationComponents(translation_components)
 
-                        return (
-                            <React.Fragment key={translation_text}>
-                                <Header
-                                    as="p"
-                                    size={size ? size : '16px'}
-                                    weight="normal"
-                                    mt={has_margin_top ? '1.7rem' : margin_top}
-                                    color={color ? color : 'var(--color-black-3)'}
-                                >
-                                    {translation_text && (
-                                        <Localize translate_text={text} components={component} />
-                                    )}
-                                </Header>
-                                {img && <ImageCard {...img} />}
-                                {list && <List {...list} />}
-                            </React.Fragment>
-                        )
-                    },
-                )}
+                    return (
+                        <React.Fragment key={translation_text}>
+                            <Header
+                                as="p"
+                                size={size ? size : '16px'}
+                                weight="normal"
+                                mt={has_margin_top ? '1.7rem' : margin_top}
+                                color={color ? color : 'var(--color-black-3)'}
+                            >
+                                {translation_text && (
+                                    <Localize translate_text={text} components={component} />
+                                )}
+                            </Header>
+                            {img && <ImageCard {...img} />}
+                            {list && <List {...list} />}
+                        </React.Fragment>
+                    )
+                },
+            )}
         </Wrapper>
     )
 }

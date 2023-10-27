@@ -67,7 +67,7 @@ const OurValues = ({ our_values }: TOurValues) => {
                 {our_values?.values.map(({ header, image, sub_header }, index) => (
                     <Card key={index} index={index} direction="column" ai="start" jc="start">
                         <img src={image?.localFile?.publicURL} alt="icon" />
-                        <Header as="h4" padding="24px 0 8px" size="32px" align="start" type="unset">
+                        <Header as="h3" padding="24px 0 8px" size="32px" align="start" type="unset">
                             <Localize translate_text={header} />
                         </Header>
                         <Header as="div" weight="normal" size="16px">

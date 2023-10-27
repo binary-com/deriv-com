@@ -2499,7 +2499,7 @@
   "-1109117770": "- Geben Sie die Handelsdauer an.",
   "-1447540637": "- Wählen Sie die Preisrichtung auf der Grundlage Ihrer Marktprognosen aus.",
   "-264657167": "Der Reset-Spotpreis wird genau in der Mitte der gesamten Handelsdauer festgelegt. Wenn Sie beispielsweise eine 10-Stunden Reset Call-Option eingeben, erfolgt der Reset nach 5 Stunden, und der Preis an genau dieser 5-Stunden-Marke wird zum Reset-Spot.",
-  "-1727460166": "- höher als der Einstiegspreis für einen ResetvPut-Vertrag.",
+  "-1727460166": "- höher als der Einstiegspreis für einen Reset Put-Vertrag.",
   "-2078748417": "Wenn der Reset-Spotpreis weniger günstig ist, bleiben Ihre ursprünglichen Vertragsbedingungen in Kraft (was bedeutet, dass der ursprüngliche Einstiegspreis des Vertrags berücksichtigt wird). Der Reset erfolgt automatisch, aber ob er angewendet wird, hängt davon ab, welcher Preis (Original oder Reset) für eine mögliche Auszahlung optimaler ist.",
   "-1686735535": "In der Zwischenzeit berücksichtigen Rise/Fall-Verträge auf der Grundlage Ihrer Marktprognose den Ausstiegspreis des Vertrags mit dem Einstiegspreis des Vertrags.",
   "-201730632": "Wie funktioneren die Touch/No Touch Verträge?",

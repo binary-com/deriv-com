@@ -45,7 +45,6 @@ import CADJPY from 'images/svg/symbols/cad-jpy.svg'
 import CARDANO from 'images/svg/symbols/cardano.svg'
 import CHAINLINK from 'images/svg/symbols/chainlink.svg'
 import CHFJPY from 'images/svg/symbols/chf-jpy.svg'
-import CLBRENT from 'images/svg/symbols/cl-brent.svg'
 import COPPERUSD from 'images/svg/symbols/copper-usd.svg'
 import CRASH1000 from 'images/svg/symbols/crash-indices-1000.svg'
 import CRASH1000NEW from 'images/svg/symbols/crash-indices-1000-new.svg'
@@ -178,7 +177,6 @@ import NZDCHF from 'images/svg/symbols/nzd-chf.svg'
 import NZDJPY from 'images/svg/symbols/nzd-jpy.svg'
 import NZDSGD from 'images/svg/symbols/nzd-sgd.svg'
 import NZDUSD from 'images/svg/symbols/nzd-usd.svg'
-import OILUSD from 'images/svg/symbols/oil-usd.svg'
 import OMGUSD from 'images/svg/symbols/omg-usd.svg'
 import OTCAUSTRALIAN from 'images/svg/symbols/otcaustralian.svg'
 import OTCDUTCH from 'images/svg/symbols/otcdutch.svg'
@@ -257,7 +255,6 @@ import SOLANA from 'images/svg/symbols/solana.svg'
 import STOCKSUS500 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-500.svg'
 import STOCKSUSTECH100 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-tech-100.svg'
 import STOCKSWALLSTREET30 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/wall-street-30.svg'
-import STOCKSAUS200 from 'images/svg/symbols/markets-stocks-and-indices/asian-indices/aus-200.svg'
 import STOCKSHONGKONG50 from 'images/svg/symbols/markets-stocks-and-indices/asian-indices/hongkong-50.svg'
 import STOCKSJAPAN225 from 'images/svg/symbols/markets-stocks-and-indices/asian-indices/japan-225.svg'
 import STOCKSEUROPE50 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/europe-50.svg'
@@ -266,7 +263,6 @@ import STOCKSGERMANY30 from 'images/svg/symbols/markets-stocks-and-indices/europ
 import STOCKSGERMANY40 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/germany-40.svg'
 import STOCKSNETHERLANDS25 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/netherlands-25.svg'
 import STOCKSSPAIN35 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/spain-35.svg'
-import STOCKSUK100 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/uk-100.svg'
 import STOCKSSWISS20 from 'images/svg/symbols/markets-stocks-and-indices/european-indices/swiss-20.svg'
 import STOCKSADIDASSALOMON from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-adidas-salomon.svg'
 import STOCKSADVANCEDMICRODEVICES from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-amd.svg'
@@ -350,8 +346,6 @@ import MNR from 'images/svg/symbols/monero_flag.svg'
 import OMICEGO from 'images/svg/symbols/omise-go.svg'
 import VBOOMIC300 from 'images/svg/symbols/volatility-boom-300-new.svg'
 import VCRASHIC300 from 'images/svg/symbols/volatility-crash-300-new.svg'
-import VINDEXIC200 from 'images/svg/symbols/volatility-index-ic-200.svg'
-import VINDEXIC300 from 'images/svg/symbols/volatility-index-ic-300.svg'
 import VINDEX2001S from 'images/svg/symbols/volatility_200_1s.svg'
 import VINDEX3001S from 'images/svg/symbols/volatility_300_1s.svg'
 import VINDEX1501S from 'images/svg/symbols/volatility_150_1s.svg'
@@ -414,7 +408,6 @@ export {
     CADJPY,
     CHAINLINK,
     CHFJPY,
-    CLBRENT,
     COPPERUSD,
     CRASH1000,
     CRASH1000NEW,
@@ -548,7 +541,6 @@ export {
     NZDJPY,
     NZDSGD,
     NZDUSD,
-    OILUSD,
     OMGUSD,
     OMICEGO,
     OTCAUSTRALIAN,
@@ -626,7 +618,6 @@ export {
     STOCKSUS500,
     STOCKSUSTECH100,
     STOCKSWALLSTREET30,
-    STOCKSAUS200,
     STOCKSADVANCEDMICRODEVICES,
     STOCKSJAPAN225,
     STOCKSEUROPE50,
@@ -635,7 +626,6 @@ export {
     STOCKSGERMANY40,
     STOCKSNETHERLANDS25,
     STOCKSSPAIN35,
-    STOCKSUK100,
     STOCKSADIDASSALOMON,
     STOCKSAIRBNB,
     STOCKSALIBABAGROUP,
@@ -717,8 +707,6 @@ export {
     MNR,
     VBOOMIC300,
     VCRASHIC300,
-    VINDEXIC200,
-    VINDEXIC300,
     VINDEX2001S,
     VINDEX1501S,
     VINDEX2501S,

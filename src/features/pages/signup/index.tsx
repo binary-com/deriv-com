@@ -1,17 +1,21 @@
 import React, { useEffect } from 'react'
+import { Analytics } from '@deriv/analytics'
+import Layout from 'features/components/templates/layout'
 import { signup_wrapper } from './signup.module.scss'
 import SignUpContent from './signup.content'
 import SignUpFormContainer from './form-container'
-import Layout from 'features/components/templates/layout'
 import StaticNav from 'features/components/templates/navigation/static-nav'
-import { useAnalyticsEvents } from 'features/hooks/analytic/use-analytic-events'
 import Flex from 'features/components/atoms/flex-box'
+import { isBrowser } from 'common/utility'
 
 const SignUp = () => {
-    const { onAnalyticEvent } = useAnalyticsEvents('ce_virtual_signup_form')
+    const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
+        form_source: isBrowser() && window.location.hostname,
+        form_name: 'default_diel_deriv',
+    }
 
     useEffect(() => {
-        onAnalyticEvent('open')
+        Analytics?.trackEvent('ce_virtual_signup_form', { action: 'open', ...analyticsData })
     }, [])
 
     return (

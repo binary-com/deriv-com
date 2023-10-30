@@ -9,7 +9,7 @@ import { localize, Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import Forex from 'images/svg/trade-types/forex.svg'
 import ETFs from 'images/svg/markets/etfs.svg'
-import Cryptocurrencies from 'images/svg/trade-types/cryptocurrencies.svg'
+import Cryptocurrencies from 'images/svg/markets/cryptocurrencies-new.svg'
 import Commodities from 'images/svg/trade-types/commodities.svg'
 import Derived from 'images/svg/trade-types/derived.svg'
 import StockIndices from 'images/svg/trade-types/stock-indices.svg'
@@ -125,7 +125,7 @@ const available_markets: TAvailableMarkets[] = [
     },
 ]
 
-const eu_restricted_markets = ['ETFs', 'Basket Indices']
+const eu_restricted_markets = ['Basket Indices']
 
 const eu_available_markets = available_markets.filter(
     (el) => !eu_restricted_markets.includes(el.name),

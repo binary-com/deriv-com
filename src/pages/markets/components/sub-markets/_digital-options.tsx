@@ -48,8 +48,8 @@ const DigitalOptions = ({ market_name, market_type, options_list }: DigitalOptio
                             {option.map((content, idx) => (
                                 <Col key={idx}>
                                     <AvailableOptions
-                                        content={content.text}
-                                        content_components={content.text_component}
+                                        content={content?.text}
+                                        content_components={content?.text_component}
                                         {...content}
                                     />
                                 </Col>

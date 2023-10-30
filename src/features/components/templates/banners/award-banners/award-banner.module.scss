@@ -1,0 +1,20 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.content{
+  max-inline-size: 1232px;
+  background-color: var(--color-grey-45);
+  border-radius: 24px;
+}
+
+.content_eu{
+  inline-size: 100%;
+  block-size: 332px;
+  background-color: var(--color-grey-45);
+  border-radius: 24px;
+
+  @include breakpoints(tablet) {
+    inline-size: 400px;
+    block-size: 294px;
+}
+}

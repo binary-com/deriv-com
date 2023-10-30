@@ -97,8 +97,7 @@ export const onClientEntry = () => {
         device_language: navigator?.language || ' ',
         device_type: isMobile ? 'mobile' : 'desktop',
     })
-    const { tracking } = Analytics.getInstances()
-    tracking.identifyEvent(Analytics?.getId(), { language: getLanguage() })
+    Analytics?.identifyEvent()
     //datadog
     const dd_options = {
         clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,

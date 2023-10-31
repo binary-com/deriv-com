@@ -105,7 +105,7 @@ export const IconGrid = () => (
             <Col
                 Icon={ProvenTrackRecord}
                 title="_t_Proven track record_t_"
-                content="_t_Deriv Group – the owners of the Deriv and Binary.com brands – has a history that dates back to 1999 when we laid the groundwork for the world’s first fixed-odds trading service. Since then, we have grown from strength to strength, garnering the trust of traders around the world._t_"
+                content="_t_Deriv Group has a history that dates back to 1999 when we laid the groundwork for the world’s first fixed-odds trading service. Since then, we have grown from strength to strength, garnering the trust of traders around the world._t_"
             />
             <Col
                 Icon={LicensedRegulated}

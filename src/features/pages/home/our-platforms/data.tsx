@@ -8,6 +8,7 @@ import DerivXIcon from 'images/svg/custom/rebranding/deriv-x-icon.svg'
 import DBotIcon from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
 import BinaryBotIcon from 'images/svg/custom/rebranding/binarybot-icon.svg'
 import SmartTraderIcon from 'images/svg/custom/rebranding/smarttrader-icon.svg'
+import DerivcTrader from 'images/svg/trading-platforms/ctrader/ctrader-main-logo.svg'
 import Link from 'features/components/atoms/link'
 import {
     deriv_go_ios_url,

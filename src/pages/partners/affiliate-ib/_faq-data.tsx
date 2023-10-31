@@ -220,7 +220,15 @@ const AffiliateGeneral = () => {
                     <Header as="p" type="paragraph-1" mt="8px" weight="normal">
                         <Localize
                             translate_text="_t_A software developer with your own trading platform that can be linked to Deriv’s API. Head to the <0>Deriv API page</0> for more info on how our API works._t_"
-                            components={[<LocalizedLinkText to={deriv_api_url} key={0} />]}
+                            components={[
+                                <LocalizedLinkText
+                                    to={deriv_api_url}
+                                    external
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    key={0}
+                                />,
+                            ]}
                         />
                     </Header>
                 </li>
@@ -263,7 +271,15 @@ const AffiliateAccountManagement = () => (
         <Header as="p" type="paragraph-1" mt="8px" weight="normal">
             <Localize
                 translate_text="_t_You can reset your password <0>here</0>._t_"
-                components={[<LocalizedLinkText to={affiliate_reset_password_link} key={0} />]}
+                components={[
+                    <LocalizedLinkText
+                        to={affiliate_reset_password_link}
+                        external
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={0}
+                    />,
+                ]}
             />
         </Header>
         <Header as="p" type="paragraph-1" mt="8px" weight="normal">

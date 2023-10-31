@@ -113,6 +113,13 @@ jobs:
 
             - name: Build project
               id: build-project
+              env:
+                  GATSBY_ENV: staging
+                  GATSBY_GROWTHBOOK_CLIENT_KEY: ${{ secrets.GATSBY_GROWTHBOOK_CLIENT_KEY }}
+                  GATSBY_GROWTHBOOK_DECRYPTION_KEY: ${{ secrets.GATSBY_GROWTHBOOK_DECRYPTION_KEY }}
+                  GATSBY_RUDDERSTACK_STAGING_KEY: ${{ secrets.GATSBY_RUDDERSTACK_STAGING_KEY }}
+                  GATSBY_RUDDERSTACK_PRODUCTION_KEY: ${{ secrets.GATSBY_RUDDERSTACK_PRODUCTION_KEY }}
+                  GATSBY_STRAPI_TOKEN: ${{ secrets.GATSBY_STRAPI_TOKEN }}
               run: npm run build
 
             - name: Publish to Cloudflare Pages
@@ -127,13 +134,12 @@ jobs:
                   directory='public'
                   projectName='deriv-com-preview-links'
                   head_branch=${{github.event.workflow_run.head_branch}}
-                  branch=$(echo $head_branch | head -c 20)
+                  branch=$(echo $head_branch | head -c 20 | sed 's/[\/_\.]/-/g; s/[^a-zA-Z0-9]$/1/')
                   preview_url=$(wrangler pages deploy $directory --project-name=$projectName --branch=$branch > log.txt 2>&1; echo $?)
                   echo "------"
                   cat log.txt
-                  branchName=$(echo $branch | sed 's/[\/_\.]/-/g; s/[^a-zA-Z]$//')
                   if grep -q "Deployment complete" log.txt; then
-                    echo "preview_url=https://$branchName.deriv-com-preview-links.pages.dev" > "$GITHUB_OUTPUT"
+                    echo "preview_url=https://$branch.deriv-com-preview-links.pages.dev" > "$GITHUB_OUTPUT"
                   else
                     echo "Deployment to Cloudflare Pages failed."
                     exit 1
@@ -181,16 +187,3 @@ jobs:
                   number: ${{steps.pr_information.outputs.issue_number}}
                   message: ${{steps.generate_preview_url.outputs.comment || steps.generate_failure_comment.outputs.comment }}
                   recreate: true
-
-            - name: E2E Smoke Test
-              run: |
-                  curl -X POST \
-                  -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-                  -H "Accept: application/vnd.github.everest-preview+json" \
-                  "https://api.github.com/repos/deriv-com/e2e-deriv-com/dispatches" \
-                  -d '{
-                    "event_type": "run-e2e-tests",
-                    "client_payload": {
-                      "baseurl": "${{steps.publish-to-pages.outputs.preview_url}}"
-                    }
-                  }'

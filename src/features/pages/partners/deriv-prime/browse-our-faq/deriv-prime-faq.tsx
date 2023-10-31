@@ -9,7 +9,7 @@ import { TString } from 'types/generics'
 
 interface DerivPrimeFaqProps {
     faqs: DerivPrimeFAQDataItem[]
-    subsection: TString
+    subsection?: TString
 }
 
 const DerivPrimeFaq = ({ faqs, subsection }: DerivPrimeFaqProps) => {
@@ -21,7 +21,7 @@ const DerivPrimeFaq = ({ faqs, subsection }: DerivPrimeFaqProps) => {
                 font_family="UBUNTU"
                 size="xlarge"
             >
-                <Localize translate_text={subsection} />
+                {subsection && <Localize translate_text={subsection} />}
             </Typography.Paragraph>
             <Accordion.Root type="multiple">
                 {faqs.map((faqItem) => (
@@ -44,7 +44,10 @@ const DerivPrimeFaq = ({ faqs, subsection }: DerivPrimeFaqProps) => {
                                 <Flex.Box key={answerItem.id}>
                                     {answerItem.type === 'text' ? (
                                         <Typography.Paragraph>
-                                            <Localize translate_text={answerItem.text} />
+                                            <Localize
+                                                translate_text={answerItem.text}
+                                                components={answerItem.components}
+                                            />
                                         </Typography.Paragraph>
                                     ) : answerItem.type === 'list' ? (
                                         <ul>

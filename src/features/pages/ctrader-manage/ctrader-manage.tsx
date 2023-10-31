@@ -1,11 +1,11 @@
 import React from 'react'
+import Layout from 'features/components/templates/layout'
 import { CtraderManageProps } from './ctrader-manage-data'
 import { Localize } from 'components/localization'
 import LinkButton from 'features/components/atoms/link-button'
 import CtraderWrapper from 'features/components/templates/ctrader/ctrader-wrapper'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
-import Layout from 'features/components/templates/layout'
 
 const CtraderManage = ({
     title,

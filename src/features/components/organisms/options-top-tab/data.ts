@@ -3,9 +3,11 @@ import {
     AccumulatorslActive,
     DigitalActive,
     VanillaActive,
+    TurboActive,
     AccumulatorslInActive,
     DigitalnActive,
     VanillaInActive,
+    TurboInActive,
 } from 'images/svg/trade-types/options/options-images'
 export const tab_data: OptionNavigationType[] = [
     {
@@ -31,5 +33,13 @@ export const tab_data: OptionNavigationType[] = [
         active_path: '/trade-types/options/vanilla-options/',
         option_name: 'vanilla',
         to: '/trade-types/options/vanilla-options/',
+    },
+    {
+        src: TurboInActive,
+        selected_src: TurboActive,
+        button_text: '_t_Turbo options_t_',
+        active_path: '/trade-types/options/turbo-options',
+        option_name: 'turbo',
+        to: '/trade-types/options/turbo-options',
     },
 ]

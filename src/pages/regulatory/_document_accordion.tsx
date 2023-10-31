@@ -150,7 +150,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 href={`/regulatory/kid/${
-                                    is_supported_language(selected_language)
+                                    is_supported_language(selected_language) && !data.is_only_en
                                         ? selected_language + '/'
                                         : ''
                                 }${data.ref}`}
@@ -174,7 +174,7 @@ const DocumentAccordion = (locale: DocumentAccordionProps) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 href={`/regulatory/kid/${
-                                    is_supported_language(selected_language)
+                                    is_supported_language(selected_language) && !data.is_only_en
                                         ? selected_language + '/'
                                         : ''
                                 }${data.ref}`}

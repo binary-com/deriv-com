@@ -95,3 +95,15 @@
 .trade_landing_active {
     inset-inline-end: 5rem;
 }
+.nav_text_wrapper {
+    @include breakpoints(tablet) {
+        position: relative;
+        &::before {
+            position: absolute;
+            content: '';
+            left: 0;
+            right: 0;
+            height: 5rem;
+        }
+    }
+}

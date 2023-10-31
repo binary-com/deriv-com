@@ -7,26 +7,32 @@ import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 
 const Blog = ({ data }: any) => {
-    const { Posts } = data?.strapiPost || {}
+    const posts = data?.allStrapiPost.nodes || []
+    console.log(posts, 33)
+
     return (
         <Layout>
-            <AwardBannerEu title={Posts?.Title} subtitle={Posts?.tags} />
+            {posts.map((post: any) => {
+                return (
+                    <AwardBannerEu
+                        key={post.Posts.title}
+                        title={post.Posts.Title}
+                        subtitle={post.Posts.tags}
+                    />
+                )
+            })}
         </Layout>
     )
 }
 
 export const query = graphql`
     query {
-        strapiPost {
-            Posts {
-                Banner {
-                    localFile {
-                        publicURL
-                    }
+        allStrapiPost {
+            nodes {
+                Posts {
+                    Title
+                    tags
                 }
-                Title
-                date
-                tags
             }
         }
     }

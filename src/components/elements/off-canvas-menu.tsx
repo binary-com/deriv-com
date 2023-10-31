@@ -31,7 +31,6 @@ import API from 'images/svg/menu/developers.svg'
 import Diagonal from 'images/svg/elements/pink-right-diagonal.svg'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
-import { DerivEzLogoRed } from 'images/svg/deriv-ez'
 import DTrader from 'images/svg/dtrader/dtrader-icon.svg'
 import DerivGo from 'images/svg/deriv-go/deriv-go-icon.svg'
 import Forex from 'images/svg/custom/forex-nav.svg'
@@ -275,23 +274,6 @@ export const OffCanvasMenuWrapper = (props: OffCanvasMenuWrapperProps) => {
                                         title="_t_Deriv X_t_"
                                         onClick={handleArrowClick}
                                         to="/derivx/"
-                                    />
-                                </Flex>
-                                <Flex mb="2rem">
-                                    <NavCard
-                                        aria_label="Derivez"
-                                        Icon={() => (
-                                            <img
-                                                src={DerivEzLogoRed}
-                                                alt={localize('_t_Deriv EZ trading paltform_t_')}
-                                                width="32"
-                                                height="32"
-                                            />
-                                        )}
-                                        content="_t_Trade on global markets from anywhere with our mobile-first CFD trading platform._t_"
-                                        title="_t_Deriv EZ_t_"
-                                        onClick={handleArrowClick}
-                                        to="/deriv-ez/"
                                     />
                                 </Flex>
                             </>

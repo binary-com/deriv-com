@@ -1,7 +1,7 @@
 import { BannerType } from 'features/components/templates/banners/blade-shape-banner/types'
 import {
-    ctrader_google_play_url,
-    ctrader_app_store_url,
+    ctrader_android_url,
+    ctrader_ios_url,
     ctrader_web_browser_url,
     ctrader_windows_url,
 } from 'common/constants'
@@ -31,7 +31,7 @@ export const trading_platform_banner: BannerType = {
                 text: 'Google Play',
                 url: {
                     type: 'non-company',
-                    href: ctrader_google_play_url,
+                    href: ctrader_android_url,
                     target: '_blank',
                 },
             },
@@ -67,7 +67,7 @@ export const trading_platform_banner: BannerType = {
                 text: 'App Store',
                 url: {
                     type: 'non-company',
-                    href: ctrader_app_store_url,
+                    href: ctrader_ios_url,
                     target: '_blank',
                 },
             },

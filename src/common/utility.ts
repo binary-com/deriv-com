@@ -13,6 +13,7 @@ import {
     eu_domains,
 } from './constants'
 import { localize } from 'components/localization'
+import { ProductLinkGenerator } from 'features/components/atoms/link/external'
 
 export const trimSpaces = (value: string): string => value?.trim()
 
@@ -79,7 +80,7 @@ export const getDerivAppLocalizedURL = (link: string, locale: string, to = '') =
     return `${link}${to}?lang=${lang.toUpperCase()}`
 }
 
-export const TradersHubURL = (link: string, locale: string) => {
+export const TradersHubURL: ProductLinkGenerator = ({ locale }) => {
     const lang = deriv_app_languages.includes(locale) ? locale : 'en'
     return `https://app.deriv.com/appstore/traders-hub?lang=${lang.toUpperCase()}`
 }

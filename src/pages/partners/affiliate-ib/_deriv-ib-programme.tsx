@@ -13,7 +13,7 @@ import { TString } from 'types/generics'
 
 type AssetsType = {
     title: TString
-    list: TString[]
+    list: TString[] | string[]
 }[]
 
 type DescType = {
@@ -397,6 +397,20 @@ const ib_dmt5_synthetic: DMT5Type = {
             class_name: 'step-index',
         },
         {
+            title: '_t_Range Break Indices_t_',
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: '_t_Asset_t_',
+                    list: ['_t_Range Break 100 Index_t_', '_t_Range Break 200 Index_t_'],
+                },
+                {
+                    title: '_t_Commission per USD 100k turnover_t_',
+                    list: ['0.5', '0.25'],
+                },
+            ],
+        },
+        {
             title: '_t_Jump indices_t_',
             headerHeight: '6.4rem',
             assets: [
@@ -416,6 +430,47 @@ const ib_dmt5_synthetic: DMT5Type = {
                 },
             ],
             class_name: 'jump-index',
+        },
+        {
+            title: '_t_Basket Indices_t_',
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: '_t_Asset_t_',
+                    list: [
+                        '_t_AUD Basket_t_',
+                        '_t_EUR Basket_t_',
+                        '_t_GBP Basket_t_',
+                        '_t_USD Basket_t_',
+                        '_t_Gold Basket_t_',
+                    ],
+                },
+                {
+                    title: '_t_Commission per USD 100k turnover_t_',
+                    list: ['1.5', '1.5', '1.5', '1.5', '7'],
+                },
+            ],
+        },
+        {
+            title: '_t_DEX Indices_t_',
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: '_t_Asset_t_',
+                    list: [
+                        '_t_DEX 600 DOWN Index_t_',
+                        '_t_DEX 600 UP Index_t_',
+                        '_t_DEX 900 DOWN Index_t_',
+                        '_t_DEX 900 UP Index_t_',
+                        '_t_DEX 1500 DOWN Index_t_',
+                        '_t_DEX 1500 UP Index_t_',
+                    ],
+                },
+                {
+                    title: '_t_Commission per USD 100k turnover_t_',
+                    list: ['3', '3.5', '2.2', '3', '1.8', '1.5'],
+                },
+            ],
         },
     ],
     countDetails: [
@@ -518,11 +573,11 @@ const ib_dmt5_swapFree: DMT5Type = {
             assets: [
                 {
                     title: '_t_Asset_t_',
-                    list: ['_t_Stocks_t_', '_t_Stock indices_t_'],
+                    list: ['_t_Stocks_t_', '_t_Stock indices_t_', 'ETFs'],
                 },
                 {
                     title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_10_t_', '_t_1_t_'],
+                    list: ['10', '1', '10'],
                 },
             ],
         },
@@ -581,6 +636,20 @@ const ib_dmt5_swapFree: DMT5Type = {
                 },
             ],
             class_name: 'step-index',
+        },
+        {
+            title: '_t_Range Break Indices_t_',
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: '_t_Asset_t_',
+                    list: ['_t_Range Break 100 Index_t_', '_t_Range Break 200 Index_t_'],
+                },
+                {
+                    title: '_t_Commission per USD 100k turnover_t_',
+                    list: ['0.5', '0.25'],
+                },
+            ],
         },
         {
             title: '_t_Jump indices_t_',
@@ -686,11 +755,11 @@ const ib_dmt5_financial: DMT5Type = {
             assets: [
                 {
                     title: '_t_Asset_t_',
-                    list: ['_t_Forex (Major)_t_', '_t_Forex (Minor)_t_'],
+                    list: ['_t_Forex (Major)_t_', '_t_Forex (Minor)_t_', '_t_Forex (Micros)_t_'],
                 },
                 {
                     title: '_t_Commission per lot (1 standard forex lot is 100k units)_t_',
-                    list: ['_t_2_t_', '_t_2_t_'],
+                    list: ['2', '2', '0.02'],
                 },
             ],
         },
@@ -729,11 +798,11 @@ const ib_dmt5_financial: DMT5Type = {
             assets: [
                 {
                     title: '_t_Asset_t_',
-                    list: ['_t_Stocks_t_', '_t_Stock indices_t_'],
+                    list: ['_t_Stocks_t_', '_t_Stock indices_t_', '_t_ETFs_t_'],
                 },
                 {
                     title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_10_t_', '_t_1_t_'],
+                    list: ['10', '1', '10'],
                 },
             ],
         },
@@ -1067,6 +1136,27 @@ const ib_dx: DMT5Type = {
                 {
                     title: '_t_Commission per USD 100k turnover_t_',
                     list: ['_t_1.50_t_', '_t_1.50_t_', '_t_1.50_t_', '_t_1.50_t_', '_t_7_t_'],
+                },
+            ],
+        },
+        {
+            title: '_t_DEX Indices_t_',
+            headerHeight: '6.4rem',
+            assets: [
+                {
+                    title: '_t_Asset_t_',
+                    list: [
+                        '_t_DEX 600 DOWN Index_t_',
+                        '_t_DEX 600 UP Index_t_',
+                        '_t_DEX 900 DOWN Index_t_',
+                        '_t_DEX 900 UP Index_t_',
+                        '_t_DEX 1500 DOWN Index_t_',
+                        '_t_DEX 1500 UP Index_t_',
+                    ],
+                },
+                {
+                    title: '_t_Commission per USD 100k turnover_t_',
+                    list: ['3', '3.5', '2.2', '3', '1.8', '1.5'],
                 },
             ],
         },

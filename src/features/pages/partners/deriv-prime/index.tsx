@@ -28,7 +28,7 @@ const DerivPrime = () => {
             <GetInTouchBanner />
             <MeetUsThere />
             <BrowseOurFaq />
-            <SuspenseHelper>
+            <SuspenseHelper fallback={<></>}>
                 <Footer />
             </SuspenseHelper>
         </Layout>

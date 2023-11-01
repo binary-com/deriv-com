@@ -20,6 +20,7 @@ import {
     dmt5_linux_url,
     dmt5_mac_app_url,
     dmt5_windows_download_url,
+    ctrader_android_url,
 } from 'common/constants'
 
 const platformSliderItems: SmartPlatformItem[] = [
@@ -340,11 +341,17 @@ const platformSliderItems: SmartPlatformItem[] = [
             },
             icon: DerivcTrader,
             image_caption: {
-                text: '_t_Available on <0>web browser</0>_t_',
+                text: '_t_Available on <0>Android</0> & <1>web browser</1>_t_',
                 components: [
                     <Link
-                        key={0}
-                        url={{ type: 'internal', to: '/deriv-ctrader/' }}
+                        key={1}
+                        url={{ type: 'non-company', href: ctrader_android_url }}
+                        weight="bold"
+                        font_family="UBUNTU"
+                    />,
+                    <Link
+                        key={1}
+                        url={{ type: 'company', url_name: 'traders_hub' }}
                         weight="bold"
                         font_family="UBUNTU"
                     />,

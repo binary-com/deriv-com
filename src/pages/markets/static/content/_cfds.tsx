@@ -123,7 +123,7 @@ export const synthetic_cfds: TMarketContent = {
     content: [
         {
             id: 'drift-switch-indices',
-            title: '_t_Drift switch indices_t_',
+            title: '_t_Drift switching indices_t_',
             component: <DriftSwitchIndices />,
             details: <DriftSwitchDetails />,
         },

@@ -1,0 +1,23 @@
+.slideshow {
+    position: relative;
+    width: 100vh;
+    height: 100vw;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+
+    &.fadeIn {
+        opacity: 1;
+    }
+
+    &.fadeOut {
+        opacity: 0;
+    }
+}

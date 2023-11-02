@@ -12,7 +12,6 @@ import DBot from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
 import DMT5 from 'images/svg/custom/rebranding/dmt5-icon.svg'
 import DTrader from 'images/svg/custom/rebranding/dtrader-icon.svg'
 import DerivGo from 'images/svg/custom/rebranding/deriv-go-icon.svg'
-import DerivEZ from 'images/svg/dtrader/ez-icon.svg'
 import useRegion from 'components/hooks/use-region'
 
 type AvailablePlatformsProps = {
@@ -164,32 +163,12 @@ const AvailablePlatforms = ({
                         </StyledFlex>
                     </LocalizedLink>
                 )}
-                {derivez && !is_eu && (
-                    <LocalizedLink to="/deriv-ez/">
-                        <StyledFlex direction="row" ai="center">
-                            <img src={DerivEZ} alt="Deriv ez" width="32" height="32" />
-                            <Text ml="0.4rem">
-                                <Localize translate_text="_t_Deriv EZ_t_" />
-                            </Text>
-                        </StyledFlex>
-                    </LocalizedLink>
-                )}
                 {deriv_go && (
                     <LocalizedLink to="/deriv-go/">
                         <StyledFlex direction="row" ai="center">
                             <embed src={DerivGo} width="24" height="24" />
                             <Text ml="0.4rem">
                                 <Localize translate_text="_t_Deriv GO_t_" />
-                            </Text>
-                        </StyledFlex>
-                    </LocalizedLink>
-                )}
-                {deriv_ez && (
-                    <LocalizedLink to="/deriv-ez/">
-                        <StyledFlex direction="row" ai="center">
-                            <embed src={DerivEZ} width="24" height="24" />
-                            <Text ml="0.4rem">
-                                <Localize translate_text="_t_Deriv EZ_t_" />
                             </Text>
                         </StyledFlex>
                     </LocalizedLink>

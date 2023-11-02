@@ -62,6 +62,29 @@ export const query = graphql`
                 link_name
             }
         }
+        strapiContactUs {
+            hero {
+                header
+                sub_header
+            }
+            support_section {
+                header
+                sub_header
+                link_title
+            }
+            our_offices
+            office_address {
+                continent
+                country {
+                    country_name
+                }
+            }
+            business_partnership {
+                header
+                sub_header
+                live_chat_title
+            }
+        }
     }
 `
 

@@ -14,9 +14,12 @@ import {
     OurOffices,
 } from './_lazy-load'
 import { TGatsbyHead } from 'features/types'
+import AwardBanner from 'features/components/templates/banners/award-banners'
+import AwardBannerEu from 'features/components/templates/banners/award-banners/award-banner-eu'
 import device from 'themes/device'
 import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
+import useRegion from 'components/hooks/use-region'
 import { WithIntl } from 'components/localization'
 
 const StartSeparator = styled.div`
@@ -40,6 +43,7 @@ const EndSeparator = styled.div`
 `
 
 const AboutUs = ({ data }: TWhoWeAre) => {
+    const { is_eu } = useRegion()
     const {
         hero,
         our_values,
@@ -57,7 +61,12 @@ const AboutUs = ({ data }: TWhoWeAre) => {
             <StartSeparator />
             <OurValues our_values={our_values} />
             <EndSeparator />
+            <AwardBannerEu
+                title="_t_Our certifications_t_"
+                subtitle="_t_We are proud to be recognised as a Great Place to Work™ and certified Gold in Investors in People._t_"
+            />
             <OurPrinciples our_principles={our_principles} />
+            {is_eu ? null : <AwardBanner title="_t_Our awards_t_" />}
             <OurLeadership our_leadership={our_leadership} />
             <DerivNumbers deriv_in_numbers={deriv_in_numbers} />
             <ImageMarquee slider_medias={slider_medias} />

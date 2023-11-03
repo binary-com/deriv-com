@@ -56,6 +56,13 @@ import {
     OneVoucher,
     PaySafeCard,
     DP2P,
+    OZOW,
+    PSE,
+    VNPAY,
+    TIGO,
+    AIRTEL,
+    ORANGE,
+    ZAMTEL,
 } from 'images/svg/payment-methods'
 
 type LocaleType = { language?: string }
@@ -63,9 +70,9 @@ type LocaleType = { language?: string }
 type PaymentType = {
     method?: ReactElement
     currencies?: string | TString
-    min_max_deposit?: TString
+    min_max_deposit?: TString | string
     min_max_deposit_components?: ReactElement[]
-    min_max_withdrawal?: TString
+    min_max_withdrawal?: TString | string
     min_max_withdrawal_components?: ReactElement[]
     deposit_time?: TString
     withdrawal_time?: TString
@@ -240,16 +247,6 @@ const payment_data: PaymentDataProps[] = [
                 name: 'Help2Pay',
             },
             {
-                method: <StyledIcon src={Verve} alt="verve" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_5 - 1,000_t_',
-                min_max_withdrawal: '_t_5 - 1,000_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 working day_t_',
-                description: '_t_Deposit through your local payment cards._t_',
-                name: 'verve',
-            },
-            {
                 method: <StyledIcon src={ZingPay} alt="zingPay" />,
                 currencies: 'USD, EUR, AUD, GBP',
                 min_max_deposit: '_t_10 - 500_t_',
@@ -259,6 +256,37 @@ const payment_data: PaymentDataProps[] = [
                 description:
                     '_t_Make deposits and withdrawals through your local bank in real-time._t_',
                 name: 'ZingPay',
+            },
+            {
+                method: <StyledIcon src={VNPAY} alt="VNPAY" />,
+                currencies: 'USD',
+                min_max_deposit: '10 - 10,000',
+                min_max_withdrawal: '10 - 10,000',
+                deposit_time: '_t_1 working day_t_',
+                withdrawal_time: '_t_1 - 2 working days_t_',
+                description:
+                    "_t_Make easy deposits and withdrawals using Vietnam's famous banks._t_",
+                name: 'VNPay',
+            },
+            {
+                method: <StyledIcon src={OZOW} alt="Ozow" />,
+                currencies: 'USD',
+                min_max_deposit: '5 - 200',
+                min_max_withdrawal: '10 - 2,000',
+                deposit_time: '_t_1 working day_t_',
+                withdrawal_time: '_t_1 - 2 working days_t_',
+                description: '_t_Make deposits and withdrawals through your local bank._t_',
+                name: 'Ozow',
+            },
+            {
+                method: <StyledIcon src={PSE} alt="PSE" />,
+                currencies: 'USD',
+                min_max_deposit: '10 - 1,000',
+                min_max_withdrawal: '10 - 1,000',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 - 2 working days_t_',
+                description: '_t_Make deposits and withdrawals through your local bank._t_',
+                name: 'PSE',
             },
         ],
     },
@@ -297,6 +325,48 @@ const payment_data: PaymentDataProps[] = [
                 withdrawal_time: '_t_1 working day_t_',
                 description: '_t_Make fast and easy deposits through your bank account._t_',
                 name: 'Vodafone',
+            },
+            {
+                method: <StyledIcon src={TIGO} alt="Tigo" />,
+                currencies: 'USD',
+                min_max_deposit: '5 - 1,000',
+                min_max_withdrawal: '5 - 1,000',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description: '_t_Make easy deposits and withdrawal using Tigo Mobile Money._t_',
+                name: 'Tigo',
+            },
+            {
+                method: <StyledIcon src={AIRTEL} alt="Airtel" />,
+                currencies: 'USD',
+                min_max_deposit: '5 - 1,000',
+                min_max_withdrawal: '5 - 1,000',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description:
+                    '_t_Make easy deposits and withdrawals with your Airtel Mobile Money._t_',
+                name: 'Airtel',
+            },
+            {
+                method: <StyledIcon src={ORANGE} alt="Orange" />,
+                currencies: 'USD',
+                min_max_deposit: '5 - 1,000',
+                min_max_withdrawal: '5 - 1,000',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description:
+                    '_t_Make easy deposits and withdrawals with your Orange Mobile Money._t_',
+                name: 'Orange',
+            },
+            {
+                method: <StyledIcon src={ZAMTEL} alt="Zamtel" />,
+                currencies: 'USD',
+                min_max_deposit: '5 - 1,000',
+                min_max_withdrawal: '5 - 1,000',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description: '_t_Make easy deposits and withdrawals using Zamtel Mobile Money._t_',
+                name: 'Zamtel',
             },
         ],
     },

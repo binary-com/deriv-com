@@ -447,7 +447,7 @@ const derived_specification: TSpecification = {
             },
             contract_size: 1,
             base_currency: 'USD',
-            minimum_size: 0.01,
+            minimum_size: 0.1,
             minimum_spread: 5.15,
             target_spread: 5.15,
             max_effective_leverage: 1000,

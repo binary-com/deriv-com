@@ -7,7 +7,7 @@ import { bannerTypes } from 'common/constants'
 import CfdWarningBanner from 'features/components/molecules/layout-overlay/cfd-warning-banner'
 
 const LiveChat = Loadable(() => import('./livechat'))
-const WhatsApp = Loadable(() => import('./whatsapp'))
+// const WhatsApp = Loadable(() => import('./whatsapp'))
 
 const OverlayContainer = styled.div<{ is_rtl: boolean }>`
     pointer-events: none;
@@ -26,7 +26,7 @@ const LayoutOverlay = () => {
     return (
         <OverlayContainer is_rtl={is_rtl} id="overlay-container">
             <LiveChat />
-            <WhatsApp />
+            {/* <WhatsApp /> */}
             <BannerAlert bannerType={bannerTypes.cookieBanner} />
             <CfdWarningBanner />
         </OverlayContainer>

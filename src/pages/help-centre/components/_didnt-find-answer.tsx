@@ -6,7 +6,7 @@ import { Localize } from 'components/localization'
 import { useLivechat } from 'components/hooks/use-livechat'
 import device from 'themes/device'
 import ContactUsIcon from 'images/svg/help/livechat-red.svg'
-import WhatsAppSVG from 'images/svg/help/whatsapp.svg'
+// import WhatsAppSVG from 'images/svg/help/whatsapp.svg'
 import { whatsapp_url } from 'common/constants'
 
 const DidntFindYourAnswerWrapper = styled.div`
@@ -37,24 +37,24 @@ const Text = styled(Header)`
         font-weight: bold;
     }
 `
-const WhatsAppButton = styled.button`
-    background-color: var(--color-green-3);
-    border: 2px solid var(--color-green-3);
-    color: var(--color-white);
-    font-size: 14px;
-    border-radius: 4px;
-    height: fit-content;
-    padding: 10px 16px;
-    font-weight: bold;
-    margin-left: 16px;
-    width: inherit;
+// const WhatsAppButton = styled.button`
+//     background-color: var(--color-green-3);
+//     border: 2px solid var(--color-green-3);
+//     color: var(--color-white);
+//     font-size: 14px;
+//     border-radius: 4px;
+//     height: fit-content;
+//     padding: 10px 16px;
+//     font-weight: bold;
+//     margin-left: 16px;
+//     width: inherit;
 
-    &:hover {
-        background-color: var(--color-red);
-        border: 2px solid var(--color-red);
-        color: var(--color-white);
-    }
-`
+//     &:hover {
+//         background-color: var(--color-red);
+//         border: 2px solid var(--color-red);
+//         color: var(--color-white);
+//     }
+// `
 const ChatButton = styled(Button)`
     @media ${device.tabletL} {
         width: 100%;
@@ -68,15 +68,15 @@ const ButtonWrapper = styled.div`
     }
 `
 
-const WhatsAppIcon = styled.img`
-    margin: -3px 8px -3px 0;
-`
+// const WhatsAppIcon = styled.img`
+//     margin: -3px 8px -3px 0;
+// `
 
 const DidntFindYourAnswerBanner = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
 
     const openChatWindow = () => LC_API.open_chat_window()
-    const openWhatsappUrl = () => window.open(whatsapp_url, '_blank')
+    // const openWhatsappUrl = () => window.open(whatsapp_url, '_blank')
 
     return (
         <DidntFindYourAnswerWrapper>
@@ -91,7 +91,7 @@ const DidntFindYourAnswerBanner = () => {
                         <Localize translate_text="_t_Chat_t_" />
                     </ChatButton>
 
-                    <WhatsAppButton onClick={openWhatsappUrl}>
+                    {/* <WhatsAppButton onClick={openWhatsappUrl}>
                         <WhatsAppIcon
                             src={WhatsAppSVG}
                             alt="whatsapp-icon"
@@ -99,7 +99,7 @@ const DidntFindYourAnswerBanner = () => {
                             width="16"
                         />
                         <Localize translate_text="_t_WhatsApp_t_" />
-                    </WhatsAppButton>
+                    </WhatsAppButton> */}
                 </ButtonWrapper>
             )}
         </DidntFindYourAnswerWrapper>

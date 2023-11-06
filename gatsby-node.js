@@ -18,6 +18,16 @@ exports.onCreatePage = ({ page, actions }) => {
     const who_we_are = /who-we-are/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
     const is_options = /options/g.test(page.path)
+    const is_regulatory = /regulatory/g.test(page.path)
+
+    if (is_regulatory) {
+        createRedirect({
+            fromPath: `/regulatory/Deriv_Ltd_membership.pdf`,
+            toPath: `/regulatory/deriv-com-ltd-membership.pdf`,
+            redirectInBrowser: true,
+            isPermanent: true,
+        })
+    }
 
     if (is_careers) {
         createRedirect({

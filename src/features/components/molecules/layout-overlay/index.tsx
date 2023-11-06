@@ -6,7 +6,8 @@ import CfdWarningBanner from './cfd-warning-banner'
 import Flex from 'features/components/atoms/flex-box'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 
-const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 3000))
+const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 5000))
+const WhatsappButton = loadable(() => pMinDelay(import('./whats-app-button'), 5000))
 const CookieBanner = lazy(() => pMinDelay(import('./cookie-banner'), 5000))
 
 const LayoutOverlay = () => {
@@ -34,6 +35,7 @@ const LayoutOverlay = () => {
                 </Flex.Box>
                 <Flex.Box direction="col">
                     <LiveChatButton />
+                    <WhatsappButton />
                 </Flex.Box>
             </Flex.Box>
             <CfdWarningBanner />

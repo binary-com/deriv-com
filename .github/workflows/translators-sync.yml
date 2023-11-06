@@ -23,7 +23,7 @@ jobs:
               uses: actions/setup-node@v2.1.2
               with:
                   node-version: '18.x'
-            - name: Sync Master to Translators branch ⬇️ 
+            - name: Sync Master to Translators branch 🔀
               run: |
                   branch_name="master_translations"
 

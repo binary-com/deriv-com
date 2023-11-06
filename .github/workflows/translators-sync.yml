@@ -23,7 +23,6 @@ jobs:
               uses: actions/setup-node@v2.1.2
               with:
                   node-version: '18.x'
-            - run: npm i -g @crowdin/cli@3.7.8
             - name: Sync Master to Translators branch ⬇️ 
               run: |
                   branch_name="master_translations"

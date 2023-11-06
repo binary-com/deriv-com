@@ -7,13 +7,11 @@ import useHandleSignup from 'components/hooks/use-handle-signup'
 import usePpc from 'features/hooks/use-ppc'
 import LanguageSwitcher from 'features/components/molecules/language-switcher'
 import Flex from 'features/components/atoms/flex-box'
-import { handleGetTrading, handleRedirectToTradersHub } from 'components/custom/utils'
-import { getLocationPathname } from 'common/utility'
+import { handleRedirectToTradersHub } from 'components/custom/utils'
 
 const MainNavButtons = () => {
     const [is_logged_in] = useAuthCheck()
     const { is_ppc_redirect } = usePpc()
-    const is_ctrader = getLocationPathname().includes('deriv-ctrader')
 
     const handleLogin = useHandleLogin()
     const handleSignup = useHandleSignup(is_ppc_redirect)
@@ -27,10 +25,7 @@ const MainNavButtons = () => {
             gap="8x"
         >
             {is_logged_in ? (
-                <Button.Primary
-                    onClick={is_ctrader ? handleRedirectToTradersHub : handleGetTrading}
-                    outlined
-                >
+                <Button.Primary onClick={handleRedirectToTradersHub} outlined>
                     <Localize translate_text="_t_Get trading_t_" />
                 </Button.Primary>
             ) : (

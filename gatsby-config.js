@@ -24,6 +24,10 @@ const strapi_config = [
         singularName: 'cfd-warning-banner',
         queryParams: strapi_preview_param,
     },
+    {
+        singularName: 'contact-us',
+        queryParams: strapi_preview_param,
+    },
 ]
 
 module.exports = {

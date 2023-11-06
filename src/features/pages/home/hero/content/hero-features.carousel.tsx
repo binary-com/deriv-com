@@ -17,7 +17,7 @@ const HeroFeaturesCarousel = () => {
     return (
         <div className={hero_typewriter}>
             <Typography.Heading className={text} as="h3" size="large" weight="bold" color="primary">
-                <div className={wrapper}>
+                <div className={wrapper} data-testid="typewriter-wrapper">
                     {strings.map((string) => (
                         <p key={string} className={dclsx('typography-font-UBUNTU')}>
                             <Localize translate_text={string} />

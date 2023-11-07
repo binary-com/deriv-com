@@ -48,7 +48,7 @@ const SignupPublicForm = () => {
                     padding: '14x',
                 }}
             >
-                <Typography.Heading size="small" textcolor="black">
+                <Typography.Heading as="h2" size="small" textcolor="black">
                     <Localize translate_text="_t_Join over 2.5 million traders worldwide_t_" />
                 </Typography.Heading>
                 <Typography.Paragraph textcolor="black">

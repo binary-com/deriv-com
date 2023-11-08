@@ -59,6 +59,7 @@ jobs:
             - name: Post Cloudflare Pages Preview comment
               uses: marocchino/sticky-pull-request-comment@v2
               with:
+                  GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
                   header: Cloudflare Pages Preview Comment
                   number: ${{steps.pr_information.outputs.issue_number}}
                   message: ${{steps.generate_action_url.outputs.comment}}
@@ -113,6 +114,13 @@ jobs:
 
             - name: Build project
               id: build-project
+              env:
+                  GATSBY_ENV: staging
+                  GATSBY_GROWTHBOOK_CLIENT_KEY: ${{ secrets.GATSBY_GROWTHBOOK_CLIENT_KEY }}
+                  GATSBY_GROWTHBOOK_DECRYPTION_KEY: ${{ secrets.GATSBY_GROWTHBOOK_DECRYPTION_KEY }}
+                  GATSBY_RUDDERSTACK_STAGING_KEY: ${{ secrets.GATSBY_RUDDERSTACK_STAGING_KEY }}
+                  GATSBY_RUDDERSTACK_PRODUCTION_KEY: ${{ secrets.GATSBY_RUDDERSTACK_PRODUCTION_KEY }}
+                  GATSBY_STRAPI_TOKEN: ${{ secrets.GATSBY_STRAPI_TOKEN }}
               run: npm run build
 
             - name: Publish to Cloudflare Pages
@@ -176,6 +184,7 @@ jobs:
               if: success() || failure()
               uses: marocchino/sticky-pull-request-comment@v2
               with:
+                  GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
                   header: Cloudflare Pages Preview Comment
                   number: ${{steps.pr_information.outputs.issue_number}}
                   message: ${{steps.generate_preview_url.outputs.comment || steps.generate_failure_comment.outputs.comment }}

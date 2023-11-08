@@ -72,7 +72,10 @@ const Internal = ({
     if (isBrowser()) {
         rawLocale = localStorage.getItem('i18n') ?? 'en'
     }
-    const locale = rawLocale?.replaceAll('-', '_')
+    let locale = 'en'
+    if (typeof rawLocale === 'string') {
+        locale = rawLocale?.replace(/-/g, '_')
+    }
 
     const { is_default, path } = language_config[locale]
     const is_non_localized = url.to.includes('careers')

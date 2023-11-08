@@ -48,7 +48,7 @@
 
     &_scrollable_menu {
         @media screen and (max-height: 975px) {
-            block-size: 85vh;
+            block-size: 77vh;
             padding-block-end: 3rem;
             overflow: auto;
         }
@@ -94,4 +94,16 @@
 
 .trade_landing_active {
     inset-inline-end: 5rem;
+}
+.nav_text_wrapper {
+    @include breakpoints(tablet) {
+        position: relative;
+        &::before {
+            position: absolute;
+            content: '';
+            left: 0;
+            right: 0;
+            height: 5rem;
+        }
+    }
 }

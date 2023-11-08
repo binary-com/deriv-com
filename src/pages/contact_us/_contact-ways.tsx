@@ -1,32 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { graphql, useStaticQuery } from 'gatsby'
-import { Header, QueryImage } from 'components/elements'
+import { TSupport } from './_types'
+import { Header } from 'components/elements'
 import { SectionContainer, Container, Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import device from 'themes/device'
-import { TString } from 'types/generics'
-
-type TContactWays = {
-    name: string
-    header: TString
-    text: TString
-    image: string
-    img_alt: string
-    button: JSX.Element
-}[]
-
-const query = graphql`
-    query {
-        community: file(relativePath: { eq: "community.png" }) {
-            ...fadeIn
-        }
-        help: file(relativePath: { eq: "help.png" }) {
-            ...fadeIn
-        }
-    }
-`
 
 const StyledLinkButton = styled(LinkButton)`
     border-radius: 4px;
@@ -36,40 +15,6 @@ const StyledLinkButton = styled(LinkButton)`
         padding: 12px 16px;
     }
 `
-
-const contactways: TContactWays = [
-    {
-        name: 'community',
-        header: '_t_Ask everyone_t_',
-        text: '_t_Our Deriv support community can help you find answers._t_',
-        image: 'community',
-        img_alt: "Deriv's support community",
-        button: (
-            <StyledLinkButton
-                secondary
-                external
-                to=""
-                type="community"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <Localize translate_text="_t_Ask the community_t_" />
-            </StyledLinkButton>
-        ),
-    },
-    {
-        name: 'help',
-        header: '_t_We’re here to help_t_',
-        text: '_t_See frequently asked questions on popular topics to get quick answers._t_',
-        image: 'help',
-        img_alt: "Deriv's help centre",
-        button: (
-            <StyledLinkButton secondary to="/help-centre/">
-                <Localize translate_text="_t_Visit our Help centre_t_" />
-            </StyledLinkButton>
-        ),
-    },
-]
 
 const GridLayout = styled.div`
     display: grid;
@@ -118,41 +63,68 @@ const ContactWrapper = styled.article`
     }
 `
 
-const ContactWays = () => {
-    const data = useStaticQuery(query)
+const ContactWays = ({ support_section }: TSupport) => {
     return (
         <SectionContainer padding="4rem 0" background="var(--color-grey-25)">
             <Container>
                 <GridLayout>
-                    {contactways.map((item, idx) => {
-                        return (
-                            <ContactWrapper key={idx}>
-                                <ImgWrapper>
-                                    <QueryImage
-                                        data={data[item.image]}
-                                        alt={item.img_alt}
-                                        width="100%"
-                                        loading="eager"
-                                    />
-                                </ImgWrapper>
+                    {support_section.map(
+                        (
+                            {
+                                header,
+                                sub_header,
+                                image,
+                                link_title,
+                                link_url,
+                                alt_image,
+                                button_type,
+                            },
+                            idx,
+                        ) => {
+                            return (
+                                <ContactWrapper key={idx}>
+                                    <ImgWrapper>
+                                        <img
+                                            src={image?.localFile?.publicURL}
+                                            alt={alt_image}
+                                            width="100%"
+                                            loading="eager"
+                                        />
+                                    </ImgWrapper>
 
-                                <Header mt="2.4rem" as="h3" type="section-title" align="center">
-                                    <Localize translate_text={item.header} />
-                                </Header>
-                                <Header
-                                    as="h4"
-                                    type="sub-section-title"
-                                    weight="normal"
-                                    mb="2.4rem"
-                                    mt="0.8rem"
-                                    align="center"
-                                >
-                                    <Localize translate_text={item.text} />
-                                </Header>
-                                {item.button}
-                            </ContactWrapper>
-                        )
-                    })}
+                                    <Header mt="2.4rem" as="h3" type="section-title" align="center">
+                                        <Localize translate_text={header} />
+                                    </Header>
+                                    <Header
+                                        as="h4"
+                                        type="sub-section-title"
+                                        weight="normal"
+                                        mb="2.4rem"
+                                        mt="0.8rem"
+                                        align="center"
+                                    >
+                                        <Localize translate_text={sub_header} />
+                                    </Header>
+                                    {button_type === 'community' ? (
+                                        <StyledLinkButton
+                                            secondary
+                                            external
+                                            to=""
+                                            type="community"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            <Localize translate_text={link_title} />
+                                        </StyledLinkButton>
+                                    ) : (
+                                        <StyledLinkButton secondary to={link_url}>
+                                            <Localize translate_text={link_title} />
+                                        </StyledLinkButton>
+                                    )}
+                                </ContactWrapper>
+                            )
+                        },
+                    )}
                 </GridLayout>
             </Container>
         </SectionContainer>

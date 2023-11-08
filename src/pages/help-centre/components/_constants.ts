@@ -11,7 +11,6 @@ import ib_programme from '../data/_ib-programme'
 import payment_agent from '../data/_payment-agent'
 import security from '../data/_security'
 import trading from '../data/_trading'
-import deriv_ez from '../data/_deriv-ez'
 import complaints_procedure from '../data/_complaints_procedure'
 
 export const GENERAL = 'General'
@@ -31,5 +30,4 @@ export const all_questions = [
     dtrader,
     dbot,
     deriv_p2p,
-    deriv_ez,
 ]

@@ -30,5 +30,23 @@ jobs:
             - name: Push New Strings & Translations ⬆️
               run:  
                   crowdin upload sources -b master -T ${{ secrets.CROWDIN_API_KEY }}; crowdin upload translations -b master -T ${{ secrets.CROWDIN_API_KEY }}
-                
+            - name: Fetch,Sync & Push Strings to Crowdin
+              run: |
+                branch_name="crowdin_translations"
+
+                echo "Setting up Git identity"
+                git config --global user.name "DerivFE"
+                git config --global user.email "80095553+DerivFE@users.noreply.github.com"
+
+                echo "Checking out new branch [$branch_name]"
+                git checkout -b "$branch_name"
+
+                # Force push to this branch in case a previous run created it.
+                git push --set-upstream origin "$branch_name" -f
+
+                sudo apt install gh
+                gh auth login --with-token <<< ${{ github.token }}
+                gh pr close "$branch_name" || true
+                gh pr create --base "translators" --title "[translators] Update translators branch with master 📚" --head "binary-com:$branch_name" --body "This is an automated PR designed to keep the translators' branch up to date, ensuring that all newly added strings are available for translation."
+
 

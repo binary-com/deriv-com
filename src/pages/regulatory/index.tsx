@@ -470,7 +470,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                                         <StyledLinkText
                                             key={0}
                                             target="_blank"
-                                            href="/regulatory/Deriv_Ltd_membership.pdf"
+                                            href="/regulatory/deriv-com-ltd-membership.pdf"
                                             rel="noopener noreferrer"
                                         />,
                                     ]}

@@ -73,7 +73,7 @@ jobs:
               id: verify_user_organization
               run: |
                   echo "Verifying user's organization..."
-                  user=$(cat ./USERNAME)
+                  user=$(cat .pr/USERNAME)
                   response=$(curl -s -L \
                       -w "%{http_code}" \
                       -o /dev/null -H "Accept: application/vnd.github+json" \

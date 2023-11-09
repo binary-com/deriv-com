@@ -9,35 +9,23 @@ permissions:
     statuses: write
 
 on:
-    workflow_run:
-        workflows: ['Generate preview link']
-        types:
-            - completed
+    issue_comment:
+        types: [created]
 
 jobs:
     cypress-run:
         runs-on: ubuntu-latest
-        if: ${{ github.event.workflow_run.conclusion == 'success' }}
         strategy:
             fail-fast: false
             matrix:
                 containers: [1, 2, 3, 4, 5]
 
         steps:
-            - name: Download artifact
-              id: download-artifact
-              uses: dawidd6/action-download-artifact@v2
+            - name: Capture preview URL
+              id: capture_preview_url
+              uses: deriv-com/capture-url-from-issue-comment@v1.0.4
               with:
-                  workflow_conclusion: success
-                  run_id: ${{ github.event.workflow_run.id }}
-                  name: 'pr-${{ github.event.workflow_run.id }}'
-                  path: pr
-
-            - name: Retrieve pull request
-              id: pr_information
-              run: |
-                  echo "issue_number=$(cat ./pr/NR)" >> $GITHUB_OUTPUT
-                  echo "preview_url=$(cat ./pr/PREVIEW_URL)" >> $GITHUB_OUTPUT
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Checkout external repository with Cypress tests
               uses: actions/checkout@v4
@@ -62,9 +50,9 @@ jobs:
                   # Creating a token https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
                   GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
                   # Set Base Url from client_payload.
-                  CYPRESS_BASE_URL: ${{ steps.pr_information.outputs.preview_url }}
+                  CYPRESS_BASE_URL: ${{ steps.capture_preview_url.outputs.url }}
                   # Send PR details to Cypress test run
-                  COMMIT_INFO_MESSAGE: PR "${{ steps.pr_information.outputs.issue_number }}" in Repo "${{ github.repository }}" (v2)
+                  COMMIT_INFO_MESSAGE: PR "${{ github.event.issue.number }}" in Repo "${{ github.repository }}" (v2)
 
             - name: Set comments message
               id: set_msg
@@ -82,6 +70,6 @@ jobs:
               uses: marocchino/sticky-pull-request-comment@v2
               with:
                   header: Smoke tests status update
-                  number: ${{ steps.pr_information.outputs.issue_number }}
+                  number: ${{ github.event.issue.number }}
                   message: '${{ steps.set_msg.outputs.msg }}'
                   recreate: true

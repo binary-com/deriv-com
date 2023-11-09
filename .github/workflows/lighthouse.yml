@@ -9,48 +9,35 @@ permissions:
     statuses: write
 
 on:
-    workflow_run:
-        workflows: ['Generate preview link']
-        types:
-            - completed
+    issue_comment:
+        types: [created]
 
 jobs:
     generate_lighthouse_audit:
         timeout-minutes: 30
         runs-on: ubuntu-latest
-        if: ${{ github.event.workflow_run.conclusion == 'success' }}
         steps:
-            - name: Download artifact
-              id: download-artifact
-              uses: dawidd6/action-download-artifact@v2
-              with:
-                  workflow_conclusion: success
-                  run_id: ${{ github.event.workflow_run.id }}
-                  name: 'pr-${{ github.event.workflow_run.id }}'
-                  path: pr
-
-            - name: Retrieve pull request
-              id: pr_information
-              run: |
-                  echo "issue_number=$(cat ./pr/NR)" >> $GITHUB_OUTPUT
-                  echo "preview_url=$(cat ./pr/PREVIEW_URL)" >> $GITHUB_OUTPUT
-
             - name: Add comment to PR
               id: loading_comment_to_pr
               uses: marocchino/sticky-pull-request-comment@v2
               with:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  number: ${{ steps.pr_information.outputs.issue_number }}
+                  number: ${{ github.event.issue.number }}
                   header: lighthouse
                   message: |
                       Running Lighthouse audit...
+            - name: Capture preview URL
+              id: capture_preview_url
+              uses: deriv-com/capture-url-from-issue-comment@v1.0.4
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - uses: actions/checkout@v3
             - name: Audit preview URL with Lighthouse
               id: lighthouse_audit
               uses: treosh/lighthouse-ci-action@v9
               with:
                   urls: |
-                      ${{ steps.pr_information.outputs.preview_url }}
+                      ${{ steps.capture_preview_url.outputs.url }}
                   uploadArtifacts: true
                   temporaryPublicStorage: true
                   runs: 5

@@ -508,7 +508,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                 {
                     title: '_t_DEX indices_t_',
                     details:
-                        '_t_For DEX Indices, a deal of 3 lots of the DEX 600 DOWN Index for a price of USD 6000 will pay out USD 0.5 in commission based on the following formula: (Commission rate/USD 100,000)*Lot Size* Contract Size *Deal Price = (USD 3 / USD 100,000) * 3 lots * 1 * USD 6000 = USD 0.54 Commission_t_',
+                        '_t_For DEX Indices, a deal of 3 lots of the DEX 600 DOWN Index for a price of USD 6000 will pay out USD 0.5 in commission based on the following formula:_t_',
                     icon: 'dx_dex_indices',
                     iconAlt: '_t_DEX indices_t_',
                 },
@@ -1226,7 +1226,7 @@ const ib_dx: DMT5Type = {
                 {
                     title: '_t_DEX indices_t_',
                     details:
-                        '_t_For DEX Indices, a deal of 3 lots of the DEX 600 DOWN Index for a price of USD 6000 will pay out USD 0.5 in commission based on the following formula: (Commission rate/USD 100,000)*Lot Size* Contract Size *Deal Price = (USD 3 / USD 100,000) * 3 lots * 1 * USD 6000 = USD 0.54 Commission_t_',
+                        '_t_For DEX Indices, a deal of 3 lots of the DEX 600 DOWN Index for a price of USD 6000 will pay out USD 0.5 in commission based on the following formula:_t_',
                     icon: 'dx_dex_indices',
                     iconAlt: '_t_DEX indices_t_',
                 },

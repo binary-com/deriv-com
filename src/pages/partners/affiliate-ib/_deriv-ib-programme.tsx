@@ -406,7 +406,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                 },
                 {
                     title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['0.5', '0.25'],
+                    list: ['0.35', '0.25'],
                 },
             ],
         },
@@ -447,7 +447,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                 },
                 {
                     title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['1.5', '1.5', '1.5', '1.5', '7'],
+                    list: ['2', '1.5', '1.5', '1', '5'],
                 },
             ],
         },
@@ -504,6 +504,13 @@ const ib_dmt5_synthetic: DMT5Type = {
                         '_t_A deal for 5 lots of the Jump 10 Index for a price of USD 90,000 will pay out USD 2.25 in commission based on the following formula:_t_',
                     icon: 'derived_jump',
                     iconAlt: '_t_Jump indices_t_',
+                },
+                {
+                    title: '_t_DEX indices_t_',
+                    details:
+                        '_t_For DEX Indices, a deal of 3 lots of the DEX 600 DOWN Index for a price of USD 6000 will pay out USD 0.5 in commission based on the following formula: (Commission rate/USD 100,000)*Lot Size* Contract Size *Deal Price = (USD 3 / USD 100,000) * 3 lots * 1 * USD 6000 = USD 0.54 Commission_t_',
+                    icon: 'dx_dex_indices',
+                    iconAlt: '_t_DEX indices_t_',
                 },
             ],
             notes: [
@@ -647,7 +654,7 @@ const ib_dmt5_swapFree: DMT5Type = {
                 },
                 {
                     title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['0.5', '0.25'],
+                    list: ['0.35', '0.25'],
                 },
             ],
         },
@@ -1115,7 +1122,7 @@ const ib_dx: DMT5Type = {
                 },
                 {
                     title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_0.50_t_', '_t_0.25_t_'],
+                    list: ['0.35', '0.25'],
                 },
             ],
         },
@@ -1135,7 +1142,7 @@ const ib_dx: DMT5Type = {
                 },
                 {
                     title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['_t_1.50_t_', '_t_1.50_t_', '_t_1.50_t_', '_t_1.50_t_', '_t_7_t_'],
+                    list: ['_t_2_t_', '_t_1.50_t_', '_t_1.50_t_', '_t_1_t_', '_t_5_t_'],
                 },
             ],
         },
@@ -1215,6 +1222,13 @@ const ib_dx: DMT5Type = {
                         '_t_The same formula applies to all synthetics except <0>Step Index</0>, which has the following formula:_t_',
                     icon: 'deriv_x_step',
                     iconAlt: '_t_Step Indexes_t_',
+                },
+                {
+                    title: '_t_DEX indices_t_',
+                    details:
+                        '_t_For DEX Indices, a deal of 3 lots of the DEX 600 DOWN Index for a price of USD 6000 will pay out USD 0.5 in commission based on the following formula: (Commission rate/USD 100,000)*Lot Size* Contract Size *Deal Price = (USD 3 / USD 100,000) * 3 lots * 1 * USD 6000 = USD 0.54 Commission_t_',
+                    icon: 'dx_dex_indices',
+                    iconAlt: '_t_DEX indices_t_',
                 },
             ],
             notes: [

@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import { graphql } from 'gatsby'
 import Loadable from '@loadable/component'
 import ContactWays from './_contact-ways'
+import { TContactUs } from './_types'
 import device from 'themes/device'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import { Header, Text } from 'components/elements'
@@ -33,7 +35,10 @@ const StyledText = styled(Text)`
     }
 `
 
-const ContactUs = () => {
+const ContactUs = ({ data }: TContactUs) => {
+    const { hero, support_section, our_offices, office_address, business_partnership } =
+        data?.strapiContactUs || {}
+
     /* redirect livechat for en to open live chat popup */
     /* set true to allow redirection for other lang also*/
     useOpenLiveChat(true)
@@ -43,19 +48,69 @@ const ContactUs = () => {
             <SectionContainer tablet={{ p: '40px 0' }}>
                 <HeroWrapper fd="column">
                     <Header align="center" as="h1" type="display-title">
-                        <Localize translate_text="_t_Contact us_t_" />
+                        <Localize translate_text={hero?.header} />
                     </Header>
                     <StyledText align="center" size="var(--text-size-sm)">
-                        <Localize translate_text="_t_Got questions? Here's how to get answers._t_" />
+                        <Localize translate_text={hero?.sub_header} />
                     </StyledText>
                 </HeroWrapper>
             </SectionContainer>
-            <ContactWays />
-            <Offices />
-            <Affiliates />
+            <ContactWays support_section={support_section} />
+            <Offices our_offices={our_offices} office_address={office_address} />
+            <Affiliates business_partnership={business_partnership} />
         </Layout>
     )
 }
+
+export const query = graphql`
+    query {
+        strapiContactUs {
+            hero {
+                header
+                sub_header
+            }
+            support_section {
+                header
+                sub_header
+                image {
+                    localFile {
+                        publicURL
+                    }
+                }
+                link_title
+                link_url
+                item_name
+                alt_image
+                button_type
+            }
+            our_offices
+            office_address {
+                continent
+                country {
+                    country_icon {
+                        localFile {
+                            publicURL
+                        }
+                    }
+                    country_name
+                    map_url
+                    map_image {
+                        localFile {
+                            publicURL
+                        }
+                    }
+                    address
+                    city_name
+                }
+            }
+            business_partnership {
+                header
+                sub_header
+                live_chat_title
+            }
+        }
+    }
+`
 
 export default WithIntl()(ContactUs)
 

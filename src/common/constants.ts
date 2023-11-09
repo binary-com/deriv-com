@@ -75,7 +75,7 @@ export const besquare_signup_url =
     'https://deriv.zohorecruit.eu/jobs/Careers/47807000013799423/Empty?source=CareerSite '
 export const binary_url = 'https://binary.com'
 export const brand_name = 'Deriv'
-export const deriv_app_languages = ['id', 'es', 'ru', 'fr']
+export const deriv_app_languages = ['id', 'es', 'ru', 'fr', 'de', 'ko', 'th', 'it', 'tr', 'vi']
 export const smart_trader_languages = [
     'es',
     'fr',
@@ -123,10 +123,10 @@ export const dmt5_windows_url =
     'https://download.mql5.com/cdn/web/deriv.com.limited/mt5/deriv5setup.exe'
 export const dp2p_google_play_url =
     'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
-//to be updated with ctrader url later
-export const ctrader_google_play_url =
-    'https://play.google.com/store/apps/details?id=com.deriv.dp2p&hl=en&gl=US'
-export const ctrader_app_store_url =
+export const ctrader_android_url = 'https://play.google.com/store/apps/details?id=com.deriv.ct'
+
+//to be updated with ctrader ios url later
+export const ctrader_ios_url =
     'https://download.mql5.com/cdn/mobile/mt5/ios?server=Deriv-Demo,Deriv-Server'
 
 export const ctrader_web_browser_url = 'ct.deriv.com'

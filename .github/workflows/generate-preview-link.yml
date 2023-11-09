@@ -28,6 +28,10 @@ jobs:
             github.event.workflow_run.event == 'pull_request' &&
             github.event.workflow_run.conclusion == 'success'
         steps:
+            - name: Checkout to repo
+              uses: actions/checkout@v3
+              with:
+                  ref: ${{ github.event.workflow_run.head_sha }}
             - name: Download artifact
               id: download-artifact
               uses: dawidd6/action-download-artifact@v2
@@ -35,11 +39,12 @@ jobs:
                   workflow_conclusion: success
                   run_id: ${{ github.event.workflow_run.id }}
                   name: 'pr-${{ github.event.workflow_run.id }}'
+                  path: .pr
 
             - name: Retrieve pull request
               id: pr_information
               run: |
-                  echo "issue_number=$(cat ./NR)" > $GITHUB_OUTPUT
+                  echo "issue_number=$(cat .pr/NR)" >> $GITHUB_OUTPUT
 
             - name: 'Generate action link comment'
               id: generate_action_url
@@ -69,14 +74,14 @@ jobs:
               id: verify_user_organization
               run: |
                   echo "Verifying user's organization..."
-                  user=$(cat ./USERNAME)
+                  user=$(cat .pr/USERNAME)
                   response=$(curl -s -L \
                       -w "%{http_code}" \
-                     -o /dev/null -H "Accept: application/vnd.github+json" \
-                     -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
-                     -H "X-GitHub-Api-Version: 2022-11-28" \
-                     "https://api.github.com/orgs/binary-com/memberships/$user")
-                     
+                      -o /dev/null -H "Accept: application/vnd.github+json" \
+                      -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
+                      -H "X-GitHub-Api-Version: 2022-11-28" \
+                      "https://api.github.com/orgs/binary-com/memberships/$user")
+                      
                   if [ $response != "200" ]; then
                       echo "User is not a member of binary-com organization."
                       exit 1
@@ -84,11 +89,6 @@ jobs:
                       echo "User is a member of binary-com organization."
                       echo "Proceeding to build and deploy for the pull request: https://github.com/binary-com/deriv-com/pull/$(cat ./NR)"
                   fi
-            - name: Checkout to repo
-              uses: actions/checkout@v3
-              with:
-                  ref: ${{ github.event.workflow_run.head_sha }}
-
             - name: Setup node
               uses: actions/setup-node@v2
 
@@ -136,15 +136,18 @@ jobs:
                   projectName='deriv-com-preview-links'
                   head_branch=${{github.event.workflow_run.head_branch}}
                   branch=$(echo $head_branch | head -c 20 | sed 's/[\/_\.]/-/g; s/[^a-zA-Z0-9]$/1/')
-                  preview_url=$(wrangler pages deploy $directory --project-name=$projectName --branch=$branch > log.txt 2>&1; echo $?)
+                  cf_preview_url=$(wrangler pages deploy $directory --project-name=$projectName --branch=$branch > log.txt 2>&1; echo $?)
                   echo "------"
+                  preview_url=https://$branch.deriv-com-preview-links.pages.dev
                   cat log.txt
                   if grep -q "Deployment complete" log.txt; then
-                    echo "preview_url=https://$branch.deriv-com-preview-links.pages.dev" > "$GITHUB_OUTPUT"
+                    echo "preview_url=$preview_url" >> "$GITHUB_OUTPUT"
+                    echo $preview_url > .pr/PREVIEW_URL
                   else
                     echo "Deployment to Cloudflare Pages failed."
                     exit 1
                   fi
+
             - name: 'Generate preview link comment'
               if: success()
               id: generate_preview_url
@@ -189,3 +192,9 @@ jobs:
                   number: ${{steps.pr_information.outputs.issue_number}}
                   message: ${{steps.generate_preview_url.outputs.comment || steps.generate_failure_comment.outputs.comment }}
                   recreate: true
+
+            - name: Upload PR information to artifact
+              uses: actions/upload-artifact@v2
+              with:
+                  name: 'pr-${{github.run_id}}'
+                  path: .pr

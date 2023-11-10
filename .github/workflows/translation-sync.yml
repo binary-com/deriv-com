@@ -53,7 +53,7 @@ jobs:
                   cd $(git rev-parse --show-toplevel)
                   echo "GIT STATUS: $(git status --porcelain)"
                   git add .
-
+                  git commit -m "translations: 📚 sync translations with crowdin"
                
                   # Force push to this branch in case a previous run created it.
                   git push --set-upstream origin "$branch_name" -f

@@ -1,7 +1,7 @@
 import React from 'react'
+import Layout from 'features/components/templates/layout'
 import { check_email_container } from './check-email.module.scss'
 import CheckEmailSteps from './check-email.steps'
-import Layout from 'features/components/templates/layout'
 import MainNav from 'features/components/templates/navigation/main-nav'
 import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'

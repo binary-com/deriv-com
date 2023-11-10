@@ -29,6 +29,4 @@ export const hero_content_data: DerivProductContentType = {
     ),
     logo: <Image src={CTraderLogo} height={64} alt={'_t_Deriv ctrader logo_t_'} />,
     mobile_logo: <Image src={CTraderLogo} height={32} alt={'_t_Deriv ctrader logo_t_'} />,
-    demo_icon: <Image src={DemoLogo} height={28} width={55} alt={'_t_demo_t_'} />,
-    mobile_demo_icon: <Image src={DemoLogo} height={24} width={49} alt={'_t_demo_t_'} />,
 }

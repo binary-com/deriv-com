@@ -9,7 +9,10 @@
     ],
     "overrides": [
         {
-            "files": ["*.ts", "*.tsx"], // Your TypeScript files extension
+            "files": [
+                "*.ts",
+                "*.tsx"
+            ], // Your TypeScript files extension
             "parser": "@typescript-eslint/parser",
             "extends": [
                 "eslint:recommended",
@@ -18,7 +21,11 @@
                 "plugin:import/errors",
                 "plugin:import/warnings"
             ],
-            "plugins": ["deprecation", "@typescript-eslint", "jest"],
+            "plugins": [
+                "deprecation",
+                "@typescript-eslint",
+                "jest"
+            ],
             "rules": {
                 "@typescript-eslint/explicit-module-boundary-types": "off",
                 "deprecation/deprecation": "warn"
@@ -30,7 +37,10 @@
             }
         }
     ],
-    "plugins": ["@typescript-eslint", "jest"],
+    "plugins": [
+        "@typescript-eslint",
+        "jest"
+    ],
     "rules": {
         "strict": 0,
         "camelcase": 0,
@@ -68,7 +78,9 @@
         "import/no-extraneous-dependencies": [
             0,
             {
-                "extensions": [".jsx"]
+                "extensions": [
+                    ".jsx"
+                ]
             }
         ],
         "import/no-useless-path-segments": "error",
@@ -76,7 +88,20 @@
         "import/order": [
             "error",
             {
-                "groups": ["builtin", "external", "parent", "sibling", "index"],
+                "groups": [
+                    "builtin",
+                    "external",
+                    "parent",
+                    "sibling",
+                    "index"
+                ],
+                "pathGroups": [
+                    {
+                        "pattern": "features/components/templates/layout",
+                        "group": "parent",
+                        "position": "after"
+                    }
+                ],
                 "newlines-between": "never"
             }
         ],
@@ -104,8 +129,15 @@
     "settings": {
         "import/resolver": {
             "node": {
-                "paths": ["src"],
-                "extensions": [".js", ".jsx", ".ts", ".tsx"]
+                "paths": [
+                    "src"
+                ],
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".ts",
+                    ".tsx"
+                ]
             }
         },
         "react": {

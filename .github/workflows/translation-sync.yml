@@ -63,7 +63,7 @@ jobs:
                   gh pr close "$branch_name" || true
                   pr_output=$(gh pr create --base "master" --title "[translations] New strings from crowdin 📚" --head "binary-com:$branch_name" -F ".github/translation_sync_template.md")
                   echo "CREATE OUTPUT: $pr_output"
-                  echo "pr_url=$(echo "$pr_output" | awk '/url/{print $2}')" >> $GITHUB_ENV
+                  echo "pr_url=$pr_output" >> $GITHUB_ENV
                 fi
 
                 # Upload new strings to Crowdin

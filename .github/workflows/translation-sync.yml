@@ -31,6 +31,7 @@ jobs:
                   node-version: '18.x'
             - run: npm i -g @crowdin/cli@3.7.8
             - name: Fetch,Sync & Push Strings to Crowdin
+              id: sync_translations
               run: |
 
                 branch_name="new_translation_strings"
@@ -60,7 +61,8 @@ jobs:
                   sudo apt install gh
                   gh auth login --with-token <<< ${{ github.token }}
                   gh pr close "$branch_name" || true
-                  gh pr create --base "master" --title "[translations] New strings from crowdin 📚" --head "binary-com:$branch_name" -F ".github/translation_sync_template.md"
+                  pr_output=$(gh pr create --base "master" --title "[translations] New strings from crowdin 📚" --head "binary-com:$branch_name" -F ".github/translation_sync_template.md")
+                  echo "::set-output name=pr_url::$(echo "$pr_output" | awk '/url/{print $2}')"
                 fi
 
                 # Upload new strings to Crowdin
@@ -79,4 +81,47 @@ jobs:
                       }
               env:
                   SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_TRANSLATION }}
+            - name: Slack Notification for Release Managers 📣
+              uses: 8398a7/action-slack@v3
+              with:
+                  status: custom
+                  fields: workflow,job,commit,repo
+                  custom_payload: |
+                     {
+                        "blocks": [
+                          {
+                            "type": "context",
+                            "elements": [
+                              {
+                                "type": "plain_text",
+                                "text": ":robot_face: Translation Pull Request Notification",
+                                "emoji": true
+                              }
+                            ]
+                          },
+                          {
+                            "type": "divider"
+                          },
+                          {
+                            "type": "section",
+                            "text": {
+                              "type": "mrkdwn",
+                              "text": "Hey there 👋 *<!subteam^S058V0ZJ16X>*, translation in deriv.com just got synchronized from `crowdin`, please help merging the PR to keep deriv.com up to date."
+                            },
+                            "accessory": {
+                              "type": "button",
+                              "text": {
+                                "type": "plain_text",
+                                "text": "View",
+                                "emoji": true
+                              },
+                              "value": "click_me_123",
+                              "url": "${{ steps.sync_translations.outputs.pr_url }}",
+                              "action_id": "button-action"
+                            }
+                          }
+                        ]
+                      }
+              env:
+                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_TRANSLATION_PR }}
 

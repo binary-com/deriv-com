@@ -313,7 +313,7 @@ export const StyledLabel = styled.label<DropdownStyledProps>`
                     color: var(--color-green);
                     transform: translate(-0.6rem, -2.2rem) scale(0.7);
                     @media ${device.tabletL} {
-                        top: 9px;
+                        top: 15px;
                     }
                 `
     }}

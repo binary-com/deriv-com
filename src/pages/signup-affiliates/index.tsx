@@ -8,8 +8,8 @@ import { isBrowser } from 'common/utility'
 import { WithIntl } from 'components/localization'
 import { Container } from 'components/containers'
 import useWS from 'components/hooks/useWS'
-import Layout from 'components/layout/layout'
 import AtomicContainer from 'features/components/atoms/container'
+import AffiliateNav from 'features/components/templates/navigation/affiliates'
 import device from 'themes/device'
 import Map from 'images/svg/signup-affiliates/map.svg'
 
@@ -33,7 +33,7 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
             address_postcode: affiliate_account.address_details.postal_code,
             address_state: customSlugify(affiliate_account.address_details.state.name),
             address_street: affiliate_account.address_details.street,
-            commission_plan: affiliate_account.account.plan,
+            commission_plan: affiliate_account.account_plan,
             country: affiliate_account.address_details.country.symbol,
             date_of_birth: affiliate_account.personal_details.date_birth
                 ?.toISOString()
@@ -44,22 +44,28 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
             non_pep_declaration: affiliate_account.terms_of_use.non_pep_declaration_accepted && 1,
             over_18_declaration: 1,
             phone: `+${
-                affiliate_account.phone_number.prefix + affiliate_account.phone_number.phone
+                affiliate_account.personal_details.prefix + affiliate_account.personal_details.phone
             }`,
-            phone_code: Number(affiliate_account.phone_number.prefix),
+            phone_code: Number(affiliate_account.personal_details.prefix),
             tnc_accepted: affiliate_account.terms_of_use.tnc_accepted && 1,
             tnc_affiliate_accepted: affiliate_account.terms_of_use.is_partner_checked && 1,
-            type_of_account: affiliate_account.account.type,
+            type_of_account: affiliate_account.account_type,
             user_name: affiliate_account.personal_details.username,
-            website_url: affiliate_account.personal_details?.website_url,
+            website_url: affiliate_account.personal_details?.website_url.includes('www.')
+                ? affiliate_account.personal_details?.website_url
+                : `www.${affiliate_account.personal_details?.website_url}`,
             whatsapp_number: `+${
-                affiliate_account.phone_number.phone + affiliate_account.phone_number.prefix
+                affiliate_account.personal_details.prefix + affiliate_account.personal_details.phone
             }`,
-            whatsapp_number_phoneCode: Number(affiliate_account.phone_number.prefix),
-            company_name: affiliate_account.personal_details?.company_name,
-            company_registration_number: Number(
-                affiliate_account.personal_details?.company_registration_number,
-            ),
+            whatsapp_number_phoneCode: Number(affiliate_account.personal_details.prefix),
+            ...(affiliate_account.personal_details?.company_name !== '' && {
+                company_name: affiliate_account.personal_details?.company_name,
+            }),
+            ...(affiliate_account.personal_details?.company_registration_number !== '' && {
+                company_registration_number: Number(
+                    affiliate_account.personal_details?.company_registration_number,
+                ),
+            }),
         })
 }
 
@@ -69,13 +75,13 @@ const StyledFlexWrapper = styled(Container)`
     align-items: flex-start;
     justify-content: space-around;
     background: url(${Map}) no-repeat fixed bottom;
-    inline-size: 100vw;
     padding-top: 120px;
+    block-size: 100vh;
 
     @media ${device.tabletL} {
-        inline-size: 100%;
-        flex-direction: column-reverse;
-        justify-content: flex-end;
+        block-size: unset;
+        justify-content: center;
+        align-items: center;
         padding-top: 0;
     }
 `
@@ -83,7 +89,7 @@ const StyledFlexWrapper = styled(Container)`
 const AffiliateSignup = () => {
     const [show_wizard, setShowWizard] = useState<boolean>(true)
     const [is_online, setIsOnline] = useState(isBrowser() && navigator.onLine)
-    const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>()
+    const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>('')
 
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
         form_source: isBrowser() && window?.location.hostname,
@@ -105,11 +111,9 @@ const AffiliateSignup = () => {
     }, [])
 
     const [affiliate_account, setAffiliateAccount] = useState<AffiliateAccountTypes>({
-        email: '',
-        account: {
-            type: 0,
-            plan: 0,
-        },
+        email: 'test@test.test',
+        account_type: 0,
+        account_plan: 0,
         address_details: {
             country: {},
             state: {},
@@ -117,30 +121,31 @@ const AffiliateSignup = () => {
             street: '',
             postal_code: '',
         },
-        phone_number: {
-            phone: '',
-            prefix: '',
-        },
         personal_details: {
-            username: '',
             first_name: '',
             last_name: '',
             date_birth: null,
-            website_url: 'www.',
+            phone: '',
+            prefix: '',
+            website_url: '',
             social_media_url: '',
-            password: '',
             company_name: '',
             company_registration_number: '',
-            currency: '',
+            username: '',
+            password: '',
         },
         terms_of_use: {
             non_pep_declaration_accepted: false,
             tnc_accepted: false,
             general_terms_accepted: false,
-            is_eu_checked: false,
             is_partner_checked: false,
         },
     })
+    console.log(
+        affiliate_account.personal_details.phone
+            ? affiliate_account.personal_details.phone
+            : affiliate_account.personal_details.prefix,
+    )
     const {
         data: affiliate_api_data,
         error: affiliate_api_error,
@@ -196,8 +201,8 @@ const AffiliateSignup = () => {
     useEffect(() => {
         setAffiliateAccount({
             ...affiliate_account,
-            phone_number: {
-                ...affiliate_account.phone_number,
+            personal_details: {
+                ...affiliate_account.personal_details,
                 prefix: affiliate_account.address_details.country?.prefix,
             },
         })
@@ -208,33 +213,32 @@ const AffiliateSignup = () => {
     }
 
     return (
-        <Layout type="affiliates">
-            <AtomicContainer.Fluid dir={'row'}>
-                <StyledFlexWrapper>
-                    <AffiliateSignupForm
-                        affiliate_account={affiliate_account}
-                        setAffiliateAccount={setAffiliateAccount}
+        <AtomicContainer.Fluid dir={'row'}>
+            <AffiliateNav />
+            <StyledFlexWrapper>
+                <AffiliateSignupForm
+                    affiliate_account={affiliate_account}
+                    setAffiliateAccount={setAffiliateAccount}
+                    setShowWizard={setShowWizard}
+                />
+                {show_wizard && (
+                    <Wizard
+                        show_wizard={show_wizard}
                         setShowWizard={setShowWizard}
-                    />
-                    {show_wizard && (
-                        <Wizard
-                            show_wizard={show_wizard}
-                            setShowWizard={setShowWizard}
-                            affiliate_account={affiliate_account}
-                            setAffiliateAccount={setAffiliateAccount}
-                            onSubmit={onSubmit}
-                        />
-                    )}
-                    <AffiliateSignupStatus
-                        signup_status={signup_status}
-                        setSignupStatus={setSignupStatus}
                         affiliate_account={affiliate_account}
                         setAffiliateAccount={setAffiliateAccount}
                         onSubmit={onSubmit}
                     />
-                </StyledFlexWrapper>
-            </AtomicContainer.Fluid>
-        </Layout>
+                )}
+                <AffiliateSignupStatus
+                    signup_status={signup_status}
+                    setSignupStatus={setSignupStatus}
+                    affiliate_account={affiliate_account}
+                    setAffiliateAccount={setAffiliateAccount}
+                    onSubmit={onSubmit}
+                />
+            </StyledFlexWrapper>
+        </AtomicContainer.Fluid>
     )
 }
 

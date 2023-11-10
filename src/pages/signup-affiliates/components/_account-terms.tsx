@@ -6,22 +6,26 @@ import { Header, LocalizedLinkText } from 'components/elements'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { TString } from 'types/generics'
+import device from 'themes/device'
 
 type AgreementDataType = {
     link_text: TString
     name: string
-    optional?: boolean
 }
-
+const StyledHeader = styled(Header)`
+    @media ${device.tabletL} {
+        text-align: left;
+        margin: 0 auto;
+    }
+`
 const MainWrapper = styled.div`
     margin: 0 80px;
     display: flex;
     flex-direction: column;
 
-    label {
-        padding-bottom: 16px !important;
-        line-height: 20px !important;
-        display: flex;
+    @media ${device.tabletL} {
+        margin: 0 auto;
+        inline-size: 95%;
     }
 `
 const Line = styled.div`
@@ -60,11 +64,6 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
                 '_t_I consent to receive promotional materials and notifications regarding your partnership program._t_',
             name: 'is_partner_checked',
         },
-        {
-            link_text: '_t_I’m going to promote Deriv in the EU._t_',
-            name: 'is_eu_checked',
-            optional: true,
-        },
     ]
 
     const validate =
@@ -85,21 +84,22 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
 
     return (
         <MainWrapper>
-            <Header type="sub-paragraph" weight="bold" pb="8px">
+            <StyledHeader as={'h3'} align="center" type="paragraph-1" pb="8px">
                 <Localize
                     translate_text={
                         '_t_Real accounts are not available to politically exposed persons (PEPs)._t_'
                     }
                 />
-            </Header>
-            <Header type="sub-paragraph" weight="normal" pb="16px">
+            </StyledHeader>
+            <Header as={'h4'} type="paragraph-1" weight="normal" pb="16px">
                 <Localize
                     translate_text={
                         '_t_A politically exposed person (PEP) is someone appointed with a prominent public position. Close associates and family members of a PEP are also considered to be PEPs._t_'
                     }
                 />
             </Header>
-            {AgreementData.map(({ link_text, name, optional }, index) => {
+
+            {AgreementData.map(({ link_text, name }, index) => {
                 return (
                     <>
                         <Flex.Box key={name} align={'center'} pb={'8x'}>
@@ -114,7 +114,7 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
                                 }
                             />
                             <Flex.Box direction={'col'} align={'start'}>
-                                <Typography.Paragraph size={'large'}>
+                                <Typography.Paragraph>
                                     <Localize
                                         translate_text={link_text}
                                         components={[
@@ -128,11 +128,6 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
                                         ]}
                                     />
                                 </Typography.Paragraph>
-                                {optional && (
-                                    <Typography.Paragraph size={'small'} style={{ color: 'grey' }}>
-                                        <Localize translate_text={'_t_[Optional]_t_'} />
-                                    </Typography.Paragraph>
-                                )}
                             </Flex.Box>
                         </Flex.Box>
                         {index !== AgreementData.length - 1 && <Line />}

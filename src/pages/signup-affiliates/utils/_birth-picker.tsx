@@ -26,6 +26,7 @@ type BirthPickerProps = {
 const BirthPickerWrapper = styled.div<BirthPickerWrapperProps>`
     width: 100%;
     height: 100%;
+    align-items: flex-start;
 
     .react-date-picker {
         display: block;
@@ -120,7 +121,7 @@ const BirthPicker = ({ id, error, value, setFieldValue, label, label_color }: Bi
             <DatePicker
                 onChange={onDateChange}
                 value={value}
-                format={'yyyy/MM/dd'}
+                format={'dd/MM/yyyy'}
                 maxDate={max_date}
                 defaultActiveStartDate={max_date}
                 showLeadingZeros={false}

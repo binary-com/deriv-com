@@ -12,6 +12,7 @@ import { Header } from 'components/elements'
 import device from 'themes/device'
 import Success from 'images/svg/signup-affiliates/success.svg'
 import Failed from 'images/svg/signup-affiliates/failed.svg'
+import CloseSVG from 'images/svg/custom/close-2.svg'
 
 export const SignUpWrapper = styled(Container)`
     display: flex;
@@ -35,17 +36,17 @@ const ProgressModal = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 101;
+    z-index: 100;
 `
 const Modal = styled.div`
-    z-index: 102;
+    z-index: 101;
     opacity: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-width: 546px;
-    min-height: 214px;
+    min-inline-size: 546px;
+    min-block-size: 214px;
     border-radius: 8px;
     padding: 40px;
     transform: translate(-50%, -50%);
@@ -55,14 +56,11 @@ const Modal = styled.div`
     background-color: white;
     box-shadow: 0 20px 24px -4px #0e0e0e14;
 
-    @media ${device.tablet} {
-        width: 100%;
-    }
     @media ${device.tabletL} {
-        width: 100%;
+        min-inline-size: 0;
     }
-    @media ${device.laptop} {
-        width: 80%;
+    @media ${device.mobileL} {
+        padding: 0;
     }
 `
 const StyledSpinner = styled.svg`
@@ -98,6 +96,12 @@ const StyledSpinner = styled.svg`
         }
     }
 `
+const CloseButton = styled.img`
+    z-index: 102;
+    &:hover {
+        cursor: pointer;
+    }
+`
 
 const AffiliateSignupStatus = ({
     signup_status,
@@ -114,12 +118,12 @@ const AffiliateSignupStatus = ({
             {signup_status == 'success' && (
                 <ProgressModal>
                     <Modal>
-                        <Image src={Success} alt="email" width="64" height="64" />
+                        <Image src={Success} alt="email" width="100" height="100" />
                         <Header type="subtitle-1" align="center">
                             <Localize translate_text={'_t_Thank you for signing up_t_'} />
                         </Header>
                         <Header type="paragraph-1" align="center" weight="400" pt="8px">
-                            <Localize translate_text="_t_We've sent you an email about your application status._t_" />
+                            <Localize translate_text="_t_Your application has been received. We’re processing your application. You can expect to hear back from us within 3 to 5 business days._t_" />
                         </Header>
                         <StyledButton
                             secondary
@@ -136,6 +140,7 @@ const AffiliateSignupStatus = ({
             {signup_status == 'loading' && (
                 <ProgressModal>
                     <Modal>
+                        <CloseButton src={CloseSVG} onClick={() => setSignupStatus('')} />
                         <StyledSpinner viewBox="0 0 50 50">
                             <circle
                                 className="path"
@@ -153,12 +158,12 @@ const AffiliateSignupStatus = ({
             {signup_status == 'lost connection' && (
                 <ProgressModal>
                     <Modal>
-                        <img src={Failed} alt="email" width="64" height="64" />
+                        <Image src={Failed} alt="email" width="100" height="100" />
                         <Header type="subtitle-1" align="center">
                             <Localize translate_text={'_t_Signup failed_t_'} />
                         </Header>
                         <Header type="paragraph-1" align="center" weight="400" pt="8px">
-                            <Localize translate_text="_t_We've having trouble signing you up right now. Please try again in 2 minutes_t_" />
+                            <Localize translate_text="_t_We’re unable to process your sign-up request at this time. Please try again._t_" />
                         </Header>
                         <StyledButton
                             secondary
@@ -175,7 +180,7 @@ const AffiliateSignupStatus = ({
             {signup_status == 'Username not available' && (
                 <ProgressModal>
                     <Modal>
-                        <Image src={Failed} alt="email" width="64" height="64" />
+                        <Image src={Failed} alt="email" width="100" height="100" />
                         <Header type="subtitle-1" align="center">
                             <Localize translate_text={'_t_Signup failed_t_'} />
                         </Header>
@@ -226,7 +231,7 @@ const AffiliateSignupStatus = ({
             {signup_status == 'Your website is not a valid entry' && (
                 <ProgressModal>
                     <Modal>
-                        <Image src={Failed} alt="email" width="64" height="64" />
+                        <Image src={Failed} alt="email" width="100" height="100" />
                         <Header type="subtitle-1" align="center">
                             <Localize translate_text={'_t_Signup failed_t_'} />
                         </Header>

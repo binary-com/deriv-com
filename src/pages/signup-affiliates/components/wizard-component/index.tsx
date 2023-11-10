@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import Footer from './footer'
-import Header from './header'
+import WizardFooter from './wizard-footer'
+import WizardHeader from './wizard-header'
 import Stepper from './stepper'
 import { WizardComponentsProps } from 'pages/signup-affiliates/_types'
 import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
@@ -10,12 +10,18 @@ import device from 'themes/device'
 export const Background = styled.div`
     position: absolute;
     width: 100%;
-    height: 100vh;
+    block-size: 100vh;
     top: 0;
     left: 0;
     background-color: var(--color-black);
     opacity: 0.4;
     z-index: 10;
+
+    @media ${device.tabletL} {
+        background-color: unset;
+        block-size: unset;
+        z-index: 3;
+    }
 `
 export const Modal = styled.div`
     display: flex;
@@ -23,23 +29,22 @@ export const Modal = styled.div`
     position: fixed;
     top: 50%;
     left: 50%;
+    block-size: 80%;
+    min-inline-size: 70%;
+    border-radius: 8px;
     background-color: white;
     transform: translate(-50%, -50%);
-    height: 80%;
-    min-width: 70%;
     z-index: 100;
-    border-radius: 8px;
 
-    @media ${device.tablet} {
-        width: 100%;
-    }
     @media ${device.tabletL} {
-        width: 100%;
+        min-inline-size: unset;
+        inline-size: 100%;
+        block-size: 95%;
+        top: 53%;
     }
 `
 const Wrapper = styled.div`
     block-size: fit-content;
-    padding: 24px 0 75px 0;
     overflow-x: auto;
 `
 const WizardComponent = ({
@@ -66,14 +71,14 @@ const WizardComponent = ({
     return (
         <>
             <Modal>
-                <Header setShowWizard={setShowWizard} />
+                <WizardHeader setShowWizard={setShowWizard} />
                 <Stepper step={step} />
                 <Wrapper>
                     {React.Children.map(children, (child, idx) => (
                         <div key={child.props.name}>{step === idx + 1 && child}</div>
                     ))}
                 </Wrapper>
-                <Footer
+                <WizardFooter
                     max_step={children.length}
                     step={step}
                     setStep={setStep}

@@ -4,7 +4,8 @@ type CountryType = { name?: string; display_name?: string; prefix?: string; symb
 
 type AffiliateAccountTypes = {
     email: string
-    account: { type: number; plan: number }
+    account_type: number
+    account_plan: number
     address_details: {
         country: CountryType
         state: { name?: string; display_name?: string }
@@ -12,24 +13,23 @@ type AffiliateAccountTypes = {
         street: string
         postal_code: string
     }
-    phone_number: { phone: string; prefix: string }
     personal_details: {
-        username: string
         first_name: string
         last_name: string
         date_birth: Date
+        phone: string
+        prefix: string
         website_url: string
         social_media_url: string
-        password: string
         company_name: string
         company_registration_number: string
-        currency: string
+        username: string
+        password: string
     }
     terms_of_use: {
         non_pep_declaration_accepted: boolean
         tnc_accepted: boolean
         general_terms_accepted: boolean
-        is_eu_checked: boolean
         is_partner_checked: boolean
     }
 }

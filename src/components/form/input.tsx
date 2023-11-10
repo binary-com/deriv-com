@@ -179,7 +179,7 @@ export const StyledInput = styled.input<StyledInputProps>`
                         background ? `var(--color-${background})` : 'var(--color-grey-1)'};
 
                     @media ${device.tabletL} {
-                        top: 9px;
+                        top: 15px;
                     }
                 }
             `}

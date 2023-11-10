@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import { Analytics } from '@deriv/analytics'
 import { WizardProps } from '../_types'
 import AccountType from './_account-type'
-import AccountDetails from './_account-details'
-import PhoneNumber from './_phone_number'
+import AccountPlan from './_account-plan'
+import AccountDetails from './_address-details'
 import AccountTerms from './_account-terms'
-import PersonalDetails from './_account-personal-details'
+import PersonalDetails from './_personal-details'
 import WizardComponent from './wizard-component'
 import { useResidenceList } from 'features/hooks/use-residence-list'
 import { Container } from 'components/containers'
@@ -34,7 +34,8 @@ const Wizard = ({
 }: WizardProps) => {
     const [step, setStep] = useState(1)
     const [next_btn_enabled, setNextBtnEnabled] = useState<boolean>(false)
-    const [residence_list] = useResidenceList()
+    const restricted_countries = ['Iran', 'North Korea', 'Myanmar (Burma)', 'Syria', 'Cuba']
+    const [residence_list] = useResidenceList({ restricted_countries })
 
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
         form_source: isBrowser() && window?.location.hostname,
@@ -60,10 +61,15 @@ const Wizard = ({
             case 'account-type':
                 setAffiliateAccount({
                     ...affiliate_account,
-                    account: { type: value.type, plan: value.plan },
+                    account_type: value,
                 })
                 break
-
+            case 'account-plan':
+                setAffiliateAccount({
+                    ...affiliate_account,
+                    account_plan: value,
+                })
+                break
             case 'account-details':
                 setAffiliateAccount({
                     ...affiliate_account,
@@ -76,29 +82,21 @@ const Wizard = ({
                     },
                 })
                 break
-            case 'phone-number':
-                setAffiliateAccount({
-                    ...affiliate_account,
-                    phone_number: {
-                        phone: value.phone,
-                        prefix: value.prefix,
-                    },
-                })
-                break
             case 'personal-details':
                 setAffiliateAccount({
                     ...affiliate_account,
                     personal_details: {
-                        username: value.username,
                         first_name: value.first_name,
                         last_name: value.last_name,
                         date_birth: value.date_birth,
+                        phone: value.phone,
+                        prefix: value.prefix,
                         social_media_url: value.social_media_url,
                         website_url: value.website_url,
-                        password: value.password,
                         company_name: value.company_name,
                         company_registration_number: value.company_registration_number,
-                        currency: value.currency,
+                        username: value.username,
+                        password: value.password,
                     },
                 })
                 break
@@ -109,7 +107,6 @@ const Wizard = ({
                         non_pep_declaration_accepted: value.non_pep_declaration_accepted,
                         tnc_accepted: value.tnc_accepted,
                         general_terms_accepted: value.general_terms_accepted,
-                        is_eu_checked: value.is_eu_checked,
                         is_partner_checked: value.is_partner_checked,
                     },
                 })
@@ -136,6 +133,15 @@ const Wizard = ({
                     setNextBtnEnabled(valid)
                 }}
             />
+            <AccountPlan
+                affiliate_account={affiliate_account}
+                updateData={(value) => {
+                    updateAffiliateValues(value, 'account-plan')
+                }}
+                onValidate={(valid) => {
+                    setNextBtnEnabled(valid)
+                }}
+            />
             <AccountDetails
                 affiliate_account={affiliate_account}
                 updateData={(value) => {
@@ -146,18 +152,9 @@ const Wizard = ({
                 }}
                 residence_list={residence_list}
             />
-            <PhoneNumber
-                affiliate_account={affiliate_account}
-                updateData={(value) => {
-                    updateAffiliateValues(value, 'phone-number')
-                }}
-                onValidate={(valid) => {
-                    setNextBtnEnabled(valid)
-                }}
-            />
             <PersonalDetails
                 affiliate_account={affiliate_account}
-                is_individual={affiliate_account.account.type == 1}
+                is_individual={affiliate_account.account_type == 1}
                 updateData={(value) => {
                     updateAffiliateValues(value, 'personal-details')
                 }}

@@ -1,16 +1,14 @@
 import React from 'react'
 import BirthPicker from './_birth-picker'
-import { ExtraInfo, StyledInputWrapper } from './_affiliate-input'
-import { RelativeWrapper } from 'components/form/input'
+import { StyledInputWrapper, StyledRelativeWrapper } from './_affiliate-input'
 
 const BirthForm = (props) => {
     return (
-        <RelativeWrapper>
+        <StyledRelativeWrapper>
             <StyledInputWrapper>
                 <BirthPicker {...props} />
             </StyledInputWrapper>
-            <ExtraInfo />
-        </RelativeWrapper>
+        </StyledRelativeWrapper>
     )
 }
 

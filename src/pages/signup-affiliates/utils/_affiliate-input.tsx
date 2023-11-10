@@ -9,7 +9,8 @@ import {
     StyledInput,
     StyledLabel,
 } from 'components/form/input'
-import EyeIcon from 'images/svg/signup-affiliates/eye.svg'
+import OpenedEye from 'images/svg/signup-affiliates/opened-eye.svg'
+import ClosedEye from 'images/svg/signup-affiliates/closed-eye.svg'
 import CrossIcon from 'images/svg/help/cross.svg'
 
 type AffiliateInputProps = {
@@ -18,11 +19,14 @@ type AffiliateInputProps = {
     extra_info_size?: string
 } & InputProps
 
-export const ExtraInfo = styled.div<{ error?: boolean; extra_info_size?: string }>`
+export const StyledRelativeWrapper = styled(RelativeWrapper)`
+    margin-block: 16px 36px;
+`
+export const ErrorMessage = styled.div<{ error?: boolean; extra_info_size?: string }>`
+    position: absolute;
     font-size: 12px;
     color: ${({ error }) => (error ? 'var(--color-red-1)' : 'var(--color-grey-5)')};
-    block-size: ${({ extra_info_size }) => extra_info_size || '36px'};
-    padding: ${({ extra_info_size }) => (extra_info_size ? '6px 0' : '10px 0 16px 16px')};
+    padding: 6px 0;
 `
 const StyledIcon = styled.img<{ password_icon?: boolean }>`
     position: absolute;
@@ -41,7 +45,7 @@ const StyledIcon = styled.img<{ password_icon?: boolean }>`
     }
 `
 export const AffiliateLabel = styled(StyledLabel)`
-    top: 1.6rem;
+    top: 1.5rem;
     color: var(--color-grey-5);
 `
 export const StyledInputWrapper = styled(InputWrapper)`
@@ -76,7 +80,7 @@ const AffiliateInput = ({
     const [is_password_visible, setPasswordVisible] = useState(false)
 
     return (
-        <RelativeWrapper>
+        <StyledRelativeWrapper>
             <StyledInputWrapper error={error}>
                 <StyledInput
                     {...props}
@@ -96,17 +100,15 @@ const AffiliateInput = ({
             </StyledInputWrapper>
             {password_icon && (
                 <StyledIcon
-                    src={EyeIcon}
+                    src={is_password_visible ? ClosedEye : OpenedEye}
                     password_icon={password_icon}
                     alt="eye icon"
                     onClick={() => setPasswordVisible(!is_password_visible)}
                 />
             )}
-            {error ? (
+            {error && (
                 <>
-                    <ExtraInfo extra_info_size={extra_info_size} error>
-                        {error}
-                    </ExtraInfo>
+                    <ErrorMessage error>{error}</ErrorMessage>
                     <StyledError
                         src={CrossIcon}
                         alt="error icon"
@@ -115,10 +117,8 @@ const AffiliateInput = ({
                         }}
                     />
                 </>
-            ) : (
-                <ExtraInfo extra_info_size={extra_info_size}>{extra_info}</ExtraInfo>
             )}
-        </RelativeWrapper>
+        </StyledRelativeWrapper>
     )
 }
 

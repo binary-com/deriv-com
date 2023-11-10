@@ -1,31 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
 import { WizardStepProps } from '../_types'
 import AffiliateInput from '../utils/_affiliate-input'
+import AffiliatesHeader, { InputGroup, InputWrapper } from '../utils/_affiliate-header'
 import affiliate_validation from '../validations/_affilaite_validation'
 import { useStatesList } from 'features/hooks/use-states-list'
 import { DropdownSearch } from 'components/elements'
 import { localize } from 'components/localization'
-import device from 'themes/device'
-
-const InputGroup = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
-    justify-content: center;
-`
-const InputWrapper = styled.div`
-    width: 50%;
-    line-height: 10px;
-    font-weight: normal;
-    margin-right: 1rem;
-    @media ${device.mobileL} {
-        width: unset;
-        max-width: 191px;
-    }
-`
 
 const AccountDetails = ({
     affiliate_account,
@@ -46,7 +26,6 @@ const AccountDetails = ({
     const [postcode_error_msg, setPostCodeErrorMsg] = useState('')
 
     const [states_list] = useStatesList(affiliate_data.country?.symbol)
-
     useEffect(() => {
         updateData({
             ...affiliate_data,
@@ -79,7 +58,7 @@ const AccountDetails = ({
             id: 'dm-country-select',
             name: 'country',
             type: 'select',
-            label: localize('_t_Country of residence_t_'),
+            label: localize('_t_Country of residence*_t_'),
             required: true,
             error: country_error_msg,
             value: country,
@@ -90,8 +69,7 @@ const AccountDetails = ({
             id: 'dm-state',
             name: 'state',
             type: 'select',
-            label: localize('_t_State/province_t_'),
-            placeholder: 'State/province',
+            label: localize('_t_State/province*_t_'),
             required: true,
             error: state_error_msg,
             value: state,
@@ -102,8 +80,8 @@ const AccountDetails = ({
             id: 'dm-town',
             name: 'city',
             type: 'text',
-            label: localize('_t_Town/city_t_'),
-            placeholder: 'Town/city',
+            label: localize('_t_Town/city*_t_'),
+            placeholder: 'Town/city*',
             extra_info: ' ',
             required: true,
             error: city_error_msg,
@@ -115,8 +93,8 @@ const AccountDetails = ({
             id: 'dm-street',
             name: 'street',
             type: 'text',
-            label: localize('_t_Street_t_'),
-            placeholder: 'Street',
+            label: localize('_t_Street*_t_'),
+            placeholder: 'Street*',
             extra_info: ' ',
             required: true,
             error: street_error_msg,
@@ -128,8 +106,8 @@ const AccountDetails = ({
             id: 'dm-postal-code',
             name: 'postal_code',
             type: 'text',
-            label: localize('_t_Postal/Zip code_t_'),
-            placeholder: 'Postal/Zip code',
+            label: localize('_t_Postal/Zip code*_t_'),
+            placeholder: 'Postal/Zip code*',
             extra_info: ' ',
             required: true,
             error: postcode_error_msg,
@@ -166,6 +144,7 @@ const AccountDetails = ({
 
     return (
         <InputGroup>
+            <AffiliatesHeader translate_text={'_t_Personal address_t_'} />
             <InputWrapper>
                 {form_inputs.map((item) => {
                     if (item.name === 'country' || item.name === 'state') {
@@ -178,6 +157,7 @@ const AccountDetails = ({
                                 error={item.error}
                                 selected_item={item.value}
                                 onChange={(value) => item.value_set(value)}
+                                style={{ marginTop: '16px' }}
                             />
                         )
                     } else {

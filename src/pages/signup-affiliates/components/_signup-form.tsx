@@ -163,7 +163,6 @@ const AffiliateSignupForm = ({
                         value={affiliate_account.email}
                         label={localize('_t_Email_t_')}
                         placeholder={'Email'}
-                        extra_info_size={'24px'}
                         onBlur={handleInput}
                         onChange={handleInput}
                         handleError={() => setAffiliateAccount({ ...affiliate_account, email: '' })}

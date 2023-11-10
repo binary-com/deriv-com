@@ -5,29 +5,51 @@ import Button from 'components/form/button'
 import { Localize } from 'components/localization'
 import { WizardComponentTypes } from 'pages/signup-affiliates/_types'
 import { isBrowser } from 'common/utility'
+import device from 'themes/device'
 
 const StyledFooter = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 0 24px;
+    padding: 16px;
     gap: 8px;
     position: absolute;
-    height: 72px;
     right: 0;
     bottom: 0;
     border-top: 1px solid var(--color-grey-43);
-    width: 100%;
+    inline-size: 100%;
     background-color: var(--color-white);
     z-index: 2;
-`
 
+    @media ${device.tabletL} {
+        justify-content: center;
+    }
+`
+const PartnersButton = styled(Button)`
+    @media ${device.tabletL} {
+        inline-size: 100%;
+        max-inline-size: 160px;
+    }
+`
 const enum ButtonType {
     Previous = 'PREVIOUS',
     Next = 'NEXT',
 }
-
-const Footer = ({
+const getCodeName = (num: number) => {
+    switch (num) {
+        case 1:
+            return 'Account type'
+        case 2:
+            return 'Address details'
+        case 3:
+            return 'Phone number'
+        case 4:
+            return 'Personal details'
+        case 5:
+            return 'Terms of use'
+    }
+}
+const WizardFooter = ({
     step,
     setStep,
     onSubmit,
@@ -35,20 +57,6 @@ const Footer = ({
     setNextBtnEnabled,
     next_btn_enabled,
 }: WizardComponentTypes) => {
-    const getCodeName = (num: number) => {
-        switch (num) {
-            case 1:
-                return 'Account type'
-            case 2:
-                return 'Address details'
-            case 3:
-                return 'Phone number'
-            case 4:
-                return 'Personal details'
-            case 5:
-                return 'Terms of use'
-        }
-    }
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
         form_source: isBrowser() && window?.location.hostname,
         form_name: 'default_diel_deriv',
@@ -81,11 +89,11 @@ const Footer = ({
     return (
         <StyledFooter>
             {step > 1 && (
-                <Button tertiary onClick={() => buttonHandler(ButtonType.Previous)}>
-                    <Localize translate_text="_t_Previous_t_" />
-                </Button>
+                <PartnersButton tertiary onClick={() => buttonHandler(ButtonType.Previous)}>
+                    <Localize translate_text="_t_Back_t_" />
+                </PartnersButton>
             )}
-            <Button
+            <PartnersButton
                 secondary
                 disabled={!next_btn_enabled}
                 onClick={() => (max_step === step ? onSubmit() : buttonHandler(ButtonType.Next))}
@@ -95,9 +103,9 @@ const Footer = ({
                 ) : (
                     <Localize translate_text="_t_Next_t_" />
                 )}
-            </Button>
+            </PartnersButton>
         </StyledFooter>
     )
 }
 
-export default Footer
+export default WizardFooter

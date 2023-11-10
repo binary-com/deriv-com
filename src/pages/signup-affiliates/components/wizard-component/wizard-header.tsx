@@ -24,7 +24,7 @@ const Title = styled.h2`
     color: var(--color-black-3);
 `
 
-const Header = ({
+const WizardHeader = ({
     setShowWizard,
 }: {
     setShowWizard: React.Dispatch<React.SetStateAction<boolean>>
@@ -39,4 +39,4 @@ const Header = ({
     )
 }
 
-export default Header
+export default WizardHeader

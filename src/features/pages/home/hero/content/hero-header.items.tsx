@@ -1,5 +1,4 @@
 import React from 'react'
-import { header_items } from './data'
 import { Localize } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
 import Flex from 'features/components/atoms/flex-box'
@@ -20,11 +19,13 @@ const HeroHeaderItems = () => {
                 }}
                 visible={'larger-than-tablet'}
             >
-                {header_items.map((item) => (
-                    <Typography.Heading key={item.id} as={'h1'} size={'medium'} weight="normal">
-                        <Localize translate_text={item.text} />
-                    </Typography.Heading>
-                ))}
+                <Typography.Heading as={'h1'} size={'medium'} weight="normal">
+                    <Localize translate_text={'_t_One broker,_t_'} />
+                    <br />
+                    <Localize translate_text={'_t_countless trading_t_'} />
+                    <br />
+                    <Localize translate_text={'_t_opportunities_t_'} />
+                </Typography.Heading>
             </Flex.Box>
             <Box visible="phone-and-tablet">
                 <Typography.Heading as={'h1'} size={'large'} weight="normal">

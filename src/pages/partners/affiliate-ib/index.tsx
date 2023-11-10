@@ -147,7 +147,7 @@ const AffiliateIb = () => {
         : {
               banner_btn: '_t_Sign up as our affiliate and IB_t_',
               earn_text:
-                  '_t_Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on popular financial markets with the utmost convenience. Deriv Group Ltd — the owner of Binary.com and Deriv.com — has a proven track record of running successful referral programmes with prompt payouts._t_',
+                  '_t_Earn up to 45% lifetime commission with an online trading provider that enables anyone to trade on several popular financial markets with the utmost convenience. Deriv Group Ltd — the owner of Deriv.com — has a proven track record of running successful referral programmes with prompt payouts._t_',
               payout_title: '_t_Zero charges with prompt monthly and daily payouts_t_',
               payout_text:
                   '_t_All Deriv partnership programmes are free. Get your affiliate commissions paid to your method of choice every month and IB commissions paid to your Deriv MT5 account daily._t_',
@@ -165,7 +165,7 @@ const AffiliateIb = () => {
         {
             title: content_data.payout_title,
             subtitle: content_data.payout_text,
-            image_name: 'daily_ib_commission',
+            image_name: is_eu ? 'daily_ib_commission_eu' : 'daily_ib_commission',
             image_alt: '_t_Check your daily IB commission_t_',
         },
         {

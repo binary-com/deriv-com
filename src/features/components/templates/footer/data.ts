@@ -105,11 +105,8 @@ const marketsLinks: SmartFooterLink[] = [
     {
         id: 3,
         data: {
-            text: '_t_ETF_t_',
+            text: '_t_ETFs_t_',
             url: { type: 'internal', to: '/markets/exchange-traded-funds/' },
-        },
-        visibility: {
-            is_row: true,
         },
     },
     {
@@ -149,18 +146,9 @@ const platformsLinks: SmartFooterLink[] = [
             is_row: true,
         },
     },
+
     {
         id: 2,
-        data: {
-            text: '_t_Deriv EZ_t_',
-            url: { type: 'internal', to: '/deriv-ez/' },
-        },
-        visibility: {
-            is_row: true,
-        },
-    },
-    {
-        id: 3,
         data: {
             text: '_t_Deriv GO_t_',
             url: { type: 'internal', to: '/deriv-go/' },
@@ -170,14 +158,14 @@ const platformsLinks: SmartFooterLink[] = [
         },
     },
     {
-        id: 4,
+        id: 3,
         data: {
             text: '_t_Deriv Trader_t_',
             url: { type: 'internal', to: '/dtrader/' },
         },
     },
     {
-        id: 5,
+        id: 4,
         data: {
             text: '_t_SmartTrader_t_',
             url: { type: 'company', url_name: 'smart_trader', target: '_blank' },
@@ -187,7 +175,7 @@ const platformsLinks: SmartFooterLink[] = [
         },
     },
     {
-        id: 6,
+        id: 5,
         data: {
             text: '_t_Deriv Bot_t_',
             url: { type: 'internal', to: '/dbot/' },
@@ -197,7 +185,7 @@ const platformsLinks: SmartFooterLink[] = [
         },
     },
     {
-        id: 7,
+        id: 6,
         data: {
             text: '_t_Binary Bot_t_',
             url: { type: 'company', url_name: 'binary_bot', target: '_blank' },
@@ -207,7 +195,7 @@ const platformsLinks: SmartFooterLink[] = [
         },
     },
     {
-        id: 8,
+        id: 7,
         data: {
             text: '_t_Deriv cTrader_t_',
             url: { type: 'internal', to: '/deriv-ctrader/' },

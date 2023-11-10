@@ -25,7 +25,6 @@ exports.onCreatePage = ({ page, actions }) => {
     const is_p2p = /p2p/g.test(page.path)
     const who_we_are = /who-we-are/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
-    const is_deriv_ez = /deriv-ez/g.test(page.path)
     const is_options = /options/g.test(page.path)
 
     const is_english = process.env.GATSBY_LANGUAGE === 'en'
@@ -193,21 +192,6 @@ exports.onCreatePage = ({ page, actions }) => {
             createRedirect({
                 fromPath: `/${lang}/trade-types/options`,
                 toPath: `/${lang}/trade-types/options/digital-options/up-and-down/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-        }
-
-        if (is_deriv_ez) {
-            createRedirect({
-                fromPath: `/${lang}/derivez/`,
-                toPath: `/${lang}/deriv-ez/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/derivez`,
-                toPath: `/${lang}/deriv-ez/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

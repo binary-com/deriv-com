@@ -116,7 +116,7 @@ jobs:
                                 "emoji": true
                               },
                               "value": "View PR",
-                              "url": "$PR_URL",
+                              "url": "${{ PR_URL }}",
                               "action_id": "button-action"
                             }
                           }

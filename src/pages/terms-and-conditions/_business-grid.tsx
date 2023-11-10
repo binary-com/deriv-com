@@ -62,7 +62,14 @@ const PartnersGuidePdf = () => {
 }
 
 const BusinessGrid = () => {
+    const general_terms_url = `/tnc/business-partners-general-terms-es.pdf`
+    const affiliate_brokers_url = `/tnc/business-partners-affiliates-and-introducing-brokers-es.pdf`
+    const payment_agents_url = `/tnc/business-partners-payment-agents-es.pdf`
+    const api_user_url = `/tnc/business-partners-api-user-es.pdf`
+    const bug_bounty_url = `/tnc/business-partners-bug-bounty-es.pdf`
     const { is_row } = useRegion()
+    const language = getLanguage()
+
     return (
         <StyledContainer>
             <StyledGrid
@@ -78,7 +85,9 @@ const BusinessGrid = () => {
                     title="_t_General terms of use_t_"
                     content="_t_Terms and ethical standards for all our affiliates, introducing brokers, API users, and payment agents_t_"
                     url={
-                        is_row
+                        is_row && language === 'es'
+                            ? general_terms_url
+                            : is_row
                             ? '/tnc/business-partners-general-terms.pdf'
                             : '/tnc/business-partners-general-terms-eu.pdf'
                     }
@@ -89,7 +98,9 @@ const BusinessGrid = () => {
                     title="_t_Affiliates & introducing brokers (IBs)_t_"
                     content="_t_Additional terms for our affiliates and introducing brokers_t_"
                     url={
-                        is_row
+                        is_row && language === 'es'
+                            ? affiliate_brokers_url
+                            : is_row
                             ? '/tnc/business-partners-affiliates-and-introducing-brokers-row.pdf'
                             : '/tnc/business-partners-affiliates-and-introducing-brokers-eu.pdf'
                     }
@@ -102,7 +113,11 @@ const BusinessGrid = () => {
                         Icon={PA}
                         title="_t_Payment agents_t_"
                         content="_t_Additional terms for our payment agents_t_"
-                        url="/tnc/business-partners-payment-agents.pdf"
+                        url={
+                            is_row && language === 'es'
+                                ? payment_agents_url
+                                : '/tnc/business-partners-payment-agents.pdf'
+                        }
                         link_title="_t_Payment agents_t_"
                     />
                 )}
@@ -111,7 +126,9 @@ const BusinessGrid = () => {
                     title="_t_API users_t_"
                     content="_t_Additional terms for our API users_t_"
                     url={
-                        is_row
+                        is_row && language === 'es'
+                            ? api_user_url
+                            : is_row
                             ? '/tnc/business-partners-api-user.pdf'
                             : '/tnc/business-partners-api-user-eu.pdf'
                     }
@@ -122,7 +139,9 @@ const BusinessGrid = () => {
                     title="_t_Bug Bounty Program_t_"
                     content="_t_Additional terms for participants in our Bug Bounty Program_t_"
                     url={
-                        is_row
+                        is_row && language === 'es'
+                            ? bug_bounty_url
+                            : is_row
                             ? '/tnc/business-partners-bug-bounty.pdf'
                             : '/tnc/business-partners-bug-bounty-eu.pdf'
                     }

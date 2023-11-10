@@ -1,7 +1,4 @@
 export { default as DbIcon } from './db-icon.svg'
-export { default as DerivEzLogoRed } from './deriv-ez-logo-red.svg'
-export { default as DerivEzLogo } from './deriv-ez-logo.svg'
-export { default as DerivEzQR } from './derivez-qr.svg'
 export { default as Dmt5Icon } from './dmt5-icon.svg'
 export { default as DtIcon } from '../custom/rebranding/dtrader-icon.svg'
 export { default as DxIcon } from '../custom/rebranding/deriv-x-icon.svg'

@@ -7,7 +7,7 @@ import useHandleSignup from 'components/hooks/use-handle-signup'
 import usePpc from 'features/hooks/use-ppc'
 import LanguageSwitcher from 'features/components/molecules/language-switcher'
 import Flex from 'features/components/atoms/flex-box'
-import { handleGetTrading } from 'components/custom/utils'
+import { handleRedirectToTradersHub } from 'components/custom/utils'
 
 const MainNavButtons = () => {
     const [is_logged_in] = useAuthCheck()
@@ -25,7 +25,7 @@ const MainNavButtons = () => {
             gap="8x"
         >
             {is_logged_in ? (
-                <Button.Primary onClick={handleGetTrading} outlined>
+                <Button.Primary onClick={handleRedirectToTradersHub} outlined>
                     <Localize translate_text="_t_Get trading_t_" />
                 </Button.Primary>
             ) : (

@@ -93,6 +93,7 @@ type TWhoWeAre = {
 }
 
 export {
+    StrapiImage,
     TWhoWeAre,
     THero,
     TOurValues,

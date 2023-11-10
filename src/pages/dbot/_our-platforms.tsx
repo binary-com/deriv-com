@@ -27,12 +27,6 @@ const carouselData: TRenderableData[] = [
         paragraph: '_t_The CFD trading platform to fit your style._t_',
         link: '/derivx/',
     },
-    {
-        icon: EzIcon,
-        heading: 'Deriv EZ',
-        paragraph: '_t_Our mobile-first CFD trading platform._t_',
-        link: '/deriv-ez/',
-    },
 ]
 
 const OurPlatforms = () => (

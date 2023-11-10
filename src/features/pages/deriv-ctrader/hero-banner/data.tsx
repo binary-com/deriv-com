@@ -10,7 +10,7 @@ export const hero_content_data: DerivProductContentType = {
         <StaticImage
             src="../../../../images/common/trading-platforms/ctrader/ctrader-hero.png"
             alt="Deriv ctrader online trading platform"
-            loading="eager"
+            loading="lazy"
             quality={100}
             formats={['avif', 'webp', 'auto']}
             objectFit="contain"
@@ -21,7 +21,7 @@ export const hero_content_data: DerivProductContentType = {
         <StaticImage
             src="../../../../images/common/trading-platforms/ctrader/ctrader-hero-mobile-new-2.png"
             alt="Deriv ctrader online trading platform"
-            loading="eager"
+            loading="lazy"
             quality={100}
             formats={['avif', 'webp', 'auto']}
             objectFit="contain"

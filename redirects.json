@@ -8,10 +8,6 @@
         "toPath": "/careers/human-resources/"
     },
     {
-        "fromPath": "/derivez/",
-        "toPath": "/deriv-ez/"
-    },
-    {
         "fromPath": "/careers/besquare",
         "toPath": "/careers/"
     },

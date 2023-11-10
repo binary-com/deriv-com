@@ -28,6 +28,16 @@ const strapi_config = [
         singularName: 'contact-us',
         queryParams: strapi_preview_param,
     },
+    {
+        singularName: 'post',
+        queryParams: {
+            publicationState: 'live',
+            populate: {
+                image: '*',
+                images: '*',
+            },
+        },
+    },
 ]
 
 module.exports = {

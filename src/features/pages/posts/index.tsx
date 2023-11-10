@@ -10,6 +10,7 @@ import dclsx from 'features/utils/dclsx'
 
 const PostsModule = ({ data }: TBlogPosts) => {
     const posts = data?.allStrapiPost?.nodes || []
+    console.log(data, 'www')
     return (
         <Layout>
             <Flex.Box margin_block="12x" direction="col" className={styles.posts_wrapper}>

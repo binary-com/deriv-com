@@ -13,8 +13,9 @@ export default WithIntl()(BlogPosts)
 
 export const query = graphql`
     query {
-        allStrapiPost(limit: 10) {
+        allStrapiPost(sort: { fields: createdAt, order: DESC }, limit: 10) {
             nodes {
+                createdAt
                 hero {
                     title
                     date

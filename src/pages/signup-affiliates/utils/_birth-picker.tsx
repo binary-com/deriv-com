@@ -45,9 +45,8 @@ const BirthPickerWrapper = styled.div<BirthPickerWrapperProps>`
         font-size: 15px;
         font-weight: initial;
     }
-    abbr {
-        border-bottom: none !important;
-        text-decoration: none !important;
+    .react-date-picker__inputGroup {
+        padding: 0 2px 2px;
     }
     .react-date-picker__inputGroup__input {
         outline: none;

@@ -32,6 +32,7 @@ const StyledLinkText = styled(LinkText)`
     font-size: 14px;
     line-height: 20px;
     height: 20px;
+
     @media ${device.tabletL} {
         font-size: 12px;
     }
@@ -50,10 +51,10 @@ const EmailButton = styled(Button)`
 `
 const LoginContainer = styled.div`
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     flex-direction: row;
     align-items: center;
-    margin-top: 2.4rem;
 `
 const StyledFlex = styled(Container)`
     display: flex;
@@ -75,19 +76,16 @@ export const SignUpWrapper = styled(Container)`
     flex-direction: column;
     padding: 24px 34px;
     margin: 0;
-    block-size: 510px;
     inline-size: 100%;
     max-inline-size: 486px;
     background: var(--color-white);
     border-radius: 6px;
     box-shadow: 0 12px 16px -4px #0e0e0e14;
 
-    @media ${device.tablet} {
-        block-size: 100%;
-        padding: 8px 0 16px;
-    }
     @media ${device.tabletS} {
         box-shadow: unset;
+        justify-content: flex-end;
+        padding: 0;
     }
 `
 const AffiliateSignupForm = ({

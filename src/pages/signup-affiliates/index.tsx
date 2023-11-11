@@ -27,6 +27,12 @@ const customSlugify = (text: string): string =>
 const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }: SubmitTypes) => {
     if (!is_online) {
         setSignupStatus('lost connection')
+        Analytics?.trackEvent('ce_partner_account_signup_form', {
+            action: 'partners_signup_error',
+            partner_signup_error_message: 'lost connection',
+            form_source: window?.location.hostname,
+            form_name: 'default_diel_deriv',
+        })
     } else
         affiliateSend({
             address_city: affiliate_account.address_details.city,
@@ -69,25 +75,30 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
         })
 }
 
-const StyledFlexWrapper = styled(Container)`
+const ParentWrapper = styled.div`
+    block-size: 100vh;
+    background-image: url(${Map});
+    background-repeat: no-repeat;
+    background-position: bottom;
+`
+const StyledContainer = styled(Container)`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-around;
-    background: url(${Map}) no-repeat fixed bottom;
     padding-top: 120px;
-    block-size: 100vh;
+    inline-size: 100%;
 
     @media ${device.tabletL} {
-        block-size: unset;
+        flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
-        padding-top: 0;
+        padding-top: 70px;
     }
 `
 
 const AffiliateSignup = () => {
-    const [show_wizard, setShowWizard] = useState<boolean>(true)
+    const [show_wizard, setShowWizard] = useState<boolean>(false)
     const [is_online, setIsOnline] = useState(isBrowser() && navigator.onLine)
     const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>('')
 
@@ -111,7 +122,7 @@ const AffiliateSignup = () => {
     }, [])
 
     const [affiliate_account, setAffiliateAccount] = useState<AffiliateAccountTypes>({
-        email: 'test@test.test',
+        email: '',
         account_type: 0,
         account_plan: 0,
         address_details: {
@@ -213,32 +224,34 @@ const AffiliateSignup = () => {
     }
 
     return (
-        <AtomicContainer.Fluid dir={'row'}>
-            <AffiliateNav />
-            <StyledFlexWrapper>
-                <AffiliateSignupForm
-                    affiliate_account={affiliate_account}
-                    setAffiliateAccount={setAffiliateAccount}
-                    setShowWizard={setShowWizard}
-                />
-                {show_wizard && (
-                    <Wizard
-                        show_wizard={show_wizard}
+        <ParentWrapper>
+            <AtomicContainer.Fluid dir={'row'}>
+                <AffiliateNav />
+                <StyledContainer>
+                    <AffiliateSignupForm
+                        affiliate_account={affiliate_account}
+                        setAffiliateAccount={setAffiliateAccount}
                         setShowWizard={setShowWizard}
+                    />
+                    {show_wizard && (
+                        <Wizard
+                            show_wizard={show_wizard}
+                            setShowWizard={setShowWizard}
+                            affiliate_account={affiliate_account}
+                            setAffiliateAccount={setAffiliateAccount}
+                            onSubmit={onSubmit}
+                        />
+                    )}
+                    <AffiliateSignupStatus
+                        signup_status={signup_status}
+                        setSignupStatus={setSignupStatus}
                         affiliate_account={affiliate_account}
                         setAffiliateAccount={setAffiliateAccount}
                         onSubmit={onSubmit}
                     />
-                )}
-                <AffiliateSignupStatus
-                    signup_status={signup_status}
-                    setSignupStatus={setSignupStatus}
-                    affiliate_account={affiliate_account}
-                    setAffiliateAccount={setAffiliateAccount}
-                    onSubmit={onSubmit}
-                />
-            </StyledFlexWrapper>
-        </AtomicContainer.Fluid>
+                </StyledContainer>
+            </AtomicContainer.Fluid>
+        </ParentWrapper>
     )
 }
 

@@ -58,9 +58,8 @@ const Modal = styled.div`
 
     @media ${device.tabletL} {
         min-inline-size: 0;
-    }
-    @media ${device.mobileL} {
-        padding: 0;
+        inline-size: 328px;
+        block-size: 348px;
     }
 `
 const StyledSpinner = styled.svg`

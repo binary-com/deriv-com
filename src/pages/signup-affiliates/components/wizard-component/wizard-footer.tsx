@@ -40,9 +40,9 @@ const getCodeName = (num: number) => {
         case 1:
             return 'Account type'
         case 2:
-            return 'Address details'
+            return 'Account plan'
         case 3:
-            return 'Phone number'
+            return 'Address details'
         case 4:
             return 'Personal details'
         case 5:
@@ -60,8 +60,6 @@ const WizardFooter = ({
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
         form_source: isBrowser() && window?.location.hostname,
         form_name: 'default_diel_deriv',
-        step_num: step,
-        step_codename: getCodeName(step),
     }
 
     const buttonHandler = React.useCallback(
@@ -69,6 +67,8 @@ const WizardFooter = ({
             if (button_type === ButtonType.Previous) {
                 Analytics?.trackEvent('ce_partner_account_signup_form', {
                     action: 'step_back',
+                    step_num: step,
+                    step_codename: getCodeName(step),
                     ...analyticsData,
                 })
                 step > 1 && setStep(step - 1)
@@ -77,6 +77,8 @@ const WizardFooter = ({
             if (button_type === ButtonType.Next) {
                 Analytics?.trackEvent('ce_partner_account_signup_form', {
                     action: 'step_passed',
+                    step_num: step,
+                    step_codename: getCodeName(step),
                     ...analyticsData,
                 })
                 step < max_step && setStep(step + 1)

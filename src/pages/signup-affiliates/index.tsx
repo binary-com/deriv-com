@@ -7,9 +7,9 @@ import { AffiliateAccountTypes, SignUpStatusTypes, SubmitTypes } from './_types'
 import { isBrowser } from 'common/utility'
 import { WithIntl } from 'components/localization'
 import { Container } from 'components/containers'
+import Layout from 'components/layout/layout'
 import useWS from 'components/hooks/useWS'
 import AtomicContainer from 'features/components/atoms/container'
-import AffiliateNav from 'features/components/templates/navigation/affiliates'
 import device from 'themes/device'
 import Map from 'images/svg/signup-affiliates/map.svg'
 
@@ -152,11 +152,6 @@ const AffiliateSignup = () => {
             is_partner_checked: false,
         },
     })
-    console.log(
-        affiliate_account.personal_details.phone
-            ? affiliate_account.personal_details.phone
-            : affiliate_account.personal_details.prefix,
-    )
     const {
         data: affiliate_api_data,
         error: affiliate_api_error,
@@ -226,30 +221,31 @@ const AffiliateSignup = () => {
     return (
         <ParentWrapper>
             <AtomicContainer.Fluid dir={'row'}>
-                <AffiliateNav />
-                <StyledContainer>
-                    <AffiliateSignupForm
-                        affiliate_account={affiliate_account}
-                        setAffiliateAccount={setAffiliateAccount}
-                        setShowWizard={setShowWizard}
-                    />
-                    {show_wizard && (
-                        <Wizard
-                            show_wizard={show_wizard}
+                <Layout type="affiliates" show_footer={false}>
+                    <StyledContainer>
+                        <AffiliateSignupForm
+                            affiliate_account={affiliate_account}
+                            setAffiliateAccount={setAffiliateAccount}
                             setShowWizard={setShowWizard}
+                        />
+                        {show_wizard && (
+                            <Wizard
+                                show_wizard={show_wizard}
+                                setShowWizard={setShowWizard}
+                                affiliate_account={affiliate_account}
+                                setAffiliateAccount={setAffiliateAccount}
+                                onSubmit={onSubmit}
+                            />
+                        )}
+                        <AffiliateSignupStatus
+                            signup_status={signup_status}
+                            setSignupStatus={setSignupStatus}
                             affiliate_account={affiliate_account}
                             setAffiliateAccount={setAffiliateAccount}
                             onSubmit={onSubmit}
                         />
-                    )}
-                    <AffiliateSignupStatus
-                        signup_status={signup_status}
-                        setSignupStatus={setSignupStatus}
-                        affiliate_account={affiliate_account}
-                        setAffiliateAccount={setAffiliateAccount}
-                        onSubmit={onSubmit}
-                    />
-                </StyledContainer>
+                    </StyledContainer>
+                </Layout>
             </AtomicContainer.Fluid>
         </ParentWrapper>
     )

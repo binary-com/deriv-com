@@ -219,9 +219,9 @@ const AffiliateSignup = () => {
     }
 
     return (
-        <ParentWrapper>
-            <AtomicContainer.Fluid dir={'row'}>
-                <Layout type="affiliates" show_footer={false}>
+        <Layout type="affiliates" show_footer={false}>
+            <ParentWrapper>
+                <AtomicContainer.Fluid dir={'row'}>
                     <StyledContainer>
                         <AffiliateSignupForm
                             affiliate_account={affiliate_account}
@@ -245,9 +245,9 @@ const AffiliateSignup = () => {
                             onSubmit={onSubmit}
                         />
                     </StyledContainer>
-                </Layout>
-            </AtomicContainer.Fluid>
-        </ParentWrapper>
+                </AtomicContainer.Fluid>
+            </ParentWrapper>
+        </Layout>
     )
 }
 

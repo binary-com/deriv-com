@@ -1,16 +1,16 @@
-import React from 'react';
-import { WrapPagesWithLocaleContext } from './src/components/localization';
-import './src/components/localization/config';
-import GlobalProvider from './src/store/global-provider';
+import React from 'react'
+import { WrapPagesWithLocaleContext } from './src/components/localization'
+import './src/components/localization/config'
+import GlobalProvider from './src/store/global-provider'
 
 export const wrapRootElement = ({ element }) => {
-  return <GlobalProvider>{element}</GlobalProvider>;
-};
+  return <GlobalProvider>{element}</GlobalProvider>
+}
 
-export const wrapPageElement = WrapPagesWithLocaleContext;
+export const wrapPageElement = WrapPagesWithLocaleContext
 
 export const onRenderBody = ({ setHeadComponents }) => {
-  const gtmTrackingId = process.env.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID || '';
+  const gtmTrackingId = process.env.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID || ''
 
   setHeadComponents([
     <script

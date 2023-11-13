@@ -1,0 +1,27 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.post_image {
+    max-width: 42rem;
+    width: 98%;
+    height: 25rem;
+    @include breakpoints(tablet) {
+        height: 14rem;
+    }
+}
+.posts_wrapper {
+    margin-inline: 2%;
+
+    @include breakpoints(laptop) {
+        margin-inline: 12%;
+    }
+}
+
+.image_wrapper {
+    flex-basis: unset;
+    @include breakpoints(phone) {
+        flex-basis: 48%;
+    }
+    @include breakpoints(tablet) {
+        flex-basis: 18%;
+    }
+}

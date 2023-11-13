@@ -141,7 +141,7 @@ const AffiliateSignup = () => {
             website_url: '',
             second_website_url: '',
             company_name: '',
-            company_registration_number: 'derivcomnumber!@.',
+            company_registration_number: '',
             username: '',
             password: '',
         },

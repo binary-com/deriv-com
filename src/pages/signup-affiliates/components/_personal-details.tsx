@@ -330,7 +330,7 @@ const PersonalDetails = ({
                                 error={item.error}
                                 required={item.required}
                                 extra_info={item.extra_info}
-                                placeholder={item.placeholder}
+                                placeholder={item.label}
                                 password_icon={item.type == 'password'}
                                 onChange={handleInput}
                                 onBlur={handleInput}

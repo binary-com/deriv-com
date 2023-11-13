@@ -110,7 +110,7 @@ const AffiliateSignupForm = ({
                 <Header mb="24px" as="p" type="paragraph-1" weight="normal">
                     <Localize
                         translate_text={
-                            '_t_Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on DTrader and DBot._t_'
+                            '_t_Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ from option trading platforms._t_'
                         }
                     />
                 </Header>
@@ -120,7 +120,7 @@ const AffiliateSignupForm = ({
                 <Header as="p" type="paragraph-1" weight="normal">
                     <Localize
                         translate_text={
-                            '_t_Our introducing broker programme is available to all Deriv affiliates. Earn commission from your clients’ trades on Deriv MT5._t_'
+                            "_t_Our introducing broker programme is available to all Deriv affiliates. Earn commission from your clients' trades on Deriv's CFD trading platforms._t_"
                         }
                     />
                 </Header>

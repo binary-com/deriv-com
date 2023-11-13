@@ -5,7 +5,7 @@ export const affiliate_validation_regex = {
     email: /^[a-z0-9]+@[a-z0-9]+[.][a-z]{2,}/,
     latin: /[^a-zA-Za 0-9-]/,
     name: /^[^a-zA-Z-]/,
-    user_name: /[^a-zA-Za 0-9!@"?¨'_.,-]/,
+    user_name: /[^a-zA-Za 0-9!"?¨'_.,-]/,
     password: /^(?=.*[a-z])(?=.*\d)(?=.*[A-Z])[ -~]*$/,
     address: /^[a-zA-Z 0-9/_.,-]*$/,
     postal_code: /^[a-zA-Z 0-9_.-]{5,10}$/,
@@ -30,8 +30,6 @@ const emailValidation = (input) => {
 const userNameValidation = (input) => {
     if (!input) {
         return localize('_t_Username is required_t_')
-    } else if (affiliate_validation_regex.user_name.test(input)) {
-        return localize('_t_Only Latin characters_t_')
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
         return localize('_t_Empty input not available_t_')
     }
@@ -57,7 +55,7 @@ const companyNameValidation = (input, min_digit, max_digit) => {
     const length_error = localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
     if (!input) {
         return localize('_t_Company name is required_t_')
-    } else if (!/^[a-zA-Z0-9]+$/.test(input)) {
+    } else if (!/^[a-zA-Z0-9 ]+$/.test(input)) {
         return localize('_t_Incorrect company name_t_')
     } else if (!validation_is_exceed_number(input, max_digit)) {
         return length_error
@@ -72,8 +70,8 @@ const companyNameValidation = (input, min_digit, max_digit) => {
 const phoneValidation = (input) => {
     if (!input) {
         return localize('_t_Mobile number is required_t_')
-    } else if (!validation_is_exceed_number(input, 11) || !validation_is_lack_number(input, 7)) {
-        return localize(`_t_You should enter 7-11 numbers._t_`)
+    } else if (!validation_is_exceed_number(input, 13) || !validation_is_lack_number(input, 8)) {
+        return localize(`_t_You should enter 8-13 numbers._t_`)
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
         return localize('_t_Space not available_t_')
     }
@@ -194,7 +192,7 @@ const affiliate_validation = {
     website_url: (input) => {
         return urlValidation(input)
     },
-    social_media_url: (input) => {
+    second_website_url: (input) => {
         return urlValidation(input)
     },
 }

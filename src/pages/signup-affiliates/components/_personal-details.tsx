@@ -26,7 +26,7 @@ const PersonalDetails = ({
         affiliate_data.company_registration_number,
     )
     const [website_url, setWebsiteUrl] = useState(affiliate_data.website_url)
-    const [social_media_url, setSocialMedia] = useState(affiliate_data.social_media_url)
+    const [second_website_url, setSecondWebsiteUrl] = useState(affiliate_data.second_website_url)
     const [password, setPassword] = useState(affiliate_data.password)
 
     const [user_name_error_msg, setUserNameErrorMsg] = useState<string>()
@@ -36,7 +36,7 @@ const PersonalDetails = ({
     const [company_name_error_msg, setCompanyNameErrorMsg] = useState<string>()
     const [company_registration_error_msg, setCompanyRegistrationErrorMsg] = useState<string>()
     const [website_url_error_msg, setWebsiteUrlErrorMsg] = useState<string>()
-    const [social_media_url_error_msg, setSocialMediaErrorMsg] = useState<string>()
+    const [second_website_url_error_msg, setSecondWebsiteUrlErrorMsg] = useState<string>()
     const [password_error_msg, setPasswordErrorMsg] = useState<string>()
 
     const form_inputs = [
@@ -45,7 +45,6 @@ const PersonalDetails = ({
             name: 'first_name',
             type: 'text',
             label: localize('_t_First name*_t_'),
-            placeholder: 'First name*',
             error: first_name_error_msg,
             value: first_name,
             required: true,
@@ -57,7 +56,6 @@ const PersonalDetails = ({
             name: 'last_name',
             type: 'text',
             label: localize('_t_Last name*_t_'),
-            placeholder: 'Last name*',
             error: last_name_error_msg,
             value: last_name,
             required: true,
@@ -69,7 +67,6 @@ const PersonalDetails = ({
             name: 'date_birth',
             type: 'date',
             label: localize('_t_Date of Birth*_t_'),
-            placeholder: 'Date of Birth*',
             value: date_birth,
             required: false,
             value_set: setDateBirth,
@@ -79,7 +76,6 @@ const PersonalDetails = ({
             name: 'phone',
             type: 'number',
             label: localize('_t_Phone number*_t_'),
-            placeholder: 'Phone number*',
             error: phone_error_msg,
             value: phone,
             required: false,
@@ -91,7 +87,6 @@ const PersonalDetails = ({
             name: 'company_name',
             type: 'text',
             label: localize('_t_Company name*_t_'),
-            placeholder: 'Company name*',
             error: company_name_error_msg,
             value: company_name,
             required: true,
@@ -103,7 +98,6 @@ const PersonalDetails = ({
             name: 'company_registration_number',
             type: 'number',
             label: localize('_t_Company registration number*_t_'),
-            placeholder: 'Company registration number*',
             error: company_registration_error_msg,
             value: company_registration_number,
             required: true,
@@ -114,8 +108,9 @@ const PersonalDetails = ({
             id: 'website_url',
             name: 'website_url',
             type: 'text',
-            label: localize('_t_Website URL*_t_'),
-            placeholder: 'Website URL*',
+            label: is_individual
+                ? localize('_t_Website/social media URL*_t_')
+                : localize('_t_Company website/social media URL*_t_'),
             error: website_url_error_msg,
             value: website_url,
             required: true,
@@ -123,23 +118,23 @@ const PersonalDetails = ({
             error_set: setWebsiteUrlErrorMsg,
         },
         {
-            id: 'social_media_url',
-            name: 'social_media_url',
+            id: 'second_website_url',
+            name: 'second_website_url',
             type: 'text',
-            label: localize('_t_Social media URL_t_'),
-            placeholder: 'Social media URL',
-            error: social_media_url_error_msg,
-            value: social_media_url,
+            label: is_individual
+                ? localize('_t_Second website/social media URL_t_')
+                : localize('_t_Company second website/social media URL_t_'),
+            error: second_website_url_error_msg,
+            value: second_website_url,
             required: false,
-            value_set: setSocialMedia,
-            error_set: setSocialMediaErrorMsg,
+            value_set: setSecondWebsiteUrl,
+            error_set: setSecondWebsiteUrlErrorMsg,
         },
         {
             id: 'username',
             name: 'username',
             type: 'text',
             label: localize('_t_Username*_t_'),
-            placeholder: 'Username*',
             error: user_name_error_msg,
             value: username,
             required: true,
@@ -151,7 +146,6 @@ const PersonalDetails = ({
             name: 'password',
             type: 'password',
             label: localize('_t_Password*_t_'),
-            placeholder: 'Password*',
             error: password_error_msg,
             value: password,
             required: true,
@@ -207,7 +201,7 @@ const PersonalDetails = ({
             company_name,
             company_registration_number,
             website_url,
-            social_media_url,
+            second_website_url,
             username,
             password,
         })
@@ -220,7 +214,7 @@ const PersonalDetails = ({
         company_name,
         company_registration_number,
         website_url,
-        social_media_url,
+        second_website_url,
         password,
     ])
 
@@ -270,9 +264,9 @@ const PersonalDetails = ({
                 setWebsiteUrl(value)
                 return setWebsiteUrlErrorMsg(affiliate_validation.website_url(value))
             }
-            case 'social_media_url': {
-                setSocialMedia(value)
-                return setSocialMediaErrorMsg(affiliate_validation.social_media_url(value))
+            case 'second_website_url': {
+                setSecondWebsiteUrl(value)
+                return setSecondWebsiteUrlErrorMsg(affiliate_validation.second_website_url(value))
             }
             case 'username': {
                 setUsername(value)
@@ -314,7 +308,7 @@ const PersonalDetails = ({
                                     error={item.error}
                                     label={item.label}
                                     required={item.required}
-                                    placeholder={item.placeholder}
+                                    placeholder={item.label}
                                     onChange={handleInput}
                                     onBlur={handleInput}
                                     handleError={() => {

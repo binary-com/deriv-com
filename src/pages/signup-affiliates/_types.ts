@@ -20,7 +20,7 @@ type AffiliateAccountTypes = {
         phone: string
         prefix: string
         website_url: string
-        social_media_url: string
+        second_website_url: string
         company_name: string
         company_registration_number: string
         username: string

@@ -52,7 +52,11 @@ const useSignupForm = () => {
     })
 
     const onSignup = ({ email }: FormData) => {
-        Analytics?.trackEvent('ce_virtual_signup_form', { action: 'started', ...analyticsData })
+        Analytics?.trackEvent('ce_virtual_signup_form', {
+            action: 'started',
+            signup_provider: 'email',
+            ...analyticsData,
+        })
 
         const formatted_email = getVerifyEmailRequest(email)
         apiManager

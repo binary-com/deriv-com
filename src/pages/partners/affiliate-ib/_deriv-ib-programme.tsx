@@ -575,7 +575,7 @@ const ib_dmt5_swapFree: DMT5Type = {
             ],
         },
         {
-            title: '_t_Stocks & stock indices_t_',
+            title: '_t_Stocks, ETFs & Stock Indices_t_',
             headerHeight: '6.4rem',
             assets: [
                 {
@@ -800,7 +800,7 @@ const ib_dmt5_financial: DMT5Type = {
             ],
         },
         {
-            title: '_t_Stocks & stock indices_t_',
+            title: '_t_Stocks, ETFs & Stock Indices_t_',
             headerHeight: '6.4rem',
             assets: [
                 {

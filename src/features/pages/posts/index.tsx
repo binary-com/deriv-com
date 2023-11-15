@@ -24,14 +24,14 @@ const PostsModule = ({ data }: TBlogPosts) => {
                         const formattedDate = parsedDate?.format('Do [of] MMMM YYYY')
                         return (
                             <Flex.Box direction="col" key={title} className={styles.image_wrapper}>
-                                <Link url={{ type: 'internal', to: '/' }} no_hover>
+                                <Link url={{ type: 'internal', to: `/blog/${title}` }} no_hover>
                                     <img
                                         src={banner?.localFile?.publicURL}
                                         className={styles.post_image}
                                     />
                                 </Link>
                                 <div className={dclsx('margin-block-10x')}>
-                                    <Link url={{ type: 'internal', to: '/' }} no_hover>
+                                    <Link url={{ type: 'internal', to: `/blog/${title}` }} no_hover>
                                         <Typography.Heading as="h3" size="xxs">
                                             <Localize translate_text={`_t_${title}_t_`} />
                                         </Typography.Heading>

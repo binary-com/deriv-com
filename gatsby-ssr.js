@@ -5,9 +5,9 @@ import GlobalProvider from './src/store/global-provider'
 
 export const wrapRootElement = ({ element }) => {
   return <GlobalProvider>{element}</GlobalProvider>
-};
+}
 
-export const wrapPageElement = WrapPagesWithLocaleContext;
+export const wrapPageElement = WrapPagesWithLocaleContext
 
 export const onRenderBody = ({ setHeadComponents }) => {
   const gtmTrackingId = process.env.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID || ''

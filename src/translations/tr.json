@@ -3915,6 +3915,7 @@
   "-1050182500": "Lot başına komisyon (1 standart forex lotu 100 bin birimdir)",
   "-483418533": "4<br>(Lot başına)",
   "-1587730975": "10",
+  "-1336695287": "Hisse senetleri, ETF'ler ve hisse senedi endeksleri",
   "-1255878826": "Kripto para birimleri için, 1 lot BTC/USD için yapılan bir anlaşma, aşağıdaki formüle dayalı olarak 2 USD komisyon ödeyecektir:",
   "-1188569430": "<0>Hisse</0> senetleri için, 178 USD fiyatla 1 lot AAPL için yapılan bir işlem, aşağıdaki formüle dayalı olarak 0,02 USD komisyon ödeyecektir:",
   "-1887577729": "<0>Hisse senedi endeksleri</0> için, 32.500 JPY fiyatla 20 lot JP225 için yapılan bir işlem, aşağıdaki formüle dayalı olarak 0,05 USD komisyon ödeyecektir:",

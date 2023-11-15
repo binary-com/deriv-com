@@ -447,7 +447,7 @@ const ib_dmt5_synthetic: DMT5Type = {
                 },
                 {
                     title: '_t_Commission per USD 100k turnover_t_',
-                    list: ['2', '1.5', '1.5', '1', '5'],
+                    list: ['2', '1.50', '1.50', '1', '5'],
                 },
             ],
         },

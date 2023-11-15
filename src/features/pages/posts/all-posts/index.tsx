@@ -1,20 +1,22 @@
 import React from 'react'
 import moment from 'moment'
+import * as styles from '../posts.module.scss'
 import Layout from 'features/components/templates/layout'
-import * as styles from './posts.module.scss'
 import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Link from 'features/components/atoms/link'
 import dclsx from 'features/utils/dclsx'
 
-const PostsModule = ({ data }: TBlogPosts) => {
+const AllPostsModule = ({ data }: TBlogPosts) => {
     const posts = data?.allStrapiPost?.nodes || []
     return (
         <Layout>
             <Flex.Box margin_block="12x" direction="col" className={styles.posts_wrapper}>
                 <Typography.Heading as="h2" size="small">
-                    <Localize translate_text={'_t_Recent articles_t_'} />
+                    <Localize
+                        translate_text={'_t_Trading articles: read and learn how to trade_t_'}
+                    />
                 </Typography.Heading>
 
                 <Flex.Box wrap="wrap" margin_block="15x" justify="around">
@@ -54,4 +56,4 @@ const PostsModule = ({ data }: TBlogPosts) => {
     )
 }
 
-export default PostsModule
+export default AllPostsModule

@@ -30,13 +30,7 @@ const strapi_config = [
     },
     {
         singularName: 'post',
-        queryParams: {
-            publicationState: 'live',
-            populate: {
-                image: '*',
-                images: '*',
-            },
-        },
+        queryParams: strapi_preview_param,
     },
 ]
 

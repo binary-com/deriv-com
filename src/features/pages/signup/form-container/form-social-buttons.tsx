@@ -44,7 +44,7 @@ const FormSocialButtons = () => {
                 id="dm-signup-facebook"
                 onClick={() => {
                     Analytics?.trackEvent('ce_virtual_signup_form', {
-                        signup_provider: 'google',
+                        signup_provider: 'facebook',
                         ...analyticsData,
                     })
                     Login.initOneAll('facebook')
@@ -98,8 +98,9 @@ const FormSocialButtons = () => {
                             onClick={(event) => {
                                 event.preventDefault()
                                 Analytics?.trackEvent('ce_virtual_signup_form', {
-                                    signup_provider: 'email',
-                                    ...analyticsData,
+                                    action: 'go_to_login',
+                                    form_source: isBrowser() && window.location.hostname,
+                                    form_name: 'default_diel_deriv',
                                 })
                                 Login.redirectToLogin()
                             }}

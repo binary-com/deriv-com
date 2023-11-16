@@ -13,7 +13,7 @@ const usePricingFeed = () => {
         const app = initializeApp(firebaseConfig)
         const db = getDatabase(app)
 
-        const commoditiesRef = ref(db, is_eu ? 'eu/market' : 'row/market')
+        const commoditiesRef = ref(db, is_eu ? 'eu/mkt' : 'row/mkt')
         const unsubscribe = onValue(
             commoditiesRef,
             (snapshot) => {

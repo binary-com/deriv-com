@@ -30,7 +30,7 @@ const Roadmap = ({ data }: RoadmapProps) => {
                 <Typography.Paragraph align="center" size={is_mobile ? 'xlarge' : 'xxl'} mb="20x">
                     <Localize translate_text={data.paragraph} />
                 </Typography.Paragraph>
-                <Flex.Box direction="col" align="center" className={iframe}>
+                <Flex.Box direction="col" align="center">
                     <Box
                         as="iframe"
                         radius="5x"
@@ -38,6 +38,7 @@ const Roadmap = ({ data }: RoadmapProps) => {
                         frameBorder="0"
                         height="100%"
                         width="100%"
+                        className={iframe}
                     ></Box>
                     <LinkButton.Secondary
                         url={{ type: 'non-company', href: data.link, target: '_blank' }}

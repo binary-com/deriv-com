@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { setSignUpStatusTypes } from '../../_types'
 import { Localize } from 'components/localization'
 import CloseSVG from 'images/svg/custom/close-2.svg'
 
@@ -24,17 +25,13 @@ const Title = styled.h2`
     color: var(--color-black-3);
 `
 
-const WizardHeader = ({
-    setShowWizard,
-}: {
-    setShowWizard: React.Dispatch<React.SetStateAction<boolean>>
-}) => {
+const WizardHeader = ({ setSignupStatus }: { setSignupStatus: setSignUpStatusTypes }) => {
     return (
         <StyledHeader>
             <Title>
                 <Localize translate_text="_t_Add an affiliate account_t_" />
             </Title>
-            <CloseButton src={CloseSVG} onClick={() => setShowWizard(false)} />
+            <CloseButton src={CloseSVG} onClick={() => setSignupStatus('closing wizard')} />
         </StyledHeader>
     )
 }

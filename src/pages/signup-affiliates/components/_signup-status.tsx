@@ -31,6 +31,10 @@ const StyledButton = styled(Button)`
     gap: 8px;
     margin-block-start: 12px;
 `
+const ButtonComposition = styled.div`
+    display: flex;
+    flex-direction: row;
+`
 const ProgressModal = styled.div`
     display: flex;
     flex-direction: column;
@@ -38,14 +42,15 @@ const ProgressModal = styled.div`
     justify-content: center;
     z-index: 100;
 `
-const Modal = styled.div`
+const Modal = styled.div<{ ai?: string }>`
     z-index: 101;
     opacity: 1;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: ${({ ai }) => ai || 'center'};
     justify-content: center;
-    min-inline-size: 546px;
+    max-inline-size: 486px;
+    min-inline-size: 440px;
     min-block-size: 214px;
     border-radius: 8px;
     padding: 40px;
@@ -58,6 +63,7 @@ const Modal = styled.div`
 
     @media ${device.tabletL} {
         min-inline-size: 0;
+        max-inline-size: 0;
         inline-size: 328px;
         block-size: 348px;
     }
@@ -132,6 +138,40 @@ const AffiliateSignupStatus = ({
                         >
                             <Localize translate_text={'_t_Got it_t_'} />
                         </StyledButton>
+                    </Modal>
+                    <Background />
+                </ProgressModal>
+            )}
+            {signup_status === 'closing wizard' && (
+                <ProgressModal>
+                    <Modal ai={'flex-end'}>
+                        <Header type="subtitle-1" align="left">
+                            <Localize
+                                translate_text={
+                                    '_t_Are you sure you want to cancel your registration?_t_'
+                                }
+                            />
+                        </Header>
+                        <Header type="paragraph-1" align="left" weight="400" pt="24px" pb="12px">
+                            <Localize
+                                translate_text="_t_If you hit <0>Yes</0>, the details you entered will be lost, and you’ll need to restart the registration process._t_"
+                                components={[<strong key={0} />]}
+                            />
+                        </Header>
+                        <ButtonComposition>
+                            <StyledButton
+                                tertiary
+                                mr={'8px'}
+                                onClick={() => {
+                                    window.location.href = 'https://deriv.com/partners/'
+                                }}
+                            >
+                                <Localize translate_text={'_t_Yes_t_'} />
+                            </StyledButton>
+                            <StyledButton secondary onClick={() => setSignupStatus('')}>
+                                <Localize translate_text={'_t_No, continue_t_'} />
+                            </StyledButton>
+                        </ButtonComposition>
                     </Modal>
                     <Background />
                 </ProgressModal>

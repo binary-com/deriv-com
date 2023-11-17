@@ -27,7 +27,7 @@ export const SignUpWrapper = styled(Container)`
 
 const Wizard = ({
     show_wizard,
-    setShowWizard,
+    setSignupStatus,
     affiliate_account,
     setAffiliateAccount,
     onSubmit,
@@ -119,7 +119,7 @@ const Wizard = ({
             step={step}
             setStep={setStep}
             show_wizard={show_wizard}
-            setShowWizard={setShowWizard}
+            setSignupStatus={setSignupStatus}
             next_btn_enabled={next_btn_enabled}
             setNextBtnEnabled={setNextBtnEnabled}
             onSubmit={onSubmit}

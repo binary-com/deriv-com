@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import device from 'themes/device'
 import {
     InputProps,
@@ -48,17 +48,36 @@ export const AffiliateLabel = styled(StyledLabel)`
     top: 1.5rem;
     color: var(--color-grey-5);
 `
-export const StyledInputWrapper = styled(InputWrapper)`
+export const StyledInputWrapper = styled(InputWrapper)<{
+    password_length?: number
+    is_password?: boolean
+}>`
     border-radius: 4px;
     border: solid 1px var(--color-grey-7);
+    ${({ password_length, is_password }) => {
+        if (is_password && password_length == 0)
+            return css`
+                border-bottom: solid 4px var(--color-grey-5);
+            `
+        else if (is_password && password_length >= 1)
+            return css`
+                border-bottom: solid 4px var(--color-blue-7);
+                &:hover {
+                    border-color: var(--color-blue-7);
+                }
+            `
+        else
+            return css`
+                border-bottom: solid 1px var(--color-grey-7);
+                &:hover {
+                    border-color: var(--color-grey-5);
 
-    &:hover {
-        border-color: var(--color-grey-5);
-
-        & > label {
-            color: var(--color-grey-5);
-        }
-    }
+                    & > label {
+                        color: var(--color-grey-5);
+                    }
+                }
+            `
+    }}
 
     @media ${device.tabletL} {
         height: unset;
@@ -81,7 +100,11 @@ const AffiliateInput = ({
 
     return (
         <StyledRelativeWrapper>
-            <StyledInputWrapper error={error}>
+            <StyledInputWrapper
+                error={error}
+                is_password={props.type === 'password'}
+                password_length={props.type === 'password' && props.value.length}
+            >
                 <StyledInput
                     {...props}
                     id={id}

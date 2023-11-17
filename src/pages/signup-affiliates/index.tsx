@@ -98,7 +98,7 @@ const StyledContainer = styled(Container)`
 `
 
 const AffiliateSignup = () => {
-    const [show_wizard, setShowWizard] = useState<boolean>(false)
+    const [show_wizard, setShowWizard] = useState<boolean>()
     const [is_online, setIsOnline] = useState(isBrowser() && navigator.onLine)
     const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>('')
 
@@ -122,34 +122,34 @@ const AffiliateSignup = () => {
     }, [])
 
     const [affiliate_account, setAffiliateAccount] = useState<AffiliateAccountTypes>({
-        email: '',
-        account_type: 0,
-        account_plan: 0,
+        email: 'test@gmail.com',
+        account_type: 1,
+        account_plan: 2,
         address_details: {
             country: {},
             state: {},
-            city: '',
-            street: '',
-            postal_code: '',
+            city: 'test',
+            street: 'test',
+            postal_code: 'test1234',
         },
         personal_details: {
-            first_name: '',
-            last_name: '',
+            first_name: 'test',
+            last_name: 'test',
             date_birth: null,
-            phone: '',
+            phone: '123123123',
             prefix: '',
-            website_url: '',
+            website_url: 'www.test.com',
             second_website_url: '',
-            company_name: '',
-            company_registration_number: '',
-            username: '',
-            password: '',
+            company_name: 'testers',
+            company_registration_number: '123345678',
+            username: 'Test',
+            password: 'Test12 ',
         },
         terms_of_use: {
-            non_pep_declaration_accepted: false,
-            tnc_accepted: false,
-            general_terms_accepted: false,
-            is_partner_checked: false,
+            non_pep_declaration_accepted: true,
+            tnc_accepted: true,
+            general_terms_accepted: true,
+            is_partner_checked: true,
         },
     })
     const {
@@ -231,7 +231,7 @@ const AffiliateSignup = () => {
                         {show_wizard && (
                             <Wizard
                                 show_wizard={show_wizard}
-                                setShowWizard={setShowWizard}
+                                setSignupStatus={setSignupStatus}
                                 affiliate_account={affiliate_account}
                                 setAffiliateAccount={setAffiliateAccount}
                                 onSubmit={onSubmit}

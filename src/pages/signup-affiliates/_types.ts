@@ -73,6 +73,8 @@ export type SignUpStatusTypes =
     | 'success'
     | 'loading'
     | 'Your website is not a valid entry'
+    | 'wizard opened'
+    | 'closing wizard'
     | ''
 export type setSignUpStatusTypes = Dispatch<SetStateAction<SignUpStatusTypes>>
 
@@ -94,7 +96,7 @@ type SetShowWizardType = Dispatch<SetStateAction<boolean>>
 
 type WizardProps = {
     show_wizard: boolean
-    setShowWizard: SetShowWizardType
+    setSignupStatus: setSignUpStatusTypes
 } & AffiliateAccountProps
 
 type SignUpFormProps = {

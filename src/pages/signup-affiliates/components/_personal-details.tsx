@@ -329,7 +329,6 @@ const PersonalDetails = ({
                                 value={item.value}
                                 error={item.error}
                                 required={item.required}
-                                extra_info={item.extra_info}
                                 placeholder={item.label}
                                 password_icon={item.type == 'password'}
                                 onChange={handleInput}

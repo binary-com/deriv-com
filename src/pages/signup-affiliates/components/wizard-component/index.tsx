@@ -50,7 +50,7 @@ const Wrapper = styled.div`
 const WizardComponent = ({
     children,
     show_wizard,
-    setShowWizard,
+    setSignupStatus,
     onSubmit,
     step,
     setStep,
@@ -71,7 +71,7 @@ const WizardComponent = ({
     return (
         <>
             <Modal>
-                <WizardHeader setShowWizard={setShowWizard} />
+                <WizardHeader setSignupStatus={setSignupStatus} />
                 <Stepper step={step} />
                 <Wrapper>
                     {React.Children.map(children, (child, idx) => (

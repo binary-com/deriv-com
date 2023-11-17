@@ -103,8 +103,7 @@ const AffiliateSignup = () => {
     const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>('')
 
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
-        form_source: isBrowser() && window?.location.hostname,
-        form_name: 'default_diel_deriv',
+        form_name: 'ce_partner_account_signup_form',
     }
 
     useEffect(() => {
@@ -160,6 +159,9 @@ const AffiliateSignup = () => {
 
     useEffect(() => {
         const handleStatusChange = () => {
+            if (!navigator.onLine) {
+                Analytics?.trackEvent('ce_partner_account_signup_form', { action: 'other_error' })
+            }
             setIsOnline(navigator.onLine)
         }
         window.addEventListener('online', handleStatusChange)
@@ -198,7 +200,8 @@ const AffiliateSignup = () => {
         }
         if (affiliate_api_data) {
             Analytics?.trackEvent('ce_partner_account_signup_form', {
-                action: 'real_signup_finished',
+                action: 'success_popup_opened',
+                user_choice: JSON.stringify(affiliate_api_error.echo_req),
                 ...analyticsData,
             })
             setSignupStatus('success')
@@ -214,6 +217,10 @@ const AffiliateSignup = () => {
         })
     }, [affiliate_account.address_details.country])
     const onSubmit = () => {
+        Analytics?.trackEvent('ce_partner_account_signup_form', {
+            action: 'try_submit',
+            ...analyticsData,
+        })
         setSignupStatus('loading')
         Submit({ is_online, affiliate_account, setSignupStatus, affiliateSend })
     }

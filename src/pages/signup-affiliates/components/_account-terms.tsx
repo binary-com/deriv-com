@@ -69,8 +69,7 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
     const validate =
         terms_of_use['non_pep_declaration_accepted'] &&
         terms_of_use['tnc_accepted'] &&
-        terms_of_use['general_terms_accepted'] &&
-        terms_of_use['is_partner_checked']
+        terms_of_use['general_terms_accepted']
 
     useEffect(() => {
         onValidate(validate)
@@ -120,7 +119,7 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
                                         components={[
                                             <LocalizedLinkText
                                                 key={0}
-                                                href="/terms-and-conditions/#clients"
+                                                href="/terms-and-conditions/#business-partners"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 color="red"

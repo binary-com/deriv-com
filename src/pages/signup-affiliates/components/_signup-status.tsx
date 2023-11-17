@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { Analytics } from '@deriv/analytics'
 import affiliate_validation from '../validations/_affilaite_validation'
 import AffiliateInput from '../utils/_affiliate-input'
 import { SignUpStatusProps } from '../_types'
@@ -117,6 +118,9 @@ const AffiliateSignupStatus = ({
 }: SignUpStatusProps) => {
     const [username_error, setUsernameError] = useState<string>()
     const [website_url_error, setWebsiteUrlError] = useState<string>()
+    const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
+        form_name: 'ce_partner_account_signup_form',
+    }
 
     return (
         <>
@@ -133,6 +137,10 @@ const AffiliateSignupStatus = ({
                         <StyledButton
                             secondary
                             onClick={() => {
+                                Analytics?.trackEvent('ce_partner_account_signup_form', {
+                                    action: 'success_popup_cta',
+                                    ...analyticsData,
+                                })
                                 window.location.href = 'https://deriv.com/partners/'
                             }}
                         >
@@ -163,6 +171,10 @@ const AffiliateSignupStatus = ({
                                 tertiary
                                 mr={'8px'}
                                 onClick={() => {
+                                    Analytics?.trackEvent('ce_partner_account_signup_form', {
+                                        action: 'close_wizard',
+                                        ...analyticsData,
+                                    })
                                     window.location.href = 'https://deriv.com/partners/'
                                 }}
                             >
@@ -179,7 +191,16 @@ const AffiliateSignupStatus = ({
             {signup_status == 'loading' && (
                 <ProgressModal>
                     <Modal>
-                        <CloseButton src={CloseSVG} onClick={() => setSignupStatus('')} />
+                        <CloseButton
+                            src={CloseSVG}
+                            onClick={() => {
+                                Analytics?.trackEvent('ce_partner_account_signup_form', {
+                                    action: 'failed_popup_cta',
+                                    ...analyticsData,
+                                })
+                                setSignupStatus('')
+                            }}
+                        />
                         <StyledSpinner viewBox="0 0 50 50">
                             <circle
                                 className="path"
@@ -207,6 +228,10 @@ const AffiliateSignupStatus = ({
                         <StyledButton
                             secondary
                             onClick={() => {
+                                Analytics?.trackEvent('ce_partner_account_signup_form', {
+                                    action: 'failed_popup_cta',
+                                    ...analyticsData,
+                                })
                                 setSignupStatus('')
                             }}
                         >
@@ -257,6 +282,10 @@ const AffiliateSignupStatus = ({
                         <StyledButton
                             secondary
                             onClick={() => {
+                                Analytics?.trackEvent('ce_partner_account_signup_form', {
+                                    action: 'try_submit',
+                                    ...analyticsData,
+                                })
                                 setSignupStatus('')
                                 onSubmit()
                             }}
@@ -308,6 +337,10 @@ const AffiliateSignupStatus = ({
                         <StyledButton
                             secondary
                             onClick={() => {
+                                Analytics?.trackEvent('ce_partner_account_signup_form', {
+                                    action: 'try_submit',
+                                    ...analyticsData,
+                                })
                                 setSignupStatus('')
                                 onSubmit()
                             }}

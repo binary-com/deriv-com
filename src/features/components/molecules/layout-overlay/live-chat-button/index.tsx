@@ -102,7 +102,6 @@ const LiveChatButton = () => {
         <>
             <Script
                 id="first-unique-id"
-                type="text/partytown"
                 dangerouslySetInnerHTML={{
                     __html: `
                 window.__lc = window.__lc || {};

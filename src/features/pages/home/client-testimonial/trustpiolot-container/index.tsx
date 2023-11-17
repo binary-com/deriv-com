@@ -13,7 +13,7 @@ const TrustpilotContainer = () => {
         <Flex.Box direction="col" justify="center" align="start" gap={'20x'} md={{ basis: '6-12' }}>
             <Script
                 key="trustpilot-widget"
-                type="text/javascript"
+                type="text/partytown"
                 src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
                 strategy="idle"
                 async={true}

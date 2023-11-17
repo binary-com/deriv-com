@@ -5,7 +5,7 @@ const BlogTemplate = (data) => {
     console.log(data, 'www')
     const { strapiPost } = data?.data || {} // Extracting the data object
 
-    const { hero } = strapiPost
+    const { hero } = strapiPost || {}
 
     return (
         <div>
@@ -17,7 +17,7 @@ const BlogTemplate = (data) => {
 }
 
 export const query = graphql`
-    query ($title: String!) {
+    query ($title: String = "") {
         strapiPost(hero: { title: { eq: $title } }) {
             hero {
                 title

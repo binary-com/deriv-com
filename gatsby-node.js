@@ -394,9 +394,8 @@ exports.createPages = async ({ graphql, actions }) => {
     `)
 
     result?.data?.allStrapiPost?.nodes.forEach(({ hero }) => {
-        console.log(hero.title, 'www')
         createPage({
-            path: `/blog/${hero.title}`,
+            path: `/blog/single-blog/${hero.title}`,
             component: path.resolve(`./src/pages/blog/single-blog/index.tsx`),
             context: {
                 title: hero.title,

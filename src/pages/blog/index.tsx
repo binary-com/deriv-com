@@ -12,10 +12,20 @@ const BlogPosts = ({ data }: TBlogPosts) => {
 export default WithIntl()(BlogPosts)
 
 export const query = graphql`
-    query ($title: String!) {
-        strapiPost(hero: { title: { eq: $title } }) {
-            hero {
-                title
+    query {
+        allStrapiPost(sort: { fields: createdAt, order: DESC }, limit: 10) {
+            nodes {
+                createdAt
+                hero {
+                    title
+                    date
+                    tags
+                    banner {
+                        localFile {
+                            publicURL
+                        }
+                    }
+                }
             }
         }
     }

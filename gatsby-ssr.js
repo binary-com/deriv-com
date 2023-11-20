@@ -14,7 +14,6 @@ export const onRenderBody = ({ setHeadComponents }) => {
   const gtmTrackingId = process.env.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID || ''
 
   setHeadComponents([
-      <Partytown key="partytown" debug={true} forward={['dataLayer.push']} />,
       <script
           key="partytown-vanilla-config"
           dangerouslySetInnerHTML={{

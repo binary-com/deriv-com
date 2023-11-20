@@ -377,3 +377,29 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
         },
     })
 }
+
+exports.createPages = async ({ graphql, actions }) => {
+    const { createPage } = actions
+
+    const result = await graphql(`
+        query {
+            allStrapiPost(sort: { fields: createdAt, order: DESC }) {
+                nodes {
+                    hero {
+                        title
+                    }
+                }
+            }
+        }
+    `)
+
+    result?.data?.allStrapiPost?.nodes.forEach(({ hero }) => {
+        createPage({
+            path: `/blog/single-blog/${hero.title}`,
+            component: path.resolve(`./src/pages/blog/single-blog/index.tsx`),
+            context: {
+                title: hero.title,
+            },
+        })
+    })
+}

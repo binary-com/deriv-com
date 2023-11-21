@@ -20,7 +20,7 @@ src
     │   ├── containers/ --- Box templates from various displays, and common container boxes
     │   ├── elements/ --- Common elements `Accordion`, `Image`, `Carousel`, etc..
     │   ├── form/ --- Components inside forms `Input`, `Button`, etc..
-    │   ├── layout/ --- Components inside layout `Nav`, `WizardFooter`, etc..
+    │   ├── layout/ --- Components inside layout `Nav`, `Footer`, etc..
     │   ├── hooks/ --- Reusable hooks that used throughout the project
     │   ├── localization/ --- Components to configure localization
     │   ├── svgs/ --- Customizable SVGs

@@ -37,7 +37,7 @@ const Wizard = ({
     const restricted_countries = ['Iran', 'North Korea', 'Myanmar (Burma)', 'Syria', 'Cuba']
     const [residence_list] = useResidenceList({ restricted_countries })
 
-    const is_individual = affiliate_account.account_type == 1
+    const is_individual = affiliate_account?.account_type == 1
 
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
         form_source: isBrowser() && window?.location.hostname,

@@ -86,7 +86,7 @@ jobs:
                 git clone https://github.com/binary-com/devops-ci-scripts
                 cd devops-ci-scripts/k8s-build_tools
                 echo "${{ env.CA_CRT }}" | base64 --decode > ca.crt
-                ./release.sh deriv-com $GIT_TAG_NAME
+                ./release.sh deriv-com ${{ github.ref_name }}
 
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3

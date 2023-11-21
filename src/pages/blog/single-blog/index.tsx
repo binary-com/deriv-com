@@ -1,9 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-const BlogTemplate = (props: any) => {
-    console.log(props, 'www')
-    const { strapiPost } = props?.data || {} // Extracting the data object
+const BlogTemplate = (data) => {
+    const { strapiPost } = data?.data || {} // Extracting the data object
 
     const { hero } = strapiPost || {}
 

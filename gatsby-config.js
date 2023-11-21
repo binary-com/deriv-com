@@ -48,7 +48,6 @@ module.exports = {
         `https://assets.customer.io/assets/track.js`,
         `https://static.deriv.com/scripts/cookie.js`,
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
-        'https://cdn.livechatinc.com/tracking.js',
     ],
     plugins: [
         // [TODO] Enable this when we have a proper setup to enable caching, Otherwise it will cause one of them stop working.

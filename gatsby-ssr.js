@@ -1,4 +1,5 @@
 import React from 'react'
+import { Partytown } from '@builder.io/partytown/react'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import './src/components/localization/config'
 import GlobalProvider from './src/store/global-provider'
@@ -13,8 +14,10 @@ export const onRenderBody = ({ setHeadComponents }) => {
     const gtmTrackingId = process.env.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID || ''
 
     setHeadComponents([
+        <Partytown key="partytown" forward={['dataLayer.push']} />,
         <script
             key="partytown-vanilla-config"
+            type="text/partytown"
             dangerouslySetInnerHTML={{
                 __html: `partytown = {
           resolveUrl(url, location) {

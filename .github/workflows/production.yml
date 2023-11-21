@@ -79,13 +79,16 @@ jobs:
                   docker push  ${{ secrets.DOCKHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME
 
             - name: Deploy 🚀
+              env: 
+                  KUBE_SERVER: ${{ secrets.KUBE_SERVER }}
+                  SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
+                  CA_CRT: ${{ secrets.CA_CRT }}
+                  NAMESPACE: deriv-com-production
+                  CA: ca.crt
               run: |
-                  echo "NAMESPACE=deriv-com-production" >> $GITHUB_ENV
-                  echo "KUBE_SERVER=${{ secrets.KUBE_SERVER }}" >> $GITHUB_ENV
-                  echo "SERVICEACCOUNT_TOKEN=${{ secrets.SERVICEACCOUNT_TOKEN }}" >> $GITHUB_ENV
                   git clone https://github.com/binary-com/devops-ci-scripts
                   cd devops-ci-scripts/k8s-build_tools
-                  echo ${{ secrets.CA_CRT}} | base64 --decode > ca.crt
+                  echo "${{ env.CA_CRT }}" | base64 --decode > ca.crt
                   ./release.sh deriv-com $GIT_TAG_NAME
 
             - name: Slack Notification 📣

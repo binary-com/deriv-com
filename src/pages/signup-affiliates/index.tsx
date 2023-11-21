@@ -93,7 +93,7 @@ const StyledContainer = styled(Container)`
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
-        padding-top: 70px;
+        padding-top: unset;
     }
 `
 

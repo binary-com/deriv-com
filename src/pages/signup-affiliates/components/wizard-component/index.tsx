@@ -26,6 +26,7 @@ export const Modal = styled.div`
     display: flex;
     flex-direction: column;
     position: fixed;
+    justify-content: space-between;
     top: 50%;
     left: 50%;
     block-size: 80%;
@@ -34,12 +35,15 @@ export const Modal = styled.div`
     background-color: white;
     transform: translate(-50%, -50%);
     z-index: 100;
+    overflow: hidden;
 
     @media ${device.tabletL} {
+        position: unset;
+        transform: unset;
+        border-radius: unset;
         min-inline-size: unset;
-        inline-size: 100%;
-        block-size: 95%;
-        top: 53%;
+        inline-size: 100vw;
+        block-size: calc(100vh - 70px);
     }
 `
 const Wrapper = styled.div`
@@ -70,13 +74,15 @@ const WizardComponent = ({
     return (
         <>
             <Modal>
-                <WizardHeader setSignupStatus={setSignupStatus} />
-                <Stepper step={step} />
-                <Wrapper>
-                    {React.Children.map(children, (child, idx) => (
-                        <div key={child.props.name}>{step === idx + 1 && child}</div>
-                    ))}
-                </Wrapper>
+                <div>
+                    <WizardHeader setSignupStatus={setSignupStatus} />
+                    <Stepper step={step} />
+                    <Wrapper>
+                        {React.Children.map(children, (child, idx) => (
+                            <div key={child.props.name}>{step === idx + 1 && child}</div>
+                        ))}
+                    </Wrapper>
+                </div>
                 <WizardFooter
                     max_step={children.length}
                     step={step}

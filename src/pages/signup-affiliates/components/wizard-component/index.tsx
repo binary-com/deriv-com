@@ -18,9 +18,8 @@ export const Background = styled.div`
     z-index: 10;
 
     @media ${device.tabletL} {
-        background-color: unset;
-        block-size: unset;
-        z-index: 3;
+        block-size: 100%;
+        z-index: unset;
     }
 `
 export const Modal = styled.div`

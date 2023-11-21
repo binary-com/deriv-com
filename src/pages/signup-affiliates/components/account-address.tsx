@@ -6,9 +6,11 @@ import affiliate_validation from '../validations/_affilaite_validation'
 import { useStatesList } from 'features/hooks/use-states-list'
 import { DropdownSearch } from 'components/elements'
 import { localize } from 'components/localization'
+import { TString } from 'types/generics'
 
-const AccountDetails = ({
+const AccountAddress = ({
     affiliate_account,
+    is_individual,
     updateData,
     onValidate,
     residence_list,
@@ -24,6 +26,8 @@ const AccountDetails = ({
     const [city_error_msg, setCityErrorMsg] = useState('')
     const [street_error_msg, setStreetErrorMsg] = useState('')
     const [postcode_error_msg, setPostCodeErrorMsg] = useState('')
+
+    const header_text: TString = is_individual ? '_t_Personal address_t_' : '_t_Company address_t_'
 
     const [states_list] = useStatesList(affiliate_data.country?.symbol)
     useEffect(() => {
@@ -144,7 +148,7 @@ const AccountDetails = ({
 
     return (
         <InputGroup>
-            <AffiliatesHeader translate_text={'_t_Personal address_t_'} />
+            <AffiliatesHeader translate_text={header_text} />
             <InputWrapper>
                 {form_inputs.map((item) => {
                     if (item.name === 'country' || item.name === 'state') {
@@ -188,4 +192,4 @@ const AccountDetails = ({
     )
 }
 
-export default AccountDetails
+export default AccountAddress

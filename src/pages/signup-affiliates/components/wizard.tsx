@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Analytics } from '@deriv/analytics'
 import { WizardProps } from '../_types'
-import AccountType from './_account-type'
-import AccountPlan from './_account-plan'
-import AccountDetails from './_address-details'
-import AccountTerms from './_account-terms'
-import PersonalDetails from './_personal-details'
+import AccountType from './account-type'
+import AccountPlan from './account-plan'
+import AccountAddress from './account-address'
+import AccountTerms from './account-terms'
+import AccountDetails from './account-details'
 import WizardComponent from './wizard-component'
 import { useResidenceList } from 'features/hooks/use-residence-list'
 import { Container } from 'components/containers'
@@ -36,6 +36,8 @@ const Wizard = ({
     const [next_btn_enabled, setNextBtnEnabled] = useState<boolean>(false)
     const restricted_countries = ['Iran', 'North Korea', 'Myanmar (Burma)', 'Syria', 'Cuba']
     const [residence_list] = useResidenceList({ restricted_countries })
+
+    const is_individual = affiliate_account.account_type == 1
 
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
         form_source: isBrowser() && window?.location.hostname,
@@ -142,8 +144,9 @@ const Wizard = ({
                     setNextBtnEnabled(valid)
                 }}
             />
-            <AccountDetails
+            <AccountAddress
                 affiliate_account={affiliate_account}
+                is_individual={is_individual}
                 updateData={(value) => {
                     updateAffiliateValues(value, 'account-details')
                 }}
@@ -152,9 +155,9 @@ const Wizard = ({
                 }}
                 residence_list={residence_list}
             />
-            <PersonalDetails
+            <AccountDetails
                 affiliate_account={affiliate_account}
-                is_individual={affiliate_account.account_type == 1}
+                is_individual={is_individual}
                 updateData={(value) => {
                     updateAffiliateValues(value, 'personal-details')
                 }}

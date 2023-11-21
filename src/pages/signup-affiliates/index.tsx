@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import { Analytics } from '@deriv/analytics'
-import AffiliateSignupForm from './components/_signup-form'
+import AffiliateSignupForm from './components/signup-form'
 import { AffiliateAccountTypes, SignUpStatusTypes, SubmitTypes } from './_types'
 import { isBrowser } from 'common/utility'
 import { WithIntl } from 'components/localization'
@@ -13,8 +13,8 @@ import AtomicContainer from 'features/components/atoms/container'
 import device from 'themes/device'
 import Map from 'images/svg/signup-affiliates/map.svg'
 
-const AffiliateSignupStatus = Loadable(() => import('./components/_signup-status'))
-const Wizard = Loadable(() => import('./components/_wizard'))
+const AffiliateSignupStatus = Loadable(() => import('./components/signup-status'))
+const Wizard = Loadable(() => import('./components/wizard'))
 
 const customSlugify = (text: string): string =>
     text
@@ -98,7 +98,7 @@ const StyledContainer = styled(Container)`
 `
 
 const AffiliateSignup = () => {
-    const [show_wizard, setShowWizard] = useState<boolean>()
+    const [show_wizard, setShowWizard] = useState<boolean>(false)
     const [is_online, setIsOnline] = useState(isBrowser() && navigator.onLine)
     const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>('')
 

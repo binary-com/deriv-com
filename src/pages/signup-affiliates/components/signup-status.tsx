@@ -6,7 +6,6 @@ import AffiliateInput from '../utils/_affiliate-input'
 import { SignUpStatusProps } from '../_types'
 import Image from 'features/components/atoms/image'
 import { localize, Localize } from 'components/localization'
-import { Container } from 'components/containers'
 import { Button } from 'components/form'
 import { Background } from 'pages/signup-affiliates/components/wizard-component'
 import { Header } from 'components/elements'
@@ -15,18 +14,6 @@ import Success from 'images/svg/signup-affiliates/success.svg'
 import Failed from 'images/svg/signup-affiliates/failed.svg'
 import CloseSVG from 'images/svg/custom/close-2.svg'
 
-export const SignUpWrapper = styled(Container)`
-    display: flex;
-    flex-direction: column;
-    padding: 40px;
-    margin: 0;
-    height: 510px;
-    width: 100%;
-    max-width: 486px;
-    background: var(--color-white);
-    border-radius: 6px;
-    box-shadow: 0 12px 16px -4px #0e0e0e14;
-`
 const StyledButton = styled(Button)`
     inline-size: fit-content;
     gap: 8px;
@@ -50,11 +37,11 @@ const Modal = styled.div<{ ai?: string }>`
     flex-direction: column;
     align-items: ${({ ai }) => ai || 'center'};
     justify-content: center;
+    inline-size: 100%;
     max-inline-size: 486px;
-    min-inline-size: 440px;
-    min-block-size: 214px;
     border-radius: 8px;
-    padding: 40px;
+    padding: 24px;
+    gap: 24px;
     transform: translate(-50%, -50%);
     position: fixed;
     top: 50%;
@@ -63,10 +50,11 @@ const Modal = styled.div<{ ai?: string }>`
     box-shadow: 0 20px 24px -4px #0e0e0e14;
 
     @media ${device.tabletL} {
-        min-inline-size: 0;
-        max-inline-size: 0;
-        inline-size: 328px;
-        block-size: 348px;
+        padding: 16px;
+        gap: 16px;
+    }
+    @media ${device.tabletS} {
+        max-inline-size: 328px;
     }
 `
 const StyledSpinner = styled.svg`
@@ -131,7 +119,7 @@ const AffiliateSignupStatus = ({
                         <Header type="subtitle-1" align="center">
                             <Localize translate_text={'_t_Thank you for signing up_t_'} />
                         </Header>
-                        <Header type="paragraph-1" align="center" weight="400" pt="8px">
+                        <Header type="paragraph-1" align="center" weight="400">
                             <Localize translate_text="_t_Your application has been received. We’re processing your application. You can expect to hear back from us within 3 to 5 business days._t_" />
                         </Header>
                         <StyledButton
@@ -160,7 +148,7 @@ const AffiliateSignupStatus = ({
                                 }
                             />
                         </Header>
-                        <Header type="paragraph-1" align="left" weight="400" pt="24px" pb="12px">
+                        <Header type="paragraph-1" align="left" weight="400">
                             <Localize
                                 translate_text="_t_If you hit <0>Yes</0>, the details you entered will be lost, and you’ll need to restart the registration process._t_"
                                 components={[<strong key={0} />]}
@@ -222,7 +210,7 @@ const AffiliateSignupStatus = ({
                         <Header type="subtitle-1" align="center">
                             <Localize translate_text={'_t_Signup failed_t_'} />
                         </Header>
-                        <Header type="paragraph-1" align="center" weight="400" pt="8px">
+                        <Header type="paragraph-1" align="center" weight="400">
                             <Localize translate_text="_t_We’re unable to process your sign-up request at this time. Please try again._t_" />
                         </Header>
                         <StyledButton
@@ -303,7 +291,7 @@ const AffiliateSignupStatus = ({
                         <Header type="subtitle-1" align="center">
                             <Localize translate_text={'_t_Signup failed_t_'} />
                         </Header>
-                        <Header type="paragraph-1" align="center" weight="400" pt="8px" pb="12px">
+                        <Header type="paragraph-1" align="center" weight="400">
                             <Localize translate_text="_t_Your website is not a valid entry. Please enter another:_t_" />
                         </Header>
                         <AffiliateInput

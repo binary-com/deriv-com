@@ -42,9 +42,9 @@ const getCodeName = (num: number) => {
         case 2:
             return 'Account plan'
         case 3:
-            return 'Address details'
+            return 'Address'
         case 4:
-            return 'Personal details'
+            return 'Details'
         case 5:
             return 'Terms of use'
     }

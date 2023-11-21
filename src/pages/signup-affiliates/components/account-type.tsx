@@ -21,13 +21,13 @@ const types: AccountCardProps[] = [
         value: 1,
         icon: IndividualIcon,
         title: '_t_Individual_t_',
-        description: '_t_Register for a individual account_t_',
+        description: '_t_Register for a individual account._t_',
     },
     {
         value: 2,
         icon: BusinessIcon,
-        title: '_t_Legal entity_t_',
-        description: '_t_Register for a business or corporate account_t_',
+        title: '_t_Company_t_',
+        description: '_t_Register for a company account._t_',
     },
 ]
 const AccountType = ({ updateData, affiliate_account, onValidate }: WizardStepProps) => {

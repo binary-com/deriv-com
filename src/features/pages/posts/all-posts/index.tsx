@@ -16,7 +16,7 @@ const AllPostsModule = ({ data }: TBlogPosts) => {
         <Layout>
             <MainNav />
 
-            <Flex.Box margin_block="12x" direction="col" className={styles.posts_wrapper}>
+            <Flex.Box margin_block="40x" direction="col" className={styles.posts_wrapper}>
                 <Typography.Heading as="h2" size="small">
                     <Localize
                         translate_text={'_t_Trading articles: read and learn how to trade_t_'}

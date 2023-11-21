@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { navigate } from 'gatsby'
 import { Analytics } from '@deriv/analytics'
+import Cookies from 'js-cookie'
 import { getLanguage, isBrowser } from 'common/utility'
 import SignUpSuccessContainer from 'features/pages/signup-success'
 import { WithIntl } from 'components/localization'
@@ -14,12 +15,11 @@ const SignupSuccess = () => {
         form_name: 'default_diel_deriv',
     }
     useEffect(() => {
-        const params = new URLSearchParams(location.search)
-        const email = params.get('email')
+        const userEmail = Cookies.get('user_email')
         const locale = getLanguage()
 
-        setRegisteredEmail(email?.replaceAll(' ', '+'))
-        if (!email) {
+        setRegisteredEmail(userEmail?.replaceAll(' ', '+'))
+        if (!userEmail) {
             if (locale !== 'en') navigate(`/${locale}/`, { replace: true })
             else {
                 navigate('/', { replace: true })

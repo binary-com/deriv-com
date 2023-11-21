@@ -84,12 +84,12 @@ jobs:
                   SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
                   CA_CRT: ${{ secrets.CA_CRT }}
                   NAMESPACE: deriv-com-production
-                  CA: ca.crt
               run: |
-                  git clone https://github.com/binary-com/devops-ci-scripts
-                  cd devops-ci-scripts/k8s-build_tools
-                  echo "${{ env.CA_CRT }}" | base64 --decode > ca.crt
-                  ./release.sh deriv-com ${{ github.ref_name }}
+                git clone https://github.com/binary-com/devops-ci-scripts
+                cd devops-ci-scripts/k8s-build_tools
+                echo "${{ env.CA_CRT }}" | base64 --decode > ca.crt
+                export CA="ca.crt"
+                ./release.sh deriv-com ${{ github.ref_name }}
 
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3

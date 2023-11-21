@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 const BlogTemplate = (data) => {
-    console.log(data, 'www')
     const { strapiPost } = data?.data || {} // Extracting the data object
 
     const { hero } = strapiPost || {}

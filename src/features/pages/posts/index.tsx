@@ -7,11 +7,15 @@ import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Link from 'features/components/atoms/link'
 import dclsx from 'features/utils/dclsx'
+import MainNav from 'features/components/templates/navigation/main-nav'
+import Footer from 'features/components/templates/footer'
 
 const PostsModule = ({ data }: TBlogPosts) => {
     const posts = data?.allStrapiPost?.nodes || []
     return (
         <Layout>
+            <MainNav />
+
             <Flex.Box margin_block="12x" direction="col" className={styles.posts_wrapper}>
                 <Typography.Heading as="h2" size="small">
                     <Localize translate_text={'_t_Recent articles_t_'} />
@@ -24,14 +28,20 @@ const PostsModule = ({ data }: TBlogPosts) => {
                         const formattedDate = parsedDate?.format('Do [of] MMMM YYYY')
                         return (
                             <Flex.Box direction="col" key={title} className={styles.image_wrapper}>
-                                <Link url={{ type: 'internal', to: `/blog/${title}` }} no_hover>
+                                <Link
+                                    url={{ type: 'internal', to: `/blog/single-blog/${title}` }}
+                                    no_hover
+                                >
                                     <img
                                         src={banner?.localFile?.publicURL}
                                         className={styles.post_image}
                                     />
                                 </Link>
                                 <div className={dclsx('margin-block-10x')}>
-                                    <Link url={{ type: 'internal', to: `/blog/${title}` }} no_hover>
+                                    <Link
+                                        url={{ type: 'internal', to: `/blog/single-blog/${title}` }}
+                                        no_hover
+                                    >
                                         <Typography.Heading as="h3" size="xxs">
                                             <Localize translate_text={`_t_${title}_t_`} />
                                         </Typography.Heading>
@@ -50,6 +60,7 @@ const PostsModule = ({ data }: TBlogPosts) => {
                     })}
                 </Flex.Box>
             </Flex.Box>
+            <Footer />
         </Layout>
     )
 }

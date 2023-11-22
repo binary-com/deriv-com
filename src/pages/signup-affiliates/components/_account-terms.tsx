@@ -41,7 +41,7 @@ const CheckBox = styled.input`
     margin-inline-end: 8px;
 `
 
-const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepProps) => {
+const _accountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepProps) => {
     const affiliate_data = affiliate_account.terms_of_use
     const [terms_of_use, setTermsOfUse] = useState(affiliate_data)
 
@@ -136,4 +136,4 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
         </MainWrapper>
     )
 }
-export default AccountTerms
+export default _accountTerms

@@ -8,7 +8,7 @@ import { DropdownSearch } from 'components/elements'
 import { localize } from 'components/localization'
 import { TString } from 'types/generics'
 
-const AccountAddress = ({
+const _accountAddress = ({
     affiliate_account,
     is_individual,
     updateData,
@@ -192,4 +192,4 @@ const AccountAddress = ({
     )
 }
 
-export default AccountAddress
+export default _accountAddress

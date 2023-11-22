@@ -18,6 +18,10 @@ export const simple_step_content_stock: TSimpleStepContent[] = [
         header: '_t_Withdraw_t_',
         text: '_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_',
     },
+    {
+        header: '_t_Monthly deals_t_',
+        text: '_t_sdsd_t_',
+    },
 ]
 
 const stocks: TMarket[] = [

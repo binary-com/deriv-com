@@ -84,6 +84,7 @@ jobs:
                   SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
                   CA_CRT: ${{ secrets.CA_CRT }}
                   NAMESPACE: deriv-com-production
+                  DOCKHUB_ORGANISATION: ${{ secrets.DOCKHUB_ORGANISATION }}
               run: |
                 git clone https://github.com/binary-com/devops-ci-scripts
                 cd devops-ci-scripts/k8s-build_tools

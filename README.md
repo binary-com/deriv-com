@@ -8,7 +8,6 @@ Deriv.com - An online trading platform that offers a wide selection of derivativ
 ![Sonar Violations (short format)](https://img.shields.io/sonar/violations/binary-com_deriv-com?server=https%3A%2F%2Fsonarcloud.io)
 
 ## In this document:
-
 -   [Other documents](#other-documents)
 -   [Pre-installation](#pre-installation)
 -   [Quick start](#quick-start)
@@ -21,7 +20,6 @@ Deriv.com - An online trading platform that offers a wide selection of derivativ
 -   [FAQ](#faq)
 
 ## Other Documents
-
 -   [General implementation](documents/implementation-guide.md) - Contain ways to do development in deriv.com
 -   [Development guidelines](documents/development-guidelines.md) - Contain advice for developers working on this project
 -   [Git best practice](documents/git-best-practices.md) - Contain git practices and commit guidelines
@@ -31,7 +29,6 @@ Deriv.com - An online trading platform that offers a wide selection of derivativ
 -   [Typescript guidelines](documents/typescript-guidelines.md) - Contains Typescript guidelines and conventions for this project
 
 ## Pre-installation
-
 Before running or contribute to this project, you need to have the setup of the following packages in your environment
 
 -   node >=18.12.1
@@ -49,7 +46,6 @@ Moreover, having these extensions will help you to speed up the development proc
 -   Eslint: setup in your editor https://eslint.org/ (or you can run `npm run eslint`)
 
 ## Quick start
-
 1.  **Fork the project**
 
     In order to work on your own version of the Deriv application, please fork the project to your own repo.
@@ -93,11 +89,9 @@ Moreover, having these extensions will help you to speed up the development proc
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
 ## How to contribute
-
 We have two types of PR (Pull request):
 
 ### Base **Master**
-
 PR will be based on the master branch if the commits are not having text changes
 
 1. Create branch from the latest master branch
@@ -123,7 +117,6 @@ PR will be based on the master branch if the commits are not having text changes
 -   Make sure to change the PR base to `master` branch
 
 ### Base Crowdin
-
 PR will be based on crowdin branch if the commits are having text changes
 
 1. Create branch from latest crowdin branch
@@ -161,7 +154,6 @@ PR will be based on crowdin branch if the commits are having text changes
 -   Make sure to change the PR base to `crowdin` branch
 
 ## Manage translations
-
 -   Pre-requisite:
 
     -   Install crowdin-cli
@@ -206,7 +198,6 @@ PR will be based on crowdin branch if the commits are having text changes
 **Note**: Don't forget to create a pull request to update crowdin branch
 
 ## Manage releases
-
 There are 2 types of releases:
 
 1. Release to staging:
@@ -236,7 +227,6 @@ Example of release steps
     ```
 
 ## Test link deployment
-
 There are two types of test link deployment preview:
 
 1. Automatic deployment
@@ -266,7 +256,6 @@ If preferable to use manual deployment, you can use [gh-pages](https://pages.git
 ⚠️ You have to enable pathPrefix in gatsby-config for manual deployment, otherwise, the resources will not be uploaded to the site
 
 ## FAQ
-
 -   [how to create a new page?](documents/implementation-guide.md#create-new-page)
 -   [how to insert an image?](documents/implementation-guide.md#image-component)
 -   [how to style my element?](documents/implementation-guide.md#styled-component)

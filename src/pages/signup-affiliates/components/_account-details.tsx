@@ -298,7 +298,10 @@ const AccountDetails = ({
                     } else if (item.name === 'username') {
                         return (
                             <>
-                                <AffiliatesHeader translate_text={'_t_Personal address_t_'} sized />
+                                <AffiliatesHeader
+                                    translate_text={'_t_Affiliate account details_t_'}
+                                    sized
+                                />
                                 <AffiliateInput
                                     id={item.id}
                                     key={item.id}

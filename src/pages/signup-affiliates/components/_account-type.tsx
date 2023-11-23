@@ -21,7 +21,7 @@ const types: AccountCardProps[] = [
         value: 1,
         icon: IndividualIcon,
         title: '_t_Individual_t_',
-        description: '_t_Register for a individual account._t_',
+        description: '_t_Register for an individual account._t_',
     },
     {
         value: 2,

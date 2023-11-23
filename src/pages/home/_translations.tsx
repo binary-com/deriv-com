@@ -1,5 +1,6 @@
 export const translation_strings = [
-    '_t_Trading for anyone.Anywhere. Anytime._t_',
+    '_t_Trading for anyone.',
+    '_t_Anywhere. Anytime._t_',
     '_t_Trade CFDs and Options on 1500+ instruments, all in one place with 24/7 trading and 24/7 worldwide support._t_',
     '_t_Our customers say_t_',
     '_t_Users worldwide_t_',

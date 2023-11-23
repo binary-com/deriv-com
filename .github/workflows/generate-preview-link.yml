@@ -68,26 +68,6 @@ jobs:
                   number: ${{steps.pr_information.outputs.issue_number}}
                   message: ${{steps.generate_action_url.outputs.comment}}
                   recreate: true
-
-            - name: Verify user organization
-              id: verify_user_organization
-              run: |
-                  echo "Verifying user's organization..."
-                  user=$(cat .pr/USERNAME)
-                  response=$(curl -s -L \
-                      -w "%{http_code}" \
-                      -o /dev/null -H "Accept: application/vnd.github+json" \
-                      -H "Authorization: Bearer ${{ secrets.PERSONAL_ACCESS_TOKEN }}" \
-                      -H "X-GitHub-Api-Version: 2022-11-28" \
-                      "https://api.github.com/orgs/binary-com/memberships/$user")
-                      
-                  if [ $response != "200" ]; then
-                      echo "User is not a member of binary-com organization."
-                      exit 1
-                  else
-                      echo "User is a member of binary-com organization."
-                      echo "Proceeding to build and deploy for the pull request: https://github.com/binary-com/deriv-com/pull/$(cat ./NR)"
-                  fi
             - name: Setup node
               uses: actions/setup-node@v2
 

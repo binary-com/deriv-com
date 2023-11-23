@@ -9,6 +9,7 @@ Deriv.com - An online trading platform that offers a wide selection of derivativ
 
 ## In this document:
 
+
 -   [Other documents](#other-documents)
 -   [Pre-installation](#pre-installation)
 -   [Quick start](#quick-start)

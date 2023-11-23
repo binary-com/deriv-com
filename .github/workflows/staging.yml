@@ -23,6 +23,7 @@ env:
     GATSBY_RUDDERSTACK_STAGING_KEY: ${{ secrets.GATSBY_RUDDERSTACK_STAGING_KEY }}
     GATSBY_RUDDERSTACK_PRODUCTION_KEY: ${{ secrets.GATSBY_RUDDERSTACK_PRODUCTION_KEY }}
     GATSBY_STRAPI_TOKEN: ${{ secrets.GATSBY_STRAPI_TOKEN }}
+    GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID: ${{ secrets.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID }}
 
 jobs:
     release-staging:
@@ -49,7 +50,6 @@ jobs:
               # For using same tag for staging and production we need to uncomment these two below lines:
               # with:
               #   tagRegex: "staging(.*)"
-
             - name: Deploy to Cloudflare ☁️
               uses: cloudflare/wrangler-action@2.0.0
               with:
@@ -59,6 +59,35 @@ jobs:
 
             - name: Cloudflare preview link ✨
               run: echo "New staging website - http://staging.cf-pages-deriv-com.deriv.com"
+
+            - name: Building docker image 🐳
+              run: docker build -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
+
+            - name: Verify nginx image
+              run: |
+                set -e
+                docker run --rm ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA nginx -t
+                echo "docker image validated successfully"
+
+            - name: Pushing Image to docker hub 🐳
+              run: |
+                echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+                docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest-staging
+                docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA
+
+            - name: Deploy 🚀
+              env: 
+                KUBE_SERVER: ${{ secrets.KUBE_SERVER }}
+                SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
+                CA_CRT: ${{ secrets.CA_CRT }}
+                NAMESPACE: deriv-com-staging
+                DOCKERHUB_ORGANISATION: ${{ secrets.DOCKERHUB_ORGANISATION }}
+              run: |
+                git clone https://github.com/binary-com/devops-ci-scripts
+                cd devops-ci-scripts/k8s-build_tools
+                echo "${{ env.CA_CRT }}" | base64 --decode > ca.crt
+                export CA="ca.crt"
+                ./release.sh deriv-com ${GITHUB_SHA}
 
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3

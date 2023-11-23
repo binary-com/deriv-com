@@ -1,0 +1,47 @@
+name: Sync Translators Branch
+
+permissions:
+  actions: write
+  checks: write
+  contents: write
+  deployments: write
+  pull-requests: write
+  statuses: write
+  
+on:
+  push:
+    branches:
+        - 'master*'
+        
+jobs:
+    sync-translation:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v4.1.1
+            - name: Setup Node
+              uses: actions/setup-node@v4.0.0
+              with:
+                  node-version: '18.x'
+            - name: Sync Master to Translators branch 🔀
+              run: |
+                  branch_name="master_translations"
+
+                  echo "Setting up Git identity"
+                  git config --global user.name "DerivFE"
+                  git config --global user.email "80095553+DerivFE@users.noreply.github.com"
+
+                  echo "Checking out new branch [$branch_name]"
+                  git checkout -b "$branch_name"
+
+                  # Force push to this branch in case a previous run created it.
+                  git push --set-upstream origin "$branch_name" -f
+
+                  sudo apt install gh
+                  gh auth login --with-token <<< ${{ github.token }}
+                  gh pr close "$branch_name" || true
+                  gh pr create --base "translators" --title "[translators] Update translators branch with master 📚" --head "binary-com:$branch_name" --body "This is an automated PR designed to keep the translators' branch up to date, ensuring that all newly added strings are available for translation."
+
+                
+                
+

@@ -44,9 +44,12 @@ export const Modal = styled.div`
         border-radius: unset;
         min-inline-size: unset;
         inline-size: 100vw;
-        block-size: calc(100vh - 120px);
+        block-size: calc(100vh - 150px);
         overflow: scroll;
     }
+`
+const Container = styled.div`
+    overflow: scroll;
 `
 const Content = styled.div`
     block-size: fit-content;
@@ -76,7 +79,7 @@ const WizardComponent = ({
     return (
         <>
             <Modal>
-                <div>
+                <Content>
                     <WizardHeader setSignupStatus={setSignupStatus} />
                     <Stepper step={step} />
                     <Content>
@@ -84,7 +87,7 @@ const WizardComponent = ({
                             <div key={child.props.name}>{step === idx + 1 && child}</div>
                         ))}
                     </Content>
-                </div>
+                </Content>
                 <WizardFooter
                     max_step={children.length}
                     step={step}

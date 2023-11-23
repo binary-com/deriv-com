@@ -19,6 +19,7 @@ export const Background = styled.div`
 
     @media ${device.tabletL} {
         block-size: 100%;
+        opacity: 0;
         z-index: unset;
     }
 `
@@ -43,10 +44,11 @@ export const Modal = styled.div`
         border-radius: unset;
         min-inline-size: unset;
         inline-size: 100vw;
-        block-size: calc(100vh - 70px);
+        block-size: calc(100vh - 120px);
+        overflow: scroll;
     }
 `
-const Wrapper = styled.div`
+const Content = styled.div`
     block-size: fit-content;
     overflow-x: auto;
 `
@@ -77,11 +79,11 @@ const WizardComponent = ({
                 <div>
                     <WizardHeader setSignupStatus={setSignupStatus} />
                     <Stepper step={step} />
-                    <Wrapper>
+                    <Content>
                         {React.Children.map(children, (child, idx) => (
                             <div key={child.props.name}>{step === idx + 1 && child}</div>
                         ))}
-                    </Wrapper>
+                    </Content>
                 </div>
                 <WizardFooter
                     max_step={children.length}

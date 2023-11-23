@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Analytics } from '@deriv/analytics'
 import { WizardProps } from '../_types'
-import _accountType from './_account-type'
-import _accountPlan from './_account-plan'
-import _accountAddress from './_account-address'
-import _accountTerms from './_account-terms'
-import _accountDetails from './_account-details'
+import AccountType from './_account-type'
+import AccountPlan from './_account-plan'
+import AccountAddress from './_account-address'
+import AccountTerms from './_account-terms'
+import AccountDetails from './_account-details'
 import WizardComponent from './wizard-component'
 import { useResidenceList } from 'features/hooks/use-residence-list'
 import { Container } from 'components/containers'
@@ -25,7 +25,7 @@ export const SignUpWrapper = styled(Container)`
     box-shadow: 0 12px 16px -4px #0e0e0e14;
 `
 
-const _wizard = ({
+const Wizard = ({
     show_wizard,
     setSignupStatus,
     affiliate_account,
@@ -126,7 +126,7 @@ const _wizard = ({
             setNextBtnEnabled={setNextBtnEnabled}
             onSubmit={onSubmit}
         >
-            <_accountType
+            <AccountType
                 affiliate_account={affiliate_account}
                 updateData={(value) => {
                     updateAffiliateValues(value, 'account-type')
@@ -135,7 +135,7 @@ const _wizard = ({
                     setNextBtnEnabled(valid)
                 }}
             />
-            <_accountPlan
+            <AccountPlan
                 affiliate_account={affiliate_account}
                 updateData={(value) => {
                     updateAffiliateValues(value, 'account-plan')
@@ -144,7 +144,7 @@ const _wizard = ({
                     setNextBtnEnabled(valid)
                 }}
             />
-            <_accountAddress
+            <AccountAddress
                 affiliate_account={affiliate_account}
                 is_individual={is_individual}
                 updateData={(value) => {
@@ -155,7 +155,7 @@ const _wizard = ({
                 }}
                 residence_list={residence_list}
             />
-            <_accountDetails
+            <AccountDetails
                 affiliate_account={affiliate_account}
                 is_individual={is_individual}
                 updateData={(value) => {
@@ -165,7 +165,7 @@ const _wizard = ({
                     setNextBtnEnabled(valid)
                 }}
             />
-            <_accountTerms
+            <AccountTerms
                 affiliate_account={affiliate_account}
                 updateData={(value) => {
                     updateAffiliateValues(value, 'terms-of-use')
@@ -178,4 +178,4 @@ const _wizard = ({
     )
 }
 
-export default _wizard
+export default Wizard

@@ -47,6 +47,7 @@ export const InputWrapper = styled.div`
 
     @media ${device.tabletL} {
         inline-size: 95%;
+        margin-bottom: 0;
     }
 `
 

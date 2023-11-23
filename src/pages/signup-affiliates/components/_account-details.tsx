@@ -6,7 +6,7 @@ import AffiliateInput from '../utils/_affiliate-input'
 import AffiliatesHeader, { InputGroup, InputWrapper } from '../utils/_affiliate-header'
 import { localize } from 'components/localization'
 
-const _accountDetails = ({
+const AccountDetails = ({
     is_individual,
     affiliate_account,
     updateData,
@@ -346,4 +346,4 @@ const _accountDetails = ({
         </InputGroup>
     )
 }
-export default _accountDetails
+export default AccountDetails

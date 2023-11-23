@@ -8,7 +8,7 @@ import { DropdownSearch } from 'components/elements'
 import { localize } from 'components/localization'
 import { TString } from 'types/generics'
 
-const _accountAddress = ({
+const AccountAddress = ({
     affiliate_account,
     is_individual,
     updateData,
@@ -62,7 +62,9 @@ const _accountAddress = ({
             id: 'dm-country-select',
             name: 'country',
             type: 'select',
-            label: localize('_t_Country of residence*_t_'),
+            label: is_individual
+                ? localize('_t_Country of residence*_t_')
+                : localize('_t_Country*_t_'),
             required: true,
             error: country_error_msg,
             value: country,
@@ -192,4 +194,4 @@ const _accountAddress = ({
     )
 }
 
-export default _accountAddress
+export default AccountAddress

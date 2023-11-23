@@ -30,7 +30,7 @@ const types: AccountCardProps[] = [
         description: '_t_Register for a company account._t_',
     },
 ]
-const _accountType = ({ updateData, affiliate_account, onValidate }: WizardStepProps) => {
+const AccountType = ({ updateData, affiliate_account, onValidate }: WizardStepProps) => {
     const [account_type, setAccountType] = useState(affiliate_account.account_type)
 
     useEffect(() => {
@@ -65,4 +65,4 @@ const _accountType = ({ updateData, affiliate_account, onValidate }: WizardStepP
         </MainWrapper>
     )
 }
-export default _accountType
+export default AccountType

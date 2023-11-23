@@ -68,7 +68,7 @@ const StyledFlex = styled(Container)`
         justify-content: flex-start;
         max-inline-size: 328px;
         block-size: 100%;
-        padding-block: 40px 23px;
+        padding-block: 24px;
     }
 `
 export const SignUpWrapper = styled(Container)`
@@ -169,7 +169,10 @@ const AffiliateSignupForm = ({
                 <EmailButton
                     type="submit"
                     secondary
-                    onClick={() => setShowWizard(true)}
+                    onClick={() => {
+                        window.scrollTo(0, 0)
+                        setShowWizard(true)
+                    }}
                     disabled={!(affiliate_account.email && !email_error_msg)}
                 >
                     <Localize translate_text={'_t_Create partner account_t_'} />

@@ -40,7 +40,7 @@ const plans: AccountCardProps[] = [
         note: '_t_<0>Note:</0> This plan is available exclusively for EU-based clients only._t_',
     },
 ]
-const _accountPlan = ({ updateData, affiliate_account, onValidate }: WizardStepProps) => {
+const AccountPlan = ({ updateData, affiliate_account, onValidate }: WizardStepProps) => {
     const [account_plan, setAccountPlan] = useState(affiliate_account.account_plan)
 
     useEffect(() => {
@@ -74,4 +74,4 @@ const _accountPlan = ({ updateData, affiliate_account, onValidate }: WizardStepP
         </MainWrapper>
     )
 }
-export default _accountPlan
+export default AccountPlan

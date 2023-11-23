@@ -179,6 +179,10 @@ const AffiliateSignup = () => {
                 partner_signup_error_message,
                 ...analyticsData,
             })
+            Analytics?.trackEvent('ce_partner_account_signup_form', {
+                action: 'failed_popup_opened',
+                ...analyticsData,
+            })
             setSignupStatus(partner_signup_error_message)
         } else if (
             partner_signup_error_message == 'Your website is not a valid entry' ||
@@ -190,11 +194,19 @@ const AffiliateSignup = () => {
                 partner_signup_error_message,
                 ...analyticsData,
             })
+            Analytics?.trackEvent('ce_partner_account_signup_form', {
+                action: 'failed_popup_opened',
+                ...analyticsData,
+            })
             setSignupStatus('Your website is not a valid entry')
         } else if (partner_signup_error_message) {
             Analytics?.trackEvent('ce_partner_account_signup_form', {
                 action: 'other_error',
                 partner_signup_error_message,
+                ...analyticsData,
+            })
+            Analytics?.trackEvent('ce_partner_account_signup_form', {
+                action: 'failed_popup_opened',
                 ...analyticsData,
             })
         }

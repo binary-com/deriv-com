@@ -22,7 +22,7 @@ const StyledFooter = styled.div`
     z-index: 2;
 
     @media ${device.tabletL} {
-        position: unset;
+        position: fixed;
         justify-content: center;
     }
 `

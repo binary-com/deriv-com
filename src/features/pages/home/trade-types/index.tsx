@@ -1,4 +1,6 @@
 import React, { useMemo } from 'react'
+import { Button } from '@deriv/quill-design'
+import { StatBlock } from '@deriv-com/blocks'
 import { tradeTypesItems } from './data'
 import TradeTypeItem from './trade-type.item'
 import Container from 'features/components/atoms/container'
@@ -25,6 +27,10 @@ const TradeTypes = () => {
             padding_block="16x"
             md={{ padding_block: '40x' }}
         >
+            <Button variant="secondary" colorStyle="black" onClick={() => console.log('clicked')}>
+                Hello World
+            </Button>
+
             <Typography.Heading as="h2" size="large" align="center" mb="10x" textcolor="inverted">
                 <Localize translate_text="_t_Trade types_t_" />
             </Typography.Heading>

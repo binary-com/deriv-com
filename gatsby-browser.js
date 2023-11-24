@@ -18,6 +18,7 @@ import {
 import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
 import './static/css/ubuntu.css'
+import './static/css/global.css'
 
 const is_browser = typeof window !== 'undefined'
 

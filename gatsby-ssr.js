@@ -41,7 +41,6 @@ export const onRenderBody = ({ setHeadComponents }) => {
                 type="text/partytown"
                 async
                 defer
-                fetchpriority="low"
                 src={`https://www.googletagmanager.com/gtm.js?id=${gtmTrackingId}`}
             ></script>
         ),

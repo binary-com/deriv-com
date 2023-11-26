@@ -139,7 +139,9 @@ export const onClientEntry = () => {
     updateURLAsPerUserLanguage()
 }
 
-export const onRouteUpdate = () => {
+export const onRouteUpdate = ({ location }) => {
+    Analytics.pageView(location.pathname, 'Deriv.com')
+
     checkDomain()
     // can't be resolved by package function due the gatsby architecture
     window?._growthbook?.GrowthBook?.setURL(window.location.href)

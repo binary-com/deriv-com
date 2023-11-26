@@ -19,7 +19,7 @@
         "emitDecoratorMetadata": true,
         "noEmit": true,
         "skipLibCheck": true,
-        "moduleResolution": "Bundler",
+        "moduleResolution": "node",
         "module": "ESNext",
         "resolveJsonModule": true,
         "downlevelIteration": true,

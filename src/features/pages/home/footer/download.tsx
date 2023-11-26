@@ -21,7 +21,7 @@ const DownloadBadges = () => {
                     src="../../../../images/common/migration/footer/get-googleplay.png"
                     alt={localize('_t_get it on google play_t_')}
                     loading="eager"
-                    formats={['avif', 'webp', 'auto']}
+                    formats={['webp', 'auto']}
                 />
             </div>
             <div className={clsx(sharedClasses)}>
@@ -30,7 +30,7 @@ const DownloadBadges = () => {
                     src="../../../../images/common/migration/footer/download-appstore.png"
                     alt={localize('_t_download on the app store_t_')}
                     loading="eager"
-                    formats={['avif', 'webp', 'auto']}
+                    formats={['webp', 'auto']}
                 />
             </div>
             <div className={clsx(sharedClasses)}>
@@ -39,7 +39,7 @@ const DownloadBadges = () => {
                     src="../../../../images/common/migration/footer/explore-appgallery.png"
                     alt={localize('_t_explore it on appgallery_t_')}
                     loading="eager"
-                    formats={['avif', 'webp', 'auto']}
+                    formats={['webp', 'auto']}
                 />
             </div>
         </div>

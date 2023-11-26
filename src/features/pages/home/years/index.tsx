@@ -2,7 +2,7 @@ import React from 'react'
 import { Features } from '@deriv-com/blocks'
 import { CardContent } from '@deriv-com/components'
 // eslint-disable-next-line import/no-unresolved
-import { StandaloneRectangleAdBoldIcon } from '@deriv/quill-icons'
+import { StandaloneRectangleAdBoldIcon } from '@deriv/quill-icons/Standalone'
 import { localize } from 'components/localization'
 
 const cards: CardContent[] = [

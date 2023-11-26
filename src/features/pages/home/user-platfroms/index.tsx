@@ -10,7 +10,7 @@ import {
     PartnersProductDerivCtraderBrandLightLogoHorizontalIcon,
     PartnersProductDerivMt5BrandLightLogoHorizontalIcon,
     // eslint-disable-next-line import/no-unresolved
-} from '@deriv/quill-icons'
+} from '@deriv/quill-icons/Logo'
 import { localize } from 'components/localization'
 
 const cards: CardContent[] = [

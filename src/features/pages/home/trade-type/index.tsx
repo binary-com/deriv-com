@@ -6,7 +6,7 @@ import {
     IllustrativeMultipleMarketsIcon,
     IllustrativeOptionsIcon,
     // eslint-disable-next-line import/no-unresolved
-} from '@deriv/quill-icons'
+} from '@deriv/quill-icons/Illustrative'
 import { localize } from 'components/localization'
 
 const cards: CardContent[] = [

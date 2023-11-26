@@ -91,6 +91,10 @@ jobs:
             - name: Setup node
               uses: actions/setup-node@v2
 
+            - name: Create npmrc file
+              shell: bash
+              run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' > .npmrc
+
             - name: Get build output from master cache
               uses: actions/cache/restore@v3
               with:
@@ -121,7 +125,7 @@ jobs:
                   GATSBY_RUDDERSTACK_PRODUCTION_KEY: ${{ secrets.GATSBY_RUDDERSTACK_PRODUCTION_KEY }}
                   GATSBY_STRAPI_TOKEN: ${{ secrets.GATSBY_STRAPI_TOKEN }}
                   GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID: ${{ secrets.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID }}
-                  
+
               run: npm run build
 
             - name: Publish to Cloudflare Pages

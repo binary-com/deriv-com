@@ -9,6 +9,7 @@ import StatSection from './stats'
 import UserFriendlyPlatforms from './user-platfroms'
 import TradeTypeSection from './trade-type'
 import MainRowNavigation from './navigation'
+import HomeHero from './hero'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 
 const HomePage = () => {
@@ -19,6 +20,7 @@ const HomePage = () => {
             <ThemeProvider>
                 <Layout>
                     <MainRowNavigation />
+                    <HomeHero />
                     <PageLayout>
                         <StatSection />
                         <TwentyYearsStrong />

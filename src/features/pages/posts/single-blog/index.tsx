@@ -20,13 +20,14 @@ const PostModule = (data: any) => {
             <Flex.Box
                 direction="col"
                 align="center"
-                style={{ fontSize: '1.6rem', margin: '100px auto', inlineSize: '128rem' }}
+                style={{ fontSize: '1.6rem', margin: '10rem auto', inlineSize: '128rem' }}
             >
                 <Flex.Box
                     direction="row"
                     style={{
                         justifyContent: 'space-between',
-                        marginBlockEnd: '50px',
+                        marginBlockEnd: '5rem',
+                        gap: '16.8rem',
                     }}
                 >
                     <Flex.Box direction="col" gap="31x" justify="center">
@@ -61,7 +62,7 @@ const PostModule = (data: any) => {
                         <img
                             src={hero?.banner?.localFile?.publicURL}
                             alt=""
-                            width="800px"
+                            width="80rem"
                             height="auto"
                         />
                     </div>

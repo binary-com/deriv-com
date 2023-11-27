@@ -21,7 +21,8 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
             <StaticImage
                 src="../../../../images/migration/home/home_hero_bg.png"
                 alt="hero image"
-                className="w-full absolute inset-general-none -z-10"
+                className="w-full -z-10"
+                style={{ position: 'absolute', inset: 0 }}
             />
             <FluidContainer className="h-full flex flex-col justify-end">
                 <div

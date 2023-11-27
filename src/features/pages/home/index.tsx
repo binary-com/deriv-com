@@ -20,8 +20,8 @@ const HomePage = () => {
             <ThemeProvider theme="light">
                 <Layout>
                     <MainRowNavigation />
-                    <HomeHero />
                     <PageLayout>
+                        <HomeHero />
                         <StatSection />
                         <TwentyYearsStrong />
                         <LiveMarketSection />

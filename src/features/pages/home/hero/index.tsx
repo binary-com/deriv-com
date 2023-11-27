@@ -2,69 +2,84 @@ import React, { ReactNode } from 'react'
 import { Button, FluidContainer, Heading, Section, Text } from '@deriv/quill-design'
 import clsx from 'clsx'
 import { StaticImage } from 'gatsby-plugin-image'
+import {
+    hero_content,
+    hero_content_btn,
+    hero_content_award_img,
+    hero_content_gradient,
+} from './styles.module.scss'
 import { Localize } from 'components/localization'
-
-const Content = () => {
-    return (
-        <StaticImage
-            src="../../../../images/migration/home/home_hero_new.png"
-            alt="hero image"
-            className="right-50"
-        />
-    )
-}
 
 export interface HomeHeroProps {
     children?: ReactNode
     className?: string
 }
 
-// TODO: This whole component needs to be refactored, I just updated some stuff to make it work.
-const HomeHero: React.FC<HomeHeroProps> = ({ children, className }) => {
+const HomeHero: React.FC<HomeHeroProps> = () => {
     return (
-        <Section
-            // todo: we need 72px gap for desktop 48px gap for mobile and tablet
-            className={clsx(
-                'relative mx-auto flex max-w-[2048px] flex-col items-center justify-center gap-general-4xl pt-general-4xl lg:block lg:min-h-[680px] lg:pt-general-2xl xl:min-h-screen',
-                className,
-            )}
-        >
+        <Section className="h-[700px] md:h-[880px] relative isolate">
             <StaticImage
                 src="../../../../images/migration/home/home_hero_bg.png"
                 alt="hero image"
-                className="h-[calc(100vh-96px)] w-full absolute top-0 left-0 z-0 bg-cover bg-no-repeat"
+                className="w-full -z-10"
+                style={{ position: 'absolute', inset: 0 }}
             />
-            <FluidContainer className="flex items-center lg:min-h-[680px] xl:min-h-[860px] z-40">
-                <div className="flex flex-col gap-gap-3xl lg:max-w-[580px] z-50">
-                    <Heading.H1 className="text-solid-slate-50">
-                        <Localize translate_text="_t_Trading for anyone.Anywhere. Anytime._t_" />
+            <FluidContainer className="h-full flex flex-col justify-end">
+                <div
+                    className={clsx(
+                        'flex flex-col items-center md:items-start md:w-5/12 md:mt-auto lg:w-1/2',
+                        hero_content,
+                    )}
+                >
+                    <Heading.H1 className="text-solid-slate-50 text-500 lg:text-heading-h1">
+                        <Localize translate_text="_t_Trading for anyone. Anywhere. Anytime._t_" />
                     </Heading.H1>
-                    <Text size="md" className="text-solid-slate-50">
+                    <Text size="md" className="text-solid-slate-50 mt-general-md">
                         <Localize translate_text="_t_Trade CFDs and Options on 1500+ instruments, all in one place with 24/7 trading and 24/7 worldwide support._t_" />
                     </Text>
-                    <div>
-                        <Button size="lg" variant="primary" colorStyle="coral">
-                            <Localize translate_text="_t_Open demo account_t_" />
-                        </Button>
-                    </div>
-                    {children}
+                    <Button
+                        size="lg"
+                        variant="primary"
+                        colorStyle="coral"
+                        className={clsx('mt-general-2xl', hero_content_btn)}
+                    >
+                        <Localize translate_text="_t_Open demo account_t_" />
+                    </Button>
+                </div>
+                <div
+                    className={clsx(
+                        'flex mt-general-2xl md:mt-auto pb-general-xl',
+                        hero_content_award_img,
+                    )}
+                >
+                    <StaticImage
+                        src="../../../../images/migration/home/award-1.png"
+                        alt="award"
+                        width={132}
+                        height={68}
+                    />
+                    <StaticImage
+                        src="../../../../images/migration/home/award-2.png"
+                        alt="award"
+                        width={132}
+                        height={68}
+                    />
+                    <StaticImage
+                        src="../../../../images/migration/home/award-3.png"
+                        alt="award"
+                        width={132}
+                        height={68}
+                    />
                 </div>
             </FluidContainer>
-            <div
-                className={clsx('relative w-full lg:hidden')}
-                data-testid="content-limitless__mobile-big-red"
-            >
-                <Content />
+            <div className="absolute inset-50 flex items-end -right-3600 -z-10 md:left-auto lg:right-general-5xl">
+                <StaticImage
+                    src="../../../../images/migration/home/home_hero_new.png"
+                    alt="hero image"
+                    className="w-[439px] h-[610px] md:w-[566px] md:h-[768px]"
+                />
             </div>
-            <div
-                className={clsx('absolute right-3000 top-50 hidden h-full w-1/3 lg:block')}
-                data-testid="content-limitless__desktop-big-red"
-            >
-                <div className="absolute bottom-50 w-full">
-                    <Content />
-                </div>
-            </div>
-            <div className="bg-solid-slate-1400 w-full z-50 h-[50px] absolute bottom-50"></div>
+            <div className={clsx('absolute -z-10 inset-50', hero_content_gradient)}></div>
         </Section>
     )
 }

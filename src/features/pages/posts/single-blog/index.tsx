@@ -20,12 +20,11 @@ const PostModule = (data: any) => {
             <Flex.Box
                 direction="col"
                 align="center"
-                style={{ fontSize: '1.6rem', margin: '100px 320px' }}
+                style={{ fontSize: '1.6rem', margin: '100px auto', inlineSize: '128rem' }}
             >
                 <Flex.Box
                     direction="row"
                     style={{
-                        inlineSize: '100%',
                         justifyContent: 'space-between',
                         marginBlockEnd: '50px',
                     }}

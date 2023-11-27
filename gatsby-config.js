@@ -59,6 +59,7 @@ module.exports = {
         //         // precachePages: [`/`],
         //     },
         // },
+        'gatsby-plugin-postcss',
         {
             resolve: 'gatsby-plugin-sass',
             options: {

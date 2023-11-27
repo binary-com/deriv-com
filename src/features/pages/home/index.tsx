@@ -1,37 +1,37 @@
 import React from 'react'
-import loadable from '@loadable/component'
+import { PageLayout } from '@deriv-com/components'
+import { BreakpointProvider, ThemeProvider } from '@deriv/quill-design'
 import Layout from 'features/components/templates/layout'
+import ROWFooter from './footer'
+import LiveMarketSection from './live-pricing-migration'
+import TwentyYearsStrong from './years'
+import StatSection from './stats'
+import UserFriendlyPlatforms from './user-platfroms'
+import TradeTypeSection from './trade-type'
+import MainRowNavigation from './navigation'
 import HomeHero from './hero'
-import LivePricing from './live-pricing'
-import P2PBanner from './p2p-banner'
-import ClientTestimonial from './client-testimonial'
-import TradeTypes from './trade-types'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
-import AwardBanner from 'features/components/templates/banners/award-banners'
-import useRegion from 'components/hooks/use-region'
-import MainNav from 'features/components/templates/navigation/main-nav'
-import SignupPublic from 'features/components/templates/signup/with-banner'
-
-const OurPlatforms = loadable(() => import('./our-platforms'))
-const Footer = loadable(() => import('features/components/templates/footer'))
 
 const HomePage = () => {
     useOpenLiveChat(true)
-    const { is_p2p_allowed_country, is_eu } = useRegion()
 
     return (
-        <Layout>
-            <MainNav />
-            <HomeHero />
-            <LivePricing />
-            <TradeTypes />
-            <OurPlatforms />
-            {is_eu ? null : <AwardBanner title="_t_Awards_t_" />}
-            <ClientTestimonial />
-            {is_p2p_allowed_country && <P2PBanner />}
-            <SignupPublic />
-            <Footer />
-        </Layout>
+        <BreakpointProvider>
+            <ThemeProvider>
+                <Layout>
+                    <MainRowNavigation />
+                    <HomeHero />
+                    <PageLayout>
+                        <StatSection />
+                        <TwentyYearsStrong />
+                        <LiveMarketSection />
+                        <UserFriendlyPlatforms />
+                        <TradeTypeSection />
+                        <ROWFooter />
+                    </PageLayout>
+                </Layout>
+            </ThemeProvider>
+        </BreakpointProvider>
     )
 }
 

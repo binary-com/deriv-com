@@ -3,6 +3,8 @@ import { WithIntl } from 'components/localization'
 import HomePage from 'features/pages/home'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
+import '@deriv-com/blocks/style.css'
+import '@deriv-com/components/style.css'
 
 const Home = () => {
     return <HomePage />

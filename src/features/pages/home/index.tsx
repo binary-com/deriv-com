@@ -5,7 +5,7 @@ import Layout from 'features/components/templates/layout'
 import ROWFooter from './footer'
 import LiveMarketSection from './live-pricing-migration'
 import TwentyYearsStrong from './years'
-// import StatSection from './stats'
+import StatSection from './stats'
 import UserFriendlyPlatforms from './user-platfroms'
 import TradeTypeSection from './trade-type'
 import MainRowNavigation from './navigation'
@@ -21,9 +21,9 @@ const HomePage = () => {
             <ThemeProvider theme="light">
                 <Layout>
                     <MainRowNavigation />
-                    <HomeHero />
                     <PageLayout>
-                        {/* <StatSection /> */}
+                        <HomeHero />
+                        <StatSection />
                         <TwentyYearsStrong />
                         <LiveMarketSection />
                         <UserFriendlyPlatforms />

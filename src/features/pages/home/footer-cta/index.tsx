@@ -13,7 +13,7 @@ const image = (
 )
 
 const FooterCTA = () => {
-    return <Footer.CTABlock padding image={image}></Footer.CTABlock>
+    return <Footer.CTABlock padding image={image} className=""></Footer.CTABlock>
 }
 
 export default FooterCTA

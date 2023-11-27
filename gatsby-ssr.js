@@ -40,7 +40,6 @@ export const onRenderBody = ({ setHeadComponents }) => {
                 key="gtm-script"
                 type="text/partytown"
                 async
-                defer
                 src={`https://www.googletagmanager.com/gtm.js?id=${gtmTrackingId}`}
             ></script>
         ),

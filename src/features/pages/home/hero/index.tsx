@@ -17,7 +17,7 @@ export interface HomeHeroProps {
 
 const HomeHero: React.FC<HomeHeroProps> = () => {
     return (
-        <Section className="h-[700px] md:h-[880px] relative isolate">
+        <Section className="h-[700px] md:h-[880px] relative isolate overflow-hidden">
             <StaticImage
                 src="../../../../images/migration/home/home_hero_bg.png"
                 alt="hero image"

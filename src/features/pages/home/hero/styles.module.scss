@@ -1,0 +1,32 @@
+@use 'features/styles/theme/theme-mixins' as *;
+@import 'features/styles/theme/variables';
+
+.hero_content{
+    text-align: center;
+    @media only screen and (min-width: 768px){
+        text-align: left
+    }
+}
+.hero_content_btn {
+    margin-inline: auto;
+    @media only screen and (min-width: 768px){
+        margin-inline: 0;
+    }
+}
+.hero_content_award_img {
+    margin-inline: auto;
+    gap: 10px;
+    @media only screen and (min-width: 768px){
+        margin-inline: 0;
+        gap: 24px;
+    }
+}
+.hero_content_gradient{
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.20) -8.48%, rgba(0, 0, 0, 0.60) -8.46%, rgba(0, 0, 0, 0.00) 8.92%, rgba(0, 0, 0, 0.00) 40%, rgba(0, 0, 0, 0.70) 65.27%, rgba(0, 0, 0, 0.80) 102.14%);
+    @media only screen and (min-width: 768px){
+        background: linear-gradient(85deg, rgba(0, 0, 0, 0.80) 7.03%, rgba(0, 0, 0, 0.00) 108.11%);
+    }
+    @media only screen and (min-width: 1024px){
+        background: linear-gradient(84deg, rgba(0, 0, 0, 0.80) 6.97%, rgba(0, 0, 0, 0.00) 107.22%);
+    }
+}

@@ -62,7 +62,7 @@ const PostModule = (data: any) => {
                         <img
                             src={hero?.banner?.localFile?.publicURL}
                             alt=""
-                            width="80rem"
+                            width="800px"
                             height="auto"
                         />
                     </div>

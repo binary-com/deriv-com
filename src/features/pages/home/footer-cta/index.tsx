@@ -10,6 +10,7 @@ const image = (
             src="../../../../images/migration/home/desktop_cta_bg.jpeg"
             alt={localize('_t_call to action background_t_')}
             loading="eager"
+            objectPosition="top"
             className="hidden w-full h-full md:block"
             formats={['webp', 'auto']}
         />
@@ -18,7 +19,7 @@ const image = (
             alt={localize('_t_call to action background_t_')}
             loading="eager"
             className="w-full h-full md:hidden"
-            objectPosition={'top'}
+            objectPosition="top"
             formats={['webp', 'auto']}
         />
     </>

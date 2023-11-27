@@ -22,7 +22,7 @@ const cards = [
 ]
 
 const StatSection = () => {
-    return <StatBlock.V3 items={cards} className="bg-background-primary-base" />
+    return <StatBlock.V3 items={cards} className="bg-solid-slate-75" />
 }
 
 export default StatSection

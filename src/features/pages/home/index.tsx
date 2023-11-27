@@ -5,11 +5,12 @@ import Layout from 'features/components/templates/layout'
 import ROWFooter from './footer'
 import LiveMarketSection from './live-pricing-migration'
 import TwentyYearsStrong from './years'
-import StatSection from './stats'
+// import StatSection from './stats'
 import UserFriendlyPlatforms from './user-platfroms'
 import TradeTypeSection from './trade-type'
 import MainRowNavigation from './navigation'
 import HomeHero from './hero'
+import FooterCTA from './footer-cta'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 
 const HomePage = () => {
@@ -22,11 +23,12 @@ const HomePage = () => {
                     <MainRowNavigation />
                     <HomeHero />
                     <PageLayout>
-                        <StatSection />
+                        {/* <StatSection /> */}
                         <TwentyYearsStrong />
                         <LiveMarketSection />
                         <UserFriendlyPlatforms />
                         <TradeTypeSection />
+                        <FooterCTA />
                         <ROWFooter />
                     </PageLayout>
                 </Layout>

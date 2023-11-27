@@ -24,7 +24,6 @@ import StepperView from './stepper-view'
 import { Ul, Li } from './lists'
 import { Carousel } from './carousel'
 import type { CarouselProps } from './carousel'
-import VideoPlayer from './video-player'
 import Modal from './modal'
 import ImageWithDireciton from './image-with-direction'
 
@@ -64,7 +63,6 @@ export {
     Timeline,
     StepperView,
     Ul,
-    VideoPlayer,
     Modal,
     ImageWithDireciton,
 }

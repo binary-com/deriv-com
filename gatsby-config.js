@@ -397,7 +397,7 @@ module.exports = {
             resolve: 'gatsby-source-filesystem',
             options: {
                 name: 'markdown-pages',
-                path: `${__dirname}/src/pages/blog/single-blog/index.tsx`,
+                path: `${__dirname}/src/features/pages/posts/single-blog/index.tsx`,
             },
         },
     ],

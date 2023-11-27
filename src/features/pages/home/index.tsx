@@ -17,7 +17,7 @@ const HomePage = () => {
 
     return (
         <BreakpointProvider>
-            <ThemeProvider>
+            <ThemeProvider theme="light">
                 <Layout>
                     <MainRowNavigation />
                     <HomeHero />

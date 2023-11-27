@@ -48,6 +48,9 @@ module.exports = {
         `https://assets.customer.io/assets/track.js`,
         `https://static.deriv.com/scripts/cookie.js`,
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
+        `https://cdn.livechatinc.com/tracking.js`,
+        `https://www.google-analytics.com/analytics.js`,
+        `https://www.googletagmanager.com/gtm.js?id=${process.env.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID}`,
     ],
     plugins: [
         // [TODO] Enable this when we have a proper setup to enable caching, Otherwise it will cause one of them stop working.

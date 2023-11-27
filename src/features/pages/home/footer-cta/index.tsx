@@ -10,16 +10,15 @@ const image = (
             src="../../../../images/migration/home/desktop_cta_bg.jpeg"
             alt={localize('_t_call to action background_t_')}
             loading="eager"
-            className="hidden w-full flex-1 md:flex"
-            width={1232}
-            height={496}
+            className="hidden w-full h-full md:block"
             formats={['webp', 'auto']}
         />
         <StaticImage
             src="../../../../images/migration/home/mobile_cta_bg.png"
             alt={localize('_t_call to action background_t_')}
             loading="eager"
-            className="flex w-full flex-1 md:hidden"
+            className="w-full h-full md:hidden"
+            objectPosition={'top'}
             formats={['webp', 'auto']}
         />
     </>
@@ -28,7 +27,7 @@ const image = (
 const FooterCTA = () => {
     return (
         <Footer.CTABlock padding image={image} className="">
-            <div className="flex h-full flex-col items-start justify-center gap-gap-3xl">
+            <div className="flex h-full flex-col items-start justify-center gap-gap-3xl max-w-[328px] lg:max-w-none">
                 <Heading.H2 className="text-solid-slate-50">
                     Join over 2.5 million online traders
                 </Heading.H2>

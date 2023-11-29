@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { WizardStepProps } from '../_types'
 import AffiliateInput from '../utils/_affiliate-input'
+import { customSlugify } from '../index'
 import AffiliatesHeader, { InputGroup, InputWrapper } from '../utils/_affiliate-header'
 import affiliate_validation from '../validations/_affilaite_validation'
 import { useStatesList } from 'features/hooks/use-states-list'
@@ -27,9 +28,13 @@ const AccountAddress = ({
     const [street_error_msg, setStreetErrorMsg] = useState('')
     const [postcode_error_msg, setPostCodeErrorMsg] = useState('')
 
+    const [states_list] = useStatesList(affiliate_data.country?.symbol)
+
     const header_text: TString = is_individual ? '_t_Personal address_t_' : '_t_Company address_t_'
 
-    const [states_list] = useStatesList(affiliate_data.country?.symbol)
+    console.log('chosen state: ', state?.name)
+    console.log('state to send: ', customSlugify(state?.name ?? 'abc'))
+
     useEffect(() => {
         updateData({
             ...affiliate_data,
@@ -57,6 +62,20 @@ const AccountAddress = ({
         onValidate(validate)
     }, [onValidate, validate])
 
+    const handleCountry = (changed_country) => {
+        if (country?.name && state?.name && changed_country !== country) {
+            setCountryErrorMsg('State is not valid for this country')
+        }
+        setCountry(changed_country)
+    }
+    const handleState = (changed_state) => {
+        if (country_error_msg) {
+            setCountryErrorMsg('')
+            setState(changed_state)
+        }
+        setState(changed_state)
+    }
+
     const form_inputs = [
         {
             id: 'dm-country-select',
@@ -69,7 +88,7 @@ const AccountAddress = ({
             error: country_error_msg,
             value: country,
             list: residence_list,
-            value_set: setCountry,
+            value_set: handleCountry,
         },
         {
             id: 'dm-state',
@@ -80,7 +99,7 @@ const AccountAddress = ({
             error: state_error_msg,
             value: state,
             list: states_list,
-            value_set: setState,
+            value_set: handleState,
         },
         {
             id: 'dm-town',

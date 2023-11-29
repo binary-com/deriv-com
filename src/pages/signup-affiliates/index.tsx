@@ -16,14 +16,23 @@ import Map from 'images/svg/signup-affiliates/map.svg'
 const AffiliateSignupStatus = Loadable(() => import('./components/_signup-status'))
 const Wizard = Loadable(() => import('./components/_wizard'))
 
-const customSlugify = (text: string): string =>
-    text
+export const customSlugify = (text: string): string => {
+    const charMap: { [key: string]: string } = {
+        ə: 'e',
+        // Add other special characters and their mappings here if needed
+    }
+
+    return text
         .toString()
+        .split('')
+        .map((char) => charMap[char] || char)
+        .join('')
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
         .trim()
         .replace(/'/g, '')
         .replace(/--+/g, '-')
+}
 const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }: SubmitTypes) => {
     if (!is_online) {
         setSignupStatus('lost connection')
@@ -31,7 +40,7 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
             action: 'partners_signup_error',
             partner_signup_error_message: 'lost connection',
             form_source: window?.location.hostname,
-            form_name: 'default_diel_deriv',
+            form_name: 'ce_partner_account_signup_form',
         })
     } else
         affiliateSend({
@@ -52,7 +61,7 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
             phone: `+${
                 affiliate_account.personal_details.prefix + affiliate_account.personal_details.phone
             }`,
-            phone_code: Number(affiliate_account.personal_details.prefix),
+            phone_code: Number(affiliate_account.personal_details.prefix.substring(0, 4)),
             tnc_accepted: affiliate_account.terms_of_use.tnc_accepted && 1,
             tnc_affiliate_accepted: affiliate_account.terms_of_use.is_partner_checked && 1,
             type_of_account: affiliate_account.account_type,
@@ -63,7 +72,9 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
             whatsapp_number: `+${
                 affiliate_account.personal_details.prefix + affiliate_account.personal_details.phone
             }`,
-            whatsapp_number_phoneCode: Number(affiliate_account.personal_details.prefix),
+            whatsapp_number_phoneCode: Number(
+                affiliate_account.personal_details.prefix.substring(0, 4),
+            ),
             ...(affiliate_account.personal_details?.company_name !== '' && {
                 company_name: affiliate_account.personal_details?.company_name,
             }),
@@ -242,18 +253,19 @@ const AffiliateSignup = () => {
             <ParentWrapper>
                 <AtomicContainer.Fluid dir={'row'}>
                     <StyledContainer>
-                        <AffiliateSignupForm
-                            affiliate_account={affiliate_account}
-                            setAffiliateAccount={setAffiliateAccount}
-                            setShowWizard={setShowWizard}
-                        />
-                        {show_wizard && (
+                        {show_wizard ? (
                             <Wizard
                                 show_wizard={show_wizard}
                                 setSignupStatus={setSignupStatus}
                                 affiliate_account={affiliate_account}
                                 setAffiliateAccount={setAffiliateAccount}
                                 onSubmit={onSubmit}
+                            />
+                        ) : (
+                            <AffiliateSignupForm
+                                affiliate_account={affiliate_account}
+                                setAffiliateAccount={setAffiliateAccount}
+                                setShowWizard={setShowWizard}
                             />
                         )}
                         <AffiliateSignupStatus

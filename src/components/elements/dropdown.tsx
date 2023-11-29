@@ -247,7 +247,6 @@ const UnorderedList = styled.ul<DropdownStyledProps>`
     position: absolute;
     left: 0;
     top: 0.8rem;
-    border-radius: 4px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.16);
     transition: opacity 0.1s cubic-bezier(0, 0, 0.38, 0.9),
         max-height 0.25s cubic-bezier(0, 0, 0.38, 0.9);

@@ -44,8 +44,9 @@ export const Modal = styled.div`
         border-radius: unset;
         min-inline-size: unset;
         inline-size: 100vw;
-        block-size: calc(100vh - 200px);
+        block-size: 100vh;
         overflow: scroll;
+        padding-block-end: 150px;
     }
 `
 const Container = styled.div`

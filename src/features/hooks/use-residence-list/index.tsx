@@ -16,18 +16,16 @@ const formatResidenceList = ({
     if (!residences.length) {
         return []
     }
-    return residences?.map(
-        ({ text: display_name, text: name, value: symbol, phone_idd: prefix }) => {
-            if (restricted?.includes(name)) return {}
-            else
-                return {
-                    name,
-                    display_name,
-                    symbol,
-                    prefix,
-                }
-        },
-    )
+    return residences
+        .filter(({ text: name }) => !restricted.includes(name))
+        .map(({ text: display_name, text: name, value: symbol, phone_idd: prefix }) => {
+            return {
+                name,
+                display_name,
+                symbol,
+                prefix,
+            }
+        })
 }
 
 export const useResidenceList = ({

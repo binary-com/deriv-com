@@ -5,7 +5,7 @@ import { TGatsbyHead } from 'features/types'
 import { SEO } from 'components/containers'
 import { WithIntl } from 'components/localization'
 
-const BlogTemplate = ({ data }: any) => {
+const BlogTemplate = ({ data }: TBlogPost) => {
     return <PostModule data={data} />
 }
 

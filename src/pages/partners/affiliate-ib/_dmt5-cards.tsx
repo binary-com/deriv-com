@@ -134,6 +134,9 @@ const query = graphql`
         stp_crypto: file(relativePath: { eq: "affiliate-and-ib/stp_crypto.png" }) {
             ...fadeIn
         }
+        dx_dex_indices: file(relativePath: { eq: "affiliate-and-ib/dx_dex_indices.png" }) {
+            ...fadeIn
+        }
     }
 `
 

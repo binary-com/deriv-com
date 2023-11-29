@@ -32,18 +32,14 @@ const PostModule = ({ data }: TBlogPost) => {
                 >
                     <Flex.Box direction="col" gap="31x" justify="center">
                         <Flex.Box gap="5x" align="center">
-                            <span>
-                                <img src={Calendar} alt="" />
-                            </span>
+                            <img src={Calendar} alt="" />
                             <span>{formattedDate}</span>
                         </Flex.Box>
                         <Typography.Heading as="h2" size="small">
                             {hero?.title}
                         </Typography.Heading>
                         <Flex.Box gap="5x" align="center">
-                            <span>
-                                <img src={Tag} alt="" />
-                            </span>
+                            <img src={Tag} alt="" />
                             <span>
                                 <a
                                     href="https://blog.deriv.com/tag/forex/"

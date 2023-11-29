@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { StaticImage } from 'gatsby-plugin-image'
-import { handleGetTrading } from './utils'
+import { handleRedirectToTradersHub } from './utils'
 import CommonHeaderSection from 'components/elements/common-header-section'
 import DerivMT5Logo from 'images/svg/dmt5/dmt5-banner-logo.svg'
 import device from 'themes/device'
@@ -150,7 +150,7 @@ const DCommonBanner = () => {
                         <BannerButtonWrapper>
                             {is_logged_in ? (
                                 <CreateAccountButton
-                                    onClick={handleGetTrading}
+                                    onClick={handleRedirectToTradersHub}
                                     label="_t_Get Trading_t_"
                                     primary
                                     mobileFullWidth

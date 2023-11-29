@@ -11,6 +11,7 @@ import TradeTypeSection from './trade-type'
 import MainRowNavigation from './navigation'
 import HomeHero from './hero'
 import FooterCTA from './footer-cta'
+import StartTradingSteps from './start-trading-steps'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 
 const HomePage = () => {
@@ -28,6 +29,7 @@ const HomePage = () => {
                         <LiveMarketSection />
                         <UserFriendlyPlatforms />
                         <TradeTypeSection />
+                        <StartTradingSteps />
                         <FooterCTA />
                         <ROWFooter />
                     </PageLayout>

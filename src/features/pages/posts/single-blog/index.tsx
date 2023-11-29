@@ -8,8 +8,8 @@ import Footer from 'features/components/templates/footer'
 import Calendar from 'images/svg/blog/calendar.svg'
 import Tag from 'images/svg/blog/tag.svg'
 
-const PostModule = (data: any) => {
-    const { hero, blogPostMarkDown } = data?.data?.strapiPost || {}
+const PostModule = ({ data }: TBlogPost) => {
+    const { hero, blogPostMarkDown } = data?.strapiPost || {}
     const momentDate = moment(hero?.date)
     const formattedDate = momentDate.format('MMMM D, YYYY')
 

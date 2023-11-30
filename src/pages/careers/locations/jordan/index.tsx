@@ -27,6 +27,11 @@ const query = graphql`
         guernsey_map: file(relativePath: { eq: "maps/map-guernsey-career.jpg" }) {
             ...fadeIn
         }
+        jordan_great_place_to_work_badge: file(
+            relativePath: { eq: "careers/jordan_great_place_to_work_badge.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
 

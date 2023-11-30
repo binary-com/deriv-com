@@ -1779,13 +1779,13 @@ const stocks_specification: TSpecification = {
             contract_size: 1,
             base_currency: 'USD',
             minimum_size: 1,
-            minimum_spread: 1.32,
-            target_spread: 1.4,
+            minimum_spread: 1.3,
+            target_spread: 1.37,
             max_effective_leverage: 150,
             margin_requirement: '0.67',
             swap_long: -3,
             swap_short: -9,
-            trading_hours: 'Mon-Fri 13:30-20:00 GMT',
+            trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },
         {
             instrument: {

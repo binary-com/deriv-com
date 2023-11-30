@@ -39,7 +39,7 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
         Analytics?.trackEvent('ce_partner_account_signup_form', {
             action: 'partners_signup_error',
             partner_signup_error_message: 'lost connection',
-            form_source: window?.location.hostname,
+            form_source: document.referrer,
             form_name: 'ce_partner_account_signup_form',
         })
     } else

@@ -76,6 +76,14 @@ const DefaultCard = ({ toggleCalculated }: { toggleCalculated: () => void }) => 
                             />
                         </Header>
                     </Li>
+                    <Li>
+                        <Header as="p" type="paragraph-1">
+                            <Localize
+                                translate_text="_t_Only the revenue generated from your clients' multipliers trades on synthetic indices are included in this commission plan._t_"
+                                components={[<strong key={0} />]}
+                            />
+                        </Header>
+                    </Li>
                 </Ul>
             </div>
             <StyledButtonWrap>

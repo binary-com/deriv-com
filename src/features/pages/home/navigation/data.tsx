@@ -39,7 +39,7 @@ export const mainRowNavItems: NavLinkItems = {
                 items: [
                     {
                         id: 0,
-                        href: '/cfd',
+                        href: '/trade-types/cfds',
                         text: 'CFDs',
                         type: 'direct',
                         icon: <IllustrativeCfdsIcon width={24} height={24} />,
@@ -48,7 +48,7 @@ export const mainRowNavItems: NavLinkItems = {
                     },
                     {
                         id: 1,
-                        href: '/options',
+                        href: '/trade-types/options',
                         text: 'Options',
                         type: 'direct',
                         icon: <IllustrativeOptionsIcon width={24} height={24} />,
@@ -57,7 +57,7 @@ export const mainRowNavItems: NavLinkItems = {
                     },
                     {
                         id: 2,
-                        href: '/multipliers',
+                        href: '/trade-types/multiplier',
                         text: 'Multipliers',
                         type: 'direct',
                         icon: <IllustrativeMultipliersIcon width={24} height={24} />,
@@ -96,7 +96,7 @@ export const mainRowNavItems: NavLinkItems = {
                     },
                     {
                         id: 2,
-                        href: '/ctrader',
+                        href: '/deriv-ctrader',
                         text: 'Deriv cTrader',
                         type: 'direct',
                         icon: (
@@ -109,7 +109,7 @@ export const mainRowNavItems: NavLinkItems = {
                     },
                     {
                         id: 3,
-                        href: '/smart-trader',
+                        href: 'https://smarttrader.deriv.com/', //need to update target/type in link component
                         text: 'SmartTrader',
                         type: 'direct',
                         icon: (
@@ -168,7 +168,7 @@ export const mainRowNavItems: NavLinkItems = {
                     },
                     {
                         id: 3,
-                        href: '/binary-bot',
+                        href: 'https://bot.deriv.com/', //need to update target/type in link component
                         text: 'Binary Bot',
                         type: 'direct',
                         icon: (
@@ -193,7 +193,7 @@ export const mainRowNavItems: NavLinkItems = {
                 items: [
                     {
                         id: 0,
-                        href: '/forex',
+                        href: '/markets/forex',
                         text: 'Forex',
                         type: 'direct',
                         icon: <IllustrativeForexIcon width={24} height={24} />,
@@ -201,7 +201,7 @@ export const mainRowNavItems: NavLinkItems = {
                     },
                     {
                         id: 1,
-                        href: '/derived-indices',
+                        href: '/markets/synthetic',
                         text: 'Derived indices',
                         type: 'direct',
                         icon: <IllustrativeDerivedIcon width={24} height={24} />,
@@ -209,7 +209,7 @@ export const mainRowNavItems: NavLinkItems = {
                     },
                     {
                         id: 2,
-                        href: '/stocks',
+                        href: '/markets/stock',
                         text: 'Stocks & indices',
                         type: 'direct',
                         icon: <IllustrativeStocksAndIndicesIcon width={24} height={24} />,
@@ -222,7 +222,7 @@ export const mainRowNavItems: NavLinkItems = {
                 items: [
                     {
                         id: 0,
-                        href: '/commodities',
+                        href: '/markets/commodities',
                         text: 'Commodities',
                         type: 'direct',
                         icon: <IllustrativeCommoditiesIcon width={24} height={24} />,
@@ -230,7 +230,7 @@ export const mainRowNavItems: NavLinkItems = {
                     },
                     {
                         id: 1,
-                        href: '/crypto',
+                        href: '/markets/cryptocurrencies',
                         text: 'Cryptocurrencies',
                         type: 'direct',
                         icon: <IllustrativeCryptocurrenciesIcon width={24} height={24} />,
@@ -238,7 +238,7 @@ export const mainRowNavItems: NavLinkItems = {
                     },
                     {
                         id: 2,
-                        href: '/etfs',
+                        href: '/markets/exchange-traded-funds',
                         text: 'Exchange-traded funds (ETFs)',
                         type: 'direct',
                         icon: <IllustrativeEtfIcon width={24} height={24} />,
@@ -277,7 +277,7 @@ export const mainRowNavItems: NavLinkItems = {
                     },
                     {
                         id: 3,
-                        href: '/partnership',
+                        href: '/partners',
                         text: 'Partnership programmes',
                         type: 'direct',
                     },
@@ -288,7 +288,7 @@ export const mainRowNavItems: NavLinkItems = {
                 items: [
                     {
                         id: 0,
-                        href: '/contact-us',
+                        href: '/contact_us',
                         text: 'Contact us',
                         type: 'direct',
                     },
@@ -300,7 +300,7 @@ export const mainRowNavItems: NavLinkItems = {
                     },
                     {
                         id: 2,
-                        href: 'deriv-life',
+                        href: 'https://derivlife.com', //need to update target/type in link component
                         text: 'Deriv Life',
                         type: 'direct',
                         external: true,
@@ -325,14 +325,14 @@ export const mainRowNavItems: NavLinkItems = {
                     },
                     {
                         id: 1,
-                        href: '/community',
+                        href: 'https://community.deriv.com/', //need to update target/type in link component
                         text: 'Community',
                         type: 'direct',
                         external: true,
                     },
                     {
                         id: 2,
-                        href: '/traders-tools',
+                        href: '/trader-tools',
                         text: "Traders' tools",
                         type: 'direct',
                     },
@@ -349,19 +349,19 @@ export const mainRowNavItems: NavLinkItems = {
                 items: [
                     {
                         id: 0,
-                        href: '/mt5-signals',
+                        href: '/dmt5-trading-signals',
                         text: 'Deriv MT5 signals',
                         type: 'direct',
                     },
                     {
                         id: 1,
-                        href: '/status',
+                        href: 'https://deriv.statuspage.io/', //need to update target/type in link component
                         text: 'Status page',
                         type: 'direct',
                     },
                     {
                         id: 2,
-                        href: '/deriv-blog',
+                        href: 'https://blog.deriv.com/', //need to update target/type in link component
                         text: 'Deriv Blog',
                         type: 'direct',
                         external: true,
@@ -393,7 +393,7 @@ export const mainRowNavItems: NavLinkItems = {
                     },
                     {
                         id: 2,
-                        href: '/Secure & responsible trading',
+                        href: '/responsible',
                         text: 'Secure & responsible trading',
                         type: 'direct',
                     },
@@ -412,25 +412,25 @@ export const mainRowNavItems: NavLinkItems = {
                 items: [
                     {
                         id: 0,
-                        href: '/deriv-prime',
+                        href: '/partners/deriv-prime',
                         text: 'Deriv Prime',
                         type: 'direct',
                     },
                     {
                         id: 1,
-                        href: '/affiliates-and-ibs',
+                        href: '/partners/affiliate-ib',
                         text: 'Affiliates and IBs',
                         type: 'direct',
                     },
                     {
                         id: 2,
-                        href: '/payment-agents',
+                        href: '/partners/payment-agent',
                         text: 'Payment agents',
                         type: 'direct',
                     },
                     {
                         id: 3,
-                        href: '/api',
+                        href: 'https://api.deriv.com/', //need to update target/type in link component
                         text: 'API',
                         type: 'direct',
                     },

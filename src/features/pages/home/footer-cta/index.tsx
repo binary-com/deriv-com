@@ -12,6 +12,7 @@ const image = (
         objectPosition="78% 0"
         className="w-full h-full"
         formats={['webp', 'auto']}
+        placeholder="none"
     />
 )
 

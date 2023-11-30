@@ -22,6 +22,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                 src="../../../../images/migration/home/home_hero_bg.png"
                 alt="hero image"
                 className="w-full -z-10"
+                placeholder="none"
                 style={{ position: 'absolute', inset: 0 }}
             />
             <FluidContainer className="h-full flex flex-col justify-end">
@@ -57,18 +58,21 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                         alt="award"
                         width={132}
                         height={68}
+                        placeholder="none"
                     />
                     <StaticImage
                         src="../../../../images/migration/home/award-2.png"
                         alt="award"
                         width={132}
                         height={68}
+                        placeholder="none"
                     />
                     <StaticImage
                         src="../../../../images/migration/home/award-3.png"
                         alt="award"
                         width={132}
                         height={68}
+                        placeholder="none"
                     />
                 </div>
             </FluidContainer>
@@ -77,6 +81,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                     src="../../../../images/migration/home/home_hero_new.png"
                     alt="hero image"
                     className="w-[439px] h-[610px] md:w-[566px] md:h-[768px]"
+                    placeholder="none"
                 />
             </div>
             <div className={clsx('absolute -z-10 inset-50', hero_content_gradient)}></div>

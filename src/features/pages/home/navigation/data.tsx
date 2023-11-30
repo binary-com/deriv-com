@@ -1,144 +1,40 @@
 import React from 'react'
 import { NavLinkItems } from '@deriv-com/providers'
 import {
+    IllustrativeCfdsIcon,
+    IllustrativeDerivedIcon,
+    IllustrativeMultipliersIcon,
+    IllustrativeOptionsIcon,
+    IllustrativeForexIcon,
+    IllustrativeStocksAndIndicesIcon,
+    IllustrativeCommoditiesIcon,
+    IllustrativeCryptocurrenciesIcon,
+    IllustrativeEtfIcon,
+    // eslint-disable-next-line import/no-unresolved
+} from '@deriv/quill-icons/Illustrative'
+import {
     DerivProductDerivBotBrandDarkLogoHorizontalIcon,
-    DerivProductDerivEzBrandDarkLogoHorizontalIcon,
     DerivProductDerivGoBrandDarkLogoHorizontalIcon,
-    DerivProductDerivNakalaBrandDarkLogoHorizontalIcon,
     DerivProductDerivTraderBrandDarkLogoHorizontalIcon,
     DerivProductDerivXBrandDarkLogoIcon,
     PartnersProductDerivCtraderBrandDarkLogoHorizontalIcon,
     PartnersProductDerivMt5BrandDarkLogoHorizontalIcon,
+    PartnersProductSmarttraderBrandDarkLogoIcon,
+    PartnersProductBinaryBotBrandDarkLogoHorizontalIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Logo'
 
 export const mainRowNavItems: NavLinkItems = {
-    'getting-started': {
+    trade: {
         id: 0,
-        text: 'Getting Started',
         type: 'nav-dropdown',
+        text: 'Trade',
         columns: [
             {
                 id: 0,
                 header: {
-                    href: '/intro',
-                    text: 'Intro',
-                    type: 'direct',
-                },
-                items: [
-                    {
-                        id: 0,
-                        href: '/why-deriv',
-                        text: 'Why Deriv',
-                        type: 'direct',
-                    },
-                    {
-                        id: 1,
-                        href: '/what-we-offer',
-                        text: 'What we offer',
-                        type: 'direct',
-                    },
-                    {
-                        id: 2,
-                        href: '/cfd-trading',
-                        text: 'CFDs Trading',
-                        type: 'direct',
-                    },
-                    {
-                        id: 3,
-                        href: '/options-trading',
-                        text: 'Options Trading',
-                        type: 'direct',
-                    },
-                ],
-            },
-            {
-                id: 1,
-                header: {
-                    href: '/account',
-                    text: 'Account',
-                    type: 'direct',
-                },
-                items: [
-                    {
-                        id: 0,
-                        href: '/open-account',
-                        text: 'Open a trading account',
-                        type: 'direct',
-                    },
-                    {
-                        id: 1,
-                        href: '/try-free-demo',
-                        text: 'Try a free demo',
-                        type: 'direct',
-                    },
-                    {
-                        id: 2,
-                        href: '/how-to-deposit',
-                        text: 'How to deposit',
-                        type: 'direct',
-                    },
-                    {
-                        id: 3,
-                        href: '/how-to-withdraw',
-                        text: 'How to withdraw',
-                        type: 'direct',
-                    },
-                ],
-            },
-            {
-                id: 2,
-                header: {
-                    href: '/top-platforms',
-                    text: 'Top platforms',
-                    type: 'direct',
-                },
-                items: [
-                    {
-                        id: 0,
-                        href: '/dmt5',
-                        text: 'MetaTrader 5',
-                        type: 'direct',
-                    },
-                    {
-                        id: 1,
-                        href: '/dmt5-web',
-                        text: 'MetaTrader Web Terminal',
-                        type: 'direct',
-                    },
-                    {
-                        id: 2,
-                        href: '/ctrader',
-                        text: 'cTrader',
-                        type: 'direct',
-                    },
-                    {
-                        id: 3,
-                        href: '/dtrader',
-                        text: 'Deriv Trader',
-                        type: 'direct',
-                    },
-                    {
-                        id: 4,
-                        href: '/deriv-go',
-                        text: 'Deriv Go',
-                        type: 'direct',
-                    },
-                ],
-            },
-        ],
-    },
-    trading: {
-        id: 1,
-        type: 'nav-dropdown',
-        text: 'Trading',
-        columns: [
-            {
-                id: 0,
-                header: {
-                    href: '/trade-types',
                     text: 'Trade types',
-                    type: 'direct',
+                    type: 'text',
                 },
                 items: [
                     {
@@ -146,138 +42,35 @@ export const mainRowNavItems: NavLinkItems = {
                         href: '/cfd',
                         text: 'CFDs',
                         type: 'direct',
+                        icon: <IllustrativeCfdsIcon width={24} height={24} />,
+                        description:
+                            'Trade with leverage, unbeatable spreads, and fast execution on the widest range  of markets.',
                     },
                     {
                         id: 1,
-                        type: 'sub-link',
-
-                        header: {
-                            href: '/options',
-                            text: 'Options',
-                            type: 'direct',
-                        },
-                        subLinks: [
-                            {
-                                id: 0,
-                                text: 'Digital Options',
-                                href: '/digital-options',
-                                type: 'direct',
-                            },
-                            {
-                                id: 1,
-                                text: 'Accumulator Options',
-                                href: '/accumulator-options',
-                                type: 'direct',
-                            },
-                            {
-                                id: 2,
-                                text: 'Vanilla Options',
-                                href: '/vanilla-options',
-                                type: 'direct',
-                            },
-                        ],
+                        href: '/options',
+                        text: 'Options',
+                        type: 'direct',
+                        icon: <IllustrativeOptionsIcon width={24} height={24} />,
+                        description:
+                            'Trade diverse vanilla and exotic options across platforms and markets without risking more than your initial stake.',
+                    },
+                    {
+                        id: 2,
+                        href: '/multipliers',
+                        text: 'Multipliers',
+                        type: 'direct',
+                        icon: <IllustrativeMultipliersIcon width={24} height={24} />,
+                        description:
+                            'Trade on global financial markets and multiply your potential profit without losing more than your stake.',
                     },
                 ],
             },
             {
                 id: 1,
                 header: {
-                    href: '/markets',
-                    text: 'Markets',
-                    type: 'direct',
-                },
-                items: [
-                    {
-                        id: 0,
-                        href: '/forex',
-                        text: 'Forex',
-                        type: 'direct',
-                        description: 'Major, minor and exotic currency pairs.',
-                    },
-                    {
-                        id: 1,
-                        href: '/derived-indices',
-                        text: 'Derived Indices',
-                        type: 'direct',
-                        description: 'Indices simulating real-world markets with 24/7 trading.',
-                    },
-                    {
-                        id: 2,
-                        href: '/stock-indices',
-                        text: 'Stock & indices',
-                        type: 'direct',
-                        description: 'Leading company stocks and top global indices',
-                    },
-                    {
-                        id: 3,
-                        href: '/commodities',
-                        text: 'Commodities',
-                        type: 'direct',
-                        description: 'World markets including precious metals and energies.',
-                    },
-                    {
-                        id: 4,
-                        href: '/cryptocurrencies',
-                        text: 'Cryptocurrencies',
-                        type: 'direct',
-                        description: "The world's most popular digital currencies.",
-                    },
-                    {
-                        id: 5,
-                        href: '/etf',
-                        text: 'ETFs',
-                        type: 'direct',
-                        description: 'Diverse exchange-traded funds for broad market exposure.',
-                    },
-                ],
-            },
-            {
-                id: 2,
-                header: {
-                    href: '/pricing',
-                    text: 'Pricing',
-                    type: 'direct',
-                },
-                items: [
-                    {
-                        id: 0,
-                        href: '/trading-conditions',
-                        text: 'Trading conditions',
-                        type: 'direct',
-                    },
-                    {
-                        id: 1,
-                        href: '/spreads',
-                        text: 'Spreads',
-                        type: 'direct',
-                    },
-                    {
-                        id: 2,
-                        href: '/trading-hours',
-                        text: 'Trading hours',
-                        type: 'direct',
-                    },
-                    {
-                        id: 3,
-                        href: '/swap-rates',
-                        text: 'Swap rates',
-                        type: 'direct',
-                    },
-                ],
-            },
-        ],
-    },
-    platforms: {
-        id: 2,
-        type: 'nav-dropdown',
-        text: 'Platforms',
-        columns: [
-            {
-                id: 0,
-                header: {
-                    href: '/cfd-trading',
-                    text: 'CFDs trading',
-                    type: 'direct',
+                    text: 'Trading platforms',
+                    type: 'text',
                 },
                 items: [
                     {
@@ -291,22 +84,15 @@ export const mainRowNavItems: NavLinkItems = {
                                 height={24}
                             />
                         ),
-                        description:
-                            'A comprehensive trading platform for all your CFDs trading needs',
+                        description: 'The most popular and comprehensive CFDs platform.',
                     },
                     {
                         id: 1,
-                        href: '/dmt5-web',
-                        text: 'Deriv MT5 Web Terminal',
+                        href: '/derivx',
+                        text: 'Deriv X',
                         type: 'direct',
-                        icon: (
-                            <PartnersProductDerivMt5BrandDarkLogoHorizontalIcon
-                                width={24}
-                                height={24}
-                            />
-                        ),
-                        description:
-                            'A comprehensive trading platform for all your CFDs trading needs',
+                        icon: <DerivProductDerivXBrandDarkLogoIcon width={24} height={24} />,
+                        description: 'User-friendly and customisable CFDs platform.',
                     },
                     {
                         id: 2,
@@ -319,38 +105,25 @@ export const mainRowNavItems: NavLinkItems = {
                                 height={24}
                             />
                         ),
-                        description: 'A fast CFDs trading platform with integrated copy trading',
+                        description: 'Fast CFDs platform with inbuilt copy trading.',
                     },
                     {
                         id: 3,
-                        href: '/deriv-ez',
-                        text: 'Deriv EZ',
+                        href: '/smart-trader',
+                        text: 'SmartTrader',
                         type: 'direct',
                         icon: (
-                            <DerivProductDerivEzBrandDarkLogoHorizontalIcon
-                                width={24}
-                                height={24}
-                            />
+                            <PartnersProductSmarttraderBrandDarkLogoIcon width={24} height={24} />
                         ),
-                        description:
-                            'CFDs on the go. Easy access and navigation for web and mobile',
-                    },
-                    {
-                        id: 4,
-                        href: '/derivx',
-                        text: 'Deriv X',
-                        type: 'direct',
-                        icon: <DerivProductDerivXBrandDarkLogoIcon width={24} height={24} />,
-                        description: 'Our user-friendly, customizable CFDs trading platform',
+                        description: 'Options trading platform with easy navigation.',
                     },
                 ],
             },
             {
-                id: 1,
+                id: 2,
                 header: {
-                    href: '/markets',
-                    text: 'Markets',
-                    type: 'direct',
+                    text: null,
+                    type: 'text',
                 },
                 items: [
                     {
@@ -364,12 +137,13 @@ export const mainRowNavItems: NavLinkItems = {
                                 height={24}
                             />
                         ),
-                        description: 'Our user-friendly, customizable CFDs trading platform',
+                        description:
+                            'Flagship options, accumulators, & multipliers trading platform.',
                     },
                     {
                         id: 1,
                         href: '/deriv-go',
-                        text: 'Deriv Go',
+                        text: 'Deriv GO',
                         type: 'direct',
                         icon: (
                             <DerivProductDerivGoBrandDarkLogoHorizontalIcon
@@ -377,186 +151,288 @@ export const mainRowNavItems: NavLinkItems = {
                                 height={24}
                             />
                         ),
-                        description: 'Our user-friendly, customizable CFDs trading platform',
+                        description: 'Mobile app for multipliers trading on the go.',
                     },
-                ],
-            },
-            {
-                id: 2,
-                header: {
-                    href: '/social-trading',
-                    text: 'Social trading',
-                    type: 'direct',
-                },
-                items: [
                     {
-                        id: 0,
-                        href: '/deriv-nakala',
-                        text: 'Deriv Nakala',
-                        type: 'direct',
-                        description: 'WE NEED DESCRIPTION FOR THIS ONE',
-                        icon: (
-                            <DerivProductDerivNakalaBrandDarkLogoHorizontalIcon
-                                width={24}
-                                height={24}
-                            />
-                        ),
-                    },
-                ],
-            },
-            {
-                id: 3,
-                header: {
-                    href: '/bot-trading',
-                    text: 'Bot trading',
-                    type: 'direct',
-                },
-                items: [
-                    {
-                        id: 0,
+                        id: 2,
                         href: '/dbot',
                         text: 'Deriv Bot',
                         type: 'direct',
-                        description: 'Automated trading made easy. No coding required',
                         icon: (
                             <DerivProductDerivBotBrandDarkLogoHorizontalIcon
                                 width={24}
                                 height={24}
                             />
                         ),
+                        description: 'Automated trading. No coding required.',
+                    },
+                    {
+                        id: 3,
+                        href: '/binary-bot',
+                        text: 'Binary Bot',
+                        type: 'direct',
+                        icon: (
+                            <PartnersProductBinaryBotBrandDarkLogoHorizontalIcon
+                                width={24}
+                                height={24}
+                            />
+                        ),
+                        description: 'Options trading platform with easy navigation.',
                     },
                 ],
             },
         ],
     },
-    more: {
-        id: 3,
+    markets: {
+        id: 1,
         type: 'nav-dropdown',
-        text: 'More',
+        text: 'Markets',
         columns: [
             {
                 id: 0,
-                header: {
-                    href: '/company',
-                    text: 'Company',
-                    type: 'direct',
-                },
                 items: [
                     {
                         id: 0,
-                        href: '/about-us',
-                        text: 'About us',
+                        href: '/forex',
+                        text: 'Forex',
                         type: 'direct',
+                        icon: <IllustrativeForexIcon width={24} height={24} />,
+                        description: 'Major, minor, and exotic  currency pairs.',
                     },
                     {
                         id: 1,
+                        href: '/derived-indices',
+                        text: 'Derived indices',
                         type: 'direct',
-                        href: '/regulation',
-                        text: 'Regulation',
+                        icon: <IllustrativeDerivedIcon width={24} height={24} />,
+                        description: 'Indices simulating real-world markets with 24/7 trading',
                     },
                     {
                         id: 2,
+                        href: '/stocks',
+                        text: 'Stocks & indices',
                         type: 'direct',
-                        href: '/contanct-us',
-                        text: 'Contact us',
-                    },
-                    {
-                        id: 3,
-                        type: 'direct',
-                        href: '/partner',
-                        text: 'Partner',
-                    },
-                    {
-                        id: 4,
-                        type: 'direct',
-                        href: '/liquidity-provisions',
-                        text: 'Liquidity Provisions',
-                    },
-                    {
-                        id: 5,
-                        type: 'direct',
-                        href: '/trading-api',
-                        text: 'Trading API',
-                    },
-                    {
-                        id: 6,
-                        type: 'direct',
-                        href: '/press-releases',
-                        text: 'Press releases',
-                    },
-                    {
-                        id: 7,
-                        type: 'direct',
-                        href: '/deriv-life',
-                        text: 'Deriv life',
-                    },
-                    {
-                        id: 8,
-                        type: 'direct',
-                        href: '/careers',
-                        text: 'Careers',
+                        icon: <IllustrativeStocksAndIndicesIcon width={24} height={24} />,
+                        description: 'Leading company stocks and top global indices.',
                     },
                 ],
             },
             {
                 id: 1,
-                header: {
-                    href: '/learn',
-                    text: 'Learn',
-                    type: 'direct',
-                },
                 items: [
                     {
                         id: 0,
+                        href: '/commodities',
+                        text: 'Commodities',
                         type: 'direct',
-                        href: '/deriv-academy',
-                        text: 'Deriv academy',
+                        icon: <IllustrativeCommoditiesIcon width={24} height={24} />,
+                        description: 'World markets including precious metals and energies.',
                     },
                     {
                         id: 1,
+                        href: '/crypto',
+                        text: 'Cryptocurrencies',
                         type: 'direct',
-                        href: '/how-to-videos',
-                        text: 'How to videos',
+                        icon: <IllustrativeCryptocurrenciesIcon width={24} height={24} />,
+                        description: 'The world’s most popular digital currencies.',
+                    },
+                    {
+                        id: 2,
+                        href: '/etfs',
+                        text: 'Exchange-traded funds (ETFs)',
+                        type: 'direct',
+                        icon: <IllustrativeEtfIcon width={24} height={24} />,
+                        description: 'Diverse exchange-traded funds for broad market exposure.',
+                    },
+                ],
+            },
+        ],
+    },
+    'about-us': {
+        id: 2,
+        type: 'nav-dropdown',
+        text: 'About us',
+        columns: [
+            {
+                id: 0,
+                items: [
+                    {
+                        id: 0,
+                        href: '/who-we-are',
+                        text: 'Who we are',
+                        type: 'direct',
+                    },
+                    {
+                        id: 1,
+                        href: '/regulatory',
+                        text: 'Regulatory information',
+                        type: 'direct',
+                        isDesktopNavOnly: true,
+                    },
+                    {
+                        id: 2,
+                        href: '/why-choose-us',
+                        text: 'Why choose us',
+                        type: 'direct',
+                    },
+                    {
+                        id: 3,
+                        href: '/partnership',
+                        text: 'Partnership programmes',
+                        type: 'direct',
                     },
                 ],
             },
             {
-                id: 2,
-                header: {
-                    href: '/help-and-resources',
-                    text: 'Help & resources',
-                    type: 'direct',
-                },
+                id: 1,
                 items: [
                     {
                         id: 0,
+                        href: '/contact-us',
+                        text: 'Contact us',
                         type: 'direct',
-                        href: '/help-centre',
-                        text: 'Help centre',
                     },
                     {
                         id: 1,
+                        href: '/careers',
+                        text: 'Careers',
                         type: 'direct',
-                        href: '/deriv-blog',
-                        text: 'Deriv blog',
                     },
                     {
                         id: 2,
+                        href: 'deriv-life',
+                        text: 'Deriv Life',
                         type: 'direct',
-                        href: '/economic-calendar',
-                        text: 'Economic calendar',
+                        external: true,
+                    },
+                ],
+            },
+        ],
+    },
+    resources: {
+        id: 3,
+        type: 'nav-dropdown',
+        text: 'Resources',
+        columns: [
+            {
+                id: 0,
+                items: [
+                    {
+                        id: 0,
+                        href: '/help-centre',
+                        text: 'Help centre',
+                        type: 'direct',
+                    },
+                    {
+                        id: 1,
+                        href: '/community',
+                        text: 'Community',
+                        type: 'direct',
+                        external: true,
+                    },
+                    {
+                        id: 2,
+                        href: '/traders-tools',
+                        text: "Traders' tools",
+                        type: 'direct',
                     },
                     {
                         id: 3,
+                        href: '/payment-methods',
+                        text: 'Payment methods',
                         type: 'direct',
-                        href: '/deriv-trader',
-                        text: 'Deriv Trader',
+                    },
+                ],
+            },
+            {
+                id: 1,
+                items: [
+                    {
+                        id: 0,
+                        href: '/mt5-signals',
+                        text: 'Deriv MT5 signals',
+                        type: 'direct',
                     },
                     {
-                        id: 4,
+                        id: 1,
+                        href: '/status',
+                        text: 'Status page',
                         type: 'direct',
-                        href: '/glossary',
-                        text: 'Glossary',
+                    },
+                    {
+                        id: 2,
+                        href: '/deriv-blog',
+                        text: 'Deriv Blog',
+                        type: 'direct',
+                        external: true,
+                    },
+                ],
+            },
+        ],
+    },
+    legal: {
+        id: 4,
+        type: 'nav-dropdown',
+        text: 'Legal',
+        isMobileNavOnly: true,
+        columns: [
+            {
+                id: 0,
+                items: [
+                    {
+                        id: 0,
+                        href: '/regulatory',
+                        text: 'Regulatory information',
+                        type: 'direct',
+                    },
+                    {
+                        id: 1,
+                        href: '/terms-and-conditions',
+                        text: 'Terms & conditions',
+                        type: 'direct',
+                    },
+                    {
+                        id: 2,
+                        href: '/Secure & responsible trading',
+                        text: 'Secure & responsible trading',
+                        type: 'direct',
+                    },
+                ],
+            },
+        ],
+    },
+    partners: {
+        id: 5,
+        type: 'nav-dropdown',
+        text: 'Partners',
+        isMobileNavOnly: true,
+        columns: [
+            {
+                id: 0,
+                items: [
+                    {
+                        id: 0,
+                        href: '/deriv-prime',
+                        text: 'Deriv Prime',
+                        type: 'direct',
+                    },
+                    {
+                        id: 1,
+                        href: '/affiliates-and-ibs',
+                        text: 'Affiliates and IBs',
+                        type: 'direct',
+                    },
+                    {
+                        id: 2,
+                        href: '/payment-agents',
+                        text: 'Payment agents',
+                        type: 'direct',
+                    },
+                    {
+                        id: 3,
+                        href: '/api',
+                        text: 'API',
+                        type: 'direct',
                     },
                 ],
             },

@@ -1,8 +1,13 @@
 import React from 'react'
 import { Features } from '@deriv-com/blocks'
 import { CardContent } from '@deriv-com/components'
-// eslint-disable-next-line import/no-unresolved
-import { StandaloneRectangleAdBoldIcon } from '@deriv/quill-icons/Standalone'
+import {
+    LightDependableIcon,
+    LightSafeAndSecureIcon,
+    LightRegulatedIcon,
+    LightTwentyFourSevenSupportIcon,
+    // eslint-disable-next-line import/no-unresolved
+} from '@deriv/quill-icons/Illustration'
 import { localize } from 'components/localization'
 
 const cards: CardContent[] = [
@@ -14,7 +19,7 @@ const cards: CardContent[] = [
         size: 'sm',
         color: 'light',
         align: 'center',
-        icon: <StandaloneRectangleAdBoldIcon width={256} height={256} />,
+        icon: <LightDependableIcon width={120} height={145} />,
     },
     {
         header: localize('_t_Safe & Secure_t_'),
@@ -24,7 +29,7 @@ const cards: CardContent[] = [
         size: 'sm',
         color: 'light',
         align: 'center',
-        icon: <StandaloneRectangleAdBoldIcon width={256} height={256} />,
+        icon: <LightSafeAndSecureIcon width={120} height={145} />,
     },
     {
         header: localize('_t_Regulated_t_'),
@@ -34,7 +39,7 @@ const cards: CardContent[] = [
         size: 'sm',
         color: 'light',
         align: 'center',
-        icon: <StandaloneRectangleAdBoldIcon width={256} height={256} />,
+        icon: <LightRegulatedIcon width={120} height={145} />,
     },
     {
         header: localize('_t_24/7 support_t_'),
@@ -42,7 +47,7 @@ const cards: CardContent[] = [
         size: 'sm',
         color: 'light',
         align: 'center',
-        icon: <StandaloneRectangleAdBoldIcon width={256} height={256} />,
+        icon: <LightTwentyFourSevenSupportIcon width={120} height={145} />,
     },
 ]
 

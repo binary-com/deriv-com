@@ -10,7 +10,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import { localize } from 'components/localization'
 
 const sharedClasses =
-    'flex items-center justify-center gap-gap-md px-general-sm py-[6px] rounded-sm border-xs border-opacity-black-100'
+    'flex items-center justify-center gap-gap-md px-general-sm py-[6px] rounded-sm border-solid border-xs border-opacity-black-100'
 
 const DownloadBadges = () => {
     return (
@@ -22,6 +22,8 @@ const DownloadBadges = () => {
                     alt={localize('_t_get it on google play_t_')}
                     loading="eager"
                     formats={['webp', 'auto']}
+                    width={89}
+                    placeholder="none"
                 />
             </div>
             <div className={clsx(sharedClasses)}>
@@ -31,6 +33,8 @@ const DownloadBadges = () => {
                     alt={localize('_t_download on the app store_t_')}
                     loading="eager"
                     formats={['webp', 'auto']}
+                    width={89}
+                    placeholder="none"
                 />
             </div>
             <div className={clsx(sharedClasses)}>
@@ -40,6 +44,8 @@ const DownloadBadges = () => {
                     alt={localize('_t_explore it on appgallery_t_')}
                     loading="eager"
                     formats={['webp', 'auto']}
+                    width={89}
+                    placeholder="none"
                 />
             </div>
         </div>

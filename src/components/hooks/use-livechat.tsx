@@ -16,6 +16,7 @@ export const useLivechat = (): [boolean, TLC_API] => {
 
     const loadLiveChatScript = (callback) => {
         const livechat_script = document.createElement('script')
+        livechat_script.type = 'text/partytown'
         livechat_script.innerHTML = `
         window.__lc = window.__lc || {};
         window.__lc.license = ${licence_key};

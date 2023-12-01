@@ -255,7 +255,7 @@ const AffiliateGeneral = () => {
                 <Localize translate_text="_t_How and when will I receive my Deriv affiliate commissions?_t_" />
             </Header>
             <Header as="p" type="paragraph-1" mt="8px" weight="normal">
-                <Localize translate_text="_t_Commissions are paid out around the 15th of every month into your selected payment method._t_" />
+                <Localize translate_text="_t_We’ll deposit your commissions directly into your account as soon as practicable after the 20th of every month._t_" />
             </Header>
             <Header as="p" type="paragraph-1" mt="8px" weight="normal">
                 <Localize translate_text="_t_Please note that we will not credit your commission if you did not set any payment method or if it is below your desired payment threshold._t_" />

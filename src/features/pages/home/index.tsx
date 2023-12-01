@@ -6,6 +6,7 @@ import ROWFooter from './footer'
 import LiveMarketSection from './live-pricing-migration'
 import TwentyYearsStrong from './years'
 import StatSection from './stats'
+import TrustpilotSection from './trustpilot'
 import UserFriendlyPlatforms from './user-platfroms'
 import TradeTypeSection from './trade-type'
 import MainRowNavigation from './navigation'
@@ -23,6 +24,7 @@ const HomePage = () => {
                     <MainRowNavigation />
                     <PageLayout>
                         <HomeHero />
+                        <TrustpilotSection />
                         <StatSection />
                         <TwentyYearsStrong />
                         <LiveMarketSection />

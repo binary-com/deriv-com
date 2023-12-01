@@ -13,7 +13,7 @@ const HeroBanner = () => {
             )}
             content={() => (
                 <StaticImage
-                    src="../../../../images/migration/markets/forex/forex-banner.png"
+                    src="../../../../../images/migration/markets/forex/forex-banner.png"
                     alt={localize('_t_Forex banner_t_')}
                     loading="eager"
                     formats={['webp', 'auto']}

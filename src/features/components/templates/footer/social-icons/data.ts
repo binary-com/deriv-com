@@ -1,10 +1,10 @@
 import Telegram from 'images/svg/footer/telegram_icon.svg'
+import Tiktok from 'images/svg/footer/tiktok_icon.svg'
 import Twitter from 'images/svg/footer/twitter_icon.svg'
 import Youtube from 'images/svg/footer/youtube_icon.svg'
 import Instagram from 'images/svg/footer/instagram_icon.svg'
 import Facebook from 'images/svg/footer/facebook_icon.svg'
 import Linkedin from 'images/svg/footer/linkedin_icon.svg'
-import Tiktok from 'images/svg/footer/tiktok_icon.svg'
 import { TSmartContent, TString } from 'types/generics'
 import { LinkUrlType } from 'features/types'
 
@@ -257,6 +257,72 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
             url: {
                 type: 'non-company',
                 target: '_blank',
+                href: 'https://www.youtube.com/@deriv',
+            },
+            icon: Youtube,
+            image_alt: '_t_Youtube_t_',
+        },
+        visibility: {
+            is_career_page: false,
+            is_eu: false,
+        },
+    },
+    {
+        id: 9,
+        data: {
+            url: {
+                type: 'non-company',
+                target: '_blank',
+                href: 'https://www.youtube.com/@deriv',
+                show_eu_modal: true,
+            },
+            icon: Youtube,
+            image_alt: '_t_Youtube_t_',
+        },
+        visibility: {
+            is_career_page: false,
+            is_eu: true,
+        },
+    },
+    {
+        id: 10,
+        data: {
+            url: {
+                type: 'non-company',
+                target: '_blank',
+                href: 'https://www.linkedin.com/company/derivdotcom/',
+            },
+            icon: Linkedin,
+            image_alt: '_t_Linkedin_t_',
+        },
+        visibility: {
+            is_career_page: false,
+            is_eu: false,
+        },
+    },
+    {
+        id: 11,
+        data: {
+            url: {
+                type: 'non-company',
+                target: '_blank',
+                href: 'https://www.linkedin.com/company/derivdotcom/',
+                show_eu_modal: true,
+            },
+            icon: Linkedin,
+            image_alt: '_t_Linkedin_t_',
+        },
+        visibility: {
+            is_career_page: false,
+            is_eu: true,
+        },
+    },
+    {
+        id: 12,
+        data: {
+            url: {
+                type: 'non-company',
+                target: '_blank',
                 href: 'https://twitter.com/deriv_careers',
                 show_eu_modal: true,
             },
@@ -268,74 +334,24 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         },
     },
     {
-        id: 9,
+        id: 13,
         data: {
             url: {
                 type: 'non-company',
                 target: '_blank',
-                href: 'https://www.youtube.com/@deriv',
-            },
-            icon: Youtube,
-            image_alt: '_t_Youtube_t_',
-        },
-        visibility: {
-            is_career_page: false,
-            is_eu: false,
-        },
-    },
-    {
-        id: 10,
-        data: {
-            url: {
-                type: 'non-company',
-                target: '_blank',
-                href: 'https://www.youtube.com/@deriv',
-                show_eu_modal: true,
-            },
-            icon: Youtube,
-            image_alt: '_t_Youtube_t_',
-        },
-        visibility: {
-            is_career_page: false,
-            is_eu: true,
-        },
-    },
-    {
-        id: 11,
-        data: {
-            url: {
-                type: 'non-company',
-                target: '_blank',
-                href: 'https://www.linkedin.com/company/derivdotcom/',
-            },
-            icon: Linkedin,
-            image_alt: '_t_Linkedin_t_',
-        },
-        visibility: {
-            is_career_page: false,
-            is_eu: false,
-        },
-    },
-    {
-        id: 12,
-        data: {
-            url: {
-                type: 'non-company',
-                target: '_blank',
-                href: 'https://www.linkedin.com/company/derivdotcom/',
+                href: 'https://www.linkedin.com/company/derivdotcom/life/',
                 show_eu_modal: true,
             },
             icon: Linkedin,
             image_alt: '_t_Linkedin_t_',
         },
         visibility: {
-            is_career_page: false,
-            is_eu: true,
+            is_career_page: true,
         },
     },
     //temp removal of telegram : Start
     // {
-    //     id: 13,
+    //     id: 14,
     //     data: {
     //         url: {
     //             type: 'non-company',
@@ -351,22 +367,6 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
     //     },
     // },
     //temp removal of telegram : End
-    {
-        id: 14,
-        data: {
-            url: {
-                type: 'non-company',
-                target: '_blank',
-                href: 'https://www.linkedin.com/company/derivdotcom/life/',
-                show_eu_modal: true,
-            },
-            icon: Linkedin,
-            image_alt: '_t_Linkedin_t_',
-        },
-        visibility: {
-            is_career_page: true,
-        },
-    },
     {
         id: 15,
         data: {

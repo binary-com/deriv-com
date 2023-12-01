@@ -1,100 +1,63 @@
-import { Features } from '@deriv-com/blocks'
-import { CardContent } from '@deriv-com/components'
 import React from 'react'
-// eslint-disable-next-line import/no-unresolved
-import {
-    DerivProductDerivBotBrandDarkLogoHorizontalIcon,
-    DerivProductDerivGoBrandDarkLogoHorizontalIcon,
-    DerivProductDerivTraderBrandDarkLogoHorizontalIcon,
-    DerivProductDerivXBrandDarkLogoIcon,
-    PartnersProductDerivCtraderBrandLightLogoHorizontalIcon,
-    PartnersProductDerivMt5BrandLightLogoHorizontalIcon,
-    // eslint-disable-next-line import/no-unresolved
-} from '@deriv/quill-icons/Logo'
+import { Features } from '@deriv-com/blocks'
+import { Section, FluidContainer, Heading, Tab } from '@deriv/quill-design'
+import { cards, platformTabs } from './data'
 import { localize } from 'components/localization'
 
-const cards: CardContent[] = [
-    {
-        header: localize('_t_Deriv MT5_t_'),
-        description: localize('_t_The most popular and comprehensive CFDs platform._t_'),
-        icon: <PartnersProductDerivMt5BrandLightLogoHorizontalIcon width={48} height={48} />,
-        size: 'sm',
-        align: 'start',
-        color: 'light',
-        link: {
-            content: localize('_t_Learn more_t_'),
-            href: '/',
-        },
-    },
-    {
-        header: localize('_t_Deriv cTrader_t_'),
-        description: localize('_t_The most popular and comprehensive CFDs platform._t_'),
-        icon: <PartnersProductDerivCtraderBrandLightLogoHorizontalIcon height="48" width="48" />,
-        size: 'sm',
-        align: 'start',
-        color: 'light',
-        link: {
-            content: localize('_t_Learn more_t_'),
-            href: '/',
-        },
-    },
-    {
-        header: localize('_t_Deriv X_t_'),
-        description: localize('_t_The most popular and comprehensive CFDs platform._t_'),
-        icon: <DerivProductDerivXBrandDarkLogoIcon height="48" width="48" />,
-        size: 'sm',
-        align: 'start',
-        color: 'light',
-        link: {
-            content: localize('_t_Learn more_t_'),
-            href: '/',
-        },
-    },
-    {
-        header: localize('_t_Deriv GO_t_'),
-        description: localize('_t_The most popular and comprehensive CFDs platform._t_'),
-        icon: <DerivProductDerivGoBrandDarkLogoHorizontalIcon width={48} height={48} />,
-        size: 'sm',
-        align: 'start',
-        color: 'light',
-        link: {
-            content: localize('_t_Learn more_t_'),
-            href: '/',
-        },
-    },
-    {
-        header: localize('_t_Deriv Trader_t_'),
-        description: localize('_t_The most popular and comprehensive CFDs platform._t_'),
-        icon: <DerivProductDerivTraderBrandDarkLogoHorizontalIcon height="48" width="48" />,
-        size: 'sm',
-        align: 'start',
-        color: 'light',
-        link: {
-            content: localize('_t_Learn more_t_'),
-            href: '/',
-        },
-    },
-    {
-        header: localize('_t_Deriv Bot_t_'),
-        description: localize('_t_The most popular and comprehensive CFDs platform._t_'),
-        icon: <DerivProductDerivBotBrandDarkLogoHorizontalIcon height="48" width="48" />,
-        size: 'sm',
-        align: 'start',
-        color: 'light',
-        link: {
-            content: localize('_t_Learn more_t_'),
-            href: '/',
-        },
-    },
-]
-
+const getTabContent = (tabId) => {
+    switch (tabId) {
+        case 'all':
+            return cards
+        case 'cfd':
+            return cards.filter(
+                (card) =>
+                    card.header.includes('Deriv MT5') ||
+                    card.header.includes('Deriv cTrader') ||
+                    card.header.includes('Deriv X'),
+            )
+        case 'options':
+            return cards.filter(
+                (card) =>
+                    card.header.includes('Deriv GO') ||
+                    card.header.includes('Deriv Trader') ||
+                    card.header.includes('Deriv Bot'),
+            )
+        case 'bots':
+            return cards.filter((card) => card.header.includes('Deriv Bot'))
+        case 'social':
+            return cards.filter((card) => card.header.includes('Deriv cTrader'))
+        default:
+            return []
+    }
+}
 const UserFriendlyPlatforms = () => {
     return (
-        <Features.Card
-            title={localize('_t_User-friendly trading platforms, on any device_t_')}
-            cols="three"
-            cards={cards}
-        />
+        <Section className="py-general-4xl bg-background-primary-base">
+            <FluidContainer className="flex flex-col items-center justify-center gap-gap-3xl">
+                <Heading.H2>
+                    {localize('_t_User-friendly trading platforms, on any device_t_')}
+                </Heading.H2>
+
+                <Tab.Container id="test" size="md">
+                    <Tab.List className="justify-center">
+                        {platformTabs.map((item) => (
+                            <Tab.Trigger key={item.tabId}>{item.name}</Tab.Trigger>
+                        ))}
+                    </Tab.List>
+                    <Tab.Content>
+                        {platformTabs.map((item) => (
+                            <Tab.Panel key={item.tabId}>
+                                <Features.Card
+                                    className="!bg-background-primary-base"
+                                    cards={getTabContent(item.tabId)}
+                                    cols="three"
+                                />
+                            </Tab.Panel>
+                        ))}
+                    </Tab.Content>
+                </Tab.Container>
+            </FluidContainer>
+        </Section>
     )
 }
 

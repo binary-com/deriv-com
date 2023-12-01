@@ -37,14 +37,13 @@ const UserFriendlyPlatforms = () => {
             header={localize('_t_User-friendly trading platforms, on any device_t_')}
             tabs={platformTabs}
         >
-            {platformTabs.map((item) => (
-                <>
-                    <CardsContainer
-                        variant="ContentBottom"
-                        cards={getTabContent(item.children)}
-                        cols="three"
-                    />
-                </>
+            {platformTabs.map((item, i) => (
+                <CardsContainer
+                    variant="ContentBottom"
+                    cards={getTabContent(item.children)}
+                    cols="three"
+                    key={i}
+                />
             ))}
         </PlatformBlock.Tab>
     )

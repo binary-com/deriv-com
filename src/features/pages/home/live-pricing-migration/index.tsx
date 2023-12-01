@@ -1,33 +1,34 @@
 import React from 'react'
-import { LiveMarket } from '@deriv-com/blocks'
+import { LiveMarketBlock } from '@deriv-com/blocks'
+import { CardsContainer } from '@deriv-com/components'
 import { LivePriceData } from './data'
 import { localize } from 'components/localization'
 
 const LiveMarketSection = () => {
     return (
-        <LiveMarket
+        <LiveMarketBlock.Tab
             header={localize('_t_Top trading assets & unique market indices_t_')}
             className="bg-background-primary-base"
-            disclaimer="*Prices are used for currency conversion and are published for reference only. Prices shown on our website are indicative and for reference only."
+            description={localize(
+                '_t_<strong>Forex at your fingertips.</strong> Currency trading with major, minor, and exotic pairs. _t_',
+            )}
             link={{ href: '/', content: 'See all forex pairs' }}
-            cardSliderProps={{
-                cards: LivePriceData,
-                variant: 'LiveMarketCard',
-                slideClasses: 'max-w-[286px]',
-                swiperData: {
-                    spaceBetween: 16,
-                    breakpoints: {
-                        1280: {
-                            slidesPerView: 4,
-                        },
-                        1024: {
-                            slidesPerView: 'auto',
-                        },
-                    },
-                    pagination: undefined,
-                },
-            }}
-        />
+            tabs={[
+                { children: 'Forex' },
+                { children: 'Derived indices' },
+                { children: 'ETFs' },
+                { children: 'Stocks & indices' },
+                { children: 'Cryptocurrencies' },
+                { children: 'Commodities' },
+            ]}
+        >
+            <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
+            <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
+            <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
+            <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
+            <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
+            <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
+        </LiveMarketBlock.Tab>
     )
 }
 

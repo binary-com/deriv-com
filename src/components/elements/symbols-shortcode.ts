@@ -1,51 +1,53 @@
+// etfs
+import ETFSICON from 'images/svg/symbols/etf-usd-500.svg'
 //commodities
 import Vol_1HZ250V from 'images/svg/symbols/volatility_250_1s.svg'
 import Vol_1HZ150V from 'images/svg/symbols/volatility_150_1s.svg'
 import WTI_OIL from 'images/svg/symbols/usd-brent.svg'
 import CL_BRENT from 'images/svg/symbols/pound-brent.svg'
 import XAGEUR from 'images/svg/symbols/silver-eur.svg'
-import frxXAGUSD from 'images/svg/symbols/silver-usd.svg'
+import XAGUSD from 'images/svg/symbols/silver-usd.svg'
 import XAUEUR from 'images/svg/symbols/gold-eur.svg'
 import XALUSD from 'images/svg/symbols/aluminium-usd.svg'
-import frxXCUUSD from 'images/svg/symbols/copper-usd.svg'
-import frxXAUUSD from 'images/svg/symbols/gold-usd.svg'
+import XCUUSD from 'images/svg/symbols/copper-usd.svg'
+import XAUUSD from 'images/svg/symbols/gold-usd.svg'
 import XNIUSD from 'images/svg/symbols/nickel-usd.svg'
 import XPBUSD from 'images/svg/symbols/lead-usd.svg'
-import frxXPDUSD from 'images/svg/symbols/palladium-usd.svg'
-import frxXPTUSD from 'images/svg/symbols/platinum-usd.svg'
+import XPDUSD from 'images/svg/symbols/palladium-usd.svg'
+import XPTUSD from 'images/svg/symbols/platinum-usd.svg'
 import XZNUSD from 'images/svg/symbols/zinc-usd.svg'
 //crypto
-import cryADAUSD from 'images/svg/symbols/ada-usd.svg'
-import cryALGUSD from 'images/svg/symbols/algorand.svg'
-import cryAVAUSD from 'images/svg/symbols/avalanche.svg'
-import cryBATUSD from 'images/svg/symbols/bat.svg'
-import cryBCHUSD from 'images/svg/symbols/btc_cash_flag-new.svg'
-import cryBNBUSD from 'images/svg/symbols/bnb-usd.svg'
-import cryBTCETH from 'images/svg/symbols/btc-eth.svg'
-import cryBTCLTC from 'images/svg/symbols/bct-ltc.svg'
-import cryBTCUSD from 'images/svg/symbols/btc-usd.svg'
-import cryDOGUSD from 'images/svg/symbols/dog-usd.svg'
-import cryDOTUSD from 'images/svg/symbols/dot-usd.svg'
-import cryDSHUSD from 'images/svg/symbols/dsh-usd1.svg'
-import cryEOSUSD from 'images/svg/symbols/eos-usd1.svg'
-import cryETCUSD from 'images/svg/symbols/etc-usd.svg'
-import cryETHUSD from 'images/svg/symbols/eth-usd.svg'
-import cryFILUSD from 'images/svg/symbols/fil-usd.svg'
-import cryIOTUSD from 'images/svg/symbols/iot-usd.svg'
-import cryLNKUSD from 'images/svg/symbols/lnk-usd.svg'
-import cryLTCUSD from 'images/svg/symbols/ltc-usd.svg'
-import cryMKRUSD from 'images/svg/symbols/mkr-usd.svg'
-import cryMTCUSD from 'images/svg/symbols/mtc-usd.svg'
-import cryNEOUSD from 'images/svg/symbols/neo-usd.svg'
-import cryOMGUSD from 'images/svg/symbols/omg-usd.svg'
-import crySOLUSD from 'images/svg/symbols/sol-usd.svg'
-import cryTRXUSD from 'images/svg/symbols/trx-usd.svg'
-import cryUNIUSD from 'images/svg/symbols/uni-usd.svg'
-import cryXLMUSD from 'images/svg/symbols/xlm-usd.svg'
-import cryXMRUSD from 'images/svg/symbols/xmr-usd.svg'
-import cryXRPUSD from 'images/svg/symbols/xrp-usd1.svg'
-import cryXTZUSD from 'images/svg/symbols/xtz-usd.svg'
-import cryZECUSD from 'images/svg/symbols/zec-usd.svg'
+import ADAUSD from 'images/svg/symbols/ada-usd.svg'
+import ALGUSD from 'images/svg/symbols/algorand.svg'
+import AVAUSD from 'images/svg/symbols/avalanche.svg'
+import BATUSD from 'images/svg/symbols/bat.svg'
+import BCHUSD from 'images/svg/symbols/btc_cash_flag-new.svg'
+import BNBUSD from 'images/svg/symbols/bnb-usd.svg'
+import BTCETH from 'images/svg/symbols/btc-eth.svg'
+import BTCLTC from 'images/svg/symbols/bct-ltc.svg'
+import BTCUSD from 'images/svg/symbols/btc-usd.svg'
+import DOGUSD from 'images/svg/symbols/dog-usd.svg'
+import DOTUSD from 'images/svg/symbols/dot-usd.svg'
+import DSHUSD from 'images/svg/symbols/dsh-usd1.svg'
+import EOSUSD from 'images/svg/symbols/eos-usd1.svg'
+import ETCUSD from 'images/svg/symbols/etc-usd.svg'
+import ETHUSD from 'images/svg/symbols/eth-usd.svg'
+import FILUSD from 'images/svg/symbols/fil-usd.svg'
+import IOTUSD from 'images/svg/symbols/iot-usd.svg'
+import LNKUSD from 'images/svg/symbols/lnk-usd.svg'
+import LTCUSD from 'images/svg/symbols/ltc-usd.svg'
+import MKRUSD from 'images/svg/symbols/mkr-usd.svg'
+import MTCUSD from 'images/svg/symbols/mtc-usd.svg'
+import NEOUSD from 'images/svg/symbols/neo-usd.svg'
+import OMGUSD from 'images/svg/symbols/omg-usd.svg'
+import SOLUSD from 'images/svg/symbols/sol-usd.svg'
+import TRXUSD from 'images/svg/symbols/trx-usd.svg'
+import UNIUSD from 'images/svg/symbols/uni-usd.svg'
+import XLMUSD from 'images/svg/symbols/xlm-usd.svg'
+import XMRUSD from 'images/svg/symbols/xmr-usd.svg'
+import XRPUSD from 'images/svg/symbols/xrp-usd1.svg'
+import XTZUSD from 'images/svg/symbols/xtz-usd.svg'
+import ZECUSD from 'images/svg/symbols/zec-usd.svg'
 //stocks
 import DEADS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-adidas-salomon.svg'
 import FRAIR from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-airbus.svg'
@@ -56,50 +58,40 @@ import DECONG from 'images/svg/symbols/markets-stocks-and-indices/american-stock
 import DEDBK from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-deutsche-bank-ag.svg'
 import DELHAG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-deutsche-lufthansa-ag.svg'
 import DEPSHG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-porsche.svg'
-import DEPUMG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-puma.svg'
 import USAAL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-american-airlines-group-inc.svg'
-import USAAPL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-apple.svg'
+import AAPL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-apple.svg'
 import USABNB from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-airbnb.svg'
-import USAIG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-american-international-group.svg'
 import USAMD from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-amd.svg'
 import USAMZN from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-amazon-com-inc.svg'
-import USBA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-boeing.svg'
 import USBABA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-alibaba-group-holding-ltd.svg'
-import USBAC from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-bank-of-america.svg'
-import USBIIB from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-biogen-inc.svg'
-import USC from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-citigroup.svg'
 import USCRM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-salesforce-com-inc.svg'
 import USCSCO from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-cisco-systems.svg'
+import DIS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-walt-disney-company.svg'
 import USDAL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-delta-air-lines.svg'
-import USDIS from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-walt-disney-company.svg'
 import USEBAY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-e-bay-inc.svg'
 import USFB from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-facebook-inc.svg'
 import USFDX from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-fedex.svg'
 import USFOX from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-fox-corp-class-b.svg'
 import USGM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-general-motors-company.svg'
 import USGOOG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-alphabet-inc-class-c.svg'
-import USGLDSCH from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-goldman-sachs-group.svg'
 import USHD from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-home-depot.svg'
 import USHPQ from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-hp-inc.svg'
 import USIBM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-ibm.svg'
 import USINTC from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-intel.svg'
 import USJNJ from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-jonhson-johnson.svg'
 import USJPM from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-jp-morgan-chase.svg'
-import USKO from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-coca-cola.svg'
 import USMA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-mastercard-inc.svg'
 import USMCD from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-mc-donalds.svg'
 import USMRNA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-moderna-inc.svg'
-import USMSFT from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-microsoft-corporation.svg'
 import USNTFLX from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-netflix.svg'
 import USNKE from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-nike.svg'
 import USNVDA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-nvidia-corp.svg'
 import USPEP from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-pepsico.svg'
 import USPFE from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-pfizer.svg'
-import USPG from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-procter-gamble.svg'
 import USPYPL from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-paypal.svg'
 import USSONY from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-sony.svg'
 import USTEVA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-teva-pharmaceutical-inds.svg'
-import USTSLMTR from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-tesla-inc.svg'
+import TSLA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-tesla-inc.svg'
 import USUBER from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-uber-technologies-inc.svg'
 import USVISA from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-visa.svg'
 import USWMT from 'images/svg/symbols/markets-stocks-and-indices/american-stocks/stocks-wal-mart-stores-inc.svg'
@@ -109,20 +101,18 @@ import OTC_IBEX35 from 'images/svg/symbols/markets-stocks-and-indices/european-i
 import OTC_SX5E from 'images/svg/symbols/markets-stocks-and-indices/european-indices/europe-50.svg'
 import OTC_FCHI from 'images/svg/symbols/markets-stocks-and-indices/european-indices/france-40.svg'
 import OTC_N225 from 'images/svg/symbols/markets-stocks-and-indices/asian-indices/japan-225.svg'
-import OTC_FTSE from 'images/svg/symbols/markets-stocks-and-indices/european-indices/uk-100.svg'
-import OTC_NDX from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-tech-100.svg'
-import OTC_DJI from 'images/svg/symbols/markets-stocks-and-indices/american-indices/wall-street-30.svg'
+import US_100 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-tech-100.svg'
+import US_30 from 'images/svg/symbols/markets-stocks-and-indices/american-indices/wall-street-30.svg'
 import OTC_SPC from 'images/svg/symbols/markets-stocks-and-indices/american-indices/us-500.svg'
-import OTC_AS51 from 'images/svg/symbols/markets-stocks-and-indices/asian-indices/aus-200.svg'
 //derived
 import R_10 from 'images/svg/symbols/index10-new.svg'
 import R_25 from 'images/svg/symbols/index25-new.svg'
 import R_50 from 'images/svg/symbols/index50-new.svg'
-import R_75 from 'images/svg/symbols/index75-new.svg'
+import Volatility_75_Index from 'images/svg/symbols/index75-new.svg'
 import R_100 from 'images/svg/symbols/index100-new.svg'
 import stpRNG from 'images/svg/symbols/step-indices-new.svg'
 import RB100 from 'images/svg/symbols/rb-100-new.svg'
-import RB200 from 'images/svg/symbols/rb-200-new.svg'
+import Range_Break_200_Index from 'images/svg/symbols/rb-200-new.svg'
 import Vol_1HZ10V from 'images/svg/symbols/index10s1-new.svg'
 import Vol_1HZ25V from 'images/svg/symbols/index25s1-new.svg'
 import Vol_1HZ50V from 'images/svg/symbols/index50s1-new.svg'
@@ -132,12 +122,12 @@ import Vol_1HZ200V from 'images/svg/symbols/volatility_200_1s.svg'
 import Vol_1HZ300V from 'images/svg/symbols/volatility_300_1s.svg'
 import BOOM1000 from 'images/svg/symbols/boom-indices-1000-new.svg'
 import BOOM500 from 'images/svg/symbols/boom-indices-500-new.svg'
-import CRASH1000 from 'images/svg/symbols/crash-indices-1000-new.svg'
+import Crash_1000_Index from 'images/svg/symbols/crash-indices-1000-new.svg'
 import CRASH500 from 'images/svg/symbols/crash-indices-500-new.svg'
 import JD10 from 'images/svg/symbols/jump-10-new.svg'
 import JD100 from 'images/svg/symbols/jump-100-new.svg'
 import JD25 from 'images/svg/symbols/jump-25-new.svg'
-import JD50 from 'images/svg/symbols/jump-50-new.svg'
+import Jump_50_Index from 'images/svg/symbols/jump-50-new.svg'
 import JD75 from 'images/svg/symbols/jump-75-new.svg'
 import WLDAUD from 'images/svg/symbols/aud-basket.svg'
 import WLDEUR from 'images/svg/symbols/eur-basket.svg'
@@ -148,94 +138,94 @@ import USDJPYDFX10 from 'images/svg/symbols/usd-jpy-10.svg'
 import GBPUSDDFX10 from 'images/svg/symbols/gbp-usd-10.svg'
 import AUDUSDDFX10 from 'images/svg/symbols/aud-usd-10.svg'
 import USDCHFDFX10 from 'images/svg/symbols/usd-chf-10.svg'
-import EURUSDDFX10 from 'images/svg/symbols/eur-usd-10.svg'
-import BOOM300 from 'images/svg/symbols/boom-eu-boom-300.svg'
-import CRASH300 from 'images/svg/symbols/crash-eu-crash-300.svg'
+import EURUSD_DFX_10_Index from 'images/svg/symbols/eur-usd-10.svg'
+import Boom_300_Index from 'images/svg/symbols/boom-eu-boom-300.svg'
+import Crash_300_Index from 'images/svg/symbols/crash-eu-crash-300.svg'
 //forex
-import frxAUDJPY from 'images/svg/symbols/aud-jpy.svg'
-import frxAUDUSD from 'images/svg/symbols/aud-usd.svg'
-import frxEURAUD from 'images/svg/symbols/eur-aud.svg'
-import frxEURCAD from 'images/svg/symbols/eur-cad.svg'
-import frxEURCHF from 'images/svg/symbols/eur-chf.svg'
-import frxEURGBP from 'images/svg/symbols/eur-gbp.svg'
-import frxEURJPY from 'images/svg/symbols/eur-jpy.svg'
-import frxEURUSD from 'images/svg/symbols/eur-usd.svg'
-import frxGBPAUD from 'images/svg/symbols/gbp-aud.svg'
-import frxGBPJPY from 'images/svg/symbols/gbp-jpy.svg'
-import frxGBPUSD from 'images/svg/symbols/gbp-usd.svg'
-import frxUSDCAD from 'images/svg/symbols/usd-cad.svg'
-import frxUSDCHF from 'images/svg/symbols/usd-chf.svg'
-import frxUSDJPY from 'images/svg/symbols/usd-jpy.svg'
-import frxAUDCAD from 'images/svg/symbols/aud-cad.svg'
-import frxAUDCHF from 'images/svg/symbols/aud-chf.svg'
-import frxAUDNZD from 'images/svg/symbols/aud-nzd.svg'
-import frxCADCHF from 'images/svg/symbols/cad-chf.svg'
-import frxCADJPY from 'images/svg/symbols/cad-jpy.svg'
-import frxCHFJPY from 'images/svg/symbols/chf-jpy.svg'
-import frxEURNOK from 'images/svg/symbols/eur-nok.svg'
-import frxEURNZD from 'images/svg/symbols/eur-nzd.svg'
-import frxEURPLN from 'images/svg/symbols/eur-pln.svg'
-import frxEURSEK from 'images/svg/symbols/eur-sek.svg'
-import frxGBPCAD from 'images/svg/symbols/gbp-cad.svg'
-import frxGBPCHF from 'images/svg/symbols/gbp-chf.svg'
-import frxGBPNOK from 'images/svg/symbols/gbp-nok.svg'
-import frxGBPNZD from 'images/svg/symbols/gbp-nzd.svg'
-import frxGBPSEK from 'images/svg/symbols/gbp-sek.svg'
-import frxNZDCAD from 'images/svg/symbols/nzd-cad.svg'
-import frxNZDJPY from 'images/svg/symbols/nzd-jpy.svg'
-import frxNZDUSD from 'images/svg/symbols/nzd-usd.svg'
-import frxUSDCNH from 'images/svg/symbols/usd-cnh.svg'
-import frxUSDMXN from 'images/svg/symbols/usd-mxn.svg'
-import frxUSDNOK from 'images/svg/symbols/usd-nok.svg'
-import frxUSDPLN from 'images/svg/symbols/usd-pln.svg'
-import frxUSDSEK from 'images/svg/symbols/usd-sek.svg'
-import frxUSDZAR from 'images/svg/symbols/usd-zar.svg'
+import AUDJPY from 'images/svg/symbols/aud-jpy.svg'
+import AUDUSD from 'images/svg/symbols/aud-usd.svg'
+import EURAUD from 'images/svg/symbols/eur-aud.svg'
+import EURCAD from 'images/svg/symbols/eur-cad.svg'
+import EURCHF from 'images/svg/symbols/eur-chf.svg'
+import EURGBP from 'images/svg/symbols/eur-gbp.svg'
+import EURJPY from 'images/svg/symbols/eur-jpy.svg'
+import EURUSD from 'images/svg/symbols/eur-usd.svg'
+import GBPAUD from 'images/svg/symbols/gbp-aud.svg'
+import GBPJPY from 'images/svg/symbols/gbp-jpy.svg'
+import GBPUSD from 'images/svg/symbols/gbp-usd.svg'
+import USDCAD from 'images/svg/symbols/usd-cad.svg'
+import USDCHF from 'images/svg/symbols/usd-chf.svg'
+import USDJPY from 'images/svg/symbols/usd-jpy.svg'
+import AUDCAD from 'images/svg/symbols/aud-cad.svg'
+import AUDCHF from 'images/svg/symbols/aud-chf.svg'
+import AUDNZD from 'images/svg/symbols/aud-nzd.svg'
+import CADCHF from 'images/svg/symbols/cad-chf.svg'
+import CADJPY from 'images/svg/symbols/cad-jpy.svg'
+import CHFJPY from 'images/svg/symbols/chf-jpy.svg'
+import EURNOK from 'images/svg/symbols/eur-nok.svg'
+import EURNZD from 'images/svg/symbols/eur-nzd.svg'
+import EURPLN from 'images/svg/symbols/eur-pln.svg'
+import EURSEK from 'images/svg/symbols/eur-sek.svg'
+import GBPCAD from 'images/svg/symbols/gbp-cad.svg'
+import GBPCHF from 'images/svg/symbols/gbp-chf.svg'
+import GBPNOK from 'images/svg/symbols/gbp-nok.svg'
+import GBPNZD from 'images/svg/symbols/gbp-nzd.svg'
+import GBPSEK from 'images/svg/symbols/gbp-sek.svg'
+import NZDCAD from 'images/svg/symbols/nzd-cad.svg'
+import NZDJPY from 'images/svg/symbols/nzd-jpy.svg'
+import NZDUSD from 'images/svg/symbols/nzd-usd.svg'
+import USDCNH from 'images/svg/symbols/usd-cnh.svg'
+import USDMXN from 'images/svg/symbols/usd-mxn.svg'
+import USDNOK from 'images/svg/symbols/usd-nok.svg'
+import USDPLN from 'images/svg/symbols/usd-pln.svg'
+import USDSEK from 'images/svg/symbols/usd-sek.svg'
+import USDZAR from 'images/svg/symbols/usd-zar.svg'
 
 export {
     WTI_OIL,
     CL_BRENT,
     XAGEUR,
-    frxXAGUSD,
+    XAGUSD,
     XAUEUR,
     XALUSD,
-    frxXCUUSD,
-    frxXAUUSD,
+    XCUUSD,
+    XAUUSD,
     XNIUSD,
     XPBUSD,
-    frxXPDUSD,
-    frxXPTUSD,
+    XPDUSD,
+    XPTUSD,
     XZNUSD,
-    cryADAUSD,
-    cryALGUSD,
-    cryAVAUSD,
-    cryBATUSD,
-    cryBCHUSD,
-    cryBNBUSD,
-    cryBTCETH,
-    cryBTCLTC,
-    cryBTCUSD,
-    cryDOGUSD,
-    cryDOTUSD,
-    cryDSHUSD,
-    cryEOSUSD,
-    cryETCUSD,
-    cryETHUSD,
-    cryFILUSD,
-    cryIOTUSD,
-    cryLNKUSD,
-    cryLTCUSD,
-    cryMKRUSD,
-    cryMTCUSD,
-    cryNEOUSD,
-    cryOMGUSD,
-    crySOLUSD,
-    cryTRXUSD,
-    cryUNIUSD,
-    cryXLMUSD,
-    cryXMRUSD,
-    cryXRPUSD,
-    cryXTZUSD,
-    cryZECUSD,
+    ADAUSD,
+    ALGUSD,
+    AVAUSD,
+    BATUSD,
+    BCHUSD,
+    BNBUSD,
+    BTCETH,
+    BTCLTC,
+    BTCUSD,
+    DOGUSD,
+    DOTUSD,
+    DSHUSD,
+    EOSUSD,
+    ETCUSD,
+    ETHUSD,
+    FILUSD,
+    IOTUSD,
+    LNKUSD,
+    LTCUSD,
+    MKRUSD,
+    MTCUSD,
+    NEOUSD,
+    OMGUSD,
+    SOLUSD,
+    TRXUSD,
+    UNIUSD,
+    XLMUSD,
+    XMRUSD,
+    XRPUSD,
+    XTZUSD,
+    ZECUSD,
     DEADS,
     FRAIR,
     FRAIRF,
@@ -245,50 +235,40 @@ export {
     DEDBK,
     DELHAG,
     DEPSHG,
-    DEPUMG,
     USAAL,
-    USAAPL,
+    AAPL,
     USABNB,
-    USAIG,
     USAMD,
     USAMZN,
-    USBA,
     USBABA,
-    USBAC,
-    USBIIB,
-    USC,
     USCRM,
     USCSCO,
+    DIS,
     USDAL,
-    USDIS,
     USEBAY,
     USFB,
     USFDX,
     USFOX,
     USGM,
     USGOOG,
-    USGLDSCH,
     USHD,
     USHPQ,
     USIBM,
     USINTC,
     USJNJ,
     USJPM,
-    USKO,
     USMA,
     USMCD,
     USMRNA,
-    USMSFT,
     USNTFLX,
     USNKE,
     USNVDA,
     USPEP,
     USPFE,
-    USPG,
     USPYPL,
     USSONY,
     USTEVA,
-    USTSLMTR,
+    TSLA,
     USUBER,
     USVISA,
     USWMT,
@@ -298,19 +278,17 @@ export {
     OTC_SX5E,
     OTC_FCHI,
     OTC_N225,
-    OTC_FTSE,
-    OTC_NDX,
-    OTC_DJI,
+    US_100,
+    US_30,
     OTC_SPC,
-    OTC_AS51,
     R_10,
     R_25,
     R_50,
-    R_75,
+    Volatility_75_Index,
     R_100,
     stpRNG,
     RB100,
-    RB200,
+    Range_Break_200_Index,
     Vol_1HZ10V,
     Vol_1HZ25V,
     Vol_1HZ50V,
@@ -322,14 +300,14 @@ export {
     Vol_1HZ250V,
     BOOM1000,
     BOOM500,
-    BOOM300,
-    CRASH300,
-    CRASH1000,
+    Boom_300_Index,
+    Crash_300_Index,
+    Crash_1000_Index,
     CRASH500,
     JD10,
     JD100,
     JD25,
-    JD50,
+    Jump_50_Index,
     JD75,
     WLDAUD,
     WLDEUR,
@@ -340,43 +318,44 @@ export {
     GBPUSDDFX10,
     AUDUSDDFX10,
     USDCHFDFX10,
-    EURUSDDFX10,
-    frxAUDJPY,
-    frxAUDUSD,
-    frxEURAUD,
-    frxEURCAD,
-    frxEURCHF,
-    frxEURGBP,
-    frxEURJPY,
-    frxEURUSD,
-    frxGBPAUD,
-    frxGBPJPY,
-    frxGBPUSD,
-    frxUSDCAD,
-    frxUSDCHF,
-    frxUSDJPY,
-    frxAUDCAD,
-    frxAUDCHF,
-    frxAUDNZD,
-    frxCADCHF,
-    frxCADJPY,
-    frxCHFJPY,
-    frxEURNOK,
-    frxEURNZD,
-    frxEURPLN,
-    frxEURSEK,
-    frxGBPCAD,
-    frxGBPCHF,
-    frxGBPNOK,
-    frxGBPNZD,
-    frxGBPSEK,
-    frxNZDCAD,
-    frxNZDJPY,
-    frxNZDUSD,
-    frxUSDCNH,
-    frxUSDMXN,
-    frxUSDNOK,
-    frxUSDPLN,
-    frxUSDSEK,
-    frxUSDZAR,
+    EURUSD_DFX_10_Index,
+    AUDJPY,
+    AUDUSD,
+    EURAUD,
+    EURCAD,
+    EURCHF,
+    EURGBP,
+    EURJPY,
+    EURUSD,
+    GBPAUD,
+    GBPJPY,
+    GBPUSD,
+    USDCAD,
+    USDCHF,
+    USDJPY,
+    AUDCAD,
+    AUDCHF,
+    AUDNZD,
+    CADCHF,
+    CADJPY,
+    CHFJPY,
+    EURNOK,
+    EURNZD,
+    EURPLN,
+    EURSEK,
+    GBPCAD,
+    GBPCHF,
+    GBPNOK,
+    GBPNZD,
+    GBPSEK,
+    NZDCAD,
+    NZDJPY,
+    NZDUSD,
+    USDCNH,
+    USDMXN,
+    USDNOK,
+    USDPLN,
+    USDSEK,
+    USDZAR,
+    ETFSICON,
 }

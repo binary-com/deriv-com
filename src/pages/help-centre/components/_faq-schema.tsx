@@ -1,5 +1,3 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
 import { localize } from 'components/localization'
 
 type TAcceptedAnswer = {
@@ -20,7 +18,7 @@ type TFaqSchemaData = {
     mainEntity: TMainEntity
 }
 
-const faq_schema_data: TFaqSchemaData = {
+const faq_schema: TFaqSchemaData = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [
@@ -46,11 +44,11 @@ const faq_schema_data: TFaqSchemaData = {
         },
         {
             '@type': 'Question',
-            name: localize('_t_What is DTrader?_t_'),
+            name: localize('_t_What is Deriv Trader?_t_'),
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    '_t_DTrader is an advanced trading platform that allows you to trade more than 50 assets in the form of digitals, multiplier, and lookback options._t_',
+                    '_t_Deriv Trader is an advanced trading platform that allows you to trade more than 50 assets in the form of digitals, multiplier, and lookback options._t_',
                 ),
             },
         },
@@ -111,10 +109,4 @@ const faq_schema_data: TFaqSchemaData = {
     ],
 }
 
-const FaqSchema = () => (
-    <Helmet>
-        <script type="application/ld+json">{JSON.stringify(faq_schema_data)}</script>
-    </Helmet>
-)
-
-export default FaqSchema
+export default faq_schema

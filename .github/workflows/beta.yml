@@ -18,6 +18,11 @@ env:
     GATSBY_DATADOG_APPLICATION_ID: ${{ secrets.GATSBY_DATADOG_APPLICATION_ID }}
     GATSBY_DATADOG_CLIENT_TOKEN: ${{ secrets.GATSBY_DATADOG_CLIENT_TOKEN }}
     GATSBY_MAP_API_KEY: ${{ secrets.GATSBY_MAP_API_KEY }}
+    GATSBY_GROWTHBOOK_CLIENT_KEY: ${{ secrets.GATSBY_GROWTHBOOK_CLIENT_KEY }}
+    GATSBY_GROWTHBOOK_DECRYPTION_KEY: ${{ secrets.GATSBY_GROWTHBOOK_DECRYPTION_KEY }}
+    GATSBY_RUDDERSTACK_STAGING_KEY: ${{ secrets.GATSBY_RUDDERSTACK_STAGING_KEY }}
+    GATSBY_RUDDERSTACK_PRODUCTION_KEY: ${{ secrets.GATSBY_RUDDERSTACK_PRODUCTION_KEY }}
+    GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID: ${{ secrets.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID }}
 
 jobs:
     release-beta:
@@ -31,8 +36,16 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: '16.x'
+                  node-version: '18.x'
                   cache: 'npm'
+
+            - name: Create npmrc file
+              shell: bash
+              run: echo "@deriv-com:registry=https://npm.pkg.github.com" >> .npmrc
+
+            - name: Setup install read-only token for deriv-com org
+              shell: bash
+              run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' >> .npmrc
 
             - run: npm ci
             # - run: npm run format
@@ -49,7 +62,7 @@ jobs:
               with:
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  command: pages publish public --project-name=deriv-com-pages --branch=beta
+                  command: pages deploy public --project-name=deriv-com-pages --branch=beta
 
             - name: Cloudflare preview link ✨
               run: echo "New beta website - https://beta.deriv.com"

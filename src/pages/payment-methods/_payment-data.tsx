@@ -14,7 +14,6 @@ import {
     BankDeposit,
     Pix,
     Help2Pay,
-    Verve,
     ZingPay,
     MPesa,
     MTN,
@@ -30,7 +29,6 @@ import {
     Skrill,
     Skrill1Tap,
     SticPay,
-    Chipper,
     Eps,
     GiroPay,
     Przelewy24,
@@ -56,6 +54,13 @@ import {
     OneVoucher,
     PaySafeCard,
     DP2P,
+    OZOW,
+    PSE,
+    VNPAY,
+    TIGO,
+    AIRTEL,
+    ORANGE,
+    ZAMTEL,
 } from 'images/svg/payment-methods'
 
 type LocaleType = { language?: string }
@@ -63,9 +68,9 @@ type LocaleType = { language?: string }
 type PaymentType = {
     method?: ReactElement
     currencies?: string | TString
-    min_max_deposit?: TString
+    min_max_deposit?: TString | string
     min_max_deposit_components?: ReactElement[]
-    min_max_withdrawal?: TString
+    min_max_withdrawal?: TString | string
     min_max_withdrawal_components?: ReactElement[]
     deposit_time?: TString
     withdrawal_time?: TString
@@ -240,16 +245,6 @@ const payment_data: PaymentDataProps[] = [
                 name: 'Help2Pay',
             },
             {
-                method: <StyledIcon src={Verve} alt="verve" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_5 - 1,000_t_',
-                min_max_withdrawal: '_t_5 - 1,000_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_1 working day_t_',
-                description: '_t_Deposit through your local payment cards._t_',
-                name: 'verve',
-            },
-            {
                 method: <StyledIcon src={ZingPay} alt="zingPay" />,
                 currencies: 'USD, EUR, AUD, GBP',
                 min_max_deposit: '_t_10 - 500_t_',
@@ -259,6 +254,37 @@ const payment_data: PaymentDataProps[] = [
                 description:
                     '_t_Make deposits and withdrawals through your local bank in real-time._t_',
                 name: 'ZingPay',
+            },
+            {
+                method: <StyledIcon src={VNPAY} alt="VNPAY" />,
+                currencies: 'USD',
+                min_max_deposit: '10 - 10,000',
+                min_max_withdrawal: '10 - 10,000',
+                deposit_time: '_t_1 working day_t_',
+                withdrawal_time: '_t_1 - 2 working days_t_',
+                description:
+                    "_t_Make easy deposits and withdrawals using Vietnam's famous banks._t_",
+                name: 'VNPay',
+            },
+            {
+                method: <StyledIcon src={OZOW} alt="Ozow" />,
+                currencies: 'USD',
+                min_max_deposit: '5 - 200',
+                min_max_withdrawal: '10 - 2,000',
+                deposit_time: '_t_1 working day_t_',
+                withdrawal_time: '_t_1 - 2 working days_t_',
+                description: '_t_Make deposits and withdrawals through your local bank._t_',
+                name: 'Ozow',
+            },
+            {
+                method: <StyledIcon src={PSE} alt="PSE" />,
+                currencies: 'USD',
+                min_max_deposit: '10 - 1,000',
+                min_max_withdrawal: '10 - 1,000',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 - 2 working days_t_',
+                description: '_t_Make deposits and withdrawals through your local bank._t_',
+                name: 'PSE',
             },
         ],
     },
@@ -275,7 +301,7 @@ const payment_data: PaymentDataProps[] = [
                 min_max_withdrawal: '_t_5 - 1,000_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
-                description: '_t_Make fast and easy deposits through your bank account._t_',
+                description: '_t_Make easy deposits and withdrawal using Mobile Money._t_',
                 name: 'MPesa',
             },
             {
@@ -285,7 +311,7 @@ const payment_data: PaymentDataProps[] = [
                 min_max_withdrawal: '_t_5 - 1,000_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
-                description: '_t_Make fast and easy deposits through your bank account._t_',
+                description: '_t_Make easy deposits and withdrawal using Mobile Money._t_',
                 name: 'MTN',
             },
             {
@@ -295,8 +321,48 @@ const payment_data: PaymentDataProps[] = [
                 min_max_withdrawal: '_t_5 - 1,000_t_',
                 deposit_time: '_t_Instant_t_',
                 withdrawal_time: '_t_1 working day_t_',
-                description: '_t_Make fast and easy deposits through your bank account._t_',
+                description: '_t_Make easy deposits and withdrawal using Mobile Money._t_',
                 name: 'Vodafone',
+            },
+            {
+                method: <StyledIcon src={TIGO} alt="Tigo" />,
+                currencies: 'USD',
+                min_max_deposit: '5 - 1,000',
+                min_max_withdrawal: '5 - 1,000',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description: '_t_Make easy deposits and withdrawal using Mobile Money._t_',
+                name: 'Tigo',
+            },
+            {
+                method: <StyledIcon src={AIRTEL} alt="Airtel" />,
+                currencies: 'USD',
+                min_max_deposit: '5 - 1,000',
+                min_max_withdrawal: '5 - 1,000',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description: '_t_Make easy deposits and withdrawal using Mobile Money._t_',
+                name: 'Airtel',
+            },
+            {
+                method: <StyledIcon src={ORANGE} alt="Orange" />,
+                currencies: 'USD',
+                min_max_deposit: '5 - 1,000',
+                min_max_withdrawal: '5 - 1,000',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description: '_t_Make easy deposits and withdrawal using Mobile Money._t_',
+                name: 'Orange',
+            },
+            {
+                method: <StyledIcon src={ZAMTEL} alt="Zamtel" />,
+                currencies: 'USD',
+                min_max_deposit: '5 - 1,000',
+                min_max_withdrawal: '5 - 1,000',
+                deposit_time: '_t_Instant_t_',
+                withdrawal_time: '_t_1 working day_t_',
+                description: '_t_Make easy deposits and withdrawal using Mobile Money._t_',
+                name: 'Zamtel',
             },
         ],
     },
@@ -414,16 +480,6 @@ const payment_data: PaymentDataProps[] = [
                 withdrawal_time: '_t_1 working day_t_',
                 description: '_t_Make instant deposits using your e-wallet._t_',
                 name: 'sticpay',
-            },
-            {
-                method: <StyledIcon src={Chipper} alt="chipper" />,
-                currencies: 'USD',
-                min_max_deposit: '_t_10 - 250_t_',
-                min_max_withdrawal: '_t_Not applicable_t_',
-                deposit_time: '_t_Instant_t_',
-                withdrawal_time: '_t_Not applicable_t_',
-                description: '_t_Make instant deposits using crypto to your fiat account._t_',
-                name: 'chipper',
             },
         ],
     },
@@ -622,17 +678,7 @@ const payment_data: PaymentDataProps[] = [
                     '_t_Deposit and withdraw in USD Coin, a cryptocurrency that’s pegged to USD._t_',
                 name: 'USDC',
             },
-            {
-                method: <StyledIcon src={Tether} alt="Tether Omni (USDT)" />,
-                currencies: 'Tether Omni (USDT)',
-                min_max_deposit: '_t_No minimum_t_',
-                min_max_withdrawal: '_t_24.88_t_',
-                deposit_time: '_t_Funds available as soon as confirmed_t_',
-                withdrawal_time: '_t_Subject to internal checks_t_',
-                description:
-                    '_t_Deposit and withdraw in Tether, a cryptocurrency that’s pegged to fiat currencies._t_',
-                name: 'UST',
-            },
+
             {
                 method: <StyledIcon src={Tether} alt="Tether ERC20 (eUSDT)" />,
                 currencies: 'Tether ERC20 (eUSDT)',
@@ -780,7 +826,7 @@ const payment_data: PaymentDataProps[] = [
                 min_max_withdrawal: '_t_Not applicable_t_',
                 deposit_time: '_t_5 - 30 minutes_t_',
                 withdrawal_time: '_t_Not applicable_t_',
-                description: '_t_Make instant deposits using crypto to your fiat account._t_',
+                description: '_t_Make instant deposits using fiat to your crypto account._t_',
                 name: 'Banxa',
             },
         ],

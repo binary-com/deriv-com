@@ -13,6 +13,7 @@ import {
     eu_domains,
 } from './constants'
 import { localize } from 'components/localization'
+import { ProductLinkGenerator } from 'features/components/atoms/link/external'
 
 export const trimSpaces = (value: string): string => value?.trim()
 
@@ -77,6 +78,11 @@ export const getLanguage = () =>
 export const getDerivAppLocalizedURL = (link: string, locale: string, to = '') => {
     const lang = deriv_app_languages.includes(locale) ? locale : 'en'
     return `${link}${to}?lang=${lang.toUpperCase()}`
+}
+
+export const TradersHubURL: ProductLinkGenerator = ({ locale }) => {
+    const lang = deriv_app_languages.includes(locale) ? locale : 'en'
+    return `https://app.deriv.com/appstore/traders-hub?lang=${lang.toUpperCase()}`
 }
 export const getSmartTraderLocalizedURL = (link: string, locale: string) => {
     const lang = smart_trader_languages.includes(locale) ? locale : 'en'
@@ -394,7 +400,12 @@ export const isEuDomain = () =>
 
 export const isLocalhost = () => !!(isBrowser() && process.env.NODE_ENV === 'development')
 
-export const isTestlink = () => !!(isBrowser() && window.location.hostname.includes('binary.sx'))
+export const isTestlink = () =>
+    !!(
+        isBrowser() &&
+        (window.location.hostname.includes('binary.sx') ||
+            window.location.hostname.includes('deriv-com-preview-links.pages.dev'))
+    )
 
 export const matchHashInURL = (hash: string) =>
     isBrowser() && location.hash.replace('#', '') === hash

@@ -17,7 +17,6 @@ import Community from 'images/svg/menu/community.svg'
 import Contact from 'images/svg/menu/contact.svg'
 import DerivedFX from 'images/svg/custom/derived-fx.svg'
 import DerivX from 'images/svg/custom/deriv-x.svg'
-import { DerivEzLogoRed } from 'images/svg/deriv-ez'
 import { DbotIcon } from 'images/svg/dbot'
 import DMT5 from 'images/svg/dmt5/dmt5-icon.svg'
 import BinaryBot from 'images/svg/binarybot-icon.svg'
@@ -424,21 +423,6 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                             to="/derivx/"
                         />
                         <NavCard
-                            aria_label="Derivez"
-                            Icon={() => (
-                                <img
-                                    src={DerivEzLogoRed}
-                                    alt={localize('_t_Deriv EZ trading paltform_t_')}
-                                    width="32"
-                                    height="32"
-                                />
-                            )}
-                            content="_t_Trade on global markets from anywhere with our mobile-first CFD trading platform._t_"
-                            title="_t_Deriv EZ_t_"
-                            onClick={onClick}
-                            to="/deriv-ez/"
-                        />
-                        <NavCard
                             aria_label="SmartTrader"
                             Icon={() => (
                                 <img
@@ -454,7 +438,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                             external
                             target="_blank"
                             onClick={onClick}
-                            otherLinkProps={{ rel: 'noopener noreferrer' }}
+                            otherlinkprops={{ rel: 'noopener noreferrer' }}
                         />
                     </>
                 )}
@@ -511,7 +495,7 @@ export const NavPlatform = ({ onClick, is_ppc, is_ppc_redirect }: NavPlatformPro
                             external
                             target="_blank"
                             onClick={onClick}
-                            otherLinkProps={{ rel: 'noopener noreferrer' }}
+                            otherlinkprops={{ rel: 'noopener noreferrer' }}
                         />
                     </Flex>
                 </>

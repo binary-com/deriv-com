@@ -1,19 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Analytics } from '@deriv/analytics'
+import Layout from 'features/components/templates/layout'
 import { signup_wrapper } from './signup.module.scss'
 import SignUpContent from './signup.content'
 import SignUpFormContainer from './form-container'
-import Layout from 'features/components/templates/layout'
 import StaticNav from 'features/components/templates/navigation/static-nav'
-import { SEO } from 'components/containers'
 import Flex from 'features/components/atoms/flex-box'
+import { isBrowser } from 'common/utility'
 
 const SignUp = () => {
+    const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
+        form_source: isBrowser() && window.location.hostname,
+        form_name: 'default_diel_deriv',
+    }
+
+    useEffect(() => {
+        Analytics?.trackEvent('ce_virtual_signup_form', { action: 'open', ...analyticsData })
+    }, [])
+
     return (
         <Layout>
-            <SEO
-                title="_t_Easy And Free Sign Up | Online Trading | Deriv.com_t_"
-                description="_t_Signup to Deriv.com and trade online with as little as $1 USD on major currencies, stocks, indices, and commodities._t_"
-            />
             <StaticNav />
             <Flex.Box
                 container="fluid"
@@ -24,7 +30,7 @@ const SignUp = () => {
                     gap: '16x',
                 }}
                 className={signup_wrapper}
-                mt={'30x'}
+                pt="30x"
             >
                 <SignUpContent />
                 <SignUpFormContainer />

@@ -4,7 +4,7 @@ import { Localize } from 'components/localization'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import Button from 'features/components/atoms/button'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { handleGetTrading } from 'components/custom/utils'
+import { handleRedirectToTradersHub } from 'components/custom/utils'
 
 const HeroCtaButton = () => {
     const [is_logged_in] = useAuthCheck()
@@ -15,7 +15,7 @@ const HeroCtaButton = () => {
             <Button.Primary
                 className={hero_cta}
                 type={'button'}
-                onClick={handleGetTrading}
+                onClick={handleRedirectToTradersHub}
                 id="dm-hero-signup"
                 aria-label="Get trading"
                 hero

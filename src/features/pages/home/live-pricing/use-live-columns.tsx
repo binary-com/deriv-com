@@ -13,7 +13,7 @@ const useLiveColumns = () => {
     const { is_mobile } = useBreakpoints()
     const columns = useMemo(() => {
         return [
-            liveMarketColumnHelper.accessor('shortcode', {
+            liveMarketColumnHelper.accessor('code', {
                 header: () => (
                     <Flex.Box>
                         <Typography.Paragraph
@@ -28,12 +28,23 @@ const useLiveColumns = () => {
                 ),
                 cell: (info) => (
                     <Flex.Box>
-                        <SymbolIcon icon_src={info.getValue()} />
+                        {info.row.original.mkt !== 'etfs' ? (
+                            <SymbolIcon
+                                icon_src={info.getValue()}
+                                alt={info.row._valuesCache.sym as string}
+                            />
+                        ) : (
+                            <SymbolIcon icon_src="ETFSICON" />
+                        )}
                     </Flex.Box>
                 ),
             }),
-            liveMarketColumnHelper.accessor('symbol', {
-                header: () => <Flex.Box></Flex.Box>,
+            liveMarketColumnHelper.accessor('sym', {
+                header: () => (
+                    <Flex.Box>
+                        <p className="sr-only">Symbol</p>
+                    </Flex.Box>
+                ),
                 cell: (info) => (
                     <Flex.Box>
                         <Typography.Paragraph size={is_mobile ? 'small' : 'medium'}>
@@ -84,7 +95,7 @@ const useLiveColumns = () => {
                     </Flex.Box>
                 ),
             }),
-            liveMarketColumnHelper.accessor('spread', {
+            liveMarketColumnHelper.accessor('sprd', {
                 header: () => (
                     <Flex.Box>
                         <Typography.Paragraph
@@ -105,7 +116,7 @@ const useLiveColumns = () => {
                     </Flex.Box>
                 ),
             }),
-            liveMarketColumnHelper.accessor('day_percentage_change', {
+            liveMarketColumnHelper.accessor('chng', {
                 header: () => (
                     <Flex.Box>
                         <Typography.Paragraph

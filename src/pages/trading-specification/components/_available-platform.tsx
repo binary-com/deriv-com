@@ -2,9 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import useRegion from 'components/hooks/use-region'
 import { Flex } from 'components/containers'
-import DerivMT5 from 'images/svg/trading-specification/deriv-mt5.svg'
+import DerivMT5 from 'images/common/markets/mt5.svg'
 import DerivX from 'images/svg/trading-specification/deriv-x.svg'
-import DerivEZ from 'images/svg/trading-specification/deriv-ez.svg'
 import { Localize, LocalizedLink, localize } from 'components/localization'
 import device from 'themes/device'
 import { Header } from 'components/elements'
@@ -62,11 +61,9 @@ const StyledFlex = styled(Flex)`
 const available_on: TString = '_t_Available on_t_'
 const deriv_mt5: TString = '_t_Deriv MT5_t_'
 const deriv_x: TString = '_t_Deriv X_t_'
-const deriv_ez: TString = '_t_Deriv EZ_t_'
 
 const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
     const { is_row } = useRegion()
-    const selectedEtfsTab = selected_market === 'etfs'
 
     return (
         <>
@@ -102,21 +99,6 @@ const AvailablePlatform = ({ selected_market }: AvailablePlatformProps) => {
                                         </StyledHeader>
                                     </Flex>
                                 </StyledLocalizedLink>
-                                {!selectedEtfsTab ? (
-                                    <StyledLocalizedLink to="/deriv-ez/">
-                                        <Flex direction="row">
-                                            <img
-                                                src={DerivEZ}
-                                                alt={localize('_t_Deriv EZ_t_')}
-                                                width="24"
-                                                height="24"
-                                            />
-                                            <StyledHeader type="paragraph-1" as="h2" width="auto">
-                                                <Localize translate_text={deriv_ez} />
-                                            </StyledHeader>
-                                        </Flex>
-                                    </StyledLocalizedLink>
-                                ) : null}
                             </FlexContainer>
                         </>
                     ) : (

@@ -33,10 +33,10 @@ const PublicSignupBanner = () => {
                 className={'public_signup_link'}
             >
                 <Flex.Box align="center" gap="4x">
-                    <Typography.Heading size="large" textcolor="white">
+                    <Typography.Heading size="large" as="h2" textcolor="white">
                         <Localize translate_text={'_t_Get a taste of the Deriv experience_t_'} />
                     </Typography.Heading>
-                    <Image has_rtl src={Arrow} width={32} height={32} />
+                    <Image has_rtl src={Arrow} width={32} height={32} alt={'right icon'} />
                 </Flex.Box>
             </Link>
         </Flex.Box>

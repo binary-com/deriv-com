@@ -1,6 +1,6 @@
 import { Accordion, AccordionItem } from './accordion'
 import AutoCarousel from './auto-carousel'
-import BackgroundImage from './background-image'
+import BackgroundImageWrapper, { StaticImageWrapper } from './background-image-wrapper'
 import { Card, CardStyle, NavCard, CardLink } from './card'
 import Divider from './divider'
 import DotLoader from './dot-loader'
@@ -24,7 +24,6 @@ import StepperView from './stepper-view'
 import { Ul, Li } from './lists'
 import { Carousel } from './carousel'
 import type { CarouselProps } from './carousel'
-import VideoPlayer from './video-player'
 import Modal from './modal'
 import ImageWithDireciton from './image-with-direction'
 
@@ -32,7 +31,8 @@ export {
     Accordion,
     AccordionItem,
     AutoCarousel,
-    BackgroundImage,
+    BackgroundImageWrapper,
+    StaticImageWrapper,
     BaseElement,
     Card,
     CardLink,
@@ -63,7 +63,6 @@ export {
     Timeline,
     StepperView,
     Ul,
-    VideoPlayer,
     Modal,
     ImageWithDireciton,
 }

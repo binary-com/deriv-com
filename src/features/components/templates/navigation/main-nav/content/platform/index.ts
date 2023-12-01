@@ -1,4 +1,5 @@
 import { SmartNavContent, SmartNavSectionColumns } from '../../../types'
+import DerivcTrader from 'images/svg/custom/rebranding/deriv-ctrader-icon.svg'
 import BinaryBot from 'images/svg/custom/rebranding/binarybot-icon.svg'
 import DerivX from 'images/svg/custom/rebranding/deriv-x-icon.svg'
 import CFD from 'images/svg/custom/rebranding/cfds-icon.svg'
@@ -8,7 +9,6 @@ import Smarttrader from 'images/svg/custom/rebranding/smarttrader-icon.svg'
 import DerivGo from 'images/svg/custom/rebranding/deriv-go-icon.svg'
 import DMT5 from 'images/svg/custom/rebranding/dmt5-icon.svg'
 import DTrader from 'images/svg/custom/rebranding/dtrader-icon.svg'
-import DerivEZ from 'images/svg/custom/rebranding/deriv-ez-icon.svg'
 import DerivBot from 'images/svg/custom/rebranding/deriv-bot-icon.svg'
 
 export const tradeTypesContent: SmartNavContent[] = [
@@ -120,23 +120,6 @@ export const tradingPlatformsContent: SmartNavContent[] = [
     {
         id: 2,
         data: {
-            aria_label: 'Derivez',
-            icon: {
-                src: DerivEZ,
-                alt: 'Deriv EZ trading paltform',
-            },
-            content:
-                '_t_Trade on global markets from anywhere with our mobile-first CFD trading platform._t_',
-            title: '_t_Deriv EZ_t_',
-            url: { type: 'internal', to: '/deriv-ez/' },
-        },
-        visibility: {
-            is_row: true,
-        },
-    },
-    {
-        id: 3,
-        data: {
             aria_label: 'SmartTrader',
             icon: {
                 src: Smarttrader,
@@ -151,7 +134,7 @@ export const tradingPlatformsContent: SmartNavContent[] = [
         },
     },
     {
-        id: 4,
+        id: 3,
         data: {
             aria_label: 'Deriv Trader',
             icon: {
@@ -164,6 +147,23 @@ export const tradingPlatformsContent: SmartNavContent[] = [
         },
         visibility: {
             is_eu: true,
+        },
+    },
+    {
+        id: 4,
+        data: {
+            aria_label: 'Deriv cTrader',
+            icon: {
+                src: DerivcTrader,
+                alt: 'Deriv cTrader trading platform',
+            },
+            content:
+                '_t_An intuitive, multi-asset CFD trading platform with copy trading and custom indicators._t_',
+            title: '_t_Deriv cTrader_t_',
+            url: { type: 'internal', to: '/deriv-ctrader/' },
+        },
+        visibility: {
+            is_row: true,
         },
     },
 ]

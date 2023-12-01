@@ -1,13 +1,9 @@
+import React from 'react'
+
 export type HeaderProps = {
-    background: string
+    background: React.ReactElement
     title: string
     subtitle: string
-}
-
-export type OpenPositionsProps = {
-    title: string
-    location: string
-    id: string
 }
 
 type TestimonyHeadlineProps = {
@@ -34,7 +30,6 @@ export type IntroSectionProps = {
 export type DataProps = {
     header: HeaderProps
     intro_section: IntroSectionProps
-    open_position?: OpenPositionsProps[]
     testimony_section?: TestimonySectionProps
     link_url?: string
 }

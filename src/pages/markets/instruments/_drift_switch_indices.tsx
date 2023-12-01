@@ -6,7 +6,12 @@ const DriftSwitchIndices = () => {
     return (
         <>
             {drift_switch_indices.map((symbol) => (
-                <Symbol key={symbol.text} src={symbol.src} text={symbol.text} has_demo_tag={true} />
+                <Symbol
+                    key={symbol.text}
+                    src={symbol.src}
+                    text={symbol.text}
+                    has_demo_tag={false}
+                />
             ))}
         </>
     )

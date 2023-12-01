@@ -14,6 +14,11 @@ env:
     GATSBY_DATADOG_APPLICATION_ID: ${{ secrets.GATSBY_DATADOG_APPLICATION_ID }}
     GATSBY_DATADOG_CLIENT_TOKEN: ${{ secrets.GATSBY_DATADOG_CLIENT_TOKEN }}
     GATSBY_MAP_API_KEY: ${{ secrets.GATSBY_MAP_API_KEY }}
+    GATSBY_GROWTHBOOK_CLIENT_KEY: ${{ secrets.GATSBY_GROWTHBOOK_CLIENT_KEY }}
+    GATSBY_GROWTHBOOK_DECRYPTION_KEY: ${{ secrets.GATSBY_GROWTHBOOK_DECRYPTION_KEY }}
+    GATSBY_RUDDERSTACK_STAGING_KEY: ${{ secrets.GATSBY_RUDDERSTACK_STAGING_KEY }}
+    GATSBY_RUDDERSTACK_PRODUCTION_KEY: ${{ secrets.GATSBY_RUDDERSTACK_PRODUCTION_KEY }}
+    GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID: ${{ secrets.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID }}
 
 jobs:
     release-production:
@@ -27,11 +32,19 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: '16.x'
+                  node-version: '18.x'
                   cache: 'npm'
 
             - name: Set version env variable
               run: echo "GATSBY_DERIV_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
+            - name: Create npmrc file
+              shell: bash
+              run: echo "@deriv-com:registry=https://npm.pkg.github.com" >> .npmrc
+
+            - name: Setup install read-only token for deriv-com org
+              shell: bash
+              run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' >> .npmrc
 
             - run: npm ci
             - run: npm run format
@@ -48,16 +61,44 @@ jobs:
               # For using same tag for staging and production we need to uncomment these two below lines:
               # with:
               #   tagRegex: "production(.*)"
-
             - name: Deploy to Cloudflare ☁️
               uses: cloudflare/wrangler-action@2.0.0
               with:
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  command: pages publish public --project-name=deriv-com-pages --branch=main
+                  command: pages deploy public --project-name=deriv-com-pages --branch=main
 
             - name: Cloudflare production link ✨
               run: echo "New website - http://cf-pages-deriv-com.deriv.com"
+
+            - name: Building docker image 🐳
+              run: docker build -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME .
+
+            - name: Verify nginx image
+              run: |
+                  set -e
+                  docker run --rm ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME nginx -t
+                  echo "docker image validated successfully"
+
+            - name: Pushing Image to docker hub 🐳
+              run: |
+                  echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+                  docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest
+                  docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME
+
+            - name: Deploy 🚀
+              env:
+                  KUBE_SERVER: ${{ secrets.KUBE_SERVER }}
+                  SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
+                  CA_CRT: ${{ secrets.CA_CRT }}
+                  NAMESPACE: deriv-com-production
+                  DOCKERHUB_ORGANISATION: ${{ secrets.DOCKERHUB_ORGANISATION }}
+              run: |
+                  git clone https://github.com/binary-com/devops-ci-scripts
+                  cd devops-ci-scripts/k8s-build_tools
+                  echo "${{ env.CA_CRT }}" | base64 --decode > ca.crt
+                  export CA="ca.crt"
+                  ./release.sh deriv-com ${{ github.ref_name }}
 
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3

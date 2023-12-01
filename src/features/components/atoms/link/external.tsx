@@ -11,14 +11,18 @@ import {
     getDerivAppLocalizedURL,
     getSmartTraderLocalizedURL,
     getThaiExcludedLocale,
+    TradersHubURL,
 } from 'common/utility'
 
+export type ProductLinkGenerator = (config: {
+    language: string
+    url?: string
+    affiliate_lang?: string
+    locale?: string
+}) => string
+
 type ProductLinksType = {
-    [Key in ExternalURLNames]?: (config: {
-        language: string
-        url?: string
-        affiliate_lang?: string
-    }) => string
+    [Key in ExternalURLNames]?: ProductLinkGenerator
 }
 
 const product_links: ProductLinksType = {
@@ -26,6 +30,7 @@ const product_links: ProductLinksType = {
     deriv_app: ({ language, url }) =>
         getDerivAppLocalizedURL(localized_link_url['deriv_app'], language, url),
     mt5: ({ language, url }) => getDerivAppLocalizedURL(localized_link_url['mt5'], language, url),
+    deriv_app_login: () => localized_link_url['deriv_app_login'],
     derivx: ({ language, url }) =>
         getDerivAppLocalizedURL(localized_link_url['derivx'], language, url),
     affiliate_sign_in: ({ affiliate_lang }) =>
@@ -49,6 +54,7 @@ const product_links: ProductLinksType = {
             language === 'en' ? '' : '/' + language
         }/terms-and-conditions/#clients`,
     tnc_security: () => `${localized_link_url.domain_full_url}/tnc/security-and-privacy.pdf`,
+    traders_hub: TradersHubURL,
 }
 
 export interface ExternalLinkProps extends TypographyLinkProps {
@@ -76,11 +82,12 @@ const ExternalLink = ({ url, onClick, link_target, link_rel, ...rest }: External
                 language: language,
                 url: path ?? '',
                 affiliate_lang,
+                locale,
             })
             return company_link
         }
         return url.href
-    }, [affiliate_lang, language, url])
+    }, [affiliate_lang, language, url, locale])
 
     const handleCancel = () => {
         setIsRedirectModalVisible(false)

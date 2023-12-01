@@ -4,13 +4,12 @@ import {
     AffiliateGeneral,
     AffiliateAccountManagement,
     AffiliateReferralTools,
+    MAGeneral,
     IBGeneral,
-    IBAccountManagement,
-    IBReferralTools,
 } from './_faq-data'
 import device from 'themes/device'
 import { SectionContainer } from 'components/containers'
-import { Localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
 import DotPattern from 'images/svg/partners/dot-pattern.svg'
 import { TString } from 'types/generics'
@@ -105,6 +104,7 @@ type TFaqContent = {
         component: React.ReactElement
         class_name: string
     }[]
+    master_affiliate: { header: TString; component: React.ReactElement; class_name: string }[]
     deriv_ib: { header: TString; component: React.ReactElement; class_name: string }[]
 }
 const faq_content: TFaqContent = {
@@ -125,19 +125,10 @@ const faq_content: TFaqContent = {
             class_name: 'referal-tools-affiliate',
         },
     ],
-    deriv_ib: [
-        { header: '_t_General_t_', component: <IBGeneral />, class_name: 'general-ib' },
-        {
-            header: '_t_Account management_t_',
-            component: <IBAccountManagement />,
-            class_name: 'account-management-ib',
-        },
-        {
-            header: '_t_Referral tools_t_',
-            component: <IBReferralTools />,
-            class_name: 'referal-tools-ib',
-        },
+    master_affiliate: [
+        { header: '_t_General_t_', component: <MAGeneral />, class_name: 'general-master' },
     ],
+    deriv_ib: [{ header: '_t_General_t_', component: <IBGeneral />, class_name: 'general-ib' }],
 }
 
 const StyledAccordionWrapper = styled(AccordionWrapper)`
@@ -188,12 +179,40 @@ const Faq = () => {
                         as="h3"
                         type="sub-section-title"
                         align="center"
-                        m="8rem 0 4rem 0 "
+                        m="8rem 0 4rem 0"
+                        weight="normal"
+                    >
+                        <Localize translate_text="_t_Deriv Master Affiliate Programme_t_" />
+                    </FaqSubHeader>
+                    <StyledAccordionWrapper id="faq-list-2">
+                        <Accordion has_single_state>
+                            {faq_content.master_affiliate.map((item) => {
+                                return (
+                                    <AccordionItem
+                                        key={item.class_name}
+                                        header={item.header}
+                                        parent_style={parent_style}
+                                        header_style={header_style}
+                                        style={item_style}
+                                        class_name={item.class_name}
+                                        plus
+                                    >
+                                        {item.component}
+                                    </AccordionItem>
+                                )
+                            })}
+                        </Accordion>
+                    </StyledAccordionWrapper>
+                    <FaqSubHeader
+                        as="h3"
+                        type="sub-section-title"
+                        align="center"
+                        m="8rem 0 4rem 0"
                         weight="normal"
                     >
                         <Localize translate_text="_t_Deriv IB Programme_t_" />
                     </FaqSubHeader>
-                    <StyledAccordionWrapper id="faq-list-2">
+                    <StyledAccordionWrapper id="faq-list-3">
                         <Accordion has_single_state>
                             {faq_content.deriv_ib.map((item) => {
                                 return (
@@ -214,8 +233,8 @@ const Faq = () => {
                     </StyledAccordionWrapper>
                 </>
             )}
-            <TopLeftDot src={DotPattern} />
-            <BottomRightDot src={DotPattern} />
+            <TopLeftDot src={DotPattern} alt={localize('_t_polkadot background_t_')} />
+            <BottomRightDot src={DotPattern} alt={localize('_t_polkadot background_t_')} />
         </RelativeContainer>
     )
 }

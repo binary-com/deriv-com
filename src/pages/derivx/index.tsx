@@ -11,6 +11,7 @@ import { SEO } from 'components/containers'
 import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
+import { TGatsbyHead } from 'features/types'
 
 const DerivX = () => {
     const { is_row } = useRegion()
@@ -24,10 +25,6 @@ const DerivX = () => {
         if (is_row) {
             return (
                 <Layout>
-                    <SEO
-                        title="_t_Deriv X - a multi-asset CFD trading platform available on Deriv_t_"
-                        description="_t_Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices._t_"
-                    />
                     <Hero />
                     <SellingPoints />
                     <WhatIsDeriv />
@@ -42,12 +39,15 @@ const DerivX = () => {
         return <PageNotFound />
     }
 
-    return (
-        <SEO
-            title="_t_Deriv X - a multi-asset CFD trading platform available on Deriv_t_"
-            description="_t_Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices._t_"
-        />
-    )
+    return <React.Fragment></React.Fragment>
 }
 
 export default WithIntl()(DerivX)
+
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Deriv X - a multi-asset CFD trading platform available on Deriv_t_"
+        description="_t_Deriv X is a fully customisable, easy-to-use online trading platform offering CFDs on forex, commodities, cryptocurrencies, and synthetic indices._t_"
+        pageContext={pageContext}
+    />
+)

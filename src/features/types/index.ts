@@ -1,3 +1,6 @@
+import type { HeadProps } from 'gatsby'
+import { TString } from 'types/generics'
+
 export type ContentSectionTagOptions =
     | 'div'
     | 'address'
@@ -70,6 +73,8 @@ export type ExternalURLNames =
     | 'academy'
     | 'tnc_security'
     | 'tnd_clients'
+    | 'traders_hub'
+    | 'deriv_app_login'
 
 export type LinkTarget = '_self' | '_blank' | '_parent' | '_top'
 
@@ -144,3 +149,17 @@ export interface ClassProps {
     padding_block?: TSpacingSize
     radius?: TBorderRadius
 }
+
+export type TPageContext = {
+    locale: string
+    pathname: string
+}
+
+export type TGatsbyHead = HeadProps<object, TPageContext>
+
+export type IconType = {
+    src: string
+    alt: TString
+}
+
+export type PathType = `/${string}`

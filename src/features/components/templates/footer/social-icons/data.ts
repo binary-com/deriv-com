@@ -333,8 +333,26 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
             is_eu: true,
         },
     },
+    //temp removal of telegram : Start
+    // {
+    //     id: 13,
+    //     data: {
+    //         url: {
+    //             type: 'non-company',
+    //             target: '_blank',
+    //             href: 'https://t.me/derivdotcomofficial',
+    //         },
+    //         icon: Telegram,
+    //         image_alt: '_t_Telegram_t_',
+    //     },
+    //     visibility: {
+    //         is_eu: false,
+    //         is_career_page: false,
+    //     },
+    // },
+    //temp removal of telegram : End
     {
-        id: 13,
+        id: 14,
         data: {
             url: {
                 type: 'non-company',
@@ -347,22 +365,6 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
         },
         visibility: {
             is_career_page: true,
-        },
-    },
-    {
-        id: 14,
-        data: {
-            url: {
-                type: 'non-company',
-                target: '_blank',
-                href: 'https://t.me/derivdotcomofficial',
-            },
-            icon: Telegram,
-            image_alt: '_t_Telegram_t_',
-        },
-        visibility: {
-            is_eu: false,
-            is_career_page: false,
         },
     },
     {

@@ -1,4 +1,8 @@
 import React from 'react'
+import { createRoot } from 'react-dom/client'
+import Cookies from 'js-cookie'
+import { isMobile } from 'react-device-detect'
+import { Analytics } from '@deriv/analytics'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
@@ -20,7 +24,7 @@ const is_browser = typeof window !== 'undefined'
 const checkDomain = () => {
     return eval(
         decodeURIComponent(
-            'var%20curhost%20%3D%20window.location.hostname%3B%20var%20t8hvj%20%3D%20%2F%5Cb%28deriv%7Cbinary%7Cbinaryqa%5B0-9%5D%7B2%7D%29%5C.%28com%7Cbot%7Cme%7Cbe%7Capp%7Csx%29%24%7C%5Cb%28localhost%29%2Fgm%3B%20if%20%28t8hvj.test%28curhost%29%20%3D%3D%20false%29%7Balert%28%22Not%20our%20domain%22%29%7D',
+            'var%20curhost%20%3D%20window.location.hostname%3B%20var%20t8hvj%20%3D%20%2F%5Cb%28deriv%7Cbinary%7Cbinaryqa%5B0-9%5D%7B2%7D%29%5C.%28com%7Cbot%7Cme%7Cbe%7Capp%7Csx%29%24%7C%5Cb%28localhost%29%7C%28%5Cbderiv-com-preview-links.pages.dev%29%2Fgm%3B%20if%20%28t8hvj.test%28curhost%29%20%3D%3D%20false%29%7Balert%28%22Not%20our%20domain%22%29%7D',
         ),
     )
 }
@@ -76,6 +80,25 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
+    // @deriv/analytics
+    Analytics?.initialise({
+        growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
+        growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
+        enableDevMode: window?.location.hostname.includes('localhost'),
+        rudderstackKey: ['.pages.dev', 'git-fork', 'localhost'].some((condition) =>
+            window.location.hostname.includes(condition),
+        )
+            ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
+            : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
+    })
+    Analytics?.setAttributes({
+        country: Cookies.get('clients_country') || Cookies.getJSON('website_status'),
+        user_language: Cookies.get('user_language') || getLanguage(),
+        device_language: navigator?.language || ' ',
+        device_type: isMobile ? 'mobile' : 'desktop',
+    })
+    const { tracking } = Analytics.getInstances()
+    tracking.identifyEvent(Analytics?.getId(), { language: getLanguage() })
     //datadog
     const dd_options = {
         clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,
@@ -115,8 +138,12 @@ export const onClientEntry = () => {
     updateURLAsPerUserLanguage()
 }
 
-export const onRouteUpdate = () => {
+export const onRouteUpdate = ({ location }) => {
+    Analytics.pageView(location.pathname, 'Deriv.com')
+
     checkDomain()
+    // can't be resolved by package function due the gatsby architecture
+    window?._growthbook?.GrowthBook?.setURL(window.location.href)
 
     const dataLayer = window.dataLayer
     const domain = getDomain()
@@ -139,6 +166,13 @@ export const onRouteUpdate = () => {
             }),
         })
     }, 1500)
+}
+
+export const replaceHydrateFunction = () => {
+    return (element, container) => {
+        const root = createRoot(container)
+        root.render(element)
+    }
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

@@ -1,20 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Card, CardWrapper } from './_partner-card'
-import { Table, TRAP, TRAPREVERSE, TC } from './_table'
+import RevenueShareCard from './revenue-share/_index'
+import TurnoverCard from './turnover/_index'
+import CpaEuForRow from './cpa-eu-for-row/_index'
+import MasterAffilateCard from './master-affiliate/_index'
+import CpaEuCard from './cpa-eu/_index'
+import { StyledCardWrapper } from './_style'
 import { SectionContainer, Container } from 'components/containers'
-import { Header, Text } from 'components/elements/typography'
+import { Header } from 'components/elements/typography'
 import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
-import { TString } from 'types/generics'
 import useRegion from 'components/hooks/use-region'
-
-type AffiliateType = {
-    title: TString
-    data: TString[]
-}[]
 
 type ApplyNowProps = {
     mt_mobile?: string
@@ -70,15 +68,6 @@ const ComissionPlanContainer = styled(SectionContainer)`
     }
 `
 
-const StyledText = styled(Text)`
-    font-size: 1.4rem;
-    line-height: 1.5;
-    text-align: center;
-    @media ${device.tabletL} {
-        font-size: 14px;
-    }
-`
-
 const StyledHeader = styled(Header)`
     @media (max-width: 1524px) {
         text-align: start;
@@ -87,8 +76,8 @@ const StyledHeader = styled(Header)`
         text-align: center;
     }
     @media ${device.mobileM} {
-        text-align: start;
-        width: 38rem;
+        text-align: center;
+        inline-size: 38rem;
     }
 `
 
@@ -96,6 +85,8 @@ const ApplyNow = styled(LinkButton)<ApplyNowProps>`
     display: block;
     width: 100%;
     border-radius: 4px;
+    margin-block-start: 40px;
+    max-inline-size: 336px;
 
     @media ${device.tabletL} {
         height: 40px;
@@ -103,90 +94,16 @@ const ApplyNow = styled(LinkButton)<ApplyNowProps>`
     }
 `
 
-const CPAContent = styled.div`
-    ${Text} {
-        margin-top: 2.4rem;
-    }
+const StyledSignupBtnWrap = styled.div`
+    display: flex;
+    justify-content: center;
+    text-align: center;
 `
 
-const StyledCard = styled(Card)`
-    min-width: calc((100% - 4.8rem) / 3);
-    width: calc((100% - 4.8rem) / 3);
-    border-radius: 8px;
-
-    :nth-child(2) {
-        margin: 1.6rem 2.8rem 0 2rem;
-
-        @media ${device.tabletL} {
-            margin: 20px 0 11px;
-        }
-    }
-
-    @media (max-width: 1313px) {
-        height: 63rem;
-    }
-
-    @media ${device.laptopM} {
-        min-width: 38.4rem;
-        width: 38.4rem;
-    }
-
-    @media ${device.tabletL} {
-        min-width: unset;
-        padding: 24px 16px;
-        ${(props) => props.tabletHeight && 'height:' + props.tabletHeight};
-
-        :first-child {
-            margin-top: 16px;
-        }
-        :last-child {
-            margin-top: 0;
-        }
-    }
-
-    @media ${device.mobileM} {
-        min-width: unset;
-        width: 100%;
-    }
-`
-const StyledTrap = styled(TRAP)`
-    background-color: var(--color-grey-39);
-    padding: 1rem 0.8rem;
-    height: 40px;
-    border-bottom: none;
-`
-
-const RevenueShare: AffiliateType = [
-    {
-        title: '_t_Net revenue_t_',
-        data: ['_t_≤ USD 20,000 per month_t_', '_t_> USD 20,000 per month_t_'],
-    },
-    {
-        title: '_t_Commission_t_',
-        data: ['_t_30%_t_', '_t_45%_t_'],
-    },
-]
-const Turnover: AffiliateType = [
-    {
-        title: '_t_Probability of return_t_',
-        data: [
-            '_t_0-19.999%_t_',
-            '_t_20-39.999%_t_',
-            '_t_40-59.999%_t_',
-            '_t_60-79.999%_t_',
-            '_t_80-94.999%_t_',
-            '_t_95% and above_t_',
-        ],
-    },
-    {
-        title: '_t_Commission_t_',
-        data: ['_t_1.5%_t_', '_t_1%_t_', '_t_0.75%_t_', '_t_0.5%_t_', '_t_0.4%_t_', '_t_0%_t_'],
-    },
-]
 const DerivAffiliateProgramme = () => {
     const { is_eu } = useRegion()
     return (
-        <StyledSection>
+        <StyledSection id="deriv-affiliate">
             <ContentContainer direction="column">
                 <TitleWrapper>
                     <Header size="4.8rem" align="center" as="h2" mb="1.2rem">
@@ -196,7 +113,7 @@ const DerivAffiliateProgramme = () => {
                         {is_eu ? (
                             <Localize translate_text="_t_Partner with us as an affiliate. Earn commission from your referred client’s deposits._t_" />
                         ) : (
-                            <Localize translate_text="_t_Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on DTrader and DBot._t_" />
+                            <Localize translate_text="_t_Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on Deriv Trader, Deriv Bot, and SmartTrader._t_" />
                         )}
                     </SubtitleHeader>
                 </TitleWrapper>
@@ -206,152 +123,29 @@ const DerivAffiliateProgramme = () => {
                             <Localize translate_text="_t_Choose a commission plan:_t_" />
                         </StyledHeader>
                     )}
-                    <CardWrapper>
+                    <StyledCardWrapper>
                         {!is_eu && (
                             <>
-                                <StyledCard height="69rem" tabletHeight="auto" padding="2.4rem">
-                                    <div>
-                                        <Header as="h4" type="sub-section-title" mb="0.8rem">
-                                            <Localize translate_text="_t_Revenue share_t_" />
-                                        </Header>
-                                        <Text>
-                                            <Localize translate_text="_t_Earn based on the monthly net revenue generated by your clients._t_" />
-                                        </Text>
-                                        <Table grid_col_number={2}>
-                                            {RevenueShare.map(({ title, data }, index) => (
-                                                <TC grid_area={'area' + index} key={index}>
-                                                    <StyledTrap isTitle="true">
-                                                        <StyledText weight="bold">
-                                                            <Localize translate_text={title} />
-                                                        </StyledText>
-                                                    </StyledTrap>
-                                                    {data.map((data, idx) => (
-                                                        <TRAPREVERSE
-                                                            even={idx % 2 ? 'true' : ''}
-                                                            key={idx}
-                                                        >
-                                                            <StyledText>
-                                                                <Localize translate_text={data} />
-                                                            </StyledText>
-                                                        </TRAPREVERSE>
-                                                    ))}
-                                                </TC>
-                                            ))}
-                                        </Table>
-                                    </div>
-                                    <div>
-                                        <ApplyNow
-                                            id="dm-card-affiliate-signup-1"
-                                            secondary
-                                            to={affiliate_signup_url}
-                                            external
-                                            target="_blank"
-                                            type="affiliate_sign_up"
-                                            mt_mobile="40px"
-                                        >
-                                            <Localize translate_text="_t_Sign up_t_" />
-                                        </ApplyNow>
-                                    </div>
-                                </StyledCard>
-                                <StyledCard height="69rem" tabletHeight="auto" padding="2.4rem">
-                                    <div>
-                                        <Header as="h4" type="sub-section-title" mb="0.8rem">
-                                            <Localize translate_text="_t_Turnover_t_" />
-                                        </Header>
-                                        <Text>
-                                            <Localize
-                                                translate_text="_t_<0>Options:</0> Earn based on each contract’s payout probability._t_"
-                                                components={[<strong key={0} />]}
-                                            />
-                                        </Text>
-                                        <Table grid_col_number={2}>
-                                            {Turnover.map(({ title, data }, index) => (
-                                                <TC grid_area={'area' + index} key={index}>
-                                                    <StyledTrap isTitle="true">
-                                                        <StyledText weight="bold">
-                                                            <Localize translate_text={title} />
-                                                        </StyledText>
-                                                    </StyledTrap>
-                                                    {data.map((data, id) => (
-                                                        <TRAPREVERSE
-                                                            even={id % 2 ? 'true' : ''}
-                                                            key={id}
-                                                        >
-                                                            <StyledText>
-                                                                <Localize translate_text={data} />
-                                                            </StyledText>
-                                                        </TRAPREVERSE>
-                                                    ))}
-                                                </TC>
-                                            ))}
-                                        </Table>
-                                        <Text mt="2.4rem">
-                                            <Localize
-                                                translate_text="_t_<0>Multipliers:</0> Earn 40% of the commissions generated from your clients’ trades._t_"
-                                                components={[<strong key={0} />]}
-                                            />
-                                        </Text>
-                                        <Text mt="2.4rem">
-                                            <Localize
-                                                translate_text="_t_<0>Lookbacks:</0> Earn 0.8% on the stake of each lookbacks trade on SmartTrader._t_"
-                                                components={[<strong key={0} />]}
-                                            />
-                                        </Text>
-                                    </div>
-                                    <div>
-                                        <ApplyNow
-                                            id="dm-card-affiliate-signup-2"
-                                            secondary
-                                            to={affiliate_signup_url}
-                                            external
-                                            target="_blank"
-                                            type="affiliate_sign_up"
-                                            mt_mobile="24px"
-                                        >
-                                            <Localize translate_text="_t_Sign up_t_" />
-                                        </ApplyNow>
-                                    </div>
-                                </StyledCard>
+                                <RevenueShareCard />
+                                <TurnoverCard />
+                                <CpaEuForRow />
+                                <MasterAffilateCard />
                             </>
                         )}
-                        <StyledCard height="69rem" tabletHeight="auto" padding="2.4rem">
-                            <div>
-                                <Header as="h4" type="sub-section-title" mb="0.8rem">
-                                    <Localize translate_text="_t_CPA (EU only)_t_" />
-                                </Header>
-                                <Text>
-                                    <Localize translate_text="_t_Earn based on each successful referral._t_" />
-                                </Text>
-                                <CPAContent>
-                                    <Text>
-                                        <Localize
-                                            translate_text="_t_You earn <0>USD 100</0> when a referred client successfully deposits a one-time or cumulative total of <0>USD 100</0> into their Deriv account._t_"
-                                            components={[<strong key={0} />]}
-                                        />
-                                    </Text>
-                                    <Text>
-                                        <Localize
-                                            translate_text="_t_This plan is available exclusively for EU-based clients. <0>Please note that according to regulations, you cannot have clients who reside in Portugal or Spain.</0>_t_"
-                                            components={[<strong key={0} />]}
-                                        />
-                                    </Text>
-                                </CPAContent>
-                            </div>
-                            <div>
-                                <ApplyNow
-                                    id="dm-card-affiliate-signup-3"
-                                    secondary
-                                    to={affiliate_signup_url}
-                                    external
-                                    target="_blank"
-                                    type="affiliate_sign_up"
-                                    mt_mobile="32px"
-                                >
-                                    <Localize translate_text="_t_Sign up_t_" />
-                                </ApplyNow>
-                            </div>
-                        </StyledCard>
-                    </CardWrapper>
+                        {is_eu && <CpaEuCard />}
+                    </StyledCardWrapper>
+                    <StyledSignupBtnWrap>
+                        <ApplyNow
+                            secondary
+                            to={affiliate_signup_url}
+                            external
+                            target="_blank"
+                            type="affiliate_sign_up"
+                            mt_mobile="32px"
+                        >
+                            <Localize translate_text="_t_Sign up_t_" />
+                        </ApplyNow>
+                    </StyledSignupBtnWrap>
                 </ComissionPlanContainer>
             </ContentContainer>
         </StyledSection>

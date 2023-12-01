@@ -1,9 +1,9 @@
 import * as yup from 'yup'
 import Cookies from 'js-cookie'
+import { Analytics } from '@deriv/analytics'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import { navigate } from 'gatsby'
-import { useAnalyticsEvents } from 'features/hooks/analytic/use-analytic-events'
 import { getCookiesFields, getCookiesObject, getDataObjFromCookies } from 'common/cookies'
 import { validation_regex } from 'common/validation'
 import apiManager from 'common/websocket'
@@ -42,14 +42,21 @@ const schema = yup.object({
 type FormData = yup.InferType<typeof schema>
 
 const useSignupForm = () => {
-    const { onAnalyticEvent } = useAnalyticsEvents('ce_virtual_signup_form')
+    const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
+        form_source: isBrowser() && window.location.hostname,
+        form_name: 'default_diel_deriv',
+    }
     const signUpForm = useForm<FormData>({
         mode: 'onChange',
         resolver: yupResolver(schema),
     })
 
     const onSignup = ({ email }: FormData) => {
-        onAnalyticEvent('started')
+        Analytics?.trackEvent('ce_virtual_signup_form', {
+            action: 'started',
+            signup_provider: 'email',
+            ...analyticsData,
+        })
 
         const formatted_email = getVerifyEmailRequest(email)
         apiManager
@@ -59,15 +66,19 @@ const useSignupForm = () => {
             })
             .then(() => {
                 const locale = getLanguage()
-                const success_default_link = `signup-success?email=${email}`
+                const success_default_link = `signup-success`
                 const link_with_language = `${locale}/${success_default_link}`
                 const success_link = `/${
                     locale === 'en' ? success_default_link : link_with_language
                 }`
+                Cookies.set('user_email', email)
                 navigate(success_link, { replace: true })
             })
             .catch((reason) => {
-                onAnalyticEvent('signup_flow_error')
+                Analytics?.trackEvent('ce_virtual_signup_form', {
+                    action: 'signup_flow_error',
+                    ...analyticsData,
+                })
                 signUpForm.setError('email', {
                     message: reason.error.code,
                 })

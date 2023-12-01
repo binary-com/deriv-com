@@ -1,6 +1,7 @@
 import React, { createContext, Dispatch, ReactNode, useEffect, useState } from 'react'
 import type { WebsiteStatus } from '@deriv/api-types'
 import { useCookieState } from 'components/hooks/use-cookie-state'
+import { setCookiesWithDomain } from 'common/utility'
 import useWS from 'components/hooks/useWS'
 
 type WebsiteStatusProviderProps = {
@@ -35,6 +36,7 @@ export const WebsiteStatusProvider = ({ children }: WebsiteStatusProviderProps) 
     useEffect(() => {
         if (data) {
             const { clients_country, p2p_config } = data
+            setCookiesWithDomain('clients_country', clients_country)
             setWebsiteStatus((oldVal) => ({ clients_country, p2p_config, ...oldVal }))
         }
     }, [data, setWebsiteStatus])

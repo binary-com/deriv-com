@@ -2,8 +2,13 @@
 const language_config = require(`./i18n-config.js`)
 const language_config_en = require(`./i18n-config-en.js`)
 const path = require('path')
+const { copyLibFiles } = require('@builder.io/partytown/utils')
 
 const translations_cache = {}
+
+exports.onPreBuild = async () => {
+    await copyLibFiles(path.join(__dirname, 'static', '~partytown'))
+}
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 exports.onCreatePage = ({ page, actions }) => {
     const { createRedirect, createPage, deletePage } = actions
@@ -17,7 +22,6 @@ exports.onCreatePage = ({ page, actions }) => {
     const is_p2p = /responsible/g.test(page.path)
     const who_we_are = /who-we-are/g.test(page.path)
     const is_cfds = /cfds/g.test(page.path)
-    const is_deriv_ez = /deriv-ez/g.test(page.path)
     const is_options = /options/g.test(page.path)
 
     if (is_careers) {
@@ -172,20 +176,6 @@ exports.onCreatePage = ({ page, actions }) => {
         })
     }
 
-    if (is_deriv_ez) {
-        createRedirect({
-            fromPath: `/derivez/`,
-            toPath: `/deriv-ez/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-        createRedirect({
-            fromPath: `/derivez`,
-            toPath: `/deriv-ez/`,
-            redirectInBrowser: true,
-            isPermanent: true,
-        })
-    }
     const is_english = process.env.GATSBY_LANGUAGE === 'en'
 
     Object.keys(is_english ? language_config_en : language_config).map((lang) => {
@@ -351,21 +341,6 @@ exports.onCreatePage = ({ page, actions }) => {
             createRedirect({
                 fromPath: `/${lang}/trade-types/options`,
                 toPath: `/${lang}/trade-types/options/digital-options/up-and-down/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-        }
-
-        if (is_deriv_ez) {
-            createRedirect({
-                fromPath: `/${lang}/derivez/`,
-                toPath: `/${lang}/deriv-ez/`,
-                redirectInBrowser: true,
-                isPermanent: true,
-            })
-            createRedirect({
-                fromPath: `/${lang}/derivez`,
-                toPath: `/${lang}/deriv-ez/`,
                 redirectInBrowser: true,
                 isPermanent: true,
             })

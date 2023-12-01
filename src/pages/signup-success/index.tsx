@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { navigate } from 'gatsby'
-import { getLanguage } from 'common/utility'
-import { useAnalyticsEvents } from 'features/hooks/analytic/use-analytic-events'
+import { Analytics } from '@deriv/analytics'
+import Cookies from 'js-cookie'
+import { getLanguage, isBrowser } from 'common/utility'
 import SignUpSuccessContainer from 'features/pages/signup-success'
 import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
@@ -9,20 +10,25 @@ import { TGatsbyHead } from 'features/types'
 
 const SignupSuccess = () => {
     const [registeredEmail, setRegisteredEmail] = useState('')
-    const { onAnalyticEvent } = useAnalyticsEvents('ce_virtual_signup_form')
+    const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
+        form_source: isBrowser() && window.location.hostname,
+        form_name: 'default_diel_deriv',
+    }
     useEffect(() => {
-        const params = new URLSearchParams(location.search)
-        const email = params.get('email')
+        const userEmail = Cookies.get('user_email')
         const locale = getLanguage()
 
-        setRegisteredEmail(email?.replaceAll(' ', '+'))
-        if (!email) {
+        setRegisteredEmail(userEmail?.replaceAll(' ', '+'))
+        if (!userEmail) {
             if (locale !== 'en') navigate(`/${locale}/`, { replace: true })
             else {
                 navigate('/', { replace: true })
             }
         } else {
-            onAnalyticEvent('email_confirmation_sent')
+            Analytics?.trackEvent('ce_virtual_signup_form', {
+                action: 'email_confirmation_sent',
+                ...analyticsData,
+            })
         }
     }, [])
 

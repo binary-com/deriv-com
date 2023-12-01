@@ -1,4 +1,7 @@
 import React from 'react'
+import Cookies from 'js-cookie'
+import { isMobile } from 'react-device-detect'
+import { Analytics } from '@deriv/analytics'
 import { WrapPagesWithLocaleContext } from './src/components/localization'
 import { isProduction } from './src/common/websocket/config'
 import { LocalStore } from './src/common/storage'
@@ -76,6 +79,25 @@ export const onInitialClientRender = () => {
 }
 
 export const onClientEntry = () => {
+    // @deriv/analytics
+    Analytics?.initialise({
+        growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
+        growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
+        enableDevMode: window?.location.hostname.includes('localhost'),
+        rudderstackKey: ['.pages.dev', 'git-fork', 'localhost'].some((condition) =>
+            window.location.hostname.includes(condition),
+        )
+            ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
+            : process.env.GATSBY_RUDDERSTACK_PRODUCTION_KEY,
+    })
+    Analytics?.setAttributes({
+        country: Cookies.get('clients_country') || Cookies.getJSON('website_status'),
+        user_language: Cookies.get('user_language') || getLanguage(),
+        device_language: navigator?.language || ' ',
+        device_type: isMobile ? 'mobile' : 'desktop',
+    })
+    const { tracking } = Analytics.getInstances()
+    tracking.identifyEvent(Analytics?.getId(), { language: getLanguage() })
     //datadog
     const dd_options = {
         clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,
@@ -115,8 +137,12 @@ export const onClientEntry = () => {
     updateURLAsPerUserLanguage()
 }
 
-export const onRouteUpdate = () => {
+export const onRouteUpdate = ({ location }) => {
+    Analytics.pageView(location.pathname, 'Deriv.com')
+
     checkDomain()
+    // can't be resolved by package function due the gatsby architecture
+    window?._growthbook?.GrowthBook?.setURL(window.location.href)
 
     const dataLayer = window.dataLayer
     const domain = getDomain()

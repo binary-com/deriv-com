@@ -29,7 +29,7 @@ const TradeTypes = () => {
             padding_block="16x"
             md={{ padding_block: '40x' }}
         >
-            <Typography.Heading as="h1" size="large" align="center" mb="10x" textcolor="inverted">
+            <Typography.Heading as="h2" size="large" align="center" mb="10x" textcolor="inverted">
                 <Localize translate_text="_t_Trade types_t_" />
             </Typography.Heading>
             <Typography.Paragraph

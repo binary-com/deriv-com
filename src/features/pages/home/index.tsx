@@ -26,7 +26,7 @@ const HomePage = () => {
                         <HomeHero />
                         <StatSection />
                         <TwentyYearsStrong />
-                        {/* <LiveMarketSection /> */}
+                        <LiveMarketSection />
                         <UserFriendlyPlatforms />
                         <TradeTypeSection />
                         <StartTradingSteps />

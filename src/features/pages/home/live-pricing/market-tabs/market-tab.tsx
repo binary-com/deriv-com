@@ -11,7 +11,7 @@ import TabMenu from 'features/components/templates/tabs/menu'
 import { PathType } from 'features/types'
 
 const MarketTab = () => {
-    const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
+    const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('fx')
     const [tab_name, setTabName] = useState('Forex')
     const [linkToMarketPage, setLinkToMarketPage] = useState<PathType>('/markets/forex/')
     const onMarketButtonClick = (selected) => {

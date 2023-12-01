@@ -24,7 +24,7 @@ const SignupSuccess = () => {
                 navigate('/', { replace: true })
             }
         } else {
-            setRegisteredEmail(userEmail?.replaceAll(' ', '+'))
+            setRegisteredEmail(userEmail.replaceAll(' ', '+'))
             Analytics?.trackEvent('ce_virtual_signup_form', {
                 action: 'email_confirmation_sent',
                 ...analyticsData,

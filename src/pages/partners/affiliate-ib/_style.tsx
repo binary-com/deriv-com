@@ -1,8 +1,11 @@
 import styled from 'styled-components'
+import { Card } from './_partner-card'
+import { TRAP } from './_table'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
 import { Header, Text } from 'components/elements'
-import { LinkButton } from 'components/form'
+import { LinkButton, Button } from 'components/form'
+import { TAlignSelf } from 'features/types'
 
 type PointerProps = {
     ml?: string
@@ -14,6 +17,10 @@ type FormulaTopWrapperProps = {
 
 type StyledLinkButtonProps = {
     id?: string
+}
+
+type FlexProps = {
+    align_self?: TAlignSelf
 }
 
 export const FormulaBottomWrapper = styled(Flex)`
@@ -302,5 +309,84 @@ export const StyledText = styled(Text)`
     @media ${device.tabletL} {
         padding-top: 0;
         margin: 12px 0;
+    }
+`
+
+export const StyledCardWrapper = styled(Flex)`
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-block-start: 1.6rem;
+
+    @media ${device.tabletL} {
+        flex-direction: column;
+        align-items: center;
+    }
+    @media ${device.laptopM} {
+        flex-wrap: wrap;
+    }
+`
+
+export const StyledCard = styled(Card)<FlexProps>`
+    min-width: calc((100% - 4rem) / 3);
+    width: calc((100% - 4rem) / 3);
+    border-radius: 8px;
+    margin-block-start: 0;
+    ${({ align_self }) => align_self && 'align-self:' + align_self};
+
+    @media ${device.laptopM} {
+        min-width: 38.4rem;
+        width: 38.4rem;
+    }
+
+    @media ${device.tabletL} {
+        min-width: unset;
+        padding: 24px 16px;
+        margin-inline: auto;
+        ${(props) => props.tabletHeight && 'height:' + props.tabletHeight};
+    }
+
+    @media ${device.mobileM} {
+        min-width: unset;
+        width: 100%;
+    }
+`
+
+export const StyledButtonWrap = styled.div`
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-block-start: 1.6rem;
+`
+
+export const StyledCalculatedButton = styled(Button)`
+    border: none;
+    color: var(--color-red);
+    font-size: 1.4rem;
+    background: none;
+
+    @media ${device.tabletL} {
+        font-size: 1.4rem;
+    }
+`
+
+export const StyledTrap = styled(TRAP)`
+    background-color: var(--color-grey-39);
+    padding: 1rem 0.8rem;
+    height: 40px;
+    border-bottom: none;
+`
+
+export const StyledBackButton = styled(Button)`
+    border: 0.2rem solid var(--color-grey-5);
+    color: var(--color-black);
+    height: 4rem;
+    inline-size: 100%;
+    padding: 0 1.6rem;
+`
+
+export const CPAContent = styled.div`
+    ${Text} {
+        margin-top: 2.4rem;
     }
 `

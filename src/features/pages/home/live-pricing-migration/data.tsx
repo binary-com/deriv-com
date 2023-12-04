@@ -46,3 +46,21 @@ export const LivePriceData: LiveMarketContent[] = [
         spread: '0.00005',
     },
 ]
+
+export const swiperOption = {
+    spaceBetween: 16,
+    breakpoints: {
+        320: {
+            slidesPerView: 1,
+        },
+        600: {
+            slidesPerView: 2,
+        },
+        900: {
+            slidesPerView: 3,
+        },
+        1280: {
+            slidesPerView: 4,
+        },
+    },
+}

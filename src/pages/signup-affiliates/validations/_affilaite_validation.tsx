@@ -2,7 +2,7 @@ import { localize } from 'components/localization'
 /* eslint-disable */
 
 export const affiliate_validation_regex = {
-    email: /^[a-z0-9]+@[a-z0-9]+[.][a-z]{2,}/,
+    email: /^[a-zA-Z0-9]+@[a-z0-9]+[.][a-z]{2,}/,
     latin: /[^a-zA-Za 0-9-]/,
     name: /^[^a-zA-Z-]/,
     phone: /^\+\d+$/,

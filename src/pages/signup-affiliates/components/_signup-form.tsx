@@ -10,6 +10,7 @@ import { Header, LinkText } from 'components/elements'
 import device from 'themes/device'
 import Link from 'features/components/atoms/link'
 import Typography from 'features/components/atoms/typography'
+import { getLanguage } from 'common/utility'
 
 const StyledNote = styled.div`
     display: flex;
@@ -93,7 +94,7 @@ const AffiliateSignupForm = ({
     setShowWizard,
 }: SignUpFormProps) => {
     const [email_error_msg, setEmailErrorMsg] = useState('')
-    const language = localStorage.getItem('i18n')
+    const language = getLanguage()
     const email = localize('_t_Email_t_')
 
     const handleInput = (e) => {

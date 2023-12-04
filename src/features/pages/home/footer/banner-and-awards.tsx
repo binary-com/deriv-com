@@ -46,7 +46,7 @@ export const DerivGoBannerAndAwards = () => {
                     <StaticImage
                         src="../../../../images/common/migration/footer/investors-in-people.png"
                         alt={localize('_t_investors in people - gold_t_')}
-                        width={158}
+                        width={157}
                         placeholder="none"
                     />
                 </div>

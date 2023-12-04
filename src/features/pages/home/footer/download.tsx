@@ -22,7 +22,7 @@ const DownloadBadges = () => {
                     alt={localize('_t_get it on google play_t_')}
                     loading="eager"
                     formats={['webp', 'auto']}
-                    width={89}
+                    width={90}
                     placeholder="none"
                 />
             </div>
@@ -33,7 +33,7 @@ const DownloadBadges = () => {
                     alt={localize('_t_download on the app store_t_')}
                     loading="eager"
                     formats={['webp', 'auto']}
-                    width={89}
+                    width={90}
                     placeholder="none"
                 />
             </div>
@@ -44,7 +44,7 @@ const DownloadBadges = () => {
                     alt={localize('_t_explore it on appgallery_t_')}
                     loading="eager"
                     formats={['webp', 'auto']}
-                    width={89}
+                    width={90}
                     placeholder="none"
                 />
             </div>

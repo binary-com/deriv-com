@@ -1,7 +1,7 @@
 import React from 'react'
 import { LiveMarketBlock } from '@deriv-com/blocks'
-import { CardsContainer } from '@deriv-com/components'
-import { LivePriceData } from './data'
+import { CardSlider } from '@deriv-com/components'
+import { LivePriceData, swiperOption } from './data'
 import { Localize, localize } from 'components/localization'
 
 const LiveMarketSection = () => {
@@ -25,12 +25,42 @@ const LiveMarketSection = () => {
                 { children: 'Commodities' },
             ]}
         >
-            <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
-            <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
-            <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
-            <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
-            <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
-            <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
+            <CardSlider
+                variant="LiveMarketCard"
+                swiperData={swiperOption}
+                slideClasses="max-w-[286px]"
+                cards={LivePriceData}
+            />
+            <CardSlider
+                variant="LiveMarketCard"
+                swiperData={swiperOption}
+                slideClasses="max-w-[286px]"
+                cards={LivePriceData}
+            />
+            <CardSlider
+                variant="LiveMarketCard"
+                swiperData={swiperOption}
+                slideClasses="max-w-[286px]"
+                cards={LivePriceData}
+            />
+            <CardSlider
+                variant="LiveMarketCard"
+                swiperData={swiperOption}
+                slideClasses="max-w-[286px]"
+                cards={LivePriceData}
+            />
+            <CardSlider
+                variant="LiveMarketCard"
+                swiperData={swiperOption}
+                slideClasses="max-w-[286px]"
+                cards={LivePriceData}
+            />
+            <CardSlider
+                variant="LiveMarketCard"
+                swiperData={swiperOption}
+                slideClasses="max-w-[286px]"
+                cards={LivePriceData}
+            />
         </LiveMarketBlock.Tab>
     )
 }

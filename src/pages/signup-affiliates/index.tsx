@@ -58,7 +58,7 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
             last_name: affiliate_account.personal_details.last_name,
             non_pep_declaration: affiliate_account.terms_of_use.non_pep_declaration_accepted && 1,
             over_18_declaration: 1,
-            phone: `+${
+            phone: `${
                 affiliate_account.personal_details.prefix + affiliate_account.personal_details.phone
             }`,
             phone_code: Number(affiliate_account.personal_details.prefix.substring(0, 4)),
@@ -69,7 +69,7 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
             website_url: affiliate_account.personal_details?.website_url.includes('www.')
                 ? affiliate_account.personal_details?.website_url
                 : `www.${affiliate_account.personal_details?.website_url}`,
-            whatsapp_number: `+${
+            whatsapp_number: `${
                 affiliate_account.personal_details.prefix + affiliate_account.personal_details.phone
             }`,
             whatsapp_number_phoneCode: Number(
@@ -235,7 +235,7 @@ const AffiliateSignup = () => {
             ...affiliate_account,
             personal_details: {
                 ...affiliate_account.personal_details,
-                prefix: affiliate_account.address_details.country?.prefix,
+                prefix: `+${affiliate_account.address_details.country?.prefix}`,
             },
         })
     }, [affiliate_account.address_details.country])

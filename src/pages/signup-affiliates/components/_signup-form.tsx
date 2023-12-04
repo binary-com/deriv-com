@@ -93,6 +93,7 @@ const AffiliateSignupForm = ({
     setShowWizard,
 }: SignUpFormProps) => {
     const [email_error_msg, setEmailErrorMsg] = useState('')
+    const language = localStorage.getItem('i18n')
 
     const handleInput = (e) => {
         const { value } = e.target
@@ -140,12 +141,7 @@ const AffiliateSignupForm = ({
                         color="black-3"
                     >
                         <Localize translate_text={'_t_Want to sign up as a trader?_t_'} />
-                        <Typography.Link
-                            href={'/signup'}
-                            id="dm-new-login-button"
-                            textcolor={'brand'}
-                            ml={'2x'}
-                        >
+                        <Typography.Link href={`/${language}/signup`} textcolor={'brand'} ml={'2x'}>
                             <Localize translate_text={'_t_Create a Deriv account_t_'} />
                         </Typography.Link>
                     </Header>

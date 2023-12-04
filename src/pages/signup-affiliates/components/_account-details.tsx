@@ -162,7 +162,7 @@ const AccountDetails = ({
         }
     })
     phone_id?.addEventListener('keydown', function (e) {
-        if (['.', ',', '-', '+', 'e'].includes(e.key)) {
+        if (['.', ',', '-', 'e'].includes(e.key)) {
             e.preventDefault()
         }
     })

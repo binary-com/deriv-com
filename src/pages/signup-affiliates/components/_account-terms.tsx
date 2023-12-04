@@ -119,8 +119,9 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
                                         components={[
                                             <LocalizedLinkText
                                                 key={0}
-                                                href="/terms-and-conditions/#business-partners"
+                                                to="/terms-and-conditions/#business-partners"
                                                 target="_blank"
+                                                external
                                                 rel="noopener noreferrer"
                                                 color="red"
                                             />,

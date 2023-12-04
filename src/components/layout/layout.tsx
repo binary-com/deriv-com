@@ -15,6 +15,7 @@ import BugBountyNav from 'features/components/templates/navigation/bug-bounty-na
 import CareerNav from 'features/components/templates/navigation/career-nav'
 import MarketNav from 'features/components/templates/navigation/market-nav'
 import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
+import AffiliateNav from 'features/components/templates/navigation/affiliates'
 import BannerAlert from 'components/custom/_banner-alert'
 import { bannerTypes } from 'common/constants'
 
@@ -80,6 +81,7 @@ const Navs = {
     careers: <CareerNav />,
 
     'payment-methods': <MainNav />,
+    affiliates: <AffiliateNav />,
 }
 
 const Layout = ({

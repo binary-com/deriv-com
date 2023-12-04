@@ -1,6 +1,6 @@
 import React from 'react'
 import { LiveMarketBlock } from '@deriv-com/blocks'
-import { CardsContainer } from '@deriv-com/components'
+import { CardSlider, CardsContainer } from '@deriv-com/components'
 import { LivePriceData } from './data'
 import { Localize, localize } from 'components/localization'
 
@@ -25,12 +25,32 @@ const LiveMarketSection = () => {
                 { children: 'Commodities' },
             ]}
         >
+            <CardSlider
+                variant="LiveMarketCard"
+                slideClasses="max-w-[286px]"
+                swiperData={{
+                    spaceBetween: 16,
+                    slidesPerView: 4,
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 2,
+                        },
+                        834: {
+                            slidesPerView: 3,
+                        },
+                        1024: {
+                            slidesPerView: 4,
+                        },
+                    },
+                }}
+                cards={LivePriceData}
+            />
+            {/* <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
             <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
             <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
             <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
             <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
-            <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
-            <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} />
+            <CardsContainer cols="four" variant="LiveMarketCard" cards={LivePriceData} /> */}
         </LiveMarketBlock.Tab>
     )
 }

@@ -19,7 +19,7 @@ const AccountDetails = ({
     const [date_birth, setDateBirth] = useState(affiliate_data.date_birth)
     const [prefix, setPrefix] = useState(affiliate_data.prefix)
     const [phone, setPhone] = useState(
-        affiliate_data.phone ? affiliate_data.phone : affiliate_data.prefix,
+        affiliate_data.phone ? affiliate_data.phone : '+' + affiliate_data.prefix,
     )
     const [company_name, setCompanyName] = useState(affiliate_data.company_name)
     const [company_registration_number, setCompanyRegistrationNumber] = useState(
@@ -74,7 +74,7 @@ const AccountDetails = ({
         {
             id: 'phone',
             name: 'phone',
-            type: 'number',
+            type: 'text',
             label: localize('_t_Phone number*_t_'),
             error: phone_error_msg,
             value: phone,
@@ -155,14 +155,8 @@ const AccountDetails = ({
     ]
     // prevent these characters from the input type='number' tag
     const input_id = document.getElementById('company_registration_number')
-    const phone_id = document.getElementById('phone')
     input_id?.addEventListener('keydown', function (e) {
         if (['.', ',', '-', '+', 'e'].includes(e.key)) {
-            e.preventDefault()
-        }
-    })
-    phone_id?.addEventListener('keydown', function (e) {
-        if (['.', ',', '-', 'e'].includes(e.key)) {
             e.preventDefault()
         }
     })

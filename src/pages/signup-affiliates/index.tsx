@@ -63,7 +63,6 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
             }`,
             phone_code: Number(affiliate_account.personal_details.prefix.substring(0, 4)),
             tnc_accepted: affiliate_account.terms_of_use.tnc_accepted && 1,
-            tnc_affiliate_accepted: affiliate_account.terms_of_use.is_partner_checked && 1,
             type_of_account: affiliate_account.account_type,
             user_name: affiliate_account.personal_details.username,
             website_url: affiliate_account.personal_details?.website_url.includes('www.')
@@ -83,6 +82,7 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
                     affiliate_account.personal_details?.company_registration_number,
                 ),
             }),
+            ...(affiliate_account.terms_of_use.is_partner_checked && { tnc_affiliate_accepted: 1 }),
         })
 }
 
@@ -235,7 +235,7 @@ const AffiliateSignup = () => {
             ...affiliate_account,
             personal_details: {
                 ...affiliate_account.personal_details,
-                prefix: `+${affiliate_account.address_details.country?.prefix}`,
+                prefix: affiliate_account.address_details.country?.prefix,
             },
         })
     }, [affiliate_account.address_details.country])

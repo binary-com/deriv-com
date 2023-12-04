@@ -5,6 +5,7 @@ export const affiliate_validation_regex = {
     email: /^[a-z0-9]+@[a-z0-9]+[.][a-z]{2,}/,
     latin: /[^a-zA-Za 0-9-]/,
     name: /^[^a-zA-Z-]/,
+    phone: /^\+\d+$/,
     user_name: /[^a-zA-Za 0-9!"?¨'_.,-]/,
     password: /^(?=.*[a-z])(?=.*\d)(?=.*[A-Z])[ -~]*$/,
     address: /^[a-zA-Z 0-9/_.,-]*$/,
@@ -68,6 +69,9 @@ const companyNameValidation = (input, min_digit, max_digit) => {
     }
 }
 const phoneValidation = (input) => {
+    if (!affiliate_validation_regex.phone.test(input)) {
+        return localize(`_t_You should enter 8-13 numbers_t_`)
+    }
     if (!input) {
         return localize('_t_Mobile number is required_t_')
     } else if (!validation_is_exceed_number(input, 13) || !validation_is_lack_number(input, 8)) {

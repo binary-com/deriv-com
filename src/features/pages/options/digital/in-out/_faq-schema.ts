@@ -65,7 +65,7 @@ export const faq_schema: FaqSchemaType = {
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: localize(
-                    '_t_Yes, you are can open multiple In/Out contracts with different barrier limits at the same time._t_',
+                    '_t_Yes, you can open multiple In/Out contracts with different barrier limits at the same time._t_',
                 ),
             },
         },

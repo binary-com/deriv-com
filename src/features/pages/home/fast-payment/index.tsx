@@ -219,12 +219,6 @@ const FastPaymentSection: React.FC = () => {
                         size: 'xs',
                         align: 'center',
                     },
-                    // {
-                    //     icon: <CurrencyDogeIcon height="80px" width="128px" />, need to fix
-                    //     color: 'gray',
-                    //     size: 'xs',
-                    //     align: 'center',
-                    // },
                     {
                         icon: <PaymentMethodTronBrandIcon height="80px" width="128px" />,
                         color: 'gray',

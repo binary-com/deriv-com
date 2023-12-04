@@ -10,16 +10,15 @@ import {
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Logo'
 import { localize } from 'components/localization'
+
 export const platformTabs = [
-    {
-        tabId: 'all',
-        name: 'All',
-    },
-    { tabId: 'cfd', name: 'CFDs' },
-    { tabId: 'options', name: 'Options' },
-    { tabId: 'bots', name: 'Bots' },
-    { tabId: 'social', name: 'Social' },
+    { children: 'All' },
+    { children: 'CFDs' },
+    { children: 'Options' },
+    { children: 'Bots' },
+    { children: 'Social' },
 ]
+
 export const cards: CardContent[] = [
     {
         header: localize('_t_Deriv MT5_t_'),

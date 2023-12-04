@@ -33,6 +33,7 @@ const HomePage = () => {
                             <LiveMarketSection />
                             <UserFriendlyPlatforms />
                             <TradeTypeSection />
+                            <FastPaymentSection />
                             <StartTradingSteps />
                             <FooterCTA />
                             <ROWFooter />

@@ -94,6 +94,7 @@ const AffiliateSignupForm = ({
 }: SignUpFormProps) => {
     const [email_error_msg, setEmailErrorMsg] = useState('')
     const language = localStorage.getItem('i18n')
+    const email = localize('_t_Email_t_')
 
     const handleInput = (e) => {
         const { value } = e.target
@@ -150,12 +151,11 @@ const AffiliateSignupForm = ({
                     <AffiliateInput
                         required
                         id="dm-email-input"
-                        name="email"
                         type="text"
                         error={email_error_msg}
                         value={affiliate_account.email}
-                        label={localize('_t_Email_t_')}
-                        placeholder={'Email'}
+                        label={email}
+                        placeholder={email}
                         onBlur={handleInput}
                         onChange={handleInput}
                         handleError={() => setAffiliateAccount({ ...affiliate_account, email: '' })}

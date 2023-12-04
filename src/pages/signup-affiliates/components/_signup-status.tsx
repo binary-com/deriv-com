@@ -111,6 +111,8 @@ const AffiliateSignupStatus = ({
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
         form_name: 'ce_partner_account_signup_form',
     }
+    const user_name = localize('_t_User name_t_')
+    const web_site = localize('_t_Website url_t_')
 
     return (
         <>
@@ -245,9 +247,8 @@ const AffiliateSignupStatus = ({
                             type={'text'}
                             value={affiliate_account.personal_details.username}
                             error={username_error}
-                            label={localize('_t_User name_t_')}
-                            placeholder={'Username'}
-                            extra_info={' '}
+                            label={user_name}
+                            placeholder={user_name}
                             onChange={(e) => {
                                 setUsernameError(affiliate_validation.username(e.target.value))
                                 setAffiliateAccount({
@@ -300,9 +301,8 @@ const AffiliateSignupStatus = ({
                             type={'text'}
                             value={affiliate_account.personal_details.website_url}
                             error={website_url_error}
-                            label={localize('_t_Website url_t_')}
-                            placeholder={'Username'}
-                            extra_info={' '}
+                            label={web_site}
+                            placeholder={web_site}
                             onChange={(e) => {
                                 setWebsiteUrlError(affiliate_validation.website_url(e.target.value))
                                 setAffiliateAccount({

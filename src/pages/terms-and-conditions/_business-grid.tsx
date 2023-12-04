@@ -53,10 +53,10 @@ const PartnersGuidePdf = () => {
     return (
         <Col
             Icon={IG}
-            title="_t_Important Guidelines_t_"
-            content="_t_Do's and don’ts for partners when promoting our products and services_t_"
+            title="_t_Important guidelines_t_"
+            content="_t_Dos and don'ts of promoting our products and services_t_"
             url={url}
-            link_title="_t_Partners Guide_t_"
+            link_title="_t_Partners' guide_t_"
         />
     )
 }

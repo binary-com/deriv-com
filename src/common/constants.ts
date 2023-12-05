@@ -5,6 +5,9 @@ export const deriv_com_url = 'deriv.com'
 export const deriv_me_url = 'deriv.me'
 export const deriv_be_url = 'deriv.be'
 export const staging_deriv_be_url = 'staging.deriv.be'
+export const localhost = 'localhost'
+//this is to be removed later
+export const preview_url = 'translation-new-home.deriv-com-preview-links.pages.dev'
 
 export const deriv_com_app_id = 16929
 export const deriv_me_app_id = 1411
@@ -16,6 +19,8 @@ const domain_url_pair = {
     [deriv_me_url]: deriv_me_url,
     [deriv_be_url]: deriv_be_url,
     [staging_deriv_be_url]: deriv_be_url,
+    [localhost]: localhost,
+    [preview_url]: preview_url,
 }
 
 export const domains = [

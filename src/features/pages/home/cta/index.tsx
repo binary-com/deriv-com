@@ -16,17 +16,19 @@ const image = (
     />
 )
 
-const FooterCTA = () => {
+const CTA = () => {
     return (
         <Footer.CTABlock padding image={image}>
             <div className="flex h-full flex-col items-start justify-center gap-gap-3xl max-w-[328px] lg:max-w-none">
                 <Heading.H2 className="text-solid-slate-50">
                     Join over 2.5 million online traders
                 </Heading.H2>
-                <Button size="lg">Create demo account</Button>
+                <Button size="lg" className="hidden lg:block">
+                    Create demo account
+                </Button>
             </div>
         </Footer.CTABlock>
     )
 }
 
-export default FooterCTA
+export default CTA

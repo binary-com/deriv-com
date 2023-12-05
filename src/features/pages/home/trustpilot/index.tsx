@@ -1,18 +1,19 @@
 import React from 'react'
 import { SocialProof } from '@deriv-com/blocks'
 import { StaticImage } from 'gatsby-plugin-image'
-import { Text } from '@deriv/quill-design'
+import { Localize } from 'components/localization'
 
 const TrustpilotSection = () => {
     return (
         <SocialProof.Horizontal
             content={({ numberOfReviews, trustScore }) => [
-                <Text bold key={0}>
-                    Excellent
-                </Text>,
-                <Text key={1}>
-                    TrustScore ${trustScore} out of 5 based on ${numberOfReviews} reviews`
-                </Text>,
+                <Localize key={0} translate_text="_t_Our customers say_t_" />,
+                <Localize key={1} translate_text="_t_Excellent_t_" />,
+                <Localize
+                    key={2}
+                    translate_text="_t_TrustScore {{trustScore}} out of 5 based on {{numberOfReviews}} reviews_t_"
+                    values={{ trustScore, numberOfReviews }}
+                />,
             ]}
             theme={{
                 color: '!text-[#ffffff]',

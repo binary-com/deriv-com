@@ -3,7 +3,7 @@ import React from 'react'
 import { CardContent } from '@deriv-com/components'
 import {
     IllustrativeCfdsIcon,
-    IllustrativeMultipleMarketsIcon,
+    IllustrativeMultipliersIcon,
     IllustrativeOptionsIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Illustrative'
@@ -15,7 +15,7 @@ const cards: CardContent[] = [
         description: localize(
             '_t_Trade with leverage, unbeatable spreads, and fast execution on the widest range of markets._t_',
         ),
-        icon: <IllustrativeCfdsIcon iconSize="md" />,
+        icon: <IllustrativeCfdsIcon iconSize="lg" />,
         align: 'start',
         color: 'light',
         size: 'md',
@@ -29,7 +29,7 @@ const cards: CardContent[] = [
         description: localize(
             '_t_Trade diverse vanilla and exotic options across platforms and markets without risking more than your initial stake._t_',
         ),
-        icon: <IllustrativeOptionsIcon iconSize="md" />,
+        icon: <IllustrativeOptionsIcon iconSize="lg" />,
         align: 'start',
         color: 'light',
         size: 'md',
@@ -43,7 +43,7 @@ const cards: CardContent[] = [
         description: localize(
             '_t_Trade on global financial markets and multiply your potential profit without losing more than your stake._t_',
         ),
-        icon: <IllustrativeMultipleMarketsIcon iconSize="md" />,
+        icon: <IllustrativeMultipliersIcon iconSize="lg" />,
         align: 'start',
         color: 'light',
         size: 'md',
@@ -60,6 +60,7 @@ const TradeTypeSection = () => {
             title={localize('_t_Trade CFDs, Options, or Multipliers_t_')}
             cols="three"
             cards={cards}
+            className="!bg-background-secondary-container"
         />
     )
 }

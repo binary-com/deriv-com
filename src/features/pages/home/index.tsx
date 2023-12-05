@@ -11,19 +11,32 @@ import UserFriendlyPlatforms from './user-platfroms'
 import TradeTypeSection from './trade-type'
 import MainRowNavigation from './navigation'
 import HomeHero from './hero'
-import FooterCTA from './footer-cta'
 import FastPaymentSection from './fast-payment'
+import CTA from './cta'
 import StartTradingSteps from './start-trading-steps'
 import { langItemsROW } from './data'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
+import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
 
 const HomePage = () => {
     useOpenLiveChat(true)
+    //need to update the language data and type
+    //here using langauge data from `i18n-config.js`
+    const { onSwitchLanguage, currentLang } = useLangSwitcher()
+    const activeLang = langItemsROW[currentLang.path.replace('-', '')]
+
+    const onLanguageChange = (event) => {
+        onSwitchLanguage(`/${event.path}/`)
+    }
 
     return (
         <BreakpointProvider>
             <ThemeProvider theme="light">
-                <LanguageProvider langItems={langItemsROW}>
+                <LanguageProvider
+                    langItems={langItemsROW}
+                    onLangSelect={onLanguageChange}
+                    activeLanguage={activeLang}
+                >
                     <Layout>
                         <MainRowNavigation />
                         <PageLayout>
@@ -35,7 +48,7 @@ const HomePage = () => {
                             <TradeTypeSection />
                             <FastPaymentSection />
                             <StartTradingSteps />
-                            <FooterCTA />
+                            <CTA />
                             <ROWFooter />
                         </PageLayout>
                     </Layout>

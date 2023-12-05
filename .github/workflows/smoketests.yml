@@ -42,8 +42,7 @@ jobs:
             - name: Get Branch Details
               id: branch_details
               run: |
-                  pr_number=${{ github.event.issue.number }}
-                  pr_data=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/pulls/$pr_number)
+                  pr_data=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/deriv-com/pulls/${{steps.pr_information.outputs.issue_number}}")
                   pr_branch=$(echo $pr_data | jq -r '.head.ref')
                   echo "PR branch is: $pr_branch"
                   echo "branch_name=$pr_branch" >> $GITHUB_OUTPUT

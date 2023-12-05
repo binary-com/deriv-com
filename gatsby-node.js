@@ -2,8 +2,13 @@
 const language_config = require(`./i18n-config.js`)
 const language_config_en = require(`./i18n-config-en.js`)
 const path = require('path')
+const { copyLibFiles } = require('@builder.io/partytown/utils')
 
 const translations_cache = {}
+
+exports.onPreBuild = async () => {
+    await copyLibFiles(path.join(__dirname, 'static', '~partytown'))
+}
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 exports.onCreatePage = ({ page, actions }) => {
     const { createRedirect, createPage, deletePage } = actions

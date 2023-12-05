@@ -108,7 +108,7 @@ export const onClientEntry = () => {
         env: 'production',
         version: '1.0.6',
         sessionSampleRate: 10,
-        sessionReplaySampleRate:0,
+        sessionReplaySampleRate: 0,
         trackResources: true,
         trackLongTasks: true,
         trackUserInteractions: true,

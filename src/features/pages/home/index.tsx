@@ -11,6 +11,7 @@ import UserFriendlyPlatforms from './user-platfroms'
 import TradeTypeSection from './trade-type'
 import MainRowNavigation from './navigation'
 import HomeHero from './hero'
+import FastPaymentSection from './fast-payment'
 import CTA from './cta'
 import StartTradingSteps from './start-trading-steps'
 import { langItemsROW } from './data'
@@ -45,6 +46,7 @@ const HomePage = () => {
                             <LiveMarketSection />
                             <UserFriendlyPlatforms />
                             <TradeTypeSection />
+                            <FastPaymentSection />
                             <StartTradingSteps />
                             <CTA />
                             <ROWFooter />

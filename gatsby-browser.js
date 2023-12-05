@@ -108,7 +108,7 @@ export const onClientEntry = () => {
         env: 'production',
         version: '1.0.6',
         sessionSampleRate: 10,
-        sessionReplaySampleRate: 10,
+        sessionReplaySampleRate: 0,
         trackResources: true,
         trackLongTasks: true,
         trackUserInteractions: true,
@@ -122,10 +122,6 @@ export const onClientEntry = () => {
         dd_options,
     )})});`
     document.head.appendChild(dd_script)
-    // Start session replay recording
-    window.DD_RUM.onReady(function () {
-        window.DD_RUM.startSessionReplayRecording()
-    })
 
     addScript({
         src: 'https://static.deriv.com/scripts/cookie.js',

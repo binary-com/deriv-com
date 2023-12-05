@@ -60,7 +60,7 @@ const TradeTypeSection = () => {
             title={localize('_t_Trade CFDs, Options, or Multipliers_t_')}
             cols="three"
             cards={cards}
-            className="!bg-background-primary-base"
+            className="!bg-background-secondary-container"
         />
     )
 }

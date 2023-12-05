@@ -4,6 +4,7 @@ import { useNavigation } from '@deriv-com/hooks'
 import { Button } from '@deriv/quill-design'
 // eslint-disable-next-line import/no-unresolved
 import { StandalonePlaceholderRegularIcon } from '@deriv/quill-icons/Standalone'
+import { Localize } from 'components/localization'
 
 export const MainNavigationButtons = () => {
     const { isLoggedIn, setIsLoggedIn } = useNavigation()
@@ -27,15 +28,15 @@ export const MainNavigationButtons = () => {
                     icon={StandalonePlaceholderRegularIcon}
                     iconPosition="start"
                 >
-                    Traders Hub
+                    <Localize translate_text="_t_Traders Hub_t_" />
                 </Button>
             ) : (
                 <>
                     <Button variant="secondary" colorStyle="black" size="lg" onClick={onLoginClick}>
-                        Log in
+                        <Localize translate_text="_t_Log in_t_" />
                     </Button>
                     <Button size="lg" className="hidden lg:block">
-                        Create free demo account
+                        <Localize translate_text="_t_Create free demo account_t_" />
                     </Button>
                 </>
             )}

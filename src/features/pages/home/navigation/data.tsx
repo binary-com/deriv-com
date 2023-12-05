@@ -23,60 +23,64 @@ import {
     PartnersProductBinaryBotBrandDarkLogoHorizontalIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Logo'
+import { localize } from 'components/localization'
 
 export const mainRowNavItems: NavLinkItems = {
     trade: {
         id: 0,
         type: 'nav-dropdown',
-        text: 'Trade',
+        text: localize('_t_Trade_t_'),
         columns: [
             {
                 id: 0,
                 header: {
-                    text: 'Trade types',
+                    text: localize('_t_Trade types_t_'),
                     type: 'text',
                 },
                 items: [
                     {
                         id: 0,
                         href: '/trade-types/cfds',
-                        text: 'CFDs',
+                        text: localize('_t_CFDs_t_'),
                         type: 'direct',
                         icon: <IllustrativeCfdsIcon width={24} height={24} />,
-                        description:
-                            'Trade with leverage, unbeatable spreads, and fast execution on the widest range  of markets.',
+                        description: localize(
+                            '_t_Trade with leverage, unbeatable spreads, and fast execution on the widest range  of markets._t_',
+                        ),
                     },
                     {
                         id: 1,
                         href: '/trade-types/options',
-                        text: 'Options',
+                        text: localize('_t_Options_t_'),
                         type: 'direct',
                         icon: <IllustrativeOptionsIcon width={24} height={24} />,
-                        description:
-                            'Trade diverse vanilla and exotic options across platforms and markets without risking more than your initial stake.',
+                        description: localize(
+                            '_t_Trade diverse vanilla and exotic options across platforms and markets without risking more than your initial stake._t_',
+                        ),
                     },
                     {
                         id: 2,
                         href: '/trade-types/multiplier',
-                        text: 'Multipliers',
+                        text: localize('_t_Multipliers_t_'),
                         type: 'direct',
                         icon: <IllustrativeMultipliersIcon width={24} height={24} />,
-                        description:
-                            'Trade on global financial markets and multiply your potential profit without losing more than your stake.',
+                        description: localize(
+                            '_t_Trade on global financial markets and multiply your potential profit without losing more than your stake._t_',
+                        ),
                     },
                 ],
             },
             {
                 id: 1,
                 header: {
-                    text: 'Trading platforms',
+                    text: localize('_t_Trading platforms_t_'),
                     type: 'text',
                 },
                 items: [
                     {
                         id: 0,
                         href: '/dmt5',
-                        text: 'Deriv MT5',
+                        text: localize('_t_Deriv MT5_t_'),
                         type: 'direct',
                         icon: (
                             <PartnersProductDerivMt5BrandDarkLogoHorizontalIcon
@@ -84,20 +88,24 @@ export const mainRowNavItems: NavLinkItems = {
                                 height={24}
                             />
                         ),
-                        description: 'The most popular and comprehensive CFDs platform.',
+                        description: localize(
+                            '_t_The most popular and comprehensive CFDs platform._t_',
+                        ),
                     },
                     {
                         id: 1,
                         href: '/derivx',
-                        text: 'Deriv X',
+                        text: localize('_t_Deriv X_t_'),
                         type: 'direct',
                         icon: <DerivProductDerivXBrandDarkLogoIcon width={24} height={24} />,
-                        description: 'User-friendly and customisable CFDs platform.',
+                        description: localize(
+                            '_t_User-friendly and customisable CFDs platform._t_',
+                        ),
                     },
                     {
                         id: 2,
                         href: '/deriv-ctrader',
-                        text: 'Deriv cTrader',
+                        text: localize('_t_Deriv cTrader_t_'),
                         type: 'direct',
                         icon: (
                             <PartnersProductDerivCtraderBrandDarkLogoHorizontalIcon
@@ -105,17 +113,21 @@ export const mainRowNavItems: NavLinkItems = {
                                 height={24}
                             />
                         ),
-                        description: 'Fast CFDs platform with inbuilt copy trading.',
+                        description: localize(
+                            '_t_Fast CFDs platform with inbuilt copy trading._t_',
+                        ),
                     },
                     {
                         id: 3,
                         href: 'https://smarttrader.deriv.com/', //need to update target/type in link component
-                        text: 'SmartTrader',
+                        text: localize('_t_SmartTrader_t_'),
                         type: 'direct',
                         icon: (
                             <PartnersProductSmarttraderBrandDarkLogoIcon width={24} height={24} />
                         ),
-                        description: 'Options trading platform with easy navigation.',
+                        description: localize(
+                            '_t_Options trading platform with easy navigation._t_',
+                        ),
                     },
                 ],
             },
@@ -129,7 +141,7 @@ export const mainRowNavItems: NavLinkItems = {
                     {
                         id: 0,
                         href: '/dtrader',
-                        text: 'Deriv Trader',
+                        text: localize('_t_Deriv Trader_t_'),
                         type: 'direct',
                         icon: (
                             <DerivProductDerivTraderBrandDarkLogoHorizontalIcon
@@ -137,13 +149,14 @@ export const mainRowNavItems: NavLinkItems = {
                                 height={24}
                             />
                         ),
-                        description:
-                            'Flagship options, accumulators, & multipliers trading platform.',
+                        description: localize(
+                            '_t_Flagship options, accumulators, & multipliers trading platform._t_',
+                        ),
                     },
                     {
                         id: 1,
                         href: '/deriv-go',
-                        text: 'Deriv GO',
+                        text: localize('_t_Deriv GO_t_'),
                         type: 'direct',
                         icon: (
                             <DerivProductDerivGoBrandDarkLogoHorizontalIcon
@@ -151,12 +164,14 @@ export const mainRowNavItems: NavLinkItems = {
                                 height={24}
                             />
                         ),
-                        description: 'Mobile app for multipliers trading on the go.',
+                        description: localize(
+                            '_t_Mobile app for multipliers trading on the go._t_',
+                        ),
                     },
                     {
                         id: 2,
                         href: '/dbot',
-                        text: 'Deriv Bot',
+                        text: localize('_t_Deriv Bot_t_'),
                         type: 'direct',
                         icon: (
                             <DerivProductDerivBotBrandDarkLogoHorizontalIcon
@@ -164,12 +179,12 @@ export const mainRowNavItems: NavLinkItems = {
                                 height={24}
                             />
                         ),
-                        description: 'Automated trading. No coding required.',
+                        description: localize('_t_Automated trading. No coding required._t_'),
                     },
                     {
                         id: 3,
                         href: 'https://bot.deriv.com/', //need to update target/type in link component
-                        text: 'Binary Bot',
+                        text: localize('_t_Binary Bot_t_'),
                         type: 'direct',
                         icon: (
                             <PartnersProductBinaryBotBrandDarkLogoHorizontalIcon
@@ -177,7 +192,9 @@ export const mainRowNavItems: NavLinkItems = {
                                 height={24}
                             />
                         ),
-                        description: 'Options trading platform with easy navigation.',
+                        description: localize(
+                            '_t_Options trading platform with easy navigation._t_',
+                        ),
                     },
                 ],
             },
@@ -186,7 +203,7 @@ export const mainRowNavItems: NavLinkItems = {
     markets: {
         id: 1,
         type: 'nav-dropdown',
-        text: 'Markets',
+        text: localize('_t_Markets_t_'),
         columns: [
             {
                 id: 0,
@@ -194,26 +211,30 @@ export const mainRowNavItems: NavLinkItems = {
                     {
                         id: 0,
                         href: '/markets/forex',
-                        text: 'Forex',
+                        text: localize('_t_Forex_t_'),
                         type: 'direct',
                         icon: <IllustrativeForexIcon width={24} height={24} />,
-                        description: 'Major, minor, and exotic  currency pairs.',
+                        description: localize('_t_Major, minor, and exotic  currency pairs._t_'),
                     },
                     {
                         id: 1,
                         href: '/markets/synthetic',
-                        text: 'Derived indices',
+                        text: localize('_t_Derived indices_t_'),
                         type: 'direct',
                         icon: <IllustrativeDerivedIcon width={24} height={24} />,
-                        description: 'Indices simulating real-world markets with 24/7 trading',
+                        description: localize(
+                            '_t_Indices simulating real-world markets with 24/7 trading_t_',
+                        ),
                     },
                     {
                         id: 2,
                         href: '/markets/stock',
-                        text: 'Stocks & indices',
+                        text: localize('_t_Stocks & indices_t_'),
                         type: 'direct',
                         icon: <IllustrativeStocksAndIndicesIcon width={24} height={24} />,
-                        description: 'Leading company stocks and top global indices.',
+                        description: localize(
+                            '_t_Leading company stocks and top global indices._t_',
+                        ),
                     },
                 ],
             },
@@ -223,26 +244,30 @@ export const mainRowNavItems: NavLinkItems = {
                     {
                         id: 0,
                         href: '/markets/commodities',
-                        text: 'Commodities',
+                        text: localize('_t_Commodities_t_'),
                         type: 'direct',
                         icon: <IllustrativeCommoditiesIcon width={24} height={24} />,
-                        description: 'World markets including precious metals and energies.',
+                        description: localize(
+                            '_t_World markets including precious metals and energies._t_',
+                        ),
                     },
                     {
                         id: 1,
                         href: '/markets/cryptocurrencies',
-                        text: 'Cryptocurrencies',
+                        text: localize('_t_Cryptocurrencies_t_'),
                         type: 'direct',
                         icon: <IllustrativeCryptocurrenciesIcon width={24} height={24} />,
-                        description: 'The world’s most popular digital currencies.',
+                        description: localize('_t_The world’s most popular digital currencies._t_'),
                     },
                     {
                         id: 2,
                         href: '/markets/exchange-traded-funds',
-                        text: 'Exchange-traded funds (ETFs)',
+                        text: localize('_t_Exchange-traded funds (ETFs)_t_'),
                         type: 'direct',
                         icon: <IllustrativeEtfIcon width={24} height={24} />,
-                        description: 'Diverse exchange-traded funds for broad market exposure.',
+                        description: localize(
+                            '_t_Diverse exchange-traded funds for broad market exposure._t_',
+                        ),
                     },
                 ],
             },
@@ -251,7 +276,7 @@ export const mainRowNavItems: NavLinkItems = {
     'about-us': {
         id: 2,
         type: 'nav-dropdown',
-        text: 'About us',
+        text: localize('_t_About us_t_'),
         columns: [
             {
                 id: 0,
@@ -259,26 +284,26 @@ export const mainRowNavItems: NavLinkItems = {
                     {
                         id: 0,
                         href: '/who-we-are',
-                        text: 'Who we are',
+                        text: localize('_t_Who we are_t_'),
                         type: 'direct',
                     },
                     {
                         id: 1,
                         href: '/regulatory',
-                        text: 'Regulatory information',
+                        text: localize('_t_Regulatory information_t_'),
                         type: 'direct',
                         isDesktopNavOnly: true,
                     },
                     {
                         id: 2,
                         href: '/why-choose-us',
-                        text: 'Why choose us',
+                        text: localize('_t_Why choose us_t_'),
                         type: 'direct',
                     },
                     {
                         id: 3,
                         href: '/partners',
-                        text: 'Partnership programmes',
+                        text: localize('_t_Partnership programmes_t_'),
                         type: 'direct',
                     },
                 ],
@@ -289,19 +314,19 @@ export const mainRowNavItems: NavLinkItems = {
                     {
                         id: 0,
                         href: '/contact_us',
-                        text: 'Contact us',
+                        text: localize('_t_Contact us_t_'),
                         type: 'direct',
                     },
                     {
                         id: 1,
                         href: '/careers',
-                        text: 'Careers',
+                        text: localize('_t_Careers_t_'),
                         type: 'direct',
                     },
                     {
                         id: 2,
                         href: 'https://derivlife.com', //need to update target/type in link component
-                        text: 'Deriv Life',
+                        text: localize('_t_Deriv Life_t_'),
                         type: 'direct',
                         external: true,
                     },
@@ -312,7 +337,7 @@ export const mainRowNavItems: NavLinkItems = {
     resources: {
         id: 3,
         type: 'nav-dropdown',
-        text: 'Resources',
+        text: localize('_t_Resources_t_'),
         columns: [
             {
                 id: 0,
@@ -320,26 +345,26 @@ export const mainRowNavItems: NavLinkItems = {
                     {
                         id: 0,
                         href: '/help-centre',
-                        text: 'Help centre',
+                        text: localize('_t_Help centre_t_'),
                         type: 'direct',
                     },
                     {
                         id: 1,
                         href: 'https://community.deriv.com/', //need to update target/type in link component
-                        text: 'Community',
+                        text: localize('_t_Community_t_'),
                         type: 'direct',
                         external: true,
                     },
                     {
                         id: 2,
                         href: '/trader-tools',
-                        text: "Traders' tools",
+                        text: localize("_t_Traders' tools_t_"),
                         type: 'direct',
                     },
                     {
                         id: 3,
                         href: '/payment-methods',
-                        text: 'Payment methods',
+                        text: localize('_t_Payment methods_t_'),
                         type: 'direct',
                     },
                 ],
@@ -350,19 +375,19 @@ export const mainRowNavItems: NavLinkItems = {
                     {
                         id: 0,
                         href: '/dmt5-trading-signals',
-                        text: 'Deriv MT5 signals',
+                        text: localize('_t_Deriv MT5 signals_t_'),
                         type: 'direct',
                     },
                     {
                         id: 1,
                         href: 'https://deriv.statuspage.io/', //need to update target/type in link component
-                        text: 'Status page',
+                        text: localize('_t_Status page_t_'),
                         type: 'direct',
                     },
                     {
                         id: 2,
                         href: 'https://blog.deriv.com/', //need to update target/type in link component
-                        text: 'Deriv Blog',
+                        text: localize('_t_Deriv Blog_t_'),
                         type: 'direct',
                         external: true,
                     },
@@ -373,7 +398,7 @@ export const mainRowNavItems: NavLinkItems = {
     legal: {
         id: 4,
         type: 'nav-dropdown',
-        text: 'Legal',
+        text: localize('_t_Legal_t_'),
         isMobileNavOnly: true,
         columns: [
             {
@@ -382,19 +407,19 @@ export const mainRowNavItems: NavLinkItems = {
                     {
                         id: 0,
                         href: '/regulatory',
-                        text: 'Regulatory information',
+                        text: localize('_t_Regulatory information_t_'),
                         type: 'direct',
                     },
                     {
                         id: 1,
                         href: '/terms-and-conditions',
-                        text: 'Terms & conditions',
+                        text: localize('_t_Terms & conditions_t_'),
                         type: 'direct',
                     },
                     {
                         id: 2,
                         href: '/responsible',
-                        text: 'Secure & responsible trading',
+                        text: localize('_t_Secure & responsible trading_t_'),
                         type: 'direct',
                     },
                 ],
@@ -404,7 +429,7 @@ export const mainRowNavItems: NavLinkItems = {
     partners: {
         id: 5,
         type: 'nav-dropdown',
-        text: 'Partners',
+        text: localize('_t_Partners_t_'),
         isMobileNavOnly: true,
         columns: [
             {
@@ -413,25 +438,25 @@ export const mainRowNavItems: NavLinkItems = {
                     {
                         id: 0,
                         href: '/partners/deriv-prime',
-                        text: 'Deriv Prime',
+                        text: localize('_t_Deriv Prime_t_'),
                         type: 'direct',
                     },
                     {
                         id: 1,
                         href: '/partners/affiliate-ib',
-                        text: 'Affiliates and IBs',
+                        text: localize('_t_Affiliates and IBs_t_'),
                         type: 'direct',
                     },
                     {
                         id: 2,
                         href: '/partners/payment-agent',
-                        text: 'Payment agents',
+                        text: localize('_t_Payment agents_t_'),
                         type: 'direct',
                     },
                     {
                         id: 3,
                         href: 'https://api.deriv.com/', //need to update target/type in link component
-                        text: 'API',
+                        text: localize('_t_API_t_'),
                         type: 'direct',
                     },
                 ],

@@ -59,8 +59,8 @@ const HomePage = () => {
                             <LiveMarketSection />
                             <UserFriendlyPlatforms />
                             <TradeTypeSection />
-                            <FastPaymentSection />
                             <StartTradingSteps />
+                            <FastPaymentSection />
                             <CTA />
                             <ROWFooter />
                         </PageLayout>

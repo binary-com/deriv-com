@@ -19,6 +19,12 @@ const TrustpilotSection = () => {
                 color: '!text-[#ffffff]',
                 background: 'bg-solid-slate-700',
             }}
+            //TODO: We will remove this static data once the data fetching is finalized.
+            staticData={{
+                trustScore: 4.6,
+                numberOfReviews: '37,133',
+                stars: 4.6,
+            }}
             logo={
                 <StaticImage
                     src="../../../../images/common/home/trustpilot-logo.png"

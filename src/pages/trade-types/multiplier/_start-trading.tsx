@@ -4,23 +4,32 @@ import CommonHeaderSection from 'components/elements/common-header-section'
 import { StepperView } from 'components/elements'
 import Button from 'components/custom/_button'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { TString } from 'types/generics'
+import { SmartTimelineItem } from 'types/generics'
 
-const MultipliersItems: { title: TString; subtitle: TString }[] = [
+const MultipliersItems: SmartTimelineItem[] = [
     {
-        title: '_t_Practise_t_',
-        subtitle:
-            '_t_Open a demo account on Deriv and practise with an unlimited amount of virtual funds on our award-winning platforms._t_',
+        id: 0,
+        data: {
+            title: '_t_Practise_t_',
+            subtitle:
+                '_t_Open a demo account on Deriv and practise with an unlimited amount of virtual funds on our award-winning platforms._t_',
+        },
     },
     {
-        title: '_t_Trade_t_',
-        subtitle:
-            '_t_Open a real account, make a deposit, and start trading multipliers for real._t_',
+        id: 1,
+        data: {
+            title: '_t_Trade_t_',
+            subtitle:
+                '_t_Open a real account, make a deposit, and start trading multipliers for real._t_',
+        },
     },
     {
-        title: '_t_Withdraw_t_',
-        subtitle:
-            '_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_',
+        id: 2,
+        data: {
+            title: '_t_Withdraw_t_',
+            subtitle:
+                '_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_',
+        },
     },
 ]
 

@@ -2,8 +2,8 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import CommonHeaderSection from 'components/elements/common-header-section'
-import { TString } from 'types/generics'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { TString } from 'types/generics'
 
 const Checkmark = styled.span<{ is_rtl: boolean }>`
     display: inline-block;
@@ -79,11 +79,16 @@ type StepperViewTickProps = {
     color?: string
 }
 
+type StepperType = {
+    id: number
+    data: {
+        title: TString
+        subtitle: TString
+    }
+}
+
 type StepperViewProps = {
-    items: {
-        title?: TString
-        subtitle?: TString
-    }[]
+    items: StepperType[]
 } & Pick<StepperViewTickProps, 'pb' | 'pl'>
 
 const handleLastBorder = (index, items) => {
@@ -98,14 +103,14 @@ const StepperView = ({ pb, items }: StepperViewProps) => {
 
     return (
         <>
-            {items.map((item, index) => (
-                <div key={item.title}>
+            {items.map(({ data: { title, subtitle } }, index) => (
+                <div key={title}>
                     <FlexWrapper is_border={handleLastBorder(index, items)} pb={pb}>
                         <ContentWrapper>
                             <Oval></Oval>
                             <CommonHeaderSection
-                                title={item.title}
-                                subtitle={item.subtitle}
+                                title={title}
+                                subtitle={subtitle}
                                 title_font_size={is_mobile ? '18px ' : '24px'}
                                 margin_subtitle="1.3rem 0 0 0"
                                 subtitle_font_size="1.6rem"

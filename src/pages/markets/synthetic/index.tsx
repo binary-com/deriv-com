@@ -10,10 +10,15 @@ import useRegion from 'components/hooks/use-region'
 import { SEO } from 'components/containers'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { TGatsbyHead } from 'features/types'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 const Markets = () => {
     const { is_eu, is_row } = useRegion()
     const { is_deriv_go } = usePlatformQueryParam()
+    const [is_mounted] = usePageLoaded()
+
+    if (!is_mounted) return null
+
     const description_eu =
         '_t_Trade on asset prices derived from simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite._t_'
     const description_row =

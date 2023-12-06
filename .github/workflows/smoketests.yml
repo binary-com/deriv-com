@@ -38,14 +38,8 @@ jobs:
               run: |
                   echo "issue_number=$(cat ./pr/NR)" >> $GITHUB_OUTPUT
                   echo "preview_url=$(cat ./pr/PREVIEW_URL)" >> $GITHUB_OUTPUT
-                  
-            - name: Get Branch Details
-              id: branch_details
-              run: |
-                  pr_data=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/${{ github.repository }}/pulls/${{ steps.pr_information.outputs.issue_number }})
-                  pr_branch=$(echo $pr_data | jq -r '.head.ref')
-                  echo "PR branch is: $pr_branch"
-                  echo "branch_name=$pr_branch" >> $GITHUB_OUTPUT
+                  echo "branch_name=$(cat ./pr/BRANCHNAME)" >> $GITHUB_OUTPUT
+                  echo "user_name=$(cat ./pr/USERNAME)" >> $GITHUB_OUTPUT
 
             - name: Checkout external repository with Cypress tests
               uses: actions/checkout@v4
@@ -54,7 +48,7 @@ jobs:
 
             - name: Cypress run
               # Uses the official Cypress GitHub action https://github.com/cypress-io/github-action
-              if: "!contains(steps.branch_details.outputs.branch_name, 'translation-new-homepage')"
+              if: "!contains(steps.pr_information.outputs.branch_name, 'translation-new-homepage')"
               uses: cypress-io/github-action@v6
               with:
                   # Records to Cypress Cloud
@@ -73,11 +67,11 @@ jobs:
                   # Set Base Url from client_payload.
                   CYPRESS_BASE_URL: ${{ steps.pr_information.outputs.preview_url }}
                   # Send PR details to Cypress test run
-                  COMMIT_INFO_MESSAGE: PR "${{ steps.pr_information.outputs.issue_number }}" in Repo "${{ github.repository }}" (v2)
+                  COMMIT_INFO_MESSAGE: PR "${{ steps.pr_information.outputs.issue_number }}" Changed By "${{ steps.pr_information.outputs.user_name }}" in Branch "${{ steps.pr_information.outputs.branch_name }}"
 
             - name: Set comments message
               id: set_msg
-              if: always() && !contains(steps.branch_details.outputs.branch_name, 'translation-new-homepage')
+              if: always() && !contains(steps.pr_information.outputs.branch_name, 'translation-new-homepage')
               run: |
                   # Using shell script to conditionally set the message
                   if [[ "${{ job.status }}" == "success" ]]; then
@@ -87,7 +81,7 @@ jobs:
                   fi
 
             - name: Leave comment
-              if: always() && !contains(steps.branch_details.outputs.branch_name, 'translation-new-homepage')
+              if: always() && !contains(steps.pr_information.outputs.branch_name, 'translation-new-homepage')
               uses: marocchino/sticky-pull-request-comment@v2
               with:
                   header: Smoke tests status update

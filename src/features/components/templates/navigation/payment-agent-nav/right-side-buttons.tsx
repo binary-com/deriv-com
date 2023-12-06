@@ -47,9 +47,7 @@ const RightSideButtons = () => {
     return (
         <>
             <Button.Primary
-                onClick={() =>
-                    window.open('https://login.deriv.com/signin.php?lang=0', '_blank')
-                }
+                onClick={() => window.open('https://login.deriv.com/signin.php?lang=0', '_blank')}
                 outlined
                 visible={'larger-than-tablet'}
                 className={partners_buttons}
@@ -57,9 +55,7 @@ const RightSideButtons = () => {
                 <Localize translate_text={texts.login} />
             </Button.Primary>
             <Button.Primary
-                onClick={() =>
-                    window.open('https://login.deriv.com/signin.php?lang=0', '_blank')
-                }
+                onClick={() => window.open('https://login.deriv.com/signin.php?lang=0', '_blank')}
                 outlined
                 visible={'phone-and-tablet'}
             >

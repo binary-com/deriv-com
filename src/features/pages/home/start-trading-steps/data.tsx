@@ -5,7 +5,7 @@ import { localize } from 'components/localization'
 
 export const Cards: CardContent[] = [
     {
-        header: localize('_t_1.Sign up & explore_t_'),
+        header: localize('_t_1. Sign up & explore_t_'),
         description: localize(
             '_t_Sign up in minutes and explore Trader’s Hub - all your trading needs, in one place._t_',
         ),
@@ -19,13 +19,13 @@ export const Cards: CardContent[] = [
         ),
         color: 'gray',
         align: 'center',
-        size: 'sm',
+        size: 'md',
         className: 'flex flex-col-reverse',
         contentClassName: 'flex justify-center',
         nonContentClassName: 'p-general-2xl',
     },
     {
-        header: localize('_t_2.Try with zero-risk_t_'),
+        header: localize('_t_2. Try with zero-risk_t_'),
         description: localize(
             '_t_Try any trade, on any platform with a zero-risk, demo trading account._t_',
         ),
@@ -40,13 +40,13 @@ export const Cards: CardContent[] = [
         ),
         color: 'gray',
         align: 'center',
-        size: 'sm',
+        size: 'md',
         className: 'flex flex-col-reverse',
         contentClassName: 'flex justify-center',
         nonContentClassName: 'p-general-2xl',
     },
     {
-        header: localize('_t_3.Trade with confidence_t_'),
+        header: localize('_t_3. Trade with confidence_t_'),
         description: localize(
             '_t_Sign up in minutes and explore Trader’s Hub - all your trading needs, in one place._t_',
         ),
@@ -61,7 +61,7 @@ export const Cards: CardContent[] = [
         ),
         color: 'gray',
         align: 'center',
-        size: 'sm',
+        size: 'md',
         className: 'flex flex-col-reverse',
         contentClassName: 'flex justify-center',
         nonContentClassName: 'p-general-2xl',

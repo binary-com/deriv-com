@@ -1,7 +1,8 @@
 import React from 'react'
 import { Footer } from '@deriv-com/blocks'
-import { Heading, Button } from '@deriv/quill-design'
+import { Heading, Button, LinkButton } from '@deriv/quill-design'
 import { StaticImage } from 'gatsby-plugin-image'
+import { CustomLink } from '@deriv-com/components'
 import { localize } from 'components/localization'
 
 const image = (
@@ -25,9 +26,9 @@ const CTA = () => {
                 <Heading.H2 className="text-solid-slate-50">
                     Join over 2.5 million online traders
                 </Heading.H2>
-                <Button size="lg" className="hidden lg:block">
+                <LinkButton size="lg" className="hidden lg:block" href="/signup">
                     Create demo account
-                </Button>
+                </LinkButton>
             </div>
         </Footer.CTABlock>
     )

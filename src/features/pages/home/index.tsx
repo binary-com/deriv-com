@@ -1,7 +1,13 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useCallback } from 'react'
 import { PageLayout } from '@deriv-com/components'
 import { BreakpointProvider, ThemeProvider } from '@deriv/quill-design'
-import { LanguageProvider } from '@deriv-com/providers'
+import {
+    LanguageProvider,
+    SharedLinkProvider,
+    SharedLinkProps,
+    SharedLink,
+} from '@deriv-com/providers'
 import Layout from 'features/components/templates/layout'
 import ROWFooter from './footer'
 import LiveMarketSection from './live-pricing-migration'
@@ -18,7 +24,9 @@ import { langItemsROW } from './data'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
-import { LocaleContext } from 'components/localization'
+import { LocaleContext, LocalizedLink } from 'components/localization'
+import Link from 'features/components/atoms/link'
+import useLinkUrl from 'features/hooks/use-link-url'
 
 const HomePage = () => {
     useOpenLiveChat(true)
@@ -42,31 +50,61 @@ const HomePage = () => {
         },
         [onSwitchLanguage],
     )
+
+    const GatsbySharedLink: SharedLink = ({ href = '/', ...rest }: SharedLinkProps) => {
+        const link = href as `/${string}`
+        const checkIsExternalUrl = /(http(s?)):\/\//i.test(link.toString())
+        console.log('link==>', link, checkIsExternalUrl)
+        if (!checkIsExternalUrl) {
+            return (
+                // @ts-ignore
+                <Link
+                    url={{
+                        to: link,
+                        type: 'internal',
+                    }}
+                    {...rest}
+                />
+            )
+        }
+        return (
+            // @ts-ignore
+            <Link
+                url={{
+                    to: link,
+                    type: 'internal',
+                }}
+                {...rest}
+            />
+        )
+    }
     return (
         <BreakpointProvider>
-            <ThemeProvider theme="light">
-                <LanguageProvider
-                    langItems={langItemsROW}
-                    onLangSelect={onLanguageChange}
-                    activeLanguage={activeLang}
-                >
-                    <Layout>
-                        <MainRowNavigation />
-                        <PageLayout>
-                            <HomeHero />
-                            <StatSection />
-                            <TwentyYearsStrong />
-                            <LiveMarketSection />
-                            <UserFriendlyPlatforms />
-                            <TradeTypeSection />
-                            <FastPaymentSection />
-                            <StartTradingSteps />
-                            <CTA />
-                            <ROWFooter />
-                        </PageLayout>
-                    </Layout>
-                </LanguageProvider>
-            </ThemeProvider>
+            <SharedLinkProvider DerivLink={GatsbySharedLink}>
+                <ThemeProvider theme="light">
+                    <LanguageProvider
+                        langItems={langItemsROW}
+                        onLangSelect={onLanguageChange}
+                        activeLanguage={activeLang}
+                    >
+                        <Layout>
+                            <MainRowNavigation />
+                            <PageLayout>
+                                <HomeHero />
+                                <StatSection />
+                                <TwentyYearsStrong />
+                                <LiveMarketSection />
+                                <UserFriendlyPlatforms />
+                                <TradeTypeSection />
+                                <FastPaymentSection />
+                                <StartTradingSteps />
+                                <CTA />
+                                <ROWFooter />
+                            </PageLayout>
+                        </Layout>
+                    </LanguageProvider>
+                </ThemeProvider>
+            </SharedLinkProvider>
         </BreakpointProvider>
     )
 }

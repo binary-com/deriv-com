@@ -42,7 +42,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 9.71,
             swap_short: -12.98,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -60,7 +60,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -3.42,
             swap_short: 1.35,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -78,7 +78,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -4.24,
             swap_short: -1.38,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -96,7 +96,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -7.03,
             swap_short: 2.5,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -114,7 +114,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 3.79,
             swap_short: -6.95,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -132,7 +132,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -4.93,
             swap_short: 2.28,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -150,7 +150,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 15.11,
             swap_short: -20.09,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -168,7 +168,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -6.47,
             swap_short: 3.33,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -186,7 +186,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 3.18,
             swap_short: -9.8,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -204,7 +204,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 25.28,
             swap_short: -31.15,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -222,7 +222,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -2.32,
             swap_short: -1.38,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -240,7 +240,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -0.28,
             swap_short: -3.78,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -258,7 +258,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 7.66,
             swap_short: -10.5,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -276,7 +276,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 20.91,
             swap_short: -25.37,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -293,7 +293,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -3.59,
             swap_short: 0.62,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -310,7 +310,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 2.67,
             swap_short: -4.74,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -327,7 +327,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -5.85,
             swap_short: 1.65,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -344,7 +344,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 4.74,
             swap_short: -6.96,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -361,7 +361,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 6.73,
             swap_short: -12.76,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -378,7 +378,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 0.83,
             swap_short: -7.11,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -395,7 +395,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -35.4,
             swap_short: -18.88,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -412,7 +412,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 0,
             swap_short: 0,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -429,7 +429,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -67.38,
             swap_short: 41.17,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -446,7 +446,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -27.203,
             swap_short: -13.104,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -463,7 +463,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -4.83,
             swap_short: -1.83,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -480,7 +480,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 0,
             swap_short: 0,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -497,7 +497,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 12.27,
             swap_short: -70.69,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -514,7 +514,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -12.642,
             swap_short: 0.481,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -531,7 +531,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 28.41,
             swap_short: -91.53,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -548,7 +548,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -0.98,
             swap_short: -3.15,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -565,7 +565,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 10.12,
             swap_short: -17.091,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -582,7 +582,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 0,
             swap_short: 0,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -599,7 +599,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 26.18,
             swap_short: -53.23,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -616,7 +616,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -371.9,
             swap_short: 254.6,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -633,7 +633,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 31.83,
             swap_short: -67.31,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -650,7 +650,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -31.964,
             swap_short: 12.392,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -667,7 +667,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 31.978,
             swap_short: -79.344,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -684,7 +684,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -260.419,
             swap_short: 112.424,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -700,7 +700,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -3.88,
             swap_short: -0.06,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -716,7 +716,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 1.66,
             swap_short: -5.32,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -732,7 +732,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 4.74,
             swap_short: -9.78,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -748,7 +748,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -6.72,
             swap_short: 0.92,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -764,7 +764,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -3.56,
             swap_short: 0.46,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -780,7 +780,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -6.78,
             swap_short: -0.13,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -796,7 +796,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -9.78,
             swap_short: 2.28,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -812,7 +812,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 1.28,
             swap_short: -6.1,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -828,7 +828,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -4.89,
             swap_short: 0.87,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -844,7 +844,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 6.11,
             swap_short: -14.02,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -860,7 +860,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -16.128,
             swap_short: 6.808,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -876,7 +876,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -8.68,
             swap_short: 3.82,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -892,7 +892,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 4.12,
             swap_short: -11.09,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -908,7 +908,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 17.38,
             swap_short: -29.426,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -924,7 +924,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -4.22,
             swap_short: -0.01,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -940,7 +940,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -1.34,
             swap_short: -1.51,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -956,7 +956,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: -1.1,
             swap_short: -3.9,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -972,7 +972,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 4.44,
             swap_short: -10.12,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -988,7 +988,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '0.10',
             swap_long: 9.48,
             swap_short: -18.06,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
     ],
     eu_data: [
@@ -1006,7 +1006,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -3.59,
             swap_short: 0.62,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1022,7 +1022,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: 2.67,
             swap_short: -4.74,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1038,7 +1038,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: 9.71,
             swap_short: -12.98,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1054,7 +1054,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -5.85,
             swap_short: 1.65,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1070,7 +1070,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -3.42,
             swap_short: 1.35,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1086,7 +1086,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: 4.74,
             swap_short: -6.96,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1102,7 +1102,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: 13.93,
             swap_short: -17.42,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1118,7 +1118,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '3.33',
             swap_long: 6.31,
             swap_short: -11.93,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1134,7 +1134,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -4.24,
             swap_short: -1.38,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1150,7 +1150,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '3.33',
             swap_long: -7.03,
             swap_short: 2.5,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1166,7 +1166,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '3.33',
             swap_long: 3.79,
             swap_short: -6.95,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1182,7 +1182,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '3.33',
             swap_long: -4.93,
             swap_short: 2.28,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1198,7 +1198,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '3.33',
             swap_long: 15.11,
             swap_short: -20.09,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1214,7 +1214,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -34.19,
             swap_short: -20.45,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1230,7 +1230,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -11.05,
             swap_short: 4.59,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1246,7 +1246,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -38.38,
             swap_short: 21.51,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1262,7 +1262,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -25.48,
             swap_short: -28.27,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1278,7 +1278,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '3.33',
             swap_long: -6.47,
             swap_short: 3.33,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1294,7 +1294,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: 3.18,
             swap_short: -9.8,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1310,7 +1310,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -1.12,
             swap_short: -4.22,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1326,7 +1326,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '3.33',
             swap_long: 9.07,
             swap_short: -12.79,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1342,7 +1342,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '3.33',
             swap_long: 25.28,
             swap_short: -31.15,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1358,7 +1358,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: 16.03,
             swap_short: -80.16,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1374,7 +1374,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -4.06,
             swap_short: -3.55,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1390,7 +1390,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: 28.41,
             swap_short: -91.53,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1406,7 +1406,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '3.33',
             swap_long: -2.32,
             swap_short: -1.38,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1422,7 +1422,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -0.62,
             swap_short: -2.29,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1438,7 +1438,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: 11.88,
             swap_short: -15.07,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1454,7 +1454,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -1.17,
             swap_short: -0.87,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1470,7 +1470,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '3.33',
             swap_long: -0.28,
             swap_short: -3.78,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1486,7 +1486,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '3.33',
             swap_long: 7.66,
             swap_short: -10.5,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1502,7 +1502,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -30.81,
             swap_short: -12.81,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1518,7 +1518,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '3.33',
             swap_long: 20.91,
             swap_short: -25.37,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1534,7 +1534,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -334.35,
             swap_short: 202.39,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1550,7 +1550,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: 17.7,
             swap_short: -67.31,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1566,7 +1566,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -15.82,
             swap_short: 0.62,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1582,7 +1582,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: 27.81,
             swap_short: -76.54,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
             instrument: {
@@ -1598,7 +1598,7 @@ const forex_specification: TSpecification = {
             margin_requirement: '5.00',
             swap_long: -190.52,
             swap_short: 87.85,
-            trading_hours: 'Sun 21:05 - Friday 20:55 GMT\nDaily Break: 21:00-21:05',
+            trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
     ],
 }

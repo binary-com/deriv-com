@@ -6,26 +6,15 @@ import { localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 
 const RowImage = (
-    <>
-        <StaticImage
-            src="../../../../images/migration/home/cta_bg.png"
-            alt={localize('_t_call to action background_t_')}
-            loading="eager"
-            objectPosition="78% 0"
-            className="w-full h-full hidden md:block"
-            formats={['webp', 'auto']}
-            placeholder="none"
-        />
-        <StaticImage
-            src="../../../../images/migration/home/mobile_cta_bg.png"
-            alt={localize('_t_call to action background_t_')}
-            loading="eager"
-            className="w-full h-full md:hidden"
-            objectPosition="top"
-            formats={['webp', 'auto']}
-            placeholder="none"
-        />
-    </>
+    <StaticImage
+        src="../../../../images/migration/home/cta_bg.png"
+        alt={localize('_t_call to action background_t_')}
+        loading="eager"
+        objectPosition="78% 0"
+        className="w-full h-full hidden md:block"
+        formats={['webp', 'auto']}
+        placeholder="none"
+    />
 )
 
 const EUImage = (

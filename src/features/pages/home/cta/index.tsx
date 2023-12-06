@@ -12,8 +12,6 @@ const image = (
         loading="eager"
         objectPosition="78% 0"
         className="w-full h-full"
-        width={4096}
-        height={1972}
         formats={['webp', 'auto']}
         placeholder="none"
     />

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import Layout from 'features/components/templates/layout'
 import CommercialPlan from './commercial-plan'
 import GetInTouchBanner from './get-in-touch'
@@ -11,7 +11,8 @@ import ConnectivityReliabilityType from './connectivity-reliability'
 import AvailableInstruments from './available-instruments'
 import Hero from './hero'
 import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
-import Footer from 'features/components/templates/footer'
+import SuspenseHelper from 'features/components/atoms/suspense-helper'
+const Footer = lazy(() => import('features/components/templates/footer'))
 
 const DerivPrime = () => {
     return (
@@ -27,7 +28,9 @@ const DerivPrime = () => {
             <GetInTouchBanner />
             <MeetUsThere />
             <BrowseOurFaq />
-            <Footer />
+            <SuspenseHelper fallback={<></>}>
+                <Footer />
+            </SuspenseHelper>
         </Layout>
     )
 }

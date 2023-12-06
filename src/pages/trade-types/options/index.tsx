@@ -13,8 +13,8 @@ import { StepperView } from 'components/elements'
 import useRegion from 'components/hooks/use-region'
 import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
-import { TString } from 'types/generics'
 import { TGatsbyHead } from 'features/types'
+import { SmartTimelineItem } from 'types/generics'
 
 const HowOptionsWorks = Loadable(() => import('./_how-options-works'))
 const OptionsToTrade = Loadable(() => import('./_options-to-trade'))
@@ -34,20 +34,30 @@ const ButtonContainer = styled.div`
     }
 `
 
-const OptionsItems: { title: TString; subtitle: TString }[] = [
+const OptionsItems: SmartTimelineItem[] = [
     {
-        title: '_t_Practise_t_',
-        subtitle:
-            '_t_Open a demo account and get unlimited virtual funds to practise on our platforms — Deriv Trader, SmartTrader, and Deriv Bot._t_',
+        id: 0,
+        data: {
+            title: '_t_Practise_t_',
+            subtitle:
+                '_t_Open a demo account and get unlimited virtual funds to practise on our platforms — Deriv Trader, SmartTrader, and Deriv Bot._t_',
+        },
     },
     {
-        title: '_t_Trade_t_',
-        subtitle: '_t_Open a real account, make a deposit, and start trading options for real._t_',
+        id: 1,
+        data: {
+            title: '_t_Trade_t_',
+            subtitle:
+                '_t_Open a real account, make a deposit, and start trading options for real._t_',
+        },
     },
     {
-        title: '_t_Withdraw_t_',
-        subtitle:
-            '_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_',
+        id: 2,
+        data: {
+            title: '_t_Withdraw_t_',
+            subtitle:
+                '_t_Conveniently withdraw your funds through any of our supported withdrawal methods._t_',
+        },
     },
 ]
 

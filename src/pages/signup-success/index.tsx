@@ -18,13 +18,13 @@ const SignupSuccess = () => {
         const userEmail = Cookies.get('user_email')
         const locale = getLanguage()
 
-        setRegisteredEmail(userEmail?.replaceAll(' ', '+'))
         if (!userEmail) {
             if (locale !== 'en') navigate(`/${locale}/`, { replace: true })
             else {
                 navigate('/', { replace: true })
             }
         } else {
+            setRegisteredEmail(userEmail.replaceAll(' ', '+'))
             Analytics?.trackEvent('ce_virtual_signup_form', {
                 action: 'email_confirmation_sent',
                 ...analyticsData,

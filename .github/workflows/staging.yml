@@ -52,7 +52,7 @@ jobs:
             # - run: npm run test
             - run: npm run build
             # - run: npm run build:storybook
-            - run: $GIT_TAG_NAME > public/version.txt
+            - run: $GITHUB_SHA > public/version.txt
 
             - uses: olegtarasov/get-tag@v2.1
               id: tagName

@@ -8,8 +8,9 @@ import {
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Illustrative'
 import { localize } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
 
-const cards: CardContent[] = [
+const RowCards: CardContent[] = [
     {
         header: localize('_t_CFDs_t_'),
         description: localize(
@@ -54,12 +55,46 @@ const cards: CardContent[] = [
     },
 ]
 
+const EUCards: CardContent[] = [
+    {
+        header: localize('_t_CFDs_t_'),
+        description: localize(
+            '_t_Trade with leverage, unbeatable spreads, and fast execution on the widest range of markets._t_',
+        ),
+        icon: <IllustrativeCfdsIcon iconSize="lg" />,
+        align: 'start',
+        color: 'light',
+        size: 'md',
+        link: {
+            content: localize('_t_Learn more_t_'),
+            href: '/',
+        },
+    },
+    {
+        header: localize('_t_Multipliers_t_'),
+        description: localize(
+            '_t_Trade on global financial markets and multiply your potential profit without losing more than your stake._t_',
+        ),
+        icon: <IllustrativeMultipliersIcon iconSize="lg" />,
+        align: 'start',
+        color: 'light',
+        size: 'md',
+        link: {
+            content: localize('_t_Learn more_t_'),
+            href: '/',
+        },
+    },
+]
 const TradeTypeSection = () => {
+    const { is_eu } = useRegion()
+    const heading = is_eu
+        ? localize('_t_Trade CFDs & Multipliers_t_')
+        : localize('_t_Trade CFDs, Options, or Multipliers_t_')
     return (
         <Features.Card
-            title={localize('_t_Trade CFDs, Options, or Multipliers_t_')}
+            title={heading}
             cols="three"
-            cards={cards}
+            cards={is_eu ? EUCards : RowCards}
             className="!bg-background-secondary-container"
         />
     )

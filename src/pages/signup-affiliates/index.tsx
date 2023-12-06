@@ -58,21 +58,17 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
             last_name: affiliate_account.personal_details.last_name,
             non_pep_declaration: affiliate_account.terms_of_use.non_pep_declaration_accepted && 1,
             over_18_declaration: 1,
-            phone: `${
-                affiliate_account.personal_details.prefix + affiliate_account.personal_details.phone
-            }`,
-            phone_code: Number(affiliate_account.personal_details.prefix.substring(0, 4)),
+            phone: affiliate_account.personal_details.phone,
+            phone_code: Number(affiliate_account.personal_details.phone.substring(1, 4)),
             tnc_accepted: affiliate_account.terms_of_use.tnc_accepted && 1,
             type_of_account: affiliate_account.account_type,
             user_name: affiliate_account.personal_details.username,
             website_url: affiliate_account.personal_details?.website_url.includes('www.')
                 ? affiliate_account.personal_details?.website_url
                 : `www.${affiliate_account.personal_details?.website_url}`,
-            whatsapp_number: `${
-                affiliate_account.personal_details.prefix + affiliate_account.personal_details.phone
-            }`,
+            whatsapp_number: affiliate_account.personal_details.phone,
             whatsapp_number_phoneCode: Number(
-                affiliate_account.personal_details.prefix.substring(0, 4),
+                affiliate_account.personal_details.phone.substring(1, 4),
             ),
             ...(affiliate_account.personal_details?.company_name !== '' && {
                 company_name: affiliate_account.personal_details?.company_name,
@@ -147,7 +143,6 @@ const AffiliateSignup = () => {
             last_name: '',
             date_birth: null,
             phone: '',
-            prefix: '',
             website_url: '',
             second_website_url: '',
             company_name: '',
@@ -162,6 +157,7 @@ const AffiliateSignup = () => {
             is_partner_checked: false,
         },
     })
+
     const {
         data: affiliate_api_data,
         error: affiliate_api_error,
@@ -235,7 +231,7 @@ const AffiliateSignup = () => {
             ...affiliate_account,
             personal_details: {
                 ...affiliate_account.personal_details,
-                prefix: affiliate_account.address_details.country?.prefix,
+                phone: '+' + affiliate_account.address_details.country?.prefix,
             },
         })
     }, [affiliate_account.address_details.country])

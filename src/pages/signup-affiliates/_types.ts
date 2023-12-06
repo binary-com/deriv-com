@@ -18,7 +18,6 @@ type AffiliateAccountTypes = {
         last_name: string
         date_birth: Date
         phone: string
-        prefix: string
         website_url: string
         second_website_url: string
         company_name: string

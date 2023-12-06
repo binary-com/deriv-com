@@ -17,10 +17,7 @@ const AccountDetails = ({
     const [first_name, setFirstName] = useState(affiliate_data.first_name)
     const [last_name, setLastName] = useState(affiliate_data.last_name)
     const [date_birth, setDateBirth] = useState(affiliate_data.date_birth)
-    const [prefix, setPrefix] = useState(affiliate_data.prefix)
-    const [phone, setPhone] = useState(
-        affiliate_data.phone ? affiliate_data.phone : '+' + affiliate_data.prefix,
-    )
+    const [phone, setPhone] = useState(affiliate_data.phone)
     const [company_name, setCompanyName] = useState(affiliate_data.company_name)
     const [company_registration_number, setCompanyRegistrationNumber] = useState(
         affiliate_data.company_registration_number,
@@ -32,7 +29,7 @@ const AccountDetails = ({
     const [user_name_error_msg, setUserNameErrorMsg] = useState<string>()
     const [first_name_error_msg, setFirstNameErrorMsg] = useState<string>()
     const [last_name_error_msg, setLastNameErrorMsg] = useState<string>()
-    const [phone_error_msg, setPhoneErrorMsg] = useState<string>()
+    const [phone_error_msg, setPhoneErrorMsg] = useState<string>(affiliate_validation.phone(phone))
     const [company_name_error_msg, setCompanyNameErrorMsg] = useState<string>()
     const [company_registration_error_msg, setCompanyRegistrationErrorMsg] = useState<string>()
     const [website_url_error_msg, setWebsiteUrlErrorMsg] = useState<string>()
@@ -191,7 +188,6 @@ const AccountDetails = ({
             last_name,
             date_birth,
             phone,
-            prefix,
             company_name,
             company_registration_number,
             website_url,

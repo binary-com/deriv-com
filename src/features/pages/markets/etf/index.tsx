@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import Layout from 'features/components/templates/layout'
 import Steps from './steps'
 import WhyTrade from './why-trade'
@@ -11,7 +11,8 @@ import SignupPublic from 'features/components/templates/signup/with-banner'
 import Flex from 'features/components/atoms/flex-box'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 import MarketNav from 'features/components/templates/navigation/market-nav'
-import Footer from 'features/components/templates/footer/'
+import SuspenseHelper from 'features/components/atoms/suspense-helper'
+const Footer = lazy(() => import('features/components/templates/footer'))
 
 const ETFMarket = () => {
     return (
@@ -35,7 +36,9 @@ const ETFMarket = () => {
             <Steps />
             <OtherMarketsSlider current_market="etfs" />
             <SignupPublic />
-            <Footer />
+            <SuspenseHelper fallback={<></>}>
+                <Footer />
+            </SuspenseHelper>
         </Layout>
     )
 }

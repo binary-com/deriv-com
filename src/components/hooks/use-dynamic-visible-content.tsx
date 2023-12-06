@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { ObjectPropType, TSmartContent } from 'types/generics'
 
 export interface IUseDynamicVisibleContent<T extends TSmartContent<unknown, object>> {
@@ -27,11 +27,16 @@ function useDynamicVisibleContent<T extends TSmartContent<unknown, object>>({
     config,
     content,
 }: IUseDynamicVisibleContent<T>): T[] {
+    const [items, setItems] = useState<T[]>([])
     const visible_items = useMemo(() => {
         return filterDynamicVisibleContent(content, config)
     }, [content, config])
 
-    return visible_items
+    useEffect(() => {
+        setItems(visible_items)
+    }, [visible_items.length])
+
+    return items
 }
 
 export default useDynamicVisibleContent

@@ -1,5 +1,4 @@
 import React from 'react'
-import { createRoot } from 'react-dom/client'
 import Cookies from 'js-cookie'
 import { isMobile } from 'react-device-detect'
 import { Analytics } from '@deriv/analytics'
@@ -108,6 +107,7 @@ export const onClientEntry = () => {
         env: 'production',
         version: '1.0.6',
         sessionSampleRate: 10,
+        sessionReplaySampleRate: 0,
         trackResources: true,
         trackLongTasks: true,
         trackUserInteractions: true,
@@ -161,13 +161,6 @@ export const onRouteUpdate = ({ location }) => {
             }),
         })
     }, 1500)
-}
-
-export const replaceHydrateFunction = () => {
-    return (element, container) => {
-        const root = createRoot(container)
-        root.render(element)
-    }
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

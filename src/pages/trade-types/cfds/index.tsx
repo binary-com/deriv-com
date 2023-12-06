@@ -11,6 +11,7 @@ import { FullWidthMultiColumn } from 'components/elements/full-width-multicolumn
 import { StyledBox } from 'pages/markets/static/style/_markets-style'
 import useRegion from 'components/hooks/use-region'
 import { TGatsbyHead } from 'features/types'
+import useVisibleContent from 'components/hooks/use-visible-content'
 
 const TradingCFDIncreases = Loadable(() => import('./_trading-cfd-increases'))
 const StartTrading = Loadable(() => import('./_start-trading'))
@@ -19,7 +20,12 @@ const AvailableMarkets = Loadable(() => import('./_available-markets'))
 
 const CFD = () => {
     const { is_eu } = useRegion()
-    const content = is_eu ? cfd_content : cfd_content.concat(non_eu_cfd_content)
+    const content = useVisibleContent({
+        content: cfd_content,
+        config: {
+            is_eu,
+        },
+    })
 
     return (
         <Layout>
@@ -40,7 +46,7 @@ const CFD = () => {
                 button_text="_t_Create free demo account_t_"
                 multiple_row
             >
-                {content.map(({ alt, src, text, title }) => (
+                {content.map(({ data: { alt, src, text, title } }) => (
                     <StyledBox
                         key={alt}
                         item_title={typeof title === 'function' ? title({ is_eu }) : title}

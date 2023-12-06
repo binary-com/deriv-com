@@ -7,18 +7,25 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import SignupPublic from 'features/components/templates/signup/with-banner'
 import { TGatsbyHead } from 'features/types'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
-const CryptocurrenciesPage = () => (
-    <Layout type="noNav">
-        <DerivedFXHero
-            title="_t_Cryptocurrencies_t_"
-            description="_t_Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of the world's most popular cryptocurrencies._t_"
-            is_cryptocurrencies
-        />
-        <Cryptocurrencies simple_step_content={simple_step_content_cryptocurrencies} />
-        <SignupPublic />
-    </Layout>
-)
+const CryptocurrenciesPage = () => {
+    const [is_mounted] = usePageLoaded()
+
+    if (!is_mounted) return null
+
+    return (
+        <Layout type="noNav">
+            <DerivedFXHero
+                title="_t_Cryptocurrencies_t_"
+                description="_t_Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of the world's most popular cryptocurrencies._t_"
+                is_cryptocurrencies
+            />
+            <Cryptocurrencies simple_step_content={simple_step_content_cryptocurrencies} />
+            <SignupPublic />
+        </Layout>
+    )
+}
 
 export default WithIntl()(CryptocurrenciesPage)
 

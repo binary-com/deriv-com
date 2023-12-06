@@ -9,6 +9,7 @@ import {
     hero_content_gradient,
 } from './styles.module.scss'
 import { Localize } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
 
 export interface HomeHeroProps {
     children?: ReactNode
@@ -16,15 +17,28 @@ export interface HomeHeroProps {
 }
 
 const HomeHero: React.FC<HomeHeroProps> = () => {
+    const { is_eu } = useRegion()
+
     return (
         <Section className="h-[700px] md:h-[880px] relative isolate overflow-hidden">
-            <StaticImage
-                src="../../../../images/migration/home/home_hero_bg.png"
-                alt="hero image"
-                className="w-full -z-10"
-                placeholder="none"
-                style={{ position: 'absolute', inset: 0 }}
-            />
+            {is_eu ? (
+                <StaticImage
+                    src="../../../../images/migration/home/home_hero_bg_eu.png"
+                    alt="hero image"
+                    className="w-full -z-10"
+                    placeholder="none"
+                    style={{ position: 'absolute', inset: 0 }}
+                />
+            ) : (
+                <StaticImage
+                    src="../../../../images/migration/home/home_hero_bg.png"
+                    alt="hero image"
+                    className="w-full -z-10"
+                    placeholder="none"
+                    style={{ position: 'absolute', inset: 0 }}
+                />
+            )}
+
             <FluidContainer className="h-full flex flex-col justify-end">
                 <div
                     className={clsx(
@@ -77,12 +91,21 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                 </div>
             </FluidContainer>
             <div className="absolute inset-50 flex items-end -right-3600 -z-10 md:left-auto lg:right-general-5xl">
-                <StaticImage
-                    src="../../../../images/migration/home/home_hero_new.png"
-                    alt="hero image"
-                    className="w-[439px] h-[610px] md:w-[566px] md:h-[768px]"
-                    placeholder="none"
-                />
+                {is_eu ? (
+                    <StaticImage
+                        src="../../../../images/migration/home/home_hero_new_eu.png"
+                        alt="hero image"
+                        className="w-[439px] h-[610px] md:w-[566px] md:h-[768px]"
+                        placeholder="none"
+                    />
+                ) : (
+                    <StaticImage
+                        src="../../../../images/migration/home/home_hero_new.png"
+                        alt="hero image"
+                        className="w-[439px] h-[610px] md:w-[566px] md:h-[768px]"
+                        placeholder="none"
+                    />
+                )}
             </div>
             <div className={clsx('absolute -z-10 inset-50', hero_content_gradient)}></div>
         </Section>

@@ -19,7 +19,7 @@ export const platformTabs = [
     { children: 'Social' },
 ]
 
-export const cards: CardContent[] = [
+export const RowCards: CardContent[] = [
     {
         header: localize('_t_Deriv MT5_t_'),
         description: localize('_t_The most popular and comprehensive CFDs platform._t_'),
@@ -88,6 +88,33 @@ export const cards: CardContent[] = [
         align: 'start',
         color: 'light',
         className: 'flex justify-center',
+        link: {
+            content: localize('_t_Learn more_t_'),
+            href: '/',
+        },
+    },
+]
+
+export const EUCards: CardContent[] = [
+    {
+        header: localize('_t_Deriv MT5_t_'),
+        description: localize('_t_The most popular and comprehensive CFDs platform._t_'),
+        icon: <PartnersProductDerivMt5BrandLightLogoHorizontalIcon width={48} height={48} />,
+        size: 'md',
+        align: 'start',
+        color: 'light',
+        link: {
+            content: localize('_t_Learn more_t_'),
+            href: '/',
+        },
+    },
+    {
+        header: localize('_t_Deriv Trader_t_'),
+        description: localize('_t_The most popular and comprehensive CFDs platform._t_'),
+        icon: <DerivProductDerivTraderBrandDarkLogoHorizontalIcon height="48" width="48" />,
+        size: 'md',
+        align: 'start',
+        color: 'light',
         link: {
             content: localize('_t_Learn more_t_'),
             href: '/',

@@ -15,7 +15,7 @@ const StyledWrapper = styled.div<{ sized?: boolean }>`
         inline-size: ${({ sized }) => (sized ? '100%' : '95%')};
     }
 `
-const StyledHeader = styled(Header)`
+const AffiliateHeader = styled(Header)`
     inline-size: fit-content;
     z-index: 1;
     padding-inline-end: 8px;
@@ -51,12 +51,20 @@ export const InputWrapper = styled.div`
     }
 `
 
+export const StyledHeader = styled(Header)<{ is_rtl?: boolean }>`
+    @media ${device.tabletL} {
+        text-align: ${({ is_rtl }) => (is_rtl ? 'right' : 'left')};
+        inline-size: 328px;
+        margin: 0 auto;
+    }
+`
+
 const AffiliatesHeader = ({ text, sized }: { text: TString; sized?: boolean }) => {
     return (
         <StyledWrapper sized={sized}>
-            <StyledHeader as={'h4'} align="center" type="paragraph-1" pb="8px">
+            <AffiliateHeader as={'h4'} align="center" type="paragraph-1" pb="8px">
                 <Localize translate_text={text} />
-            </StyledHeader>
+            </AffiliateHeader>
             <CenteredDivider />
         </StyledWrapper>
     )

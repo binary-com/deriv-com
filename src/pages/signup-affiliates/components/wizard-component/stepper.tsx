@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Typography from 'features/components/atoms/typography'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import { Localize } from 'components/localization'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import { TString } from 'types/generics'
 import device from 'themes/device'
 
@@ -19,11 +20,12 @@ const StepperWrapper = styled.div`
         padding-block: 20px 16px;
     }
 `
-const StepView = styled.div<{ first_two_steps?: boolean }>`
+const StepView = styled.div<{ first_two_steps?: boolean; is_rtl?: boolean }>`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    text-align: ${({ first_two_steps }) => (first_two_steps ? 'center' : 'left')};
+    text-align: ${({ first_two_steps, is_rtl }) =>
+        first_two_steps ? 'center' : is_rtl ? 'right' : 'left'};
     margin: 0 auto;
     inline-size: 95%;
 `
@@ -54,7 +56,7 @@ const StepperItem = styled.div<{ active: boolean }>`
         width: 100%;
         top: 13px;
         left: 50%;
-        z-index: ${(props) => (props.active ? 3 : 2)};
+        z-index: ${({ active }) => (active ? 3 : 2)};
     }
     &:first-child::before {
         content: none;
@@ -125,13 +127,15 @@ const steps: { id: number; step_name: TString; step_description?: TString }[] = 
 ]
 const Stepper = ({ step }: { step: number }) => {
     const { is_mobile_or_tablet } = useBreakpoints()
+    const is_rtl = useIsRtl()
+
     return (
         <StepperWrapper>
             {is_mobile_or_tablet
                 ? steps.map(({ id, step_name }) => (
                       <React.Fragment key={step_name}>
                           {step === id && (
-                              <StepView first_two_steps={step < 3}>
+                              <StepView first_two_steps={step < 3} is_rtl={is_rtl}>
                                   <Typography.Paragraph
                                       size={'medium'}
                                       textcolor={'brand'}

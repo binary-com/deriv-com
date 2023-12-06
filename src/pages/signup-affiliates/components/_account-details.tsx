@@ -166,11 +166,13 @@ const AccountDetails = ({
           phone &&
           password &&
           !first_name_error_msg &&
+          !phone_error_msg &&
           !last_name_error_msg &&
           !password_error_msg
         : first_name &&
           last_name &&
           date_birth &&
+          phone &&
           password &&
           company_name &&
           company_registration_number &&

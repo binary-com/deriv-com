@@ -1,21 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
 import { WizardStepProps } from '../_types'
+import { StyledHeader } from '../utils/_affiliate-header'
 import AccountCard, { AccountCardProps, MainWrapper } from '../utils/_account-card'
 import { Localize } from 'components/localization'
-import { Header } from 'components/elements'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import Revenue from 'images/svg/signup-affiliates/revenue.svg'
 import Turnover from 'images/svg/signup-affiliates/turnover.svg'
 import CPA from 'images/svg/signup-affiliates/cpa.svg'
-import device from 'themes/device'
-
-const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
-        text-align: left;
-        inline-size: 328px;
-        margin: 0 auto;
-    }
-`
 
 const plans: AccountCardProps[] = [
     {
@@ -42,6 +33,7 @@ const plans: AccountCardProps[] = [
 ]
 const AccountPlan = ({ updateData, affiliate_account, onValidate }: WizardStepProps) => {
     const [account_plan, setAccountPlan] = useState(affiliate_account.account_plan)
+    const is_rtl = useIsRtl()
 
     useEffect(() => {
         onValidate(!!account_plan)
@@ -53,7 +45,13 @@ const AccountPlan = ({ updateData, affiliate_account, onValidate }: WizardStepPr
 
     return (
         <MainWrapper>
-            <StyledHeader align="center" type="paragraph-1" pb="8px" weight="normal">
+            <StyledHeader
+                align="center"
+                type="paragraph-1"
+                pb="8px"
+                weight="normal"
+                is_rtl={is_rtl}
+            >
                 <Localize translate_text={'_t_Choose which plan you would like to subscribe._t_'} />
             </StyledHeader>
             {plans.map(({ value, icon, title, description, note }) => {

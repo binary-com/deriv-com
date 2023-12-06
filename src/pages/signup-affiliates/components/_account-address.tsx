@@ -106,7 +106,6 @@ const AccountAddress = ({
             name: 'city',
             type: 'text',
             label: localize('_t_Town/city*_t_'),
-            placeholder: 'Town/city*',
             extra_info: ' ',
             required: true,
             error: city_error_msg,
@@ -119,7 +118,6 @@ const AccountAddress = ({
             name: 'street',
             type: 'text',
             label: localize('_t_Street*_t_'),
-            placeholder: 'Street*',
             extra_info: ' ',
             required: true,
             error: street_error_msg,
@@ -132,7 +130,6 @@ const AccountAddress = ({
             name: 'postal_code',
             type: 'text',
             label: localize('_t_Postal/Zip code*_t_'),
-            placeholder: 'Postal/Zip code*',
             extra_info: ' ',
             required: true,
             error: postcode_error_msg,
@@ -197,7 +194,7 @@ const AccountAddress = ({
                                 label={item.label}
                                 required={item.required}
                                 extra_info={item.extra_info}
-                                placeholder={item.placeholder}
+                                placeholder={item.label}
                                 onChange={handleInput}
                                 onBlur={handleInput}
                                 handleError={() => {

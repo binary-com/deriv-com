@@ -1,20 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
 import { WizardStepProps } from '../_types'
+import { StyledHeader } from '../utils/_affiliate-header'
 import AccountCard, { AccountCardProps, MainWrapper } from '../utils/_account-card'
-import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import IndividualIcon from 'images/svg/signup-affiliates/individual.svg'
 import BusinessIcon from 'images/svg/signup-affiliates/company.svg'
-import device from 'themes/device'
-
-const StyledHeader = styled(Header)`
-    @media ${device.tabletL} {
-        text-align: left;
-        inline-size: 328px;
-        margin: 0 auto;
-    }
-`
 
 const types: AccountCardProps[] = [
     {
@@ -32,6 +23,7 @@ const types: AccountCardProps[] = [
 ]
 const AccountType = ({ updateData, affiliate_account, onValidate }: WizardStepProps) => {
     const [account_type, setAccountType] = useState(affiliate_account.account_type)
+    const is_rtl = useIsRtl()
 
     useEffect(() => {
         onValidate(!!account_type)
@@ -43,7 +35,14 @@ const AccountType = ({ updateData, affiliate_account, onValidate }: WizardStepPr
 
     return (
         <MainWrapper>
-            <StyledHeader as={'h3'} align="center" type="paragraph-1" pb="8px" weight="normal">
+            <StyledHeader
+                as={'h3'}
+                align="center"
+                type="paragraph-1"
+                pb="8px"
+                weight="normal"
+                is_rtl={is_rtl}
+            >
                 <Localize
                     translate_text={'_t_Choose the type of partner account you want to register_t_'}
                 />

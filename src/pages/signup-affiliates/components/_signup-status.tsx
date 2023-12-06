@@ -46,7 +46,7 @@ const Modal = styled.div<{ ai?: string; is_rtl?: boolean }>`
     transform: translate(-50%, -50%);
     position: fixed;
     top: 50%;
-    left: ${({ is_rtl }) => (is_rtl ? '25%' : '50%')};
+    left: ${({ is_rtl }) => (is_rtl ? '-25%' : '50%')};
     background-color: white;
     box-shadow: 0 20px 24px -4px #0e0e0e14;
 

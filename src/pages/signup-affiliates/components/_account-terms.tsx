@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { WizardStepProps } from '../_types'
-import { Localize } from 'components/localization'
-import { Header, LocalizedLinkText } from 'components/elements'
+import { Localize, LocalizedLink } from 'components/localization'
+import { Header } from 'components/elements'
+import { useIsRtl } from 'components/hooks/use-isrtl'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { TString } from 'types/generics'
@@ -12,9 +13,9 @@ type AgreementDataType = {
     link_text: TString
     name: string
 }
-const StyledHeader = styled(Header)`
+const StyledHeader = styled(Header)<{ is_rtl?: boolean }>`
     @media ${device.tabletL} {
-        text-align: left;
+        text-align: ${({ is_rtl }) => (is_rtl ? 'right' : 'left')};
         margin: 0 auto;
     }
 `
@@ -44,6 +45,8 @@ const CheckBox = styled.input`
 const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepProps) => {
     const affiliate_data = affiliate_account.terms_of_use
     const [terms_of_use, setTermsOfUse] = useState(affiliate_data)
+
+    const is_rtl = useIsRtl()
 
     const AgreementData: AgreementDataType[] = [
         {
@@ -83,7 +86,7 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
 
     return (
         <MainWrapper>
-            <StyledHeader as={'h3'} align="center" type="paragraph-1" pb="8px">
+            <StyledHeader as={'h3'} align="center" type="paragraph-1" pb="8px" is_rtl={is_rtl}>
                 <Localize
                     translate_text={
                         '_t_Real accounts are not available to politically exposed persons (PEPs)._t_'
@@ -117,13 +120,13 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
                                     <Localize
                                         translate_text={link_text}
                                         components={[
-                                            <LocalizedLinkText
+                                            <LocalizedLink
+                                                style={{ color: 'red', textDecoration: 'none' }}
                                                 key={0}
                                                 to="/terms-and-conditions/#business-partners"
                                                 target="_blank"
                                                 external
                                                 rel="noopener noreferrer"
-                                                color="red"
                                             />,
                                         ]}
                                     />

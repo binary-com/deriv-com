@@ -1,31 +1,31 @@
 import React from 'react'
 import { PlatformBlock } from '@deriv-com/blocks'
 import { CardsContainer } from '@deriv-com/components'
-import { cards, platformTabs } from './data'
+import { RowCards, platformTabs } from './data'
 import { localize } from 'components/localization'
 
 const getTabContent = (tabId) => {
     switch (tabId) {
         case 'All':
-            return cards
+            return RowCards
         case 'CFDs':
-            return cards.filter(
+            return RowCards.filter(
                 (card) =>
                     card.header.includes('Deriv MT5') ||
                     card.header.includes('Deriv cTrader') ||
                     card.header.includes('Deriv X'),
             )
         case 'Options':
-            return cards.filter(
+            return RowCards.filter(
                 (card) =>
                     card.header.includes('Deriv GO') ||
                     card.header.includes('Deriv Trader') ||
                     card.header.includes('Deriv Bot'),
             )
         case 'Bots':
-            return cards.filter((card) => card.header.includes('Deriv Bot'))
+            return RowCards.filter((card) => card.header.includes('Deriv Bot'))
         case 'Social':
-            return cards.filter((card) => card.header.includes('Deriv cTrader'))
+            return RowCards.filter((card) => card.header.includes('Deriv cTrader'))
         default:
             return []
     }

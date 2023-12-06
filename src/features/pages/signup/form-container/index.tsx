@@ -30,11 +30,9 @@ const SignUpFormContainer = () => {
             className={signup_form_container}
         >
             <Typography.Heading size={is_mobile_or_tablet ? 'small' : 'xs'}>
-                <Localize translate_text="_t_Sign up_t_" />
+                <Localize translate_text="_t_Join over 2.5 million traders_t_" />
             </Typography.Heading>
-            <Typography.Paragraph size={is_mobile_or_tablet ? 'large' : 'medium'}>
-                <Localize translate_text="_t_Enter your email address to begin_t_" />
-            </Typography.Paragraph>
+
             <SignUpPageForm />
             <Typography.Paragraph textcolor="secondary" size={is_mobile_or_tablet ? 'small' : 'xs'}>
                 <Localize

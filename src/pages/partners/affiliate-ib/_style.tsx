@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import { Card } from './_partner-card'
 import { TRAP } from './_table'
-import { Button } from 'components/form'
-import { Flex } from 'components/containers'
+import { Container, Flex, SectionContainer } from 'components/containers'
 import device from 'themes/device'
-import { Text } from 'components/elements/typography'
+import { Header, Text } from 'components/elements'
+import { LinkButton, Button } from 'components/form'
 import { TAlignSelf } from 'features/types'
 
 type PointerProps = {
@@ -13,6 +13,10 @@ type PointerProps = {
 }
 type FormulaTopWrapperProps = {
     oneLine?: boolean
+}
+
+type StyledLinkButtonProps = {
+    id?: string
 }
 
 type FlexProps = {
@@ -224,6 +228,105 @@ export const ResultStrong = styled.span`
     color: var(--color-black-3);
 `
 
+export const StyledHeader = styled(Header)`
+    white-space: pre-line;
+    width: 100%;
+    max-width: 70rem;
+    margin-bottom: 4rem;
+    @media ${device.tabletS} {
+        font-size: 40px;
+        text-align: start;
+    }
+`
+
+export const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
+    border-radius: 4px;
+    @media ${device.tabletS} {
+        font-size: 14px;
+        padding: 12px 10px;
+        white-space: nowrap;
+    }
+
+    @media ${device.mobileL} {
+        font-size: 12px;
+    }
+`
+
+export const StyledSectionContainer = styled(SectionContainer)`
+    @media ${device.tabletL} {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+`
+
+export const SubtitleHeader = styled(Header)`
+    width: 1170px;
+    @media ${device.laptopL} {
+        width: 100%;
+    }
+    @media ${device.tabletL} {
+        font-size: 16px;
+        text-align: justify;
+    }
+`
+
+export const SectionContainerWrapper = styled(SectionContainer)`
+    padding: 4rem;
+    @media ${device.tabletL} {
+        padding: 0;
+    }
+`
+
+export const StyledContainer = styled(Container)`
+    width: 100%;
+    direction: ltr;
+    @media ${device.tabletL} {
+        flex-wrap: wrap;
+        margin: 20px 0;
+    }
+`
+
+export const NumberWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 32.8rem;
+    @media ${device.tabletL} {
+        padding: 15px;
+        width: auto;
+    }
+    @media ${device.mobileS} {
+        padding: 10px;
+        width: auto;
+    }
+`
+
+export const StyledText = styled(Text)`
+    padding-top: 8px;
+
+    @media ${device.tabletL} {
+        padding-top: 0;
+        margin: 12px 0;
+    }
+`
+
+export const StyledCardWrapper = styled(Flex)`
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-block-start: 1.6rem;
+
+    @media ${device.tabletL} {
+        flex-direction: column;
+        align-items: center;
+    }
+    @media ${device.laptopM} {
+        flex-wrap: wrap;
+    }
+`
+
 export const StyledCard = styled(Card)<FlexProps>`
     min-width: calc((100% - 4rem) / 3);
     width: calc((100% - 4rem) / 3);
@@ -249,49 +352,6 @@ export const StyledCard = styled(Card)<FlexProps>`
     }
 `
 
-export const StyledTrap = styled(TRAP)`
-    background-color: var(--color-grey-39);
-    padding: 1rem 0.8rem;
-    height: 40px;
-    border-bottom: none;
-`
-
-export const StyledText = styled(Text)`
-    font-size: 1.4rem;
-    line-height: 1.5;
-    text-align: center;
-    @media ${device.tabletL} {
-        font-size: 14px;
-    }
-`
-export const CPAContent = styled.div`
-    ${Text} {
-        margin-top: 2.4rem;
-    }
-`
-export const StyledBackButton = styled(Button)`
-    border: 0.2rem solid var(--color-grey-5);
-    color: var(--color-black);
-    height: 4rem;
-    inline-size: 100%;
-    padding: 0 1.6rem;
-`
-
-export const StyledCardWrapper = styled(Flex)`
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-block-start: 1.6rem;
-
-    @media ${device.tabletL} {
-        flex-direction: column;
-        align-items: center;
-    }
-    @media ${device.laptopM} {
-        flex-wrap: wrap;
-    }
-`
-
 export const StyledButtonWrap = styled.div`
     display: flex;
     justify-content: center;
@@ -307,5 +367,26 @@ export const StyledCalculatedButton = styled(Button)`
 
     @media ${device.tabletL} {
         font-size: 1.4rem;
+    }
+`
+
+export const StyledTrap = styled(TRAP)`
+    background-color: var(--color-grey-39);
+    padding: 1rem 0.8rem;
+    height: 40px;
+    border-bottom: none;
+`
+
+export const StyledBackButton = styled(Button)`
+    border: 0.2rem solid var(--color-grey-5);
+    color: var(--color-black);
+    height: 4rem;
+    inline-size: 100%;
+    padding: 0 1.6rem;
+`
+
+export const CPAContent = styled.div`
+    ${Text} {
+        margin-top: 2.4rem;
     }
 `

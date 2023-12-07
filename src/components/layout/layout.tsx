@@ -8,7 +8,6 @@ import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { getLanguage, isBrowser } from 'common/utility'
 import apiManager from 'common/websocket'
-import MainNav from 'features/components/templates/navigation/main-nav'
 import StaticNav from 'features/components/templates/navigation/static-nav'
 import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
 import BugBountyNav from 'features/components/templates/navigation/bug-bounty-nav'
@@ -17,6 +16,7 @@ import MarketNav from 'features/components/templates/navigation/market-nav'
 import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
 import BannerAlert from 'components/custom/_banner-alert'
 import { bannerTypes } from 'common/constants'
+import MainRowNavigation from 'features/components/templates/navigation-new/main-nav'
 
 const RebrandingFooter = loadable(() => import('features/components/templates/footer'))
 
@@ -59,7 +59,7 @@ if (isBrowser()) {
 
 const Navs = {
     noNav: null,
-    default: <MainNav />,
+    default: <MainRowNavigation />,
     static: <StaticNav />,
     interim: <StaticNav />,
 
@@ -79,7 +79,7 @@ const Navs = {
 
     careers: <CareerNav />,
 
-    'payment-methods': <MainNav />,
+    'payment-methods': <MainRowNavigation />,
 }
 
 const Layout = ({

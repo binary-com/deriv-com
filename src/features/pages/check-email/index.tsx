@@ -2,17 +2,17 @@ import React from 'react'
 import Layout from 'features/components/templates/layout'
 import { check_email_container } from './check-email.module.scss'
 import CheckEmailSteps from './check-email.steps'
-import MainNav from 'features/components/templates/navigation/main-nav'
 import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
 import Footer from 'features/components/templates/footer'
+import MainRowNavigation from 'features/components/templates/navigation-new/main-nav'
 
 const CheckEmailContainer = () => {
     return (
         <Layout>
-            <MainNav />
+            <MainRowNavigation />
             <Flex.Box
                 justify="center"
                 align="center"

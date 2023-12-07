@@ -8,11 +8,11 @@ import device from 'themes/device'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import MarketNav from 'features/components/templates/navigation/market-nav'
 import { handleGetTrading } from 'components/custom/utils'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { TString } from 'types/generics'
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
+import MainRowNavigation from 'features/components/templates/navigation-new/main-nav'
 
 type ContainerProps = {
     isDerivGo?: boolean
@@ -205,7 +205,7 @@ export const DerivedFXHero = ({
 
     return (
         <>
-            <MarketNav />
+            <MainRowNavigation />
             <BackgroundStyle>
                 <StyledContainer jc="flex-start">
                     <ContentWrapperStyle>

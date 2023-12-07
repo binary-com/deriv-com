@@ -1,24 +1,10 @@
 import React from 'react'
-import { DerivedFXHero } from '../components/sections/_hero_derived_fx'
-import Cryptocurrencies from '../components/markets/_cryptocurrencies'
-import { simple_step_content_cryptocurrencies } from '../static/content/_cryptocurrencies'
-import Layout from 'components/layout/layout'
 import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
-import SignupPublic from 'features/components/templates/signup/with-banner'
 import { TGatsbyHead } from 'features/types'
+import CryptoMarket from 'features/pages/markets/cryptocurrency'
 
-const CryptocurrenciesPage = () => (
-    <Layout type="noNav">
-        <DerivedFXHero
-            title="_t_Cryptocurrencies_t_"
-            description="_t_Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of the world's most popular cryptocurrencies._t_"
-            is_cryptocurrencies
-        />
-        <Cryptocurrencies simple_step_content={simple_step_content_cryptocurrencies} />
-        <SignupPublic />
-    </Layout>
-)
+const CryptocurrenciesPage = () => <CryptoMarket />
 
 export default WithIntl()(CryptocurrenciesPage)
 

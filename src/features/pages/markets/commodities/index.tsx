@@ -5,7 +5,7 @@ import MarketTab from '../market-tab'
 import Layout from 'features/components/templates/layout'
 import MainRowNavigation from 'features/pages/home/navigation'
 
-const ForexMarket = () => {
+const CommoditiesMarket = () => {
     return (
         <BreakpointProvider>
             <ThemeProvider theme="light">
@@ -19,4 +19,4 @@ const ForexMarket = () => {
         </BreakpointProvider>
     )
 }
-export default ForexMarket
+export default CommoditiesMarket

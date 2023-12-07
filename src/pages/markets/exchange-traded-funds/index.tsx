@@ -1,11 +1,11 @@
 import React from 'react'
 import { WithIntl } from 'components/localization'
-import ETFMarket from 'features/pages/markets/etf'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
+import ETFsMarket from 'features/pages/markets/etfs'
 
 const ETFMarketPage = () => {
-    return <ETFMarket />
+    return <ETFsMarket />
 }
 
 export default WithIntl()(ETFMarketPage)

@@ -5,11 +5,26 @@ import {
     IllustrativeCryptocurrenciesIcon,
     IllustrativeDerivedIcon,
     IllustrativeEtfIcon,
+    IllustrativeForexIcon,
     IllustrativeStocksAndIndicesIcon,
 } from '@deriv/quill-icons'
 import { localize } from 'components/localization'
 
 export const cards: CardContent[] = [
+    {
+        header: localize('_t_Forex_t_'),
+        description: localize(
+            '_t_Forex trading gives you the chance to profit from changes in the relative values of currencies on the forex market._t_',
+        ),
+        icon: <IllustrativeForexIcon fill="black" iconSize="md" />,
+        size: 'md',
+        align: 'start',
+        color: 'light',
+        link: {
+            content: localize('_t_Learn more_t_'),
+            href: '/markets/forex/',
+        },
+    },
     {
         header: localize('_t_Derived indices_t_'),
         description: localize(

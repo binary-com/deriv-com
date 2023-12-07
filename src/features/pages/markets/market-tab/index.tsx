@@ -1,4 +1,4 @@
-import { Tab } from '@deriv/quill-design'
+import { FluidContainer, Tab } from '@deriv/quill-design'
 import {
     IllustrativeCommoditiesIcon,
     IllustrativeCryptocurrenciesIcon,
@@ -7,66 +7,119 @@ import {
     IllustrativeForexIcon,
     IllustrativeStocksAndIndicesIcon,
 } from '@deriv/quill-icons'
-import React from 'react'
+import React, { useState } from 'react'
+import { Breadcrumbs } from '@deriv-com/components'
+import ForexPage from '../../../../pages/markets/forex'
+import ETFMarketPage from '../../../../pages/markets/exchange-traded-funds'
+import CommoditiesPage from '../../../../pages/markets/commodities'
+import CryptocurrenciesPage from '../../../../pages/markets/cryptocurrencies'
+import ForexContent from '../forex/forex-content'
+import ETFContent from '../etfs/etf-content'
+import CommoditiesContent from '../commodities/commodity-content'
+import CryptoContent from '../cryptocurrency/crypto-content'
 
 const MarketTab = () => {
+    const [tabId, setTabId] = useState('forex')
+    const [tabName, setTabName] = useState('Forex')
     const marketTabs = [
         {
             tabId: 'forex',
             name: 'Forex',
-            to: '/markets/forex',
+            to: <ForexPage />,
             icon: <IllustrativeForexIcon iconSize="md" />,
         },
         {
             tabId: 'derivedIndices',
             name: 'Derived Indices',
-            to: '/markets/synthetic/',
+            to: <ForexPage />,
             icon: <IllustrativeDerivedIcon iconSize="md" />,
         },
         {
             tabId: 'stocksAndIndices',
             name: 'Stocks & indices',
-            to: '/markets/stock/',
+            to: <ForexPage />,
             icon: <IllustrativeStocksAndIndicesIcon iconSize="md" />,
         },
         {
             tabId: 'commodities',
             name: 'Commodities',
-            to: '/markets/commodities/',
+            to: <CommoditiesPage />,
             icon: <IllustrativeCommoditiesIcon iconSize="md" />,
         },
         {
             tabId: 'cryptocurrencies',
             name: 'Cryptocurrencies',
-            to: '/markets/cryptocurrencies/',
+            to: <CryptocurrenciesPage />,
             icon: <IllustrativeCryptocurrenciesIcon iconSize="md" />,
         },
         {
             tabId: 'etfs',
             name: 'ETFs',
-            to: '/markets/exchange-traded-funds/',
+            to: <ETFMarketPage />,
             icon: <IllustrativeEtfIcon iconSize="md" />,
         },
     ]
-    const handleTabClick = (to) => {
-        window.location.href = to
+    const getContentForTab = (tabId) => {
+        switch (tabId) {
+            case 'forex':
+                return <ForexContent />
+            case 'derivedIndices':
+                return <ForexContent />
+            case 'stocksAndIndices':
+                return <ForexContent />
+            case 'commodities':
+                return <CommoditiesContent />
+            case 'cryptocurrencies':
+                return <CryptoContent />
+            case 'etfs':
+                return <ETFContent />
+            default:
+                return <ForexContent />
+        }
+    }
+
+    const handleTabClick = (tabId: string, tabName: string) => {
+        setTabId(tabId)
+        setTabName(tabName)
+        const url = new URL(window.location.href)
+        url.searchParams.set('tab', tabId)
+        window.history.pushState({}, '', url.toString())
     }
     return (
-        <Tab.Container id="test" size="md" iconPosition="top">
-            <Tab.List className="justify-center">
-                {marketTabs.map((item) => (
-                    <Tab.Trigger
-                        key={item.tabId}
-                        onClick={() => handleTabClick(item.to)}
-                        size="md"
-                        className="gap-gap-md"
-                    >
-                        {item.icon}
-                        {item.name}
-                    </Tab.Trigger>
-                ))}
-            </Tab.List>
-        </Tab.Container>
+        <>
+            <FluidContainer>
+                <Breadcrumbs
+                    className="py-general-md"
+                    links={[
+                        {
+                            content: 'Home',
+                            href: '/',
+                        },
+                        {
+                            content: tabName,
+                            href: '',
+                        },
+                    ]}
+                />
+            </FluidContainer>
+            <Tab.Container id="test" size="md" iconPosition="top">
+                <Tab.List className="justify-center">
+                    {marketTabs.map((item) => (
+                        <Tab.Trigger
+                            key={item.tabId}
+                            onClick={() => handleTabClick(item.tabId, item.name)}
+                            size="md"
+                            className="gap-gap-md"
+                        >
+                            {item.icon}
+                            {item.name}
+                        </Tab.Trigger>
+                    ))}
+                </Tab.List>
+
+                <Tab.Content>{getContentForTab(tabId)}</Tab.Content>
+            </Tab.Container>
+        </>
     )
 }
 

@@ -1,10 +1,11 @@
 import { Features } from '@deriv-com/blocks'
 import React from 'react'
-import { cards } from './data'
+import { cards } from '../../forex/other-markets/data'
 import { localize } from 'components/localization'
 
 const OtherMarkets = () => {
-    const filteredCards = cards.filter((card) => card.header !== localize('_t_Forex_t_'))
+    const filteredCards = cards.filter((card) => card.header !== localize('_t_Commodities_t_'))
+
     return (
         <>
             <Features.Card

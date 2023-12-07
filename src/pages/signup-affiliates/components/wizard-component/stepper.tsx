@@ -97,29 +97,34 @@ const Label = styled.h4<{ active: boolean }>`
     color: ${(props) => (props.active ? `#FF444F` : `#999999`)};
 `
 
-const steps: { id: number; step_name: TString; step_description?: TString }[] = [
+const steps: { id: number; step_num: TString; step_name: TString; step_description?: TString }[] = [
     {
         id: 1,
+        step_num: '_t_Step 1 : Account type (1 of 5)_t_',
         step_name: '_t_Account type_t_',
         step_description: '_t_Choose the type of partner account you want to register_t_',
     },
     {
         id: 2,
+        step_num: '_t_Step 2 : Subscription plan (2 of 5)_t_',
         step_name: '_t_Subscription plan_t_',
         step_description: '_t_Choose which plan you would like to subscribe._t_',
     },
     {
         id: 3,
+        step_num: '_t_Step 3 : Address details (3 of 5)_t_',
         step_name: '_t_Address details_t_',
         step_description: '_t_Personal address_t_',
     },
     {
         id: 4,
+        step_num: '_t_Step 4 : Personal details (4 of 5)_t_',
         step_name: '_t_Personal details_t_',
-        step_description: '_t_Details_t_',
+        step_description: '_t_ Details_t_',
     },
     {
         id: 5,
+        step_num: '_t_Step 5 : Terms of use (5 of 5)_t_',
         step_name: '_t_Terms of use_t_',
         step_description:
             '_t_Real accounts are not available to politically exposed persons (PEPs)._t_',
@@ -132,7 +137,7 @@ const Stepper = ({ step }: { step: number }) => {
     return (
         <StepperWrapper>
             {is_mobile_or_tablet
-                ? steps.map(({ id, step_name }) => (
+                ? steps.map(({ id, step_name, step_num }) => (
                       <React.Fragment key={step_name}>
                           {step === id && (
                               <StepView first_two_steps={step < 3} is_rtl={is_rtl}>
@@ -141,11 +146,7 @@ const Stepper = ({ step }: { step: number }) => {
                                       textcolor={'brand'}
                                       weight={'bold'}
                                   >
-                                      <Localize translate_text={`_t_Step ${id} : _t_`} />
-                                      <Localize translate_text={step_name} />
-                                      <Localize
-                                          translate_text={`_t_ (${id} of ${steps.length})_t_`}
-                                      />
+                                      <Localize translate_text={step_num} />
                                   </Typography.Paragraph>
                               </StepView>
                           )}

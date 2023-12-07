@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { WizardStepProps } from '../_types'
 import AffiliateInput from '../utils/_affiliate-input'
-import { customSlugify } from '../index'
 import AffiliatesHeader, { InputGroup, InputWrapper } from '../utils/_affiliate-header'
 import affiliate_validation from '../validations/_affilaite_validation'
 import { useStatesList } from 'features/hooks/use-states-list'
@@ -31,9 +30,6 @@ const AccountAddress = ({
     const [states_list] = useStatesList(affiliate_data.country?.symbol)
 
     const header_text: TString = is_individual ? '_t_Personal address_t_' : '_t_Company address_t_'
-
-    console.log('chosen state: ', state?.name)
-    console.log('state to send: ', customSlugify(state?.name ?? 'abc'))
 
     useEffect(() => {
         updateData({

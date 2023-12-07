@@ -27,7 +27,6 @@ export const Background = styled.div`
 export const Modal = styled.div<{ is_rtl?: boolean }>`
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     position: fixed;
     justify-content: space-between;
     top: 50%;
@@ -46,7 +45,7 @@ export const Modal = styled.div<{ is_rtl?: boolean }>`
         border-radius: unset;
         min-inline-size: unset;
         inline-size: 100vw;
-        block-size: 100vh;
+        block-size: 100svh;
         overflow: scroll;
         padding-block-end: 150px;
     }

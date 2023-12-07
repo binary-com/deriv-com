@@ -28,8 +28,8 @@ type AffiliateAccountTypes = {
     terms_of_use: {
         non_pep_declaration_accepted: boolean
         tnc_accepted: boolean
-        general_terms_accepted: boolean
-        is_partner_checked: boolean
+        tnc_affiliate_accepted: boolean
+        promote_eu: boolean
     }
 }
 type AffiliateSendTypes = {

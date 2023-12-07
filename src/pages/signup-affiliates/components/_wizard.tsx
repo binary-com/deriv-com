@@ -92,7 +92,6 @@ const Wizard = ({
                         last_name: value.last_name,
                         date_birth: value.date_birth,
                         phone: value.phone,
-                        prefix: value.prefix,
                         website_url: value.website_url,
                         second_website_url: value.second_website_url,
                         company_name: value.company_name,
@@ -108,8 +107,8 @@ const Wizard = ({
                     terms_of_use: {
                         non_pep_declaration_accepted: value.non_pep_declaration_accepted,
                         tnc_accepted: value.tnc_accepted,
-                        general_terms_accepted: value.general_terms_accepted,
-                        is_partner_checked: value.is_partner_checked,
+                        tnc_affiliate_accepted: value.tnc_affiliate_accepted,
+                        promote_eu: value.promote_eu,
                     },
                 })
                 break

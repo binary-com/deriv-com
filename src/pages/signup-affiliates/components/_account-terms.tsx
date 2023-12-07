@@ -64,19 +64,19 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
         {
             link_text:
                 '_t_I have read and accepted <0>Deriv’s general terms of use and affiliates and introducing brokers’ terms and conditions</0>_t_',
-            name: 'general_terms_accepted',
+            name: 'tnc_affiliate_accepted',
         },
         {
             link_text:
                 '_t_I consent to receive promotional materials and notifications regarding your partnership program._t_',
-            name: 'is_partner_checked',
+            name: 'promote_eu',
         },
     ]
 
     const validate =
         terms_of_use['non_pep_declaration_accepted'] &&
         terms_of_use['tnc_accepted'] &&
-        terms_of_use['general_terms_accepted']
+        terms_of_use['tnc_affiliate_accepted']
 
     useEffect(() => {
         onValidate(validate)
@@ -127,7 +127,7 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
                                             <LocalizedLink
                                                 style={{ color: 'red', textDecoration: 'none' }}
                                                 key={0}
-                                                to={`/${language}/terms-and-conditions/#business-partners`}
+                                                to={`${language}/terms-and-conditions/#business-partners`}
                                                 target="_blank"
                                                 external
                                                 rel="noopener noreferrer"

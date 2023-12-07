@@ -44,32 +44,33 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
         })
     } else
         affiliateSend({
+            email: affiliate_account.email,
+            type_of_account: affiliate_account.account_type,
+            commission_plan: affiliate_account.account_plan,
+            country: affiliate_account.address_details.country.symbol,
             address_city: affiliate_account.address_details.city,
             address_postcode: affiliate_account.address_details.postal_code,
             address_state: customSlugify(affiliate_account.address_details.state.name),
             address_street: affiliate_account.address_details.street,
-            commission_plan: affiliate_account.account_plan,
-            country: affiliate_account.address_details.country.symbol,
+            first_name: affiliate_account.personal_details.first_name,
+            last_name: affiliate_account.personal_details.last_name,
             date_of_birth: affiliate_account.personal_details.date_birth
                 ?.toISOString()
                 .slice(0, 10),
-            email: affiliate_account.email,
-            first_name: affiliate_account.personal_details.first_name,
-            last_name: affiliate_account.personal_details.last_name,
-            non_pep_declaration: affiliate_account.terms_of_use.non_pep_declaration_accepted && 1,
             over_18_declaration: 1,
-            phone: affiliate_account.personal_details.phone,
-            phone_code: Number(affiliate_account.personal_details.phone.substring(1, 4)),
-            tnc_accepted: affiliate_account.terms_of_use.tnc_accepted && 1,
-            type_of_account: affiliate_account.account_type,
-            user_name: affiliate_account.personal_details.username,
             website_url: affiliate_account.personal_details?.website_url.includes('www.')
                 ? affiliate_account.personal_details?.website_url
                 : `www.${affiliate_account.personal_details?.website_url}`,
+            user_name: affiliate_account.personal_details.username,
+            phone: affiliate_account.personal_details.phone,
+            phone_code: Number(affiliate_account.personal_details.phone.substring(1, 4)),
             whatsapp_number: affiliate_account.personal_details.phone,
             whatsapp_number_phoneCode: Number(
                 affiliate_account.personal_details.phone.substring(1, 4),
             ),
+            non_pep_declaration: affiliate_account.terms_of_use.non_pep_declaration_accepted && 1,
+            tnc_accepted: affiliate_account.terms_of_use.tnc_accepted && 1,
+            tnc_affiliate_accepted: affiliate_account.terms_of_use.tnc_affiliate_accepted && 1,
             ...(affiliate_account.personal_details?.company_name !== '' && {
                 company_name: affiliate_account.personal_details?.company_name,
             }),
@@ -78,7 +79,6 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
                     affiliate_account.personal_details?.company_registration_number,
                 ),
             }),
-            tnc_affiliate_accepted: 0,
         })
 }
 
@@ -105,9 +105,9 @@ const StyledContainer = styled(Container)`
 `
 
 const AffiliateSignup = () => {
-    const [show_wizard, setShowWizard] = useState<boolean>(true)
+    const [show_wizard, setShowWizard] = useState<boolean>(false)
     const [is_online, setIsOnline] = useState(isBrowser() && navigator.onLine)
-    const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>('loading')
+    const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>('')
 
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
         form_name: 'ce_partner_account_signup_form',
@@ -128,33 +128,33 @@ const AffiliateSignup = () => {
     }, [])
 
     const [affiliate_account, setAffiliateAccount] = useState<AffiliateAccountTypes>({
-        email: 'test@test.com',
-        account_type: 1,
-        account_plan: 2,
+        email: '',
+        account_type: 0,
+        account_plan: 0,
         address_details: {
-            country: { display_name: 'أرمينيا', name: 'أرمينيا', prefix: '374', symbol: 'am' },
-            state: { name: 'Ararat', display_name: 'Ararat' },
-            city: 'test',
-            street: 'test',
-            postal_code: 'test123',
+            country: {},
+            state: {},
+            city: '',
+            street: '',
+            postal_code: '',
         },
         personal_details: {
-            first_name: 'test',
-            last_name: 'test',
-            date_birth: 'Fri Dec 02 2005 00:00:00 GMT+0200 (Moscow Standard Time)',
-            phone: '+374123123123',
-            website_url: 'www.tect.com',
+            first_name: '',
+            last_name: '',
+            date_birth: null,
+            phone: '',
+            website_url: '',
             second_website_url: '',
             company_name: '',
             company_registration_number: '',
-            username: 'SuperTest',
-            password: 'Abcd1234 ',
+            username: '',
+            password: '',
         },
         terms_of_use: {
-            non_pep_declaration_accepted: true,
-            tnc_accepted: true,
-            general_terms_accepted: true,
-            is_partner_checked: true,
+            non_pep_declaration_accepted: false,
+            tnc_accepted: false,
+            tnc_affiliate_accepted: false,
+            promote_eu: false,
         },
     })
     console.log(affiliate_account)

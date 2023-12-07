@@ -16,7 +16,7 @@ export const Background = styled.div`
     left: 0;
     background-color: var(--color-black);
     opacity: 0.4;
-    z-index: 2;
+    z-index: 5;
 
     @media ${device.tabletL} {
         block-size: 100%;
@@ -37,7 +37,7 @@ export const Modal = styled.div<{ is_rtl?: boolean }>`
     border-radius: 8px;
     background-color: white;
     transform: translate(-50%, -50%);
-    z-index: 3;
+    z-index: 6;
     overflow: hidden;
 
     @media ${device.tabletL} {

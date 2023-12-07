@@ -12,6 +12,7 @@ import useRegion from 'components/hooks/use-region'
 
 const RowCards: CardContent[] = [
     {
+        id: 1,
         header: localize('_t_CFDs_t_'),
         description: localize(
             '_t_Trade with leverage, unbeatable spreads, and fast execution on the widest range of markets._t_',
@@ -26,6 +27,7 @@ const RowCards: CardContent[] = [
         },
     },
     {
+        id: 2,
         header: localize('_t_Options_t_'),
         description: localize(
             '_t_Trade diverse vanilla and exotic options across platforms and markets without risking more than your initial stake._t_',
@@ -40,6 +42,7 @@ const RowCards: CardContent[] = [
         },
     },
     {
+        id: 3,
         header: localize('_t_Multipliers_t_'),
         description: localize(
             '_t_Trade on global financial markets and multiply your potential profit without losing more than your stake._t_',
@@ -57,6 +60,7 @@ const RowCards: CardContent[] = [
 
 const EUCards: CardContent[] = [
     {
+        id: 1,
         header: localize('_t_CFDs_t_'),
         description: localize(
             '_t_Trade with leverage, unbeatable spreads, and fast execution on the widest range of markets._t_',
@@ -71,6 +75,7 @@ const EUCards: CardContent[] = [
         },
     },
     {
+        id: 2,
         header: localize('_t_Multipliers_t_'),
         description: localize(
             '_t_Trade on global financial markets and multiply your potential profit without losing more than your stake._t_',

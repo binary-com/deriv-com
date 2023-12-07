@@ -1,24 +1,30 @@
 import React from 'react'
-import styled from 'styled-components'
-import EUgrid from './_eu-grid'
-import DocumentAccordion from './_document_accordion'
 import FinancialCommission from './_financial_commission'
-import useRegion from 'components/hooks/use-region'
+import {
+    DesktopWrapper,
+    Img,
+    ImgFintech,
+    MobileWrapper,
+    ResponsiveGrid,
+    ResponsiveHeader,
+    StyledHeader,
+    StyledLinkText,
+} from './_style'
+import { RegulatoryProps } from './_type'
+import InvestmentEurope from './_investment-europe'
+import InfoRowCpa from './_info-row-cpa'
 import Layout from 'components/layout/layout'
-import { Divider, Header, LinkText, Text } from 'components/elements'
+import { Divider, Text } from 'components/elements'
 import {
     CssGrid,
     CssGridColumn,
-    Desktop,
     GridContainer,
-    Mobile,
     SectionContainer,
     SEO,
     SmallContainer,
 } from 'components/containers'
 import { Localize, WithIntl } from 'components/localization'
 // Icons
-import EU from 'images/svg/regulatory/europe-map.svg'
 import Vanuatu from 'images/common/regulatory/vanuatu.svg'
 import VanuatuFMA from 'images/common/regulatory/vanuatu-fma.svg'
 import FSC from 'images/common/regulatory/bvi.svg'
@@ -27,95 +33,10 @@ import LabuanFintech from 'images/common/regulatory/labuan-fintech.svg'
 import Deriv from 'images/common/regulatory/deriv.svg'
 import TFC from 'images/common/regulatory/tfc.svg'
 import SVG from 'images/svg/regulatory/svg.svg'
-import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import { TGatsbyHead } from 'features/types'
-import InitialLoader from 'components/elements/dot-loader'
-
-type BoxProps = {
-    padding?: string
-    maxwidth?: string
-}
-
-type RegulatoryProps = {
-    language: string
-}
-
-const Img = styled.img`
-    display: flex;
-    width: 16rem;
-    height: 8rem;
-`
-
-const ImgFintech = styled.img`
-    display: flex;
-    width: 160px;
-    height: 38.8px;
-`
-
-const StyledHeader = styled(Header)<{ maxwidth?: string }>`
-    max-width: ${(props) => props.maxwidth || '100%'};
-    margin: 0 auto;
-
-    @media ${device.tabletS} {
-        text-align: center;
-        margin-bottom: 1.6rem;
-    }
-`
-
-const MobileWrapper = styled(Mobile)`
-    display: flex;
-`
-
-const DesktopWrapper = styled(Desktop)`
-    display: flex;
-`
-const Box = styled.div<BoxProps>`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: ${(props) => props.padding || '4rem 0 0'};
-    max-width: ${(props) => props.maxwidth || '100%'};
-
-    ${Text} {
-        @media ${device.tabletS} {
-            text-align: center;
-        }
-    }
-
-    @media ${device.tabletS} {
-        text-align: center;
-    }
-`
-const Europe = styled.img`
-    max-width: 69rem;
-    max-height: 63rem;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-`
-const ResponsiveGrid = styled(CssGridColumn)`
-    @media ${device.tabletL} {
-        justify-self: center;
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-`
-
-const ResponsiveHeader = styled(StyledHeader)`
-    @media ${device.mobileL} {
-        font-size: 5rem;
-    }
-`
-
-const StyledLinkText = styled(LinkText)`
-    font-weight: bold;
-`
 
 const Regulatory = (locale: RegulatoryProps) => {
-    const { is_row, is_cpa_plan, is_region_loading } = useRegion()
     const { is_mobile } = useBreakpoints()
 
     return (
@@ -146,94 +67,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                     </StyledHeader>
                 </GridContainer>
             </SectionContainer>
-            {!is_region_loading ? (
-                is_row || is_cpa_plan ? null : (
-                    <>
-                        <SectionContainer padding="8rem 0 0">
-                            <SmallContainer fd="column">
-                                <StyledHeader
-                                    as="h2"
-                                    type="section-title"
-                                    align="center"
-                                    mb="4rem"
-                                    lh="4rem"
-                                >
-                                    <Localize translate_text="_t_Deriv Investments (Europe) Limited_t_" />
-                                </StyledHeader>
-                                <Box padding="16px 0" maxwidth="792px">
-                                    <Header
-                                        as="h3"
-                                        type="paragraph-1"
-                                        align="start"
-                                        weight="normal"
-                                    >
-                                        <Localize
-                                            translate_text="_t_Deriv Investments (Europe) Limited (Company No. C 70156), incorporated on the 22nd April 2015, is registered in Malta with its registered office located at Level 3, W Business Centre, Triq Dun Karm, Birkirkara BKR9033, Malta. Deriv Investments (Europe) Ltd is licensed in Malta and regulated by the Malta Financial Services Authority under the Investments Services Act <0>(view licence)</0> to provide investment services._t_"
-                                            components={[
-                                                <StyledLinkText
-                                                    key={0}
-                                                    target="_blank"
-                                                    href="/regulatory/Deriv_Investments_(Europe)_Limited.pdf"
-                                                    rel="noopener noreferrer"
-                                                />,
-                                            ]}
-                                        />
-                                    </Header>
-                                    <Header
-                                        as="h3"
-                                        type="paragraph-1"
-                                        align="start"
-                                        weight="normal"
-                                        mt="2rem"
-                                    >
-                                        <Localize translate_text="_t_Clients in the European Union who wish to trade financial instruments can have accounts under Deriv Investments (Europe) Limited._t_" />
-                                    </Header>
-                                </Box>
-                            </SmallContainer>
-                        </SectionContainer>
-                        <SectionContainer padding="2.4rem 0 0">
-                            <GridContainer>
-                                <CssGrid
-                                    columns="minmax(10rem, 69rem) minmax(45rem, 1fr)"
-                                    column_gap="2.4rem"
-                                    tablet_columns="1fr 1fr"
-                                    mobile_columns="1fr"
-                                    mobile_row_gap="2rem"
-                                >
-                                    <CssGridColumn>
-                                        <Europe src={EU} alt="Europe map" />
-                                    </CssGridColumn>
-                                    <CssGridColumn padding="0.8rem 0 0">
-                                        <EUgrid />
-                                    </CssGridColumn>
-                                </CssGrid>
-                            </GridContainer>
-                        </SectionContainer>
-                        <SectionContainer padding="2.4rem 0 0">
-                            <SmallContainer fd="column">
-                                <Box padding="0 0 4rem">
-                                    <StyledHeader
-                                        as="h5"
-                                        type="paragraph-1"
-                                        align="start"
-                                        weight="normal"
-                                        maxwidth="792px"
-                                    >
-                                        <Localize translate_text="_t_Deriv Investments (Europe) Limited is entitled to provide services in any other EU member state through EU passporting rights. Above is a list of the EU countries that have access to Deriv.com via EU passporting rights._t_" />
-                                    </StyledHeader>
-                                </Box>
-                            </SmallContainer>
-                        </SectionContainer>
-                        <SectionContainer padding="0 0 4rem">
-                            <SmallContainer fd="column" id="regulatory-list">
-                                <DocumentAccordion locale={locale} />
-                            </SmallContainer>
-                        </SectionContainer>
-                    </>
-                )
-            ) : (
-                <InitialLoader />
-            )}
+            <InvestmentEurope locale={locale} />
 
             <SectionContainer padding="0 0 4rem" mt={is_mobile ? '0' : '8rem'}>
                 <SmallContainer>
@@ -245,37 +79,7 @@ const Regulatory = (locale: RegulatoryProps) => {
                         tablet_columns="1fr 5fr"
                         mobile_columns="1fr"
                     >
-                        {is_row || is_cpa_plan ? (
-                            <>
-                                <ResponsiveGrid align="flex-start">
-                                    <MobileWrapper>
-                                        <StyledHeader as="h2" type="sub-section-title" mb="1.6rem">
-                                            <Localize translate_text="_t_Deriv Investments (Europe) Limited_t_" />
-                                        </StyledHeader>
-                                    </MobileWrapper>
-                                </ResponsiveGrid>
-                                <CssGridColumn>
-                                    <DesktopWrapper>
-                                        <StyledHeader as="h2" type="sub-section-title">
-                                            <Localize translate_text="_t_Deriv Investments (Europe) Limited_t_" />
-                                        </StyledHeader>
-                                    </DesktopWrapper>
-                                    <Text mt="0.8rem" max_width="58.8rem">
-                                        <Localize
-                                            translate_text="_t_Deriv Investments (Europe) Limited (Company No. C 70156), incorporated on the 22nd April 2015, is registered in Malta with its registered office located at Level 3, W Business Centre, Triq Dun Karm, Birkirkara BKR9033, Malta. Deriv Investments (Europe) Ltd is licensed in Malta and regulated by the Malta Financial Services Authority under the Investments Services Act <0>(view licence)</0> to provide investment services._t_"
-                                            components={[
-                                                <StyledLinkText
-                                                    key={0}
-                                                    target="_blank"
-                                                    href="/regulatory/Deriv_Investments_(Europe)_Limited.pdf"
-                                                    rel="noopener noreferrer"
-                                                />,
-                                            ]}
-                                        />
-                                    </Text>
-                                </CssGridColumn>
-                            </>
-                        ) : null}
+                        <InfoRowCpa />
 
                         <ResponsiveGrid align="flex-start">
                             <MobileWrapper>

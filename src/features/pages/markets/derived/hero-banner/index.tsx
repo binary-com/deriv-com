@@ -7,9 +7,9 @@ import { localize } from 'components/localization'
 const HeroBanner = () => {
     return (
         <Hero.ContentLimit
-            title={localize('_t_Exchange-traded funds_t_')}
+            title={localize('_t_Derived indices_t_')}
             description={localize(
-                '_t_Exchange-traded funds (ETFs) allow you to diversify your portfolio with assets that track bonds, commodities, and indices, without the high cost of owning the underlying assets._t_',
+                '_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX, and baskets._t_',
             )}
             content={() => (
                 <StaticImage
@@ -23,7 +23,7 @@ const HeroBanner = () => {
             <div className="flex gap-gap-md">
                 <Button size="lg">{localize('_t_Open demo Account_t_')}</Button>
                 <Button size="lg" variant="secondary" colorStyle="black">
-                    {localize('_t_ETF FAQs_t_')}
+                    {localize('_t_Derived indices FAQs_t_')}
                 </Button>
             </div>
         </Hero.ContentLimit>

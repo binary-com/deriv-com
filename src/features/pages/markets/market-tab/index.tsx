@@ -13,10 +13,14 @@ import ForexPage from '../../../../pages/markets/forex'
 import ETFMarketPage from '../../../../pages/markets/exchange-traded-funds'
 import CommoditiesPage from '../../../../pages/markets/commodities'
 import CryptocurrenciesPage from '../../../../pages/markets/cryptocurrencies'
+import StocksAndIndicesPage from '../../../../pages/markets/stock'
+import DerivedFxPage from '../../../../pages/markets/derived-fx'
 import ForexContent from '../forex/forex-content'
 import ETFContent from '../etfs/etf-content'
 import CommoditiesContent from '../commodities/commodity-content'
 import CryptoContent from '../cryptocurrency/crypto-content'
+import StocksAndIndicesContent from '../stocks-and-indices/stock-indices-content'
+import DerivedContent from '../derived/derived-content'
 
 const MarketTab = () => {
     const [tabId, setTabId] = useState('forex')
@@ -31,13 +35,13 @@ const MarketTab = () => {
         {
             tabId: 'derivedIndices',
             name: 'Derived Indices',
-            to: <ForexPage />,
+            to: <DerivedFxPage />,
             icon: <IllustrativeDerivedIcon iconSize="md" />,
         },
         {
             tabId: 'stocksAndIndices',
             name: 'Stocks & indices',
-            to: <ForexPage />,
+            to: <StocksAndIndicesPage />,
             icon: <IllustrativeStocksAndIndicesIcon iconSize="md" />,
         },
         {
@@ -64,9 +68,9 @@ const MarketTab = () => {
             case 'forex':
                 return <ForexContent />
             case 'derivedIndices':
-                return <ForexContent />
+                return <DerivedContent />
             case 'stocksAndIndices':
-                return <ForexContent />
+                return <StocksAndIndicesContent />
             case 'commodities':
                 return <CommoditiesContent />
             case 'cryptocurrencies':

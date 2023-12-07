@@ -77,9 +77,8 @@ const AffiliateIb = () => {
     const why_partner_data = is_eu
         ? why_partner_with_us_items.filter((item) => !item.only_row)
         : why_partner_with_us_items
-
     return (
-        <Layout>
+        <Layout type="partners">
             <AffiliateIbHero btn_text={content_data.banner_btn} />
             <Numbers earn_text={content_data.earn_text} />
             <DerivAffiliateProgramme />

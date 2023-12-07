@@ -126,6 +126,9 @@ const BirthPicker = ({ id, error, value, setFieldValue, label, label_color }: Bi
                 showLeadingZeros={false}
                 calendarIcon={<img src={Calendar} alt="calendar icon" />}
                 clearIcon={null}
+                onBeforeInput={(e) => {
+                    e.preventDefault()
+                }}
             />
             <AffiliateLabel htmlFor={id} label_color={label_color}>
                 {label}

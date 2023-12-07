@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { Analytics } from '@deriv/analytics'
 import affiliate_validation from '../validations/_affilaite_validation'
 import AffiliateInput from '../utils/_affiliate-input'
 import { SignUpFormProps } from '../_types'
@@ -7,10 +8,10 @@ import { localize, Localize } from 'components/localization'
 import { Container } from 'components/containers'
 import { Button } from 'components/form'
 import { Header, LinkText } from 'components/elements'
-import device from 'themes/device'
 import Link from 'features/components/atoms/link'
 import Typography from 'features/components/atoms/typography'
 import { getLanguage } from 'common/utility'
+import device from 'themes/device'
 
 const StyledNote = styled.div`
     display: flex;
@@ -94,7 +95,8 @@ const AffiliateSignupForm = ({
     setShowWizard,
 }: SignUpFormProps) => {
     const [email_error_msg, setEmailErrorMsg] = useState('')
-    const language = getLanguage()
+    let language = getLanguage()
+    language = language !== 'en' ? '/' + language : ''
     const email = localize('_t_Email_t_')
 
     const handleInput = (e) => {
@@ -102,6 +104,11 @@ const AffiliateSignupForm = ({
         setAffiliateAccount({ ...affiliate_account, email: value })
         setEmailErrorMsg(affiliate_validation.email(value))
     }
+
+    const partners_signup_ab_test = Analytics?.getFeatureValue(
+        'partners_signup_ab_test',
+        'fallback',
+    )
 
     return (
         <>
@@ -143,7 +150,7 @@ const AffiliateSignupForm = ({
                         color="black-3"
                     >
                         <Localize translate_text={'_t_Want to sign up as a trader?_t_'} />
-                        <Typography.Link href={`/${language}/signup`} textcolor={'brand'} ml={'2x'}>
+                        <Typography.Link href={`${language}/signup`} textcolor={'brand'} ml={'2x'}>
                             <Localize translate_text={'_t_Create a Deriv account_t_'} />
                         </Typography.Link>
                     </Header>

@@ -43,10 +43,10 @@ const Modal = styled.div<{ ai?: string; is_rtl?: boolean }>`
     border-radius: 8px;
     padding: 24px;
     gap: 24px;
-    transform: translate(-50%, -50%);
+    transform: ${({ is_rtl }) => (is_rtl ? 'unset' : 'translate(-50%, -50%)')};
     position: fixed;
-    top: 50%;
-    left: ${({ is_rtl }) => (is_rtl ? '-25%' : '50%')};
+    top: ${({ is_rtl }) => (is_rtl ? '30%' : '50%')};
+    left: ${({ is_rtl }) => (is_rtl ? 'unset' : '50%')};
     background-color: white;
     box-shadow: 0 20px 24px -4px #0e0e0e14;
 

@@ -27,6 +27,7 @@ export const Background = styled.div`
 export const Modal = styled.div<{ is_rtl?: boolean }>`
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     position: fixed;
     justify-content: space-between;
     top: 50%;

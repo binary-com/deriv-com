@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Localize, LocalizedLink } from 'components/localization'
 import Typography from 'features/components/atoms/typography'
+import { getLanguage } from 'common/utility'
 import { TString } from 'types/generics'
 import device from 'themes/device'
 import Selected from 'images/svg/signup-affiliates/selected.svg'
@@ -92,6 +93,10 @@ const AccountCard = ({
     onClick,
 }: AccountCardProps) => {
     const [is_selected, setIsSelected] = useState(false)
+
+    let language = getLanguage()
+    language = language !== 'en' ? '/' + language : ''
+
     const clickHandler = () => {
         setIsSelected(true)
         onClick && onClick(value)
@@ -115,7 +120,7 @@ const AccountCard = ({
                             components={[
                                 <StyledLink
                                     external
-                                    to={'/partners/affiliate-ib/'}
+                                    to={`${language}/partners/affiliate-ib/`}
                                     key={0}
                                     target="_blank"
                                 />,

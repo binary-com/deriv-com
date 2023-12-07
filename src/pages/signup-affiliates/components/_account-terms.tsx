@@ -5,6 +5,7 @@ import { Localize, LocalizedLink } from 'components/localization'
 import { Header } from 'components/elements'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import Flex from 'features/components/atoms/flex-box'
+import { getLanguage } from 'common/utility'
 import Typography from 'features/components/atoms/typography'
 import { TString } from 'types/generics'
 import device from 'themes/device'
@@ -47,6 +48,9 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
     const [terms_of_use, setTermsOfUse] = useState(affiliate_data)
 
     const is_rtl = useIsRtl()
+
+    let language = getLanguage()
+    language = language !== 'en' ? '/' + language : ''
 
     const AgreementData: AgreementDataType[] = [
         {
@@ -123,7 +127,7 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
                                             <LocalizedLink
                                                 style={{ color: 'red', textDecoration: 'none' }}
                                                 key={0}
-                                                to="/terms-and-conditions/#business-partners"
+                                                to={`/${language}/terms-and-conditions/#business-partners`}
                                                 target="_blank"
                                                 external
                                                 rel="noopener noreferrer"

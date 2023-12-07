@@ -78,7 +78,7 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
                     affiliate_account.personal_details?.company_registration_number,
                 ),
             }),
-            ...(affiliate_account.terms_of_use.is_partner_checked && { tnc_affiliate_accepted: 1 }),
+            tnc_affiliate_accepted: 0,
         })
 }
 
@@ -105,9 +105,9 @@ const StyledContainer = styled(Container)`
 `
 
 const AffiliateSignup = () => {
-    const [show_wizard, setShowWizard] = useState<boolean>(false)
+    const [show_wizard, setShowWizard] = useState<boolean>(true)
     const [is_online, setIsOnline] = useState(isBrowser() && navigator.onLine)
-    const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>('')
+    const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>('loading')
 
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
         form_name: 'ce_partner_account_signup_form',
@@ -128,35 +128,36 @@ const AffiliateSignup = () => {
     }, [])
 
     const [affiliate_account, setAffiliateAccount] = useState<AffiliateAccountTypes>({
-        email: '',
-        account_type: 0,
-        account_plan: 0,
+        email: 'test@test.com',
+        account_type: 1,
+        account_plan: 2,
         address_details: {
-            country: {},
-            state: {},
-            city: '',
-            street: '',
-            postal_code: '',
+            country: { display_name: 'أرمينيا', name: 'أرمينيا', prefix: '374', symbol: 'am' },
+            state: { name: 'Ararat', display_name: 'Ararat' },
+            city: 'test',
+            street: 'test',
+            postal_code: 'test123',
         },
         personal_details: {
-            first_name: '',
-            last_name: '',
-            date_birth: null,
-            phone: '',
-            website_url: '',
+            first_name: 'test',
+            last_name: 'test',
+            date_birth: 'Fri Dec 02 2005 00:00:00 GMT+0200 (Moscow Standard Time)',
+            phone: '+374123123123',
+            website_url: 'www.tect.com',
             second_website_url: '',
             company_name: '',
             company_registration_number: '',
-            username: '',
-            password: '',
+            username: 'SuperTest',
+            password: 'Abcd1234 ',
         },
         terms_of_use: {
-            non_pep_declaration_accepted: false,
-            tnc_accepted: false,
-            general_terms_accepted: false,
-            is_partner_checked: false,
+            non_pep_declaration_accepted: true,
+            tnc_accepted: true,
+            general_terms_accepted: true,
+            is_partner_checked: true,
         },
     })
+    console.log(affiliate_account)
 
     const {
         data: affiliate_api_data,

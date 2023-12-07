@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Analytics } from '@deriv/analytics'
 import { partners_buttons } from './payment-agent-nav.module.scss'
 import { getLocationPathname } from 'common/utility'
 import useScrollToElement from 'features/hooks/use-scroll-to-element'
@@ -44,6 +45,10 @@ const RightSideButtons = () => {
         )
     }
 
+    const partners_signup_ab_test = Analytics?.getFeatureValue(
+        'partners_signup_ab_test',
+        'fallback',
+    )
     return (
         <>
             <Button.Primary
@@ -63,7 +68,12 @@ const RightSideButtons = () => {
             </Button.Primary>
             <Button.Primary
                 id="dm-nav-affiliate-signup-button"
-                onClick={() => window.open('https://login.deriv.com/signup.php', '_blank')}
+                onClick={() => {
+                    partners_signup_ab_test === true &&
+                        window.open(window.location.origin + '/signup-affiliates')
+                    partners_signup_ab_test === 'fallback' &&
+                        window.open('https://login.deriv.com/signup.php', '_blank')
+                }}
                 visible={'larger-than-tablet'}
                 className={partners_buttons}
             >

@@ -116,7 +116,7 @@ const AffiliateSignupForm = ({
                 <Header mb="8px" as="h3" type="heading-3">
                     <Localize translate_text={'_t_Deriv Affiliate_t_'} />
                 </Header>
-                <Header mb="24px" as="p" type="paragraph-1" weight="normal">
+                <Header mb="24px" as="div" type="paragraph-1" weight="normal">
                     <Localize
                         translate_text={
                             '_t_Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ from option trading platforms._t_'
@@ -126,7 +126,7 @@ const AffiliateSignupForm = ({
                 <Header mb="8px" as="h3" type="heading-3">
                     <Localize translate_text={'_t_Deriv IB Programme_t_'} />
                 </Header>
-                <Header as="p" type="paragraph-1" weight="normal">
+                <Header as="div" type="paragraph-1" weight="normal">
                     <Localize
                         translate_text={
                             "_t_Our introducing broker programme is available to all Deriv affiliates. Earn commission from your clients' trades on Deriv's CFD trading platforms._t_"
@@ -138,12 +138,12 @@ const AffiliateSignupForm = ({
                 <Header as="h3" type="heading-3" mb="24px">
                     <Localize translate_text={'_t_Sign up_t_'} />
                 </Header>
-                <Header as="p" type="subtitle-1" weight="normal">
+                <Header as="div" type="subtitle-1" weight="normal">
                     <Localize translate_text={'_t_Enter your email address to begin_t_'} />
                 </Header>
                 <StyledNote>
                     <Header
-                        as="p"
+                        as="div"
                         type="paragraph-2"
                         weight="normal"
                         align="center"

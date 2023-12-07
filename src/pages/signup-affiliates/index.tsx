@@ -6,15 +6,21 @@ import AffiliateSignupForm from './components/_signup-form'
 import { AffiliateAccountTypes, SignUpStatusTypes, SubmitTypes } from './_types'
 import { isBrowser } from 'common/utility'
 import { WithIntl } from 'components/localization'
-import { Container } from 'components/containers'
+import { Container, SEO, TMetaAttributes } from 'components/containers'
 import Layout from 'components/layout/layout'
 import useWS from 'components/hooks/useWS'
 import AtomicContainer from 'features/components/atoms/container'
+import { TGatsbyHead } from 'features/types'
 import device from 'themes/device'
 import Map from 'images/svg/signup-affiliates/map.svg'
 
 const AffiliateSignupStatus = Loadable(() => import('./components/_signup-status'))
 const Wizard = Loadable(() => import('./components/_wizard'))
+
+const meta_attributes: TMetaAttributes = {
+    og_title: '_t_Partner Signup Page | Deriv_t_',
+    og_description: '_t_Become a partner_t_',
+}
 
 export const customSlugify = (text: string): string => {
     const charMap: { [key: string]: string } = {
@@ -157,7 +163,6 @@ const AffiliateSignup = () => {
             promote_eu: false,
         },
     })
-    console.log(affiliate_account)
 
     const {
         data: affiliate_api_data,
@@ -279,4 +284,12 @@ const AffiliateSignup = () => {
     )
 }
 
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO
+        title="_t_Be our partner | Partnership programmes | Deriv_t_"
+        description="_t_Explore Deriv’s partnership programmes and team up with a trusted online trading broker to earn extra income._t_"
+        meta_attributes={meta_attributes}
+        pageContext={pageContext}
+    />
+)
 export default WithIntl()(AffiliateSignup)

@@ -14,7 +14,7 @@ const PartnershipOpportunities = Loadable(() => import('./_partnership-opportuni
 const meta_attributes: TMetaAttributes = {
     og_title: '_t_Partnership Programme | Deriv_t_',
     og_description:
-        '_t_Explore Deriv’s partnership programme and get a chance to be a partner with a trusted pioneer. All our programmes are free of charge with no hidden fees._t_',
+        '_t_Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on Deriv Trader, Deriv Bot, and SmartTrader._t_',
 }
 
 const Partner = () => {

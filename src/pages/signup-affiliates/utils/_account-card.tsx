@@ -57,7 +57,7 @@ const Title = styled.h3`
         font-size: 14px;
     }
 `
-const Description = styled.p`
+const Description = styled.div`
     font-size: 12px;
     line-height: 18px;
 

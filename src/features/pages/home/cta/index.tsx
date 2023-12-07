@@ -11,7 +11,7 @@ const RowImage = (
         alt={localize('_t_call to action background_t_')}
         loading="eager"
         objectPosition="78% 0"
-        className="w-full h-full hidden md:block"
+        className="w-full h-full"
         formats={['webp', 'auto']}
         placeholder="none"
     />

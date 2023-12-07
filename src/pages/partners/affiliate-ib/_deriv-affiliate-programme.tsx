@@ -1,16 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Analytics } from '@deriv/analytics'
 import RevenueShareCard from './revenue-share/_index'
 import TurnoverCard from './turnover/_index'
 import CpaEuForRow from './cpa-eu-for-row/_index'
 import MasterAffilateCard from './master-affiliate/_index'
 import CpaEuCard from './cpa-eu/_index'
 import { StyledCardWrapper } from './_style'
-import { SectionContainer, Container } from 'components/containers'
+import { Container, SectionContainer } from 'components/containers'
 import { Header } from 'components/elements/typography'
 import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import { affiliate_signup_url } from 'common/constants'
+import { getLanguage } from 'common/utility'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 
@@ -102,6 +104,17 @@ const StyledSignupBtnWrap = styled.div`
 
 const DerivAffiliateProgramme = () => {
     const { is_eu } = useRegion()
+
+    const partners_signup_ab_test = Analytics?.getFeatureValue(
+        'partners_signup_ab_test',
+        'fallback',
+    )
+    let language = getLanguage()
+    language = language !== 'en' ? '/' + language : ''
+    const affiliate_signup_link =
+        partners_signup_ab_test === true
+            ? window.location.origin + language + '/signup-affiliates'
+            : affiliate_signup_url
     return (
         <StyledSection id="deriv-affiliate">
             <ContentContainer direction="column">
@@ -137,10 +150,10 @@ const DerivAffiliateProgramme = () => {
                     <StyledSignupBtnWrap>
                         <ApplyNow
                             secondary
-                            to={affiliate_signup_url}
+                            to={affiliate_signup_link}
                             external
                             target="_blank"
-                            type="affiliate_sign_up"
+                            // type="affiliate_sign_up"
                             mt_mobile="32px"
                         >
                             <Localize translate_text="_t_Sign up_t_" />

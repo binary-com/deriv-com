@@ -1,6 +1,7 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Container, Desktop } from 'components/containers'
+import { Analytics } from '@deriv/analytics'
+import { Container, Desktop, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
@@ -8,6 +9,7 @@ import useRegion from 'components/hooks/use-region'
 import { Timeline } from 'components/elements'
 import device from 'themes/device'
 import { affiliate_signup_url } from 'common/constants'
+import { getLanguage } from 'common/utility'
 import TradingExperts from 'images/svg/partners/trading-experts.svg'
 import SoftwareDeveloper from 'images/svg/partners/software-developer.svg'
 import CommunityManagers from 'images/svg/partners/community-managers.svg'
@@ -206,6 +208,17 @@ const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
 
 const WhoCanApply = () => {
     const { is_eu } = useRegion()
+
+    const partners_signup_ab_test = Analytics?.getFeatureValue(
+        'partners_signup_ab_test',
+        'fallback',
+    )
+    let language = getLanguage()
+    language = language !== 'en' ? '/' + language : ''
+    const affiliate_signup_link =
+        partners_signup_ab_test === true
+            ? window.location.origin + language + '/signup-affiliates'
+            : affiliate_signup_url
     return (
         <StyledSectionWrapper padding="8rem 0 4rem">
             <StyledSection>
@@ -313,10 +326,10 @@ const WhoCanApply = () => {
                 <StyledLinkButton
                     id="dm-page-affiliate-signup"
                     secondary
-                    to={affiliate_signup_url}
+                    to={affiliate_signup_link}
                     external
                     target="_blank"
-                    type="affiliate_sign_up"
+                    // type="affiliate_sign_up"
                 >
                     <Localize translate_text="_t_Sign up_t_" />
                 </StyledLinkButton>

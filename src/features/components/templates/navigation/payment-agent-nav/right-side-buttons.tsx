@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Analytics } from '@deriv/analytics'
 import { partners_buttons } from './payment-agent-nav.module.scss'
-import { getLocationPathname } from 'common/utility'
+import { getLanguage, getLocationPathname } from 'common/utility'
+import { affiliate_signup_url } from 'common/constants'
 import useScrollToElement from 'features/hooks/use-scroll-to-element'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
@@ -49,6 +50,13 @@ const RightSideButtons = () => {
         'partners_signup_ab_test',
         'fallback',
     )
+    let language = getLanguage()
+    language = language !== 'en' ? '/' + language : ''
+    const affiliate_signup_link =
+        partners_signup_ab_test === true
+            ? window.location.origin + language + '/signup-affiliates'
+            : affiliate_signup_url
+    console.log(partners_signup_ab_test, affiliate_signup_link)
     return (
         <>
             <Button.Primary
@@ -68,12 +76,7 @@ const RightSideButtons = () => {
             </Button.Primary>
             <Button.Primary
                 id="dm-nav-affiliate-signup-button"
-                onClick={() => {
-                    partners_signup_ab_test === true &&
-                        window.open(window.location.origin + '/signup-affiliates')
-                    partners_signup_ab_test === 'fallback' &&
-                        window.open('https://login.deriv.com/signup.php', '_blank')
-                }}
+                onClick={() => window.open(affiliate_signup_link, '_blank')}
                 visible={'larger-than-tablet'}
                 className={partners_buttons}
             >

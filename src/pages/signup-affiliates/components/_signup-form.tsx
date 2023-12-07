@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Analytics } from '@deriv/analytics'
 import affiliate_validation from '../validations/_affilaite_validation'
 import AffiliateInput from '../utils/_affiliate-input'
 import { SignUpFormProps } from '../_types'
@@ -104,11 +103,6 @@ const AffiliateSignupForm = ({
         setAffiliateAccount({ ...affiliate_account, email: value })
         setEmailErrorMsg(affiliate_validation.email(value))
     }
-
-    const partners_signup_ab_test = Analytics?.getFeatureValue(
-        'partners_signup_ab_test',
-        'fallback',
-    )
 
     return (
         <>

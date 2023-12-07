@@ -1,13 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Analytics } from '@deriv/analytics'
 import { Localize, LocalizedLink } from 'components/localization'
-import { Header, Text, LinkText, LiveChatLinkText } from 'components/elements'
+import { Header, LinkText, LiveChatLinkText, Text } from 'components/elements'
 import {
-    affiliate_signup_url,
     affiliate_reset_password_link,
+    affiliate_signup_url,
     deriv_api_url,
 } from 'common/constants'
-import { isBrowser } from 'common/utility'
+import { getLanguage, isBrowser } from 'common/utility'
 import useRegion from 'components/hooks/use-region'
 
 type StyledLinkProps = {
@@ -51,6 +52,17 @@ const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`
 const AffiliateGeneral = () => {
     const { is_eu } = useRegion()
 
+    const partners_signup_ab_test = Analytics?.getFeatureValue(
+        'partners_signup_ab_test',
+        'fallback',
+    )
+    let language = getLanguage()
+    language = language !== 'en' ? '/' + language : ''
+    const affiliate_signup_link =
+        partners_signup_ab_test === true
+            ? window.location.origin + language + '/signup-affiliates'
+            : affiliate_signup_url
+
     return (
         <ItemContainer>
             <Header as="p" type="paragraph-1" mt="16px">
@@ -86,9 +98,9 @@ const AffiliateGeneral = () => {
                     translate_text="_t_<0>Click here</0> to sign up as a Deriv affiliate._t_"
                     components={[
                         <LocalizedLinkText
-                            to={affiliate_signup_url}
+                            to={affiliate_signup_link}
                             external
-                            type="affiliate_sign_up"
+                            // type="affiliate_sign_up"
                             target="_blank"
                             rel="noopener noreferrer"
                             key={0}

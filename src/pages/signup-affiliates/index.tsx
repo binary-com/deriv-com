@@ -19,7 +19,8 @@ const Wizard = Loadable(() => import('./components/_wizard'))
 
 const meta_attributes: TMetaAttributes = {
     og_title: '_t_Partner Signup Page | Deriv_t_',
-    og_description: '_t_Become a partner_t_',
+    og_description:
+        '_t_Partner with us as an affiliate. Earn commission from the total net revenue of your referred clients’ trades on Deriv Trader, Deriv Bot, and SmartTrader._t_',
 }
 
 export const customSlugify = (text: string): string => {

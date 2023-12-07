@@ -25,8 +25,6 @@ import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection
 import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 import { LocaleContext, LocalizedLink } from 'components/localization'
-import Link from 'features/components/atoms/link'
-import useLinkUrl from 'features/hooks/use-link-url'
 
 const HomePage = () => {
     useOpenLiveChat(true)
@@ -53,29 +51,16 @@ const HomePage = () => {
 
     const GatsbySharedLink: SharedLink = ({ href = '/', ...rest }: SharedLinkProps) => {
         const link = href as `/${string}`
-        const checkIsExternalUrl = /(http(s?)):\/\//i.test(link.toString())
-        console.log('link==>', link, checkIsExternalUrl)
-        if (!checkIsExternalUrl) {
+        const isExternalUrl = /(http(s?)):\/\//i.test(link.toString())
+        if (isExternalUrl) {
             return (
                 // @ts-ignore
-                <Link
-                    url={{
-                        to: link,
-                        type: 'internal',
-                    }}
-                    {...rest}
-                />
+                <LocalizedLink to={link} external {...rest} />
             )
         }
         return (
             // @ts-ignore
-            <Link
-                url={{
-                    to: link,
-                    type: 'internal',
-                }}
-                {...rest}
-            />
+            <LocalizedLink to={link} {...rest} />
         )
     }
     return (

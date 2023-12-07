@@ -29,8 +29,8 @@
 }
 .link_text {
     text-decoration: underline;
-}
-:hover .link_text {
-    text-decoration-color: #000000;
-    color: $text-color-primary;
+    :hover .link_text {
+        text-decoration-color: #000000;
+        color: $text-color-primary;
+    }
 }

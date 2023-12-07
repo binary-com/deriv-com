@@ -10,6 +10,7 @@ import {
 
 export const LivePriceData: LiveMarketContent[] = [
     {
+        id: 1,
         instrumentIcon: <MarketForexEurusdIcon />,
         instrument: 'EUR/USD',
         changePercentage: '+0.11%',
@@ -19,6 +20,7 @@ export const LivePriceData: LiveMarketContent[] = [
         spread: '0.00005',
     },
     {
+        id: 2,
         instrumentIcon: <MarketForexGbpusdIcon />,
         instrument: 'GBP/USD',
         changePercentage: '+0.11%',
@@ -28,6 +30,7 @@ export const LivePriceData: LiveMarketContent[] = [
         spread: '0.0001',
     },
     {
+        id: 3,
         instrumentIcon: <MarketForexUsdjpyIcon />,
         instrument: 'USD/JPY',
         changePercentage: '+0.11%',
@@ -37,6 +40,7 @@ export const LivePriceData: LiveMarketContent[] = [
         spread: '0.00005',
     },
     {
+        id: 4,
         instrumentIcon: <MarketForexAudusdIcon />,
         instrument: 'AUD/USD',
         changePercentage: '0.00%',

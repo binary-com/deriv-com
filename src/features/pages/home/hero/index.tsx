@@ -7,6 +7,7 @@ import {
     hero_content_btn,
     hero_content_award_img,
     hero_content_gradient,
+    hero_img,
 } from './styles.module.scss'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
@@ -40,12 +41,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
             )}
 
             <FluidContainer className="h-full flex flex-col justify-end">
-                <div
-                    className={clsx(
-                        'flex flex-col items-center md:items-start md:w-5/12 md:mt-auto lg:w-1/2',
-                        hero_content,
-                    )}
-                >
+                <div className={clsx('flex flex-col', hero_content)}>
                     <Heading.H1 className="text-solid-slate-50 text-500 lg:text-heading-h1">
                         <Localize translate_text="_t_Trading for anyone. Anywhere. Anytime._t_" />
                     </Heading.H1>
@@ -61,12 +57,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                         <Localize translate_text="_t_Open demo account_t_" />
                     </Button>
                 </div>
-                <div
-                    className={clsx(
-                        'flex mt-general-2xl md:mt-auto pb-general-xl',
-                        hero_content_award_img,
-                    )}
-                >
+                <div className={clsx('flex mt-general-2xl pb-general-xl', hero_content_award_img)}>
                     <StaticImage
                         src="../../../../images/migration/home/award-1.png"
                         alt="award"
@@ -90,7 +81,12 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                     />
                 </div>
             </FluidContainer>
-            <div className="absolute inset-50 flex items-end -right-3600 -z-10 md:left-auto lg:right-general-5xl">
+            <div
+                className={clsx(
+                    'absolute inset-50 flex items-end -right-3600 -z-10 lg:right-general-5xl',
+                    hero_img,
+                )}
+            >
                 {is_eu ? (
                     <StaticImage
                         src="../../../../images/migration/home/home_hero_new_eu.png"

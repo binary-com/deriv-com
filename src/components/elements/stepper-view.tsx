@@ -79,16 +79,11 @@ type StepperViewTickProps = {
     color?: string
 }
 
-type StepperType = {
-    id: number
-    data: {
-        title: TString
-        subtitle: TString
-    }
-}
-
 type StepperViewProps = {
-    items: StepperType[]
+    items: {
+        title?: TString
+        subtitle?: TString
+    }[]
 } & Pick<StepperViewTickProps, 'pb' | 'pl'>
 
 const handleLastBorder = (index, items) => {
@@ -103,14 +98,14 @@ const StepperView = ({ pb, items }: StepperViewProps) => {
 
     return (
         <>
-            {items.map(({ data: { title, subtitle } }, index) => (
-                <div key={title}>
+            {items.map((item, index) => (
+                <div key={item.title}>
                     <FlexWrapper is_border={handleLastBorder(index, items)} pb={pb}>
                         <ContentWrapper>
                             <Oval></Oval>
                             <CommonHeaderSection
-                                title={title}
-                                subtitle={subtitle}
+                                title={item.title}
+                                subtitle={item.subtitle}
                                 title_font_size={is_mobile ? '18px ' : '24px'}
                                 margin_subtitle="1.3rem 0 0 0"
                                 subtitle_font_size="1.6rem"

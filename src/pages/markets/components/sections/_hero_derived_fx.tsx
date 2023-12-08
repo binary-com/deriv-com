@@ -12,7 +12,6 @@ import MarketNav from 'features/components/templates/navigation/market-nav'
 import { handleGetTrading } from 'components/custom/utils'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { TString } from 'types/generics'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 type ContainerProps = {
     isDerivGo?: boolean
@@ -199,9 +198,6 @@ export const DerivedFXHero = ({
     const handleSignup = useHandleSignup()
     const is_rtl = useIsRtl()
     const { is_deriv_go } = usePlatformQueryParam()
-    const [is_mounted] = usePageLoaded()
-
-    if (!is_mounted) return null
 
     return (
         <>

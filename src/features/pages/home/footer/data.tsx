@@ -12,7 +12,7 @@ import {
 import { DerivGoBannerAndAwards } from './banner-and-awards'
 import { localize } from 'components/localization'
 
-export const footerNavData: FooterItems[] = [
+export const RowFooterNavData: FooterItems[] = [
     {
         id: 0,
         layers: [
@@ -165,6 +165,153 @@ export const footerNavData: FooterItems[] = [
                         text: localize('_t_Payment agents_t_'),
                     },
                     { id: 3, href: 'https://api.deriv.com/', text: localize('_t_API_t_') },
+                ],
+            },
+        ],
+    },
+    {
+        id: 5,
+        layers: [
+            {
+                id: 0,
+                type: 'node',
+                node: <DerivGoBannerAndAwards />,
+            },
+        ],
+    },
+]
+
+export const EUFooterNavData: FooterItems[] = [
+    {
+        id: 0,
+        layers: [
+            {
+                id: 0,
+                header: localize('_t_ABOUT US_t_'),
+                type: 'link',
+                items: [
+                    {
+                        id: 0,
+                        href: '/who-we-are',
+                        text: localize('_t_Who we are_t_'),
+                    },
+                    {
+                        id: 1,
+                        href: '/why-choose-us',
+                        text: localize('_t_Why choose us_t_'),
+                    },
+                    { id: 3, href: '/our-principles', text: localize('_t_Our principles_t_') },
+                    { id: 4, href: '/partners', text: localize('_t_Partnership programmes_t_') },
+                    { id: 5, href: '/contact_us', text: localize('_t_Contact us_t_') },
+                    { id: 6, href: '/careers', text: localize('_t_Careers_t_') },
+                    { id: 7, href: 'https://derivlife.com', text: localize('_t_Deriv life_t_') },
+                ],
+            },
+        ],
+    },
+    {
+        id: 1,
+        layers: [
+            {
+                id: 0,
+                header: localize('_t_TRADE TYPES_t_'),
+                type: 'link',
+                items: [
+                    { id: 0, href: '/trade-types/cfds', text: localize('_t_CFDs_t_') },
+                    { id: 1, href: '/trade-types/multiplier', text: localize('_t_Multipliers_t_') },
+                ],
+            },
+            {
+                id: 1,
+                header: localize('_t_MARKETS_t_'),
+                type: 'link',
+                items: [
+                    { id: 0, href: '/markets/forex', text: localize('_t_Forex_t_') },
+                    { id: 1, href: '/markets/synthetic', text: localize('_t_Derived indices_t_') },
+                    { id: 2, href: '/markets/stock', text: localize('_t_Stocks & indices_t_') },
+                    { id: 3, href: '/markets/exchange-traded-funds', text: localize('_t_ETFs_t_') },
+                    {
+                        id: 4,
+                        href: '/markets/cryptocurrencies',
+                        text: localize('_t_Cryptocurrencies_t_'),
+                    },
+                    { id: 5, href: '/markets/commodities', text: localize('_t_Commodities_t_') },
+                ],
+            },
+        ],
+    },
+    {
+        id: 2,
+        layers: [
+            {
+                id: 0,
+                header: localize('_t_PLATFORMS_t_'),
+                type: 'link',
+                items: [
+                    { id: 0, href: '/dmt5', text: localize('_t_Deriv MT5_t_') },
+                    { id: 1, href: '/dtrader', text: localize('_t_Deriv Trader_t_') },
+                ],
+            },
+        ],
+    },
+    {
+        id: 3,
+        layers: [
+            {
+                id: 0,
+                header: localize('_t_SUPPORT_t_'),
+                type: 'link',
+                items: [
+                    { id: 0, href: '/help-centre', text: localize('_t_Help centre_t_') },
+                    {
+                        id: 1,
+                        href: 'https://community.deriv.com/',
+                        text: localize('_t_Community_t_'),
+                    },
+                    { id: 2, href: '/payment-methods', text: localize('_t_Payment methods_t_') },
+                    {
+                        id: 3,
+                        href: 'https://deriv.statuspage.io/',
+                        text: localize('_t_Status page_t_'),
+                    },
+                    { id: 4, href: 'https://blog.deriv.com/', text: localize('_t_Deriv Blog_t_') },
+                ],
+            },
+        ],
+    },
+    {
+        id: 4,
+        layers: [
+            {
+                id: 0,
+                header: localize('_t_LEGAL_t_'),
+                type: 'link',
+                items: [
+                    { id: 0, href: '/regulatory', text: localize('_t_Regulatory information_t_') },
+                    {
+                        id: 1,
+                        href: '/terms-and-conditions',
+                        text: localize('_t_Terms & conditions_t_'),
+                    },
+                    {
+                        id: 2,
+                        href: '/responsible',
+                        text: localize('_t_Secure & responsible trading_t_'),
+                    },
+                ],
+            },
+            {
+                id: 1,
+                header: localize('_t_PARTNERS_t_'),
+                type: 'link',
+                items: [
+                    { id: 0, href: '/partners/deriv-prime', text: localize('_t_Deriv Prime_t_') },
+                    {
+                        id: 1,
+                        href: '/partners/affiliate-ib',
+                        text: localize('_t_Affiliates and IBs_t_'),
+                    },
+                    { id: 2, href: 'https://api.deriv.com/', text: localize('_t_API_t_') },
                 ],
             },
         ],

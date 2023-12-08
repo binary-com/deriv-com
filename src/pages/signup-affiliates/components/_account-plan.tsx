@@ -6,7 +6,6 @@ import { Localize } from 'components/localization'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import Revenue from 'images/svg/signup-affiliates/revenue.svg'
 import Turnover from 'images/svg/signup-affiliates/turnover.svg'
-import CPA from 'images/svg/signup-affiliates/cpa.svg'
 
 const plans: AccountCardProps[] = [
     {
@@ -23,13 +22,13 @@ const plans: AccountCardProps[] = [
         description:
             "_t_Earn based on each contract's payout probability or client's trade. <0>Learn more</>_t_",
     },
-    {
-        value: 6,
-        icon: CPA,
-        title: '_t_CPA (EU only)_t_',
-        description: '_t_Earn based on each successful referral. <0>Learn more</>_t_',
-        note: '_t_<0>Note:</0> This plan is available exclusively for EU-based clients only._t_',
-    },
+    // {
+    //     value: 6,
+    //     icon: CPA,
+    //     title: '_t_CPA (EU only)_t_',
+    //     description: '_t_Earn based on each successful referral. <0>Learn more</>_t_',
+    //     note: '_t_<0>Note:</0> This plan is available exclusively for EU-based clients only._t_',
+    // },
 ]
 const AccountPlan = ({ updateData, affiliate_account, onValidate }: WizardStepProps) => {
     const [account_plan, setAccountPlan] = useState(affiliate_account.account_plan)

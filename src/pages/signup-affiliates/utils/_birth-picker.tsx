@@ -109,20 +109,13 @@ const BirthPicker = ({ id, error, value, setFieldValue, label, label_color }: Bi
     const onDateChange = (date) => {
         setFieldValue(date)
     }
-    const handleInputFocus = () => {
-        if ('ontouchstart' in document.documentElement) {
-            selectDateField(true)
-        }
-    }
 
     return (
         <BirthPickerWrapper
             is_date_field={is_date_field}
             value={value}
             error={error}
-            onFocus={() => selectDateField(true)}
             onKeyDown={(e) => e.preventDefault()}
-            onClick={handleInputFocus}
         >
             <DatePicker
                 value={value}

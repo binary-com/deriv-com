@@ -116,7 +116,7 @@ export const mainRowNavItems: NavLinkItems = {
                             <PartnersProductSmarttraderBrandDarkLogoIcon width={24} height={24} />
                         ),
                         description: 'Options trading platform with easy navigation.',
-                        external: true,
+                        target: '_blank',
                     },
                 ],
             },
@@ -179,7 +179,7 @@ export const mainRowNavItems: NavLinkItems = {
                             />
                         ),
                         description: 'Options trading platform with easy navigation.',
-                        external: true,
+                        target: '_blank',
                     },
                 ],
             },

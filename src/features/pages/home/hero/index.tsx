@@ -21,7 +21,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
     const { is_eu } = useRegion()
 
     return (
-        <Section className="h-[700px] md:h-[880px] relative isolate overflow-hidden">
+        <Section className="h-[700px] md:h-[calc(100vh-135px)] relative isolate overflow-hidden">
             {is_eu ? (
                 <StaticImage
                     src="../../../../images/migration/home/home_hero_bg_eu.png"
@@ -80,29 +80,29 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                         placeholder="none"
                     />
                 </div>
+                <div
+                    className={clsx(
+                        'absolute inset-50 flex items-end -right-3600 -z-10 lg:right-general-5xl',
+                        hero_img,
+                    )}
+                >
+                    {is_eu ? (
+                        <StaticImage
+                            src="../../../../images/migration/home/home_hero_new_eu.png"
+                            alt="hero image"
+                            className="w-[439px] h-[610px] md:w-[566px] md:h-[768px]"
+                            placeholder="none"
+                        />
+                    ) : (
+                        <StaticImage
+                            src="../../../../images/migration/home/home_hero_new.png"
+                            alt="hero image"
+                            className="w-[439px] h-[610px] md:w-[566px] md:h-[768px]"
+                            placeholder="none"
+                        />
+                    )}
+                </div>
             </FluidContainer>
-            <div
-                className={clsx(
-                    'absolute inset-50 flex items-end -right-3600 -z-10 lg:right-general-5xl',
-                    hero_img,
-                )}
-            >
-                {is_eu ? (
-                    <StaticImage
-                        src="../../../../images/migration/home/home_hero_new_eu.png"
-                        alt="hero image"
-                        className="w-[439px] h-[610px] md:w-[566px] md:h-[768px]"
-                        placeholder="none"
-                    />
-                ) : (
-                    <StaticImage
-                        src="../../../../images/migration/home/home_hero_new.png"
-                        alt="hero image"
-                        className="w-[439px] h-[610px] md:w-[566px] md:h-[768px]"
-                        placeholder="none"
-                    />
-                )}
-            </div>
             <div className={clsx('absolute -z-10 inset-50', hero_content_gradient)}></div>
         </Section>
     )

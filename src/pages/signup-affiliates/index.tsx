@@ -69,6 +69,7 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
                 ? affiliate_account.personal_details?.website_url
                 : `www.${affiliate_account.personal_details?.website_url}`,
             user_name: affiliate_account.personal_details.username,
+            password: affiliate_account.personal_details.password,
             phone: affiliate_account.personal_details.phone,
             phone_code: Number(affiliate_account.personal_details.phone.substring(1, 4)),
             whatsapp_number: affiliate_account.personal_details.phone,

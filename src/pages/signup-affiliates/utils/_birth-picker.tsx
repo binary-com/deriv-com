@@ -100,15 +100,20 @@ const BirthPickerWrapper = styled.div<BirthPickerWrapperProps>`
 const BirthPicker = ({ id, error, value, setFieldValue, label, label_color }: BirthPickerProps) => {
     const [is_date_field, selectDateField] = useState(false)
 
-    const onDateChange = (date) => {
-        e.preventDefault()
-        setFieldValue(date)
-    }
     const subtractYears = (numOfYears, date = new Date()) => {
         date.setFullYear(date.getFullYear() - numOfYears)
         return date
     }
     const max_date = subtractYears(18)
+
+    const onDateChange = (date) => {
+        setFieldValue(date)
+    }
+    const handleInputFocus = () => {
+        if ('ontouchstart' in document.documentElement) {
+            selectDateField(true)
+        }
+    }
 
     return (
         <BirthPickerWrapper
@@ -117,9 +122,9 @@ const BirthPicker = ({ id, error, value, setFieldValue, label, label_color }: Bi
             error={error}
             onFocus={() => selectDateField(true)}
             onKeyDown={(e) => e.preventDefault()}
+            onClick={handleInputFocus}
         >
             <DatePicker
-                onChange={onDateChange}
                 value={value}
                 format={'dd/MM/yyyy'}
                 maxDate={max_date}
@@ -127,6 +132,7 @@ const BirthPicker = ({ id, error, value, setFieldValue, label, label_color }: Bi
                 showLeadingZeros={false}
                 calendarIcon={<img src={Calendar} alt="calendar icon" />}
                 clearIcon={null}
+                onChange={onDateChange}
             />
             <AffiliateLabel htmlFor={id} label_color={label_color}>
                 {label}

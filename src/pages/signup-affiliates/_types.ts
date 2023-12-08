@@ -51,6 +51,7 @@ type AffiliateSendTypes = {
     tnc_affiliate_accepted: number
     type_of_account: number
     user_name: string
+    password: string
     website_url: string
     whatsapp_number: string
     whatsapp_number_phoneCode: number

@@ -17,7 +17,7 @@ export const cards: CardContent[] = [
             '_t_Cutting-edge technology with 99.97% uptime for uninterrupted trading._t_',
         ),
         size: 'sm',
-        color: 'gray',
+        color: 'light',
         align: 'center',
         icon: <LightDependableIcon width={120} height={145} />,
     },

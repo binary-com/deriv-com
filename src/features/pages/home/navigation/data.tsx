@@ -128,6 +128,7 @@ export const mainRowNavItems: NavLinkItems = {
                         description: (
                             <Localize translate_text="_t_Options trading platform with easy navigation._t_" />
                         ),
+                        target: '_blank',
                     },
                 ],
             },
@@ -197,6 +198,7 @@ export const mainRowNavItems: NavLinkItems = {
                         description: (
                             <Localize translate_text="_t_Options trading platform with easy navigation._t_" />
                         ),
+                        target: '_blank',
                     },
                 ],
             },
@@ -335,6 +337,7 @@ export const mainRowNavItems: NavLinkItems = {
                         text: <Localize translate_text="_t_Deriv Life_t_" />,
                         type: 'direct',
                         external: true,
+                        target: '_blank',
                     },
                 ],
             },
@@ -360,6 +363,7 @@ export const mainRowNavItems: NavLinkItems = {
                         text: <Localize translate_text="_t_Community_t_" />,
                         type: 'direct',
                         external: true,
+                        target: '_blank',
                     },
                     {
                         id: 2,
@@ -396,6 +400,7 @@ export const mainRowNavItems: NavLinkItems = {
                         text: <Localize translate_text="_t_Deriv Blog_t_" />,
                         type: 'direct',
                         external: true,
+                        target: '_blank',
                     },
                 ],
             },
@@ -689,6 +694,7 @@ export const mainEuNavItems: NavLinkItems = {
                         text: <Localize translate_text="_t_Deriv Life_t_" />,
                         type: 'direct',
                         external: true,
+                        target: '_blank',
                     },
                 ],
             },
@@ -714,6 +720,7 @@ export const mainEuNavItems: NavLinkItems = {
                         text: <Localize translate_text="_t_Community_t_" />,
                         type: 'direct',
                         external: true,
+                        target: '_blank',
                     },
                     {
                         id: 2,
@@ -750,6 +757,7 @@ export const mainEuNavItems: NavLinkItems = {
                         text: <Localize translate_text="_t_Deriv Blog_t_" />,
                         type: 'direct',
                         external: true,
+                        target: '_blank',
                     },
                 ],
             },

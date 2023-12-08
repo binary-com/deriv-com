@@ -21,7 +21,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
     const { is_eu } = useRegion()
 
     return (
-        <Section className="h-[700px] md:h-[calc(100vh-135px)] relative isolate overflow-hidden">
+        <Section className="h-[700px] md:h-[calc(100vh-136px)] relative isolate overflow-hidden">
             {is_eu ? (
                 <StaticImage
                     src="../../../../images/migration/home/home_hero_bg_eu.png"

@@ -20,6 +20,7 @@ import HomeHero from './hero'
 import FastPaymentSection from './fast-payment'
 import CTA from './cta'
 import StartTradingSteps from './start-trading-steps'
+import TrustpilotSection from './trustpilot'
 import { langItemsROW } from './data'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
@@ -76,13 +77,14 @@ const HomePage = () => {
                             <MainRowNavigation />
                             <PageLayout>
                                 <HomeHero />
+                                <TrustpilotSection />
                                 <StatSection />
                                 <TwentyYearsStrong />
                                 <LiveMarketSection />
                                 <UserFriendlyPlatforms />
                                 <TradeTypeSection />
-                                <FastPaymentSection />
                                 <StartTradingSteps />
+                                <FastPaymentSection />
                                 <CTA />
                                 <ROWFooter />
                             </PageLayout>

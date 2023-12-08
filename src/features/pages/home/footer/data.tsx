@@ -10,6 +10,7 @@ import {
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Standalone'
 import { DerivGoBannerAndAwards } from './banner-and-awards'
+import { localize } from 'components/localization'
 
 export const footerNavData: FooterItems[] = [
     {
@@ -17,24 +18,24 @@ export const footerNavData: FooterItems[] = [
         layers: [
             {
                 id: 0,
-                header: 'ABOUT US',
+                header: localize('_t_ABOUT US_t_'),
                 type: 'link',
                 items: [
                     {
                         id: 0,
                         href: '/who-we-are',
-                        text: 'Who we are',
+                        text: localize('_t_Who we are_t_'),
                     },
                     {
                         id: 1,
                         href: '/why-choose-us',
-                        text: 'Why choose us',
+                        text: localize('_t_Why choose us_t_'),
                     },
-                    { id: 3, href: '/our-principles', text: 'Our principles' },
-                    { id: 4, href: '/partners', text: 'Partnership programmes' },
-                    { id: 5, href: '/contact_us', text: 'Contact us' },
-                    { id: 6, href: '/careers', text: 'Careers' },
-                    { id: 7, href: 'https://derivlife.com', text: 'Deriv life' },
+                    { id: 3, href: '/our-principles', text: localize('_t_Our principles_t_') },
+                    { id: 4, href: '/partners', text: localize('_t_Partnership programmes_t_') },
+                    { id: 5, href: '/contact_us', text: localize('_t_Contact us_t_') },
+                    { id: 6, href: '/careers', text: localize('_t_Careers_t_') },
+                    { id: 7, href: 'https://derivlife.com', text: localize('_t_Deriv life_t_') },
                 ],
             },
         ],
@@ -44,25 +45,29 @@ export const footerNavData: FooterItems[] = [
         layers: [
             {
                 id: 0,
-                header: 'TRADE TYPES',
+                header: localize('_t_TRADE TYPES_t_'),
                 type: 'link',
                 items: [
-                    { id: 0, href: '/trade-types/cfds', text: 'CFDs' },
-                    { id: 1, href: '/trade-types/options', text: 'Options' },
-                    { id: 2, href: '/trade-types/multiplier', text: 'Multipliers' },
+                    { id: 0, href: '/trade-types/cfds', text: localize('_t_CFDs_t_') },
+                    { id: 1, href: '/trade-types/options', text: localize('_t_Options_t_') },
+                    { id: 2, href: '/trade-types/multiplier', text: localize('_t_Multipliers_t_') },
                 ],
             },
             {
                 id: 1,
-                header: 'MARKETS',
+                header: localize('_t_MARKETS_t_'),
                 type: 'link',
                 items: [
-                    { id: 0, href: '/markets/forex', text: 'Forex' },
-                    { id: 1, href: '/markets/synthetic', text: 'Derived indices' },
-                    { id: 2, href: '/markets/stock', text: 'Stocks & indices' },
-                    { id: 3, href: '/markets/exchange-traded-funds', text: 'ETFs' },
-                    { id: 4, href: '/markets/cryptocurrencies', text: 'Cryptocurrencies' },
-                    { id: 5, href: '/markets/commodities', text: 'Commodities' },
+                    { id: 0, href: '/markets/forex', text: localize('_t_Forex_t_') },
+                    { id: 1, href: '/markets/synthetic', text: localize('_t_Derived indices_t_') },
+                    { id: 2, href: '/markets/stock', text: localize('_t_Stocks & indices_t_') },
+                    { id: 3, href: '/markets/exchange-traded-funds', text: localize('_t_ETFs_t_') },
+                    {
+                        id: 4,
+                        href: '/markets/cryptocurrencies',
+                        text: localize('_t_Cryptocurrencies_t_'),
+                    },
+                    { id: 5, href: '/markets/commodities', text: localize('_t_Commodities_t_') },
                 ],
             },
         ],
@@ -72,22 +77,27 @@ export const footerNavData: FooterItems[] = [
         layers: [
             {
                 id: 0,
-                header: 'PLATFORMS',
+                header: localize('_t_PLATFORMS_t_'),
                 type: 'link',
                 items: [
-                    { id: 0, href: '/dmt5', text: 'Deriv MT5' },
-                    { id: 1, href: '/derivx', text: 'Deriv X' },
-                    { id: 2, href: '/deriv-ctrader', text: 'Deriv cTrader' },
-                    { id: 3, href: '/deriv-go', text: 'Deriv GO' },
-                    { id: 4, href: '/dtrader', text: 'Deriv Trader' },
+                    { id: 0, href: '/dmt5', text: localize('_t_Deriv MT5_t_') },
+                    { id: 1, href: '/derivx', text: localize('_t_Deriv X_t_') },
+                    { id: 2, href: '/deriv-ctrader', text: localize('_t_Deriv cTrader_t_') },
+                    { id: 3, href: '/deriv-go', text: localize('_t_Deriv GO_t_') },
+                    { id: 4, href: '/dtrader', text: localize('_t_Deriv Trader_t_') },
                     {
                         id: 5,
                         href: 'https://smarttrader.deriv.com/',
-                        text: 'SmartTrader',
+                        text: localize('_t_SmartTrader_t_'),
                         target: '_blank',
                     },
-                    { id: 6, href: '/dbot', text: 'Deriv Bot' },
-                    { id: 7, href: 'https://bot.deriv.com/', text: 'Binary Bot', target: '_blank' },
+                    { id: 6, href: '/dbot', text: localize('_t_Deriv Bot_t_') },
+                    {
+                        id: 7,
+                        href: 'https://bot.deriv.com/',
+                        text: localize('_t_Binary Bot_t_'),
+                        target: '_blank',
+                    },
                 ],
             },
         ],
@@ -97,14 +107,22 @@ export const footerNavData: FooterItems[] = [
         layers: [
             {
                 id: 0,
-                header: 'SUPPORT',
+                header: localize('_t_SUPPORT_t_'),
                 type: 'link',
                 items: [
-                    { id: 0, href: '/help-centre', text: 'Help centre' },
-                    { id: 1, href: 'https://community.deriv.com/', text: 'Community' },
-                    { id: 2, href: '/payment-methods', text: 'Payment methods' },
-                    { id: 3, href: 'https://deriv.statuspage.io/', text: 'Status page' },
-                    { id: 4, href: 'https://blog.deriv.com/', text: 'Deriv Blog' },
+                    { id: 0, href: '/help-centre', text: localize('_t_Help centre_t_') },
+                    {
+                        id: 1,
+                        href: 'https://community.deriv.com/',
+                        text: localize('_t_Community_t_'),
+                    },
+                    { id: 2, href: '/payment-methods', text: localize('_t_Payment methods_t_') },
+                    {
+                        id: 3,
+                        href: 'https://deriv.statuspage.io/',
+                        text: localize('_t_Status page_t_'),
+                    },
+                    { id: 4, href: 'https://blog.deriv.com/', text: localize('_t_Deriv Blog_t_') },
                 ],
             },
         ],
@@ -114,23 +132,39 @@ export const footerNavData: FooterItems[] = [
         layers: [
             {
                 id: 0,
-                header: 'LEGAL',
+                header: localize('_t_LEGAL_t_'),
                 type: 'link',
                 items: [
-                    { id: 0, href: '/regulatory', text: 'Regulatory information' },
-                    { id: 1, href: '/terms-and-conditions', text: 'Terms & conditions' },
-                    { id: 2, href: '/responsible', text: 'Secure & responsible trading' },
+                    { id: 0, href: '/regulatory', text: localize('_t_Regulatory information_t_') },
+                    {
+                        id: 1,
+                        href: '/terms-and-conditions',
+                        text: localize('_t_Terms & conditions_t_'),
+                    },
+                    {
+                        id: 2,
+                        href: '/responsible',
+                        text: localize('_t_Secure & responsible trading_t_'),
+                    },
                 ],
             },
             {
                 id: 1,
-                header: 'PARTNERS',
+                header: localize('_t_PARTNERS_t_'),
                 type: 'link',
                 items: [
-                    { id: 0, href: '/partners/deriv-prime', text: 'Deriv Prime' },
-                    { id: 1, href: '/partners/affiliate-ib', text: 'Affiliates and IBs' },
-                    { id: 2, href: '/partners/payment-agent', text: 'Payment agents' },
-                    { id: 3, href: 'https://api.deriv.com/', text: 'API' },
+                    { id: 0, href: '/partners/deriv-prime', text: localize('_t_Deriv Prime_t_') },
+                    {
+                        id: 1,
+                        href: '/partners/affiliate-ib',
+                        text: localize('_t_Affiliates and IBs_t_'),
+                    },
+                    {
+                        id: 2,
+                        href: '/partners/payment-agent',
+                        text: localize('_t_Payment agents_t_'),
+                    },
+                    { id: 3, href: 'https://api.deriv.com/', text: localize('_t_API_t_') },
                 ],
             },
         ],
@@ -147,8 +181,9 @@ export const footerNavData: FooterItems[] = [
     },
 ]
 
-export const warnText =
-    'CFDs and other products offered on this website are complex instruments with high risk of losing money rapidly owing to leverage. You should consider whether you understand how these products work and whether you can afford to risk losing your money.'
+export const warnText = localize(
+    '_t_CFDs and other products offered on this website are complex instruments with high risk of losing money rapidly owing to leverage. You should consider whether you understand how these products work and whether you can afford to risk losing your money._t_',
+)
 
 export const socialButtons = [
     {

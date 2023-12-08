@@ -6,6 +6,7 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import { TString } from 'types/generics'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 export type WhyUsType = {
     title: TString
@@ -109,6 +110,9 @@ const Content = styled.div`
 
 const WhyUs = ({ items }: WhyUsProps) => {
     const data = useStaticQuery(query)
+    const [is_mounted] = usePageLoaded()
+
+    if (!is_mounted) return null
 
     return (
         <StyledContainer>

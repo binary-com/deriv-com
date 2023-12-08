@@ -17,9 +17,9 @@ export const DerivGoBannerAndAwards = () => {
                                 width={24}
                                 height={24}
                             />
-                            <Heading.H6>
+                            <Heading.H5>
                                 <Localize translate_text="_t_Deriv GO_t_" />
-                            </Heading.H6>
+                            </Heading.H5>
                         </div>
                         <Text size="sm">
                             <Localize translate_text="_t_Trade multipliers on our mobile app._t_" />
@@ -34,7 +34,7 @@ export const DerivGoBannerAndAwards = () => {
                             width={64}
                             placeholder="none"
                         />
-                        <CaptionText>
+                        <CaptionText className="text-typography-default">
                             <Localize translate_text="_t_Scan to download_t_" />
                         </CaptionText>
                     </div>
@@ -46,7 +46,7 @@ export const DerivGoBannerAndAwards = () => {
                     <StaticImage
                         src="../../../../images/common/migration/footer/investors-in-people.png"
                         alt={localize('_t_investors in people - gold_t_')}
-                        width={157}
+                        width={155}
                         placeholder="none"
                     />
                 </div>

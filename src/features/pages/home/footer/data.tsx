@@ -322,11 +322,6 @@ export const EuFooterNavData: FooterItems[] = [
                     },
                     {
                         id: 1,
-                        href: '/trade-types/options',
-                        text: <Localize translate_text="_t_Options_t_" />,
-                    },
-                    {
-                        id: 2,
                         href: '/trade-types/multiplier',
                         text: <Localize translate_text="_t_Multipliers_t_" />,
                     },
@@ -380,32 +375,10 @@ export const EuFooterNavData: FooterItems[] = [
                 type: 'link',
                 items: [
                     { id: 0, href: '/dmt5', text: <Localize translate_text="_t_Deriv MT5_t_" /> },
-                    { id: 1, href: '/derivx', text: <Localize translate_text="_t_Deriv X_t_" /> },
                     {
-                        id: 2,
-                        href: '/deriv-ctrader',
-                        text: <Localize translate_text="_t_Deriv cTrader_t_" />,
-                    },
-                    {
-                        id: 3,
-                        href: '/deriv-go',
-                        text: <Localize translate_text="_t_Deriv GO_t_" />,
-                    },
-                    {
-                        id: 4,
+                        id: 1,
                         href: '/dtrader',
                         text: <Localize translate_text="_t_Deriv Trader_t_" />,
-                    },
-                    {
-                        id: 5,
-                        href: 'https://smarttrader.deriv.com/',
-                        text: <Localize translate_text="_t_SmartTrader_t_" />,
-                    },
-                    { id: 6, href: '/dbot', text: <Localize translate_text="_t_Deriv Bot_t_" /> },
-                    {
-                        id: 7,
-                        href: 'https://bot.deriv.com/',
-                        text: <Localize translate_text="_t_Binary Bot_t_" />,
                     },
                 ],
             },
@@ -486,12 +459,7 @@ export const EuFooterNavData: FooterItems[] = [
                     {
                         id: 1,
                         href: '/partners/affiliate-ib',
-                        text: <Localize translate_text="_t_Affiliates and IBs_t_" />,
-                    },
-                    {
-                        id: 2,
-                        href: '/partners/payment-agent',
-                        text: <Localize translate_text="_t_Payment agents_t_" />,
+                        text: <Localize translate_text="_t_Affiliates_t_" />,
                     },
                     {
                         id: 3,

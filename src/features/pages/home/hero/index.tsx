@@ -40,7 +40,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                 />
             )}
 
-            <FluidContainer className="h-full flex flex-col justify-end">
+            <FluidContainer className="h-full flex flex-col justify-end relative">
                 <div className={clsx('flex flex-col', hero_content)}>
                     <Heading.H1 className="text-solid-slate-50 text-500 lg:text-heading-h1">
                         <Localize translate_text="_t_Trading for anyone. Anywhere. Anytime._t_" />
@@ -80,24 +80,19 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                         placeholder="none"
                     />
                 </div>
-                <div
-                    className={clsx(
-                        'absolute inset-50 flex items-end -right-3600 -z-10 lg:right-general-5xl',
-                        hero_img,
-                    )}
-                >
+                <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img)}>
                     {is_eu ? (
                         <StaticImage
                             src="../../../../images/migration/home/home_hero_new_eu.png"
                             alt="hero image"
-                            className="w-[439px] h-[610px] md:w-[566px] md:h-[768px]"
+                            // className="w-[439px] h-[610px] md:w-[566px] md:h-[768px]"
                             placeholder="none"
                         />
                     ) : (
                         <StaticImage
                             src="../../../../images/migration/home/home_hero_new.png"
                             alt="hero image"
-                            className="w-[439px] h-[610px] md:w-[566px] md:h-[768px]"
+                            // className="w-[439px] h-[610px] md:w-[566px] md:h-[768px]"
                             placeholder="none"
                         />
                     )}

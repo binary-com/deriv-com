@@ -1,5 +1,4 @@
 import Telegram from 'images/svg/footer/telegram_icon.svg'
-import Tiktok from 'images/svg/footer/tiktok_icon.svg'
 import Twitter from 'images/svg/footer/twitter_icon.svg'
 import Youtube from 'images/svg/footer/youtube_icon.svg'
 import Instagram from 'images/svg/footer/instagram_icon.svg'
@@ -323,22 +322,6 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
             url: {
                 type: 'non-company',
                 target: '_blank',
-                href: 'https://twitter.com/deriv_careers',
-                show_eu_modal: true,
-            },
-            icon: Twitter,
-            image_alt: '_t_Twitter_t_',
-        },
-        visibility: {
-            is_career_page: true,
-        },
-    },
-    {
-        id: 13,
-        data: {
-            url: {
-                type: 'non-company',
-                target: '_blank',
                 href: 'https://www.linkedin.com/company/derivdotcom/life/',
                 show_eu_modal: true,
             },
@@ -351,7 +334,7 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
     },
     //temp removal of telegram : Start
     // {
-    //     id: 14,
+    //     id: 13,
     //     data: {
     //         url: {
     //             type: 'non-company',
@@ -367,20 +350,4 @@ export const socialMediaAccounts: SmartSocialAccount[] = [
     //     },
     // },
     //temp removal of telegram : End
-    {
-        id: 15,
-        data: {
-            url: {
-                type: 'non-company',
-                target: '_blank',
-                href: 'https://tiktok.com/@derivcareers',
-                show_eu_modal: true,
-            },
-            icon: Tiktok,
-            image_alt: '_t_Tiktok_t_',
-        },
-        visibility: {
-            is_career_page: true,
-        },
-    },
 ]

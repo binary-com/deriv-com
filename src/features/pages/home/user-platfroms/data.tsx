@@ -21,6 +21,7 @@ export const platformTabs = [
 
 export const RowCards: CardContent[] = [
     {
+        id: 1,
         header: localize('_t_Deriv MT5_t_'),
         description: localize('_t_The most popular and comprehensive CFDs platform._t_'),
         icon: <PartnersProductDerivMt5BrandLightLogoHorizontalIcon width={48} height={48} />,
@@ -33,6 +34,7 @@ export const RowCards: CardContent[] = [
         },
     },
     {
+        id: 2,
         header: localize('_t_Deriv cTrader_t_'),
         description: localize('_t_The most popular and comprehensive CFDs platform._t_'),
         icon: <PartnersProductDerivCtraderBrandLightLogoHorizontalIcon height="48" width="48" />,
@@ -45,6 +47,7 @@ export const RowCards: CardContent[] = [
         },
     },
     {
+        id: 3,
         header: localize('_t_Deriv X_t_'),
         description: localize('_t_The most popular and comprehensive CFDs platform._t_'),
         icon: <DerivProductDerivXBrandDarkLogoIcon height="48" width="48" />,
@@ -57,6 +60,7 @@ export const RowCards: CardContent[] = [
         },
     },
     {
+        id: 4,
         header: localize('_t_Deriv GO_t_'),
         description: localize('_t_The most popular and comprehensive CFDs platform._t_'),
         icon: <DerivProductDerivGoBrandDarkLogoHorizontalIcon width={48} height={48} />,
@@ -69,6 +73,7 @@ export const RowCards: CardContent[] = [
         },
     },
     {
+        id: 5,
         header: localize('_t_Deriv Trader_t_'),
         description: localize('_t_The most popular and comprehensive CFDs platform._t_'),
         icon: <DerivProductDerivTraderBrandDarkLogoHorizontalIcon height="48" width="48" />,
@@ -81,13 +86,13 @@ export const RowCards: CardContent[] = [
         },
     },
     {
+        id: 6,
         header: localize('_t_Deriv Bot_t_'),
         description: localize('_t_The most popular and comprehensive CFDs platform._t_'),
         icon: <DerivProductDerivBotBrandDarkLogoHorizontalIcon height="48" width="48" />,
         size: 'md',
         align: 'start',
         color: 'light',
-        className: 'flex justify-center',
         link: {
             content: localize('_t_Learn more_t_'),
             href: '/',
@@ -97,6 +102,7 @@ export const RowCards: CardContent[] = [
 
 export const EUCards: CardContent[] = [
     {
+        id: 1,
         header: localize('_t_Deriv MT5_t_'),
         description: localize('_t_The most popular and comprehensive CFDs platform._t_'),
         icon: <PartnersProductDerivMt5BrandLightLogoHorizontalIcon width={48} height={48} />,
@@ -109,6 +115,7 @@ export const EUCards: CardContent[] = [
         },
     },
     {
+        id: 2,
         header: localize('_t_Deriv Trader_t_'),
         description: localize('_t_The most popular and comprehensive CFDs platform._t_'),
         icon: <DerivProductDerivTraderBrandDarkLogoHorizontalIcon height="48" width="48" />,

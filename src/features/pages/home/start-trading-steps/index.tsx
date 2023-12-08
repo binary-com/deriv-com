@@ -12,6 +12,7 @@ const StartTradingSteps = () => {
             title={localize('_t_Start trading in 3 simple steps_t_')}
             cta={<Button size="lg">Open demo Account</Button>}
             cols="three"
+            variant="ContentTop"
             cards={is_eu ? EUCards : RowCards}
         />
     )

@@ -1,4 +1,5 @@
 import React from 'react'
+import { link_text } from '../signup.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import { TString } from 'types/generics'
 import Button from 'features/components/atoms/button'
@@ -42,7 +43,8 @@ const SignUpPageForm = () => {
                         translate_text="_t_I agree to the <0>terms and conditions</0>_t_"
                         components={[
                             <Link
-                                textcolor="brand"
+                                className={link_text}
+                                textcolor="primary"
                                 key={0}
                                 target="_blank"
                                 url={{

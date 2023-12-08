@@ -20,7 +20,6 @@ const StartTrading = () => {
     const { is_eu } = useRegion()
     const [is_mobile] = useBrowserResize()
     const handleSignup = useHandleSignup()
-
     const CfdItems: { title: TString; subtitle: TString }[] = [
         {
             title: '_t_Practise_t_',

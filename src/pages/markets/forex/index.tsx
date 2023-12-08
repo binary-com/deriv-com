@@ -8,17 +8,19 @@ import { WithIntl } from 'components/localization'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
-const ForexPage = () => (
-    <Layout type="noNav">
-        <DerivedFXHero
-            title="_t_Forex_t_"
-            description="_t_Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events._t_"
-            is_forex
-        />
-        <Forex simple_step_content={simple_step_content_forex} />
-        <SignupPublic />
-    </Layout>
-)
+const ForexPage = () => {
+    return (
+        <Layout type="noNav">
+            <DerivedFXHero
+                title="_t_Forex_t_"
+                description="_t_Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events._t_"
+                is_forex
+            />
+            <Forex simple_step_content={simple_step_content_forex} />
+            <SignupPublic />
+        </Layout>
+    )
+}
 
 export default WithIntl()(ForexPage)
 

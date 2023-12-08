@@ -22,6 +22,13 @@ import './static/css/global.css'
 
 const is_browser = typeof window !== 'undefined'
 
+export const replaceHydrateFunction = () => {
+    return (element, container) => {
+        const root = createRoot(container)
+        root.render(element)
+    }
+}
+
 const checkDomain = () => {
     return eval(
         decodeURIComponent(
@@ -163,13 +170,6 @@ export const onRouteUpdate = ({ location }) => {
             }),
         })
     }, 1500)
-}
-
-export const replaceHydrateFunction = () => {
-    return (element, container) => {
-        const root = createRoot(container)
-        root.render(element)
-    }
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

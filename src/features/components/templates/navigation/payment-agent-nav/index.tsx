@@ -1,7 +1,8 @@
 import React, { useMemo } from 'react'
+import { Analytics } from '@deriv/analytics'
 import NavTemplate from '../template'
 import affiliateNavItems from './data'
-import { partners_nav_logo, partners_buttons } from './payment-agent-nav.module.scss'
+import { partners_buttons, partners_nav_logo } from './payment-agent-nav.module.scss'
 import PrimeLogo from 'images/svg/deriv-prime/deriv-prime-logo.svg'
 import PartnerNavLogo from 'images/svg/partner-nav-logo.svg'
 import Image from 'features/components/atoms/image'
@@ -10,7 +11,8 @@ import { Localize } from 'components/localization/localize'
 import LanguageSwitcher from 'features/components/molecules/language-switcher'
 import Link from 'features/components/atoms/link'
 import Flex from 'features/components/atoms/flex-box'
-import { getLocationPathname } from 'common/utility'
+import { getLanguage, getLocationPathname } from 'common/utility'
+import { affiliate_signup_url } from 'common/constants'
 import useScrollToElement from 'features/hooks/use-scroll-to-element'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
@@ -34,6 +36,17 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
               login: '_t_Affiliate & IB Log in_t_',
               sign_up: '_t_Affiliate & IB sign up_t_',
           }
+
+    const partners_signup_ab_test = Analytics?.getFeatureValue(
+        'partners_signup_ab_test',
+        'fallback',
+    )
+    let language = getLanguage()
+    language = language !== 'en' ? '/' + language : ''
+    const affiliate_signup_link =
+        partners_signup_ab_test === true
+            ? window.location.origin + language + '/signup-affiliates'
+            : affiliate_signup_url
 
     const generate_buttons = useMemo(() => {
         return !path_name ? null : path_name.includes('deriv-prime') ? (
@@ -67,7 +80,7 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
                 </Button.Primary>
                 <Button.Primary
                     id="dm-nav-affiliate-signup-button"
-                    onClick={() => window.open('https://login.deriv.com/signup.php', '_blank')}
+                    onClick={() => window.open(affiliate_signup_link, '_blank')}
                     visible={'larger-than-tablet'}
                     className={partners_buttons}
                 >

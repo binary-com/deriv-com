@@ -1,15 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
+import { Analytics } from '@deriv/analytics'
 import Hero from './_hero'
 import { WhyUsType } from './_why-us'
 import { faq_schema } from './_faq-schema'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
-import { SectionContainer, Container, SEO, TMetaAttributes } from 'components/containers'
+import { Container, SectionContainer, SEO, TMetaAttributes } from 'components/containers'
 import { Localize, WithIntl } from 'components/localization'
 import { affiliate_signup_url } from 'common/constants'
+import { getLanguage } from 'common/utility'
 import device from 'themes/device'
 import { TString } from 'types/generics'
 import { TGatsbyHead } from 'features/types'
@@ -178,6 +180,16 @@ const AffiliateIb = () => {
         ? why_partner_with_us_items.filter((item) => !item.only_row)
         : why_partner_with_us_items
 
+    const partners_signup_ab_test = Analytics?.getFeatureValue(
+        'partners_signup_ab_test',
+        'fallback',
+    )
+    let language = getLanguage()
+    language = language !== 'en' ? '/' + language : ''
+    const affiliate_signup_link =
+        partners_signup_ab_test === true
+            ? window.location.origin + language + '/signup-affiliates'
+            : affiliate_signup_url
     return (
         <Layout type="partners" padding_top="10">
             <Hero>
@@ -186,10 +198,10 @@ const AffiliateIb = () => {
                 </StyledHeader>
                 <StyledLinkButton
                     id="dm-hero-affiliate-signup"
-                    to={affiliate_signup_url}
+                    to={affiliate_signup_link}
                     external
                     target="_blank"
-                    type="affiliate_sign_up"
+                    // type="affiliate_sign_up"
                     secondary
                 >
                     <Localize translate_text={content_data.banner_btn} />

@@ -1,8 +1,9 @@
 import React from 'react'
 import { PlatformBlock } from '@deriv-com/blocks'
 import { CardsContainer } from '@deriv-com/components'
-import { RowCards, platformTabs } from './data'
+import { RowCards, platformTabs, EUCards } from './data'
 import { localize } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
 
 const getTabContent = (tabId) => {
     switch (tabId) {
@@ -31,6 +32,20 @@ const getTabContent = (tabId) => {
     }
 }
 const UserFriendlyPlatforms = () => {
+    const { is_eu } = useRegion()
+
+    if (is_eu) {
+        return (
+            <PlatformBlock.Card
+                className="bg-background-primary-base"
+                header={localize('_t_User-friendly trading platforms, on any device_t_')}
+                variant="ContentBottom"
+                cols="three"
+                cards={EUCards}
+            />
+        )
+    }
+
     return (
         <PlatformBlock.Tab
             className="bg-background-primary-base"

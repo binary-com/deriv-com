@@ -19,7 +19,6 @@ const AffiliateNav = () => {
                     />
                 </Link>
             )}
-            has_centered_items
         >
             <LanguageSwitcher />
         </NavTemplate>

@@ -32,7 +32,7 @@ const Wizard = ({
     setAffiliateAccount,
     onSubmit,
 }: WizardProps) => {
-    const [step, setStep] = useState(4)
+    const [step, setStep] = useState(1)
     const [next_btn_enabled, setNextBtnEnabled] = useState<boolean>(false)
     const restricted_countries = ['Iran', 'North Korea', 'Myanmar (Burma)', 'Syria', 'Cuba']
     const [residence_list] = useResidenceList({ restricted_countries })

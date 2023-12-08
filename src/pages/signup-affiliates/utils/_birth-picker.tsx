@@ -96,22 +96,6 @@ const BirthPickerWrapper = styled.div<BirthPickerWrapperProps>`
         }}
     }
 `
-const StyledDatePicker = styled(DatePicker)`
-    input {
-        position: relative;
-        z-index: 1;
-        pointer-events: none;
-    }
-
-    .overlay {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        z-index: 2;
-    }
-`
 
 const BirthPicker = ({ id, error, value, setFieldValue, label, label_color }: BirthPickerProps) => {
     const [is_date_field, selectDateField] = useState(false)

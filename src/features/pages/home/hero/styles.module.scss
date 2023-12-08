@@ -1,17 +1,25 @@
 @use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
 
+.hero_container {
+    justify-content: flex-end;
+    @media only screen and (min-width: 601px){
+        justify-content: center;
+    }
+}
 .hero_content{
     text-align: center;
     align-items: center;
     @media only screen and (min-width: 601px){
         text-align: left;
         width: 53%;
-        margin-top: auto;
         align-items: flex-start;
     }
     @media only screen and (min-width: 1024px){
         width: 50%;
+    }
+    @media only screen and (min-width: 1920px){
+        margin-top: 0;
     }
 }
 .hero_content_btn {
@@ -22,10 +30,11 @@
 }
 .hero_img{
     right: -72px;
-    width: 55vh;
+    width: 60vh;
     @media only screen and (min-width: 601px){
         margin-inline-start: auto;
         left: auto;
+        right: -172px;
     }
     @media only screen and (min-width: 1024px){
         width: 60vh;
@@ -36,9 +45,22 @@
     margin-inline: auto;
     gap: 10px;
     @media only screen and (min-width: 601px){
+        position: absolute;
         margin-inline: 0;
         gap: 24px;
-        margin-top: auto;
+        left: 24px;
+        top: clamp(72%, calc(50vh + 172px), 80%);
+    }
+    @media only screen and (min-width: 1024px){
+        left: 0;
+    }
+}
+.hero_content_text{
+    @media only screen and (min-width: 601px){
+        max-width: 325px;
+    }
+    @media only screen and (min-width: 1024px){
+        max-width: 100%;
     }
 }
 .hero_content_gradient{

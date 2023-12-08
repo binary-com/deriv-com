@@ -3,11 +3,13 @@ import { Button, FluidContainer, Heading, Section, Text } from '@deriv/quill-des
 import clsx from 'clsx'
 import { StaticImage } from 'gatsby-plugin-image'
 import {
+    hero_container,
     hero_content,
     hero_content_btn,
     hero_content_award_img,
     hero_content_gradient,
     hero_img,
+    hero_content_text,
 } from './styles.module.scss'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
@@ -21,7 +23,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
     const { is_eu } = useRegion()
 
     return (
-        <Section className="h-[700px] md:h-[calc(100vh-136px)] relative isolate overflow-hidden">
+        <Section className="h-[calc(100vh-136px)] min-h-[587px] relative isolate overflow-hidden">
             {is_eu ? (
                 <StaticImage
                     src="../../../../images/migration/home/home_hero_bg_eu.png"
@@ -40,12 +42,15 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                 />
             )}
 
-            <FluidContainer className="h-full flex flex-col justify-end relative">
+            <FluidContainer className={clsx('h-full flex flex-col relative', hero_container)}>
                 <div className={clsx('flex flex-col', hero_content)}>
                     <Heading.H1 className="text-solid-slate-50 text-500 lg:text-heading-h1">
                         <Localize translate_text="_t_Trading for anyone. Anywhere. Anytime._t_" />
                     </Heading.H1>
-                    <Text size="md" className="text-solid-slate-50 mt-general-md">
+                    <Text
+                        size="md"
+                        className={clsx('text-solid-slate-50 mt-general-md', hero_content_text)}
+                    >
                         <Localize translate_text="_t_Trade CFDs and Options on 1500+ instruments, all in one place with 24/7 trading and 24/7 worldwide support._t_" />
                     </Text>
                     <Button

@@ -1,11 +1,10 @@
-import React, { lazy } from 'react'
+import React, { lazy, Suspense } from 'react'
 import pMinDelay from 'p-min-delay'
 import loadable from '@loadable/component'
 import { overlay_container } from './layout-overlay.module.scss'
 import CfdWarningBanner from './cfd-warning-banner'
 import Flex from 'features/components/atoms/flex-box'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import SuspenseHelper from 'features/components/atoms/suspense-helper'
 
 const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 5000))
 const WhatsappButton = loadable(() => pMinDelay(import('./whats-app-button'), 5000))
@@ -31,9 +30,9 @@ const LayoutOverlay = () => {
                 align="end"
             >
                 <Flex.Box justify={is_rtl ? 'end' : 'start'} basis="6-12" grow={'1'}>
-                    <SuspenseHelper fallback={<></>}>
+                    <Suspense fallback={<></>}>
                         <CookieBanner />
-                    </SuspenseHelper>
+                    </Suspense>
                 </Flex.Box>
                 <Flex.Box direction="col">
                     <LiveChatButton />

@@ -49,7 +49,7 @@
         margin-inline: 0;
         gap: 24px;
         left: 24px;
-        top: clamp(72%, calc(50vh + 172px), 80%);
+        top: clamp(72%,50vh + 210px,80%);
     }
     @media only screen and (min-width: 1024px){
         left: 0;

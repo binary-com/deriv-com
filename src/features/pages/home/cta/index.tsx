@@ -1,9 +1,10 @@
 import React from 'react'
 import { Footer } from '@deriv-com/blocks'
-import { Heading, Button } from '@deriv/quill-design'
+import { Heading } from '@deriv/quill-design'
 import { StaticImage } from 'gatsby-plugin-image'
 import { Localize, localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
+import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
 
 const RowImage = (
     <StaticImage
@@ -37,9 +38,7 @@ const CTA = () => {
                 <Heading.H2 className="text-solid-slate-50">
                     <Localize translate_text="_t_Join over 2.5 million online traders_t_" />
                 </Heading.H2>
-                <Button size="lg" className="hidden lg:block">
-                    Create demo account
-                </Button>
+                <TradersHubCtaButton className="hidden lg:block" />
             </div>
         </Footer.CTABlock>
     )

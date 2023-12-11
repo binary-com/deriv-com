@@ -2,7 +2,7 @@ import React from 'react'
 import { MobileNavToggle } from '@deriv-com/blocks'
 import { Button } from '@deriv/quill-design'
 // eslint-disable-next-line import/no-unresolved
-import { StandalonePlaceholderRegularIcon } from '@deriv/quill-icons/Standalone'
+import { LabelPairedGrid2RegularIcon } from '@deriv/quill-icons/LabelPaired'
 import { Localize } from 'components/localization'
 import { handleRedirectToTradersHub } from 'components/custom/utils'
 import useAuthCheck from 'components/hooks/use-auth-check'
@@ -25,7 +25,7 @@ export const MainNavigationButtons = () => {
                     colorStyle="coral"
                     size="lg"
                     onClick={handleRedirectToTradersHub}
-                    icon={StandalonePlaceholderRegularIcon}
+                    icon={LabelPairedGrid2RegularIcon}
                     iconPosition="start"
                 >
                     <Localize translate_text="_t_Traders Hub_t_" />

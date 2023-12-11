@@ -9,10 +9,12 @@ import {
     hero_content_gradient,
     hero_img,
     hero_content_text,
+    hero_content_btn,
 } from './styles.module.scss'
-import HeroCtaButton from './cta-button'
 import { Localize, localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
+import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
+
 export interface HomeHeroProps {
     children?: ReactNode
     className?: string
@@ -52,7 +54,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                     >
                         <Localize translate_text="_t_Trade CFDs and Options on 1500+ instruments, all in one place with 24/7 trading and 24/7 worldwide support._t_" />
                     </Text>
-                    <HeroCtaButton />
+                    <TradersHubCtaButton className={clsx('mt-general-2xl', hero_content_btn)} />
                 </div>
                 <div className={clsx('flex mt-general-2xl pb-general-xl', hero_content_award_img)}>
                     <StaticImage

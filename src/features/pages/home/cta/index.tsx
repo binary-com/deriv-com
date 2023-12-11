@@ -38,7 +38,7 @@ const CTA = () => {
                 <Heading.H2 className="text-solid-slate-50">
                     Join over 2.5 million online traders
                 </Heading.H2>
-                <TradersHubCtaButton />
+                <TradersHubCtaButton className="hidden lg:block" />
             </div>
         </Footer.CTABlock>
     )

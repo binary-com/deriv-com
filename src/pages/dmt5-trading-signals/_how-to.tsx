@@ -85,8 +85,7 @@ const HowTo = ({ active_tab }: HowToProps) => {
                     <DMT5Button
                         secondary
                         external
-                        type="mt5"
-                        to=""
+                        to="https://app.deriv.com/appstore/traders-hub"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

@@ -91,7 +91,7 @@ const provider: TContent = {
         <br key={1} />,
         <LocalizedLinkText
             external
-            to="https://app.deriv.com/mt5"
+            to="https://app.deriv.com/appstore/traders-hub"
             color="red"
             target="_blank"
             rel="noopener noreferrer"

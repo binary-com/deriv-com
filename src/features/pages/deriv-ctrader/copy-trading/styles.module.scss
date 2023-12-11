@@ -1,0 +1,9 @@
+@use 'features/styles/theme/theme-mixins' as *;
+
+.copy_trading_header{
+    inline-size: 25rem;
+
+    @include breakpoints(tablet) {
+        inline-size: 44rem;
+    }
+}

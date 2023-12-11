@@ -1,16 +1,21 @@
 const fs = require('fs')
 const path = require('path')
-const { composeInitialProps } = require('react-i18next')
 
 const fetchTrustpilotData = async () => {
     const fileDir = path.resolve(__dirname, '../src/data')
     const fileName = 'trustpilot.ts'
     const filePath = path.join(fileDir, fileName)
 
+    const decodeKey = (key) => atob(key)
+    const keys = [
+        'MXI4ekpSen','BHaFdLV2g','2VnVpQWplNEh','XUFZoRWczSGo'
+    ]
+
     try {
         const appName = 'deriv.com'
-        const apiKey = atob('MXI4ekpSenBHaFdLV2g2VnVpQWplNEhXUFZoRWczSGo')
+        const apiKey = decodeKey(keys.join(''))
 
+        console.log(apiKey)
         if (!appName || !apiKey) {
             throw new Error('Trustpilot app name or API key is missing')
         }

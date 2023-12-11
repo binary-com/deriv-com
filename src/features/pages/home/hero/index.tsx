@@ -54,7 +54,11 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                     >
                         <Localize translate_text="_t_Trade CFDs and Options on 1500+ instruments, all in one place with 24/7 trading and 24/7 worldwide support._t_" />
                     </Text>
-                    <TradersHubCtaButton className={clsx('mt-general-2xl', hero_content_btn)} />
+                    <TradersHubCtaButton
+                        className={clsx('mt-general-2xl', hero_content_btn)}
+                        variant="primary"
+                        colorStyle="coral"
+                    />
                 </div>
                 <div className={clsx('flex mt-general-2xl pb-general-xl', hero_content_award_img)}>
                     <StaticImage

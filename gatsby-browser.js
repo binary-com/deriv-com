@@ -1,4 +1,5 @@
 import React from 'react'
+import { createRoot } from 'react-dom/client'
 import Cookies from 'js-cookie'
 import { isMobile } from 'react-device-detect'
 import { Analytics } from '@deriv/analytics'
@@ -20,6 +21,13 @@ import './static/css/ubuntu.css'
 import './static/css/global.css'
 
 const is_browser = typeof window !== 'undefined'
+
+export const replaceHydrateFunction = () => {
+    return (element, container) => {
+        const root = createRoot(container)
+        root.render(element)
+    }
+}
 
 const checkDomain = () => {
     return eval(

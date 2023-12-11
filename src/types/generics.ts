@@ -118,14 +118,3 @@ export type TBrowserVersion = Partial<
         number
     >
 >
-
-type TimelineItemType = {
-    title: TString
-    subtitle: TString
-}
-
-type TimelineConfig = {
-    is_eu: boolean
-}
-
-export type SmartTimelineItem = TSmartContent<TimelineItemType, TimelineConfig>

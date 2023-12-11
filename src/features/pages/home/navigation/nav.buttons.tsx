@@ -36,7 +36,7 @@ export const MainNavigationButtons = () => {
                         <Localize translate_text="_t_Log in_t_" />
                     </Button>
                     <Button size="lg" className="hidden lg:block">
-                        <Localize translate_text="_t_Create free demo account_t_" />
+                        <Localize translate_text="_t_Open demo account_t_" />
                     </Button>
                 </>
             )}

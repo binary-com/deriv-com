@@ -1,7 +1,13 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useCallback } from 'react'
 import { PageLayout } from '@deriv-com/components'
 import { BreakpointProvider, ThemeProvider } from '@deriv/quill-design'
-import { LanguageProvider } from '@deriv-com/providers'
+import {
+    LanguageProvider,
+    SharedLinkProvider,
+    SharedLinkProps,
+    SharedLink,
+} from '@deriv-com/providers'
 import Layout from 'features/components/templates/layout'
 import ROWFooter from './footer'
 import LiveMarketSection from './live-pricing-migration'
@@ -19,7 +25,7 @@ import { langItemsROW } from './data'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
-import { LocaleContext } from 'components/localization'
+import { LocaleContext, LocalizedLink } from 'components/localization'
 
 const HomePage = () => {
     useOpenLiveChat(true)
@@ -43,32 +49,49 @@ const HomePage = () => {
         },
         [onSwitchLanguage],
     )
+
+    const GatsbySharedLink: SharedLink = ({ href = '/', ...rest }: SharedLinkProps) => {
+        const link = href as `/${string}`
+        const isExternalUrl = /(http(s?)):\/\//i.test(link.toString())
+        if (isExternalUrl) {
+            return (
+                // @ts-ignore
+                <LocalizedLink to={link} external {...rest} />
+            )
+        }
+        return (
+            // @ts-ignore
+            <LocalizedLink to={link} {...rest} />
+        )
+    }
     return (
         <BreakpointProvider>
-            <ThemeProvider theme="light">
-                <LanguageProvider
-                    langItems={langItemsROW}
-                    onLangSelect={onLanguageChange}
-                    activeLanguage={activeLang}
-                >
-                    <Layout>
-                        <MainRowNavigation />
-                        <PageLayout>
-                            <HomeHero />
-                            <TrustpilotSection />
-                            <StatSection />
-                            <TwentyYearsStrong />
-                            <LiveMarketSection />
-                            <UserFriendlyPlatforms />
-                            <TradeTypeSection />
-                            <StartTradingSteps />
-                            <FastPaymentSection />
-                            <CTA />
-                            <ROWFooter />
-                        </PageLayout>
-                    </Layout>
-                </LanguageProvider>
-            </ThemeProvider>
+            <SharedLinkProvider DerivLink={GatsbySharedLink}>
+                <ThemeProvider theme="light">
+                    <LanguageProvider
+                        langItems={langItemsROW}
+                        onLangSelect={onLanguageChange}
+                        activeLanguage={activeLang}
+                    >
+                        <Layout>
+                            <MainRowNavigation />
+                            <PageLayout>
+                                <HomeHero />
+                                <TrustpilotSection />
+                                <StatSection />
+                                <TwentyYearsStrong />
+                                <LiveMarketSection />
+                                <UserFriendlyPlatforms />
+                                <TradeTypeSection />
+                                <StartTradingSteps />
+                                <FastPaymentSection />
+                                <CTA />
+                                <ROWFooter />
+                            </PageLayout>
+                        </Layout>
+                    </LanguageProvider>
+                </ThemeProvider>
+            </SharedLinkProvider>
         </BreakpointProvider>
     )
 }

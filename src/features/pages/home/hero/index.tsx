@@ -129,7 +129,6 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
             <FloatingCta
                 style={{
                     transform: `translateY(${visibilityPercentage - 100}%)`,
-                    opacity: 100 - visibilityPercentage > 10 ? 1 : 0,
                 }}
             />
         </>

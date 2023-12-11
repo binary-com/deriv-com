@@ -62,7 +62,7 @@ export const StyledHeader = styled(Header)<{ is_rtl?: boolean }>`
 const AffiliatesHeader = ({ text, sized }: { text: TString; sized?: boolean }) => {
     return (
         <StyledWrapper sized={sized}>
-            <AffiliateHeader as={'h4'} align="center" type="paragraph-1" pb="8px">
+            <AffiliateHeader as="h4" align="center" type="paragraph-1" pb="8px">
                 <Localize translate_text={text} />
             </AffiliateHeader>
             <CenteredDivider />

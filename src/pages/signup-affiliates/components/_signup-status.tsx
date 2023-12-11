@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
 import { Analytics } from '@deriv/analytics'
 import affiliate_validation from '../validations/_affilaite_validation'
@@ -108,9 +108,21 @@ const AffiliateSignupStatus = ({
     const [username_error, setUsernameError] = useState<string>()
     const [website_url_error, setWebsiteUrlError] = useState<string>()
     const is_rtl = useIsRtl()
-    const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
-        form_name: 'ce_partner_account_signup_form',
-    }
+
+    const interAction = useCallback(({ action }: Parameters<typeof Analytics.trackEvent>[1]) => {
+        Analytics?.trackEvent('ce_partner_account_signup_form', {
+            action,
+            form_name: 'ce_partner_account_signup_form',
+        })
+        if (action === 'success_popup_cta' || action === 'close_wizard') {
+            window.location.href = 'https://deriv.com/partners/'
+        } else if (action === 'try_submit') {
+            setSignupStatus('loading')
+            onSubmit()
+        } else if (action === 'failed_popup_cta') {
+            setSignupStatus('')
+        }
+    }, [])
     const user_name = localize('_t_User name_t_')
     const web_site = localize('_t_Website url_t_')
 
@@ -121,22 +133,16 @@ const AffiliateSignupStatus = ({
                     <Modal is_rtl={is_rtl}>
                         <Image src={Success} alt="email" width="100" height="100" />
                         <Header type="subtitle-1" align="center">
-                            <Localize translate_text={'_t_Thank you for signing up_t_'} />
+                            <Localize translate_text="_t_Thank you for signing up_t_" />
                         </Header>
                         <Header type="paragraph-1" align="center" weight="400">
                             <Localize translate_text="_t_Your application has been received. We’re processing your application. You can expect to hear back from us within 3 to 5 business days._t_" />
                         </Header>
                         <StyledButton
                             secondary
-                            onClick={() => {
-                                Analytics?.trackEvent('ce_partner_account_signup_form', {
-                                    action: 'success_popup_cta',
-                                    ...analyticsData,
-                                })
-                                window.location.href = 'https://deriv.com/partners/'
-                            }}
+                            onClick={() => interAction({ action: 'success_popup_cta' })}
                         >
-                            <Localize translate_text={'_t_Got it_t_'} />
+                            <Localize translate_text="_t_Got it_t_" />
                         </StyledButton>
                     </Modal>
                     <Background />
@@ -144,7 +150,7 @@ const AffiliateSignupStatus = ({
             )}
             {signup_status === 'closing wizard' && (
                 <ProgressModal>
-                    <Modal ai={'flex-end'} is_rtl={is_rtl}>
+                    <Modal ai="flex-end" is_rtl={is_rtl}>
                         <Header type="subtitle-1" align="left">
                             <Localize
                                 translate_text={
@@ -161,19 +167,13 @@ const AffiliateSignupStatus = ({
                         <ButtonComposition>
                             <StyledButton
                                 tertiary
-                                mr={'8px'}
-                                onClick={() => {
-                                    Analytics?.trackEvent('ce_partner_account_signup_form', {
-                                        action: 'close_wizard',
-                                        ...analyticsData,
-                                    })
-                                    window.location.href = 'https://deriv.com/partners/'
-                                }}
+                                mr="8px"
+                                onClick={() => interAction({ action: 'close_wizard' })}
                             >
-                                <Localize translate_text={'_t_Yes_t_'} />
+                                <Localize translate_text="_t_Yes_t_" />
                             </StyledButton>
                             <StyledButton secondary onClick={() => setSignupStatus('')}>
-                                <Localize translate_text={'_t_No, continue_t_'} />
+                                <Localize translate_text="_t_No, continue_t_" />
                             </StyledButton>
                         </ButtonComposition>
                     </Modal>
@@ -185,13 +185,7 @@ const AffiliateSignupStatus = ({
                     <Modal is_rtl={is_rtl}>
                         <CloseButton
                             src={CloseSVG}
-                            onClick={() => {
-                                Analytics?.trackEvent('ce_partner_account_signup_form', {
-                                    action: 'failed_popup_cta',
-                                    ...analyticsData,
-                                })
-                                setSignupStatus('')
-                            }}
+                            onClick={() => interAction({ action: 'failed_popup_cta' })}
                         />
                         <StyledSpinner viewBox="0 0 50 50">
                             <circle
@@ -212,22 +206,16 @@ const AffiliateSignupStatus = ({
                     <Modal is_rtl={is_rtl}>
                         <Image src={Failed} alt="email" width="100" height="100" />
                         <Header type="subtitle-1" align="center">
-                            <Localize translate_text={'_t_Signup failed_t_'} />
+                            <Localize translate_text="_t_Signup failed_t_" />
                         </Header>
                         <Header type="paragraph-1" align="center" weight="400">
                             <Localize translate_text="_t_We’re unable to process your sign-up request at this time. Please try again._t_" />
                         </Header>
                         <StyledButton
                             secondary
-                            onClick={() => {
-                                Analytics?.trackEvent('ce_partner_account_signup_form', {
-                                    action: 'failed_popup_cta',
-                                    ...analyticsData,
-                                })
-                                setSignupStatus('')
-                            }}
+                            onClick={() => interAction({ action: 'failed_popup_cta' })}
                         >
-                            <Localize translate_text={'_t_Try again_t_'} />
+                            <Localize translate_text="_t_Try again_t_" />
                         </StyledButton>
                     </Modal>
                     <Background />
@@ -238,13 +226,13 @@ const AffiliateSignupStatus = ({
                     <Modal is_rtl={is_rtl}>
                         <Image src={Failed} alt="email" width="100" height="100" />
                         <Header type="subtitle-1" align="center">
-                            <Localize translate_text={'_t_Signup failed_t_'} />
+                            <Localize translate_text="_t_Signup failed_t_" />
                         </Header>
                         <Header type="paragraph-1" align="center" weight="400" pt="8px" pb="12px">
                             <Localize translate_text="_t_Username already exists. Please enter another:_t_" />
                         </Header>
                         <AffiliateInput
-                            type={'text'}
+                            type="text"
                             value={affiliate_account.personal_details.username}
                             error={username_error}
                             label={user_name}
@@ -272,16 +260,9 @@ const AffiliateSignupStatus = ({
                         />
                         <StyledButton
                             secondary
-                            onClick={() => {
-                                Analytics?.trackEvent('ce_partner_account_signup_form', {
-                                    action: 'try_submit',
-                                    ...analyticsData,
-                                })
-                                setSignupStatus('')
-                                onSubmit()
-                            }}
+                            onClick={() => interAction({ action: 'try_submit' })}
                         >
-                            <Localize translate_text={'_t_Change username_t_'} />
+                            <Localize translate_text="_t_Change username_t_" />
                         </StyledButton>
                     </Modal>
                     <Background />
@@ -292,13 +273,13 @@ const AffiliateSignupStatus = ({
                     <Modal is_rtl={is_rtl}>
                         <Image src={Failed} alt="email" width="100" height="100" />
                         <Header type="subtitle-1" align="center">
-                            <Localize translate_text={'_t_Signup failed_t_'} />
+                            <Localize translate_text="_t_Signup failed_t_" />
                         </Header>
                         <Header type="paragraph-1" align="center" weight="400">
                             <Localize translate_text="_t_Your website is not a valid entry. Please enter another:_t_" />
                         </Header>
                         <AffiliateInput
-                            type={'text'}
+                            type="text"
                             value={affiliate_account.personal_details.website_url}
                             error={website_url_error}
                             label={web_site}
@@ -326,16 +307,9 @@ const AffiliateSignupStatus = ({
                         />
                         <StyledButton
                             secondary
-                            onClick={() => {
-                                Analytics?.trackEvent('ce_partner_account_signup_form', {
-                                    action: 'try_submit',
-                                    ...analyticsData,
-                                })
-                                setSignupStatus('')
-                                onSubmit()
-                            }}
+                            onClick={() => interAction({ action: 'try_submit' })}
                         >
-                            <Localize translate_text={'_t_Change website url_t_'} />
+                            <Localize translate_text="_t_Change website url_t_" />
                         </StyledButton>
                     </Modal>
                     <Background />

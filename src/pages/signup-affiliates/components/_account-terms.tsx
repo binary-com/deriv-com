@@ -52,7 +52,7 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
     let language = getLanguage()
     language = language !== 'en' ? '/' + language : ''
 
-    const AgreementData: AgreementDataType[] = [
+    const agreement_data: AgreementDataType[] = [
         {
             link_text: '_t_I am not a PEP, and I have not been a PEP in the last 12 months._t_',
             name: 'non_pep_declaration_accepted',
@@ -73,14 +73,14 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
         },
     ]
 
-    const validate =
+    const is_valid =
         terms_of_use['non_pep_declaration_accepted'] &&
         terms_of_use['tnc_accepted'] &&
         terms_of_use['tnc_affiliate_accepted']
 
     useEffect(() => {
-        onValidate(validate)
-    }, [onValidate, validate])
+        onValidate(is_valid)
+    }, [onValidate, is_valid])
 
     useEffect(() => {
         updateData({
@@ -90,14 +90,14 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
 
     return (
         <MainWrapper>
-            <StyledHeader as={'h3'} align="center" type="paragraph-1" pb="8px" is_rtl={is_rtl}>
+            <StyledHeader as="h3" align="center" type="paragraph-1" pb="8px" is_rtl={is_rtl}>
                 <Localize
                     translate_text={
                         '_t_Real accounts are not available to politically exposed persons (PEPs)._t_'
                     }
                 />
             </StyledHeader>
-            <Header as={'h4'} type="paragraph-1" weight="normal" pb="16px">
+            <Header as="h4" type="paragraph-1" weight="normal" pb="16px">
                 <Localize
                     translate_text={
                         '_t_A politically exposed person (PEP) is someone appointed with a prominent public position. Close associates and family members of a PEP are also considered to be PEPs._t_'
@@ -105,12 +105,12 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
                 />
             </Header>
 
-            {AgreementData.map(({ link_text, name }, index) => {
+            {agreement_data.map(({ link_text, name }, index) => {
                 return (
                     <>
-                        <Flex.Box key={name} align={'center'} pb={'8x'}>
+                        <Flex.Box key={`agreement-${name}`} align="center" pb="8x">
                             <CheckBox
-                                type={'checkbox'}
+                                type="checkbox"
                                 checked={terms_of_use[name]}
                                 onClick={() =>
                                     setTermsOfUse({
@@ -119,25 +119,25 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
                                     })
                                 }
                             />
-                            <Flex.Box direction={'col'} align={'start'}>
+                            <Flex.Box direction="col" align="start">
                                 <Typography.Paragraph>
                                     <Localize
                                         translate_text={link_text}
                                         components={[
                                             <LocalizedLink
-                                                style={{ color: 'red', textDecoration: 'none' }}
                                                 key={0}
+                                                style={{ color: 'red', textDecoration: 'none' }}
                                                 to={`${language}/terms-and-conditions/#business-partners`}
                                                 target="_blank"
-                                                external
                                                 rel="noopener noreferrer"
+                                                external
                                             />,
                                         ]}
                                     />
                                 </Typography.Paragraph>
                             </Flex.Box>
                         </Flex.Box>
-                        {index !== AgreementData.length - 1 && <Line />}
+                        {index !== agreement_data.length - 1 && <Line />}
                     </>
                 )
             })}

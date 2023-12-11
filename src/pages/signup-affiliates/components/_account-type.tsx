@@ -36,21 +36,19 @@ const AccountType = ({ updateData, affiliate_account, onValidate }: WizardStepPr
     return (
         <MainWrapper>
             <StyledHeader
-                as={'h3'}
+                as="h3"
                 align="center"
                 type="paragraph-1"
                 pb="8px"
                 weight="normal"
                 is_rtl={is_rtl}
             >
-                <Localize
-                    translate_text={'_t_Choose the type of partner account you want to register_t_'}
-                />
+                <Localize translate_text="_t_Choose the type of partner account you want to register_t_" />
             </StyledHeader>
             {types.map(({ value, icon, title, description }) => {
                 return (
                     <AccountCard
-                        key={value}
+                        key={`account-type-${value}`}
                         icon={icon}
                         title={title}
                         description={description}

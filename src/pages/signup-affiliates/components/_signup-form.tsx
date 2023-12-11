@@ -108,7 +108,7 @@ const AffiliateSignupForm = ({
         <>
             <StyledFlex jc="center" fd="column">
                 <Header mb="8px" as="h3" type="heading-3">
-                    <Localize translate_text={'_t_Deriv Affiliate_t_'} />
+                    <Localize translate_text="_t_Deriv Affiliate_t_" />
                 </Header>
                 <Header mb="24px" as="div" type="paragraph-1" weight="normal">
                     <Localize
@@ -118,7 +118,7 @@ const AffiliateSignupForm = ({
                     />
                 </Header>
                 <Header mb="8px" as="h3" type="heading-3">
-                    <Localize translate_text={'_t_Deriv IB Programme_t_'} />
+                    <Localize translate_text="_t_Deriv IB Programme_t_" />
                 </Header>
                 <Header as="div" type="paragraph-1" weight="normal">
                     <Localize
@@ -130,10 +130,10 @@ const AffiliateSignupForm = ({
             </StyledFlex>
             <SignUpWrapper>
                 <Header as="h3" type="heading-3" mb="24px">
-                    <Localize translate_text={'_t_Sign up_t_'} />
+                    <Localize translate_text="_t_Sign up_t_" />
                 </Header>
                 <Header as="div" type="subtitle-1" weight="normal">
-                    <Localize translate_text={'_t_Enter your email address to begin_t_'} />
+                    <Localize translate_text="_t_Enter your email address to begin_t_" />
                 </Header>
                 <StyledNote>
                     <Header
@@ -143,9 +143,9 @@ const AffiliateSignupForm = ({
                         align="center"
                         color="black-3"
                     >
-                        <Localize translate_text={'_t_Want to sign up as a trader?_t_'} />
-                        <Typography.Link href={`${language}/signup`} textcolor={'brand'} ml={'2x'}>
-                            <Localize translate_text={'_t_Create a Deriv account_t_'} />
+                        <Localize translate_text="_t_Want to sign up as a trader?_t_" />
+                        <Typography.Link href={`${language}/signup`} textcolor="brand" ml="2x">
+                            <Localize translate_text="_t_Create a Deriv account_t_" />
                         </Typography.Link>
                     </Header>
                 </StyledNote>
@@ -172,21 +172,19 @@ const AffiliateSignupForm = ({
                     }}
                     disabled={!(affiliate_account.email && !email_error_msg)}
                 >
-                    <Localize translate_text={'_t_Create partner account_t_'} />
+                    <Localize translate_text="_t_Create partner account_t_" />
                 </EmailButton>
                 <LoginContainer>
                     <Typography.Paragraph>
-                        <Localize
-                            translate_text={'_t_Already have a Deriv affiliate account? _t_'}
-                        />
+                        <Localize translate_text="_t_Already have a Deriv affiliate account? _t_" />
                     </Typography.Paragraph>
                     <Link
                         url={{ type: 'company', url_name: 'affiliate_sign_in' }}
-                        align={'center'}
+                        align="center"
                         no_hover
                     >
-                        <Typography.Paragraph textcolor={'brand'} ml={'2x'}>
-                            <Localize translate_text={'_t_Log in_t_'} />
+                        <Typography.Paragraph textcolor="brand" ml="2x">
+                            <Localize translate_text="_t_Log in_t_" />
                         </Typography.Paragraph>
                     </Link>
                 </LoginContainer>

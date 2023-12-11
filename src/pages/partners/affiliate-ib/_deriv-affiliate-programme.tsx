@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Analytics } from '@deriv/analytics'
 import RevenueShareCard from './revenue-share/_index'
 import TurnoverCard from './turnover/_index'
 import CpaEuForRow from './cpa-eu-for-row/_index'
@@ -11,10 +10,9 @@ import { Container, SectionContainer } from 'components/containers'
 import { Header } from 'components/elements/typography'
 import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
-import { affiliate_signup_url } from 'common/constants'
-import { getLanguage } from 'common/utility'
-import device from 'themes/device'
+import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
 import useRegion from 'components/hooks/use-region'
+import device from 'themes/device'
 
 type ApplyNowProps = {
     mt_mobile?: string
@@ -104,17 +102,8 @@ const StyledSignupBtnWrap = styled.div`
 
 const DerivAffiliateProgramme = () => {
     const { is_eu } = useRegion()
+    const { affiliate_signup_link } = useAffiliateSignupLink()
 
-    const partners_signup_ab_test = Analytics?.getFeatureValue(
-        'partners_signup_ab_test',
-        'fallback',
-    )
-    let language = getLanguage()
-    language = language !== 'en' ? '/' + language : ''
-    const affiliate_signup_link =
-        partners_signup_ab_test === true
-            ? window.location.origin + language + '/signup-affiliates'
-            : affiliate_signup_url
     return (
         <StyledSection id="deriv-affiliate">
             <ContentContainer direction="column">

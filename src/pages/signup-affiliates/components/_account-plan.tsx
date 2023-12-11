@@ -52,12 +52,12 @@ const AccountPlan = ({ updateData, affiliate_account, onValidate }: WizardStepPr
                 weight="normal"
                 is_rtl={is_rtl}
             >
-                <Localize translate_text={'_t_Choose which plan you would like to subscribe._t_'} />
+                <Localize translate_text="_t_Choose which plan you would like to subscribe._t_" />
             </StyledHeader>
             {plans.map(({ value, icon, title, description, note }) => {
                 return (
                     <AccountCard
-                        key={value}
+                        key={`account-plan-${value}`}
                         icon={icon}
                         title={title}
                         description={description}

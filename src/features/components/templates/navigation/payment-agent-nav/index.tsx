@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react'
-import { Analytics } from '@deriv/analytics'
 import NavTemplate from '../template'
 import affiliateNavItems from './data'
 import { partners_buttons, partners_nav_logo } from './payment-agent-nav.module.scss'
@@ -11,9 +10,9 @@ import { Localize } from 'components/localization/localize'
 import LanguageSwitcher from 'features/components/molecules/language-switcher'
 import Link from 'features/components/atoms/link'
 import Flex from 'features/components/atoms/flex-box'
-import { getLanguage, getLocationPathname } from 'common/utility'
-import { affiliate_signup_url } from 'common/constants'
+import { getLocationPathname } from 'common/utility'
 import useScrollToElement from 'features/hooks/use-scroll-to-element'
+import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
 import { localize } from 'components/localization'
@@ -27,6 +26,8 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
     const clickToScrollHandler = useScrollToElement('getintouch')
 
     const { is_eu } = useRegion()
+    const { affiliate_signup_link } = useAffiliateSignupLink()
+
     const texts: contentType = is_eu
         ? {
               login: '_t_Affiliate log in_t_',
@@ -36,17 +37,6 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
               login: '_t_Affiliate & IB Log in_t_',
               sign_up: '_t_Affiliate & IB sign up_t_',
           }
-
-    const partners_signup_ab_test = Analytics?.getFeatureValue(
-        'partners_signup_ab_test',
-        'fallback',
-    )
-    let language = getLanguage()
-    language = language !== 'en' ? '/' + language : ''
-    const affiliate_signup_link =
-        partners_signup_ab_test === true
-            ? window.location.origin + language + '/signup-affiliates'
-            : affiliate_signup_url
 
     const generate_buttons = useMemo(() => {
         return !path_name ? null : path_name.includes('deriv-prime') ? (
@@ -88,7 +78,7 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
                 </Button.Primary>
             </>
         )
-    }, [path_name])
+    }, [path_name, affiliate_signup_link])
 
     return (
         <NavTemplate

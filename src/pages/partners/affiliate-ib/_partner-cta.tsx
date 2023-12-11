@@ -1,13 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Analytics } from '@deriv/analytics'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, LinkText, Text } from 'components/elements/typography'
 import { LinkButton } from 'components/form'
 import { useLivechat } from 'components/hooks/use-livechat'
 import { Localize } from 'components/localization'
-import { affiliate_signup_url } from 'common/constants'
-import { getLanguage } from 'common/utility'
+import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
 import device from 'themes/device'
 
 type RedButtonProps = {
@@ -44,17 +42,7 @@ const RedButton = styled(LinkButton)<RedButtonProps>`
 
 const PartnerCTA = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
-
-    const partners_signup_ab_test = Analytics?.getFeatureValue(
-        'partners_signup_ab_test',
-        'fallback',
-    )
-    let language = getLanguage()
-    language = language !== 'en' ? '/' + language : ''
-    const affiliate_signup_link =
-        partners_signup_ab_test === true
-            ? window.location.origin + language + '/signup-affiliates'
-            : affiliate_signup_url
+    const { affiliate_signup_link } = useAffiliateSignupLink()
 
     return (
         <StyledSection padding="4rem 0">

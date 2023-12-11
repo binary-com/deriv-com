@@ -38,7 +38,7 @@ const AccountDetails = ({
 
     const form_inputs = [
         {
-            id: 'first_name',
+            id: 'dm-first_name',
             name: 'first_name',
             type: 'text',
             label: localize('_t_First name*_t_'),
@@ -49,7 +49,7 @@ const AccountDetails = ({
             error_set: setFirstNameErrorMsg,
         },
         {
-            id: 'last_name',
+            id: 'dm-last_name',
             name: 'last_name',
             type: 'text',
             label: localize('_t_Last name*_t_'),
@@ -60,7 +60,7 @@ const AccountDetails = ({
             error_set: setLastNameErrorMsg,
         },
         {
-            id: 'date_birth',
+            id: 'dm-date_birth',
             name: 'date_birth',
             type: 'date',
             label: localize('_t_Date of Birth*_t_'),
@@ -69,7 +69,7 @@ const AccountDetails = ({
             value_set: setDateBirth,
         },
         {
-            id: 'phone',
+            id: 'dm-phone',
             name: 'phone',
             type: 'text',
             label: localize('_t_Phone number*_t_'),
@@ -80,7 +80,7 @@ const AccountDetails = ({
             error_set: setPhoneErrorMsg,
         },
         {
-            id: 'company_name',
+            id: 'dm-company_name',
             name: 'company_name',
             type: 'text',
             label: localize('_t_Company name*_t_'),
@@ -91,7 +91,7 @@ const AccountDetails = ({
             error_set: setCompanyNameErrorMsg,
         },
         {
-            id: 'company_registration_number',
+            id: 'dm-company_registration_number',
             name: 'company_registration_number',
             type: 'number',
             label: localize('_t_Company registration number*_t_'),
@@ -102,7 +102,7 @@ const AccountDetails = ({
             error_set: setCompanyRegistrationErrorMsg,
         },
         {
-            id: 'website_url',
+            id: 'dm-website_url',
             name: 'website_url',
             type: 'text',
             label: is_individual
@@ -115,7 +115,7 @@ const AccountDetails = ({
             error_set: setWebsiteUrlErrorMsg,
         },
         {
-            id: 'second_website_url',
+            id: 'dm-second_website_url',
             name: 'second_website_url',
             type: 'text',
             label: is_individual
@@ -128,7 +128,7 @@ const AccountDetails = ({
             error_set: setSecondWebsiteUrlErrorMsg,
         },
         {
-            id: 'username',
+            id: 'dm-username',
             name: 'username',
             type: 'text',
             label: localize('_t_Username*_t_'),
@@ -158,7 +158,7 @@ const AccountDetails = ({
         }
     })
 
-    const validate = is_individual
+    const is_valid = is_individual
         ? username &&
           first_name &&
           last_name &&
@@ -211,8 +211,9 @@ const AccountDetails = ({
     ])
 
     useEffect(() => {
-        onValidate(validate)
-    }, [onValidate, validate])
+        onValidate(is_valid)
+    }, [onValidate, is_valid])
+
     const getFormFields = () => {
         return form_inputs.filter((item) => {
             if (is_individual) {
@@ -273,7 +274,7 @@ const AccountDetails = ({
 
     return (
         <InputGroup>
-            <AffiliatesHeader text={'_t_Details_t_'} />
+            <AffiliatesHeader text="_t_Details_t_" />
             <InputWrapper>
                 {getFormFields().map((item) => {
                     if (item.name === 'date_birth') {
@@ -290,7 +291,7 @@ const AccountDetails = ({
                     } else if (item.name === 'username') {
                         return (
                             <>
-                                <AffiliatesHeader text={'_t_Affiliate account details_t_'} sized />
+                                <AffiliatesHeader text="_t_Affiliate account details_t_" sized />
                                 <AffiliateInput
                                     id={item.id}
                                     key={item.id}

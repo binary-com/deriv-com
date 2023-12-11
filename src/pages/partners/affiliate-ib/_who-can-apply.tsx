@@ -1,15 +1,13 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { Analytics } from '@deriv/analytics'
 import { Container, Desktop, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import useRegion from 'components/hooks/use-region'
 import { Timeline } from 'components/elements'
+import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
 import device from 'themes/device'
-import { affiliate_signup_url } from 'common/constants'
-import { getLanguage } from 'common/utility'
 import TradingExperts from 'images/svg/partners/trading-experts.svg'
 import SoftwareDeveloper from 'images/svg/partners/software-developer.svg'
 import CommunityManagers from 'images/svg/partners/community-managers.svg'
@@ -208,17 +206,8 @@ const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
 
 const WhoCanApply = () => {
     const { is_eu } = useRegion()
+    const { affiliate_signup_link } = useAffiliateSignupLink()
 
-    const partners_signup_ab_test = Analytics?.getFeatureValue(
-        'partners_signup_ab_test',
-        'fallback',
-    )
-    let language = getLanguage()
-    language = language !== 'en' ? '/' + language : ''
-    const affiliate_signup_link =
-        partners_signup_ab_test === true
-            ? window.location.origin + language + '/signup-affiliates'
-            : affiliate_signup_url
     return (
         <StyledSectionWrapper padding="8rem 0 4rem">
             <StyledSection>

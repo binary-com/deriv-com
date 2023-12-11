@@ -1,15 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Analytics } from '@deriv/analytics'
 import { Localize, LocalizedLink } from 'components/localization'
 import { Header, LinkText, LiveChatLinkText, Text } from 'components/elements'
-import {
-    affiliate_reset_password_link,
-    affiliate_signup_url,
-    deriv_api_url,
-} from 'common/constants'
-import { getLanguage, isBrowser } from 'common/utility'
+import { affiliate_reset_password_link, deriv_api_url } from 'common/constants'
+import { isBrowser } from 'common/utility'
 import useRegion from 'components/hooks/use-region'
+import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
 
 type StyledLinkProps = {
     href: string
@@ -51,17 +47,7 @@ const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`
 
 const AffiliateGeneral = () => {
     const { is_eu } = useRegion()
-
-    const partners_signup_ab_test = Analytics?.getFeatureValue(
-        'partners_signup_ab_test',
-        'fallback',
-    )
-    let language = getLanguage()
-    language = language !== 'en' ? '/' + language : ''
-    const affiliate_signup_link =
-        partners_signup_ab_test === true
-            ? window.location.origin + language + '/signup-affiliates'
-            : affiliate_signup_url
+    const { affiliate_signup_link } = useAffiliateSignupLink()
 
     return (
         <ItemContainer>

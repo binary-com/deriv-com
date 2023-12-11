@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import { Analytics } from '@deriv/analytics'
@@ -46,7 +46,6 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
         Analytics?.trackEvent('ce_partner_account_signup_form', {
             action: 'partners_signup_error',
             partner_signup_error_message: 'lost connection',
-            form_source: document.referrer,
             form_name: 'ce_partner_account_signup_form',
         })
     } else
@@ -117,23 +116,27 @@ const AffiliateSignup = () => {
     const [is_online, setIsOnline] = useState(isBrowser() && navigator.onLine)
     const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>('')
 
-    const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
-        form_name: 'ce_partner_account_signup_form',
-    }
-
-    useEffect(() => {
-        Analytics?.trackEvent('ce_partner_account_signup_form', {
-            action: 'open',
-            ...analyticsData,
-        })
-
-        return () => {
+    const trackEvent = useCallback(
+        ({
+            action,
+            partner_signup_error_message,
+            user_choice,
+        }: Parameters<typeof Analytics.trackEvent>[1]) => {
             Analytics?.trackEvent('ce_partner_account_signup_form', {
-                action: 'close',
-                ...analyticsData,
+                action,
+                partner_signup_error_message,
+                form_name: 'ce_partner_account_signup_form',
             })
-        }
-    }, [])
+
+            if (action === 'partners_signup_error') {
+                Analytics?.trackEvent('ce_partner_account_signup_form', {
+                    action: 'failed_popup_opened',
+                    form_name: 'ce_partner_account_signup_form',
+                })
+            }
+        },
+        [],
+    )
 
     const [affiliate_account, setAffiliateAccount] = useState<AffiliateAccountTypes>({
         email: '',
@@ -173,10 +176,13 @@ const AffiliateSignup = () => {
     } = useWS('affiliate_register_person')
 
     useEffect(() => {
+        trackEvent({ action: 'open' })
+        return () => trackEvent({ action: 'close' })
+    }, [])
+
+    useEffect(() => {
         const handleStatusChange = () => {
-            if (!navigator.onLine) {
-                Analytics?.trackEvent('ce_partner_account_signup_form', { action: 'other_error' })
-            }
+            if (!navigator.onLine) trackEvent({ action: 'other_error' })
             setIsOnline(navigator.onLine)
         }
         window.addEventListener('online', handleStatusChange)
@@ -186,54 +192,32 @@ const AffiliateSignup = () => {
             window.removeEventListener('offline', handleStatusChange)
         }
     }, [is_online])
+
     useEffect(() => {
         const partner_signup_error_message = affiliate_api_error?.error.message
+
         if (partner_signup_error_message == 'Username not available') {
-            Analytics?.trackEvent('ce_partner_account_signup_form', {
-                action: 'partners_signup_error',
-                partner_signup_error_message,
-                ...analyticsData,
-            })
-            Analytics?.trackEvent('ce_partner_account_signup_form', {
-                action: 'failed_popup_opened',
-                ...analyticsData,
-            })
+            trackEvent({ action: 'partners_signup_error', partner_signup_error_message })
             setSignupStatus(partner_signup_error_message)
         } else if (
             partner_signup_error_message == 'Your website is not a valid entry' ||
             partner_signup_error_message == "String does not match '^[0-9A-Za-z.-]{5,250}$'" ||
             partner_signup_error_message == 'Input validation failed: website_url'
         ) {
-            Analytics?.trackEvent('ce_partner_account_signup_form', {
-                action: 'partners_signup_error',
-                partner_signup_error_message,
-                ...analyticsData,
-            })
-            Analytics?.trackEvent('ce_partner_account_signup_form', {
-                action: 'failed_popup_opened',
-                ...analyticsData,
-            })
+            trackEvent({ action: 'partners_signup_error', partner_signup_error_message })
             setSignupStatus('Your website is not a valid entry')
-        } else if (partner_signup_error_message) {
-            Analytics?.trackEvent('ce_partner_account_signup_form', {
-                action: 'other_error',
-                partner_signup_error_message,
-                ...analyticsData,
-            })
-            Analytics?.trackEvent('ce_partner_account_signup_form', {
-                action: 'failed_popup_opened',
-                ...analyticsData,
-            })
-        }
+        } else if (partner_signup_error_message)
+            trackEvent({ action: 'other_error', partner_signup_error_message })
+
         if (affiliate_api_data) {
-            Analytics?.trackEvent('ce_partner_account_signup_form', {
+            trackEvent({
                 action: 'success_popup_opened',
                 user_choice: JSON.stringify(affiliate_api_error?.echo_req),
-                ...analyticsData,
             })
             setSignupStatus('success')
         }
     }, [affiliate_api_data, affiliate_api_error, affiliateSend])
+
     useEffect(() => {
         setAffiliateAccount({
             ...affiliate_account,
@@ -243,11 +227,9 @@ const AffiliateSignup = () => {
             },
         })
     }, [affiliate_account.address_details.country])
+
     const onSubmit = () => {
-        Analytics?.trackEvent('ce_partner_account_signup_form', {
-            action: 'try_submit',
-            ...analyticsData,
-        })
+        trackEvent({ action: 'try_submit' })
         setSignupStatus('loading')
         Submit({ is_online, affiliate_account, setSignupStatus, affiliateSend })
     }
@@ -255,7 +237,7 @@ const AffiliateSignup = () => {
     return (
         <Layout type="affiliates" show_footer={false}>
             <ParentWrapper>
-                <AtomicContainer.Fluid dir={'row'}>
+                <AtomicContainer.Fluid dir="row">
                     <StyledContainer>
                         {show_wizard ? (
                             <Wizard

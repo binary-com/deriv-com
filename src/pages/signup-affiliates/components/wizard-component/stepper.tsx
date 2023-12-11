@@ -138,13 +138,17 @@ const Stepper = ({ step }: { step: number }) => {
         <StepperWrapper>
             {is_mobile_or_tablet
                 ? steps.map(({ id, step_name, step_num }) => (
-                      <React.Fragment key={step_name}>
+                      <React.Fragment key={`step-${id}`}>
                           {step === id && (
-                              <StepView first_two_steps={step < 3} is_rtl={is_rtl}>
+                              <StepView
+                                  id={`step-${id}`}
+                                  first_two_steps={step < 3}
+                                  is_rtl={is_rtl}
+                              >
                                   <Typography.Paragraph
-                                      size={'medium'}
-                                      textcolor={'brand'}
-                                      weight={'bold'}
+                                      size="medium"
+                                      textcolor="brand"
+                                      weight="bold"
                                   >
                                       <Localize translate_text={step_num} />
                                   </Typography.Paragraph>
@@ -153,7 +157,7 @@ const Stepper = ({ step }: { step: number }) => {
                       </React.Fragment>
                   ))
                 : steps.map(({ id, step_name }) => (
-                      <StepperItem key={step_name} active={id < step}>
+                      <StepperItem key={`step-${id}`} id={`step-${id}`} active={id < step}>
                           <StepCounter active={id <= step}>{id}</StepCounter>
                           <Label active={id === step}>
                               <Localize translate_text={step_name} />

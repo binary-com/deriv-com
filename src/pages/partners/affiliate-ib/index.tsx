@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
-import { Analytics } from '@deriv/analytics'
 import Hero from './_hero'
 import { WhyUsType } from './_why-us'
 import { faq_schema } from './_faq-schema'
@@ -10,12 +9,11 @@ import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
 import { Container, SectionContainer, SEO, TMetaAttributes } from 'components/containers'
 import { Localize, WithIntl } from 'components/localization'
-import { affiliate_signup_url } from 'common/constants'
-import { getLanguage } from 'common/utility'
 import device from 'themes/device'
 import { TString } from 'types/generics'
 import { TGatsbyHead } from 'features/types'
 import useRegion from 'components/hooks/use-region'
+import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
 
 const WhyUs = Loadable(() => import('./_why-us'))
 const WhoCanAplly = Loadable(() => import('./_who-can-apply'))
@@ -133,6 +131,7 @@ type contentType = {
 }
 const AffiliateIb = () => {
     const { is_eu } = useRegion()
+    const { affiliate_signup_link } = useAffiliateSignupLink()
 
     const content_data: contentType = is_eu
         ? {
@@ -180,16 +179,6 @@ const AffiliateIb = () => {
         ? why_partner_with_us_items.filter((item) => !item.only_row)
         : why_partner_with_us_items
 
-    const partners_signup_ab_test = Analytics?.getFeatureValue(
-        'partners_signup_ab_test',
-        'fallback',
-    )
-    let language = getLanguage()
-    language = language !== 'en' ? '/' + language : ''
-    const affiliate_signup_link =
-        partners_signup_ab_test === true
-            ? window.location.origin + language + '/signup-affiliates'
-            : affiliate_signup_url
     return (
         <Layout type="partners" padding_top="10">
             <Hero>

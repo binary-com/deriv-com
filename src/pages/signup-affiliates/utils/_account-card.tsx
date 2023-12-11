@@ -132,7 +132,7 @@ const AccountCard = ({
 
                     {note && (
                         <AdditionalNote>
-                            <Typography.Paragraph size={'xs'}>
+                            <Typography.Paragraph size="xs">
                                 <Localize translate_text={note} components={[<strong key={0} />]} />
                             </Typography.Paragraph>
                         </AdditionalNote>

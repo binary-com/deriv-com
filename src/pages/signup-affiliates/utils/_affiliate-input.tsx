@@ -107,7 +107,7 @@ const AffiliateInput = ({
                     width={500}
                     error={error}
                     showLabel={label}
-                    background={'white'}
+                    background="white"
                     ref={() => current_input}
                     type={is_password_visible ? 'text' : props.type}
                 />

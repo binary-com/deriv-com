@@ -4,7 +4,6 @@ import WizardFooter from './wizard-footer'
 import WizardHeader from './wizard-header'
 import Stepper from './stepper'
 import { WizardComponentsProps } from 'pages/signup-affiliates/_types'
-import { useDebouncedEffect } from 'components/hooks/use-debounced-effect'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import device from 'themes/device'
 
@@ -67,16 +66,11 @@ const WizardComponent = ({
     next_btn_enabled,
     setNextBtnEnabled,
 }: WizardComponentsProps) => {
+    const is_rtl = useIsRtl()
+
     useEffect(() => {
         setNextBtnEnabled(next_btn_enabled)
     }, [next_btn_enabled])
-    const is_rtl = useIsRtl()
-
-    useDebouncedEffect(
-        () => (document.body.style.overflow = show_wizard ? 'hidden' : 'unset'),
-        [show_wizard],
-        1,
-    )
 
     if (!show_wizard) return <></>
     return (

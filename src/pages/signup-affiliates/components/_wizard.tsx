@@ -34,8 +34,9 @@ const Wizard = ({
 }: WizardProps) => {
     const [step, setStep] = useState(1)
     const [next_btn_enabled, setNextBtnEnabled] = useState<boolean>(false)
-    const restricted_countries = ['Iran', 'North Korea', 'Myanmar (Burma)', 'Syria', 'Cuba']
-    const [residence_list] = useResidenceList({ restricted_countries })
+    const [residence_list] = useResidenceList({
+        restricted_countries: ['Iran', 'North Korea', 'Myanmar (Burma)', 'Syria', 'Cuba'],
+    })
 
     const is_individual = affiliate_account?.account_type == 1
 
@@ -130,8 +131,8 @@ const Wizard = ({
                 updateData={(value) => {
                     updateAffiliateValues(value, 'account-type')
                 }}
-                onValidate={(valid) => {
-                    setNextBtnEnabled(valid)
+                onValidate={(is_valid) => {
+                    setNextBtnEnabled(is_valid)
                 }}
             />
             <AccountPlan
@@ -139,8 +140,8 @@ const Wizard = ({
                 updateData={(value) => {
                     updateAffiliateValues(value, 'account-plan')
                 }}
-                onValidate={(valid) => {
-                    setNextBtnEnabled(valid)
+                onValidate={(is_valid) => {
+                    setNextBtnEnabled(is_valid)
                 }}
             />
             <AccountAddress
@@ -149,8 +150,8 @@ const Wizard = ({
                 updateData={(value) => {
                     updateAffiliateValues(value, 'account-details')
                 }}
-                onValidate={(valid) => {
-                    setNextBtnEnabled(valid)
+                onValidate={(is_valid) => {
+                    setNextBtnEnabled(is_valid)
                 }}
                 residence_list={residence_list}
             />
@@ -160,8 +161,8 @@ const Wizard = ({
                 updateData={(value) => {
                     updateAffiliateValues(value, 'personal-details')
                 }}
-                onValidate={(valid) => {
-                    setNextBtnEnabled(valid)
+                onValidate={(is_valid) => {
+                    setNextBtnEnabled(is_valid)
                 }}
             />
             <AccountTerms
@@ -169,8 +170,8 @@ const Wizard = ({
                 updateData={(value) => {
                     updateAffiliateValues(value, 'terms-of-use')
                 }}
-                onValidate={(valid) => {
-                    setNextBtnEnabled(valid)
+                onValidate={(is_valid) => {
+                    setNextBtnEnabled(is_valid)
                 }}
             />
         </WizardComponent>

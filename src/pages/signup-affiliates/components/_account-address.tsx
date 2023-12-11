@@ -42,7 +42,7 @@ const AccountAddress = ({
         })
     }, [country, state, street, city, postal_code])
 
-    const validate =
+    const is_valid =
         country?.name &&
         state?.name &&
         city &&
@@ -55,8 +55,8 @@ const AccountAddress = ({
         !postcode_error_msg
 
     useEffect(() => {
-        onValidate(validate)
-    }, [onValidate, validate])
+        onValidate(is_valid)
+    }, [onValidate, is_valid])
 
     const handleCountry = (changed_country) => {
         if (country?.name && state?.name && changed_country !== country) {

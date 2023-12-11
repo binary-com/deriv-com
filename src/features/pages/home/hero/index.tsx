@@ -6,14 +6,14 @@ import { StaticImage } from 'gatsby-plugin-image'
 import {
     hero_container,
     hero_content,
-    hero_content_award_img,
     hero_content_gradient,
     hero_img,
     hero_content_text,
     hero_content_btn,
 } from './styles.module.scss'
+import HeroAwardImages from './award-images'
 import FloatingCta from './floating-cta'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
 
@@ -80,34 +80,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                             colorStyle="coral"
                         />
                     </div>
-                    <div
-                        className={clsx(
-                            'flex mt-general-2xl pb-general-xl',
-                            hero_content_award_img,
-                        )}
-                    >
-                        <StaticImage
-                            src="../../../../images/migration/home/award-1.png"
-                            alt={localize('_t_Best forex spreads APAC 2023 by UF Awards_t_')}
-                            width={132}
-                            height={68}
-                            placeholder="none"
-                        />
-                        <StaticImage
-                            src="../../../../images/migration/home/award-2.png"
-                            alt={localize('_t_Broker of the year 2023 by FinanceFeeds_t_')}
-                            width={132}
-                            height={68}
-                            placeholder="none"
-                        />
-                        <StaticImage
-                            src="../../../../images/migration/home/award-3.png"
-                            alt={localize('_t_Most trusted broker APAC 2023 by UF Awards_t_')}
-                            width={132}
-                            height={68}
-                            placeholder="none"
-                        />
-                    </div>
+                    {!is_eu && <HeroAwardImages />}
                     <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img)}>
                         {is_eu ? (
                             <StaticImage

@@ -33,7 +33,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
     })
 
     useEffect(() => {
-        if (width < 768) {
+        if (width < 601) {
             const targetHeight = entry?.boundingClientRect?.height
             const intersectionHeight = entry?.intersectionRect?.height
             const percentage = (intersectionHeight / targetHeight) * 100

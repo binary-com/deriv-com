@@ -1,14 +1,14 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { CardContent } from '@deriv-com/components'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 
 export const RowCards: CardContent[] = [
     {
         id: 1,
-        header: localize('_t_1. Sign up & explore_t_'),
-        description: localize(
-            '_t_Sign up in minutes and explore Trader’s Hub - all your trading needs, in one place._t_',
+        header: <Localize translate_text="_t_1. Sign up & explore_t_" />,
+        description: (
+            <Localize translate_text="_t_Sign up in minutes and explore Trader’s Hub - all your trading needs, in one place._t_" />
         ),
         content: (
             <StaticImage
@@ -26,11 +26,10 @@ export const RowCards: CardContent[] = [
     },
     {
         id: 2,
-        header: localize('_t_2. Try with zero-risk_t_'),
-        description: localize(
-            '_t_Try any trade, on any platform with a zero-risk, demo trading account._t_',
+        header: <Localize translate_text="_t_2. Try with zero-risk_t_" />,
+        description: (
+            <Localize translate_text="_t_Try any trade, on any platform with a zero-risk, demo trading account._t_" />
         ),
-
         content: (
             <StaticImage
                 src="../../../../images/migration/home/steps2.png"
@@ -47,9 +46,9 @@ export const RowCards: CardContent[] = [
     },
     {
         id: 3,
-        header: localize('_t_3. Trade with confidence_t_'),
-        description: localize(
-            '_t_Sign up in minutes and explore Trader’s Hub - all your trading needs, in one place._t_',
+        header: <Localize translate_text="_t_3. Trade with confidence_t_" />,
+        description: (
+            <Localize translate_text="_t_Sign up in minutes and explore Trader’s Hub - all your trading needs, in one place._t_" />
         ),
         content: (
             <StaticImage
@@ -70,9 +69,9 @@ export const RowCards: CardContent[] = [
 export const EUCards: CardContent[] = [
     {
         id: 1,
-        header: localize('_t_1.Sign up & explore_t_'),
-        description: localize(
-            '_t_Sign up in minutes and explore Trader’s Hub - all your trading needs, in one place._t_',
+        header: <Localize translate_text="_t_1.Sign up & explore_t_" />,
+        description: (
+            <Localize translate_text="_t_Sign up in minutes and explore Trader’s Hub - all your trading needs, in one place._t_" />
         ),
         content: (
             <StaticImage
@@ -85,17 +84,15 @@ export const EUCards: CardContent[] = [
         color: 'gray',
         align: 'center',
         size: 'sm',
-
         contentClassName: 'flex justify-center',
         nonContentClassName: 'p-general-2xl',
     },
     {
         id: 2,
-        header: localize('_t_2.Try with zero-risk_t_'),
-        description: localize(
-            '_t_Try any trade, on any platform with a zero-risk, demo trading account._t_',
+        header: <Localize translate_text="_t_2.Try with zero-risk_t_" />,
+        description: (
+            <Localize translate_text="_t_Try any trade, on any platform with a zero-risk, demo trading account._t_" />
         ),
-
         content: (
             <StaticImage
                 src="../../../../images/migration/home/steps2_eu.png"
@@ -107,17 +104,15 @@ export const EUCards: CardContent[] = [
         color: 'gray',
         align: 'center',
         size: 'sm',
-
         contentClassName: 'flex justify-center',
         nonContentClassName: 'p-general-2xl',
     },
     {
         id: 3,
-        header: localize('_t_3.Trade with confidence_t_'),
-        description: localize(
-            '_t_Fund your account and start trading with round-the-clock support._t_',
+        header: <Localize translate_text="_t_3.Trade with confidence_t_" />,
+        description: (
+            <Localize translate_text="_t_Fund your account and start trading with round-the-clock support._t_" />
         ),
-
         content: (
             <StaticImage
                 src="../../../../images/migration/home/steps3_eu.png"
@@ -129,7 +124,6 @@ export const EUCards: CardContent[] = [
         color: 'gray',
         align: 'center',
         size: 'sm',
-
         contentClassName: 'flex justify-center',
         nonContentClassName: 'p-general-2xl',
     },

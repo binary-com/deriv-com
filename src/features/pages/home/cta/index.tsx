@@ -2,7 +2,7 @@ import React from 'react'
 import { Footer } from '@deriv-com/blocks'
 import { Heading, Button } from '@deriv/quill-design'
 import { StaticImage } from 'gatsby-plugin-image'
-import { localize } from 'components/localization'
+import { Localize, localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 
 const RowImage = (
@@ -35,7 +35,7 @@ const CTA = () => {
         <Footer.CTABlock padding image={is_eu ? EUImage : RowImage}>
             <div className="flex h-full flex-col items-start justify-center gap-gap-3xl max-w-[328px] lg:max-w-none">
                 <Heading.H2 className="text-solid-slate-50">
-                    Join over 2.5 million online traders
+                    <Localize translate_text="_t_Join over 2.5 million online traders_t_" />
                 </Heading.H2>
                 <Button size="lg" className="hidden lg:block">
                     Create demo account

@@ -7,14 +7,14 @@ import {
     LightTwentyFourSevenSupportIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Illustration'
-import { localize } from 'components/localization'
+import { Localize } from 'components/localization'
 
 export const cards: CardContent[] = [
     {
         id: 1,
-        header: localize('_t_Dependable_t_'),
-        description: localize(
-            '_t_Cutting-edge technology with 99.97% uptime for uninterrupted trading._t_',
+        header: <Localize translate_text="_t_Dependable_t_" />,
+        description: (
+            <Localize translate_text="_t_Cutting-edge technology with 99.97% uptime for uninterrupted trading._t_" />
         ),
         size: 'sm',
         color: 'light',
@@ -23,9 +23,9 @@ export const cards: CardContent[] = [
     },
     {
         id: 2,
-        header: localize('_t_Safe & Secure_t_'),
-        description: localize(
-            '_t_Your personal data is private, and your funds are safely segregated._t_',
+        header: <Localize translate_text="_t_Safe & Secure_t_" />,
+        description: (
+            <Localize translate_text="_t_Your personal data is private, and your funds are safely segregated._t_" />
         ),
         size: 'sm',
         color: 'light',
@@ -34,9 +34,9 @@ export const cards: CardContent[] = [
     },
     {
         id: 3,
-        header: localize('_t_Regulated_t_'),
-        description: localize(
-            '_t_We’re regulated and licensed by global financial authorities._t_',
+        header: <Localize translate_text="_t_Regulated_t_" />,
+        description: (
+            <Localize translate_text="_t_We’re regulated and licensed by global financial authorities._t_" />
         ),
         size: 'sm',
         color: 'light',
@@ -45,8 +45,10 @@ export const cards: CardContent[] = [
     },
     {
         id: 4,
-        header: localize('_t_24/7 support_t_'),
-        description: localize('_t_Our professional multilingual team is here for you anytime._t_'),
+        header: <Localize translate_text="_t_24/7 support_t_" />,
+        description: (
+            <Localize translate_text="_t_Our professional multilingual team is here for you anytime._t_" />
+        ),
         size: 'sm',
         color: 'light',
         align: 'center',

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import { Button, FluidContainer, Heading, Section, Text } from '@deriv/quill-design'
+import { FluidContainer, Heading, Section, Text } from '@deriv/quill-design'
 import clsx from 'clsx'
 import { StaticImage } from 'gatsby-plugin-image'
 import {
@@ -11,9 +11,9 @@ import {
     hero_img,
     hero_content_text,
 } from './styles.module.scss'
+import HeroCtaButton from './cta-button'
 import { Localize, localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
-
 export interface HomeHeroProps {
     children?: ReactNode
     className?: string
@@ -53,14 +53,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                     >
                         <Localize translate_text="_t_Trade CFDs and Options on 1500+ instruments, all in one place with 24/7 trading and 24/7 worldwide support._t_" />
                     </Text>
-                    <Button
-                        size="lg"
-                        variant="primary"
-                        colorStyle="coral"
-                        className={clsx('mt-general-2xl', hero_content_btn)}
-                    >
-                        <Localize translate_text="_t_Open demo account_t_" />
-                    </Button>
+                    <HeroCtaButton />
                 </div>
                 <div className={clsx('flex mt-general-2xl pb-general-xl', hero_content_award_img)}>
                     <StaticImage

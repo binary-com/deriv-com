@@ -1,9 +1,11 @@
 import React from 'react'
 import { SocialProof } from '@deriv-com/blocks'
 import { StaticImage } from 'gatsby-plugin-image'
+import { truspilotData } from '../../../../data/trustpilot'
 import { Localize } from 'components/localization'
 
 const TrustpilotSection = () => {
+    const { numberOfReviews, trustScore, stars } = truspilotData
     return (
         <SocialProof.Horizontal
             content={({ numberOfReviews, trustScore }) => [
@@ -21,9 +23,9 @@ const TrustpilotSection = () => {
             }}
             //TODO: We will remove this static data once the data fetching is finalized.
             staticData={{
-                trustScore: 4.6,
-                numberOfReviews: '37,133',
-                stars: 4.6,
+                trustScore,
+                numberOfReviews,
+                stars,
             }}
             logo={
                 <StaticImage

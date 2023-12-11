@@ -10,7 +10,6 @@ import AccountDetails from './_account-details'
 import WizardComponent from './wizard-component'
 import { useResidenceList } from 'features/hooks/use-residence-list'
 import { Container } from 'components/containers'
-import { isBrowser } from 'common/utility'
 
 export const SignUpWrapper = styled(Container)`
     display: flex;
@@ -40,21 +39,16 @@ const Wizard = ({
 
     const is_individual = affiliate_account?.account_type == 1
 
-    const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
-        form_source: isBrowser() && window?.location.hostname,
-        form_name: 'default_diel_deriv',
-    }
-
     useEffect(() => {
         show_wizard &&
             Analytics?.trackEvent('ce_partner_account_signup_form', {
                 action: 'open_wizard',
-                ...analyticsData,
+                form_name: 'ce_partner_account_signup_form',
             })
         return () => {
             Analytics?.trackEvent('ce_partner_account_signup_form', {
                 action: 'close_wizard',
-                ...analyticsData,
+                form_name: 'ce_partner_account_signup_form',
             })
         }
     }, [show_wizard])

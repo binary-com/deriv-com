@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
 import affiliate_validation from '../validations/_affilaite_validation'
 import AffiliateInput from '../utils/_affiliate-input'
@@ -98,11 +98,15 @@ const AffiliateSignupForm = ({
     language = language !== 'en' ? '/' + language : ''
     const email = localize('_t_Email_t_')
 
-    const handleInput = (e) => {
-        const { value } = e.target
-        setAffiliateAccount({ ...affiliate_account, email: value })
-        setEmailErrorMsg(affiliate_validation.email(value))
-    }
+    const handleStateChange = useCallback(
+        ({ e, field }: { e?: React.ChangeEvent<HTMLInputElement>; field: string }) => {
+            e?.preventDefault()
+            const value = e?.target?.value ?? ''
+            setAffiliateAccount({ ...affiliate_account, [field]: value })
+            setEmailErrorMsg(affiliate_validation.email(value))
+        },
+        [],
+    )
 
     return (
         <>
@@ -158,9 +162,8 @@ const AffiliateSignupForm = ({
                         value={affiliate_account.email}
                         label={email}
                         placeholder={email}
-                        onBlur={handleInput}
-                        onChange={handleInput}
-                        handleError={() => setAffiliateAccount({ ...affiliate_account, email: '' })}
+                        onChange={(e) => handleStateChange({ e, field: 'email' })}
+                        handleError={() => handleStateChange({ field: 'email' })}
                     />
                 </InputGroup>
                 <EmailButton

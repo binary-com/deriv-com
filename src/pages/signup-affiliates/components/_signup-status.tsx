@@ -109,22 +109,48 @@ const AffiliateSignupStatus = ({
     const [website_url_error, setWebsiteUrlError] = useState<string>()
     const is_rtl = useIsRtl()
 
-    const interAction = useCallback(({ action }: Parameters<typeof Analytics.trackEvent>[1]) => {
+    const user_name = localize('_t_User name_t_')
+    const web_site = localize('_t_Website url_t_')
+
+    const trackEvent = useCallback(({ action }: Parameters<typeof Analytics.trackEvent>[1]) => {
         Analytics?.trackEvent('ce_partner_account_signup_form', {
             action,
             form_name: 'ce_partner_account_signup_form',
         })
-        if (action === 'success_popup_cta' || action === 'close_wizard') {
-            window.location.href = 'https://deriv.com/partners/'
-        } else if (action === 'try_submit') {
-            setSignupStatus('loading')
-            onSubmit()
-        } else if (action === 'failed_popup_cta') {
-            setSignupStatus('')
-        }
     }, [])
-    const user_name = localize('_t_User name_t_')
-    const web_site = localize('_t_Website url_t_')
+
+    const handleStateChange = useCallback(
+        ({ e, field }: { e?: React.ChangeEvent<HTMLInputElement>; field: string }) => {
+            e?.preventDefault()
+            const value = e?.target?.value ?? ''
+            setAffiliateAccount({
+                ...affiliate_account,
+                personal_details: {
+                    ...affiliate_account.personal_details,
+                    [field]: value,
+                },
+            })
+            field === 'username' && setUsernameError(affiliate_validation.username(value))
+            field === 'website_url' && setWebsiteUrlError(affiliate_validation.website_url(value))
+        },
+        [],
+    )
+
+    const handleSuccess = useCallback((action: 'close_wizard' | 'success_popup_cta') => {
+        trackEvent({ action })
+        window.location.href = 'https://deriv.com/partners/'
+    }, [])
+
+    const handleIssue = useCallback(() => {
+        trackEvent({ action: 'failed_popup_cta' })
+        setSignupStatus('')
+    }, [])
+
+    const handleTryAgain = useCallback(() => {
+        trackEvent({ action: 'try_submit' })
+        setSignupStatus('loading')
+        onSubmit()
+    }, [])
 
     return (
         <>
@@ -135,13 +161,10 @@ const AffiliateSignupStatus = ({
                         <Header type="subtitle-1" align="center">
                             <Localize translate_text="_t_Thank you for signing up_t_" />
                         </Header>
-                        <Header type="paragraph-1" align="center" weight="400">
+                        <Header type="paragraph-1" align="center" weight="normal">
                             <Localize translate_text="_t_Your application has been received. We’re processing your application. You can expect to hear back from us within 3 to 5 business days._t_" />
                         </Header>
-                        <StyledButton
-                            secondary
-                            onClick={() => interAction({ action: 'success_popup_cta' })}
-                        >
+                        <StyledButton secondary onClick={() => handleSuccess('success_popup_cta')}>
                             <Localize translate_text="_t_Got it_t_" />
                         </StyledButton>
                     </Modal>
@@ -158,7 +181,7 @@ const AffiliateSignupStatus = ({
                                 }
                             />
                         </Header>
-                        <Header type="paragraph-1" align="left" weight="400">
+                        <Header type="paragraph-1" align="left" weight="normal">
                             <Localize
                                 translate_text="_t_If you hit <0>Yes</0>, the details you entered will be lost, and you’ll need to restart the registration process._t_"
                                 components={[<strong key={0} />]}
@@ -168,7 +191,7 @@ const AffiliateSignupStatus = ({
                             <StyledButton
                                 tertiary
                                 mr="8px"
-                                onClick={() => interAction({ action: 'close_wizard' })}
+                                onClick={() => handleSuccess('close_wizard')}
                             >
                                 <Localize translate_text="_t_Yes_t_" />
                             </StyledButton>
@@ -183,10 +206,7 @@ const AffiliateSignupStatus = ({
             {signup_status == 'loading' && (
                 <ProgressModal>
                     <Modal is_rtl={is_rtl}>
-                        <CloseButton
-                            src={CloseSVG}
-                            onClick={() => interAction({ action: 'failed_popup_cta' })}
-                        />
+                        <CloseButton src={CloseSVG} onClick={() => handleIssue()} />
                         <StyledSpinner viewBox="0 0 50 50">
                             <circle
                                 className="path"
@@ -208,13 +228,10 @@ const AffiliateSignupStatus = ({
                         <Header type="subtitle-1" align="center">
                             <Localize translate_text="_t_Signup failed_t_" />
                         </Header>
-                        <Header type="paragraph-1" align="center" weight="400">
+                        <Header type="paragraph-1" align="center" weight="normal">
                             <Localize translate_text="_t_We’re unable to process your sign-up request at this time. Please try again._t_" />
                         </Header>
-                        <StyledButton
-                            secondary
-                            onClick={() => interAction({ action: 'failed_popup_cta' })}
-                        >
+                        <StyledButton secondary onClick={() => handleIssue()}>
                             <Localize translate_text="_t_Try again_t_" />
                         </StyledButton>
                     </Modal>
@@ -228,40 +245,26 @@ const AffiliateSignupStatus = ({
                         <Header type="subtitle-1" align="center">
                             <Localize translate_text="_t_Signup failed_t_" />
                         </Header>
-                        <Header type="paragraph-1" align="center" weight="400" pt="8px" pb="12px">
+                        <Header
+                            type="paragraph-1"
+                            align="center"
+                            weight="normal"
+                            pt="8px"
+                            pb="12px"
+                        >
                             <Localize translate_text="_t_Username already exists. Please enter another:_t_" />
                         </Header>
                         <AffiliateInput
                             type="text"
-                            value={affiliate_account.personal_details.username}
-                            error={username_error}
                             label={user_name}
                             placeholder={user_name}
-                            onChange={(e) => {
-                                setUsernameError(affiliate_validation.username(e.target.value))
-                                setAffiliateAccount({
-                                    ...affiliate_account,
-                                    personal_details: {
-                                        ...affiliate_account.personal_details,
-                                        username: e.target.value,
-                                    },
-                                })
-                            }}
-                            handleError={() => {
-                                setAffiliateAccount({
-                                    ...affiliate_account,
-                                    personal_details: {
-                                        ...affiliate_account.personal_details,
-                                        username: '',
-                                    },
-                                })
-                            }}
+                            value={affiliate_account.personal_details.username}
+                            error={username_error}
+                            onChange={(e) => handleStateChange({ e, field: 'username' })}
+                            handleError={() => handleStateChange({ field: 'username' })}
                             required
                         />
-                        <StyledButton
-                            secondary
-                            onClick={() => interAction({ action: 'try_submit' })}
-                        >
+                        <StyledButton secondary onClick={() => handleTryAgain()}>
                             <Localize translate_text="_t_Change username_t_" />
                         </StyledButton>
                     </Modal>
@@ -275,40 +278,20 @@ const AffiliateSignupStatus = ({
                         <Header type="subtitle-1" align="center">
                             <Localize translate_text="_t_Signup failed_t_" />
                         </Header>
-                        <Header type="paragraph-1" align="center" weight="400">
+                        <Header type="paragraph-1" align="center" weight="normal">
                             <Localize translate_text="_t_Your website is not a valid entry. Please enter another:_t_" />
                         </Header>
                         <AffiliateInput
                             type="text"
-                            value={affiliate_account.personal_details.website_url}
-                            error={website_url_error}
                             label={web_site}
                             placeholder={web_site}
-                            onChange={(e) => {
-                                setWebsiteUrlError(affiliate_validation.website_url(e.target.value))
-                                setAffiliateAccount({
-                                    ...affiliate_account,
-                                    personal_details: {
-                                        ...affiliate_account.personal_details,
-                                        website_url: e.target.value,
-                                    },
-                                })
-                            }}
-                            handleError={() => {
-                                setAffiliateAccount({
-                                    ...affiliate_account,
-                                    personal_details: {
-                                        ...affiliate_account.personal_details,
-                                        website_url: '',
-                                    },
-                                })
-                            }}
+                            value={affiliate_account.personal_details.website_url}
+                            error={website_url_error}
+                            onChange={(e) => handleStateChange({ e, field: 'website_url' })}
+                            handleError={() => handleStateChange({ field: 'website_url' })}
                             required
                         />
-                        <StyledButton
-                            secondary
-                            onClick={() => interAction({ action: 'try_submit' })}
-                        >
+                        <StyledButton secondary onClick={() => handleTryAgain()}>
                             <Localize translate_text="_t_Change website url_t_" />
                         </StyledButton>
                     </Modal>

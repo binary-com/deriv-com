@@ -5,21 +5,23 @@ import { Text } from '@deriv/quill-design'
 import { StandaloneChevronRightRegularIcon } from '@deriv/quill-icons'
 import LiveMarketProvider from './data-provider'
 import LiveMarketCard from './cards'
-import { Localize, localize } from 'components/localization'
+import { Localize } from 'components/localization'
 
 const LiveMarketSection = () => {
     return (
         <LiveMarketProvider>
             <LiveMarketBlock.Tab
                 className="bg-background-primary-base"
-                header={localize('_t_Top trading assets & unique market indices_t_')}
+                header={
+                    <Localize translate_text="_t_Top trading assets & unique market indices_t_" />
+                }
                 tabs={[
-                    { children: 'Forex' },
-                    { children: 'Derived indices' },
-                    { children: 'ETFs' },
-                    { children: 'Stocks & indices' },
-                    { children: 'Cryptocurrencies' },
-                    { children: 'Commodities' },
+                    { children: <Localize translate_text="_t_Forex_t_" /> },
+                    { children: <Localize translate_text="_t_Derived indices_t_" /> },
+                    { children: <Localize translate_text="_t_ETFs_t_" /> },
+                    { children: <Localize translate_text="_t_Stocks & indices_t_" /> },
+                    { children: <Localize translate_text="_t_Cryptocurrencies_t_" /> },
+                    { children: <Localize translate_text="_t_Commodities_t_" /> },
                 ]}
             >
                 <LiveMarketCard market="fx">

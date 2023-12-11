@@ -168,7 +168,6 @@ const AffiliateSignup = () => {
             promote_eu: false,
         },
     })
-    console.log(affiliate_account?.email)
 
     const {
         data: affiliate_api_data,

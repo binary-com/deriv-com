@@ -533,17 +533,8 @@ export const mainEuNavItems: NavLinkItems = {
                             <Localize translate_text="_t_The most popular and comprehensive CFDs platform._t_" />
                         ),
                     },
-                ],
-            },
-            {
-                id: 2,
-                header: {
-                    text: null,
-                    type: 'text',
-                },
-                items: [
                     {
-                        id: 0,
+                        id: 1,
                         href: '/dtrader',
                         text: <Localize translate_text="_t_Deriv Trader_t_" />,
                         type: 'direct',

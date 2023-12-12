@@ -6,14 +6,6 @@ import AffiliateInput from '../utils/_affiliate-input'
 import AffiliatesHeader, { InputGroup, InputWrapper } from '../utils/_affiliate-header'
 import { localize } from 'components/localization'
 
-// prevent these characters from the input type='number' tag
-const input_id = document.getElementById('company_registration_number')
-input_id?.addEventListener('keydown', function (e) {
-    if (['.', ',', '-', '+', 'e'].includes(e.key)) {
-        e.preventDefault()
-    }
-})
-
 const AccountDetails = ({
     is_individual,
     affiliate_account,
@@ -27,7 +19,7 @@ const AccountDetails = ({
         last_name_error_msg: '',
         phone_error_msg: '',
         company_name_error_msg: '',
-        company_registration_error_msg: '',
+        company_registration_number_error_msg: '',
         website_url_error_msg: '',
         second_website_url_error_msg: '',
         password_error_msg: '',
@@ -77,9 +69,9 @@ const AccountDetails = ({
         {
             id: 'dm-company_registration_number',
             name: 'company_registration_number',
-            type: 'number',
+            type: 'text',
             label: localize('_t_Company registration number*_t_'),
-            error: form_errors.company_registration_error_msg,
+            error: form_errors.company_registration_number_error_msg,
             value: form_data.company_registration_number,
         },
         {
@@ -125,7 +117,7 @@ const AccountDetails = ({
           form_data.first_name &&
           form_data.last_name &&
           form_data.date_birth &&
-          form_data.phone &&
+          form_data.phone.length > 4 &&
           form_data.password &&
           !form_errors.first_name_error_msg &&
           !form_errors.last_name_error_msg &&
@@ -134,7 +126,7 @@ const AccountDetails = ({
         : form_data.first_name &&
           form_data.last_name &&
           form_data.date_birth &&
-          form_data.phone &&
+          form_data.phone.length > 4 &&
           form_data.password &&
           form_data.company_name &&
           form_data.company_registration_number &&
@@ -143,7 +135,7 @@ const AccountDetails = ({
           !form_errors.phone_error_msg &&
           !form_errors.password_error_msg &&
           !form_errors.company_name_error_msg &&
-          !form_errors.company_registration_error_msg
+          !form_errors.company_registration_number_error_msg
 
     useEffect(() => {
         updateData({ ...form_data })
@@ -170,19 +162,19 @@ const AccountDetails = ({
 
         if (affiliate_validation[name]) {
             const error_msg = affiliate_validation[name](value)
-            setFormErrors({
-                ...form_errors,
+            setFormErrors((errors) => ({
+                ...errors,
                 [`${name}_error_msg`]: error_msg,
-            })
+            }))
         }
     }, [])
 
     const handleError = useCallback((item) => {
         setFormData((prev) => ({ ...prev, [item.name]: '' }))
-        setFormErrors({
-            ...form_errors,
+        setFormErrors((errors) => ({
+            ...errors,
             [`${item.name}_error_msg`]: '',
-        })
+        }))
     }, [])
 
     return (
@@ -230,7 +222,6 @@ const AccountDetails = ({
                                 label={item.label}
                                 value={item.value}
                                 error={item.error}
-                                required={item.required}
                                 placeholder={item.label}
                                 password_icon={item.type == 'password'}
                                 onChange={handleInput}

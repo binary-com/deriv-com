@@ -33,10 +33,10 @@ const Wizard = ({
 
     const updateAffiliateValues = useCallback(
         <T extends keyof AffiliateAccountTypes>(value: AffiliateAccountTypes[T], type: T): void => {
-            setAffiliateAccount({
-                ...affiliate_account,
+            setAffiliateAccount((prev) => ({
+                ...prev,
                 [type]: value,
-            })
+            }))
         },
         [step],
     )

@@ -98,6 +98,9 @@ const CloseButton = styled.img`
     }
 `
 
+const user_name = localize('_t_User name_t_')
+const web_site = localize('_t_Website url_t_')
+
 const AffiliateSignupStatus = ({
     signup_status,
     setSignupStatus,
@@ -108,9 +111,6 @@ const AffiliateSignupStatus = ({
     const [username_error, setUsernameError] = useState<string>()
     const [website_url_error, setWebsiteUrlError] = useState<string>()
     const is_rtl = useIsRtl()
-
-    const user_name = localize('_t_User name_t_')
-    const web_site = localize('_t_Website url_t_')
 
     const handleStateChange = useCallback(
         ({ e, field }: { e?: React.ChangeEvent<HTMLInputElement>; field: string }) => {
@@ -199,7 +199,7 @@ const AffiliateSignupStatus = ({
             {signup_status == 'loading' && (
                 <ProgressModal>
                     <Modal is_rtl={is_rtl}>
-                        <CloseButton src={CloseSVG} onClick={() => handleIssue()} />
+                        <CloseButton src={CloseSVG} onClick={handleIssue} />
                         <StyledSpinner viewBox="0 0 50 50">
                             <circle
                                 className="path"
@@ -224,7 +224,7 @@ const AffiliateSignupStatus = ({
                         <Header type="paragraph-1" align="center" weight="normal">
                             <Localize translate_text="_t_We’re unable to process your sign-up request at this time. Please try again._t_" />
                         </Header>
-                        <StyledButton secondary onClick={() => handleIssue()}>
+                        <StyledButton secondary onClick={handleIssue}>
                             <Localize translate_text="_t_Try again_t_" />
                         </StyledButton>
                     </Modal>
@@ -257,7 +257,7 @@ const AffiliateSignupStatus = ({
                             handleError={() => handleStateChange({ field: 'username' })}
                             required
                         />
-                        <StyledButton secondary onClick={() => handleTryAgain()}>
+                        <StyledButton secondary onClick={handleTryAgain}>
                             <Localize translate_text="_t_Change username_t_" />
                         </StyledButton>
                     </Modal>
@@ -284,7 +284,7 @@ const AffiliateSignupStatus = ({
                             handleError={() => handleStateChange({ field: 'website_url' })}
                             required
                         />
-                        <StyledButton secondary onClick={() => handleTryAgain()}>
+                        <StyledButton secondary onClick={handleTryAgain}>
                             <Localize translate_text="_t_Change website url_t_" />
                         </StyledButton>
                     </Modal>

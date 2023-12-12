@@ -127,19 +127,19 @@ const AccountAddress = ({
 
         if (affiliate_validation[name]) {
             const error_msg = affiliate_validation[name](value)
-            setFormErrors({
-                ...form_errors,
+            setFormErrors((errors) => ({
+                ...errors,
                 [`${name}_error_msg`]: error_msg,
-            })
+            }))
         }
     }, [])
 
     const handleError = useCallback((item) => {
         setFormData((prev) => ({ ...prev, [item.name]: '' }))
-        setFormErrors({
-            ...form_errors,
+        setFormErrors((errors) => ({
+            ...errors,
             [`${item.name}_error_msg`]: '',
-        })
+        }))
     }, [])
 
     return (

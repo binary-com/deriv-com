@@ -10,8 +10,9 @@ export const affiliate_validation_regex = {
     password: /^(?=.*[A-Z])[A-Za-z0-9]+$/,
     address: /^[a-zA-Z 0-9/_.,-]*$/,
     postal_code: /^[a-zA-Z 0-9_.-]{5,10}$/,
+    company_registration_number: /^[a-zA-Z0-9]{2,20}$/,
     url: /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/,
-    non_empty_string: /^\S+.*$/,
+    non_empty_string: /^\S.*$/,
 }
 
 const validation_is_exceed_number = (input, max_digit) => {
@@ -110,15 +111,10 @@ const postcodeValidation = (input, min_digit, max_digit) => {
         return localize('_t_Empty input not available_t_')
     }
 }
-const registrationNumberValidation = (input, min_digit, max_digit) => {
+const registrationNumberValidation = (input) => {
     if (!input) {
         return localize('_t_Company registration number is required_t_')
-    } else if (
-        !validation_is_exceed_number(input, max_digit) ||
-        !validation_is_lack_number(input, min_digit)
-    ) {
-        return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
-    } else if (!affiliate_validation_regex.postal_code.test(input)) {
+    } else if (!affiliate_validation_regex.company_registration_number.test(input)) {
         return localize(`_t_Please enter a valid company registration number._t_`)
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
         return localize('_t_Empty input not available_t_')
@@ -184,7 +180,7 @@ const affiliate_validation = {
         return companyNameValidation(input, 2, 70)
     },
     company_registration_number: (input) => {
-        return registrationNumberValidation(input, 2, 20)
+        return registrationNumberValidation(input)
     },
     website_url: (input) => {
         return urlValidation(input)

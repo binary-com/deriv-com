@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import MainRowNavigation from '../navigation-new/main-nav'
+import MainRowNavigation from '../navigation/main-nav'
 import Layout from 'features/components/templates/layout'
 import { start_trading_data, why_trade_options_data } from './data'
 import Footer from 'features/components/templates/footer'

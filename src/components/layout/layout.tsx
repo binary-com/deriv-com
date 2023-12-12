@@ -12,11 +12,10 @@ import StaticNav from 'features/components/templates/navigation/static-nav'
 import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
 import BugBountyNav from 'features/components/templates/navigation/bug-bounty-nav'
 import CareerNav from 'features/components/templates/navigation/career-nav'
-import MarketNav from 'features/components/templates/navigation/market-nav'
 import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
 import BannerAlert from 'components/custom/_banner-alert'
 import { bannerTypes } from 'common/constants'
-import MainRowNavigation from 'features/components/templates/navigation-new/main-nav'
+import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 
 const RebrandingFooter = loadable(() => import('features/components/templates/footer'))
 
@@ -65,7 +64,7 @@ const Navs = {
 
     partners: <PaymentAgentAffiliateNav />,
 
-    markets: <MarketNav />,
+    markets: <MainRowNavigation />,
 
     security: <BugBountyNav />,
 

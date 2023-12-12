@@ -13,7 +13,7 @@ import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection
 import useRegion from 'components/hooks/use-region'
 import InitialLoader from 'components/elements/dot-loader'
 import PageNotFound from 'features/pages/404'
-import MainRowNavigation from 'features/components/templates/navigation-new/main-nav'
+import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 
 const Footer = loadable(() => import('features/components/templates/footer'))
 

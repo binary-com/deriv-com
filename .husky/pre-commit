@@ -2,5 +2,7 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npm run pre-commit-translate
+npm run pre-commit-trustpilot
 npm run pre-commit-lint
+
 

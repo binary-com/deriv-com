@@ -11,7 +11,7 @@ export const affiliate_validation_regex = {
     address: /^[a-zA-Z 0-9/_.,-]*$/,
     postal_code: /^[a-zA-Z 0-9_.-]{5,10}$/,
     url: /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/,
-    non_empty_string: /^[^ ]+ *.*$/,
+    non_empty_string: /^\S+.*$/,
 }
 
 const validation_is_exceed_number = (input, max_digit) => {

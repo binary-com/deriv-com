@@ -1,8 +1,14 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import {
+    AccountAddress,
+    AccountDetails,
+    AccountPlan,
+    AccountTerms,
+    AccountType,
+} from '../_lazy-loading'
 import { AffiliateAccountTypes, WizardProps } from '../_types'
 import trackEvent from '../utils/_tracking'
 import WizardComponent from './wizard-component'
-import { AccountAddress, AccountDetails, AccountPlan, AccountTerms, AccountType } from './index'
 import { useResidenceList } from 'features/hooks/use-residence-list'
 
 const Wizard = ({

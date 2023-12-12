@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Analytics } from '@deriv/analytics'
 import trackEvent from './utils/_tracking'
 import { AffiliateAccountTypes, SignUpStatusTypes, SubmitTypes } from './_types'
-import { AffiliateSignupForm, AffiliateSignupStatus, Wizard } from './components'
+import { AffiliateSignupForm, AffiliateSignupStatus, Wizard } from './_lazy-loading'
 import { isBrowser } from 'common/utility'
 import { WithIntl } from 'components/localization'
 import { Container, SEO, TMetaAttributes } from 'components/containers'
@@ -141,7 +141,6 @@ const AffiliateSignup = () => {
             promote_eu: false,
         },
     })
-    console.log(affiliate_account)
 
     const {
         data: affiliate_api_data,

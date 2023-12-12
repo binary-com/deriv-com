@@ -135,7 +135,6 @@ const AccountAddress = ({
     }, [])
 
     const handleError = useCallback((item) => {
-        console.log(item)
         setFormData((prev) => ({ ...prev, [item.name]: '' }))
         setFormErrors({
             ...form_errors,

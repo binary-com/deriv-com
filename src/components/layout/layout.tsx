@@ -21,6 +21,7 @@ import { useLangDirection } from 'components/hooks/use-lang-direction'
 import { LocaleContext } from 'components/localization'
 import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
 import { langItemsROW } from 'features/components/templates/layout/data'
+import PartnersNav from 'features/components/templates/navigation/partners-nav'
 
 const RebrandingFooter = loadable(() => import('features/components/templates/footer'))
 
@@ -67,7 +68,7 @@ const Navs = {
     static: <StaticNav />,
     interim: <StaticNav />,
 
-    partners: <PaymentAgentAffiliateNav />,
+    partners: <PartnersNav />,
 
     markets: <MainRowNavigation />,
 

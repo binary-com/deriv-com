@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-display: swap;
+    src: 
+        url('/fonts/IBMPlexSansVar-Roman.woff2') format('woff2'),
+        url('/fonts/IBMPlexSans-Bold.woff2') format('woff2');
+    font-weight: 100 700;
+}
+
+@font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-display: swap;
+    src: url('/fonts/IBMPlexSans-Bold.woff2') format('woff2');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'IBM Plex Sans';
+    font-style: italic;
+    font-display: swap;
+	src:url('/fonts/IBMPlexSansVar-Italic.woff2') format('woff2 supports variations'),
+        url('/fonts/IBMPlexSansVar-Italic.woff2') format('woff2-variations');
+	font-weight: 100 700;
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-display: swap;
+	src:url('/fonts/NotoSansArabic-Regular.ttf') format('truetype');
+	font-weight: 100 700;
+}
+
+@font-face {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-display: swap;
+	src:url('/fonts/NotoSansArabic-Bold.ttf') format('truetype');
+	font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src:url('/fonts/Ubuntu-Regular.woff2') format('woff2');
+    font-display: swap;
+    font-weight: 100 400;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src:url('/fonts/Ubuntu-Bold.woff2') format('woff2');
+    font-display: swap;
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src:url('/fonts/Ubuntu-Light.woff2') format('woff2');
+    font-display: swap;
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src:url('/fonts/Ubuntu-Medium.woff2') format('woff2');
+    font-display: swap;
+    font-weight: 500;
+}

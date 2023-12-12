@@ -15,9 +15,9 @@ import {
     getLanguage,
     updateURLAsPerUserLanguage,
 } from 'common/utility'
-import './static/css/ibm-plex-sans-var.css'
-import './static/css/noto-sans-arabic.css'
-import './static/css/ubuntu.css'
+// import './static/css/ibm-plex-sans-var.css'
+// import './static/css/noto-sans-arabic.css'
+// import './static/css/ubuntu.css'
 
 const is_browser = typeof window !== 'undefined'
 

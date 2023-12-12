@@ -23,7 +23,6 @@ const TrustpilotSection = () => {
                 color: '!text-[#ffffff]',
                 background: 'bg-solid-slate-700',
             }}
-            //TODO: We will remove this static data once the data fetching is finalized.
             data={{
                 trustScore,
                 numberOfReviews,

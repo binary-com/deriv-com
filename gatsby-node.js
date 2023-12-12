@@ -6,16 +6,25 @@ const { copyLibFiles } = require('@builder.io/partytown/utils')
 const { execSync } = require('child_process')
 const translations_cache = {}
 
-exports.onPreBuild = async () => {
-    await copyLibFiles(path.join(__dirname, 'static', '~partytown'))
-
+const fetchTrustpilotData = () => {
     // Trustpilot on-build data fetching
+    const startTime = Date.now()
+
     try {
         execSync('node scripts/trustpilot.js')
-        console.log('Trustpilot data fetched successfully.')
+        const endTime = Date.now()
+        const timeSpentInSeconds = (endTime - startTime) / 1000
+        console.log(
+            `\x1b[32msuccess\x1b[0m trustpilot data fetching finished - ${timeSpentInSeconds}s`,
+        )
     } catch (error) {
         console.warn('Error fetching trustpilot data:', error)
     }
+}
+
+exports.onPreBuild = async () => {
+    await copyLibFiles(path.join(__dirname, 'static', '~partytown'))
+    fetchTrustpilotData()
 }
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 exports.onCreatePage = ({ page, actions }) => {

@@ -118,8 +118,8 @@ const AffiliateSignupStatus = ({
             const value = e?.target?.value ?? ''
             setAffiliateAccount({
                 ...affiliate_account,
-                personal_details: {
-                    ...affiliate_account.personal_details,
+                account_details: {
+                    ...affiliate_account.account_details,
                     [field]: value,
                 },
             })
@@ -251,7 +251,7 @@ const AffiliateSignupStatus = ({
                             type="text"
                             label={user_name}
                             placeholder={user_name}
-                            value={affiliate_account.personal_details.username}
+                            value={affiliate_account.account_details.username}
                             error={username_error}
                             onChange={(e) => handleStateChange({ e, field: 'username' })}
                             handleError={() => handleStateChange({ field: 'username' })}
@@ -278,7 +278,7 @@ const AffiliateSignupStatus = ({
                             type="text"
                             label={web_site}
                             placeholder={web_site}
-                            value={affiliate_account.personal_details.website_url}
+                            value={affiliate_account.account_details.website_url}
                             error={website_url_error}
                             onChange={(e) => handleStateChange({ e, field: 'website_url' })}
                             handleError={() => handleStateChange({ field: 'website_url' })}

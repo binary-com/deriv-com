@@ -11,8 +11,8 @@ const AccountDetails = ({
     affiliate_account,
     updateData,
     onValidate,
-}: WizardStepProps) => {
-    const affiliate_data = affiliate_account.personal_details
+}: WizardStepProps<'account_details'>) => {
+    const affiliate_data = affiliate_account.account_details
     const [username, setUsername] = useState(affiliate_data.username)
     const [first_name, setFirstName] = useState(affiliate_data.first_name)
     const [last_name, setLastName] = useState(affiliate_data.last_name)

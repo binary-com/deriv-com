@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Loadable from '@loadable/component'
 import { Analytics } from '@deriv/analytics'
 import trackEvent from './utils/_tracking'
-import AffiliateSignupForm from './components/_signup-form'
 import { AffiliateAccountTypes, SignUpStatusTypes, SubmitTypes } from './_types'
+import { AffiliateSignupForm, AffiliateSignupStatus, Wizard } from './components'
 import { isBrowser } from 'common/utility'
 import { WithIntl } from 'components/localization'
 import { Container, SEO, TMetaAttributes } from 'components/containers'
@@ -13,10 +12,7 @@ import useWS from 'components/hooks/useWS'
 import AtomicContainer from 'features/components/atoms/container'
 import { TGatsbyHead } from 'features/types'
 import device from 'themes/device'
-import Map from 'images/svg/signup-affiliates/map.svg'
-
-const AffiliateSignupStatus = Loadable(() => import('./components/_signup-status'))
-const Wizard = Loadable(() => import('./components/_wizard'))
+import Map from 'images/common/affiliate/map.png'
 
 const meta_attributes: TMetaAttributes = {
     og_title: '_t_Partner Signup Page | Deriv_t_',
@@ -54,37 +50,35 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
             email: affiliate_account.email,
             type_of_account: affiliate_account.account_type,
             commission_plan: affiliate_account.account_plan,
-            country: affiliate_account.address_details.country.symbol,
-            address_city: affiliate_account.address_details.city,
-            address_postcode: affiliate_account.address_details.postal_code,
-            address_state: customSlugify(affiliate_account.address_details.state.name),
-            address_street: affiliate_account.address_details.street,
-            first_name: affiliate_account.personal_details.first_name,
-            last_name: affiliate_account.personal_details.last_name,
-            date_of_birth: affiliate_account.personal_details.date_birth
-                ?.toISOString()
-                .slice(0, 10),
+            country: affiliate_account.account_address.country.symbol,
+            address_city: affiliate_account.account_address.city,
+            address_postcode: affiliate_account.account_address.postal_code,
+            address_state: customSlugify(affiliate_account.account_address.state.name),
+            address_street: affiliate_account.account_address.street,
+            first_name: affiliate_account.account_details.first_name,
+            last_name: affiliate_account.account_details.last_name,
+            date_of_birth: affiliate_account.account_details.date_birth?.toISOString().slice(0, 10),
             over_18_declaration: 1,
-            website_url: affiliate_account.personal_details?.website_url.includes('www.')
-                ? affiliate_account.personal_details?.website_url
-                : `www.${affiliate_account.personal_details?.website_url}`,
-            user_name: affiliate_account.personal_details.username,
-            password: affiliate_account.personal_details.password,
-            phone: affiliate_account.personal_details.phone,
-            phone_code: Number(affiliate_account.personal_details.phone.substring(1, 4)),
-            whatsapp_number: affiliate_account.personal_details.phone,
+            website_url: affiliate_account.account_details?.website_url.includes('www.')
+                ? affiliate_account.account_details?.website_url
+                : `www.${affiliate_account.account_details?.website_url}`,
+            user_name: affiliate_account.account_details.username,
+            password: affiliate_account.account_details.password,
+            phone: affiliate_account.account_details.phone,
+            phone_code: Number(affiliate_account.account_details.phone.substring(1, 4)),
+            whatsapp_number: affiliate_account.account_details.phone,
             whatsapp_number_phoneCode: Number(
-                affiliate_account.personal_details.phone.substring(1, 4),
+                affiliate_account.account_details.phone.substring(1, 4),
             ),
             non_pep_declaration: affiliate_account.terms_of_use.non_pep_declaration_accepted && 1,
             tnc_accepted: affiliate_account.terms_of_use.tnc_accepted && 1,
             tnc_affiliate_accepted: affiliate_account.terms_of_use.tnc_affiliate_accepted && 1,
-            ...(affiliate_account.personal_details?.company_name !== '' && {
-                company_name: affiliate_account.personal_details?.company_name,
+            ...(affiliate_account.account_details?.company_name !== '' && {
+                company_name: affiliate_account.account_details?.company_name,
             }),
-            ...(affiliate_account.personal_details?.company_registration_number !== '' && {
+            ...(affiliate_account.account_details?.company_registration_number !== '' && {
                 company_registration_number: Number(
-                    affiliate_account.personal_details?.company_registration_number,
+                    affiliate_account.account_details?.company_registration_number,
                 ),
             }),
         })
@@ -121,14 +115,14 @@ const AffiliateSignup = () => {
         email: '',
         account_type: 0,
         account_plan: 0,
-        address_details: {
+        account_address: {
             country: {},
             state: {},
             city: '',
             street: '',
             postal_code: '',
         },
-        personal_details: {
+        account_details: {
             first_name: '',
             last_name: '',
             date_birth: null,
@@ -147,6 +141,8 @@ const AffiliateSignup = () => {
             promote_eu: false,
         },
     })
+
+    console.log(affiliate_account)
 
     const {
         data: affiliate_api_data,
@@ -200,12 +196,12 @@ const AffiliateSignup = () => {
     useEffect(() => {
         setAffiliateAccount({
             ...affiliate_account,
-            personal_details: {
-                ...affiliate_account.personal_details,
-                phone: '+' + affiliate_account.address_details.country?.prefix,
+            account_details: {
+                ...affiliate_account.account_details,
+                phone: '+' + affiliate_account.account_address.country?.prefix,
             },
         })
-    }, [affiliate_account.address_details.country])
+    }, [affiliate_account.account_address.country])
 
     const onSubmit = () => {
         trackEvent({ action: 'try_submit' })

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { WizardStepProps } from '../_types'
 import AffiliateInput from '../utils/_affiliate-input'
 import AffiliatesHeader, { InputGroup, InputWrapper } from '../utils/_affiliate-header'
@@ -14,62 +14,63 @@ const AccountAddress = ({
     updateData,
     onValidate,
     residence_list,
-}: WizardStepProps) => {
-    const affiliate_data = affiliate_account.address_details
-    const [country, setCountry] = useState(affiliate_data.country)
-    const [state, setState] = useState(affiliate_data.state)
-    const [city, setCity] = useState(affiliate_data.city)
-    const [street, setStreet] = useState(affiliate_data.street)
-    const [postal_code, setPostCode] = useState(affiliate_data.postal_code)
-    const [country_error_msg, setCountryErrorMsg] = useState('')
-    const [state_error_msg, setStateErrorMsg] = useState('')
-    const [city_error_msg, setCityErrorMsg] = useState('')
-    const [street_error_msg, setStreetErrorMsg] = useState('')
-    const [postcode_error_msg, setPostCodeErrorMsg] = useState('')
+}: WizardStepProps<'account_address'>) => {
+    const [form_data, setFormData] = useState(affiliate_account.account_address)
+    const [form_errors, setFormErrors] = useState({
+        country_error_msg: '',
+        state_error_msg: '',
+        city_error_msg: '',
+        street_error_msg: '',
+        postal_code_error_msg: '',
+    })
+    console.log(form_errors?.state_error_msg)
 
-    const [states_list] = useStatesList(affiliate_data.country?.symbol)
+    const [states_list] = useStatesList(form_data.country?.symbol)
 
     const header_text: TString = is_individual ? '_t_Personal address_t_' : '_t_Company address_t_'
 
     useEffect(() => {
-        updateData({
-            ...affiliate_data,
-            country,
-            state,
-            street,
-            city,
-            postal_code,
-        })
-    }, [country, state, street, city, postal_code])
+        updateData({ ...form_data })
+    }, [form_data])
 
     const is_valid =
-        country?.name &&
-        state?.name &&
-        city &&
-        street &&
-        postal_code &&
-        !country_error_msg &&
-        !state_error_msg &&
-        !city_error_msg &&
-        !street_error_msg &&
-        !postcode_error_msg
+        form_data.country?.name &&
+        form_data.state?.name &&
+        form_data.city &&
+        form_data.street &&
+        form_data.postal_code &&
+        !form_errors.country_error_msg &&
+        !form_errors.state_error_msg &&
+        !form_errors.city_error_msg &&
+        !form_errors.street_error_msg &&
+        !form_errors.postal_code_error_msg
 
     useEffect(() => {
         onValidate(is_valid)
     }, [onValidate, is_valid])
 
     const handleCountry = (changed_country) => {
-        if (country?.name && state?.name && changed_country !== country) {
-            setCountryErrorMsg('State is not valid for this country')
+        if (
+            form_data.country?.name &&
+            form_data.state?.name &&
+            changed_country !== form_data.country
+        ) {
+            setFormErrors({
+                ...form_errors,
+                state_error_msg: 'State is not valid for this country',
+            })
         }
-        setCountry(changed_country)
+        setFormData({ ...form_data, country: changed_country })
     }
     const handleState = (changed_state) => {
-        if (country_error_msg) {
-            setCountryErrorMsg('')
-            setState(changed_state)
+        if (form_errors.state_error_msg) {
+            setFormErrors({
+                ...form_errors,
+                state_error_msg: '',
+            })
+            setFormData({ ...form_data, state: changed_state })
         }
-        setState(changed_state)
+        setFormData({ ...form_data, state: changed_state })
     }
 
     const form_inputs = [
@@ -81,10 +82,10 @@ const AccountAddress = ({
                 ? localize('_t_Country of residence*_t_')
                 : localize('_t_Country*_t_'),
             required: true,
-            error: country_error_msg,
-            value: country,
+            error: form_errors.country_error_msg,
+            value: form_data.country,
             list: residence_list,
-            value_set: handleCountry,
+            handler: handleCountry,
         },
         {
             id: 'dm-state',
@@ -92,73 +93,61 @@ const AccountAddress = ({
             type: 'select',
             label: localize('_t_State/province*_t_'),
             required: true,
-            error: state_error_msg,
-            value: state,
+            error: form_errors.state_error_msg,
+            value: form_data.state,
             list: states_list,
-            value_set: handleState,
+            handler: handleState,
         },
         {
             id: 'dm-town',
             name: 'city',
             type: 'text',
             label: localize('_t_Town/city*_t_'),
-            extra_info: ' ',
             required: true,
-            error: city_error_msg,
-            value: city,
-            value_set: setCity,
-            error_set: setCityErrorMsg,
+            error: form_errors.city_error_msg,
+            value: form_data.city,
         },
         {
             id: 'dm-street',
             name: 'street',
             type: 'text',
             label: localize('_t_Street*_t_'),
-            extra_info: ' ',
             required: true,
-            error: street_error_msg,
-            value: street,
-            value_set: setStreet,
-            error_set: setStreetErrorMsg,
+            error: form_errors.street_error_msg,
+            value: form_data.street,
         },
         {
             id: 'dm-postal-code',
             name: 'postal_code',
             type: 'text',
             label: localize('_t_Postal/Zip code*_t_'),
-            extra_info: ' ',
             required: true,
-            error: postcode_error_msg,
-            value: postal_code,
-            value_set: setPostCode,
-            error_set: setPostCodeErrorMsg,
+            error: form_errors.postal_code_error_msg,
+            value: form_data.postal_code,
         },
     ]
-    const handleInput = (e) => {
+    const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
-        switch (name) {
-            case 'country': {
-                setCountry(value)
-                return setCountryErrorMsg(affiliate_validation.country(value))
-            }
-            case 'state': {
-                setState(value)
-                return setStateErrorMsg(affiliate_validation.address_state(value))
-            }
-            case 'city': {
-                setCity(value)
-                return setCityErrorMsg(affiliate_validation.address_city(value))
-            }
-            case 'street': {
-                setStreet(value)
-                return setStreetErrorMsg(affiliate_validation.address_street(value))
-            }
-            case 'postal_code': {
-                setPostCode(value)
-                return setPostCodeErrorMsg(affiliate_validation.address_postal_code(value))
-            }
+
+        setFormData((prev) => ({ ...prev, [name]: value }))
+
+        if (affiliate_validation[name]) {
+            const error_msg = affiliate_validation[name](value)
+            setFormErrors({
+                ...form_errors,
+                [`${name}_error_msg`]: error_msg,
+            })
         }
-    }
+    }, [])
+
+    const handleError = useCallback((item) => {
+        console.log(item)
+        setFormData((prev) => ({ ...prev, [item.name]: '' }))
+        setFormErrors({
+            ...form_errors,
+            [`${item.name}_error_msg`]: '',
+        })
+    }, [])
 
     return (
         <InputGroup>
@@ -174,7 +163,7 @@ const AccountAddress = ({
                                 items={item.list}
                                 error={item.error}
                                 selected_item={item.value}
-                                onChange={(value) => item.value_set(value)}
+                                onChange={item.handler}
                                 style={{ marginTop: '16px' }}
                             />
                         )
@@ -189,14 +178,10 @@ const AccountAddress = ({
                                 error={item.error}
                                 label={item.label}
                                 required={item.required}
-                                extra_info={item.extra_info}
                                 placeholder={item.label}
                                 onChange={handleInput}
                                 onBlur={handleInput}
-                                handleError={() => {
-                                    item?.value_set('')
-                                    item?.error_set('')
-                                }}
+                                handleError={() => handleError(item)}
                             />
                         )
                     }

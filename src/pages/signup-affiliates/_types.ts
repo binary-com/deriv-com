@@ -6,14 +6,14 @@ type AffiliateAccountTypes = {
     email: string
     account_type: number
     account_plan: number
-    address_details: {
+    account_address: {
         country: CountryType
         state: { name?: string; display_name?: string }
         city: string
         street: string
         postal_code: string
     }
-    personal_details: {
+    account_details: {
         first_name: string
         last_name: string
         date_birth: Date
@@ -114,11 +114,9 @@ type WizardComponentTypes = {
 
 type WizardComponentsProps = WizardComponentTypes & WizardProps
 
-type AffiliateData = keyof AffiliateAccountTypes
-
-type WizardStepProps = {
+type WizardStepProps<T extends keyof AffiliateAccountTypes> = {
     affiliate_account: AffiliateAccountTypes
-    updateData: (value: AffiliateAccountTypes[AffiliateData]) => void
+    updateData: (value: AffiliateAccountTypes[T]) => void
     onValidate: (value: boolean) => void
     residence_list?: CountryType[]
     is_individual?: boolean

@@ -168,16 +168,16 @@ const affiliate_validation = {
         }
         return null
     },
-    address_city: (input) => {
+    city: (input) => {
         return addressValidation(input, localize('_t_City is required_t_'), 2, 256)
     },
-    address_state: (input) => {
+    state: (input) => {
         return addressValidation(input, localize('_t_State is required_t_'), 2, 256)
     },
-    address_street: (input) => {
+    street: (input) => {
         return addressValidation(input, localize('_t_Street is required_t_'), 2, 256)
     },
-    address_postal_code: (input) => {
+    postal_code: (input) => {
         return postcodeValidation(input, 5, 10)
     },
     phone: (input) => {

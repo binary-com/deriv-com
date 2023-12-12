@@ -21,7 +21,11 @@ const types: AccountCardProps[] = [
         description: '_t_Register for a company account._t_',
     },
 ]
-const AccountType = ({ updateData, affiliate_account, onValidate }: WizardStepProps) => {
+const AccountType = ({
+    updateData,
+    affiliate_account,
+    onValidate,
+}: WizardStepProps<'account_type'>) => {
     const [account_type, setAccountType] = useState(affiliate_account.account_type)
     const is_rtl = useIsRtl()
 

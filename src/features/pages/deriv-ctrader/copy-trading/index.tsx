@@ -11,10 +11,10 @@ const CopyTrading = () => {
     return (
         <Container.Fluid>
             <FlexBoxContainer
-                direction={'col'}
+                direction="col"
                 margin_block="20x"
-                align={'start'}
-                justify={'start'}
+                align="start"
+                justify="start"
                 margin_inline="12x"
                 md={{
                     direction: 'row',

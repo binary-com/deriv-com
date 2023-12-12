@@ -13,11 +13,7 @@ import MultiWidthColumn from 'components/elements/multi-width-column'
 import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import { useIsRtl } from 'components/hooks/use-isrtl'
-import {
-    ctrader_android_url,
-    ctrader_web_browser_via_traders_hub,
-    ctrader_windows_url,
-} from 'common/constants'
+import { ctrader_android_url, ctrader_traders_hub_url, ctrader_windows_url } from 'common/constants'
 import DownloadColumn, { TDownloadColumnItem } from 'components/custom/_multi-width-column-download'
 import { localize } from 'components/localization'
 
@@ -58,7 +54,7 @@ const DerivCtraderApp = () => {
         {
             text: `Web Browser`,
             icon: BrowserIcon,
-            link: ctrader_web_browser_via_traders_hub,
+            link: ctrader_traders_hub_url,
             smallText: `_t_Via Trader's Hub_t_`,
         },
         { text: 'Windows', icon: WindowsIcon, link: ctrader_windows_url },

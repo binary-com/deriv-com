@@ -153,15 +153,6 @@ const affiliate_validation = {
     email: (input) => {
         return emailValidation(input)
     },
-    username: (input) => {
-        return userNameValidation(input)
-    },
-    first_name: (input) => {
-        return nameValidation(input, localize('_t_First Name_t_'), 2, 50)
-    },
-    last_name: (input) => {
-        return nameValidation(input, localize('_t_Last Name_t_'), 2, 50)
-    },
     country: (input) => {
         if (!input || input.display_name === '') {
             return localize('_t_Country is required_t_')
@@ -180,13 +171,15 @@ const affiliate_validation = {
     postal_code: (input) => {
         return postcodeValidation(input, 5, 10)
     },
+    first_name: (input) => {
+        return nameValidation(input, localize('_t_First Name_t_'), 2, 50)
+    },
+    last_name: (input) => {
+        return nameValidation(input, localize('_t_Last Name_t_'), 2, 50)
+    },
     phone: (input) => {
         return phoneValidation(input)
     },
-    password: (input) => {
-        return passwordValidation(input, 6, 50)
-    },
-    currency: (input) => (input ? null : localize('_t_Currency is required_t_')),
     company_name: (input) => {
         return companyNameValidation(input, 2, 70)
     },
@@ -198,6 +191,12 @@ const affiliate_validation = {
     },
     second_website_url: (input) => {
         return urlValidation(input)
+    },
+    username: (input) => {
+        return userNameValidation(input)
+    },
+    password: (input) => {
+        return passwordValidation(input, 6, 50)
     },
 }
 export default affiliate_validation

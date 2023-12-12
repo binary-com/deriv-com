@@ -141,7 +141,6 @@ const AffiliateSignup = () => {
             promote_eu: false,
         },
     })
-
     console.log(affiliate_account)
 
     const {

@@ -20,7 +20,7 @@ const StyledHeader = styled(Header)<{ is_rtl?: boolean }>`
         margin: 0 auto;
     }
 `
-const MainWrapper = styled.div`
+const Wrapper = styled.div`
     margin: 0 80px;
     display: flex;
     flex-direction: column;
@@ -42,36 +42,39 @@ const CheckBox = styled.input`
     min-inline-size: 16px;
     margin-inline-end: 8px;
 `
+let language = getLanguage()
+language = language !== 'en' ? '/' + language : ''
 
-const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepProps) => {
+const agreement_data: AgreementDataType[] = [
+    {
+        link_text: '_t_I am not a PEP, and I have not been a PEP in the last 12 months._t_',
+        name: 'non_pep_declaration_accepted',
+    },
+    {
+        link_text: '_t_I have read and accepted <0>Deriv’s terms and conditions</0>_t_',
+        name: 'tnc_accepted',
+    },
+    {
+        link_text:
+            '_t_I have read and accepted <0>Deriv’s general terms of use and affiliates and introducing brokers’ terms and conditions</0>_t_',
+        name: 'tnc_affiliate_accepted',
+    },
+    {
+        link_text:
+            '_t_I consent to receive promotional materials and notifications regarding your partnership program._t_',
+        name: 'promote_eu',
+    },
+]
+
+const AccountTerms = ({
+    affiliate_account,
+    updateData,
+    onValidate,
+}: WizardStepProps<'terms_of_use'>) => {
     const affiliate_data = affiliate_account.terms_of_use
     const [terms_of_use, setTermsOfUse] = useState(affiliate_data)
 
     const is_rtl = useIsRtl()
-
-    let language = getLanguage()
-    language = language !== 'en' ? '/' + language : ''
-
-    const agreement_data: AgreementDataType[] = [
-        {
-            link_text: '_t_I am not a PEP, and I have not been a PEP in the last 12 months._t_',
-            name: 'non_pep_declaration_accepted',
-        },
-        {
-            link_text: '_t_I have read and accepted <0>Deriv’s terms and conditions</0>_t_',
-            name: 'tnc_accepted',
-        },
-        {
-            link_text:
-                '_t_I have read and accepted <0>Deriv’s general terms of use and affiliates and introducing brokers’ terms and conditions</0>_t_',
-            name: 'tnc_affiliate_accepted',
-        },
-        {
-            link_text:
-                '_t_I consent to receive promotional materials and notifications regarding your partnership program._t_',
-            name: 'promote_eu',
-        },
-    ]
 
     const is_valid =
         terms_of_use['non_pep_declaration_accepted'] &&
@@ -83,13 +86,11 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
     }, [onValidate, is_valid])
 
     useEffect(() => {
-        updateData({
-            ...terms_of_use,
-        })
+        updateData({ ...terms_of_use })
     }, [terms_of_use])
 
     return (
-        <MainWrapper>
+        <Wrapper>
             <StyledHeader as="h3" align="center" type="paragraph-1" pb="8px" is_rtl={is_rtl}>
                 <Localize
                     translate_text={
@@ -141,7 +142,7 @@ const AccountTerms = ({ affiliate_account, updateData, onValidate }: WizardStepP
                     </>
                 )
             })}
-        </MainWrapper>
+        </Wrapper>
     )
 }
 export default AccountTerms

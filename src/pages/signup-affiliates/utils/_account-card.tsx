@@ -83,6 +83,9 @@ const AdditionalNote = styled.div`
     margin-block-start: 12px;
 `
 
+let language = getLanguage()
+language = language !== 'en' ? '/' + language : ''
+
 const AccountCard = ({
     icon,
     title,
@@ -93,9 +96,6 @@ const AccountCard = ({
     onClick,
 }: AccountCardProps) => {
     const [is_selected, setIsSelected] = useState(false)
-
-    let language = getLanguage()
-    language = language !== 'en' ? '/' + language : ''
 
     const clickHandler = () => {
         setIsSelected(true)

@@ -106,8 +106,8 @@ const BirthPicker = ({ id, error, value, setFieldValue, label, label_color }: Bi
     }
     const max_date = subtractYears(18)
 
-    const onDateChange = (date) => {
-        setFieldValue(date)
+    const handleDateChange = (date) => {
+        setFieldValue((prev) => ({ ...prev, date_birth: date }))
     }
 
     return (
@@ -125,7 +125,7 @@ const BirthPicker = ({ id, error, value, setFieldValue, label, label_color }: Bi
                 showLeadingZeros={false}
                 calendarIcon={<img src={Calendar} alt="calendar icon" />}
                 clearIcon={null}
-                onChange={onDateChange}
+                onChange={handleDateChange}
             />
             <AffiliateLabel htmlFor={id} label_color={label_color}>
                 {label}

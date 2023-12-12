@@ -23,7 +23,6 @@ const AccountAddress = ({
         street_error_msg: '',
         postal_code_error_msg: '',
     })
-    console.log(form_errors?.state_error_msg)
 
     const [states_list] = useStatesList(form_data.country?.symbol)
 
@@ -81,7 +80,6 @@ const AccountAddress = ({
             label: is_individual
                 ? localize('_t_Country of residence*_t_')
                 : localize('_t_Country*_t_'),
-            required: true,
             error: form_errors.country_error_msg,
             value: form_data.country,
             list: residence_list,
@@ -92,7 +90,6 @@ const AccountAddress = ({
             name: 'state',
             type: 'select',
             label: localize('_t_State/province*_t_'),
-            required: true,
             error: form_errors.state_error_msg,
             value: form_data.state,
             list: states_list,
@@ -103,7 +100,6 @@ const AccountAddress = ({
             name: 'city',
             type: 'text',
             label: localize('_t_Town/city*_t_'),
-            required: true,
             error: form_errors.city_error_msg,
             value: form_data.city,
         },
@@ -112,7 +108,6 @@ const AccountAddress = ({
             name: 'street',
             type: 'text',
             label: localize('_t_Street*_t_'),
-            required: true,
             error: form_errors.street_error_msg,
             value: form_data.street,
         },
@@ -121,7 +116,6 @@ const AccountAddress = ({
             name: 'postal_code',
             type: 'text',
             label: localize('_t_Postal/Zip code*_t_'),
-            required: true,
             error: form_errors.postal_code_error_msg,
             value: form_data.postal_code,
         },

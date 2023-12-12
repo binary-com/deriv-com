@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { AffiliateAccountTypes, WizardProps } from '../_types'
 import trackEvent from '../utils/_tracking'
 import WizardComponent from './wizard-component'
@@ -25,15 +25,15 @@ const Wizard = ({
         return () => trackEvent({ action: 'close_wizard' })
     }, [show_wizard])
 
-    const updateAffiliateValues = <T extends keyof AffiliateAccountTypes>(
-        value: AffiliateAccountTypes[T],
-        type: T,
-    ): void => {
-        setAffiliateAccount({
-            ...affiliate_account,
-            [type]: value,
-        })
-    }
+    const updateAffiliateValues = useCallback(
+        <T extends keyof AffiliateAccountTypes>(value: AffiliateAccountTypes[T], type: T): void => {
+            setAffiliateAccount({
+                ...affiliate_account,
+                [type]: value,
+            })
+        },
+        [step],
+    )
 
     return (
         <WizardComponent

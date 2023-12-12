@@ -88,14 +88,15 @@ export const SignUpWrapper = styled(Container)`
         padding: 0;
     }
 `
+let language = getLanguage()
+language = language !== 'en' ? '/' + language : ''
+
 const AffiliateSignupForm = ({
     affiliate_account,
     setAffiliateAccount,
     setShowWizard,
 }: SignUpFormProps) => {
     const [email_error_msg, setEmailErrorMsg] = useState('')
-    let language = getLanguage()
-    language = language !== 'en' ? '/' + language : ''
     const email = localize('_t_Email_t_')
 
     const handleStateChange = useCallback(

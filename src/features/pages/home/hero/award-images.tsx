@@ -13,6 +13,8 @@ const HeroAwardImages = () => {
                 width={132}
                 height={68}
                 placeholder="none"
+                formats={['auto', 'webp']}
+                loading="eager"
             />
             <StaticImage
                 src="../../../../images/migration/home/award-2.png"
@@ -20,6 +22,8 @@ const HeroAwardImages = () => {
                 width={132}
                 height={68}
                 placeholder="none"
+                formats={['auto', 'webp']}
+                loading="eager"
             />
             <StaticImage
                 src="../../../../images/migration/home/award-3.png"
@@ -27,6 +31,8 @@ const HeroAwardImages = () => {
                 width={132}
                 height={68}
                 placeholder="none"
+                formats={['auto', 'webp']}
+                loading="eager"
             />
         </div>
     )

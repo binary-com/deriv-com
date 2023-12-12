@@ -47,17 +47,21 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                 {is_eu ? (
                     <StaticImage
                         src="../../../../images/migration/home/home_hero_bg_eu.png"
-                        alt="hero image"
+                        alt="hero bg image"
                         className="w-full -z-10"
                         placeholder="none"
+                        formats={['auto', 'webp']}
+                        loading="eager"
                         style={{ position: 'absolute', inset: 0 }}
                     />
                 ) : (
                     <StaticImage
                         src="../../../../images/migration/home/home_hero_bg.png"
-                        alt="hero image"
+                        alt="hero bg image"
                         className="w-full -z-10"
                         placeholder="none"
+                        formats={['auto', 'webp']}
+                        loading="eager"
                         style={{ position: 'absolute', inset: 0 }}
                     />
                 )}
@@ -67,12 +71,27 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                         <Heading.H1 className="text-solid-slate-50 text-500 lg:text-heading-h1">
                             <Localize translate_text="_t_Trading for anyone. Anywhere. Anytime._t_" />
                         </Heading.H1>
-                        <Text
-                            size="md"
-                            className={clsx('text-solid-slate-50 mt-general-md', hero_content_text)}
-                        >
-                            <Localize translate_text="_t_Trade CFDs and Options on 1500+ instruments, all in one place with 24/7 trading and 24/7 worldwide support._t_" />
-                        </Text>
+                        {is_eu ? (
+                            <Text
+                                size="md"
+                                className={clsx(
+                                    'text-solid-slate-50 mt-general-md',
+                                    hero_content_text,
+                                )}
+                            >
+                                <Localize translate_text="_t_Trade CFDs and Multipliers on 1500+ instruments, all in one place with 24/7 trading and 24/7 worldwide support._t_" />
+                            </Text>
+                        ) : (
+                            <Text
+                                size="md"
+                                className={clsx(
+                                    'text-solid-slate-50 mt-general-md',
+                                    hero_content_text,
+                                )}
+                            >
+                                <Localize translate_text="_t_Trade CFDs and Options on 1500+ instruments, all in one place with 24/7 trading and 24/7 worldwide support._t_" />
+                            </Text>
+                        )}
                         <TradersHubCtaButton
                             ref={ref}
                             className={clsx('mt-general-2xl', hero_content_btn)}
@@ -87,12 +106,16 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                                 src="../../../../images/migration/home/home_hero_new_eu.png"
                                 alt="hero image"
                                 placeholder="none"
+                                formats={['auto', 'webp']}
+                                loading="eager"
                             />
                         ) : (
                             <StaticImage
                                 src="../../../../images/migration/home/home_hero_new.png"
                                 alt="hero image"
                                 placeholder="none"
+                                formats={['auto', 'webp']}
+                                loading="eager"
                             />
                         )}
                     </div>

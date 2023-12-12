@@ -9,7 +9,7 @@ const translations_cache = {}
 exports.onPreBuild = async () => {
     await copyLibFiles(path.join(__dirname, 'static', '~partytown'))
 
-    // Trustpilot On build data fetching
+    // Trustpilot on-build data fetching
     try {
         execSync('node scripts/trustpilot.js')
         console.log('Trustpilot data fetched successfully.')

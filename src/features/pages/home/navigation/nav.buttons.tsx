@@ -2,7 +2,7 @@ import React from 'react'
 import { MobileNavToggle } from '@deriv-com/blocks'
 import { Button } from '@deriv/quill-design'
 // eslint-disable-next-line import/no-unresolved
-import { LabelPairedGridRegularIcon } from '@deriv/quill-icons/LabelPaired'
+import { LabelPairedGrid2BoldIcon } from '@deriv/quill-icons/LabelPaired'
 import { Localize } from 'components/localization'
 import { handleRedirectToTradersHub } from 'components/custom/utils'
 import useAuthCheck from 'components/hooks/use-auth-check'
@@ -22,10 +22,10 @@ export const MainNavigationButtons = () => {
             {is_logged_in ? (
                 <Button
                     variant="secondary"
-                    colorStyle="coral"
+                    colorStyle="black"
                     size="lg"
                     onClick={handleRedirectToTradersHub}
-                    icon={LabelPairedGridRegularIcon}
+                    icon={LabelPairedGrid2BoldIcon}
                     iconPosition="start"
                 >
                     <Localize translate_text="_t_Traders Hub_t_" />

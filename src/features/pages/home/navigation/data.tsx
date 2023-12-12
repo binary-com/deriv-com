@@ -229,7 +229,7 @@ export const mainRowNavItems: NavLinkItems = {
                         type: 'direct',
                         icon: <IllustrativeDerivedIcon width={24} height={24} />,
                         description: (
-                            <Localize translate_text="_t_Indices simulating real-world markets with 24/7 trading_t_" />
+                            <Localize translate_text="_t_Indices simulating real-world markets with 24/7 trading._t_" />
                         ),
                     },
                     {
@@ -393,6 +393,7 @@ export const mainRowNavItems: NavLinkItems = {
                         href: 'https://deriv.statuspage.io/', //need to update target/type in link component
                         text: <Localize translate_text="_t_Status page_t_" />,
                         type: 'direct',
+                        isMobileNavOnly: true,
                     },
                     {
                         id: 2,
@@ -577,7 +578,7 @@ export const mainEuNavItems: NavLinkItems = {
                         type: 'direct',
                         icon: <IllustrativeDerivedIcon width={24} height={24} />,
                         description: (
-                            <Localize translate_text="_t_Indices simulating real-world markets with 24/7 trading_t_" />
+                            <Localize translate_text="_t_Indices simulating real-world markets with 24/7 trading._t_" />
                         ),
                     },
                     {
@@ -741,6 +742,7 @@ export const mainEuNavItems: NavLinkItems = {
                         href: 'https://deriv.statuspage.io/', //need to update target/type in link component
                         text: <Localize translate_text="_t_Status page_t_" />,
                         type: 'direct',
+                        isMobileNavOnly: true,
                     },
                     {
                         id: 2,

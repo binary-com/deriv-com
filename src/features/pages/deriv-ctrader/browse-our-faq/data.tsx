@@ -401,4 +401,15 @@ export const ctrader_faq_data: DerivPrimeFAQDataItem[] = [
             },
         ],
     },
+    {
+        id: 8,
+        question: '_t_How do I get started as a copier?_t_',
+        answers: [
+            {
+                id: 1,
+                type: 'text',
+                text: '_t_In the <strong>Copy</strong> tab of your Deriv cTrader account, search for strategy providers. Pick your favourite strategies, allocate funds, and start copy trading._t_',
+            },
+        ],
+    },
 ]

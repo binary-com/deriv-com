@@ -55,4 +55,21 @@ export const trading_platform_features: TradingPlatformWhatHaveData[] = [
             />
         ),
     },
+    {
+        id: 3,
+        title: '_t_Copy trading your way_t_',
+        subtitle:
+            '_t_Manage your risk by spreading your funds across different trading strategies._t_',
+        image: (
+            <StaticImage
+                src="../../../../images/common/trading-platforms/ctrader/copy-trading.png"
+                alt={localize('_t_Copy trading_t_')}
+                loading="eager"
+                formats={['avif', 'webp', 'auto']}
+                quality={100}
+                objectFit="contain"
+                placeholder="none"
+            />
+        ),
+    },
 ]

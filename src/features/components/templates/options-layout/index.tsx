@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import MainRowNavigation from '../navigation/main-nav'
 import Layout from 'features/components/templates/layout'
 import { start_trading_data, why_trade_options_data } from './data'
-import Footer from 'features/components/templates/footer'
+import MainFooter from 'features/components/templates/footer'
 import StartTrading from 'features/components/templates/start-trading'
 import WhyTradeOptions from 'features/components/templates/why-trade-options'
 import { TString } from 'types/generics'
@@ -34,7 +34,7 @@ const OptionsLayout = ({
             {children}
             <WhyTradeOptions data={why_trade_options_data} />
             <StartTrading data={start_trading_data} />
-            <Footer />
+            <MainFooter />
         </Layout>
     )
 }

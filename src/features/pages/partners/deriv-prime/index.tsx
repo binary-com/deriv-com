@@ -11,7 +11,7 @@ import ConnectivityReliabilityType from './connectivity-reliability'
 import AvailableInstruments from './available-instruments'
 import Hero from './hero'
 import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
-import Footer from 'features/components/templates/footer'
+import MainFooter from 'features/components/templates/footer'
 
 const DerivPrime = () => {
     return (
@@ -27,7 +27,7 @@ const DerivPrime = () => {
             <GetInTouchBanner />
             <MeetUsThere />
             <BrowseOurFaq />
-            <Footer />
+            <MainFooter />
         </Layout>
     )
 }

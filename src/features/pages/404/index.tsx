@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from 'features/components/templates/layout'
 import NotFoundContainer from './content/not-found.container'
-import Footer from 'features/components/templates/footer'
+import MainFooter from 'features/components/templates/footer'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 
 const PageNotFound = () => {
@@ -9,7 +9,7 @@ const PageNotFound = () => {
         <Layout>
             <MainRowNavigation />
             <NotFoundContainer />
-            <Footer />
+            <MainFooter />
         </Layout>
     )
 }

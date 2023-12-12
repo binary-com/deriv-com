@@ -1,6 +1,7 @@
-import React, { ReactNode, Ref } from 'react'
+import React, { ReactNode, Ref, useCallback } from 'react'
 import loadable from '@loadable/component'
 import styled from 'styled-components'
+import { LanguageProvider } from '@deriv-com/providers'
 import { LocationProvider } from './location-context'
 import LayoutOverlay from 'features/components/molecules/layout-overlay'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
@@ -16,6 +17,10 @@ import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
 import BannerAlert from 'components/custom/_banner-alert'
 import { bannerTypes } from 'common/constants'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
+import { LocaleContext } from 'components/localization'
+import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
+import { langItemsROW } from 'features/components/templates/layout/data'
 
 const RebrandingFooter = loadable(() => import('features/components/templates/footer'))
 
@@ -96,6 +101,27 @@ const Layout = ({
 
     const is_static = type === 'static'
 
+    const lang_direction = useLangDirection()
+    const { locale } = React.useContext(LocaleContext)
+    const formatted_lang = locale.replace('_', '-')
+
+    React.useEffect(() => {
+        document.body.dir = lang_direction
+        document.documentElement.lang = formatted_lang
+    }, [lang_direction, formatted_lang])
+
+    //need to update the language data and type
+    //here using langauge data from `i18n-config.js`
+    const { onSwitchLanguage, currentLang } = useLangSwitcher()
+    const activeLang = langItemsROW[currentLang.path.replace('-', '')]
+
+    const onLanguageChange = useCallback(
+        (event) => {
+            onSwitchLanguage(`/${event.path}/`)
+        },
+        [onSwitchLanguage],
+    )
+
     //Handle page layout when redirection from mobile app.
     if (has_platform) {
         return (
@@ -106,31 +132,37 @@ const Layout = ({
     }
     return (
         <PpcProvider is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
-            {Navs[type]}
-            <LocationProvider
-                has_mounted={is_mounted}
-                toggleModal={toggleModal}
-                setModalPayload={setModalPayload}
+            <LanguageProvider
+                langItems={langItemsROW}
+                onLangSelect={onLanguageChange}
+                activeLanguage={activeLang}
             >
-                <div className="styled-layout">
-                    <Main padding_top={padding_top} is_static={is_static}>
-                        {children}
-                    </Main>
-                    <EURedirect
-                        toggle={toggleModal}
-                        is_open={show_modal}
-                        closeModal={closeModal}
-                        to={modal_payload.to}
-                        target={modal_payload.target}
-                        rel={modal_payload.rel}
-                        ref={modal_payload.ref}
-                        aria_label={modal_payload.aria_label}
-                    />
-                    <BannerAlert bannerType={bannerTypes.outdatedBrowserBanner} />
-                    <LayoutOverlay is_ppc={is_ppc} />
-                </div>
-            </LocationProvider>
-            {show_footer && <RebrandingFooter />}
+                {Navs[type]}
+                <LocationProvider
+                    has_mounted={is_mounted}
+                    toggleModal={toggleModal}
+                    setModalPayload={setModalPayload}
+                >
+                    <div className="styled-layout">
+                        <Main padding_top={padding_top} is_static={is_static}>
+                            {children}
+                        </Main>
+                        <EURedirect
+                            toggle={toggleModal}
+                            is_open={show_modal}
+                            closeModal={closeModal}
+                            to={modal_payload.to}
+                            target={modal_payload.target}
+                            rel={modal_payload.rel}
+                            ref={modal_payload.ref}
+                            aria_label={modal_payload.aria_label}
+                        />
+                        <BannerAlert bannerType={bannerTypes.outdatedBrowserBanner} />
+                        <LayoutOverlay is_ppc={is_ppc} />
+                    </div>
+                </LocationProvider>
+                {show_footer && <RebrandingFooter />}
+            </LanguageProvider>
         </PpcProvider>
     )
 }

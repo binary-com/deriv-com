@@ -6,7 +6,7 @@ import { Localize } from 'components/localization'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import LinkButton from 'features/components/atoms/link-button'
-import Footer from 'features/components/templates/footer'
+import MainFooter from 'features/components/templates/footer'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 
 const CheckEmailContainer = () => {
@@ -38,7 +38,7 @@ const CheckEmailContainer = () => {
                     <Localize translate_text="_t_Re-enter your email and try again_t_" />
                 </LinkButton.Primary>
             </Flex.Box>
-            <Footer />
+            <MainFooter />
         </Layout>
     )
 }

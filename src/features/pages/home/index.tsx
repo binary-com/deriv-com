@@ -13,7 +13,7 @@ import SignupPublic from 'features/components/templates/signup/with-banner'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 
 const OurPlatforms = loadable(() => import('./our-platforms'))
-const Footer = loadable(() => import('features/components/templates/footer'))
+const MainFooter = loadable(() => import('features/components/templates/footer'))
 
 const HomePage = () => {
     useOpenLiveChat(true)
@@ -30,7 +30,7 @@ const HomePage = () => {
             <ClientTestimonial />
             {is_p2p_allowed_country && <P2PBanner />}
             <SignupPublic />
-            <Footer />
+            <MainFooter />
         </Layout>
     )
 }

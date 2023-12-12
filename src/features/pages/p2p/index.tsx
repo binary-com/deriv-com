@@ -15,7 +15,7 @@ import InitialLoader from 'components/elements/dot-loader'
 import PageNotFound from 'features/pages/404'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 
-const Footer = loadable(() => import('features/components/templates/footer'))
+const MainFooter = loadable(() => import('features/components/templates/footer'))
 
 const DP2PPage = () => {
     useOpenLiveChat(true)
@@ -33,7 +33,7 @@ const DP2PPage = () => {
                     <DP2Availability />
                     <DP2Banner data={banner_data} />
                     <Roadmap data={portalData} />
-                    <Footer />
+                    <MainFooter />
                 </Layout>
             )
         }

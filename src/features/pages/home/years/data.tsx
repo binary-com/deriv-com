@@ -16,10 +16,11 @@ export const cards: CardContent[] = [
         description: (
             <Localize translate_text="_t_Cutting-edge technology with 99.97% uptime for uninterrupted trading._t_" />
         ),
-        size: 'sm',
-        color: 'light',
+        size: 'md',
+        color: 'gray',
         align: 'center',
         icon: <LightDependableIcon width={120} height={145} />,
+        className: 'h-full',
     },
     {
         id: 2,
@@ -27,10 +28,11 @@ export const cards: CardContent[] = [
         description: (
             <Localize translate_text="_t_Your personal data is private, and your funds are safely segregated._t_" />
         ),
-        size: 'sm',
-        color: 'light',
+        size: 'md',
+        color: 'gray',
         align: 'center',
         icon: <LightSafeAndSecureIcon width={120} height={145} />,
+        className: 'h-full',
     },
     {
         id: 3,
@@ -38,10 +40,11 @@ export const cards: CardContent[] = [
         description: (
             <Localize translate_text="_t_We’re regulated and licensed by global financial authorities._t_" />
         ),
-        size: 'sm',
-        color: 'light',
+        size: 'md',
+        color: 'gray',
         align: 'center',
         icon: <LightRegulatedIcon width={120} height={145} />,
+        className: 'h-full',
     },
     {
         id: 4,
@@ -49,9 +52,10 @@ export const cards: CardContent[] = [
         description: (
             <Localize translate_text="_t_Our professional multilingual team is here for you anytime._t_" />
         ),
-        size: 'sm',
-        color: 'light',
+        size: 'md',
+        color: 'gray',
         align: 'center',
         icon: <LightTwentyFourSevenSupportIcon width={120} height={145} />,
+        className: 'h-full',
     },
 ]

@@ -8,6 +8,7 @@ import {
     hero_content,
     hero_content_gradient,
     hero_img,
+    hero_img_eu,
     hero_content_text,
     hero_content_btn,
 } from './styles.module.scss'
@@ -55,8 +56,8 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                 />
 
                 <FluidContainer className={clsx('h-full flex flex-col relative', hero_container)}>
-                    <div className={clsx('flex flex-col', hero_content)}>
-                        <Heading.H1 className="text-solid-slate-50 text-500 lg:text-heading-h1">
+                    <div className={clsx('flex flex-col mb-general-2xl', hero_content)}>
+                        <Heading.H1 className="text-solid-slate-50 text-[34px] lg:text-heading-h1">
                             <Localize translate_text="_t_Trading for anyone. Anywhere. Anytime._t_" />
                         </Heading.H1>
                         {is_eu ? (
@@ -88,8 +89,10 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                         />
                     </div>
                     {!is_eu && <HeroAwardImages />}
-                    <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img)}>
-                        {is_eu ? (
+                    {is_eu ? (
+                        <div
+                            className={clsx('absolute inset-50 flex items-end -z-10', hero_img_eu)}
+                        >
                             <StaticImage
                                 src="../../../../images/migration/home/home_hero_new_eu.png"
                                 alt="hero image"
@@ -97,7 +100,9 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                                 formats={['auto', 'webp']}
                                 loading="eager"
                             />
-                        ) : (
+                        </div>
+                    ) : (
+                        <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img)}>
                             <StaticImage
                                 src="../../../../images/migration/home/home_hero_new.png"
                                 alt="hero image"
@@ -105,8 +110,8 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                                 formats={['auto', 'webp']}
                                 loading="eager"
                             />
-                        )}
-                    </div>
+                        </div>
+                    )}
                 </FluidContainer>
                 <div className={clsx('absolute -z-10 inset-50', hero_content_gradient)}></div>
             </Section>

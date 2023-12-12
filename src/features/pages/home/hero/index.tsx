@@ -44,27 +44,15 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
     return (
         <>
             <Section className="h-[calc(100vh-136px)] min-h-[587px] relative isolate overflow-hidden">
-                {is_eu ? (
-                    <StaticImage
-                        src="../../../../images/migration/home/home_hero_bg_eu.png"
-                        alt="hero bg image"
-                        className="w-full -z-10"
-                        placeholder="none"
-                        formats={['auto', 'webp']}
-                        loading="eager"
-                        style={{ position: 'absolute', inset: 0 }}
-                    />
-                ) : (
-                    <StaticImage
-                        src="../../../../images/migration/home/home_hero_bg.png"
-                        alt="hero bg image"
-                        className="w-full -z-10"
-                        placeholder="none"
-                        formats={['auto', 'webp']}
-                        loading="eager"
-                        style={{ position: 'absolute', inset: 0 }}
-                    />
-                )}
+                <StaticImage
+                    src="../../../../images/migration/home/home_hero_bg.png"
+                    alt="hero bg image"
+                    className="w-full -z-10"
+                    placeholder="none"
+                    formats={['auto', 'webp']}
+                    loading="eager"
+                    style={{ position: 'absolute', inset: 0 }}
+                />
 
                 <FluidContainer className={clsx('h-full flex flex-col relative', hero_container)}>
                     <div className={clsx('flex flex-col', hero_content)}>

@@ -15,7 +15,7 @@ const TrustpilotSection = () => {
                 <Localize key={1} translate_text="_t_Excellent_t_" />,
                 <Localize
                     key={2}
-                    translate_text="_t_TrustScore {{trustScore}} out of 5 based on {{numberOfReviews}} reviews_t_"
+                    translate_text="_t_{{trustScore}} out of 5 based on {{numberOfReviews}} reviews_t_"
                     values={{ trustScore, numberOfReviews }}
                 />,
             ]}

@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { Analytics } from '@deriv/analytics'
 import Button from 'components/form/button'
 import { Localize } from 'components/localization'
 import { WizardComponentTypes } from 'pages/signup-affiliates/_types'
+import trackEvent from 'pages/signup-affiliates/utils/_tracking'
 import device from 'themes/device'
 
 const StyledFooter = styled.div`
@@ -57,27 +57,19 @@ const WizardFooter = ({
     setNextBtnEnabled,
     next_btn_enabled,
 }: WizardComponentTypes) => {
-    const trackStep = useCallback(
-        ({ action, step_num, step_codename }: Parameters<typeof Analytics.trackEvent>[1]) => {
-            Analytics?.trackEvent('ce_partner_account_signup_form', {
-                action,
-                step_num,
-                step_codename,
-                form_name: 'ce_partner_account_signup_form',
-            })
-        },
-        [],
-    )
-
     const buttonHandler = React.useCallback(
         (button_type: ButtonType): void => {
             if (button_type === ButtonType.Previous) {
-                trackStep({ action: 'step_back', step_num: step, step_codename: getCodeName(step) })
+                trackEvent({
+                    action: 'step_back',
+                    step_num: step,
+                    step_codename: getCodeName(step),
+                })
                 step > 1 && setStep(step - 1)
                 setNextBtnEnabled(true)
             }
             if (button_type === ButtonType.Next) {
-                trackStep({
+                trackEvent({
                     action: 'step_passed',
                     step_num: step,
                     step_codename: getCodeName(step),

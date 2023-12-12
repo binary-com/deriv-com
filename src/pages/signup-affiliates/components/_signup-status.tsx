@@ -1,9 +1,9 @@
 import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
-import { Analytics } from '@deriv/analytics'
 import affiliate_validation from '../validations/_affilaite_validation'
 import AffiliateInput from '../utils/_affiliate-input'
 import { SignUpStatusProps } from '../_types'
+import trackEvent from '../utils/_tracking'
 import Image from 'features/components/atoms/image'
 import { localize, Localize } from 'components/localization'
 import { useIsRtl } from 'components/hooks/use-isrtl'
@@ -111,13 +111,6 @@ const AffiliateSignupStatus = ({
 
     const user_name = localize('_t_User name_t_')
     const web_site = localize('_t_Website url_t_')
-
-    const trackEvent = useCallback(({ action }: Parameters<typeof Analytics.trackEvent>[1]) => {
-        Analytics?.trackEvent('ce_partner_account_signup_form', {
-            action,
-            form_name: 'ce_partner_account_signup_form',
-        })
-    }, [])
 
     const handleStateChange = useCallback(
         ({ e, field }: { e?: React.ChangeEvent<HTMLInputElement>; field: string }) => {

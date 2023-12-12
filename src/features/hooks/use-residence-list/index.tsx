@@ -11,7 +11,7 @@ const formatResidenceList = ({
     restricted,
 }: {
     residences: any[]
-    restricted: string[]
+    restricted: ['Iran', 'North Korea', 'Myanmar (Burma)', 'Syria', 'Cuba']
 }) => {
     if (!residences.length) {
         return []
@@ -29,9 +29,9 @@ const formatResidenceList = ({
 }
 
 export const useResidenceList = ({
-    restricted_countries = [],
+    restricted_countries,
 }: {
-    restricted_countries?: string[]
+    restricted_countries?: ['Iran', 'North Korea', 'Myanmar (Burma)', 'Syria', 'Cuba']
 } = {}) => {
     const { send, data } = useWS('residence_list')
     useEffect(() => {

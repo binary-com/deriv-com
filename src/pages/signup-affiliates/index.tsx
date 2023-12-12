@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Loadable from '@loadable/component'
 import { Analytics } from '@deriv/analytics'
+import trackEvent from './utils/_tracking'
 import AffiliateSignupForm from './components/_signup-form'
 import { AffiliateAccountTypes, SignUpStatusTypes, SubmitTypes } from './_types'
 import { isBrowser } from 'common/utility'
@@ -115,28 +116,6 @@ const AffiliateSignup = () => {
     const [show_wizard, setShowWizard] = useState<boolean>(false)
     const [is_online, setIsOnline] = useState(isBrowser() && navigator.onLine)
     const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>('')
-
-    const trackEvent = useCallback(
-        ({
-            action,
-            partner_signup_error_message,
-            user_choice,
-        }: Parameters<typeof Analytics.trackEvent>[1]) => {
-            Analytics?.trackEvent('ce_partner_account_signup_form', {
-                action,
-                partner_signup_error_message,
-                form_name: 'ce_partner_account_signup_form',
-            })
-
-            if (action === 'partners_signup_error') {
-                Analytics?.trackEvent('ce_partner_account_signup_form', {
-                    action: 'failed_popup_opened',
-                    form_name: 'ce_partner_account_signup_form',
-                })
-            }
-        },
-        [],
-    )
 
     const [affiliate_account, setAffiliateAccount] = useState<AffiliateAccountTypes>({
         email: '',

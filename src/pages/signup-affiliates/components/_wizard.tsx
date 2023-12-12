@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Analytics } from '@deriv/analytics'
 import { WizardProps } from '../_types'
+import trackEvent from '../utils/_tracking'
 import AccountType from './_account-type'
 import AccountPlan from './_account-plan'
 import AccountAddress from './_account-address'
@@ -40,17 +40,8 @@ const Wizard = ({
     const is_individual = affiliate_account?.account_type == 1
 
     useEffect(() => {
-        show_wizard &&
-            Analytics?.trackEvent('ce_partner_account_signup_form', {
-                action: 'open_wizard',
-                form_name: 'ce_partner_account_signup_form',
-            })
-        return () => {
-            Analytics?.trackEvent('ce_partner_account_signup_form', {
-                action: 'close_wizard',
-                form_name: 'ce_partner_account_signup_form',
-            })
-        }
+        show_wizard && trackEvent({ action: 'open_wizard' })
+        return () => trackEvent({ action: 'close_wizard' })
     }, [show_wizard])
 
     const updateAffiliateValues = (value, type) => {

@@ -11,7 +11,7 @@ import { useIsRtl } from 'components/hooks/use-isrtl'
 import { handleGetTrading } from 'components/custom/utils'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { TString } from 'types/generics'
-import MainRowNavigation from 'features/components/templates/navigation-new/main-nav'
+import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 
 type ContainerProps = {
     isDerivGo?: boolean

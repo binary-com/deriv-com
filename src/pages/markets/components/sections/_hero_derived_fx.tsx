@@ -11,7 +11,6 @@ import { useIsRtl } from 'components/hooks/use-isrtl'
 import { handleGetTrading } from 'components/custom/utils'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { TString } from 'types/generics'
-import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import MainRowNavigation from 'features/components/templates/navigation-new/main-nav'
 
 type ContainerProps = {
@@ -199,9 +198,6 @@ export const DerivedFXHero = ({
     const handleSignup = useHandleSignup()
     const is_rtl = useIsRtl()
     const { is_deriv_go } = usePlatformQueryParam()
-    const [is_mounted] = usePageLoaded()
-
-    if (!is_mounted) return null
 
     return (
         <>

@@ -12,6 +12,7 @@ import { WithIntl, Localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import useWS from 'components/hooks/useWS'
+import { isBrowser } from 'common/utility'
 import Flex from 'features/components/atoms/flex-box'
 import Typography from 'features/components/atoms/typography'
 import { TGatsbyHead } from 'features/types'
@@ -109,7 +110,7 @@ export type PaymentMethodsProps = {
     pd?: PaymentDataProps
 }
 const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
-    const { is_p2p_allowed_country, is_eu, is_region_loading } = useRegion()
+    const { is_p2p_allowed_country, is_eu } = useRegion()
     const [is_mobile] = useBrowserResize(992)
     const { data, send } = useWS('crypto_config')
     const [payment_method_data, setPaymentMethodData] = useState(payment_data)
@@ -168,7 +169,7 @@ const DisplayAccordion = ({ locale }: PaymentMethodsProps) => {
           }
     const parent_style = { marginBottom: is_mobile ? '24px' : '2.4rem' }
 
-    if (is_region_loading) {
+    if (!isBrowser()) {
         return <DotLoader />
     }
     return (

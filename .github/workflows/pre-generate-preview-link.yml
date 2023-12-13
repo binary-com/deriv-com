@@ -20,6 +20,7 @@ jobs:
                   mkdir -p ./pr
                   echo ${{ github.event.number }} > ./pr/NR
                   echo ${{ github.event.pull_request.user.login }} > ./pr/USERNAME
+                  echo ${{ github.head_ref }} > ./pr/BRANCHNAME
 
             - name: Upload PR information to artifact
               uses: actions/upload-artifact@v2

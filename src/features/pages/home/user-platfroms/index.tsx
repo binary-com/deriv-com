@@ -1,41 +1,45 @@
 import React from 'react'
 import { PlatformBlock } from '@deriv-com/blocks'
 import { CardsContainer } from '@deriv-com/components'
-import { RowCards, platformTabs } from './data'
-import { localize } from 'components/localization'
+import { RowCards, platformTabs, EUCards } from './data'
+import { FilterKeyType, MakeWritable } from './type'
+import { Localize } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
 
-const getTabContent = (tabId) => {
-    switch (tabId) {
-        case 'All':
-            return RowCards
-        case 'CFDs':
-            return RowCards.filter(
-                (card) =>
-                    card.header.includes('Deriv MT5') ||
-                    card.header.includes('Deriv cTrader') ||
-                    card.header.includes('Deriv X'),
-            )
-        case 'Options':
-            return RowCards.filter(
-                (card) =>
-                    card.header.includes('Deriv GO') ||
-                    card.header.includes('Deriv Trader') ||
-                    card.header.includes('Deriv Bot'),
-            )
-        case 'Bots':
-            return RowCards.filter((card) => card.header.includes('Deriv Bot'))
-        case 'Social':
-            return RowCards.filter((card) => card.header.includes('Deriv cTrader'))
-        default:
-            return []
+const getTabContent = (tabId: FilterKeyType<typeof platformTabs, 'children'>) => {
+    if (tabId === 'All') {
+        return RowCards
+    } else {
+        return RowCards.filter((card) => card.filterKey.includes(tabId))
     }
 }
+
+const tabs: MakeWritable<typeof platformTabs> = [...platformTabs]
+
 const UserFriendlyPlatforms = () => {
+    const { is_eu } = useRegion()
+
+    if (is_eu) {
+        return (
+            <PlatformBlock.Card
+                className="bg-background-primary-base"
+                header={
+                    <Localize translate_text="_t_User-friendly trading platforms, on any device_t_" />
+                }
+                variant="ContentBottom"
+                cols="three"
+                cards={EUCards}
+            />
+        )
+    }
+
     return (
         <PlatformBlock.Tab
             className="bg-background-primary-base"
-            header={localize('_t_User-friendly trading platforms, on any device_t_')}
-            tabs={platformTabs}
+            header={
+                <Localize translate_text="_t_User-friendly trading platforms, on any device_t_" />
+            }
+            tabs={tabs}
         >
             {platformTabs.map((item, i) => (
                 <CardsContainer

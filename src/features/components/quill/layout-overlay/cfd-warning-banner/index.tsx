@@ -75,7 +75,7 @@ const CfdWarningBanner = () => {
                         )}
                     />
                 </div>
-                <div className="w-full hidden sm:block bg-background-primary-base shadow-[0px_-4px_10px_rgba(65,_70,_82,_0.1)]">
+                <div className="w-full hidden sm:block bg-background-primary-base shadow-[0px_-4px_10px_rgba(65,_70,_82,_0.1)] pointer-events-auto">
                     <div className="px-500 w-[95%] mx-auto">
                         <Text size="md">
                             <Localize

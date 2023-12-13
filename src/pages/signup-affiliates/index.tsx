@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import trackEvent from './utils/_tracking'
-import { Submit } from './utils'
+import { Submit } from './utils/utils'
 import { AffiliateAccountTypes, SignUpStatusTypes } from './_types'
 import { AffiliateSignupForm, AffiliateSignupStatus, Wizard } from './_lazy-loading'
 import { isBrowser } from 'common/utility'

@@ -16,6 +16,7 @@ export const RowCards: CardContent[] = [
                 alt={localize('_t_Sign up & explore_t_')}
                 loading="eager"
                 formats={['webp', 'auto']}
+                quality={100}
             />
         ),
         color: 'gray',
@@ -36,6 +37,7 @@ export const RowCards: CardContent[] = [
                 alt={localize('_t_Try with zero-risk_t_')}
                 loading="eager"
                 formats={['webp', 'auto']}
+                quality={100}
             />
         ),
         color: 'gray',
@@ -56,6 +58,7 @@ export const RowCards: CardContent[] = [
                 alt={localize('_t_Trade with confidence_t_')}
                 loading="eager"
                 formats={['webp', 'auto']}
+                quality={100}
             />
         ),
         color: 'gray',
@@ -79,6 +82,7 @@ export const EUCards: CardContent[] = [
                 alt={localize('_t_Sign up & explore_t_')}
                 loading="eager"
                 formats={['webp', 'auto']}
+                quality={100}
             />
         ),
         color: 'gray',
@@ -99,6 +103,7 @@ export const EUCards: CardContent[] = [
                 alt={localize('_t_Try with zero-risk_t_')}
                 loading="eager"
                 formats={['webp', 'auto']}
+                quality={100}
             />
         ),
         color: 'gray',
@@ -119,6 +124,7 @@ export const EUCards: CardContent[] = [
                 alt={localize('_t_Trade with confidence_t_')}
                 loading="eager"
                 formats={['webp', 'auto']}
+                quality={100}
             />
         ),
         color: 'gray',

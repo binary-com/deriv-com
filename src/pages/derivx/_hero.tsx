@@ -7,7 +7,7 @@ import device from 'themes/device'
 import useBreakpoints from 'components/hooks/use-breakpoints'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import useAuthCheck from 'components/hooks/use-auth-check'
-import { handleGetTrading } from 'components/custom/utils'
+import { handleRedirectToTradersHub } from 'components/custom/utils'
 import Shape from 'components/custom/_hero-shape'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import Button from 'components/custom/_button'
@@ -150,7 +150,7 @@ const DCommonBanner = () => {
                         <BannerButtonWrapper>
                             {is_logged_in ? (
                                 <CreateAccountButton
-                                    onClick={handleGetTrading}
+                                    onClick={handleRedirectToTradersHub}
                                     label="_t_Get Trading_t_"
                                     primary
                                     mobileFullWidth

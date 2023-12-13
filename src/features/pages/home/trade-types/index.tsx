@@ -12,6 +12,7 @@ import { TString } from 'types/generics'
 const TradeTypes = () => {
     const { is_eu } = useRegion()
     const visible_items = useVisibleContent({ content: tradeTypesItems, config: { is_eu } })
+
     const title_text: TString = useMemo(() => {
         return is_eu
             ? '_t_Trade the way you want with 2 flexible trade types._t_'

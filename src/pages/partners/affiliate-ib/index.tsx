@@ -57,7 +57,6 @@ const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
         padding: 12px 10px;
         white-space: nowrap;
     }
-
     @media ${device.mobileL} {
         font-size: 12px;
     }
@@ -97,7 +96,6 @@ const StyledContainer = styled(Container)`
         margin: 20px 0;
     }
 `
-
 const NumberWrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -115,7 +113,6 @@ const NumberWrapper = styled.div`
 
 const StyledText = styled(Text)`
     padding-top: 8px;
-
     @media ${device.tabletL} {
         padding-top: 0;
         margin: 12px 0;

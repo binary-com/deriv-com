@@ -14,6 +14,7 @@ import { TGatsbyHead } from 'features/types'
 const Markets = () => {
     const { is_eu, is_row } = useRegion()
     const { is_deriv_go } = usePlatformQueryParam()
+
     const description_eu =
         '_t_Trade on asset prices derived from simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite._t_'
     const description_row =

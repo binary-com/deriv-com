@@ -50,7 +50,8 @@ jobs:
             - run: npm run format
             - run: npm run test
             - run: npm run build
-
+            - run: echo $GIT_TAG_NAME > public/version.txt
+            
             - name: Remove Storybook
               uses: JesseTG/rm@v1.0.2
               with:

@@ -1,12 +1,13 @@
 import { Analytics } from '@deriv/analytics'
 import { SubmitTypes } from '../_types'
 
-const customSlugify = (text: string): string => {
+export const customSlugify = (text: string): string => {
     const charMap: { [key: string]: string } = {
         ə: 'e',
+        '(': ' ',
+        ')': ' ',
         // Add other special characters and their mappings here if needed
     }
-
     return text
         .toString()
         .split('')
@@ -67,14 +68,4 @@ export const Submit = ({
                     affiliate_account.account_details?.company_registration_number,
             }),
         })
-}
-
-export const debounce = <T extends unknown[]>(func: (...args: T) => void) => {
-    let timer: ReturnType<typeof setTimeout>
-    return function (...args: T) {
-        clearTimeout(timer)
-        timer = setTimeout(() => {
-            func.apply(this, args)
-        }, 3000)
-    }
 }

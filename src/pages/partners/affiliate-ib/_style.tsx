@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import { Card } from './_partner-card'
 import { TRAP } from './_table'
-import { Button } from 'components/form'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
-import { Text } from 'components/elements/typography'
+import { Text } from 'components/elements'
+import { Button } from 'components/form'
 import { TAlignSelf } from 'features/types'
 
 type PointerProps = {
@@ -235,14 +235,12 @@ export const StyledCard = styled(Card)<FlexProps>`
         min-width: 38.4rem;
         width: 38.4rem;
     }
-
     @media ${device.tabletL} {
         min-width: unset;
         padding: 24px 16px;
         margin-inline: auto;
         ${(props) => props.tabletHeight && 'height:' + props.tabletHeight};
     }
-
     @media ${device.mobileM} {
         min-width: unset;
         width: 100%;
@@ -264,11 +262,13 @@ export const StyledText = styled(Text)`
         font-size: 14px;
     }
 `
+
 export const CPAContent = styled.div`
     ${Text} {
         margin-top: 2.4rem;
     }
 `
+
 export const StyledBackButton = styled(Button)`
     border: 0.2rem solid var(--color-grey-5);
     color: var(--color-black);

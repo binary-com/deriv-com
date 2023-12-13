@@ -17,7 +17,6 @@ const WhatIsCFD = () => {
                 <Text mb="2.4rem">
                     <Localize translate_text="_t_A contract for difference (CFD) allows you to trade on the price movement of an asset, without buying the underlying asset._t_" />
                 </Text>
-
                 {is_eu ? (
                     <Text mb="2.4rem">
                         <Localize translate_text="_t_On Deriv, you can trade CFDs with tight spreads. The spread is the difference between the buy price and sell price. The tighter the spread, the lower the cost to enter the market._t_" />

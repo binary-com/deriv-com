@@ -38,11 +38,20 @@ jobs:
             - name: Set version env variable
               run: echo "GATSBY_DERIV_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
+            - name: Create npmrc file
+              shell: bash
+              run: echo "@deriv-com:registry=https://npm.pkg.github.com" >> .npmrc
+
+            - name: Setup install read-only token for deriv-com org
+              shell: bash
+              run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' >> .npmrc
+
             - run: npm ci
             - run: npm run format
             - run: npm run test
             - run: npm run build
-
+            - run: echo $GIT_TAG_NAME > public/version.txt
+            
             - name: Remove Storybook
               uses: JesseTG/rm@v1.0.2
               with:
@@ -79,18 +88,18 @@ jobs:
                   docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME
 
             - name: Deploy 🚀
-              env: 
+              env:
                   KUBE_SERVER: ${{ secrets.KUBE_SERVER }}
                   SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
                   CA_CRT: ${{ secrets.CA_CRT }}
                   NAMESPACE: deriv-com-production
                   DOCKERHUB_ORGANISATION: ${{ secrets.DOCKERHUB_ORGANISATION }}
               run: |
-                git clone https://github.com/binary-com/devops-ci-scripts
-                cd devops-ci-scripts/k8s-build_tools
-                echo "${{ env.CA_CRT }}" | base64 --decode > ca.crt
-                export CA="ca.crt"
-                ./release.sh deriv-com ${{ github.ref_name }}
+                  git clone https://github.com/binary-com/devops-ci-scripts
+                  cd devops-ci-scripts/k8s-build_tools
+                  echo "${{ env.CA_CRT }}" | base64 --decode > ca.crt
+                  export CA="ca.crt"
+                  ./release.sh deriv-com ${{ github.ref_name }}
 
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3

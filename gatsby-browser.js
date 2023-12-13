@@ -21,6 +21,13 @@ import './static/css/ubuntu.css'
 
 const is_browser = typeof window !== 'undefined'
 
+export const replaceHydrateFunction = () => {
+    return (element, container) => {
+        const root = createRoot(container)
+        root.render(element)
+    }
+}
+
 const checkDomain = () => {
     return eval(
         decodeURIComponent(
@@ -106,7 +113,7 @@ export const onClientEntry = () => {
         env: 'production',
         version: '1.0.6',
         sessionSampleRate: 10,
-        sessionReplaySampleRate: 10,
+        sessionReplaySampleRate: 0,
         trackResources: true,
         trackLongTasks: true,
         trackUserInteractions: true,
@@ -120,10 +127,6 @@ export const onClientEntry = () => {
         dd_options,
     )})});`
     document.head.appendChild(dd_script)
-    // Start session replay recording
-    window.DD_RUM.onReady(function () {
-        window.DD_RUM.startSessionReplayRecording()
-    })
 
     addScript({
         src: 'https://static.deriv.com/scripts/cookie.js',
@@ -164,13 +167,6 @@ export const onRouteUpdate = ({ location }) => {
             }),
         })
     }, 1500)
-}
-
-export const replaceHydrateFunction = () => {
-    return (element, container) => {
-        const root = createRoot(container)
-        root.render(element)
-    }
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

@@ -27,7 +27,9 @@ const WhatAreDigitalOptions = ({
             gap={'8x'}
             className={options_heading_section}
         >
-            {is_coming_soon && <Label text="_t_Coming soon_t_" bgcolor="blue" />}
+            {is_coming_soon && (
+                <Label text="_t_Available on Demo accounts only_t_" bgcolor="blue" />
+            )}
             <Typography.Heading align="center" as="h1">
                 <Localize translate_text={heading} />
             </Typography.Heading>

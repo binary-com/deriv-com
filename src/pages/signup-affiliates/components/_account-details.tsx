@@ -99,11 +99,12 @@ const AccountDetails = ({
     ]
 
     const is_valid = is_individual
-        ? form_data.username &&
-          form_data.first_name &&
+        ? form_data.first_name &&
           form_data.last_name &&
           form_data.date_birth &&
           form_data.phone.length > 6 &&
+          form_data.website_url &&
+          form_data.username &&
           form_data.password &&
           !form_errors.first_name_error_msg &&
           !form_errors.last_name_error_msg &&
@@ -113,6 +114,8 @@ const AccountDetails = ({
           form_data.last_name &&
           form_data.date_birth &&
           form_data.phone.length > 6 &&
+          form_data.website_url &&
+          form_data.username &&
           form_data.password &&
           form_data.company_name &&
           form_data.company_registration_number &&

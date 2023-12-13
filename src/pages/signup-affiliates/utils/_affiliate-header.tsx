@@ -40,7 +40,7 @@ export const InputGroup = styled.div`
         min-height: 30px !important;
     }
 `
-export const InputWrapper = styled.div`
+export const InputWrapper = styled.ul`
     inline-size: 50%;
     line-height: 10px;
     margin-bottom: 80px;

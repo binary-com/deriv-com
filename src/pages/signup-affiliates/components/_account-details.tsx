@@ -98,41 +98,40 @@ const AccountDetails = ({
         },
     ]
 
-    const is_valid = is_individual
-        ? form_data.first_name &&
-          form_data.last_name &&
-          form_data.date_birth &&
-          form_data.phone.length > 6 &&
-          form_data.website_url &&
-          form_data.username &&
-          form_data.password &&
-          !form_errors.first_name_error_msg &&
-          !form_errors.last_name_error_msg &&
-          !form_errors.phone_error_msg &&
-          !form_errors.password_error_msg
-        : form_data.first_name &&
-          form_data.last_name &&
-          form_data.date_birth &&
-          form_data.phone.length > 6 &&
-          form_data.website_url &&
-          form_data.username &&
-          form_data.password &&
-          form_data.company_name &&
-          form_data.company_registration_number &&
-          !form_errors.first_name_error_msg &&
-          !form_errors.last_name_error_msg &&
-          !form_errors.phone_error_msg &&
-          !form_errors.password_error_msg &&
-          !form_errors.company_name_error_msg &&
-          !form_errors.company_registration_number_error_msg
-
     useEffect(() => {
         updateData({ ...form_data })
+        onValidate(
+            is_individual
+                ? form_data.first_name &&
+                      form_data.last_name &&
+                      form_data.date_birth &&
+                      form_data.phone.length > 6 &&
+                      form_data.website_url &&
+                      form_data.username &&
+                      form_data.password &&
+                      !form_errors.first_name_error_msg &&
+                      !form_errors.last_name_error_msg &&
+                      !form_errors.website_url_error_msg &&
+                      !form_errors.phone_error_msg &&
+                      !form_errors.password_error_msg
+                : form_data.first_name &&
+                      form_data.last_name &&
+                      form_data.date_birth &&
+                      form_data.phone.length > 6 &&
+                      form_data.website_url &&
+                      form_data.username &&
+                      form_data.password &&
+                      form_data.company_name &&
+                      form_data.company_registration_number &&
+                      !form_errors.first_name_error_msg &&
+                      !form_errors.last_name_error_msg &&
+                      !form_errors.phone_error_msg &&
+                      !form_errors.website_url_error_msg &&
+                      !form_errors.password_error_msg &&
+                      !form_errors.company_name_error_msg &&
+                      !form_errors.company_registration_number_error_msg,
+        )
     }, [form_data])
-
-    useEffect(() => {
-        onValidate(is_valid)
-    }, [onValidate, is_valid])
 
     const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
@@ -146,8 +145,6 @@ const AccountDetails = ({
                 [`${name}_error_msg`]: error_msg,
             }))
         }
-
-        onValidate(is_valid)
     }, [])
 
     const handleError = (item) => {
@@ -165,21 +162,21 @@ const AccountDetails = ({
                 {form_inputs.map((item) => {
                     if (item.name === 'date_birth') {
                         return (
-                            <BirthForm
-                                id={item.id}
-                                key={item.id}
-                                value={form_data[item.name]}
-                                label={item.label}
-                                setFieldValue={setFormData}
-                            />
+                            <li key={item.id}>
+                                <BirthForm
+                                    id={item.id}
+                                    value={form_data[item.name]}
+                                    label={item.label}
+                                    setFieldValue={setFormData}
+                                />
+                            </li>
                         )
                     } else if (item.name === 'username') {
                         return (
-                            <>
+                            <li key={item.id}>
                                 <AffiliatesHeader text="_t_Affiliate account details_t_" sized />
                                 <AffiliateInput
                                     id={item.id}
-                                    key={item.id}
                                     name={item.name}
                                     type={item.type}
                                     value={form_data[item.name]}
@@ -189,24 +186,25 @@ const AccountDetails = ({
                                     onChange={handleInput}
                                     handleError={() => handleError(item)}
                                 />
-                            </>
+                            </li>
                         )
                     } else {
                         return (
-                            <AffiliateInput
-                                id={item.id}
-                                key={item.id}
-                                name={item.name}
-                                type={item.type}
-                                label={item.label}
-                                value={form_data[item.name]}
-                                error={form_errors[`${item.name}_error_msg`]}
-                                placeholder={item.label}
-                                password_icon={item.type == 'password'}
-                                onChange={handleInput}
-                                data-lpignore="true"
-                                handleError={() => handleError(item)}
-                            />
+                            <li key={item.id}>
+                                <AffiliateInput
+                                    id={item.id}
+                                    name={item.name}
+                                    type={item.type}
+                                    label={item.label}
+                                    value={form_data[item.name]}
+                                    error={form_errors[`${item.name}_error_msg`]}
+                                    placeholder={item.label}
+                                    password_icon={item.type == 'password'}
+                                    onChange={handleInput}
+                                    data-lpignore="true"
+                                    handleError={() => handleError(item)}
+                                />
+                            </li>
                         )
                     }
                 })}

@@ -30,11 +30,8 @@ const AccountType = ({
     const is_rtl = useIsRtl()
 
     useEffect(() => {
-        onValidate(!!account_type)
-    }, [onValidate, account_type])
-
-    useEffect(() => {
         updateData(account_type)
+        onValidate(!!account_type)
     }, [account_type])
 
     return (

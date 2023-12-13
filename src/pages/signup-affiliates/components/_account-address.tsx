@@ -26,26 +26,6 @@ const AccountAddress = ({
     const [states_list] = useStatesList(form_data.country?.symbol)
     const header_text: TString = is_individual ? '_t_Personal address_t_' : '_t_Company address_t_'
 
-    useEffect(() => {
-        updateData({ ...form_data })
-    }, [form_data])
-
-    const is_valid =
-        form_data.country?.name &&
-        form_data.state?.name &&
-        form_data.city &&
-        form_data.street &&
-        form_data.postal_code &&
-        !form_errors.country_error_msg &&
-        !form_errors.state_error_msg &&
-        !form_errors.city_error_msg &&
-        !form_errors.street_error_msg &&
-        !form_errors.postal_code_error_msg
-
-    useEffect(() => {
-        onValidate(is_valid)
-    }, [onValidate, is_valid])
-
     const handleCountry = (changed_country) => {
         if (
             form_data.country?.name &&
@@ -108,6 +88,23 @@ const AccountAddress = ({
             label: localize('_t_Postal/Zip code*_t_'),
         },
     ]
+
+    useEffect(() => {
+        updateData({ ...form_data })
+        onValidate(
+            form_data.country?.name &&
+                form_data.state?.name &&
+                form_data.city &&
+                form_data.street &&
+                form_data.postal_code &&
+                !form_errors.country_error_msg &&
+                !form_errors.state_error_msg &&
+                !form_errors.city_error_msg &&
+                !form_errors.street_error_msg &&
+                !form_errors.postal_code_error_msg,
+        )
+    }, [form_data])
+
     const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
 

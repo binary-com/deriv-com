@@ -40,11 +40,8 @@ const AccountPlan = ({
     const is_rtl = useIsRtl()
 
     useEffect(() => {
-        onValidate(!!account_plan)
-    }, [onValidate, account_plan])
-
-    useEffect(() => {
         updateData(account_plan)
+        onValidate(!!account_plan)
     }, [account_plan])
 
     return (

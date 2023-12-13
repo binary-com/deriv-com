@@ -76,17 +76,13 @@ const AccountTerms = ({
 
     const is_rtl = useIsRtl()
 
-    const is_valid =
-        terms_of_use['non_pep_declaration_accepted'] &&
-        terms_of_use['tnc_accepted'] &&
-        terms_of_use['tnc_affiliate_accepted']
-
-    useEffect(() => {
-        onValidate(is_valid)
-    }, [onValidate, is_valid])
-
     useEffect(() => {
         updateData({ ...terms_of_use })
+        onValidate(
+            terms_of_use['non_pep_declaration_accepted'] &&
+                terms_of_use['tnc_accepted'] &&
+                terms_of_use['tnc_affiliate_accepted'],
+        )
     }, [terms_of_use])
 
     return (

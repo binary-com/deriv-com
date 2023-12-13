@@ -18,7 +18,7 @@ export const MainNavigationButtons = () => {
     const handleSignup = useHandleSignup(is_ppc_redirect)
 
     return (
-        <div className="flex flex-row items-center gap-gap-sm">
+        <div className="flex items-center gap-gap-sm">
             {is_logged_in ? (
                 <Button
                     variant="secondary"

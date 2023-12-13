@@ -10,13 +10,13 @@ import MeetUsThere from './meet-us-there'
 import ConnectivityReliabilityType from './connectivity-reliability'
 import AvailableInstruments from './available-instruments'
 import Hero from './hero'
-import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
 import MainFooter from 'features/components/templates/footer'
+import PrimeNav from 'features/components/templates/navigation/partners-nav/prime-nav'
 
 const DerivPrime = () => {
     return (
         <Layout>
-            <PaymentAgentAffiliateNav is_prime_page />
+            <PrimeNav />
             <Hero />
             <Potential />
             <CommercialPlan />

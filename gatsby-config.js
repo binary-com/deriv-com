@@ -57,7 +57,6 @@ module.exports = {
         //     },
         // },
         'gatsby-plugin-postcss',
-        'gatsby-plugin-split-css',
         {
             resolve: 'gatsby-plugin-sass',
             options: {

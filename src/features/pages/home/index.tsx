@@ -26,7 +26,7 @@ import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection
 import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 import { LocaleContext, LocalizedLink } from 'components/localization'
-import QuillLayout from 'features/components/templates/quill-layout'
+import QuillLayout from 'features/components/quill/quill-layout'
 
 const HomePage = () => {
     useOpenLiveChat(true)

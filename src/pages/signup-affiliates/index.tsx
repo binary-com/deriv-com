@@ -77,15 +77,14 @@ const Submit = ({ is_online, affiliate_account, setSignupStatus, affiliateSend }
                 company_name: affiliate_account.account_details?.company_name,
             }),
             ...(affiliate_account.account_details?.company_registration_number !== '' && {
-                company_registration_number: Number(
+                company_registration_number:
                     affiliate_account.account_details?.company_registration_number,
-                ),
             }),
         })
 }
 
 const ParentWrapper = styled.div`
-    block-size: 100vh;
+    block-size: calc(100svh - 70px);
     background-image: url(${Map});
     background-repeat: no-repeat;
     background-position: bottom;
@@ -141,6 +140,7 @@ const AffiliateSignup = () => {
             promote_eu: false,
         },
     })
+    console.log(affiliate_account?.account_address)
 
     const {
         data: affiliate_api_data,

@@ -31,6 +31,19 @@ const Wizard = ({
         return () => trackEvent({ action: 'close_wizard' })
     }, [show_wizard])
 
+    useEffect(() => {
+        if (is_individual) {
+            setAffiliateAccount((prev) => ({
+                ...prev,
+                account_details: {
+                    ...prev.account_details,
+                    company_name: '',
+                    company_registration_number: '',
+                },
+            }))
+        }
+    }, [is_individual])
+
     const updateAffiliateValues = useCallback(
         <T extends keyof AffiliateAccountTypes>(value: AffiliateAccountTypes[T], type: T): void => {
             setAffiliateAccount((prev) => ({

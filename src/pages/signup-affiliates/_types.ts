@@ -56,7 +56,7 @@ type AffiliateSendTypes = {
     whatsapp_number: string
     whatsapp_number_phoneCode: number
     company_name?: string
-    company_registration_number?: number
+    company_registration_number?: string
 }
 
 type setAffiliateAccountTypes = Dispatch<SetStateAction<AffiliateAccountTypes>>

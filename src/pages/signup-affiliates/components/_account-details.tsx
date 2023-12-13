@@ -25,55 +25,49 @@ const AccountDetails = ({
         password_error_msg: '',
     })
 
+    const company_fields = !is_individual
+        ? [
+              {
+                  id: 'dm-company_name',
+                  name: 'company_name',
+                  type: 'text',
+                  label: localize('_t_Company name*_t_'),
+              },
+              {
+                  id: 'dm-company_registration_number',
+                  name: 'company_registration_number',
+                  type: 'text',
+                  label: localize('_t_Company registration number*_t_'),
+              },
+          ]
+        : []
+
     const form_inputs = [
         {
             id: 'dm-first_name',
             name: 'first_name',
             type: 'text',
             label: localize('_t_First name*_t_'),
-            error: form_errors.first_name_error_msg,
-            value: form_data.first_name,
         },
         {
             id: 'dm-last_name',
             name: 'last_name',
             type: 'text',
             label: localize('_t_Last name*_t_'),
-            error: form_errors.last_name_error_msg,
-            value: form_data.last_name,
         },
         {
             id: 'dm-date_birth',
             name: 'date_birth',
             type: 'date',
             label: localize('_t_Date of Birth*_t_'),
-            value: form_data.date_birth,
-            value_set: setFormData,
         },
         {
             id: 'dm-phone',
             name: 'phone',
             type: 'text',
             label: localize('_t_Phone number*_t_'),
-            error: form_errors.phone_error_msg,
-            value: form_data.phone,
         },
-        {
-            id: 'dm-company_name',
-            name: 'company_name',
-            type: 'text',
-            label: localize('_t_Company name*_t_'),
-            error: form_errors.company_name_error_msg,
-            value: form_data.company_name,
-        },
-        {
-            id: 'dm-company_registration_number',
-            name: 'company_registration_number',
-            type: 'text',
-            label: localize('_t_Company registration number*_t_'),
-            error: form_errors.company_registration_number_error_msg,
-            value: form_data.company_registration_number,
-        },
+        ...company_fields,
         {
             id: 'dm-website_url',
             name: 'website_url',
@@ -81,8 +75,6 @@ const AccountDetails = ({
             label: is_individual
                 ? localize('_t_Website/social media URL*_t_')
                 : localize('_t_Company website/social media URL*_t_'),
-            error: form_errors.website_url_error_msg,
-            value: form_data.website_url,
         },
         {
             id: 'dm-second_website_url',
@@ -91,24 +83,18 @@ const AccountDetails = ({
             label: is_individual
                 ? localize('_t_Second website/social media URL_t_')
                 : localize('_t_Company second website/social media URL_t_'),
-            error: form_errors.second_website_url_error_msg,
-            value: form_data.second_website_url,
         },
         {
             id: 'dm-username',
             name: 'username',
             type: 'text',
             label: localize('_t_Username*_t_'),
-            error: form_errors.user_name_error_msg,
-            value: form_data.username,
         },
         {
             id: 'dm-password',
             name: 'password',
             type: 'password',
             label: localize('_t_Password*_t_'),
-            error: form_errors.password_error_msg,
-            value: form_data.password,
         },
     ]
 
@@ -145,16 +131,6 @@ const AccountDetails = ({
         onValidate(is_valid)
     }, [onValidate, is_valid])
 
-    const getFormFields = () => {
-        return form_inputs.filter((item) => {
-            if (is_individual) {
-                const company_details = ['company_name', 'company_registration_number']
-
-                return !company_details.includes(item.name)
-            }
-            return true
-        })
-    }
     const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
 
@@ -167,30 +143,31 @@ const AccountDetails = ({
                 [`${name}_error_msg`]: error_msg,
             }))
         }
+
+        onValidate(is_valid)
     }, [])
 
-    const handleError = useCallback((item) => {
+    const handleError = (item) => {
         setFormData((prev) => ({ ...prev, [item.name]: '' }))
         setFormErrors((errors) => ({
             ...errors,
             [`${item.name}_error_msg`]: '',
         }))
-    }, [])
+    }
 
     return (
         <InputGroup>
             <AffiliatesHeader text="_t_Details_t_" />
             <InputWrapper>
-                {getFormFields().map((item) => {
+                {form_inputs.map((item) => {
                     if (item.name === 'date_birth') {
                         return (
                             <BirthForm
                                 id={item.id}
                                 key={item.id}
-                                error={item.error}
-                                value={item.value}
+                                value={form_data[item.name]}
                                 label={item.label}
-                                setFieldValue={item.value_set}
+                                setFieldValue={setFormData}
                             />
                         )
                     } else if (item.name === 'username') {
@@ -202,12 +179,11 @@ const AccountDetails = ({
                                     key={item.id}
                                     name={item.name}
                                     type={item.type}
-                                    value={item.value}
-                                    error={item.error}
+                                    value={form_data[item.name]}
+                                    error={form_errors[`${item.name}_error_msg`]}
                                     label={item.label}
                                     placeholder={item.label}
                                     onChange={handleInput}
-                                    onBlur={handleInput}
                                     handleError={() => handleError(item)}
                                 />
                             </>
@@ -220,12 +196,11 @@ const AccountDetails = ({
                                 name={item.name}
                                 type={item.type}
                                 label={item.label}
-                                value={item.value}
-                                error={item.error}
+                                value={form_data[item.name]}
+                                error={form_errors[`${item.name}_error_msg`]}
                                 placeholder={item.label}
                                 password_icon={item.type == 'password'}
                                 onChange={handleInput}
-                                onBlur={handleInput}
                                 data-lpignore="true"
                                 handleError={() => handleError(item)}
                             />

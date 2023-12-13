@@ -23,9 +23,7 @@ const AccountAddress = ({
         street_error_msg: '',
         postal_code_error_msg: '',
     })
-
     const [states_list] = useStatesList(form_data.country?.symbol)
-
     const header_text: TString = is_individual ? '_t_Personal address_t_' : '_t_Company address_t_'
 
     useEffect(() => {
@@ -80,8 +78,6 @@ const AccountAddress = ({
             label: is_individual
                 ? localize('_t_Country of residence*_t_')
                 : localize('_t_Country*_t_'),
-            error: form_errors.country_error_msg,
-            value: form_data.country,
             list: residence_list,
             handler: handleCountry,
         },
@@ -90,8 +86,6 @@ const AccountAddress = ({
             name: 'state',
             type: 'select',
             label: localize('_t_State/province*_t_'),
-            error: form_errors.state_error_msg,
-            value: form_data.state,
             list: states_list,
             handler: handleState,
         },
@@ -100,24 +94,18 @@ const AccountAddress = ({
             name: 'city',
             type: 'text',
             label: localize('_t_Town/city*_t_'),
-            error: form_errors.city_error_msg,
-            value: form_data.city,
         },
         {
             id: 'dm-street',
             name: 'street',
             type: 'text',
             label: localize('_t_Street*_t_'),
-            error: form_errors.street_error_msg,
-            value: form_data.street,
         },
         {
             id: 'dm-postal-code',
             name: 'postal_code',
             type: 'text',
             label: localize('_t_Postal/Zip code*_t_'),
-            error: form_errors.postal_code_error_msg,
-            value: form_data.postal_code,
         },
     ]
     const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -134,13 +122,13 @@ const AccountAddress = ({
         }
     }, [])
 
-    const handleError = useCallback((item) => {
+    const handleError = (item) => {
         setFormData((prev) => ({ ...prev, [item.name]: '' }))
         setFormErrors((errors) => ({
             ...errors,
             [`${item.name}_error_msg`]: '',
         }))
-    }, [])
+    }
 
     return (
         <InputGroup>
@@ -154,8 +142,8 @@ const AccountAddress = ({
                                 id={item.id}
                                 label={item.label}
                                 items={item.list}
-                                error={item.error}
-                                selected_item={item.value}
+                                selected_item={form_data[item.name]}
+                                error={form_errors[`${item.name}_error_msg`]}
                                 onChange={item.handler}
                                 style={{ marginTop: '16px' }}
                             />
@@ -167,13 +155,11 @@ const AccountAddress = ({
                                 key={item.id}
                                 name={item.name}
                                 type={item.type}
-                                value={item.value}
-                                error={item.error}
+                                value={form_data[item.name]}
+                                error={form_errors[`${item.name}_error_msg`]}
                                 label={item.label}
-                                required={item.required}
                                 placeholder={item.label}
                                 onChange={handleInput}
-                                onBlur={handleInput}
                                 handleError={() => handleError(item)}
                             />
                         )

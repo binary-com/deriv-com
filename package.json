@@ -45,6 +45,7 @@
         "gatsby-plugin-sass": "^6.12.3",
         "gatsby-plugin-sharp": "^5.12.3",
         "gatsby-plugin-sitemap": "^6.12.3",
+        "gatsby-plugin-split-css": "^2.0.3",
         "gatsby-plugin-svgr": "^3.0.0-beta.0",
         "gatsby-plugin-use-query-params": "^1.0.1",
         "gatsby-source-filesystem": "^5.12.1",

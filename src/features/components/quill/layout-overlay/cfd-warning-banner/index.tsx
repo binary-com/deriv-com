@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from 'gatsby'
 import clsx from 'clsx'
 import { Text } from '@deriv/quill-design'
 import { CustomLink } from '@deriv-com/components'
-import * as styles from './cfd-warning-banner.module.scss'
 import { Localize } from 'components/localization'
 import Arrow from 'images/svg/arrow_expandable.svg'
 import useRegion from 'components/hooks/use-region'
@@ -71,7 +70,7 @@ const CfdWarningBanner = () => {
                         alt="Expand"
                         className={clsx(
                             'transition-transform px-800',
-                            expanded ? styles.arrowIconExpanded : styles.arrowIcon,
+                            expanded ? 'rotate-180 animate-fade-in' : 'rotate-0 animate-fade-out',
                         )}
                     />
                 </div>

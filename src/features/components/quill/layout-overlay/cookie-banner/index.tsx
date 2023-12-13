@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { Text, Button } from '@deriv/quill-design'
 import { CustomLink } from '@deriv-com/components'
-import { cookie_banner_wrapper, visible } from './cookie-banner.module.scss'
 import { useCookieBanner } from 'components/hooks/use-cookie-banner'
 import { Localize } from 'components/localization'
 
@@ -31,10 +30,9 @@ const CookieBanner = () => {
         return (
             <div
                 className={clsx(
-                    'pointer-events-auto p-600 mb-200 md:m-500 bg-background-primary-base w-screen shadow-[0_0_12px_0_rgba(14,_14,_14,_0.16)] ease-in-out duration-200 [transition:opacity,translate] md:max-w-[40rem] rounded-400',
-                    cookie_banner_wrapper,
+                    'animate-fade-out pointer-events-auto p-600 mb-200 md:m-500 bg-background-primary-base w-screen shadow-[0_0_12px_0_rgba(14,_14,_14,_0.16)] ease-in-out duration-200 [transition:opacity,translate] md:max-w-[40rem] rounded-400',
                     {
-                        [visible]: cookie.should_show,
+                        ['animate-fade-in']: cookie.should_show,
                     },
                 )}
             >

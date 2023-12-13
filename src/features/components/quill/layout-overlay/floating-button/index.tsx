@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import clsx from 'clsx'
-import './floating-button.scss'
 
 type TProps = {
     children: (has_hover: boolean) => JSX.Element
@@ -13,8 +12,7 @@ const FloatingButton = ({ children, className, onClick }: TProps) => {
         <button
             className={clsx(
                 className,
-                'floating-button',
-                'shadow-[0_16px_20px_0_rgba(0,0,0,0.05),0_0_20px_0_rgba(0,0,0,0.05)] bg-background-primary-base p-400 flex cursor-pointer border-[transparent] rounded-[50%] m-800 mt-50 pointer-events-auto transition-all select-none sm:p-700 hover:scale-100',
+                'tap-highlight-transparent shadow-[0_16px_20px_0_rgba(0,0,0,0.05),0_0_20px_0_rgba(0,0,0,0.05)] bg-background-primary-base p-400 flex cursor-pointer border-[transparent] rounded-[50%] m-800 mt-50 pointer-events-auto transition-all select-none sm:p-700 hover:scale-100',
             )}
             onMouseEnter={() => setHasHover(true)}
             onMouseLeave={() => setHasHover(false)}

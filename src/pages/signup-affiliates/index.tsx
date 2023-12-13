@@ -140,7 +140,6 @@ const AffiliateSignup = () => {
             promote_eu: false,
         },
     })
-    console.log(affiliate_account?.account_address)
 
     const {
         data: affiliate_api_data,

@@ -56,7 +56,7 @@ module.exports = {
         //         // precachePages: [`/`],
         //     },
         // },
-        'gatsby-plugin-split-css',
+        'gatsby-plugin-postcss',
         {
             resolve: 'gatsby-plugin-sass',
             options: {

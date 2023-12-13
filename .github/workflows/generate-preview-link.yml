@@ -129,6 +129,7 @@ jobs:
                   GATSBY_RUDDERSTACK_PRODUCTION_KEY: ${{ secrets.GATSBY_RUDDERSTACK_PRODUCTION_KEY }}
                   GATSBY_STRAPI_TOKEN: ${{ secrets.GATSBY_STRAPI_TOKEN }}
                   GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID: ${{ secrets.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID }}
+                  TRUSTPILOT_API_KEY: ${{ secrets.TRUSTPILOT_API_KEY }}
 
               run: npm run build
 

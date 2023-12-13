@@ -1,1 +1,48 @@
-const a0_0x5517c7=a0_0x403d;(function(_0xa7a754,_0x11c071){const _0x530ab7=a0_0x403d,_0x5c84a1=_0xa7a754();while(!![]){try{const _0x20dfb2=parseInt(_0x530ab7(0x17c))/0x1*(parseInt(_0x530ab7(0x174))/0x2)+parseInt(_0x530ab7(0x17a))/0x3+-parseInt(_0x530ab7(0x169))/0x4*(-parseInt(_0x530ab7(0x161))/0x5)+parseInt(_0x530ab7(0x178))/0x6*(-parseInt(_0x530ab7(0x167))/0x7)+-parseInt(_0x530ab7(0x16c))/0x8+-parseInt(_0x530ab7(0x16f))/0x9*(parseInt(_0x530ab7(0x164))/0xa)+parseInt(_0x530ab7(0x175))/0xb*(parseInt(_0x530ab7(0x16b))/0xc);if(_0x20dfb2===_0x11c071)break;else _0x5c84a1['push'](_0x5c84a1['shift']());}catch(_0x3946e3){_0x5c84a1['push'](_0x5c84a1['shift']());}}}(a0_0x3a99,0xeae6a));const fs=require('fs'),path=require(a0_0x5517c7(0x177)),fetchTrustpilotData=async()=>{const _0x2c9a76=a0_0x5517c7,_0xc50e73=path[_0x2c9a76(0x160)](__dirname,_0x2c9a76(0x168)),_0x573c6a=_0x2c9a76(0x15f),_0x20404c=path[_0x2c9a76(0x171)](_0xc50e73,_0x573c6a),_0x52598b=_0x596e9e=>atob(_0x596e9e),_0x9541c4=['MXI4ekpSen',_0x2c9a76(0x16e),_0x2c9a76(0x162),'XUFZoRWczSGo'];try{const _0x3964c1=_0x2c9a76(0x17b),_0x2f4f9d=_0x52598b(_0x9541c4['join'](''));if(!_0x3964c1||!_0x2f4f9d)throw new Error(_0x2c9a76(0x15e));const _0x18cd33=_0x2c9a76(0x172)+_0x3964c1+_0x2c9a76(0x17d)+_0x2f4f9d,_0x4b7a87=await fetch(_0x18cd33);if(!_0x4b7a87['ok'])throw new Error(_0x2c9a76(0x16a)+_0x4b7a87[_0x2c9a76(0x173)]);const _0x4e5ff4=await _0x4b7a87[_0x2c9a76(0x165)](),_0x3c8312={'stars':_0x4e5ff4['score']?.[_0x2c9a76(0x176)]||0x0,'trustScore':_0x4e5ff4[_0x2c9a76(0x16d)]?.[_0x2c9a76(0x15d)]||0x0,'numberOfReviews':_0x4e5ff4[_0x2c9a76(0x166)]?.[_0x2c9a76(0x163)]['toLocaleString']()||''};console['log'](_0x2c9a76(0x17e)+JSON['stringify'](_0x3c8312));const _0x205dc0=JSON[_0x2c9a76(0x170)](_0x3c8312,null,0x2);fs['writeFile'](_0x20404c,_0x205dc0,_0x5409d0=>{_0x5409d0&&console['error']('Error\x20writing\x20to\x20the\x20file:',_0x5409d0);});}catch(_0x1d2448){console[_0x2c9a76(0x179)](_0x1d2448);}};function a0_0x3a99(){const _0x353b5c=['path','6UtqFFf','log','5730783cazrKn','deriv.com','1389tgmtgR','&apikey=','\x1b[33m[Trustpilot\x20Data]\x1b[32m:\x20','trustScore','Trustpilot\x20app\x20name\x20or\x20API\x20key\x20is\x20missing','trustpilot.json','resolve','5nMallf','2VnVpQWplNEh','usedForTrustScoreCalculation','68360GrCObY','json','numberOfReviews','11570279CJCnyM','../src/data','120604dNwYri','Network\x20response\x20was\x20not\x20ok:\x20','398724XsrZdY','6243032DfksWs','score','BHaFdLV2g','387MxlJyP','stringify','join','https://api.trustpilot.com/v1/business-units/find?name=','statusText','174BoIAQS','539xbktWx','stars'];a0_0x3a99=function(){return _0x353b5c;};return a0_0x3a99();}function a0_0x403d(_0xe87bc1,_0x4855ab){const _0x3a998d=a0_0x3a99();return a0_0x403d=function(_0x403d36,_0x189c2b){_0x403d36=_0x403d36-0x15d;let _0x461a02=_0x3a998d[_0x403d36];return _0x461a02;},a0_0x403d(_0xe87bc1,_0x4855ab);}fetchTrustpilotData();
+const fs = require('fs')
+const path = require('path')
+require('dotenv').config();
+
+const fetchTrustpilotData = async () => {
+    const fileDir = path.resolve(__dirname, '../src/data')
+    const fileName = 'trustpilot.json'
+    const filePath = path.join(fileDir, fileName)
+ 
+    try {
+        const appName = 'deriv.com'
+        const apiKey = process.env.TRUSTPILOT_API_KEY
+     
+        if (!appName || !apiKey) {
+            throw new Error('Trustpilot app name or API key is missing')
+        }
+
+        const url = `https://api.trustpilot.com/v1/business-units/find?name=${appName}&apikey=${apiKey}`
+        const response = await fetch(url)
+
+        if (!response.ok) {
+            throw new Error(`Network response was not ok: ${response.statusText}`)
+        }
+
+        const result = await response.json()
+        const tpData = {
+            stars: result.score?.stars || 0,
+            trustScore: result.score?.trustScore || 0,
+            numberOfReviews:
+                result.numberOfReviews?.usedForTrustScoreCalculation.toLocaleString() || '',
+        }
+
+        const fileContent = JSON.stringify(tpData,null,2)
+
+        fs.writeFile(filePath, fileContent, (error) => {
+            if (error) {
+              // Handle errors
+              console.error('Error writing to the file:', error);
+            }
+          });
+       
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+fetchTrustpilotData()
+

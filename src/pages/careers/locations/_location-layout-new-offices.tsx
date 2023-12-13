@@ -40,17 +40,36 @@ const SecondStyledHeader = styled(Header)`
 
     margin-bottom: 0 24px;
 `
+const HeroBadge = styled(QueryImage)`
+    position: absolute;
+    left: 13%;
+    width: 124px;
+    height: 190px;
+
+    @media ${device.laptopS} {
+        left: 138px;
+    }
+
+    @media ${device.mobileL} {
+        left: 15%;
+        transform-origin: top;
+        transform: scale(0.75);
+    }
+`
 
 type HeroProps = {
     display_name: string
     job_location?: string
+    badge_data?: ImageDataLike
+    badge_alt?: string
     hero_image: ReactElement
 }
 
-const Hero = ({ display_name, hero_image, job_location }: HeroProps) => {
+const Hero = ({ display_name, hero_image, job_location, badge_data, badge_alt }: HeroProps) => {
     return (
         <BackgroundImageWrapper>
             <StaticImageWrapper>{hero_image}</StaticImageWrapper>
+            {badge_data && <HeroBadge data={badge_data} alt={badge_alt} />}
             <StyledContainer>
                 <StyledHeader as="h1">{display_name}</StyledHeader>
                 <LinkButton
@@ -232,6 +251,8 @@ export const NewLocationLayout = ({ location, images }: LocationLayoutProps) => 
             <Hero
                 display_name={display_name}
                 hero_image={location.hero_image}
+                badge_data={images[location.badge]}
+                badge_alt={location.badge_alt}
                 job_location={job_location}
             />
             <FirstSection>

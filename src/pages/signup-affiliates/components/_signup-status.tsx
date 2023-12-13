@@ -116,13 +116,13 @@ const AffiliateSignupStatus = ({
         ({ e, field }: { e?: React.ChangeEvent<HTMLInputElement>; field: string }) => {
             e?.preventDefault()
             const value = e?.target?.value ?? ''
-            setAffiliateAccount({
-                ...affiliate_account,
+            setAffiliateAccount((prev) => ({
+                ...prev,
                 account_details: {
-                    ...affiliate_account.account_details,
+                    ...prev.account_details,
                     [field]: value,
                 },
-            })
+            }))
             field === 'username' && setUsernameError(affiliate_validation.username(value))
             field === 'website_url' && setWebsiteUrlError(affiliate_validation.website_url(value))
         },

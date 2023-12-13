@@ -31,18 +31,8 @@ jobs:
                   git config --global user.name "DerivFE"
                   git config --global user.email "80095553+DerivFE@users.noreply.github.com"
 
-                  echo "Fetch Branches"
-                  git fetch origin
-
-                  echo "Checkout Translators"
-                  git checkout translators
-                  
                   echo "Checking out new branch [$branch_name]"
                   git checkout -b "$branch_name"
-
-                  echo "Merge master to translator branch and resolve conflicts automatically"
-                 
-                  git merge -X theirs  --commit master -m "chore: $(git status --short)"   
 
                   # Force push to this branch in case a previous run created it.
                   git push --set-upstream origin "$branch_name" -f

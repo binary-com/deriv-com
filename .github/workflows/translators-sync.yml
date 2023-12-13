@@ -19,6 +19,8 @@ jobs:
         steps:
             - name: Checkout 🛎️
               uses: actions/checkout@v4.1.1
+              with:
+                ref: translators
             - name: Setup Node
               uses: actions/setup-node@v4.0.0
               with:
@@ -30,9 +32,6 @@ jobs:
                   echo "Setting up Git identity"
                   git config --global user.name "DerivFE"
                   git config --global user.email "80095553+DerivFE@users.noreply.github.com"
-
-                  echo "Checkout to translators branch"
-                  git checkout translators
 
                   echo "Checking out new branch [$branch_name]"
                   git checkout -b "$branch_name"

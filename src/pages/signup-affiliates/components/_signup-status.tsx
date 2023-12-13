@@ -143,7 +143,7 @@ const AffiliateSignupStatus = ({
         trackEvent({ action: 'try_submit' })
         setSignupStatus('loading')
         onSubmit()
-    }, [])
+    }, [signup_status])
 
     return (
         <>

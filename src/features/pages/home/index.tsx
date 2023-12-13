@@ -8,6 +8,7 @@ import {
     SharedLinkProps,
     SharedLink,
 } from '@deriv-com/providers'
+import Layout from 'features/components/templates/layout'
 import ROWFooter from './footer'
 import LiveMarketSection from './live-pricing-migration'
 import TwentyYearsStrong from './years'

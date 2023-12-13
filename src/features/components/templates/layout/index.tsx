@@ -9,6 +9,7 @@ import apiManager from 'common/websocket'
 import 'swiper/swiper-bundle.min.css'
 import 'features/styles/app.scss'
 import 'features/styles/fonts.css'
+
 interface LayoutProps {
     is_ppc?: boolean
     is_ppc_redirect?: boolean

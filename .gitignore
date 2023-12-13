@@ -61,9 +61,6 @@ typings/
 .env.development
 .env.production
 
-# build time data
-scripts/trustpilot-src.js
-
 # gatsby files
 .cache/
 public

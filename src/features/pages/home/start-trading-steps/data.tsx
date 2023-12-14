@@ -14,7 +14,7 @@ export const RowCards: CardContent[] = [
             <StaticImage
                 src="../../../../images/migration/home/steps1.png"
                 alt={localize('_t_Sign up & explore_t_')}
-                loading="eager"
+                loading="lazy"
                 formats={['webp', 'auto']}
                 quality={100}
             />
@@ -35,7 +35,7 @@ export const RowCards: CardContent[] = [
             <StaticImage
                 src="../../../../images/migration/home/steps2.png"
                 alt={localize('_t_Try with zero-risk_t_')}
-                loading="eager"
+                loading="lazy"
                 formats={['webp', 'auto']}
                 quality={100}
             />
@@ -56,7 +56,7 @@ export const RowCards: CardContent[] = [
             <StaticImage
                 src="../../../../images/migration/home/steps3.png"
                 alt={localize('_t_Trade with confidence_t_')}
-                loading="eager"
+                loading="lazy"
                 formats={['webp', 'auto']}
                 quality={100}
             />
@@ -80,7 +80,7 @@ export const EUCards: CardContent[] = [
             <StaticImage
                 src="../../../../images/migration/home/steps1_eu.png"
                 alt={localize('_t_Sign up & explore_t_')}
-                loading="eager"
+                loading="lazy"
                 formats={['webp', 'auto']}
                 quality={100}
             />
@@ -101,7 +101,7 @@ export const EUCards: CardContent[] = [
             <StaticImage
                 src="../../../../images/migration/home/steps2_eu.png"
                 alt={localize('_t_Try with zero-risk_t_')}
-                loading="eager"
+                loading="lazy"
                 formats={['webp', 'auto']}
                 quality={100}
             />
@@ -122,7 +122,7 @@ export const EUCards: CardContent[] = [
             <StaticImage
                 src="../../../../images/migration/home/steps3_eu.png"
                 alt={localize('_t_Trade with confidence_t_')}
-                loading="eager"
+                loading="lazy"
                 formats={['webp', 'auto']}
                 quality={100}
             />

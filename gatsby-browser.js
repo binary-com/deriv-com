@@ -15,6 +15,7 @@ import {
     getLanguage,
     updateURLAsPerUserLanguage,
 } from 'common/utility'
+import './static/css/noto-sans-arabic.css'
 import 'features/styles/app.scss'
 import './static/css/global.css'
 

@@ -7,7 +7,6 @@ import LayoutOverlay from 'features/components/molecules/layout-overlay'
 import BrowserUpdateAlert from 'features/components/molecules/browser-update-alert'
 import apiManager from 'common/websocket'
 import 'swiper/swiper-bundle.min.css'
-import 'features/styles/fonts.css'
 
 interface LayoutProps {
     is_ppc?: boolean

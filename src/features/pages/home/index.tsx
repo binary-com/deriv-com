@@ -8,7 +8,7 @@ import {
     SharedLinkProps,
     SharedLink,
 } from '@deriv-com/providers'
-import Layout from 'features/components/templates/layout'
+import QuillLayout from 'features/components/quill/quill-layout'
 import ROWFooter from './footer'
 import LiveMarketSection from './live-pricing-migration'
 import TwentyYearsStrong from './years'
@@ -26,7 +26,6 @@ import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection
 import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 import { LocaleContext, LocalizedLink } from 'components/localization'
-import QuillLayout from 'features/components/quill/quill-layout'
 
 const HomePage = () => {
     useOpenLiveChat(true)

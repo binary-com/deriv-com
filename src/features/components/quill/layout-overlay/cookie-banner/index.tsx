@@ -30,16 +30,16 @@ const CookieBanner = () => {
         return (
             <div
                 className={clsx(
-                    'animate-fade-out pointer-events-auto p-600 mb-200 md:m-500 bg-background-primary-base w-screen shadow-[0_0_12px_0_rgba(14,_14,_14,_0.16)] ease-in-out duration-200 [transition:opacity,translate] md:max-w-[40rem] rounded-400',
+                    'animate-fade-out pointer-events-auto p-1200 mb-200 bg-background-primary-base w-screen shadow-[0_0_12px_0_rgba(14,_14,_14,_0.16)] ease-in-out duration-200 [transition:opacity,translate] md:m-1000 md:max-w-[400px] md:rounded-400',
                     {
                         ['animate-fade-in']: cookie.should_show,
                     },
                 )}
             >
-                <Text className="pb-500">
+                <Text className="pb-500 text-75 lg:text-100">
                     <Localize translate_text="_t_Cookies help us to give you a better experience and personalised content on our site. _t_" />
                 </Text>
-                <Text>
+                <Text className="text-75 lg:text-100">
                     <Localize
                         translate_text="_t_If you agree to our use of cookies, click on Accept. For more information, <0>see our policy</0>._t_"
                         components={[

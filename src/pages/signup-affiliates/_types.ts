@@ -106,7 +106,7 @@ type SignUpFormProps = {
 type WizardComponentTypes = {
     children?: ReactElement[]
     next_btn_enabled: boolean
-    setNextBtnEnabled: Dispatch<SetStateAction<boolean>>
+    setNextBtnEnabled?: Dispatch<SetStateAction<boolean>>
     step: number
     setStep: Dispatch<SetStateAction<number>>
     max_step?: number

@@ -54,7 +54,6 @@ const WizardFooter = ({
     setStep,
     onSubmit,
     max_step,
-    setNextBtnEnabled,
     next_btn_enabled,
 }: WizardComponentTypes) => {
     const buttonHandler = React.useCallback(
@@ -66,7 +65,6 @@ const WizardFooter = ({
                     step_codename: getCodeName(step),
                 })
                 step > 1 && setStep(step - 1)
-                setNextBtnEnabled(true)
             }
             if (button_type === ButtonType.Next) {
                 trackEvent({
@@ -75,11 +73,12 @@ const WizardFooter = ({
                     step_codename: getCodeName(step),
                 })
                 step < max_step && setStep(step + 1)
-                setNextBtnEnabled(false)
             }
         },
-        [max_step, setNextBtnEnabled, setStep, step],
+        [max_step, setStep, step],
     )
+
+    const handleClick = () => (max_step === step ? onSubmit() : buttonHandler(ButtonType.Next))
 
     return (
         <StyledFooter>
@@ -88,11 +87,7 @@ const WizardFooter = ({
                     <Localize translate_text="_t_Back_t_" />
                 </PartnersButton>
             )}
-            <PartnersButton
-                secondary
-                disabled={!next_btn_enabled}
-                onClick={() => (max_step === step ? onSubmit() : buttonHandler(ButtonType.Next))}
-            >
+            <PartnersButton secondary disabled={!next_btn_enabled} onClick={handleClick}>
                 {max_step === step ? (
                     <Localize translate_text="_t_Submit_t_" />
                 ) : (

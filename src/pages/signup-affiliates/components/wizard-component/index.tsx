@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import WizardFooter from './wizard-footer'
 import WizardHeader from './wizard-header'
@@ -64,13 +64,8 @@ const WizardComponent = ({
     step,
     setStep,
     next_btn_enabled,
-    setNextBtnEnabled,
 }: WizardComponentsProps) => {
     const is_rtl = useIsRtl()
-
-    useEffect(() => {
-        setNextBtnEnabled(next_btn_enabled)
-    }, [next_btn_enabled])
 
     if (!show_wizard) return <></>
     return (
@@ -90,7 +85,6 @@ const WizardComponent = ({
                     step={step}
                     setStep={setStep}
                     next_btn_enabled={next_btn_enabled}
-                    setNextBtnEnabled={setNextBtnEnabled}
                     onSubmit={onSubmit}
                 />
             </Modal>

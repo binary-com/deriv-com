@@ -22,7 +22,7 @@ export const MainWrapper = styled.div`
     justify-content: center;
     align-items: center;
 `
-const StyledCard = styled.div<{ selected: boolean }>`
+const StyledCard = styled.li<{ selected: boolean }>`
     display: flex;
     align-items: center;
     inline-size: 400px;

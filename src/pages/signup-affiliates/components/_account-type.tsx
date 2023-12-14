@@ -22,8 +22,8 @@ const types: AccountCardProps[] = [
     },
 ]
 const AccountType = ({
-    updateData,
     affiliate_account,
+    updateData,
     onValidate,
 }: WizardStepProps<'account_type'>) => {
     const [account_type, setAccountType] = useState(affiliate_account.account_type)
@@ -46,18 +46,20 @@ const AccountType = ({
             >
                 <Localize translate_text="_t_Choose the type of partner account you want to register_t_" />
             </StyledHeader>
-            {types.map(({ value, icon, title, description }) => {
-                return (
-                    <AccountCard
-                        key={`account-type-${value}`}
-                        icon={icon}
-                        title={title}
-                        description={description}
-                        selected={account_type == value}
-                        onClick={() => setAccountType(value)}
-                    />
-                )
-            })}
+            <ul>
+                {types.map(({ value, icon, title, description }) => {
+                    return (
+                        <AccountCard
+                            key={`account-type-${value}`}
+                            icon={icon}
+                            title={title}
+                            description={description}
+                            selected={account_type == value}
+                            onClick={() => setAccountType(value)}
+                        />
+                    )
+                })}
+            </ul>
         </MainWrapper>
     )
 }

@@ -9,11 +9,11 @@ import { localize } from 'components/localization'
 import { TString } from 'types/generics'
 
 const AccountAddress = ({
-    affiliate_account,
     is_individual,
+    affiliate_account,
+    residence_list,
     updateData,
     onValidate,
-    residence_list,
 }: WizardStepProps<'account_address'>) => {
     const [form_data, setFormData] = useState(affiliate_account.account_address)
     const [form_errors, setFormErrors] = useState({
@@ -147,18 +147,19 @@ const AccountAddress = ({
                         )
                     } else {
                         return (
-                            <AffiliateInput
-                                id={item.id}
-                                key={item.id}
-                                name={item.name}
-                                type={item.type}
-                                value={form_data[item.name]}
-                                error={form_errors[`${item.name}_error_msg`]}
-                                label={item.label}
-                                placeholder={item.label}
-                                onChange={handleInput}
-                                handleError={() => handleError(item)}
-                            />
+                            <li key={item.id}>
+                                <AffiliateInput
+                                    id={item.id}
+                                    name={item.name}
+                                    type={item.type}
+                                    value={form_data[item.name]}
+                                    error={form_errors[`${item.name}_error_msg`]}
+                                    label={item.label}
+                                    placeholder={item.label}
+                                    onChange={handleInput}
+                                    handleError={() => handleError(item)}
+                                />
+                            </li>
                         )
                     }
                 })}

@@ -32,8 +32,8 @@ const plans: AccountCardProps[] = [
     },
 ]
 const AccountPlan = ({
-    updateData,
     affiliate_account,
+    updateData,
     onValidate,
 }: WizardStepProps<'account_plan'>) => {
     const [account_plan, setAccountPlan] = useState(affiliate_account.account_plan)
@@ -55,19 +55,21 @@ const AccountPlan = ({
             >
                 <Localize translate_text="_t_Choose which plan you would like to subscribe._t_" />
             </StyledHeader>
-            {plans.map(({ value, icon, title, description, note }) => {
-                return (
-                    <AccountCard
-                        key={`account-plan-${value}`}
-                        icon={icon}
-                        title={title}
-                        description={description}
-                        selected={account_plan == value}
-                        note={note}
-                        onClick={() => setAccountPlan(value)}
-                    />
-                )
-            })}
+            <ul>
+                {plans.map(({ value, icon, title, description, note }) => {
+                    return (
+                        <AccountCard
+                            key={`account-plan-${value}`}
+                            icon={icon}
+                            title={title}
+                            description={description}
+                            selected={account_plan == value}
+                            note={note}
+                            onClick={() => setAccountPlan(value)}
+                        />
+                    )
+                })}
+            </ul>
         </MainWrapper>
     )
 }

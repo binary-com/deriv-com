@@ -46,7 +46,7 @@ const CookieBanner = () => {
                             <CustomLink
                                 key={0}
                                 href="/terms-and-conditions/#clients"
-                                className="text-solid-coral-700 inline-flex"
+                                className="text-solid-coral-700 inline"
                             />,
                         ]}
                     />

@@ -37,7 +37,7 @@ const CfdWarningBanner = () => {
                                     values={{ loss_percent }}
                                     components={[
                                         <CustomLink
-                                            className="font-bold inline-flex text-75 lg:text-100 text-[#414652]"
+                                            className="font-bold inline text-75 lg:text-100 text-[#414652]"
                                             key={0}
                                             target="_blank"
                                             href="/tnc/eu/risk-disclosure.pdf"
@@ -52,7 +52,7 @@ const CfdWarningBanner = () => {
                                     values={{ loss_percent }}
                                     components={[
                                         <CustomLink
-                                            className="font-bold inline-flex text-75 lg:text-100 text-[#414652]"
+                                            className="font-bold inline text-75 lg:text-100 text-[#414652]"
                                             key={0}
                                             target="_blank"
                                             href="/tnc/eu/risk-disclosure.pdf"
@@ -80,7 +80,7 @@ const CfdWarningBanner = () => {
                                 values={{ loss_percent }}
                                 components={[
                                     <CustomLink
-                                        className="font-bold inline-flex text-75 lg:text-100 text-[#414652]"
+                                        className="font-bold inline text-75 lg:text-100 text-[#414652]"
                                         key={0}
                                         target="_blank"
                                         href="/tnc/eu/risk-disclosure.pdf"

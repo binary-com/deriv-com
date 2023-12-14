@@ -5,9 +5,6 @@ import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param
 import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
 import { getLanguage, isBrowser } from 'common/utility'
 import apiManager from 'common/websocket'
-import '@deriv-com/components/style.css'
-import '@deriv-com/blocks/style.css'
-import './global.css'
 
 interface LayoutProps {
     is_ppc?: boolean

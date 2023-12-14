@@ -15,6 +15,8 @@ import {
     getLanguage,
     updateURLAsPerUserLanguage,
 } from 'common/utility'
+import 'features/styles/app.scss'
+import './static/css/global.css'
 
 const is_browser = typeof window !== 'undefined'
 

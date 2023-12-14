@@ -60,12 +60,25 @@ jobs:
 
                   sudo apt install gh
                   gh auth login --with-token <<< ${{ github.token }}
-                  pr_close=$(gh pr close "$branch_name" || true)
+                  gh pr close "$branch_name" || true
+
+                   # Check the exit status
+                    EXIT_STATUS=$?
+        
+                  # Set the output variable based on the exit status
+                  if [ $EXIT_STATUS -eq 0 ]; then
+                    al="false"
+                    echo "ALERT=false" >> $GITHUB_ENV
+                  else
+                    al="true"
+                    echo "ALERT=true" >> $GITHUB_ENV
+                  fi
+          
                   pr_output=$(gh pr create --base "master" --title "[translations] New strings from crowdin 📚" --head "binary-com:$branch_name" -F ".github/translation_sync_template.md")
                   echo "PR_URL=$pr_output" >> $GITHUB_ENV
-                  echo "PR_CLOSE=$pr_close" >> $GITHUB_ENV
-                  echo $pr_close
-                  echo $pr_output
+                  
+                  echo "Should alert: $al"
+                  
                 fi
 
                 # Upload new strings to Crowdin

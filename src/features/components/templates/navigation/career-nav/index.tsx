@@ -15,6 +15,7 @@ const CareerNav = () => {
                 </CustomLink>
             )}
             items={career_nav_items}
+            hasLanguageSwitch={false}
         />
     )
 }

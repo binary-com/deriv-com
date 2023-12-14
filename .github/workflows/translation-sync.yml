@@ -62,22 +62,14 @@ jobs:
                   gh auth login --with-token <<< ${{ github.token }}
                   gh pr close "$branch_name" || true
 
-                   # Check the exit status
-                    EXIT_STATUS=$?
-        
-                  # Set the output variable based on the exit status
-                  if [ $EXIT_STATUS -eq 0 ]; then
-                    al="false"
-                    echo "ALERT=false" >> $GITHUB_ENV
+                  if [ "$(gh pr view $branch_name --json state -q '.state')" == "\"open\"" ]; then
+                    echo "Pull request for branch $branch_name is open and not merged."
                   else
-                    al="true"
-                    echo "ALERT=true" >> $GITHUB_ENV
+                    echo "Pull request for branch $branch_name is either closed or merged."
                   fi
           
                   pr_output=$(gh pr create --base "master" --title "[translations] New strings from crowdin 📚" --head "binary-com:$branch_name" -F ".github/translation_sync_template.md")
                   echo "PR_URL=$pr_output" >> $GITHUB_ENV
-                  
-                  echo "Should alert: $al"
                   
                 fi
 

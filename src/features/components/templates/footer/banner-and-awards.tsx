@@ -12,7 +12,7 @@ export const DerivGoBannerAndAwards = () => {
     return (
         <div className="flex flex-col gap-gap-lg">
             {is_row && (
-                <div className="flex lg:flex-col gap-gap-lg rounded-lg border-solid border-xs border-opacity-black-100 p-general-md">
+                <div className="flex lg:flex-col gap-gap-lg rounded-[16px] border-solid border-xs border-opacity-black-100 p-general-md">
                     <div className="flex flex-col gap-gap-md max-lg:flex-1 max-lg:justify-center">
                         <div className="flex flex-col gap-gap-md">
                             <div className="flex items-center gap-gap-md">
@@ -29,7 +29,7 @@ export const DerivGoBannerAndAwards = () => {
                             </Text>
                         </div>
 
-                        <div className="flex items-center gap-gap-md rounded-md border-solid border-[0.5px] border-opacity-black-200 p-general-sm max-sm:hidden">
+                        <div className="flex items-center gap-gap-md rounded-[8px] border-solid border-xs border-opacity-black-100 p-general-sm max-sm:hidden">
                             <StaticImage
                                 src="../../../../images/common/migration/footer/deriv-go-qr.png"
                                 alt={localize('_t_download deriv-go_t_')}
@@ -45,12 +45,12 @@ export const DerivGoBannerAndAwards = () => {
                     <DownloadBadges />
                 </div>
             )}
-            <div className="rounded-lg border-solid border-xs border-opacity-black-100 p-general-md">
+            <div className="rounded-[16px] border-solid border-xs border-opacity-black-100 py-general-md">
                 <div className="flex justify-center">
                     <StaticImage
                         src="../../../../images/common/migration/footer/investors-in-people.png"
                         alt={localize('_t_investors in people - gold_t_')}
-                        width={155}
+                        width={180}
                         placeholder="none"
                     />
                 </div>

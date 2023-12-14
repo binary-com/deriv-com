@@ -29,7 +29,7 @@ const PaymentAgent = () => {
     return (
         <>
             {is_row ? (
-                <Layout type="partners" padding_top="10">
+                <Layout type="partners" padding_top="8">
                     <Hero />
                     <TapInto />
                     <YourControl />

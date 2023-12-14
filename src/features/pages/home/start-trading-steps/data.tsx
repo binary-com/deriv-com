@@ -48,7 +48,7 @@ export const RowCards: CardContent[] = [
         id: 3,
         header: <Localize translate_text="_t_3. Trade with confidence_t_" />,
         description: (
-            <Localize translate_text="_t_Sign up in minutes and explore Trader’s Hub - all your trading needs, in one place._t_" />
+            <Localize translate_text="_t_Fund your account and start trading with round-the-clock support._t_" />
         ),
         content: (
             <StaticImage

@@ -8,6 +8,7 @@ type Thero = {
     date: Date
     tags: string
     banner: StrapiImage
+    slug: string
 }
 
 type TBlogPosts = {

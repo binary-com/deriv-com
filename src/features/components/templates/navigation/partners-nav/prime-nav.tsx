@@ -5,6 +5,7 @@ import { SubBrandDerivPrimeBrandLightIcon } from '@deriv/quill-icons/Logo'
 import { Button } from '@deriv/quill-design'
 import { CustomLink } from '@deriv-com/components'
 import { partnersEUItems, partnersItems } from './data'
+import TopNavigation from './top-navigation'
 import useRegion from 'components/hooks/use-region'
 import { Localize } from 'components/localization'
 import useScrollToElement from 'features/hooks/use-scroll-to-element'
@@ -38,6 +39,7 @@ const PrimeNav = () => {
     const { is_eu } = useRegion()
     return (
         <NavigationBlock
+            topNavigation={TopNavigation}
             renderButtons={PrimeNavButtons}
             renderLogo={() => (
                 <CustomLink href={'/partners'}>

@@ -44,7 +44,11 @@ const DownloadBadges = () => {
                     placeholder="none"
                 />
             </CustomLink>
-            <div className={clsx(sharedClasses)}>
+            <CustomLink
+                href="https://appgallery.huawei.com/app/C103801913"
+                target="_blank"
+                className={clsx(sharedClasses)}
+            >
                 <LabelPairedHuaweiAppGalleryIcon iconSize="md" />
                 <StaticImage
                     src="../../../../images/common/migration/footer/explore-appgallery.png"
@@ -53,7 +57,7 @@ const DownloadBadges = () => {
                     width={90}
                     placeholder="none"
                 />
-            </div>
+            </CustomLink>
         </div>
     )
 }

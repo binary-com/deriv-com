@@ -24,10 +24,9 @@ const StepView = styled.div<{ first_two_steps?: boolean; is_rtl?: boolean }>`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    text-align: ${({ first_two_steps, is_rtl }) =>
-        first_two_steps ? 'center' : is_rtl ? 'right' : 'left'};
+    text-align: ${({ is_rtl }) => (is_rtl ? 'right' : 'left')};
     margin: 0 auto;
-    inline-size: 95%;
+    inline-size: ${({ first_two_steps }) => (first_two_steps ? '328px' : '95%')};
 `
 const StepperItem = styled.div<{ active: boolean }>`
     position: relative;

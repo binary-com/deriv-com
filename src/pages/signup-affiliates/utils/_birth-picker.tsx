@@ -111,12 +111,7 @@ const BirthPicker = ({ id, error, value, setFieldValue, label, label_color }: Bi
     }
 
     return (
-        <BirthPickerWrapper
-            is_date_field={is_date_field}
-            value={value}
-            error={error}
-            onKeyDown={(e) => e.preventDefault()}
-        >
+        <BirthPickerWrapper is_date_field={is_date_field} value={value} error={error}>
             <DatePicker
                 value={value}
                 format="dd/MM/yyyy"

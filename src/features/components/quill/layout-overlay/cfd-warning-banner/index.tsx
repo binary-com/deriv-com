@@ -31,13 +31,13 @@ const CfdWarningBanner = () => {
                 <div className="flex bg-background-primary-base items-end shadow-[0px_-4px_10px_rgba(65,_70,_82,_0.1)] pointer-events-auto sm:hidden">
                     <div className="w-[95%] lg:w-[90%] mx-auto p-500">
                         {expanded ? (
-                            <Text className="text-75 lg:text-100">
+                            <Text>
                                 <Localize
                                     translate_text="_t_CFDs and other products offered on this website are complex instruments with a high risk of losing money rapidly owing to leverage.<0> {{loss_percent}}% of retail investor accounts lose money when trading CFDs with Deriv, read our full Risk disclosure here.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money._t_"
                                     values={{ loss_percent }}
                                     components={[
                                         <CustomLink
-                                            className="font-bold inline text-75 lg:text-100 text-[#414652]"
+                                            className="font-bold inline text-[#414652]"
                                             key={0}
                                             target="_blank"
                                             href="/tnc/eu/risk-disclosure.pdf"
@@ -46,13 +46,13 @@ const CfdWarningBanner = () => {
                                 />
                             </Text>
                         ) : (
-                            <Text className="text-75 lg:text-100 w-[95%] mx-auto">
+                            <Text className="w-[95%] mx-auto">
                                 <Localize
                                     translate_text="_t_<0> {{loss_percent}}% of retail investor accounts lose money when trading CFDs with Deriv, read our full Risk disclosure here.</0>_t_"
                                     values={{ loss_percent }}
                                     components={[
                                         <CustomLink
-                                            className="font-bold inline text-75 lg:text-100 text-[#414652]"
+                                            className="font-bold inline text-[#414652]"
                                             key={0}
                                             target="_blank"
                                             href="/tnc/eu/risk-disclosure.pdf"

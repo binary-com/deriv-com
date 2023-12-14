@@ -26,7 +26,7 @@ const FastPaymentSection: React.FC = () => {
             disclaimer={
                 <Localize translate_text="_t_* Availability of payment methods and processing speeds may vary based on location and selected payment option_t_" />
             }
-        ></FastPayment>
+        />
     )
 }
 

@@ -1,5 +1,11 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { ReactNode, useCallback } from 'react'
-import { LanguageProvider } from '@deriv-com/providers'
+import {
+    LanguageProvider,
+    SharedLink,
+    SharedLinkProps,
+    SharedLinkProvider,
+} from '@deriv-com/providers'
 import { main_wrapper } from './style.module.scss'
 import { langItemsROW } from './data'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
@@ -11,7 +17,7 @@ import apiManager from 'common/websocket'
 import 'swiper/swiper-bundle.min.css'
 import 'features/styles/app.scss'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
-import { LocaleContext } from 'components/localization'
+import { LocaleContext, LocalizedLink } from 'components/localization'
 import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
 interface LayoutProps {
     is_ppc?: boolean
@@ -54,23 +60,40 @@ const Layout = ({
         [onSwitchLanguage],
     )
 
+    const GatsbySharedLink: SharedLink = ({ href = '/', ...rest }: SharedLinkProps) => {
+        const link = href as `/${string}`
+        const isExternalUrl = /(http(s?)):\/\//i.test(link.toString())
+        if (isExternalUrl) {
+            return (
+                // @ts-ignore
+                <LocalizedLink to={link} external {...rest} />
+            )
+        }
+        return (
+            // @ts-ignore
+            <LocalizedLink to={link} {...rest} />
+        )
+    }
+
     //Handle page layout when redirection from mobile app.
     if (has_platform) {
         return <>{children}</>
     }
 
     return (
-        <PpcProvider is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
-            <LanguageProvider
-                langItems={langItemsROW}
-                onLangSelect={onLanguageChange}
-                activeLanguage={activeLang}
-            >
-                <main className={main_wrapper}>{children}</main>
-                <BrowserUpdateAlert />
-                {!hide_layout_overlay && <LayoutOverlay />}
-            </LanguageProvider>
-        </PpcProvider>
+        <SharedLinkProvider DerivLink={GatsbySharedLink}>
+            <PpcProvider is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
+                <LanguageProvider
+                    langItems={langItemsROW}
+                    onLangSelect={onLanguageChange}
+                    activeLanguage={activeLang}
+                >
+                    <main className={main_wrapper}>{children}</main>
+                    <BrowserUpdateAlert />
+                    {!hide_layout_overlay && <LayoutOverlay />}
+                </LanguageProvider>
+            </PpcProvider>
+        </SharedLinkProvider>
     )
 }
 

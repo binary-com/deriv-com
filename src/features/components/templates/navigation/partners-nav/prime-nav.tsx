@@ -3,6 +3,7 @@ import { MobileNavToggle, NavigationBlock } from '@deriv-com/blocks'
 // eslint-disable-next-line import/no-unresolved
 import { SubBrandDerivPrimeBrandLightIcon } from '@deriv/quill-icons/Logo'
 import { Button } from '@deriv/quill-design'
+import { CustomLink } from '@deriv-com/components'
 import { partnersEUItems, partnersItems } from './data'
 import useRegion from 'components/hooks/use-region'
 import { Localize } from 'components/localization'
@@ -38,7 +39,11 @@ const PrimeNav = () => {
     return (
         <NavigationBlock
             renderButtons={PrimeNavButtons}
-            renderLogo={() => <SubBrandDerivPrimeBrandLightIcon width={117} height={24} />}
+            renderLogo={() => (
+                <CustomLink href={'/partners'}>
+                    <SubBrandDerivPrimeBrandLightIcon width={117} height={24} />
+                </CustomLink>
+            )}
             items={is_eu ? partnersEUItems : partnersItems}
         />
     )

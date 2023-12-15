@@ -25,13 +25,13 @@ const AllPostsModule = ({ data }: TBlogPosts) => {
 
                 <Flex.Box wrap="wrap" margin_block="15x" justify="around">
                     {posts?.map(({ hero }) => {
-                        const { title, banner, date } = hero
+                        const { title, banner, date, slug } = hero
                         const parsedDate = moment(date)
                         const formattedDate = parsedDate?.format('Do [of] MMMM YYYY')
                         return (
                             <Flex.Box direction="col" key={title} className={styles.image_wrapper}>
                                 <Link
-                                    url={{ type: 'internal', to: `/blog/single-blog/${title}` }}
+                                    url={{ type: 'internal', to: `/blog/single-blog/${slug}` }}
                                     no_hover
                                 >
                                     <img
@@ -41,7 +41,7 @@ const AllPostsModule = ({ data }: TBlogPosts) => {
                                 </Link>
                                 <div className={dclsx('margin-block-10x')}>
                                     <Link
-                                        url={{ type: 'internal', to: `/blog/single-blog/${title}` }}
+                                        url={{ type: 'internal', to: `/blog/single-blog/${slug}` }}
                                         no_hover
                                     >
                                         <Typography.Heading as="h3" size="xxs">

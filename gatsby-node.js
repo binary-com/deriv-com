@@ -386,19 +386,18 @@ exports.createPages = async ({ graphql, actions }) => {
             allStrapiPost(sort: { fields: createdAt, order: DESC }) {
                 nodes {
                     hero {
-                        title
+                        slug
                     }
                 }
             }
         }
     `)
-
     result?.data?.allStrapiPost?.nodes.forEach(({ hero }) => {
         createPage({
-            path: `/blog/single-blog/${hero.title}`,
+            path: `/blog/single-blog/${hero.slug}`,
             component: path.resolve(`./src/pages/blog/single-blog/index.tsx`),
             context: {
-                title: hero.title,
+                slug: hero.slug,
             },
         })
     })

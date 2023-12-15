@@ -12,9 +12,10 @@ const BlogTemplate = ({ data }: TBlogPost) => {
 export default WithIntl()(BlogTemplate)
 
 export const query = graphql`
-    query {
-        strapiPost(hero: { title: { eq: "hello-deriv-x-deriv-y" } }) {
+    query ($slug: String = "") {
+        strapiPost(hero: { slug: { eq: $slug } }) {
             hero {
+                slug
                 title
                 date
                 tags

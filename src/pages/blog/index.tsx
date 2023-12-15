@@ -19,6 +19,7 @@ export const query = graphql`
                 hero {
                     title
                     date
+                    slug
                     tags
                     banner {
                         localFile {

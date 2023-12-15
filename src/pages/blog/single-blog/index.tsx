@@ -16,12 +16,13 @@ const BlogTemplate = (data) => {
 }
 
 export const query = graphql`
-    query ($title: String = "") {
-        strapiPost(hero: { title: { eq: $title } }) {
+    query ($slug: String = "") {
+        strapiPost(hero: { slug: { eq: $slug } }) {
             hero {
                 title
                 date
                 tags
+                slug
             }
         }
     }

@@ -14,8 +14,9 @@ export const RowCards: CardContent[] = [
             <StaticImage
                 src="../../../../images/migration/home/steps1.png"
                 alt={localize('_t_Sign up & explore_t_')}
-                loading="eager"
+                loading="lazy"
                 formats={['webp', 'auto']}
+                quality={100}
             />
         ),
         color: 'gray',
@@ -34,8 +35,9 @@ export const RowCards: CardContent[] = [
             <StaticImage
                 src="../../../../images/migration/home/steps2.png"
                 alt={localize('_t_Try with zero-risk_t_')}
-                loading="eager"
+                loading="lazy"
                 formats={['webp', 'auto']}
+                quality={100}
             />
         ),
         color: 'gray',
@@ -48,14 +50,15 @@ export const RowCards: CardContent[] = [
         id: 3,
         header: <Localize translate_text="_t_3. Trade with confidence_t_" />,
         description: (
-            <Localize translate_text="_t_Sign up in minutes and explore Trader’s Hub - all your trading needs, in one place._t_" />
+            <Localize translate_text="_t_Fund your account and start trading with round-the-clock support._t_" />
         ),
         content: (
             <StaticImage
                 src="../../../../images/migration/home/steps3.png"
                 alt={localize('_t_Trade with confidence_t_')}
-                loading="eager"
+                loading="lazy"
                 formats={['webp', 'auto']}
+                quality={100}
             />
         ),
         color: 'gray',
@@ -77,8 +80,9 @@ export const EUCards: CardContent[] = [
             <StaticImage
                 src="../../../../images/migration/home/steps1_eu.png"
                 alt={localize('_t_Sign up & explore_t_')}
-                loading="eager"
+                loading="lazy"
                 formats={['webp', 'auto']}
+                quality={100}
             />
         ),
         color: 'gray',
@@ -97,8 +101,9 @@ export const EUCards: CardContent[] = [
             <StaticImage
                 src="../../../../images/migration/home/steps2_eu.png"
                 alt={localize('_t_Try with zero-risk_t_')}
-                loading="eager"
+                loading="lazy"
                 formats={['webp', 'auto']}
+                quality={100}
             />
         ),
         color: 'gray',
@@ -117,8 +122,9 @@ export const EUCards: CardContent[] = [
             <StaticImage
                 src="../../../../images/migration/home/steps3_eu.png"
                 alt={localize('_t_Trade with confidence_t_')}
-                loading="eager"
+                loading="lazy"
                 formats={['webp', 'auto']}
+                quality={100}
             />
         ),
         color: 'gray',

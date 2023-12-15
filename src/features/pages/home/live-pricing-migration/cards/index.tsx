@@ -48,6 +48,7 @@ const LiveMarketCard = <T extends MarketName>({
                 variant="LiveMarketCard"
                 swiperData={swiperOption}
                 slideClasses="max-w-[286px]"
+                className="w-screen !mr-[calc((-100vw+100%)/2)] lg:w-full lg:!mr-auto"
                 cards={livePriceData.slice(0, 4)}
             />
             {children}

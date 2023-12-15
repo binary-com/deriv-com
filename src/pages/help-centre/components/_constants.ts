@@ -3,6 +3,7 @@ import account from '../data/_account'
 import affiliate_programme from '../data/_affiliate-programme'
 import dbot from '../data/_dbot'
 import deposits_and_withdrawals from '../data/_deposits-and-withdrawals'
+import fraud_prevention from '../data/_fraud-prevention'
 import deriv_p2p from '../data/_deriv-p2p'
 import derivx from '../data/_deriv-x'
 import dmt5 from '../data/_dmt5'
@@ -21,6 +22,7 @@ export const all_questions = [
     deposits_and_withdrawals,
     security,
     complaints_procedure,
+    fraud_prevention,
     affiliate_programme,
     ib_programme,
     about_deriv,

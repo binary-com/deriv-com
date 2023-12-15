@@ -118,7 +118,7 @@ export const malta: LocationsType = {
     ],
     map: 'ChIJN3l6prJaDhMRHIoQuWdZDeI',
     badge: 'malta_great_place_to_work_badge',
-    badge_alt: 'Malta Great Place to Work 2022 Certification Badge',
+    badge_alt: 'Malta Great Place to Work 2023 Certification Badge',
     map_text:
         'Deriv (Europe) Ltd has a dynamic work culture. We perform a wide range of tasks crucial to the company’s sustainability and ambition. If work challenges excite you and being completely hands-on thrills you, join our team in Malta.',
     address: address_malta,
@@ -165,7 +165,7 @@ export const dubai: LocationsType = {
     google_map_link: 'https://goo.gl/maps/xx4q4ui1NhgVtE8J7',
     has_iframe: true,
     badge: 'dubai_great_place_to_work_badge',
-    badge_alt: 'Dubai Great Place to Work 2022 Certification Badge',
+    badge_alt: 'Dubai Great Place to Work 2023 Certification Badge',
 }
 
 export const labuan: LocationsType = {
@@ -374,7 +374,7 @@ export const cyprus: LocationsType = {
     ],
     map: 'ChIJa2t-XPkz5xQRSW5oufRJk-8',
     badge: 'cyprus_great_place_to_work_badge',
-    badge_alt: 'Cyprus Great Place to Work 2022 Certification Badge',
+    badge_alt: 'Cyprus Great Place to Work 2023 Certification Badge',
     map_text:
         'We give our people the freedom to solve problems and work together to get things done without hierarchy. The workplace encourages open communication, transparency, and a free flow of ideas. If you take pride in your work and are interested in working with the best global talent,  join our team in Limassol.',
     address: address_cyprus,
@@ -420,7 +420,7 @@ export const rwanda: LocationsType = {
         'We are a group of positive team players who are always eager to roll up our sleeves and work together to overcome challenges and achieve common goals. If you want to be a part of a young, dynamic and growing team, join our team in Kigali.',
     address: address_rwanda,
     badge: 'rwanda_great_place_to_work_badge',
-    badge_alt: 'Rwanda Great Place to Work 2022 Certification Badge',
+    badge_alt: 'Rwanda Great Place to Work 2023 Certification Badge',
     map_img: 'rwanda_map',
     google_map_link: 'https://goo.gl/maps/wJgnX1W846t5FAbK7',
     has_iframe: true,
@@ -458,6 +458,8 @@ export const paris: LocationsType = {
         'Deriv (France) SAS is the heart of our research and development. We have an elite think tank in this centre that helps create our next generation of online trading products. If you’re looking for new fintech challenges to embrace, join our team in Paris.',
     address: address_france,
     map_img: 'paris_map',
+    badge: 'paris_great_place_to_work_badge',
+    badge_alt: 'Paris Great Place to Work 2023 Certification Badge',
     google_map_link: 'https://goo.gl/maps/gXhpCta6AsV7bT7y8',
     has_iframe: true,
     has_map: true,
@@ -573,6 +575,8 @@ export const reading: LocationsType = {
     map_text:
         "Our UK base is a hub for Deriv fintech talent. Taking on exciting projects, this team play a key role in ideating, designing, and developing Deriv's next-generation trading products, as well as cutting-edge applications and technical systems. If software technology is what you live and breathe, join our UK team.",
     google_map_link: 'https://goo.gl/maps/hYvX7SUgPaTcf1uj6',
+    badge: 'reading_great_place_to_work_badge',
+    badge_alt: 'Reading Great Place to Work 2023 Certification Badge',
     has_iframe: true,
     has_map: true,
 }
@@ -610,6 +614,8 @@ export const vanuatu: LocationsType = {
     map_text:
         'The Vanuatu office brings experts together to provide the best trading solutions and services for our customers. Join our team at Vanuatu for a rewarding career.',
     google_map_link: 'https://goo.gl/maps/3A4mFkHzTfWQc9Kz9',
+    badge: 'reading_great_place_to_work_badge',
+    badge_alt: 'Reading Great Place to Work 2023 Certification Badge',
     has_iframe: true,
     has_map: true,
 }
@@ -720,6 +726,8 @@ export const jordan: LocationsType = {
     address: address_jordan,
     map: 'ChIJHaZseXGgHBUROYIYmKL-Po4',
     google_map_link: 'https://goo.gl/maps/Bc8aa4XsXfH6PdVH9',
+    badge: 'jordan_great_place_to_work_badge',
+    badge_alt: 'Jordan Great Place to Work 2023 Certification Badge',
     has_iframe: true,
     has_map: true,
 }
@@ -803,6 +811,8 @@ export const ciudad: LocationsType = {
         'As Deriv’s popularity grows rapidly with LATAM traders, the Customer Support and Marketing teams based at our office in Ciudad del Este have increasing opportunities to showcase their talent. Join this office if you have a passion for assisting customers and affiliates, planning and executing marketing campaigns, and creating an engaging brand image.',
     map_img: 'ciudad_map',
     google_map_link: 'https://goo.gl/maps/pmQU7QwfoY6YSR5LA',
+    badge: 'ciudad_great_place_to_work_badge',
+    badge_alt: 'Ciudad Great Place to Work 2023 Certification Badge',
     has_map: true,
     has_iframe: true,
 }

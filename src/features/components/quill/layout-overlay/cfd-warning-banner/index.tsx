@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import clsx from 'clsx'
 import { Text } from '@deriv/quill-design'
-import { CustomLink } from '@deriv-com/components'
+import Anchor from '../../anchor'
 import { Localize } from 'components/localization'
 import Arrow from 'images/svg/arrow_expandable.svg'
 import useRegion from 'components/hooks/use-region'
@@ -36,8 +36,7 @@ const CfdWarningBanner = () => {
                                     translate_text="_t_CFDs and other products offered on this website are complex instruments with a high risk of losing money rapidly owing to leverage.<0> {{loss_percent}}% of retail investor accounts lose money when trading CFDs with Deriv, read our full Risk disclosure here.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money._t_"
                                     values={{ loss_percent }}
                                     components={[
-                                        <CustomLink
-                                            className="font-bold inline text-100 text-[#414652]"
+                                        <Anchor
                                             key={0}
                                             target="_blank"
                                             href="/tnc/eu/risk-disclosure.pdf"
@@ -51,8 +50,7 @@ const CfdWarningBanner = () => {
                                     translate_text="_t_<0> {{loss_percent}}% of retail investor accounts lose money when trading CFDs with Deriv, read our full Risk disclosure here.</0>_t_"
                                     values={{ loss_percent }}
                                     components={[
-                                        <CustomLink
-                                            className="font-bold inline text-100 text-[#414652]"
+                                        <Anchor
                                             key={0}
                                             target="_blank"
                                             href="/tnc/eu/risk-disclosure.pdf"
@@ -79,8 +77,7 @@ const CfdWarningBanner = () => {
                                 translate_text="_t_CFDs and other products offered on this website are complex instruments with a high risk of losing money rapidly owing to leverage.<0> {{loss_percent}}% of retail investor accounts lose money when trading CFDs with Deriv, read our full Risk disclosure here.</0> You should consider whether you understand how CFDs work and whether you can afford to take the high risk of losing your money._t_"
                                 values={{ loss_percent }}
                                 components={[
-                                    <CustomLink
-                                        className="font-bold inline text-75 lg:text-100 text-[#414652]"
+                                    <Anchor
                                         key={0}
                                         target="_blank"
                                         href="/tnc/eu/risk-disclosure.pdf"

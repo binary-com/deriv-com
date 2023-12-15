@@ -1,3 +1,4 @@
+import React, { ReactNode, useMemo } from 'react'
 import { CardSlider, LiveMarketContent } from '@deriv-com/components'
 import {
     MarketForexAudusdIcon,
@@ -6,10 +7,12 @@ import {
     MarketForexGbpusdIcon,
     MarketForexUsdcadIcon,
 } from '@deriv/quill-icons'
-import React, { ReactNode, useMemo } from 'react'
 import useLiveData from '../data-provider/useLiveData'
 import { MarketName } from '../data-provider/types'
 import { percentToDecimal, swiperOption } from '../utils'
+import { handleRedirectToTradersHub } from 'components/custom/utils'
+import useAuthCheck from 'components/hooks/use-auth-check'
+import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const IconsMapper = {
     AUDUSD: <MarketForexAudusdIcon />,
@@ -26,7 +29,14 @@ const LiveMarketCard = <T extends MarketName>({
     market: T
     children: ReactNode
 }) => {
+    const [is_logged_in] = useAuthCheck()
+    const handleSignup = useHandleSignup()
+
     const { data } = useLiveData(market)
+
+    const buySellButtonClickHandler = useMemo(() => {
+        return is_logged_in ? handleRedirectToTradersHub : handleSignup
+    }, [is_logged_in])
 
     const livePriceData: LiveMarketContent[] = useMemo(() => {
         if (!data) return []
@@ -39,8 +49,10 @@ const LiveMarketCard = <T extends MarketName>({
             bidPrice: `${data[key].bid}`,
             askPrice: `${data[key].ask}`,
             spread: `${data[key].sprd}`,
+            onClickBuyButton: buySellButtonClickHandler,
+            onClickSellButton: buySellButtonClickHandler,
         }))
-    }, [data])
+    }, [data, buySellButtonClickHandler])
 
     return (
         <>

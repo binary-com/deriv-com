@@ -22,6 +22,7 @@ const fetchTrustpilotData = () => {
     const startTime = Date.now()
 
     console.log('API_KEY: ' + maskString(process.env.GATSBY_TRUSTPILOT_API_KEY))
+    console.log('APP_NAME: ' + maskString(process.env.GATSBY_TRUSTPILOT_APP_NAME))
 
     try {
         execSync('node scripts/trustpilot.js')

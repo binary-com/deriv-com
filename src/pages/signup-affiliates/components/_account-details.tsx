@@ -4,7 +4,8 @@ import affiliate_validation from '../validations/_affilaite_validation'
 import BirthForm from '../utils/_birth-form'
 import AffiliateInput from '../utils/_affiliate-input'
 import AffiliatesHeader, { InputGroup, InputWrapper } from '../utils/_affiliate-header'
-import { localize } from 'components/localization'
+import Typography from 'features/components/atoms/typography'
+import { Localize, localize } from 'components/localization'
 
 const AccountDetails = ({
     is_individual,
@@ -175,6 +176,9 @@ const AccountDetails = ({
                         return (
                             <li key={item.id}>
                                 <AffiliatesHeader text="_t_Affiliate account details_t_" sized />
+                                <Typography.Paragraph>
+                                    <Localize translate_text="_t_Please create a username and password for your affiliate account._t_" />
+                                </Typography.Paragraph>
                                 <AffiliateInput
                                     id={item.id}
                                     name={item.name}

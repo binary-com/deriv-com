@@ -8,7 +8,8 @@ export const affiliate_validation_regex = {
     phone: /^\+\d+$/,
     user_name: /[^a-zA-Za 0-9!"?¨'_.,-]/,
     password: /^(?=.*[A-Z])[A-Za-z0-9]+$/,
-    address: /^[a-zA-Z /_.,-]*$/,
+    address: /^[a-zA-Z 0-9/_.,-]*$/,
+    city: /^[a-zA-Z /_.,-]*$/,
     postal_code: /^[a-zA-Z 0-9_.-]{5,10}$/,
     company_registration_number: /^[a-zA-Z0-9]{2,20}$/,
     url: /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/,
@@ -120,7 +121,7 @@ const registrationNumberValidation = (input) => {
         return localize('_t_Empty input not available_t_')
     }
 }
-const addressValidation = (input, text, min_digit, max_digit) => {
+const streetValidation = (input, text, min_digit, max_digit) => {
     if (!input) {
         return text
     }
@@ -132,7 +133,24 @@ const addressValidation = (input, text, min_digit, max_digit) => {
     ) {
         return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
     } else if (!affiliate_validation_regex.address.test(input)) {
-        return localize('_t_Please enter a valid state_t_')
+        return localize('_t_Please enter a valid street_t_')
+    } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
+        return localize('_t_Empty input not available_t_')
+    }
+}
+const cityValidation = (input, text, min_digit, max_digit) => {
+    if (!input) {
+        return text
+    }
+    if (affiliate_validation_regex.latin.test(input)) {
+        return localize('_t_Only Latin characters_t_')
+    } else if (
+        !validation_is_exceed_number(input, max_digit) ||
+        !validation_is_lack_number(input, min_digit)
+    ) {
+        return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
+    } else if (!affiliate_validation_regex.city.test(input)) {
+        return localize('_t_Please enter a valid city_t_')
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
         return localize('_t_Empty input not available_t_')
     }
@@ -156,13 +174,10 @@ const affiliate_validation = {
         return null
     },
     city: (input) => {
-        return addressValidation(input, localize('_t_City is required_t_'), 2, 256)
-    },
-    state: (input) => {
-        return addressValidation(input, localize('_t_State is required_t_'), 2, 256)
+        return cityValidation(input, localize('_t_City is required_t_'), 2, 256)
     },
     street: (input) => {
-        return addressValidation(input, localize('_t_Street is required_t_'), 2, 256)
+        return streetValidation(input, localize('_t_Street is required_t_'), 2, 256)
     },
     postal_code: (input) => {
         return postcodeValidation(input, 5, 10)

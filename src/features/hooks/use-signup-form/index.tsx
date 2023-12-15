@@ -66,11 +66,12 @@ const useSignupForm = () => {
             })
             .then(() => {
                 const locale = getLanguage()
-                const success_default_link = `signup-success?email=${email}`
+                const success_default_link = `signup-success`
                 const link_with_language = `${locale}/${success_default_link}`
                 const success_link = `/${
                     locale === 'en' ? success_default_link : link_with_language
                 }`
+                Cookies.set('user_email', email)
                 navigate(success_link, { replace: true })
             })
             .catch((reason) => {

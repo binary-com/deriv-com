@@ -1,31 +1,41 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import PostModule from 'features/pages/posts/single-blog'
+import { TGatsbyHead } from 'features/types'
+import { SEO } from 'components/containers'
+import { WithIntl } from 'components/localization'
 
-const BlogTemplate = (data) => {
-    const { strapiPost } = data?.data || {} // Extracting the data object
-
-    const { hero } = strapiPost || {}
-
-    return (
-        <div>
-            <h1>{hero?.title}</h1>
-            <p>Date: {hero?.date}</p>
-            <p>Tags: {hero?.tags}</p>
-        </div>
-    )
+const BlogTemplate = ({ data }: TBlogPost) => {
+    return <PostModule data={data} />
 }
+
+export default WithIntl()(BlogTemplate)
 
 export const query = graphql`
     query ($slug: String = "") {
         strapiPost(hero: { slug: { eq: $slug } }) {
             hero {
+                slug
                 title
                 date
                 tags
-                slug
+                banner {
+                    localFile {
+                        publicURL
+                    }
+                }
+            }
+            blogPostMarkDown {
+                data {
+                    childrenMarkdownRemark {
+                        html
+                    }
+                }
             }
         }
     }
 `
 
-export default BlogTemplate
+export const Head = ({ pageContext }: TGatsbyHead) => (
+    <SEO title="_t__t_" description="_t_._t_" pageContext={pageContext} />
+)

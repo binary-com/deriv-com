@@ -18,21 +18,12 @@ const LivePricing = () => {
     return (
         <Container.Fixed as="section" pt="16x" pb="16x" md={{ padding_block: '40x' }}>
             <MarketTab />
-            <Flex.Box justify="center" align="center" padding="16x">
-                <Typography.Paragraph
-                    align="center"
-                    font_family="UBUNTU"
-                    textcolor="secondary"
-                    size="medium"
-                >
-                    <Localize translate_text="_t_All spreads are indicative. To view real-time spreads, please refer to your terminal._t_" />
-                </Typography.Paragraph>
-            </Flex.Box>
             <Flex.Box
                 justify="center"
                 align="center"
                 gap="4x"
                 direction="col"
+                pt="16x"
                 md={{ direction: 'row', gap: '10x' }}
             >
                 <LinkButton.Primary

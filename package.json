@@ -42,6 +42,7 @@
         "gatsby-plugin-use-query-params": "^1.0.1",
         "gatsby-source-filesystem": "^5.11.0",
         "gatsby-source-strapi": "^3.3.1",
+        "gatsby-transformer-remark": "^6.12.3",
         "gatsby-transformer-sharp": "^5.11.0",
         "i18next": "^21.6.5",
         "install": "^0.13.0",

@@ -20,3 +20,18 @@ type TBlogPosts = {
         }
     }
 }
+
+type TBlogPost = {
+    data: {
+        strapiPost: {
+            hero: Thero
+            blogPostMarkDown: {
+                data: {
+                    childrenMarkdownRemark: {
+                        html: string
+                    }
+                }
+            }
+        }
+    }
+}

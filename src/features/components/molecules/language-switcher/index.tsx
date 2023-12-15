@@ -13,7 +13,7 @@ const LanguageSwitcher = () => {
     const { onCloseMenu, is_menu_open } = useNavContext()
     const lang_direction = useLangDirection()
     const { locale } = React.useContext(LocaleContext)
-    const formatted_lang = locale.replace('_', '-')
+    const formatted_lang = locale ? locale.replace('_', '-') : ''
 
     React.useEffect(() => {
         document.body.dir = lang_direction

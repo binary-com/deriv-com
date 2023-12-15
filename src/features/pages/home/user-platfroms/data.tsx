@@ -126,7 +126,10 @@ export const EUCards: CardContent[] = [
         id: 1,
         header: <Localize translate_text="_t_Deriv MT5_t_" />,
         description: (
-            <Localize translate_text="_t_The most popular and comprehensive CFDs platform._t_" />
+            <Localize
+                translate_text="_t_The most popular and comprehensive <0>CFDs</0> platform._t_"
+                components={[<strong key={0} />]}
+            />
         ),
         icon: <PartnersProductDerivMt5BrandLightLogoHorizontalIcon width={48} height={48} />,
         size: 'md',
@@ -140,7 +143,12 @@ export const EUCards: CardContent[] = [
     {
         id: 2,
         header: <Localize translate_text="_t_Deriv Trader_t_" />,
-        description: <Localize translate_text="_t_Flagship trading platform for multipliers._t_" />,
+        description: (
+            <Localize
+                translate_text="_t_Flagship trading platform for <0>multipliers</0>._t_"
+                components={[<strong key={0} />]}
+            />
+        ),
         icon: <DerivProductDerivTraderBrandDarkLogoHorizontalIcon height="48" width="48" />,
         size: 'md',
         align: 'start',

@@ -6,12 +6,26 @@ const { copyLibFiles } = require('@builder.io/partytown/utils')
 const { execSync } = require('child_process')
 const translations_cache = {}
 
+const maskString = (input) => {
+    if (typeof input !== 'string') {
+        return input
+    }
+
+    const lengthToMask = Math.max(input.length - 3, 0)
+    const maskedString = `${input.substring(0, 3)}${'*'.repeat(lengthToMask)}`
+
+    return maskedString
+}
+
 const fetchTrustpilotData = () => {
     // Trustpilot on-build data fetching
     const startTime = Date.now()
 
+    console.log('API_KEY: ' + maskString(process.env.GATSBY_TRUSTPILOT_API_KEY))
+
     try {
         execSync('node scripts/trustpilot.js')
+
         const endTime = Date.now()
         const timeSpentInSeconds = (endTime - startTime) / 1000
         console.log(

@@ -48,7 +48,7 @@ const LiveMarketCard = <T extends MarketName>({
                 variant="LiveMarketCard"
                 swiperData={swiperOption}
                 slideClasses="max-w-[286px]"
-                cards={livePriceData}
+                cards={livePriceData.slice(0, 4)}
             />
             {children}
         </>

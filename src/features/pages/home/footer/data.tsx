@@ -492,25 +492,31 @@ export const socialButtons = [
     {
         icon: <StandaloneFacebookIcon iconSize="md" />,
         href: 'https://www.facebook.com/derivdotcom',
+        target: '_blank',
     },
     {
         icon: <StandaloneInstagramIcon iconSize="md" />,
         href: 'https://www.instagram.com/deriv_official',
+        target: '_blank',
     },
     {
         icon: <StandaloneXTwitterIcon iconSize="md" />,
         href: 'https://twitter.com/derivdotcom/',
+        target: '_blank',
     },
     {
         icon: <StandaloneYoutubeIcon iconSize="md" />,
         href: 'https://www.youtube.com/@deriv',
+        target: '_blank',
     },
     {
         icon: <StandaloneLinkedinIcon iconSize="md" />,
         href: 'https://www.linkedin.com/company/derivdotcom/',
+        target: '_blank',
     },
     {
         icon: <StandaloneTelegramIcon iconSize="md" />,
         href: 'https://t.me/derivdotcomofficial',
+        target: '_blank',
     },
 ]

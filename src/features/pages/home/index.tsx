@@ -2,12 +2,7 @@
 import React, { useCallback } from 'react'
 import { PageLayout } from '@deriv-com/components'
 import { BreakpointProvider, ThemeProvider } from '@deriv/quill-design'
-import {
-    LanguageProvider,
-    SharedLinkProvider,
-    SharedLinkProps,
-    SharedLink,
-} from '@deriv-com/providers'
+import { LanguageProvider, SharedLinkProvider } from '@deriv-com/providers'
 import Layout from 'features/components/templates/layout'
 import ROWFooter from './footer'
 import LiveMarketSection from './live-pricing-migration'
@@ -25,7 +20,8 @@ import { langItemsROW } from './data'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
-import { LocaleContext, LocalizedLink } from 'components/localization'
+import { LocaleContext } from 'components/localization'
+import GatsbySharedLink from 'features/components/quill/shared-link'
 
 const HomePage = () => {
     useOpenLiveChat(true)
@@ -50,20 +46,6 @@ const HomePage = () => {
         [onSwitchLanguage],
     )
 
-    const GatsbySharedLink: SharedLink = ({ href = '/', ...rest }: SharedLinkProps) => {
-        const link = href as `/${string}`
-        const isExternalUrl = /(http(s?)):\/\//i.test(link.toString())
-        if (isExternalUrl) {
-            return (
-                // @ts-ignore
-                <LocalizedLink to={link} external {...rest} />
-            )
-        }
-        return (
-            // @ts-ignore
-            <LocalizedLink to={link} {...rest} />
-        )
-    }
     return (
         <BreakpointProvider>
             <SharedLinkProvider DerivLink={GatsbySharedLink}>

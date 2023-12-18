@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { socialMediaAccounts } from './data'
+import { SocialMediaAccounts } from './data'
 import Flex from 'features/components/atoms/flex-box'
 import { getLocationPathname } from 'common/utility'
 import Image from 'features/components/atoms/image'
@@ -29,7 +29,7 @@ const HelpCentreSocialIcons = () => {
     }
 
     const icons = useVisibleContent({
-        content: socialMediaAccounts,
+        content: SocialMediaAccounts,
         config,
     })
 

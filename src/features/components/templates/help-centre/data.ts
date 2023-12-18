@@ -21,7 +21,7 @@ export type Config = {
 
 export type SmartSocialAccount = TSmartContent<SocialMediaAccount, Config>
 
-export const socialMediaAccounts: SmartSocialAccount[] = [
+export const SocialMediaAccounts: SmartSocialAccount[] = [
     {
         id: 0,
         data: {

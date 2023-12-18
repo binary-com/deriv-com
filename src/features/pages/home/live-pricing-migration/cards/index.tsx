@@ -35,7 +35,7 @@ const LiveMarketCard = <T extends MarketName>({
     const { data } = useLiveData(market)
 
     const buySellButtonClickHandler = useMemo(() => {
-        return is_logged_in ? handleRedirectToTradersHub : handleSignup
+        return is_logged_in ? () => handleRedirectToTradersHub() : () => handleSignup()
     }, [is_logged_in])
 
     const livePriceData: LiveMarketContent[] = useMemo(() => {

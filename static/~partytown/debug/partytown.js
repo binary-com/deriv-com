@@ -1,4 +1,4 @@
-/* Partytown 0.8.1 - MIT builder.io */
+/* Partytown 0.7.6 - MIT builder.io */
 !function(win, doc, nav, top, useAtomics, config, libPath, timeout, scripts, sandbox, mainForwardFn, isReady) {
     function ready() {
         if (!isReady) {
@@ -35,15 +35,11 @@
     function loadSandbox(isAtomics) {
         sandbox = doc.createElement(isAtomics ? "script" : "iframe");
         if (!isAtomics) {
-            sandbox.style.display = "block";
-            sandbox.style.width = "0";
-            sandbox.style.height = "0";
-            sandbox.style.border = "0";
-            sandbox.style.visibility = "hidden";
+            sandbox.setAttribute("style", "display:block;width:0;height:0;border:0;visibility:hidden");
             sandbox.setAttribute("aria-hidden", !0);
         }
-        sandbox.src = libPath + "partytown-" + (isAtomics ? "atomics.js?v=0.8.1" : "sandbox-sw.html?" + Date.now());
-        doc.querySelector(config.sandboxParent || "body").appendChild(sandbox);
+        sandbox.src = libPath + "partytown-" + (isAtomics ? "atomics.js?v=0.7.6" : "sandbox-sw.html?" + Date.now());
+        doc.body.appendChild(sandbox);
     }
     function fallback(i, script) {
         console.warn("Partytown script fallback");
@@ -54,7 +50,6 @@
         for (i = 0; i < scripts.length; i++) {
             script = doc.createElement("script");
             script.innerHTML = scripts[i].innerHTML;
-            script.nonce = config.nonce;
             doc.head.appendChild(script);
         }
         sandbox && sandbox.parentNode.removeChild(sandbox);

@@ -214,7 +214,7 @@ export const RowFooterNavData: FooterItems[] = [
                     },
                     {
                         id: 1,
-                        href: '/terms-and-conditions',
+                        href: '/terms-and-conditions/#clients',
                         text: <Localize translate_text="_t_Terms & conditions_t_" />,
                     },
                     {
@@ -438,7 +438,7 @@ export const EuFooterNavData: FooterItems[] = [
                     },
                     {
                         id: 1,
-                        href: '/terms-and-conditions',
+                        href: '/terms-and-conditions/#clients',
                         text: <Localize translate_text="_t_Terms & conditions_t_" />,
                     },
                     {

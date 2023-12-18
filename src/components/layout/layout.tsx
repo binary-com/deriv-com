@@ -2,12 +2,7 @@
 import React, { ReactNode, Ref, useCallback } from 'react'
 import loadable from '@loadable/component'
 import styled from 'styled-components'
-import {
-    LanguageProvider,
-    SharedLink,
-    SharedLinkProps,
-    SharedLinkProvider,
-} from '@deriv-com/providers'
+import { LanguageProvider, SharedLinkProvider } from '@deriv-com/providers'
 import { LocationProvider } from './location-context'
 import LayoutOverlay from 'features/components/molecules/layout-overlay'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
@@ -23,10 +18,11 @@ import BannerAlert from 'components/custom/_banner-alert'
 import { bannerTypes } from 'common/constants'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
-import { LocaleContext, LocalizedLink } from 'components/localization'
+import { LocaleContext } from 'components/localization'
 import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
 import { langItemsROW } from 'features/components/templates/layout/data'
 import PartnersNav from 'features/components/templates/navigation/partners-nav'
+import GatsbySharedLink from 'features/components/quill/shared-link'
 
 const RebrandingFooter = loadable(() => import('features/components/templates/footer'))
 
@@ -127,21 +123,6 @@ const Layout = ({
         },
         [onSwitchLanguage],
     )
-
-    const GatsbySharedLink: SharedLink = ({ href = '/', ...rest }: SharedLinkProps) => {
-        const link = href as `/${string}`
-        const isExternalUrl = /(http(s?)):\/\//i.test(link.toString())
-        if (isExternalUrl) {
-            return (
-                // @ts-ignore
-                <LocalizedLink to={link} external {...rest} />
-            )
-        }
-        return (
-            // @ts-ignore
-            <LocalizedLink to={link} {...rest} />
-        )
-    }
 
     //Handle page layout when redirection from mobile app.
     if (has_platform) {

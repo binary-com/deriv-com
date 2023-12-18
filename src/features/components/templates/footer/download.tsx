@@ -17,6 +17,20 @@ const DownloadBadges = () => {
     return (
         <div className="flex flex-col gap-gap-md max-lg:flex-1">
             <CustomLink
+                href="https://appgallery.huawei.com/app/C103801913"
+                target="_blank"
+                className={clsx(sharedClasses, 'order-last')}
+            >
+                <LabelPairedHuaweiAppGalleryIcon iconSize="md" />
+                <StaticImage
+                    src="../../../../images/common/migration/footer/explore-appgallery.png"
+                    alt={localize('_t_explore it on appgallery_t_')}
+                    formats={['webp', 'auto']}
+                    width={90}
+                    placeholder="none"
+                />
+            </CustomLink>
+            <CustomLink
                 href="https://play.google.com/store/apps/details?id=com.deriv.app"
                 target="_blank"
                 className={clsx(sharedClasses)}
@@ -39,20 +53,6 @@ const DownloadBadges = () => {
                 <StaticImage
                     src="../../../../images/common/migration/footer/download-appstore.png"
                     alt={localize('_t_download on the app store_t_')}
-                    formats={['webp', 'auto']}
-                    width={90}
-                    placeholder="none"
-                />
-            </CustomLink>
-            <CustomLink
-                href="https://appgallery.huawei.com/app/C103801913"
-                target="_blank"
-                className={clsx(sharedClasses)}
-            >
-                <LabelPairedHuaweiAppGalleryIcon iconSize="md" />
-                <StaticImage
-                    src="../../../../images/common/migration/footer/explore-appgallery.png"
-                    alt={localize('_t_explore it on appgallery_t_')}
                     formats={['webp', 'auto']}
                     width={90}
                     placeholder="none"

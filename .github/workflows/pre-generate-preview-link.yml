@@ -30,5 +30,5 @@ jobs:
                   RUN_ID: ${{ github.run_id }}
               uses: actions/upload-artifact@v2
               with:
-                  name: 'pr-"$RUN_ID"'
+                  name: 'pr-$RUN_ID'
                   path: pr/

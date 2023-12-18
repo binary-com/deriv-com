@@ -49,8 +49,8 @@ const LiveMarketCard = <T extends MarketName>({
             bidPrice: `${data[key].bid}`,
             askPrice: `${data[key].ask}`,
             spread: `${data[key].sprd}`,
-            onClickBuyButton: buySellButtonClickHandler,
-            onClickSellButton: buySellButtonClickHandler,
+            onClickBuyButton: () => buySellButtonClickHandler(),
+            onClickSellButton: () => buySellButtonClickHandler(),
         }))
     }, [data, buySellButtonClickHandler])
 

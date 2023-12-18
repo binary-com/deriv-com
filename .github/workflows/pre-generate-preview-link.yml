@@ -24,6 +24,7 @@ jobs:
                   mkdir -p ./pr
                   echo "$EVENT_NUMBER" > ./pr/NR
                   echo "$EVENT_USERNAME" > ./pr/USERNAME
+                  echo "$HEAD_REF" > ./pr/BRANCHNAME
 
             - name: Upload PR information to artifact
               env:

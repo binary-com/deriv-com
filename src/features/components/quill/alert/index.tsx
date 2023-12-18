@@ -29,26 +29,27 @@ const Alert = ({
                 <AlertDialog.Content className="alert-content">
                     <AlertDialog.Title asChild className="AlertDialogTitle">
                         <div>
-                            <Heading.H3 className="pb-600">
+                            <Heading.H3 className="pb-1200 font-heading text-100">
                                 <Localize translate_text={title} />
                             </Heading.H3>
                         </div>
                     </AlertDialog.Title>
                     <AlertDialog.Description asChild className="AlertDialogDescription">
                         <div>
-                            <Text>
+                            <Text size="sm">
                                 <Localize translate_text={description} />
                             </Text>
                         </div>
                     </AlertDialog.Description>
 
-                    <div className="gap-600 justify-end pt-600">
+                    <div className="flex gap-1200 justify-end pt-1200">
                         <AlertDialog.Cancel asChild>
                             {cancel_button && (
                                 <span>
                                     <Button
                                         variant="secondary"
                                         colorStyle="black"
+                                        size="lg"
                                         onClick={() => cancel_button?.onClick}
                                     >
                                         <Localize translate_text={cancel_button.text} />
@@ -61,6 +62,7 @@ const Alert = ({
                                 <Button
                                     variant="primary"
                                     colorStyle="coral"
+                                    size="lg"
                                     onClick={() => action_button.onClick}
                                 >
                                     <Localize translate_text={action_button.text} />

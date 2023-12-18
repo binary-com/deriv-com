@@ -40,7 +40,7 @@ const ExternalLink = ({ href, onClick, target, show_eu_modal, ...rest }: Externa
 
     return (
         <>
-            <a href={href} onClick={handleClick} {...rest} />
+            <a href={show_modal ? '' : href} target={target} onClick={handleClick} {...rest} />
             {is_redirect_modal_visible && (
                 <Alert
                     title="_t_Redirect notice_t_"

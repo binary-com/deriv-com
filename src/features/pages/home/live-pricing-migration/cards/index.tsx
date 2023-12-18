@@ -34,10 +34,6 @@ const LiveMarketCard = <T extends MarketName>({
 
     const { data } = useLiveData(market)
 
-    const buySellButtonClickHandler = useMemo(() => {
-        return is_logged_in ? () => handleRedirectToTradersHub() : () => handleSignup()
-    }, [is_logged_in])
-
     const livePriceData: LiveMarketContent[] = useMemo(() => {
         if (!data) return []
         return Object.keys(data).map((key, index) => ({
@@ -49,10 +45,10 @@ const LiveMarketCard = <T extends MarketName>({
             bidPrice: `${data[key].bid}`,
             askPrice: `${data[key].ask}`,
             spread: `${data[key].sprd}`,
-            onClickBuyButton: () => buySellButtonClickHandler(),
-            onClickSellButton: () => buySellButtonClickHandler(),
+            onClickBuyButton: is_logged_in ? handleRedirectToTradersHub : handleSignup,
+            onClickSellButton: is_logged_in ? handleRedirectToTradersHub : handleSignup,
         }))
-    }, [data, buySellButtonClickHandler])
+    }, [data, is_logged_in, handleSignup])
 
     return (
         <>

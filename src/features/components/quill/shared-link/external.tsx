@@ -2,13 +2,6 @@ import React, { ComponentProps, useState } from 'react'
 import Alert from '../alert'
 import useRegion from 'components/hooks/use-region'
 
-export type ProductLinkGenerator = (config: {
-    language: string
-    url?: string
-    affiliate_lang?: string
-    locale?: string
-}) => string
-
 export type ExternalLinkProps = ComponentProps<'a'> & {
     show_eu_modal?: boolean
 }

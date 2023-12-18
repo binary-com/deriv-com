@@ -24,7 +24,7 @@ env:
     GATSBY_RUDDERSTACK_PRODUCTION_KEY: ${{ secrets.GATSBY_RUDDERSTACK_PRODUCTION_KEY }}
     GATSBY_STRAPI_TOKEN: ${{ secrets.GATSBY_STRAPI_TOKEN }}
     GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID: ${{ secrets.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID }}
-
+    GATSBY_TRUSTPILOT_API_KEY: ${{ secrets.GATSBY_TRUSTPILOT_API_KEY }}
 jobs:
     release-staging:
         timeout-minutes: 30
@@ -52,6 +52,8 @@ jobs:
             # - run: npm run test
             - run: npm run build
             # - run: npm run build:storybook
+            - run: echo $GITHUB_SHA > public/version.txt
+
             - uses: olegtarasov/get-tag@v2.1
               id: tagName
               # For using same tag for staging and production we need to uncomment these two below lines:

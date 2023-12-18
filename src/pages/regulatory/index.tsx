@@ -56,7 +56,6 @@ const ImgFintech = styled.img`
 const StyledHeader = styled(Header)<{ maxwidth?: string }>`
     max-width: ${(props) => props.maxwidth || '100%'};
     margin: 0 auto;
-
     @media ${device.tabletS} {
         text-align: center;
         margin-bottom: 1.6rem;
@@ -76,13 +75,11 @@ const Box = styled.div<BoxProps>`
     align-items: center;
     padding: ${(props) => props.padding || '4rem 0 0'};
     max-width: ${(props) => props.maxwidth || '100%'};
-
     ${Text} {
         @media ${device.tabletS} {
             text-align: center;
         }
     }
-
     @media ${device.tabletS} {
         text-align: center;
     }
@@ -94,6 +91,7 @@ const Europe = styled.img`
     height: 100%;
     margin: 0;
 `
+
 const ResponsiveGrid = styled(CssGridColumn)`
     @media ${device.tabletL} {
         justify-self: center;

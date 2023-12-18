@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react'
+import React, { lazy, Suspense } from 'react'
 import pMinDelay from 'p-min-delay'
 import loadable from '@loadable/component'
 import { overlay_container } from './layout-overlay.module.scss'
@@ -8,10 +8,11 @@ import { useIsRtl } from 'components/hooks/use-isrtl'
 
 const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 5000))
 const WhatsappButton = loadable(() => pMinDelay(import('./whats-app-button'), 5000))
-const CookieBanner = lazy(() => pMinDelay(import('./cookie-banner'), 5000))
+const CookieBanner = lazy(() => import('./cookie-banner'))
 
 const LayoutOverlay = () => {
     const is_rtl = useIsRtl()
+
     return (
         <Flex.Box
             id="overlay-container"

@@ -12,7 +12,7 @@ export const wrapPageElement = WrapPagesWithLocaleContext
 
 export const onRenderBody = ({ setHeadComponents }) => {
     const gtmTrackingId = process.env.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID || ''
-    const hotjarId = process.env.GATSBY_HOTJAR_ID || '' // Add your Hotjar ID here
+    const hotjarId = process.env.GATSBY_HOTJAR_ID || ''
 
     setHeadComponents([
         // Partytown setup
@@ -53,7 +53,6 @@ export const onRenderBody = ({ setHeadComponents }) => {
             />
         ),
 
-        // Hotjar setup
         hotjarId && (
             <script
                 key="hotjar-script"
@@ -62,8 +61,6 @@ export const onRenderBody = ({ setHeadComponents }) => {
                     h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
                     h._hjSettings={hjid:'${hotjarId}',hjsv:'7'};
                     a=o.getElementsByTagName('head')[0];
-                    
-                    // Delay script execution by 5 seconds
                     setTimeout(function(){
                         r=o.createElement('script');r.async=1;
                         r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;

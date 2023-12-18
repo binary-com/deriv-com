@@ -1,5 +1,6 @@
 import React, { ComponentProps, useState } from 'react'
 import Alert from '../alert'
+import useRegion from 'components/hooks/use-region'
 
 export type ProductLinkGenerator = (config: {
     language: string
@@ -8,10 +9,14 @@ export type ProductLinkGenerator = (config: {
     locale?: string
 }) => string
 
-export type ExternalLinkProps = ComponentProps<'a'>
+export type ExternalLinkProps = ComponentProps<'a'> & {
+    show_eu_modal?: boolean
+}
 
-const ExternalLink = ({ href, onClick, target, ...rest }: ExternalLinkProps) => {
+const ExternalLink = ({ href, onClick, target, show_eu_modal, ...rest }: ExternalLinkProps) => {
     const [is_redirect_modal_visible, setIsRedirectModalVisible] = useState(false)
+    const { is_eu } = useRegion()
+    const show_modal = is_eu && show_eu_modal
 
     const handleCancel = () => {
         setIsRedirectModalVisible(false)
@@ -27,7 +32,9 @@ const ExternalLink = ({ href, onClick, target, ...rest }: ExternalLinkProps) => 
 
     const handleClick: React.MouseEventHandler<HTMLAnchorElement> = (event) => {
         event.preventDefault()
-        setIsRedirectModalVisible(true)
+        if (show_modal) {
+            setIsRedirectModalVisible(true)
+        }
         onClick?.(event)
     }
 

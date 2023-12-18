@@ -31,8 +31,8 @@ const ExternalLink = ({ href, onClick, target, show_eu_modal, ...rest }: Externa
     }
 
     const handleClick: React.MouseEventHandler<HTMLAnchorElement> = (event) => {
-        event.preventDefault()
         if (show_modal) {
+            event.preventDefault()
             setIsRedirectModalVisible(true)
         }
         onClick?.(event)

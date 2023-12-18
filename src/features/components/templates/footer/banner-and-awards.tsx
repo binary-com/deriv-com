@@ -52,6 +52,7 @@ export const DerivGoBannerAndAwards = () => {
                         alt={localize('_t_investors in people - gold_t_')}
                         width={180}
                         placeholder="none"
+                        layout="fixed"
                     />
                 </div>
             </div>

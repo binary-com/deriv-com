@@ -63,7 +63,9 @@ export const trading_platform_features: TradingPlatformWhatHaveData[] = [
         image: (
             <StaticImage
                 src="../../../../images/common/trading-platforms/ctrader/copy-trading.png"
-                alt={localize('_t_Copy trading_t_')}
+                alt={localize(
+                    '_t_List of trading strategy providers in the copy trading terminal_t_',
+                )}
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
                 quality={100}

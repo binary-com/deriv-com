@@ -13,7 +13,7 @@ export const wrapPageElement = WrapPagesWithLocaleContext
 export const onRenderBody = ({ setHeadComponents }) => {
     const gtmTrackingId = process.env.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID || ''
     const hotjarId = process.env.GATSBY_HOTJAR_ID || '' // Add your Hotjar ID here
-    console.log(hotjarId, 'www')
+
     setHeadComponents([
         // Partytown setup
         <Partytown key="partytown" />,

@@ -6,7 +6,7 @@ import { Localize } from 'components/localization'
 
 type AlertButtonProps = {
     text: TString
-    onClick?: React.MouseEventHandler<'button'>
+    onClick?: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export interface AlertProps {
@@ -50,7 +50,7 @@ const Alert = ({
                                         variant="secondary"
                                         colorStyle="black"
                                         size="lg"
-                                        onClick={() => cancel_button?.onClick}
+                                        onClick={(e) => cancel_button?.onClick(e)}
                                     >
                                         <Localize translate_text={cancel_button.text} />
                                     </Button>
@@ -63,7 +63,7 @@ const Alert = ({
                                     variant="primary"
                                     colorStyle="coral"
                                     size="lg"
-                                    onClick={() => action_button.onClick}
+                                    onClick={(e) => action_button.onClick(e)}
                                 >
                                     <Localize translate_text={action_button.text} />
                                 </Button>

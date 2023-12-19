@@ -23,6 +23,7 @@ const fetchTrustpilotData = () => {
 
     console.log('API_KEY: ' + maskString(process.env.GATSBY_TRUSTPILOT_API_KEY))
     console.log('APP_NAME: ' + maskString(process.env.GATSBY_TRUSTPILOT_APP_NAME))
+    console.log('GATSBY_TRUSTPILOT_TEST: ' + maskString(process.env.GATSBY_TRUSTPILOT_TEST))
     console.log('GATSBY_STRAPI_TOKEN: ' + maskString(process.env.GATSBY_STRAPI_TOKEN))
     console.log(
         'GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID: ' +

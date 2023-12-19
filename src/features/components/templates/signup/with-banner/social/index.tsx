@@ -1,4 +1,5 @@
 import React from 'react'
+import { Analytics } from '@deriv/analytics'
 import { public_signup_social_links } from './social.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Button from 'features/components/atoms/button'
@@ -11,6 +12,7 @@ import GoogleLogo from 'images/svg/google_logo.svg'
 import { TString } from 'types/generics'
 import Login, { TSocialProvider } from 'common/login'
 import { IconType } from 'features/types'
+import { isBrowser } from 'common/utility'
 
 type SocialButtonContent = {
     provider: TSocialProvider
@@ -51,6 +53,12 @@ const social_button_content: SocialButtonContent[] = [
 
 const PublicSignupSocial = () => {
     const handleSocialSignup = (data_provider: TSocialProvider) => {
+        Analytics?.trackEvent('ce_virtual_signup_form', {
+            signup_provider: data_provider,
+            action: 'started',
+            form_source: isBrowser() && window.location.hostname,
+            form_name: 'virtual_signup_homepage_embedded',
+        })
         Login.initOneAll(data_provider)
     }
 

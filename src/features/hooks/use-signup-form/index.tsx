@@ -41,10 +41,14 @@ const schema = yup.object({
 
 type FormData = yup.InferType<typeof schema>
 
-const useSignupForm = () => {
+type TSignupFormOptions = {
+    form_name?: 'default_diel_deriv' | 'virtual_signup_homepage_embedded'
+}
+
+const useSignupForm = (options?: TSignupFormOptions) => {
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
         form_source: isBrowser() && window.location.hostname,
-        form_name: 'default_diel_deriv',
+        form_name: options.form_name || 'default_diel_deriv',
     }
     const signUpForm = useForm<FormData>({
         mode: 'onChange',

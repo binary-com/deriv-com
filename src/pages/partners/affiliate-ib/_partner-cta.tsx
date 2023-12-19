@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import device from 'themes/device'
-import { SectionContainer, Container, Flex } from 'components/containers'
-import { Header, Text, LinkText } from 'components/elements/typography'
+import { Container, Flex, SectionContainer } from 'components/containers'
+import { Header, LinkText, Text } from 'components/elements/typography'
 import { LinkButton } from 'components/form'
 import { useLivechat } from 'components/hooks/use-livechat'
 import { Localize } from 'components/localization'
-import { affiliate_signup_url } from 'common/constants'
+import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
+import device from 'themes/device'
 
 type RedButtonProps = {
     id?: string
@@ -42,6 +42,7 @@ const RedButton = styled(LinkButton)<RedButtonProps>`
 
 const PartnerCTA = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
+    const { affiliate_signup_link } = useAffiliateSignupLink()
 
     return (
         <StyledSection padding="4rem 0">
@@ -72,10 +73,10 @@ const PartnerCTA = () => {
                     <RedButton
                         id="dm-cta-affiliate-signup"
                         mt="2rem"
-                        to={affiliate_signup_url}
+                        to={affiliate_signup_link}
                         external
                         target="_blank"
-                        type="affiliate_sign_up"
+                        // type="affiliate_sign_up"
                         secondary
                     >
                         <Localize translate_text="_t_Sign up_t_" />

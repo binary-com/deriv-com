@@ -72,7 +72,7 @@ const LiveMarketSection = () => {
                         <StandaloneChevronRightRegularIcon className="text-solid-slate-1400" />
                     </CustomLink>
                 </LiveMarketCard>
-                <LiveMarketCard market="ind">
+                <LiveMarketCard market={['ind', 'stk']}>
                     <Text className="text-center pt-gap-3xl">
                         <Localize
                             translate_text="_t_<0>You call the stocks.</0> Take a position on 1500+ stocks and indices._t_"

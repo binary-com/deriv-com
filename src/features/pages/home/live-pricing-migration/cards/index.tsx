@@ -26,7 +26,7 @@ const LiveMarketCard = <T extends MarketName>({
     market,
     children,
 }: {
-    market: T
+    market: T | T[]
     children: ReactNode
 }) => {
     const [is_logged_in] = useAuthCheck()

@@ -37,7 +37,7 @@ export const MainFooter = () => {
             socialButtons={socialButtons}
             bannerAndAwards={DerivGoBannerAndAwards}
             descriptionContent={is_eu ? DescriptionContentEU : DescriptionContent}
-            className={qtMerge(is_eu && 'mb-[80px]')}
+            className={qtMerge(is_eu && 'mb-[120px] lg:mb-[80px]')}
         >
             <Footer.MainNavContent items={is_eu ? EuFooterNavData : RowFooterNavData} cols="six" />
         </Footer.FooterBlock>

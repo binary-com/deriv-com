@@ -488,7 +488,7 @@ export const warnText = (
     <Localize translate_text="_t_CFDs and other products offered on this website are complex instruments with high risk of losing money rapidly owing to leverage. You should consider whether you understand how these products work and whether you can afford to risk losing your money._t_" />
 )
 
-export const socialROW = [
+export const socialButtonsROW = [
     {
         icon: <StandaloneFacebookIcon iconSize="md" />,
         href: 'https://www.facebook.com/derivdotcom',
@@ -511,7 +511,7 @@ export const socialROW = [
     },
 ]
 
-export const socialEU = [
+export const socialButtonsEU = [
     {
         icon: <StandaloneFacebookIcon iconSize="md" />,
         href: 'https://www.facebook.com/DerivEU',
@@ -534,7 +534,7 @@ export const socialEU = [
     },
 ]
 
-export const socialCareers = [
+export const socialButtonsCareers = [
     {
         icon: <StandaloneFacebookIcon iconSize="md" />,
         href: 'https://www.facebook.com/derivcareers',

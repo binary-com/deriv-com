@@ -4,9 +4,9 @@ import { qtMerge } from '@deriv/quill-design'
 import {
     EuFooterNavData,
     RowFooterNavData,
-    socialCareers,
-    socialEU,
-    socialROW,
+    socialButtonsCareers,
+    socialButtonsEU,
+    socialButtonsROW,
     warnText,
 } from './data'
 import { DerivGoBannerAndAwards } from './banner-and-awards'
@@ -25,10 +25,16 @@ export const MainFooter = () => {
         setIsCareer(is_career_page)
     }, [])
 
+    const socialButtons = is_career
+        ? socialButtonsCareers
+        : is_eu
+        ? socialButtonsEU
+        : socialButtonsROW
+
     return (
         <Footer.FooterBlock
             warningText={!is_eu ? warnText : null}
-            socialButtons={is_career ? socialCareers : is_eu ? socialEU : socialROW}
+            socialButtons={socialButtons}
             bannerAndAwards={DerivGoBannerAndAwards}
             descriptionContent={is_eu ? DescriptionContentEU : DescriptionContent}
             className={qtMerge(is_eu && 'mb-[80px]')}

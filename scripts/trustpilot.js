@@ -9,7 +9,7 @@ const fetchTrustpilotData = async () => {
  
     try {
         const appName = 'deriv.com'
-        const apiKey = process.env.TRUSTPILOT_API_KEY
+        const apiKey = process.env.GATSBY_TRUSTPILOT_API_KEY
      
         if (!appName || !apiKey) {
             throw new Error('Trustpilot app name or API key is missing')

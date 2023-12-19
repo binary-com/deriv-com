@@ -20,13 +20,13 @@ const FastPaymentSection: React.FC = () => {
                 cols: 'infinite',
                 cards: is_eu ? EUPaymentMethods : RowPaymentMethods,
                 sliderClass: is_eu
-                    ? 'animate-[30s_slide_linear_infinite]'
-                    : 'animate-[80s_slide_linear_infinite]',
+                    ? 'animate-[40s_slide_linear_infinite]'
+                    : 'animate-[100s_slide_linear_infinite]',
             }}
             disclaimer={
                 <Localize translate_text="_t_* Availability of payment methods and processing speeds may vary based on location and selected payment option_t_" />
             }
-        ></FastPayment>
+        />
     )
 }
 

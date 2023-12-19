@@ -6,10 +6,8 @@ permissions:
 on:
     pull_request:
         types: [opened, synchronize]
-env:
-    HEAD_REF: ${{ github.head_ref }}
 concurrency:
-    group: cloudflare-pages-verify-"$HEAD_REF"
+    group: 'cloudflare-pages-verify-${{ github.head_ref }}'
     cancel-in-progress: true
 
 jobs:
@@ -20,6 +18,7 @@ jobs:
               env:
                   EVENT_NUMBER: ${{ github.event.number }}
                   EVENT_USERNAME: ${{ github.event.pull_request.user.login }}
+                  HEAD_REF: ${{ github.head_ref }}
               run: |
                   mkdir -p ./pr
                   echo "$EVENT_NUMBER" > ./pr/NR
@@ -31,5 +30,5 @@ jobs:
                   RUN_ID: ${{ github.run_id }}
               uses: actions/upload-artifact@v2
               with:
-                  name: 'pr-$RUN_ID'
+                  name: 'pr-${{ env.RUN_ID }}'
                   path: pr/

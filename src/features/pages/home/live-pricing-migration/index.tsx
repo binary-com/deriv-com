@@ -43,7 +43,7 @@ const LiveMarketSection = () => {
                 <LiveMarketCard market="der">
                     <Text className="text-center pt-gap-3xl">
                         <Localize
-                            translate_text="_t_<0>Virtual markets, real opportunities.</0>Trade simulated markets, as volatile as you like._t_"
+                            translate_text="_t_<0>Virtual markets, real opportunities.</0> Trade simulated markets, as volatile as you like._t_"
                             components={[<strong key={0} />]}
                         />
                     </Text>
@@ -59,7 +59,7 @@ const LiveMarketSection = () => {
                 <LiveMarketCard market="etfs">
                     <Text className="text-center pt-gap-3xl">
                         <Localize
-                            translate_text="_t_<0>You call the stocks</0> Take a position on 1500+ stocks and indices._t_"
+                            translate_text="_t_<0>Diversify with ETFs.</0> Trade a theme, strategy, or objective through ETFs._t_"
                             components={[<strong key={0} />]}
                         />
                     </Text>
@@ -72,10 +72,10 @@ const LiveMarketSection = () => {
                         <StandaloneChevronRightRegularIcon className="text-solid-slate-1400" />
                     </CustomLink>
                 </LiveMarketCard>
-                <LiveMarketCard market="ind">
+                <LiveMarketCard market={['ind', 'stk']}>
                     <Text className="text-center pt-gap-3xl">
                         <Localize
-                            translate_text="_t_<0>Mine for commodities.</0> Trade the price of precious metals and oil._t_"
+                            translate_text="_t_<0>You call the stocks.</0> Take a position on 1500+ stocks and indices._t_"
                             components={[<strong key={0} />]}
                         />
                     </Text>

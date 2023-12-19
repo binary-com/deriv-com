@@ -46,13 +46,22 @@ export const DerivGoBannerAndAwards = () => {
                 </div>
             )}
             <div className="rounded-[16px] border-solid border-xs border-opacity-black-100 py-general-md">
-                <div className="flex justify-center">
+                <div className="block justify-center lg:hidden">
+                    <StaticImage
+                        className="mx-auto"
+                        src="../../../../images/common/migration/footer/investors-in-people.png"
+                        alt={localize('_t_investors in people - gold_t_')}
+                        placeholder="none"
+                        width={180}
+                        layout="fixed"
+                    />
+                </div>
+                <div className="hidden justify-center lg:block">
                     <StaticImage
                         src="../../../../images/common/migration/footer/investors-in-people.png"
                         alt={localize('_t_investors in people - gold_t_')}
-                        width={180}
                         placeholder="none"
-                        layout="fixed"
+                        objectFit="contain"
                     />
                 </div>
             </div>

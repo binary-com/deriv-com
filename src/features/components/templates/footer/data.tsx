@@ -4,7 +4,6 @@ import {
     StandaloneFacebookIcon,
     StandaloneInstagramIcon,
     StandaloneLinkedinIcon,
-    StandaloneTelegramIcon,
     StandaloneXTwitterIcon,
     StandaloneYoutubeIcon,
     // eslint-disable-next-line import/no-unresolved

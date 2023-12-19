@@ -1,17 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Footer } from '@deriv-com/blocks'
 import { qtMerge } from '@deriv/quill-design'
-import { EuFooterNavData, RowFooterNavData, socialButtons, warnText } from './data'
+import {
+    EuFooterNavData,
+    RowFooterNavData,
+    socialCareers,
+    socialEU,
+    socialROW,
+    warnText,
+} from './data'
 import { DerivGoBannerAndAwards } from './banner-and-awards'
 import { DescriptionContent, DescriptionContentEU } from './description'
 import useRegion from 'components/hooks/use-region'
+import { getLocationPathname } from 'common/utility'
 
 export const MainFooter = () => {
+    const [is_career, setIsCareer] = useState(false)
     const { is_eu } = useRegion()
+
+    useEffect(() => {
+        const current_path = getLocationPathname()
+        const splitted_path = current_path.split('/')
+        const is_career_page = splitted_path.includes('careers')
+        setIsCareer(is_career_page)
+    }, [])
+
     return (
         <Footer.FooterBlock
             warningText={!is_eu ? warnText : null}
-            socialButtons={socialButtons}
+            socialButtons={is_career ? socialCareers : is_eu ? socialEU : socialROW}
             bannerAndAwards={DerivGoBannerAndAwards}
             descriptionContent={is_eu ? DescriptionContentEU : DescriptionContent}
             className={qtMerge(is_eu && 'mb-[80px]')}

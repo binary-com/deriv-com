@@ -1,5 +1,4 @@
-import React, { ReactNode, useEffect, useRef, useState } from 'react'
-import { useIntersectionObserver, useWindowSize } from 'usehooks-ts'
+import React, { ReactNode } from 'react'
 import { FluidContainer, Heading, Section, Text } from '@deriv/quill-design'
 import clsx from 'clsx'
 import { StaticImage } from 'gatsby-plugin-image'
@@ -13,10 +12,11 @@ import {
     hero_content_btn,
 } from './styles.module.scss'
 import HeroAwardImages from './award-images'
-import FloatingCta from './floating-cta'
+// import FloatingCta from './floating-cta'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
+// import useFloatingCta from 'features/hooks/use-floating-cta'
 
 export interface HomeHeroProps {
     children?: ReactNode
@@ -24,23 +24,8 @@ export interface HomeHeroProps {
 }
 
 const HomeHero: React.FC<HomeHeroProps> = () => {
-    const [visibilityPercentage, setVisibilityPercentage] = useState(100)
     const { is_eu } = useRegion()
-    const ref = useRef<HTMLButtonElement | null>(null)
-    const { width } = useWindowSize()
-    const entry = useIntersectionObserver(ref, {
-        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-        rootMargin: '-80px',
-    })
-
-    useEffect(() => {
-        if (width < 601) {
-            const targetHeight = entry?.boundingClientRect?.height
-            const intersectionHeight = entry?.intersectionRect?.height
-            const percentage = (intersectionHeight / targetHeight) * 100
-            setVisibilityPercentage(percentage)
-        }
-    }, [entry?.boundingClientRect?.height, entry?.intersectionRect?.height, width])
+    // const { visibilityPercentage, targetRef} = useFloatingCta()
 
     return (
         <>
@@ -82,7 +67,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                             </Text>
                         )}
                         <TradersHubCtaButton
-                            ref={ref}
+                            // ref={targetRef}
                             className={clsx('mt-general-2xl', hero_content_btn)}
                             variant="primary"
                             colorStyle="coral"
@@ -115,11 +100,11 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                 </FluidContainer>
                 <div className={clsx('absolute -z-10 inset-50', hero_content_gradient)}></div>
             </Section>
-            <FloatingCta
+            {/* <FloatingCta
                 style={{
                     transform: `translateY(${visibilityPercentage - 100}%)`,
                 }}
-            />
+            /> */}
         </>
     )
 }

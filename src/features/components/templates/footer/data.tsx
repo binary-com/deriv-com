@@ -4,7 +4,6 @@ import {
     StandaloneFacebookIcon,
     StandaloneInstagramIcon,
     StandaloneLinkedinIcon,
-    StandaloneTelegramIcon,
     StandaloneXTwitterIcon,
     StandaloneYoutubeIcon,
     // eslint-disable-next-line import/no-unresolved
@@ -488,7 +487,7 @@ export const warnText = (
     <Localize translate_text="_t_CFDs and other products offered on this website are complex instruments with high risk of losing money rapidly owing to leverage. You should consider whether you understand how these products work and whether you can afford to risk losing your money._t_" />
 )
 
-export const socialButtons = [
+export const socialButtonsROW = [
     {
         icon: <StandaloneFacebookIcon iconSize="md" />,
         href: 'https://www.facebook.com/derivdotcom',
@@ -509,8 +508,42 @@ export const socialButtons = [
         icon: <StandaloneLinkedinIcon iconSize="md" />,
         href: 'https://www.linkedin.com/company/derivdotcom/',
     },
+]
+
+export const socialButtonsEU = [
     {
-        icon: <StandaloneTelegramIcon iconSize="md" />,
-        href: 'https://t.me/derivdotcomofficial',
+        icon: <StandaloneFacebookIcon iconSize="md" />,
+        href: 'https://www.facebook.com/DerivEU',
+    },
+    {
+        icon: <StandaloneInstagramIcon iconSize="md" />,
+        href: 'https://www.instagram.com/deriv_official',
+    },
+    {
+        icon: <StandaloneXTwitterIcon iconSize="md" />,
+        href: 'https://twitter.com/derivdotcom/',
+    },
+    {
+        icon: <StandaloneYoutubeIcon iconSize="md" />,
+        href: 'https://www.youtube.com/@deriv',
+    },
+    {
+        icon: <StandaloneLinkedinIcon iconSize="md" />,
+        href: 'https://www.linkedin.com/company/derivdotcom/',
+    },
+]
+
+export const socialButtonsCareers = [
+    {
+        icon: <StandaloneFacebookIcon iconSize="md" />,
+        href: 'https://www.facebook.com/derivcareers',
+    },
+    {
+        icon: <StandaloneInstagramIcon iconSize="md" />,
+        href: 'https://www.instagram.com/derivcareers/',
+    },
+    {
+        icon: <StandaloneLinkedinIcon iconSize="md" />,
+        href: 'https://www.linkedin.com/company/derivdotcom/life/',
     },
 ]

@@ -6,15 +6,16 @@ import { Localize } from 'components/localization'
 
 const FastPaymentSection: React.FC = () => {
     const { is_eu } = useRegion()
+    const paragraph = is_eu
+        ? '_t_10+ global payment methods. Deposit instantly starting from just USD 10. Withdraw in minutes.*_t_'
+        : '_t_60+ global payment methods. Deposit instantly starting from just USD 5. Withdraw in minutes.*_t_'
     return (
         <FastPayment
             title={<Localize translate_text="_t_Fast, hassle-free deposits & withdrawal_t_" />}
-            description={
-                <Localize translate_text="_t_60+ global payment methods. Deposit instantly starting from just USD 5. Withdraw in minutes.*_t_" />
-            }
+            description={<Localize translate_text={paragraph} />}
             link={{
                 content: <Localize translate_text="_t_Learn More_t_" />,
-                href: '#',
+                href: '/payment-methods',
             }}
             content={{
                 cols: 'infinite',

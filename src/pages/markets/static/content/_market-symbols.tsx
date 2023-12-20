@@ -265,7 +265,7 @@ export const crash_boom: TMarketSymbol[] = [
     },
 ]
 
-export const crash_boom_c_trader: TMarketSymbol[] = [
+export const crash_boom_ctrader: TMarketSymbol[] = [
     {
         src: icons.CRASHI600,
         text: '_t_Crash 600 Index_t_',

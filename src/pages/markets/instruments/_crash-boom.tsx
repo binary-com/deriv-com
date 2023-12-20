@@ -2,7 +2,7 @@ import React from 'react'
 import Symbol from '../components/helper/_symbol'
 import {
     crash_boom,
-    crash_boom_c_trader,
+    crash_boom_ctrader,
     crash_boom_trade_type_eu,
 } from '../static/content/_market-symbols'
 import useRegion from 'components/hooks/use-region'
@@ -61,7 +61,7 @@ const CrashBoom = () => {
                         <Localize translate_text={'_t_Deriv cTrader:_t_'} />
                     </Typography.Paragraph>
 
-                    {crash_boom_c_trader.map((symbol, index) => (
+                    {crash_boom_ctrader.map((symbol, index) => (
                         <Symbol key={index} src={symbol.src} text={symbol.text} />
                     ))}
                 </>

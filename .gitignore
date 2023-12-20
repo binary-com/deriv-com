@@ -90,3 +90,6 @@ static/CNAME
 
 #Webpack
 webpack-bundle-report
+
+static/~partytown/
+~partytown/

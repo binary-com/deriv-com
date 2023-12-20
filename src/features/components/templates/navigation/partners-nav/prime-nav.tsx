@@ -1,7 +1,7 @@
 import React from 'react'
 import { MobileNavToggle, NavigationBlock } from '@deriv-com/blocks'
 // eslint-disable-next-line import/no-unresolved
-import { SubBrandDerivPrimeBrandLightIcon } from '@deriv/quill-icons/Logo'
+import { SubBrandDerivPartnersBrandLightIcon } from '@deriv/quill-icons/Logo'
 import { Button } from '@deriv/quill-design'
 import { CustomLink } from '@deriv-com/components'
 import { partnersEUItems, partnersItems } from './data'
@@ -43,7 +43,7 @@ const PrimeNav = () => {
             renderButtons={PrimeNavButtons}
             renderLogo={() => (
                 <CustomLink href={'/partners'}>
-                    <SubBrandDerivPrimeBrandLightIcon width={117} height={24} />
+                    <SubBrandDerivPartnersBrandLightIcon width={144} height={24} />
                 </CustomLink>
             )}
             items={is_eu ? partnersEUItems : partnersItems}

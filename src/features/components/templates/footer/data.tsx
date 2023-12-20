@@ -517,11 +517,11 @@ export const socialButtonsEU = [
     },
     {
         icon: <StandaloneInstagramIcon iconSize="md" />,
-        href: 'https://www.instagram.com/deriv_official',
+        href: 'https://www.instagram.com/deriv_eu/',
     },
     {
         icon: <StandaloneXTwitterIcon iconSize="md" />,
-        href: 'https://twitter.com/derivdotcom/',
+        href: 'https://twitter.com/deriv_eu/',
     },
     {
         icon: <StandaloneYoutubeIcon iconSize="md" />,

@@ -53,7 +53,7 @@ const PartnersNavButtons = () => {
     }, [is_eu, path_name])
 
     return (
-        <div className="flex items-center gap-gap-sm">
+        <div className="flex items-center gap-gap-md">
             {affiliate_buttons}
             <MobileNavToggle />
         </div>

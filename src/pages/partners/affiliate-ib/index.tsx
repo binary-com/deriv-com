@@ -7,13 +7,13 @@ import { faq_schema } from './_faq-schema'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
-import { SectionContainer, Container, SEO, TMetaAttributes } from 'components/containers'
+import { Container, SectionContainer, SEO, TMetaAttributes } from 'components/containers'
 import { Localize, WithIntl } from 'components/localization'
-import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
 import { TString } from 'types/generics'
 import { TGatsbyHead } from 'features/types'
 import useRegion from 'components/hooks/use-region'
+import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
 
 const WhyUs = Loadable(() => import('./_why-us'))
 const WhoCanAplly = Loadable(() => import('./_who-can-apply'))
@@ -131,6 +131,7 @@ type contentType = {
 }
 const AffiliateIb = () => {
     const { is_eu } = useRegion()
+    const { affiliate_signup_link } = useAffiliateSignupLink()
 
     const content_data: contentType = is_eu
         ? {
@@ -186,10 +187,10 @@ const AffiliateIb = () => {
                 </StyledHeader>
                 <StyledLinkButton
                     id="dm-hero-affiliate-signup"
-                    to={affiliate_signup_url}
+                    to={affiliate_signup_link}
                     external
                     target="_blank"
-                    type="affiliate_sign_up"
+                    // type="affiliate_sign_up"
                     secondary
                 >
                     <Localize translate_text={content_data.banner_btn} />

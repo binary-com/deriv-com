@@ -24,12 +24,8 @@ const fetchTrustpilotData = () => {
 
 exports.onPreBuild = async () => {
     await copyLibFiles(path.join(__dirname, 'static', '~partytown'))
-}
-exports.onPreInit = () => {
-    // Update truspilot.json file with latest data
     fetchTrustpilotData()
 }
-
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 exports.onCreatePage = ({ page, actions }) => {
     const { createRedirect, createPage, deletePage } = actions

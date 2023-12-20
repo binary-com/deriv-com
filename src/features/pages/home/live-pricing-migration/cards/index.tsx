@@ -6,7 +6,13 @@ import {
     MarketForexGbpjpyIcon,
     MarketForexGbpusdIcon,
     MarketForexUsdcadIcon,
-} from '@deriv/quill-icons'
+    MarketCryptocurrencyAdausdIcon,
+    MarketCryptocurrencyBtcusdIcon,
+    MarketCryptocurrencyDogusdIcon,
+    MarketCryptocurrencyDshusdIcon,
+    EnergyWtiOilusIcon,
+    // eslint-disable-next-line import/no-unresolved
+} from '@deriv/quill-icons/Markets'
 import useLiveData from '../data-provider/useLiveData'
 import { MarketName } from '../data-provider/types'
 import { percentToDecimal, swiperOption } from '../utils'
@@ -20,6 +26,11 @@ const IconsMapper = {
     GBPJPY: <MarketForexGbpjpyIcon />,
     GBPUSD: <MarketForexGbpusdIcon />,
     USDCAD: <MarketForexUsdcadIcon />,
+    ADAUSD: <MarketCryptocurrencyAdausdIcon />,
+    BTCUSD: <MarketCryptocurrencyBtcusdIcon />,
+    DOGUSD: <MarketCryptocurrencyDogusdIcon />,
+    DSHUSD: <MarketCryptocurrencyDshusdIcon />,
+    WTI_OIL: <EnergyWtiOilusIcon />,
 }
 
 const LiveMarketCard = <T extends MarketName>({

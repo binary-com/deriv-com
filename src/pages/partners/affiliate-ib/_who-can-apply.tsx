@@ -1,13 +1,13 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { SectionContainer, Container, Desktop } from 'components/containers'
+import { Container, Desktop, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements/typography'
 import { Localize } from 'components/localization'
 import { LinkButton } from 'components/form'
 import useRegion from 'components/hooks/use-region'
 import { Timeline } from 'components/elements'
+import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
 import device from 'themes/device'
-import { affiliate_signup_url } from 'common/constants'
 import TradingExperts from 'images/svg/partners/trading-experts.svg'
 import SoftwareDeveloper from 'images/svg/partners/software-developer.svg'
 import CommunityManagers from 'images/svg/partners/community-managers.svg'
@@ -206,6 +206,8 @@ const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
 
 const WhoCanApply = () => {
     const { is_eu } = useRegion()
+    const { affiliate_signup_link } = useAffiliateSignupLink()
+
     return (
         <StyledSectionWrapper padding="8rem 0 4rem">
             <StyledSection>
@@ -313,10 +315,10 @@ const WhoCanApply = () => {
                 <StyledLinkButton
                     id="dm-page-affiliate-signup"
                     secondary
-                    to={affiliate_signup_url}
+                    to={affiliate_signup_link}
                     external
                     target="_blank"
-                    type="affiliate_sign_up"
+                    // type="affiliate_sign_up"
                 >
                     <Localize translate_text="_t_Sign up_t_" />
                 </StyledLinkButton>

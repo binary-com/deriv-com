@@ -2,11 +2,11 @@ import React from 'react'
 import { PlatformBlock } from '@deriv-com/blocks'
 import { CardsContainer } from '@deriv-com/components'
 import { RowCards, platformTabs, EUCards } from './data'
-import { FilterKeyType, MakeWritable } from './type'
+import { FilterKeyType } from './type'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 
-const getTabContent = (tabId: FilterKeyType<typeof platformTabs, 'children'>) => {
+const getTabContent = (tabId: FilterKeyType) => {
     if (tabId === 'All') {
         return RowCards
     } else {
@@ -14,7 +14,7 @@ const getTabContent = (tabId: FilterKeyType<typeof platformTabs, 'children'>) =>
     }
 }
 
-const tabs: MakeWritable<typeof platformTabs> = [...platformTabs]
+const tabs = platformTabs.map(({ content }) => ({ content }))
 
 const UserFriendlyPlatforms = () => {
     const { is_eu } = useRegion()
@@ -44,7 +44,7 @@ const UserFriendlyPlatforms = () => {
             {platformTabs.map((item, i) => (
                 <CardsContainer
                     variant="ContentBottom"
-                    cards={getTabContent(item.children)}
+                    cards={getTabContent(item.tabId)}
                     cols="three"
                     key={i}
                 />

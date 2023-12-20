@@ -16,12 +16,12 @@ const LiveMarketSection = () => {
                     <Localize translate_text="_t_Top trading assets & unique market indices_t_" />
                 }
                 tabs={[
-                    { children: <Localize translate_text="_t_Forex_t_" /> },
-                    { children: <Localize translate_text="_t_Derived indices_t_" /> },
-                    { children: <Localize translate_text="_t_ETFs_t_" /> },
-                    { children: <Localize translate_text="_t_Stocks & indices_t_" /> },
-                    { children: <Localize translate_text="_t_Cryptocurrencies_t_" /> },
-                    { children: <Localize translate_text="_t_Commodities_t_" /> },
+                    { content: <Localize translate_text="_t_Forex_t_" /> },
+                    { content: <Localize translate_text="_t_Derived indices_t_" /> },
+                    { content: <Localize translate_text="_t_ETFs_t_" /> },
+                    { content: <Localize translate_text="_t_Stocks & indices_t_" /> },
+                    { content: <Localize translate_text="_t_Cryptocurrencies_t_" /> },
+                    { content: <Localize translate_text="_t_Commodities_t_" /> },
                 ]}
             >
                 <LiveMarketCard market="fx">

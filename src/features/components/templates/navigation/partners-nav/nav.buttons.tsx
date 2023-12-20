@@ -4,8 +4,10 @@ import { Button } from '@deriv/quill-design'
 import { getLocationPathname } from 'common/utility'
 import useRegion from 'components/hooks/use-region'
 import { Localize, LocalizedLink } from 'components/localization'
+import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
 
 const AffiliateButtons = () => {
+    const { affiliate_signup_link } = useAffiliateSignupLink()
     return (
         <>
             <Button
@@ -19,7 +21,7 @@ const AffiliateButtons = () => {
             <Button
                 className="hidden lg:block"
                 size="lg"
-                onClick={() => window.open('https://login.deriv.com/signup.php', '_blank')}
+                onClick={() => window.open(affiliate_signup_link, '_blank')}
             >
                 <Localize translate_text="_t_Sign up_t_" />
             </Button>

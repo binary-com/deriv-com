@@ -22,7 +22,7 @@ interface ReactInput extends React.ComponentPropsWithoutRef<'input'> {
     ) => void
 }
 
-type InputProps = ReactInput & InputWrapperProps & StyledInputProps & StyledLabelProps
+export type InputProps = ReactInput & InputWrapperProps & StyledInputProps & StyledLabelProps
 
 type InputWrapperProps = {
     border?: string
@@ -53,10 +53,10 @@ type StyledLabelProps = {
     htmlFor?: string
 }
 
-const RelativeWrapper = styled.div`
+export const RelativeWrapper = styled.div`
     position: relative;
 `
-const InputWrapper = styled.div<InputWrapperProps>`
+export const InputWrapper = styled.div<InputWrapperProps>`
     /* prettier-ignore */
     width: 100%;
     border: ${(props) => props.border || '1px solid var(--color-grey-2)'};
@@ -96,7 +96,7 @@ const InputWrapper = styled.div<InputWrapperProps>`
         `}
 `
 
-const StyledError = styled.img`
+export const StyledError = styled.img`
     position: absolute;
     right: 0.8rem;
     top: 1.2rem;
@@ -112,7 +112,7 @@ const StyledError = styled.img`
     }
 `
 
-const StyledInput = styled.input<StyledInputProps>`
+export const StyledInput = styled.input<StyledInputProps>`
     color: ${({ inputColor }) =>
         inputColor ? `var(--color-${inputColor})` : 'var(--color-black)'};
     font-size: var(--text-size-s);
@@ -130,7 +130,7 @@ const StyledInput = styled.input<StyledInputProps>`
 
         & ~ label {
             font-size: 1.75rem;
-            top: 1.95rem;
+            top: 15px;
         }
     }
     @media ${device.mobileL} {
@@ -154,7 +154,7 @@ const StyledInput = styled.input<StyledInputProps>`
             background-color: ${({ background }) =>
                 background ? `var(--color-${background})` : 'var(--color-grey-1)'};
 
-            @media ${device.mobileL} {
+            @media ${device.tablet} {
                 transform: translate(-0.6rem, -20px) scale(0.7);
             }
         }
@@ -179,21 +179,21 @@ const StyledInput = styled.input<StyledInputProps>`
                         background ? `var(--color-${background})` : 'var(--color-grey-1)'};
 
                     @media ${device.tabletL} {
-                        top: 9px;
+                        top: 15px;
                     }
                 }
             `}
     }
 `
 
-const ErrorMessages = styled(Text)`
+export const ErrorMessages = styled(Text)`
     padding: 6px;
     font-size: 1.2rem;
     min-height: 16px;
     color: var(--color-red-1);
 `
 
-const StyledLabel = styled.label<StyledLabelProps>`
+export const StyledLabel = styled.label<StyledLabelProps>`
     color: ${({ label_color }) =>
         label_color ? `var(--color-${label_color})` : 'var(--color-grey)'};
     font-size: var(--text-size-xs);

@@ -1,4 +1,5 @@
 import React from 'react'
+import { createRoot } from 'react-dom/client'
 import Cookies from 'js-cookie'
 import { isMobile } from 'react-device-detect'
 import { Analytics } from '@deriv/analytics'
@@ -19,6 +20,13 @@ import './static/css/noto-sans-arabic.css'
 import './static/css/ubuntu.css'
 
 const is_browser = typeof window !== 'undefined'
+
+export const replaceHydrateFunction = () => {
+    return (element, container) => {
+        const root = createRoot(container)
+        root.render(element)
+    }
+}
 
 const checkDomain = () => {
     return eval(
@@ -83,8 +91,7 @@ export const onClientEntry = () => {
     Analytics?.initialise({
         growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
         growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
-        enableDevMode: window?.location.hostname.includes('localhost'),
-        rudderstackKey: ['.pages.dev', 'git-fork', 'localhost'].some((condition) =>
+        rudderstackKey: ['.pages.dev', 'git-fork', 'localhost', 'staging'].some((condition) =>
             window.location.hostname.includes(condition),
         )
             ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
@@ -96,8 +103,7 @@ export const onClientEntry = () => {
         device_language: navigator?.language || ' ',
         device_type: isMobile ? 'mobile' : 'desktop',
     })
-    const { tracking } = Analytics.getInstances()
-    tracking.identifyEvent(Analytics?.getId(), { language: getLanguage() })
+    Analytics?.identifyEvent()
     //datadog
     const dd_options = {
         clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,

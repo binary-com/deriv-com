@@ -27,6 +27,11 @@ const query = graphql`
         paris_map: file(relativePath: { eq: "maps/map-paris-career.jpg" }) {
             ...fadeIn
         }
+        paris_great_place_to_work_badge: file(
+            relativePath: { eq: "careers/paris_great_place_to_work_badge.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
 

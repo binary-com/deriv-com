@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import NavTemplate from '../template'
 import affiliateNavItems from './data'
-import { partners_nav_logo } from './payment-agent-nav.module.scss'
-import RightSideButtons from './right-side-buttons'
+import { partners_buttons, partners_nav_logo } from './payment-agent-nav.module.scss'
 import PrimeLogo from 'images/svg/deriv-prime/deriv-prime-logo.svg'
 import PartnerNavLogo from 'images/svg/partner-nav-logo.svg'
 import Image from 'features/components/atoms/image'
+import Button from 'features/components/atoms/button'
+import { Localize } from 'components/localization/localize'
 import LanguageSwitcher from 'features/components/molecules/language-switcher'
 import Link from 'features/components/atoms/link'
 import Flex from 'features/components/atoms/flex-box'
+import { getLocationPathname } from 'common/utility'
+import useScrollToElement from 'features/hooks/use-scroll-to-element'
+import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
+import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
 import { localize } from 'components/localization'
 
@@ -17,6 +22,64 @@ type contentType = {
 }
 
 const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: boolean }) => {
+    const path_name = getLocationPathname()
+    const clickToScrollHandler = useScrollToElement('getintouch')
+
+    const { is_eu } = useRegion()
+    const { affiliate_signup_link } = useAffiliateSignupLink()
+
+    const texts: contentType = is_eu
+        ? {
+              login: '_t_Affiliate log in_t_',
+              sign_up: '_t_Affiliate sign up_t_',
+          }
+        : {
+              login: '_t_Affiliate & IB Log in_t_',
+              sign_up: '_t_Affiliate & IB sign up_t_',
+          }
+
+    const generate_buttons = useMemo(() => {
+        return !path_name ? null : path_name.includes('deriv-prime') ? (
+            <Button.Primary
+                id="dm-nav-deriv-prime-contact"
+                onClick={clickToScrollHandler}
+                className={partners_buttons}
+            >
+                <Localize translate_text="_t_Contact us_t_" />
+            </Button.Primary>
+        ) : (
+            <>
+                <Button.Primary
+                    onClick={() =>
+                        window.open('https://login.deriv.com/signin.php?lang=0', '_blank')
+                    }
+                    outlined
+                    visible={'larger-than-tablet'}
+                    className={partners_buttons}
+                >
+                    <Localize translate_text={texts.login} />
+                </Button.Primary>
+                <Button.Primary
+                    onClick={() =>
+                        window.open('https://login.deriv.com/signin.php?lang=0', '_blank')
+                    }
+                    outlined
+                    visible={'phone-and-tablet'}
+                >
+                    <Localize translate_text="_t_Log in_t_" />
+                </Button.Primary>
+                <Button.Primary
+                    id="dm-nav-affiliate-signup-button"
+                    onClick={() => window.open(affiliate_signup_link, '_blank')}
+                    visible={'larger-than-tablet'}
+                    className={partners_buttons}
+                >
+                    <Localize translate_text={texts.sign_up} />
+                </Button.Primary>
+            </>
+        )
+    }, [path_name, affiliate_signup_link])
+
     return (
         <NavTemplate
             renderLogo={() => (
@@ -53,7 +116,7 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
                 align="center"
                 gap="8x"
             >
-                <RightSideButtons />
+                {generate_buttons}
                 <LanguageSwitcher />
             </Flex.Box>
         </NavTemplate>

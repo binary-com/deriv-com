@@ -92,6 +92,10 @@ const DropdownSearch = ({
         }
     }, [selected_item])
 
+    useEffect(() => {
+        setDropdownItems([...items])
+    }, [items])
+
     const handleInputChange = (e) => {
         setInputValue(e.target.value)
         toggleListVisibility(e)

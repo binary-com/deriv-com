@@ -59,7 +59,7 @@ const LiveMarketCard = <T extends MarketName>({
                 className="w-screen !mr-[calc((-100vw+100%)/2)] lg:w-full lg:!mr-auto"
                 cards={livePriceData.slice(0, 4)}
             />
-            {children}
+            <div className="flex items-center flex-col">{children}</div>
         </>
     )
 }

@@ -1,22 +1,15 @@
 export const percentToDecimal = (percentStr) => {
     return parseFloat(percentStr) / 100
 }
-export const swiperOption = {
+
+interface SwiperOption {
+    spaceBetween: number
+    slidesPerView: number | 'auto'
+}
+
+export const swiperOption: SwiperOption = {
     spaceBetween: 16,
-    breakpoints: {
-        320: {
-            slidesPerView: 1,
-        },
-        600: {
-            slidesPerView: 2,
-        },
-        900: {
-            slidesPerView: 3,
-        },
-        1280: {
-            slidesPerView: 4,
-        },
-    },
+    slidesPerView: 'auto',
 }
 
 export const initialLiveMarketData = {

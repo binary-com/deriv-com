@@ -2,11 +2,18 @@ import { useContext, useDeferredValue, useMemo } from 'react'
 import { LiveMarketRawData, MarketName } from './types'
 import { LiveMarketContext } from '.'
 
-const useLiveData = <T extends MarketName>(marketName: T) => {
+const useLiveData = <T extends MarketName>(marketName: T | T[]) => {
     const { liveData, dbRef, liveError } = useContext(LiveMarketContext)
 
     const marketData: LiveMarketRawData[T] = useMemo(() => {
-        return liveData[marketName]
+        if (Array.isArray(marketName)) {
+            return marketName.reduce(
+                (acc, current) => ({ ...acc, ...liveData[current] }),
+                {} as LiveMarketRawData[T],
+            )
+        } else {
+            return liveData[marketName]
+        }
     }, [marketName, liveData])
 
     const data = useDeferredValue(marketData)

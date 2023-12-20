@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react'
 import NavTemplate from '../template'
 import affiliateNavItems from './data'
-import { partners_nav_logo, partners_buttons } from './payment-agent-nav.module.scss'
+import { partners_buttons, partners_nav_logo } from './payment-agent-nav.module.scss'
 import PrimeLogo from 'images/svg/deriv-prime/deriv-prime-logo.svg'
 import PartnerNavLogo from 'images/svg/partner-nav-logo.svg'
 import Image from 'features/components/atoms/image'
@@ -12,6 +12,7 @@ import Link from 'features/components/atoms/link'
 import Flex from 'features/components/atoms/flex-box'
 import { getLocationPathname } from 'common/utility'
 import useScrollToElement from 'features/hooks/use-scroll-to-element'
+import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
 import { localize } from 'components/localization'
@@ -25,6 +26,8 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
     const clickToScrollHandler = useScrollToElement('getintouch')
 
     const { is_eu } = useRegion()
+    const { affiliate_signup_link } = useAffiliateSignupLink()
+
     const texts: contentType = is_eu
         ? {
               login: '_t_Affiliate log in_t_',
@@ -67,7 +70,7 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
                 </Button.Primary>
                 <Button.Primary
                     id="dm-nav-affiliate-signup-button"
-                    onClick={() => window.open('https://login.deriv.com/signup.php', '_blank')}
+                    onClick={() => window.open(affiliate_signup_link, '_blank')}
                     visible={'larger-than-tablet'}
                     className={partners_buttons}
                 >
@@ -75,7 +78,7 @@ const PaymentAgentAffiliateNav = ({ is_prime_page = false }: { is_prime_page?: b
                 </Button.Primary>
             </>
         )
-    }, [path_name])
+    }, [path_name, affiliate_signup_link])
 
     return (
         <NavTemplate

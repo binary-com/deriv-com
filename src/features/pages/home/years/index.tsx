@@ -8,7 +8,7 @@ const TwentyYearsStrong = () => {
         <Features.ContentSlider
             title={<Localize translate_text="_t_We're 24+ years strong_t_" />}
             cardSliderProps={{
-                slideClasses: 'max-w-[296px]',
+                slideClasses: 'max-w-[296px] !h-auto',
                 variant: 'ContentBottom',
                 cards: cards,
             }}

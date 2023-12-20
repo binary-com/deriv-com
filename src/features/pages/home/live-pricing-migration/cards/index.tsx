@@ -52,7 +52,12 @@ const LiveMarketCard = <T extends MarketName>({
             instrumentIcon: IconsMapper[key] ?? <MarketForexAudusdIcon />,
             instrument: data[key].sym,
             changePercentage: `${data[key].chng}`,
-            status: percentToDecimal(data[key].chng) >= 0 ? 'up' : 'down',
+            status:
+                percentToDecimal(data[key].chng) === 0
+                    ? 'remain'
+                    : percentToDecimal(data[key].chng) > 0
+                    ? 'up'
+                    : 'down',
             bidPrice: `${data[key].bid}`,
             askPrice: `${data[key].ask}`,
             spread: `${data[key].sprd}`,
@@ -66,7 +71,7 @@ const LiveMarketCard = <T extends MarketName>({
             <CardSlider
                 variant="LiveMarketCard"
                 swiperData={swiperOption}
-                slideClasses="max-w-[286px]"
+                slideClasses="max-w-[296px]"
                 className="w-screen !mr-[calc((-100vw+100%)/2)] lg:w-full lg:!mr-auto"
                 cards={livePriceData.slice(0, 4)}
             />

@@ -1,22 +1,18 @@
 import React from 'react'
 import { CustomLink } from '@deriv-com/components'
+import clsx from 'clsx'
 
 export const TopNavigation = () => {
+    const sharedClasses = 'text-body-sm hover:text-typography-prominent hover:no-underline'
     return (
         <div className="flex gap-gap-xl py-general-sm">
-            <CustomLink href="/" className="text-body-sm text-solid-coral-700">
+            <CustomLink href="/" className={clsx(sharedClasses)}>
                 Deriv website
             </CustomLink>
-            <CustomLink
-                href="/who-we-are"
-                className="text-body-sm hover:text-typography-prominent hover:no-underline"
-            >
+            <CustomLink href="/who-we-are" className={clsx(sharedClasses)}>
                 Who we are
             </CustomLink>
-            <CustomLink
-                href="/contact_us"
-                className="text-body-sm hover:text-typography-prominent hover:no-underline"
-            >
+            <CustomLink href="/contact_us" className={clsx(sharedClasses)}>
                 Contact us
             </CustomLink>
         </div>

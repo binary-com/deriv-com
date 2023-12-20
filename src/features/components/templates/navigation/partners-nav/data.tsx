@@ -25,7 +25,7 @@ export const partnersItems: NavLinkItems = {
     'deriv-api': {
         id: 3,
         href: deriv_api_url,
-        text: <Localize translate_text="_t_API_t_" />,
+        text: <Localize translate_text="_t_Deriv API_t_" />,
         type: 'direct',
     },
 }
@@ -46,7 +46,7 @@ export const partnersEUItems: NavLinkItems = {
     'deriv-api': {
         id: 3,
         href: deriv_api_url,
-        text: <Localize translate_text="_t_API_t_" />,
+        text: <Localize translate_text="_t_Deriv API_t_" />,
         type: 'direct',
     },
 }

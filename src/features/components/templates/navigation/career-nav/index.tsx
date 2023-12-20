@@ -10,7 +10,7 @@ import { Localize } from 'components/localization'
 
 const CareersButtons = () => {
     return (
-        <div className="flex items-center gap-gap-sm">
+        <div className="flex items-center gap-gap-md">
             <Button
                 className="block lg:hidden"
                 variant="secondary"

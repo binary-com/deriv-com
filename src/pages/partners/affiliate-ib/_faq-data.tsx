@@ -1,14 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Localize, LocalizedLink } from 'components/localization'
-import { Header, Text, LinkText, LiveChatLinkText } from 'components/elements'
-import {
-    affiliate_signup_url,
-    affiliate_reset_password_link,
-    deriv_api_url,
-} from 'common/constants'
+import { Header, LinkText, LiveChatLinkText, Text } from 'components/elements'
+import { affiliate_reset_password_link, deriv_api_url } from 'common/constants'
 import { isBrowser } from 'common/utility'
 import useRegion from 'components/hooks/use-region'
+import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
 
 type StyledLinkProps = {
     href: string
@@ -50,6 +47,7 @@ const LocalizedLinkText = styled((props) => <LocalizedLink {...props} />)`
 
 const AffiliateGeneral = () => {
     const { is_eu } = useRegion()
+    const { affiliate_signup_link } = useAffiliateSignupLink()
 
     return (
         <ItemContainer>
@@ -86,9 +84,9 @@ const AffiliateGeneral = () => {
                     translate_text="_t_<0>Click here</0> to sign up as a Deriv affiliate._t_"
                     components={[
                         <LocalizedLinkText
-                            to={affiliate_signup_url}
+                            to={affiliate_signup_link}
                             external
-                            type="affiliate_sign_up"
+                            // type="affiliate_sign_up"
                             target="_blank"
                             rel="noopener noreferrer"
                             key={0}
@@ -255,7 +253,7 @@ const AffiliateGeneral = () => {
                 <Localize translate_text="_t_How and when will I receive my Deriv affiliate commissions?_t_" />
             </Header>
             <Header as="p" type="paragraph-1" mt="8px" weight="normal">
-                <Localize translate_text="_t_Commissions are paid out around the 15th of every month into your selected payment method._t_" />
+                <Localize translate_text="_t_We’ll deposit your commissions directly into your account as soon as practicable after the 20th of every month._t_" />
             </Header>
             <Header as="p" type="paragraph-1" mt="8px" weight="normal">
                 <Localize translate_text="_t_Please note that we will not credit your commission if you did not set any payment method or if it is below your desired payment threshold._t_" />

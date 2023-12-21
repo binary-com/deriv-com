@@ -14,6 +14,7 @@ import StaticNav from 'features/components/templates/navigation/static-nav'
 import BugBountyNav from 'features/components/templates/navigation/bug-bounty-nav'
 import CareerNav from 'features/components/templates/navigation/career-nav'
 import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
+import AffiliateNav from 'features/components/templates/navigation/affiliates-nav'
 import BannerAlert from 'components/custom/_banner-alert'
 import { bannerTypes } from 'common/constants'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
@@ -86,6 +87,8 @@ const Navs = {
     careers: <CareerNav />,
 
     'payment-methods': <MainRowNavigation />,
+
+    affiliates: <AffiliateNav />,
 }
 
 const Layout = ({

@@ -21,7 +21,7 @@ const Markets = () => {
         '_t_Trade on asset prices derived from real-world or simulated markets. Manage your exposure by selecting the volatility level to suit your risk appetite. Choose from our 24/7 synthetics, derived FX, and baskets._t_'
 
     return (
-        <Layout type="noNav">
+        <Layout type="noNav" padding_top="0">
             <DerivedFXHero
                 title="_t_Derived indices_t_"
                 description={is_eu ? description_eu : description_row}

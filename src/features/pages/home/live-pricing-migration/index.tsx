@@ -16,12 +16,12 @@ const LiveMarketSection = () => {
                     <Localize translate_text="_t_Top trading assets & unique market indices_t_" />
                 }
                 tabs={[
-                    { children: <Localize translate_text="_t_Forex_t_" /> },
-                    { children: <Localize translate_text="_t_Derived indices_t_" /> },
-                    { children: <Localize translate_text="_t_ETFs_t_" /> },
-                    { children: <Localize translate_text="_t_Stocks & indices_t_" /> },
-                    { children: <Localize translate_text="_t_Cryptocurrencies_t_" /> },
-                    { children: <Localize translate_text="_t_Commodities_t_" /> },
+                    { content: <Localize translate_text="_t_Forex_t_" /> },
+                    { content: <Localize translate_text="_t_Derived indices_t_" /> },
+                    { content: <Localize translate_text="_t_ETFs_t_" /> },
+                    { content: <Localize translate_text="_t_Stocks & indices_t_" /> },
+                    { content: <Localize translate_text="_t_Cryptocurrencies_t_" /> },
+                    { content: <Localize translate_text="_t_Commodities_t_" /> },
                 ]}
             >
                 <LiveMarketCard market="fx">
@@ -34,7 +34,7 @@ const LiveMarketSection = () => {
                     <CustomLink
                         size="md"
                         href="/markets/forex/"
-                        className="flex items-center justify-center pt-gap-3xl"
+                        className="inline-flex items-center justify-center pt-gap-3xl"
                     >
                         <Localize translate_text="_t_See all forex pairs_t_" />
                         <StandaloneChevronRightRegularIcon className="text-solid-slate-1400" />
@@ -50,7 +50,7 @@ const LiveMarketSection = () => {
                     <CustomLink
                         size="md"
                         href="/markets/synthetic/"
-                        className="flex items-center justify-center pt-gap-3xl"
+                        className="inline-flex items-center justify-center pt-gap-3xl"
                     >
                         <Localize translate_text="_t_See all derived indices pairs_t_" />
                         <StandaloneChevronRightRegularIcon className="text-solid-slate-1400" />
@@ -66,7 +66,7 @@ const LiveMarketSection = () => {
                     <CustomLink
                         size="md"
                         href="/markets/exchange-traded-funds/"
-                        className="flex items-center justify-center pt-gap-3xl"
+                        className="inline-flex items-center justify-center pt-gap-3xl"
                     >
                         <Localize translate_text="_t_See all ETFs pairs_t_" />
                         <StandaloneChevronRightRegularIcon className="text-solid-slate-1400" />
@@ -82,7 +82,7 @@ const LiveMarketSection = () => {
                     <CustomLink
                         size="md"
                         href="/markets/stock/"
-                        className="flex items-center justify-center pt-gap-3xl"
+                        className="inline-flex items-center justify-center pt-gap-3xl"
                     >
                         <Localize translate_text="_t_See all stocks & indices pairs_t_" />
                         <StandaloneChevronRightRegularIcon className="text-solid-slate-1400" />
@@ -98,7 +98,7 @@ const LiveMarketSection = () => {
                     <CustomLink
                         size="md"
                         href="/markets/cryptocurrencies/"
-                        className="flex items-center justify-center pt-gap-3xl"
+                        className="inline-flex items-center justify-center pt-gap-3xl"
                     >
                         <Localize translate_text="_t_See all cryptocurrencies_t_" />
                         <StandaloneChevronRightRegularIcon className="text-solid-slate-1400" />
@@ -114,7 +114,7 @@ const LiveMarketSection = () => {
                     <CustomLink
                         size="md"
                         href="/markets/commodities/"
-                        className="flex items-center justify-center pt-gap-3xl"
+                        className="inline-flex items-center justify-center pt-gap-3xl"
                     >
                         <Localize translate_text="_t_See all commodities_t_" />
                         <StandaloneChevronRightRegularIcon className="text-solid-slate-1400" />

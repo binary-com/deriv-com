@@ -9,19 +9,19 @@ import {
     PartnersProductDerivMt5BrandLightLogoHorizontalIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Logo'
-import { FilterKeyType } from './type'
+import { FilterKeyType, PlatformTab } from './type'
 import { Localize } from 'components/localization'
 
-export const platformTabs = [
-    { children: 'All' },
-    { children: 'CFDs' },
-    { children: 'Options' },
-    { children: 'Bots' },
-    { children: 'Social' },
-] as const
+export const platformTabs: PlatformTab[] = [
+    { content: <Localize translate_text="_t_All_t_" />, tabId: 'All' },
+    { content: <Localize translate_text="_t_CFDs_t_" />, tabId: 'CFDs' },
+    { content: <Localize translate_text="_t_Options_t_" />, tabId: 'Options' },
+    { content: <Localize translate_text="_t_Bots_t_" />, tabId: 'Bots' },
+    { content: <Localize translate_text="_t_Social_t_" />, tabId: 'Social' },
+]
 
 type PlatformCardContent = CardContent & {
-    filterKey: Omit<FilterKeyType<typeof platformTabs, 'children'>, 'All'>[]
+    filterKey: FilterKeyType[]
 }
 
 export const RowCards: PlatformCardContent[] = [

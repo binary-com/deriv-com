@@ -23,7 +23,7 @@ const fetchTrustpilotData = async () => {
         }
 
         const result = await response.json()
-        console.log(result, 34);
+        console.log(result, 'result');
 
         const tpData = {
             stars: result.score?.stars || 0,

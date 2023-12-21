@@ -88,7 +88,6 @@
         "@graphql-codegen/typescript": "^2.8.8",
         "@graphql-codegen/typescript-operations": "^2.5.13",
         "@loadable/babel-plugin": "^5.16.1",
-        "@parcel/watcher": "^2.3.0",
         "@storybook/addon-actions": "^6.4.9",
         "@storybook/addon-essentials": "^6.5.16",
         "@storybook/addon-links": "^6.5.16",

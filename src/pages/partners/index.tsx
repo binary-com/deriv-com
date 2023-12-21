@@ -19,7 +19,7 @@ const meta_attributes: TMetaAttributes = {
 
 const Partner = () => {
     return (
-        <Layout type="partners" padding_top="10">
+        <Layout type="partners" padding_top="8">
             <Hero />
             <AboutDeriv />
             <DerivNumber />

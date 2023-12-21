@@ -6,7 +6,16 @@ import {
     MarketForexGbpjpyIcon,
     MarketForexGbpusdIcon,
     MarketForexUsdcadIcon,
-} from '@deriv/quill-icons'
+    MarketCryptocurrencyAdausdIcon,
+    MarketCryptocurrencyBtcusdIcon,
+    MarketCryptocurrencyDogusdIcon,
+    MarketCryptocurrencyDshusdIcon,
+    EnergyWtiOilusIcon,
+    MarketCommoditySilverusdIcon,
+    MarketCommodityGoldusdIcon,
+    MarketCommodityCopperusdIcon,
+    // eslint-disable-next-line import/no-unresolved
+} from '@deriv/quill-icons/Markets'
 import useLiveData from '../data-provider/useLiveData'
 import { MarketName } from '../data-provider/types'
 import { percentToDecimal, swiperOption } from '../utils'
@@ -20,6 +29,14 @@ const IconsMapper = {
     GBPJPY: <MarketForexGbpjpyIcon />,
     GBPUSD: <MarketForexGbpusdIcon />,
     USDCAD: <MarketForexUsdcadIcon />,
+    ADAUSD: <MarketCryptocurrencyAdausdIcon />,
+    BTCUSD: <MarketCryptocurrencyBtcusdIcon />,
+    DOGUSD: <MarketCryptocurrencyDogusdIcon />,
+    DSHUSD: <MarketCryptocurrencyDshusdIcon />,
+    WTI_OIL: <EnergyWtiOilusIcon />,
+    XAGUSD: <MarketCommoditySilverusdIcon />,
+    XAUUSD: <MarketCommodityGoldusdIcon />,
+    XCUUSD: <MarketCommodityCopperusdIcon />,
 }
 
 const LiveMarketCard = <T extends MarketName>({
@@ -41,7 +58,12 @@ const LiveMarketCard = <T extends MarketName>({
             instrumentIcon: IconsMapper[key] ?? <MarketForexAudusdIcon />,
             instrument: data[key].sym,
             changePercentage: `${data[key].chng}`,
-            status: percentToDecimal(data[key].chng) >= 0 ? 'up' : 'down',
+            status:
+                percentToDecimal(data[key].chng) === 0
+                    ? 'remain'
+                    : percentToDecimal(data[key].chng) > 0
+                    ? 'up'
+                    : 'down',
             bidPrice: `${data[key].bid}`,
             askPrice: `${data[key].ask}`,
             spread: `${data[key].sprd}`,
@@ -55,11 +77,11 @@ const LiveMarketCard = <T extends MarketName>({
             <CardSlider
                 variant="LiveMarketCard"
                 swiperData={swiperOption}
-                slideClasses="max-w-[286px]"
+                slideClasses="max-w-[296px]"
                 className="w-screen !mr-[calc((-100vw+100%)/2)] lg:w-full lg:!mr-auto"
                 cards={livePriceData.slice(0, 4)}
             />
-            {children}
+            <div className="flex items-center flex-col">{children}</div>
         </>
     )
 }

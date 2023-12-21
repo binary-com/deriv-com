@@ -10,7 +10,7 @@ import { TGatsbyHead } from 'features/types'
 
 const CryptocurrenciesPage = () => {
     return (
-        <Layout type="noNav" padding-top="0">
+        <Layout type="noNav" padding_top="0">
             <DerivedFXHero
                 title="_t_Cryptocurrencies_t_"
                 description="_t_Take advantage of a highly liquid market with round-the-clock trading. Profit from correctly predicting the movement of the world's most popular cryptocurrencies._t_"

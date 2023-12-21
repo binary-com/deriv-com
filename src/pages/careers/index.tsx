@@ -19,7 +19,7 @@ const meta_attributes = {
 }
 
 const Careers = () => (
-    <Layout type="careers" padding_top="11">
+    <Layout type="careers">
         <Hero />
         <WhoWeLookFor />
         <JoinYourTeam />

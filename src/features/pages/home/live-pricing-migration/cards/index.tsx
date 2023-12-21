@@ -11,6 +11,9 @@ import {
     MarketCryptocurrencyDogusdIcon,
     MarketCryptocurrencyDshusdIcon,
     EnergyWtiOilusIcon,
+    MarketCommoditySilverusdIcon,
+    MarketCommodityGoldusdIcon,
+    MarketCommodityCopperusdIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Markets'
 import useLiveData from '../data-provider/useLiveData'
@@ -31,6 +34,9 @@ const IconsMapper = {
     DOGUSD: <MarketCryptocurrencyDogusdIcon />,
     DSHUSD: <MarketCryptocurrencyDshusdIcon />,
     WTI_OIL: <EnergyWtiOilusIcon />,
+    XAGUSD: <MarketCommoditySilverusdIcon />,
+    XAUUSD: <MarketCommodityGoldusdIcon />,
+    XCUUSD: <MarketCommodityCopperusdIcon />,
 }
 
 const LiveMarketCard = <T extends MarketName>({

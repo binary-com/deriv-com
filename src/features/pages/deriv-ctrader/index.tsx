@@ -11,16 +11,16 @@ import CopyTrading from './copy-trading'
 import HowToStartCTrader from './how-to-start'
 import CTraderPlatformBanner from './platform-banner'
 import OtherPlatforms from './other-platforms'
-import MainNav from 'features/components/templates/navigation/main-nav'
-import Footer from 'features/components/templates/footer/'
+import MainFooter from 'features/components/templates/footer/'
 import { WithIntl } from 'components/localization'
+import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 
 const DerivCTrader = () => {
     const is_ctrader = false
 
     return (
         <Layout>
-            <MainNav />
+            <MainRowNavigation />
             <CTraderHero />
             <CTraderNumbers />
             <CTraderTradeDescription />
@@ -36,7 +36,7 @@ const DerivCTrader = () => {
             <DerivCtraderApp />
             <OtherPlatforms />
             <BrowseOurFaq />
-            <Footer />
+            <MainFooter />
         </Layout>
     )
 }

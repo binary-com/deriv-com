@@ -10,13 +10,13 @@ import CheckTrading from './check-trading'
 import SignupPublic from 'features/components/templates/signup/with-banner'
 import Flex from 'features/components/atoms/flex-box'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
-import MarketNav from 'features/components/templates/navigation/market-nav'
-import Footer from 'features/components/templates/footer/'
+import MainFooter from 'features/components/templates/footer/'
+import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 
 const ETFMarket = () => {
     return (
         <Layout>
-            <MarketNav />
+            <MainRowNavigation />
             <Banner />
             <TradeTypes />
             <Flex.Box
@@ -35,7 +35,7 @@ const ETFMarket = () => {
             <Steps />
             <OtherMarketsSlider current_market="etfs" />
             <SignupPublic />
-            <Footer />
+            <MainFooter />
         </Layout>
     )
 }

@@ -1,6 +1,8 @@
-import React, { ReactNode, Ref } from 'react'
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import React, { ReactNode, Ref, useCallback } from 'react'
 import loadable from '@loadable/component'
 import styled from 'styled-components'
+import { LanguageProvider, SharedLinkProvider } from '@deriv-com/providers'
 import { LocationProvider } from './location-context'
 import LayoutOverlay from 'features/components/molecules/layout-overlay'
 import EURedirect, { useModal } from 'components/custom/_eu-redirect-modal'
@@ -8,16 +10,20 @@ import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param
 import { usePageLoaded } from 'components/hooks/use-page-loaded'
 import { getLanguage, isBrowser } from 'common/utility'
 import apiManager from 'common/websocket'
-import MainNav from 'features/components/templates/navigation/main-nav'
 import StaticNav from 'features/components/templates/navigation/static-nav'
-import PaymentAgentAffiliateNav from 'features/components/templates/navigation/payment-agent-nav'
 import BugBountyNav from 'features/components/templates/navigation/bug-bounty-nav'
 import CareerNav from 'features/components/templates/navigation/career-nav'
-import MarketNav from 'features/components/templates/navigation/market-nav'
 import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
 import AffiliateNav from 'features/components/templates/navigation/affiliates-nav'
 import BannerAlert from 'components/custom/_banner-alert'
 import { bannerTypes } from 'common/constants'
+import MainRowNavigation from 'features/components/templates/navigation/main-nav'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
+import { LocaleContext } from 'components/localization'
+import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
+import { langItemsROW } from 'features/components/templates/layout/data'
+import PartnersNav from 'features/components/templates/navigation/partners-nav'
+import GatsbySharedLink from 'features/components/quill/shared-link'
 
 const RebrandingFooter = loadable(() => import('features/components/templates/footer'))
 
@@ -44,7 +50,7 @@ export type ModalPayloadType = {
 }
 
 const Main = styled.main<MainType>`
-    padding-top: ${({ padding_top }) => (padding_top && `${padding_top}rem`) || '7rem'};
+    padding-top: ${({ padding_top }) => (padding_top && `${padding_top}rem`) || '8rem'};
     background: var(--color-white);
     height: 100%;
     position: relative;
@@ -60,13 +66,13 @@ if (isBrowser()) {
 
 const Navs = {
     noNav: null,
-    default: <MainNav />,
+    default: <MainRowNavigation />,
     static: <StaticNav />,
     interim: <StaticNav />,
 
-    partners: <PaymentAgentAffiliateNav />,
+    partners: <PartnersNav />,
 
-    markets: <MarketNav />,
+    markets: <MainRowNavigation />,
 
     security: <BugBountyNav />,
 
@@ -80,7 +86,8 @@ const Navs = {
 
     careers: <CareerNav />,
 
-    'payment-methods': <MainNav />,
+    'payment-methods': <MainRowNavigation />,
+
     affiliates: <AffiliateNav />,
 }
 
@@ -99,6 +106,27 @@ const Layout = ({
 
     const is_static = type === 'static'
 
+    const lang_direction = useLangDirection()
+    const { locale } = React.useContext(LocaleContext)
+    const formatted_lang = locale.replace('_', '-')
+
+    React.useEffect(() => {
+        document.body.dir = lang_direction
+        document.documentElement.lang = formatted_lang
+    }, [lang_direction, formatted_lang])
+
+    //need to update the language data and type
+    //here using langauge data from `i18n-config.js`
+    const { onSwitchLanguage, currentLang } = useLangSwitcher()
+    const activeLang = langItemsROW[currentLang.path.replace('-', '')]
+
+    const onLanguageChange = useCallback(
+        (event) => {
+            onSwitchLanguage(`/${event.path}/`)
+        },
+        [onSwitchLanguage],
+    )
+
     //Handle page layout when redirection from mobile app.
     if (has_platform) {
         return (
@@ -108,33 +136,41 @@ const Layout = ({
         )
     }
     return (
-        <PpcProvider is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
-            {Navs[type]}
-            <LocationProvider
-                has_mounted={is_mounted}
-                toggleModal={toggleModal}
-                setModalPayload={setModalPayload}
-            >
-                <div className="styled-layout">
-                    <Main padding_top={padding_top} is_static={is_static}>
-                        {children}
-                    </Main>
-                    <EURedirect
-                        toggle={toggleModal}
-                        is_open={show_modal}
-                        closeModal={closeModal}
-                        to={modal_payload.to}
-                        target={modal_payload.target}
-                        rel={modal_payload.rel}
-                        ref={modal_payload.ref}
-                        aria_label={modal_payload.aria_label}
-                    />
-                    <BannerAlert bannerType={bannerTypes.outdatedBrowserBanner} />
-                    <LayoutOverlay is_ppc={is_ppc} />
-                </div>
-            </LocationProvider>
-            {show_footer && <RebrandingFooter />}
-        </PpcProvider>
+        <SharedLinkProvider DerivLink={GatsbySharedLink}>
+            <PpcProvider is_ppc={is_ppc} is_ppc_redirect={is_ppc_redirect}>
+                <LanguageProvider
+                    langItems={langItemsROW}
+                    onLangSelect={onLanguageChange}
+                    activeLanguage={activeLang}
+                >
+                    {Navs[type]}
+                    <LocationProvider
+                        has_mounted={is_mounted}
+                        toggleModal={toggleModal}
+                        setModalPayload={setModalPayload}
+                    >
+                        <div className="styled-layout">
+                            <Main padding_top={padding_top} is_static={is_static}>
+                                {children}
+                            </Main>
+                            <EURedirect
+                                toggle={toggleModal}
+                                is_open={show_modal}
+                                closeModal={closeModal}
+                                to={modal_payload.to}
+                                target={modal_payload.target}
+                                rel={modal_payload.rel}
+                                ref={modal_payload.ref}
+                                aria_label={modal_payload.aria_label}
+                            />
+                            <BannerAlert bannerType={bannerTypes.outdatedBrowserBanner} />
+                            <LayoutOverlay is_ppc={is_ppc} />
+                        </div>
+                    </LocationProvider>
+                    {show_footer && <RebrandingFooter />}
+                </LanguageProvider>
+            </PpcProvider>
+        </SharedLinkProvider>
     )
 }
 

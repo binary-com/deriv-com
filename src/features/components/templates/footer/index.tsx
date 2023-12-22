@@ -1,56 +1,47 @@
-import React from 'react'
-import { footer_grid, footer } from './footer.module.scss'
-import { footerLinks } from './data'
-import FooterLinksColumn from './links-column'
-import Disclaimer from './disclaimer'
-import FooterIcons from './footer-icons'
-import usePpc from 'features/hooks/use-ppc'
-import Flex from 'features/components/atoms/flex-box'
-import useVisibleContent from 'components/hooks/use-visible-content'
-import Container from 'features/components/atoms/container'
+import React, { useEffect, useState } from 'react'
+import { Footer } from '@deriv-com/blocks'
+import { qtMerge } from '@deriv/quill-design'
+import {
+    EuFooterNavData,
+    RowFooterNavData,
+    socialButtonsCareers,
+    socialButtonsEU,
+    socialButtonsROW,
+    warnText,
+} from './data'
+import { DerivGoBannerAndAwards } from './banner-and-awards'
+import { DescriptionContent, DescriptionContentEU } from './description'
 import useRegion from 'components/hooks/use-region'
+import { getLocationPathname } from 'common/utility'
 
-interface FooterProps {
-    no_footer_links?: boolean
-}
+export const MainFooter = () => {
+    const [is_career, setIsCareer] = useState(false)
+    const { is_eu } = useRegion()
 
-const Footer = ({ no_footer_links = false }: FooterProps) => {
-    const { is_ppc } = usePpc()
-    const { is_eu, is_cpa_plan } = useRegion()
+    useEffect(() => {
+        const current_path = getLocationPathname()
+        const splitted_path = current_path.split('/')
+        const is_career_page = splitted_path.includes('careers')
+        setIsCareer(is_career_page)
+    }, [])
 
-    const content = useVisibleContent({ content: footerLinks, config: { is_ppc } })
+    const socialButtons = is_career
+        ? socialButtonsCareers
+        : is_eu
+        ? socialButtonsEU
+        : socialButtonsROW
 
     return (
-        <Container.Fixed
-            as={'footer'}
-            bgcolor="primary"
-            className={footer}
-            mb={is_eu || is_cpa_plan ? '40x' : undefined}
-            pb={is_eu || is_cpa_plan ? '20x' : undefined}
-            md={{
-                mb: is_eu || is_cpa_plan ? '15x' : undefined,
-                pb: is_eu || is_cpa_plan ? '5x' : undefined,
-            }}
+        <Footer.FooterBlock
+            warningText={!is_eu ? warnText : null}
+            socialButtons={socialButtons}
+            bannerAndAwards={DerivGoBannerAndAwards}
+            descriptionContent={is_eu ? DescriptionContentEU : DescriptionContent}
+            className={qtMerge(is_eu && 'mb-[120px] lg:mb-[80px]')}
         >
-            <Container.Fluid pt={'20x'}>
-                <FooterIcons />
-                <Container.Fixed
-                    className={footer_grid}
-                    padding_block={'5x'}
-                    md={{ padding_block: '20x' }}
-                >
-                    {!no_footer_links && (
-                        <Flex.Box justify="between" visible="larger-than-tablet">
-                            {content?.map((contentItem) => (
-                                <FooterLinksColumn key={contentItem.id} item={contentItem} />
-                            ))}
-                        </Flex.Box>
-                    )}
-                    <Disclaimer />
-                </Container.Fixed>
-            </Container.Fluid>
-        </Container.Fixed>
+            <Footer.MainNavContent items={is_eu ? EuFooterNavData : RowFooterNavData} cols="six" />
+        </Footer.FooterBlock>
     )
 }
 
-export default Footer
+export default MainFooter

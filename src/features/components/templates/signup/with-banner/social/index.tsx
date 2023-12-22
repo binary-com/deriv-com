@@ -56,7 +56,7 @@ const PublicSignupSocial = () => {
         Analytics?.trackEvent('ce_virtual_signup_form', {
             signup_provider: data_provider,
             action: 'started',
-            form_source: isBrowser() && window.location.hostname,
+            form_source: document.referrer,
             form_name: 'virtual_signup_homepage_embedded',
         })
         Login.initOneAll(data_provider)

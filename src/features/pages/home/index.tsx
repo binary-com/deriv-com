@@ -22,9 +22,11 @@ import useLangSwitcher from 'features/components/molecules/language-switcher/use
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 import { LocaleContext } from 'components/localization'
 import GatsbySharedLink from 'features/components/quill/shared-link'
+import useRegion from 'components/hooks/use-region'
 
 const HomePage = () => {
     useOpenLiveChat(true)
+    const { is_region_loading } = useRegion()
     const lang_direction = useLangDirection()
     const { locale } = React.useContext(LocaleContext)
     const formatted_lang = locale.replace('_', '-')
@@ -55,22 +57,24 @@ const HomePage = () => {
                         onLangSelect={onLanguageChange}
                         activeLanguage={activeLang}
                     >
-                        <Layout>
-                            <MainRowNavigation />
-                            <PageLayout>
-                                <HomeHero />
-                                <TrustpilotSection />
-                                <StatSection />
-                                <TwentyYearsStrong />
-                                <LiveMarketSection />
-                                <UserFriendlyPlatforms />
-                                <TradeTypeSection />
-                                <StartTradingSteps />
-                                <FastPaymentSection />
-                                <CTA />
-                                <ROWFooter />
-                            </PageLayout>
-                        </Layout>
+                        {!is_region_loading && (
+                            <Layout>
+                                <MainRowNavigation />
+                                <PageLayout>
+                                    <HomeHero />
+                                    <TrustpilotSection />
+                                    <StatSection />
+                                    <TwentyYearsStrong />
+                                    <LiveMarketSection />
+                                    <UserFriendlyPlatforms />
+                                    <TradeTypeSection />
+                                    <StartTradingSteps />
+                                    <FastPaymentSection />
+                                    <CTA />
+                                    <ROWFooter />
+                                </PageLayout>
+                            </Layout>
+                        )}
                     </LanguageProvider>
                 </ThemeProvider>
             </SharedLinkProvider>

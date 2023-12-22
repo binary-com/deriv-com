@@ -48,7 +48,7 @@ type TSignupFormOptions = {
 const useSignupForm = (options?: TSignupFormOptions) => {
     const analyticsData: Parameters<typeof Analytics.trackEvent>[1] = {
         form_source: isBrowser() && window.location.hostname,
-        form_name: options.form_name || 'default_diel_deriv',
+        form_name: options?.form_name || 'default_diel_deriv',
     }
     const signUpForm = useForm<FormData>({
         mode: 'onChange',

@@ -3831,6 +3831,7 @@
   "-1650735154": "These indices fluctuate between two price points (borders), occasionally breaking through the borders to create a new range on average once every 100 or 200 times that they hit the borders.",
   "-754071100": "<0>GBP Basket</0> measures the value of the British pound against a basket of five global currencies (USD, EUR, AUD, JPY, CAD), each weighted by 20%.",
   "-1612689129": "These indices correspond to simulated markets with constant volatilities of 10%, 15%, 25%, 30%, 50%, 75%, 90%, 100%, 150%, and 250%.",
+  "-733719584": "<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 15 (1s), 25 (1s), 30 (1s),50 (1s), 75 (1s), 90 (1s),100 (1s), 150 (1s), and 250 (1s)</0>.",
   "-475767247": "<0>Australia 200</0> tracks the stock performance of the 200 largest listed companies in Australia.",
   "-2035089048": "<0>Spain 35</0> follows the stock performance of the top 35 companies in Spain.",
   "-1569008884": "Cryptocurrency contracts traded with multipliers have a time limit. It depends on the asset you are trading and appears on the Deriv Trader dashboard before you place a trade.",

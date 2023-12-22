@@ -328,7 +328,7 @@ export const VolatilityIndicesDetails = () => (
         </Text>
         <Text>
             <Localize
-                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 15 (1s), 25 (1s), 30 (1s),50 (1s), 75 (1s), 90 (1s), 100 (1s), 150 (1s), and 250 (1s)</0>._t_"
+                translate_text="_t_<0>One tick</0> is generated <0>every second</0> for volatility indices <0>10 (1s), 15 (1s), 25 (1s), 30 (1s),50 (1s), 75 (1s), 90 (1s),100 (1s), 150 (1s), and 250 (1s)</0>._t_"
                 components={[<strong key={0} />]}
             />
         </Text>

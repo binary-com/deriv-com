@@ -45,7 +45,7 @@ const NavigationTabWithoutBorder = ({ tab_data }: NavigationTabWithoutBorderType
     }, [pathname])
 
     return (
-        <Container.Fluid pt={'20x'}>
+        <Container.Fluid pt="40x" md={{ pt: '20x' }}>
             <Flex.Box
                 padding_block="10x"
                 gap="6x"

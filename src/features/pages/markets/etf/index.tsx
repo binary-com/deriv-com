@@ -12,11 +12,13 @@ import Flex from 'features/components/atoms/flex-box'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
 import MainFooter from 'features/components/templates/footer/'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 
 const ETFMarket = () => {
+    const { is_deriv_go } = usePlatformQueryParam()
     return (
         <Layout>
-            <MainRowNavigation />
+            {!is_deriv_go && <MainRowNavigation />}
             <Banner />
             <TradeTypes />
             <Flex.Box

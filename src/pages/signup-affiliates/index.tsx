@@ -144,7 +144,7 @@ const AffiliateSignup = () => {
     }
 
     return (
-        <Layout type="affiliates" show_footer={false}>
+        <Layout type="affiliates" padding_top="7" show_footer={false}>
             <ParentWrapper>
                 <AtomicContainer.Fluid dir="row">
                     <StyledContainer>

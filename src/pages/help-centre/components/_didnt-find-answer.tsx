@@ -38,38 +38,41 @@ const Text = styled(Header)`
     }
 `
 const WhatsAppButton = styled.button`
+    display: flex;
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
     background-color: var(--color-green-3);
     border: 2px solid var(--color-green-3);
     color: var(--color-white);
     font-size: 14px;
     border-radius: 4px;
-    height: fit-content;
+    height: 44px;
     padding: 10px 16px;
     font-weight: bold;
-    margin-left: 16px;
-    width: inherit;
 
     &:hover {
         background-color: var(--color-red);
-        border: 2px solid var(--color-red);
         color: var(--color-white);
     }
 `
 const ChatButton = styled(Button)`
+    block-size: 44px;
     @media ${device.tabletL} {
         width: 100%;
     }
 `
 const ButtonWrapper = styled.div`
+    display: flex;
+    gap: 16px;
+    align-items: start;
     @media ${device.tablet} {
+        align-items: center;
         display: flex;
         width: 100%;
         padding: 16px;
     }
-`
-
-const WhatsAppIcon = styled.img`
-    margin: -3px 8px -3px 0;
 `
 
 const DidntFindYourAnswerBanner = () => {
@@ -92,12 +95,7 @@ const DidntFindYourAnswerBanner = () => {
                     </ChatButton>
 
                     <WhatsAppButton onClick={openWhatsappUrl}>
-                        <WhatsAppIcon
-                            src={WhatsAppSVG}
-                            alt="whatsapp-icon"
-                            height="16"
-                            width="16"
-                        />
+                        <img src={WhatsAppSVG} alt="whatsapp-icon" height="16" width="16" />
                         <Localize translate_text="_t_WhatsApp_t_" />
                     </WhatsAppButton>
                 </ButtonWrapper>

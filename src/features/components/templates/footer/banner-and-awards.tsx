@@ -16,13 +16,13 @@ export const DerivGoBannerAndAwards = () => {
                     <div className="flex flex-col gap-gap-md max-lg:flex-1 max-lg:justify-center">
                         <div className="flex flex-col gap-gap-md">
                             <div className="flex items-center gap-gap-md">
+                                <Heading.H5>
+                                    <Localize translate_text="_t_Deriv GO_t_" />
+                                </Heading.H5>
                                 <DerivProductDerivGoBrandLightLogoHorizontalIcon
                                     width={24}
                                     height={24}
                                 />
-                                <Heading.H5>
-                                    <Localize translate_text="_t_Deriv GO_t_" />
-                                </Heading.H5>
                             </div>
                             <Text size="sm">
                                 <Localize translate_text="_t_Trade multipliers on our mobile app._t_" />

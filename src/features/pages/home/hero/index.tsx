@@ -22,7 +22,7 @@ export interface HomeHeroProps {
 }
 
 const HomeHero: React.FC<HomeHeroProps> = () => {
-    const { is_eu } = useRegion()
+    const { is_eu, is_region_loading } = useRegion()
 
     return (
         <Section className="h-[calc(100vh-136px)] min-h-[587px] relative isolate overflow-hidden">

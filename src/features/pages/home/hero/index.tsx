@@ -22,7 +22,9 @@ export interface HomeHeroProps {
 }
 
 const HomeHero: React.FC<HomeHeroProps> = () => {
-    const { is_eu } = useRegion()
+    const { is_eu, is_region_loading } = useRegion()
+
+    console.log('==>', is_region_loading)
 
     return (
         <Section className="h-[calc(100vh-136px)] min-h-[587px] relative isolate overflow-hidden">
@@ -41,7 +43,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                     <Heading.H1 className="text-solid-slate-50 text-[34px] lg:text-heading-h1">
                         <Localize translate_text="_t_Trading for anyone. Anywhere. Anytime._t_" />
                     </Heading.H1>
-                    {is_eu ? (
+                    {is_eu && !is_region_loading ? (
                         <Text
                             size="md"
                             className={clsx('text-solid-slate-50 mt-general-md', hero_content_text)}
@@ -62,8 +64,8 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                         colorStyle="coral"
                     />
                 </div>
-                {!is_eu && <HeroAwardImages />}
-                {is_eu ? (
+                {!is_eu && !is_region_loading && <HeroAwardImages />}
+                {is_eu && !is_region_loading ? (
                     <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img_eu)}>
                         <StaticImage
                             src="../../../../images/migration/home/home_hero_new_eu.png"

@@ -14,7 +14,7 @@ const PrimeNavButtons = () => {
     return (
         <div className="flex items-center gap-gap-md">
             <Button
-                className="block lg:hidden"
+                className="hidden sm:max-lg:!block"
                 variant="secondary"
                 colorStyle="black"
                 size="lg"

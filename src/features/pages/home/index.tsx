@@ -25,7 +25,6 @@ const HomePage = () => {
         <Layout>
             <MainRowNavigation />
             <HomeHero />
-            <BrandDerivWordmarkCoralIcon width={100} height={100} />
             <LivePricing />
             <TradeTypes />
             <OurPlatforms />

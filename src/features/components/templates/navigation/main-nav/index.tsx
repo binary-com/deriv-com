@@ -12,7 +12,9 @@ const MainRowNavigation = () => {
             renderButtons={MainNavigationButtons}
             renderLogo={MainNavigationLogo}
             items={is_eu ? mainEuNavItems : mainRowNavItems}
-        />
+        >
+            <BrandDerivWordmarkCoralIcon width={100} height={100} />
+        </NavigationBlock>
     )
 }
 

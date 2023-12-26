@@ -25,6 +25,10 @@ const ParentWrapper = styled.div`
     background-image: url(${Map});
     background-repeat: no-repeat;
     background-position: bottom;
+
+    @media ${device.tabletL} {
+        background-image: unset;
+    }
 `
 const StyledContainer = styled(Container)`
     display: flex;
@@ -86,7 +90,13 @@ const AffiliateSignup = () => {
 
     useEffect(() => {
         trackEvent({ action: 'open' })
-        return () => trackEvent({ action: 'close' })
+        const handleBeforeUnload = (event) => {
+            event.preventDefault()
+            event.returnValue = 'Are you sure you want to leave this page?'
+            trackEvent({ action: 'close' })
+        }
+        window.addEventListener('beforeunload', handleBeforeUnload)
+        return () => window.removeEventListener('beforeunload', handleBeforeUnload)
     }, [])
 
     useEffect(() => {

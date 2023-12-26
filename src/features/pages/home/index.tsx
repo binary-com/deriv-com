@@ -1,8 +1,8 @@
 import React from 'react'
 import loadable from '@loadable/component'
 import Layout from 'features/components/templates/layout'
-import { BrandDerivWordmarkCoralIcon } from '@deriv/quill-icons/Logo'
 // eslint-disable-next-line import/no-unresolved
+import { BrandDerivWordmarkCoralIcon } from '@deriv/quill-icons/Logo'
 import HomeHero from './hero'
 import LivePricing from './live-pricing'
 import P2PBanner from './p2p-banner'

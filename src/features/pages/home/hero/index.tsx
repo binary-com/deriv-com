@@ -43,14 +43,15 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                     <Heading.H1 className="text-solid-slate-50 text-[34px] lg:text-heading-h1">
                         <Localize translate_text="_t_Trading for anyone. Anywhere. Anytime._t_" />
                     </Heading.H1>
-                    {is_eu && !is_region_loading ? (
+                    {is_eu && !is_region_loading && (
                         <Text
                             size="md"
                             className={clsx('text-solid-slate-50 mt-general-md', hero_content_text)}
                         >
                             <Localize translate_text="_t_Trade CFDs and Multipliers on 1500+ instruments, all in one place with 24/7 trading and 24/7 worldwide support._t_" />
                         </Text>
-                    ) : (
+                    )}
+                    {!is_eu && !is_region_loading && (
                         <Text
                             size="md"
                             className={clsx('text-solid-slate-50 mt-general-md', hero_content_text)}
@@ -58,6 +59,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                             <Localize translate_text="_t_Trade CFDs and Options on 1500+ instruments, all in one place with 24/7 trading and 24/7 worldwide support._t_" />
                         </Text>
                     )}
+
                     <TradersHubCtaButton
                         className={clsx('mt-general-2xl', hero_content_btn)}
                         variant="primary"

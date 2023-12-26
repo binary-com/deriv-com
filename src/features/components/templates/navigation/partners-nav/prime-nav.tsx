@@ -1,7 +1,7 @@
 import React from 'react'
 import { MobileNavToggle, NavigationBlock } from '@deriv-com/blocks'
 // eslint-disable-next-line import/no-unresolved
-import { SubBrandDerivPartnersBrandLightIcon } from '@deriv/quill-icons/Logo'
+import { SubBrandDerivPrimeBrandLightIcon } from '@deriv/quill-icons/Logo'
 import { Button } from '@deriv/quill-design'
 import { CustomLink } from '@deriv-com/components'
 import { partnersEUItems, partnersItems } from './data'
@@ -14,7 +14,7 @@ const PrimeNavButtons = () => {
     return (
         <div className="flex items-center gap-gap-md">
             <Button
-                className="block lg:hidden"
+                className="hidden sm:max-lg:!block"
                 variant="secondary"
                 colorStyle="black"
                 size="lg"
@@ -43,7 +43,7 @@ const PrimeNav = () => {
             renderButtons={PrimeNavButtons}
             renderLogo={() => (
                 <CustomLink href={'/partners'}>
-                    <SubBrandDerivPartnersBrandLightIcon width={144} height={24} />
+                    <SubBrandDerivPrimeBrandLightIcon width={118} height={24} />
                 </CustomLink>
             )}
             items={is_eu ? partnersEUItems : partnersItems}

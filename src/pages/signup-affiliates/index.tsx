@@ -92,7 +92,6 @@ const AffiliateSignup = () => {
         trackEvent({ action: 'open' })
         const handleBeforeUnload = (event) => {
             event.preventDefault()
-            event.returnValue = 'Are you sure you want to leave this page?'
             trackEvent({ action: 'close' })
         }
         window.addEventListener('beforeunload', handleBeforeUnload)

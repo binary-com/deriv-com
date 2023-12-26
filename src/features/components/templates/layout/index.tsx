@@ -6,8 +6,7 @@ import { getLanguage, isBrowser } from 'common/utility'
 import LayoutOverlay from 'features/components/molecules/layout-overlay'
 import BrowserUpdateAlert from 'features/components/molecules/browser-update-alert'
 import apiManager from 'common/websocket'
-import 'swiper/swiper-bundle.min.css'
-import 'features/styles/app.scss'
+
 interface LayoutProps {
     is_ppc?: boolean
     is_ppc_redirect?: boolean

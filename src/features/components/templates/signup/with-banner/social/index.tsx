@@ -12,7 +12,6 @@ import GoogleLogo from 'images/svg/google_logo.svg'
 import { TString } from 'types/generics'
 import Login, { TSocialProvider } from 'common/login'
 import { IconType } from 'features/types'
-import { isBrowser } from 'common/utility'
 
 type SocialButtonContent = {
     provider: TSocialProvider

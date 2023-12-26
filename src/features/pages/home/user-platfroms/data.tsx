@@ -9,19 +9,19 @@ import {
     PartnersProductDerivMt5BrandLightLogoHorizontalIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Logo'
-import { FilterKeyType } from './type'
+import { FilterKeyType, PlatformTab } from './type'
 import { Localize } from 'components/localization'
 
-export const platformTabs = [
-    { children: 'All' },
-    { children: 'CFDs' },
-    { children: 'Options' },
-    { children: 'Bots' },
-    { children: 'Social' },
-] as const
+export const platformTabs: PlatformTab[] = [
+    { content: <Localize translate_text="_t_All_t_" />, tabId: 'All' },
+    { content: <Localize translate_text="_t_CFDs_t_" />, tabId: 'CFDs' },
+    { content: <Localize translate_text="_t_Options_t_" />, tabId: 'Options' },
+    { content: <Localize translate_text="_t_Bots_t_" />, tabId: 'Bots' },
+    { content: <Localize translate_text="_t_Social_t_" />, tabId: 'Social' },
+]
 
 type PlatformCardContent = CardContent & {
-    filterKey: Omit<FilterKeyType<typeof platformTabs, 'children'>, 'All'>[]
+    filterKey: FilterKeyType[]
 }
 
 export const RowCards: PlatformCardContent[] = [
@@ -126,7 +126,10 @@ export const EUCards: CardContent[] = [
         id: 1,
         header: <Localize translate_text="_t_Deriv MT5_t_" />,
         description: (
-            <Localize translate_text="_t_The most popular and comprehensive CFDs platform._t_" />
+            <Localize
+                translate_text="_t_The most popular and comprehensive <0>CFDs</0> platform._t_"
+                components={[<strong key={0} />]}
+            />
         ),
         icon: <PartnersProductDerivMt5BrandLightLogoHorizontalIcon width={48} height={48} />,
         size: 'md',
@@ -140,7 +143,12 @@ export const EUCards: CardContent[] = [
     {
         id: 2,
         header: <Localize translate_text="_t_Deriv Trader_t_" />,
-        description: <Localize translate_text="_t_Flagship trading platform for multipliers._t_" />,
+        description: (
+            <Localize
+                translate_text="_t_Flagship trading platform for <0>multipliers</0>._t_"
+                components={[<strong key={0} />]}
+            />
+        ),
         icon: <DerivProductDerivTraderBrandDarkLogoHorizontalIcon height="48" width="48" />,
         size: 'md',
         align: 'start',

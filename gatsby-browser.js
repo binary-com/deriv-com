@@ -15,10 +15,11 @@ import {
     getLanguage,
     updateURLAsPerUserLanguage,
 } from 'common/utility'
-// import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
 import './static/css/ubuntu.css'
 import './static/css/global.css'
+import '@deriv-com/blocks/style.css'
+import '@deriv-com/components/style.css'
 
 const is_browser = typeof window !== 'undefined'
 
@@ -92,8 +93,7 @@ export const onClientEntry = () => {
     Analytics?.initialise({
         growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
         growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
-        enableDevMode: window?.location.hostname.includes('localhost'),
-        rudderstackKey: ['.pages.dev', 'git-fork', 'localhost'].some((condition) =>
+        rudderstackKey: ['.pages.dev', 'git-fork', 'localhost', 'staging'].some((condition) =>
             window.location.hostname.includes(condition),
         )
             ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
@@ -105,8 +105,7 @@ export const onClientEntry = () => {
         device_language: navigator?.language || ' ',
         device_type: isMobile ? 'mobile' : 'desktop',
     })
-    const { tracking } = Analytics.getInstances()
-    tracking.identifyEvent(Analytics?.getId(), { language: getLanguage() })
+    Analytics?.identifyEvent()
     //datadog
     const dd_options = {
         clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,

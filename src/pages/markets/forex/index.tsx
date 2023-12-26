@@ -10,7 +10,7 @@ import { TGatsbyHead } from 'features/types'
 
 const ForexPage = () => {
     return (
-        <Layout type="noNav">
+        <Layout type="noNav" padding_top="0">
             <DerivedFXHero
                 title="_t_Forex_t_"
                 description="_t_Benefit from round-the-clock trading hours (Monday to Friday), high liquidity, low barriers to entry, a wide range of offerings, and opportunities to trade on world events._t_"

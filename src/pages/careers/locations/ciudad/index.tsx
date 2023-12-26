@@ -12,6 +12,11 @@ const query = graphql`
         living_in_ciudad: file(relativePath: { eq: "careers/living_in_ciudad.png" }) {
             ...fadeIn
         }
+        ciudad_great_place_to_work_badge: file(
+            relativePath: { eq: "careers/ciudad_great_place_to_work_badge.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
 

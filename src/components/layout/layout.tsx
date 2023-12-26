@@ -39,6 +39,7 @@ type LayoutProps = {
 type MainType = {
     is_static?: boolean
     padding_top?: string
+    type?: string
 }
 
 export type ModalPayloadType = {
@@ -50,7 +51,8 @@ export type ModalPayloadType = {
 }
 
 const Main = styled.main<MainType>`
-    padding-top: ${({ padding_top }) => (padding_top && `${padding_top}rem`) || '8rem'};
+    padding-top: ${({ padding_top, type }) =>
+        padding_top ? `${padding_top}rem` : type === 'careers' ? '11rem' : '8rem'};
     background: var(--color-white);
     height: 100%;
     position: relative;
@@ -150,7 +152,7 @@ const Layout = ({
                         setModalPayload={setModalPayload}
                     >
                         <div className="styled-layout">
-                            <Main padding_top={padding_top} is_static={is_static}>
+                            <Main padding_top={padding_top} type={type} is_static={is_static}>
                                 {children}
                             </Main>
                             <EURedirect

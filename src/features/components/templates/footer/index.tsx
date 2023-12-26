@@ -10,13 +10,13 @@ import {
     warnText,
 } from './data'
 import { DerivGoBannerAndAwards } from './banner-and-awards'
-import { DescriptionContent, DescriptionContentEU } from './description'
+import { DescriptionContent, DescriptionContentCPA, DescriptionContentEU } from './description'
 import useRegion from 'components/hooks/use-region'
 import { getLocationPathname } from 'common/utility'
 
 export const MainFooter = () => {
     const [is_career, setIsCareer] = useState(false)
-    const { is_eu } = useRegion()
+    const { is_eu, is_cpa_plan } = useRegion()
 
     useEffect(() => {
         const current_path = getLocationPathname()
@@ -33,11 +33,17 @@ export const MainFooter = () => {
 
     return (
         <Footer.FooterBlock
-            warningText={!is_eu ? warnText : null}
+            warningText={!is_eu && !is_cpa_plan ? warnText : null}
             socialButtons={socialButtons}
             bannerAndAwards={DerivGoBannerAndAwards}
-            descriptionContent={is_eu ? DescriptionContentEU : DescriptionContent}
-            className={qtMerge(is_eu && 'mb-[120px] lg:mb-[80px]')}
+            descriptionContent={
+                is_eu
+                    ? DescriptionContentEU
+                    : is_cpa_plan
+                    ? DescriptionContentCPA
+                    : DescriptionContent
+            }
+            className={qtMerge((is_eu || is_cpa_plan) && 'mb-[120px] lg:mb-[80px]')}
         >
             <Footer.MainNavContent items={is_eu ? EuFooterNavData : RowFooterNavData} cols="six" />
         </Footer.FooterBlock>

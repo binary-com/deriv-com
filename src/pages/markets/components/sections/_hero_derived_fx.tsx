@@ -201,7 +201,7 @@ export const DerivedFXHero = ({
 
     return (
         <>
-            <MainRowNavigation />
+            {!is_deriv_go && <MainRowNavigation />}
             <BackgroundStyle>
                 <StyledContainer jc="flex-start">
                     <ContentWrapperStyle>

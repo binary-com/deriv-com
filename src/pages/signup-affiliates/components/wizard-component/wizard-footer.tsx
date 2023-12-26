@@ -58,21 +58,23 @@ const WizardFooter = ({
 }: WizardComponentTypes) => {
     const buttonHandler = React.useCallback(
         (button_type: ButtonType): void => {
+            const prev_step = step - 1
             if (button_type === ButtonType.Previous) {
                 trackEvent({
                     action: 'step_back',
-                    step_num: step,
-                    step_codename: getCodeName(step),
+                    step_num: prev_step,
+                    step_codename: getCodeName(prev_step),
                 })
-                step > 1 && setStep(step - 1)
+                step > 1 && setStep(prev_step)
             }
             if (button_type === ButtonType.Next) {
+                const next_step = step + 1
                 trackEvent({
                     action: 'step_passed',
-                    step_num: step,
-                    step_codename: getCodeName(step),
+                    step_num: next_step,
+                    step_codename: getCodeName(next_step),
                 })
-                step < max_step && setStep(step + 1)
+                step < max_step && setStep(next_step)
             }
         },
         [max_step, setStep, step],

@@ -9,11 +9,11 @@ const trackEvent = ({
 }: TEvents['ce_partner_account_signup_form']) => {
     Analytics?.trackEvent('ce_partner_account_signup_form', {
         action,
-        partner_signup_error_message,
-        user_choice,
-        step_num,
-        step_codename,
         form_name: 'ce_partner_account_signup_form',
+        ...(user_choice && { user_choice }),
+        ...(step_num && { step_num }),
+        ...(step_codename && { step_codename }),
+        ...(partner_signup_error_message && { partner_signup_error_message }),
     })
 }
 export default trackEvent

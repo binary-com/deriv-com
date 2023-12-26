@@ -44,7 +44,6 @@ const WhatsAppButton = styled.button`
     align-items: center;
     justify-content: center;
     background-color: var(--color-green-3);
-    border: 2px solid var(--color-green-3);
     color: var(--color-white);
     font-size: 14px;
     border-radius: 4px;

@@ -5,9 +5,9 @@ import { BrandDerivWordmarkCoralIcon } from '@deriv/quill-icons/Logo'
 
 export const MainNavigationLogo = () => {
     return (
-        <CustomLink href={'/'}>
-            <BrandDerivWordmarkCoralIcon width={73} height={24} />
-        </CustomLink>
+        // <CustomLink href={'/'}>
+        <BrandDerivWordmarkCoralIcon width={73} height={24} />
+        // </CustomLink>
     )
 }
 

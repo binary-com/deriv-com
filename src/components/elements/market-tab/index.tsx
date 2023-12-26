@@ -16,6 +16,7 @@ const MarketIcon = styled.img<{ is_selected?: boolean }>`
     inline-size: 24px;
     block-size: 24px;
     margin-block-end: 10px;
+    margin-inline: auto;
 `
 
 const MarketTab = () => {

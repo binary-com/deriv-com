@@ -3,7 +3,7 @@ import React, { useCallback } from 'react'
 import { PageLayout } from '@deriv-com/components'
 import { BreakpointProvider, ThemeProvider } from '@deriv/quill-design'
 import { LanguageProvider, SharedLinkProvider } from '@deriv-com/providers'
-import Layout from 'features/components/templates/layout'
+import QuillLayout from 'features/components/quill/quill-layout'
 import ROWFooter from './footer'
 import LiveMarketSection from './live-pricing-migration'
 import TwentyYearsStrong from './years'
@@ -55,7 +55,7 @@ const HomePage = () => {
                         onLangSelect={onLanguageChange}
                         activeLanguage={activeLang}
                     >
-                        <Layout>
+                        <QuillLayout>
                             <MainRowNavigation />
                             <PageLayout>
                                 <HomeHero />
@@ -70,7 +70,7 @@ const HomePage = () => {
                                 <CTA />
                                 <ROWFooter />
                             </PageLayout>
-                        </Layout>
+                        </QuillLayout>
                     </LanguageProvider>
                 </ThemeProvider>
             </SharedLinkProvider>

@@ -67,7 +67,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                     />
                 </div>
                 {!is_eu && !is_region_loading && <HeroAwardImages />}
-                {is_eu && !is_region_loading ? (
+                {is_eu && !is_region_loading && (
                     <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img_eu)}>
                         <StaticImage
                             src="../../../../images/migration/home/home_hero_new_eu.png"
@@ -77,7 +77,8 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                             loading="eager"
                         />
                     </div>
-                ) : (
+                )}
+                {!is_eu && !is_region_loading && (
                     <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img)}>
                         <StaticImage
                             src="../../../../images/migration/home/home_hero_new.png"

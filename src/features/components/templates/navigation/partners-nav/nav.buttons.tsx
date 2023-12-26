@@ -31,7 +31,7 @@ const AffiliateButtons = () => {
 
 const PaymentAgentButtons = () => {
     return (
-        <div className="hidden sm:block">
+        <div className="hidden sm:!block">
             <LocalizedLink external to="mailto:partners@deriv.com" is_mail_link>
                 <Button size="lg" className="hidden lg:block">
                     <Localize translate_text="_t_Apply now_t_" />

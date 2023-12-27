@@ -6,8 +6,8 @@
     "dependencies": {
         "@artsy/fresnel": "^6.2.1",
         "@builder.io/partytown": "^0.8.1",
-        "@deriv-com/blocks": "^0.57.0",
-        "@deriv-com/components": "^0.36.0",
+        "@deriv-com/blocks": "^0.61.0",
+        "@deriv-com/components": "^0.37.0",
         "@deriv-com/hooks": "^0.10.0",
         "@deriv-com/providers": "^0.10.0",
         "@deriv/analytics": "^1.4.4",

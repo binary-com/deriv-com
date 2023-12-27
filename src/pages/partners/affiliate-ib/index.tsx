@@ -180,7 +180,7 @@ const AffiliateIb = () => {
         : why_partner_with_us_items
 
     return (
-        <Layout type="partners" padding_top="10">
+        <Layout type="partners" padding_top="8">
             <Hero>
                 <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
                     <Localize translate_text="_t_Partner with a trusted online trading provider_t_" />

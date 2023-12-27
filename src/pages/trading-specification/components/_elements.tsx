@@ -337,7 +337,7 @@ export const Card = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10;
+    z-index: 99;
 `
 export const ModalCard = styled.div`
     position: relative;

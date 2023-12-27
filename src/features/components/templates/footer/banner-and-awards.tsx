@@ -46,7 +46,7 @@ export const DerivGoBannerAndAwards = () => {
                     <DownloadBadges />
                 </div>
             )}
-            <div className="rounded-[16px] border-solid border-xs border-opacity-black-100 py-general-md">
+            <div className="hidden rounded-[16px] border-solid border-xs border-opacity-black-100 py-general-md">
                 <div className="block justify-center lg:hidden">
                     <StaticImage
                         className="mx-auto"

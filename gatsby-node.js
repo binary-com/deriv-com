@@ -3,23 +3,37 @@ const language_config = require(`./i18n-config.js`)
 const language_config_en = require(`./i18n-config-en.js`)
 const path = require('path')
 const { copyLibFiles } = require('@builder.io/partytown/utils')
-const { execSync } = require('child_process')
+const { exec } = require('child_process')
 const translations_cache = {}
+
+function OSFunction() {
+    this.execCommand = function (cmd, callback) {
+        exec(cmd, (error, stdout) => {
+            if (error) {
+                console.error(`exec error: ${error}`)
+                return
+            }
+
+            callback(stdout)
+        })
+    }
+}
 
 const fetchTrustpilotData = () => {
     // Trustpilot on-build data fetching
     const startTime = Date.now()
 
-    try {
-        execSync('node scripts/trustpilot.js')
+    const os = new OSFunction()
+
+    os.execCommand('node scripts/trustpilot.js', (returnvalue) => {
+        console.log(returnvalue)
+
         const endTime = Date.now()
         const timeSpentInSeconds = (endTime - startTime) / 1000
         console.log(
             `\x1b[32msuccess\x1b[0m trustpilot data fetching finished - ${timeSpentInSeconds}s`,
         )
-    } catch (error) {
-        console.warn('Error fetching trustpilot data:', error)
-    }
+    })
 }
 
 exports.onPreBuild = async () => {

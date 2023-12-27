@@ -6,6 +6,8 @@ const fetchTrustpilotData = async () => {
     const fileDir = path.resolve(__dirname, '../src/data')
     const fileName = 'trustpilot.json'
     const filePath = path.join(fileDir, fileName)
+
+    console.log('Fetching TRUSTPILOT!!')
  
     try {
         const appName = 'deriv.com'
@@ -18,6 +20,8 @@ const fetchTrustpilotData = async () => {
         const url = `https://api.trustpilot.com/v1/business-units/find?name=${appName}&apikey=${apiKey}`
         const response = await fetch(url)
 
+        console.log('TRYING!!')
+
         if (!response.ok) {
             throw new Error(`Network response was not ok: ${response.statusText}`)
         }
@@ -29,6 +33,8 @@ const fetchTrustpilotData = async () => {
             numberOfReviews:
                 result.numberOfReviews?.usedForTrustScoreCalculation.toLocaleString() || '',
         }
+
+        console.log(tpData)
 
         const fileContent = JSON.stringify(tpData,null,2)
 

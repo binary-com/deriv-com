@@ -130,7 +130,7 @@ const AffiliateSignup = () => {
         if (affiliate_api_data) {
             trackEvent({
                 action: 'success_popup_opened',
-                user_choice: JSON.stringify(affiliate_api_error?.echo_req),
+                user_choice: JSON.stringify(affiliate_api_error?.echo_req) || 'default or null',
             })
             setSignupStatus('success')
         }

@@ -27,7 +27,7 @@ const Wizard = ({
     const is_individual = affiliate_account?.account_type == 1
 
     useEffect(() => {
-        show_wizard && trackEvent({ action: 'open_wizard' })
+        show_wizard && trackEvent({ action: 'open_wizard', email: affiliate_account.email })
         return () => trackEvent({ action: 'close_wizard' })
     }, [show_wizard])
 

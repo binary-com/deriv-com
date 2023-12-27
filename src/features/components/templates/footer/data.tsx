@@ -524,7 +524,7 @@ export const socialButtonsEU = [
     {
         icon: <StandaloneInstagramIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.instagram.com/deriv_eu/',
-        'data-cy': 'facebook',
+        'data-cy': 'instagram',
     },
     {
         icon: <StandaloneXTwitterIcon iconSize="md" fill="#000000b8" />,

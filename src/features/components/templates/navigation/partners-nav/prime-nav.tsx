@@ -42,7 +42,7 @@ const PrimeNav = () => {
             topNavigation={TopNavigation}
             renderButtons={PrimeNavButtons}
             renderLogo={() => (
-                <CustomLink href={'/partners'}>
+                <CustomLink href={'/partners/deriv-prime/'}>
                     <SubBrandDerivPrimeBrandLightIcon width={118} height={24} />
                 </CustomLink>
             )}

@@ -1,9 +1,10 @@
 import React from 'react'
 import {
-    LabelPairedAppleMdIcon,
-    LabelPairedGooglePlayMdIcon,
-    LabelPairedHuaweiAppGalleryMdIcon,
-} from '@deriv/quill-icons'
+    LabelPairedAppleLgIcon,
+    LabelPairedGooglePlayLgIcon,
+    LabelPairedHuaweiAppGalleryLgIcon,
+    // eslint-disable-next-line import/no-unresolved
+} from '@deriv/quill-icons/LabelPaired'
 import clsx from 'clsx'
 import { StaticImage } from 'gatsby-plugin-image'
 import { CustomLink } from '@deriv-com/components'
@@ -20,7 +21,7 @@ const DownloadBadges = () => {
                 target="_blank"
                 className={clsx(sharedClasses, 'order-last')}
             >
-                <LabelPairedHuaweiAppGalleryMdIcon />
+                <LabelPairedHuaweiAppGalleryLgIcon fill="#000000b8" />
                 <StaticImage
                     src="../../../../images/common/migration/footer/explore-appgallery.png"
                     alt={localize('_t_explore it on appgallery_t_')}
@@ -34,7 +35,7 @@ const DownloadBadges = () => {
                 target="_blank"
                 className={clsx(sharedClasses)}
             >
-                <LabelPairedGooglePlayMdIcon />
+                <LabelPairedGooglePlayLgIcon fill="#000000b8" />
                 <StaticImage
                     src="../../../../images/common/migration/footer/get-googleplay.png"
                     alt={localize('_t_get it on google play_t_')}
@@ -48,7 +49,7 @@ const DownloadBadges = () => {
                 target="_blank"
                 className={clsx(sharedClasses)}
             >
-                <LabelPairedAppleMdIcon />
+                <LabelPairedAppleLgIcon fill="#000000b8" />
                 <StaticImage
                     src="../../../../images/common/migration/footer/download-appstore.png"
                     alt={localize('_t_download on the app store_t_')}

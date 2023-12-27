@@ -1,35 +1,92 @@
-import React from 'react'
-import HomeHeroContent from './content'
-import HomeHeroSlider from './slider'
-import Flex from 'features/components/atoms/flex-box'
-import ProductHeroContainer from 'features/components/templates/hero-banners/product'
+import React, { ReactNode } from 'react'
+import { FluidContainer, Heading, Section, Text } from '@deriv/quill-design'
+import clsx from 'clsx'
+import { StaticImage } from 'gatsby-plugin-image'
+import {
+    hero_container,
+    hero_content,
+    hero_content_gradient,
+    hero_img,
+    hero_img_eu,
+    hero_content_text,
+    hero_content_btn,
+} from './styles.module.scss'
+import HeroAwardImages from './award-images'
+import { Localize } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
+import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
 
-const HomeHero = () => {
+export interface HomeHeroProps {
+    children?: ReactNode
+    className?: string
+}
+
+const HomeHero: React.FC<HomeHeroProps> = () => {
+    const { is_eu } = useRegion()
+
     return (
-        <ProductHeroContainer
-            container="fixed"
-            style={{ direction: 'ltr' }}
-            pt="40x"
-            md={{
-                justify: 'center',
-                align: 'center',
-                pt: '0x',
-            }}
-        >
-            <Flex.Box
-                container="fluid"
-                align="center"
-                gap={'20x'}
-                direction="col"
-                md={{
-                    direction: 'row',
-                    justify: 'start',
-                }}
-            >
-                <HomeHeroContent />
-                <HomeHeroSlider />
-            </Flex.Box>
-        </ProductHeroContainer>
+        <Section className="h-[calc(100vh-136px)] min-h-[587px] relative isolate overflow-hidden">
+            <StaticImage
+                src="../../../../images/migration/home/home_hero_bg.png"
+                alt="hero bg image"
+                className="w-full -z-10"
+                placeholder="none"
+                formats={['auto', 'webp']}
+                loading="eager"
+                style={{ position: 'absolute', inset: 0 }}
+            />
+
+            <FluidContainer className={clsx('h-full flex flex-col relative', hero_container)}>
+                <div className={clsx('flex flex-col mb-general-2xl', hero_content)}>
+                    <Heading.H1 className="text-solid-slate-50 text-[34px] lg:text-heading-h1">
+                        <Localize translate_text="_t_Trading for anyone. Anywhere. Anytime._t_" />
+                    </Heading.H1>
+                    {is_eu ? (
+                        <Text
+                            size="md"
+                            className={clsx('text-solid-slate-50 mt-general-md', hero_content_text)}
+                        >
+                            <Localize translate_text="_t_Trade CFDs and Multipliers on 1500+ instruments, all in one place with 24/7 trading and 24/7 worldwide support._t_" />
+                        </Text>
+                    ) : (
+                        <Text
+                            size="md"
+                            className={clsx('text-solid-slate-50 mt-general-md', hero_content_text)}
+                        >
+                            <Localize translate_text="_t_Trade CFDs and Options on 1500+ instruments, all in one place with 24/7 trading and 24/7 worldwide support._t_" />
+                        </Text>
+                    )}
+                    <TradersHubCtaButton
+                        className={clsx('mt-general-2xl', hero_content_btn)}
+                        variant="primary"
+                        colorStyle="coral"
+                    />
+                </div>
+                {!is_eu && <HeroAwardImages />}
+                {is_eu ? (
+                    <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img_eu)}>
+                        <StaticImage
+                            src="../../../../images/migration/home/home_hero_new_eu.png"
+                            alt="hero image"
+                            placeholder="none"
+                            formats={['auto', 'webp']}
+                            loading="eager"
+                        />
+                    </div>
+                ) : (
+                    <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img)}>
+                        <StaticImage
+                            src="../../../../images/migration/home/home_hero_new.png"
+                            alt="hero image"
+                            placeholder="none"
+                            formats={['auto', 'webp']}
+                            loading="eager"
+                        />
+                    </div>
+                )}
+            </FluidContainer>
+            <div className={clsx('absolute -z-10 inset-50', hero_content_gradient)}></div>
+        </Section>
     )
 }
 

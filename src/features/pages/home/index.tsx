@@ -1,37 +1,80 @@
-import React from 'react'
-import loadable from '@loadable/component'
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import React, { useCallback } from 'react'
+import { PageLayout } from '@deriv-com/components'
+import { BreakpointProvider, ThemeProvider } from '@deriv/quill-design'
+import { LanguageProvider, SharedLinkProvider } from '@deriv-com/providers'
 import Layout from 'features/components/templates/layout'
+import ROWFooter from './footer'
+import LiveMarketSection from './live-pricing-migration'
+import TwentyYearsStrong from './years'
+import StatSection from './stats'
+import UserFriendlyPlatforms from './user-platfroms'
+import TradeTypeSection from './trade-type'
+import MainRowNavigation from './navigation'
 import HomeHero from './hero'
-import LivePricing from './live-pricing'
-import P2PBanner from './p2p-banner'
-import ClientTestimonial from './client-testimonial'
-import TradeTypes from './trade-types'
+import FastPaymentSection from './fast-payment'
+import CTA from './cta'
+import StartTradingSteps from './start-trading-steps'
+import TrustpilotSection from './trustpilot'
+import { langItemsROW } from './data'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
-import AwardBanner from 'features/components/templates/banners/award-banners'
-import useRegion from 'components/hooks/use-region'
-import SignupPublic from 'features/components/templates/signup/with-banner'
-import MainRowNavigation from 'features/components/templates/navigation/main-nav'
-
-const OurPlatforms = loadable(() => import('./our-platforms'))
-const MainFooter = loadable(() => import('features/components/templates/footer'))
+import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
+import { useLangDirection } from 'components/hooks/use-lang-direction'
+import { LocaleContext } from 'components/localization'
+import GatsbySharedLink from 'features/components/quill/shared-link'
 
 const HomePage = () => {
     useOpenLiveChat(true)
-    const { is_p2p_allowed_country, is_eu } = useRegion()
+    const lang_direction = useLangDirection()
+    const { locale } = React.useContext(LocaleContext)
+    const formatted_lang = locale.replace('_', '-')
+
+    React.useEffect(() => {
+        document.body.dir = lang_direction
+        document.documentElement.lang = formatted_lang
+    }, [lang_direction, formatted_lang])
+
+    //need to update the language data and type
+    //here using langauge data from `i18n-config.js`
+    const { onSwitchLanguage, currentLang } = useLangSwitcher()
+    const activeLang = langItemsROW[currentLang.path.replace('-', '')]
+
+    const onLanguageChange = useCallback(
+        (event) => {
+            onSwitchLanguage(`/${event.path}/`)
+        },
+        [onSwitchLanguage],
+    )
 
     return (
-        <Layout>
-            <MainRowNavigation />
-            <HomeHero />
-            <LivePricing />
-            <TradeTypes />
-            <OurPlatforms />
-            {is_eu ? null : <AwardBanner title="_t_Awards_t_" />}
-            <ClientTestimonial />
-            {is_p2p_allowed_country && <P2PBanner />}
-            <SignupPublic />
-            <MainFooter />
-        </Layout>
+        <BreakpointProvider>
+            <SharedLinkProvider DerivLink={GatsbySharedLink}>
+                <ThemeProvider theme="light">
+                    <LanguageProvider
+                        langItems={langItemsROW}
+                        onLangSelect={onLanguageChange}
+                        activeLanguage={activeLang}
+                    >
+                        <Layout>
+                            <MainRowNavigation />
+                            <PageLayout>
+                                <HomeHero />
+                                <TrustpilotSection />
+                                <StatSection />
+                                <TwentyYearsStrong />
+                                <LiveMarketSection />
+                                <UserFriendlyPlatforms />
+                                <TradeTypeSection />
+                                <StartTradingSteps />
+                                <FastPaymentSection />
+                                <CTA />
+                                <ROWFooter />
+                            </PageLayout>
+                        </Layout>
+                    </LanguageProvider>
+                </ThemeProvider>
+            </SharedLinkProvider>
+        </BreakpointProvider>
     )
 }
 

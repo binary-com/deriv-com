@@ -34,8 +34,6 @@ const fetchTrustpilotData = async () => {
                 result.numberOfReviews?.usedForTrustScoreCalculation.toLocaleString() || '',
         }
 
-        console.log(tpData)
-
         const fileContent = JSON.stringify(tpData,null,2)
 
         fs.writeFile(filePath, fileContent, (error) => {
@@ -43,6 +41,20 @@ const fetchTrustpilotData = async () => {
               // Handle errors
               console.error('Error writing to the file:', error);
             }
+
+            fs.readFile(filePath, 'utf8', (err, data) => {
+                if (err) {
+                    console.error(`Error reading the file: ${err}`);
+                    return;
+                }
+
+                try {
+                    const jsonData = JSON.parse(data);
+                    console.log('Data from JSON file:', jsonData);
+                } catch (error) {
+                    console.error(`Error parsing JSON: ${error}`);
+                }
+            });
           });
        
     } catch (error) {

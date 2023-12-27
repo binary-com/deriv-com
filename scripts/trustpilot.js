@@ -7,7 +7,7 @@ const fetchTrustpilotData = async () => {
     const fileName = 'trustpilot.json'
     const filePath = path.join(fileDir, fileName)
 
-    console.log('Fetching TRUSTPILOT!!')
+    const startTime = Date.now()
  
     try {
         const appName = 'deriv.com'
@@ -20,13 +20,19 @@ const fetchTrustpilotData = async () => {
         const url = `https://api.trustpilot.com/v1/business-units/find?name=${appName}&apikey=${apiKey}`
         const response = await fetch(url)
 
-        console.log('TRYING!!')
-
         if (!response.ok) {
             throw new Error(`Network response was not ok: ${response.statusText}`)
         }
 
         const result = await response.json()
+
+        const endTime = Date.now()
+        const timeSpentInSeconds = (endTime - startTime) / 1000
+        
+        console.log(
+            `\x1b[32msuccess\x1b[0m trustpilot data fetching finished - ${timeSpentInSeconds}s`,
+        )
+
         const tpData = {
             stars: result.score?.stars || 0,
             trustScore: result.score?.trustScore || 0,
@@ -50,7 +56,7 @@ const fetchTrustpilotData = async () => {
 
                 try {
                     const jsonData = JSON.parse(data);
-                    console.log('Data from JSON file:', jsonData);
+                    console.log('Trust Pilot Data:', jsonData);
                 } catch (error) {
                     console.error(`Error parsing JSON: ${error}`);
                 }

@@ -21,18 +21,10 @@ function OSFunction() {
 
 const fetchTrustpilotData = () => {
     // Trustpilot on-build data fetching
-    const startTime = Date.now()
-
     const os = new OSFunction()
 
     os.execCommand('node scripts/trustpilot.js', (returnvalue) => {
         console.log(returnvalue)
-
-        const endTime = Date.now()
-        const timeSpentInSeconds = (endTime - startTime) / 1000
-        console.log(
-            `\x1b[32msuccess\x1b[0m trustpilot data fetching finished - ${timeSpentInSeconds}s`,
-        )
     })
 }
 

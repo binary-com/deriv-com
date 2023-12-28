@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { qtMerge, Text } from '@deriv/quill-design'
 import {
     StandaloneChartTrendDownRegularIcon,
@@ -44,28 +44,37 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
     onClickBuyButton,
     onClickSellButton,
 }) => {
-    const [prevMid, setPrevMid] = useState(null)
-    const [state, setState] = useState<MarketStatus>('closed')
+    // const [prevMid, setPrevMid] = useState(null)
+    // const [state, setState] = useState<MarketStatus>('closed')
 
-    useEffect(() => {
-        if (prevMid !== null) {
-            // console.log("==>", { prevMid, mid })
-            if (mid > prevMid) {
-                setState('up')
-            } else if (mid < prevMid) {
-                setState('down')
-            } else {
-                setState('remain')
-            }
-        }
+    // useEffect(() => {
+    //     if (prevMid !== null) {
+    //         console.log("==>", { prevMid, mid })
+    //         if (mid > prevMid) {
+    //             setState('up')
+    //         } else if (mid < prevMid) {
+    //             setState('down')
+    //         } else {
+    //             setState('remain')
+    //         }
+    //     }
 
-        // Update prevMid with the current mid
-        setPrevMid(mid)
-    }, [mid, prevMid])
+    //     // Update prevMid with the current mid
+    //     setPrevMid(mid)
+    // }, [mid, prevMid])
+
+    const prevMid = useRef<HTMLDivElement>(null)
+    const state =
+        mid > +prevMid?.current?.textContent
+            ? 'up'
+            : mid < +prevMid?.current?.textContent
+            ? 'down'
+            : 'remain'
+
+    console.log(state)
+
     const textClassName =
         status === 'closed' ? 'text-typography-disabled' : 'text-typography-default'
-
-    // console.log('==>', state)
 
     return (
         <div
@@ -101,6 +110,7 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
                     </Text>
                 </div>
             </div>
+            <div ref={prevMid}>{mid}</div>
 
             <LivePrice
                 status={state}

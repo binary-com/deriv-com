@@ -35,5 +35,4 @@ export interface LiveMarketAssetRawData {
     reg: string
     sprd: number
     sym: string
-    // status?: 'up' | 'down' | 'remain' | 'closed'
 }

@@ -17,8 +17,15 @@ export const LiveMarketContext = React.createContext<LiveMarketType>({
     dbRef: null,
 })
 
+// function getStatus(current, previous){
+//     if(current > previous) return "up"
+//     if(current < previous) return "down"
+//     return "remain"
+// }
+
 const LiveMarketProvider = ({ children }: { children: ReactNode }) => {
     const [liveData, setLiveData] = useState<LiveMarketRawData>(initialLiveMarketData)
+    // const [testData, setTestData] = useState<object>({})
     const [liveError, setLiveError] = useState({})
     const { is_eu } = useRegion()
     const firebaseAppRef = useRef<FirebaseApp>()
@@ -36,10 +43,23 @@ const LiveMarketProvider = ({ children }: { children: ReactNode }) => {
             commoditiesRef.current,
             (snapshot) => {
                 setLiveData(snapshot.val())
+                // setTestData((prev) => {
+                //     const object = snapshot.val();
+                //     if(prev){
+                //         for (const category in object) {
+                //             for (const symbol in object[category]) {
+                //                 object[category][symbol]['status'] = getStatus(object[category][symbol].mid, prev[category][symbol].mid);
+                //             }
+                //         }
+                //     }
+                //     return object;
+                // })
             },
             (error) => setLiveError(error),
         )
     }, [is_eu])
+
+    // console.log("==>", {testData})
 
     return (
         <LiveMarketContext.Provider

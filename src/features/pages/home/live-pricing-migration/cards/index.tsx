@@ -1,5 +1,4 @@
 import React, { ReactNode, useMemo } from 'react'
-import { CardSlider, LiveMarketContent } from '@deriv-com/components'
 import {
     MarketForexAudusdIcon,
     MarketForexEurusdIcon,
@@ -24,9 +23,11 @@ import {
     MarketIndicesUs500Icon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Markets'
+import { CardSlider } from '../card-slider'
 import useLiveData from '../data-provider/useLiveData'
 import { MarketName } from '../data-provider/types'
 import { percentToDecimal, swiperOption } from '../utils'
+import { LiveMarketContent } from '../card/types'
 import { handleRedirectToTradersHub } from 'components/custom/utils'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useHandleSignup from 'components/hooks/use-handle-signup'
@@ -97,6 +98,7 @@ const LiveMarketCard = <T extends MarketName>({
             bidPrice: `${data[key].bid}`,
             askPrice: `${data[key].ask}`,
             spread: `${data[key].sprd}`,
+            mid: data[key].mid,
             onClickBuyButton: is_logged_in ? handleRedirectToTradersHub : handleSignup,
             onClickSellButton: is_logged_in ? handleRedirectToTradersHub : handleSignup,
         }))

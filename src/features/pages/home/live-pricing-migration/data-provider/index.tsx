@@ -17,11 +17,11 @@ export const LiveMarketContext = React.createContext<LiveMarketType>({
     dbRef: null,
 })
 
-// function getStatus(current, previous){
-//     if(current > previous) return "up"
-//     if(current < previous) return "down"
-//     return "remain"
-// }
+function getStatus(current, previous) {
+    if (current > previous) return 'up'
+    if (current < previous) return 'down'
+    return 'remain'
+}
 
 const LiveMarketProvider = ({ children }: { children: ReactNode }) => {
     const [liveData, setLiveData] = useState<LiveMarketRawData>(initialLiveMarketData)
@@ -48,8 +48,10 @@ const LiveMarketProvider = ({ children }: { children: ReactNode }) => {
                     if (prev) {
                         for (const category in object) {
                             for (const symbol in object[category]) {
-                                console.log('==>', prev[category][symbol])
-                                // object[category][symbol]['status'] = getStatus(object[category][symbol].mid, prev[category][symbol].mid);
+                                object[category][symbol]['status'] = getStatus(
+                                    object[category][symbol].mid,
+                                    prev[category]?.[symbol].mid,
+                                )
                             }
                         }
                     }
@@ -60,7 +62,7 @@ const LiveMarketProvider = ({ children }: { children: ReactNode }) => {
         )
     }, [is_eu])
 
-    // console.log("==>", {testData})
+    console.log('==>', { testData })
 
     return (
         <LiveMarketContext.Provider

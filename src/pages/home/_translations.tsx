@@ -60,6 +60,7 @@ export const translation_strings = [
     '_t_Open demo account_t_',
     '_t_Fast, hassle-free deposits & withdrawals_t_',
     '_t_10+ global payment methods. Deposit instantly starting from just USD 10. Withdraw in minutes.*_t_',
+    '_t_60+ global payment methods. Deposit instantly starting from just USD 5. Withdraw in minutes.*_t_',
     '_t_* Availability of payment methods and processing speeds may vary based on location and selected payment option_t_',
     '_t_Trade CFDs & Multipliers_t_',
 ]

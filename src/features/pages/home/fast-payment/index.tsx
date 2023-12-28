@@ -10,14 +10,14 @@ const FastPaymentSection: React.FC = () => {
         <FastPayment
             title={<Localize translate_text="_t_Fast, hassle-free deposits & withdrawal_t_" />}
             description={
-                is_eu ? (
+                !is_eu ? (
                     <Localize translate_text="_t_60+ global payment methods. Deposit instantly starting from just USD 5. Withdraw in minutes.*_t_" />
                 ) : (
                     <Localize translate_text="_t_10+ global payment methods. Deposit instantly starting from just USD 10. Withdraw in minutes.*_t_" />
                 )
             }
             link={{
-                content: <Localize translate_text="_t_Learn More_t_" />,
+                content: <Localize translate_text="_t_Learn more_t_" />,
                 href: '/payment-methods/',
             }}
             content={{

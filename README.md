@@ -179,7 +179,6 @@ There are 2 types of releases:
 
 Merging to master (squash and merge) will automatically release the last commit to the staging server https://staging.deriv.com
 
-⚠️ If you want to release Crowdin changes, please make a PR from crowdin to master branch
 
 2. Release to production:
 

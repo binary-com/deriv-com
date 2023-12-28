@@ -10,7 +10,7 @@ const FastPaymentSection: React.FC = () => {
         <FastPayment
             title={<Localize translate_text="_t_Fast, hassle-free deposits & withdrawal_t_" />}
             description={
-                <Localize translate_text="_t_10+ global payment methods. Deposit instantly starting from just USD 5. Withdraw in minutes.*_t_" />
+                <Localize translate_text="_t_10+ global payment methods. Deposit instantly starting from just USD 10. Withdraw in minutes.*_t_" />
             }
             link={{
                 content: <Localize translate_text="_t_Learn More_t_" />,

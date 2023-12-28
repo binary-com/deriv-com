@@ -5,7 +5,6 @@ import {
     MarketForexEurusdIcon,
     MarketForexGbpjpyIcon,
     MarketForexGbpusdIcon,
-    MarketForexUsdcadIcon,
     MarketCryptocurrencyAdausdIcon,
     MarketCryptocurrencyBtcusdIcon,
     MarketCryptocurrencyDogusdIcon,
@@ -17,10 +16,12 @@ import {
     MarketStocksAppleIcon,
     MarketStocksWaltDisneyIcon,
     MarketStocksTeslaIcon,
+    MarketIndicesUsTech100Icon,
     MarketDerivedCrash1000Icon,
     MarketDerivedVolatility25Icon,
     MarketDerivedJump25Icon,
     MarketDerivedJump200Icon,
+    MarketIndicesUs500Icon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Markets'
 import useLiveData from '../data-provider/useLiveData'
@@ -31,26 +32,41 @@ import useAuthCheck from 'components/hooks/use-auth-check'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 
 const IconsMapper = {
+    // Forex Icons
     AUDUSD: <MarketForexAudusdIcon />,
     EURUSD: <MarketForexEurusdIcon />,
     GBPJPY: <MarketForexGbpjpyIcon />,
     GBPUSD: <MarketForexGbpusdIcon />,
-    USDCAD: <MarketForexUsdcadIcon />,
-    ADAUSD: <MarketCryptocurrencyAdausdIcon />,
-    BTCUSD: <MarketCryptocurrencyBtcusdIcon />,
-    DOGUSD: <MarketCryptocurrencyDogusdIcon />,
-    DSHUSD: <MarketCryptocurrencyDshusdIcon />,
-    WTI_OIL: <EnergyWtiOilusIcon />,
-    XAGUSD: <MarketCommoditySilverusdIcon />,
-    XAUUSD: <MarketCommodityGoldusdIcon />,
-    XCUUSD: <MarketCommodityCopperusdIcon />,
-    AAPL: <MarketStocksAppleIcon />,
-    DIS: <MarketStocksWaltDisneyIcon />,
-    TSLA: <MarketStocksTeslaIcon />,
+
+    // Derived Indices
     Crash_1000_Index: <MarketDerivedCrash1000Icon />,
     EURUSD_DFX_10_Index: <MarketDerivedVolatility25Icon />,
     Jump_50_Index: <MarketDerivedJump25Icon />,
     Range_Break_200_Index: <MarketDerivedJump200Icon />,
+
+    // Etf's
+    EEM_US: <MarketIndicesUs500Icon />,
+    GDX_US: <MarketIndicesUs500Icon />,
+    SPY_US: <MarketIndicesUs500Icon />,
+    UNG_US: <MarketIndicesUs500Icon />,
+
+    // Stock and indices
+    AAPL: <MarketStocksAppleIcon />,
+    DIS: <MarketStocksWaltDisneyIcon />,
+    TSLA: <MarketStocksTeslaIcon />,
+    US_100: <MarketIndicesUsTech100Icon />,
+
+    // Cryptocurrencies
+    ADAUSD: <MarketCryptocurrencyAdausdIcon />,
+    BTCUSD: <MarketCryptocurrencyBtcusdIcon />,
+    DOGUSD: <MarketCryptocurrencyDogusdIcon />,
+    DSHUSD: <MarketCryptocurrencyDshusdIcon />,
+
+    // Commodities
+    WTI_OIL: <EnergyWtiOilusIcon />,
+    XAGUSD: <MarketCommoditySilverusdIcon />,
+    XAUUSD: <MarketCommodityGoldusdIcon />,
+    XCUUSD: <MarketCommodityCopperusdIcon />,
 }
 
 const LiveMarketCard = <T extends MarketName>({

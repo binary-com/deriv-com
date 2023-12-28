@@ -71,7 +71,7 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
             ? 'down'
             : 'remain'
 
-    console.log(state)
+    console.log('==>', state)
 
     const textClassName =
         status === 'closed' ? 'text-typography-disabled' : 'text-typography-default'

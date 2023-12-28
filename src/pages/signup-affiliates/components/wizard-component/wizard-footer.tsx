@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Button from 'components/form/button'
 import { Localize } from 'components/localization'
 import { WizardComponentTypes } from 'pages/signup-affiliates/_types'
-import trackEvent from 'pages/signup-affiliates/utils/_tracking'
+import { trackEvent } from 'pages/signup-affiliates/utils/_utils'
 import device from 'themes/device'
 
 const StyledFooter = styled.div`
@@ -58,23 +58,21 @@ const WizardFooter = ({
 }: WizardComponentTypes) => {
     const buttonHandler = React.useCallback(
         (button_type: ButtonType): void => {
-            const prev_step = step - 1
             if (button_type === ButtonType.Previous) {
                 trackEvent({
                     action: 'step_back',
-                    step_num: prev_step,
-                    step_codename: getCodeName(prev_step),
+                    step_num: step,
+                    step_codename: getCodeName(step),
                 })
-                step > 1 && setStep(prev_step)
+                step > 1 && setStep(step)
             }
             if (button_type === ButtonType.Next) {
-                const next_step = step + 1
                 trackEvent({
                     action: 'step_passed',
-                    step_num: next_step,
-                    step_codename: getCodeName(next_step),
+                    step_num: step,
+                    step_codename: getCodeName(step),
                 })
-                step < max_step && setStep(next_step)
+                step < max_step && setStep(step + 1)
             }
         },
         [max_step, setStep, step],

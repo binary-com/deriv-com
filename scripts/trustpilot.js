@@ -6,6 +6,8 @@ const fetchTrustpilotData = async () => {
     const fileDir = path.resolve(__dirname, '../src/data')
     const fileName = 'trustpilot.json'
     const filePath = path.join(fileDir, fileName)
+
+    const startTime = Date.now()
  
     try {
         const appName = 'deriv.com'
@@ -23,6 +25,14 @@ const fetchTrustpilotData = async () => {
         }
 
         const result = await response.json()
+
+        const endTime = Date.now()
+        const timeSpentInSeconds = (endTime - startTime) / 1000
+        
+        console.log(
+            `\x1b[32msuccess\x1b[0m trustpilot data fetching finished - ${timeSpentInSeconds}s`,
+        )
+
         const tpData = {
             stars: result.score?.stars || 0,
             trustScore: result.score?.trustScore || 0,
@@ -37,6 +47,20 @@ const fetchTrustpilotData = async () => {
               // Handle errors
               console.error('Error writing to the file:', error);
             }
+
+            fs.readFile(filePath, 'utf8', (err, data) => {
+                if (err) {
+                    console.error(`Error reading the file: ${err}`);
+                    return;
+                }
+
+                try {
+                    const jsonData = JSON.parse(data);
+                    console.log('Trust Pilot Data:', jsonData);
+                } catch (error) {
+                    console.error(`Error parsing JSON: ${error}`);
+                }
+            });
           });
        
     } catch (error) {

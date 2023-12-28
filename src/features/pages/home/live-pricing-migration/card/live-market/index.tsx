@@ -49,7 +49,7 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
 
     useEffect(() => {
         if (prevMid !== null) {
-            console.log({ prevMid, mid })
+            // console.log("==>", { prevMid, mid })
             if (mid > prevMid) {
                 setState('up')
             } else if (mid < prevMid) {
@@ -65,7 +65,7 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
     const textClassName =
         status === 'closed' ? 'text-typography-disabled' : 'text-typography-default'
 
-    console.log('==>', state)
+    // console.log('==>', state)
 
     return (
         <div

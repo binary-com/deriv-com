@@ -64,7 +64,7 @@ const WizardFooter = ({
                     step_num: step,
                     step_codename: getCodeName(step),
                 })
-                step > 1 && setStep(step)
+                step > 1 && setStep((prev) => prev - 1)
             }
             if (button_type === ButtonType.Next) {
                 trackEvent({
@@ -72,7 +72,7 @@ const WizardFooter = ({
                     step_num: step,
                     step_codename: getCodeName(step),
                 })
-                step < max_step && setStep(step + 1)
+                step < max_step && setStep((prev) => prev + 1)
             }
         },
         [max_step, setStep, step],

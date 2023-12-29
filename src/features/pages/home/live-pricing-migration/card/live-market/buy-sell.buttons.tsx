@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, TradeButton } from '@deriv/quill-design'
-import { MarketStatus } from '../types'
+import { MarketStatus } from '..'
 
 export type BuySellButtonsProps = {
     status: MarketStatus

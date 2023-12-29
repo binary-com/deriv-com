@@ -15,7 +15,6 @@ const RowImage = (
         className="w-full h-full"
         formats={['webp', 'auto']}
         placeholder="none"
-        quality={100}
     />
 )
 

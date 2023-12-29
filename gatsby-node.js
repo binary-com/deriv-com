@@ -368,6 +368,8 @@ exports.onCreatePage = ({ page, actions }) => {
             'help-centre',
             'trader-tools',
             'careers',
+            // 'markets',
+            // 'trade-types' Note: Feel free to adjust pages you want to skip building for faster local development
         ],
     }
 

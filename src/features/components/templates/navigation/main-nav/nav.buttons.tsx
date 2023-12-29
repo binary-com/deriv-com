@@ -40,7 +40,7 @@ export const MainNavigationButtons = () => {
                     </Button>
                 </>
             )}
-            <MobileNavToggle />
+            <MobileNavToggle data-cy="hamburger-menu" />
         </div>
     )
 }

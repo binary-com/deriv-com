@@ -73,10 +73,10 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
     return (
         <Flex.Box direction="col" padding_block="10x" md={{ padding_block: '20x' }}>
             <Flex.Box className={tab_container} justify="center">
-                <div className={dclsx(scroll_container, 'flex')} ref={content_wrapper}>
+                <div className={dclsx(scroll_container, 'at-flex')} ref={content_wrapper}>
                     {options_tabs.map((option_item, index) => (
                         <div
-                            className={dclsx('flex', 'flex-dir-col')}
+                            className={dclsx('at-flex', 'at-flex-dir-col')}
                             key={option_item.option_name}
                             ref={
                                 index === 0
@@ -88,10 +88,10 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                         >
                             <div
                                 className={dclsx(
-                                    'flex',
-                                    'row',
-                                    'justify-start',
-                                    'md-justify-start',
+                                    'at-flex',
+                                    'at-row',
+                                    'at-justify-start',
+                                    'md-at-justify-start',
                                 )}
                                 ref={
                                     selected_tab_name === option_item.option_name
@@ -130,7 +130,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                 <div
                     className={dclsx(
                         scroll_button_left,
-                        'visible-larger-than-phone',
+                        'at-visible-larger-than-phone',
                         (is_initial_load || firstInView) && is_show_left,
                     )}
                     onClick={() => side_scroll(content_wrapper.current!, 25, 100, -10)}
@@ -141,7 +141,7 @@ const OptionsTab = ({ options_tabs }: OptionsTabType) => {
                 <div
                     className={dclsx(
                         scroll_button_right,
-                        'visible-larger-than-phone',
+                        'at-visible-larger-than-phone',
                         lastInView && is_show_right,
                     )}
                     onClick={() => side_scroll(content_wrapper.current!, 25, 100, 10)}

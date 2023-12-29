@@ -44,37 +44,24 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
     onClickBuyButton,
     onClickSellButton,
 }) => {
-    // const [prevMid, setPrevMid] = useState(null)
-    // const [state, setState] = useState<MarketStatus>('closed')
-
-    // useEffect(() => {
-    //     if (prevMid !== null) {
-    //         console.log("==>", { prevMid, mid })
-    //         if (mid > prevMid) {
-    //             setState('up')
-    //         } else if (mid < prevMid) {
-    //             setState('down')
-    //         } else {
-    //             setState('remain')
-    //         }
-    //     }
-
-    //     // Update prevMid with the current mid
-    //     setPrevMid(mid)
-    // }, [mid, prevMid])
-
     const prevMid = useRef<HTMLDivElement>(null)
-    const state =
-        mid > +prevMid?.current?.textContent
-            ? 'up'
-            : mid < +prevMid?.current?.textContent
-            ? 'down'
-            : 'remain'
+    const prevState = prevMid.current?.dataset['state'] as MarketStatus
+    let chnageCount = prevMid.current?.dataset['count'] || '0'
+    let state: MarketStatus
+    if (mid > +prevMid?.current?.textContent) state = 'up'
+    if (mid < +prevMid?.current?.textContent) state = 'down'
+    if (mid === +prevMid?.current?.textContent) {
+        state = prevState || 'up'
+        chnageCount = `${+chnageCount + 1}`
+    } else {
+        chnageCount = '0'
+    }
+    state = +chnageCount >= 300 ? 'closed' : state
 
     console.log('==>', state)
 
     const textClassName =
-        status === 'closed' ? 'text-typography-disabled' : 'text-typography-default'
+        state === 'closed' ? 'text-typography-disabled' : 'text-typography-default'
 
     return (
         <div
@@ -90,14 +77,14 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
         >
             <div className="flex h-[52px] shrink-0 grow flex-row gap-gap-sm">
                 <div className="flex flex-1 flex-row gap-gap-md">
-                    <div className={clsx(status === 'closed' && 'opacity-600')}>
+                    <div className={clsx(state === 'closed' && 'opacity-600')}>
                         {instrumentIcon}
                     </div>
                     <Text
                         size="md"
                         className={qtMerge(
                             'pt-general-xs',
-                            status === 'closed' && 'text-typography-subtle',
+                            state === 'closed' && 'text-typography-subtle',
                         )}
                     >
                         {instrument}
@@ -110,7 +97,9 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
                     </Text>
                 </div>
             </div>
-            <div ref={prevMid}>{mid}</div>
+            <div ref={prevMid} data-state={state} className="sr-only" data-count={chnageCount}>
+                {mid}
+            </div>
 
             <LivePrice
                 status={state}
@@ -119,7 +108,7 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
                 textClass={textClassName}
             />
             <BuySellButtons
-                status={status}
+                status={state}
                 spread={spread}
                 textClass={textClassName}
                 onClickBuyButton={onClickBuyButton}

@@ -118,7 +118,8 @@ export const LivePrice = ({ status, bidPrice, askPrice, textClass }: LivePricePr
                 {splittedBidPrice[0].length === 1 && (
                     <PriceContentV2
                         mid={`${splittedBidPrice[0]}.`}
-                        big={splittedBidPrice[0].substring(0, 2)}
+                        big={splittedBidPrice[1].substring(0, 2)}
+                        small={splittedBidPrice[1].substring(2)}
                         status={status}
                     />
                 )}
@@ -147,7 +148,8 @@ export const LivePrice = ({ status, bidPrice, askPrice, textClass }: LivePricePr
                 {splittedAskPrice[0].length === 6 && (
                     <PriceContentV2
                         mid={`${splittedBidPrice[0]}.}`}
-                        big={splittedBidPrice[0].substring(0, 2)}
+                        big={splittedBidPrice[1].substring(0, 2)}
+                        small={splittedBidPrice[1].substring(2)}
                         status={status}
                     />
                 )}

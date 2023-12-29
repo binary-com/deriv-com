@@ -15,8 +15,8 @@ export const swiperOption: SwiperOption = {
 export const initialLiveMarketData = {
     com: {
         WTI_OIL: {
-            ask: 6988.2455,
-            bid: 6988.4325,
+            ask: 71.917,
+            bid: 72.046,
             chng: '0%',
             code: 'WTI_OIL',
             mid: 71.927,
@@ -27,8 +27,8 @@ export const initialLiveMarketData = {
             sym: 'West Texas Intermediate',
         },
         XAGUSD: {
-            ask: 79603.79,
-            bid: 79618.49,
+            ask: 23.552,
+            bid: 23.592,
             chng: '0%',
             code: 'XAGUSD',
             mid: 23.029,
@@ -39,8 +39,8 @@ export const initialLiveMarketData = {
             sym: 'Silver/USD',
         },
         XAUUSD: {
-            ask: 47890.11,
-            bid: 47900.76,
+            ask: 1961.57,
+            bid: 1962.05,
             chng: '0%',
             code: 'XAUUSD',
             mid: 1998.82,
@@ -51,8 +51,8 @@ export const initialLiveMarketData = {
             sym: 'Gold/USD',
         },
         XCUUSD: {
-            ask: 99073.5,
-            bid: 99075.5,
+            ask: 8316.15,
+            bid: 8344.45,
             chng: '0%',
             code: 'XCUUSD',
             mid: 8414.74,
@@ -139,8 +139,8 @@ export const initialLiveMarketData = {
     },
     der: {
         Crash_1000_Index: {
-            ask: 6348.5825,
-            bid: 6348.2005,
+            ask: 6988.2455,
+            bid: 6988.4325,
             chng: '-0.39%',
             code: 'Crash_1000_Index',
             mid: 6348.3915,
@@ -151,8 +151,8 @@ export const initialLiveMarketData = {
             sym: 'Crash 1000 Index',
         },
         EURUSD_DFX_10_Index: {
-            ask: 74282.21,
-            bid: 74273.12,
+            ask: 79603.79,
+            bid: 79618.49,
             chng: '+0.07%',
             code: 'EURUSD_DFX_10_Index',
             mid: 74277.66,
@@ -163,8 +163,8 @@ export const initialLiveMarketData = {
             sym: 'EUR/USD DFX 10 Index',
         },
         Jump_50_Index: {
-            ask: 31954.63,
-            bid: 31945.86,
+            ask: 47890.11,
+            bid: 47900.76,
             chng: '+0.08%',
             code: 'Jump_50_Index',
             mid: 31950.24,
@@ -175,8 +175,8 @@ export const initialLiveMarketData = {
             sym: 'Jump 50 Index',
         },
         Range_Break_200_Index: {
-            ask: 105475.5,
-            bid: 105473.5,
+            ask: 99073.5,
+            bid: 99075.5,
             chng: '+0.5%',
             code: 'Range_Break_200_Index',
             mid: 105474.5,
@@ -325,8 +325,8 @@ export const initialLiveMarketData = {
     },
     ind: {
         US_100: {
-            ask: 16050.23,
-            bid: 16048.77,
+            ask: 14558.37,
+            bid: 14560.03,
             chng: '0%',
             code: 'US_100',
             mid: 16049.5,
@@ -351,8 +351,8 @@ export const initialLiveMarketData = {
     },
     stk: {
         AAPL: {
-            ask: 196.13,
-            bid: 195.54,
+            ask: 179.3,
+            bid: 179.92,
             chng: '+0.86%',
             code: 'AAPL',
             mid: 195.83,
@@ -363,8 +363,8 @@ export const initialLiveMarketData = {
             sym: 'Apple (APPL)',
         },
         DIS: {
-            ask: 93.14,
-            bid: 92.51,
+            ask: 90.67,
+            bid: 91.33,
             chng: '+0.56%',
             code: 'DIS',
             mid: 92.82,
@@ -375,7 +375,7 @@ export const initialLiveMarketData = {
             sym: 'Walt Disney Co (DIS)',
         },
         TSLA: {
-            ask: 244.25,
+            ask: 217.03,
             bid: 243.13,
             chng: '0%',
             code: 'TSLA',

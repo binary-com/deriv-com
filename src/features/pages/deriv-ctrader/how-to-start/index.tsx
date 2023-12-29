@@ -19,7 +19,7 @@ const HowToStartCTrader = () => {
                 />
             </Typography.Heading>
 
-            <div className="visible-phone-and-tablet">
+            <div className="at-visible-phone-and-tablet">
                 <TabStepper
                     is_ctrader
                     tab={tab}
@@ -27,7 +27,7 @@ const HowToStartCTrader = () => {
                     items={trading_platform_start[`${tab}_mobile`]}
                 />
             </div>
-            <div className="visible-larger-than-tablet">
+            <div className="at-visible-larger-than-tablet">
                 <TabStepper
                     is_ctrader
                     tab={tab}

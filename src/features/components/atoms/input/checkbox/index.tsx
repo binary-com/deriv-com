@@ -7,7 +7,7 @@ const CheckboxInput = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInput
         return (
             <Typography.Paragraph
                 as="label"
-                className={dclsx(className, 'checkbox_input_container')}
+                className={dclsx(className, 'at-checkbox_input_container')}
             >
                 <input type={'checkbox'} {...rest} ref={ref} />
                 {children}

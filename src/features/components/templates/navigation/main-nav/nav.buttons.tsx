@@ -9,10 +9,12 @@ import useAuthCheck from 'components/hooks/use-auth-check'
 import useHandleLogin from 'components/hooks/use-handle-login'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import usePpc from 'features/hooks/use-ppc'
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
 
 export const MainNavigationButtons = () => {
     const [is_logged_in] = useAuthCheck()
     const { is_ppc_redirect } = usePpc()
+    const [is_mobile] = useBrowserResize(1024)
 
     const handleLogin = useHandleLogin()
     const handleSignup = useHandleSignup(is_ppc_redirect)
@@ -40,7 +42,9 @@ export const MainNavigationButtons = () => {
                     </Button>
                 </>
             )}
-            <MobileNavToggle />
+            <MobileNavToggle
+                data-cy={is_mobile ? 'hamburger-menu-mobile' : 'hamburger-menu-desktop'}
+            />
         </div>
     )
 }

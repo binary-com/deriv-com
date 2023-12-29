@@ -35,7 +35,7 @@ const LiveMarketProvider = ({ children }: { children: ReactNode }) => {
         onValue(
             commoditiesRef.current,
             (snapshot) => {
-                setLiveData(snapshot.val())
+                // setLiveData(snapshot.val())
             },
             (error) => setLiveError(error),
         )

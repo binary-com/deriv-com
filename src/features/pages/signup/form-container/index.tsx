@@ -36,7 +36,7 @@ const SignUpFormContainer = () => {
             <SignUpPageForm />
             <Typography.Paragraph textcolor="secondary" size={is_mobile_or_tablet ? 'small' : 'xs'}>
                 <Localize
-                    translate_text="_t_By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>._t_"
+                    translate_text="_t_By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy policy</0>._t_"
                     components={[
                         <Link
                             className={link_text}

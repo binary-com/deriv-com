@@ -110,7 +110,9 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
                     </Text>
                 </div>
             </div>
-            <div ref={prevMid}>{mid}</div>
+            <div ref={prevMid} className="sr-only">
+                {mid}
+            </div>
 
             <LivePrice
                 status={state}

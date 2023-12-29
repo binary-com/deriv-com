@@ -64,12 +64,16 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
     // }, [mid, prevMid])
 
     const prevMid = useRef<HTMLDivElement>(null)
-    const state =
+    const prevState = prevMid.current?.dataset['state']
+    let state =
         mid > +prevMid?.current?.textContent
             ? 'up'
             : mid < +prevMid?.current?.textContent
             ? 'down'
             : 'remain'
+    if (mid > +prevMid?.current?.textContent) state = 'up'
+    if (mid < +prevMid?.current?.textContent) state = 'down'
+    if (mid === +prevMid?.current?.textContent) state = prevState
 
     console.log('==>', state)
 
@@ -110,7 +114,7 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
                     </Text>
                 </div>
             </div>
-            <div ref={prevMid} className="sr-only">
+            <div ref={prevMid} data-state={state} className="sr-only">
                 {mid}
             </div>
 

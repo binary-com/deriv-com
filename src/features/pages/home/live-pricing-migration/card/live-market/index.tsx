@@ -68,7 +68,7 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
     let state: MarketStatus
     if (mid > +prevMid?.current?.textContent) state = 'up'
     if (mid < +prevMid?.current?.textContent) state = 'down'
-    if (mid === +prevMid?.current?.textContent) state = prevState
+    if (mid === +prevMid?.current?.textContent) state = prevState || 'up'
 
     console.log('==>', state)
 

@@ -356,7 +356,7 @@ exports.onCreatePage = ({ page, actions }) => {
     deletePage(page)
 
     const pagesCategory = {
-        all: [],
+        all: [''],
         'no-affiliates': ['signup-affiliates', 'landing', 'ctrader', 'partners'],
         'no-help-centre': ['help-centre'],
         'no-tools': ['trader-tools'],
@@ -379,15 +379,10 @@ exports.onCreatePage = ({ page, actions }) => {
 
     const isMatch = regex.test(page.path)
 
-    console.log(`is_production: ${isProduction}`)
-    console.log(`pagesToBuild: ${pagesToBuild}`)
-
     if (isProduction) {
         return BuildPage(page, actions)
     } else {
-        if (isMatch) {
-            deletePage(page)
-        } else {
+        if (!isMatch || pagesToBuild === 'all') {
             console.log(`\x1b[32mcreating\x1b[0m [${pagesToBuild}] ${page.path}`)
             return BuildPage(page, actions)
         }

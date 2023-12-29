@@ -15,8 +15,8 @@ export const swiperOption: SwiperOption = {
 export const initialLiveMarketData = {
     com: {
         WTI_OIL: {
-            ask: 71.945,
-            bid: 71.909,
+            ask: 6988.2455,
+            bid: 6988.4325,
             chng: '0%',
             code: 'WTI_OIL',
             mid: 71.927,
@@ -27,8 +27,8 @@ export const initialLiveMarketData = {
             sym: 'West Texas Intermediate',
         },
         XAGUSD: {
-            ask: 23.04,
-            bid: 23.019,
+            ask: 79603.79,
+            bid: 79618.49,
             chng: '0%',
             code: 'XAGUSD',
             mid: 23.029,
@@ -39,8 +39,8 @@ export const initialLiveMarketData = {
             sym: 'Silver/USD',
         },
         XAUUSD: {
-            ask: 1998.97,
-            bid: 1998.68,
+            ask: 47890.11,
+            bid: 47900.76,
             chng: '0%',
             code: 'XAUUSD',
             mid: 1998.82,
@@ -51,8 +51,8 @@ export const initialLiveMarketData = {
             sym: 'Gold/USD',
         },
         XCUUSD: {
-            ask: 8418.15,
-            bid: 8411.34,
+            ask: 99073.5,
+            bid: 99075.5,
             chng: '0%',
             code: 'XCUUSD',
             mid: 8414.74,
@@ -77,8 +77,8 @@ export const initialLiveMarketData = {
     },
     cry: {
         ADAUSD: {
-            ask: 0.55553,
-            bid: 0.55458,
+            ask: 0.34805,
+            bid: 0.34863,
             chng: '-6.7%',
             code: 'ADAUSD',
             mid: 0.55505,
@@ -89,8 +89,8 @@ export const initialLiveMarketData = {
             sym: 'ADA/USD',
         },
         BTCUSD: {
-            ask: 42033.801,
-            bid: 41998.558,
+            ask: 25534.347,
+            bid: 25557.153,
             chng: '-4.1%',
             code: 'BTCUSD',
             mid: 42016.179,
@@ -101,8 +101,8 @@ export const initialLiveMarketData = {
             sym: 'BTC/USD',
         },
         DOGUSD: {
-            ask: 0.09884,
-            bid: 0.09865,
+            ask: 0.06576,
+            bid: 0.06587,
             chng: '-3.17%',
             code: 'DOGUSD',
             mid: 0.09874,
@@ -113,8 +113,8 @@ export const initialLiveMarketData = {
             sym: 'DOG/USD',
         },
         DSHUSD: {
-            ask: 32.974,
-            bid: 32.919,
+            ask: 38.642,
+            bid: 38.708,
             chng: '0%',
             code: 'DSHUSD',
             mid: 32.946,

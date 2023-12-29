@@ -71,9 +71,18 @@ const PriceContentV2 = ({ mid, big, small, status }: PriceComponentType) => {
     )
 }
 
+function formatNumber(number: number): string {
+    // Check if the number has no decimal or only one decimal place
+    if (Number.isInteger(number) || (number * 10) % 1 === 0) {
+        return `${number.toFixed(2)}`
+    } else {
+        return `${number}`
+    }
+}
+
 export const LivePrice = ({ status, bidPrice, askPrice, textClass }: LivePriceProps) => {
-    const splittedBidPrice = bidPrice.split('.')
-    const splittedAskPrice = askPrice.split('.')
+    const splittedBidPrice = formatNumber(+bidPrice).split('.')
+    const splittedAskPrice = formatNumber(+askPrice).split('.')
 
     return (
         <div className="flex flex-row gap-gap-md">
@@ -81,8 +90,8 @@ export const LivePrice = ({ status, bidPrice, askPrice, textClass }: LivePricePr
                 <Text size="sm" className={textClass}>
                     Bid
                 </Text>
-                {PriceContent(bidPrice, status)}
-                {/* {splittedBidPrice[0].length <= 4 && splittedBidPrice[0].length > 1 && (
+                {/* {PriceContent(bidPrice, status)} */}
+                {splittedBidPrice[0].length <= 4 && splittedBidPrice[0].length > 1 && (
                     <PriceContentV2
                         mid={`${splittedBidPrice[0]}.`}
                         big={splittedBidPrice[1].substring(0, 2)}
@@ -108,19 +117,18 @@ export const LivePrice = ({ status, bidPrice, askPrice, textClass }: LivePricePr
                 )}
                 {splittedBidPrice[0].length === 1 && (
                     <PriceContentV2
-                        mid={`${splittedBidPrice[0]}.${splittedBidPrice[1]}`}
-                        big={splittedBidPrice[0].substring(3, 6)}
-                        small={`.${splittedBidPrice[1]}`}
+                        mid={`${splittedBidPrice[0]}.`}
+                        big={splittedBidPrice[0].substring(0, 2)}
                         status={status}
                     />
-                )} */}
+                )}
             </div>
             <div className="flex flex-1 flex-col">
                 <Text size="sm" className={textClass}>
                     Ask
                 </Text>
-                {PriceContent(askPrice, status)}
-                {/* {splittedAskPrice[0].length <= 4 && splittedAskPrice[0].length > 1 && (
+                {/* {PriceContent(askPrice, status)} */}
+                {splittedAskPrice[0].length <= 4 && splittedAskPrice[0].length > 1 && (
                     <PriceContentV2
                         mid={`${splittedAskPrice[0]}.`}
                         big={splittedAskPrice[1].substring(0, 2)}
@@ -138,12 +146,11 @@ export const LivePrice = ({ status, bidPrice, askPrice, textClass }: LivePricePr
                 )}
                 {splittedAskPrice[0].length === 6 && (
                     <PriceContentV2
-                        mid={splittedAskPrice[0]}
-                        big={splittedAskPrice[0].substring(3, 6)}
-                        small={`.${splittedAskPrice[1]}`}
+                        mid={`${splittedBidPrice[0]}.}`}
+                        big={splittedBidPrice[0].substring(0, 2)}
                         status={status}
                     />
-                )} */}
+                )}
             </div>
         </div>
     )

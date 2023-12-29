@@ -104,8 +104,8 @@ export const LivePrice = ({ status, bidPrice, askPrice, textClass }: LivePricePr
                 {splittedBidPrice[0].length === 5 && (
                     <PriceContentV2
                         mid={splittedBidPrice[0].substring(0, 3)}
-                        big={splittedBidPrice[0].slice(-2)}
-                        small={`.${splittedBidPrice[1]}`}
+                        big={`${splittedBidPrice[0].slice(-2)}.`}
+                        small={splittedBidPrice[1]}
                         status={status}
                         length={splittedBidPrice[0].length}
                     />
@@ -113,8 +113,8 @@ export const LivePrice = ({ status, bidPrice, askPrice, textClass }: LivePricePr
                 {splittedBidPrice[0].length >= 6 && (
                     <PriceContentV2
                         mid={splittedBidPrice[0].slice(0, -3)}
-                        big={splittedBidPrice[0].slice(-3)}
-                        small={`.${splittedBidPrice[1]}`}
+                        big={`${splittedBidPrice[0].slice(-3)}.`}
+                        small={splittedBidPrice[1]}
                         status={status}
                         length={splittedBidPrice[0].length}
                     />
@@ -146,8 +146,8 @@ export const LivePrice = ({ status, bidPrice, askPrice, textClass }: LivePricePr
                 {splittedAskPrice[0].length === 5 && (
                     <PriceContentV2
                         mid={splittedAskPrice[0].substring(0, 3)}
-                        big={splittedAskPrice[0].slice(-2)}
-                        small={`.${splittedAskPrice[1]}`}
+                        big={`${splittedAskPrice[0].slice(-2)}.`}
+                        small={splittedAskPrice[1]}
                         status={status}
                         length={splittedAskPrice[0].length}
                     />
@@ -155,8 +155,8 @@ export const LivePrice = ({ status, bidPrice, askPrice, textClass }: LivePricePr
                 {splittedAskPrice[0].length >= 6 && (
                     <PriceContentV2
                         mid={splittedAskPrice[0].slice(0, -3)}
-                        big={splittedAskPrice[0].slice(-3)}
-                        small={`.${splittedAskPrice[1]}`}
+                        big={`${splittedAskPrice[0].slice(-3)}.`}
+                        small={splittedAskPrice[1]}
                         status={status}
                         length={splittedAskPrice[0].length}
                     />

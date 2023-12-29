@@ -379,6 +379,9 @@ exports.onCreatePage = ({ page, actions }) => {
 
     const isMatch = regex.test(page.path)
 
+    console.log(`is_production: ${isProduction}`)
+    console.log(`pagesToBuild: ${pagesToBuild}`)
+
     if (isProduction) {
         return BuildPage(page, actions)
     } else {

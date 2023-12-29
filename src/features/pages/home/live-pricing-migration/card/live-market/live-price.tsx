@@ -28,7 +28,7 @@ const PriceContent = (price: string, status: MarketStatus) => {
     return (
         <div className="flex flex-row items-center gap-[2px]">
             <Text
-                size="md"
+                size="lg"
                 className={clsx('flex h-full items-end pb-[3px]', colorVariant[status])}
             >
                 {price}

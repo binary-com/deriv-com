@@ -22,6 +22,7 @@ type PriceComponentType = {
     big: string
     small?: string
     status: MarketStatus
+    length: number
 }
 
 const PriceContent = (price: string, status: MarketStatus) => {
@@ -49,9 +50,9 @@ const PriceContent = (price: string, status: MarketStatus) => {
     )
 }
 
-const PriceContentV2 = ({ mid, big, small, status }: PriceComponentType) => {
+const PriceContentV2 = ({ mid, big, small, status, length }: PriceComponentType) => {
     return (
-        <div className="flex flex-row items-center gap-[2px]">
+        <div className="flex flex-row items-center gap-[2px]" data-item={length}>
             <Text
                 size="md"
                 className={clsx('flex h-full items-end pb-[3px]', colorVariant[status])}
@@ -97,22 +98,25 @@ export const LivePrice = ({ status, bidPrice, askPrice, textClass }: LivePricePr
                         big={splittedBidPrice[1].substring(0, 2)}
                         small={splittedBidPrice[1].substring(2)}
                         status={status}
+                        length={splittedBidPrice[0].length}
                     />
                 )}
                 {splittedBidPrice[0].length === 5 && (
                     <PriceContentV2
-                        mid={splittedBidPrice[0]}
-                        big={splittedBidPrice[0].substring(3, 5)}
+                        mid={splittedBidPrice[0].substring(0, 3)}
+                        big={splittedBidPrice[0].slice(-2)}
                         small={`.${splittedBidPrice[1]}`}
                         status={status}
+                        length={splittedBidPrice[0].length}
                     />
                 )}
-                {splittedBidPrice[0].length === 6 && (
+                {splittedBidPrice[0].length >= 6 && (
                     <PriceContentV2
-                        mid={splittedBidPrice[0]}
-                        big={splittedBidPrice[0].substring(3, 6)}
+                        mid={splittedBidPrice[0].slice(0, -3)}
+                        big={splittedBidPrice[0].slice(-3)}
                         small={`.${splittedBidPrice[1]}`}
                         status={status}
+                        length={splittedBidPrice[0].length}
                     />
                 )}
                 {splittedBidPrice[0].length === 1 && (
@@ -121,6 +125,7 @@ export const LivePrice = ({ status, bidPrice, askPrice, textClass }: LivePricePr
                         big={splittedBidPrice[1].substring(0, 2)}
                         small={splittedBidPrice[1].substring(2)}
                         status={status}
+                        length={splittedBidPrice[0].length}
                     />
                 )}
             </div>
@@ -135,22 +140,34 @@ export const LivePrice = ({ status, bidPrice, askPrice, textClass }: LivePricePr
                         big={splittedAskPrice[1].substring(0, 2)}
                         small={splittedAskPrice[1].substring(2)}
                         status={status}
+                        length={splittedAskPrice[0].length}
                     />
                 )}
                 {splittedAskPrice[0].length === 5 && (
                     <PriceContentV2
-                        mid={splittedAskPrice[0]}
-                        big={splittedAskPrice[0].substring(3, 5)}
+                        mid={splittedAskPrice[0].substring(0, 3)}
+                        big={splittedAskPrice[0].slice(-2)}
                         small={`.${splittedAskPrice[1]}`}
                         status={status}
+                        length={splittedAskPrice[0].length}
                     />
                 )}
-                {splittedAskPrice[0].length === 6 && (
+                {splittedAskPrice[0].length >= 6 && (
                     <PriceContentV2
-                        mid={`${splittedBidPrice[0]}.}`}
-                        big={splittedBidPrice[1].substring(0, 2)}
-                        small={splittedBidPrice[1].substring(2)}
+                        mid={splittedAskPrice[0].slice(0, -3)}
+                        big={splittedAskPrice[0].slice(-3)}
+                        small={`.${splittedAskPrice[1]}`}
                         status={status}
+                        length={splittedAskPrice[0].length}
+                    />
+                )}
+                {splittedAskPrice[0].length === 1 && (
+                    <PriceContentV2
+                        mid={`${splittedAskPrice[0]}.`}
+                        big={splittedAskPrice[1].substring(0, 2)}
+                        small={splittedAskPrice[1].substring(2)}
+                        status={status}
+                        length={splittedAskPrice[0].length}
                     />
                 )}
             </div>

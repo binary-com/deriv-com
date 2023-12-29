@@ -64,13 +64,8 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
     // }, [mid, prevMid])
 
     const prevMid = useRef<HTMLDivElement>(null)
-    const prevState = prevMid.current?.dataset['state']
-    let state =
-        mid > +prevMid?.current?.textContent
-            ? 'up'
-            : mid < +prevMid?.current?.textContent
-            ? 'down'
-            : 'remain'
+    const prevState = prevMid.current?.dataset['state'] as MarketStatus
+    let state: MarketStatus
     if (mid > +prevMid?.current?.textContent) state = 'up'
     if (mid < +prevMid?.current?.textContent) state = 'down'
     if (mid === +prevMid?.current?.textContent) state = prevState

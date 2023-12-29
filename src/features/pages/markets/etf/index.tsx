@@ -13,12 +13,20 @@ import OtherMarketsSlider from 'features/components/molecules/other-markets-slid
 import MainFooter from 'features/components/templates/footer/'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import MarketBottomNav from 'features/components/templates/navigation/template/market-bottom-nav'
 
 const ETFMarket = () => {
     const { is_deriv_go } = usePlatformQueryParam()
     return (
         <Layout>
-            {!is_deriv_go && <MainRowNavigation />}
+            {!is_deriv_go && (
+                <div className="fixed z-[4] w-full">
+                    <MainRowNavigation />
+                    <div className="pt-[8rem]">
+                        <MarketBottomNav />
+                    </div>
+                </div>
+            )}
             <Banner />
             <TradeTypes />
             <Flex.Box

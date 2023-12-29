@@ -12,6 +12,7 @@ import { handleGetTrading } from 'components/custom/utils'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import { TString } from 'types/generics'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
+import MarketBottomNav from 'features/components/templates/navigation/template/market-bottom-nav'
 
 type ContainerProps = {
     isDerivGo?: boolean
@@ -80,6 +81,7 @@ const StyledHeader = styled.h1<ContainerProps>`
     }
 `
 const BackgroundStyle = styled.div`
+    padding-top: 14rem;
     background-color: var(--color-white);
     flex: 1;
     height: 65rem;
@@ -201,7 +203,14 @@ export const DerivedFXHero = ({
 
     return (
         <>
-            {!is_deriv_go && <MainRowNavigation />}
+            {!is_deriv_go && (
+                <div className="fixed z-[4] w-full">
+                    <MainRowNavigation />
+                    <div className="pt-[8rem]">
+                        <MarketBottomNav />
+                    </div>
+                </div>
+            )}
             <BackgroundStyle>
                 <StyledContainer jc="flex-start">
                     <ContentWrapperStyle>

@@ -84,6 +84,7 @@ const LiveMarketCard = <T extends MarketName>({
 
     const livePriceData: LiveMarketContent[] = useMemo(() => {
         if (!data) return []
+        console.log('==>', data)
         return Object.keys(data).map((key, index) => ({
             id: index,
             instrumentIcon: IconsMapper[key] ?? <MarketForexAudusdIcon />,

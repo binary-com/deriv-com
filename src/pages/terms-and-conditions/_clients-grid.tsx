@@ -169,6 +169,10 @@ const columns: ColProps[] = [
                 url: '/tnc/deriv-(bvi)-ltd.pdf',
                 title: '_t_Deriv (BVI) Ltd_t_',
             },
+            {
+                url: '/tnc/deriv-(v)-ltd.pdf',
+                title: '_t_Deriv (V) Ltd_t_',
+            },
         ],
     },
 ]

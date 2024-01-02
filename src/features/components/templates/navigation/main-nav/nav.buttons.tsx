@@ -2,7 +2,7 @@ import React from 'react'
 import { MobileNavToggle } from '@deriv-com/blocks'
 import { Button } from '@deriv/quill-design'
 // eslint-disable-next-line import/no-unresolved
-import { LabelPairedGrid2BoldIcon } from '@deriv/quill-icons/LabelPaired'
+import { LabelPairedGridLgBoldIcon } from '@deriv/quill-icons/LabelPaired'
 import { Localize } from 'components/localization'
 import { handleRedirectToTradersHub } from 'components/custom/utils'
 import useAuthCheck from 'components/hooks/use-auth-check'
@@ -18,14 +18,14 @@ export const MainNavigationButtons = () => {
     const handleSignup = useHandleSignup(is_ppc_redirect)
 
     return (
-        <div className="flex flex-row items-center gap-gap-sm">
+        <div className="flex items-center gap-gap-md">
             {is_logged_in ? (
                 <Button
                     variant="secondary"
                     colorStyle="black"
                     size="lg"
                     onClick={handleRedirectToTradersHub}
-                    icon={LabelPairedGrid2BoldIcon}
+                    icon={LabelPairedGridLgBoldIcon}
                     iconPosition="start"
                 >
                     <Localize translate_text="_t_Traders Hub_t_" />
@@ -40,8 +40,7 @@ export const MainNavigationButtons = () => {
                     </Button>
                 </>
             )}
-
-            <MobileNavToggle />
+            <MobileNavToggle data-cy="hamburger-menu" />
         </div>
     )
 }

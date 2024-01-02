@@ -44,36 +44,24 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
     onClickBuyButton,
     onClickSellButton,
 }) => {
-    // const [prevMid, setPrevMid] = useState(null)
-    // const [state, setState] = useState<MarketStatus>('closed')
-
-    // useEffect(() => {
-    //     if (prevMid !== null) {
-    //         console.log("==>", { prevMid, mid })
-    //         if (mid > prevMid) {
-    //             setState('up')
-    //         } else if (mid < prevMid) {
-    //             setState('down')
-    //         } else {
-    //             setState('remain')
-    //         }
-    //     }
-
-    //     // Update prevMid with the current mid
-    //     setPrevMid(mid)
-    // }, [mid, prevMid])
-
     const prevMid = useRef<HTMLDivElement>(null)
     const prevState = prevMid.current?.dataset['state'] as MarketStatus
+    let chnageCount = prevMid.current?.dataset['count'] || '0'
     let state: MarketStatus
     if (mid > +prevMid?.current?.textContent) state = 'up'
     if (mid < +prevMid?.current?.textContent) state = 'down'
-    if (mid === +prevMid?.current?.textContent) state = prevState || 'up'
+    if (mid === +prevMid?.current?.textContent) {
+        state = prevState || 'up'
+        chnageCount = `${+chnageCount + 1}`
+    } else {
+        chnageCount = '0'
+    }
+    state = +chnageCount >= 300 ? 'closed' : state
 
     console.log('==>', state)
 
     const textClassName =
-        status === 'closed' ? 'text-typography-disabled' : 'text-typography-default'
+        state === 'closed' ? 'text-typography-disabled' : 'text-typography-default'
 
     return (
         <div

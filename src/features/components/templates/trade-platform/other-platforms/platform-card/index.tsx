@@ -33,7 +33,12 @@ const PlatformCard = ({ data: { icon, heading, paragraph, link } }: PlatformProp
             </Typography.Paragraph>
             <Link
                 url={link}
-                className={dclsx(platform_link, 'flex', 'align-items-center', 'justify-center')}
+                className={dclsx(
+                    platform_link,
+                    'at-flex',
+                    'at-align-items-center',
+                    'at-justify-center',
+                )}
                 textcolor="brand"
                 padding_block="4x"
                 padding_inline="8x"
@@ -44,7 +49,7 @@ const PlatformCard = ({ data: { icon, heading, paragraph, link } }: PlatformProp
                 <Image
                     src={Arrow}
                     alt={localize('_t_Arrow_t_')}
-                    className={dclsx('margin-left-1x')}
+                    className={dclsx('at-margin-left-1x')}
                     width={10}
                     height={10}
                 />

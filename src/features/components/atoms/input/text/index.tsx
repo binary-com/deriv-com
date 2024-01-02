@@ -18,13 +18,13 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     ({ formId, error, className, label, clearErrors, setValue, ...rest }, ref) => {
         const notValid = error && error.length ? 'error' : 'valid'
         return (
-            <div className={dclsx(className, 'text_input_container', notValid)}>
+            <div className={dclsx(className, 'at-text_input_container', notValid)}>
                 <input placeholder={localize(label)} {...rest} ref={ref} />
                 {error && (
                     <Image
                         src={CrossIcon}
                         alt="error icon"
-                        className="cross_icon"
+                        className="at-cross_icon"
                         onClick={() => {
                             setValue(formId, '')
                             clearErrors()
@@ -36,7 +36,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
                     <Typography.Paragraph
                         as="label"
                         size="small"
-                        className="text_input_label"
+                        className="at-text_input_label"
                         padding_inline="2x"
                         bgcolor="primary"
                     >
@@ -47,7 +47,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
                     <Typography.Paragraph
                         as="span"
                         size="small"
-                        className="text_input_error"
+                        className="at-text_input_error"
                         padding_inline="2x"
                         textcolor="brand"
                     >

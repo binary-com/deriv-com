@@ -7,7 +7,6 @@ import { Header } from 'components/elements'
 import AvailablePlatform from 'pages/trading-specification/components/_available-platform'
 import { Localize } from 'components/localization'
 import TradingSpecificationTable from 'pages/trading-specification/components/_trading_spec_table'
-import useRegion from 'components/hooks/use-region'
 
 const TabStyledHeader = styled(Header)`
     font-family: 'Ubuntu';
@@ -17,10 +16,10 @@ const MarketIcon = styled.img<{ is_selected?: boolean }>`
     inline-size: 24px;
     block-size: 24px;
     margin-block-end: 10px;
+    margin-inline: auto;
 `
 
 const MarketTab = () => {
-    const { is_row } = useRegion()
     const [selected_market, setSelectedMarket] = useState<TAvailableLiveMarkets>('forex')
     const onMarketButtonClick = (selected) => {
         setSelectedMarket(selected)

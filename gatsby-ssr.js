@@ -55,11 +55,11 @@ export const onRenderBody = ({ setHeadComponents }) => {
 
         // Hotjar setup
         hotjarId && (
-            <Partytown key="partytown-hotjar">
-                <script
-                    key="hotjar-script"
-                    dangerouslySetInnerHTML={{
-                        __html: `(function(h,o,t,j,a,r){
+            <script
+                key="hotjar-script"
+                type="text/partytown"
+                dangerouslySetInnerHTML={{
+                    __html: `(function(h,o,t,j,a,r){
                     h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
                     h._hjSettings={hjid:'${hotjarId}',hjsv:'7'};
                     a=o.getElementsByTagName('head')[0];
@@ -69,9 +69,8 @@ export const onRenderBody = ({ setHeadComponents }) => {
                         a.appendChild(r);
                     }, 3000);
                 })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
-                    }}
-                />
-            </Partytown>
+                }}
+            />
         ),
     ])
 }

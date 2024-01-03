@@ -173,7 +173,6 @@ const AffiliateSignupForm = ({
                     secondary
                     onClick={() => {
                         window.scrollTo(0, 0)
-                        console.log(affiliate_account.email)
                         trackEvent({ action: 'open_wizard', email: affiliate_account.email })
                         setShowWizard(true)
                     }}

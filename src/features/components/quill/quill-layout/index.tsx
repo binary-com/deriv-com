@@ -1,18 +1,18 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { ReactNode, useCallback } from 'react'
 import { LanguageProvider, SharedLinkProvider } from '@deriv-com/providers'
-import { main_wrapper } from './style.module.scss'
-import { langItemsROW } from './data'
+import { BreakpointProvider, ThemeProvider } from '@deriv/quill-design'
+import BrowserUpdateAlert from '../browser-update-alert'
+import LayoutOverlay from '../layout-overlay'
+import GatsbySharedLink from '../shared-link'
 import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
 import PpcProvider from 'features/contexts/ppc-campaign/ppc.provider'
 import { getLanguage, isBrowser } from 'common/utility'
-import LayoutOverlay from 'features/components/molecules/layout-overlay'
-import BrowserUpdateAlert from 'features/components/molecules/browser-update-alert'
 import apiManager from 'common/websocket'
 import { useLangDirection } from 'components/hooks/use-lang-direction'
 import { LocaleContext } from 'components/localization'
 import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
-import GatsbySharedLink from 'features/components/quill/shared-link'
+import { langItemsROW } from 'features/pages/home/data'
+
 interface LayoutProps {
     is_ppc?: boolean
     is_ppc_redirect?: boolean
@@ -25,7 +25,7 @@ if (isBrowser()) {
     apiManager.init(currentLanguage)
 }
 
-const Layout = ({
+const QuillLayout = ({
     children,
     is_ppc = false,
     is_ppc_redirect = false,
@@ -67,13 +67,17 @@ const Layout = ({
                     onLangSelect={onLanguageChange}
                     activeLanguage={activeLang}
                 >
-                    <main className={main_wrapper}>{children}</main>
-                    <BrowserUpdateAlert />
-                    {!hide_layout_overlay && <LayoutOverlay />}
+                    <BreakpointProvider>
+                        <ThemeProvider theme="light">
+                            <main className="relative max-w-[256rem] mx-auto">{children}</main>
+                            <BrowserUpdateAlert />
+                            {!hide_layout_overlay && <LayoutOverlay />}
+                        </ThemeProvider>
+                    </BreakpointProvider>
                 </LanguageProvider>
             </PpcProvider>
         </SharedLinkProvider>
     )
 }
 
-export default Layout
+export default QuillLayout

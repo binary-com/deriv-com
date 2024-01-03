@@ -30,7 +30,7 @@ const TimelineItem = ({ data, isLastItem, ...rest }: TimelineItemProps) => {
             <Image
                 src={checkIcon}
                 alt="check icon"
-                className={dclsx('lg-margin-top-3x w-[24px] h-[24px]')}
+                className={dclsx('lg-at-margin-top-3x w-[24px] h-[24px]')}
             />
             <div>
                 <Typography.Heading as="h4" size="xs" mb="4x">

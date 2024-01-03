@@ -16,7 +16,10 @@ export const onRenderBody = ({ setHeadComponents }) => {
 
     setHeadComponents([
         // Partytown setup
-        <Partytown key="partytown" />,
+        <script
+            key="partytown"
+            src="https://cdn.jsdelivr.net/npm/@builder.io/partytown-browser/partytown.iife.min.js"
+        />,
         <script
             key="partytown-vanilla-config"
             dangerouslySetInnerHTML={{
@@ -54,22 +57,24 @@ export const onRenderBody = ({ setHeadComponents }) => {
         ),
 
         // Hotjar setup
-        <Partytown key="partytown-hotjar">
-            <script
-                key="hotjar-script"
-                dangerouslySetInnerHTML={{
-                    __html: `(function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:'${hotjarId}',hjsv:'7'};
-            a=o.getElementsByTagName('head')[0];
-            setTimeout(function(){
-                r=o.createElement('script');r.async=1;
-                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                a.appendChild(r);
-            }, 3000);
-        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
-                }}
-            />
-        </Partytown>,
+        hotjarId && (
+            <Partytown key="partytown-hotjar">
+                <script
+                    key="hotjar-script"
+                    dangerouslySetInnerHTML={{
+                        __html: `(function(h,o,t,j,a,r){
+                    h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                    h._hjSettings={hjid:'${hotjarId}',hjsv:'7'};
+                    a=o.getElementsByTagName('head')[0];
+                    setTimeout(function(){
+                        r=o.createElement('script');r.async=1;
+                        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                        a.appendChild(r);
+                    }, 3000);
+                })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
+                    }}
+                />
+            </Partytown>
+        ),
     ])
 }

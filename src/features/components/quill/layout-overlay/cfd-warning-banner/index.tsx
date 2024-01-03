@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import clsx from 'clsx'
 import { Text } from '@deriv/quill-design'
@@ -7,11 +7,23 @@ import { Localize } from 'components/localization'
 import Arrow from 'images/svg/arrow_expandable.svg'
 import useRegion from 'components/hooks/use-region'
 import usePpc from 'features/hooks/use-ppc'
+import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
 
 const CfdWarningBanner = () => {
     const { is_ppc } = usePpc()
     const { is_eu, is_cpa_plan } = useRegion()
     const [expanded, setExpanded] = useState(false)
+    const { setCtaBottom } = useFloatingCtaContext()
+
+    const elRef = useCallback(
+        (node: HTMLParagraphElement) => {
+            if (node !== null) {
+                setCtaBottom(node.clientHeight + 40)
+            }
+        },
+        [setCtaBottom],
+    )
+
     const data = useStaticQuery(graphql`
         query {
             strapiCfdWarningBanner {
@@ -45,7 +57,7 @@ const CfdWarningBanner = () => {
                                 />
                             </Text>
                         ) : (
-                            <Text className="w-[95%] mx-auto">
+                            <Text ref={elRef} className="w-[95%] mx-auto">
                                 <Localize
                                     translate_text="_t_<0> {{loss_percent}}% of retail investor accounts lose money when trading CFDs with Deriv, read our full Risk disclosure here.</0>_t_"
                                     values={{ loss_percent }}

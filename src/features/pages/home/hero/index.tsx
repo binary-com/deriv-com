@@ -17,6 +17,7 @@ import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
 import useFloatingCta from 'features/hooks/use-floating-cta'
+import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
 
 export interface HomeHeroProps {
     children?: ReactNode
@@ -26,6 +27,7 @@ export interface HomeHeroProps {
 const HomeHero: React.FC<HomeHeroProps> = () => {
     const { is_eu } = useRegion()
     const { visibilityPercentage, targetRef } = useFloatingCta()
+    const { ctaBottom } = useFloatingCtaContext()
 
     return (
         <>
@@ -103,6 +105,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
             <FloatingCta
                 style={{
                     transform: `translateY(${visibilityPercentage - 100}%)`,
+                    bottom: `${-68 + ctaBottom}px`,
                 }}
             />
         </>

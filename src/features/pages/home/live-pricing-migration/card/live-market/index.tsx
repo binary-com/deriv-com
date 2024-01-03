@@ -75,7 +75,6 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
                 className,
             )}
         >
-            <p>Mid Value: {mid}</p>
             <div className="flex h-[52px] shrink-0 grow flex-row gap-gap-sm">
                 <div className="flex flex-1 flex-row gap-gap-md">
                     <div className={clsx(status === 'closed' && 'opacity-600')}>

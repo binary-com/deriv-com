@@ -6,7 +6,7 @@
     "dependencies": {
         "@artsy/fresnel": "^6.2.1",
         "@builder.io/partytown": "^0.8.1",
-        "@deriv-com/blocks": "^0.66.0",
+        "@deriv-com/blocks": "^0.67.0",
         "@deriv-com/components": "^0.37.0",
         "@deriv-com/hooks": "^0.10.0",
         "@deriv-com/providers": "^0.10.0",
@@ -165,7 +165,7 @@
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",
         "eslint": "DEBUG=eslint:cli-engine eslint {'src/**/*.{js,jsx,ts,tsx}','./*.js'} --fix",
-        "start": "npm run develop",
+        "start": "NODE_OPTIONS=--max-old-space-size=132000 npm run develop",
         "start-80": "sudo gatsby develop -p 80",
         "serve": "gatsby serve",
         "test": "npm run eslint && npm run stylelint",

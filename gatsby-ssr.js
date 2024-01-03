@@ -17,10 +17,6 @@ export const onRenderBody = ({ setHeadComponents }) => {
     setHeadComponents([
         // Partytown setup
         <script
-            key="partytown"
-            src="https://cdn.jsdelivr.net/npm/@builder.io/partytown-browser/partytown.iife.min.js"
-        />,
-        <script
             key="partytown-vanilla-config"
             dangerouslySetInnerHTML={{
                 __html: `partytown = {

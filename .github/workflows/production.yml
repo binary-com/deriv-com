@@ -70,13 +70,6 @@ jobs:
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
                   command: pages deploy public --project-name=deriv-com-pages --branch=main
 
-            - name: Upload Build Artifact
-              uses: actions/upload-artifact@v4
-              with:
-                  name: build
-                  path: packages/core/dist
-                  retention-days: 1
-
             - name: Cloudflare production link ✨
               run: echo "New website - http://cf-pages-deriv-com.deriv.com"
 

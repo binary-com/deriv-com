@@ -20,6 +20,7 @@ env:
     GATSBY_RUDDERSTACK_PRODUCTION_KEY: ${{ secrets.GATSBY_RUDDERSTACK_PRODUCTION_KEY }}
     GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID: ${{ secrets.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID }}
     GATSBY_TRUSTPILOT_API_KEY: ${{ secrets.GATSBY_TRUSTPILOT_API_KEY }}
+    GATSBY_HOTJAR_ID: ${{ secrets.GATSBY_HOTJAR_ID }}
 
 jobs:
     release-production:
@@ -52,7 +53,7 @@ jobs:
             - run: npm run test
             - run: npm run build
             - run: echo $GIT_TAG_NAME > public/version.txt
-            
+
             - name: Remove Storybook
               uses: JesseTG/rm@v1.0.2
               with:

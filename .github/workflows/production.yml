@@ -118,11 +118,11 @@ jobs:
 
             - name: Deploy 🚀
               env:
-                 KUBE_SERVER: ${{ secrets.KUBE_SERVER }}
-                 SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
-                 CA_CRT: ${{ secrets.CA_CRT }}
-                 NAMESPACE: deriv-com-production
-                 DOCKERHUB_ORGANISATION: ${{ secrets.DOCKERHUB_ORGANISATION }}
+                KUBE_SERVER: ${{ secrets.KUBE_SERVER }}
+                SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
+                CA_CRT: ${{ secrets.CA_CRT }}
+                NAMESPACE: deriv-com-production
+                DOCKERHUB_ORGANISATION: ${{ secrets.DOCKERHUB_ORGANISATION }}
               run: |
                   git clone https://github.com/binary-com/devops-ci-scripts
                   cd devops-ci-scripts/k8s-build_tools
@@ -132,12 +132,11 @@ jobs:
 
             - name: Send Slack Notification on Docker Publish and Kubernetes Deployment Failure
               uses: 8398a7/action-slack@v3
-
               with:
-                   status: ${{ job.status }}
-                   fields: workflow,repo
-                   if_mention: failure,cancelled
-                   custom_payload: |
+                  status: ${{ job.status }}
+                  fields: workflow,repo
+                  if_mention: failure,cancelled
+                  custom_payload: |
                     {
                       attachments: [{
                         color: '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
@@ -145,5 +144,5 @@ jobs:
                       }]
                     }
               env:
-                SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+                 SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
               if: always()

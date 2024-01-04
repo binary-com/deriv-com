@@ -1,28 +1,20 @@
-import { NavItems } from '../types'
+import React from 'react'
+import { NavLinkItems } from '@deriv-com/providers'
+import { Localize } from 'components/localization'
 
-const career_nav_items: NavItems = [
-    {
+export const career_nav_items: NavLinkItems = {
+    home: {
         id: 0,
-        data: {
-            type: 'single-item',
-            title: '_t_Home_t_',
-            content: {
-                type: 'internal',
-                to: '/careers/',
-            },
-        },
+        type: 'direct',
+        href: '/careers',
+        text: <Localize translate_text="_t_Home_t_" />,
     },
-    {
+    trade: {
         id: 1,
-        data: {
-            type: 'single-item',
-            title: '_t_Locations_t_',
-            content: {
-                type: 'internal',
-                to: '/careers/locations/',
-            },
-        },
+        type: 'direct',
+        href: '/careers/locations',
+        text: <Localize translate_text="_t_Locations_t_" />,
     },
-]
+}
 
 export default career_nav_items

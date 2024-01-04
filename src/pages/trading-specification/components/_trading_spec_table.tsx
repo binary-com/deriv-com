@@ -88,6 +88,7 @@ const StyledChevron = styled.img`
 const SearchInput = styled.input`
     width: 100%;
     color: var(--color-black);
+    font-size: 14px;
     background-color: var(--color-white);
     border: none;
     outline: none;

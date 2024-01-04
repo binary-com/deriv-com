@@ -5,7 +5,7 @@ import { BrandDerivWordmarkCoralIcon } from '@deriv/quill-icons/Logo'
 
 export const MainNavigationLogo = () => {
     return (
-        <CustomLink href={'/'}>
+        <CustomLink href={'/'} data-cy="deriv-logo">
             <BrandDerivWordmarkCoralIcon width={73} height={24} />
         </CustomLink>
     )

@@ -7,7 +7,6 @@ const FloatingCta = (props: FloatingCtaProps) => {
     return (
         <div
             className="fixed left-50 w-full z-50 h-[68px] backdrop-blur-xl flex justify-center items-center md:hidden"
-            data-state="floating-cta"
             {...props}
         >
             <TradersHubCtaButton variant="primary" colorStyle="coral" />

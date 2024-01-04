@@ -2,8 +2,10 @@ import React from 'react'
 import { BreakpointProvider, ThemeProvider, FluidContainer, Section } from '@deriv/quill-design'
 import { PageLayout, Breadcrumbs } from '@deriv-com/components'
 import Layout from 'features/components/templates/layout'
+import DetailsCardLeft from './details-card-left'
 import HeroBanner from './hero-banner'
-import Reliable from './reliable'
+import DetailsBoxes from './feature-box'
+import DetailsCardRight from './details-card-right'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 import MainFooter from 'features/components/templates/footer'
 
@@ -33,7 +35,9 @@ const OurPrincipalsComponent = () => {
                         </Section>
 
                         <HeroBanner />
-                        <Reliable />
+                        <DetailsCardRight />
+                        <DetailsCardLeft />
+                        <DetailsBoxes />
                     </PageLayout>
                     <MainFooter />
                 </Layout>

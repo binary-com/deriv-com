@@ -1,4 +1,3 @@
-import React, { useEffect, useRef, useState } from 'react'
 import { qtMerge, Text } from '@deriv/quill-design'
 import {
     StandaloneChartTrendDownRegularIcon,
@@ -7,8 +6,8 @@ import {
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Standalone'
 import clsx from 'clsx'
-import { MarketStatus } from '@deriv-com/components'
-import { LiveMarketContent } from '../types'
+import React, { useEffect, useRef } from 'react'
+import { LiveMarketContent, MarketStatus } from '../types'
 import LivePrice from './live-price'
 import { BuySellButtons } from './buy-sell.buttons'
 
@@ -36,32 +35,24 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
     instrumentIcon,
     instrument,
     changePercentage,
-    status,
+    mid,
     bidPrice,
     askPrice,
     spread,
-    mid,
     onClickBuyButton,
     onClickSellButton,
 }) => {
     const prevMid = useRef<HTMLDivElement>(null)
-    const prevState = prevMid.current?.dataset['state'] as MarketStatus
-    let chnageCount = prevMid.current?.dataset['count'] || '0'
-    let state: MarketStatus
-    if (mid > +prevMid?.current?.textContent) state = 'up'
-    if (mid < +prevMid?.current?.textContent) state = 'down'
-    if (mid === +prevMid?.current?.textContent) {
-        state = prevState || 'up'
-        chnageCount = `${+chnageCount + 1}`
-    } else {
-        chnageCount = '0'
+    const prevStatus = prevMid.current?.dataset['status'] as MarketStatus
+    let status: MarketStatus = 'up'
+    if (prevMid?.current?.textContent) {
+        if (mid > +prevMid.current.textContent) status = 'up'
+        if (mid < +prevMid.current.textContent) status = 'down'
+        if (mid === +prevMid.current.textContent) status = prevStatus
     }
-    state = +chnageCount >= 300 ? 'closed' : state
-
-    console.log('==>', state)
 
     const textClassName =
-        state === 'closed' ? 'text-typography-disabled' : 'text-typography-default'
+        status === 'closed' ? 'text-typography-disabled' : 'text-typography-default'
 
     return (
         <div
@@ -75,8 +66,8 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
                 className,
             )}
         >
-            <div className="flex h-[52px] shrink-0 grow flex-row gap-gap-sm">
-                <div className="flex flex-1 flex-row gap-gap-md">
+            <div className="flex h-[52px] shrink-0 grow flex-row justify-between gap-gap-sm">
+                <div className="flex max-w-[141px] flex-1 flex-row gap-gap-md">
                     <div className={clsx(status === 'closed' && 'opacity-600')}>
                         {instrumentIcon}
                     </div>
@@ -90,19 +81,19 @@ export const LiveMarketCard: React.FC<LiveMarketCardProps> = ({
                         {instrument}
                     </Text>
                 </div>
-                <div className="flex flex-row gap-gap-md pt-[2px]">
-                    {status !== 'closed' && ChartIcons[state]}
-                    <Text size="md" className={colorVariant[state]}>
+                <div className="flex max-w-[90px] flex-row gap-gap-md pt-[2px]">
+                    {status !== 'closed' && ChartIcons[status]}
+                    <Text size="md" className={colorVariant[status]}>
                         {changePercentage}
                     </Text>
                 </div>
             </div>
-            <div ref={prevMid} data-state={state} className="sr-only">
+            <div ref={prevMid} data-status={status} className="sr-only">
                 {mid}
             </div>
 
             <LivePrice
-                status={state}
+                status={status}
                 bidPrice={bidPrice}
                 askPrice={askPrice}
                 textClass={textClassName}

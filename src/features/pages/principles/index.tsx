@@ -3,6 +3,7 @@ import { BreakpointProvider, ThemeProvider, FluidContainer, Section } from '@der
 import { PageLayout, Breadcrumbs } from '@deriv-com/components'
 import Layout from 'features/components/templates/layout'
 import HeroBanner from './hero-banner'
+import Reliable from './reliable'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 import MainFooter from 'features/components/templates/footer'
 
@@ -32,6 +33,7 @@ const OurPrincipalsComponent = () => {
                         </Section>
 
                         <HeroBanner />
+                        <Reliable />
                     </PageLayout>
                     <MainFooter />
                 </Layout>

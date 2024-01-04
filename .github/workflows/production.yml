@@ -52,7 +52,7 @@ jobs:
             - run: npm run test
             - run: npm run build
             - run: echo $GIT_TAG_NAME > public/version.txt
-            
+
             - name: Remove Storybook
               uses: JesseTG/rm@v1.0.2
               with:
@@ -70,9 +70,37 @@ jobs:
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
                   command: pages deploy public --project-name=deriv-com-pages --branch=main
 
+            - name: Upload Build Artifact
+              uses: actions/upload-artifact@v4
+              with:
+                  name: build
+                  path: packages/core/dist
+                  retention-days: 1
+
             - name: Cloudflare production link ✨
               run: echo "New website - http://cf-pages-deriv-com.deriv.com"
 
+            - name: Slack Notification 📣
+              uses: 8398a7/action-slack@v3
+              with:
+                  status: ${{ job.status }}
+                  fields: workflow,repo
+                  if_mention: failure,cancelled
+                  custom_payload: |
+                      {
+                        attachments: [{
+                          color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                          text: `Release for *Deriv.com* with version *$GIT_TAG_NAME*`
+                        }]
+                      }
+              env:
+                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+              if: always()
+
+    build_and_publish_to_docker_k8s:
+        runs-on: Runner_8cores_Deriv-app
+        environment: production
+        steps:
             - name: Building docker image 🐳
               run: docker build -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME .
 
@@ -90,11 +118,11 @@ jobs:
 
             - name: Deploy 🚀
               env:
-                  KUBE_SERVER: ${{ secrets.KUBE_SERVER }}
-                  SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
-                  CA_CRT: ${{ secrets.CA_CRT }}
-                  NAMESPACE: deriv-com-production
-                  DOCKERHUB_ORGANISATION: ${{ secrets.DOCKERHUB_ORGANISATION }}
+                 KUBE_SERVER: ${{ secrets.KUBE_SERVER }}
+                 SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
+                 CA_CRT: ${{ secrets.CA_CRT }}
+                 NAMESPACE: deriv-com-production
+                 DOCKERHUB_ORGANISATION: ${{ secrets.DOCKERHUB_ORGANISATION }}
               run: |
                   git clone https://github.com/binary-com/devops-ci-scripts
                   cd devops-ci-scripts/k8s-build_tools
@@ -102,19 +130,20 @@ jobs:
                   export CA="ca.crt"
                   ./release.sh deriv-com ${{ github.ref_name }}
 
-            - name: Slack Notification 📣
+            - name: Send Slack Notification on Docker Publish and Kubernetes Deployment Failure
               uses: 8398a7/action-slack@v3
+
               with:
-                  status: ${{ job.status }}
-                  fields: workflow,repo
-                  if_mention: failure,cancelled
-                  custom_payload: |
-                      {
-                        attachments: [{
-                          color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
-                          text: `Release for *Deriv.com* with version *$GIT_TAG_NAME*`
-                        }]
-                      }
+                   status: ${{ job.status }}
+                   fields: workflow,repo
+                   if_mention: failure,cancelled
+                   custom_payload: |
+                    {
+                      attachments: [{
+                        color: '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                        text: `Release for *Deriv.com* with version *$GIT_TAG_NAME* has failed`
+                      }]
+                    }
               env:
-                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+                SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
               if: always()

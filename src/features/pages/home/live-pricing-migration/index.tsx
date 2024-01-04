@@ -6,8 +6,10 @@ import { StandaloneChevronRightRegularIcon } from '@deriv/quill-icons'
 import LiveMarketProvider from './data-provider'
 import LiveMarketCard from './cards'
 import { Localize } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
 
 const LiveMarketSection = () => {
+    const { is_eu } = useRegion()
     return (
         <LiveMarketProvider>
             <LiveMarketBlock.Tab
@@ -26,10 +28,18 @@ const LiveMarketSection = () => {
             >
                 <LiveMarketCard market="fx">
                     <Text className="text-center pt-gap-3xl">
-                        <Localize
-                            translate_text="_t_<0>Forex at your fingertips.</0> Currency trading with major, minor, and exotic pairs. _t_"
-                            components={[<strong key={0} />]}
-                        />
+                        {!is_eu && (
+                            <Localize
+                                translate_text="_t_<0>Forex at your fingertips.</0> Currency trading with major, minor, and exotic pairs. _t_"
+                                components={[<strong key={0} />]}
+                            />
+                        )}
+                        {is_eu && (
+                            <Localize
+                                translate_text="_t_<0>Forex at your fingertips.</0> Currency trading with major and minor pairs._t_"
+                                components={[<strong key={0} />]}
+                            />
+                        )}
                     </Text>
                     <CustomLink
                         size="md"

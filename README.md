@@ -99,8 +99,9 @@ To contribute in the project, we need to create PRs to master. We have two types
 ### PR Formating guideline
 
 1. Use the `[{Project Code}] {Developer}/{Clickup Card ID}/{Description}` format for PR titles. (e.g.: `[COJ] [Dev's Name]/COJ-247/Align next-button on mt5 modal`), where [COJ] is a clickup project code.
-2. Add screenshots of change for easier reviewing (whenever applicable) and brief description
-3. Use Draft PRs if you don't mean to request for reviews yet. [Read more here.](https://github.blog/2019-02-14-introducing-draft-pull-requests/)
+2. Start the description with a verb in an imperative declaration for clarity and conciseness. For example, "Fix issue with..." or "Implement feature to...".
+3. Add screenshots of change for easier reviewing (whenever applicable) and brief description
+4. Use Draft PRs if you don't mean to request for reviews yet. [Read more here.](https://github.blog/2019-02-14-introducing-draft-pull-requests/)
 
 ### PR without translation
 

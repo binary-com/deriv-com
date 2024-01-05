@@ -119,6 +119,7 @@ const AffiliateSignup = () => {
                 user_choice:
                     JSON.stringify(affiliate_api_error?.echo_req) ||
                     'success, but without echo_req',
+                success_source: partner_signup_error_message ? 'failed_popup' : 'last_step',
             })
             setSignupStatus('success')
         } else if (partner_signup_error_message == 'Username not available') {

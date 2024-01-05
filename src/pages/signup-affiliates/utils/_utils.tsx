@@ -75,6 +75,7 @@ export const trackEvent = ({
     email,
     partner_signup_error_message,
     user_choice,
+    success_source,
     step_num,
     step_codename,
 }: TEvents['ce_partner_account_signup_form']) => {
@@ -83,6 +84,7 @@ export const trackEvent = ({
         form_name: 'ce_partner_account_signup_form',
         ...(email && { email }),
         ...(user_choice && { user_choice }),
+        ...(success_source && { success_source }),
         ...(step_num && { step_num }),
         ...(step_codename && { step_codename }),
         ...(partner_signup_error_message && { partner_signup_error_message }),

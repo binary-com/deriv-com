@@ -10,7 +10,7 @@ const DetailsCardLeft = ({ content }: DetailsCardRightProps) => {
     const { header, description, image } = content
 
     return (
-        <Features.ContentLeft title={header} description={description} content={() => <>{image}</>}>
+        <Features.ContentLeft title={header} description={description} content={() => image}>
             <div></div>
         </Features.ContentLeft>
     )

@@ -262,7 +262,7 @@ export const ContentImage: ContentImageType[] = [
         ),
         image: (
             <StaticImage
-                src="../../../../images/migration/principle/reliable.png"
+                src="../../../images/migration/principle/reliable.png"
                 alt="hero bg image"
                 placeholder="none"
                 formats={['auto', 'webp']}
@@ -278,7 +278,7 @@ export const ContentImage: ContentImageType[] = [
         ),
         image: (
             <StaticImage
-                src="../../../../images/migration/principle/fair.png"
+                src="../../../images/migration/principle/fair.png"
                 alt="hero bg image"
                 placeholder="none"
                 formats={['auto', 'webp']}
@@ -294,7 +294,7 @@ export const ContentImage: ContentImageType[] = [
         ),
         image: (
             <StaticImage
-                src="../../../../images/migration/principle/transparent.png"
+                src="../../../images/migration/principle/transparent.png"
                 alt="hero bg image"
                 placeholder="none"
                 formats={['auto', 'webp']}
@@ -310,7 +310,7 @@ export const ContentImage: ContentImageType[] = [
         ),
         image: (
             <StaticImage
-                src="../../../../images/migration/principle/responsible.png"
+                src="../../../images/migration/principle/responsible.png"
                 alt="hero bg image"
                 placeholder="none"
                 formats={['auto', 'webp']}

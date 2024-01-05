@@ -6,7 +6,7 @@ import DetailsCardLeft from './details-card-left'
 import HeroBanner from './hero-banner'
 import DetailsBoxes from './feature-box'
 import DetailsCardRight from './details-card-right'
-import { ContentImage } from './data'
+import { ContentImage, FairSteps, ReliableSteps, ResponsibleSteps, TransparentSteps } from './data'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 import MainFooter from 'features/components/templates/footer'
 
@@ -34,11 +34,15 @@ const OurPrincipalsComponent = () => {
                                 />
                             </FluidContainer>
                         </Section>
-
                         <HeroBanner />
                         <DetailsCardRight content={ContentImage[0]} />
+                        <DetailsBoxes content={ReliableSteps} />
                         <DetailsCardLeft content={ContentImage[1]} />
-                        <DetailsBoxes />
+                        <DetailsBoxes content={FairSteps} />
+                        <DetailsCardRight content={ContentImage[2]} />
+                        <DetailsBoxes content={TransparentSteps} />
+                        <DetailsCardLeft content={ContentImage[3]} />
+                        <DetailsBoxes content={ResponsibleSteps} />
                     </PageLayout>
                     <MainFooter />
                 </Layout>

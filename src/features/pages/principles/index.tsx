@@ -6,6 +6,7 @@ import DetailsCardLeft from './details-card-left'
 import HeroBanner from './hero-banner'
 import DetailsBoxes from './feature-box'
 import DetailsCardRight from './details-card-right'
+import { ContentImage } from './data'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 import MainFooter from 'features/components/templates/footer'
 
@@ -35,8 +36,8 @@ const OurPrincipalsComponent = () => {
                         </Section>
 
                         <HeroBanner />
-                        <DetailsCardRight />
-                        <DetailsCardLeft />
+                        <DetailsCardRight content={ContentImage[0]} />
+                        <DetailsCardLeft content={ContentImage[1]} />
                         <DetailsBoxes />
                     </PageLayout>
                     <MainFooter />

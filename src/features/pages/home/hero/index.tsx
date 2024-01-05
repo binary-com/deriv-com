@@ -5,6 +5,7 @@ import { StaticImage } from 'gatsby-plugin-image'
 import {
     hero_container,
     hero_content,
+    hero_content_rtl,
     hero_content_gradient,
     hero_img,
     hero_img_eu,
@@ -12,7 +13,7 @@ import {
     hero_content_btn,
 } from './styles.module.scss'
 import HeroAwardImages from './award-images'
-import { Localize } from 'components/localization'
+import { Localize, get_lang_direction } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
 
@@ -25,7 +26,10 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
     const { is_eu } = useRegion()
 
     return (
-        <Section className="h-[calc(100vh-136px)] min-h-[587px] relative isolate overflow-hidden">
+        <Section
+            className="h-[calc(100vh-136px)] min-h-[587px] relative isolate overflow-hidden"
+            dir="rtl"
+        >
             <StaticImage
                 src="../../../../images/migration/home/home_hero_bg.png"
                 alt="hero bg image"
@@ -37,7 +41,10 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
             />
 
             <FluidContainer className={clsx('h-full flex flex-col relative', hero_container)}>
-                <div className={clsx('flex flex-col mb-general-2xl', hero_content)}>
+                <div
+                    className={clsx('flex flex-col mb-general-2xl', hero_content, hero_content_rtl)}
+                    dir={get_lang_direction()}
+                >
                     <Heading.H1 className="text-solid-slate-50 text-[34px] lg:text-heading-h1">
                         <Localize translate_text="_t_Trading for anyone. Anywhere. Anytime._t_" />
                     </Heading.H1>

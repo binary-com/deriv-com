@@ -1,12 +1,19 @@
 import React from 'react'
 import clsx from 'clsx'
 import { StaticImage } from 'gatsby-plugin-image'
-import { hero_content_award_img } from './styles.module.scss'
-import { localize } from 'components/localization'
+import { hero_content_award_img, hero_content_award_img_rtl } from './styles.module.scss'
+import { get_lang_direction, localize } from 'components/localization'
 
 const HeroAwardImages = () => {
     return (
-        <div className={clsx('flex pb-general-xl', hero_content_award_img)}>
+        <div
+            className={clsx(
+                'flex pb-general-xl',
+                hero_content_award_img,
+                hero_content_award_img_rtl,
+            )}
+            dir={get_lang_direction()}
+        >
             <StaticImage
                 src="../../../../images/migration/home/award-1.png"
                 alt={localize('_t_Best forex spreads APAC 2023 by UF Awards_t_')}

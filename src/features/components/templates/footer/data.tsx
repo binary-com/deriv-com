@@ -33,7 +33,7 @@ export const RowFooterNavData: FooterItems[] = [
                     {
                         id: 3,
                         href: '/our-principles',
-                        text: <Localize translate_text="_t_Our principles_t_" />,
+                        text: <Localize translate_text="_t_Principles_t_" />,
                     },
                     {
                         id: 4,
@@ -286,7 +286,7 @@ export const EuFooterNavData: FooterItems[] = [
                     {
                         id: 3,
                         href: '/our-principles',
-                        text: <Localize translate_text="_t_Our principles_t_" />,
+                        text: <Localize translate_text="_t_Principles_t_" />,
                     },
                     {
                         id: 4,
@@ -328,8 +328,13 @@ export const EuFooterNavData: FooterItems[] = [
                     },
                 ],
             },
+        ],
+    },
+    {
+        id: 2,
+        layers: [
             {
-                id: 1,
+                id: 0,
                 header: <Localize translate_text="_t_MARKETS_t_" />,
                 type: 'link',
                 items: [
@@ -368,7 +373,7 @@ export const EuFooterNavData: FooterItems[] = [
         ],
     },
     {
-        id: 2,
+        id: 3,
         layers: [
             {
                 id: 0,
@@ -386,7 +391,7 @@ export const EuFooterNavData: FooterItems[] = [
         ],
     },
     {
-        id: 3,
+        id: 4,
         layers: [
             {
                 id: 0,
@@ -423,7 +428,7 @@ export const EuFooterNavData: FooterItems[] = [
         ],
     },
     {
-        id: 4,
+        id: 5,
         layers: [
             {
                 id: 0,
@@ -468,16 +473,6 @@ export const EuFooterNavData: FooterItems[] = [
                         text: <Localize translate_text="_t_API_t_" />,
                     },
                 ],
-            },
-        ],
-    },
-    {
-        id: 5,
-        layers: [
-            {
-                id: 0,
-                type: 'node',
-                node: <DerivGoBannerAndAwards />,
             },
         ],
     },

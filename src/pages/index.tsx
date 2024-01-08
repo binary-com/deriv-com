@@ -4,6 +4,7 @@ import HomePage from 'features/pages/home'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
+//this is for test only
 const Home = () => {
     return <HomePage />
 }

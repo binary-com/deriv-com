@@ -28,6 +28,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
     const { is_eu } = useRegion()
     const { visibilityPercentage, targetRef } = useFloatingCta()
     const { ctaBottom } = useFloatingCtaContext()
+    // console.log("==>", ctaBottom)
 
     return (
         <>

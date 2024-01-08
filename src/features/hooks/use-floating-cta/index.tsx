@@ -14,10 +14,12 @@ const useFloatingCta = () => {
 
     useEffect(() => {
         if (width < 601 && !is_logged_in) {
-            const percentage = entry?.intersectionRatio * 100
+            const targetHeight = entry?.boundingClientRect?.height
+            const intersectionHeight = entry?.intersectionRect?.height
+            const percentage = (intersectionHeight / targetHeight) * 100
             setVisibilityPercentage(percentage)
         }
-    }, [entry?.intersectionRatio, width, is_logged_in])
+    }, [entry?.boundingClientRect?.height, entry?.intersectionRect?.height, width, is_logged_in])
 
     return { visibilityPercentage, targetRef }
 }

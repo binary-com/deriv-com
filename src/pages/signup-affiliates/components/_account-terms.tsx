@@ -124,7 +124,7 @@ const AccountTerms = ({
                                             <LocalizedLink
                                                 key={0}
                                                 style={{ color: 'red', textDecoration: 'none' }}
-                                                to={`${language}/terms-and-conditions/#business-partners`}
+                                                to={`${language}/tnc/business-partners-general-terms.pdf`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 external

@@ -12,7 +12,7 @@ const UnexpandedText = ({ loss_percent }: TextProps) => {
     const { setCtaBottom } = useFloatingCtaContext()
     const ref = useRef<HTMLParagraphElement>(null)
     useEffect(() => {
-        setCtaBottom(ref.current.clientHeight + 40) // 40 is the padding of top and bottom of it's container
+        setCtaBottom(ref.current.clientHeight + 38) // 38 is the padding of top and bottom of it's container
     }, [setCtaBottom])
 
     return (

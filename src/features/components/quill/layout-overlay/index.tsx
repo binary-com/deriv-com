@@ -14,7 +14,7 @@ const LayoutOverlay = () => {
 
     return (
         <div
-            className="flex flex-col justify-end items-stretch w-full fixed pointer-events-none inset-50 z-[60]"
+            className="flex flex-col justify-end items-stretch w-full fixed pointer-events-none inset-50 z-40"
             id="overlay-container"
         >
             <div

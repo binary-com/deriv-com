@@ -10,6 +10,7 @@ import {
     hero_img_eu,
     hero_content_text,
     hero_content_btn,
+    hero_content_rtl,
 } from './styles.module.scss'
 import HeroAwardImages from './award-images'
 import { Localize } from 'components/localization'
@@ -37,7 +38,10 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
             />
 
             <FluidContainer className={clsx('h-full flex flex-col relative', hero_container)}>
-                <div className={clsx('flex flex-col mb-general-2xl', hero_content)}>
+                <div
+                    className={clsx('flex flex-col mb-general-2xl', hero_content, hero_content_rtl)}
+                    dir={'rtl'}
+                >
                     <Heading.H1 className="text-solid-slate-50 text-[34px] lg:text-heading-h1">
                         <Localize translate_text="_t_Trading for anyone. Anywhere. Anytime._t_" />
                     </Heading.H1>

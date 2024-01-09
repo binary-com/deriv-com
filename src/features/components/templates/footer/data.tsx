@@ -8,7 +8,8 @@ import {
     StandaloneYoutubeIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Standalone'
-import { DerivGoBannerAndAwards } from './banner-and-awards'
+import { DerivGoBanner } from './deriv-go-banner'
+import { IIPAward } from './iip-award'
 import { Localize } from 'components/localization'
 
 export const RowFooterNavData: FooterItems[] = [
@@ -52,6 +53,11 @@ export const RowFooterNavData: FooterItems[] = [
                         text: <Localize translate_text="_t_Deriv life_t_" />,
                     },
                 ],
+            },
+            {
+                id: 1,
+                type: 'node',
+                node: <IIPAward />,
             },
         ],
     },
@@ -258,7 +264,7 @@ export const RowFooterNavData: FooterItems[] = [
             {
                 id: 0,
                 type: 'node',
-                node: <DerivGoBannerAndAwards />,
+                node: <DerivGoBanner />,
             },
         ],
     },

@@ -397,17 +397,15 @@ const style_lint_options = {
     lintDirtyModulesOnly: true,
 }
 
-exports.onCreateWebpackConfig = ({ stage, actions, loaders }, { noUglify, ...options }) => {
-    const isProduction = stage === 'build-html' || stage === 'build-javascript'
+exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }, { ...options }) => {
+    const config = getConfig()
+    const isProduction = config.mode === 'production'
 
     actions.setWebpackConfig({
         devtool: false,
-        performance: {
-            hints: isProduction ? 'warning' : false,
-        },
         optimization: {
-            minimize: isProduction && !noUglify,
-            minimizer: isProduction && !noUglify ? [new TerserPlugin()] : [],
+            minimize: isProduction,
+            minimizer: [new TerserPlugin()],
         },
         plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
         resolve: {

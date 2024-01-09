@@ -1,4 +1,5 @@
-import { localize } from 'components/localization'
+import { localize, Localize } from 'components/localization'
+
 /* eslint-disable */
 
 export const affiliate_validation_regex = {
@@ -44,7 +45,12 @@ const nameValidation = (input, text, min_digit, max_digit) => {
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
-        return localize(`_t_You should enter <0>${min_digit}-${max_digit}</0> characters._t_`)
+        return (
+            <Localize
+                translate_text="_t_You should enter <0>{{min_digit}}</0> characters._t_"
+                values={{ min_digit }}
+            />
+        )
     } else if (
         affiliate_validation_regex.latin.test(input) ||
         affiliate_validation_regex.name.test(input)

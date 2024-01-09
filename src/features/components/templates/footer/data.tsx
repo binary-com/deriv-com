@@ -312,6 +312,11 @@ export const EuFooterNavData: FooterItems[] = [
                     },
                 ],
             },
+            {
+                id: 1,
+                type: 'node',
+                node: <IIPAward />,
+            },
         ],
     },
     {

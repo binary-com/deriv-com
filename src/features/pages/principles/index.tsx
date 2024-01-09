@@ -9,6 +9,7 @@ import DetailsCardRight from './details-card-right'
 import { ContentImage, FairSteps, ReliableSteps, ResponsibleSteps, TransparentSteps } from './data'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 import MainFooter from 'features/components/templates/footer'
+import { Localize } from 'components/localization'
 
 const OurPrincipalsComponent = () => {
     return (
@@ -23,11 +24,13 @@ const OurPrincipalsComponent = () => {
                                     className="py-general-md"
                                     links={[
                                         {
-                                            content: 'Home',
+                                            content: <Localize translate_text="_t_Home_t_" />,
                                             href: '/',
                                         },
                                         {
-                                            content: 'Our principles',
+                                            content: (
+                                                <Localize translate_text="_t_Our principles_t_" />
+                                            ),
                                             href: '/our-principles/',
                                         },
                                     ]}

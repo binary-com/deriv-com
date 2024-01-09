@@ -1,7 +1,6 @@
 import React from 'react'
 import { CardContent } from '@deriv-com/components'
 import { Features } from '@deriv-com/blocks'
-import { ReliableSteps } from '../data'
 
 interface DetailsBoxeType {
     content: CardContent[]

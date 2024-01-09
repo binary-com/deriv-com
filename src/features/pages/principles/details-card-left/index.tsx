@@ -9,11 +9,7 @@ interface DetailsCardRightProps {
 const DetailsCardLeft = ({ content }: DetailsCardRightProps) => {
     const { header, description, image } = content
 
-    return (
-        <Features.ContentLeft title={header} description={description} content={() => image}>
-            <div></div>
-        </Features.ContentLeft>
-    )
+    return <Features.ContentLeft title={header} description={description} content={() => image} />
 }
 
 export default DetailsCardLeft

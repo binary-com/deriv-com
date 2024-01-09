@@ -15,6 +15,11 @@ const query = graphql`
         reading_grid_3: file(relativePath: { eq: "careers/reading_grid_3.jpg" }) {
             ...fadeIn
         }
+        reading_great_place_to_work_badge: file(
+            relativePath: { eq: "careers/reading_great_place_to_work_badge.png" }
+        ) {
+            ...fadeIn
+        }
     }
 `
 

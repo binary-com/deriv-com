@@ -1,13 +1,13 @@
 name: Lint
 
 permissions:
-  actions: write
-  checks: write
-  contents: write
-  deployments: write
-  pull-requests: write
-  statuses: write
-  
+    actions: write
+    checks: write
+    contents: write
+    deployments: write
+    pull-requests: write
+    statuses: write
+
 on:
     push:
         branches-ignore:
@@ -43,6 +43,15 @@ jobs:
               with:
                   path: ./node_modules
                   key: modules-${{ hashFiles('package-lock.json') }}
+
+            - name: Create npmrc file
+              shell: bash
+              run: echo "@deriv-com:registry=https://npm.pkg.github.com" >> .npmrc
+
+            - name: Setup install read-only token for deriv-com org
+              shell: bash
+              run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' >> .npmrc
+
             - name: Install Node.js dependencies
               run: |
                   npm ci

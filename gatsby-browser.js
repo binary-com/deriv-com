@@ -15,11 +15,20 @@ import {
     getLanguage,
     updateURLAsPerUserLanguage,
 } from 'common/utility'
-import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
 import './static/css/ubuntu.css'
+import './static/css/global.css'
+import '@deriv-com/blocks/style.css'
+import '@deriv-com/components/style.css'
 
 const is_browser = typeof window !== 'undefined'
+
+export const replaceHydrateFunction = () => {
+    return (element, container) => {
+        const root = createRoot(container)
+        root.render(element)
+    }
+}
 
 const checkDomain = () => {
     return eval(
@@ -84,8 +93,7 @@ export const onClientEntry = () => {
     Analytics?.initialise({
         growthbookKey: process.env.GATSBY_GROWTHBOOK_CLIENT_KEY,
         growthbookDecryptionKey: process.env.GATSBY_GROWTHBOOK_DECRYPTION_KEY,
-        enableDevMode: window?.location.hostname.includes('localhost'),
-        rudderstackKey: ['.pages.dev', 'git-fork', 'localhost'].some((condition) =>
+        rudderstackKey: ['.pages.dev', 'git-fork', 'localhost', 'staging'].some((condition) =>
             window.location.hostname.includes(condition),
         )
             ? process.env.GATSBY_RUDDERSTACK_STAGING_KEY
@@ -97,8 +105,7 @@ export const onClientEntry = () => {
         device_language: navigator?.language || ' ',
         device_type: isMobile ? 'mobile' : 'desktop',
     })
-    const { tracking } = Analytics.getInstances()
-    tracking.identifyEvent(Analytics?.getId(), { language: getLanguage() })
+    Analytics?.identifyEvent()
     //datadog
     const dd_options = {
         clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,
@@ -108,7 +115,7 @@ export const onClientEntry = () => {
         env: 'production',
         version: '1.0.6',
         sessionSampleRate: 10,
-        sessionReplaySampleRate: 10,
+        sessionReplaySampleRate: 0,
         trackResources: true,
         trackLongTasks: true,
         trackUserInteractions: true,
@@ -118,14 +125,10 @@ export const onClientEntry = () => {
     }
     const dd_script = document.createElement('script')
     dd_script.type = 'text/javascript'
-    dd_script.text = `!function(e,a,t,n,s){e=e[s]=e[s]||{q:[],onReady:function(a){e.q.push(a)}},(s=a.createElement(t)).async=1,s.src=n,(n=a.getElementsByTagName(t)[0]).parentNode.insertBefore(s,n)}(window,document,"script","https://www.datadoghq-browser-agent.com/us1/v4/datadog-rum.js","DD_RUM"),window.DD_RUM.onReady(function(){window.DD_RUM.init(${JSON.stringify(
+    dd_script.text = `!function(e,a,t,n,s){e=e[s]=e[s]||{q:[],onReady:function(a){e.q.push(a)}},(s=a.createElement(t)).async=1,s.src=n,(n=a.getElementsByTagName(t)[0]).parentNode.insertBefore(s,n)}(window,document,"script","https://www.datadoghq-browser-agent.com/us1/v5/datadog-rum.js","DD_RUM"),window.DD_RUM.onReady(function(){window.DD_RUM.init(${JSON.stringify(
         dd_options,
     )})});`
     document.head.appendChild(dd_script)
-    // Start session replay recording
-    window.DD_RUM.onReady(function () {
-        window.DD_RUM.startSessionReplayRecording()
-    })
 
     addScript({
         src: 'https://static.deriv.com/scripts/cookie-test.js',
@@ -138,7 +141,9 @@ export const onClientEntry = () => {
     updateURLAsPerUserLanguage()
 }
 
-export const onRouteUpdate = () => {
+export const onRouteUpdate = ({ location }) => {
+    Analytics.pageView(location.pathname, 'Deriv.com')
+
     checkDomain()
     // can't be resolved by package function due the gatsby architecture
     window?._growthbook?.GrowthBook?.setURL(window.location.href)
@@ -164,13 +169,6 @@ export const onRouteUpdate = () => {
             }),
         })
     }, 1500)
-}
-
-export const replaceHydrateFunction = () => {
-    return (element, container) => {
-        const root = createRoot(container)
-        root.render(element)
-    }
 }
 
 export const wrapPageElement = WrapPagesWithLocaleContext

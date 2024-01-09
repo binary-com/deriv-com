@@ -9,13 +9,13 @@ import DP2Availability from './availability'
 import { banner_data, portalData } from './_data'
 import Roadmap from 'features/components/organisms/roadmap'
 import DP2Banner from 'features/components/templates/banners/blade-shape-banner'
-import MainNav from 'features/components/templates/navigation/main-nav'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
 import useRegion from 'components/hooks/use-region'
 import InitialLoader from 'components/elements/dot-loader'
 import PageNotFound from 'features/pages/404'
+import MainRowNavigation from 'features/components/templates/navigation/main-nav'
 
-const Footer = loadable(() => import('features/components/templates/footer'))
+const MainFooter = loadable(() => import('features/components/templates/footer'))
 
 const DP2PPage = () => {
     useOpenLiveChat(true)
@@ -25,7 +25,7 @@ const DP2PPage = () => {
         if (is_p2p_allowed_country) {
             return (
                 <Layout>
-                    <MainNav />
+                    <MainRowNavigation />
                     <DP2Hero />
                     <DP2Numbers />
                     <DP2P />
@@ -33,7 +33,7 @@ const DP2PPage = () => {
                     <DP2Availability />
                     <DP2Banner data={banner_data} />
                     <Roadmap data={portalData} />
-                    <Footer />
+                    <MainFooter />
                 </Layout>
             )
         }

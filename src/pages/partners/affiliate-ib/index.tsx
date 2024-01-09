@@ -7,13 +7,13 @@ import { faq_schema } from './_faq-schema'
 import { Header, Text } from 'components/elements'
 import { LinkButton } from 'components/form'
 import Layout from 'components/layout/layout'
-import { SectionContainer, Container, SEO, TMetaAttributes } from 'components/containers'
+import { Container, SectionContainer, SEO, TMetaAttributes } from 'components/containers'
 import { Localize, WithIntl } from 'components/localization'
-import { affiliate_signup_url } from 'common/constants'
 import device from 'themes/device'
 import { TString } from 'types/generics'
 import { TGatsbyHead } from 'features/types'
 import useRegion from 'components/hooks/use-region'
+import useAffiliateSignupLink from 'features/hooks/ab-testing/use-partners-signup-link'
 
 const WhyUs = Loadable(() => import('./_why-us'))
 const WhoCanAplly = Loadable(() => import('./_who-can-apply'))
@@ -57,7 +57,6 @@ const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
         padding: 12px 10px;
         white-space: nowrap;
     }
-
     @media ${device.mobileL} {
         font-size: 12px;
     }
@@ -97,7 +96,6 @@ const StyledContainer = styled(Container)`
         margin: 20px 0;
     }
 `
-
 const NumberWrapper = styled.div`
     display: flex;
     flex-direction: column;
@@ -115,7 +113,6 @@ const NumberWrapper = styled.div`
 
 const StyledText = styled(Text)`
     padding-top: 8px;
-
     @media ${device.tabletL} {
         padding-top: 0;
         margin: 12px 0;
@@ -134,6 +131,7 @@ type contentType = {
 }
 const AffiliateIb = () => {
     const { is_eu } = useRegion()
+    const { affiliate_signup_link } = useAffiliateSignupLink()
 
     const content_data: contentType = is_eu
         ? {
@@ -182,17 +180,17 @@ const AffiliateIb = () => {
         : why_partner_with_us_items
 
     return (
-        <Layout type="partners" padding_top="10">
+        <Layout type="partners" padding_top="8">
             <Hero>
                 <StyledHeader as="h1" color="white" align="center" lh="1.25" type="display-title">
                     <Localize translate_text="_t_Partner with a trusted online trading provider_t_" />
                 </StyledHeader>
                 <StyledLinkButton
                     id="dm-hero-affiliate-signup"
-                    to={affiliate_signup_url}
+                    to={affiliate_signup_link}
                     external
                     target="_blank"
-                    type="affiliate_sign_up"
+                    // type="affiliate_sign_up"
                     secondary
                 >
                     <Localize translate_text={content_data.banner_btn} />

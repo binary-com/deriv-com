@@ -2,8 +2,8 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import CommonHeaderSection from 'components/elements/common-header-section'
-import { TString } from 'types/generics'
 import { useBrowserResize } from 'components/hooks/use-browser-resize'
+import { TString } from 'types/generics'
 
 const Checkmark = styled.span<{ is_rtl: boolean }>`
     display: inline-block;

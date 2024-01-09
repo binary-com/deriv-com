@@ -24,7 +24,7 @@ env:
     GATSBY_RUDDERSTACK_PRODUCTION_KEY: ${{ secrets.GATSBY_RUDDERSTACK_PRODUCTION_KEY }}
     GATSBY_STRAPI_TOKEN: ${{ secrets.GATSBY_STRAPI_TOKEN }}
     GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID: ${{ secrets.GATSBY_GOOGLE_TAG_MANAGER_TRACKING_ID }}
-
+    GATSBY_TRUSTPILOT_API_KEY: ${{ secrets.GATSBY_TRUSTPILOT_API_KEY }}
 jobs:
     release-staging:
         timeout-minutes: 30
@@ -39,12 +39,21 @@ jobs:
               with:
                   node-version: '18.x'
                   cache: 'npm'
+            - name: Create npmrc file
+              shell: bash
+              run: echo "@deriv-com:registry=https://npm.pkg.github.com" >> .npmrc
+
+            - name: Setup install read-only token for deriv-com org
+              shell: bash
+              run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' >> .npmrc
 
             - run: npm ci
             # - run: npm run format
             # - run: npm run test
             - run: npm run build
             # - run: npm run build:storybook
+            - run: echo $GITHUB_SHA > public/version.txt
+
             - uses: olegtarasov/get-tag@v2.1
               id: tagName
               # For using same tag for staging and production we need to uncomment these two below lines:
@@ -65,29 +74,29 @@ jobs:
 
             - name: Verify nginx image
               run: |
-                set -e
-                docker run --rm ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA nginx -t
-                echo "docker image validated successfully"
+                  set -e
+                  docker run --rm ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA nginx -t
+                  echo "docker image validated successfully"
 
             - name: Pushing Image to docker hub 🐳
               run: |
-                echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-                docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest-staging
-                docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA
+                  echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+                  docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest-staging
+                  docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA
 
             - name: Deploy 🚀
-              env: 
-                KUBE_SERVER: ${{ secrets.KUBE_SERVER }}
-                SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
-                CA_CRT: ${{ secrets.CA_CRT }}
-                NAMESPACE: deriv-com-staging
-                DOCKERHUB_ORGANISATION: ${{ secrets.DOCKERHUB_ORGANISATION }}
+              env:
+                  KUBE_SERVER: ${{ secrets.KUBE_SERVER }}
+                  SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
+                  CA_CRT: ${{ secrets.CA_CRT }}
+                  NAMESPACE: deriv-com-staging
+                  DOCKERHUB_ORGANISATION: ${{ secrets.DOCKERHUB_ORGANISATION }}
               run: |
-                git clone https://github.com/binary-com/devops-ci-scripts
-                cd devops-ci-scripts/k8s-build_tools
-                echo "${{ env.CA_CRT }}" | base64 --decode > ca.crt
-                export CA="ca.crt"
-                ./release.sh deriv-com ${GITHUB_SHA}
+                  git clone https://github.com/binary-com/devops-ci-scripts
+                  cd devops-ci-scripts/k8s-build_tools
+                  echo "${{ env.CA_CRT }}" | base64 --decode > ca.crt
+                  export CA="ca.crt"
+                  ./release.sh deriv-com ${GITHUB_SHA}
 
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3

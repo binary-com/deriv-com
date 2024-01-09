@@ -110,6 +110,7 @@ jobs:
                   docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME
 
             - name: Deploy 🚀
+              id: build_and_push_docker_image
               env:
                 KUBE_SERVER: ${{ secrets.KUBE_SERVER }}
                 SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
@@ -138,4 +139,4 @@ jobs:
                     }
               env:
                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-              if: always()
+              if: ${{ steps.build_and_push_docker_image.outcome != 'success' }}

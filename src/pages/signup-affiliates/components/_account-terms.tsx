@@ -127,7 +127,7 @@ const AccountTerms = ({
                                             <LocalizedLink
                                                 key={0}
                                                 style={{ color: 'red', textDecoration: 'none' }}
-                                                to={`${language}/${href}`}
+                                                to={`/${href}`}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 external

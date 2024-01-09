@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
 import { PageLayout } from '@deriv-com/components'
-import { BreakpointProvider, ThemeProvider } from '@deriv/quill-design'
-import Layout from 'features/components/templates/layout'
+import QuillLayout from 'features/components/quill/quill-layout'
 import LiveMarketSection from './live-pricing-migration'
 import TwentyYearsStrong from './years'
 import StatSection from './stats'
@@ -21,26 +20,22 @@ const HomePage = () => {
     useOpenLiveChat(true)
 
     return (
-        <BreakpointProvider>
-            <ThemeProvider theme="light">
-                <Layout>
-                    <MainRowNavigation />
-                    <PageLayout>
-                        <HomeHero />
-                        <TrustpilotSection />
-                        <StatSection />
-                        <TwentyYearsStrong />
-                        <LiveMarketSection />
-                        <UserFriendlyPlatforms />
-                        <TradeTypeSection />
-                        <StartTradingSteps />
-                        <FastPaymentSection />
-                        <CTA />
-                    </PageLayout>
-                    <MainFooter />
-                </Layout>
-            </ThemeProvider>
-        </BreakpointProvider>
+        <QuillLayout>
+            <MainRowNavigation />
+            <PageLayout>
+                <HomeHero />
+                <TrustpilotSection />
+                <StatSection />
+                <TwentyYearsStrong />
+                <LiveMarketSection />
+                <UserFriendlyPlatforms />
+                <TradeTypeSection />
+                <StartTradingSteps />
+                <FastPaymentSection />
+                <CTA />
+            </PageLayout>
+            <MainFooter />
+        </QuillLayout>
     )
 }
 

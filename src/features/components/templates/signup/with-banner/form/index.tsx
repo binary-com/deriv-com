@@ -11,7 +11,9 @@ import { TString } from 'types/generics'
 import useSignupForm from 'features/hooks/use-signup-form'
 
 const SignupPublicForm = () => {
-    const { onSignup, signUpForm } = useSignupForm()
+    const { onSignup, signUpForm } = useSignupForm({
+        form_name: 'virtual_signup_homepage_embedded',
+    })
 
     const {
         register,

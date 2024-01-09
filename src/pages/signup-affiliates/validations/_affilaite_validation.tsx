@@ -105,7 +105,10 @@ const postcodeValidation = (input, min_digit, max_digit) => {
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
-        return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
+        return localize(`_t_You should enter {{min_digit}}-{{max_digit}} characters._t_`, {
+            min_digit,
+            max_digit,
+        })
     } else if (!affiliate_validation_regex.postal_code.test(input)) {
         return localize(`_t_Please enter a valid postcode with Latin characters._t_`)
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {

@@ -67,7 +67,7 @@ const CfdWarningBanner = () => {
                         src={Arrow}
                         alt="Expand"
                         className={clsx(
-                            'transition-transform px-800',
+                            'transition-transform px-[16px]',
                             expanded ? 'rotate-180 animate-fade-in' : 'rotate-0 animate-fade-out',
                         )}
                     />

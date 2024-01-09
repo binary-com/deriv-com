@@ -16,7 +16,6 @@ import FloatingCta from './floating-cta'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
-import useFloatingCta from 'features/hooks/use-floating-cta'
 import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
 
 export interface HomeHeroProps {
@@ -26,8 +25,7 @@ export interface HomeHeroProps {
 
 const HomeHero: React.FC<HomeHeroProps> = () => {
     const { is_eu } = useRegion()
-    const { visibilityPercentage, targetRef } = useFloatingCta()
-    const { ctaBottom } = useFloatingCtaContext()
+    const { ctaBottom, visibilityPercentage, entryRef } = useFloatingCtaContext()
 
     return (
         <>
@@ -72,7 +70,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                             className={clsx('mt-general-2xl', hero_content_btn)}
                             variant="primary"
                             colorStyle="coral"
-                            ref={targetRef}
+                            ref={entryRef}
                         />
                     </div>
                     {!is_eu && <HeroAwardImages />}

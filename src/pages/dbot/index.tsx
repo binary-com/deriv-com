@@ -27,14 +27,14 @@ const items: TDNumbersItem[] = [
         title: '_t_FREE_t_',
         subtitle: '_t_zero cost to build_t_',
     },
-    { title: '3', subtitle: '_t_pre-built strategies included_t_' },
+    { title: '6', subtitle: '_t_pre-built strategies included_t_' },
 ]
 
 const trading: TradingType[] = [
     {
         title: '_t_Start with a popular strategy_t_',
         subtitle:
-            "_t_Martingale, D'Alembert, and Oscar's Grind — load and customise proven strategies or create your own from scratch._t_",
+            "_t_Martingale, D'Alembert, Oscar's Grind, and more — load and customise proven strategies or create your own from scratch._t_",
         image_name: 'dbot_strategy',
         image_alt: '_t_Customise your DBot strategy_t_',
     },

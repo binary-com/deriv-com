@@ -1,5 +1,6 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
+import { useBreakpoint } from '@deriv/quill-design'
 import { AwardProps } from '../awardProps'
 import * as styles from '../award-banner.module.scss'
 import Container from 'features/components/atoms/container'
@@ -8,6 +9,7 @@ import Typography from 'features/components/atoms/typography'
 import { Localize, localize } from 'components/localization'
 
 const AwardBannerEu = ({ title, subtitle }: AwardProps) => {
+    const { is_mobile } = useBreakpoint()
     return (
         <Container.Fluid margin_block="36x">
             <Typography.Heading align="center" margin="8x" weight="bold" md={{ margin: '12x' }}>
@@ -35,7 +37,7 @@ const AwardBannerEu = ({ title, subtitle }: AwardProps) => {
                     direction="col"
                     className={styles.content_eu}
                     padding="8x"
-                    md={{ padding: '27x' }}
+                    md={{ padding: '10x' }}
                 >
                     <StaticImage
                         src="../../../../../../images/common/awards/gptw.png"
@@ -52,7 +54,7 @@ const AwardBannerEu = ({ title, subtitle }: AwardProps) => {
                     direction="col"
                     className={styles.content_eu}
                     padding="8x"
-                    md={{ padding: '27x' }}
+                    md={{ padding: '10x' }}
                 >
                     <StaticImage
                         src="../../../../../../images/common/awards/investors.png"
@@ -60,7 +62,7 @@ const AwardBannerEu = ({ title, subtitle }: AwardProps) => {
                         formats={['avif', 'webp', 'auto']}
                         quality={100}
                         placeholder="none"
-                        width={400}
+                        width={is_mobile ? 280 : 336}
                     />
                 </Flex.Box>
             </Flex.Box>

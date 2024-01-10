@@ -402,7 +402,6 @@ exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }, { ...options }
     const isProduction = config.mode === 'production'
 
     actions.setWebpackConfig({
-        devtool: isProduction ? false : 'eval-source-map',
         optimization: {
             minimize: isProduction,
             minimizer: [new TerserPlugin()],

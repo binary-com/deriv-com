@@ -37,7 +37,7 @@ const TradeItem = ({ data, ...rest }: TradeItemProps) => {
                 textcolor="inverted"
                 mt="8x"
                 mb="4x"
-                className={dclsx('text-medium')}
+                className={dclsx('at-text-medium')}
             >
                 <Localize translate_text={data.heading} />
             </Typography.Heading>

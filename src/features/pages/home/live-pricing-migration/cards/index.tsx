@@ -22,6 +22,7 @@ import { percentToDecimal, swiperOption } from '../utils'
 import { handleRedirectToTradersHub } from 'components/custom/utils'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { Localize } from 'components/localization'
 
 const IconsMapper = {
     AUDUSD: <MarketForexAudusdIcon />,
@@ -67,8 +68,14 @@ const LiveMarketCard = <T extends MarketName>({
             bidPrice: `${data[key].bid}`,
             askPrice: `${data[key].ask}`,
             spread: `${data[key].sprd}`,
+            mid: data[key].mid,
             onClickBuyButton: is_logged_in ? handleRedirectToTradersHub : handleSignup,
             onClickSellButton: is_logged_in ? handleRedirectToTradersHub : handleSignup,
+            bidContent: <Localize translate_text="_t_Bid_t_" />,
+            askContent: <Localize translate_text="_t_Ask_t_" />,
+            spreadContent: <Localize translate_text="_t_Spread_t_" />,
+            buyContent: <Localize translate_text="_t_Buy_t_" />,
+            sellContent: <Localize translate_text="_t_Sell_t_" />,
         }))
     }, [data, is_logged_in, handleSignup])
 

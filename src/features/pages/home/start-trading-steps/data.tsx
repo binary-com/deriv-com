@@ -22,8 +22,7 @@ export const RowCards: CardContent[] = [
         color: 'gray',
         align: 'center',
         size: 'md',
-        contentClassName: 'flex justify-center',
-        nonContentClassName: 'p-general-2xl',
+        contentClassName: 'px-general-lg pt-general-lg',
     },
     {
         id: 2,
@@ -43,8 +42,7 @@ export const RowCards: CardContent[] = [
         color: 'gray',
         align: 'center',
         size: 'md',
-        contentClassName: 'flex justify-center',
-        nonContentClassName: 'p-general-2xl',
+        contentClassName: 'px-general-lg pt-general-lg',
     },
     {
         id: 3,
@@ -64,15 +62,14 @@ export const RowCards: CardContent[] = [
         color: 'gray',
         align: 'center',
         size: 'md',
-        contentClassName: 'flex justify-center',
-        nonContentClassName: 'p-general-2xl',
+        contentClassName: 'px-general-lg pt-general-lg',
     },
 ]
 
 export const EUCards: CardContent[] = [
     {
         id: 1,
-        header: <Localize translate_text="_t_1.Sign up & explore_t_" />,
+        header: <Localize translate_text="_t_1. Sign up & explore_t_" />,
         description: (
             <Localize translate_text="_t_Sign up in minutes and explore Trader’s Hub - all your trading needs, in one place._t_" />
         ),
@@ -87,13 +84,12 @@ export const EUCards: CardContent[] = [
         ),
         color: 'gray',
         align: 'center',
-        size: 'sm',
-        contentClassName: 'flex justify-center',
-        nonContentClassName: 'p-general-2xl',
+        size: 'md',
+        contentClassName: 'px-general-lg pt-general-lg',
     },
     {
         id: 2,
-        header: <Localize translate_text="_t_2.Try with zero-risk_t_" />,
+        header: <Localize translate_text="_t_2. Try with zero-risk_t_" />,
         description: (
             <Localize translate_text="_t_Try any trade, on any platform with a zero-risk, demo trading account._t_" />
         ),
@@ -108,13 +104,12 @@ export const EUCards: CardContent[] = [
         ),
         color: 'gray',
         align: 'center',
-        size: 'sm',
-        contentClassName: 'flex justify-center',
-        nonContentClassName: 'p-general-2xl',
+        size: 'md',
+        contentClassName: 'px-general-lg pt-general-lg',
     },
     {
         id: 3,
-        header: <Localize translate_text="_t_3.Trade with confidence_t_" />,
+        header: <Localize translate_text="_t_3. Trade with confidence_t_" />,
         description: (
             <Localize translate_text="_t_Fund your account and start trading with round-the-clock support._t_" />
         ),
@@ -129,8 +124,7 @@ export const EUCards: CardContent[] = [
         ),
         color: 'gray',
         align: 'center',
-        size: 'sm',
-        contentClassName: 'flex justify-center',
-        nonContentClassName: 'p-general-2xl',
+        size: 'md',
+        contentClassName: 'px-general-lg pt-general-lg',
     },
 ]

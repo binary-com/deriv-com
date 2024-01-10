@@ -1,4 +1,5 @@
 import React from 'react'
+import { Analytics } from '@deriv/analytics'
 import { public_signup_social_links } from './social.module.scss'
 import Flex from 'features/components/atoms/flex-box'
 import Button from 'features/components/atoms/button'
@@ -51,6 +52,12 @@ const social_button_content: SocialButtonContent[] = [
 
 const PublicSignupSocial = () => {
     const handleSocialSignup = (data_provider: TSocialProvider) => {
+        Analytics?.trackEvent('ce_virtual_signup_form', {
+            signup_provider: data_provider,
+            action: 'started',
+            form_source: document.referrer,
+            form_name: 'virtual_signup_homepage_embedded',
+        })
         Login.initOneAll(data_provider)
     }
 

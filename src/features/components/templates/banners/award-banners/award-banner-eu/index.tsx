@@ -62,7 +62,8 @@ const AwardBannerEu = ({ title, subtitle }: AwardProps) => {
                         formats={['avif', 'webp', 'auto']}
                         quality={100}
                         placeholder="none"
-                        width={is_mobile ? 280 : 336}
+                        width={336}
+                        height={67}
                     />
                 </Flex.Box>
             </Flex.Box>

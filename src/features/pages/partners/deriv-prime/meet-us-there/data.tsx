@@ -11,7 +11,7 @@ export const expo_cards: ExpoCardTypes[] = [
         image: (
             <StaticImage
                 src="../../../../../images/common/deriv-prime/ifx_expo_dubai.png"
-                alt={localize('_t_Cyprus Expo_t_')}
+                alt={localize('_t_iFX Expo Dubai Exhibitor_t_')}
                 className={styles.image}
                 formats={['avif', 'webp', 'auto']}
                 placeholder="none"
@@ -25,7 +25,7 @@ export const expo_cards: ExpoCardTypes[] = [
         image: (
             <StaticImage
                 src="../../../../../images/common/deriv-prime/ifx_expo_latam.png"
-                alt={localize('_t_Dubai Expo_t_')}
+                alt={localize('_t_iFX Expo Latam Exhibitor_t_')}
                 className={styles.image}
                 formats={['avif', 'webp', 'auto']}
                 placeholder="none"
@@ -39,7 +39,7 @@ export const expo_cards: ExpoCardTypes[] = [
         image: (
             <StaticImage
                 src="../../../../../images/common/deriv-prime/forex_expo_dubai.png"
-                alt={localize('_t_London Summit_t_')}
+                alt={localize('_t_Forex Expo Dubai Exhibitor_t_')}
                 className={styles.image}
                 formats={['avif', 'webp', 'auto']}
                 placeholder="none"

@@ -43,7 +43,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                     <Heading.H1 className="text-solid-slate-50 text-[34px] lg:text-heading-h1">
                         <Localize translate_text="_t_Trading for anyone. Anywhere. Anytime._t_" />
                     </Heading.H1>
-                    {isEuDomain() || is_eu ? (
+                    {isEuDomain() ? (
                         <Text
                             size="md"
                             className={clsx('text-solid-slate-50 mt-general-md', hero_content_text)}

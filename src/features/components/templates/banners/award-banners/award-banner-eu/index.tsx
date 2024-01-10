@@ -1,6 +1,5 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import { useBreakpoint } from '@deriv/quill-design'
 import { AwardProps } from '../awardProps'
 import * as styles from '../award-banner.module.scss'
 import Container from 'features/components/atoms/container'
@@ -9,7 +8,6 @@ import Typography from 'features/components/atoms/typography'
 import { Localize, localize } from 'components/localization'
 
 const AwardBannerEu = ({ title, subtitle }: AwardProps) => {
-    const { is_mobile } = useBreakpoint()
     return (
         <Container.Fluid margin_block="36x">
             <Typography.Heading align="center" margin="8x" weight="bold" md={{ margin: '12x' }}>

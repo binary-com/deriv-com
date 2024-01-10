@@ -15,10 +15,11 @@ const sharedClasses =
     'flex items-center justify-center gap-gap-md p-general-sm rounded-[4px] border-solid border-xs border-opacity-black-100'
 
 const DownloadBadges = () => {
-    const { is_appgallery_supported, is_ios_supported } = useRegion()
+    const { is_appgallery_supported, is_ios_supported, is_appgallery_and_ios_supported } =
+        useRegion()
     return (
         <div className="flex flex-col gap-gap-md max-lg:flex-1">
-            {is_appgallery_supported && (
+            {is_appgallery_supported && is_appgallery_and_ios_supported && (
                 <CustomLink
                     href="https://appgallery.huawei.com/app/C103801913"
                     target="_blank"
@@ -48,7 +49,7 @@ const DownloadBadges = () => {
                     placeholder="none"
                 />
             </CustomLink>
-            {is_ios_supported && (
+            {is_ios_supported && is_appgallery_and_ios_supported && (
                 <CustomLink
                     href="https://apps.apple.com/my/app/deriv-go-online-trading-app/id1550561298"
                     target="_blank"

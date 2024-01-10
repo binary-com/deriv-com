@@ -45,6 +45,7 @@ const nameValidation = (input, text, min_digit, max_digit) => {
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
+        console.log('==>', { min_digit })
         return (
             <Localize
                 translate_text="_t_You should enter {{min_digit}} characters._t_"
@@ -100,6 +101,7 @@ const passwordValidation = (input, min_digit, max_digit) => {
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
+        console.log('==>', { min_digit })
         return (
             <Localize
                 translate_text="_t_You should enter {{min_digit}} characters._t_"
@@ -121,6 +123,7 @@ const postcodeValidation = (input, min_digit, max_digit) => {
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
+        console.log('==>', { min_digit })
         return (
             <Localize
                 translate_text="_t_You should enter {{min_digit}} characters._t_"
@@ -152,6 +155,7 @@ const streetValidation = (input, text, min_digit, max_digit) => {
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
+        console.log('==>', { min_digit })
         return (
             <Localize
                 translate_text="_t_You should enter {{min_digit}} characters._t_"
@@ -174,6 +178,7 @@ const cityValidation = (input, text, min_digit, max_digit) => {
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
+        console.log('==>', { min_digit })
         return (
             <Localize
                 translate_text="_t_You should enter {{min_digit}} characters._t_"

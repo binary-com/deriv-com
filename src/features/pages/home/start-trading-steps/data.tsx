@@ -22,8 +22,7 @@ export const RowCards: CardContent[] = [
         color: 'gray',
         align: 'center',
         size: 'md',
-        contentClassName: 'flex justify-center',
-        nonContentClassName: 'p-general-2xl',
+        contentClassName: 'px-general-lg pt-general-lg',
     },
     {
         id: 2,
@@ -43,8 +42,7 @@ export const RowCards: CardContent[] = [
         color: 'gray',
         align: 'center',
         size: 'md',
-        contentClassName: 'flex justify-center',
-        nonContentClassName: 'p-general-2xl',
+        contentClassName: 'px-general-lg pt-general-lg',
     },
     {
         id: 3,
@@ -64,8 +62,7 @@ export const RowCards: CardContent[] = [
         color: 'gray',
         align: 'center',
         size: 'md',
-        contentClassName: 'flex justify-center',
-        nonContentClassName: 'p-general-2xl',
+        contentClassName: 'px-general-lg pt-general-lg',
     },
 ]
 
@@ -88,8 +85,7 @@ export const EUCards: CardContent[] = [
         color: 'gray',
         align: 'center',
         size: 'md',
-        contentClassName: 'flex justify-center',
-        nonContentClassName: 'p-general-2xl',
+        contentClassName: 'px-general-lg pt-general-lg',
     },
     {
         id: 2,
@@ -109,8 +105,7 @@ export const EUCards: CardContent[] = [
         color: 'gray',
         align: 'center',
         size: 'md',
-        contentClassName: 'flex justify-center',
-        nonContentClassName: 'p-general-2xl',
+        contentClassName: 'px-general-lg pt-general-lg',
     },
     {
         id: 3,
@@ -130,7 +125,6 @@ export const EUCards: CardContent[] = [
         color: 'gray',
         align: 'center',
         size: 'md',
-        contentClassName: 'flex justify-center',
-        nonContentClassName: 'p-general-2xl',
+        contentClassName: 'px-general-lg pt-general-lg',
     },
 ]

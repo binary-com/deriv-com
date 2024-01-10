@@ -82,6 +82,8 @@ module.exports = {
             },
         },
         'gatsby-plugin-styled-components',
+        'gatsby-plugin-styled-components',
+        'gatsby-plugin-no-sourcemaps',
         {
             resolve: 'gatsby-source-filesystem',
             options: {
@@ -382,9 +384,6 @@ module.exports = {
                     'GATSBY_RUDDERSTACK_PRODUCTION_KEY',
                 ],
             },
-        },
-        {
-            resolve: 'gatsby-plugin-no-sourcemaps',
         },
     ],
 }

@@ -402,8 +402,6 @@ exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }, { ...options }
     const isProduction = config.mode === 'production'
 
     actions.setWebpackConfig({
-        devtool: false,
-        cache: false,
         optimization: {
             minimize: isProduction,
             minimizer: [new TerserPlugin()],

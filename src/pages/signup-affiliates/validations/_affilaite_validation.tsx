@@ -46,7 +46,7 @@ const nameValidation = (input, text, min_digit, max_digit) => {
         !validation_is_lack_number(input, min_digit)
     ) {
         console.log('==>', { min_digit })
-        return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
+        return <Localize translate_text="_t_You should enter 8-8 characters._t_" />
     } else if (
         affiliate_validation_regex.latin.test(input) ||
         affiliate_validation_regex.name.test(input)
@@ -91,8 +91,8 @@ const passwordValidation = (input, min_digit, max_digit) => {
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
-        console.log('==>', { min_digit })
-        return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
+        console.log('==>', '{{ min_digit }}')
+        return <Localize translate_text="_t_You should enter 8-8 characters._t_" />
     } else if (!affiliate_validation_regex.password.test(input)) {
         return localize(
             `_t_Password should have lower and uppercase English letters with numbers._t_`,
@@ -108,8 +108,8 @@ const postcodeValidation = (input, min_digit, max_digit) => {
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
-        console.log('==>', { min_digit })
-        return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
+        console.log('==>', '{{ min_digit }}')
+        return <Localize translate_text="_t_You should enter 8-8 characters._t_" />
     } else if (!affiliate_validation_regex.postal_code.test(input)) {
         return localize(`_t_Please enter a valid postcode with Latin characters._t_`)
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
@@ -135,8 +135,8 @@ const streetValidation = (input, text, min_digit, max_digit) => {
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
-        console.log('==>', { min_digit })
-        return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
+        console.log('==>', '{{ min_digit }}')
+        return <Localize translate_text="_t_You should enter 8-8 characters._t_" />
     } else if (!affiliate_validation_regex.address.test(input)) {
         return localize('_t_Please enter a valid street_t_')
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
@@ -153,8 +153,8 @@ const cityValidation = (input, text, min_digit, max_digit) => {
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
-        console.log('==>', { min_digit })
-        return localize(`_t_You should enter ${min_digit}-${max_digit} characters._t_`)
+        console.log('==>', '{{ min_digit }}')
+        return <Localize translate_text="_t_You should enter 8-8 characters._t_" />
     } else if (!affiliate_validation_regex.city.test(input)) {
         return localize('_t_Please enter a valid city_t_')
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {

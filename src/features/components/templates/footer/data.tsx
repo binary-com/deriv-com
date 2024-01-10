@@ -489,61 +489,74 @@ export const warnText = (
 
 export const socialButtonsROW = [
     {
-        icon: <StandaloneFacebookIcon iconSize="md" />,
+        icon: <StandaloneFacebookIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.facebook.com/derivdotcom',
+        'data-cy': 'facebook',
     },
     {
-        icon: <StandaloneInstagramIcon iconSize="md" />,
+        icon: <StandaloneInstagramIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.instagram.com/deriv_official',
+        'data-cy': 'instagram',
     },
     {
-        icon: <StandaloneXTwitterIcon iconSize="md" />,
+        icon: <StandaloneXTwitterIcon iconSize="md" fill="#000000b8" />,
         href: 'https://twitter.com/derivdotcom/',
+        'data-cy': 'twitter',
     },
     {
-        icon: <StandaloneYoutubeIcon iconSize="md" />,
+        icon: <StandaloneYoutubeIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.youtube.com/@deriv',
+        'data-cy': 'youtube',
     },
     {
-        icon: <StandaloneLinkedinIcon iconSize="md" />,
+        icon: <StandaloneLinkedinIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.linkedin.com/company/derivdotcom/',
+        'data-cy': 'linkedin',
     },
 ]
 
 export const socialButtonsEU = [
     {
-        icon: <StandaloneFacebookIcon iconSize="md" />,
+        icon: <StandaloneFacebookIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.facebook.com/DerivEU',
+        'data-cy': 'facebook',
     },
     {
-        icon: <StandaloneInstagramIcon iconSize="md" />,
+        icon: <StandaloneInstagramIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.instagram.com/deriv_eu/',
+        'data-cy': 'instagram',
     },
     {
-        icon: <StandaloneXTwitterIcon iconSize="md" />,
+        icon: <StandaloneXTwitterIcon iconSize="md" fill="#000000b8" />,
         href: 'https://twitter.com/deriv_eu/',
+        'data-cy': 'twitter',
     },
     {
-        icon: <StandaloneYoutubeIcon iconSize="md" />,
+        icon: <StandaloneYoutubeIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.youtube.com/@deriv',
+        'data-cy': 'youtube',
     },
     {
-        icon: <StandaloneLinkedinIcon iconSize="md" />,
+        icon: <StandaloneLinkedinIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.linkedin.com/company/derivdotcom/',
+        'data-cy': 'linkedin',
     },
 ]
 
 export const socialButtonsCareers = [
     {
-        icon: <StandaloneFacebookIcon iconSize="md" />,
+        icon: <StandaloneFacebookIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.facebook.com/derivcareers',
+        'data-cy': 'facebook',
     },
     {
-        icon: <StandaloneInstagramIcon iconSize="md" />,
+        icon: <StandaloneInstagramIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.instagram.com/derivcareers/',
+        'data-cy': 'instagram',
     },
     {
-        icon: <StandaloneLinkedinIcon iconSize="md" />,
+        icon: <StandaloneLinkedinIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.linkedin.com/company/derivdotcom/life/',
+        'data-cy': 'linkedin',
     },
 ]

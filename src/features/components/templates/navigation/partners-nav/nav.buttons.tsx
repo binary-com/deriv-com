@@ -31,14 +31,21 @@ const AffiliateButtons = () => {
 
 const PaymentAgentButtons = () => {
     return (
-        <LocalizedLink external to="mailto:partners@deriv.com" is_mail_link>
-            <Button size="lg" className="hidden lg:block">
-                <Localize translate_text="_t_Apply now_t_" />
-            </Button>
-            <Button size="lg" variant="secondary" colorStyle="black" className="block lg:hidden">
-                <Localize translate_text="_t_Apply now_t_" />
-            </Button>
-        </LocalizedLink>
+        <div className="hidden sm:!block">
+            <LocalizedLink external to="mailto:partners@deriv.com" is_mail_link>
+                <Button size="lg" className="hidden lg:block">
+                    <Localize translate_text="_t_Apply now_t_" />
+                </Button>
+                <Button
+                    size="lg"
+                    variant="secondary"
+                    colorStyle="black"
+                    className="block lg:hidden"
+                >
+                    <Localize translate_text="_t_Apply now_t_" />
+                </Button>
+            </LocalizedLink>
+        </div>
     )
 }
 

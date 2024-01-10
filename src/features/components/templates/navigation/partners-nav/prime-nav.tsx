@@ -14,7 +14,7 @@ const PrimeNavButtons = () => {
     return (
         <div className="flex items-center gap-gap-md">
             <Button
-                className="block lg:hidden"
+                className="hidden sm:max-lg:!block"
                 variant="secondary"
                 colorStyle="black"
                 size="lg"
@@ -42,7 +42,7 @@ const PrimeNav = () => {
             topNavigation={TopNavigation}
             renderButtons={PrimeNavButtons}
             renderLogo={() => (
-                <CustomLink href={'/partners'}>
+                <CustomLink href={'/partners/deriv-prime/'}>
                     <SubBrandDerivPrimeBrandLightIcon width={118} height={24} />
                 </CustomLink>
             )}

@@ -97,6 +97,7 @@ const LiveMarketCard = <T extends MarketName>({
             bidPrice: `${data[key].bid}`,
             askPrice: `${data[key].ask}`,
             spread: `${data[key].sprd}`,
+            mid: data[key].mid,
             onClickBuyButton: is_logged_in ? handleRedirectToTradersHub : handleSignup,
             onClickSellButton: is_logged_in ? handleRedirectToTradersHub : handleSignup,
         }))

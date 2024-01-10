@@ -21,7 +21,7 @@ const TradersHubCtaButton = forwardRef<HTMLButtonElement, TradersHubCtaButtonPro
                     className={className}
                     {...rest}
                 >
-                    <Localize translate_text="_t_Traders Hub_t_" />
+                    <Localize translate_text="_t_Trader's Hub_t_" />
                 </Button>
             )
         }

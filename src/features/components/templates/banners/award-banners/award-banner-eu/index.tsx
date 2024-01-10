@@ -56,11 +56,11 @@ const AwardBannerEu = ({ title, subtitle }: AwardProps) => {
                 >
                     <StaticImage
                         src="../../../../../../images/common/awards/investors.png"
-                        alt={localize('_t_Investors in people award_t_')}
+                        alt={localize('_t_IIP Platinum Companies_t_')}
                         formats={['avif', 'webp', 'auto']}
                         quality={100}
                         placeholder="none"
-                        width={157}
+                        width={400}
                     />
                 </Flex.Box>
             </Flex.Box>

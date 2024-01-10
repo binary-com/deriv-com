@@ -24,6 +24,7 @@ export interface HomeHeroProps {
 
 const HomeHero: React.FC<HomeHeroProps> = () => {
     const { is_eu } = useRegion()
+    console.log('==>', isEuDomain())
 
     return (
         <Section className="h-[calc(100vh-136px)] min-h-[587px] relative isolate overflow-hidden">
@@ -42,15 +43,14 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                     <Heading.H1 className="text-solid-slate-50 text-[34px] lg:text-heading-h1">
                         <Localize translate_text="_t_Trading for anyone. Anywhere. Anytime._t_" />
                     </Heading.H1>
-                    {(isEuDomain() || is_eu) && (
+                    {isEuDomain() || is_eu ? (
                         <Text
                             size="md"
                             className={clsx('text-solid-slate-50 mt-general-md', hero_content_text)}
                         >
                             <Localize translate_text="_t_Trade CFDs and Multipliers on 1500+ instruments, all in one place with 24/7 trading and 24/7 worldwide support._t_" />
                         </Text>
-                    )}
-                    {(!isEuDomain() || !is_eu) && (
+                    ) : (
                         <Text
                             size="md"
                             className={clsx('text-solid-slate-50 mt-general-md', hero_content_text)}
@@ -66,7 +66,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                     />
                 </div>
                 {(!isEuDomain() || !is_eu) && <HeroAwardImages />}
-                {(isEuDomain() || is_eu) && (
+                {isEuDomain() || is_eu ? (
                     <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img_eu)}>
                         <StaticImage
                             src="../../../../images/migration/home/home_hero_new_eu.png"
@@ -76,8 +76,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                             loading="eager"
                         />
                     </div>
-                )}
-                {(!isEuDomain() || !is_eu) && (
+                ) : (
                     <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img)}>
                         <StaticImage
                             src="../../../../images/migration/home/home_hero_new.png"

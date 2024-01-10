@@ -1,6 +1,5 @@
 import React from 'react'
 import { Features } from '@deriv-com/blocks'
-import { LabelPairedGridLgBoldIcon } from '@deriv/quill-icons'
 import { EUCards, RowCards } from './data'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
@@ -14,7 +13,7 @@ const StartTradingSteps = () => {
             title={<Localize translate_text="_t_Start trading in 3 simple steps_t_" />}
             cta={
                 <div className="flex w-full justify-center">
-                    <TradersHubCtaButton icon={LabelPairedGridLgBoldIcon} iconPosition="start" />
+                    <TradersHubCtaButton />
                 </div>
             }
             cols="three"

@@ -1,5 +1,6 @@
 import React, { ComponentPropsWithRef, forwardRef } from 'react'
 import { Button } from '@deriv/quill-design'
+import { LabelPairedGridLgBoldIcon } from '@deriv/quill-icons'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useHandleSignup from 'components/hooks/use-handle-signup'
 import { handleRedirectToTradersHub } from 'components/custom/utils'
@@ -17,6 +18,8 @@ const TradersHubCtaButton = forwardRef<HTMLButtonElement, TradersHubCtaButtonPro
                 <Button
                     ref={ref}
                     size="lg"
+                    icon={LabelPairedGridLgBoldIcon}
+                    iconPosition="start"
                     onClick={handleRedirectToTradersHub}
                     className={className}
                     {...rest}

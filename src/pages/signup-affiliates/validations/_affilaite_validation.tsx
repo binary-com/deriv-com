@@ -47,8 +47,8 @@ const nameValidation = (input, text, min_digit, max_digit) => {
     ) {
         return (
             <Localize
-                translate_text="_t_You should enter {{min_digit}}-{{max_digit}} characters._t_"
-                values={{ min_digit: min_digit, max_digit: max_digit }}
+                translate_text="_t_You should enter {{min_digit}} characters._t_"
+                values={{ min_digit }}
             />
         )
     } else if (
@@ -63,8 +63,8 @@ const nameValidation = (input, text, min_digit, max_digit) => {
 const companyNameValidation = (input, min_digit, max_digit) => {
     const length_error = (
         <Localize
-            translate_text="_t_You should enter {{min_digit}}-{{max_digit}} characters._t_"
-            values={{ min_digit: min_digit, max_digit: max_digit }}
+            translate_text="_t_You should enter {{min_digit}} characters._t_"
+            values={{ min_digit }}
         />
     )
     if (!input) {
@@ -102,8 +102,8 @@ const passwordValidation = (input, min_digit, max_digit) => {
     ) {
         return (
             <Localize
-                translate_text="_t_You should enter {{min_digit}}-{{max_digit}} characters._t_"
-                values={{ min_digit: min_digit, max_digit: max_digit }}
+                translate_text="_t_You should enter {{min_digit}} characters._t_"
+                values={{ min_digit }}
             />
         )
     } else if (!affiliate_validation_regex.password.test(input)) {
@@ -123,8 +123,8 @@ const postcodeValidation = (input, min_digit, max_digit) => {
     ) {
         return (
             <Localize
-                translate_text="_t_You should enter {{min_digit}}-{{max_digit}} characters._t_"
-                values={{ min_digit: min_digit, max_digit: max_digit }}
+                translate_text="_t_You should enter {{min_digit}} characters._t_"
+                values={{ min_digit }}
             />
         )
     } else if (!affiliate_validation_regex.postal_code.test(input)) {
@@ -154,8 +154,8 @@ const streetValidation = (input, text, min_digit, max_digit) => {
     ) {
         return (
             <Localize
-                translate_text="_t_You should enter {{min_digit}}-{{max_digit}} characters._t_"
-                values={{ min_digit: min_digit, max_digit: max_digit }}
+                translate_text="_t_You should enter {{min_digit}} characters._t_"
+                values={{ min_digit }}
             />
         )
     } else if (!affiliate_validation_regex.address.test(input)) {
@@ -176,8 +176,8 @@ const cityValidation = (input, text, min_digit, max_digit) => {
     ) {
         return (
             <Localize
-                translate_text="_t_You should enter {{min_digit}}-{{max_digit}} characters._t_"
-                values={{ min_digit: min_digit, max_digit: max_digit }}
+                translate_text="_t_You should enter {{min_digit}} characters._t_"
+                values={{ min_digit }}
             />
         )
     } else if (!affiliate_validation_regex.city.test(input)) {

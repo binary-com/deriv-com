@@ -15,9 +15,11 @@ import {
     getLanguage,
     updateURLAsPerUserLanguage,
 } from 'common/utility'
-import './static/css/ibm-plex-sans-var.css'
 import './static/css/noto-sans-arabic.css'
 import './static/css/ubuntu.css'
+import './static/css/global.css'
+import '@deriv-com/blocks/style.css'
+import '@deriv-com/components/style.css'
 
 const is_browser = typeof window !== 'undefined'
 
@@ -122,7 +124,7 @@ export const onClientEntry = () => {
     }
     const dd_script = document.createElement('script')
     dd_script.type = 'text/javascript'
-    dd_script.text = `!function(e,a,t,n,s){e=e[s]=e[s]||{q:[],onReady:function(a){e.q.push(a)}},(s=a.createElement(t)).async=1,s.src=n,(n=a.getElementsByTagName(t)[0]).parentNode.insertBefore(s,n)}(window,document,"script","https://www.datadoghq-browser-agent.com/us1/v4/datadog-rum.js","DD_RUM"),window.DD_RUM.onReady(function(){window.DD_RUM.init(${JSON.stringify(
+    dd_script.text = `!function(e,a,t,n,s){e=e[s]=e[s]||{q:[],onReady:function(a){e.q.push(a)}},(s=a.createElement(t)).async=1,s.src=n,(n=a.getElementsByTagName(t)[0]).parentNode.insertBefore(s,n)}(window,document,"script","https://www.datadoghq-browser-agent.com/us1/v5/datadog-rum.js","DD_RUM"),window.DD_RUM.onReady(function(){window.DD_RUM.init(${JSON.stringify(
         dd_options,
     )})});`
     document.head.appendChild(dd_script)

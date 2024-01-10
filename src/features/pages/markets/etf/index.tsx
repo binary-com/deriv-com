@@ -10,13 +10,23 @@ import CheckTrading from './check-trading'
 import SignupPublic from 'features/components/templates/signup/with-banner'
 import Flex from 'features/components/atoms/flex-box'
 import OtherMarketsSlider from 'features/components/molecules/other-markets-slider'
-import MarketNav from 'features/components/templates/navigation/market-nav'
-import Footer from 'features/components/templates/footer/'
+import MainFooter from 'features/components/templates/footer/'
+import MainRowNavigation from 'features/components/templates/navigation/main-nav'
+import { usePlatformQueryParam } from 'components/hooks/use-platform-query-param'
+import MarketBottomNav from 'features/components/templates/navigation/template/market-bottom-nav'
 
 const ETFMarket = () => {
+    const { is_deriv_go } = usePlatformQueryParam()
     return (
         <Layout>
-            <MarketNav />
+            {!is_deriv_go && (
+                <div className="fixed z-[4] w-full">
+                    <MainRowNavigation />
+                    <div className="pt-[8rem]">
+                        <MarketBottomNav />
+                    </div>
+                </div>
+            )}
             <Banner />
             <TradeTypes />
             <Flex.Box
@@ -35,7 +45,7 @@ const ETFMarket = () => {
             <Steps />
             <OtherMarketsSlider current_market="etfs" />
             <SignupPublic />
-            <Footer />
+            <MainFooter />
         </Layout>
     )
 }

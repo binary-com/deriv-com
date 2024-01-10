@@ -10,12 +10,9 @@ exports.onPreBuild = async () => {
     await copyLibFiles(path.join(__dirname, 'static', '~partytown'))
 }
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
-exports.onCreatePage = ({ page, actions }) => {
-    const { createRedirect, createPage, deletePage } = actions
 
-    // First delete the incoming page that was automatically created by Gatsby
-    // So everything in src/pages/
-    deletePage(page)
+const BuildPage = (page, actions) => {
+    const { createRedirect, createPage } = actions
     const is_responsible_trading = /responsible/g.test(page.path)
     const is_contact_us = /contact_us/g.test(page.path)
     const is_careers = /careers/g.test(page.path)
@@ -348,6 +345,48 @@ exports.onCreatePage = ({ page, actions }) => {
 
         return current_page
     })
+}
+exports.onCreatePage = ({ page, actions }) => {
+    const { deletePage } = actions
+    const isProduction = process.env.GATSBY_ENV === 'production'
+    const pagesToBuild = process.env.GATSBY_BUILD_PAGES || 'all'
+
+    // First delete the incoming page that was automatically created by Gatsby
+    // So everything in src/pages/
+    deletePage(page)
+
+    const pagesCategory = {
+        all: [''],
+        'no-affiliates': ['signup-affiliates', 'landing', 'ctrader', 'partners'],
+        'no-help-centre': ['help-centre'],
+        'no-tools': ['trader-tools'],
+        fast: [
+            'signup-affiliates',
+            'landing',
+            'ctrader',
+            'partners',
+            'help-centre',
+            'trader-tools',
+            'careers',
+            // 'markets',
+            // 'trade-types' Note: Feel free to adjust pages you want to skip building for faster local development
+        ],
+    }
+
+    const disallowedPages = pagesCategory[pagesToBuild] || []
+
+    const regex = new RegExp(`/${disallowedPages.join('|') + '|'}/g`)
+
+    const isMatch = regex.test(page.path)
+
+    if (isProduction) {
+        return BuildPage(page, actions)
+    } else {
+        if (!isMatch || pagesToBuild === 'all') {
+            console.log(`\x1b[32mcreating\x1b[0m [${pagesToBuild}] ${page.path}`)
+            return BuildPage(page, actions)
+        }
+    }
 }
 
 const StylelintPlugin = require('stylelint-webpack-plugin')

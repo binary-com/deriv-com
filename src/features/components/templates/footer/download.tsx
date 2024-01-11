@@ -10,6 +10,11 @@ import { StaticImage } from 'gatsby-plugin-image'
 import { CustomLink } from '@deriv-com/components'
 import { localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
+import {
+    deriv_go_huaweiappgallery_url,
+    deriv_go_ios_url,
+    deriv_go_playstore_url,
+} from 'common/constants'
 
 const sharedClasses =
     'flex items-center justify-center gap-gap-md p-general-sm rounded-[4px] border-solid border-xs border-opacity-black-100'
@@ -21,7 +26,7 @@ const DownloadBadges = () => {
         <div className="flex flex-col gap-gap-md max-lg:flex-1">
             {is_appgallery_supported && is_appgallery_and_ios_supported && (
                 <CustomLink
-                    href="https://appgallery.huawei.com/app/C103801913"
+                    href={deriv_go_huaweiappgallery_url}
                     target="_blank"
                     className={clsx(sharedClasses, 'order-last')}
                 >
@@ -36,7 +41,7 @@ const DownloadBadges = () => {
                 </CustomLink>
             )}
             <CustomLink
-                href="https://play.google.com/store/apps/details?id=com.deriv.app"
+                href={deriv_go_playstore_url}
                 target="_blank"
                 className={clsx(sharedClasses)}
             >
@@ -50,11 +55,7 @@ const DownloadBadges = () => {
                 />
             </CustomLink>
             {is_ios_supported && is_appgallery_and_ios_supported && (
-                <CustomLink
-                    href="https://apps.apple.com/my/app/deriv-go-online-trading-app/id1550561298"
-                    target="_blank"
-                    className={clsx(sharedClasses)}
-                >
+                <CustomLink href={deriv_go_ios_url} target="_blank" className={clsx(sharedClasses)}>
                     <LabelPairedAppleLgIcon fill="#000000b8" />
                     <StaticImage
                         src="../../../../images/common/migration/footer/download-appstore.png"

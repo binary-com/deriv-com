@@ -52,7 +52,6 @@ jobs:
             - run: npm run format
             - run: npm run test
             - run: npm run build
-            - run: echo $GIT_TAG_NAME > public/version.txt
 
             - name: Remove Storybook
               uses: JesseTG/rm@v1.0.2
@@ -61,6 +60,8 @@ jobs:
 
             - uses: olegtarasov/get-tag@v2.1
               id: tagName
+            - run: echo $GIT_TAG_NAME > public/version.txt
+
               # For using same tag for staging and production we need to uncomment these two below lines:
               # with:
               #   tagRegex: "production(.*)"
@@ -73,7 +74,11 @@ jobs:
 
             - name: Cloudflare production link ✨
               run: echo "New website - http://cf-pages-deriv-com.deriv.com"
-
+            - name: upload-artifact
+              uses: actions/upload-artifact@v4
+              with:    
+                name: production
+                path: public
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
               with:
@@ -92,9 +97,22 @@ jobs:
               if: always()
 
     build_and_publish_to_docker_k8s:
-        runs-on: Runner_8cores_Deriv-app
+        runs-on: Runner_16cores
         environment: production
         steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v2.3.1
+            - name: Setup Node
+              uses: actions/setup-node@v2
+              with:
+                  node-version: '18.x'
+            - name: Download Artifact
+              uses: actions/download-artifact@v4
+              with:
+                  name: production
+                  path: public
+            - name: Set version env variable
+              run: echo "GIT_TAG_NAME=$(cat public/version.txt)" >> $GITHUB_ENV
             - name: Building docker image 🐳
               run: docker build -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GIT_TAG_NAME .
 
@@ -140,4 +158,4 @@ jobs:
                     }
               env:
                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-              if: ${{ steps.build_and_push_docker_image.outcome != 'success' }}
+              if: failure()

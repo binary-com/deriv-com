@@ -34,7 +34,7 @@ const AwardBannerEu = ({ title, subtitle }: AwardProps) => {
                     justify="center"
                     direction="col"
                     className={styles.content_eu}
-                    padding="8x"
+                    padding="12x"
                     md={{ padding: '10x' }}
                 >
                     <StaticImage
@@ -51,7 +51,7 @@ const AwardBannerEu = ({ title, subtitle }: AwardProps) => {
                     justify="center"
                     direction="col"
                     className={styles.content_eu}
-                    padding="8x"
+                    padding="12x"
                     md={{ padding: '10x' }}
                 >
                     <StaticImage

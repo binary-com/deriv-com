@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, lazy, Suspense } from 'react'
 import { FluidContainer, Heading, Section, Text } from '@deriv/quill-design'
 import clsx from 'clsx'
 import { StaticImage } from 'gatsby-plugin-image'
@@ -6,8 +6,6 @@ import {
     hero_container,
     hero_content,
     hero_content_gradient,
-    hero_img,
-    hero_img_eu,
     hero_content_text,
     hero_content_btn,
 } from './styles.module.scss'
@@ -16,6 +14,8 @@ import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
 import { isEuDomain } from 'common/utility'
+const EUImage = lazy(() => import('./eu-image'))
+const ROWImage = lazy(() => import('./row-image'))
 
 export interface HomeHeroProps {
     children?: ReactNode
@@ -66,27 +66,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                     />
                 </div>
                 {(!isEuDomain() || !is_eu) && <HeroAwardImages />}
-                {isEuDomain() || is_eu ? (
-                    <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img_eu)}>
-                        <StaticImage
-                            src="../../../../images/migration/home/home_hero_new_eu.png"
-                            alt="hero image"
-                            placeholder="none"
-                            formats={['auto', 'webp']}
-                            loading="eager"
-                        />
-                    </div>
-                ) : (
-                    <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img)}>
-                        <StaticImage
-                            src="../../../../images/migration/home/home_hero_new.png"
-                            alt="hero image"
-                            placeholder="none"
-                            formats={['auto', 'webp']}
-                            loading="eager"
-                        />
-                    </div>
-                )}
+                <Suspense fallback={<div />}>{isEuDomain() ? <EUImage /> : <ROWImage />}</Suspense>
             </FluidContainer>
             <div className={clsx('absolute -z-10 inset-50', hero_content_gradient)}></div>
         </Section>

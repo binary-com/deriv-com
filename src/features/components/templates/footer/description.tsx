@@ -10,7 +10,7 @@ export const DescriptionContent = () => {
         <>
             <Text size="sm">
                 <Localize
-                    translate_text="_t_Deriv (FX) Ltd is licensed by the Labuan Financial Services Authority <0>(licence)</0>. Deriv (BVI) Ltd is licensed by the British Virgin Islands Financial Services Commission <1>(licence)</1>. Deriv (V) Ltd is licensed by the Vanuatu Financial Services Commission <2>(licence)</2>. Deriv (SVG) LLC has a registered office at First Floor, SVG Teachers Credit Union Uptown Building, Corner of James and Middle Street, Kingstown P.O., St Vincent and the Grenadines. Deriv.com Limited is the holding company for the above subsidiaries with the registration number 71479 and the registered address is located at 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ._t_"
+                    translate_text="_t_Deriv (FX) Ltd is licensed by the Labuan Financial Services Authority <0>(licence)</0>. Deriv (BVI) Ltd is licensed by the British Virgin Islands Financial Services Commission <1>(licence)</1>. Deriv (V) Ltd is licensed by the Vanuatu Financial Services Commission <2>(licence)</2>. Deriv (SVG) LLC has a registered office at First Floor, SVG Teachers Credit Union Uptown Building, Corner of James and Middle Street, Kingstown P.O., St Vincent and the Grenadines. The holding company for these subsidiaries is Deriv.com Limited, with the registration number 71479 and the registered address at 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ._t_"
                     components={[
                         <a
                             className={clsx(sharedClasses)}
@@ -61,7 +61,7 @@ export const DescriptionContentEU = () => {
         <>
             <Text size="sm">
                 <Localize
-                    translate_text="_t_Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority under the Investment Services Act <0>(licence)</0>. Deriv Holdings (Guernsey) Limited is the holding company for the above subsidiary with the registration number 71479 and the registered address of 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ._t_"
+                    translate_text="_t_Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority under the Investment Services Act <0>(licence)</0>. The holding company for this subsidiary is Deriv.com Limited, with the registration number 71479 and the registered address at 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ._t_"
                     components={[
                         <a
                             className={clsx(sharedClasses)}
@@ -100,7 +100,7 @@ export const DescriptionContentCPA = () => {
         <>
             <Text size="sm">
                 <Localize
-                    translate_text="_t_Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority under the Investment Services Act (<0>licence</0>). Deriv (FX) Ltd is licensed by the Labuan Financial Services Authority (<1>licence</1>). Deriv (BVI) Ltd is licensed by the British Virgin Islands Financial Services Commission (<2>licence</2>). Deriv (V) Ltd is licensed by the Vanuatu Financial Services Commission (<3>licence</3>). Deriv (SVG) LLC has a registered office at First Floor, SVG Teachers Credit Union Uptown Building, Corner of James and Middle Street, Kingstown P.O., St Vincent and the Grenadines. Deriv.com Limited is the holding company for the above subsidiaries with the registration number 71479 and the registered address is located at 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ._t_"
+                    translate_text="_t_Deriv Investments (Europe) Limited is licensed and regulated by the Malta Financial Services Authority under the Investment Services Act (<0>licence</0>). Deriv (FX) Ltd is licensed by the Labuan Financial Services Authority (<1>licence</1>). Deriv (BVI) Ltd is licensed by the British Virgin Islands Financial Services Commission (<2>licence</2>). Deriv (V) Ltd is licensed by the Vanuatu Financial Services Commission (<3>licence</3>). Deriv (SVG) LLC has a registered office at First Floor, SVG Teachers Credit Union Uptown Building, Corner of James and Middle Street, Kingstown P.O., St Vincent and the Grenadines. The holding company for these subsidiaries is Deriv.com Limited, with the registration number 71479 and the registered address at 2nd Floor, 1 Cornet Street, St Peter Port, Guernsey, GY1 1BZ._t_"
                     components={[
                         <a
                             className={clsx(sharedClasses)}

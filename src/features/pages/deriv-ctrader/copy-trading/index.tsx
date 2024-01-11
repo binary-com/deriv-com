@@ -30,6 +30,7 @@ const CopyTrading = () => {
                         align="left"
                         mb={'12x'}
                         className={copy_trading_header}
+                        font_family="IBM"
                     >
                         <Localize translate_text={'_t_Copy trading on Deriv cTrader_t_'} />
                     </Typography.Heading>
@@ -48,7 +49,7 @@ const CopyTrading = () => {
                 </Flex.Box>
 
                 <Flex.Box direction={'col'}>
-                    <Typography.Heading size="small" align={'left'} mb={'12x'}>
+                    <Typography.Heading size="small" align={'left'} mb={'12x'} font_family="IBM">
                         <Localize translate_text={'_t_Why copy trade?_t_'} />
                     </Typography.Heading>
                     <Flex.Box direction={'col'} align={'start'} gap="8x">

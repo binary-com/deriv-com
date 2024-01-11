@@ -4269,7 +4269,7 @@
   "-26610045": "Add an affiliate account",
   "-435672026": "Wrong email",
   "-265889213": "Empty input not available",
-  "-1787546919": "You should enter ${min_digit}-${max_digit} characters.",
+  "-1787546919": "You should enter 2-256 characters.",
   "-442533603": "Incorrect company name",
   "-840841662": "Only Latin characters",
   "-1430656728": "Password is required",

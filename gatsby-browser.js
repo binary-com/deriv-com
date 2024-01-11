@@ -105,7 +105,6 @@ export const onClientEntry = () => {
         device_language: navigator?.language || ' ',
         device_type: isMobile ? 'mobile' : 'desktop',
     })
-    Analytics?.identifyEvent()
     //datadog
     const dd_options = {
         clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,

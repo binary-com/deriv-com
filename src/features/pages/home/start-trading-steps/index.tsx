@@ -11,7 +11,11 @@ const StartTradingSteps = () => {
         <Features.Card
             className="xl:[&>*:nth-child(1)]:!px-50"
             title={<Localize translate_text="_t_Start trading in 3 simple steps_t_" />}
-            cta={<TradersHubCtaButton className="hidden lg:block" />}
+            cta={
+                <div className="hidden lg:block">
+                    <TradersHubCtaButton className="flex" />
+                </div>
+            }
             cols="three"
             variant="ContentTop"
             cards={is_eu ? EUCards : RowCards}

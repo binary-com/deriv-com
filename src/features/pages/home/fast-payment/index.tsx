@@ -8,7 +8,7 @@ const FastPaymentSection: React.FC = () => {
     const { is_eu } = useRegion()
     return (
         <FastPayment
-            title={<Localize translate_text="_t_Fast, hassle-free deposits & withdrawal_t_" />}
+            title={<Localize translate_text="_t_Fast, hassle-free deposits & withdrawals_t_" />}
             description={
                 !is_eu ? (
                     <Localize translate_text="_t_60+ global payment methods. Deposit instantly starting from just USD 5. Withdraw in minutes.*_t_" />

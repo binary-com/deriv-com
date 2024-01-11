@@ -400,6 +400,7 @@ const style_lint_options = {
 exports.onCreateWebpackConfig = ({ actions, loaders }, { ...options }) => {
     actions.setWebpackConfig({
         devtool: false,
+        cache: false,
         optimization: {
             minimize: true,
             minimizer: [new TerserPlugin()],

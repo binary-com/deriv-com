@@ -62,4 +62,5 @@ export const translation_strings = [
     '_t_60+ global payment methods. Deposit instantly starting from just USD 5. Withdraw in minutes.*_t_',
     '_t_* Availability of payment methods and processing speeds may vary based on location and selected payment option_t_',
     '_t_Trade CFDs & Multipliers_t_',
+    "_t_Trader's Hub_t_",
 ]

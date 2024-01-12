@@ -63,7 +63,7 @@ const AboutUs = ({ data }: TWhoWeAre) => {
             <EndSeparator />
             <AwardBannerEu
                 title="_t_Our certifications_t_"
-                subtitle="_t_We are proud to be recognised as a Great Place to Work™ and certified Gold in Investors in People._t_"
+                subtitle="_t_We are proud to be recognised as a Great Place to Work™ and certified Platinum in Investors in People._t_"
             />
             <OurPrinciples our_principles={our_principles} />
             {is_eu ? null : <AwardBanner title="_t_Our awards_t_" />}

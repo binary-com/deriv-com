@@ -414,7 +414,7 @@ exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }, { ...options }
                 maxAsyncRequests: 5,
                 maxInitialRequests: 3,
                 automaticNameDelimiter: '~',
-                name: true,
+                name: 'deriv-js',
                 cacheGroups: {
                     vendors: {
                         test: /[\\/]node_modules[\\/]/,

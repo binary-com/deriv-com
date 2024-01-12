@@ -44,7 +44,7 @@ const LayoutOverlay = () => {
                     className="flex flex-col"
                     style={{
                         marginBlockEnd: `${calculatePercentageOfNumber(
-                            (visibilityPercentage - 100) * -1,
+                            100 - visibilityPercentage,
                             68,
                         )}px`,
                     }}

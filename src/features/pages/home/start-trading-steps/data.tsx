@@ -23,6 +23,7 @@ export const RowCards: CardContent[] = [
         align: 'center',
         size: 'md',
         contentClassName: 'px-general-lg pt-general-lg',
+        nonContentClassName: '[&>*:nth-child(1)]:!flex-1',
     },
     {
         id: 2,
@@ -43,6 +44,7 @@ export const RowCards: CardContent[] = [
         align: 'center',
         size: 'md',
         contentClassName: 'px-general-lg pt-general-lg',
+        nonContentClassName: '[&>*:nth-child(1)]:!flex-1',
     },
     {
         id: 3,
@@ -63,6 +65,7 @@ export const RowCards: CardContent[] = [
         align: 'center',
         size: 'md',
         contentClassName: 'px-general-lg pt-general-lg',
+        nonContentClassName: '[&>*:nth-child(1)]:!flex-1',
     },
 ]
 
@@ -86,6 +89,7 @@ export const EUCards: CardContent[] = [
         align: 'center',
         size: 'md',
         contentClassName: 'px-general-lg pt-general-lg',
+        nonContentClassName: '[&>*:nth-child(1)]:!flex-1',
     },
     {
         id: 2,
@@ -106,6 +110,7 @@ export const EUCards: CardContent[] = [
         align: 'center',
         size: 'md',
         contentClassName: 'px-general-lg pt-general-lg',
+        nonContentClassName: '[&>*:nth-child(1)]:!flex-1',
     },
     {
         id: 3,
@@ -126,5 +131,6 @@ export const EUCards: CardContent[] = [
         align: 'center',
         size: 'md',
         contentClassName: 'px-general-lg pt-general-lg',
+        nonContentClassName: '[&>*:nth-child(1)]:!flex-1',
     },
 ]

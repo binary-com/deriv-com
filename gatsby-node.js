@@ -404,31 +404,6 @@ exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }, { ...options }
     actions.setWebpackConfig({
         devtool: false,
         mode: isProduction ? 'production' : 'development',
-        optimization: {
-            minimize: isProduction,
-            minimizer: [new TerserPlugin()],
-            splitChunks: {
-                chunks: 'all',
-                minSize: 30000,
-                maxSize: 0,
-                minChunks: 1,
-                maxAsyncRequests: 5,
-                maxInitialRequests: 3,
-                automaticNameDelimiter: '~',
-                name: true,
-                cacheGroups: {
-                    vendors: {
-                        test: /[\\/]node_modules[\\/]/,
-                        priority: -10,
-                    },
-                    default: {
-                        minChunks: 2,
-                        priority: -20,
-                        reuseExistingChunk: true,
-                    },
-                },
-            },
-        },
         plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],

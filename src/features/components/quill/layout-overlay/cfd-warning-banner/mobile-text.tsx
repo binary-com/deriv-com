@@ -15,12 +15,12 @@ const UnexpandedText = ({ loss_percent }: TextProps) => {
     const [expanded, setExpanded] = useState(false)
     const { setCtaBottom } = useFloatingCtaContext()
     const { width } = useWindowSize()
-    const ref = useRef<HTMLParagraphElement>(null)
+    const ref = useRef<HTMLDivElement>(null)
     useEffect(() => {
         if (width < 640) {
-            setCtaBottom(ref.current?.clientHeight) // 40 is the padding of top and bottom of it's container
+            setCtaBottom(ref.current?.clientHeight)
         }
-    }, [setCtaBottom, width])
+    }, [setCtaBottom, width, expanded])
 
     const toggleExpansion = () => {
         setExpanded((prev) => !prev)

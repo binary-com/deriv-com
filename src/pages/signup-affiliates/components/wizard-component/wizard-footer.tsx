@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Button from 'components/form/button'
 import { Localize } from 'components/localization'
 import { WizardComponentTypes } from 'pages/signup-affiliates/_types'
-import trackEvent from 'pages/signup-affiliates/utils/_tracking'
+import { trackEvent } from 'pages/signup-affiliates/utils/_utils'
 import device from 'themes/device'
 
 const StyledFooter = styled.div`
@@ -64,7 +64,7 @@ const WizardFooter = ({
                     step_num: step,
                     step_codename: getCodeName(step),
                 })
-                step > 1 && setStep(step - 1)
+                step > 1 && setStep((prev) => prev - 1)
             }
             if (button_type === ButtonType.Next) {
                 trackEvent({
@@ -72,7 +72,7 @@ const WizardFooter = ({
                     step_num: step,
                     step_codename: getCodeName(step),
                 })
-                step < max_step && setStep(step + 1)
+                step < max_step && setStep((prev) => prev + 1)
             }
         },
         [max_step, setStep, step],

@@ -4,13 +4,20 @@ import pMinDelay from 'p-min-delay'
 import loadable from '@loadable/component'
 import CfdWarningBanner from './cfd-warning-banner'
 import { useIsRtl } from 'components/hooks/use-isrtl'
+import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
 
 const LiveChatButton = loadable(() => pMinDelay(import('./live-chat-button'), 5000))
 const WhatsappButton = loadable(() => pMinDelay(import('./whats-app-button'), 5000))
 const CookieBanner = lazy(() => import('./cookie-banner'))
 
+function calculatePercentageOfNumber(percentage: number, number: number) {
+    const result = (percentage / 100) * number
+    return result.toFixed(2)
+}
+
 const LayoutOverlay = () => {
     const is_rtl = useIsRtl()
+    const { visibilityPercentage } = useFloatingCtaContext()
 
     return (
         <div
@@ -33,7 +40,15 @@ const LayoutOverlay = () => {
                         <CookieBanner />
                     </Suspense>
                 </div>
-                <div className="flex flex-col">
+                <div
+                    className="flex flex-col"
+                    style={{
+                        marginBlockEnd: `${calculatePercentageOfNumber(
+                            (visibilityPercentage - 100) * -1,
+                            68,
+                        )}px`,
+                    }}
+                >
                     <LiveChatButton />
                     <WhatsappButton />
                 </div>

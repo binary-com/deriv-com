@@ -408,24 +408,24 @@ exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }, { ...options }
             minimizer: [new TerserPlugin()],
             splitChunks: {
                 chunks: 'all',
-                minSize: 30000,
-                maxSize: 0,
-                minChunks: 1,
-                maxAsyncRequests: 5,
-                maxInitialRequests: 3,
-                automaticNameDelimiter: '~',
-                name: 'deriv-js',
-                cacheGroups: {
-                    vendors: {
-                        test: /[\\/]node_modules[\\/]/,
-                        priority: -10,
-                    },
-                    default: {
-                        minChunks: 2,
-                        priority: -20,
-                        reuseExistingChunk: true,
-                    },
-                },
+                minSize: 1500000,
+                maxSize: 2000000,
+                // minChunks: 1,
+                // maxAsyncRequests: 5,
+                // maxInitialRequests: 3,
+                // automaticNameDelimiter: '~',
+                name: 'deriv-v1',
+                // cacheGroups: {
+                //     vendors: {
+                //         test: /[\\/]node_modules[\\/]/,
+                //         priority: -10,
+                //     },
+                //     default: {
+                //         minChunks: 2,
+                //         priority: -20,
+                //         reuseExistingChunk: true,
+                //     },
+                // },
             },
         },
         plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],

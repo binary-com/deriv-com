@@ -11,7 +11,7 @@
     font-family: 'IBM Plex Sans';
     font-style: normal;
     font-display: swap;
-    src: url('../fonts/IBMPlexSans-Bold.woff2') format('woff2');
+    src: url('../fonts/combined-font/IBMPlexSansVar-Italic-bold-regular.woff2');
     font-weight: bold;
 }
 

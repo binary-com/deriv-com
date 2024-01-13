@@ -59,7 +59,7 @@ const CopyTrading = () => {
                                     key={card.title}
                                     direction={'row'}
                                     justify={'center'}
-                                    align={'center'}
+                                    align={'start'}
                                     mt={'12x'}
                                     gap="8x"
                                     md={{ gap: '12x' }}

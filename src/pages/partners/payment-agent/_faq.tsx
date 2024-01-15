@@ -59,8 +59,8 @@ const Faq = () => {
                         parent_style={parent_style}
                         style={item_style}
                         header_style={header_style}
-                        plus
-                        class_name="general"
+                        true
+                        class_name="General"
                     >
                         <General />
                     </AccordionItem>
@@ -68,8 +68,8 @@ const Faq = () => {
                         header="_t_Account management_t_"
                         style={item_style}
                         header_style={header_style}
-                        plus
-                        class_name="account-management"
+                        true
+                        class_name="AccountManagement"
                     >
                         <AccountManagement />
                     </AccordionItem>

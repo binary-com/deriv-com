@@ -4287,7 +4287,7 @@
   "-26610045": "Ajouter un compte d'affilié",
   "-435672026": "Courriel erroné",
   "-265889213": "Entrée vide non disponible",
-  "-1787546919": "Vous devez saisir ${min_digit}à${max_digit} caractères.",
+  "-1302509916": "Vous devez saisir 2 - 256 caractères.",
   "-442533603": "Nom d'entreprise incorrect",
   "-840841662": "Uniquement les caractères latins",
   "-1430656728": "Mot de passe requis",

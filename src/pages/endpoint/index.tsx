@@ -110,21 +110,27 @@ const Endpoint = () => {
         }, STATUS_TIMEOUT_DELAY)
     }
     const resetEndpointSettings = (setStatus: (status?: unknown) => void) => {
-        // reset local storage values
-        setResetLoading(true)
-        setServerUrl()
-        setAppId()
-        // adding the default storage values
-        setTimeout(() => {
-            setServerUrl(default_server_url)
-            setAppId(getAppId())
+        try {
+            // reset local storage values
+            setResetLoading(true)
+            setServerUrl()
+            setAppId()
+            // adding the default storage values
+            setTimeout(() => {
+                setServerUrl(default_server_url)
+                setAppId(getAppId())
+                setResetLoading(false)
+            }, RESET_TIMEOUT_DELAY)
+            // reset website status values
+            setWebsiteStatus()
+            handleStatus(setStatus, 'Config has been reset successfully')
+        } catch (error) {
+            handleStatus(setStatus, 'An error occurred while resetting the configuration.')
+        } finally {
             setResetLoading(false)
-        }, RESET_TIMEOUT_DELAY)
-        // reset website status values
-        setWebsiteStatus()
-        handleStatus(setStatus, 'Config has been reset successfully')
-        // TODO: if there is a change requires reload in the future
-        window.location.reload()
+            // TODO: if there is a change requires reload in the future
+            window.location.reload()
+        }
     }
     const endpointSubmission = (values: ValuesType, actions: ActionsType) => {
         actions.setSubmitting(true)

@@ -203,7 +203,9 @@ const WhoCanApply = () => {
                                     <Content min_width="240px" max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title" pb="8px">
                                             <Localize translate_text="_t_Drop us an email_t_" />
-                                        </Header>
+                                        </Header>,
+                                        <br />,
+                                        <br />
                                         <Header as="h4" type="paragraph-1" weight="normal">
                                             <Localize translate_text="_t_Send us an email with the following:_t_" />
                                         </Header>

@@ -18,7 +18,9 @@ import {
 import './static/css/noto-sans-arabic.css'
 import 'swiper/swiper-bundle.min.css'
 import 'features/styles/app.scss'
+import './static/css/ubuntu.css'
 import './static/css/global.css'
+import '@deriv-com/blocks/style.css';
 
 const is_browser = typeof window !== 'undefined'
 
@@ -104,7 +106,6 @@ export const onClientEntry = () => {
         device_language: navigator?.language || ' ',
         device_type: isMobile ? 'mobile' : 'desktop',
     })
-    Analytics?.identifyEvent()
     //datadog
     const dd_options = {
         clientToken: process.env.GATSBY_DATADOG_CLIENT_TOKEN,

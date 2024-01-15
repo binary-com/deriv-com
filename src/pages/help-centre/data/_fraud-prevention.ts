@@ -275,7 +275,7 @@ const fraud_prevention: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_For security reasons, all confidential requests and issues are done via live chat with our Customer Support team._t_',
+                        '_t_For security reasons, all confidential requests and issues are done via <0>live chat</0> with our Customer Support team._t_',
                     translation_components: [
                         {
                             key: 0,

@@ -275,10 +275,10 @@ const WhoCanApply = () => {
                     id="dm-page-affiliate-email-apply"
                     secondary
                     external
-                    to="mailto:partners@deriv.com"
+                    href="mailto:partners@deriv.com"
                     is_mail_link
                 >
-                    <Localize translate_text="_t_Send us an email to apply_t_" />
+                    <Localize translate_text="_t_Contact us to apply_t_" />
                 </StyledLinkButton>
             </ButtonWrapper>
         </SectionWrapper>

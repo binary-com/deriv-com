@@ -23,6 +23,12 @@
     }
 }
 
+.sign_up_content {
+    font-size: 10px;
+    @include breakpoints(laptop) {
+        font-size: 12px;
+    }
+}
 .signup_login_redirect {
     cursor: pointer;
 }

@@ -4,6 +4,7 @@ import {
     signup_form_line,
     link_text,
     sign_up_header,
+    sign_up_content,
 } from '../signup.module.scss'
 import FormSocialButtons from './form-social-buttons'
 import SignUpPageForm from './signup-page-form'
@@ -12,12 +13,9 @@ import Typography from 'features/components/atoms/typography'
 import { Localize } from 'components/localization'
 import Link from 'features/components/atoms/link'
 import useRegion from 'components/hooks/use-region'
-import useBreakpoints from 'components/hooks/use-breakpoints'
 
 const SignUpFormContainer = () => {
     const { is_eu } = useRegion()
-
-    const { is_mobile_or_tablet } = useBreakpoints()
 
     const security_pdf_link = `/tnc${is_eu ? '/eu' : ''}/security-and-privacy.pdf`
 
@@ -39,7 +37,7 @@ const SignUpFormContainer = () => {
             </Typography.Heading>
 
             <SignUpPageForm />
-            <Typography.Paragraph textcolor="secondary" size={is_mobile_or_tablet ? 'small' : 'xs'}>
+            <Typography.Paragraph textcolor="secondary" className={sign_up_content}>
                 <Localize
                     translate_text="_t_By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>._t_"
                     components={[

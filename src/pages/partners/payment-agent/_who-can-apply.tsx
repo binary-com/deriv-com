@@ -12,6 +12,7 @@ import {
     SecondaryHeader,
 } from '../affiliate-ib/_who-can-apply'
 import { Flex } from 'components/containers'
+import { useTranslation } from 'react-i18next'
 import { Localize } from 'components/localization'
 import { Header, LocalizedLinkText, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -144,7 +145,7 @@ const WhoCanApply = () => {
                 <Flex>
                     <WhoCanApplyWrapper>
                         <StyledHeader as="h2" size="3.6rem">
-                            <Localize translate_text="_t_Who can apply_t_" />
+                            <Localize translate_text="_t_Who can apply_t_" />{t('Who can apply')}
                         </StyledHeader>
                         {section_content.map((item, index) => (
                             <SectionComponent

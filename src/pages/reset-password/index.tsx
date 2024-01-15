@@ -76,10 +76,10 @@ const ResetPassword = () => {
             })
     }
 
-    const resetValidation = (values: EmailType) => {
+    const resetValidation = (values: EmailType): ErrorType => {
         const errors: ErrorType = {}
         const email = trimSpaces(values.email)
-        const email_error = validation.required(email) || validation.email(email)
+        const email_error = validation.required({value: email, msg: '_t_This field is required_t_'}) || validation.email(email)
         setApiError('')
         if (email_error) {
             errors.email = email_error

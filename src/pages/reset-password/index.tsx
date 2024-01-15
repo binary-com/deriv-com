@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Form, Formik } from 'formik'
+import { Form, Formik, Field, ErrorMessage } from 'formik'
 import Layout from 'components/layout/layout'
 import { Localize, localize, WithIntl } from 'components/localization'
 import { Container, SEO } from 'components/containers'
@@ -46,7 +47,7 @@ const ResetPassword = () => {
 
     const resetSubmission = (values: EmailType, actions) => {
         apiManager
-            .augmentedSend('verify_email', {
+            .augmentedSend('verifyEmail', {
                 verify_email: trimSpaces(values.email),
                 type: 'reset_password',
             })

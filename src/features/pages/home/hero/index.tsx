@@ -1,4 +1,4 @@
-import React, { ReactNode, lazy, Suspense } from 'react'
+import React, { ReactNode } from 'react'
 import { FluidContainer, Heading, Section, Text } from '@deriv/quill-design'
 import clsx from 'clsx'
 import { StaticImage } from 'gatsby-plugin-image'
@@ -10,12 +10,11 @@ import {
     hero_content_btn,
 } from './styles.module.scss'
 import HeroAwardImages from './award-images'
+import HeroImage from './hero-image'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
-import { isEuDomain } from 'common/utility'
-const EUImage = lazy(() => import('./eu-image'))
-const ROWImage = lazy(() => import('./row-image'))
+import { isBrowser, isEuDomain } from 'common/utility'
 
 export interface HomeHeroProps {
     children?: ReactNode
@@ -66,7 +65,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                     />
                 </div>
                 {(!isEuDomain() || !is_eu) && <HeroAwardImages />}
-                <Suspense fallback={<div />}>{isEuDomain() ? <EUImage /> : <ROWImage />}</Suspense>
+                {isBrowser() && <HeroImage />}
             </FluidContainer>
             <div className={clsx('absolute -z-10 inset-50', hero_content_gradient)}></div>
         </Section>

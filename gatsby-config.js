@@ -50,12 +50,15 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
-        // [TODO] Enable this when we have a proper setup to enable caching, Otherwise it will cause one of them stop working.
-        //     resolve: `gatsby-plugin-offline`,
-        //     options: {
-        //         // precachePages: [`/`],
-        //     },
-        // },
+        {
+            resolve: 'gatsby-plugin-htaccess',
+            options: {
+              https: true,
+              SymLinksIfOwnerMatch: true,
+              host: 'deriv.com',
+              custom: `Header set Permissions-Policy "browsing-topics=()"`,
+            },
+          },
         'gatsby-plugin-postcss',
         {
             resolve: 'gatsby-plugin-sass',

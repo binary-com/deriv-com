@@ -8,15 +8,15 @@
 -   [Get latest Changes](#get-latest-changes)
 -   [Resolve translation conflict on message.json](#resolve-translation-conflict-on-message.json)
 
-## Commit message guidelines
+## Updated Commit message guidelines
 
 We have a set of precise rules over how our git commit messages can be formatted. This leads to more **readable messages** that are easy to follow when looking through the **project history**.
 
-Each commit message will consist of **type** and **subject**:
+Each commit message will consist of the **type** and **subject**:
 
 ```sh
-<type>|<...other_types>:<space><subject>
-For example  "fix: hero image padding"
+<type>: <subject>
+For example:  "fix: hero image padding"
 ```
 
 ### Type
@@ -32,8 +32,8 @@ Must be one of the following:
 -   **perf**: A code change that improves performance
 -   **refactor**: A code change that neither fixes a bug nor adds a feature
 -   **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
--   **text**: Adding text or updating text only
--   **empty**: Rare cases for re-deploying when deployment server is down
+-   **translate**: Adding or updating translations
+-   **deployment**: Rare cases for re-deploying when deployment server is down
 -   **revert**: A commit reverts a previous commit
 
 ## Changing base branch
@@ -61,7 +61,7 @@ git pull upstream master|crowdin --rebase
 or
 
 ```sh
-git pull upstream master|crowdin
+git pull upstream master --rebase
 ```
 
 both of these will do the job. However, rebase won't add another commit to your PR where without rebase it will add commit history of merging the latest changes to your branch.

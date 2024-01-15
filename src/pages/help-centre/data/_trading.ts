@@ -117,7 +117,7 @@ const trading: TQuestionsData = {
             answer: [
                 {
                     translation_text:
-                        '_t_We have a diverse suite of 8 trading platforms: <0>Deriv MT5</0>, <1>Deriv X</1>, <2>Deriv cTrader</2>, <3>Deriv Trader</3>, <4>Deriv Bot</4>, <5>Deriv GO</5>, <6>SmartTrader</6>, and <7>Binary Bot</7>. Each of these platforms is designed to fit any trading style, regardless of your trading experience._t_',
+                        '_t_We have a diverse suite of 8 trading platforms:<br/> <0>Deriv MT5</0>, <1>Deriv X</1>, <2>Deriv cTrader</2>, <3>Deriv Trader</3>, <4>Deriv Bot</4>, <5>Deriv GO</5>, <6>SmartTrader</6>, and <7>Binary Bot</7>. Each of these platforms is designed to fit any trading style, regardless of your trading experience._t_',
                     eu_translation_text:
                         '_t_We offer 2 trading platforms in the EU: <0>Deriv MT5</0> (CFDs) and <2>Deriv Trader</2> (multipliers). They’re designed to fit any trading style and give you access to financial and derived markets._t_',
                     translation_components: [

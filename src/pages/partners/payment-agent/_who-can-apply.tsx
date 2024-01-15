@@ -136,6 +136,9 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
     )
 }
 const WhoCanApply = () => {
+    // Verify user's organization
+    const isVerifiedUserOrganization = verifyUserOrganization();
+    if (!isVerifiedUserOrganization) return null;
     const { is_p2p_allowed_country } = useRegion()
 
     return (

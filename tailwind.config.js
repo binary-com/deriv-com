@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ['./src/**/*.{js,jsx,ts,tsx}'],
+    content: [
+        './src/**/*.{js,jsx,ts,tsx}',
+        "./node_modules/@deriv-com/blocks/lib/index.js",
+        "./node_modules/@deriv-com/components/lib/index.js",
+        "./node_modules/@deriv/quill-design/dist/index.js",
+    ],
     theme: {
         extend: {
             animation: {

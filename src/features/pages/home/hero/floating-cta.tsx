@@ -6,7 +6,7 @@ type FloatingCtaProps = ComponentProps<'div'>
 const FloatingCta = (props: FloatingCtaProps) => {
     return (
         <div
-            className="fixed left-50 -bottom-3400 w-full z-50 h-[68px] backdrop-blur-xl flex justify-center items-center md:hidden"
+            className="fixed left-50 w-full z-40 h-[68px] backdrop-blur-lg bg-opacity-white-600 flex justify-center items-center lg:hidden"
             {...props}
         >
             <TradersHubCtaButton variant="primary" colorStyle="coral" />

@@ -38,7 +38,9 @@ const CTA = () => {
                 <Heading.H2 className="text-solid-slate-50">
                     <Localize translate_text="_t_Join over 2.5 million online traders_t_" />
                 </Heading.H2>
-                <TradersHubCtaButton className="hidden lg:block" />
+                <div className="hidden lg:block">
+                    <TradersHubCtaButton className="flex" />
+                </div>
             </div>
         </Footer.CTABlock>
     )

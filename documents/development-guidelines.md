@@ -59,7 +59,7 @@ Another common mistake is accidentally double quoting paragraphs, **this is inva
 
 ```js
 <p>
-    <p>Paragraph</p>
+    <Fragment>Paragraph</Fragment>
 </p>
 ```
 
@@ -79,6 +79,8 @@ content: {
 
 // best practice
 content: {
+    text: '_t_Our GitHub repositories: <0>github.com/binary-com</0>_t_',
+    components: [<br key={0} />],
     text: '_t_Our GitHub repositories: <0>github.com/binary-com</0>_t_',
     components: [<br key={0} />],
 }

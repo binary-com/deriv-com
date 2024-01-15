@@ -72,7 +72,7 @@ jobs:
             - name: Cloudflare preview link ✨
               run: echo "New staging website - http://staging.cf-pages-deriv-com.deriv.com"
 
-            - name: Build and push Docker image using new approach 🐳
+                          run: docker-compose build
               # run: docker-compose build
 
             - name: Verify nginx image

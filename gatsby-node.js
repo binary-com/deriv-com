@@ -397,27 +397,25 @@ const style_lint_options = {
     lintDirtyModulesOnly: true,
 }
 
-exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...options }) => {
-    const config = getConfig()
-    if (config.optimization) {
-        config.optimization.minimizer = [new TerserPlugin()]
-    }
-    if (stage === 'build-html' || stage === 'develop-html') {
-        actions.setWebpackConfig({
-            module: {
-                rules: [
-                    {
-                        test: /analytics/,
-                        use: loaders.null(),
-                    },
-                ],
-            },
-        })
-    }
+exports.onCreateWebpackConfig = ({ actions, loaders }, { ...options }) => {
     actions.setWebpackConfig({
+        devtool: false,
+        cache: false,
+        optimization: {
+            minimize: true,
+            minimizer: [new TerserPlugin()],
+        },
         plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+        },
+        module: {
+            rules: [
+                {
+                    test: /analytics/,
+                    use: loaders.null(),
+                },
+            ],
         },
     })
 }

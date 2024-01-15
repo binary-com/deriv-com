@@ -81,6 +81,8 @@ content: {
 content: {
     text: '_t_Our GitHub repositories: <0>github.com/binary-com</0>_t_',
     components: [<br key={0} />],
+    text: '_t_Our GitHub repositories: <0>github.com/binary-com</0>_t_',
+    components: [<br key={0} />],
 }
 
 <Header as="p">

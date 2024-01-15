@@ -1,44 +1,36 @@
-import React from 'react'
-import styled from 'styled-components'
-import {
-    StyledSection,
-    SectionWrapper,
-    CenteredSection,
-    Col,
-    Wrapper,
-    Content,
-    Separator,
-    StyledHeader,
-    SecondaryHeader,
-} from '../affiliate-ib/_who-can-apply'
-import { Flex } from 'components/containers'
-import { Localize } from 'components/localization'
-import { Header, LocalizedLinkText, Timeline } from 'components/elements'
-import { LinkButton } from 'components/form'
-import CurrencyExchange from 'images/svg/partners/currency_exchange.svg'
-import Affiliates from 'images/svg/partners/affiliates.svg'
-import CommunityManagers from 'images/svg/partners/community-managers.svg'
-import Email from 'images/svg/partners/pa-email.svg'
-import Reply from 'images/svg/partners/pa-reply.svg'
-import Listed from 'images/svg/partners/pa-listed.svg'
-import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
-import { TString } from 'types/generics'
+import React from 'react';
+import styled from 'styled-components';
+import { StyledSection, SectionWrapper, CenteredSection, Col, Wrapper, Content, Separator, StyledHeader, SecondaryHeader } from '../affiliate-ib/_who-can-apply';
+import { Flex } from 'components/containers';
+import { Localize } from 'components/localization';
+import { Header, LocalizedLinkText, Timeline } from 'components/elements';
+import { LinkButton } from 'components/form';
+import CurrencyExchange from 'images/svg/partners/currency_exchange.svg';
+import Affiliates from 'images/svg/partners/affiliates.svg';
+import CommunityManagers from 'images/svg/partners/community-managers.svg';
+import Email from 'images/svg/partners/pa-email.svg';
+import Reply from 'images/svg/partners/pa-reply.svg';
+import Listed from 'images/svg/partners/pa-listed.svg';
+import device from 'themes/device';
+import useRegion from 'components/hooks/use-region';
+import { TString } from 'types/generics';
 
 type ImageWrapperProps = {
-    left_margin?: string
-}
+    left_margin?: string;
+};
 
 type StyledLinkButtonProps = {
-    id?: string
-}
+    id?: string;
+};
 
-const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>``
+const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>``;
 
 const HeaderHowToApply = styled(SecondaryHeader)`
     @media ${device.tablet} {
         margin-top: 40px;
         text-align: start;
+    }
+`;
     }
 `
 const HowToApply = styled(Col)`

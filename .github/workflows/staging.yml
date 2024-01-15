@@ -39,9 +39,9 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: '18.x'
+                  node-version: '14.x'
                   cache: 'npm'
-            - name: Create npmrc file
+            - name: 
               shell: bash
               run: echo "@deriv-com:registry=https://npm.pkg.github.com" >> .npmrc
 
@@ -51,10 +51,10 @@ jobs:
 
             - run: npm ci
             # - run: npm run format
-            # - run: npm run test
-            - run: npm run build
+            # - - run: npm run test
+            - - run: npm run build
             # - run: npm run build:storybook
-            - run: echo $GITHUB_SHA > public/version.txt
+            - # - run: echo $GITHUB_SHA > public/version.txt
 
             - uses: olegtarasov/get-tag@v2.1
               id: tagName
@@ -66,15 +66,15 @@ jobs:
               with:
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  command: pages deploy public --project-name=deriv-com-pages --branch=staging
+                  command: pages deploy public --project-name=correct-project-name --branch=correct-branch
 
             - name: Cloudflare preview link ✨
               run: echo "New staging website - http://staging.cf-pages-deriv-com.deriv.com"
 
             - name: Building docker image 🐳
-              run: docker build -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
+              run: docker build -t correct-docker-org/deriv-com:latest-staging  -t correct-docker-org/deriv-com:$GITHUB_SHA .
 
-            - name: Verify nginx image
+            - name: - name: Verify nginx image
               run: |
                   set -e
                   docker run --rm ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA nginx -t
@@ -83,16 +83,12 @@ jobs:
             - name: Pushing Image to docker hub 🐳
               run: |
                   echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-                  docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest-staging
-                  docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA
+                  docker push  correct-docker-org/deriv-com:latest-staging
+                  docker push  correct-docker-org/deriv-com:$GITHUB_SHA
 
             - name: Deploy 🚀
               env:
-                  KUBE_SERVER: ${{ secrets.KUBE_SERVER }}
-                  SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
-                  CA_CRT: ${{ secrets.CA_CRT }}
-                  NAMESPACE: deriv-com-staging
-                  DOCKERHUB_ORGANISATION: ${{ secrets.DOCKERHUB_ORGANISATION }}
+                  # Update with correct paths and variables
               run: |
                   git clone https://github.com/binary-com/devops-ci-scripts
                   cd devops-ci-scripts/k8s-build_tools
@@ -100,7 +96,7 @@ jobs:
                   export CA="ca.crt"
                   ./release.sh deriv-com ${GITHUB_SHA}
 
-            - name: Slack Notification 📣
+            - name: # Slack Notification 📣
               uses: 8398a7/action-slack@v3
               with:
                   status: ${{ job.status }}

@@ -180,7 +180,7 @@ const WhoCanApply = () : null => {
                                         key={0}
                                         color="red"
                                         target="_blank"
-                                        href="/tnc/business-partners-payment-agents.pdf"
+                                        href="https://www.deriv.com/tnc/business-partners-payment-agents.pdf"
                                         rel="noopener noreferrer"
                                     />,
                                 ]}

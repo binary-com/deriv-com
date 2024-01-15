@@ -11,7 +11,7 @@ import {
     StyledHeader,
     SecondaryHeader,
 } from './_who-can-apply'
-import { Flex } from 'components/containers'
+import { Flex } from 'flex'
 import { Localize } from 'components/localization'
 import { Header, LocalizedLinkText, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'

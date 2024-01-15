@@ -9,7 +9,7 @@ import { Button, Input } from 'components/form'
 import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import Login from 'common/login'
-import apiManager from 'common/websocket'
+import { apiManager } from 'src/common/websocket'
 import device from 'themes/device'
 import { TGatsbyHead } from 'features/types'
 
@@ -45,7 +45,7 @@ const ResetPassword = () => {
     const initialValues: EmailType = { email: '' }
 
     const resetSubmission = (values: EmailType, actions) => {
-        apiManager
+        apiManagerObj
             .augmentedSend('verify_email', {
                 verify_email: trimSpaces(values.email),
                 type: 'reset_password',

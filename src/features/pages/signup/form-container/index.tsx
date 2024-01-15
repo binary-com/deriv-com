@@ -29,7 +29,7 @@ const SignUpFormContainer = () => {
             }}
             className={signup_form_container}
         >
-            <Typography.Heading size={is_mobile_or_tablet ? 'small' : 'xs'}>
+            <Typography.Heading className={sign_up_header}>
                 <Localize translate_text="_t_Join over 2.5 million traders_t_" />
             </Typography.Heading>
 

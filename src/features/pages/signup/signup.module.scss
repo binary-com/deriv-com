@@ -16,6 +16,13 @@
     background-color: $color-grey-7;
 }
 
+.sign_up_header {
+    font-size: 18px;
+    @include breakpoints(laptop) {
+        font-size: 24px;
+    }
+}
+
 .signup_login_redirect {
     cursor: pointer;
 }

@@ -240,7 +240,7 @@ const WhoCanApply = () => {
                                         left_margin="8px"
                                     />
                                     <Content max_width="38.2rem">
-                                        <Header as="h3" type="sub-section-title" pb="8px">
+                                        <Header as="h4" type="sub-section-title" pb="8px">
                                             <Localize translate_text="_t_Wait for our reply_t_" />
                                         </Header>
                                         <Header as="h4" type="paragraph-1" weight="normal">

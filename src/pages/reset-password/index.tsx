@@ -28,7 +28,19 @@ const ButtonContainer = styled.div`
     margin-top: 2rem;
 `
 
-const InputGroup = styled.div`
+const InputGroup = styled.div`width: 100%;
+    margin: 0 auto 3.4rem;
+    max-width: 40rem;
+    @media ${device.tabletL} {
+        width: 90%;
+    }
+  width: 100%;
+    margin: 0 auto 3.4rem;
+    max-width: 40rem;
+    @media ${device.tabletL} {
+        width: 90%;
+    }
+  
     width: 40rem;
     margin: 0 auto 3.4rem;
     @media ${device.tabletL} {
@@ -40,7 +52,53 @@ const StyledButton = styled(Button)`
     margin: 0.8rem 0.4rem;
 `
 
-const ResetPassword = () => {
+const ResetPassword = ({ children }) => {
+  const inputRef = React.useRef(null);
+  const [apiError, setApiError] = useState<string | null>('');
+  const initialValues: EmailType = { email: '' };
+
+  const resetSubmission = (values: EmailType, actions) => {
+    apiManager
+      .augmentedSend('verify_email', {
+        verify_email: trimSpaces(values.email),
+        type: 'reset_password',
+      })
+      .then((response) => {
+        actions.setSubmitting(false);
+
+        if (response.error) {
+          actions.setStatus({
+            error: response.error.message,
+          });
+          return;
+        }
+
+        actions.resetForm({ email: '' });
+        actions.setStatus({
+          success: localize(
+            '_t_Please check your email and click on the link provided to reset your password._t_',
+          ),
+        });
+      })
+      .catch((error) => {
+        if (error.msg_type === 'verify_email') {
+          const errorString = error.error.message.split(':');
+          setApiError(errorString[0]);
+        }
+      });
+  };
+
+  const resetValidation = (values: EmailType) => {
+    const errors: ErrorType = {};
+    const email = trimSpaces(values.email);
+    const email_error = validation.required(email) || validation.email(email);
+    setApiError('');
+    if (email_error) {
+      errors.email = email_error;
+    }
+
+    return errors;
+  };
     const [apiError, setApiError] = useState<string | null>('')
     const initialValues: EmailType = { email: '' }
 

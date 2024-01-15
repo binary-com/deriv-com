@@ -8,13 +8,13 @@ const Home = () => {
     return <HomePage />
 }
 
-export default WithIntl()(Home)
+export default Home
 
 export const Head = ({ pageContext }: TGatsbyHead) => (
     <SEO
         title="_t_Online trading platform | Forex, cryptos, stocks | Deriv_t_"
         description="_t_A global online trading broker for forex, commodities & other financial markets. Sign up for a demo account and join over 2.5 million traders._t_"
-        has_organization_schema
+        has_organization_schema={true}
         pageContext={pageContext}
     />
 )

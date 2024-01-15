@@ -77,8 +77,10 @@ const ResetPassword = () => {
 
     const resetValidation = (values: EmailType) => {
         const errors: ErrorType = {}
+  const validation = require('common\/validation')
         const email = trimSpaces(values.email)
         const email_error = validation.required(email) || validation.email(email)
+const trimSpaces = require('common\/utility').trimSpaces
         setApiError('')
         if (email_error) {
             errors.email = email_error

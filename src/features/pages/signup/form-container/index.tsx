@@ -1,11 +1,5 @@
 import React from 'react'
-import {
-    signup_form_container,
-    signup_form_line,
-    link_text,
-    sign_up_header,
-    sign_up_content,
-} from '../signup.module.scss'
+import { signup_form_container, signup_form_line, link_text } from '../signup.module.scss'
 import FormSocialButtons from './form-social-buttons'
 import SignUpPageForm from './signup-page-form'
 import Flex from 'features/components/atoms/flex-box'
@@ -32,12 +26,12 @@ const SignUpFormContainer = () => {
             }}
             className={signup_form_container}
         >
-            <Typography.Heading className={sign_up_header}>
+            <Typography.Heading size={'small'}>
                 <Localize translate_text="_t_Join over 2.5 million traders_t_" />
             </Typography.Heading>
 
             <SignUpPageForm />
-            <Typography.Paragraph textcolor="secondary" className={sign_up_content}>
+            <Typography.Paragraph textcolor="secondary" size={'xs'}>
                 <Localize
                     translate_text="_t_By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>._t_"
                     components={[

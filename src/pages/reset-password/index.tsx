@@ -54,7 +54,15 @@ const ResetPassword = () => {
                 actions.setSubmitting(false)
 
                 if (response.error) {
-                    actions.setStatus({
+                    if (response.error) {
+                    setApiError(response.error.message);
+                    						return;;
+                }
+                if (response.error) {
+                    setApiError(response.error.message);
+                    return;
+                }
+                actions.setStatus({
                         error: response.error.message,
                     })
                     return
@@ -79,6 +87,7 @@ const ResetPassword = () => {
         const errors: ErrorType = {}
         const email = trimSpaces(values.email)
         const email_error = validation.required(email) || validation.email(email)
+	setApiError('')
         setApiError('')
         if (email_error) {
             errors.email = email_error

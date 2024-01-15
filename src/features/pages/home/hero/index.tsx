@@ -15,8 +15,9 @@ import FloatingCta from './floating-cta'
 import { Localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
-import { isBrowser, isEuDomain } from 'common/utility'
+import { isEuDomain } from 'common/utility'
 import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 export interface HomeHeroProps {
     children?: ReactNode
@@ -25,6 +26,7 @@ export interface HomeHeroProps {
 
 const HomeHero: React.FC<HomeHeroProps> = () => {
     const { is_eu } = useRegion()
+    const [is_mounted] = usePageLoaded()
     console.log('==>', isEuDomain())
     const { ctaBottom, visibilityPercentage, entryRef } = useFloatingCtaContext()
 
@@ -75,7 +77,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                         />
                     </div>
                     {!is_eu && <HeroAwardImages />}
-                    {isBrowser() && <HeroImage />}
+                    {is_mounted && <HeroImage />}
                 </FluidContainer>
                 <div className={clsx('absolute -z-10 inset-50', hero_content_gradient)}></div>
             </Section>

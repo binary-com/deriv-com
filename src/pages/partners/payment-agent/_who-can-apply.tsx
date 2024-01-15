@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import {
     StyledSection,
@@ -33,7 +33,7 @@ type StyledLinkButtonProps = {
     id?: string
 }
 
-const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>``
+const StyledLinkButton = styled(LinkButton)``
 
 const HeaderHowToApply = styled(SecondaryHeader)`
     @media ${device.tablet} {

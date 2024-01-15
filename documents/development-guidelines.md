@@ -93,7 +93,7 @@ content: {
 
 ```js
 // You will get destroy is not a function error!
-useEffect(() => setSelected(default_step), [items, default_step]); # Added missing semicolon
+useEffect(() => setSelected(default_step), [items, default_step]) # Added missing semicolon
 
 // Instead you should use it like this:
 useEffect(() => {

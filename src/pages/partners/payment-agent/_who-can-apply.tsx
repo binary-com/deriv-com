@@ -120,7 +120,7 @@ const section_content: SectionComponentProps[] = [
     },
 ]
 
-const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
+const SectionComponent = ({ img_src, header, text, left_margin, alt }: SectionComponentProps) => {
     return (
         <Wrapper>
             <ImageWrapper src={img_src} alt="" left_margin="0px" />

@@ -33,7 +33,7 @@ type StyledLinkButtonProps = {
     id?: string
 }
 
-const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>``
+// Remove the old StyledLinkButton and use the LinkButton directly with the styles
 
 const HeaderHowToApply = styled(SecondaryHeader)`
     @media ${device.tablet} {

@@ -168,10 +168,10 @@ const ResetPassword = () => {
                                 />
                             </InputGroup>
                             <Text align="center" color="red">
-                                {apiError ? apiError : status.error}
+                                {apiError || status.error}
                             </Text>
                             <Text align="center" color="green">
-                                {status.success}
+                                {status.success && status.success}
                             </Text>
                             <ButtonContainer>
                                 <StyledButton

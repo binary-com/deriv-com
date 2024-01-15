@@ -50,7 +50,7 @@ const CopyTrading = () => {
 
                 <Flex.Box direction={'col'}>
                     <Typography.Paragraph
-                        size="xlarge"
+                        size="xxl"
                         align={'left'}
                         mb={'12x'}
                         font_family="IBM"

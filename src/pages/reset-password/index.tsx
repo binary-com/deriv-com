@@ -45,6 +45,34 @@ const ResetPassword = () => {
     const initialValues: EmailType = { email: '' }
 
     const resetSubmission = (values: EmailType, actions) => {
+    apiManager
+        .augmentedSend('verify_email', {
+            verify_email: trimSpaces(values.email),
+            type: 'reset_password',
+        })
+        .then((response) => {
+            actions.setSubmitting(false);
+
+            if (response.error) {
+                actions.setStatus({
+                    error: response.error.message,
+                });
+                return;
+            }
+
+            actions.resetForm({ email: '' });
+            actions.setStatus({
+                success: localize(
+                    '_t_Please check your email and click on the link provided to reset your password._t_',
+                ),
+            });
+        })
+        .catch((error) => {
+            if (error.msg_type === 'verify_email') {
+                const errorString = error.error.message.split(':');
+                setApiError(errorString[0]);
+            }
+        });
         apiManager
             .augmentedSend('verify_email', {
                 verify_email: trimSpaces(values.email),

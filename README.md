@@ -9,7 +9,8 @@ Deriv.com - An online trading platform that offers a wide selection of derivativ
 
 ## In this document:
 
--   [Other documents](#other-documents)
+-   [Other documents
+- [Fixing failing GitHub Actions](README.md#fixing-failing-github-actions)](#other-documents)
 -   [Pre-installation](#pre-installation)
 -   [Quick start](#quick-start)
 -   [How to contribute](#how-to-contribute)
@@ -58,6 +59,14 @@ Moreover, having these extensions will help you to speed up the development proc
 
     ```sh
     git clone git@github.com:your-github-username/deriv-com.git
+
+6.  **Add env variables:**
+```sh
+Create two files `.env.development` and `.env.production` inside your project root directory.
+
+Then check your **lastpass** you'll see a shared item named **GitHub Actions Env Variables** copy the variables, they look like this:
+
+And paste them into the files.
     ```
 
 3.  **Enter project directory**
@@ -201,6 +210,6 @@ Example of release steps
     git push upstream production_V20200806_0
     ```
 
-## Test link deployment
+## Troubleshooting and Resolving Build Process
 
 Upon creating PR, [Vercel](https://vercel.com/) and Cloudflare will auto-generate two test links inside the PR. you can use that to preview the test link for the changes you have made.

@@ -23,7 +23,7 @@ import Reply from 'images/svg/partners/pa-reply.svg'
 import Listed from 'images/svg/partners/pa-listed.svg'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
-import { TString } from 'types/generics'
+import { TString } from '../types/generics'
 
 type ImageWrapperProps = {
     left_margin?: string
@@ -163,7 +163,10 @@ const WhoCanApply = () => {
                                     <Localize translate_text="_t_You must have a minimum balance in your Deriv account while your application is under review. The amount of this balance depends on your country of residence. You only need to maintain the minimum balance until your application is successful._t_" />
                                 </Header>
                             </Li>
-                            <Li>
+                                            <Header as="h4" type="paragraph-1" weight="normal">
+                    <Localize translate_text="_t_You can only service Deriv clients in your country of residence._t_" />
+                </Header>
+			<Li>
                                 <Header as="h4" type="paragraph-1" weight="normal">
                                     <Localize translate_text="_t_You can only service Deriv clients in your country of residence._t_" />
                                 </Header>

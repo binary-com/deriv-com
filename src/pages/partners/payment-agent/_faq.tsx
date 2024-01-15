@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { General, AccountManagement } from './_faq-data'
+import { General, AccountManagement } from './partners/payment-agent/_faq-data'
 import { SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'

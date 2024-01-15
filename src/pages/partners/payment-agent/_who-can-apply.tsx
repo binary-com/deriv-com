@@ -155,7 +155,7 @@ const WhoCanApply = () => {
                             />
                         ))}
                         <Header as="h4" type="paragraph-1" mt="24px">
-                            <Localize translate_text="_t_Note:_t_" />
+                            <Localize translate_text="_t_Note_t_" />
                         </Header>
                         <StyledUl>
                             <Li>
@@ -171,7 +171,7 @@ const WhoCanApply = () => {
                         </StyledUl>
                         <Header as="h4" type="paragraph-1" weight="normal">
                             <Localize
-                                translate_text="_t_See our <0>terms and conditions</0> for more info._t_"
+                                translate_text="_t_See our <0>terms_and_conditions</0> for more info_t_"
                                 components={[
                                     <LocalizedLinkText
                                         key={0}

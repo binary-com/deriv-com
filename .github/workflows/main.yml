@@ -30,4 +30,4 @@ jobs:
 
       - name: Notify success
         run: |
-          echo "Workflow completed successfully."
+          echo "Workflow completed successfully." # NOTE: To avoid conflicts with Sweep PRs, consider using a separate workflow or a strategy to manage merges.

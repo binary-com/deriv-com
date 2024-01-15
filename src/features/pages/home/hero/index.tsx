@@ -5,7 +5,6 @@ import { StaticImage } from 'gatsby-plugin-image'
 import {
     hero_container,
     hero_content,
-    hero_content_rtl,
     hero_content_gradient,
     hero_img,
     hero_img_eu,

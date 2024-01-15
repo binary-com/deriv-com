@@ -178,5 +178,8 @@ export const Head = ({ pageContext }: TGatsbyHead) => (
         description="_t_Forgot your Deriv password? Want to reset your password? Send us your email address and we’ll email you the instructions._t_"
         no_index
         pageContext={pageContext}
+        meta={[
+            { name: 'robots', content: 'noindex' },
+        ]}
     />
 )

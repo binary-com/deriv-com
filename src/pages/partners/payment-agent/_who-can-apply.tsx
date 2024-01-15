@@ -139,7 +139,9 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
 const WhoCanApply = () => {
     const { is_p2p_allowed_country } = useRegion()
 
-    return (
+    if (is_p2p_allowed_country === undefined) return null;
+
+      return (
         <SectionWrapper padding="80px 0">
             <StyledSection>
                 <Flex>

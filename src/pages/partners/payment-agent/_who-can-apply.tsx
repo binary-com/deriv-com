@@ -136,7 +136,7 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
         </Wrapper>
     )
 }
-const WhoCanApply = () => {
+const WhoCanApply = () : null => {
     const { is_p2p_allowed_country } = useRegion()
 
     if (is_p2p_allowed_country === undefined) return null;

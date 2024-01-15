@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Form, Formik } from 'formik'
+import { Formik, Form } from 'formik'
 import Layout from 'components/layout/layout'
 import { Localize, localize, WithIntl } from 'components/localization'
 import { Container, SEO } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Button, Input } from 'components/form'
-import validation from 'common/validation'
+import * as validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import Login from 'common/login'
-import apiManager from 'common/websocket'
+import * as apiManager from 'common/websocket'
 import device from 'themes/device'
 import { TGatsbyHead } from 'features/types'
 
@@ -46,7 +46,7 @@ const ResetPassword = () => {
 
     const resetSubmission = (values: EmailType, actions) => {
         apiManager
-            .augmentedSend('verify_email', {
+            .augmentedSend('verify_email', { verify_email: trimSpaces(values.email), type: 'reset_password' })('verify_email', {
                 verify_email: trimSpaces(values.email),
                 type: 'reset_password',
             })

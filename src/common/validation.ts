@@ -21,7 +21,10 @@ type TValidationType = {
     [key in TValidationMethods]: TValidationHandler
 }
 
-const validation: TValidationType = {
+export const validation_regex = {
+    email: /^[^@]+@[^@]+\.[^@.]{2,}$/,
+};
+export const validation: TValidationType = {
     // Validation will return a string for error message
     email: (input, message) => {
         if (!validation_regex.email.test(input)) {
@@ -74,4 +77,37 @@ const validation: TValidationType = {
     },
 }
 
-export default validation
+// New file src/common/validation.ts
+
+// Implement the required and email validation functions here
+
+export const validation = {
+    url: (input, message) => {
+        if (!validation_regex.url.test(input)) {
+            return message || localize('_t_Please enter a valid URL format_t_')
+        } else {
+            return null
+        }
+    },
+    number: (input, message) => {
+        if (!validation_regex.number.test(input)) {
+            return message || localize('_t_Please enter a valid number_t_')
+        } else {
+            return null
+        }
+    },
+    alphabetic: (input, message) => {
+        if (!validation_regex.alphabetic.test(input)) {
+            return message || localize('_t_Please enter only alphabetic characters_t_')
+        } else {
+            return null
+        }
+    },
+    password: (input, message) => {
+        if (!validation_regex.password.test(input)) {
+            return message ? message : localize('Please enter a valid password')
+        } else {
+            return null
+        }
+    },
+};

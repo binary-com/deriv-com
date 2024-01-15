@@ -399,7 +399,6 @@ const style_lint_options = {
 
 exports.onCreateWebpackConfig = ({ actions, loaders }, { ...options }) => {
     // const config = getConfig()
-    // const isProduction = config.mode === 'production'
 
     actions.setWebpackConfig({
         // mode: isProduction ? 'production' : 'development',

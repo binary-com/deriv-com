@@ -9,8 +9,8 @@
 -   Keep components small, focused, and easy to test, breaking up complex components into smaller components
 -   Try to create new, reusable components instead of "sub-components"
     (i.e. prefer not to create sub-directories that contain more components)
--   **Be consistent** — however, you choose to lay things out
--   Please pass the **key** to the right element and make sure that it is **unique**!
+-   **Be consistent** — however you choose to lay things out.
+-   Please pass the **key** to the right element and make sure that it is **unique**.
 
 ```js
 // bad practice

@@ -11,7 +11,7 @@ import {
     StyledHeader,
     SecondaryHeader,
 } from '../affiliate-ib/_who-can-apply'
-import { Flex } from 'components/containers'
+import {Flex} from 'components/containers/flex'
 import { Localize } from 'components/localization'
 import { Header, LocalizedLinkText, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -53,7 +53,7 @@ const HowToApplyContent = styled.div`
     display: flex;
 `
 
-const ImageWrapper = styled.img<ImageWrapperProps>`
+const ImageWrapper = styled.img<ImageWrapperProps>()`
     margin: 0 16px;
     width: 48px;
     height: 48px;

@@ -1,0 +1,13 @@
+.cookie_banner {
+    @media only screen and (min-width: 768px){
+        border-radius: 8px;
+        max-width: 400px;
+        margin: 20px;
+    }
+}
+
+.desktop_text{
+    @media only screen and (min-width: 1280px){
+        font-size: 16px;
+    }
+}

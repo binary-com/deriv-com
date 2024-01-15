@@ -1,0 +1,20 @@
+name: GitHub Actions Workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Verifying user's organization
+        run: |
+          # Add authentication and access configurations here
+
+      # Add other steps as needed

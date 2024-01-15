@@ -17,7 +17,8 @@ import { ProductLinkGenerator } from 'features/components/atoms/link/external'
 
 export const trimSpaces = (value: string): string => value?.trim()
 
-export const isBrowser = () => typeof window !== 'undefined'
+// *** Create a new file src/common/utility.ts
+// *** Implement the trimSpaces function to remove leading and trailing spaces from a string
 
 export const isEmptyObject = (obj: unknown): boolean => {
     let is_empty = true

@@ -77,11 +77,11 @@ const ResetPassword = () => {
     }
 
     const resetValidation = (values: EmailType) => {
-        const errors: ErrorType = {}
+        let errors: ErrorType = {}
         const email = trimSpaces(values.email)
         const email_error = validation.required(email) || validation.email(email)
         setApiError('')
-        if (email_error) {
+        if (email_error && errors.email !== 'This field is required') {
             errors.email = email_error
         }
 

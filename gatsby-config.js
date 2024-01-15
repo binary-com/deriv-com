@@ -82,6 +82,8 @@ module.exports = {
             },
         },
         'gatsby-plugin-styled-components',
+        'gatsby-plugin-styled-components',
+        'gatsby-plugin-no-sourcemaps',
         {
             resolve: 'gatsby-source-filesystem',
             options: {

@@ -1,5 +1,10 @@
 import React from 'react'
-import { signup_form_container, signup_form_line, link_text } from '../signup.module.scss'
+import {
+    signup_form_container,
+    signup_form_line,
+    link_text,
+    sign_up_header,
+} from '../signup.module.scss'
 import FormSocialButtons from './form-social-buttons'
 import SignUpPageForm from './signup-page-form'
 import Flex from 'features/components/atoms/flex-box'

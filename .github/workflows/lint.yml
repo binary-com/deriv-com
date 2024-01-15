@@ -55,8 +55,11 @@ jobs:
             - name: Install Node.js dependencies
               run: |
                   npm ci
-                  npm test
+                  # Add a step to run tests after installing Node.js dependencies
+                  npm run build-test
             - name: Run linters
               uses: wearerequired/lint-action@v1
               with:
                   eslint: true
+                  # Add a step to run tests
+                  run-tests: true

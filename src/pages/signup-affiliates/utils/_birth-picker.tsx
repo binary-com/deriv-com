@@ -27,7 +27,6 @@ const BirthPickerWrapper = styled.div<BirthPickerWrapperProps>`
     width: 100%;
     height: 100%;
     align-items: flex-start;
-    z-inxed: 1000;
 
     .react-date-picker {
         display: block;
@@ -41,6 +40,7 @@ const BirthPickerWrapper = styled.div<BirthPickerWrapperProps>`
     }
     .react-date-picker__calendar {
         width: 320px;
+        z-index: 10000;
     }
     .react-calendar__month-view__weekdays__weekday {
         font-size: 15px;

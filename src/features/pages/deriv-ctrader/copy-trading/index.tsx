@@ -49,9 +49,15 @@ const CopyTrading = () => {
                 </Flex.Box>
 
                 <Flex.Box direction={'col'}>
-                    <Typography.Heading size="small" align={'left'} mb={'12x'} font_family="IBM">
+                    <Typography.Paragraph
+                        size="xlarge"
+                        align={'left'}
+                        mb={'12x'}
+                        font_family="IBM"
+                        weight="bold"
+                    >
                         <Localize translate_text={'_t_Why copy trade?_t_'} />
-                    </Typography.Heading>
+                    </Typography.Paragraph>
                     <Flex.Box direction={'col'} align={'start'} gap="8x">
                         {why_copy_trade.map((card) => {
                             return (

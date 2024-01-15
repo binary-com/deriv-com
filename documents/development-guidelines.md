@@ -80,7 +80,7 @@ content: {
 // best practice
 content: {
     text: '_t_Our GitHub repositories: <0>github.com/binary-com</0>_t_',
-    components: [<br key={0} />],
+    components: [<Header key={0} type="br"/>],
 }
 
 <Header as="p">

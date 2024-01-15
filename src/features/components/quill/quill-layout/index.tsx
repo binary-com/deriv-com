@@ -12,6 +12,7 @@ import { useLangDirection } from 'components/hooks/use-lang-direction'
 import { LocaleContext } from 'components/localization'
 import useLangSwitcher from 'features/components/molecules/language-switcher/useLangSwitcher'
 import { langItemsROW } from 'features/pages/home/data'
+import FloatingCtaProvider from 'features/contexts/floating-cta/cta.provider'
 
 interface LayoutProps {
     is_ppc?: boolean
@@ -69,9 +70,11 @@ const QuillLayout = ({
                 >
                     <BreakpointProvider>
                         <ThemeProvider theme="light">
-                            <main className="relative max-w-[256rem] mx-auto">{children}</main>
-                            <BrowserUpdateAlert />
-                            {!hide_layout_overlay && <LayoutOverlay />}
+                            <FloatingCtaProvider>
+                                <main className="relative max-w-[256rem] mx-auto">{children}</main>
+                                <BrowserUpdateAlert />
+                                {!hide_layout_overlay && <LayoutOverlay />}
+                            </FloatingCtaProvider>
                         </ThemeProvider>
                     </BreakpointProvider>
                 </LanguageProvider>

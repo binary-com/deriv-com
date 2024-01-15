@@ -104,17 +104,17 @@ type SectionComponentProps = {
 
 const section_content: SectionComponentProps[] = [
     {
-        img_src: CurrencyExchange,
+        img_src: CurrencyExchange as string,
         header: '_t_Currency exchangers_t_',
         text: '_t_Reputable online currency exchangers who want to gain more exposure and clients._t_',
     },
     {
-        img_src: Affiliates,
+        img_src: Affiliates as string,
         header: '_t_Affiliates_t_',
         text: '_t_Deriv affiliates who want to support their clients._t_',
     },
     {
-        img_src: CommunityManagers,
+        img_src: CommunityManagers as string,
         header: '_t_Community managers_t_',
         text: '_t_Trusted influencers or community managers who want to earn extra revenue._t_',
     },
@@ -123,7 +123,7 @@ const section_content: SectionComponentProps[] = [
 const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
     return (
         <Wrapper>
-            <ImageWrapper src={img_src} alt="" left_margin="0px" />
+            <ImageWrapper src={img_src} alt="" left_margin="0px" as="img" />
             <Content max_width="48.8rem">
                 <Header as="h4" type="sub-section-title" pb="8px">
                     <Localize translate_text={header} />

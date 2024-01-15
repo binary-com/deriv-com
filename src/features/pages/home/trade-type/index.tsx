@@ -13,6 +13,7 @@ const TradeTypeSection = () => {
     )
     return (
         <Features.Card
+            hasPadding
             title={heading}
             cols="three"
             cards={is_eu ? EUCards : RowCards}

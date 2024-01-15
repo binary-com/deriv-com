@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import affiliate_validation from '../validations/_affilaite_validation'
 import AffiliateInput from '../utils/_affiliate-input'
 import { SignUpStatusProps } from '../_types'
-import trackEvent from '../utils/_tracking'
+import { trackEvent } from '../utils/_utils'
 import Image from 'features/components/atoms/image'
 import { localize, Localize } from 'components/localization'
 import { useIsRtl } from 'components/hooks/use-isrtl'
@@ -140,7 +140,6 @@ const AffiliateSignupStatus = ({
     }, [])
 
     const handleTryAgain = useCallback(() => {
-        trackEvent({ action: 'try_submit' })
         setSignupStatus('loading')
         onSubmit()
     }, [signup_status])

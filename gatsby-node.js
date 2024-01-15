@@ -397,35 +397,21 @@ const style_lint_options = {
     lintDirtyModulesOnly: true,
 }
 
-exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }, { ...options }) => {
-    const config = getConfig()
-    const isProduction = config.mode === 'production'
+exports.onCreateWebpackConfig = ({ actions, loaders }, { ...options }) => {
+    // const config = getConfig()
+    // const isProduction = config.mode === 'production'
 
     actions.setWebpackConfig({
-        mode: isProduction ? 'production' : 'development',
+        // mode: isProduction ? 'production' : 'development',
         optimization: {
-            minimize: isProduction,
+            minimize: true,
+            // minimize: isProduction,
             minimizer: [new TerserPlugin()],
             splitChunks: {
                 chunks: 'all',
                 minSize: 1500000,
                 maxSize: 2000000,
-                // minChunks: 1,
-                // maxAsyncRequests: 5,
-                // maxInitialRequests: 3,
-                // automaticNameDelimiter: '~',
                 name: 'deriv-v1',
-                // cacheGroups: {
-                //     vendors: {
-                //         test: /[\\/]node_modules[\\/]/,
-                //         priority: -10,
-                //     },
-                //     default: {
-                //         minChunks: 2,
-                //         priority: -20,
-                //         reuseExistingChunk: true,
-                //     },
-                // },
             },
         },
         plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],

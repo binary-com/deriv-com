@@ -43,6 +43,7 @@ jobs:
                   cache: 'npm'
             - name: Create npmrc file
               shell: bash
+              run: cp .npmrc /app/.npmrc
               run: echo "@deriv-com:registry=https://npm.pkg.github.com" >> .npmrc
 
             - name: Setup install read-only token for deriv-com org
@@ -71,8 +72,8 @@ jobs:
             - name: Cloudflare preview link ✨
               run: echo "New staging website - http://staging.cf-pages-deriv-com.deriv.com"
 
-            - name: Building docker image 🐳
-              run: docker build -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
+            - name: Build and push Docker image using new approach 🐳
+              # run: docker-compose build
 
             - name: Verify nginx image
               run: |
@@ -81,10 +82,10 @@ jobs:
                   echo "docker image validated successfully"
 
             - name: Pushing Image to docker hub 🐳
-              run: |
-                  echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-                  docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest-staging
-                  docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA
+              # run: |
+#                   echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+#                   docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest-staging
+#                   docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA
 
             - name: Deploy 🚀
               env:

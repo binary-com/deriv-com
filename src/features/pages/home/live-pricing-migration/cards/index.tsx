@@ -19,7 +19,7 @@ import {
     MarketIndicesUsTech100Icon,
     MarketDerivedCrash1000Icon,
     MarketDerivedEurusdDfx10Icon,
-    MarketDerivedJump200Icon,
+    MarketDerivedRangeBreak200Icon,
     MarketIndicesUs500Icon,
     MarketDerivedJump50Icon,
     // eslint-disable-next-line import/no-unresolved
@@ -43,7 +43,7 @@ const IconsMapper = {
     Crash_1000_Index: <MarketDerivedCrash1000Icon />,
     EURUSD_DFX_10_Index: <MarketDerivedEurusdDfx10Icon />,
     Jump_50_Index: <MarketDerivedJump50Icon />,
-    Range_Break_200_Index: <MarketDerivedJump200Icon />,
+    Range_Break_200_Index: <MarketDerivedRangeBreak200Icon />,
 
     // Etf's
     EEM_US: <MarketIndicesUs500Icon />,

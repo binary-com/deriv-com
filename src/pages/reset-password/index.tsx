@@ -4,7 +4,7 @@ import { Form, Formik } from 'formik'
 import Layout from 'components/layout/layout'
 import { Localize, localize, WithIntl } from 'components/localization'
 import { Container, SEO } from 'components/containers'
-import { Header, Text } from 'components/elements'
+import { Header } from 'components/elements'
 import { Button, Input } from 'components/form'
 import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
@@ -139,12 +139,7 @@ const ResetPassword = () => {
                                     required
                                 />
                             </InputGroup>
-                            <Text align="center" color="red">
-                                {apiError ? apiError : status.error}
-                            </Text>
-                            <Text align="center" color="green">
-                                {status.success}
-                            </Text>
+                            
                             <ButtonContainer>
                                 <StyledButton
                                     id="dm-pass-reset-login-link"

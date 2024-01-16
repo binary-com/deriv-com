@@ -113,7 +113,7 @@ jobs:
               uses: 8398a7/action-slack@v3
               if: ${{ steps.format_lighthouse_score.outputs.performance < 0 }}
               with:
-                  status: '{{ failure() }}'
+                  status: ${{ steps.format_lighthouse_score.outputs.performance < 0 ? 'failure' : 'success' }}
                   fields: workflow,job,commit,repo
                   custom_payload: |
                       {

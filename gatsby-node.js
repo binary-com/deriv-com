@@ -399,11 +399,10 @@ const style_lint_options = {
 
 exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...options }) => {
     const config = getConfig()
-    if (config.optimization) {
-        config.optimization.minimizer = [new TerserPlugin()]
-    }
+
     actions.setWebpackConfig({
         devtool: false,
+        ...(config.optimization ? { optimization: { minimizer: [new TerserPlugin()] } } : {}),
         plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],

@@ -145,7 +145,7 @@ const ResetPassword = () => {
                                     {status.success}
                                 </Text>
                             )}
-                            <ButtonContainer>
+                            <ButtonContainer isSubmitting={isSubmitting}>
                                 <StyledButton
                                     id="dm-pass-reset-login-link"
                                     tertiary

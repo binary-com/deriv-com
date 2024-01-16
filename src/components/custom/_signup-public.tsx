@@ -351,12 +351,6 @@ const social_button_content: SocialButtonContent[] = [
         text: 'Google',
     },
     {
-        provider: 'facebook',
-        id: 'dm-signup-facebook',
-        img: Facebook,
-        text: 'Facebook',
-    },
-    {
         provider: 'apple',
         id: 'dm-signup-apple',
         img: Apple,

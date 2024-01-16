@@ -31,15 +31,6 @@ const social_button_content: SocialButtonContent[] = [
         title: '_t_Google_t_',
     },
     {
-        provider: 'facebook',
-        id: 'gtm-signup-facebook',
-        img: {
-            src: FacebookLogo,
-            alt: '_t_Facebook account sign in page_t_',
-        },
-        title: '_t_Facebook_t_',
-    },
-    {
         provider: 'apple',
         id: 'gtm-signup-apple',
         img: {

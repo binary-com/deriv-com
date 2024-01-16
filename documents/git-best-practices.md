@@ -4,7 +4,7 @@
 
 -   [Commit message guidelines](#commit-message-guidlines)
     -   [Type](#type)
--   [Changing base branch](#changing-base-branch)
+-   [Changing base branch (Refer to the updated Git best practices guidelines below)](#changing-base-branch)
 -   [Get latest Changes](#get-latest-changes)
 -   [Resolve translation conflict on message.json](#resolve-translation-conflict-on-message.json)
 
@@ -43,13 +43,13 @@ Must be one of the following:
 There are cases when you want to change the base branch because the PR that didn't have text changes is now having text changes, so, you need to convert the base branch from `master` to `crowdin`. The command to do that is as follows:
 
 ```sh
-git rebase --onto crowdin master your_branch_name
+git rebase --onto crowdin main your_branch_name
 ```
 
 or vice versa from `crowdin` to `master`
 
 ```sh
-git rebase --onto master crowdin your_branch_name
+git rebase --onto main crowdin your_branch_name
 ```
 
 ## Get latest Changes

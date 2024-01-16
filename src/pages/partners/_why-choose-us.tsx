@@ -40,10 +40,10 @@ const Card = styled(Flex)`
         margin: 1.2rem;
     }
 `
-const WhyChooseUs = () => {
+const WhyChooseUs = ({ is_verified }) => {
     const { is_eu } = useRegion()
     return (
-        <SectionContainer background="grey-4">
+        <SectionContainer background={is_verified ? 'green' : 'grey-4'}>
             <Container direction="column">
                 <Header as="h2" type="page-title" align="center" mb="4rem">
                     <Localize translate_text="_t_Why choose us_t_" />
@@ -67,7 +67,8 @@ const WhyChooseUs = () => {
                             <Localize translate_text="_t_Experienced affiliate managers answer all your queries and provide you with excellent promotional and educational materials._t_" />
                         </Text>
                     </Card>
-                    <Card direction="column">
+                    <Card direction="column" verified={is_verified}
+                  unverified={true}>
                         <ImageWrapper src={HiddenFee} alt="No hidden fees" />
                         <Header as="h4" type="sub-section-title" mb="0.8rem">
                             <Localize translate_text="_t_No charges or hidden fees_t_" />

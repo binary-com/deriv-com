@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { Container, Flex } from 'components/containers'
 import { Header, CardStyle, Text } from 'components/elements'

@@ -33,7 +33,7 @@ const DerivNumbers = () => {
             <Wrapper mb="8rem">
                 <Card direction="column">
                     <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
-                        23
+                        24
                     </CardHeader>
                     <Text align="center">
                         <Localize translate_text="_t_Years of industry experience_t_" />

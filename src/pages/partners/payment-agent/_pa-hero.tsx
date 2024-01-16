@@ -29,7 +29,7 @@ const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
     border-radius: 8px;
 `
 
-const PAHero = () => {
+const AffiliateHero = () => {
     return (
         <Hero>
             <MainHeader as="h1" type="heading-1" color="white" align="center" lh="1.25">

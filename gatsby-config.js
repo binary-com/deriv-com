@@ -50,15 +50,6 @@ module.exports = {
         `https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js`,
     ],
     plugins: [
-        {
-            resolve: 'gatsby-plugin-htaccess',
-            options: {
-              https: true,
-              SymLinksIfOwnerMatch: true,
-              host: 'deriv.com',
-              custom: `Header set Permissions-Policy "browsing-topics=()"`,
-            },
-          },
         'gatsby-plugin-postcss',
         {
             resolve: 'gatsby-plugin-sass',

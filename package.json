@@ -39,7 +39,6 @@
         "gatsby": "^5.12.11",
         "gatsby-plugin-anchor-links": "^1.2.1",
         "gatsby-plugin-canonical-urls": "^5.12.0",
-        "gatsby-plugin-htaccess": "^1.4.0",
         "gatsby-plugin-image": "3.11.0",
         "gatsby-plugin-manifest": "^5.12.3",
         "gatsby-plugin-robots-txt": "^1.8.0",
@@ -159,7 +158,7 @@
     "license": "Apache License 2.0",
     "scripts": {
         "analyze-bundle": "GENERATE_JSON_STATS=true gatsby build && npx webpack-bundle-analyzer -m static -r ./webpack-bundle-report/report.html ./public/stats.json",
-        "build": "GATSBY_CPU_COUNT=2 gatsby build --log-pages",
+        "build": "GATSBY_CPU_COUNT=2 gatsby build --log-pages && node scripts/copy-htaccess.js",
         "update:deriv-com-libs": "npm i @deriv-com/blocks@latest @deriv-com/components@latest @deriv-com/hooks@latest @deriv-com/providers@latest",
         "partytown": "partytown copylib public/~partytown",
         "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o",

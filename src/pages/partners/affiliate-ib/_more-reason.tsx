@@ -60,7 +60,7 @@ const Reason = styled.div`
 `
 const StyledFlex = styled(Flex)`
     margin-top: -2rem;
-    gap: 24px;
+    gap: 2.4rem;
 
     @media ${device.tabletL} {
         display: block;
@@ -77,7 +77,7 @@ const StyledSection = styled(SectionContainer)`
     }
 `
 
-const MoreReason = () => {
+export const RepeatableMoreReason = () => {
     return (
         <StyledSection>
             <StyledContainer direction="column" mw="0">

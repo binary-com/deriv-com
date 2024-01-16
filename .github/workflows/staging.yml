@@ -3,7 +3,8 @@ name: Release Staging
 on:
     push:
         branches:
-            - master
+            - main
+        - master
         paths-ignore:
             - '**.md'
 
@@ -30,7 +31,7 @@ env:
 jobs:
     release-staging:
         timeout-minutes: 30
-        runs-on: Runner_16cores
+        runs-on: ubuntu-latest
         environment: staging
         steps:
             - name: Checkout 🛎️

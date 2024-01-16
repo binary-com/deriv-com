@@ -39,21 +39,21 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: '18.x'
+                  node-version: '14.x'
                   cache: 'npm'
             - name: Create npmrc file
               shell: bash
-              run: echo "@deriv-com:registry=https://npm.pkg.github.com" >> .npmrc
+              run: echo "@deriv-com:registry=https://npm.pkg.github.com/deriv-com" >> .npmrc
 
             - name: Setup install read-only token for deriv-com org
               shell: bash
-              run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' >> .npmrc
+              run: echo '//npm.pkg.github.com/deriv-com-:username=deriv-com' >> .npmrc
 
             - run: npm ci
-            # - run: npm run format
-            # - run: npm run test
+            - run: npm run format
+            - run: npm run test
             - run: npm run build
-            # - run: npm run build:storybook
+            - run: npm run build:storybook
             - run: echo $GITHUB_SHA > public/version.txt
 
             - uses: olegtarasov/get-tag@v2.1
@@ -66,7 +66,7 @@ jobs:
               with:
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  command: pages deploy public --project-name=deriv-com-pages --branch=staging
+                  command: preview-deploy --required true --route ${{env.GITHUB_SHA}} --version $GITHUB_SHA
 
             - name: Cloudflare preview link ✨
               run: echo "New staging website - http://staging.cf-pages-deriv-com.deriv.com"
@@ -83,7 +83,7 @@ jobs:
             - name: Pushing Image to docker hub 🐳
               run: |
                   echo ${{ secrets.DOCKERHUB_PASSWORD }}| docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-                  docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest-staging
+                  docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest-staging-$GITHUB_SHA
                   docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA
 
             - name: Deploy 🚀

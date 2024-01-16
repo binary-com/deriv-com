@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react'
 import clsx from 'clsx'
 import pMinDelay from 'p-min-delay'
 import loadable from '@loadable/component'
+import { wrapper_ltr, wrapper_rtl } from './styles.module.scss'
 import CfdWarningBanner from './cfd-warning-banner'
 import { useIsRtl } from 'components/hooks/use-isrtl'
 import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
@@ -27,7 +28,7 @@ const LayoutOverlay = () => {
             <div
                 className={clsx(
                     'flex flex-col-reverse justify-between items-end',
-                    is_rtl ? 'md:flex-row-reverse' : 'md:flex-row',
+                    is_rtl ? wrapper_rtl : wrapper_ltr,
                 )}
             >
                 <div

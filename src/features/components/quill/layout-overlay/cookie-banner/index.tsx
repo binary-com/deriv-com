@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import clsx from 'clsx'
 import { Text, Button } from '@deriv/quill-design'
 import { CustomLink } from '@deriv-com/components'
+import { cookie_banner, desktop_text } from './styles.module.scss'
 import { useCookieBanner } from 'components/hooks/use-cookie-banner'
 import { Localize } from 'components/localization'
 
@@ -30,16 +31,17 @@ const CookieBanner = () => {
         return (
             <div
                 className={clsx(
-                    'animate-fade-out pointer-events-auto p-1200 mb-200 bg-background-primary-base w-screen shadow-[0_0_12px_0_rgba(14,_14,_14,_0.16)] ease-in-out duration-200 [transition:opacity,translate] md:m-1000 md:max-w-[400px] md:rounded-400',
+                    'animate-fade-out pointer-events-auto p-1200 mb-200 bg-background-primary-base w-screen shadow-[0_0_12px_0_rgba(14,_14,_14,_0.16)] ease-in-out duration-200 [transition:opacity,translate]',
                     {
                         ['animate-fade-in']: cookie.should_show,
                     },
+                    cookie_banner,
                 )}
             >
-                <Text className="pb-500 text-75 lg:text-100">
+                <Text className={clsx('pb-500 text-75', desktop_text)}>
                     <Localize translate_text="_t_Cookies help us to give you a better experience and personalised content on our site. _t_" />
                 </Text>
-                <Text className="text-75 lg:text-100">
+                <Text className={clsx('text-75', desktop_text)}>
                     <Localize
                         translate_text="_t_If you agree to our use of cookies, click on Accept. For more information, <0>see our policy</0>._t_"
                         components={[

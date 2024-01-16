@@ -105,17 +105,17 @@ type SectionComponentProps = {
 const section_content: SectionComponentProps[] = [
     {
         img_src: CurrencyExchange,
-        header: '_t_Currency exchangers_t_',
+        header: id="_t_Currency exchangers_t_",
         text: '_t_Reputable online currency exchangers who want to gain more exposure and clients._t_',
     },
     {
         img_src: Affiliates,
-        header: '_t_Affiliates_t_',
+        header: id="_t_Affiliates_t_",
         text: '_t_Deriv affiliates who want to support their clients._t_',
     },
     {
         img_src: CommunityManagers,
-        header: '_t_Community managers_t_',
+        header: id="_t_Community managers_t_",
         text: '_t_Trusted influencers or community managers who want to earn extra revenue._t_',
     },
 ]
@@ -202,7 +202,7 @@ const WhoCanApply = () => {
                                     />
                                     <Content min_width="240px" max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title" pb="8px">
-                                            <Localize translate_text="_t_Drop us an email_t_" />
+                                            <Localize translate_text="id=_t_Drop us an email_t_" />
                                         </Header>
                                         <Header as="h4" type="paragraph-1" weight="normal">
                                             <Localize translate_text="_t_Send us an email with the following:_t_" />
@@ -241,7 +241,7 @@ const WhoCanApply = () => {
                                     />
                                     <Content max_width="38.2rem">
                                         <Header as="h4" type="sub-section-title" pb="8px">
-                                            <Localize translate_text="_t_Wait for our reply_t_" />
+                                            <Localize translate_text="id=_t_Wait for our reply_t_" />
                                         </Header>
                                         <Header as="h4" type="paragraph-1" weight="normal">
                                             <Localize translate_text="_t_We’ll review your application and get in touch for further information and next steps._t_" />
@@ -258,7 +258,7 @@ const WhoCanApply = () => {
                                     />
                                     <Content max_width="38.2rem">
                                         <Header as="h4" type="sub-section-title" pb="8px">
-                                            <Localize translate_text="_t_Get listed_t_" />
+                                            <Localize translate_text="id=_t_Get listed_t_" />
                                         </Header>
                                         <Header as="h4" type="paragraph-1" weight="normal">
                                             <Localize translate_text="_t_After final approval from our Compliance team, we’ll publish your details on our payment agent list._t_" />

@@ -23,9 +23,7 @@ const TextList = styled(Text)`
     margin-bottom: 0.8rem;
 `
 
-const StyledLink = styled(LinkText)<StyledLinkProps>`
-    color: var(--color-red);
-`
+const StyledLink = styled(LinkText)<StyledLinkProps>`    color: var(--color-red);`
 
 const StyledUl = styled.ul`
     list-style-type: disc;

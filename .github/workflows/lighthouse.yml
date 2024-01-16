@@ -1,6 +1,10 @@
 name: Deriv Lighthouse Audit
 
 permissions:
+    workflow: write
+    check-runs: write
+    contents: write
+    deployments: write
     actions: write
     checks: write
     contents: write
@@ -16,9 +20,9 @@ on:
 
 jobs:
     generate_lighthouse_audit:
-        timeout-minutes: 30
-        runs-on: ubuntu-latest
-        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        timeout-minutes: 40
+        runs-on: ubuntu-20.04
+        if: success()
         steps:
             - name: Download artifact
               id: download-artifact
@@ -53,7 +57,7 @@ jobs:
                       ${{ steps.pr_information.outputs.preview_url }}
                   uploadArtifacts: true
                   temporaryPublicStorage: true
-                  runs: 5
+                  runs: 3
             - name: Format lighthouse score
               id: format_lighthouse_score
               uses: actions/github-script@v6
@@ -109,7 +113,7 @@ jobs:
               uses: 8398a7/action-slack@v3
               if: ${{ steps.format_lighthouse_score.outputs.performance < 0 }}
               with:
-                  status: custom
+                  status: '{{ failure() }}'
                   fields: workflow,job,commit,repo
                   custom_payload: |
                       {
@@ -129,7 +133,7 @@ jobs:
                               "type": "section",
                               "text": {
                                 "type": "mrkdwn",
-                                "text": "*${{ steps.format_lighthouse_score.outputs.performance_color }} PERFORMANCE:* ${{ steps.format_lighthouse_score.outputs.performance }}\n\n*${{ steps.format_lighthouse_score.outputs.accessibility_color }} ACCESSIBILITY:* ${{ steps.format_lighthouse_score.outputs.accessibility }}\n\n*${{ steps.format_lighthouse_score.outputs.best_practices_color }} BEST PRACTICES:* ${{ steps.format_lighthouse_score.outputs.best_practices }}\n\n*${{ steps.format_lighthouse_score.outputs.seo_color }} SEO:* ${{ steps.format_lighthouse_score.outputs.seo }} \n\n*${{ steps.format_lighthouse_score.outputs.pwa_color }} PWA:* ${{ steps.format_lighthouse_score.outputs.pwa }}"
+                                "text": "*^{{ steps.format_lighthouse_score.outputs.performance_color }} PERFORMANCE:* ${{ steps.format_lighthouse_score.outputs.performance }}\n\n*${{ steps.format_lighthouse_score.outputs.accessibility_color }} ACCESSIBILITY:* ${{ steps.format_lighthouse_score.outputs.accessibility }}\n\n*${{ steps.format_lighthouse_score.outputs.best_practices_color }} BEST PRACTICES:* ${{ steps.format_lighthouse_score.outputs.best_practices }}\n\n*${{ steps.format_lighthouse_score.outputs.seo_color }} SEO:* ${{ steps.format_lighthouse_score.outputs.seo }} \n\n*${{ steps.format_lighthouse_score.outputs.pwa_color }} PWA:* ${{ steps.format_lighthouse_score.outputs.pwa }}"
                               }
                             },
                             {

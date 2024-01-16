@@ -169,7 +169,7 @@ const ResetPassword = () => {
     )
 }
 
-export default WithIntl()(ResetPassword)
+export default ResetPassword
 
 export const Head = ({ pageContext }: TGatsbyHead) => (
     <SEO

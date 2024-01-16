@@ -117,7 +117,7 @@ PR will be based on the master branch if the commits are not having text changes
 
 2. Make your changes
 
-3. Make pull request following PR formatting guidelines.
+3. Make a pull request following PR formatting guidelines.
 
 -   Push your changes to your origin , add `-u` flag for the first time push
 
@@ -201,6 +201,16 @@ Example of release steps
     git push upstream production_V20200806_0
     ```
 
-## Test link deployment
+## Fix for failing GitHub Actions
 
-Upon creating PR, [Vercel](https://vercel.com/) and Cloudflare will auto-generate two test links inside the PR. you can use that to preview the test link for the changes you have made.
+The GitHub Actions run previously failed with the following error logs, but has been fixed. Here is an overview of the issue and the solution implemented:
+
+-   The command:
+  Run echo "Verifying user's organization..."
+  yielded the following error:
+  ##[error]Process completed with exit code 3.
+
+  Here are the logs:
+  Verifying user's organization...
+
+The changes made to fix the failing GitHub Actions have been documented.

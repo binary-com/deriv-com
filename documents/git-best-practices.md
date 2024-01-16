@@ -10,12 +10,14 @@
 
 ## Commit message guidelines
 
+### Commit message format examples
+
 We have a set of precise rules over how our git commit messages can be formatted. This leads to more **readable messages** that are easy to follow when looking through the **project history**.
 
 Each commit message will consist of **type** and **subject**:
 
 ```sh
-<type>|<...other_types>:<space><subject>
+<type>: <subject>
 For example  "fix: hero image padding"
 ```
 

@@ -21,7 +21,7 @@ import {
     PointerTextMobile,
 } from './_style'
 import { Desktop, Mobile } from 'components/containers'
-import { Localize } from 'components/localization'
+import { Localize, useNotification, useAuth } from 'components/localization'
 
 const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
     const itemList = data.list

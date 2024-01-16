@@ -10,7 +10,7 @@ import {
     Separator,
     StyledHeader,
     SecondaryHeader,
-} from '../affiliate-ib/_who-can-apply'
+} from './_who-can-apply'
 import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Header, LocalizedLinkText, Timeline } from 'components/elements'
@@ -23,7 +23,7 @@ import Reply from 'images/svg/partners/pa-reply.svg'
 import Listed from 'images/svg/partners/pa-listed.svg'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
-import { TString } from 'types/generics'
+import { TString } from 'common_types/generics'
 
 type ImageWrapperProps = {
     left_margin?: string

@@ -1,27 +1,4 @@
-import React from 'react'
-import styled from 'styled-components'
-import { SectionContainer, Flex } from 'components/containers'
-import { Header } from 'components/elements'
-import { LinkButton } from 'components/form'
-import { Localize } from 'components/localization'
-import banner from 'images/common/p2p/banner.png'
-import bannerBG from 'images/common/p2p/gradient_bg.png'
-import device from 'themes/device'
-
-const StyledSection = styled(SectionContainer)`
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    border-radius: 10px;
-    max-width: 120rem;
-    padding: 0 0 80px 0;
-
-    @media ${device.tabletL} {
-        width: 90%;
-        padding-bottom: 0;
-    }
-`
-const MainWrapper = styled(Flex)`
+new line(s) to replace
     border-radius: 10px;
     height: 35rem;
     background-image: url(${banner}), url(${bannerBG});
@@ -47,38 +24,7 @@ const MainWrapper = styled(Flex)`
         height: 580px;
     }
 `
-const LeftWrapper = styled(Flex)`
-    padding: 56px 0 56px 102px;
-    justify-content: flex-start;
-
-    @media ${device.laptopM} {
-        padding: 55px 0 55px 60px;
-    }
-    @media (max-width: 1100px) {
-        padding: 55px 0 55px 32px;
-    }
-    @media ${device.tabletL} {
-        padding: 40px 32px 0;
-        justify-content: center;
-        align-items: flex-start;
-    }
-`
-const LeftChild = styled(Flex)`
-    flex-direction: column;
-    max-width: 49rem;
-
-    @media ${device.laptopM} {
-        max-width: 514px;
-    }
-    @media (max-width: 1100px) {
-        max-width: 480px;
-    }
-    @media ${device.tabletL} {
-        height: unset;
-    }
-`
-
-const StyledH3 = styled.h3`
+new line(s) to replace
     font-weight: bold;
     color: white;
     font-size: 32px;

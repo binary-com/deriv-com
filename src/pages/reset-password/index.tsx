@@ -6,6 +6,7 @@ import { Localize, localize, WithIntl } from 'components/localization'
 import { Container, SEO } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Button, Input } from 'components/form'
+import { trimSpaces } from 'common/utility';
 import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import Login from 'common/login'

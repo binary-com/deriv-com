@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Container, Flex, SectionContainer } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region';
+import useRegion from 'components/hooks/use-region'
 // SVG
 import Hand from 'images/svg/partners/hand-icon.svg'
 import Lamp from 'images/svg/partners/lamp-icon.svg'

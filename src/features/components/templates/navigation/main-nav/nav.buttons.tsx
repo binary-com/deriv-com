@@ -28,7 +28,7 @@ export const MainNavigationButtons = () => {
                     icon={LabelPairedGridLgBoldIcon}
                     iconPosition="start"
                 >
-                    <Localize translate_text="_t_Traders Hub_t_" />
+                    <Localize translate_text="_t_Trader's Hub_t_" />
                 </Button>
             ) : (
                 <>

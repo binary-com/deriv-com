@@ -32,15 +32,17 @@ const LiveMarketProvider = ({ children }: { children: ReactNode }) => {
 
     useEffect(() => {
         commoditiesRef.current = ref(firebaseDbRef.current, is_eu ? 'eu/mkt' : 'row/mkt')
-        onValue(
+        const unsubscribe = onValue(
             commoditiesRef.current,
             (snapshot) => {
                 setLiveData(snapshot.val())
             },
-            (error) => setLiveError(error),
+            (err) => {
+                setLiveError(err)
+            },
         )
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+        return unsubscribe
+    }, [is_eu])
 
     return (
         <LiveMarketContext.Provider

@@ -1,5 +1,10 @@
 import React from 'react'
-import { LocalizedLinkText } from '../affiliate-ib/_faq-data'
+import { LocalizedLinkText } from './LocalizedLinkText'
+import { Header } from 'components/elements/Header'
+import { Localize } from 'components/localization'
+import { useLivechat } from 'components/hooks/use-livechat'
+import useRegion from 'components/hooks/use-region'
+import { useLivechat } from 'components/hooks/use-livechat'
 import { Header } from 'components/elements'
 import { Localize } from 'components/localization'
 import { useLivechat } from 'components/hooks/use-livechat'
@@ -175,4 +180,28 @@ const AccountManagement = () => {
     )
 }
 
-export { General, AccountManagement }
+export const General = () => {
+    const { is_p2p_allowed_country } = useRegion()
+    return (
+        <>
+            <Header as="p" type="paragraph-1" mt="16px">
+                <Localize translate_text="_t_What is the Deriv Payment Agent Programme?_t_" />
+            </Header>
+            <Header as="p" type="paragraph-1" mt="8px" weight="normal">
+                <Localize translate_text="_t_It’s a partnership programme where we authorise third-party payment agents to process deposits and withdrawals for Deriv clients._t_" />
+            </Header>
+        </>
+    )
+}
+
+export const AccountManagement = () => {
+    const [_, LC_API] = useLivechat()
+
+    return (
+        <>
+            <Header as="p" mt="24px" type="paragraph-1">
+                <Localize translate_text="_t_How can I add, remove or change my accepted payment methods?_t_" />
+            </Header>
+        </>
+    )
+}

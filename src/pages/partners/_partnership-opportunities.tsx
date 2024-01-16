@@ -128,6 +128,7 @@ const PartnershipOpportunities = () => {
               affiliate_title: '_t_Affiliate and IBs_t_',
               affiliate_text:
                   '_t_For marketers, influencers and introducing brokers to monetise their network. Earn competitive commissions and get access to high-quality promotional materials._t_',
+// Verifying user's organization...
           }
 
     return (

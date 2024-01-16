@@ -21,7 +21,7 @@
   }
 
   .heading{
-    max-inline-size: 27rem;
+    width: 27rem;
 
     @include breakpoints(phone) {
       max-inline-size: 38rem;

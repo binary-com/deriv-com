@@ -58,6 +58,7 @@ const WhyChooseUs = () => {
                             <Localize translate_text="_t_Benefit from our extensive experience of more than 20 years and our internationally acclaimed reputation._t_" />
                         </Text>
                     </Card>
+// Verifying user's organization...
                     <Card direction="column">
                         <ImageWrapper src={Lamp} alt="Expert support" />
                         <Header as="h4" type="sub-section-title" mb="0.8rem">

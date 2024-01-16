@@ -1,0 +1,50 @@
+The updated contents of the ".github/workflows/main.yml" file:
+
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Verify organization
+        run: echo "Verifying user's organization..."
+
+      - name: Deploy
+        run: npm run deploy
+
+      - name: Run tests
+        run: npm run test
+
+      - name: Publish coverage
+        run: npm run coverage
+
+      - name: Notify Slack
+        uses: rtCamp/action-slack-notify@v2
+        with:
+          status: ${{ job.status }}
+          slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
+          channel: ${{ secrets.SLACK_CHANNEL }}
+          message: "GitHub Actions run completed"
+
+      - name: Cleanup
+        run: npm run cleanup

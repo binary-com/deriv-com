@@ -19,14 +19,27 @@ export const MainNavigationButtons = () => {
 
     return (
         <div className="flex items-center gap-gap-md">
-            <Button
-                variant="secondary"
-                colorStyle="black"
-                size="lg"
-                onClick={handleRedirectToTradersHub}
-                icon={LabelPairedGridLgBoldIcon}
-                iconPosition="start"
-            >{`Trader's Hub`}</Button>
+            {is_logged_in ? (
+                <Button
+                    variant="secondary"
+                    colorStyle="black"
+                    size="lg"
+                    onClick={handleRedirectToTradersHub}
+                    icon={LabelPairedGridLgBoldIcon}
+                    iconPosition="start"
+                >
+                    {`Trader's Hub`}
+                </Button>
+            ) : (
+                <>
+                    <Button variant="secondary" colorStyle="black" size="lg" onClick={handleLogin}>
+                        <Localize translate_text="_t_Log in_t_" />
+                    </Button>
+                    <Button size="lg" className="hidden lg:block" onClick={handleSignup}>
+                        <Localize translate_text="_t_Open demo account_t_" />
+                    </Button>
+                </>
+            )}
 
             <MobileNavToggle data-cy="hamburger-menu" />
         </div>

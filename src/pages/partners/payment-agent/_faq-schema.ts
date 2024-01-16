@@ -1,24 +1,39 @@
-import { localize } from 'components/localization'
-
-type contentType = 'FAQPage' | 'Question' | 'Answer'
-
-type AcceptedAnswerType = {
-    '@type': contentType
-    text: string
-}
-
-type MainEntityType = {
-    '@type': contentType
-    name: string
-    acceptedAnswer: AcceptedAnswerType
-}
-
-type FaqSchemaType = {
-    '@context': string
-    '@type': contentType
-    mainEntity: MainEntityType[]
-}
 export const faq_schema: FaqSchemaType = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+        {
+            '@type': 'Question',
+            name: localize('_t_What is the Deriv Payment Agent Programme?_t_'),
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: localize(
+                    '_t_It is a partnership arrangement where a payment agent is authorised to process deposits and withdrawals for our clients._t_',
+                ),
+            },
+        },
+        {
+            '@type': 'Question',
+            name: localize(
+                '_t_Is the Deriv Payment Agent Programme the same as Deriv P2P (DP2P)?_t_',
+            ),
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: localize(
+                    '_t_No, it isn’t. DP2P is a peer-to-peer service for our clients to make deposits and withdrawals using their local currency. As our payment agent, you can use the DP2P platform to offer your services to Deriv clients in your country_t_',
+                ),
+            },
+        },
+        {
+            '@type': 'Question',
+            name: localize('_t_Why do clients need a payment agent?_t_'),
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: localize(
+                    "_t_Many of our clients are looking for ways to fund their accounts using payment methods that are not directly available on Deriv. As a payment agent, you'll be able to help them fund their accounts while charging a fixed commission per transaction._t_",
+                ),
+            },
+        },
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [

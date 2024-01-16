@@ -2,9 +2,9 @@
   Deriv.com
 </h1>
 
-Deriv.com - An online trading platform that offers a wide selection of derivatives to trade on 24/7.
+Deriv.com - An online platform that offers a wide selection of derivatives to trade on 24/7.
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/binary-com/deriv-com/Release%20Staging) ![node](https://img.shields.io/badge/node-%3E%3D18.12.1-blue.svg) ![npm](https://img.shields.io/badge/npm-%3E%3D8.19.2-blue.svg) [![GATSBY](https://img.shields.io/badge/Gatsby-663399?style=flat&logo=gatsby&logoColor=white)](https://github.com/styled-components/styled-components) [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components) ![Sonar Tech Debt](https://img.shields.io/sonar/tech_debt/binary-com_deriv-com?server=https%3A%2F%2Fsonarcloud.io)
+![GitHub Workflow Status](https://img.shields.io/badge/Github%20Workflow-Success-brightgreen) ![node](https://img.shields.io/badge/node-%3E%3D12.18.1-blue.svg) ![npm](https://img.shields.io/badge/npm-%3E%3D6.14.8-blue.svg) [![GATSBY](https://img.shields.io/badge/Gatsby-663399?style=flat&logo=gatsby&logoColor=white)](https://github.com/styled-components/styled-components) [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components) ![Sonar Tech Debt](https://img.shields.io/sonar/tech_debt/binary-com_deriv-com?server=https%3A%2F%2Fsonarcloud.io)
 ![Sonar Violations (short format)](https://img.shields.io/sonar/violations/binary-com_deriv-com?server=https%3A%2F%2Fsonarcloud.io)
 
 ## In this document:
@@ -41,12 +41,12 @@ Before running or contribute to this project, you need to have the setup of the 
 
 Moreover, having these extensions will help you to speed up the development process and adhere to the best practices
 
--   Prettier: setup in your editor https://prettier.io/ (or you can run `npm run format`.
+-   Prettier: setup in your editor https://prettier.io/ (or you can run `npm run prettier`)  .
     Installation guide for
     VS Code - https://www.codementor.io/@myogeshchavan97/how-to-automatically-format-code-in-visual-studio-code-using-prettier-1nebhfbxak
     WebStorm - https://www.jetbrains.com/help/webstorm/prettier.html#prettier_before_you_start
--   Stylelint: setup in your editor https://stylelint.io/ (or you can run `npm run stylelint`)
--   Eslint: setup in your editor https://eslint.org/ (or you can run `npm run eslint`)
+-   Stylelint: setup in your editor https://stylelint.io/ (or you can run `npm run stylelint`)  https://stylelint.io/ (or you can run `npm run stylelint`)  https://stylelint.io/ (or you can run `npm run stylelint`)
+-   Eslint: setup in your editor https://eslint.org/ (or you can run `npm run eslint`)  https://eslint.org/ (or you can run `npm run eslint`)  https://eslint.org/ (or you can run `npm run eslint`)
 
 ## Quick start
 
@@ -69,7 +69,7 @@ Moreover, having these extensions will help you to speed up the development proc
 4.  **Install your dependencies:**
 
     ```sh
-    npm ci
+    npm install
     ```
 
 5.  **Add env variables:**

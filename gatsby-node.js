@@ -10,6 +10,8 @@ exports.onPreBuild = async () => {
     await copyLibFiles(path.join(__dirname, 'static', '~partytown'))
 }
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
+// Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
+// Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 
 const BuildPage = (page, actions) => {
     const { createRedirect, createPage } = actions

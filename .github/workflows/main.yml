@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Verifying user's organization
+        run: |
+          echo "Verifying user's organization..."
+          # Add appropriate error handling or troubleshooting steps here
+          if [ $? -eq 3 ]; then
+            echo "Error: Exit code 3 encountered. Please check your organization settings."
+            # Add additional troubleshooting steps or instructions here
+            exit 1
+          fi
+
+      # Add other steps as needed

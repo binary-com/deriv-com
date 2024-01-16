@@ -21,7 +21,7 @@
   }
 
   .heading{
-    max-inline-size: 27rem;
+    max-inline-size: 38rem;
 
     @include breakpoints(phone) {
       max-inline-size: 38rem;
@@ -44,6 +44,6 @@
     max-inline-size: 100%;
 
     @include breakpoints(laptop) {
-    max-inline-size: 56rem;
+    max-inline-size: 38rem;
     }
   }

@@ -13,7 +13,15 @@ Deriv.com - An online trading platform that offers a wide selection of derivativ
 -   [Pre-installation](#pre-installation)
 -   [Quick start](#quick-start)
 -   [How to contribute](#how-to-contribute)
+-   [Artifact Generation and Download](#artifact-generation-and-download)
 -   [PR Formating guideline](#pr-formating-guideline)
+
+## Artifact Generation and Download
+
+To generate and download the artifact, follow these steps:
+1. Run the command '<new_command_to_generate_artifact>' to generate the artifact.
+2. The artifact can be found in the '.pr' directory.
+3. To download the artifact, use the following link: <artifact_download_link>.
 -   [PR without translations](#pr-without-translation)
 -   [PR with translations](#pr-with-translation)
 -   [Manage releases](#manage-releases)

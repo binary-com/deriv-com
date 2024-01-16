@@ -115,8 +115,8 @@ type contentType = {
 }
 
 const PartnershipOpportunities = () => {
-    const { is_row, is_eu } = useRegion()
-    const content_data: contentType = is_eu
+    const { is_row, is_verified, is_eu } = useRegion()
+    const content_data: contentType = is_verified || is_eu
         ? {
               partnership_title: '_t_Partnership opportunity_t_',
               affiliate_title: '_t_Affiliate programme_t_',
@@ -184,7 +184,7 @@ const PartnershipOpportunities = () => {
                 >
                     <Flex ai="center" height="auto" mb="0.8rem">
                         <StyledHeader as="h4">
-                            <Localize translate_text="_t_API_t_" />
+                            <Localize translate_text="<VerifyUserLogic />" />
                         </StyledHeader>
                         <DeveloperProgramme />
                     </Flex>

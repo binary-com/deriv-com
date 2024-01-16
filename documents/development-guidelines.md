@@ -73,7 +73,9 @@ content: {
     components: [<Header key={0} type="paragraph-2" weight="normal" as="p" />],
 }
 
-<Header as="p">
+<p>
+    <Localize translated_text={content.text} components={content.components} />
+</p>
     <Localize translated_text={content.text} components={content.components} />
 </Header>
 
@@ -92,7 +94,7 @@ content: {
 -   **React.useEffect** doesn't work like this in the _React 18_
 
 ```js
-// You will get destroy is not a function error!
+// You will get a 'destroy is not a function' error!
 useEffect(() => setSelected(default_step), [items, default_step])
 
 // Instead you should use it like this:

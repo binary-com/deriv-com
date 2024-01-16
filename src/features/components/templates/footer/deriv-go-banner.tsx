@@ -7,7 +7,7 @@ import DownloadBadges from './download'
 import { Localize, localize } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 
-export const DerivGoBannerAndAwards = () => {
+export const DerivGoBanner = () => {
     const { is_row } = useRegion()
     return (
         <div className="flex flex-col gap-gap-lg">
@@ -46,26 +46,6 @@ export const DerivGoBannerAndAwards = () => {
                     <DownloadBadges />
                 </div>
             )}
-            <div className="hidden rounded-[16px] border-solid border-xs border-opacity-black-100 py-general-md">
-                <div className="block justify-center lg:hidden">
-                    <StaticImage
-                        className="mx-auto"
-                        src="../../../../images/common/migration/footer/investors-in-people.png"
-                        alt={localize('_t_investors in people - gold_t_')}
-                        placeholder="none"
-                        width={180}
-                        layout="fixed"
-                    />
-                </div>
-                <div className="hidden justify-center lg:block">
-                    <StaticImage
-                        src="../../../../images/common/migration/footer/investors-in-people.png"
-                        alt={localize('_t_investors in people - gold_t_')}
-                        placeholder="none"
-                        objectFit="contain"
-                    />
-                </div>
-            </div>
         </div>
     )
 }

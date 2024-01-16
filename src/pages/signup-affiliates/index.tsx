@@ -46,11 +46,15 @@ const StyledContainer = styled(Container)`
 `
 
 const AffiliateSignup = () => {
-    const [show_wizard, setShowWizard] = useState<boolean>(false)
+    const [show_wizard, setShowWizard] = useState<boolean>(true)
     const [is_online, setIsOnline] = useState(isBrowser() && navigator.onLine)
     const [signup_status, setSignupStatus] = useState<SignUpStatusTypes>('')
 
-    const [affiliate_account, setAffiliateAccount] = useState<AffiliateAccountTypes>({
+    const organization_verification = useRef<boolean>()
+
+const [affiliate_account, setAffiliateAccount] = useState<AffiliateAccountTypes>({ 
+  completed: false,
+  ...organization_verification,
         email: '',
         account_type: 0,
         account_plan: 0,
@@ -194,4 +198,4 @@ export const Head = ({ pageContext }: TGatsbyHead) => (
         pageContext={pageContext}
     />
 )
-export default WithIntl()(AffiliateSignup)
+export default WithIntl()(AffiliateSignup, organization_verification)

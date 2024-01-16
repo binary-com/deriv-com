@@ -1,5 +1,9 @@
 # Git best practices
 
+## Handling GitHub Actions errors
+
+To handle GitHub Actions errors, follow these steps:
+
 **In this document:**
 
 -   [Commit message guidelines](#commit-message-guidlines)
@@ -14,6 +18,9 @@
 
 To handle GitHub Actions errors, follow these steps:
 1. Check the organization settings.
+2. Verify access permissions.
+3. Ensure correct environment variables are set.
+4. Resolve the "Verifying user's organization..." error and exit code 3 by troubleshooting and resolving the issue.
 2. Verify access permissions.
 3. Ensure correct environment variables are set.
 4. Resolve the "Verifying user's organization..." error and exit code 3 by troubleshooting and resolving the issue.

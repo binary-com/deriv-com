@@ -40,7 +40,7 @@ const RedButton = styled(LinkButton)<RedButtonProps>`
     }
 `
 
-const PartnerCTA = () => {
+export const RepeatablePartnerCTA = () => {
     const [is_livechat_interactive, LC_API] = useLivechat()
     const { affiliate_signup_link } = useAffiliateSignupLink()
 

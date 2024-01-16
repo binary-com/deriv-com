@@ -79,7 +79,7 @@ const ResetPassword = () => {
         const errors: ErrorType = {}
         const email = trimSpaces(values.email)
         const email_error = validation.required(email) || validation.email(email)
-        setApiError('')
+        
         if (email_error) {
             errors.email = email_error
         }

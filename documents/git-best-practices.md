@@ -64,7 +64,7 @@ or
 git pull upstream master|crowdin
 ```
 
-both of these will do the job. However, rebase won't add another commit to your PR where without rebase it will add commit history of merging the latest changes to your branch.
+both of these will do the job. For debugging purposes, including error messages or stack traces in commit messages can be helpful for troubleshooting and error resolution. For example, a commit message could include an error message or a stack trace from a bug encountered in the codebase.
 
 ## Resolve translation conflict on message.json
 

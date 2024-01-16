@@ -1,6 +1,10 @@
 # Development Guidelines
 
 ## Do:
+-   Include artifacts in GitHub Actions workflows
+-   Use artifacts to store and transfer data between jobs in a workflow
+-   Generate unique artifacts for every workflow run
+-   Download artifacts using the workflow job or GitHub API
 
 -   Keep all files immediately relevant to a component inside the given component directory.
 -   Make it dead simple to import the component from elsewhere.
@@ -89,10 +93,33 @@ content: {
 
 ```
 
--   **React.useEffect** doesn't work like this in the _React 18_
+-   ## Artifact Generation and Usage Guidelines
+
+Artifacts in GitHub Actions workflows serve as a means to store and transfer data between jobs in a workflow. They are generated and downloaded to enable the transfer of data and files between workflow runs.
+
+### Generating Artifacts
+To generate artifacts in a workflow, follow these steps:
+1. After completing the necessary workflow steps, use the provided command to package and store the required data as an artifact.
+2. Ensure the artifacts generated are unique for every workflow run to prevent conflicts or data overwrites.
+
+### Downloading Artifacts
+### Best Practices for Using Artifacts
+
+When using artifacts in workflows, it is recommended to follow these best practices:
+1. Limit the size of artifacts to only the necessary files and data to reduce transfer times and storage usage.
+2. Use unique and descriptive names for artifacts to easily identify and retrieve them when needed.
+3. Keep the artifacts organized and structured, considering the needs and requirements of the workflows in which they are used.
+
+### Artifact Usage Examples
+Here are a few examples of how artifacts can be used in GitHub Actions:
+1. Transfer build artifacts from the build job to a deployment job for release.
+2. Store test results in an artifact for review and analysis.
+3. Pass generated files, such as documentation or reports, between workflow steps or jobs.
+1. Retrieve the artifact(s) from the previous workflow run using the provided download link or by using the workflow job or GitHub API.
+2. Use the downloaded artifact(s) in subsequent workflow job steps as needed.
 
 ```js
-// You will get destroy is not a function error!
+// You will get Ensure the artifact download link or the GitHub API is used to retrieve the required artifact(s)
 useEffect(() => setSelected(default_step), [items, default_step])
 
 // Instead you should use it like this:

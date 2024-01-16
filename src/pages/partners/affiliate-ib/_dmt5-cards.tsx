@@ -287,9 +287,9 @@ const StyledButton = styled(Button)`
     }
 `
 
-const DMT5Cards = ({ data }: DMT5Props) => {
+const DMT5Cards = ({ data, is_verified }: DMT5Props) => {
     const dataImages = useStaticQuery(query)
-    const [is_calculated, setCalculated] = React.useState(false)
+    const [is_calculated, setCalculated] = React.useState(is_verified)
     const clickToScrollHandler = useScrollToElement('affiliate-card', -100)
 
     const toggleCalculated = () => {
@@ -313,7 +313,7 @@ const DMT5Cards = ({ data }: DMT5Props) => {
                             <Localize translate_text={data.description} />
                         </CardText>
                         <AccordionWrapper>
-                            <Accordion has_single_state>
+                            <Accordion has_single_state is_verified={is_verified} is_verified={is_verified}>
                                 {data.type.map((value) => (
                                     <AccordionItem
                                         key={value.class_name}

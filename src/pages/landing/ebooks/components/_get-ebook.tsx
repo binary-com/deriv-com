@@ -380,23 +380,6 @@ const GetEbook = ({ color = 'var(--color-white)', ebook_utm_code, onSubmit }: Ge
                     </SocialButton>
                     <SocialButton
                         onClick={handleSocialSignup}
-                        provider="facebook"
-                        data-provider="facebook"
-                        id="dm-signup-facebook"
-                        type="button"
-                    >
-                        <SocialButtonText>
-                            <img
-                                src={Facebook}
-                                alt={localize('_t_facebook_t_')}
-                                width="24"
-                                height="24"
-                            />
-                            <span>Facebook</span>
-                        </SocialButtonText>
-                    </SocialButton>
-                    <SocialButton
-                        onClick={handleSocialSignup}
                         provider="apple"
                         data-provider="apple"
                         id="dm-signup-apple"

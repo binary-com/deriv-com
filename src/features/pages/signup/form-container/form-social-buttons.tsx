@@ -40,29 +40,6 @@ const FormSocialButtons = () => {
                 </Flex.Box>
             </Button.Secondary>
             <Button.Base
-                className={signup_fb_btn}
-                id="dm-signup-facebook"
-                onClick={() => {
-                    Analytics?.trackEvent('ce_virtual_signup_form', {
-                        signup_provider: 'facebook',
-                        ...analyticsData,
-                    })
-                    Login.initOneAll('facebook')
-                }}
-            >
-                <Flex.Box justify="center" align="end" gap={'2x'}>
-                    <Image src={FacebookLogo} />
-                    <Typography.Paragraph
-                        size="small"
-                        weight="bold"
-                        font_family="UBUNTU"
-                        textcolor="white"
-                    >
-                        <Localize translate_text={'_t_Facebook_t_'} />
-                    </Typography.Paragraph>
-                </Flex.Box>
-            </Button.Base>
-            <Button.Base
                 className={signup_apple_btn}
                 textcolor="white"
                 id="dm-signup-apple"

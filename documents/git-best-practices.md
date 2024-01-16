@@ -2,7 +2,9 @@
 
 **In this document:**
 
--   [Commit message guidelines](#commit-message-guidlines)
+-   [Commit message guidelines
+
+-   [Fixing failing GitHub Actions](#fixing-failing-github-actions)](#commit-message-guidlines)
     -   [Type](#type)
 -   [Changing base branch](#changing-base-branch)
 -   [Get latest Changes](#get-latest-changes)
@@ -29,6 +31,7 @@ Must be one of the following:
 -   **docs**: Documentation only changes
 -   **feat**: A new feature
 -   **fix**: A bug fix
+-   **github-actions**: Guidelines for fixing failing GitHub Actions runs
 -   **perf**: A code change that improves performance
 -   **refactor**: A code change that neither fixes a bug nor adds a feature
 -   **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
@@ -66,11 +69,12 @@ git pull upstream master|crowdin
 
 both of these will do the job. However, rebase won't add another commit to your PR where without rebase it will add commit history of merging the latest changes to your branch.
 
-## Resolve translation conflict on message.json
+## Resolving failing GitHub Actions
 
 There are cases when other developers also work on translation (crowdin) branch, and get merged first. This way, your branch will get conflict of the extracted message.json. To fix this:
 
--   Get the latest Crowdin changes
+-   Analyzing the error logs and identifying the cause of the failure
+-   Resolving conflicts and committing changes
 
     ```sh
     git pull upstream crowdin
@@ -84,4 +88,5 @@ There are cases when other developers also work on translation (crowdin) branch,
 
 -   Resolve other conflicts if any, or just commit your changes
 
--   Push to your origin branch to update the PR
+-   Best practices for resolving the issue and ensuring successful GitHub Actions runs
+-   Save the changes

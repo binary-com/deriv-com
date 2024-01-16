@@ -29,7 +29,7 @@ const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
     return (
         <>
             <Desktop>
-                {itemList.map((value, index) => {
+                {itemList.forEach((value, index) => {
                     const { formula, result } = value
                     return (
                         <FormulaContainer key={index}>

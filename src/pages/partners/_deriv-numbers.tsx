@@ -5,7 +5,7 @@ import { Header, CardStyle, Text } from 'components/elements'
 import { Localize } from 'components/localization'
 
 const Wrapper = styled(Flex)`
-    direction: ltr;
+    display: flex;
     flex-wrap: wrap;
     margin-block-start: 2rem;
     gap: 2.4rem;
@@ -13,7 +13,7 @@ const Wrapper = styled(Flex)`
 
 const Card = styled(Flex)`
     ${CardStyle}
-    padding: 2.4rem;
+    margin: 2.4rem;
     max-width: 28.2rem;
     min-height: 16.8rem;
     justify-content: flex-start;

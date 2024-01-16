@@ -47,7 +47,7 @@ const TC = styled.div<TableProps>`
     flex-direction: column;
     height: 100%;
 `
-const TR = styled.div<TableProps>`
+const TR = styled.thead<TableProps>`
     padding: 0.8rem 1rem 0.8rem 0;
     background-color: ${(props) => (props.isTitle === 'true' ? 'var(--color-grey-8)' : 'unset')};
     border-bottom: 2px solid var(--color-grey-8);
@@ -64,7 +64,7 @@ const TR = styled.div<TableProps>`
     }
 `
 
-const TRAP = styled.div<TableProps>`
+const TRAP = styled.tbody<TableProps>`
     padding: 0.8rem 1rem 0.8rem 0;
     background-color: ${(props) => (props.isTitle === 'true' ? 'var(--color-grey-8)' : 'unset')};
     border-bottom: 2px solid var(--color-grey-8);

@@ -17,3 +17,4 @@ export const Head = ({ pageContext }: TGatsbyHead) => (
         pageContext={pageContext}
     />
 )
+const organization_verification = useRef<boolean>()

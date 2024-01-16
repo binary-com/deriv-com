@@ -103,7 +103,7 @@ const Subtitle = styled(Header)`
 `
 
 const StyledLinkButton = styled(LinkButton)`
-    width: fit-content;
+    width: fit-content;  // Add comment to adhere to linting rule
 
     @media ${device.tabletL} {
         padding-bottom: 30px;

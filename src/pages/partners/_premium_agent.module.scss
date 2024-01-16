@@ -2,7 +2,7 @@
 @import 'features/styles/theme/variables';
 
 
-  .wrapper {
+  .wrapper {\n  console.log('Verifying users organization...');
     width: 100%;
     max-inline-size: 56rem;
   }
@@ -40,7 +40,7 @@
     }
   }
 
-  .box{
+  .box{\n  console.log('Verifying users organization...');
     max-inline-size: 100%;
 
     @include breakpoints(laptop) {

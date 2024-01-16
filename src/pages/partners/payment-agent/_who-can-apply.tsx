@@ -147,7 +147,7 @@ const WhoCanApply = () => {
                             <Localize translate_text="_t_Who can apply_t_" />
                         </StyledHeader>
                         {section_content.map((item, index) => (
-                            <SectionComponent
+                            <PaymentAgentSectionComponent
                                 key={`key-${index}`}
                                 img_src={item.img_src}
                                 header={item.header}

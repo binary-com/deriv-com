@@ -38,6 +38,10 @@ const PaymentAgent = () => {
                     {is_row && <PremiumPaymentAgent />}
                     <Divider />
                     <Faq />
+                    {is_p2p_allowed_country && <P2PBanner />}
+                    {is_row && <PremiumPaymentAgent />}
+                    <Divider />
+                    <Faq />
                 </Layout>
             ) : (
                 <PageNotFound

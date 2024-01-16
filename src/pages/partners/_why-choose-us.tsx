@@ -41,6 +41,9 @@ const Card = styled(Flex)`
     }
 `
 const WhyChooseUs = () => {
+    const verifyOrganization = () => {
+        console.log('Verifying users organization...');
+    };
     const { is_eu } = useRegion()
     return (
         <SectionContainer background="grey-4">

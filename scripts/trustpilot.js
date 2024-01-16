@@ -37,7 +37,7 @@ const fetchTrustpilotData = async () => {
             stars: result.score?.stars || 0,
             trustScore: result.score?.trustScore || 0,
             numberOfReviews:
-                result.numberOfReviews?.usedForTrustScoreCalculation.toLocaleString() || '',
+                result.numberOfReviews?.total.toLocaleString() || '',
         }
 
         const fileContent = JSON.stringify(tpData,null,2)

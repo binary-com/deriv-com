@@ -81,7 +81,7 @@ actions.resetForm({ email: '' })
             })
     }
 
-    const resetValidation = (values: EmailType) => {
+    const resetValidation = (values: EmailType) => { setApiError('')
         const errors: ErrorType = {}
         const email = trimSpaces(values.email)
         const email_error = validation.required(email) || validation.email(email)

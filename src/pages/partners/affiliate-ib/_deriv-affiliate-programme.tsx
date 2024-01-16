@@ -48,13 +48,13 @@ const TitleWrapper = styled.section`
 `
 
 const SubtitleHeader = styled(Header)`
-    width: 792px;
+    width: 100%;
     max-width: 792px;
     @media ${device.laptopL} {
         width: 100%;
     }
     @media ${device.tabletL} {
-        font-size: 16px !important;
+        font-size: 16px
     }
 `
 
@@ -83,7 +83,7 @@ const StyledHeader = styled(Header)`
 
 const ApplyNow = styled(LinkButton)<ApplyNowProps>`
     display: block;
-    width: 100%;
+    width: unset;
     border-radius: 4px;
     margin-block-start: 40px;
     max-inline-size: 336px;
@@ -103,9 +103,10 @@ const StyledSignupBtnWrap = styled.div`
 const DerivAffiliateProgramme = () => {
     const { is_eu } = useRegion()
     const { affiliate_signup_link } = useAffiliateSignupLink()
+    const { is_verified } = useVerification()
 
     return (
-        <StyledSection id="deriv-affiliate">
+        <StyledSection id="deriv-affiliate" verified>
             <ContentContainer direction="column">
                 <TitleWrapper>
                     <Header size="4.8rem" align="center" as="h2" mb="1.2rem">
@@ -138,11 +139,11 @@ const DerivAffiliateProgramme = () => {
                     </StyledCardWrapper>
                     <StyledSignupBtnWrap>
                         <ApplyNow
-                            secondary
+                            secondary={true}
                             to={affiliate_signup_link}
                             external
                             target="_blank"
-                            // type="affiliate_sign_up"
+                            type="affiliate_sign_up" verified
                             mt_mobile="32px"
                         >
                             <Localize translate_text="_t_Sign up_t_" />

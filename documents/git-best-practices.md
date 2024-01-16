@@ -49,7 +49,7 @@ Must be one of the following:
 There are cases when you want to change the base branch because the PR that didn't have text changes is now having text changes, so, you need to convert the base branch from `master` to `crowdin`. The command to do that is as follows:
 
 ```sh
-git rebase --onto crowdin master your_branch_name
+git rebase --onto [new_base_branch] [old_base_branch] [your_branch_name]
 ```
 
 or vice versa from `crowdin` to `master`

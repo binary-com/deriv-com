@@ -19,12 +19,15 @@ jobs:
         steps:
             - name: Check Branch Name
               run: |
-                if [ "${{ github.event_name }}" == "push" ] && [ "${{ github.ref }}" == "refs/heads/new_translation_strings" ]; then
+                if [ "${{ github.event_name }}" == "push" ] && [ "${{ github.ref }}" == "refs/heads/master" ]; then
                   echo "The branch recently merged to master is the branch came from this workflow, skipping further steps."
                   exit 0
                 fi
             - name: Checkout 🛎️
-              uses: actions/checkout@v2.3.1
+              uses: actions/checkout@v2.4.0
+            with:
+              ref: ${{ github.ref }}
+              token: ${{ secrets.GITHUB_TOKEN }}
             - name: Setup Node
               uses: actions/setup-node@v2.1.2
               with:

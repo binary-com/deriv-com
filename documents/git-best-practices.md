@@ -27,6 +27,7 @@ Must be one of the following:
 -   **chore**: Add or Changes on packages or external dependencies
 -   **ci**: Changes to our CI configuration files and scripts (example scopes: Docker, nginx conf)
 -   **docs**: Documentation only changes
+-   **ci**: Changes related to CI/CD configuration or scripts.
 -   **feat**: A new feature
 -   **fix**: A bug fix
 -   **perf**: A code change that improves performance

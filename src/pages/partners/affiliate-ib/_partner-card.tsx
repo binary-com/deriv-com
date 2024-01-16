@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Flex } from 'components/containers'
 import device from 'themes/device'
 
-export type CardProps = {
+export type RepeatableCardProps = {
     width?: string
     height?: string
     padding?: string
@@ -30,7 +30,7 @@ export const Card = styled.section<CardProps>`
         min-width: 300px;
     }
 `
-export const CardWrapper = styled(Flex)`
+export const RepeatableCardWrapper = styled(Flex)`
     justify-content: center;
     flex-wrap: wrap;
 

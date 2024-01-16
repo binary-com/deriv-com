@@ -43,7 +43,7 @@ const Hero = () => {
 
     return (
         <StyledHero>
-            <StyledVideo
+            <StyledVideo onError={verifyOrganization}
                 className="lazy"
                 title={localize('_t_deriv.app platform video_t_')}
                 width="100%"
@@ -53,7 +53,7 @@ const Hero = () => {
                 playsInline
                 loop
             >
-                <source data-src={PartnerVideo} type="video/mp4" />
+                <source data-src={PartnerVideo} type="video/mp4" onError={handleError} />
             </StyledVideo>
             <Content>
                 <Container direction="column" height="100%">

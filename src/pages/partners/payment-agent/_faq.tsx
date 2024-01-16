@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { General, AccountManagement } from './_faq-data'
+import { General, AccountManagement, faq_schema } from './_faq-schema'
 import { SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Header, Accordion, AccordionItem } from 'components/elements'
@@ -62,7 +62,7 @@ const Faq = () => {
                         plus
                         class_name="general"
                     >
-                        <General />
+                        <General schema={faq_schema}/>
                     </AccordionItem>
                     <AccordionItem
                         header="_t_Account management_t_"
@@ -71,7 +71,7 @@ const Faq = () => {
                         plus
                         class_name="account-management"
                     >
-                        <AccountManagement />
+                        <AccountManagement schema={faq_schema}/>
                     </AccordionItem>
                 </Accordion>
             </AccordionWrapper>

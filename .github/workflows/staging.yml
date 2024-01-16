@@ -49,15 +49,18 @@ jobs:
               shell: bash
               run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' >> .npmrc
 
-            - run: npm ci
+            # - run: npm ci
             # - run: npm run format
             # - run: npm run test
-            - run: npm run build
+            # - run: npm run build
             # - run: npm run build:storybook
-            - run: echo $GITHUB_SHA > public/version.txt
+            # - run: echo $GITHUB_SHA > public/version.txt
 
-            - uses: olegtarasov/get-tag@v2.1
-              id: tagName
+            # - uses: olegtarasov/get-tag@v2.1
+            #   id: tagName
+            #   # For using same tag for staging and production we need to uncomment these two below lines:
+            #   # with:
+            #   #   tagRegex: "staging(.*)"
               # For using same tag for staging and production we need to uncomment these two below lines:
               # with:
               #   tagRegex: "staging(.*)"
@@ -66,14 +69,13 @@ jobs:
               with:
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  command: pages deploy public --project-name=deriv-com-pages --branch=staging
+                  command: pages deploy public --project-name=deriv-com --branch=master
 
             - name: Cloudflare preview link ✨
               run: echo "New staging website - http://staging.cf-pages-deriv-com.deriv.com"
 
-            - name: Building docker image 🐳
-              run: docker build -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
-
+            # - name: Building docker image 🐳
+            #   run: docker build -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest-staging  -t ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA .
             - name: Verify nginx image
               run: |
                   set -e

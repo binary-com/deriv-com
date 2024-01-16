@@ -402,22 +402,12 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
     if (config.optimization) {
         config.optimization.minimizer = [new TerserPlugin()]
     }
-    if (stage === 'build-html' || stage === 'develop-html') {
-        actions.setWebpackConfig({
-            module: {
-                rules: [
-                    {
-                        test: /analytics/,
-                        use: loaders.null(),
-                    },
-                ],
-            },
-        })
-    }
     actions.setWebpackConfig({
+        devtool: false,
         plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },
+        ...((stage === 'build-html' || stage === 'develop-html') ? { module: { rules: [ { test: /analytics/, use: loaders.null() } ] } } : {}),
     })
 }

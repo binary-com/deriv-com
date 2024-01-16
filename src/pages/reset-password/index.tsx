@@ -79,7 +79,7 @@ if (error.msg_type === 'verify_email') {
             })
     }
 
-    const resetValidation = (values: EmailType) => {
+    const resetValidation = (values: EmailType & ErrorType) => {
         const errors: ErrorType = {}
         const email = trimSpaces(values.email)
         const email_error = validation.required(email) || validation.email(email)

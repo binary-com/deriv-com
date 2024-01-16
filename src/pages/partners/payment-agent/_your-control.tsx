@@ -1,9 +1,12 @@
-import React from 'react'
+/*
+  Create the necessary file for the YourControl component in the relevant directory
+*/import React from 'react'
 import styled from 'styled-components'
 import { Container, SectionContainer, Flex, CssGrid } from 'components/containers'
 import { Localize, localize } from 'components/localization'
 import { Header, Text } from 'components/elements'
 import device from 'themes/device'
+import YourControl from './_your-control'
 // SVG
 import CloseAccount from 'images/svg/partners/pa-close-account.svg'
 import Comission from 'images/svg/partners/pa-comission.svg'

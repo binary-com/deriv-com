@@ -121,6 +121,7 @@ const ResetPassword = () => {
                         <Form noValidate>
                             <InputGroup>
                                 <Input
+                                    required
                                     id="dm-email-input"
                                     name="email"
                                     error={errors.email}
@@ -130,6 +131,7 @@ const ResetPassword = () => {
                                     onBlur={handleBlur}
                                     autoComplete="off"
                                     type="text"
+                                    required
                                     label={localize('_t_Email_t_')}
                                     background="white"
                                     placeholder="example@email.com"

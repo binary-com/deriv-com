@@ -120,23 +120,6 @@ const SignupDefault = ({
                         <img src={Google} alt={localize('_t_google_t_')} width="22" height="23" />
                     </span>
                 </SocialButton>
-                <SocialButton
-                    onClick={handleSocialSignup}
-                    provider="facebook"
-                    data-provider="facebook"
-                    id="dm-signup-facebook"
-                    type="button"
-                    social
-                >
-                    <span>
-                        <img
-                            src={Facebook}
-                            alt={localize('_t_facebook_t_')}
-                            width="12"
-                            height="22"
-                        />
-                    </span>
-                </SocialButton>
             </SocialWrapper>
             <LoginText>
                 <Localize translate_text="_t_Already have an account?_t_" />

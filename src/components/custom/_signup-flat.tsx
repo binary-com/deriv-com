@@ -192,24 +192,6 @@ const SignupFlat = ({
                                 />
                             </span>
                         </SocialButton>
-                        <SocialButton
-                            dark={dark}
-                            onClick={handleSocialSignup}
-                            provider="facebook"
-                            data-provider="facebook"
-                            id="dm-signup-facebook"
-                            type="button"
-                            social
-                        >
-                            <span>
-                                <img
-                                    src={Facebook}
-                                    alt={localize('_t_facebook_t_')}
-                                    width="12"
-                                    height="22"
-                                />
-                            </span>
-                        </SocialButton>
                     </SocialWrapper>
                 </Container>
                 <Splitter dark={dark}></Splitter>

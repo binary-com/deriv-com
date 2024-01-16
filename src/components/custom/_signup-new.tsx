@@ -243,20 +243,6 @@ const SignupNew = ({
                 </SocialButton>
                 <SocialButton
                     onClick={handleSocialSignup}
-                    provider="facebook"
-                    data-provider="facebook"
-                    id="dm-signup-facebook"
-                    type="button"
-                    social
-                    bg_color="var(--color-blue-15)"
-                >
-                    <img src={Facebook} alt={localize('_t_facebook_t_')} width="24" height="24" />
-                    <SocialText type="paragraph-2" color="var(--color-white)" as="p" align="center">
-                        Facebook
-                    </SocialText>
-                </SocialButton>
-                <SocialButton
-                    onClick={handleSocialSignup}
                     provider="apple"
                     data-provider="apple"
                     id="dm-signup-apple"

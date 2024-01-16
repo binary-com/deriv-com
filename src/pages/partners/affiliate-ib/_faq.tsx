@@ -15,7 +15,7 @@ import DotPattern from 'images/svg/partners/dot-pattern.svg'
 import { TString } from 'types/generics'
 import useRegion from 'components/hooks/use-region'
 
-const FaqHeader = styled(Header)`
+const FaqHeader = styled.p`
     @media ${device.tabletL} {
         font-size: 24px;
     }
@@ -142,7 +142,7 @@ const Faq = () => {
     const { is_eu } = useRegion()
     return (
         <RelativeContainer>
-            <FaqHeader as="h2" size="4.8rem" align="center">
+            <FaqHeader as="p" size="4.8rem" align="center">
                 <Localize translate_text="_t_Browse our FAQ_t_" />
             </FaqHeader>
             <FaqSubHeader

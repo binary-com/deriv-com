@@ -44,6 +44,20 @@
 
 -   Repeating your code won't return the same result, For example generating a random number can't be replicated. The code has to return the same thing when it is run on build time and on client-side. A fix for this is to either make the code repeatable or make it only run on client-side.
 
+-   Mixing concerns (files, modules) that should really belong to other components
+
+-   Don't miss thead and tbody when you are using the Table element! If you don't include the thead and tbody elements on your table, React will give you a hydration error. Those elements are optional, so normally aren't required in HTML, but they are required when doing SSR / SSG with React. The reason for that is that the two elements will be added by browsers to the DOM if they are missing, but client-side rendering doesn't add them to React's shadow DOM. This gives a mismatch of the table data between the static HTML data DOM and client side render, resulting in a hydration error.
+
+-   Don't use invalid HTML structure, invalid HTML structure can give a hydration error. For example this is incorrect HTML:
+
+```js
+<p>
+    <h1>This is a heading</h1>
+</p>
+```
+
+What makes that invalid is the fact that headings can't be placed inside paragraphs....
+
 -   Don't miss **closing tag** for an element, If you forget to close an element, it can give a hydration error.
 
 -   Don't use invalid HTML structure, invalid HTML structure can give a hydration error. For example this is incorrect HTML:

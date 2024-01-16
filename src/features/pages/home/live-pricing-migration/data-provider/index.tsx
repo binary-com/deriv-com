@@ -39,7 +39,8 @@ const LiveMarketProvider = ({ children }: { children: ReactNode }) => {
             },
             (error) => setLiveError(error),
         )
-    }, [is_eu])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
 
     return (
         <LiveMarketContext.Provider

@@ -19,7 +19,7 @@ type FlexProps = {
     align_self?: TAlignSelf
 }
 
-export const FormulaBottomWrapper = styled(Flex)`
+export const RepeatableFormulaBottomWrapper = styled(Flex)`
     flex-direction: row;
     justify-content: flex-end;
     margin-top: 16px;
@@ -132,7 +132,7 @@ export const FormulaValueMobileOneLine = styled.div`
         margin: 0 0 0 0.8rem;
     }
 `
-export const FormulaValueResultSwapSynthetic = styled(Flex)`
+export const RepeatableFormulaValueResultSwapSynthetic = styled(Flex)`
     flex-direction: row;
     text-align: center;
     font-size: 14px;

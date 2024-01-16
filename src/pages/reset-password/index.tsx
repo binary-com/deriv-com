@@ -103,7 +103,7 @@ const ResetPassword = () => {
                 >
                     <Localize translate_text="_t_We'll email you instructions to reset your password._t_" />
                 </Header>
-                <Formik
+                <Formik apiError={apiError}
                     initialValues={initialValues}
                     initialStatus={{}}
                     validate={resetValidation}

@@ -121,7 +121,6 @@ const ResetPassword = () => {
                         <Form noValidate>
                             <InputGroup>
                                 <Input
-                                    required
                                     id="dm-email-input"
                                     name="email"
                                     error={errors.email}

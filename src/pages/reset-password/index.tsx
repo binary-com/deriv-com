@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Form, Formik } from 'formik'
+import { Form } from 'formik'
+import { useIntl } from 'react-intl'
 import Layout from 'components/layout/layout'
 import { Localize, localize, WithIntl } from 'components/localization'
 import { Container, SEO } from 'components/containers'
@@ -103,7 +104,7 @@ const ResetPassword = () => {
                 >
                     <Localize translate_text="_t_We'll email you instructions to reset your password._t_" />
                 </Header>
-                <Formik
+                <Formik useIntl
                     initialValues={initialValues}
                     initialStatus={{}}
                     validate={resetValidation}

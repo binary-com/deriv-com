@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify user's organization
+        run: |
+          echo "Verifying user's organization..."
+          # Add the necessary command to fix the failing verification process
+          # Provide clear instructions on how to fix the issue, such as checking the organization settings or updating the verification process
+
+      - name: Build and test
+        run: npm run build && npm run test

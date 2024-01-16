@@ -156,7 +156,9 @@ const WhoCanApply = () => {
                             />
                         ))}
                         <Header as="h4" type="paragraph-1" mt="24px">
-                            <Localize translate_text="_t_Note:_t_" />
+                            -   **ci**: Changes related to CI/CD configuration or scripts.
++<Localize translate_text="_t_Note:_t_" />
++<Localize translate_text="_t_Note:_t_" />
                         </Header>
                         <StyledUl>
                             <Li>

@@ -1,0 +1,24 @@
+name: GitHub Actions
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify user's organization
+        run: |
+          echo "Verifying user's organization..."
+          # Add instructions on how to fix the issue here
+
+      # Add more steps as needed for the workflow

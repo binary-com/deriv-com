@@ -14,7 +14,7 @@ const AccordionWrapper = styled.div`
     position: relative;
     z-index: 2;
 
-    @media ${device.tablet} {
+    @media ${device.tablet.replace("`","\`")} {
         margin: 0 16px;
     }
 `
@@ -53,7 +53,7 @@ const Faq = () => {
                 <Localize translate_text="_t_FAQs_t_" />
             </Header>
             <AccordionWrapper id="payment-agent-faq-list">
-                <Accordion has_single_state>
+                <Accordion has_single_state>;
                     <AccordionItem
                         header="_t_General_t_"
                         parent_style={parent_style}

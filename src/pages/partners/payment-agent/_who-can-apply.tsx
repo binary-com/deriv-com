@@ -12,7 +12,7 @@ import {
     SecondaryHeader,
 } from '../affiliate-ib/_who-can-apply'
 import { Flex } from 'components/containers'
-import { Localize } from 'components/localization'
+import { Localize, useRegion } from 'components/localization'
 import { Header, LocalizedLinkText, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
 import CurrencyExchange from 'images/svg/partners/currency_exchange.svg'
@@ -45,7 +45,7 @@ const HowToApply = styled(Col)`
     max-width: 48.6rem;
 
     @media ${device.laptop} {
-        padding-left: 8px;
+        padding-left: 8px; padding-top: 8px;
     }
 `
 const HowToApplyContent = styled.div`

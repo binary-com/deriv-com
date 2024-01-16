@@ -125,7 +125,7 @@ const ResetPassword = () => {
                                     name="email"
                                     error={errors.email}
                                     value={trimSpaces(values.email)}
-                                    handleError={resetForm}
+                                    handleError={handleError}
                                     onChange={handleChange}
                                     onBlur={handleBlur}
                                     autoComplete="off"

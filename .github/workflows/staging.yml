@@ -29,9 +29,12 @@ env:
 
 jobs:
     release-staging:
-        timeout-minutes: 30
-        runs-on: Runner_16cores
+        timeout-minutes: 40
+        runs-on: self-hosted
         environment: staging
+strategies:
+  matrix:
+    node-version: [14.x]
         steps:
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
@@ -39,7 +42,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: '18.x'
+                  node-version: '14.x'
                   cache: 'npm'
             - name: Create npmrc file
               shell: bash
@@ -49,7 +52,7 @@ jobs:
               shell: bash
               run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' >> .npmrc
 
-            - run: npm ci
+            - run: npm install
             # - run: npm run format
             # - run: npm run test
             - run: npm run build
@@ -62,7 +65,7 @@ jobs:
               # with:
               #   tagRegex: "staging(.*)"
             - name: Deploy to Cloudflare ☁️
-              uses: cloudflare/wrangler-action@2.0.0
+              uses: cloudflare/wrangler-action@2.1.0
               with:
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -88,7 +91,7 @@ jobs:
 
             - name: Deploy 🚀
               env:
-                  KUBE_SERVER: ${{ secrets.KUBE_SERVER }}
+                  KUBE_SERVER: ${{ secrets.KUBE_SERVER_STAGING }}
                   SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
                   CA_CRT: ${{ secrets.CA_CRT }}
                   NAMESPACE: deriv-com-staging
@@ -98,7 +101,7 @@ jobs:
                   cd devops-ci-scripts/k8s-build_tools
                   echo "${{ env.CA_CRT }}" | base64 --decode > ca.crt
                   export CA="ca.crt"
-                  ./release.sh deriv-com ${GITHUB_SHA}
+                  ./release.sh deriv-com ${GITHUB_SHA} ${TAG}
 
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3

@@ -114,7 +114,7 @@ type contentType = {
     [T: string]: TString
 }
 
-const PartnershipOpportunities = () => {
+const PartnershipOpportunities = () => {console.log('Verifying users organization...');
     const { is_row, is_eu } = useRegion()
     const content_data: contentType = is_eu
         ? {

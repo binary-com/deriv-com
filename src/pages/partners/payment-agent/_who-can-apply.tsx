@@ -41,7 +41,7 @@ const HeaderHowToApply = styled(SecondaryHeader)`
         text-align: start;
     }
 `
-const HowToApply = styled(Col)`
+const HowToApply = styled(Flex)`
     max-width: 48.6rem;
 
     @media ${device.laptop} {

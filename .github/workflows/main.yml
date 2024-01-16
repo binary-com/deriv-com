@@ -1,0 +1,45 @@
+The updated contents of the ".github/workflows/main.yml" file:
+
+name: GitHub Actions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verifying user's organization
+        run: |
+          echo "Verifying user's organization..."
+          # Add the necessary command to verify the user's organization
+
+      - name: Build and test
+        run: npm run build && npm test
+
+      - name: Deploy to staging
+        run: npm run deploy:staging
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          ENVIRONMENT: staging
+
+      - name: Deploy to production
+        if: github.ref == 'refs/heads/main'
+        run: npm run deploy:production
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
+          ENVIRONMENT: production

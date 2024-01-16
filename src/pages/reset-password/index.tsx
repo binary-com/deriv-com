@@ -140,9 +140,11 @@ const ResetPassword = () => {
                             <Text align="center" color="red">
                                 {apiError ? apiError : status.error}
                             </Text>
-                            <Text align="center" color="green">
-                                {status.success}
-                            </Text>
+                            {status.success && (
+                                <Text align="center" color="green">
+                                    {status.success}
+                                </Text>
+                            )}
                             <ButtonContainer>
                                 <StyledButton
                                     id="dm-pass-reset-login-link"

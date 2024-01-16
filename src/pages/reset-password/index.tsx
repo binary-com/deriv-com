@@ -146,7 +146,7 @@ const ResetPassword = () => {
                                     onClick={Login.redirectToLogin}
                                     type="button"
                                 >
-                                    <Localize translate_text="_t_Return to log in_t_" translate_text="_t_Return to log in_t_" />
+                                    <Localize translate_text="_t_Return to log in_t_" />
                                 </StyledButton>
                                 <StyledButton
                                     id="dm-pass-reset-button"
@@ -154,7 +154,7 @@ const ResetPassword = () => {
                                     disabled={isSubmitting}
                                     type="submit"
                                 >
-                                    <Localize translate_text="_t_Reset my password_t_" translate_text="_t_Reset my password_t_" />
+                                    <Localize translate_text="_t_Reset my password_t_" />
                                 </StyledButton>
                             </ButtonContainer>
                         </Form>

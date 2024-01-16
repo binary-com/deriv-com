@@ -1,0 +1,11 @@
+.wrapper_ltr {
+    @media only screen and (min-width: 768px){
+        flex-direction: row;
+    }
+}
+
+.wrapper_rtl {
+    @media only screen and (min-width: 768px){
+        flex-direction: row-reverse;
+    }
+}

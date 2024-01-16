@@ -1,22 +1,21 @@
 import React, { ReactNode } from 'react'
-import { FluidContainer, Heading, Section, Text } from '@deriv/quill-design'
+import { FluidContainer, Heading, Section } from '@deriv/quill-design'
 import clsx from 'clsx'
 import { StaticImage } from 'gatsby-plugin-image'
 import {
     hero_container,
     hero_content,
     hero_content_gradient,
-    hero_img,
-    hero_img_eu,
-    hero_content_text,
     hero_content_btn,
 } from './styles.module.scss'
 import HeroAwardImages from './award-images'
+import HeroImage from './hero-image'
 import FloatingCta from './floating-cta'
+import Description from './description'
 import { Localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
 import TradersHubCtaButton from 'features/components/molecules/traders-hub-cta-button'
 import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
+import { usePageLoaded } from 'components/hooks/use-page-loaded'
 
 export interface HomeHeroProps {
     children?: ReactNode
@@ -24,7 +23,7 @@ export interface HomeHeroProps {
 }
 
 const HomeHero: React.FC<HomeHeroProps> = () => {
-    const { is_eu } = useRegion()
+    const [is_mounted] = usePageLoaded()
     const { ctaBottom, visibilityPercentage, entryRef } = useFloatingCtaContext()
 
     return (
@@ -44,27 +43,7 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                         <Heading.H1 className="text-solid-slate-50 text-[34px] lg:text-heading-h1">
                             <Localize translate_text="_t_Trading for anyone. Anywhere. Anytime._t_" />
                         </Heading.H1>
-                        {is_eu ? (
-                            <Text
-                                size="md"
-                                className={clsx(
-                                    'text-solid-slate-50 mt-general-md',
-                                    hero_content_text,
-                                )}
-                            >
-                                <Localize translate_text="_t_Trade CFDs and Multipliers on 1500+ instruments, all in one place with 24/7 trading and 24/7 worldwide support._t_" />
-                            </Text>
-                        ) : (
-                            <Text
-                                size="md"
-                                className={clsx(
-                                    'text-solid-slate-50 mt-general-md',
-                                    hero_content_text,
-                                )}
-                            >
-                                <Localize translate_text="_t_Trade CFDs and Options on 1500+ instruments, all in one place with 24/7 trading and 24/7 worldwide support._t_" />
-                            </Text>
-                        )}
+                        {is_mounted && <Description />}
                         <TradersHubCtaButton
                             className={clsx('mt-general-2xl', hero_content_btn)}
                             variant="primary"
@@ -72,30 +51,8 @@ const HomeHero: React.FC<HomeHeroProps> = () => {
                             ref={entryRef}
                         />
                     </div>
-                    {!is_eu && <HeroAwardImages />}
-                    {is_eu ? (
-                        <div
-                            className={clsx('absolute inset-50 flex items-end -z-10', hero_img_eu)}
-                        >
-                            <StaticImage
-                                src="../../../../images/migration/home/home_hero_new_eu.png"
-                                alt="hero image"
-                                placeholder="none"
-                                formats={['auto', 'webp']}
-                                loading="eager"
-                            />
-                        </div>
-                    ) : (
-                        <div className={clsx('absolute inset-50 flex items-end -z-10', hero_img)}>
-                            <StaticImage
-                                src="../../../../images/migration/home/home_hero_new.png"
-                                alt="hero image"
-                                placeholder="none"
-                                formats={['auto', 'webp']}
-                                loading="eager"
-                            />
-                        </div>
-                    )}
+                    {is_mounted && <HeroAwardImages />}
+                    {is_mounted && <HeroImage />}
                 </FluidContainer>
                 <div className={clsx('absolute -z-10 inset-50', hero_content_gradient)}></div>
             </Section>

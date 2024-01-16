@@ -3,8 +3,14 @@ import clsx from 'clsx'
 import { StaticImage } from 'gatsby-plugin-image'
 import { hero_content_award_img, hero_content_award_img_rtl } from './styles.module.scss'
 import { get_lang_direction, localize } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
+import { isEuDomain } from 'common/utility'
 
 const HeroAwardImages = () => {
+    const { is_eu } = useRegion()
+
+    if (isEuDomain() || is_eu) return null
+
     return (
         <div
             className={clsx(

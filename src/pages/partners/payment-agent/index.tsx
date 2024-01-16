@@ -22,18 +22,6 @@ const meta_attributes: TMetaAttributes = {
     og_description:
         '_t_Know all the details about how you can become the payment agent on Deriv. Send us an email to apply!_t_',
 }
-
-const PaymentAgent = () => {
-    const { is_row, is_p2p_allowed_country } = useRegion()
-
-    return (
-        <>
-            {is_row ? (
-                <Layout type="partners" padding_top="8">
-                    <Hero />
-                    <TapInto />
-                    <YourControl />
-                    <WhoCanApply />
                     {is_p2p_allowed_country && <P2PBanner />}
                     {is_row && <PremiumPaymentAgent />}
                     <Divider />

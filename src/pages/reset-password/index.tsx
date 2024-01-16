@@ -20,37 +20,48 @@ type ErrorType = Partial<EmailType>
 const StyledContainer = styled(Container)`
     text-align: center;
     height: 100vh;
-    padding: auto 0;
-    justify-content: start;
-`
-
-const ButtonContainer = styled.div`
-    margin-top: 2rem;
-`
-
-const InputGroup = styled.div`
-    width: 40rem;
-    margin: 0 auto 3.4rem;
-    @media ${device.tabletL} {
-        width: auto;
-    }
-`
-
-const StyledButton = styled(Button)`
-    margin: 0.8rem 0.4rem;
-`
-
-const ResetPassword = () => {
-    const [apiError, setApiError] = useState<string | null>('')
-    const initialValues: EmailType = { email: '' }
-
-    const resetSubmission = (values: EmailType, actions) => {
-        apiManager
-            .augmentedSend('verify_email', {
-                verify_email: trimSpaces(values.email),
-                type: 'reset_password',
+    })
+            .catch((error) => {
+                if (error.msg_type === 'verify_email') {
+                    const errorString = error.error.message.split(':')
+                    setApiError(errorString[0])
+                }
             })
-            .then((response) => {
+    }
+
+    const resetValidation = (values: EmailType) => {
+        const errors: ErrorType = {}
+        const email = trimSpaces(values.email)
+        const email_error = validation.required(email) || validation.email(email)
+        setApiError('')
+        if (email_error) {
+            errors.email = email_error
+        }
+
+        return errors
+    }
+
+    return (
+        <Layout type="static" padding_top="0">
+            <StyledContainer justify="center" align="center" direction="column">
+                <Header as="h2" type="page-title" align="center" mt="80px">
+                    <Localize translate_text="_t_Reset password_t_" />
+                </Header>
+                <Header
+                    as="h4"
+                    type="sub-section-title"
+                    align="center"
+                    weight="500"
+                    mt="0.5rem"
+                    mb="3.8rem"
+                >
+                    <Localize translate_text="_t_We'll email you instructions to reset your password._t_" />
+                </Header>
+                <Formik
+                    initialValues={initialValues}
+                    initialStatus={{}}
+                    validate={resetValidation}
+                    onSubmit={resetSubmission}
                 actions.setSubmitting(false)
 
                 if (response.error) {

@@ -31,7 +31,7 @@ const SignUpFormContainer = () => {
             </Typography.Heading>
 
             <SignUpPageForm />
-            <Typography.Paragraph textcolor="secondary" size={'xs'}>
+            <Typography.Paragraph textcolor="secondary" size={'small'}>
                 <Localize
                     translate_text="_t_By pressing “Create demo account”, you confirm that you are 18 or older. You understand that we may use your email address to send you information about Deriv products and services as well as market news. You can always unsubscribe from these emails in your account settings. For more information, please take a look at Deriv’s <0>Security and privacy</0>._t_"
                     components={[

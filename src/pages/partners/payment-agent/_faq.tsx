@@ -23,6 +23,9 @@ const RelativeContainer = styled(SectionContainer)`
     position: relative;
     overflow: hidden;
     padding-bottom: 8rem;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 8rem;
 `
 
 const Faq = () => {
@@ -42,6 +45,7 @@ const Faq = () => {
     const [is_mobile] = useBrowserResize()
 
     return (
+        <RelativeContainer padding={is_p2p_allowed_country ? '5rem 0' : '0 0 5rem'}>
         <RelativeContainer padding={is_p2p_allowed_country ? '5rem 0' : '0 0 5rem'}>
             <Header
                 as="h2"
@@ -73,6 +77,19 @@ const Faq = () => {
                     >
                         <AccountManagement />
                     </AccordionItem>
+import useRegion from 'components/hooks/use-region'
+                        <General />
+                    </AccordionItem>
+                    <AccordionItem
+                        header="_t_Account management_t_"
+                        style={item_style}
+                        header_style={header_style}
+                        plus
+                        class_name="account-management"
+                    >
+                        <AccountManagement />
+                    </AccordionItem>
+import { useBrowserResize } from 'components/hooks/use-browser-resize'
                 </Accordion>
             </AccordionWrapper>
         </RelativeContainer>

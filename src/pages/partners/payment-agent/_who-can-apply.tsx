@@ -29,7 +29,7 @@ type ImageWrapperProps = {
     left_margin?: string
 }
 
-type StyledLinkButtonProps = {
+type StyledLinkButtonPropsComponent = {
     id?: string
 }
 

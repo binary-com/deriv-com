@@ -3,6 +3,7 @@ import { Text } from '@deriv/quill-design'
 import { useWindowSize } from 'usehooks-ts'
 import clsx from 'clsx'
 import Anchor from '../../anchor'
+import { mobile_text_wrap, mobile_text_container } from './styles.module.scss'
 import { Localize } from 'components/localization'
 import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
 import Arrow from 'images/svg/arrow_expandable.svg'
@@ -11,7 +12,7 @@ type TextProps = {
     loss_percent: number
 }
 
-const UnexpandedText = ({ loss_percent }: TextProps) => {
+const MobileText = ({ loss_percent }: TextProps) => {
     const [expanded, setExpanded] = useState(false)
     const { setCtaBottom } = useFloatingCtaContext()
     const { width } = useWindowSize()
@@ -27,8 +28,13 @@ const UnexpandedText = ({ loss_percent }: TextProps) => {
     }
 
     return (
-        <div className="flex bg-background-primary-base items-end shadow-[0px_-4px_10px_rgba(65,_70,_82,_0.1)] pointer-events-auto sm:hidden">
-            <div className="w-[95%] lg:w-[90%] mx-auto p-1000" ref={ref}>
+        <div
+            className={clsx(
+                'flex bg-background-primary-base items-end shadow-[0px_-4px_10px_rgba(65,_70,_82,_0.1)] pointer-events-auto',
+                mobile_text_wrap,
+            )}
+        >
+            <div className={clsx('w-[95%] mx-auto p-1000', mobile_text_container)} ref={ref}>
                 {expanded ? (
                     <Text>
                         <Localize
@@ -73,4 +79,4 @@ const UnexpandedText = ({ loss_percent }: TextProps) => {
     )
 }
 
-export default UnexpandedText
+export default MobileText

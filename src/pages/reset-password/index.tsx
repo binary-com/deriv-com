@@ -60,7 +60,8 @@ const ResetPassword = () => {
                     return
                 }
 
-                actions.resetForm({ email: '' })
+                actions.setFieldError('email', status.error)
+actions.setSubmitting(false)
                 actions.setStatus({
                     success: localize(
                         '_t_Please check your email and click on the link provided to reset your password._t_',
@@ -68,6 +69,9 @@ const ResetPassword = () => {
                 })
             })
             .catch((error) => {
+if (error.msg_type === 'verify_email') {
+    actions.setFieldError('email', apiError)
+}
                 if (error.msg_type === 'verify_email') {
                     const errorString = error.error.message.split(':')
                     setApiError(errorString[0])

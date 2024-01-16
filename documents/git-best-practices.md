@@ -12,7 +12,15 @@
 
 We have a set of precise rules over how our git commit messages can be formatted. This leads to more **readable messages** that are easy to follow when looking through the **project history**.
 
-Each commit message will consist of **type** and **subject**:
+### Examples
+
+- **build**: Update Gatsby configuration
+- **fix**: Resolve issue with hero image padding
+- **feat**: Add new user authentication feature
+- **docs**: Update README with installation instructions
+- **ci**: Update Docker configuration for production environment
+
+Each commit message will consist of **type** and **subject**: <description>
 
 ```sh
 <type>|<...other_types>:<space><subject>

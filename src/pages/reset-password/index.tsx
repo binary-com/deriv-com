@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { WithIntl } from 'components/localization'
 import styled from 'styled-components'
 import { Form, Formik } from 'formik'
 import Layout from 'components/layout/layout'
@@ -61,6 +62,12 @@ const ResetPassword = () => {
                 }
 
                 actions.resetForm({ email: '' })
+                if (response.error) {
+                    actions.setStatus({
+                        error: response.error.message,
+                    })
+                    return
+                }
                 actions.setStatus({
                     success: localize(
                         '_t_Please check your email and click on the link provided to reset your password._t_',
@@ -69,6 +76,8 @@ const ResetPassword = () => {
             })
             .catch((error) => {
                 if (error.msg_type === 'verify_email') {
+                    const errorString = error.error.message.split(':')
+                    setApiError(errorString[0])
                     const errorString = error.error.message.split(':')
                     setApiError(errorString[0])
                 }

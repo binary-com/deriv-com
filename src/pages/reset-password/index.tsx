@@ -46,7 +46,7 @@ const ResetPassword = () => {
 
     const resetSubmission = (values: EmailType, actions) => {
         apiManager
-            .augmentedSend('verify_email', {
+            .augmentedSend('reset_password', {
                 verify_email: trimSpaces(values.email),
                 type: 'reset_password',
             })

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import {
     StyledSection,
@@ -72,7 +72,8 @@ const WhoCanApplyWrapper = styled(Col)`
     flex-direction: column;
 `
 
-const StyledUl = styled.ul`
+const StyledUl = styled.ul
+    margin: 0;`
     list-style-type: disc;
     font-size: var(--text-size-s);
     padding-left: 16px;

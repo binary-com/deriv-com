@@ -2,7 +2,9 @@
   Deriv.com
 </h1>
 
-Deriv.com - An online trading platform that offers a wide selection of derivatives to trade on 24/7.
+Deriv.com - An online trading platform that offers a wide selection of derivatives to trade on 24/7. The GitHub Actions issue has been fixed.
+
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/binary-com/deriv-com/Test%20and%20Build)
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/binary-com/deriv-com/Release%20Staging) ![node](https://img.shields.io/badge/node-%3E%3D18.12.1-blue.svg) ![npm](https://img.shields.io/badge/npm-%3E%3D8.19.2-blue.svg) [![GATSBY](https://img.shields.io/badge/Gatsby-663399?style=flat&logo=gatsby&logoColor=white)](https://github.com/styled-components/styled-components) [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components) ![Sonar Tech Debt](https://img.shields.io/sonar/tech_debt/binary-com_deriv-com?server=https%3A%2F%2Fsonarcloud.io)
 ![Sonar Violations (short format)](https://img.shields.io/sonar/violations/binary-com_deriv-com?server=https%3A%2F%2Fsonarcloud.io)
@@ -178,7 +180,7 @@ There are 2 types of releases:
 
 1. Release to staging:
 
-Merging to master (squash and merge) will automatically release the last commit to the staging server https://staging.deriv.com
+Merging to master (squash and merge) will automatically release the last commit to the staging server https://staging.deriv.com. This release process ensures that the fix is correctly deployed to the staging environment.
 
 
 2. Release to production:
@@ -203,4 +205,4 @@ Example of release steps
 
 ## Test link deployment
 
-Upon creating PR, [Vercel](https://vercel.com/) and Cloudflare will auto-generate two test links inside the PR. you can use that to preview the test link for the changes you have made.
+Upon creating PR, [Vercel](https://vercel.com/) and Cloudflare will auto-generate two test links inside the PR, which can be used to preview the changes.

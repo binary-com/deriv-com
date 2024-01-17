@@ -47,7 +47,7 @@ jobs:
 
             - name: Setup install read-only token for deriv-com org
               shell: bash
-              run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' >> .npmrc
+              run: echo '${{ env.SERVICEACCOUNT_TOKEN }}' >> .npmrc
 
             - run: npm ci
             # - run: npm run format

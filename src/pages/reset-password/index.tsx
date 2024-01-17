@@ -9,7 +9,7 @@ import { Button, Input } from 'components/form'
 import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import Login from 'common/login'
-import apiManager from 'common/websocket'
+import apiManager from 'common/websocket.ts'
 import device from 'themes/device'
 import { TGatsbyHead } from 'features/types'
 

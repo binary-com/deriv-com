@@ -285,4 +285,4 @@ const WhoCanApply = () => {
     )
 }
 
-export default WhoCanApply
+export { WhoCanApply }

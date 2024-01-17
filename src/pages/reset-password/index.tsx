@@ -75,7 +75,14 @@ const ResetPassword = () => {
             })
     }
 
-    const resetValidation = (values: EmailType) => {
+    const resetValidation = (values: EmailType) => { 
+        const errors: ErrorType = {};
+        const email = trimSpaces(values.email);
+        const email_error = validation.resetEmail(email);
+        setApiError(email_error);
+        if (email_error) {
+            errors.email = email_error;
+        }
         const errors: ErrorType = {}
         const email = trimSpaces(values.email)
         const email_error = validation.required(email) || validation.email(email)
@@ -123,7 +130,7 @@ const ResetPassword = () => {
                                 <Input
                                     id="dm-email-input"
                                     name="email"
-                                    error={errors.email}
+                                    error={errors.email} tip="top-left" tip="top-left"
                                     value={trimSpaces(values.email)}
                                     handleError={resetForm}
                                     onChange={handleChange}

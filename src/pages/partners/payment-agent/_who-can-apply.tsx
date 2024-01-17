@@ -115,66 +115,6 @@ const section_content: SectionComponentProps[] = [
     },
     {
         img_src: CommunityManagers,
-        header: '_t_Community managers_t_',
-        text: '_t_Trusted influencers or community managers who want to earn extra revenue._t_',
-    },
-]
-
-const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
-    return (
-        <Wrapper>
-            <ImageWrapper src={img_src} alt="" left_margin="0px" />
-            <Content max_width="48.8rem">
-                <Header as="h4" type="sub-section-title" pb="8px">
-                    <Localize translate_text={header} />
-                </Header>
-                <Header as="h4" type="paragraph-1" weight="normal">
-                    <Localize translate_text={text} />
-                </Header>
-            </Content>
-        </Wrapper>
-    )
-}
-const WhoCanApply = () => {
-    const { is_p2p_allowed_country } = useRegion()
-
-    return (
-        <SectionWrapper padding="80px 0">
-            <StyledSection>
-                <Flex>
-                    <WhoCanApplyWrapper>
-                        <StyledHeader as="h2" size="3.6rem">
-                            <Localize translate_text="_t_Who can apply_t_" />
-                        </StyledHeader>
-                        {section_content.map((item, index) => (
-                            <SectionComponent
-                                key={`key-${index}`}
-                                img_src={item.img_src}
-                                header={item.header}
-                                text={item.text}
-                            />
-                        ))}
-                        <Header as="h4" type="paragraph-1" mt="24px">
-                            <Localize translate_text="_t_Note:_t_" />
-                        </Header>
-                        <StyledUl>
-                            <Li>
-                                <Header as="h4" type="paragraph-1" weight="normal">
-                                    <Localize translate_text="_t_You must have a minimum balance in your Deriv account while your application is under review. The amount of this balance depends on your country of residence. You only need to maintain the minimum balance until your application is successful._t_" />
-                                </Header>
-                            </Li>
-                            <Li>
-                                <Header as="h4" type="paragraph-1" weight="normal">
-                                    <Localize translate_text="_t_You can only service Deriv clients in your country of residence._t_" />
-                                </Header>
-                            </Li>
-                        </StyledUl>
-                        <Header as="h4" type="paragraph-1" weight="normal">
-                            <Localize
-                                translate_text="_t_See our <0>terms and conditions</0> for more info._t_"
-                                components={[
-                                    <LocalizedLinkText
-                                        key={0}
                                         color="red"
                                         target="_blank"
                                         href="/tnc/business-partners-payment-agents.pdf"

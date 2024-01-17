@@ -63,7 +63,7 @@ jobs:
               with:
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  command: pages deploy public --project-name=deriv-com-pages --branch=beta
+                  command: pages deploy public --project-name=deriv-com-pages --branch=staging
 
             - name: Cloudflare preview link ✨
               run: echo "New beta website - https://beta.deriv.com"

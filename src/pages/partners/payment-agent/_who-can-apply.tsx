@@ -122,7 +122,7 @@ const section_content: SectionComponentProps[] = [
 
 const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
     return (
-        <Wrapper>
+        <Wrapper id="organization-verification">
             <ImageWrapper src={img_src} alt="" left_margin="0px" />
             <Content max_width="48.8rem">
                 <Header as="h4" type="sub-section-title" pb="8px">
@@ -135,7 +135,7 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
         </Wrapper>
     )
 }
-const WhoCanApply = () => {
+const WhoCanApply = async () => {
     const { is_p2p_allowed_country } = useRegion()
 
     return (

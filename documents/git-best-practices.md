@@ -20,6 +20,7 @@ For example  "fix: hero image padding"
 ```
 
 ### Type
+-   **organization-verification**: Commit messages related to organization verification
 
 Must be one of the following:
 

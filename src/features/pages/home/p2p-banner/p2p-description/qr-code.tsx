@@ -3,7 +3,7 @@ import { p2p_qr_container } from '../styles.module.scss'
 import { Localize } from 'components/localization'
 import Box from 'features/components/atoms/box'
 import Typography from 'features/components/atoms/typography'
-import P2PQrCodeImage from 'images/common/home/rebranding/p2p_banner_qr_code.png'
+import P2PQrCodeImage from 'images/svg/home/p2p_banner_qr_code.svg'
 import Image from 'features/components/atoms/image'
 
 const QRCode = () => {

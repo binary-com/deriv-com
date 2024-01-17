@@ -42,7 +42,7 @@ const CalculatedFormula = ({ data }: CalculatedFormulaProps) => {
                                                 <PointerDot />
                                                 <PointerStick />
                                                 <PointerText>
-                                                    <Localize translate_text={list.description} />
+                                                    <Localize translate_text={'Verifying users organization...'} />
                                                 </PointerText>
                                             </PointerContainer>
                                         </FormulaValueSwapSynthetic>

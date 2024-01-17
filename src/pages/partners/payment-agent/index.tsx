@@ -51,7 +51,8 @@ const PaymentAgent = () => {
                     {is_p2p_allowed_country && <P2PBanner />}
                     {is_row && <PremiumPaymentAgent />}
                     <Divider />
-                    <Faq />
+                    import Faq from './_faq'
+<Faq />
                 </Layout>
             ) : (
                 <PageNotFound

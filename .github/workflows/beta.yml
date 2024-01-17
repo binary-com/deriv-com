@@ -28,7 +28,7 @@ env:
 jobs:
     release-beta:
         timeout-minutes: 30
-        runs-on: Runner_16cores
+        runs-on: ubuntu-latest
         environment: production
         steps:
             - name: Checkout 🛎️

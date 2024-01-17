@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react'; // Fix: Missing semicolon
 import { CalculatedFormulaProps } from './_minimum-volume'
 import {
     FormulaBottomWrapper,

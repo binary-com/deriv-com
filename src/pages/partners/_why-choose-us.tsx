@@ -41,7 +41,7 @@ const Card = styled(Flex)`
     }
 `
 const WhyChooseUs = () => {
-    const { is_eu } = useRegion()
+    const is_eu = useRegion();
     return (
         <SectionContainer background="grey-4">
             <Container direction="column">

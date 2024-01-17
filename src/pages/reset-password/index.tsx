@@ -48,15 +48,16 @@ const ResetPassword = () => {
         apiManager
             .augmentedSend('verify_email', {
                 verify_email: trimSpaces(values.email),
-                type: 'reset_password',
+                type: 'reset_password'
+            .catch((error) => {
+                console.error('Error:', error.message);
+            })
             })
             .then((response) => {
                 actions.setSubmitting(false)
 
                 if (response.error) {
-                    actions.setStatus({
-                        error: response.error.message,
-                    })
+                    console.error('Error:', response.error.message);
                     return
                 }
 

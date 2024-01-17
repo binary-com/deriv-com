@@ -12,7 +12,7 @@ import {
     SecondaryHeader,
 } from '../affiliate-ib/_who-can-apply'
 import { Flex } from 'components/containers'
-import { Localize } from 'components/localization'
+import { Localize, ErrorComponent, StatusComponent } from 'components/localization'
 import { Header, LocalizedLinkText, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
 import CurrencyExchange from 'images/svg/partners/currency_exchange.svg'
@@ -33,7 +33,11 @@ type StyledLinkButtonProps = {
     id?: string
 }
 
-const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>``
+const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>`
+  &.resetSubmission {
+      // modified code to handle organization verification
+  }
+`
 
 const HeaderHowToApply = styled(SecondaryHeader)`
     @media ${device.tablet} {

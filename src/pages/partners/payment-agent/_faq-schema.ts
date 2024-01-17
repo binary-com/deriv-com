@@ -1,4 +1,4 @@
-import { localize } from 'components/localization'
+import { local } from '@deriv/translations'
 
 type contentType = 'FAQPage' | 'Question' | 'Answer'
 

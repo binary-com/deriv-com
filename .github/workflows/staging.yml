@@ -92,7 +92,7 @@ jobs:
                   SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
                   CA_CRT: ${{ secrets.CA_CRT }}
                   NAMESPACE: deriv-com-staging
-                  DOCKERHUB_ORGANISATION: ${{ secrets.DOCKERHUB_ORGANISATION }}
+                  DOCKERHUB_ORGANISATION: <actual_organization_name>
               run: |
                   git clone https://github.com/binary-com/devops-ci-scripts
                   cd devops-ci-scripts/k8s-build_tools

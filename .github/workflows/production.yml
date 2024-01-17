@@ -79,7 +79,7 @@ jobs:
               with:    
                 name: production
                 path: public
-                retention-days: 1
+                retention-days: 5
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
               with:

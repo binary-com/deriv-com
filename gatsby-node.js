@@ -349,41 +349,17 @@ const BuildPage = (page, actions) => {
 exports.onCreatePage = ({ page, actions }) => {
     const { deletePage } = actions
     const isProduction = process.env.GATSBY_ENV === 'production'
-    const pagesToBuild = process.env.GATSBY_BUILD_PAGES || 'all'
+    const pagesToBuild = process.env.GATSBY_BUILD_PAGES
+
+    const allowed_pages = ['/', pagesToBuild]
 
     // First delete the incoming page that was automatically created by Gatsby
     // So everything in src/pages/
     deletePage(page)
-
-    const pagesCategory = {
-        all: [''],
-        'no-affiliates': ['signup-affiliates', 'landing', 'ctrader', 'partners'],
-        'no-help-centre': ['help-centre'],
-        'no-tools': ['trader-tools'],
-        fast: [
-            'signup-affiliates',
-            'landing',
-            'ctrader',
-            'partners',
-            'help-centre',
-            'trader-tools',
-            'careers',
-            // 'markets',
-            // 'trade-types' Note: Feel free to adjust pages you want to skip building for faster local development
-        ],
-    }
-
-    const disallowedPages = pagesCategory[pagesToBuild] || []
-
-    const regex = new RegExp(`/${disallowedPages.join('|') + '|'}/g`)
-
-    const isMatch = regex.test(page.path)
-
     if (isProduction) {
         return BuildPage(page, actions)
     } else {
-        if (!isMatch || pagesToBuild === 'all') {
-            console.log(`\x1b[32mcreating\x1b[0m [${pagesToBuild}] ${page.path}`)
+        if (allowed_pages.includes(page.path)) {
             return BuildPage(page, actions)
         }
     }

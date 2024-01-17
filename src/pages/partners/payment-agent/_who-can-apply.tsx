@@ -33,9 +33,9 @@ type StyledLinkButtonProps = {
     id?: string
 }
 
-const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>``
+const StyledButton = styled(LinkButton)<StyledLinkButtonProps>``
 
-const HeaderHowToApply = styled(SecondaryHeader)`
+const StyledHeaderHowToApply = styled(SecondaryHeader)`
     @media ${device.tablet} {
         margin-top: 40px;
         text-align: start;

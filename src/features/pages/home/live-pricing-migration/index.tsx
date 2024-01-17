@@ -37,7 +37,7 @@ const LiveMarketSection = () => {
                         className="inline-flex items-center justify-center pt-gap-3xl"
                     >
                         <Localize translate_text="_t_See all forex pairs_t_" />
-                        <StandaloneChevronRightRegularIcon className="text-solid-slate-1400" />
+                        <StandaloneChevronRightRegularIcon className="text-solid-slate-1400 rtl:rotate-180" />
                     </CustomLink>
                 </LiveMarketCard>
                 <LiveMarketCard market="der">
@@ -53,7 +53,7 @@ const LiveMarketSection = () => {
                         className="inline-flex items-center justify-center pt-gap-3xl"
                     >
                         <Localize translate_text="_t_See all derived indices pairs_t_" />
-                        <StandaloneChevronRightRegularIcon className="text-solid-slate-1400" />
+                        <StandaloneChevronRightRegularIcon className="text-solid-slate-1400 rtl:rotate-180" />
                     </CustomLink>
                 </LiveMarketCard>
                 <LiveMarketCard market="etfs">
@@ -69,7 +69,7 @@ const LiveMarketSection = () => {
                         className="inline-flex items-center justify-center pt-gap-3xl"
                     >
                         <Localize translate_text="_t_See all ETFs pairs_t_" />
-                        <StandaloneChevronRightRegularIcon className="text-solid-slate-1400" />
+                        <StandaloneChevronRightRegularIcon className="text-solid-slate-1400 rtl:rotate-180" />
                     </CustomLink>
                 </LiveMarketCard>
                 <LiveMarketCard market={['ind', 'stk']}>
@@ -85,7 +85,7 @@ const LiveMarketSection = () => {
                         className="inline-flex items-center justify-center pt-gap-3xl"
                     >
                         <Localize translate_text="_t_See all stocks & indices pairs_t_" />
-                        <StandaloneChevronRightRegularIcon className="text-solid-slate-1400" />
+                        <StandaloneChevronRightRegularIcon className="text-solid-slate-1400 rtl:rotate-180" />
                     </CustomLink>
                 </LiveMarketCard>
                 <LiveMarketCard market="cry">
@@ -101,7 +101,7 @@ const LiveMarketSection = () => {
                         className="inline-flex items-center justify-center pt-gap-3xl"
                     >
                         <Localize translate_text="_t_See all cryptocurrencies_t_" />
-                        <StandaloneChevronRightRegularIcon className="text-solid-slate-1400" />
+                        <StandaloneChevronRightRegularIcon className="text-solid-slate-1400 rtl:rotate-180" />
                     </CustomLink>
                 </LiveMarketCard>
                 <LiveMarketCard market="com">
@@ -117,7 +117,7 @@ const LiveMarketSection = () => {
                         className="inline-flex items-center justify-center pt-gap-3xl"
                     >
                         <Localize translate_text="_t_See all commodities_t_" />
-                        <StandaloneChevronRightRegularIcon className="text-solid-slate-1400" />
+                        <StandaloneChevronRightRegularIcon className="text-solid-slate-1400 rtl:rotate-180" />
                     </CustomLink>
                 </LiveMarketCard>
             </LiveMarketBlock.Tab>

@@ -33,7 +33,7 @@ type StyledLinkButtonProps = {
     id?: string
 }
 
-const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>``
+const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>()
 
 const HeaderHowToApply = styled(SecondaryHeader)`
     @media ${device.tablet} {

@@ -29,6 +29,8 @@ type ImageWrapperProps = {
     left_margin?: string
 }
 
+import { LinkButton } from 'components/form'
+
 type StyledLinkButtonProps = {
     id?: string
 }

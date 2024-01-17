@@ -148,6 +148,7 @@ const ResetPassword = () => {
                             </Text>
                             <ButtonContainer>
                                 <StyledButton
+                                    disabled={isSubmitting || apiError}
                                     id="dm-pass-reset-login-link"
                                     tertiary
                                     onClick={Login.redirectToLogin}

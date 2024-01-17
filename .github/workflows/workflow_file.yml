@@ -1,0 +1,20 @@
+name: Workflow Name
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Step 1
+        run: echo "Verifying user's organization..."
+        # Modify the above command to fix the issue
+
+      - name: Step 2
+        run: echo "Other steps..."
+
+      # Add more steps as necessary

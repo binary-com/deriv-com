@@ -39,8 +39,10 @@ const meta_attributes: TMetaAttributes = {
 }
 
 const PaymentAgent = () => {
-    const { is_row, is_p2p_allowed_country } = useRegion()
+    const { is_row, is_p2p_allowed_country, TapInto } = useRegion()
+	
     import TapInto from './_tap-into'
+import Faq from './_faq'
 
     return (
         <>
@@ -49,6 +51,7 @@ const PaymentAgent = () => {
                     <PAHero />
                     <Hero />
                     <TapInto />
+<Faq />
                     <YourControl />
                     <WhoCanApply />
             {is_row && <PremiumPaymentAgent />}

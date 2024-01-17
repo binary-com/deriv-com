@@ -54,7 +54,7 @@ const ResetPassword = () => {
                 actions.setSubmitting(false)
 
                 if (response.error) {
-                    actions.setStatus({
+                    if(response.exit_code === 3) {setApiError('Exit code is 3'); return;}actions.setStatus({
                         error: response.error.message,
                     })
                     return
@@ -68,7 +68,7 @@ const ResetPassword = () => {
                 })
             })
             .catch((error) => {
-                if (error.msg_type === 'verify_email') {
+                if (error.msg_type === 'verify_email') { // Add a condition to check if msg_type is not equal to 'verify_email' and handle it accordingly. if(msg_type !== 'verify_email') { // Handle the case when msg_type is not 'verify_email'. // Add code here.
                     const errorString = error.error.message.split(':')
                     setApiError(errorString[0])
                 }

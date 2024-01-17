@@ -154,7 +154,7 @@ const WhoCanApply = () => {
                                 text={item.text}
                             />
                         ))}
-                        <Header as="h4" type="paragraph-1" mt="24px" color="green">
+                        <Header as="h4" type="paragraph-1" mt="24px" color="green" data-testid="verification-message">
                             <Localize translate_text="_t_Verifying user's organization..._t_" />
                         </Header>
                         <StyledUl>

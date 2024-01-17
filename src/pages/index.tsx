@@ -1,11 +1,10 @@
 import React from 'react'
 import { WithIntl } from 'components/localization'
-import HomePage from 'features/pages/home'
 import { SEO } from 'components/containers'
 import { TGatsbyHead } from 'features/types'
 
 const Home = () => {
-    return <HomePage />
+    return <>HELLO WORLD</>
 }
 
 export default WithIntl()(Home)

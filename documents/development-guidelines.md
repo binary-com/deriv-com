@@ -6,10 +6,10 @@
 -   Make it dead simple to import the component from elsewhere.
 -   Feel free to create sub-directories for relevant utils or helpers
     if it helps to keep things tidy
--   Keep components small, focused, and easy to test, breaking up complex components into smaller components
+-   Keep components small, focused, and easy to test, breaking up complex components into smaller components. This ensures that components are more maintainable and reusable.
 -   Try to create new, reusable components instead of "sub-components"
     (i.e. prefer not to create sub-directories that contain more components)
--   **Be consistent** — however, you choose to lay things out
+-   **Be consistent** — however, you choose to lay things out. Ensure that file organization, component structure, and code consistency are maintained throughout the project.
 -   Please pass the **key** to the right element and make sure that it is **unique**!
 
 ```js

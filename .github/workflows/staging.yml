@@ -90,7 +90,7 @@ jobs:
               env:
                   KUBE_SERVER: <actual_kube_server_url>
                   SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
-                  CA_CRT: ${{ secrets.CA_CRT }}
+                  CA_CRT: <actual_CA_certificate>
                   NAMESPACE: deriv-com-staging
                   DOCKERHUB_ORGANISATION: <actual_organization_name>
               run: |

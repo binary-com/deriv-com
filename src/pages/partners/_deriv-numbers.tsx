@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Container, Flex } from 'components/containers'
 import { Header, CardStyle, Text } from 'components/elements'
 import { Localize } from 'components/localization'
+import { CardStyle } from 'components/elements'
 
 const Wrapper = styled(Flex)`
     direction: ltr;
@@ -40,6 +41,12 @@ const DerivNumbers = () => {
                     </Text>
                 </Card>
                 <Card direction="column">
+                </Card>
+            </Wrapper>
+        </Container>
+    )
+}
+                <Card direction="column">
                     <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
                         1M+
                     </CardHeader>
@@ -55,6 +62,12 @@ const DerivNumbers = () => {
                         <Localize translate_text="_t_Total trade turnover_t_" />
                     </Text>
                 </Card>
+                <Card direction="column">
+                </Card>
+            </Wrapper>
+        </Container>
+    )
+}
                 <Card direction="column">
                     <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
                         USD 45M+

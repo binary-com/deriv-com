@@ -350,16 +350,25 @@ exports.onCreatePage = ({ page, actions }) => {
     const { deletePage } = actions
     const isProduction = process.env.GATSBY_ENV === 'production'
     const pagesToBuild = process.env.GATSBY_BUILD_PAGES
+    const allowed_pages = ['', pagesToBuild.split(',')]
+    const pages = allowed_pages.reduce((result, Item) => {
+        if (Array.isArray(Item)) {
+            // Flatten the nested array and add the '/' prefix
+            const nested_array = Item.map((subItem) => `/${subItem}/`)
+            return result.concat(nested_array)
+        } else {
+            // Add the '/' prefix for the root item
+            return result.concat(`/${Item}`)
+        }
+    }, [])
 
-    const allowed_pages = ['/', pagesToBuild]
+    console.log('allowed_pages', pages)
 
-    // First delete the incoming page that was automatically created by Gatsby
-    // So everything in src/pages/
     deletePage(page)
     if (isProduction) {
         return BuildPage(page, actions)
     } else {
-        if (allowed_pages.includes(page.path)) {
+        if (pages.includes(page.path)) {
             return BuildPage(page, actions)
         }
     }
@@ -367,6 +376,7 @@ exports.onCreatePage = ({ page, actions }) => {
 
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+
 const style_lint_options = {
     files: 'src/**/*.js',
     emitErrors: false,

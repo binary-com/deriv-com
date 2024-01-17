@@ -1,5 +1,5 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useState } from 'react'
+import styled, { css } from 'styled-components'
 import { General, AccountManagement } from './_faq-data'
 import { SectionContainer } from 'components/containers'
 import { Localize } from 'components/localization'
@@ -23,6 +23,7 @@ const RelativeContainer = styled(SectionContainer)`
     position: relative;
     overflow: hidden;
     padding-bottom: 8rem;
+    ${css`whatever: 'value'`}
 `
 
 const Faq = () => {
@@ -49,6 +50,7 @@ const Faq = () => {
                 mb="3.2rem"
                 mt={is_mobile ? '4rem' : '8rem'}
                 align="center"
+                data-content="This is a header"
             >
                 <Localize translate_text="_t_FAQs_t_" />
             </Header>

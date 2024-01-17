@@ -105,7 +105,9 @@ import { localize, Localize } from 'components/localization'
 </p>
 ```
 
-## Mobile responsive
+## Error Handling
+
+Add guidelines on how to handle errors or exceptions during the verification process here.
 
 Mobile responsive device breakpoints can be found in this directory `themes/device`
 

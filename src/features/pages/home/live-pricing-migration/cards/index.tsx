@@ -22,6 +22,10 @@ import {
     MarketDerivedRangeBreak200Icon,
     MarketIndicesUs500Icon,
     MarketDerivedJump50Icon,
+    MarketDerivedBoom300Icon,
+    MarketDerivedCrash300Icon,
+    MarketDerivedVolatility1501sIcon,
+    MarketDerivedVolatility2501sIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Markets'
 import useLiveData from '../data-provider/useLiveData'
@@ -44,6 +48,12 @@ const IconsMapper = {
     EURUSD_DFX_10_Index: <MarketDerivedEurusdDfx10Icon />,
     Jump_50_Index: <MarketDerivedJump50Icon />,
     Range_Break_200_Index: <MarketDerivedRangeBreak200Icon />,
+
+    // Derived Indices EU
+    Boom_300_Index: <MarketDerivedBoom300Icon />,
+    Crash_300_Index: <MarketDerivedCrash300Icon />,
+    'Volatility_150_(1s)_Index': <MarketDerivedVolatility1501sIcon />,
+    'Volatility_250_(1s)_Index': <MarketDerivedVolatility2501sIcon />,
 
     // Etf's
     EEM_US: <MarketIndicesUs500Icon />,

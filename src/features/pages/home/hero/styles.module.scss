@@ -22,6 +22,14 @@
         margin-top: 0;
     }
 }
+.hero_content_rtl{
+    @media only screen and (min-width: 601px){
+        &[dir="rtl"] {
+            text-align: right;
+            margin-right: auto;
+        }
+    }
+}
 .hero_content_btn {
     margin-inline: auto;
     @media only screen and (min-width: 601px){
@@ -74,6 +82,14 @@
     }
     @media only screen and (min-width: 1024px){
         left: 0;
+    }
+}
+.hero_content_award_img_rtl {
+    @media only screen and (min-width: 601px){
+        &[dir="rtl"] {
+            right: 50%;
+            left: auto;
+        }
     }
 }
 .hero_content_text{

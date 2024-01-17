@@ -92,7 +92,7 @@ jobs:
                   SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
                   CA_CRT: <actual_CA_certificate>
                   NAMESPACE: <actual_Kubernetes_namespace>
-                  DOCKERHUB_ORGANISATION: <actual_organization_name>
+                  DOCKERHUB_ORGANISATION: deriv
               run: |
                   git clone https://github.com/binary-com/devops-ci-scripts
                   cd devops-ci-scripts/k8s-build_tools

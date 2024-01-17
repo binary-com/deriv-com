@@ -136,7 +136,7 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
     )
 }
 const WhoCanApply = () => {
-    const { is_p2p_allowed_country } = useRegion()
+    const { has_verified_organization } = useUserOrganization()
 
     return (
         <SectionWrapper padding="80px 0">

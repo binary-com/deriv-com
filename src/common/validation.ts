@@ -6,6 +6,14 @@ export const validation_regex = {
     alphabetic: /^[a-zA-Z]+$/,
     number: /^\d+$/,
     password: /^(?=.*[a-z])(?=.*\d)(?=.*[A-Z])[ -~]{8,25}$/,
+    resetEmail: (input, message) => {
+        if (!input) {
+            return message || localize('_t_Email is required_t_')
+        } else {
+            return null
+        }
+    },
+    password: /^(?=.*[a-z])(?=.*\d)(?=.*[A-Z])[ -~]{8,25}$/,
 }
 
 type TValidationHandler = (input: string, message?: string) => string | null

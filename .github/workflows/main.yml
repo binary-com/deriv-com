@@ -1,0 +1,20 @@
+name: GitHub Actions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Verify user's organization
+        run: |
+          # Add the command to verify the user's organization here
+
+      # Add other steps as necessary

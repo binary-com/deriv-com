@@ -39,6 +39,7 @@ const meta_attributes: TMetaAttributes = {
 
 const PaymentAgent = () => {
     const { is_row, is_p2p_allowed_country } = useRegion()
+    import TapInto from './_tap-into'
 
     return (
         <>

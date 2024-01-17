@@ -141,7 +141,7 @@ const ResetPassword = () => {
                                 />
                             </InputGroup>
                             <Text align="center" color="red">
-                                {apiError ? apiError : status.error}
+                                {apiError && <Text align="center" color="red">{apiError}</Text> || status.error}
                             </Text>
                             <Text align="center" color="green">
                                 {status.success}

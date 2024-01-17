@@ -54,6 +54,12 @@ const ResetPassword = () => {
                 actions.setSubmitting(false)
 
                 if (response.error) {
+                    actions.resetForm({ email: '' });
+                    actions.setStatus({
+                        error: response.error.message,
+                    });
+                    return;
+                
                     actions.setStatus({
                         error: response.error.message,
                     })
@@ -69,8 +75,8 @@ const ResetPassword = () => {
             })
             .catch((error) => {
                 if (error.msg_type === 'verify_email') {
-                    const errorString = error.error.message.split(':')
-                    setApiError(errorString[0])
+                    const errorString = error.error.message.split(':');
+                    setApiError(errorString[0]);
                 }
             })
     }
@@ -113,7 +119,7 @@ const ResetPassword = () => {
                         values,
                         errors,
                         handleChange,
-                        handleBlur,
+                        onBlur,
                         isSubmitting,
                         resetForm,
                         status,

@@ -4,7 +4,7 @@
 
   .wrapper {
     width: 100%;
-    max-inline-size: 56rem;
+    max-width: 56rem;
   }
 
   .array_wrapper {
@@ -28,7 +28,7 @@
     }
 
     @include breakpoints(laptop) {
-      max-inline-size: 38rem;
+      max-width: 38rem;
     }
 
     .heading_countries{

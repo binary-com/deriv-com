@@ -51,6 +51,17 @@ const ResetPassword = () => {
                 type: 'reset_password',
             })
             .then((response) => {
+    const resetValidation = (values: EmailType) => {
+        const errors: ErrorType = {}
+        const email = trimSpaces(values.email)
+        const email_error = validation.required(email) || validation.email(email)
+        setApiError('')
+        if (email_error) {
+            errors.email = email_error
+        }
+
+        return errors
+    }
                 actions.setSubmitting(false)
 
                 if (response.error) {

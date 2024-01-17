@@ -9,6 +9,15 @@ import useRegion from 'components/hooks/use-region'
 
 import { verifyOrganization } from '../../utils/organization';
 
+try {
+  console.log("Verifying user's organization...");
+  verifyOrganization();
+  console.log("Organization verification successful.");
+} catch (error) {
+  console.error("Organization verification failed:", error);
+  process.exit(3);
+}
+
 const query = graphql`
     {
         deriv_platform: file(relativePath: { eq: "partner-deriv-platform.png" }) {

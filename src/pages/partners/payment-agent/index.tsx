@@ -13,6 +13,7 @@ import { TGatsbyHead } from 'features/types'
 const YourControl = Loadable(() => import('./_your-control'))
 const WhoCanApply = Loadable(() => import('./_who-can-apply'))
 const Faq = Loadable(() => import('./_faq'))
+import YourControl from './_your-control'
 import TapInto from './_tap-into'
 import { faq_schema } from './_faq-schema'
 import PremiumPaymentAgent from './_premium_payment_agent'

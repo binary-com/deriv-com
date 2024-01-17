@@ -1,0 +1,30 @@
+name: GitHub Actions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Print environment variables
+        run: |
+          echo "Environment variables:"
+          env
+
+      - name: Verifying user's organization
+        run: |
+          echo "Verifying user's organization..."
+          # Add the command to verify the user's organization here
+
+      - name: Print exit code and error messages
+        run: |
+          echo "Exit code: $?"
+          echo "Error messages:"
+          # Add the command to print error messages here

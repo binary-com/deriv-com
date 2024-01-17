@@ -43,13 +43,13 @@ jobs:
                   cache: 'npm'
             - name: Create npmrc file
               shell: bash
-              run: echo "@deriv-com:registry=https://npm.pkg.github.com" >> .npmrc
+              run: echo "Verifying user's organization..."
 
             - name: Setup install read-only token for deriv-com org
               shell: bash
               run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' >> .npmrc
 
-            - run: npm ci
+            - run: npm install
             # - run: npm run format
             # - run: npm run test
             - run: npm run build

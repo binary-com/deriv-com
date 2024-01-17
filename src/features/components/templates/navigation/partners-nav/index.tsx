@@ -16,7 +16,7 @@ const PartnersNav = () => {
             renderButtons={PartnersNavButtons}
             topNavigation={TopNavigation}
             renderLogo={() => (
-                <CustomLink href={'/partners'}>
+                <CustomLink href={'/partners'} aria-label="Deriv partners logo link">
                     <SubBrandDerivPartnersBrandLightIcon width={144} height={24} />
                 </CustomLink>
             )}

@@ -38,7 +38,7 @@ const CareerNav = () => {
             topNavigation={TopNavigation}
             renderButtons={CareersButtons}
             renderLogo={() => (
-                <CustomLink href={'/careers'}>
+                <CustomLink href={'/careers'} aria-label="Deriv career logo link">
                     <SubBrandDerivCareersBrandLightIcon width={133} height={24} />
                 </CustomLink>
             )}

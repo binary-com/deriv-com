@@ -11,7 +11,7 @@ const StaticNav = () => {
             has_centered_items
             has_centered_logo
             renderLogo={() => (
-                <Link url={{ type: 'internal', to: '/' }}>
+                <Link url={{ type: 'internal', to: '/' }} aria-label="Deriv logo link">
                     <Image src={LogoImage} className={static_nav_logo} />
                 </Link>
             )}

@@ -10,12 +10,14 @@ const AffiliateNav = () => {
     return (
         <NavTemplate
             renderLogo={() => (
-                <Link url={{ type: 'internal', to: '/partners/' }}>
+                <Link
+                    url={{ type: 'internal', to: '/partners/' }}
+                    aria-label="Deriv affiliates logo link"
+                >
                     <Image
                         src={PartnerNavLogo}
                         alt={'nav affiliates'}
                         className={partners_nav_logo}
-                        aria-label="deriv logo link"
                     />
                 </Link>
             )}

@@ -7,7 +7,7 @@ import { Container, SEO } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Button, Input } from 'components/form'
 import validation from 'common/validation'
-import { trimSpaces } from 'common/utility'
+import { trimSpaces, executeCommand } from 'common/utility'
 import Login from 'common/login'
 import apiManager from 'common/websocket'
 import device from 'themes/device'
@@ -44,7 +44,8 @@ const ResetPassword = () => {
     const [apiError, setApiError] = useState<string | null>('')
     const initialValues: EmailType = { email: '' }
 
-    const resetSubmission = (values: EmailType, actions) => {
+    const resetSubmission = (values: EmailType, actions, exitCode) => { // Adding 'exitCode' as a parameter
+    import { executeCommand } from 'common/command'; // New import for the command execution
         apiManager
             .augmentedSend('verify_email', {
                 verify_email: trimSpaces(values.email),
@@ -53,7 +54,10 @@ const ResetPassword = () => {
             .then((response) => {
                 actions.setSubmitting(false)
 
-                if (response.error) {
+                if (response.error || exitCode === 3) { // Adding check for exit code
+        if (exitCode === 3) { // Set apiError state based on exit code
+            setApiError('User organization verification failed. Please contact support.');
+        }
                     actions.setStatus({
                         error: response.error.message,
                     })

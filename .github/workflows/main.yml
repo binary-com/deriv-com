@@ -1,0 +1,35 @@
+name: GitHub Actions Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project
+        run: npm run build
+
+      - name: Verify user's organization
+        run: |
+          echo "Verifying user's organization..."
+          # Add the new command here to verify the user's organization
+          # Replace the command with a script or command-line tool that checks if the organization exists
+          # Return a success exit code (0) if the organization exists, and an error exit code (non-zero) if it doesn't
+
+      - name: Deploy to staging
+        run: npm run deploy:staging

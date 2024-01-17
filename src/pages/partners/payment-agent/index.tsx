@@ -16,6 +16,7 @@ const Faq = Loadable(() => import('./_faq'))
 import TapInto from './_tap-into'
 import { faq_schema } from './_faq-schema'
 import PremiumPaymentAgent from './_premium_payment_agent'
+import PremiumPaymentAgent from './_premium_payment_agent'
 import PageNotFound from 'features/pages/404'
 import Layout from 'components/layout/layout'
 import { SEO, TMetaAttributes } from 'components/containers'
@@ -46,6 +47,7 @@ const PaymentAgent = () => {
                     <TapInto />
                     <YourControl />
                     <WhoCanApply />
+            {is_row && <PremiumPaymentAgent />}
                     {is_p2p_allowed_country && <P2PBanner />}
                     {is_row && <PremiumPaymentAgent />}
                     <Divider />

@@ -1,5 +1,6 @@
 import React from 'react'
 import Loadable from '@loadable/component'
+import Hero from './_pa-hero'
 import P2PBanner from './_p2p_banner'
 import PremiumPaymentAgent from './_premium_payment_agent'
 import PageNotFound from 'features/pages/404'
@@ -45,6 +46,7 @@ const PaymentAgent = () => {
         <>
             {is_row ? (
                 <Layout type="partners" padding_top="8">
+                    <PAHero />
                     <Hero />
                     <TapInto />
                     <YourControl />

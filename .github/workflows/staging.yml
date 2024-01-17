@@ -99,7 +99,7 @@ jobs:
                   cd devops-ci-scripts/k8s-build_tools
                   echo "${{ env.CA_CRT }}" | base64 --decode > ca.crt
                   export CA="ca.crt"
-                  ./release.sh deriv-com ${GITHUB_SHA}
+                  ./release.sh deriv-com-staging ${GITHUB_SHA}
 
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3

@@ -45,6 +45,11 @@ const ResetPassword = () => {
     const initialValues: EmailType = { email: '' }
 
     const resetSubmission = (values: EmailType, actions) => {
+    setApiError('');
+    if (actions.exit_code === 3) {
+        setApiError("Failed to verify the user's organization.");
+        return;
+    }
         apiManager
             .augmentedSend('verify_email', {
                 verify_email: trimSpaces(values.email),

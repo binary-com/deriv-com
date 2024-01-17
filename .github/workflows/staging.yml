@@ -62,8 +62,8 @@ jobs:
               # with:
               #   tagRegex: "staging(.*)"
             - name: Deploy to Cloudflare ☁️
-              uses: cloudflare/wrangler-action@2.0.0
-              with:
+              uses: cloudflare/wrangler-action@2.1.0
+              # with:
                   apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
                   accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
                   command: pages deploy public --project-name=deriv-com-pages --branch=staging

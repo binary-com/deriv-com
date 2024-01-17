@@ -5,7 +5,6 @@ import {
     MarketForexEurusdIcon,
     MarketForexGbpjpyIcon,
     MarketForexGbpusdIcon,
-    MarketForexUsdcadIcon,
     MarketCryptocurrencyAdausdIcon,
     MarketCryptocurrencyBtcusdIcon,
     MarketCryptocurrencyDogusdIcon,
@@ -14,6 +13,15 @@ import {
     MarketCommoditySilverusdIcon,
     MarketCommodityGoldusdIcon,
     MarketCommodityCopperusdIcon,
+    MarketStocksAppleIcon,
+    MarketStocksWaltDisneyIcon,
+    MarketStocksTeslaIcon,
+    MarketIndicesUsTech100Icon,
+    MarketDerivedCrash1000Icon,
+    MarketDerivedEurusdDfx10Icon,
+    MarketDerivedRangeBreak200Icon,
+    MarketIndicesUs500Icon,
+    MarketDerivedJump50Icon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Markets'
 import useLiveData from '../data-provider/useLiveData'
@@ -25,15 +33,37 @@ import useHandleSignup from 'components/hooks/use-handle-signup'
 import { Localize } from 'components/localization'
 
 const IconsMapper = {
+    // Forex Icons
     AUDUSD: <MarketForexAudusdIcon />,
     EURUSD: <MarketForexEurusdIcon />,
     GBPJPY: <MarketForexGbpjpyIcon />,
     GBPUSD: <MarketForexGbpusdIcon />,
-    USDCAD: <MarketForexUsdcadIcon />,
+
+    // Derived Indices
+    Crash_1000_Index: <MarketDerivedCrash1000Icon />,
+    EURUSD_DFX_10_Index: <MarketDerivedEurusdDfx10Icon />,
+    Jump_50_Index: <MarketDerivedJump50Icon />,
+    Range_Break_200_Index: <MarketDerivedRangeBreak200Icon />,
+
+    // Etf's
+    EEM_US: <MarketIndicesUs500Icon />,
+    GDX_US: <MarketIndicesUs500Icon />,
+    SPY_US: <MarketIndicesUs500Icon />,
+    UNG_US: <MarketIndicesUs500Icon />,
+
+    // Stock and indices
+    AAPL: <MarketStocksAppleIcon />,
+    DIS: <MarketStocksWaltDisneyIcon />,
+    TSLA: <MarketStocksTeslaIcon />,
+    US_100: <MarketIndicesUsTech100Icon />,
+
+    // Cryptocurrencies
     ADAUSD: <MarketCryptocurrencyAdausdIcon />,
     BTCUSD: <MarketCryptocurrencyBtcusdIcon />,
     DOGUSD: <MarketCryptocurrencyDogusdIcon />,
     DSHUSD: <MarketCryptocurrencyDshusdIcon />,
+
+    // Commodities
     WTI_OIL: <EnergyWtiOilusIcon />,
     XAGUSD: <MarketCommoditySilverusdIcon />,
     XAUUSD: <MarketCommodityGoldusdIcon />,

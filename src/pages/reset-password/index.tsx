@@ -86,7 +86,7 @@ const ResetPassword = () => {
         const errors: ErrorType = {}
         const email = trimSpaces(values.email)
         const email_error = validation.required(email) || validation.email(email)
-        setApiError('')
+        
         if (email_error) {
             errors.email = email_error
         }
@@ -145,10 +145,10 @@ const ResetPassword = () => {
                                 />
                             </InputGroup>
                             <Text align="center" color="red">
-                                {apiError ? apiError : status.error}
+                                {status.error}
                             </Text>
                             <Text align="center" color="green">
-                                {status.success}
+                                
                             </Text>
                             <ButtonContainer>
                                 <StyledButton

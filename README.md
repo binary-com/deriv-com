@@ -92,7 +92,25 @@ Moreover, having these extensions will help you to speed up the development proc
 
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-## How to contribute
+## Troubleshooting GitHub Actions Failure
+
+If you encounter a failing GitHub Actions run for the Deriv.com static content, follow the troubleshooting steps below to resolve the issue.
+
+### Common Issues
+- Issue 1
+- Issue 2
+- Issue 3
+
+### Troubleshooting Steps
+1. Step 1
+2. Step 2
+3. Step 3
+
+### Debugging
+To debug the failing GitHub Actions run, follow the steps below:
+- Debugging Step 1
+- Debugging Step 2
+- Debugging Step 3
 
 To contribute in the project, we need to create PRs to master. We have two types of PRs (Pull request):
 

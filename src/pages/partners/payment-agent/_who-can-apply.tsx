@@ -11,7 +11,7 @@ import {
     StyledHeader,
     SecondaryHeader,
 } from '../affiliate-ib/_who-can-apply'
-import { Flex } from 'components/containers'
+import { Flex, Text } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Header, LocalizedLinkText, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -33,7 +33,7 @@ type StyledLinkButtonProps = {
     id?: string
 }
 
-const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>``
+const StyledLinkButton = styled(LinkButton)``;
 
 const HeaderHowToApply = styled(SecondaryHeader)`
     @media ${device.tablet} {

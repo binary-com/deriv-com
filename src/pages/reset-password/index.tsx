@@ -69,6 +69,8 @@ const ResetPassword = () => {
             })
             .catch((error) => {
                 if (error.msg_type === 'verify_email') {
+                    setApiError(error.error.message);
+                    return;
                     const errorString = error.error.message.split(':')
                     setApiError(errorString[0])
                 }

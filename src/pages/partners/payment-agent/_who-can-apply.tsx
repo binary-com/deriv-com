@@ -10,7 +10,7 @@ import {
     Separator,
     StyledHeader,
     SecondaryHeader,
-} from '../affiliate-ib/_who-can-apply'
+} from '../affiliate-ib/_who-can-apply.tsx'
 import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Header, LocalizedLinkText, Timeline } from 'components/elements'
@@ -22,7 +22,7 @@ import Email from 'images/svg/partners/pa-email.svg'
 import Reply from 'images/svg/partners/pa-reply.svg'
 import Listed from 'images/svg/partners/pa-listed.svg'
 import device from 'themes/device'
-import useRegion from 'components/hooks/use-region'
+import useRegion from 'components/hooks/user-region.tsx'
 import { TString } from 'types/generics'
 
 type ImageWrapperProps = {

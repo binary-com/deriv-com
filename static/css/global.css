@@ -7,3 +7,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.\[-webkit-box-orient\:vertical\] {
+    -webkit-box-orient: vertical;
+}
+.\[-webkit-line-clamp\:2\] {
+    -webkit-line-clamp: 2;
+}
+.\[display\:-webkit-box\] {
+    display: -webkit-box;
+}

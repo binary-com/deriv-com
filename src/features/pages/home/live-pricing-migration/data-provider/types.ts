@@ -12,7 +12,7 @@ export type MarketName = keyof LiveMarketRawData
 export type MarketAssetName<T extends MarketName> = keyof LiveMarketRawData[T]
 
 export type STK = 'AAPL' | 'DIS' | 'TSLA'
-export type IND = 'US_100' | 'US_30'
+export type IND = 'US_30' | 'US_100'
 export type FX = 'AUDUSD' | 'EURUSD' | 'GBPJPY' | 'GBPUSD' | 'USDCAD'
 export type ETFS = 'EEM_US' | 'GDX_US' | 'SPY_US' | 'UNG_US' | 'XLK_US'
 export type DER =

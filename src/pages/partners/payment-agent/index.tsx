@@ -11,7 +11,7 @@ import useRegion from 'components/hooks/use-region'
 import { TGatsbyHead } from 'features/types'
 
 const YourControl = Loadable(() => import('./_your-control'))
-const WhoCanApply = Loadable(() => import('./_who-can-apply'))
+import WhoCanApply from './_who-can-apply'
 const Faq = Loadable(() => import('./_faq'))
 import YourControl from './_your-control'
 import TapInto from './_tap-into'

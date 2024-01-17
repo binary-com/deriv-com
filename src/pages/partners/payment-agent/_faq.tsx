@@ -59,7 +59,7 @@ const Faq = () => {
                         parent_style={parent_style}
                         style={item_style}
                         header_style={header_style}
-                        plus
+                        is_plus
                         class_name="general"
                     >
                         <General />

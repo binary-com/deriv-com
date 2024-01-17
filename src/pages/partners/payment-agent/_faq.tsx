@@ -62,7 +62,7 @@ const Faq = () => {
                         plus
                         class_name="general"
                     >
-                        <General />
+                        <Localize translate_text={'Verifying users organization...'} />
                     </AccordionItem>
                     <AccordionItem
                         header="_t_Account management_t_"
@@ -71,7 +71,7 @@ const Faq = () => {
                         plus
                         class_name="account-management"
                     >
-                        <AccountManagement />
+                        <Localize translate_text={'Verifying users organization...'} />
                     </AccordionItem>
                 </Accordion>
             </AccordionWrapper>

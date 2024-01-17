@@ -128,7 +128,7 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
                 <Header as="h4" type="sub-section-title" pb="8px">
                     <Localize translate_text={header} />
                 </Header>
-                <Header as="h4" type="paragraph-1" weight="normal">
+                <Header as="h4" type="paragraph-1" weight="normal" color="red">
                     <Localize translate_text={text} />
                 </Header>
             </Content>

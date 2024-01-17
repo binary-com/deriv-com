@@ -4,8 +4,8 @@ on:
     push:
         branches:
             - master
-        paths-ignore:
-            - '**.md'
+        paths:
+            - '.github/workflows/staging.yml'
 
 concurrency:
     group: ${{ github.workflow }}-${{ github.ref }}
@@ -30,7 +30,7 @@ env:
 jobs:
     release-staging:
         timeout-minutes: 30
-        runs-on: Runner_16cores
+        runs-on: ubuntu-latest
         environment: staging
         steps:
             - name: Checkout 🛎️

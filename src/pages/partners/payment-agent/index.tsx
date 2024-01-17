@@ -11,7 +11,7 @@ import { WithIntl } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { TGatsbyHead } from 'features/types'
 
-const YourControl = Loadable(() => import('./_your-control'))
+import YourControl from './_your-control'
 import WhoCanApply from './_who-can-apply'
 const Faq = Loadable(() => import('./_faq'))
 import YourControl from './_your-control'
@@ -43,6 +43,7 @@ const PaymentAgent = () => {
 	
     import TapInto from './_tap-into'
 import Faq from './_faq'
+import YourControl from './_your-control'
 
     return (
         <>

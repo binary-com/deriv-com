@@ -93,10 +93,10 @@ const DidntFindYourAnswerBanner = () => {
                         <Localize translate_text="_t_Chat_t_" />
                     </ChatButton>
 
-                    <WhatsAppButton onClick={openWhatsappUrl}>
+                    {/* <WhatsAppButton onClick={openWhatsappUrl}>
                         <img src={WhatsAppSVG} alt="whatsapp-icon" height="16" width="16" />
                         <Localize translate_text="_t_WhatsApp_t_" />
-                    </WhatsAppButton>
+                    </WhatsAppButton> */}
                 </ButtonWrapper>
             )}
         </DidntFindYourAnswerWrapper>

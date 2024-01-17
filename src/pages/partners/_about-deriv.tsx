@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container, Flex, Desktop, Mobile } from 'components/containers'
@@ -6,6 +6,8 @@ import { Header, Text, QueryImage } from 'components/elements'
 import { Localize, localize } from 'components/localization'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
+
+import { verifyOrganization } from '../../utils/organization';
 
 const query = graphql`
     {

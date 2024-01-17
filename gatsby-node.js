@@ -3,6 +3,7 @@ const language_config = require(`./i18n-config.js`)
 const language_config_en = require(`./i18n-config-en.js`)
 const path = require('path')
 const { copyLibFiles } = require('@builder.io/partytown/utils')
+const webpack = require('webpack')
 
 const translations_cache = {}
 
@@ -397,27 +398,49 @@ const style_lint_options = {
     lintDirtyModulesOnly: true,
 }
 
-exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...options }) => {
-    const config = getConfig()
-    if (config.optimization) {
-        config.optimization.minimizer = [new TerserPlugin()]
-    }
-    if (stage === 'build-html' || stage === 'develop-html') {
-        actions.setWebpackConfig({
-            module: {
-                rules: [
-                    {
-                        test: /analytics/,
-                        use: loaders.null(),
-                    },
-                ],
-            },
-        })
-    }
+exports.onCreateWebpackConfig = ({ stage, actions, loaders }, { ...options }) => {
+    // const config = getConfig()
+    // const isProduction = config.mode === 'production'
+    // const isProduction = true
+
     actions.setWebpackConfig({
-        plugins: [new StylelintPlugin({ ...style_lint_options, ...options })],
+        devtool: false, // enable/disable source-maps
+        // mode: isProduction ? 'production' : 'development',
+        optimization: {
+            minimize: true,
+            minimizer: [new TerserPlugin()],
+            // splitChunks: {
+            //     chunks: 'all',
+            //     name: "eduard-v7",
+            // },
+
+            mergeDuplicateChunks: true,
+            removeAvailableModules: true,
+            removeEmptyChunks: true,
+            innerGraph: true,
+
+            // chunkIds: 'total-size', // works, little chunks, max chunk 6+ Mb
+            // chunkIds: 'size', // works, little chunks, max chunk 6+ Mb
+            // moduleIds: 'size',
+
+            // mangleExports
+            // mangleWasmImports
+
+            // runtimeChunk: 'single',
+
+            // sideEffects: true,
+
+            concatenateModules: true,
+            providedExports: true,
+            usedExports: true,
+        },
+        plugins: [
+            new StylelintPlugin({ ...style_lint_options, ...options }),
+            new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }), // works, merges chunks together
+        ],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },
+        ...((stage === 'build-html' || stage === 'develop-html') ? { module: { rules: [ { test: /analytics/, use: loaders.null() } ] } } : {}),
     })
 }

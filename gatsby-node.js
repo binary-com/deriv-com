@@ -350,28 +350,33 @@ exports.onCreatePage = ({ page, actions }) => {
     const { deletePage } = actions
     const isProduction = process.env.GATSBY_ENV === 'production'
     const pagesToBuild = process.env.GATSBY_BUILD_PAGES
-    const allowed_pages = ['', pagesToBuild.split(',')]
+    if (pagesToBuild) {
+        const pages_loaded = pagesToBuild.split(',')
+        const allowed_pages = ['', pages_loaded]
 
-    const pages = allowed_pages.reduce((result, Item) => {
-        if (Array.isArray(Item)) {
-            // Flatten the nested array and add the '/' prefix
-            const nested_array = Item.map((subItem) => `/${subItem}/`)
-            return result.concat(nested_array)
-        } else {
-            // Add the '/' prefix for the root item
-            return result.concat(`/${Item}`)
-        }
-    }, [])
+        const pages = allowed_pages.reduce((result, Item) => {
+            if (Array.isArray(Item)) {
+                // Flatten the nested array and add the '/' prefix
+                const nested_array = Item.map((subItem) => `/${subItem}/`)
+                return result.concat(nested_array)
+            } else {
+                // Add the '/' prefix for the root item
+                return result.concat(`/${Item}`)
+            }
+        }, [])
 
-    console.log('pages', pages)
+        console.log('pages', pages)
 
-    deletePage(page)
-    if (isProduction) {
-        return BuildPage(page, actions)
-    } else {
-        if (pages.includes(page.path)) {
+        deletePage(page)
+        if (isProduction) {
             return BuildPage(page, actions)
+        } else {
+            if (pages.includes(page.path)) {
+                return BuildPage(page, actions)
+            }
         }
+    } else {
+        return BuildPage(page, actions)
     }
 }
 

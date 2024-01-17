@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, FC } from 'react'
 import styled from 'styled-components'
 import { Form, Formik } from 'formik'
 import Layout from 'components/layout/layout'
@@ -54,6 +54,9 @@ const ResetPassword = () => {
                 actions.setSubmitting(false)
 
                 if (response.error) {
+                    actions.setStatus({
+                        error: response.error.message,
+                    });
                     actions.setStatus({
                         error: response.error.message,
                     })

@@ -12,7 +12,7 @@ type MainEntityType = {
 }
 
 type FaqSchemaType = {
-    '@context': string
+    // Missing import statement
     '@type': string
     mainEntity: MainEntityType[]
 }
@@ -32,7 +32,7 @@ export const faq_schema: FaqSchemaType = {
             },
         },
         {
-            '@type': 'Question',
+            '@type: string': 'Question',
             name: localize(
                 '_t_How much can I earn from referring new clients to your DMT5 platform?_t_',
             ),
@@ -64,7 +64,7 @@ export const faq_schema: FaqSchemaType = {
             },
         },
         {
-            '@type': 'Question',
+            '@type: string': 'Question',
             name: localize('_t_How can I sign up as a Deriv IB?_t_'),
             acceptedAnswer: {
                 '@type': 'Answer',
@@ -74,7 +74,7 @@ export const faq_schema: FaqSchemaType = {
             },
         },
         {
-            '@type': 'Question',
+            '@type: string': 'Question',
             name: localize('_t_How and when will I receive my Deriv IB commissions?_t_'),
             acceptedAnswer: {
                 '@type': 'Answer',
@@ -84,7 +84,7 @@ export const faq_schema: FaqSchemaType = {
             },
         },
         {
-            '@type': 'Question',
+            '@type: string': 'Question',
             name: localize('_t_Do you offer any referral tools to your IBs?_t_'),
             acceptedAnswer: {
                 '@type': 'Answer',

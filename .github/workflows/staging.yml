@@ -86,7 +86,8 @@ jobs:
                   docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest-staging
                   docker push  ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:$GITHUB_SHA
 
-            - name: Deploy 🚀
+            - name: Deploy
+                  run: docker push ${{ secrets.DOCKERHUB_ORGANISATION }}/deriv-com:latest-staging 🚀
               env:
                   KUBE_SERVER: ${{ secrets.KUBE_SERVER }}
                   SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}

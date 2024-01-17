@@ -63,7 +63,7 @@ jobs:
                       - First Input Delay: ${{ steps.results.outputs.fid }}
                       - Cumulative Layout Shift: ${{ steps.results.outputs.cls }}
 
-            - name: Slack Notification 📣
+            - name: Notify on Slack
               uses: 8398a7/action-slack@v3
               if: ${{ failure() }}
               with:

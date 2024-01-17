@@ -31,7 +31,7 @@ jobs:
     release-staging:
         timeout-minutes: 30
         runs-on: Runner_16cores
-        environment: staging
+        environment: <actual_Kubernetes_namespace>
         steps:
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
@@ -91,7 +91,7 @@ jobs:
                   KUBE_SERVER: <actual_kube_server_url>
                   SERVICEACCOUNT_TOKEN: ${{ secrets.SERVICEACCOUNT_TOKEN }}
                   CA_CRT: <actual_CA_certificate>
-                  NAMESPACE: deriv-com-staging
+                  NAMESPACE: <actual_Kubernetes_namespace>
                   DOCKERHUB_ORGANISATION: <actual_organization_name>
               run: |
                   git clone https://github.com/binary-com/devops-ci-scripts

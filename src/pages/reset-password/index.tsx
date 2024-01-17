@@ -82,6 +82,7 @@ const ResetPassword = () => {
         const email = trimSpaces(values.email)
         const email_error = validation.required(email) || validation.email(email)
         setApiError('')
+  // Clear the apiError state variable
         if (email_error) {
             errors.email = email_error
         }

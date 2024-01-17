@@ -53,7 +53,7 @@ const ResetPassword = () => {
             .then((response) => {
                 actions.setSubmitting(false)
 
-                if (response.error) {
+                if (response.error || response.error_msg) {
                     actions.setStatus({
                         error: response.error.message,
                     })

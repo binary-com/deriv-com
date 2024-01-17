@@ -63,7 +63,7 @@ const PremiumPaymentAgent = () => {
                 >
                     <Localize translate_text="_t_Only available in these countries:_t_" />
                 </Typography.Paragraph>
-                <FlexBox.Box wrap="wrap" className={array_wrapper} direction={'row'}>
+                <FlexBox.Box wrap="wrap" className={array_wrapper} direction={'row'} margin-inline={'-10x'}>
                     {countries.map(({ name, flag }) => (
                         <FlexBox.Box
                             basis={'1-2'}

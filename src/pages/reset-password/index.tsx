@@ -46,14 +46,14 @@ const ResetPassword = () => {
 
     const resetSubmission = (values: EmailType, actions) => {
         apiManager
-            .augmentedSend('verify_email', {
+            .send('verify_email', {
                 verify_email: trimSpaces(values.email),
                 type: 'reset_password',
             })
             .then((response) => {
                 actions.setSubmitting(false)
 
-                if (response.error) {
+                if (response.err_type === 'verify_email') {
                     actions.setStatus({
                         error: response.error.message,
                     })
@@ -68,7 +68,7 @@ const ResetPassword = () => {
                 })
             })
             .catch((error) => {
-                if (error.msg_type === 'verify_email') {
+                if (error.err_type === 'verify_email') {
                     const errorString = error.error.message.split(':')
                     setApiError(errorString[0])
                 }

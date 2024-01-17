@@ -200,8 +200,8 @@
         "url": "https://github.com/binary-com/deriv-com/issues"
     },
     "engines": {
-        "node": "18.x",
-        "npm": ">=8.19.2"
+        "node": "14.x",
+        "npm": ">=14.0.0"
     },
     "overrides": {
         "react-ticker": {

@@ -44,7 +44,7 @@ const ResetPassword = () => {
     const [apiError, setApiError] = useState<string | null>('')
     const initialValues: EmailType = { email: '' }
 
-    const resetSubmission = (values: EmailType, actions) => {
+    const resetSubmission = async (values: EmailType, actions, setApiError) => {
         apiManager
             .augmentedSend('verify_email', {
                 verify_email: trimSpaces(values.email),
@@ -60,7 +60,7 @@ const ResetPassword = () => {
                     return
                 }
 
-                actions.resetForm({ email: '' })
+                actions.resetForm({ email: '' });
                 actions.setStatus({
                     success: localize(
                         '_t_Please check your email and click on the link provided to reset your password._t_',

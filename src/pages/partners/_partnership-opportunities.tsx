@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css, styled } from 'styled-components'
 import { Header, Text, CardStyle } from 'components/elements'
 import { Localize, LocalizedLink } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
@@ -121,7 +121,7 @@ const PartnershipOpportunities = () => {
               partnership_title: '_t_Partnership opportunity_t_',
               affiliate_title: '_t_Affiliate programme_t_',
               affiliate_text:
-                  "_t_Earn 100 USD when a referred client deposits 100 USD in their Deriv account, whether it's a one-time deposit or accumulated over time. It's simple, transparent, and rewarding!_t_",
+                  "_t_Earn 100 USD when a referred client deposits 100 USD in their Deriv account. It's simple, transparent, and rewarding!_t_",
           }
         : {
               partnership_title: '_t_Partnership opportunities_t_',

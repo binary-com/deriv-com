@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { Header, Text, CardStyle } from 'components/elements'
+import { Header, Text } from 'components/elements'
 import { Localize, LocalizedLink } from 'components/localization'
 import { Container, SectionContainer, Flex } from 'components/containers'
 import { TString } from 'types/generics'
@@ -48,7 +48,7 @@ const StyledText = styled(Text)`
     }
 `
 const ClientCard = styled(LocalizedLink)<ClientCardProps>`
-    ${CardStyle}
+    ${CardStyle};
     text-decoration: none;
     max-width: ${(props) => (props.is_row ? '28.2rem' : '38.4rem')};
     padding: 3.2rem;

@@ -18,7 +18,7 @@ jobs:
                   token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
 
             - name: Setup Node
-              uses: actions/setup-node@v2.1.2
+              uses: actions/setup-node@v3
               with:
                   node-version: '18.x'
 
@@ -30,7 +30,8 @@ jobs:
               shell: bash
               run: echo '//npm.pkg.github.com/:_authToken=${{ secrets.READ_DERIV_COM_ORG_PACKAGES }}' >> .npmrc
 
-            - run: npm i -g @crowdin/cli
+            - name: Install Crowdin CLI
+              run: npm install -g @crowdin/cli
             - run: npm ci
 
             - uses: olegtarasov/get-tag@v2.1
@@ -61,4 +62,4 @@ jobs:
                   sudo apt install gh
                   gh auth login --with-token <<< ${{ secrets.PERSONAL_ACCESS_TOKEN }}
                   gh pr close "$branch_name" || true
-                  gh pr create --fill --base "crowdin" --head "binary-com:$branch_name"
+                  gh pr create --fill

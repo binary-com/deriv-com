@@ -79,6 +79,7 @@ jobs:
               with:    
                 name: production
                 path: public
+                retention-days: 1
             - name: Slack Notification 📣
               uses: 8398a7/action-slack@v3
               with:
@@ -99,6 +100,7 @@ jobs:
     build_and_publish_to_docker_k8s:
         runs-on: Runner_16cores
         environment: production
+        needs: [release-production]
         steps:
             - name: Checkout 🛎️
               uses: actions/checkout@v2.3.1
@@ -109,7 +111,6 @@ jobs:
             - name: Download Artifact
               uses: actions/download-artifact@v4
               with:
-                  name: production
                   path: public
             - name: Set version env variable
               run: echo "GIT_TAG_NAME=$(cat public/version.txt)" >> $GITHUB_ENV

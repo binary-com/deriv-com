@@ -94,7 +94,7 @@ jobs:
                   NAMESPACE: <actual_Kubernetes_namespace>
                   DOCKERHUB_ORGANISATION: deriv
               run: |
-                  git clone https://github.com/binary-com/devops-ci-scripts
+                  git clone <actual_repository_URL>
                   cd devops-ci-scripts/k8s-build_tools
                   echo "${{ env.CA_CRT }}" | base64 --decode > ca.crt
                   export CA="ca.crt"

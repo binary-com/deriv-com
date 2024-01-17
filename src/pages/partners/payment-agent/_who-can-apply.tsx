@@ -142,7 +142,7 @@ const WhoCanApply = () => {
         <SectionWrapper padding="80px 0">
             <StyledSection>
                 <Flex>
-                    <WhoCanApplyWrapper>
+                    <WhoCanApplyWrapper padding="16px 16px 0 16px" >
                         <StyledHeader as="h2" size="3.6rem">
                             <Localize translate_text="_t_Who can apply_t_" />
                         </StyledHeader>

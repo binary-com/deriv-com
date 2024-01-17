@@ -350,7 +350,7 @@ exports.onCreatePage = ({ page, actions }) => {
     const { deletePage } = actions
     const isProduction = process.env.GATSBY_ENV === 'production'
     const pagesToBuild = process.env.GATSBY_BUILD_PAGES
-    const allowed_pages = ['', pagesToBuild.split(',')]
+    const allowed_pages = ['', pagesToBuild?.split(',')]
     const pages = allowed_pages.reduce((result, Item) => {
         if (Array.isArray(Item)) {
             // Flatten the nested array and add the '/' prefix
@@ -362,7 +362,7 @@ exports.onCreatePage = ({ page, actions }) => {
         }
     }, [])
 
-    console.log('allowed_pages', pages)
+    console.log('pages', pages)
 
     deletePage(page)
     if (isProduction) {

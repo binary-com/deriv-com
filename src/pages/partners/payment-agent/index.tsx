@@ -1,6 +1,18 @@
 import React from 'react'
 import Loadable from '@loadable/component'
-import Hero from './_pa-hero'
+import P2PBanner from './_p2p_banner'
+import PremiumPaymentAgent from './_premium_payment_agent'
+import PageNotFound from 'features/pages/404'
+import Layout from 'components/layout/layout'
+import { SEO, TMetaAttributes } from 'components/containers'
+import { Divider } from 'components/elements'
+import { WithIntl } from 'components/localization'
+import useRegion from 'components/hooks/use-region'
+import { TGatsbyHead } from 'features/types'
+
+const YourControl = Loadable(() => import('./_your-control'))
+const WhoCanApply = Loadable(() => import('./_who-can-apply'))
+const Faq = Loadable(() => import('./_faq'))
 import TapInto from './_tap-into'
 import { faq_schema } from './_faq-schema'
 import PremiumPaymentAgent from './_premium_payment_agent'

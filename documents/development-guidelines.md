@@ -58,9 +58,9 @@ What makes that invalid is the fact that headings can't be placed inside paragra
 Another common mistake is accidentally double quoting paragraphs, **this is invalid**:
 
 ```js
-<p>
+<div>
     <p>Paragraph</p>
-</p>
+</div>
 ```
 
 **Note:** since we are using **Localize** components we are using this bad practice in many places for example we are passing a **Localize** inside our **p** element and we are passing a **div** as a component to the **Localize**
@@ -73,9 +73,9 @@ content: {
     components: [<Header key={0} type="paragraph-2" weight="normal" as="p" />],
 }
 
-<Header as="p">
+<div>
     <Localize translated_text={content.text} components={content.components} />
-</Header>
+</div>
 
 // best practice
 content: {
@@ -93,7 +93,9 @@ content: {
 
 ```js
 // You will get destroy is not a function error!
-useEffect(() => setSelected(default_step), [items, default_step])
+useEffect(() => {
+    setSelected(default_step)
+}, [items, default_step])
 
 // Instead you should use it like this:
 useEffect(() => {

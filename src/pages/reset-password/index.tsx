@@ -76,6 +76,13 @@ const ResetPassword = () => {
     }
 
     const resetValidation = (values: EmailType) => {
+    const errors: ErrorType = {}
+    if (!values.email) {
+        errors.email = 'Email is required'
+    } else if (!validation.email(values.email)) {
+        errors.email = 'Invalid email address'
+    }
+    return errors
         const errors: ErrorType = {}
         const email = trimSpaces(values.email)
         const email_error = validation.required(email) || validation.email(email)

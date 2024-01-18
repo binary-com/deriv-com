@@ -116,6 +116,7 @@ type contentType = {
 
 const PartnershipOpportunities = () => {
     const { is_row, is_eu } = useRegion()
+    const { verifyUserOrganization, is_row, is_eu } = useRegion()
     const content_data: contentType = is_eu
         ? {
               partnership_title: '_t_Partnership opportunity_t_',

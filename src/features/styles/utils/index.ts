@@ -31,7 +31,7 @@ type SpacingClasses = {
 
 export const generateVisibleClasses = (visible: TVisible) => {
     return dclsx({
-        [`visible-${visible}`]: visible,
+        [`at-visible-${visible}`]: visible,
     })
 }
 
@@ -54,66 +54,66 @@ export const generateSpacingClasses = (options: SpacingClasses, prefix = '') => 
         padding_block,
     } = options
     return dclsx({
-        [`${classPrefix}margin-${margin}`]: margin,
-        [`${classPrefix}margin-left-${ml}`]: ml,
-        [`${classPrefix}margin-right-${mr}`]: mr,
-        [`${classPrefix}margin-top-${mt}`]: mt,
-        [`${classPrefix}margin-bottom-${mb}`]: mb,
-        [`${classPrefix}margin-inline-${margin_inline}`]: margin_inline,
-        [`${classPrefix}margin-block-${margin_block}`]: margin_block,
-        [`${classPrefix}padding-${padding}`]: padding,
-        [`${classPrefix}padding-left-${pl}`]: pl,
-        [`${classPrefix}padding-right-${pr}`]: pr,
-        [`${classPrefix}padding-top-${pt}`]: pt,
-        [`${classPrefix}padding-bottom-${pb}`]: pb,
-        [`${classPrefix}padding-inline-${padding_inline}`]: padding_inline,
-        [`${classPrefix}padding-block-${padding_block}`]: padding_block,
+        [`${classPrefix}at-margin-${margin}`]: margin,
+        [`${classPrefix}at-margin-left-${ml}`]: ml,
+        [`${classPrefix}at-margin-right-${mr}`]: mr,
+        [`${classPrefix}at-margin-top-${mt}`]: mt,
+        [`${classPrefix}at-margin-bottom-${mb}`]: mb,
+        [`${classPrefix}at-margin-inline-${margin_inline}`]: margin_inline,
+        [`${classPrefix}at-margin-block-${margin_block}`]: margin_block,
+        [`${classPrefix}at-padding-${padding}`]: padding,
+        [`${classPrefix}at-padding-left-${pl}`]: pl,
+        [`${classPrefix}at-padding-right-${pr}`]: pr,
+        [`${classPrefix}at-padding-top-${pt}`]: pt,
+        [`${classPrefix}at-padding-bottom-${pb}`]: pb,
+        [`${classPrefix}at-padding-inline-${padding_inline}`]: padding_inline,
+        [`${classPrefix}at-padding-block-${padding_block}`]: padding_block,
     })
 }
 
 export const generateGapClasses = (gap?: TSpacingSize) => {
-    return dclsx({ [`gap-${gap}`]: gap })
+    return dclsx({ [`at-gap-${gap}`]: gap })
 }
 
 export const generateBackgroundColor = (bgColor?: TBGColor) => {
     return dclsx({
-        [`bg-color-${bgColor}`]: bgColor,
+        [`at-bg-color-${bgColor}`]: bgColor,
     })
 }
 
 export const generateHeadingSize = (size?: THeadingSize) => {
     return dclsx({
-        [`heading-${size}`]: size,
+        [`at-heading-${size}`]: size,
     })
 }
 
 export const generateBorderRadius = (radius?: TBorderRadius) => {
     return dclsx({
-        [`border-radius-${radius}`]: radius,
+        [`at-border-radius-${radius}`]: radius,
     })
 }
 export const generateTextSize = (size?: THeadingSize) => {
     return dclsx({
-        [`text-${size}`]: size,
+        [`at-text-${size}`]: size,
     })
 }
 
 export const generateTextColor = (color?: TTypographyColor) => {
     return dclsx({
-        [`typography-color-${color}`]: color,
+        [`at-typography-color-${color}`]: color,
     })
 }
 
 export const generateTypographyWeightClasses = (weight?: TTypographyWeight, prefix = '') => {
     const classPrefix = prefix !== '' ? `${prefix}-` : ''
     return dclsx({
-        [`${classPrefix}typography-weight-${weight}`]: weight,
+        [`${classPrefix}at-typography-weight-${weight}`]: weight,
     })
 }
 
 export const generateTypographyFontClasses = (font_family?: TTypographyFont) => {
     return dclsx({
-        [`typography-font-${font_family}`]: font_family,
+        [`at-typography-font-${font_family}`]: font_family,
     })
 }
 
@@ -121,7 +121,7 @@ export const generateTypographyAlignClasses = (align?: TTypographyAlign, prefix 
     const classPrefix = prefix !== '' ? `${prefix}-` : ''
 
     return dclsx({
-        [`${classPrefix}typography-align-${align}`]: align,
+        [`${classPrefix}at-typography-align-${align}`]: align,
     })
 }
 
@@ -134,7 +134,7 @@ export const generateTypographyClasses = ({
 }) => {
     return dclsx(
         {
-            [`typography-break-${break_word}`]: break_word,
+            [`at-typography-break-${break_word}`]: break_word,
         },
         generateTextColor(textcolor),
     )

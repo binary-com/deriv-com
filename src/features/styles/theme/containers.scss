@@ -1,6 +1,6 @@
 @use 'features/styles/theme/theme-mixins' as *;
 
-.container-fluid {
+.at-container-fluid {
     margin-inline: auto;
     inline-size: 95%;
 
@@ -18,6 +18,6 @@
     }
 }
 
-.container-fixed {
+.at-container-fixed {
     inline-size: 100%;
 }

@@ -157,7 +157,7 @@ const WhoCanApply = () => {
                         <Header as="h4" type="paragraph-1" mt="24px">
                             <Localize translate_text="_t_Note:_t_" />
                         </Header>
-                        <StyledUl>
+                        <StyledUl className="get-started--list">
                             <Li>
                                 <Header as="h4" type="paragraph-1" weight="normal">
                                     <Localize translate_text="_t_You must have a minimum balance in your Deriv account while your application is under review. The amount of this balance depends on your country of residence. You only need to maintain the minimum balance until your application is successful._t_" />

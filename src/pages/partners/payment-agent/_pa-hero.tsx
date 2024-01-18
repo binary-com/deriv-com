@@ -60,3 +60,9 @@ const PAHero = () => {
 }
 
 export default PAHero
+import ErrorHandler from '../utils/error-handler'
+import Logger from '../utils/logger'
+import ErrorHandler from '../utils/error-handler'
+import Logger from '../utils/logger'
+import ErrorHandler from '../utils/error-handler'
+import Logger from '../utils/logger'

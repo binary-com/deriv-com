@@ -10,7 +10,7 @@ permissions:
 
 on:
     push:
-        branches-ignore:
+        branches:
             - staging.*
             - beta.*
             - production.*

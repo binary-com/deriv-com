@@ -65,7 +65,7 @@ const ImageWrapper = styled.img<ImageWrapperProps>`
     }
 `
 
-const WhoCanApplyWrapper = styled(Col)`
+const WhoCanApplyWrapper = styled(Col).attrs<{ className?: string }>`
     width: 100%;
     max-width: 48.8rem;
     display: flex;

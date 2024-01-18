@@ -14,7 +14,7 @@ import {
 import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Header, LocalizedLinkText, Timeline } from 'components/elements'
-import ErrorHandler from '../utils/error-handler'
+import Logger from '../utils/logger'
 import CurrencyExchange from 'images/svg/partners/currency_exchange.svg'
 import Affiliates from 'images/svg/partners/affiliates.svg'
 import CommunityManagers from 'images/svg/partners/community-managers.svg'
@@ -151,6 +151,8 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
 }
 const WhoCanApply = () => {
     const { is_p2p_allowed_country } = useRegion()
+  const userDetails = {/* provide user details */}
+  Logger.logVerificationProcess('start', userDetails)
 
     return (
         <SectionWrapper padding="80px 0">

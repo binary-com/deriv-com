@@ -9,10 +9,13 @@ import Layout from 'components/layout/layout'
 import { SEO, TMetaAttributes } from 'components/containers'
 import { Divider } from 'components/elements'
 import { WithIntl } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
+import React, { createContext, useContext } from 'react'
 import { TGatsbyHead } from 'features/types'
 
 const YourControl = Loadable(() => import('./_your-control'))
+import useRegion from 'components/hooks/use-region'
+import Loadable from '@loadable/component'
+
 const WhoCanApply = Loadable(() => import('./_who-can-apply'))
 const Faq = Loadable(() => import('./_faq'))
 const P2PBanner = Loadable(() => import('./_p2p_banner'))
@@ -34,6 +37,9 @@ const PaymentAgent = () => {
                     <TapInto />
                     <YourControl />
                     <WhoCanApply />
+      <RegionContext.Provider value={{ is_p2p_allowed_country: true }}>
+          {children}
+      </RegionContext.Provider>
                     {is_p2p_allowed_country && <P2PBanner />}
                     {is_row && <PremiumPaymentAgent />}
                     <Divider />

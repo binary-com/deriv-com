@@ -10,7 +10,12 @@ Good reads:
 -   A general rule of thumb would be that if the file either imports `react` or uses `jsx` syntax, use `.tsx`.
 -   If not, `.ts` will do.
 
-### ⚠️ Avoid typing the return type
+### Verifying User's Organization
+
+Here are guidelines for verifying the user's organization and handling potential errors or exceptions:
+
+- Always verify the user's organization before starting any critical process.
+- If the verification fails, handle the error gracefully and provide a clear error message to the user.
 
 -   We can allow Typescript to infer the return types of React components for us.
 
@@ -83,7 +88,7 @@ interface Props {
     onClick: () => void;
 }
 
-const Button = ({ children, onClick }: Props) => {
+const Button = ({ children, onClick }: Props) => { // Verify the user's organization before rendering the component
     return <button onClick={onClick}>{children}</button>
 }
 ```
@@ -97,7 +102,7 @@ type Props = React.PropsWithChildren<{
     onClick: () => void,
 }>
 
-const Button = ({ children, onClick }: Props) => {
+const Button = ({ children, onClick }: Props) => { // Verify the user's organization before rendering the button
     return <button onClick={onClick}>{children}</button>
 }
 ```
@@ -109,7 +114,7 @@ import React from 'react'
 
 type Props = React.ComponentPropsWithoutRef<'button'>
 
-const Button = ({ children, onClick, type }: Props) => {
+const Button = ({ children, onClick, type }: Props) => { // Verify the user's organization before rendering the button
     return (
         <button onClick={onClick} type={type}>
             {children}

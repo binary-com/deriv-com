@@ -1,0 +1,27 @@
+name: Main Workflow
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify user's organization
+        run: |
+          echo "Verifying user's organization..."
+          # Add the necessary steps to verify the user's organization here
+          # Use GitHub Actions functions, variables, and configurations as needed
+          # Install any necessary dependencies before running the verification step
+
+      - name: Build and deploy
+        run: npm run build

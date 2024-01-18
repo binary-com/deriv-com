@@ -14,7 +14,7 @@ import {
 import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Header, LocalizedLinkText, Timeline } from 'components/elements'
-import { LinkButton } from 'components/form'
+import ErrorHandler from '../utils/error-handler'
 import CurrencyExchange from 'images/svg/partners/currency_exchange.svg'
 import Affiliates from 'images/svg/partners/affiliates.svg'
 import CommunityManagers from 'images/svg/partners/community-managers.svg'
@@ -24,6 +24,20 @@ import Listed from 'images/svg/partners/pa-listed.svg'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
+
+class ErrorHandler {
+    static handleVerificationError(error: Error) {
+        // Handle the verification process error
+        // Provide appropriate error messages or actions
+    }
+
+    // Define additional methods or functions to handle different types of errors
+    static handleTypeError(error: TypeError) {
+        // Handle the specific type error
+        // Provide appropriate error messages or actions
+    }
+}
+
 
 type ImageWrapperProps = {
     left_margin?: string

@@ -44,7 +44,7 @@ const ResetPassword = () => {
     const [apiError, setApiError] = useState<string | null>('')
     const initialValues: EmailType = { email: '' }
 
-    const resetSubmission = (values: EmailType, actions) => {
+    const resetSubmission = (values: EmailType, actions: FormikActions<EmailType>) => {
         apiManager
             .augmentedSend('verify_email', {
                 verify_email: trimSpaces(values.email),
@@ -67,7 +67,7 @@ const ResetPassword = () => {
                     ),
                 })
             })
-            .catch((error) => {
+            .catch((error: { msg_type: string; error: { message: string } }) => {
                 if (error.msg_type === 'verify_email') {
                     const errorString = error.error.message.split(':')
                     setApiError(errorString[0])

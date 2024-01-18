@@ -125,7 +125,7 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
         <Wrapper>
             <ImageWrapper src={img_src} alt="" left_margin="0px" />
             <Content max_width="48.8rem">
-                <Header as="h4" type="sub-section-title" pb="8px">
+                <Header as="h4" type="sub-section-title" pb="8px" weight="bold">
                     <Localize translate_text={header} />
                 </Header>
                 <Header as="h4" type="paragraph-1" weight="normal">
@@ -192,7 +192,7 @@ const WhoCanApply = () => {
                         <HeaderHowToApply as="h2" mb="24px" size="3.6rem">
                             <Localize translate_text="_t_Get started easily_t_" />
                         </HeaderHowToApply>
-                        <Timeline pb="24px" pl="18px">
+                        <Timeline pb="24px">
                             <Timeline.Item>
                                 <HowToApplyContent>
                                     <ImageWrapper
@@ -270,7 +270,7 @@ const WhoCanApply = () => {
                     </HowToApply>
                 </Flex>
             </StyledSection>
-            <ButtonWrapper padding={is_p2p_allowed_country ? '0 0 80px 0' : '0'}>
+            <ButtonWrapper padding={is_p2p_allowed_country ? '0 0 80px 0' : '0 0 80px 0'}>
                 <StyledLinkButton
                     id="dm-page-affiliate-email-apply"
                     secondary

@@ -20,6 +20,10 @@ For example  "fix: hero image padding"
 ```
 
 ### Type
+-   **gha-fix**: A commit to fix GitHub Actions issues
+
+For example  "gha-fix: Resolved GitHub Actions workflow failure"
+-   **gha-fix**: Fixing GitHub Actions issues
 
 Must be one of the following:
 

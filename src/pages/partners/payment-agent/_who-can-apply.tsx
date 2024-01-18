@@ -29,11 +29,11 @@ type ImageWrapperProps = {
     left_margin?: string
 }
 
-type StyledLinkButtonProps = {
+type StyledLinkButtonProps = { className?: string,
     id?: string
 }
 
-const StyledLinkButton = styled(LinkButton)<StyledLinkButtonProps>``
+const StyledLinkButton = styled(LinkButton).withConfig<StyledLinkButtonProps>({ shouldForwardProp: (prop) => prop !== 'className' })(StyledLinkButtonProps)
 
 const HeaderHowToApply = styled(SecondaryHeader)`
     @media ${device.tablet} {

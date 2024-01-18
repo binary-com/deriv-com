@@ -39,7 +39,7 @@ const Content = styled.div`
 `
 
 const Hero = () => {
-    useLazyVideo()
+    useLazyVideo, verifyUserOrganization
 
     return (
         <StyledHero>

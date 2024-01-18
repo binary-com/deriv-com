@@ -1,0 +1,42 @@
+The contents of the modified ".github/workflows/main.yml" file:
+
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Run tests
+        run: npm run test
+
+      - name: Deploy to staging
+        if: github.ref == 'refs/heads/master'
+        run: npm run deploy:staging
+
+      - name: Deploy to production
+        if: github.ref == 'refs/tags/production_*'
+        run: npm run deploy:production
+
+      - name: Notify success
+        if: always()
+        run: echo "GitHub Actions run succeeded"

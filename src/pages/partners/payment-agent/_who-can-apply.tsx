@@ -144,7 +144,7 @@ const WhoCanApply = () => {
                 <Flex>
                     <WhoCanApplyWrapper>
                         <StyledHeader as="h2" size="3.6rem">
-                            <Localize translate_text="_t_Who can apply_t_" />
+                            <Localize translate_text="_t_Who can apply to become a payment agent?_t_" />
                         </StyledHeader>
                         {section_content.map((item, index) => (
                             <SectionComponent
@@ -155,7 +155,7 @@ const WhoCanApply = () => {
                             />
                         ))}
                         <Header as="h4" type="paragraph-1" mt="24px">
-                            <Localize translate_text="_t_Note:_t_" />
+                            <Localize translate_text="_t_Who can apply to become a payment agent?_t_" />
                         </Header>
                         <StyledUl>
                             <Li>

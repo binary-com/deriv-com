@@ -160,7 +160,7 @@ const WhoCanApply = () => {
                         <StyledUl>
                             <Li>
                                 <Header as="h4" type="paragraph-1" weight="normal">
-                                    <Localize translate_text="_t_You must have a minimum balance in your Deriv account while your application is under review. The amount of this balance depends on your country of residence. You only need to maintain the minimum required balance until your application is approved._t_" />
+                                    <Localize translate_text="_t_See our <0>terms and conditions</0> for more information._t_" />
                                 </Header>
                             </Li>
                             <Li>
@@ -203,6 +203,13 @@ const WhoCanApply = () => {
                                     <Content min_width="240px" max_width="36.4rem">
                                         <Header as="h4" type="sub-section-title" pb="8px">
                                             <Localize translate_text="_t_Drop us an email_t_" />
+<LocalizedLinkText
+    key={0}
+    color="red"
+    target="_blank"
+    href="/tnc/business-partners-payment-agents.pdf"
+    rel="noopener noreferrer"
+/>
                                         </Header>
                                         <Header as="h4" type="paragraph-1" weight="normal">
                                             <Localize translate_text="_t_Send us an email with the following:_t_" />

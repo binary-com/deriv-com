@@ -1,5 +1,5 @@
 import React from 'react'
-import { CalculatedFormulaProps } from './_minimum-volume'
+import { CalculatedFormulaProps, verifyUserOrganization } from './_verify-organization'
 import {
     FormulaBottomWrapper,
     FormulaContainer,

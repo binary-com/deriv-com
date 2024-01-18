@@ -203,4 +203,4 @@ Example of release steps
 
 ## Test link deployment
 
-Upon creating PR, [Vercel](https://vercel.com/) and Cloudflare will auto-generate two test links inside the PR. you can use that to preview the test link for the changes you have made.
+If the GitHub Actions run fails, follow these steps to troubleshoot and fix the issue:, if a GitHub Actions run fails, follow the troubleshooting steps provided in the section below., [Vercel](https://vercel.com/) and Cloudflare will auto-generate two test links inside the PR. you can use that to preview the test link for the changes you have made.

@@ -60,6 +60,98 @@ const DerivNumbers = () => {
                         USD 45M+
                     </CardHeader>
                     <Text align="center">
+    const verifyUserOrganization = () => {
+        // Implement logic to verify user's organization
+    }
+    
+    return (
+        <Container direction="column">
+            <Header as="h2" type="page-title" align="center" mb="2rem">
+                <Localize translate_text="_t_Deriv in numbers_t_" />
+            </Header>
+            <Wrapper mb="8rem">
+                <Card direction="column">
+                    <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
+                        23
+                    </CardHeader>
+                    <Text align="center">
+                        <Localize translate_text="_t_Years of industry experience_t_" />
+                    </Text>
+                </Card>
+                <Card direction="column">
+                    <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
+                        1M+
+                    </CardHeader>
+                    <Text align="center">
+                        <Localize translate_text="_t_Active traders_t_" />
+                    </Text>
+                </Card>
+                <Card direction="column">
+                    <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
+                        USD 15T+
+                    </CardHeader>
+                    <Text align="center">
+                        <Localize translate_text="_t_Total trade turnover_t_" />
+                    </Text>
+                </Card>
+                <Card direction="column">
+                    <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
+                        USD 45M+
+                    </CardHeader>
+                    <Text align="center">
+                        <Localize translate_text="_t_Withdrawals last month_t_" />
+                    </Text>
+                </Card>
+            </Wrapper>
+        </Container>
+    )
+}
+    const verifyUserOrganization = () => {
+        // Implement logic to verify user's organization
+    }
+    
+    return (
+        <Container direction="column">
+            <Header as="h2" type="page-title" align="center" mb="2rem">
+                <Localize translate_text="_t_Deriv in numbers_t_" />
+            </Header>
+            <Wrapper mb="8rem">
+                <Card direction="column">
+                    <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
+                        23
+                    </CardHeader>
+                    <Text align="center">
+                        <Localize translate_text="_t_Years of industry experience_t_" />
+                    </Text>
+                </Card>
+                <Card direction="column">
+                    <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
+                        1M+
+                    </CardHeader>
+                    <Text align="center">
+                        <Localize translate_text="_t_Active traders_t_" />
+                    </Text>
+                </Card>
+                <Card direction="column">
+                    <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
+                        USD 15T+
+                    </CardHeader>
+                    <Text align="center">
+                        <Localize translate_text="_t_Total trade turnover_t_" />
+                    </Text>
+                </Card>
+                <Card direction="column">
+                    <CardHeader as="p" size="var(--text-size-header-1)" mb="0.8rem" align="center">
+                        USD 45M+
+                    </CardHeader>
+                    <Text align="center">
+                        <Localize translate_text="_t_Withdrawals last month_t_" />
+                    </Text>
+                </Card>
+            </Wrapper>
+        </Container>
+    )
+}
                         <Localize translate_text="_t_Withdrawals last month_t_" />
                     </Text>
                 </Card>

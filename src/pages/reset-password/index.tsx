@@ -90,7 +90,7 @@ const ResetPassword = () => {
     return (
         <Layout type="static" padding_top="0">
             <StyledContainer justify="center" align="center" direction="column">
-                <Header as="h2" type="page-title" align="center" mt="80px">
+                <Header animated type="page-title" textAlign="center" as="h2" type="page-title" align="center" mt="80px">
                     <Localize translate_text="_t_Reset password_t_" />
                 </Header>
                 <Header

@@ -32,7 +32,12 @@ const ImageWrapper = styled.div`
     }
 `
 
-const AboutDeriv = () => {
+const AboutDeriv = () => { 
+    // Add logic to verify user's organization
+    const verifyOrganization = () => { 
+        // Implement organization verification logic here
+    }; 
+    verifyOrganization();
     const data = useStaticQuery(query)
     const { is_eu, is_region_loading } = useRegion()
     return (

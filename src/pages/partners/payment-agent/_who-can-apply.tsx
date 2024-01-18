@@ -87,7 +87,7 @@ const Li = styled.li.attrs<{ className?: string }>`
     margin-top: 0.8rem;
 `
 
-const ButtonWrapper = styled(CenteredSection)`
+const ButtonWrapper = styled(CenteredSection).attrs<{ className?: string }>({})`
     display: flex;
     justify-content: center;
 
@@ -270,7 +270,7 @@ const WhoCanApply = () => {
                     </HowToApply>
                 </Flex>
             </StyledSection>
-            <ButtonWrapper padding={is_p2p_allowed_country ? '0 0 80px 0' : '0'}>
+            <ButtonWrapper padding={is_p2p_allowed_country ? '0 0 80px 0' : '0'} className={className}>
                 <StyledLinkButton
                     id="dm-page-affiliate-email-apply"
                     secondary

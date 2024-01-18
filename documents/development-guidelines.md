@@ -1,6 +1,8 @@
 # Development Guidelines
 
 ## Do:
+-   Troubleshoot and fix common GitHub Actions issues
+-   Interpret error messages and logs related to GitHub Actions failures
 
 -   Keep all files immediately relevant to a component inside the given component directory.
 -   Make it dead simple to import the component from elsewhere.
@@ -10,6 +12,7 @@
 -   Try to create new, reusable components instead of "sub-components"
     (i.e. prefer not to create sub-directories that contain more components)
 -   **Be consistent** — however, you choose to lay things out
+-   Troubleshooting GitHub Actions failures is an essential skill for developers. Familiarize yourself with common GitHub Actions issues, interpret error messages and logs, and learn how to resolve them effectively.
 -   Please pass the **key** to the right element and make sure that it is **unique**!
 
 ```js

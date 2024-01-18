@@ -41,7 +41,7 @@ const HeaderHowToApply = styled(SecondaryHeader)`
         text-align: start;
     }
 `
-const HowToApply = styled(Col)`
+const HowToApply = styled(Col)<{ apiError: string }>`
     max-width: 48.6rem;
 
     @media ${device.laptop} {
@@ -72,7 +72,7 @@ const WhoCanApplyWrapper = styled(Col)`
     flex-direction: column;
 `
 
-const StyledUl = styled.ul`
+const StyledUl = styled.ul<{ className?: string }>`
     list-style-type: disc;
     font-size: var(--text-size-s);
     padding-left: 16px;
@@ -123,6 +123,131 @@ const section_content: SectionComponentProps[] = [
 const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
     return (
         <Wrapper>
+            <ImageWrapper src={img_src} alt="" left_margin="0px" />
+            <Content max_width="48.8rem">
+                <Header as="h4" type="sub-section-title" pb="8px">
+                    <Localize translate_text={header} />
+                </Header>
+                <Header as="h4" type="paragraph-1" weight="normal">
+                    <Localize translate_text={text} />
+                </Header>
+            </Content>
+        </Wrapper>
+    )
+}
+    {
+        img_src: CurrencyExchange,
+        header: '_t_Currency exchangers_t_',
+        text: '_t_Reputable online currency exchangers who want to gain more exposure and clients._t_',
+    },
+    {
+        img_src: Affiliates,
+        header: '_t_Affiliates_t_',
+        text: '_t_Deriv affiliates who want to support their clients._t_',
+    },
+    {
+        img_src: CommunityManagers,
+        header: '_t_Community managers_t_',
+        text: '_t_Trusted influencers or community managers who want to earn extra revenue._t_',
+    },
+]
+
+const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
+    return (
+        <Wrapper>
+const resetSubmission = (values: EmailType, actions: FormikHelpers<EmailType>) => {
+    setApiError('')
+    apiManager
+        .augmentedSend('verify_email', {
+            verify_email: trimSpaces(values.email),
+            type: 'reset_password',
+        })
+        .then((response) => {
+            actions.setSubmitting(false)
+
+            if (response.error) {
+                setApiError(response.error.message)
+            } else {
+                // Handle successful response
+            }
+        })
+        .catch((error) => {
+            setApiError(error.message)
+        })
+}
+
+const resetValidation = (values: EmailType) => {
+    setApiError('')
+    const errors: ErrorType = {}
+    const email = trimSpaces(values.email)
+    const email_error = validation.required(email) || validation.email(email)
+    if (!email_error) {
+        errors.email = email_error
+    }
+    return errors
+}
+const resetSubmission = (values: EmailType, actions: FormikHelpers<EmailType>) => {
+    setApiError('')
+    apiManager
+        .augmentedSend('verify_email', {
+            verify_email: trimSpaces(values.email),
+            type: 'reset_password',
+        })
+        .then((response) => {
+            actions.setSubmitting(false)
+
+            if (response.error) {
+                setApiError(response.error.message)
+            } else {
+                // Handle successful response
+            }
+        })
+        .catch((error) => {
+            setApiError(error.message)
+        })
+}
+
+const resetValidation = (values: EmailType) => {
+    setApiError('')
+    const errors: ErrorType = {}
+    const email = trimSpaces(values.email)
+    const email_error = validation.required(email) || validation.email(email)
+    if (!email_error) {
+        errors.email = email_error
+    }
+    return errors
+}
+const resetSubmission = (values: EmailType, actions: FormikHelpers<EmailType>) => {
+    setApiError('')
+    apiManager
+        .augmentedSend('verify_email', {
+            verify_email: trimSpaces(values.email),
+            type: 'reset_password',
+        })
+        .then((response) => {
+            actions.setSubmitting(false)
+
+            if (response.error) {
+                setApiError(response.error.message)
+            } else {
+                // Handle successful response
+            }
+        })
+        .catch((error) => {
+            setApiError(error.message)
+        })
+}
+
+const resetValidation = (values: EmailType) => {
+    setApiError('')
+    const errors: ErrorType = {}
+    const email = trimSpaces(values.email)
+    const email_error = validation.required(email) || validation.email(email)
+    if (!email_error) {
+        errors.email = email_error
+    }
+    return errors
+}
             <ImageWrapper src={img_src} alt="" left_margin="0px" />
             <Content max_width="48.8rem">
                 <Header as="h4" type="sub-section-title" pb="8px">

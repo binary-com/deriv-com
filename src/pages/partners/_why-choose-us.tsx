@@ -40,6 +40,15 @@ const Card = styled(Flex)`
         margin: 1.2rem;
     }
 `
+const verifyUserOrganization = () => {
+    // Implement logic to verify user's organization
+}
+const verifyUserOrganization = () => {
+    // Implement logic to verify user's organization
+}
+const verifyUserOrganization = () => {
+    // Implement logic to verify user's organization
+}
 const WhyChooseUs = () => {
     const { is_eu } = useRegion()
     return (

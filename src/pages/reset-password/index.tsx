@@ -70,6 +70,19 @@ const ResetPassword = () => {
             .catch((error) => {
                 if (error.msg_type === 'verify_email') {
                     const errorString = error.error.message.split(':')
+                    actions.setStatus({
+                        error: errorString[0],
+                    })
+                } else {
+                    actions.setStatus({
+                        error: 'An error occurred. Please try again later.',
+                    })
+                }
+            })
+    }
+            .catch((error) => {
+                if (error.msg_type === 'verify_email') {
+                    const errorString = error.error.message.split(':')
                     setApiError(errorString[0])
                 }
             })
@@ -108,8 +121,6 @@ const ResetPassword = () => {
                     initialStatus={{}}
                     validate={resetValidation}
                     onSubmit={resetSubmission}
-                >
-                    {({
                         values,
                         errors,
                         handleChange,

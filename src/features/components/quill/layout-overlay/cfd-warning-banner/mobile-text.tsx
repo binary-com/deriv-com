@@ -18,8 +18,10 @@ const MobileText = ({ loss_percent }: TextProps) => {
     const { width } = useWindowSize()
     const ref = useRef<HTMLDivElement>(null)
     useEffect(() => {
-        setCtaBottom(ref.current?.clientHeight)
-    }, [setCtaBottom, expanded])
+        if (width < 640) {
+            setCtaBottom(ref.current?.clientHeight)
+        }
+    }, [setCtaBottom, expanded, width])
 
     const onImageLoad = () => {
         if (width < 640) {

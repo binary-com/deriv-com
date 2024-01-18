@@ -114,7 +114,8 @@ type contentType = {
     [T: string]: TString
 }
 
-const PartnershipOpportunities = () => {
+const PartnershipOpportunities = () => { 
+    // Add logic to verify user's organization
     const { is_row, is_eu } = useRegion()
     const content_data: contentType = is_eu
         ? {
@@ -130,7 +131,12 @@ const PartnershipOpportunities = () => {
                   '_t_For marketers, influencers and introducing brokers to monetise their network. Earn competitive commissions and get access to high-quality promotional materials._t_',
           }
 
-    return (
+    const verifyOrganization = () => { 
+    // Implement organization verification logic here
+}; 
+verifyOrganization(); 
+
+  return (
         <SectionContainer padding="5rem 0">
             <Container direction="column">
                 <StyledMainHeader align="center" as="h2" mb="4rem">

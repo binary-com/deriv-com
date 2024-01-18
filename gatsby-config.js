@@ -82,6 +82,7 @@ module.exports = {
             },
         },
         'gatsby-plugin-styled-components',
+        'gatsby-plugin-minify-html',
         {
             resolve: 'gatsby-source-filesystem',
             options: {

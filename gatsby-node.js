@@ -3,7 +3,7 @@ const language_config = require(`./i18n-config.js`)
 const language_config_en = require(`./i18n-config-en.js`)
 const path = require('path')
 const { copyLibFiles } = require('@builder.io/partytown/utils')
-const webpack = require('webpack')
+// const webpack = require('webpack')
 
 const translations_cache = {}
 
@@ -406,6 +406,7 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders }, { ...options }) =>
     actions.setWebpackConfig({
         devtool: false, // enable/disable source-maps
         // mode: isProduction ? 'production' : 'development',
+        mode: 'production',
         optimization: {
             minimize: true,
             minimizer: [new TerserPlugin()],
@@ -414,21 +415,20 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders }, { ...options }) =>
             //     name: "eduard-v7",
             // },
 
+            mangleExports: 'size', // no benefits
+            mangleWasmImports: true, // no benefits
+
             mergeDuplicateChunks: true,
             removeAvailableModules: true,
             removeEmptyChunks: true,
             innerGraph: true,
 
             // chunkIds: 'total-size', // works, little chunks, max chunk 6+ Mb
-            // chunkIds: 'size', // works, little chunks, max chunk 6+ Mb
-            // moduleIds: 'size',
+            chunkIds: 'size', // no benefits
+            moduleIds: 'size',// no benefits
 
-            // mangleExports
-            // mangleWasmImports
-
-            // runtimeChunk: 'single',
-
-            // sideEffects: true,
+            // runtimeChunk: 'single', // fails
+            sideEffects: true, // no benefits
 
             concatenateModules: true,
             providedExports: true,
@@ -436,7 +436,7 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders }, { ...options }) =>
         },
         plugins: [
             new StylelintPlugin({ ...style_lint_options, ...options }),
-            new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }), // works, merges chunks together
+            // new webpack.optimize.LimitChunkCountPlugin({ maxChunks: 1 }), // works, merges chunks together
         ],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],

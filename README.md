@@ -209,4 +209,4 @@ Example of release steps
 
 ## Test link deployment
 
-Upon creating PR, [Vercel](https://vercel.com/) and Cloudflare will auto-generate two test links inside the PR. you can use that to preview the test link for the changes you have made.
+Upon creating PR, [Vercel](https://vercel.com/) and Cloudflare will auto-generate two test links inside the PR. You can use the Vercel test link to preview the changes made and use tools like Lighthouse or Google PageSpeed Insights to check the performance and SEO of the deployed content.

@@ -26,6 +26,13 @@ When configuring GitHub Actions workflows, consider the following guidelines and
 - Use conditional statements to control workflow execution based on branch or commit messages.
 - Troubleshooting common errors such as process completion, exit codes, and command failures.
 
+## Collaborating on GitHub Actions Workflows
+
+When collaborating on GitHub Actions workflows, it is important to coordinate changes effectively and ensure smooth workflow execution. Here are some recommendations for coordinating changes to GitHub Actions workflows among team members:
+- Create feature branches for new workflow features or modifications.
+- Use pull requests for proposing changes to the main workflow configuration.
+- Conduct code reviews to ensure the quality and accuracy of workflow changes.
+
 ## Resolving GitHub Actions Errors
 
 To troubleshoot and fix common errors encountered during GitHub Actions runs, follow these guidelines:
@@ -73,6 +80,13 @@ git rebase --onto master crowdin your_branch_name
 ```
 
 ## Get latest Changes
+
+### Collaborating on GitHub Actions Workflows
+
+When collaborating on GitHub Actions workflows, effective coordination is essential to ensure smooth workflow execution. Follow these recommendations for coordinating changes to GitHub Actions workflows among team members:
+- Create feature branches for new workflow features or modifications.
+- Use pull requests for proposing changes to the main workflow configuration.
+- Conduct code reviews to ensure the quality and accuracy of workflow changes.
 
 There are two ways to get the latest changes:
 

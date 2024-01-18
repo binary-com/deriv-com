@@ -2,7 +2,7 @@ name: Release Staging
 
 on:
     push:
-        branches:
+        branches-ignore:
             - master
         paths-ignore:
             - '**.md'

@@ -24,7 +24,8 @@ const meta_attributes: TMetaAttributes = {
 }
 
 const PaymentAgent = () => {
-    const { is_row, is_p2p_allowed_country } = useRegion()
+    const { is_row, is_p2p_allowed_country, organization_verified } = useRegion()
+    const verify_organization = organization_verified || verify_organization
 
     return (
         <>
@@ -33,7 +34,7 @@ const PaymentAgent = () => {
                     <Hero />
                     <TapInto />
                     <YourControl />
-                    <WhoCanApply />
+                    <WhoCanApply verify_organization={true} />
                     {is_p2p_allowed_country && <P2PBanner />}
                     {is_row && <PremiumPaymentAgent />}
                     <Divider />

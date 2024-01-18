@@ -70,7 +70,8 @@ Another common mistake is accidentally double quoting paragraphs, **this is inva
 
 content: {
     text: '_t_Our GitHub repositories: <0>github.com/binary-com</0>_t_',
-    components: [<Header key={0} type="paragraph-2" weight="normal" as="p" />],
+    components: [<br key={0} />],
+errorMessage: 'Error message here',
 }
 
 <Header as="p">
@@ -89,7 +90,7 @@ content: {
 
 ```
 
--   **React.useEffect** doesn't work like this in the _React 18_
+-   **Handle API errors and set appropriate error messages:** It is important to handle API responses and set appropriate error messages in the UI. When using **React.useEffect**, make sure to handle API errors and set error messages appropriately. For example, you can use **useEffect** to fetch data from an API and handle any errors by setting error messages in the UI. Make use of state to manage error messages and display them to the user.
 
 ```js
 // You will get destroy is not a function error!

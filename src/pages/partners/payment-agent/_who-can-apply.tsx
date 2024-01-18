@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import {
     StyledSection,
-    SectionWrapper,
+    SectionWrapper, StyledHeader,
     CenteredSection,
     Col,
     Wrapper,

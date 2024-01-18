@@ -187,6 +187,8 @@ Merging to master (squash and merge) will automatically release the last commit 
 
 2. Release to production:
 
+    Releasing to production requires a tag using the following format:
+
 Releasing to production requires a tag using the following format:
 
 `production_VYYYYMMDD_${Integer}` --- Integer is the release version

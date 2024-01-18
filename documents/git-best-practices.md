@@ -55,7 +55,7 @@ git rebase --onto master crowdin your_branch_name
 There are two ways to get the latest changes:
 
 ```sh
-git pull upstream master|crowdin --rebase
+git pull upstream master --rebase
 ```
 
 or

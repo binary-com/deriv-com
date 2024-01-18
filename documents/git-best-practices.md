@@ -1,6 +1,15 @@
 # Git best practices
 
-**In this document:**
+**In this document:
+
+## GitHub Actions Workflow Guidelines
+
+When configuring GitHub Actions workflows, consider the following guidelines and best practices:
+- Define triggers for workflow execution, such as push or pull requests.
+- Specify the operating system and runtime environment for the workflow.
+- Install dependencies before running tests and builds.
+- Use conditional statements to control workflow execution based on branch or commit messages.
+- Troubleshooting common errors such as process completion, exit codes, and command failures.**
 
 -   [Commit message guidelines](#commit-message-guidlines)
     -   [Type](#type)

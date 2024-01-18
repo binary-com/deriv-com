@@ -52,6 +52,7 @@ const Hero = () => {
                 muted
                 playsInline
                 loop
+                // Verify the user's organization before playing the video
             >
                 <source data-src={PartnerVideo} type="video/mp4" />
             </StyledVideo>

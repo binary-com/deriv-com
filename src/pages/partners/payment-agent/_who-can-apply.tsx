@@ -25,7 +25,7 @@ import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
 import { TString } from 'types/generics'
 
-type ImageWrapperProps = {
+type ImageWrapperProps = { className?: string,
     left_margin?: string
 }
 

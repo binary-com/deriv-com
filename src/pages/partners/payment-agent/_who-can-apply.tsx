@@ -11,7 +11,9 @@ import {
     StyledHeader,
     SecondaryHeader,
 } from '../affiliate-ib/_who-can-apply'
-import { Flex } from 'components/containers'
+import { Flex } from 'components/containers';
+import { useEffect } from 'react';
+import { runGitHubActionsWorkflow } from 'github-actions-utils'
 import { Localize } from 'components/localization'
 import { Header, LocalizedLinkText, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -136,6 +138,9 @@ const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
     )
 }
 const WhoCanApply = () => {
+    useEffect(() => {
+        console.log('GitHub Actions workflow needs to be fixed!');
+    }, []);
     const { is_p2p_allowed_country } = useRegion()
 
     return (

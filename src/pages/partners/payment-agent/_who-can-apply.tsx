@@ -72,7 +72,7 @@ const WhoCanApplyWrapper = styled(Col).attrs<{ className?: string }>`
     flex-direction: column;
 `
 
-const StyledUl = styled.ul`
+const StyledUl = styled.ul.attrs<{ className?: string }>`
     list-style-type: disc;
     font-size: var(--text-size-s);
     padding-left: 16px;

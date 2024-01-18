@@ -7,7 +7,7 @@ import { Container, SEO } from 'components/containers'
 import { Header, Text } from 'components/elements'
 import { Button, Input } from 'components/form'
 import validation from 'common/validation'
-import { trimSpaces } from 'common/utility'
+import { trimEmail } from 'common/reset-password/index'
 import Login from 'common/login'
 import apiManager from 'common/websocket'
 import device from 'themes/device'
@@ -47,7 +47,7 @@ const ResetPassword = () => {
     const resetSubmission = (values: EmailType, actions) => {
         apiManager
             .augmentedSend('verify_email', {
-                verify_email: trimSpaces(values.email),
+                verify_email: trimEmail(values.email),
                 type: 'reset_password',
             })
             .then((response) => {

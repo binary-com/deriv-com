@@ -42,6 +42,8 @@ const FloatingCtaProvider = ({ children }: TFloatingCtaProps) => {
         isExitVisible,
     ])
 
+    // console.log("==>",ctaBottom)
+
     const ctaBottomHandler = useCallback((value: number) => {
         setCtaBottom(value)
     }, [])

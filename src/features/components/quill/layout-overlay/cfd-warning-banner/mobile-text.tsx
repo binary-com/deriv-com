@@ -18,10 +18,14 @@ const MobileText = ({ loss_percent }: TextProps) => {
     const { width } = useWindowSize()
     const ref = useRef<HTMLDivElement>(null)
     useEffect(() => {
+        setCtaBottom(ref.current?.clientHeight)
+    }, [setCtaBottom, expanded])
+
+    const onImageLoad = () => {
         if (width < 640) {
             setCtaBottom(ref.current?.clientHeight)
         }
-    }, [setCtaBottom, width, expanded])
+    }
 
     const toggleExpansion = () => {
         setExpanded((prev) => !prev)
@@ -74,6 +78,7 @@ const MobileText = ({ loss_percent }: TextProps) => {
                     'transition-transform px-800',
                     expanded ? 'rotate-180 animate-fade-in' : 'rotate-0 animate-fade-out',
                 )}
+                onLoad={onImageLoad}
             />
         </div>
     )

@@ -136,7 +136,9 @@ const StyledHeader = ({ img_src, header, text }: SectionComponentProps) => {
     )
 }
 const WhoCanApply = () => {
-    const { is_p2p_allowed_country } = useRegion()
+    const { is_p2p_allowed_country } = React.useEffect(() => { 
+        const { is_p2p_allowed_country } = useRegion()
+ }, [])
 
     return (
         <SectionWrapper padding="80px 0">

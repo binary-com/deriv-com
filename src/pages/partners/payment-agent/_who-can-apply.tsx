@@ -270,7 +270,7 @@ const WhoCanApply = () => {
                     </HowToApply>
                 </Flex>
             </StyledSection>
-            <ButtonWrapper padding={is_p2p_allowed_country ? '0 0 80px 0' : '0'}>
+            <ButtonWrapper >
                 <StyledLinkButton
                     id="dm-page-affiliate-email-apply"
                     secondary

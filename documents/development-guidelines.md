@@ -44,7 +44,7 @@
 
 **Note:** we are not allowed to use **div** element inside the **tr**, **th** and **td**
 
--   Repeating your code won't return the same result, For example generating a random number can't be replicated. The code has to return the same thing when it is run on build time and on client-side. A fix for this is to either make the code repeatable or make it only run on client-side.
+-   To avoid repeating code and ensure consistent results, make the code repeatable or run it only on the client-side.
 
 -   Don't miss **closing tag** for an element, If you forget to close an element, it can give a hydration error.
 

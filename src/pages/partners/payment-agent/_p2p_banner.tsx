@@ -1,4 +1,51 @@
+// File: src/pages/partners/payment-agent/_p2p_banner.tsx
 import React from 'react'
+import styled from 'styled-components'
+import { SectionContainer, Flex } from 'components/containers'
+import { Header, LinkButton } from 'components/elements'
+import { Localize } from 'components/localization'
+import banner from 'images/common/p2p/banner.png'
+import bannerBG from 'images/common/p2p/gradient_bg.png'
+
+const P2PBanner = () => {
+    return (
+        <P2PBannerWrapper>
+            <MainWrapper>
+                <LeftWrapper>
+                    <LeftChild>
+                        <StyledH3>
+                            <Localize translate_text="_t_Looking for Deriv P2P instead?_t_" />
+                        </StyledH3>
+                        <Subtitle as="h4" type="subtitle-1" weight="none" color="white" mb="24px">
+                            <Localize
+                                translate_text="_t_We offer a <0>peer-to-peer payment service</0> where you can make deposits and withdrawals in minutes via exchanges with fellow traders._t_"
+                                components={[<Header key={0} as="span" type="subtitle-1" color="red" />]}
+                            />
+                        </Subtitle>
+                        <StyledLinkButton
+                            secondary
+                            external
+                            to="/p2p/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Localize translate_text="_t_Learn more_t_" />
+                        </StyledLinkButton>
+                    </LeftChild>
+                </LeftWrapper>
+            </MainWrapper>
+        </P2PBannerWrapper>
+    )
+}
+
+export default P2PBanner
+import styled from 'styled-components'
+import { SectionContainer, Flex } from 'components/containers'
+import { Header, LinkButton } from 'components/elements'
+import { Localize } from 'components/localization'
+import banner from 'images/common/p2p/banner.png'
+import bannerBG from 'images/common/p2p/gradient_bg.png'
+import device from 'themes/device'
 import styled from 'styled-components'
 import { SectionContainer, Flex } from 'components/containers'
 import { Header } from 'components/elements'
@@ -78,7 +125,7 @@ const LeftChild = styled(Flex)`
     }
 `
 
-const StyledH3 = styled.h3`
+const StyledH3 = styled('h3')`
     font-weight: bold;
     color: white;
     font-size: 32px;
@@ -90,7 +137,7 @@ const StyledH3 = styled.h3`
     }
 `
 
-const Subtitle = styled(Header)`
+const Subtitle = styled(Header.aside)`
     min-width: 58.8rem;
 
     @media (max-width: 1100px) {

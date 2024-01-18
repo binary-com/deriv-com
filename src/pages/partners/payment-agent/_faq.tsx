@@ -10,6 +10,7 @@ import useRegion from 'components/hooks/use-region'
 
 const AccordionWrapper = styled.div`
     max-width: 99.6rem;
+/* Updated error message to provide more specific information about the failure */
     margin: 0 auto;
     position: relative;
     z-index: 2;

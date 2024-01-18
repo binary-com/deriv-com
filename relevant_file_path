@@ -1,0 +1,58 @@
+// src/pages/partners/organization-verification.ts
+
+import { verifyOrganization } from 'some-library';
+
+export async function handleOrganizationVerification(): Promise<void> {
+  try {
+    // Perform the organization verification process
+    await verifyOrganization();
+
+    // Verification successful
+    console.log('Organization verification successful');
+  } catch (error) {
+    // Verification failed
+    console.error('Organization verification failed:', error);
+    process.exit(1);
+  }
+}
+```
+
+In this code, we import the `verifyOrganization` function from a library (replace `some-library` with the actual library name). The `handleOrganizationVerification` function performs the organization verification process. If the verification is successful, it logs a success message. If the verification fails, it logs an error message and exits the process with a non-zero exit code.
+
+To ensure the code is working correctly, we will write comprehensive unit tests. Here is an example of a unit test for the `handleOrganizationVerification` function:
+
+```typescript
+// src/pages/partners/organization-verification.test.ts
+
+import { handleOrganizationVerification } from './organization-verification';
+
+describe('handleOrganizationVerification', () => {
+  it('should handle successful organization verification', async () => {
+    // Mock the verifyOrganization function to always succeed
+    jest.mock('some-library', () => ({
+      verifyOrganization: jest.fn().mockResolvedValue(undefined),
+    }));
+
+    // Call the function
+    await handleOrganizationVerification();
+
+    // Assert that the success message is logged
+    expect(console.log).toHaveBeenCalledWith('Organization verification successful');
+  });
+
+  it('should handle failed organization verification', async () => {
+    const error = new Error('Verification failed');
+
+    // Mock the verifyOrganization function to throw an error
+    jest.mock('some-library', () => ({
+      verifyOrganization: jest.fn().mockRejectedValue(error),
+    }));
+
+    // Call the function
+    await handleOrganizationVerification();
+
+    // Assert that the error message is logged and the process exits with a non-zero exit code
+    expect(console.error).toHaveBeenCalledWith('Organization verification failed:', error);
+    expect(process.exit).toHaveBeenCalledWith(1);
+  });
+});

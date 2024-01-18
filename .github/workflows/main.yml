@@ -19,5 +19,7 @@ jobs:
           # Add the appropriate command or script here to verify the user's organization
           # Handle any potential errors
 
-      # Add the remaining steps of the workflow as needed
-      # ...
+            - name: Handle exit code 3 error
+        run: |
+          # Add the appropriate action to handle the error
+                # Add the remaining steps of the workflow as needed

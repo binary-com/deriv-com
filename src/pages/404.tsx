@@ -92,8 +92,8 @@ export default WithIntl()(NotFound)
 
 export const Head = ({ pageContext }: TGatsbyHead) => (
     <SEO
-        title="_t_404 - Page not found | Deriv_t_"
-        description="_t_The page you are looking for does not exist._t_"
+        title="404 - Page not found | Deriv.com"
+        description="The page you are looking for does not exist."
         pageContext={pageContext}
     />
 )

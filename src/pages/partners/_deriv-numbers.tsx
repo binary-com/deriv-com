@@ -24,7 +24,12 @@ const CardHeader = styled(Header)`
     white-space: nowrap;
 `
 
-const DerivNumbers = () => {
+const DerivNumbers = () => { 
+    // Add logic to verify user's organization
+    const verifyOrganization = () => { 
+        // Implement organization verification logic here
+    }; 
+    verifyOrganization(); 
     return (
         <Container direction="column">
             <Header as="h2" type="page-title" align="center" mb="2rem">

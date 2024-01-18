@@ -16,7 +16,7 @@ Each commit message will consist of **type** and **subject**:
 
 ```sh
 <type>|<...other_types>:<space><subject>
-For example  "fix: hero image padding"
+For example:  "gha-fix: Fix the failing GitHub Actions"
 ```
 
 ### Type
@@ -34,6 +34,7 @@ Must be one of the following:
 -   **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
 -   **text**: Adding text or updating text only
 -   **empty**: Rare cases for re-deploying when deployment server is down
+-   **gha-fix**: Fixing failing GitHub Actions run errors
 -   **revert**: A commit reverts a previous commit
 
 ## Changing base branch

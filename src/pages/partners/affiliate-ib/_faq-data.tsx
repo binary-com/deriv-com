@@ -423,7 +423,7 @@ const MAGeneral = () => (
             <Localize translate_text="_t_When will the commission be paid out?_t_" />
         </Header>
         <Header as="p" type="paragraph-1" mt="8px" weight="normal">
-            <Localize translate_text="_t_The commission will be paid out along with your monthly commission (around the 15th of each month)._t_" />
+            <Localize translate_text="_t_The commission will be paid out along with your monthly commission (around the 20th of each month)._t_" />
         </Header>
     </ItemContainer>
 )

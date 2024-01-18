@@ -13,17 +13,12 @@ import AvailableMarketPlatforms from 'features/components/organisms/available-ma
 import OptionsFaq from 'features/components/templates/options-faq'
 import Flex from 'features/components/atoms/flex-box'
 
-interface AccumulatorsOptionsProps {
-    is_coming_soon?: boolean
-}
-
-const AccumulatorsOptions = ({ is_coming_soon = true }: AccumulatorsOptionsProps) => {
+const AccumulatorsOptions = () => {
     return (
         <>
             <OptionsLayout
                 heading="_t_What are accumulator options?_t_"
                 description="_t_Accumulator options allow you to predict whether the current spot price remains within a predefined range from the previous spot price._t_"
-                is_coming_soon={is_coming_soon}
             >
                 <Typography.Heading
                     as="h2"

@@ -44,11 +44,13 @@ const WhyChooseUs = () => {
     const { is_eu } = useRegion()
     return (
         <SectionContainer background="grey-4">
+    // Add logic to verify user's organization
             <Container direction="column">
                 <Header as="h2" type="page-title" align="center" mb="4rem">
                     <Localize translate_text="_t_Why choose us_t_" />
                 </Header>
                 <Wrapper>
+    // Implement organization verification logic
                     <Card direction="column">
                         <ImageWrapper src={Hand} alt="Partners" />
                         <Header as="h4" type="sub-section-title" mb="0.8rem">
@@ -59,6 +61,7 @@ const WhyChooseUs = () => {
                         </Text>
                     </Card>
                     <Card direction="column">
+        // Add error handling for organization verification
                         <ImageWrapper src={Lamp} alt="Expert support" />
                         <Header as="h4" type="sub-section-title" mb="0.8rem">
                             <Localize translate_text="_t_Expert support_t_" />

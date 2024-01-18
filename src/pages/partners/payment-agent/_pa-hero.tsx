@@ -33,7 +33,7 @@ const PAHero = () => {
     return (
         <Hero>
             <MainHeader as="h1" type="heading-1" color="white" align="center" lh="1.25">
-                <Localize translate_text="_t_Become a payment agent on Deriv_t_" />
+                <Localize translate_text="_t_Become a payment agent on Deriv and expand your business._t_" />
             </MainHeader>
             <MiddleHeader
                 as="h4"
@@ -53,7 +53,7 @@ const PAHero = () => {
                 to="mailto:partners@deriv.com"
                 is_mail_link
             >
-                <Localize translate_text="_t_Send us an email to apply_t_" />
+                <Localize translate_text="_t_To apply, please send an email to partners@deriv.com._t_" />
             </StyledLinkButton>
         </Hero>
     )

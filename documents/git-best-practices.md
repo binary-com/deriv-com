@@ -50,7 +50,7 @@ or vice versa from `crowdin` to `master`
 git rebase --onto master crowdin your_branch_name
 ```
 
-## Get latest Changes
+## Verification of user's organization
 
 There are two ways to get the latest changes:
 

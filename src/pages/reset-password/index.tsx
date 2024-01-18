@@ -170,6 +170,7 @@ const ResetPassword = () => {
                                     <Localize translate_text="_t_Return to log in_t_" />
                                 </StyledButton>
                                 <StyledButton
+                                    disabled={isSubmitting}
                                     id="dm-pass-reset-button"
                                     secondary
                                     disabled={isSubmitting}

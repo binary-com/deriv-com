@@ -17,7 +17,20 @@ When configuring GitHub Actions workflows, consider the following guidelines and
 -   [Get latest Changes](#get-latest-changes)
 -   [Resolve translation conflict on message.json](#resolve-translation-conflict-on-message.json)
 
-## Commit message guidelines
+## GitHub Actions Workflow Guidelines
+
+When configuring GitHub Actions workflows, consider the following guidelines and best practices:
+- Define triggers for workflow execution, such as push or pull requests.
+- Specify the operating system and runtime environment for the workflow.
+- Install dependencies before running tests and builds.
+- Use conditional statements to control workflow execution based on branch or commit messages.
+- Troubleshooting common errors such as process completion, exit codes, and command failures.
+
+## Resolving GitHub Actions Errors
+
+To troubleshoot and fix common errors encountered during GitHub Actions runs, follow these guidelines:
+- Interpret error messages to identify the root cause of the error.
+- Use debugging techniques to isolate and resolve issues.
 
 We have a set of precise rules over how our git commit messages can be formatted. This leads to more **readable messages** that are easy to follow when looking through the **project history**.
 

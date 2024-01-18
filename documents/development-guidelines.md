@@ -13,6 +13,8 @@
 -   Please pass the **key** to the right element and make sure that it is **unique**!
 
 ```js
+// best practice
+```
 // bad practice
 
 {

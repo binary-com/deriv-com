@@ -14,7 +14,7 @@ import {
 import { Flex } from 'components/containers'
 import { Localize } from 'components/localization'
 import { Header } from 'components/elements/header'
-import { LinkButton } from 'components/form'
+import { StyledLinkButton } from 'components/elements'
 import CurrencyExchange from 'images/svg/partners/currency_exchange.svg'
 import Affiliates from 'images/svg/partners/affiliates.svg'
 import CommunityManagers from 'images/svg/partners/community-managers.svg'

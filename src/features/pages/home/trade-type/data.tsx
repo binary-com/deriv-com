@@ -22,6 +22,7 @@ export const RowCards: CardContent[] = [
         link: {
             content: <Localize translate_text="_t_Learn more_t_" />,
             href: '/trade-types/cfds/',
+            descriptiveText: 'about CFDs',
         },
     },
     {
@@ -37,6 +38,7 @@ export const RowCards: CardContent[] = [
         link: {
             content: <Localize translate_text="_t_Learn more_t_" />,
             href: '/trade-types/options/digital-options/up-and-down/',
+            descriptiveText: 'about options',
         },
     },
     {
@@ -52,6 +54,7 @@ export const RowCards: CardContent[] = [
         link: {
             content: <Localize translate_text="_t_Learn more_t_" />,
             href: '/trade-types/multiplier/',
+            descriptiveText: 'about multiplier',
         },
     },
 ]
@@ -70,6 +73,7 @@ export const EUCards: CardContent[] = [
         link: {
             content: <Localize translate_text="_t_Learn more_t_" />,
             href: '/trade-types/cfds/',
+            descriptiveText: 'about CFDs',
         },
     },
     {
@@ -85,6 +89,7 @@ export const EUCards: CardContent[] = [
         link: {
             content: <Localize translate_text="_t_Learn more_t_" />,
             href: '/trade-types/multiplier/',
+            descriptiveText: 'about multipliers',
         },
     },
 ]

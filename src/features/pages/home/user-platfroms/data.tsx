@@ -39,6 +39,7 @@ export const RowCards: PlatformCardContent[] = [
         link: {
             content: <Localize translate_text="_t_Learn more_t_" />,
             href: '/dmt5',
+            descriptiveText: 'About Deriv MT5',
         },
     },
     {
@@ -55,6 +56,7 @@ export const RowCards: PlatformCardContent[] = [
         link: {
             content: <Localize translate_text="_t_Learn more_t_" />,
             href: '/deriv-ctrader',
+            descriptiveText: 'About Deriv cTrader',
         },
     },
     {
@@ -71,6 +73,7 @@ export const RowCards: PlatformCardContent[] = [
         link: {
             content: <Localize translate_text="_t_Learn more_t_" />,
             href: '/derivx',
+            descriptiveText: 'About Deriv X',
         },
     },
     {
@@ -87,6 +90,7 @@ export const RowCards: PlatformCardContent[] = [
         link: {
             content: <Localize translate_text="_t_Learn more_t_" />,
             href: '/deriv-go',
+            descriptiveText: 'About Deriv GO',
         },
     },
     {
@@ -103,6 +107,7 @@ export const RowCards: PlatformCardContent[] = [
         link: {
             content: <Localize translate_text="_t_Learn more_t_" />,
             href: '/dtrader',
+            descriptiveText: 'About Deriv Trader',
         },
     },
     {
@@ -117,6 +122,7 @@ export const RowCards: PlatformCardContent[] = [
         link: {
             content: <Localize translate_text="_t_Learn more_t_" />,
             href: '/dbot',
+            descriptiveText: 'About Deriv Bot',
         },
     },
 ]
@@ -138,6 +144,7 @@ export const EUCards: CardContent[] = [
         link: {
             content: <Localize translate_text="_t_Learn more_t_" />,
             href: '/dmt5',
+            descriptiveText: 'About Deriv MT5',
         },
     },
     {
@@ -156,6 +163,7 @@ export const EUCards: CardContent[] = [
         link: {
             content: <Localize translate_text="_t_Learn more_t_" />,
             href: '/dtrader',
+            descriptiveText: 'About Deriv Trader',
         },
     },
 ]

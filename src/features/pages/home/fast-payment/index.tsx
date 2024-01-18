@@ -19,6 +19,7 @@ const FastPaymentSection: React.FC = () => {
             link={{
                 content: <Localize translate_text="_t_Learn more_t_" />,
                 href: '/payment-methods/',
+                descriptiveText: 'About payment methods',
             }}
             content={{
                 cols: 'infinite',

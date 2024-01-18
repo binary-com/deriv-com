@@ -135,7 +135,7 @@ const SectionComponent = ({ img_src, header, text, className }: SectionComponent
         </Wrapper>
     )
 }
-const WhoCanApply = () => {
+const WhoCanApply = ({ className }: { className: string }) => {
     const { is_p2p_allowed_country } = useRegion()
 
     return (

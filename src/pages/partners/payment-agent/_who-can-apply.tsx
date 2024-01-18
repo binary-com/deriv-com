@@ -83,7 +83,7 @@ const StyledUl = styled.ul.attrs<{ className?: string }>`
     }
 `
 
-const Li = styled.li`
+const Li = styled.li.attrs<{ className?: string }>`
     margin-top: 0.8rem;
 `
 
@@ -218,7 +218,7 @@ const WhoCanApply = () => {
                                                     <Localize translate_text="_t_Your website address (if you have one)_t_" />
                                                 </Header>
                                             </Li>
-                                            <Li>
+                                            <Li className={className}>
                                                 <Header as="h4" type="paragraph-1" weight="normal">
                                                     <Localize translate_text="_t_Payment methods you will accept from clients_t_" />
                                                 </Header>

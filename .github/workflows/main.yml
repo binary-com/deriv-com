@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Verify user's organization
+        run: |
+          echo "Verifying user's organization..."
+          # Add the appropriate command or script here to verify the user's organization
+          # Handle any potential errors
+
+      # Add the remaining steps of the workflow as needed
+      # ...

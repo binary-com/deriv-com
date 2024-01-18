@@ -165,7 +165,7 @@ const WhoCanApply = () => {
                             </Li>
                             <Li>
                                 <Header as="h4" type="paragraph-1" weight="normal">
-                                    <Localize translate_text="_t_You can only service Deriv clients in your country of residence._t_" />
+                                    <Localize translate_text="_t_You can only service Deriv clients in your country of residence. Please ensure that your organization is verified._t_" />
                                 </Header>
                             </Li>
                         </StyledUl>

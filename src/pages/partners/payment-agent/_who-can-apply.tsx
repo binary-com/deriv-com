@@ -96,7 +96,7 @@ const ButtonWrapper = styled(CenteredSection).attrs<{ className?: string }>({})`
     }
 `
 
-type SectionComponentProps = {
+type SectionComponentProps = { className?: string,
     img_src: string
     header: TString
     text: TString
@@ -120,7 +120,7 @@ const section_content: SectionComponentProps[] = [
     },
 ]
 
-const SectionComponent = ({ img_src, header, text }: SectionComponentProps) => {
+const SectionComponent = ({ img_src, header, text, className }: SectionComponentProps) => {
     return (
         <Wrapper>
             <ImageWrapper src={img_src} alt="" left_margin="0px" />

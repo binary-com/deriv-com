@@ -50,7 +50,9 @@ Moreover, having these extensions will help you to speed up the development proc
 -   Stylelint: setup in your editor https://stylelint.io/ (or you can run `npm run stylelint`)
 -   Eslint: setup in your editor https://eslint.org/ (or you can run `npm run eslint`)
 
-## Quick start
+## Quick start\n\n5.  **Add env variables:**
+
+    Create two files `.env.development` and `.env.production` inside your project root directory. Then check your **lastpass** you'll see a shared item named **Deriv-com Env Variables**. Copy the variables from the lastpass shared item and paste them into the files.
 
 1.  **Fork the project**
 

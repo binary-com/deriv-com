@@ -13,7 +13,7 @@
 -   Please pass the **key** to the right element and make sure that it is **unique**!
 
 ```js
-// best practice
+
 ```
 // bad practice
 
@@ -68,7 +68,7 @@ Another common mistake is accidentally double quoting paragraphs, **this is inva
 **Note:** since we are using **Localize** components we are using this bad practice in many places for example we are passing a **Localize** inside our **p** element and we are passing a **div** as a component to the **Localize**
 
 ```js
-// bad practice: because we are using Header as p inside p
+
 
 content: {
     text: '_t_Our GitHub repositories: <0>github.com/binary-com</0>_t_',

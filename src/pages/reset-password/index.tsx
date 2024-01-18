@@ -18,7 +18,7 @@ type EmailType = { email: string }
 type ErrorType = Partial<EmailType>
 
 const StyledContainer = styled(Container)`
-    text-align: center;
+    text-align: left;
     height: 100vh;
     padding: auto 0;
     justify-content: start;

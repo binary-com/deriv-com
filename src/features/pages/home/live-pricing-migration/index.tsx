@@ -14,6 +14,7 @@ const LiveMarketSection = () => {
         <LiveMarketProvider>
             <LiveMarketBlock.Tab
                 className="bg-background-primary-base"
+                tabId="livemarket"
                 header={
                     <Localize translate_text="_t_Top trading assets & unique market indices_t_" />
                 }

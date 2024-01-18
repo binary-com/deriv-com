@@ -10,6 +10,7 @@ import validation from 'common/validation'
 import { trimSpaces } from 'common/utility'
 import Login from 'common/login'
 import apiManager from 'common/websocket'
+import { localize } from 'components/localization'
 import device from 'themes/device'
 import { TGatsbyHead } from 'features/types'
 

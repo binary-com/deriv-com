@@ -101,6 +101,11 @@ const StyledSignupBtnWrap = styled.div`
 `
 
 const DerivAffiliateProgramme = () => {
+    // Verify the user's organization
+    const verifyOrganization = () => {
+        // Implement organization verification logic here
+    }; 
+    verifyOrganization(); 
     const { is_eu } = useRegion()
     const { affiliate_signup_link } = useAffiliateSignupLink()
 

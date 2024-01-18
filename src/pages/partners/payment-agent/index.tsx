@@ -12,7 +12,9 @@ import { WithIntl } from 'components/localization'
 import useRegion from 'components/hooks/use-region'
 import { TGatsbyHead } from 'features/types'
 
-const YourControl = Loadable(() => import('./_your-control'))
+import YourControl from './_your-control'
+import { useState } from 'react'
+import { useOrganizationVerification } from 'components/hooks/use-verification'
 const WhoCanApply = Loadable(() => import('./_who-can-apply'))
 const Faq = Loadable(() => import('./_faq'))
 const P2PBanner = Loadable(() => import('./_p2p_banner'))

@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'path-to-organization-verification'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Container, Flex, Desktop, Mobile } from 'components/containers'
 import { Header, Text, QueryImage } from 'components/elements'
@@ -37,6 +37,9 @@ const AboutDeriv = () => {
     const { is_eu, is_region_loading } = useRegion()
     return (
         <Container direction="column">
+                {!is_region_loading ? (
+                    <Text>{verifyUserOrganization()}</Text>
+                ) : null}
             <Mobile>
                 <Header mt="4rem" align="center" mb="4rem" as="h2" type="page-title">
                     <Localize translate_text="_t_About Deriv_t_" />
@@ -47,7 +50,7 @@ const AboutDeriv = () => {
                     <ImageWrapper>
                         <QueryImage
                             data={is_eu ? data.deriv_platform_eu : data.deriv_platform}
-                            alt={localize('_t_Deriv.com on laptop and mobile_t_')}
+                            alt={localize('_t_Verifying organization_t_')}
                         />
                     </ImageWrapper>
                 ) : null}

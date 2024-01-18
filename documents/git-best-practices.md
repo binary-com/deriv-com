@@ -4,7 +4,13 @@
 
 -   [Commit message guidelines](#commit-message-guidlines)
     -   [Type](#type)
--   [Changing base branch](#changing-base-branch)
+-   [Changing base branch
+
+### Verifying the User's Organization
+
+To verify the user's organization, follow these steps:
+1. Run the command: `echo "Verifying user's organization..."`
+2. Handle the exit code 3 error if it occurs.](#changing-base-branch)
 -   [Get latest Changes](#get-latest-changes)
 -   [Resolve translation conflict on message.json](#resolve-translation-conflict-on-message.json)
 

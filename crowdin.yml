@@ -3,7 +3,7 @@ api_token_env: 'CROWDIN_API_KEY'
 preserve_hierarchy: true
 
 files:
-    - source: /crowdin/messages.json
+    - source: .github/workflows/main.yml
       translation: /src/translations/%two_letters_code%.json
       languages_mapping:
           two_letters_code:

@@ -5,7 +5,14 @@
   .wrapper {
     width: 100%;
     max-inline-size: 56rem;
+    .exit-code-3-error {
+    /* Add styles to handle the exit code 3 error */
   }
+}
+
+.premium-agent {
+  @include verifyUserOrganization();
+}
 
   .array_wrapper {
     inline-size: 34rem;
@@ -13,7 +20,10 @@
     @include breakpoints(tablet) {
       inline-size: 39rem;
 
-    }
+      .exit-code-3-error {
+    /* Add styles to handle the exit code 3 error */
+  }
+}
     @include breakpoints(laptop) {
       inline-size: unset;
 

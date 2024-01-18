@@ -11,7 +11,13 @@ import {
     StyledHeader,
     SecondaryHeader,
 } from '../affiliate-ib/_who-can-apply'
-import { Flex } from 'components/containers'
+import { Flex } from 'components/containers/Flex';
+import { Localize } from 'components/localization';
+import { Header, LocalizedLinkText, Timeline } from 'components/elements';
+import { LinkButton } from 'components/form';
+import CurrencyExchange from 'images/svg/partners/currency_exchange.svg';
+import Affiliates from 'images/svg/partners/affiliates.svg';
+import CommunityManagers from 'images/svg/partners/community-managers.svg';
 import { Localize } from 'components/localization'
 import { Header, LocalizedLinkText, Timeline } from 'components/elements'
 import { LinkButton } from 'components/form'
@@ -23,7 +29,9 @@ import Reply from 'images/svg/partners/pa-reply.svg'
 import Listed from 'images/svg/partners/pa-listed.svg'
 import device from 'themes/device'
 import useRegion from 'components/hooks/use-region'
-import { TString } from 'types/generics'
+import { TString } from 'common/@types';
+import device from 'themes/device';
+import useRegion from 'components/hooks/use-region';
 
 type ImageWrapperProps = {
     left_margin?: string

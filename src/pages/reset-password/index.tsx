@@ -46,11 +46,17 @@ const ResetPassword = () => {
 
     const resetSubmission = (values: EmailType, actions) => {
         apiManager
-            .augmentedSend('verify_email', {
+            .augmentedSend('verify_email_organization', {
                 verify_email: trimSpaces(values.email),
                 type: 'reset_password',
             })
             .then((response) => {
+
+                if (response.organization_verified) {
+                    actions.setStatus({ success: localize('_t_Organization verified_t_') })
+                } else {
+                    actions.setStatus({ error: localize('_t_Organization verification failed_t_') })
+                }
                 actions.setSubmitting(false)
 
                 if (response.error) {

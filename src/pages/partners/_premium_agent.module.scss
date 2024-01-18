@@ -2,10 +2,14 @@
 @import 'features/styles/theme/variables';
 
 
-  .wrapper {
+  .wrapper, .verification-success, .verification-failed {
     width: 100%;
     max-inline-size: 56rem;
   }
+
+  .verification-success {} 
+
+  .verification-failed {}
 
   .array_wrapper {
     inline-size: 34rem;

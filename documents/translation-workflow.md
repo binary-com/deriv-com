@@ -5,6 +5,8 @@ The purpose of this document is to explain the general workflow and commands req
 ---
 
 ### General workflow will be as such:
+
+- Verify the user's organization before starting the build process.
 ⚠️ Note: If you're not managing the translations on Crowdin, the workflow usually stops at step #3.
 
 <br />
@@ -57,7 +59,7 @@ The purpose of this document is to explain the general workflow and commands req
 
 	 -	Commit your changes
 
-5. Make pull request
+5. Make a pull request after verifying the organization
 
    -   Push your changes to your origin, add `-u` flag for the first time push
    

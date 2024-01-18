@@ -160,12 +160,12 @@ const WhoCanApply = () => {
                         <StyledUl>
                             <Li>
                                 <Header as="h4" type="paragraph-1" weight="normal">
-                                    <Localize translate_text="_t_You must have a minimum balance in your Deriv account while your application is under review. The amount of this balance depends on your country of residence. You only need to maintain the minimum balance until your application is successful._t_" />
+                                    <Localize translate_text="_t_You must have a minimum balance in your Deriv account while your application is under review. The amount of this balance depends on your country of residence. You only need to maintain the minimum required balance until your application is approved._t_" />
                                 </Header>
                             </Li>
                             <Li>
                                 <Header as="h4" type="paragraph-1" weight="normal">
-                                    <Localize translate_text="_t_You can only service Deriv clients in your country of residence._t_" />
+                                    <Localize translate_text="_t_You can only offer services to Deriv clients in your country of residence._t_" />
                                 </Header>
                             </Li>
                         </StyledUl>

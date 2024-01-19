@@ -27,9 +27,7 @@ const CtraderSignup = () => {
                     <Typography.Paragraph size="medium">
                         <Localize translate_text="_t_Enter your email address to begin_t_" />
                     </Typography.Paragraph>
-                    <Typography.Paragraph size="medium">
-                        <Localize translate_text="_t_Enter your email address to begin ddd_t_" />
-                    </Typography.Paragraph>
+
                     <SignUpCtraderForm />
                     <Typography.Paragraph textcolor="secondary" size="xs">
                         <Localize

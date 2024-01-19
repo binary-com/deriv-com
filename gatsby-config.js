@@ -60,19 +60,13 @@ module.exports = {
         {
             resolve: 'gatsby-plugin-html-minifier',
             options: {
-                caseSensitive: true,
-                collapseBooleanAttributes: true,
                 collapseWhitespace: true,
-                conservativeCollapse: true,
                 decodeEntities: true,
-                html5: true,
                 minifyCSS: true,
                 minifyJS: true,
                 removeComments: true,
                 removeEmptyAttributes: true,
                 removeRedundantAttributes: true,
-                removeScriptTypeAttributes: true,
-                removeStyleLinkTypeAttributes: true,
                 useShortDoctype: true,
             },
         },
@@ -81,6 +75,7 @@ module.exports = {
             options: {
                 postCssPlugins: [
                     require('postcss-discard-duplicates'),
+                    require('autoprefixer'), // better cross-browser compatibility
                     plugin({
                         dest: 'src/classnames.d.ts',
                         exportAsDefault: true,

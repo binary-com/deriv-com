@@ -1,37 +1,41 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react'
-import loadable from '@loadable/component'
-import Layout from 'features/components/templates/layout'
+import { PageLayout } from '@deriv-com/components'
+import QuillLayout from 'features/components/quill/quill-layout'
+import LiveMarketSection from './live-pricing-migration'
+import TwentyYearsStrong from './years'
+import StatSection from './stats'
+import UserFriendlyPlatforms from './user-platfroms'
+import TradeTypeSection from './trade-type'
 import HomeHero from './hero'
-import LivePricing from './live-pricing'
-import P2PBanner from './p2p-banner'
-import ClientTestimonial from './client-testimonial'
-import TradeTypes from './trade-types'
+import FastPaymentSection from './fast-payment'
+import CTA from './cta'
+import StartTradingSteps from './start-trading-steps'
+import TrustpilotSection from './trustpilot'
 import { useOpenLiveChat } from 'components/hooks/use-open-live-chat-redirection'
-import AwardBanner from 'features/components/templates/banners/award-banners'
-import useRegion from 'components/hooks/use-region'
-import SignupPublic from 'features/components/templates/signup/with-banner'
 import MainRowNavigation from 'features/components/templates/navigation/main-nav'
-
-const OurPlatforms = loadable(() => import('./our-platforms'))
-const MainFooter = loadable(() => import('features/components/templates/footer'))
+import MainFooter from 'features/components/templates/footer'
 
 const HomePage = () => {
     useOpenLiveChat(true)
-    const { is_p2p_allowed_country, is_eu } = useRegion()
 
     return (
-        <Layout>
+        <QuillLayout>
             <MainRowNavigation />
-            <HomeHero />
-            <LivePricing />
-            <TradeTypes />
-            <OurPlatforms />
-            {is_eu ? null : <AwardBanner title="_t_Awards_t_" />}
-            <ClientTestimonial />
-            {is_p2p_allowed_country && <P2PBanner />}
-            <SignupPublic />
+            <PageLayout>
+                <HomeHero />
+                <TrustpilotSection />
+                <StatSection />
+                <TwentyYearsStrong />
+                <LiveMarketSection />
+                <UserFriendlyPlatforms />
+                <TradeTypeSection />
+                <StartTradingSteps />
+                <FastPaymentSection />
+                <CTA />
+            </PageLayout>
             <MainFooter />
-        </Layout>
+        </QuillLayout>
     )
 }
 

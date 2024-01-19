@@ -1,4 +1,6 @@
 import { TQuestionsData } from './_data-types'
+import TelegranDerivGroupImg from 'images/common/help-centre/help-center-telegram-one.png'
+import TelegranDerivChatImg from 'images/common/help-centre/help-center-telegram-two.png'
 
 const security: TQuestionsData = {
     section: 'General',
@@ -60,153 +62,151 @@ const security: TQuestionsData = {
                 },
             ],
         },
-        //temp removal of telegram : Start
-        // {
-        //     question: '_t_How can I identify Deriv customer support impersonators on Telegram?_t_',
-        //     category: 'Security',
-        //     sub_category: '_t_Verification_t_',
-        //     label: 'identify-cs-impersonators-telegram',
-        //     hide_for_eu: true,
-        //     answer: [
-        //         {
-        //             img: {
-        //                 src: TelegranDerivGroupImg,
-        //                 alt: 'Get Started',
-        //                 width: '36.4rem',
-        //                 margin: '1rem 0 0 -1.8rem',
-        //             },
-        //         },
-        //         {
-        //             translation_text: '_t_Examples of groups impersonating Deriv on Telegram_t_',
-        //             color: 'grey',
-        //             size: '14px',
-        //         },
-        //         {
-        //             margin_top: '1.6rem',
-        //             translation_text:
-        //                 '_t_An impersonator’s main goal is to steal your sensitive information and funds._t_',
-        //         },
-        //         {
-        //             margin_top: '1.6rem',
-        //             translation_text:
-        //                 '_t_Here are some ways to identify impersonators of Deriv customer support:_t_',
-        //         },
-        //         {
-        //             list: {
-        //                 list_style: 'disc',
-        //                 margin_top: '1.2rem',
-        //                 padding_left: '2.4rem',
-        //                 size: '16px',
-        //                 items: [
-        //                     {
-        //                         translation_text:
-        //                             '_t_Impersonators ask for your login details or other sensitive information via Telegram._t_',
-        //                     },
-        //                     {
-        //                         translation_text:
-        //                             '_t_They provide rewards that sound too good to be true._t_',
-        //                     },
-        //                     {
-        //                         translation_text:
-        //                             '_t_They demand payments via untraceable channels, for example, via cryptocurrency._t_',
-        //                     },
-        //                     {
-        //                         translation_text:
-        //                             '_t_They ask you to download an app that isn’t offered on Google Play Store or Apple App Store._t_',
-        //                     },
-        //                     {
-        //                         translation_text:
-        //                             '_t_They ask you to download software that enables your device to be controlled remotely._t_',
-        //                     },
-        //                     {
-        //                         translation_text:
-        //                             '_t_They ask you to download files containing malware or virus that can infect your device._t_',
-        //                     },
-        //                 ],
-        //             },
-        //         },
-        //         {
-        //             margin_top: '1.6rem',
-        //             translation_text:
-        //                 '_t_Of course, this list isn’t complete. Every day, impersonators come up with new ways to try to steal your information and money._t_',
-        //         },
-        //     ],
-        // },
-        // {
-        //     question: '_t_How can I stay safe from impersonators on Telegram?_t_',
-        //     category: 'Security',
-        //     sub_category: '_t_Verification_t_',
-        //     label: 'identify-impersonators-telegram',
-        //     hide_for_eu: true,
-        //     answer: [
-        //         {
-        //             list: {
-        //                 list_style: 'disc',
-        //                 margin_top: '1.2rem',
-        //                 padding_left: '2.4rem',
-        //                 size: '16px',
-        //                 items: [
-        //                     {
-        //                         translation_text:
-        //                             '_t_Do not share your account information and other personal details with anyone via Telegram._t_',
-        //                     },
-        //                     {
-        //                         translation_text:
-        //                             '_t_If something sounds too good to be true, don’t trust it._t_',
-        //                     },
-        //                     {
-        //                         translation_text: '_t_Never download apps via Telegram._t_',
-        //                     },
-        //                     {
-        //                         translation_text:
-        //                             '_t_Run all files through an up-to-date antivirus first before downloading._t_',
-        //                     },
-        //                     {
-        //                         translation_text:
-        //                             '_t_Please ensure to <0>join the correct Deriv group</0> on Telegram._t_',
-        //                         translation_components: [
-        //                             {
-        //                                 key: 0,
-        //                                 type: 'link',
-        //                                 to: 'https://t.me/derivdotcomofficial',
-        //                             },
-        //                             {
-        //                                 key: 1,
-        //                                 type: 'link',
-        //                                 to: '/contact_us/?is_livechat',
-        //                             },
-        //                         ],
-        //                     },
-        //                     {
-        //                         translation_text:
-        //                             '_t_If you have been contacted by a potential impersonator or if you have any questions, contact us <0>via live chat</0>._t_',
-        //                         translation_components: [
-        //                             {
-        //                                 key: 0,
-        //                                 type: 'link',
-        //                                 to: 'https://deriv.com/contact_us/?is_livechat_open=true',
-        //                             },
-        //                         ],
-        //                     },
-        //                 ],
-        //             },
-        //         },
-        //         {
-        //             img: {
-        //                 src: TelegranDerivChatImg,
-        //                 alt: 'Get Started',
-        //                 width: '26.4rem',
-        //                 margin: '1rem 0 0 -1.8rem',
-        //             },
-        //         },
-        //         {
-        //             translation_text: '_t_Examples of messages from impersonators_t_',
-        //             color: 'grey',
-        //             size: '14px',
-        //         },
-        //     ],
-        // },
-        //temp removal of telegram : End
+        {
+            question: '_t_How can I identify Deriv customer support impersonators on Telegram?_t_',
+            category: 'Security',
+            sub_category: '_t_Verification_t_',
+            label: 'identify-cs-impersonators-telegram',
+            hide_for_eu: true,
+            answer: [
+                {
+                    img: {
+                        src: TelegranDerivGroupImg,
+                        alt: 'Get Started',
+                        width: '36.4rem',
+                        margin: '1rem 0 0 -1.8rem',
+                    },
+                },
+                {
+                    translation_text: '_t_Examples of groups impersonating Deriv on Telegram_t_',
+                    color: 'grey',
+                    size: '14px',
+                },
+                {
+                    margin_top: '1.6rem',
+                    translation_text:
+                        '_t_An impersonator’s main goal is to steal your sensitive information and funds._t_',
+                },
+                {
+                    margin_top: '1.6rem',
+                    translation_text:
+                        '_t_Here are some ways to identify impersonators of Deriv customer support:_t_',
+                },
+                {
+                    list: {
+                        list_style: 'disc',
+                        margin_top: '1.2rem',
+                        padding_left: '2.4rem',
+                        size: '16px',
+                        items: [
+                            {
+                                translation_text:
+                                    '_t_Impersonators ask for your login details or other sensitive information via Telegram._t_',
+                            },
+                            {
+                                translation_text:
+                                    '_t_They provide rewards that sound too good to be true._t_',
+                            },
+                            {
+                                translation_text:
+                                    '_t_They demand payments via untraceable channels, for example, via cryptocurrency._t_',
+                            },
+                            {
+                                translation_text:
+                                    '_t_They ask you to download an app that isn’t offered on Google Play Store or Apple App Store._t_',
+                            },
+                            {
+                                translation_text:
+                                    '_t_They ask you to download software that enables your device to be controlled remotely._t_',
+                            },
+                            {
+                                translation_text:
+                                    '_t_They ask you to download files containing malware or virus that can infect your device._t_',
+                            },
+                        ],
+                    },
+                },
+                {
+                    margin_top: '1.6rem',
+                    translation_text:
+                        '_t_Of course, this list isn’t complete. Every day, impersonators come up with new ways to try to steal your information and money._t_',
+                },
+            ],
+        },
+        {
+            question: '_t_How can I stay safe from impersonators on Telegram?_t_',
+            category: 'Security',
+            sub_category: '_t_Verification_t_',
+            label: 'identify-impersonators-telegram',
+            hide_for_eu: true,
+            answer: [
+                {
+                    list: {
+                        list_style: 'disc',
+                        margin_top: '1.2rem',
+                        padding_left: '2.4rem',
+                        size: '16px',
+                        items: [
+                            {
+                                translation_text:
+                                    '_t_Do not share your account information and other personal details with anyone via Telegram._t_',
+                            },
+                            {
+                                translation_text:
+                                    '_t_If something sounds too good to be true, don’t trust it._t_',
+                            },
+                            {
+                                translation_text: '_t_Never download apps via Telegram._t_',
+                            },
+                            {
+                                translation_text:
+                                    '_t_Run all files through an up-to-date antivirus first before downloading._t_',
+                            },
+                            {
+                                translation_text:
+                                    '_t_Please ensure to <0>join the correct Deriv group</0> on Telegram._t_',
+                                translation_components: [
+                                    {
+                                        key: 0,
+                                        type: 'link',
+                                        to: 'https:t.me/derivdotcomofficial',
+                                    },
+                                    {
+                                        key: 1,
+                                        type: 'link',
+                                        to: '/contact_us/?is_livechat',
+                                    },
+                                ],
+                            },
+                            {
+                                translation_text:
+                                    '_t_If you have been contacted by a potential impersonator or if you have any questions, contact us <0>via live chat</0>._t_',
+                                translation_components: [
+                                    {
+                                        key: 0,
+                                        type: 'link',
+                                        to: 'https:deriv.com/contact_us/?is_livechat_open=true',
+                                    },
+                                ],
+                            },
+                        ],
+                    },
+                },
+                {
+                    img: {
+                        src: TelegranDerivChatImg,
+                        alt: 'Get Started',
+                        width: '26.4rem',
+                        margin: '1rem 0 0 -1.8rem',
+                    },
+                },
+                {
+                    translation_text: '_t_Examples of messages from impersonators_t_',
+                    color: 'grey',
+                    size: '14px',
+                },
+            ],
+        },
         {
             question:
                 '_t_How can I identify emails from impersonators of Deriv customer support?_t_',

@@ -376,48 +376,40 @@ const BuildPage = (page, actions) => {
 exports.onCreatePage = ({ page, actions }) => {
     const { deletePage } = actions
     const isProduction = process.env.GATSBY_ENV === 'production'
-    const pagesToBuild = process.env.GATSBY_BUILD_PAGES || 'all'
+    const pagesToBuild = process.env.GATSBY_BUILD_PAGES
+    if (pagesToBuild) {
+        const pages_loaded = pagesToBuild.split(',')
+        const allowed_pages = ['', pages_loaded]
 
-    // First delete the incoming page that was automatically created by Gatsby
-    // So everything in src/pages/
-    deletePage(page)
+        const pages = allowed_pages.reduce((result, Item) => {
+            if (Array.isArray(Item)) {
+                // Flatten the nested array and add the '/' prefix
+                const nested_array = Item.map((subItem) => `/${subItem}/`)
+                return result.concat(nested_array)
+            } else {
+                // Add the '/' prefix for the root item
+                return result.concat(`/${Item}`)
+            }
+        }, [])
 
-    const pagesCategory = {
-        all: [''],
-        'no-affiliates': ['signup-affiliates', 'landing', 'ctrader', 'partners'],
-        'no-help-centre': ['help-centre'],
-        'no-tools': ['trader-tools'],
-        fast: [
-            'signup-affiliates',
-            'landing',
-            'ctrader',
-            'partners',
-            'help-centre',
-            'trader-tools',
-            'careers',
-            // 'markets',
-            // 'trade-types' Note: Feel free to adjust pages you want to skip building for faster local development
-        ],
-    }
+        console.log('pages', pages)
 
-    const disallowedPages = pagesCategory[pagesToBuild] || []
-
-    const regex = new RegExp(`/${disallowedPages.join('|') + '|'}/g`)
-
-    const isMatch = regex.test(page.path)
-
-    if (isProduction) {
-        return BuildPage(page, actions)
-    } else {
-        if (!isMatch || pagesToBuild === 'all') {
-            console.log(`\x1b[32mcreating\x1b[0m [${pagesToBuild}] ${page.path}`)
+        deletePage(page)
+        if (isProduction) {
             return BuildPage(page, actions)
+        } else {
+            if (pages.includes(page.path)) {
+                return BuildPage(page, actions)
+            }
         }
+    } else {
+        return BuildPage(page, actions)
     }
 }
 
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+
 const style_lint_options = {
     files: 'src/**/*.js',
     emitErrors: false,

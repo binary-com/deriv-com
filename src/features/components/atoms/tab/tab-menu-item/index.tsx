@@ -16,9 +16,9 @@ const TabMenuItem = ({
         <BaseTab
             className={dclsx(
                 className,
-                'at-menu-item',
-                is_no_border_bottom && 'at-navigation-tabs',
-                { 'at-selected': selected },
+                'menu-item',
+                { selected },
+                is_no_border_bottom && 'navigation-tabs',
             )}
             {...rest}
         />

@@ -36,7 +36,7 @@ const VanillaOptions = () => {
                 }}
                 className={why_vanilla_section}
             >
-                <h4 className={dclsx('at-text-small')}>
+                <h4 className={dclsx('text-small')}>
                     <Localize translate_text="_t_Why traders choose vanilla options_t_" />
                 </h4>
                 <Typography.Paragraph size="small">

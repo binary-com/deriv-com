@@ -32,7 +32,7 @@ const TabBase = ({
     return (
         <Box
             className={dclsx(
-                'at-tab',
+                'tab',
                 className,
                 generateTextSize(textsize),
                 generateTextColor(textcolor),

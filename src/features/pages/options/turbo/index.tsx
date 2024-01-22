@@ -36,7 +36,7 @@ const TurboOptions = () => {
                 }}
                 className={why_turbo_section}
             >
-                <h3 className={dclsx('at-text-small')}>
+                <h3 className={dclsx('text-small')}>
                     <Localize translate_text="_t_Why traders choose turbo options_t_" />
                 </h3>
                 <Typography.Paragraph size="small">

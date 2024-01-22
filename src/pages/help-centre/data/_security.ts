@@ -169,12 +169,12 @@ const security: TQuestionsData = {
                                     {
                                         key: 0,
                                         type: 'link',
-                                        to: 'https:t.me/derivdotcomofficial',
+                                        to: 'https://t.me/Derivchannelofficial',
                                     },
                                     {
                                         key: 1,
                                         type: 'link',
-                                        to: '/contact_us/?is_livechat',
+                                        to: '/contact_us/?is_livechat_open=true',
                                     },
                                 ],
                             },
@@ -185,7 +185,7 @@ const security: TQuestionsData = {
                                     {
                                         key: 0,
                                         type: 'link',
-                                        to: 'https:deriv.com/contact_us/?is_livechat_open=true',
+                                        to: '/contact_us/?is_livechat_open=true',
                                     },
                                 ],
                             },

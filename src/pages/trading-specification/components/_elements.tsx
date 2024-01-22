@@ -181,7 +181,6 @@ export const TableHeaderCell = ({ text, infoIcon, toolTip }: TTableHeaderCell) =
                             arrowStyle={{ bottom: '-10px' }}
                             className="popover-arrow-container"
                             arrowClassName="popover-arrow"
-                            arr
                         >
                             <StyledToolTipContainer>
                                 <HeaderText

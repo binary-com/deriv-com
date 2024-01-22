@@ -38,19 +38,20 @@ const userNameValidation = (input) => {
     }
 }
 const nameValidation = (input, text, min_digit, max_digit) => {
-    if (!input) {
+    const input1 = input.trim()
+    if (!input1) {
         return text + localize('_t_ is required_t_')
     } else if (
-        !validation_is_exceed_number(input, max_digit) ||
-        !validation_is_lack_number(input, min_digit)
+        !validation_is_exceed_number(input1, max_digit) ||
+        !validation_is_lack_number(input1, min_digit)
     ) {
         return localize(`_t_You should enter 2-256 characters._t_`)
     } else if (
-        affiliate_validation_regex.latin.test(input) ||
-        affiliate_validation_regex.name.test(input)
+        affiliate_validation_regex.latin.test(input1) ||
+        affiliate_validation_regex.name.test(input1)
     ) {
         return localize('_t_Only Latin and Alphabet characters_t_')
-    } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
+    } else if (!affiliate_validation_regex.non_empty_string.test(input1)) {
         return localize('_t_Empty input not available_t_')
     }
 }

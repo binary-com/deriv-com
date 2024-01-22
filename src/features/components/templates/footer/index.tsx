@@ -11,7 +11,7 @@ import {
 } from './data'
 import { DerivGoBanner } from './deriv-go-banner'
 import { IIPAward } from './iip-award'
-import { DescriptionContent } from './description'
+import { DescriptionContent, DescriptionContentCPA, DescriptionContentEU } from './description'
 import useRegion from 'components/hooks/use-region'
 import { getLocationPathname } from 'common/utility'
 
@@ -38,7 +38,13 @@ export const MainFooter = () => {
             socialButtons={socialButtons}
             banner={DerivGoBanner}
             awards={IIPAward}
-            descriptionContent={DescriptionContent}
+            descriptionContent={
+                is_eu
+                    ? DescriptionContentEU
+                    : is_cpa_plan
+                    ? DescriptionContentCPA
+                    : DescriptionContent
+            }
             className={qtMerge((is_eu || is_cpa_plan) && 'mb-[120px] lg:mb-[80px]')}
         >
             <Footer.MainNavContent items={is_eu ? EuFooterNavData : RowFooterNavData} cols="six" />

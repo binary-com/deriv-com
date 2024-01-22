@@ -27,8 +27,8 @@ const Alert = ({
     return (
         <AlertDialog.Root defaultOpen>
             <AlertDialog.Portal>
-                <AlertDialog.Overlay className="at-alert-overlay" />
-                <AlertDialog.Content className="at-alert-content">
+                <AlertDialog.Overlay className="alert-overlay" />
+                <AlertDialog.Content className="alert-content">
                     <AlertDialog.Title asChild className="AlertDialogTitle">
                         <div>
                             <Typography.Heading as="h3" size="xxs" pb="12x">

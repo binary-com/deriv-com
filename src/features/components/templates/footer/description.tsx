@@ -2,12 +2,10 @@ import React from 'react'
 import { Text } from '@deriv/quill-design'
 import clsx from 'clsx'
 import { Localize } from 'components/localization'
-import useRegion from 'components/hooks/use-region'
-import { useFloatingCtaContext } from 'features/contexts/floating-cta/cta.provider'
 
 const sharedClasses = 'inline font-bold underline hover:text-typography-prominent'
 
-export const DescriptionContentROW = () => {
+export const DescriptionContent = () => {
     return (
         <>
             <Text size="sm">
@@ -151,21 +149,5 @@ export const DescriptionContentCPA = () => {
                 />
             </Text>
         </>
-    )
-}
-
-export const DescriptionContent = () => {
-    const { is_eu, is_cpa_plan } = useRegion()
-    const { exitRef } = useFloatingCtaContext()
-    return (
-        <div ref={exitRef}>
-            {is_eu ? (
-                <DescriptionContentEU />
-            ) : is_cpa_plan ? (
-                <DescriptionContentCPA />
-            ) : (
-                <DescriptionContentROW />
-            )}
-        </div>
     )
 }

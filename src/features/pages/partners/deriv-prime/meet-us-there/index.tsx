@@ -10,7 +10,7 @@ import { Divider } from 'components/elements'
 const MeetUsThere = () => {
     return (
         <>
-            <Divider className="at-visible-larger-than-tablet" />
+            <Divider className="visible-larger-than-tablet" />
             <FlexBox.Box
                 container={'fluid'}
                 direction={'col'}

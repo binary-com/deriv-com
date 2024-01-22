@@ -22,8 +22,8 @@ const DesktopMenu = ({ has_centered_items }: IDesktopNavbarProps) => {
             onValueChange={setActive}
             className={dclsx(
                 'navigation_root',
-                has_centered_items ? 'at-justify-center' : 'at-justify-end',
-                has_centered_items ? undefined : 'at-margin-right-40x',
+                has_centered_items ? 'justify-center' : 'justify-end',
+                has_centered_items ? undefined : 'margin-right-40x',
             )}
         >
             <NavigationMenu.List className="navigation_list">

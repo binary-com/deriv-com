@@ -1,18 +1,7 @@
-@import '@deriv/quill-design/quill-tailwind/fonts.css';
 @import '@deriv/quill-design/dist/quill-design.css';
-@import '@deriv-com/components/style.css';
 @import '@deriv/quill-design/quill-tailwind/styles.css';
+@import '@deriv/quill-design/quill-tailwind/fonts.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.\[-webkit-box-orient\:vertical\] {
-    -webkit-box-orient: vertical;
-}
-.\[-webkit-line-clamp\:2\] {
-    -webkit-line-clamp: 2;
-}
-.\[display\:-webkit-box\] {
-    display: -webkit-box;
-}

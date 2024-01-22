@@ -103,7 +103,7 @@ const AccountDetails = ({
         updateData({ ...form_data })
         onValidate(
             is_individual
-                ? form_data.first_name &&
+                ? form_data.first_name.trim() &&
                       form_data.last_name &&
                       form_data.date_birth &&
                       form_data.phone.length > 6 &&

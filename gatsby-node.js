@@ -389,10 +389,9 @@ const style_lint_options = {
     lintDirtyModulesOnly: true,
 }
 
-exports.onCreateWebpackConfig = ({ stage, actions, loaders }, { ...options }) => {
-    // const config = getConfig()
-    // const isProduction = config.mode === 'production'
-    const isProduction = true
+exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...options }) => {
+    const config = getConfig()
+    const isProduction = config.mode === 'production'
 
     actions.setWebpackConfig({
         devtool: !isProduction, // enable/disable source-maps

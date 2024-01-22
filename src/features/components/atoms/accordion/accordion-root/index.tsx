@@ -9,7 +9,7 @@ const AccordionRoot = React.forwardRef<
 >(({ className, ...rest }, ref) => {
     return (
         <Accordion.Root
-            className={dclsx(className, 'at-accordion_root', 'at-bg-color-primary')}
+            className={dclsx(className, 'accordion_root', 'bg-color-primary')}
             {...rest}
             ref={ref}
         />

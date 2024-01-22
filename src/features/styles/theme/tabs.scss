@@ -1,7 +1,7 @@
 @use 'features/styles/theme/theme-mixins' as *;
 @import 'features/styles/theme/variables';
 
-.at-tab {
+.tab {
     cursor: pointer;
     border-color: transparent;
     background-color: transparent;
@@ -12,23 +12,23 @@
     white-space: nowrap;
     @include breakpoints(tablet) {
         font-size: 2rem;
-        &.at-navigation-tabs {
+        &.navigation-tabs {
             min-inline-size: 14rem;
         }
     }
 }
 
-.at-tab.at-menu-item {
+.tab.menu-item {
     color: $color-grey-5;
     border-bottom: 2px solid $color-grey-8;
-    &.at-navigation-tabs {
+    &.navigation-tabs {
         border-bottom: none;
     }
 }
-.at-tab.at-menu-item.at-selected {
+.tab.menu-item.selected {
     color: $color-red;
     border-bottom: 2px solid $color-red;
-    &.at-navigation-tabs {
+    &.navigation-tabs {
         border-bottom: none;
     }
 }

@@ -4,7 +4,7 @@ import { ContentSectionTagOptions } from 'features/types'
 import dclsx from 'features/utils/dclsx'
 
 const FluidContainer = ({ className, ...rest }: BoxProps<ContentSectionTagOptions>) => {
-    const classnames = dclsx(className, 'at-container-fluid')
+    const classnames = dclsx(className, 'container-fluid')
 
     return <Box className={classnames} {...rest} />
 }

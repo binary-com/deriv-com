@@ -93,8 +93,8 @@ const Internal = ({
             rel={link_rel}
             className={dclsx(
                 className,
-                'at-typography-link',
-                'at-typography',
+                'typography-link',
+                'typography',
                 generateSpacingClasses({
                     margin,
                     padding,
@@ -125,8 +125,8 @@ const Internal = ({
                     textcolor,
                 }),
                 {
-                    'at-typography-hover': !no_hover,
-                    'at-typography-color-brand': is_active,
+                    'typography-hover': !no_hover,
+                    'typography-color-brand': is_active,
                 },
             )}
         >

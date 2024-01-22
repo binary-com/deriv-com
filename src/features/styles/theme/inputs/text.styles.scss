@@ -1,6 +1,6 @@
 @import 'features/styles/theme/variables';
 
-.at-text_input {
+.text_input {
     &_container {
         position: relative;
         &.error {
@@ -29,19 +29,19 @@
 
             &:focus {
                 outline: none;
-                ~ .at-text_input_label {
+                ~ .text_input_label {
                     inset-block-start: -8px;
                     color: $color-black;
                     inline-size: auto;
                 }
             }
-            &:not(:placeholder-shown) ~ .at-text_input_label {
+            &:not(:placeholder-shown) ~ .text_input_label {
                 inset-block-start: -12px;
                 inline-size: auto;
                 color: $color-black;
             }
         }
-        .at-cross_icon {
+        .cross_icon {
             position: absolute;
             inset-inline-end: 0.8rem;
             inset-block-start: 1.2rem;

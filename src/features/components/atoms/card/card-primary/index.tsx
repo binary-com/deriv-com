@@ -52,7 +52,7 @@ const CardPrimary = ({
                 )}
                 <Typography.Heading
                     as="h3"
-                    className={dclsx(is_mobile_or_tablet ? 'at-text-large' : 'at-text-medium')}
+                    className={dclsx(is_mobile_or_tablet ? 'text-large' : 'text-medium')}
                     pb="4x"
                     weight="bold"
                 >

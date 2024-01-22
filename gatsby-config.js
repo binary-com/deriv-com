@@ -58,18 +58,42 @@ module.exports = {
         // },
         'gatsby-plugin-postcss',
         {
+            resolve: 'gatsby-plugin-html-minifier',
+            options: {
+                collapseWhitespace: true,
+                decodeEntities: true,
+                minifyCSS: true,
+                minifyJS: true,
+                removeComments: true,
+                removeEmptyAttributes: true,
+                removeRedundantAttributes: true,
+                useShortDoctype: true,
+            },
+        },
+        {
             resolve: 'gatsby-plugin-sass',
             options: {
                 postCssPlugins: [
                     require('postcss-discard-duplicates'),
+                    require('autoprefixer'), // better cross-browser compatibility
                     plugin({
                         dest: 'src/classnames.d.ts',
-                        // Set isModule if you want to import ClassNames from another file
-                        // isModule: true,
-                        exportAsDefault: true, // to use in combination with isModule
+                        exportAsDefault: true,
                     }),
                     require('cssnano')({
-                        preset: 'default',
+                        preset: [
+                            'default',
+                            {
+                                discardComments: { removeAll: true },
+                                discardUnused: true,
+                                mergeIdents: true,
+                                reduceIdents: true,
+                                mergeRules: true,
+                                minifySelectors: true,
+                                discardEmpty: true,
+                                minifyFontValues: true,
+                            },
+                        ],
                     }),
                 ],
             },

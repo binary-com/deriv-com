@@ -5,15 +5,11 @@ export const percentToDecimal = (percentStr) => {
 interface SwiperOption {
     spaceBetween: number
     slidesPerView: number | 'auto'
-    reverseDirection: true
-    freeMode: true
 }
 
 export const swiperOption: SwiperOption = {
     spaceBetween: 16,
     slidesPerView: 'auto',
-    reverseDirection: true,
-    freeMode: true,
 }
 
 export const initialLiveMarketData = {

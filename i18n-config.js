@@ -108,7 +108,7 @@ module.exports = {
         short_name: 'SI',
         affiliate_lang: 17,
     },
-    si: {
+    sw: {
         path: 'sw',
         display_name: 'Swahili',
         short_name: 'SW',

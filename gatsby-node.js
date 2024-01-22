@@ -389,13 +389,9 @@ const style_lint_options = {
     lintDirtyModulesOnly: true,
 }
 
-exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...options }) => {
-    const config = getConfig()
-    const isProduction = config.mode === 'production'
-
+exports.onCreateWebpackConfig = ({ stage, actions, loaders }, { ...options }) => {
     actions.setWebpackConfig({
         devtool: false, // enable/disable source-maps
-        mode: isProduction ? 'production' : 'development',
         optimization: {
             minimize: true,
             minimizer: [new TerserPlugin()],

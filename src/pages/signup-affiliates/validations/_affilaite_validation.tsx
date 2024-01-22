@@ -1,4 +1,5 @@
 import { localize } from 'components/localization'
+import { trimSpaces } from 'common/utility'
 /* eslint-disable */
 
 export const affiliate_validation_regex = {
@@ -140,19 +141,20 @@ const streetValidation = (input, text, min_digit, max_digit) => {
     }
 }
 const cityValidation = (input, text, min_digit, max_digit) => {
-    if (!input) {
+    const input1 = trimSpaces(input)
+    if (!input1) {
         return text
     }
-    if (affiliate_validation_regex.latin.test(input)) {
+    if (affiliate_validation_regex.latin.test(input1)) {
         return localize('_t_Only Latin characters_t_')
     } else if (
         !validation_is_exceed_number(input, max_digit) ||
         !validation_is_lack_number(input, min_digit)
     ) {
         return localize(`_t_You should enter 2-256 characters._t_`)
-    } else if (!affiliate_validation_regex.city.test(input)) {
+    } else if (!affiliate_validation_regex.city.test(input1)) {
         return localize('_t_Please enter a valid city_t_')
-    } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
+    } else if (!affiliate_validation_regex.non_empty_string.test(input1)) {
         return localize('_t_Empty input not available_t_')
     }
 }

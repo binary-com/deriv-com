@@ -8,10 +8,10 @@ export type ResidenceType = {
 
 const formatResidenceList = ({
     residences,
-    restricted,
+    restricted = [],
 }: {
     residences: any[]
-    restricted: ['Iran', 'North Korea', 'Myanmar (Burma)', 'Syria', 'Cuba']
+    restricted: ['Iran', 'North Korea', 'Myanmar (Burma)', 'Syria', 'Cuba'] | string[]
 }) => {
     if (!residences.length) {
         return []

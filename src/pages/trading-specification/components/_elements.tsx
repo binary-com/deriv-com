@@ -166,7 +166,6 @@ export const TableHeaderCell = ({ text, infoIcon, toolTip }: TTableHeaderCell) =
                     isOpen={isInfoVisible}
                     positions={['top', 'right', 'bottom', 'left']}
                     padding={10}
-                    containerStyle={{ left: '-10px' }}
                     content={({ position, childRect, popoverRect }) => (
                         <ArrowContainer
                             style={{
@@ -182,6 +181,7 @@ export const TableHeaderCell = ({ text, infoIcon, toolTip }: TTableHeaderCell) =
                             arrowStyle={{ bottom: '-10px' }}
                             className="popover-arrow-container"
                             arrowClassName="popover-arrow"
+                            arr
                         >
                             <StyledToolTipContainer>
                                 <HeaderText

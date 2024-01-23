@@ -394,10 +394,10 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
     const isProduction = config.mode === 'production'
 
     actions.setWebpackConfig({
-        devtool: false, // enable/disable source-maps
+        devtool: !isProduction, // enable/disable source-maps
         mode: isProduction ? 'production' : 'development',
         optimization: {
-            minimize: true,
+            minimize: isProduction,
             minimizer: [new TerserPlugin()],
             // splitChunks: {
             //     chunks: 'all',

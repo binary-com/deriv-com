@@ -151,6 +151,9 @@
         "typescript": "^5.3.2",
         "typescript-plugin-css-modules": "^4.2.3"
     },
+    "optionalDependencies": {
+        "@parcel/watcher-linux-x64-glibc": "2.4.0"
+    },
     "keywords": [
         "deriv",
         "static"

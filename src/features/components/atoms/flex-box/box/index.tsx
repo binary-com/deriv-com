@@ -34,11 +34,11 @@ const generateFlexClasses = (options: FlexBoxClasses, prefix?: string) => {
     const classPrefix = prefix ? `${prefix}-` : ''
 
     return dclsx({
-        [`${classPrefix}at-gap-${gap}`]: gap,
-        [`${classPrefix}at-align-items-${align}`]: align,
-        [`${classPrefix}at-justify-${justify}`]: justify,
-        [`${classPrefix}at-flex-wrap-${wrap}`]: wrap,
-        [`${classPrefix}at-flex-dir-${direction}`]: direction,
+        [`${classPrefix}gap-${gap}`]: gap,
+        [`${classPrefix}align-items-${align}`]: align,
+        [`${classPrefix}justify-${justify}`]: justify,
+        [`${classPrefix}flex-wrap-${wrap}`]: wrap,
+        [`${classPrefix}flex-dir-${direction}`]: direction,
     })
 }
 
@@ -59,10 +59,10 @@ const FlexBoxContainer = <T extends ContentSectionTagOptions>({
     ...rest
 }: FlexBoxProps<T>) => {
     const classnames = dclsx(
-        'at-flex',
+        'flex',
         className,
         {
-            [`at-container-${container}`]: container,
+            [`container-${container}`]: container,
         },
         generateFlexItemClasses({ align_self, grow, shrink, basis }),
         generateFlexItemClasses(md ?? {}, 'md'),

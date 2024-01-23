@@ -17,8 +17,8 @@ const TypographyLink = ({ className, size, no_hover, ...rest }: TypographyLinkPr
     return (
         <BaseTypography
             as="a"
-            className={dclsx(classnames, 'at-typography-link', {
-                'at-typography-hover': !no_hover,
+            className={dclsx(classnames, 'typography-link', {
+                'typography-hover': !no_hover,
             })}
             {...rest}
         />

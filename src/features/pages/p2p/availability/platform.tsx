@@ -31,14 +31,14 @@ const DP2Platform = ({ item }: { item: PlatformType }) => {
                 alt="icon"
                 width={48}
                 height={48}
-                className="at-visible-phone-and-tablet"
+                className="visible-phone-and-tablet"
             />
             <Image
                 src={item.mobile_icon_src}
                 alt="icon"
                 width={64}
                 height={64}
-                className="at-visible-larger-than-tablet"
+                className="visible-larger-than-tablet"
             />
 
             <Typography.Heading as="h3" size="xs" mt="8x" mb="16x">
@@ -51,12 +51,12 @@ const DP2Platform = ({ item }: { item: PlatformType }) => {
                         mb="12x"
                         textcolor="black"
                         md={{ mb: '16x' }}
-                        className={dclsx('at-text-xlarge')}
+                        className={dclsx('text-xlarge')}
                         key={list_item.text}
                     >
                         {list_item?.link_in_mobile ? (
                             <>
-                                <Typography.Base as="span" className="at-visible-larger-than-phone">
+                                <Typography.Base as="span" className="visible-larger-than-phone">
                                     <Localize
                                         translate_text={list_item.text}
                                         components={list_item.components}
@@ -66,7 +66,7 @@ const DP2Platform = ({ item }: { item: PlatformType }) => {
                                     as="span"
                                     onClick={handleExternalLink}
                                     textcolor="brand"
-                                    className="at-visible-phone-only"
+                                    className="visible-phone-only"
                                 >
                                     <Localize translate_text={list_item.text} />
                                 </Typography.Base>
@@ -87,11 +87,11 @@ const DP2Platform = ({ item }: { item: PlatformType }) => {
                     <LinkButton.Primary
                         url={item.button.url}
                         size="medium"
-                        className="at-visible-larger-than-phone"
+                        className="visible-larger-than-phone"
                     >
                         <Localize translate_text={item.button.text} />
                     </LinkButton.Primary>
-                    <Button.Primary onClick={handleExternalLink} className="at-visible-phone-only">
+                    <Button.Primary onClick={handleExternalLink} className="visible-phone-only">
                         <Localize translate_text={item.button.text} />
                     </Button.Primary>
                 </>

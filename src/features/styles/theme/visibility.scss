@@ -1,33 +1,33 @@
 @use './theme-mixins.scss' as *;
-.at-visible-phone-only {
+.visible-phone-only {
     // 0 - 600px
     @include breakpoints(phone) {
         display: none;
     }
 }
 
-.at-visible-phone-and-tablet {
+.visible-phone-and-tablet {
     // 0px - 992px
     @include breakpoints(tablet) {
         display: none;
     }
 }
 
-.at-visible-larger-than-tablet {
+.visible-larger-than-tablet {
     // 992px - ....
     @include breakpoints(tablet, max) {
         display: none;
     }
 }
 
-.at-visible-larger-than-laptop {
+.visible-larger-than-laptop {
     // 1280px - ....
     @include breakpoints(laptop, max) {
         display: none;
     }
 }
 
-.at-visible-larger-than-phone {
+.visible-larger-than-phone {
     // 600 - ....
     @include breakpoints(phone, max) {
         display: none;

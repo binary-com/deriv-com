@@ -23,10 +23,10 @@ function BaseTable<T, K extends keyof T>({
 }: TableProps<T, K>) {
     return (
         <Box
-            className={dclsx('at-table-responsive', { ['at-table-striped']: striped }, className)}
+            className={dclsx('table-responsive', { ['table-striped']: striped }, className)}
             {...rest}
         >
-            <table className={dclsx('at-table', { [`at-table-layout-${layout}`]: layout })}>
+            <table className={dclsx('table', { [`table-layout-${layout}`]: layout })}>
                 <TableHeader columns={columns} />
                 <TableRow data={data} columns={columns} />
             </table>

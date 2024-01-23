@@ -100,11 +100,6 @@
                         "pattern": "features/components/templates/layout",
                         "group": "parent",
                         "position": "after"
-                    },
-                    {
-                        "pattern": "features/components/quill/quill-layout",
-                        "group": "parent",
-                        "position": "after"
                     }
                 ],
                 "newlines-between": "never"

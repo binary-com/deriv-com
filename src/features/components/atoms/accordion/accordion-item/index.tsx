@@ -29,21 +29,21 @@ const icons: AccordionIcons = {
 
 const AccordionItem = React.forwardRef<HTMLDivElement, TAccordionItem>(
     ({ children, className, item_title, icon_type = 'chevron', ...props }, ref) => (
-        <Accordion.Item className={'at-accordion_item'} ref={ref} {...props}>
+        <Accordion.Item className={'accordion_item'} ref={ref} {...props}>
             <Accordion.Header>
-                <Accordion.Trigger className={dclsx('at-accordion_trigger', 'at-bg-color-primary')}>
+                <Accordion.Trigger className={dclsx('accordion_trigger', 'bg-color-primary')}>
                     <Typography.Heading size={'xs'}>
                         <Localize translate_text={item_title} />
                     </Typography.Heading>
                     <Icon
                         src={icons[icon_type]}
-                        className={'at-accordion_icon'}
+                        className={'accordion_icon'}
                         alt={'chevron'}
                         size={'large'}
                     />
                 </Accordion.Trigger>
             </Accordion.Header>
-            <Accordion.Content className={dclsx('at-accordion_content', className)}>
+            <Accordion.Content className={dclsx('accordion_content', className)}>
                 <div className="AccordionContentText">{children}</div>
             </Accordion.Content>
         </Accordion.Item>

@@ -48,7 +48,7 @@ const BaseTypography = <T extends TypographyTagOptions>({
 }: BaseTypographyProps<T>) => {
     const classnames = dclsx(
         className,
-        'at-typography',
+        'typography',
         generateTypographyAlignClasses(align),
         generateTypographyAlignClasses(md?.align, 'md'),
         generateTypographyAlignClasses(lg?.align, 'lg'),

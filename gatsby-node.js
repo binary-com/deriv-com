@@ -389,9 +389,13 @@ const style_lint_options = {
     lintDirtyModulesOnly: true,
 }
 
-exports.onCreateWebpackConfig = ({ stage, actions, loaders }, { ...options }) => {
+exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...options }) => {
+    const config = getConfig()
+    const isProduction = config.mode === 'production'
+
     actions.setWebpackConfig({
         devtool: false, // enable/disable source-maps
+        mode: isProduction ? 'production' : 'development',
         optimization: {
             minimize: true,
             minimizer: [new TerserPlugin()],
@@ -400,23 +404,23 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders }, { ...options }) =>
             //     name: "build-eduard",
             // },
 
-            mangleExports: 'size',
-            mangleWasmImports: true,
-
-            mergeDuplicateChunks: true,
-            removeAvailableModules: true,
-            removeEmptyChunks: true,
-            innerGraph: true,
-
-            chunkIds: 'size',
-            moduleIds: 'size',
-
-            // runtimeChunk: 'single', // compilation fails
-            sideEffects: true,
-
-            concatenateModules: true,
-            providedExports: true,
-            usedExports: true,
+            // mangleExports: 'size',
+            // mangleWasmImports: true,
+            //
+            // mergeDuplicateChunks: true,
+            // removeAvailableModules: true,
+            // removeEmptyChunks: true,
+            // innerGraph: true,
+            //
+            // chunkIds: 'size',
+            // moduleIds: 'size',
+            //
+            // // runtimeChunk: 'single', // compilation fails
+            // sideEffects: true,
+            //
+            // concatenateModules: true,
+            // providedExports: true,
+            // usedExports: true,
         },
         plugins: [
             new StylelintPlugin({...style_lint_options, ...options}),

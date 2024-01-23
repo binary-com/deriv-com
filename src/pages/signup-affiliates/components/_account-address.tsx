@@ -111,7 +111,7 @@ const AccountAddress = ({
         setFormData((prev) => ({ ...prev, [name]: value }))
 
         if (affiliate_validation[name]) {
-            const error_msg = affiliate_validation[name](value)
+            const error_msg = affiliate_validation[name](value.trim())
             setFormErrors((errors) => ({
                 ...errors,
                 [`${name}_error_msg`]: error_msg,

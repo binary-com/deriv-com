@@ -2,7 +2,7 @@ import React from 'react'
 import { MobileNavToggle } from '@deriv-com/blocks'
 import { Button } from '@deriv/quill-design'
 // eslint-disable-next-line import/no-unresolved
-import { LabelPairedGridLgBoldIcon } from '@deriv/quill-icons/LabelPaired'
+import { LabelPairedGrid2CaptionBoldIcon } from '@deriv/quill-icons/LabelPaired'
 import { Localize } from 'components/localization'
 import { handleRedirectToTradersHub } from 'components/custom/utils'
 import useAuthCheck from 'components/hooks/use-auth-check'
@@ -25,7 +25,7 @@ export const MainNavigationButtons = () => {
                     colorStyle="black"
                     size="lg"
                     onClick={handleRedirectToTradersHub}
-                    icon={LabelPairedGridLgBoldIcon}
+                    icon={LabelPairedGrid2CaptionBoldIcon}
                     iconPosition="start"
                 >
                     {`Trader's Hub`}

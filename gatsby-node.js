@@ -414,8 +414,8 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
             //
             // chunkIds: 'size',
             // moduleIds: 'size',
-            //
-            // // runtimeChunk: 'single', // compilation fails
+
+            // runtimeChunk: 'single', // compilation fails
             // sideEffects: true,
             //
             // concatenateModules: true,

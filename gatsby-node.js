@@ -394,7 +394,7 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
     const isProduction = config.mode === 'production'
 
     actions.setWebpackConfig({
-        devtool: !isProduction, // enable/disable source-maps
+        devtool: false, // enable/disable source-maps
         mode: isProduction ? 'production' : 'development',
         optimization: {
             minimize: isProduction,
@@ -404,23 +404,23 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
             //     name: "build-eduard",
             // },
 
-            // mangleExports: 'size',
-            // mangleWasmImports: true,
-            //
-            // mergeDuplicateChunks: true,
-            // removeAvailableModules: true,
-            // removeEmptyChunks: true,
-            // innerGraph: true,
-            //
-            // chunkIds: 'size',
-            // moduleIds: 'size',
+            mangleExports: 'size',
+            mangleWasmImports: true,
+
+            mergeDuplicateChunks: true,
+            removeAvailableModules: true,
+            removeEmptyChunks: true,
+            innerGraph: true,
+
+            chunkIds: 'size',
+            moduleIds: 'size',
 
             // runtimeChunk: 'single', // compilation fails
-            // sideEffects: true,
-            //
-            // concatenateModules: true,
-            // providedExports: true,
-            // usedExports: true,
+            sideEffects: true,
+
+            concatenateModules: true,
+            providedExports: true,
+            usedExports: true,
         },
         plugins: [
             new StylelintPlugin({...style_lint_options, ...options}),

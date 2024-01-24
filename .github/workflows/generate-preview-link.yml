@@ -29,12 +29,12 @@ jobs:
             github.event.workflow_run.conclusion == 'success'
         steps:
             - name: Checkout to repo
-              uses: actions/checkout@v3
+              uses: actions/checkout@${{ github.event.workflow_run.head_sha }}
               with:
                   ref: ${{ github.event.workflow_run.head_sha }}
             - name: Download artifact
               id: download-artifact
-              uses: dawidd6/action-download-artifact@v2
+              uses: dawidd6/action-download-artifact@${{ github.event.workflow_run.head_sha }}
               with:
                   workflow_conclusion: success
                   run_id: ${{ github.event.workflow_run.id }}
@@ -89,7 +89,7 @@ jobs:
                       echo "Proceeding to build and deploy for the pull request: https://github.com/binary-com/deriv-com/pull/$(cat ./NR)"
                   fi
             - name: Setup node
-              uses: actions/setup-node@v2
+              uses: actions/setup-node@${{ github.event.workflow_run.head_sha }}
 
             - name: Create npmrc file
               shell: bash

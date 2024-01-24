@@ -392,10 +392,10 @@ const style_lint_options = {
 exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...options }) => {
     const config = getConfig()
     const isProduction = config.mode === 'production'
-    // const isDevtool = isProduction ? false :'source-map'
+    const isDevtool = isProduction ? false :'source-map'
 
     actions.setWebpackConfig({
-        devtool: isProduction ? false : 'inline-source-map', // enable/disable source-maps
+        devtool: isDevtool, // enable/disable source-maps
         mode: isProduction ? 'production' : 'development',
         optimization: {
             minimize: isProduction,

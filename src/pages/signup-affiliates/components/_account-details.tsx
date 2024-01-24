@@ -137,7 +137,7 @@ const AccountDetails = ({
     const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
 
-        setFormData((prev) => ({ ...prev, [name]: value }))
+        setFormData((prev) => ({ ...prev, [name]: value.trim() }))
 
         if (affiliate_validation[name]) {
             const error_msg = affiliate_validation[name](value.trim())

@@ -389,13 +389,12 @@ const style_lint_options = {
     lintDirtyModulesOnly: true,
 }
 
-exports.onCreateWebpackConfig = ({ stage, actions, loaders }, { ...options }) => {
-    // const config = getConfig()
-    // const isProduction = config.mode === 'production'
-    const isProduction = true
+exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...options }) => {
+    const config = getConfig()
+    const isProduction = config.mode === 'production'
 
     actions.setWebpackConfig({
-        devtool: false, // enable/disable source-maps
+        devtool: isProduction ? false : 'eval-source-map', // enable/disable source-maps
         mode: isProduction ? 'production' : 'development',
         optimization: {
             minimize: isProduction,
@@ -425,7 +424,7 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders }, { ...options }) =>
         },
         plugins: [
             new StylelintPlugin({...style_lint_options, ...options}),
-            new webpack.optimize.LimitChunkCountPlugin({maxChunks: 1}), // works, merges chunks together
+            new webpack.optimize.LimitChunkCountPlugin({maxChunks: 1}),
         ],
         resolve: {
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],

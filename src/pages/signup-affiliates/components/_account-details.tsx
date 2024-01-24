@@ -200,7 +200,7 @@ const AccountDetails = ({
                                     name={item.name}
                                     type={item.type}
                                     label={item.label}
-                                    value={form_data[item.name]}
+                                    value={form_data[item.name].trim()}
                                     error={form_errors[`${item.name}_error_msg`]}
                                     placeholder={item.label}
                                     password_icon={item.type == 'password'}

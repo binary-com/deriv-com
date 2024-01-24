@@ -108,7 +108,7 @@ const AccountAddress = ({
     const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
 
-        setFormData((prev) => ({ ...prev, [name]: value.trim() }))
+        setFormData((prev) => ({ ...prev, [name]: value }))
 
         if (affiliate_validation[name]) {
             const error_msg = affiliate_validation[name](value.trim())
@@ -152,7 +152,7 @@ const AccountAddress = ({
                                     id={item.id}
                                     name={item.name}
                                     type={item.type}
-                                    value={form_data[item.name]}
+                                    value={form_data[item.name].trim()}
                                     error={form_errors[`${item.name}_error_msg`]}
                                     label={item.label}
                                     placeholder={item.label}

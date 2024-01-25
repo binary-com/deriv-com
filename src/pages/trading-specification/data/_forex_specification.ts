@@ -529,8 +529,8 @@ const forex_specification: TSpecification = {
             target_spread: 0.00616,
             max_effective_leverage: 1000,
             margin_requirement: '0.1',
-            swap_long: 8.73,
-            swap_short: -89.08,
+            swap_long: -4.67,
+            swap_short: -76.29,
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {
@@ -632,7 +632,7 @@ const forex_specification: TSpecification = {
             max_effective_leverage: 1000,
             margin_requirement: '0.1',
             swap_long: 31.83,
-            swap_short: -53.9,
+            swap_short: -49.57,
             trading_hours: 'Sun 22:05 - Friday 21:55 GMT\nDaily Break: 22:00-22:05',
         },
         {

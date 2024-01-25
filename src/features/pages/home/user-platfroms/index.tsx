@@ -36,6 +36,7 @@ const UserFriendlyPlatforms = () => {
     return (
         <PlatformBlock.Tab
             className="bg-background-primary-base"
+            tabId="platformtab"
             header={
                 <Localize translate_text="_t_User-friendly trading platforms, on any device_t_" />
             }

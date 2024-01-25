@@ -17,7 +17,7 @@ const DesktopText = ({ loss_percent }: TextProps) => {
     const { width } = useWindowSize()
     useEffect(() => {
         if (width >= 640) {
-            setCtaBottom(ref.current?.clientHeight) // 40 is the padding of top and bottom of it's container
+            setCtaBottom(ref.current?.clientHeight)
         }
     }, [setCtaBottom, width])
     return (

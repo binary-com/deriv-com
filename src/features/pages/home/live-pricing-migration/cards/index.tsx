@@ -5,7 +5,6 @@ import {
     MarketForexEurusdIcon,
     MarketForexGbpjpyIcon,
     MarketForexGbpusdIcon,
-    MarketForexUsdcadIcon,
     MarketCryptocurrencyAdausdIcon,
     MarketCryptocurrencyBtcusdIcon,
     MarketCryptocurrencyDogusdIcon,
@@ -14,6 +13,19 @@ import {
     MarketCommoditySilverusdIcon,
     MarketCommodityGoldusdIcon,
     MarketCommodityCopperusdIcon,
+    MarketStocksAppleIcon,
+    MarketStocksWaltDisneyIcon,
+    MarketStocksTeslaIcon,
+    MarketIndicesUsTech100Icon,
+    MarketDerivedCrash1000Icon,
+    MarketDerivedEurusdDfx10Icon,
+    MarketDerivedRangeBreak200Icon,
+    MarketIndicesUs500Icon,
+    MarketDerivedJump50Icon,
+    MarketDerivedBoom300Icon,
+    MarketDerivedCrash300Icon,
+    MarketDerivedVolatility1501sIcon,
+    MarketDerivedVolatility2501sIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Markets'
 import useLiveData from '../data-provider/useLiveData'
@@ -22,17 +34,46 @@ import { percentToDecimal, swiperOption } from '../utils'
 import { handleRedirectToTradersHub } from 'components/custom/utils'
 import useAuthCheck from 'components/hooks/use-auth-check'
 import useHandleSignup from 'components/hooks/use-handle-signup'
+import { Localize } from 'components/localization'
 
 const IconsMapper = {
+    // Forex Icons
     AUDUSD: <MarketForexAudusdIcon />,
     EURUSD: <MarketForexEurusdIcon />,
     GBPJPY: <MarketForexGbpjpyIcon />,
     GBPUSD: <MarketForexGbpusdIcon />,
-    USDCAD: <MarketForexUsdcadIcon />,
+
+    // Derived Indices
+    Crash_1000_Index: <MarketDerivedCrash1000Icon />,
+    EURUSD_DFX_10_Index: <MarketDerivedEurusdDfx10Icon />,
+    Jump_50_Index: <MarketDerivedJump50Icon />,
+    Range_Break_200_Index: <MarketDerivedRangeBreak200Icon />,
+
+    // Derived Indices EU
+    Boom_300_Index: <MarketDerivedBoom300Icon />,
+    Crash_300_Index: <MarketDerivedCrash300Icon />,
+    'Volatility_150_(1s)_Index': <MarketDerivedVolatility1501sIcon />,
+    'Volatility_250_(1s)_Index': <MarketDerivedVolatility2501sIcon />,
+
+    // Etf's
+    EEM_US: <MarketIndicesUs500Icon />,
+    GDX_US: <MarketIndicesUs500Icon />,
+    SPY_US: <MarketIndicesUs500Icon />,
+    UNG_US: <MarketIndicesUs500Icon />,
+
+    // Stock and indices
+    AAPL: <MarketStocksAppleIcon />,
+    DIS: <MarketStocksWaltDisneyIcon />,
+    TSLA: <MarketStocksTeslaIcon />,
+    US_100: <MarketIndicesUsTech100Icon />,
+
+    // Cryptocurrencies
     ADAUSD: <MarketCryptocurrencyAdausdIcon />,
     BTCUSD: <MarketCryptocurrencyBtcusdIcon />,
     DOGUSD: <MarketCryptocurrencyDogusdIcon />,
     DSHUSD: <MarketCryptocurrencyDshusdIcon />,
+
+    // Commodities
     WTI_OIL: <EnergyWtiOilusIcon />,
     XAGUSD: <MarketCommoditySilverusdIcon />,
     XAUUSD: <MarketCommodityGoldusdIcon />,
@@ -67,8 +108,14 @@ const LiveMarketCard = <T extends MarketName>({
             bidPrice: `${data[key].bid}`,
             askPrice: `${data[key].ask}`,
             spread: `${data[key].sprd}`,
+            mid: data[key].mid,
             onClickBuyButton: is_logged_in ? handleRedirectToTradersHub : handleSignup,
             onClickSellButton: is_logged_in ? handleRedirectToTradersHub : handleSignup,
+            bidContent: <Localize translate_text="_t_Bid_t_" />,
+            askContent: <Localize translate_text="_t_Ask_t_" />,
+            spreadContent: <Localize translate_text="_t_Spread_t_" />,
+            buyContent: <Localize translate_text="_t_Buy_t_" />,
+            sellContent: <Localize translate_text="_t_Sell_t_" />,
         }))
     }, [data, is_logged_in, handleSignup])
 
@@ -77,8 +124,8 @@ const LiveMarketCard = <T extends MarketName>({
             <CardSlider
                 variant="LiveMarketCard"
                 swiperData={swiperOption}
-                slideClasses="max-w-[296px]"
-                className="w-screen !mr-[calc((-100vw+100%)/2)] lg:w-full lg:!mr-auto"
+                slideClasses="max-w-[296px] !mr-gap-none !ml-gap-none"
+                className="w-screen lg:w-full [&>*:nth-child(1)]:!gap-gap-lg"
                 cards={livePriceData.slice(0, 4)}
             />
             <div className="flex items-center flex-col">{children}</div>

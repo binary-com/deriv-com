@@ -1,5 +1,6 @@
 import React from 'react'
 import { Features } from '@deriv-com/blocks'
+import { swiperOption } from '../live-pricing-migration/utils'
 import { cards } from './data'
 import { Localize } from 'components/localization'
 
@@ -8,7 +9,9 @@ const TwentyYearsStrong = () => {
         <Features.ContentSlider
             title={<Localize translate_text="_t_We're 24+ years strong_t_" />}
             cardSliderProps={{
-                slideClasses: 'max-w-[296px] !h-auto',
+                swiperData: swiperOption,
+                slideClasses: 'max-w-[296px] !h-auto !mr-gap-none !ml-gap-none',
+                className: 'w-screen lg:w-full [&>*:nth-child(1)]:!gap-gap-lg ',
                 variant: 'ContentBottom',
                 cards: cards,
             }}

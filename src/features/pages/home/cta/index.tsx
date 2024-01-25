@@ -34,8 +34,9 @@ const CTA = () => {
     const { is_eu } = useRegion()
     return (
         <Footer.CTABlock padding image={is_eu ? EUImage : RowImage}>
-            <div className="flex h-full flex-col items-start justify-center gap-gap-3xl max-w-[328px] lg:max-w-none">
-                <Heading.H2 className="text-solid-slate-50">
+            <div className="flex h-full flex-col items-start gap-gap-3xl lg:justify-center justify-end">
+                <Heading.H2 className="text-solid-slate-50 sm:max-w-[320px] max-w-[260px] xl:max-w-[480px]">
+                    {' '}
                     <Localize translate_text="_t_Join over 2.5 million online traders_t_" />
                 </Heading.H2>
                 <TradersHubCtaButton className="hidden lg:block" />

@@ -394,7 +394,7 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }, { ...op
     const isProduction = config.mode === 'production'
 
     actions.setWebpackConfig({
-        devtool: isProduction ? false : 'eval-source-map', // enable/disable source-maps
+        devtool: isProduction ? false : 'inline-source-map', // enable/disable source-maps
         mode: isProduction ? 'production' : 'development',
         optimization: {
             minimize: isProduction,

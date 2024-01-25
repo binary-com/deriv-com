@@ -102,11 +102,12 @@ const AccountDetails = ({
     useEffect(() => {
         let data = {} as AffiliateAccountTypes['account_details']
         for (const property in form_data) {
-            if (typeof form_data[property] === 'string') {
-                data = {
-                    ...data,
-                    [property]: form_data[property].trim(),
-                }
+            data = {
+                ...data,
+                [property]:
+                    typeof form_data[property] === 'string'
+                        ? form_data[property].trim()
+                        : form_data[property],
             }
         }
         console.log('==>', data, form_data)

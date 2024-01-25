@@ -154,7 +154,7 @@
         "typescript-plugin-css-modules": "^4.2.3"
     },
     "optionalDependencies": {
-        "@parcel/watcher-linux-x64-glibc": "2.4.0"
+        "@parcel/watcher-linux-x64-glibc": "^2.4.0"
     },
     "keywords": [
         "deriv",
@@ -215,8 +215,5 @@
             "react": "^18.2.0",
             "react-dom": "^18.2.0"
         }
-    },
-    "optionalDependencies": {
-        "@parcel/watcher-linux-x64-glibc": "^2.3.0"
     }
 }

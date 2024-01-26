@@ -1,5 +1,5 @@
 import React from 'react'
-import { Analytics } from '@deriv/analytics'
+import { Analytics } from '@deriv-com/analytics'
 import { signup_apple_btn, signup_fb_btn, signup_login_redirect } from '../signup.module.scss'
 import Login from 'common/login'
 import Button from 'features/components/atoms/button'

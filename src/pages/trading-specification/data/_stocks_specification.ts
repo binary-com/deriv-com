@@ -825,7 +825,7 @@ const stocks_specification: TSpecification = {
             target_spread: 0.21,
             max_effective_leverage: 50,
             margin_requirement: '2',
-            swap_long: '-1-686',
+            swap_long: '-1.686',
             swap_short: -2,
             trading_hours: 'Mon-Fri 14:30-21:00 GMT',
         },

@@ -12,7 +12,7 @@ export const trading_platform_features: TradingPlatformWhatHaveData[] = [
         image: (
             <StaticImage
                 src="../../../../images/common/trading-platforms/ctrader/interface.png"
-                alt={localize('_t_An intuitive interface_t_')}
+                alt={localize('_t_Deriv cTrader web terminal interface showcasing the features_t_')}
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
                 quality={100}
@@ -29,7 +29,9 @@ export const trading_platform_features: TradingPlatformWhatHaveData[] = [
         image: (
             <StaticImage
                 src="../../../../images/common/trading-platforms/ctrader/assets.png"
-                alt={localize('_t_Favourite assets_t_')}
+                alt={localize(
+                    '_t_A watchlist of popular currency pairs available on Deriv cTrader_t_',
+                )}
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
                 quality={100}
@@ -46,7 +48,26 @@ export const trading_platform_features: TradingPlatformWhatHaveData[] = [
         image: (
             <StaticImage
                 src="../../../../images/common/trading-platforms/ctrader/trade-margin.png"
-                alt={localize('_t_Trade margins_t_')}
+                alt={localize('_t_Menu for calculating trade margins feature_t_')}
+                loading="eager"
+                formats={['avif', 'webp', 'auto']}
+                quality={100}
+                objectFit="contain"
+                placeholder="none"
+            />
+        ),
+    },
+    {
+        id: 3,
+        title: '_t_Copy trading your way_t_',
+        subtitle:
+            '_t_Manage your risk by spreading your funds across different trading strategies._t_',
+        image: (
+            <StaticImage
+                src="../../../../images/common/trading-platforms/ctrader/copy-trading.png"
+                alt={localize(
+                    '_t_List of trading strategy providers in the copy trading terminal_t_',
+                )}
                 loading="eager"
                 formats={['avif', 'webp', 'auto']}
                 quality={100}

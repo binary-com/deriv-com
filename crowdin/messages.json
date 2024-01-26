@@ -1149,7 +1149,6 @@
   "1083621931": "Please note that the availability of early exit from your trading position depends on the specific trade type, or it may only be available within a certain timeframe.",
   "1084407062": "These indices correspond to simulated markets with <0>constant volatilities of 10%, 25%, 50%, 75%, and 100%.</0> There is an equal probability of an up or down jump <0>every 20 minutes</0>, on average. The jump size is <0>around 30 times</0> the normal price movement, on average.",
   "1084960586": "Disclose the terms of all contracts",
-  "1086118495": "Traders Hub",
   "1088428939": "These indices correspond to financial markets with volatilities of 10% and 20%. One tick is generated for every tick of the corresponding forex pair.",
   "1089110190": "You accidentally gave us another email address (usually a work or a personal one instead of the one you meant).",
   "1089165018": "Get in touch",

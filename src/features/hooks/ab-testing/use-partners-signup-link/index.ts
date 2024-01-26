@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Analytics } from '@deriv/analytics'
+import { Analytics } from '@deriv-com/analytics'
 import { getLanguage } from 'common/utility'
 import { affiliate_signup_url } from 'common/constants'
 

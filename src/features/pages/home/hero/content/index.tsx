@@ -1,7 +1,7 @@
 import React from 'react'
 import loadable from '@loadable/component'
 import pMinDelay from 'p-min-delay'
-import { Analytics } from '@deriv/analytics'
+import { Analytics } from '@deriv-com/analytics'
 import HeroCtaButton from './hero-cta.button'
 import { hero_content_title, hero_typewriter } from './hero-content.module.scss'
 import HeroHeaderItems from './hero-header.items'

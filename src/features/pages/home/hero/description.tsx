@@ -10,7 +10,7 @@ const Description = () => {
     const { is_eu } = useRegion()
     return isEuDomain() || is_eu ? (
         <Text size="md" className={clsx('text-solid-slate-50 mt-general-md', hero_content_text)}>
-            <Localize translate_text="_t_Trade CFDs and Multipliers on 1500+ instruments, all in one place with 24/7 trading and 24/7 worldwide support._t_" />
+            <Localize translate_text="_t_Trade CFDs and multipliers on global financial markets, all in one place with 24/7 trading and worldwide support._t_" />
         </Text>
     ) : (
         <Text size="md" className={clsx('text-solid-slate-50 mt-general-md', hero_content_text)}>

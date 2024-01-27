@@ -7,7 +7,7 @@ import useRegion from 'components/hooks/use-region'
 const TradeTypeSection = () => {
     const { is_eu } = useRegion()
     const heading = is_eu ? (
-        <Localize translate_text="_t_Trade CFDs & Multipliers_t_" />
+        <Localize translate_text="_t_Trade CFDs and multipliers_t_" />
     ) : (
         <Localize translate_text="_t_Trade CFDs, options, or multipliers_t_" />
     )

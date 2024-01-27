@@ -16,7 +16,7 @@ const LiveMarketSection = () => {
                 className="bg-background-primary-base"
                 tabId="livemarket"
                 header={
-                    <Localize translate_text="_t_Top trading assets & unique market indices_t_" />
+                    <Localize translate_text="_t_Top trading assets and unique market indices_t_" />
                 }
                 tabs={[
                     { content: <Localize translate_text="_t_Forex_t_" /> },
@@ -63,7 +63,7 @@ const LiveMarketSection = () => {
                         href="/markets/synthetic/"
                         className="inline-flex items-center justify-center pt-gap-3xl"
                     >
-                        <Localize translate_text="_t_See all derived indices pairs_t_" />
+                        <Localize translate_text="_t_See all derived indices_t_" />
                         <StandaloneChevronRightRegularIcon className="text-solid-slate-1400 rtl:rotate-180" />
                     </CustomLink>
                 </LiveMarketCard>
@@ -79,14 +79,14 @@ const LiveMarketSection = () => {
                         href="/markets/exchange-traded-funds/"
                         className="inline-flex items-center justify-center pt-gap-3xl"
                     >
-                        <Localize translate_text="_t_See all ETFs pairs_t_" />
+                        <Localize translate_text="_t_See all ETFs_t_" />
                         <StandaloneChevronRightRegularIcon className="text-solid-slate-1400 rtl:rotate-180" />
                     </CustomLink>
                 </LiveMarketCard>
                 <LiveMarketCard market={['stk', 'ind']}>
                     <Text className="text-center pt-gap-3xl">
                         <Localize
-                            translate_text="_t_<0>You call the stocks.</0> Take a position on 1500+ stocks and indices._t_"
+                            translate_text="_t_<0>You call the stocks.</0> Take a position on your favourite stocks and indices._t_"
                             components={[<strong key={0} />]}
                         />
                     </Text>
@@ -95,7 +95,7 @@ const LiveMarketSection = () => {
                         href="/markets/stock/"
                         className="inline-flex items-center justify-center pt-gap-3xl"
                     >
-                        <Localize translate_text="_t_See all stocks & indices pairs_t_" />
+                        <Localize translate_text="_t_See all stocks & indices_t_" />
                         <StandaloneChevronRightRegularIcon className="text-solid-slate-1400 rtl:rotate-180" />
                     </CustomLink>
                 </LiveMarketCard>

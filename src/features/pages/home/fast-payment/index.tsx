@@ -8,7 +8,7 @@ const FastPaymentSection: React.FC = () => {
     const { is_eu } = useRegion()
     return (
         <FastPayment
-            title={<Localize translate_text="_t_Fast, hassle-free deposits & withdrawals_t_" />}
+            title={<Localize translate_text="_t_Fast, hassle-free deposits and withdrawals_t_" />}
             description={
                 !is_eu ? (
                     <Localize translate_text="_t_60+ global payment methods. Deposit instantly starting from just USD 5. Withdraw in minutes.*_t_" />
@@ -29,7 +29,7 @@ const FastPaymentSection: React.FC = () => {
                     : '!animate-[100s_slide_linear_infinite] rtl:!animate-[100s_slideRtl_linear_infinite]',
             }}
             disclaimer={
-                <Localize translate_text="_t_* Availability of payment methods and processing speeds may vary based on location and selected payment option_t_" />
+                <Localize translate_text="_t_* Availability of payment methods and processing speeds may vary based on location and selected payment option._t_" />
             }
         />
     )

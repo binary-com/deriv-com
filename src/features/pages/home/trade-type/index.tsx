@@ -9,7 +9,7 @@ const TradeTypeSection = () => {
     const heading = is_eu ? (
         <Localize translate_text="_t_Trade CFDs & Multipliers_t_" />
     ) : (
-        <Localize translate_text="_t_Trade CFDs, Options, or Multipliers_t_" />
+        <Localize translate_text="_t_Trade CFDs, options, or multipliers_t_" />
     )
     return (
         <Features.Card

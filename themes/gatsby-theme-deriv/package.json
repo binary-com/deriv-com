@@ -6,7 +6,9 @@
   "scripts": {
     "format": "prettier --write '**/*.js' '*.js'",
     "stylelint": "stylelint 'src/**/*.js' --formatter verbose",
-    "eslint": "DEBUG=eslint:cli-engine eslint \"src/**/*.{js,jsx,ts,tsx}\" \"*.js\" --fix"
+    "eslint": "DEBUG=eslint:cli-engine eslint \"src/**/*.{js,jsx,ts,tsx}\" \"*.js\" --fix",
+    "codegen": "graphql-codegen --config codegen.yml",
+    "codegen:watch": "graphql-codegen --config codegen.yml --watch"
   },
   "keywords": [],
   "author": "",

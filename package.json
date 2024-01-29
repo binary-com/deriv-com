@@ -194,8 +194,8 @@
         "type-check": "tsc --noEmit",
         "storybook": "start-storybook -p 6006",
         "build:storybook": "build-storybook -c .storybook -o public/storybook",
-        "codegen": "graphql-codegen --config codegen.yml",
-        "codegen:watch": "graphql-codegen --config codegen.yml --watch"
+        "codegen": "npm run codegen --workspace gatsby-theme-deriv",
+        "codegen:watch": "npm run codegen:watch --workspace gatsby-theme-deriv"
     },
     "repository": {
         "type": "git",

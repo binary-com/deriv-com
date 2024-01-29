@@ -40,6 +40,7 @@ const BirthPickerWrapper = styled.div<BirthPickerWrapperProps>`
     }
     .react-date-picker__calendar {
         width: 320px;
+        z-index: 99;
     }
     .react-calendar__month-view__weekdays__weekday {
         font-size: 15px;

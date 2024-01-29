@@ -15,7 +15,7 @@ const TradingPlatformWhatHave = ({ items }: TradingPlatformWhatHaveProps) => {
             container={'fluid'}
             direction={'col'}
             padding_inline={'8x'}
-            padding_block={'20x'}
+            padding_block={'15x'}
             md={{ padding_inline: '0x', padding_block: '40x' }}
         >
             {items.map((content, index) => {
@@ -24,7 +24,7 @@ const TradingPlatformWhatHave = ({ items }: TradingPlatformWhatHaveProps) => {
                         className={what_have_wrapper}
                         key={content?.id}
                         direction={'col'}
-                        margin_block={'10x'}
+                        margin_block={'8x'}
                         align={'center'}
                         md={{
                             direction: index % 2 == 0 ? 'row' : 'row-reverse',

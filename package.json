@@ -169,7 +169,7 @@
         "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o",
         "format": "prettier --write '**/*.js' '*.js'",
         "stylelint": "stylelint 'src/**/*.js' --formatter verbose",
-        "eslint": "DEBUG=eslint:cli-engine eslint {'src/**/*.{js,jsx,ts,tsx}','./*.js'} --fix",
+        "eslint": "npm run eslint --workspace gatsby-theme-deriv",
         "start": "npm run develop",
         "start-80": "sudo gatsby develop -p 80",
         "serve": "gatsby serve",

@@ -14,7 +14,7 @@ import {
     getDomain,
     getLanguage,
     updateURLAsPerUserLanguage,
-} from 'common/utility'
+} from './src/common/utility'
 import './static/css/noto-sans-arabic.css'
 import './static/css/ubuntu.css'
 import './static/css/global.css'

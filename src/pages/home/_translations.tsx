@@ -46,7 +46,7 @@ export const translation_strings = [
     '_t_Join over 2.5 million online traders_t_',
     '_t_Traders Hub_t_',
     '_t_Trade multipliers on our mobile app._t_',
-    '_t_Trade CFDs, Options, or Multipliers_t_',
+    '_t_Trade CFDs, Options, and Multipliers_t_',
     '_t_Trade with leverage, unbeatable spreads, and fast execution on the widest range of markets._t_',
     '_t_Trade diverse vanilla and exotic options across platforms and markets without risking more than your initial stake. _t_',
     '_t_Trade on global financial markets and multiply your potential profit without losing more than your stake._t_',

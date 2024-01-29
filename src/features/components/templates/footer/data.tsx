@@ -6,6 +6,7 @@ import {
     StandaloneLinkedinIcon,
     StandaloneXTwitterIcon,
     StandaloneYoutubeIcon,
+    StandaloneTelegramIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Standalone'
 import { DerivGoBanner } from './deriv-go-banner'
@@ -523,6 +524,12 @@ export const socialButtonsROW = [
         href: 'https://www.linkedin.com/company/derivdotcom/',
         'data-cy': 'linkedin',
         'aria-label': 'linkedin',
+    },
+    {
+        icon: <StandaloneTelegramIcon iconSize="md" fill="#000000b8" />,
+        href: 'https://t.me/Derivchannelofficial',
+        'data-cy': 'telegram',
+        'aria-label': 'telegram',
     },
 ]
 

@@ -1,13 +1,5 @@
 name: Generate preview link
 
-permissions:
-    actions: write
-    checks: write
-    contents: write
-    deployments: write
-    pull-requests: write
-    statuses: write
-
 on:
     workflow_run:
         workflows: ['Pre-generate preview link']
@@ -27,6 +19,12 @@ jobs:
         if: >
             github.event.workflow_run.event == 'pull_request' &&
             github.event.workflow_run.conclusion == 'success'
+        permissions:
+            checks: write
+            contents: write
+            deployments: write
+            pull-requests: write
+            statuses: write
         steps:
             - name: Checkout to repo
               uses: actions/checkout@v3

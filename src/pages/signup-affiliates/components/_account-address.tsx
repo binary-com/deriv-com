@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
-import { WizardStepProps } from '../_types'
+import { AffiliateAccountTypes, WizardStepProps } from '../_types'
 import AffiliateInput from '../utils/_affiliate-input'
 import AffiliatesHeader, { InputGroup, InputWrapper } from '../utils/_affiliate-header'
 import affiliate_validation from '../validations/_affilaite_validation'
@@ -90,13 +90,23 @@ const AccountAddress = ({
     ]
 
     useEffect(() => {
-        updateData({ ...form_data })
+        let data = {} as AffiliateAccountTypes['account_address']
+        for (const property in form_data) {
+            data = {
+                ...data,
+                [property]:
+                    typeof form_data[property] === 'string'
+                        ? form_data[property].trim()
+                        : form_data[property],
+            }
+        }
+        updateData({ ...data })
         onValidate(
-            form_data.country?.name &&
-                form_data.state?.name &&
-                form_data.city &&
-                form_data.street &&
-                form_data.postal_code &&
+            data.country?.name &&
+                data.state?.name &&
+                data.city &&
+                data.street &&
+                data.postal_code &&
                 !form_errors.country_error_msg &&
                 !form_errors.state_error_msg &&
                 !form_errors.city_error_msg &&

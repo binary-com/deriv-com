@@ -14,7 +14,7 @@ export const cards: CardContent[] = [
         id: 1,
         header: <Localize translate_text="_t_Dependable_t_" />,
         description: (
-            <Localize translate_text="_t_Cutting-edge technology with 99.97% uptime for uninterrupted trading._t_" />
+            <Localize translate_text="_t_Our 99.97% uptime ensures your uninterrupted access to the markets._t_" />
         ),
         size: 'md',
         color: 'gray',
@@ -24,10 +24,8 @@ export const cards: CardContent[] = [
     },
     {
         id: 2,
-        header: <Localize translate_text="_t_Safe & Secure_t_" />,
-        description: (
-            <Localize translate_text="_t_Your personal data is private, and your funds are safely segregated._t_" />
-        ),
+        header: <Localize translate_text="_t_Safe and Secure_t_" />,
+        description: <Localize translate_text="_t_We keep your personal data and funds safe._t_" />,
         size: 'md',
         color: 'gray',
         align: 'center',

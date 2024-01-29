@@ -98,7 +98,7 @@ export const RowCards: PlatformCardContent[] = [
         filterKey: ['Options'],
         header: <Localize translate_text="_t_Deriv Trader_t_" />,
         description: (
-            <Localize translate_text="_t_Flagship options, accumulators, & multipliers trading platform._t_" />
+            <Localize translate_text="_t_Flagship options, accumulators, and multipliers trading platform._t_" />
         ),
         icon: <DerivProductDerivTraderBrandDarkLogoHorizontalIcon height="48" width="48" />,
         size: 'md',

@@ -49,6 +49,8 @@ export type TQuestions = {
     question: TString
     answer?: TAnswer | ((config: { is_eu: boolean }) => TAnswer)
     renderProp?: () => ReactNode
+    margin?: string
+    flex?: boolean
     hide_for_non_eu?: boolean
     hide_for_eu?: boolean
 }

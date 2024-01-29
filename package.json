@@ -167,7 +167,7 @@
         "update:deriv-com-libs": "npm i @deriv-com/blocks@latest @deriv-com/components@latest @deriv-com/hooks@latest @deriv-com/providers@latest",
         "partytown": "partytown copylib public/~partytown",
         "develop": "GATSBY_CPU_COUNT=2 gatsby develop -o",
-        "format": "prettier --write '**/*.js' '*.js'",
+        "format": "npm run format --workspace gatsby-theme-deriv",
         "stylelint": "npm run stylelint --workspace gatsby-theme-deriv",
         "eslint": "npm run eslint --workspace gatsby-theme-deriv",
         "start": "npm run develop",

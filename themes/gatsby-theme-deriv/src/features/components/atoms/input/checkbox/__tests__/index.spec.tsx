@@ -19,8 +19,9 @@ describe('CheckboxInput', () => {
     })
 
     it('should be rendered with checked attribute set to true ', () => {
+        const onChange = jest.fn()
         render(
-            <CheckboxInput checked>
+            <CheckboxInput onChange={onChange} checked>
                 <div>input title</div>
             </CheckboxInput>,
         )

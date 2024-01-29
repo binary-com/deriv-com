@@ -122,6 +122,7 @@ const runProcess = (data) => {
                 `git merge -X theirs --commit master -m "chore: $(git status --short)"`,
                 callback,
             )
+            break
         default:
             break
     }

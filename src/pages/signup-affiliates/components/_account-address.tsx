@@ -119,7 +119,7 @@ const AccountAddress = ({
     const handleInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target
 
-        setFormData((prev) => ({ ...prev, [name]: value.trim() }))
+        setFormData((prev) => ({ ...prev, [name]: value }))
 
         if (affiliate_validation[name]) {
             const error_msg = affiliate_validation[name](value)
@@ -128,6 +128,12 @@ const AccountAddress = ({
                 [`${name}_error_msg`]: error_msg,
             }))
         }
+        console.log('HERE handleInput: ', value, name)
+    }, [])
+    const handleBlur = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target
+        setFormData((prev) => ({ ...prev, [name]: value.trim() }))
+        console.log('HERE Blur: ', value, name)
     }, [])
 
     const handleError = (item) => {
@@ -168,6 +174,7 @@ const AccountAddress = ({
                                     label={item.label}
                                     placeholder={item.label}
                                     onChange={handleInput}
+                                    onBlur={handleBlur}
                                     handleError={() => handleError(item)}
                                 />
                             </li>

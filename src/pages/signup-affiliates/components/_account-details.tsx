@@ -110,6 +110,7 @@ const AccountDetails = ({
                         : form_data[property],
             }
         }
+        console.log('==>', data, form_data)
         updateData({ ...data })
         onValidate(
             is_individual

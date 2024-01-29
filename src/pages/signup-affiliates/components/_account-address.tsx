@@ -100,6 +100,7 @@ const AccountAddress = ({
                         : form_data[property],
             }
         }
+        console.log('==>', data, form_data)
         updateData({ ...data })
         onValidate(
             data.country?.name &&

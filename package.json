@@ -192,8 +192,8 @@
         "pre-commit-lint": "lint-staged",
         "pre-commit-translate": "node scripts/translation-pre-commit.js",
         "type-check": "tsc --noEmit",
-        "storybook": "start-storybook -p 6006",
-        "build:storybook": "build-storybook -c .storybook -o public/storybook",
+        "storybook": "npm run storybook --workspace gatsby-theme-deriv",
+        "build:storybook": "npm run build:storybook --workspace gatsby-theme-deriv",
         "codegen": "npm run codegen --workspace gatsby-theme-deriv",
         "codegen:watch": "npm run codegen:watch --workspace gatsby-theme-deriv"
     },

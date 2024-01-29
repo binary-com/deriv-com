@@ -6,9 +6,11 @@ import {
     StandaloneLinkedinIcon,
     StandaloneXTwitterIcon,
     StandaloneYoutubeIcon,
+    StandaloneTelegramIcon,
     // eslint-disable-next-line import/no-unresolved
 } from '@deriv/quill-icons/Standalone'
-import { DerivGoBannerAndAwards } from './banner-and-awards'
+import { DerivGoBanner } from './deriv-go-banner'
+import { IIPAward } from './iip-award'
 import { Localize } from 'components/localization'
 
 export const RowFooterNavData: FooterItems[] = [
@@ -33,7 +35,7 @@ export const RowFooterNavData: FooterItems[] = [
                     {
                         id: 3,
                         href: '/our-principles',
-                        text: <Localize translate_text="_t_Our principles_t_" />,
+                        text: <Localize translate_text="_t_Principles_t_" />,
                     },
                     {
                         id: 4,
@@ -52,6 +54,11 @@ export const RowFooterNavData: FooterItems[] = [
                         text: <Localize translate_text="_t_Deriv life_t_" />,
                     },
                 ],
+            },
+            {
+                id: 1,
+                type: 'node',
+                node: <IIPAward />,
             },
         ],
     },
@@ -258,7 +265,7 @@ export const RowFooterNavData: FooterItems[] = [
             {
                 id: 0,
                 type: 'node',
-                node: <DerivGoBannerAndAwards />,
+                node: <DerivGoBanner />,
             },
         ],
     },
@@ -286,7 +293,7 @@ export const EuFooterNavData: FooterItems[] = [
                     {
                         id: 3,
                         href: '/our-principles',
-                        text: <Localize translate_text="_t_Our principles_t_" />,
+                        text: <Localize translate_text="_t_Principles_t_" />,
                     },
                     {
                         id: 4,
@@ -305,6 +312,11 @@ export const EuFooterNavData: FooterItems[] = [
                         text: <Localize translate_text="_t_Deriv life_t_" />,
                     },
                 ],
+            },
+            {
+                id: 1,
+                type: 'node',
+                node: <IIPAward />,
             },
         ],
     },
@@ -328,8 +340,13 @@ export const EuFooterNavData: FooterItems[] = [
                     },
                 ],
             },
+        ],
+    },
+    {
+        id: 2,
+        layers: [
             {
-                id: 1,
+                id: 0,
                 header: <Localize translate_text="_t_MARKETS_t_" />,
                 type: 'link',
                 items: [
@@ -368,7 +385,7 @@ export const EuFooterNavData: FooterItems[] = [
         ],
     },
     {
-        id: 2,
+        id: 3,
         layers: [
             {
                 id: 0,
@@ -386,7 +403,7 @@ export const EuFooterNavData: FooterItems[] = [
         ],
     },
     {
-        id: 3,
+        id: 4,
         layers: [
             {
                 id: 0,
@@ -423,7 +440,7 @@ export const EuFooterNavData: FooterItems[] = [
         ],
     },
     {
-        id: 4,
+        id: 5,
         layers: [
             {
                 id: 0,
@@ -471,16 +488,6 @@ export const EuFooterNavData: FooterItems[] = [
             },
         ],
     },
-    {
-        id: 5,
-        layers: [
-            {
-                id: 0,
-                type: 'node',
-                node: <DerivGoBannerAndAwards />,
-            },
-        ],
-    },
 ]
 
 export const warnText = (
@@ -512,6 +519,12 @@ export const socialButtonsROW = [
         icon: <StandaloneLinkedinIcon iconSize="md" fill="#000000b8" />,
         href: 'https://www.linkedin.com/company/derivdotcom/',
         'data-cy': 'linkedin',
+    },
+    {
+        icon: <StandaloneTelegramIcon iconSize="md" fill="#000000b8" />,
+        href: 'https://t.me/Derivchannelofficial',
+        'data-cy': 'telegram',
+        'aria-label': 'telegram',
     },
 ]
 

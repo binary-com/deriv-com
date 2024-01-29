@@ -34,8 +34,8 @@ const AwardBannerEu = ({ title, subtitle }: AwardProps) => {
                     justify="center"
                     direction="col"
                     className={styles.content_eu}
-                    padding="8x"
-                    md={{ padding: '27x' }}
+                    padding="12x"
+                    md={{ padding: '10x' }}
                 >
                     <StaticImage
                         src="../../../../../../images/common/awards/gptw.png"
@@ -51,16 +51,17 @@ const AwardBannerEu = ({ title, subtitle }: AwardProps) => {
                     justify="center"
                     direction="col"
                     className={styles.content_eu}
-                    padding="8x"
-                    md={{ padding: '27x' }}
+                    padding="12x"
+                    md={{ padding: '10x' }}
                 >
                     <StaticImage
                         src="../../../../../../images/common/awards/investors.png"
-                        alt={localize('_t_Investors in people award_t_')}
+                        alt={localize('_t_IIP Platinum Companies_t_')}
                         formats={['avif', 'webp', 'auto']}
                         quality={100}
                         placeholder="none"
-                        width={157}
+                        width={336}
+                        height={67}
                     />
                 </Flex.Box>
             </Flex.Box>

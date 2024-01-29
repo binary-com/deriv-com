@@ -22,7 +22,6 @@ import EU from 'images/svg/regulatory/europe-map.svg'
 import Vanuatu from 'images/common/regulatory/vanuatu.svg'
 import VanuatuFMA from 'images/common/regulatory/vanuatu-fma.svg'
 import FSC from 'images/common/regulatory/bvi.svg'
-import Labuan from 'images/common/regulatory/labuan.svg'
 import LabuanFintech from 'images/common/regulatory/labuan-fintech.svg'
 import Deriv from 'images/common/regulatory/deriv.svg'
 import TFC from 'images/common/regulatory/tfc.svg'
@@ -281,7 +280,6 @@ const Regulatory = (locale: RegulatoryProps) => {
                                     <Localize translate_text="_t_Deriv (FX) Ltd_t_" />
                                 </StyledHeader>
                             </MobileWrapper>
-                            <Img src={Labuan} alt="Labuan Financial Services Authority " />
                             <ImgFintech src={LabuanFintech} alt="Labuan Fintech Association " />
                         </ResponsiveGrid>
                         <CssGridColumn>

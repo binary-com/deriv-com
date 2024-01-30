@@ -1,3 +1,4 @@
+const path = require('path')
 const postcss = require('postcss')
 const ClassNameCollector = require('./class-name-collector')
 
@@ -9,7 +10,7 @@ function getSingleton() {
 
     if (!instance) {
         instance = anyGlobal[key] = new ClassNameCollector({
-            dest: 'src/classnames.d.ts',
+            dest: path.resolve(__dirname, "src", "classnames.d.ts"),
         })
     }
 

@@ -72,7 +72,7 @@ module.exports = {
                     require('postcss-discard-duplicates'),
                     require('autoprefixer'), // better cross-browser compatibility
                     plugin({
-                        dest: 'src/classnames.d.ts',
+                        dest: path.resolve(__dirname, "src", "classnames.d.ts"),
                         exportAsDefault: true,
                     }),
                     require('cssnano')({

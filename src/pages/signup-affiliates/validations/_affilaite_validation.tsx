@@ -36,7 +36,7 @@ const userNameValidation = (input) => {
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
         return localize('_t_Empty input not available_t_')
     } else if (input.length < 3) {
-        return localize('_t_Wrong email_t_')
+        return localize('_t_You should enter 3-256 characters _t_')
     }
 }
 const nameValidation = (input, text, min_digit, max_digit) => {

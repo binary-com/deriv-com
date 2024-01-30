@@ -14,7 +14,7 @@ exports.onPreBuild = async () => {
 }
 // Based upon https://github.com/gatsbyjs/gatsby/tree/master/examples/using-i18n
 
-const BuildPage = (page, actions) => {
+const BuildPage = (page, actions, isEUPage) => {
     const { createRedirect, createPage } = actions
     const is_responsible_trading = /responsible/g.test(page.path)
     const is_contact_us = /contact_us/g.test(page.path)
@@ -205,6 +205,7 @@ const BuildPage = (page, actions) => {
             context: {
                 ...page.context,
                 locale: lang,
+                isEUPage,
                 localeResources: translations_cache[lang],
                 pathname: localized_path,
             },
@@ -349,8 +350,9 @@ const BuildPage = (page, actions) => {
         return current_page
     })
 }
-exports.onCreatePage = ({ page, actions }) => {
+exports.onCreatePage = ({ page, actions }, options) => {
     const { deletePage } = actions
+    const {isEUPage} = options;
     const isProduction = process.env.GATSBY_ENV === 'production'
     const pagesToBuild = process.env.GATSBY_BUILD_PAGES
     if (pagesToBuild) {
@@ -372,14 +374,14 @@ exports.onCreatePage = ({ page, actions }) => {
 
         deletePage(page)
         if (isProduction) {
-            return BuildPage(page, actions)
+            return BuildPage(page, actions, isEUPage)
         } else {
             if (pages.includes(page.path)) {
-                return BuildPage(page, actions)
+                return BuildPage(page, actions, isEUPage)
             }
         }
     } else {
-        return BuildPage(page, actions)
+        return BuildPage(page, actions, isEUPage)
     }
 }
 

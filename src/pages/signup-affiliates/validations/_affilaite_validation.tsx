@@ -81,7 +81,7 @@ const phoneValidation = (input) => {
     if (!input) {
         return localize('_t_Mobile number is required_t_')
     } else if (!validation_is_exceed_number(input, 14) || !validation_is_lack_number(input, 9)) {
-        return localize(`_t_Please enter a valid phone number._t_`)
+        return localize(`_t_Please enter a valid phone number include country code._t_`)
     } else if (!affiliate_validation_regex.non_empty_string.test(input)) {
         return localize('_t_Space not available_t_')
     }

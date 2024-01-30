@@ -4,7 +4,7 @@ const plugin = require('./src/features/styles/postcss-plugin/plugin')
 const isBrowser = typeof window !== 'undefined'
 
 require('dotenv').config({
-    path: `.env.${process.env.NODE_ENV}`,
+    path: path.resolve(__dirname, '..', '..', `.env.${process.env.NODE_ENV}`),
 })
 
 const origin = isBrowser && window.location.origin
